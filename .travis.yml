@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "10"
+cache: yarn
+jobs:
+  include:
+    - stage: test
+      env:
+        - NAME=yarn
+      before_script: yarn global add codecov
+      script: yarn test
+      after_success: codecov
+    - stage: build
+      env:
+        - NAME=yarn
+      script: yarn build

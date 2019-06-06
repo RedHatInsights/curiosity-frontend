@@ -1,0 +1,88 @@
+{
+  "name": "subscriptions-insights-frontend",
+  "version": "0.0.1",
+  "description": "Subscriptions Insights Frontend",
+  "author": "Red Hat",
+  "license": "Apache-2.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RedHatInsights/subscriptions-insights-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RedHatInsights/subscriptions-insights-frontend/issues"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "insights": {
+    "appname": "subscriptions-insights"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "tag": true
+    }
+  },
+  "scripts": {
+    "build": "run-s -l build:clean build:version build:js",
+    "build:clean": "rm -rf -- \"$(pwd)\"/build",
+    "build:js": "react-scripts build",
+    "build:version": "sh ./scripts/version.sh",
+    "release": "standard-version",
+    "start": "run-p -l start:js",
+    "start:js": "react-scripts start",
+    "test": "run-s test:lint test:ci",
+    "test:ci": "export CI=true; react-scripts test --env=jsdom --coverage",
+    "test:clearCache": "react-scripts test --clearCache",
+    "test:dev": "run-s test:lint test:local",
+    "test:lint": "eslint --ext=json --ext=js --ext=jsx src",
+    "test:local": "react-scripts test --env=jsdom"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.1",
+    "standard-version": "^6.0.1"
+  },
+  "resolutions": {
+    "**/eslint": "5.16.0"
+  }
+}
