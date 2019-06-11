@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouterTypes should return specific properties: baseName 1`] = `"/apps/subscriptions/"`;
+
+exports[`RouterTypes should return specific properties: routes 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "id": "rhel",
+    "redirect": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/redhatenterpriselinux",
+  },
+]
+`;

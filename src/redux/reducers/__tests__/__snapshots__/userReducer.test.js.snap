@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserReducer should handle all defined error types: rejected types USER_AUTH 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": false,
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "USER_AUTH_REJECTED",
+}
+`;
+
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types USER_AUTH 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": true,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": true,
+      "locale": null,
+      "pending": false,
+      "username": undefined,
+    },
+  },
+  "type": "USER_AUTH_FULFILLED",
+}
+`;
+
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types USER_LOCALE 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": Object {
+        "test": "success",
+      },
+      "pending": false,
+    },
+  },
+  "type": "USER_LOCALE_FULFILLED",
+}
+`;
+
+exports[`UserReducer should handle all defined pending types: pending types USER_AUTH 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": true,
+    },
+  },
+  "type": "USER_AUTH_PENDING",
+}
+`;

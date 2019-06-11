@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `
+Object {
+  "FULFILLED_ACTION": [Function],
+  "PENDING_ACTION": [Function],
+  "REJECTED_ACTION": [Function],
+  "getMessageFromResults": [Function],
+  "getStatusFromResults": [Function],
+  "setStateProp": [Function],
+}
+`;
+
+exports[`ReduxHelpers should update a state object: dont reset state object 1`] = `
+Object {
+  "ipsum": false,
+  "lorem": true,
+}
+`;
+
+exports[`ReduxHelpers should update a state object: reset state object 1`] = `
+Object {
+  "ipsum": true,
+  "lorem": true,
+}
+`;

@@ -1,0 +1,3 @@
+const GET_GRAPH_REPORT = 'GET_GRAPH_REPORT';
+
+export { GET_GRAPH_REPORT as default, GET_GRAPH_REPORT };

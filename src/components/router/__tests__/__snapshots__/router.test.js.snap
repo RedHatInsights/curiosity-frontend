@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Router Component should render a basic component: basic 1`] = `
+<div
+  className="subscriptions-insights-content"
+>
+  <Switch>
+    <Route
+      component={[Function]}
+      key="/redhatenterpriselinux"
+      path="/redhatenterpriselinux"
+    />
+    <Redirect
+      from="/"
+      to="/redhatenterpriselinux"
+    />
+  </Switch>
+</div>
+`;

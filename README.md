@@ -45,20 +45,22 @@ Setting Docker up on a Linux machine can include an additional convenience step.
      ```
 
 ### Serving Content
-
-#### Local UI
-This is the default context for running a local UI.
+This is the default context for running a local UI against mock styling.
 
   ```
   $ yarn start
   ```
+
+For in-depth local run guidance review the [contribution guidelines](./CONTRIBUTING.md#Serving%20Content) 
   
-#### Testing
-Run the tests...
+### Testing
+Run the tests with coverage.
 
   ```
   $ yarn test
   ```
+  
+For in-depth testing guidance review the [contribution guidelines](./CONTRIBUTING.md#Testing) 
 
 ## Contributing
 Contributing encompasses [repository specific requirements](./CONTRIBUTING.md) and the global [Insights guidelines](https://cloud.redhat.com/docs/storybook?path=/story/welcome--getting-started).

@@ -18,12 +18,7 @@
   "insights": {
     "appname": "subscriptions-insights"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": [],
   "jest": {
     "coverageThreshold": {
       "global": {
@@ -34,7 +29,16 @@
       }
     },
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/setupTests.js",
+      "!src/components/app.js",
+      "!src/redux/index.js",
+      "!src/redux/store.js",
+      "!src/redux/middleware/**",
+      "!src/redux/actions/index.js",
+      "!src/redux/reducers/index.js",
+      "!src/redux/selectors/index.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -47,26 +51,60 @@
     }
   },
   "scripts": {
-    "build": "run-s -l build:clean build:version build:js",
-    "build:clean": "rm -rf -- \"$(pwd)\"/build",
+    "api:dev": "mock -p 5000 -w ./src/services",
+    "api:proxy": "sh ./scripts/proxy.api.sh -d \"ci.foo.redhat.com\" -p 1337 -c \"$(pwd)/config/spandx.config.js\"",
+    "api:proxyClean": "sh ./scripts/proxy.api.sh -u",
+    "build": "run-s -l build:pre build:version build:js build:post test:integration",
     "build:js": "react-scripts build",
+    "build:post": "sh ./scripts/build.sh",
+    "build:pre": "rm -rf -- \"$(pwd)\"/build",
     "build:version": "sh ./scripts/version.sh",
     "release": "standard-version",
-    "start": "run-p -l start:js",
+    "start": "sh ./scripts/dev.chrome.sh; run-p -l api:dev start:js",
     "start:js": "react-scripts start",
+    "start:proxy": "sh -ac '. ./.env.proxy; open https://ci.foo.redhat.com:1337/; run-p -l start:js api:proxy api:dev'",
+    "start:standalone": "rm ./.env.development.local; run-s -l api:dev start:js",
     "test": "run-s test:lint test:ci",
-    "test:ci": "export CI=true; react-scripts test --env=jsdom --coverage",
+    "test:ci": "export CI=true; react-scripts test --env=jsdom --roots=./src --coverage",
     "test:clearCache": "react-scripts test --clearCache",
     "test:dev": "run-s test:lint test:local",
+    "test:integration": "jest --roots=./tests",
+    "test:integration-dev": "jest ./tests/* --watchAll",
     "test:lint": "eslint --ext=json --ext=js --ext=jsx src",
-    "test:local": "react-scripts test --env=jsdom"
+    "test:local": "react-scripts test --env=jsdom --roots=./src"
   },
   "dependencies": {
+    "@patternfly/patternfly": "2.8.3",
+    "@patternfly/react-charts": "4.0.2",
+    "@patternfly/react-core": "3.34.2",
+    "@patternfly/react-icons": "3.9.3",
+    "@patternfly/react-styles": "3.2.0",
+    "@patternfly/react-table": "2.9.3",
+    "@patternfly/react-tokens": "2.5.3",
+    "@redhat-cloud-services/frontend-components": "0.0.7",
+    "@redhat-cloud-services/frontend-components-utilities": "0.0.7",
+    "axios": "^0.19.0",
+    "i18next": "^15.1.3",
+    "i18next-xhr-backend": "^2.0.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-i18next": "^10.11.1",
+    "react-redux": "^7.1.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.1",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
+    "apidoc-mock": "^3.0.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
@@ -78,8 +116,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "moxios": "^0.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.17.1",
+    "redux-mock-store": "^1.5.3",
     "standard-version": "^6.0.1"
   },
   "resolutions": {

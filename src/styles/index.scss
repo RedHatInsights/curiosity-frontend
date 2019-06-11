@@ -1,0 +1,9 @@
+// Framework
+@import "~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all";
+@import "~@redhat-cloud-services/frontend-components/index.css";
+
+// App
+.subscriptions-insights {
+  @import 'app';
+  @import 'common';
+}
