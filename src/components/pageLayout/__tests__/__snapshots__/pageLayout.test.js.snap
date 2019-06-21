@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLayout Component should render a basic component: basic 1`] = `
+<PageLayout>
+  <Page
+    breadcrumb={null}
+    className="layout-pf subscriptions-insights"
+    header={null}
+    isManagedSidebar={false}
+    onPageResize={null}
+    sidebar={null}
+    skipToContent={null}
+  >
+    <div
+      className="pf-c-page layout-pf subscriptions-insights"
+    >
+      <main
+        className="pf-c-page__main"
+        role="main"
+      >
+        <PageSection
+          className=""
+          noPadding={true}
+          noPaddingMobile={false}
+          variant="default"
+        >
+          <section
+            className="pf-c-page__main-section pf-m-no-padding"
+          >
+            <span
+              className="test"
+            >
+              lorem
+            </span>
+          </section>
+        </PageSection>
+      </main>
+    </div>
+  </Page>
+</PageLayout>
+`;

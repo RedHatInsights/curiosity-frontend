@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RhelGraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT 1`] = `
+Object {
+  "result": Object {
+    "error": true,
+    "errorMessage": "ERROR",
+    "errorStatus": 0,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+    },
+    "pending": false,
+  },
+  "type": "GET_GRAPH_REPORT_REJECTED",
+}
+`;
+
+exports[`RhelGraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT 1`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": true,
+    "graphData": Object {
+      "dailyUsage": Array [],
+    },
+    "pending": false,
+  },
+  "type": "GET_GRAPH_REPORT_FULFILLED",
+}
+`;
+
+exports[`RhelGraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT 1`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+    },
+    "pending": true,
+  },
+  "type": "GET_GRAPH_REPORT_PENDING",
+}
+`;

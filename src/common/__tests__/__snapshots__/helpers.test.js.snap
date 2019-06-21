@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helpers should have specific functions: helpers 1`] = `
+Object {
+  "DEV_MODE": false,
+  "PROD_MODE": false,
+  "PUBLIC_URL": "/apps/subscriptions/",
+  "REVIEW_MODE": false,
+  "TEST_MODE": true,
+  "UI_VERSION": "0.0.0.0000000",
+  "generateId": [Function],
+  "noop": [Function],
+  "noopPromise": Promise {},
+  "noopTranslate": [Function],
+}
+`;

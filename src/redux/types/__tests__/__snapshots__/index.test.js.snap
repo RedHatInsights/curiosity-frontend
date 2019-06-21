@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReduxTypes should have specific type properties: all redux types 1`] = `
+Object {
+  "default": Object {
+    "rhel": Object {
+      "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+      "default": "GET_GRAPH_REPORT",
+    },
+    "user": Object {
+      "USER_AUTH": "USER_AUTH",
+      "USER_LOCALE": "USER_LOCALE",
+      "USER_LOGOUT": "USER_LOGOUT",
+    },
+  },
+  "reduxTypes": Object {
+    "rhel": Object {
+      "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+      "default": "GET_GRAPH_REPORT",
+    },
+    "user": Object {
+      "USER_AUTH": "USER_AUTH",
+      "USER_LOCALE": "USER_LOCALE",
+      "USER_LOGOUT": "USER_LOGOUT",
+    },
+  },
+  "rhelTypes": Object {
+    "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+    "default": "GET_GRAPH_REPORT",
+  },
+  "userTypes": Object {
+    "USER_AUTH": "USER_AUTH",
+    "USER_LOCALE": "USER_LOCALE",
+    "USER_LOGOUT": "USER_LOGOUT",
+  },
+}
+`;
+
+exports[`ReduxTypes should have specific type properties: specific types 1`] = `
+Object {
+  "rhel": Object {
+    "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+    "default": "GET_GRAPH_REPORT",
+  },
+  "user": Object {
+    "USER_AUTH": "USER_AUTH",
+    "USER_LOCALE": "USER_LOCALE",
+    "USER_LOGOUT": "USER_LOGOUT",
+  },
+}
+`;

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RhelView Component should render a non-connected component: non-connected 1`] = `
+<Fragment>
+  <PageHeader>
+    <PageHeaderTitle
+      title="Red Hat Enterprise Linux"
+    />
+  </PageHeader>
+  <PageSection
+    className=""
+    noPadding={false}
+    noPaddingMobile={false}
+    variant="default"
+  >
+    <Connect(RhelGraphCard) />
+    <p>
+      Lorem ipsum dolor sit...
+    </p>
+    <p>
+      <Button
+        variant="primary"
+      >
+         PF-Next Primary Button 
+      </Button>
+      <Button
+        variant="secondary"
+      >
+         PF-Next Secondary Button 
+      </Button>
+      <Button
+        variant="tertiary"
+      >
+         PF-Next Tertiary Button 
+      </Button>
+      <Button
+        variant="danger"
+      >
+         PF-Next Danger Button 
+      </Button>
+    </p>
+  </PageSection>
+</Fragment>
+`;

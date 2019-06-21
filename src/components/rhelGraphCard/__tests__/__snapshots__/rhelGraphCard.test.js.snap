@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RhelGraphCard Component should render a non-connected component: non-connected 1`] = `
+<RhelGraphCard
+  error={false}
+  fulfilled={false}
+  getGraphReports={[Function]}
+  graphData={
+    Object {
+      "dailyUsage": Array [],
+    }
+  }
+  pending={false}
+>
+  Graph ipsum... 
+   
+  0
+</RhelGraphCard>
+`;
