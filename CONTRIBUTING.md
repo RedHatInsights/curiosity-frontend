@@ -106,7 +106,7 @@ After setting up the repository...
 1. Make sure Docker is running
 1. Open a couple of instances of Terminal and run...
     ```
-    $ yarn start
+    $ yarn start:proxy
     ```
     and, optionally,
     ```

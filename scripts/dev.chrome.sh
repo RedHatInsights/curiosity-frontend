@@ -56,8 +56,10 @@ buildChrome()
     printf "\n${GREEN}Build SUCCESS${NOCOLOR}"
   fi
 
-  printf "\n${GREEN}Setting up local chrome...${NOCOLOR}"
-  cp -R $DIR_REPO/build/ $DIR_PUBLIC
+  printf "\n${GREEN}Setting up local chrome...${NOCOLOR}\n"
+
+  mkdir -p $DIR_PUBLIC
+  cp -R "${DIR_REPO}/build/" $DIR_PUBLIC
   printf "${GREEN}SUCCESS${NOCOLOR}\n"
 
   HEADER_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g,'')")
