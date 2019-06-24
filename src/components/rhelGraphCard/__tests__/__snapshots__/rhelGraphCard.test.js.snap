@@ -5,15 +5,174 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
   error={false}
   fulfilled={false}
   getGraphReports={[Function]}
-  graphData={
-    Object {
-      "dailyUsage": Array [],
-    }
-  }
   pending={false}
+  t={[Function]}
 >
-  Graph ipsum... 
-   
-  0
+  <Card
+    className="subscriptions-usage-graph"
+  >
+    <article
+      className="pf-c-card subscriptions-usage-graph"
+    >
+      <CardHead>
+        <div
+          className="pf-c-card__head"
+        >
+          <h2>
+            Daily CPU socket usage
+          </h2>
+          <CardActions>
+            <div
+              className="pf-c-card__actions"
+            >
+              <Dropdown
+                className=""
+                direction="down"
+                dropdownItems={Array []}
+                isGrouped={false}
+                isOpen={false}
+                isPlain={false}
+                onSelect={[Function]}
+                position="right"
+                toggle={
+                  <DropdownToggle
+                    className=""
+                    iconComponent={[Function]}
+                    id=""
+                    isActive={false}
+                    isDisabled={true}
+                    isFocused={false}
+                    isHovered={false}
+                    isOpen={false}
+                    isPlain={false}
+                    onToggle={[Function]}
+                    parentRef={null}
+                  >
+                    Last 30 Days
+                  </DropdownToggle>
+                }
+              >
+                <DropdownWithContext
+                  className=""
+                  direction="down"
+                  dropdownItems={Array []}
+                  isGrouped={false}
+                  isOpen={false}
+                  isPlain={false}
+                  onSelect={[Function]}
+                  position="right"
+                  toggle={
+                    <DropdownToggle
+                      className=""
+                      iconComponent={[Function]}
+                      id=""
+                      isActive={false}
+                      isDisabled={true}
+                      isFocused={false}
+                      isHovered={false}
+                      isOpen={false}
+                      isPlain={false}
+                      onToggle={[Function]}
+                      parentRef={null}
+                    >
+                      Last 30 Days
+                    </DropdownToggle>
+                  }
+                >
+                  <div
+                    className="pf-c-dropdown"
+                  >
+                    <DropdownToggle
+                      ariaHasPopup={null}
+                      className=""
+                      iconComponent={[Function]}
+                      id="pf-toggle-id-0"
+                      isActive={false}
+                      isDisabled={true}
+                      isFocused={false}
+                      isHovered={false}
+                      isOpen={false}
+                      isPlain={false}
+                      key=".0"
+                      onEnter={[Function]}
+                      onToggle={[Function]}
+                      parentRef={null}
+                    >
+                      <Toggle
+                        ariaHasPopup={null}
+                        className=""
+                        id="pf-toggle-id-0"
+                        isActive={false}
+                        isDisabled={true}
+                        isFocused={false}
+                        isHovered={false}
+                        isOpen={false}
+                        isPlain={false}
+                        isSplitButton={false}
+                        onEnter={[Function]}
+                        onToggle={[Function]}
+                        parentRef={null}
+                        type={null}
+                      >
+                        <button
+                          aria-expanded={false}
+                          aria-haspopup={null}
+                          className="pf-c-dropdown__toggle pf-m-disabled"
+                          disabled={true}
+                          id="pf-toggle-id-0"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          type="button"
+                        >
+                          <span
+                            className="pf-c-dropdown__toggle-text"
+                          >
+                            Last 30 Days
+                          </span>
+                          <CaretDownIcon
+                            className="pf-c-dropdown__toggle-icon"
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              className="pf-c-dropdown__toggle-icon"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 320 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                transform=""
+                              />
+                            </svg>
+                          </CaretDownIcon>
+                        </button>
+                      </Toggle>
+                    </DropdownToggle>
+                  </div>
+                </DropdownWithContext>
+              </Dropdown>
+            </div>
+          </CardActions>
+        </div>
+      </CardHead>
+      <CardBody>
+        <div
+          className="pf-c-card__body"
+        />
+      </CardBody>
+    </article>
+  </Card>
 </RhelGraphCard>
 `;
