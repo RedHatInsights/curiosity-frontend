@@ -35,7 +35,8 @@ class RhelGraphCard extends React.Component {
   };
 
   render() {
-    const { error, fulfilled, pending, t } = this.props;
+    // todo: add error, fulfilled, pending back
+    const { t } = this.props;
     const { isOpen } = this.state;
     const dropdownItems = [];
 
@@ -80,6 +81,7 @@ class RhelGraphCard extends React.Component {
       { x: 'Jun 24', y: 1 }
     ];
 
+    // todo: add error, fulfilled, pending back
     return (
       <Card className="subscriptions-usage-graph">
         <CardHead>
@@ -95,43 +97,28 @@ class RhelGraphCard extends React.Component {
           </CardActions>
         </CardHead>
         <CardBody>
-          {(error && 'error') ||
-            (fulfilled && (
-              <div className="stack-chart-container">
-                <Chart height={200} domainPadding={{ x: [10, 2], y: [1, 1] }}>
-                  <ChartStack>
-                    <ChartBar data={chartData} />
-                  </ChartStack>
-                </Chart>
-              </div>
-            )) ||
-            (pending && 'pending')}
-          {/* {graphData.dailyUsage.length && 'data'} */}
+          <div className="stack-chart-container">
+            <Chart height={200} domainPadding={{ x: [10, 2], y: [1, 1] }}>
+              <ChartStack>
+                <ChartBar data={chartData} />
+              </ChartStack>
+            </Chart>
+          </div>
         </CardBody>
       </Card>
     );
   }
 }
 
+// todo: add error, fulfilled, pending back
 RhelGraphCard.propTypes = {
-  error: PropTypes.bool,
-  fulfilled: PropTypes.bool,
   getGraphReports: PropTypes.func,
-  // graphData: PropTypes.shape({
-  //   dailyUsage: PropTypes.array
-  // }),
-  pending: PropTypes.bool,
   t: PropTypes.func
 };
 
+// todo: add error, fulfilled, pending back
 RhelGraphCard.defaultProps = {
-  error: false,
-  fulfilled: false,
   getGraphReports: helpers.noop,
-  // graphData: {
-  //   dailyUsage: []
-  // },
-  pending: false,
   t: helpers.noopTranslate
 };
 
