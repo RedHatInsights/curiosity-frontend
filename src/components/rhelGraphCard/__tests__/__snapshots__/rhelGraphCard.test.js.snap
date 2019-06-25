@@ -25,12 +25,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               <Dropdown
                 className=""
                 direction="down"
-                dropdownItems={
-                  Array [
-                    "lorem",
-                    "ipsum",
-                  ]
-                }
+                dropdownItems={Array []}
                 isGrouped={false}
                 isOpen={false}
                 isPlain={false}
@@ -57,12 +52,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                 <DropdownWithContext
                   className=""
                   direction="down"
-                  dropdownItems={
-                    Array [
-                      "lorem",
-                      "ipsum",
-                    ]
-                  }
+                  dropdownItems={Array []}
                   isGrouped={false}
                   isOpen={false}
                   isPlain={false}
@@ -90,7 +80,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                     className="pf-c-dropdown"
                   >
                     <DropdownToggle
-                      ariaHasPopup={true}
+                      ariaHasPopup={null}
                       className=""
                       iconComponent={[Function]}
                       id="pf-toggle-id-0"
@@ -106,7 +96,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                       parentRef={null}
                     >
                       <Toggle
-                        ariaHasPopup={true}
+                        ariaHasPopup={null}
                         className=""
                         id="pf-toggle-id-0"
                         isActive={false}
@@ -123,7 +113,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                       >
                         <button
                           aria-expanded={false}
-                          aria-haspopup={true}
+                          aria-haspopup={null}
                           className="pf-c-dropdown__toggle pf-m-disabled"
                           disabled={true}
                           id="pf-toggle-id-0"
