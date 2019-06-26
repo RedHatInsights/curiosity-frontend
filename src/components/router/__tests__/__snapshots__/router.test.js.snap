@@ -2,7 +2,7 @@
 
 exports[`Router Component should render a basic component: basic 1`] = `
 <div
-  className="subscriptions-insights-content"
+  className="curiosity-content"
 >
   <Switch>
     <Route

@@ -1,8 +1,9 @@
-.subscriptions-usage-graph .pf-c-card__head {
+.curiosity-usage-graph .pf-c-card__head {
   border-bottom: var(--pf-global--BorderWidth--sm) solid
     var(--pf-global--BorderColor--100);
 }
-.subscriptions-usage-graph .stack-chart-container svg {
+
+.curiosity-usage-graph .stack-chart-container svg {
   > g:nth-child(2) {
     > g {
       display: none;

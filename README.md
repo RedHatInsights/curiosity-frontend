@@ -1,12 +1,12 @@
-# Subscriptions Insights Frontend
-[![Build Status](https://travis-ci.org/RedHatInsights/subscriptions-insights-frontend.svg?branch=master)](https://travis-ci.org/RedHatInsights/subscriptions-insights-frontend)
-[![codecov](https://codecov.io/gh/RedHatInsights/subscriptions-insights-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/subscriptions-insights-frontend)
-[![License](https://img.shields.io/github/license/RedHatInsights/subscriptions-insights-frontend.svg)](https://github.com/RedHatInsights/subscriptions-insights-frontend/blob/master/LICENSE)
+# Curiosity Frontend
+[![Build Status](https://travis-ci.org/RedHatInsights/curiosity-frontend.svg?branch=master)](https://travis-ci.org/RedHatInsights/curiosity-frontend)
+[![codecov](https://codecov.io/gh/RedHatInsights/curiosity-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/curiosity-frontend)
+[![License](https://img.shields.io/github/license/RedHatInsights/curiosity-frontend.svg)](https://github.com/RedHatInsights/curiosity-frontend/blob/master/LICENSE)
 
-Web user interface for Subscriptions Insights, based on [Patternfly <img src="https://www.patternfly.org/assets/img/logo.svg" height="30" />](https://www.patternfly.org/)
+A web user interface for subscription reporting, based on [Patternfly <img src="https://www.patternfly.org/assets/img/logo.svg" height="30" />](https://www.patternfly.org/)
 
 ## Requirements
-Before developing for Subscriptions Insights Frontend, the basic requirements:
+Before developing for Curiosity Frontend, the basic requirements:
  * Your system needs to be running [NodeJS version 10+](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
  * And [Yarn 1.13+](https://yarnpkg.com) for dependency and script management.
@@ -36,12 +36,12 @@ Setting Docker up on a Linux machine can include an additional convenience step.
 ### Installing
   1. Clone the repository
      ```
-     $ git clone https://github.com/RedHatInsights/subscriptions-insights-frontend.git
+     $ git clone https://github.com/RedHatInsights/curiosity-frontend.git
      ```
 
   1. Within the repo context, install project dependencies
      ```
-     $ cd subscriptions-insights-frontend && yarn
+     $ cd curiosity-frontend && yarn
      ```
 
 ### Serving Content

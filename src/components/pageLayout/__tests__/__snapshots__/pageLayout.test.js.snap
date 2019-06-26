@@ -4,7 +4,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
 <PageLayout>
   <Page
     breadcrumb={null}
-    className="layout-pf subscriptions-insights"
+    className="layout-pf curiosity"
     header={null}
     isManagedSidebar={false}
     onPageResize={null}
@@ -12,7 +12,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
     skipToContent={null}
   >
     <div
-      className="pf-c-page layout-pf subscriptions-insights"
+      className="pf-c-page layout-pf curiosity"
     >
       <main
         className="pf-c-page__main"

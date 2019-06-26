@@ -6,10 +6,10 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
   t={[Function]}
 >
   <Card
-    className="subscriptions-usage-graph"
+    className="curiosity-usage-graph"
   >
     <article
-      className="pf-c-card subscriptions-usage-graph"
+      className="pf-c-card curiosity-usage-graph"
     >
       <CardHead>
         <div

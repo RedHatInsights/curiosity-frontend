@@ -83,9 +83,9 @@ class RhelGraphCard extends React.Component {
 
     // todo: add error, fulfilled, pending back
     return (
-      <Card className="subscriptions-usage-graph">
+      <Card className="curiosity-usage-graph">
         <CardHead>
-          <h2>{t('subscriptions-graph.heading', 'Daily CPU socket usage')}</h2>
+          <h2>{t('curiosity-graph.heading', 'Daily CPU socket usage')}</h2>
           <CardActions>
             <Dropdown
               onSelect={this.onSelect}

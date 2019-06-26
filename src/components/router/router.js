@@ -31,7 +31,7 @@ class Router extends React.Component {
     const { renderRoutes, redirectRoot } = this.renderRoutes();
 
     return (
-      <div className="subscriptions-insights-content">
+      <div className="curiosity-content">
         <Switch>
           {renderRoutes}
           {redirectRoot}

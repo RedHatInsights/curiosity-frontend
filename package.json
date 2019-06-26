@@ -1,22 +1,22 @@
 {
-  "name": "subscriptions-insights-frontend",
+  "name": "curiosity-frontend",
   "version": "0.0.1",
-  "description": "Subscriptions Insights Frontend",
+  "description": "A subscription reporting frontend.",
   "author": "Red Hat",
   "license": "Apache-2.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/RedHatInsights/subscriptions-insights-frontend.git"
+    "url": "https://github.com/RedHatInsights/curiosity-frontend.git"
   },
   "bugs": {
-    "url": "https://github.com/RedHatInsights/subscriptions-insights-frontend/issues"
+    "url": "https://github.com/RedHatInsights/curiosity-frontend/issues"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "insights": {
-    "appname": "subscriptions-insights"
+    "appname": "subscription-reporting"
   },
   "browserslist": [],
   "jest": {
