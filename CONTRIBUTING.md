@@ -35,7 +35,7 @@ Serving content comes in 3 variations
   This requires access in order to be used, and you may be asked for your credentials during initial repository setup. The credentials are used to modify your `hosts` for local run.
 - `$ yarn start:standalone`, No Insights styling, just the straight GUI. 
   
-  Useful for confirming issues between the Insights parent app vs the Subscriptions Insights GUI.
+  Useful for confirming issues between the Insights parent app vs Curiosity Frontend.
   
 ### Proxy failing to run?
 Occasionally the proxy setup will attempt to connect, acknowledge that it's connected, but then fail to load the GUI.
