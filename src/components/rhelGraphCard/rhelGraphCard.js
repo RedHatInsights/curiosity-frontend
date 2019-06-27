@@ -42,7 +42,7 @@ class RhelGraphCard extends React.Component {
 
     const dropdownToggle = (
       <DropdownToggle isDisabled onToggle={this.onToggle}>
-        {t('dropdownDefault', 'Last 30 Days')}
+        {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
       </DropdownToggle>
     );
 
