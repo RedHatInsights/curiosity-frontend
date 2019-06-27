@@ -52,6 +52,7 @@
   },
   "scripts": {
     "api:dev": "mock -p 5000 -w ./src/services",
+    "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy": "sh ./scripts/proxy.api.sh -d \"ci.foo.redhat.com\" -p 1337 -c \"$(pwd)/config/spandx.config.js\"",
     "api:proxyClean": "sh ./scripts/proxy.api.sh -u",
     "build": "run-s -l build:pre build:version build:js build:post test:integration",
@@ -63,7 +64,7 @@
     "start": "sh ./scripts/dev.chrome.sh; run-p -l api:dev start:js",
     "start:js": "react-scripts start",
     "start:proxy": "sh -ac '. ./.env.proxy; open https://ci.foo.redhat.com:1337/; run-p -l start:js api:proxy api:dev'",
-    "start:standalone": "rm ./.env.development.local; run-s -l api:dev start:js",
+    "start:standalone": "rm ./.env.development.local; run-p -l api:dev start:js",
     "test": "run-s test:lint test:ci",
     "test:ci": "export CI=true; react-scripts test --env=jsdom --roots=./src --coverage",
     "test:clearCache": "react-scripts test --clearCache",
@@ -116,12 +117,15 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
+    "express": "^4.17.1",
     "gettext-extractor": "^3.4.3",
     "moxios": "^0.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.17.1",
     "redux-mock-store": "^1.5.3",
-    "standard-version": "^6.0.1"
+    "standard-version": "^6.0.1",
+    "swagger-ui-express": "^4.0.6",
+    "yamljs": "^0.3.0"
   },
   "resolutions": {
     "**/eslint": "5.16.0"
