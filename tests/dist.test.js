@@ -10,10 +10,11 @@ describe('Build distribution', () => {
       .toString()
       .replace(/\s+|\n+|\r+/g, '')
       .replace(new RegExp(`./${outputDir}`, 'gi'), `~./${outputDir}`)
+      .replace(new RegExp(`~./${outputDir}/.DS_Store`, 'gi'), '')
       .replace(/\.([a-z0-9]+)\./gi, '*')
       .split('~')
       .sort();
 
-    expect(replacedGeneratedFilesMinsHash.length).toBeDefined();
+    expect(replacedGeneratedFilesMinsHash).toMatchSnapshot();
   });
 });

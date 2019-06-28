@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Build distribution should match a specific file output 1`] = `
+Array [
+  "",
+  "./build/index.html",
+  "./build/locales/en.json",
+  "./build/locales/locales.json",
+  "./build/static/css/2*chunk*map",
+  "./build/static/css/2*chunk.css",
+  "./build/static/css/main*chunk*map",
+  "./build/static/css/main*chunk.css",
+  "./build/static/js/2*chunk*map",
+  "./build/static/js/2*chunk.js",
+  "./build/static/js/main*chunk*map",
+  "./build/static/js/main*chunk.js",
+  "./build/static/js/runtime",
+  "./build/static/js/runtime",
+  "./build/static/media/pfbg_2000*jpg",
+  "./build/static/media/pfbg_576*jpg",
+  "./build/static/media/pfbg_576@2x*jpg",
+  "./build/static/media/pfbg_768*jpg",
+  "./build/static/media/pfbg_768@2x*jpg",
+  "./build/static/media/pfbg_992@2x*jpg",
+  "main*js",
+  "main*js.map",
+]
+`;
