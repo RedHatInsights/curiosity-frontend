@@ -59,7 +59,7 @@
     "build": "run-s -l build:pre build:version build:js build:post test:integration",
     "build:js": "react-scripts build",
     "build:post": "sh ./scripts/build.sh",
-    "build:pre": "rm -rf -- \"$(pwd)\"/build",
+    "build:pre": "rm -rf -- \"$(pwd)\"/build; rm -rf -- \"$(pwd)\"/public/apps",
     "build:version": "sh ./scripts/version.sh",
     "release": "standard-version",
     "start": "sh ./scripts/dev.chrome.sh; run-p -l api:dev start:js",
