@@ -14,7 +14,7 @@ gitRepo()
   (cd $DIR && git clone --depth=1 $GITREPO temp > /dev/null 2>&1)
 
   if [ $? -eq 0 ]; then
-    printf "\n${GREEN}Cloning ${GITREPO} ...${NOCOLOR}"
+    printf "\n${GREEN}Checking ${GITREPO} ...${NOCOLOR}"
 
     rm -rf $DIR_REPO
     cp -R  $DIR/temp $DIR_REPO
@@ -22,7 +22,7 @@ gitRepo()
     rm -rf $DIR/temp
     rm -rf $DIR_REPO/.git
 
-    printf "${GREEN}Clone SUCCESS${NOCOLOR}\n"
+    printf "${GREEN}SUCCESS${NOCOLOR}\n"
 
   elif [ -d $DIR_REPO ]; then
     printf "${YELLOW}Unable to connect, using cached ${GITREPO}...${NOCOLOR}\n"
@@ -134,6 +134,7 @@ runProxy()
   PORT=1337
   CONFIG=""
   UPDATE=false
+  HOST_ONLY=false
 
 
   REPO="https://github.com/RedHatInsights/insights-proxy.git"
@@ -142,13 +143,14 @@ runProxy()
   CONTAINER="redhatinsights/insights-proxy"
   CONTAINER_NAME="insightsproxy"
 
-  while getopts p:c:d:u option;
+  while getopts p:c:d:us option;
     do
       case $option in
         p ) PORT="$OPTARG";;
         c ) CONFIG="$OPTARG";;
         d ) DOMAIN="$OPTARG";;
         u ) UPDATE=true;;
+        s ) HOST=true;;
       esac
   done
 
@@ -163,6 +165,11 @@ runProxy()
   printf "${YELLOW}The proxy environment requires being able to access secure resources at runtime.${NOCOLOR}\n"
 
   gitRepo $REPO $DATADIR $DATADIR_REPO
-  updateHosts $DATADIR $DATADIR_REPO
+
+  if [ "$HOST" = true ]; then
+    updateHosts $DATADIR $DATADIR_REPO
+    exit 0
+  fi
+
   runProxy $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG
 }
