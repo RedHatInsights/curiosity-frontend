@@ -5,7 +5,7 @@ describe('RhelServices', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/cloudigrade.*?/, {
+    moxios.stubRequest(/\/(cloudigrade|tally).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
@@ -17,11 +17,12 @@ describe('RhelServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(rhelServices)).toHaveLength(1);
+    expect(Object.keys(rhelServices)).toHaveLength(2);
   });
 
   it('should have specific methods', () => {
-    expect(rhelServices.getGraphReports).toBeDefined();
+    expect(rhelServices.getGraphReportsCm).toBeDefined();
+    expect(rhelServices.getGraphReportsRhsm).toBeDefined();
   });
 
   it('should return promises for every method', done => {
