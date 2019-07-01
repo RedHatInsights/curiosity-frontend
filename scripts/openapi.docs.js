@@ -6,10 +6,7 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const openApiSpecs = [
   {
-    file:
-      'https://raw.githubusercontent.com/RedHatInsights/rhsm-subscriptions/master/api/rhsm-subscriptions-api-spec.yaml',
-    outputDir: `${process.cwd()}/.openapi`,
-    outputFileName: 'rhsm.yaml',
+    file: `${process.cwd()}/docs/rhsm-subscriptions-api-spec.yaml`,
     port: 5050
   }
 ];
@@ -26,7 +23,9 @@ const serveDocs = (files = []) => {
 
       app.listen(yamlFile.port, () => {
         console.log(
-          `\nYou can now view API docs in the browser.\n  Open: http://localhost:${yamlFile.port}/docs/api\n`
+          `\nYou can now view API docs for ${yamlFile.file
+            .split('/')
+            .pop()} in the browser.\n  Open: http://localhost:${yamlFile.port}/docs/api\n`
         );
       });
     } else if (cache.tryAgainCount < 10) {
@@ -45,20 +44,29 @@ const getLocalApiSpec = (inputPaths = []) => {
   const outputPaths = [];
 
   inputPaths.forEach(inputPath => {
-    const outputPath = path.join(inputPath.outputDir, inputPath.outputFileName);
+    if (/^http/i.test(inputPath.file)) {
+      const outputPath = path.join(inputPath.outputDir, inputPath.outputFileName);
+      const outputYaml = execSync(`curl ${inputPath.file}`);
 
-    if (fs.existsSync(outputPath)) {
-      outputPaths.push({ file: outputPath, port: inputPath.port });
-    } else {
       if (!fs.existsSync(inputPath.outputDir)) {
         fs.mkdirSync(inputPath.outputDir);
       }
 
-      execSync(`curl ${inputPath.file} > ${outputPath}`);
+      if (/openapi/i.test(outputYaml.toString())) {
+        fs.writeFileSync(outputPath, outputYaml);
+      } else {
+        console.warn(
+          `Unable to load ${inputPath.file.split('/').pop()} -> ${inputPath.outputFileName}, checking cache...`
+        );
+      }
 
       outputPaths.push({ file: outputPath, port: inputPath.port });
+    } else {
+      outputPaths.push({ file: inputPath.file, port: inputPath.port });
     }
   });
+
+  console.log(outputPaths);
 
   return outputPaths;
 };

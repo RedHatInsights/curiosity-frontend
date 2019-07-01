@@ -10,7 +10,7 @@ const authHeader = () => {
   };
 };
 
-const serviceConfig = (passedConfig = {}, auth = true) =>
+const serviceConfig = (passedConfig = {}, auth = false) =>
   Object.assign(
     {
       headers: auth ? authHeader() : {},
