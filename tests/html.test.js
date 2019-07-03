@@ -7,9 +7,10 @@ describe('Index.HTML', () => {
     const fileContents = loadFile('./build/index.html');
     const replacedFile = fileContents
       .replace(/</g, '\n<')
-      .replace(/"([a-z0-9]*)\/apps\//gi, '*/apps/')
+      .replace(/"([/a-z0-9]*)\/apps\//gi, '"*/apps/')
       .replace(/\/([a-z0-9]+)\.([a-z0-9]+)\.chunk.css"/gi, '/*.chunk.css"')
-      .replace(/\/([a-z0-9]+)\.([a-z0-9]+)\.chunk.js"/gi, '/*.chunk.js"');
+      .replace(/\/([a-z0-9]+)\.([a-z0-9]+)\.chunk.js"/gi, '/*.chunk.js"')
+      .replace(/<script>([\d\D])+?<\/script>/gi, '<script>/* filtered */</script>');
 
     expect(replacedFile).toMatchSnapshot('html output');
   });
