@@ -4,7 +4,7 @@ import { reduxHelpers } from '../common/reduxHelpers';
 
 const initialState = {
   graphData: {
-    dailyUsage: []
+    usage: []
   },
   error: false,
   errorStatus: null,
@@ -46,7 +46,7 @@ const rhelGraphReducer = (state = initialState, action) => {
         null,
         {
           graphData: {
-            dailyUsage: action.payload.data[rhelApiTypes.RHSM_API_RESPONSE_ACCOUNTS_PRODUCTS_DATA] || []
+            usage: action.payload.data[rhelApiTypes.RHSM_API_RESPONSE_ACCOUNTS_PRODUCTS_DATA] || []
           },
           fulfilled: true
         },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { RhelGraphCard } from '../rhelGraphCard';
 
 describe('RhelGraphCard Component', () => {
@@ -9,5 +9,32 @@ describe('RhelGraphCard Component', () => {
     const component = mount(<RhelGraphCard {...props} />);
 
     expect(component).toMatchSnapshot('non-connected');
+  });
+
+  it('should render multiple states', () => {
+    const props = {};
+
+    const component = shallow(<RhelGraphCard {...props} />);
+
+    component.setProps({
+      error: true
+    });
+
+    expect(component).toMatchSnapshot('error');
+
+    component.setProps({
+      error: false,
+      pending: true
+    });
+
+    expect(component).toMatchSnapshot('pending');
+
+    component.setProps({
+      error: false,
+      pending: false,
+      fulfilled: true
+    });
+
+    expect(component).toMatchSnapshot('fulfilled');
   });
 });

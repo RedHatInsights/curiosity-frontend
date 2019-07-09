@@ -12,6 +12,7 @@ import {
 import { Chart, ChartBar, ChartStack } from '@patternfly/react-charts';
 import { connectTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
+import { graphHelpers } from '../../common/graphHelpers';
 
 class RhelGraphCard extends React.Component {
   state = { isOpen: false };
@@ -35,10 +36,15 @@ class RhelGraphCard extends React.Component {
   };
 
   render() {
-    // todo: add error, fulfilled, pending back
-    const { t } = this.props;
+    const { error, fulfilled, graphData, pending, t } = this.props;
     const { isOpen } = this.state;
-    const dropdownItems = [];
+
+    if (error) {
+      return null;
+    }
+
+    // todo: construct chartData using graphData in the reducer...
+    const chartData = graphHelpers.convertGraphData({ ...graphData });
 
     const dropdownToggle = (
       <DropdownToggle isDisabled onToggle={this.onToggle}>
@@ -46,44 +52,9 @@ class RhelGraphCard extends React.Component {
       </DropdownToggle>
     );
 
-    // todo: construct chartData using graphData in the reducer...
-    const chartData = [
-      { x: 'May 25', y: 1 },
-      { x: 'May 26', y: 1 },
-      { x: 'May 27', y: 1 },
-      { x: 'May 28', y: 1 },
-      { x: 'May 29', y: 2 },
-      { x: 'May 30', y: 2 },
-      { x: 'May 31', y: 2 },
-      { x: 'Jun 1', y: 2 },
-      { x: 'Jun 2', y: 2 },
-      { x: 'Jun 3', y: 2 },
-      { x: 'Jun 4', y: 2 },
-      { x: 'Jun 5', y: 2 },
-      { x: 'Jun 6', y: 3 },
-      { x: 'Jun 7', y: 3 },
-      { x: 'Jun 8', y: 3 },
-      { x: 'Jun 9', y: 3 },
-      { x: 'Jun 10', y: 4 },
-      { x: 'Jun 11', y: 4 },
-      { x: 'Jun 12', y: 4 },
-      { x: 'Jun 13', y: 4 },
-      { x: 'Jun 14', y: 4 },
-      { x: 'Jun 15', y: 4 },
-      { x: 'Jun 16', y: 4 },
-      { x: 'Jun 17', y: 3 },
-      { x: 'Jun 18', y: 3 },
-      { x: 'Jun 19', y: 1 },
-      { x: 'Jun 20', y: 2 },
-      { x: 'Jun 21', y: 5 },
-      { x: 'Jun 22', y: 3 },
-      { x: 'Jun 23', y: 1 },
-      { x: 'Jun 24', y: 1 }
-    ];
-
-    // todo: add error, fulfilled, pending back
+    // todo: correct pending/loading display
     return (
-      <Card className="curiosity-usage-graph">
+      <Card className="curiosity-usage-graph fadein">
         <CardHead>
           <h2>{t('curiosity-graph.heading', 'Daily CPU socket usage')}</h2>
           <CardActions>
@@ -92,33 +63,52 @@ class RhelGraphCard extends React.Component {
               position={DropdownPosition.right}
               toggle={dropdownToggle}
               isOpen={isOpen}
-              dropdownItems={dropdownItems}
+              dropdownItems={[]}
             />
           </CardActions>
         </CardHead>
-        <CardBody>
-          <div className="stack-chart-container">
-            <Chart height={200} domainPadding={{ x: [10, 2], y: [1, 1] }}>
-              <ChartStack>
-                <ChartBar data={chartData} />
-              </ChartStack>
-            </Chart>
-          </div>
-        </CardBody>
+        {pending && (
+          <CardBody>
+            <div className="stack-chart-container">
+              <small>Loading...</small>
+            </div>
+          </CardBody>
+        )}
+        {fulfilled && (
+          <CardBody>
+            <div className="stack-chart-container">
+              <Chart height={200} domainPadding={{ x: [10, 2], y: [1, 1] }}>
+                <ChartStack>
+                  <ChartBar data={chartData} />
+                </ChartStack>
+              </Chart>
+            </div>
+          </CardBody>
+        )}
       </Card>
     );
   }
 }
 
-// todo: add error, fulfilled, pending back
 RhelGraphCard.propTypes = {
+  error: PropTypes.bool,
+  fulfilled: PropTypes.bool,
   getGraphReports: PropTypes.func,
+  graphData: PropTypes.shape({
+    usage: PropTypes.array
+  }),
+  pending: PropTypes.bool,
   t: PropTypes.func
 };
 
-// todo: add error, fulfilled, pending back
 RhelGraphCard.defaultProps = {
+  error: false,
+  fulfilled: false,
   getGraphReports: helpers.noop,
+  graphData: {
+    usage: []
+  },
+  pending: false,
   t: helpers.noopTranslate
 };
 
