@@ -13,7 +13,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
     noPaddingMobile={false}
     variant="default"
   >
-    <Connect(RhelGraphCard) />
+    <Connect(withBreakpoints(RhelGraphCard)) />
   </PageSection>
 </Fragment>
 `;

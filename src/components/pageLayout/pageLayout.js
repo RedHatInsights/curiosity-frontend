@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactBreakpoints from 'react-breakpoints';
 import { Page, PageSection } from '@patternfly/react-core';
+import { helpers } from '../../common/helpers';
 
 const PageLayout = ({ children }) => (
-  <Page className="layout-pf curiosity">
-    <PageSection noPadding>{children}</PageSection>
-  </Page>
+  <ReactBreakpoints breakpoints={helpers.breakpoints}>
+    <Page className="layout-pf curiosity">
+      <PageSection noPadding>{children}</PageSection>
+    </Page>
+  </ReactBreakpoints>
 );
 
 PageLayout.propTypes = {
