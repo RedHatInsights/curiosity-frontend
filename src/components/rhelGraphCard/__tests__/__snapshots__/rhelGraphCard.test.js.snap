@@ -241,12 +241,12 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,
@@ -783,12 +783,12 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,
@@ -1325,12 +1325,12 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,
@@ -1867,12 +1867,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,
@@ -2409,12 +2409,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,
@@ -2951,12 +2951,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,
@@ -3495,12 +3495,12 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
             data={
               Array [
                 Object {
-                  "label": "30 Cores on May 25",
+                  "label": "30 Sockets on May 25",
                   "x": "May 25",
                   "y": 30,
                 },
                 Object {
-                  "label": "60 Cores on May 26 
+                  "label": "60 Sockets on May 26 
  +30 from previous day",
                   "x": "May 26",
                   "y": 60,

@@ -11,8 +11,7 @@ import {
   DropdownPosition
 } from '@patternfly/react-core';
 import { Chart, ChartBar, ChartBaseTheme, ChartLabel, ChartStack, ChartTooltip } from '@patternfly/react-charts';
-// eslint-disable-next-line camelcase
-import { global_Color_light_200 } from '@patternfly/react-tokens';
+import { global_Color_light_200 as globalColorLight200 } from '@patternfly/react-tokens';
 import { connectTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
 import { graphHelpers } from '../../common/graphHelpers';
@@ -68,7 +67,7 @@ class RhelGraphCard extends React.Component {
       }
     };
     const textStyle = {
-      fill: global_Color_light_200.value,
+      fill: globalColorLight200.value,
       // note: fontSize will also determine vertical space between tooltip tspans
       fontSize: graphHelpers.getTooltipFontSize(breakpoints, currentBreakpoint)
     };
@@ -129,7 +128,14 @@ RhelGraphCard.propTypes = {
   }),
   pending: PropTypes.bool,
   t: PropTypes.func,
-  breakpoints: PropTypes.object,
+  breakpoints: PropTypes.shape({
+    xs: PropTypes.number,
+    sm: PropTypes.number,
+    md: PropTypes.number,
+    lg: PropTypes.number,
+    xl: PropTypes.number,
+    xl2: PropTypes.number
+  }),
   currentBreakpoint: PropTypes.string
 };
 

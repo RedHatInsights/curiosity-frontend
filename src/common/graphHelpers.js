@@ -2,8 +2,8 @@ const convertGraphData = () => {
   // todo: convert passed params to consumable chart data
 
   return [
-    { x: 'May 25', y: 30, label: '30 Cores on May 25' },
-    { x: 'May 26', y: 60, label: '60 Cores on May 26 \r\n +30 from previous day' },
+    { x: 'May 25', y: 30, label: '30 Sockets on May 25' },
+    { x: 'May 26', y: 60, label: '60 Sockets on May 26 \r\n +30 from previous day' },
     { x: 'May 27', y: 1 },
     { x: 'May 28', y: 1 },
     { x: 'May 29', y: 2 },
@@ -36,12 +36,8 @@ const convertGraphData = () => {
   ];
 };
 
-const getGraphHeight = (breakpoints, currentBreakpoint) => {
-  if (breakpoints[currentBreakpoint] > breakpoints.md) {
-    return 200;
-  }
-  return 400;
-};
+const getGraphHeight = (breakpoints, currentBreakpoint) =>
+  (breakpoints[currentBreakpoint] > breakpoints.md && 200) || 400;
 
 const getTooltipDimensions = (breakpoints, currentBreakpoint) => {
   if (breakpoints[currentBreakpoint] < breakpoints.sm) {

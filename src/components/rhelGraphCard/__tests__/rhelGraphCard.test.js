@@ -56,22 +56,31 @@ describe('RhelGraphCard Component', () => {
     component.setProps({
       currentBreakpoint: 'sm'
     });
+
     expect(component).toMatchSnapshot('sm breakpoint');
+
     component.setProps({
       currentBreakpoint: 'md'
     });
+
     expect(component).toMatchSnapshot('md breakpoint');
+
     component.setProps({
       currentBreakpoint: 'lg'
     });
+
     expect(component).toMatchSnapshot('lg breakpoint');
+
     component.setProps({
       currentBreakpoint: 'xl'
     });
+
     expect(component).toMatchSnapshot('xl breakpoint');
+
     component.setProps({
       currentBreakpoint: 'xl2'
     });
+
     expect(component).toMatchSnapshot('xl2 breakpoint');
   });
 });
