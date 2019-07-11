@@ -11,7 +11,6 @@ import {
   DropdownPosition
 } from '@patternfly/react-core';
 import { Chart, ChartBar, ChartBaseTheme, ChartLabel, ChartStack, ChartTooltip } from '@patternfly/react-charts';
-import { global_Color_light_200 as globalColorLight200 } from '@patternfly/react-tokens';
 import { connectTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
 import { graphHelpers } from '../../common/graphHelpers';
@@ -67,7 +66,6 @@ class RhelGraphCard extends React.Component {
       }
     };
     const textStyle = {
-      fill: globalColorLight200.value,
       // note: fontSize will also determine vertical space between tooltip tspans
       fontSize: graphHelpers.getTooltipFontSize(breakpoints, currentBreakpoint)
     };

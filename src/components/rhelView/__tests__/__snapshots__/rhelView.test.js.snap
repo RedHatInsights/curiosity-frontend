@@ -7,12 +7,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
       title="Red Hat Enterprise Linux"
     />
   </PageHeader>
-  <PageSection
-    className=""
-    noPadding={false}
-    noPaddingMobile={false}
-    variant="default"
-  >
+  <PageSection>
     <Connect(withBreakpoints(RhelGraphCard)) />
   </PageSection>
 </Fragment>

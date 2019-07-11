@@ -23,7 +23,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
       className="layout-pf curiosity"
       header={null}
       isManagedSidebar={false}
-      onPageResize={null}
+      onPageResize={[Function]}
       sidebar={null}
       skipToContent={null}
     >
@@ -35,10 +35,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
           role="main"
         >
           <PageSection
-            className=""
             noPadding={true}
-            noPaddingMobile={false}
-            variant="default"
           >
             <section
               className="pf-c-page__main-section pf-m-no-padding"

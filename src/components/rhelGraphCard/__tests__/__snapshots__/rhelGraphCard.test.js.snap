@@ -33,6 +33,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               className="pf-c-card__actions"
             >
               <Dropdown
+                autoFocus={true}
                 className=""
                 direction="down"
                 dropdownItems={Array []}
@@ -60,6 +61,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                 }
               >
                 <DropdownWithContext
+                  autoFocus={true}
                   className=""
                   direction="down"
                   dropdownItems={Array []}
@@ -189,6 +191,7 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -380,7 +383,6 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 12,
                   }
                 }
@@ -391,11 +393,13 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -410,12 +414,14 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -426,9 +432,12 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -436,8 +445,11 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -448,10 +460,13 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -467,10 +482,11 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -478,10 +494,11 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -489,30 +506,33 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -522,14 +542,19 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -542,11 +567,6 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -556,10 +576,12 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -582,14 +604,14 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -604,10 +626,12 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -623,10 +647,11 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -640,11 +665,13 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -668,19 +695,17 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -693,11 +718,14 @@ exports[`RhelGraphCard Component should render breakpoint states: lg breakpoint 
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -731,6 +759,7 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -922,7 +951,6 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 14,
                   }
                 }
@@ -933,11 +961,13 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -952,12 +982,14 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -968,9 +1000,12 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -978,8 +1013,11 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -990,10 +1028,13 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1009,10 +1050,11 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1020,10 +1062,11 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1031,30 +1074,33 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1064,14 +1110,19 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1084,11 +1135,6 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -1098,10 +1144,12 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1124,14 +1172,14 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -1146,10 +1194,12 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1165,10 +1215,11 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -1182,11 +1233,13 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1210,19 +1263,17 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -1235,11 +1286,14 @@ exports[`RhelGraphCard Component should render breakpoint states: md breakpoint 
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -1273,6 +1327,7 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -1464,7 +1519,6 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 14,
                   }
                 }
@@ -1475,11 +1529,13 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1494,12 +1550,14 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -1510,9 +1568,12 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1520,8 +1581,11 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -1532,10 +1596,13 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1551,10 +1618,11 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1562,10 +1630,11 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1573,30 +1642,33 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1606,14 +1678,19 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1626,11 +1703,6 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -1640,10 +1712,12 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1666,14 +1740,14 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -1688,10 +1762,12 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1707,10 +1783,11 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -1724,11 +1801,13 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -1752,19 +1831,17 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -1777,11 +1854,14 @@ exports[`RhelGraphCard Component should render breakpoint states: sm breakpoint 
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -1815,6 +1895,7 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -2006,7 +2087,6 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 8,
                   }
                 }
@@ -2017,11 +2097,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2036,12 +2118,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -2052,9 +2136,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2062,8 +2149,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -2074,10 +2164,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2093,10 +2186,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2104,10 +2198,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2115,30 +2210,33 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2148,14 +2246,19 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2168,11 +2271,6 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -2182,10 +2280,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2208,14 +2308,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -2230,10 +2330,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2249,10 +2351,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -2266,11 +2369,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2294,19 +2399,17 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -2319,11 +2422,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xl breakpoint 
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -2357,6 +2463,7 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -2548,7 +2655,6 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 8,
                   }
                 }
@@ -2559,11 +2665,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2578,12 +2686,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -2594,9 +2704,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2604,8 +2717,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -2616,10 +2732,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2635,10 +2754,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2646,10 +2766,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2657,30 +2778,33 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2690,14 +2814,19 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2710,11 +2839,6 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -2724,10 +2848,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2750,14 +2876,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -2772,10 +2898,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2791,10 +2919,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -2808,11 +2937,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -2836,19 +2967,17 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -2861,11 +2990,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xl2 breakpoint
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -2899,6 +3031,7 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -3090,7 +3223,6 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 14,
                   }
                 }
@@ -3101,11 +3233,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3120,12 +3254,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -3136,9 +3272,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3146,8 +3285,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -3158,10 +3300,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3177,10 +3322,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3188,10 +3334,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3199,30 +3346,33 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3232,14 +3382,19 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3252,11 +3407,6 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -3266,10 +3416,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3292,14 +3444,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -3314,10 +3466,12 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3333,10 +3487,11 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -3350,11 +3505,13 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3378,19 +3535,17 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -3403,11 +3558,14 @@ exports[`RhelGraphCard Component should render breakpoint states: xs breakpoint 
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -3443,6 +3601,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}
@@ -3634,7 +3793,6 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                 }
                 style={
                   Object {
-                    "fill": "#ededed",
                     "fontSize": 14,
                   }
                 }
@@ -3645,11 +3803,13 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
                           "fillOpacity": 0.4,
+                          "stroke": "transparent",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3664,12 +3824,14 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "padding": 50,
                       "style": Object {
                         "axis": Object {
+                          "fill": "transparent",
+                          "stroke": "#d2d2d2",
                           "strokeLinecap": "round",
                           "strokeLinejoin": "round",
                           "strokeWidth": 1,
                         },
                         "axisLabel": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 100,
@@ -3680,9 +3842,12 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                           "fill": "none",
                           "pointerEvents": "painted",
                           "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
                         },
                         "tickLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#4d5258",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3690,8 +3855,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                         },
                         "ticks": Object {
                           "fill": "transparent",
-                          "size": 1,
-                          "stroke": "transparent",
+                          "size": 5,
+                          "stroke": "none",
+                          "strokeLinecap": "round",
+                          "strokeLinejoin": "round",
+                          "strokeWidth": 1,
                         },
                       },
                       "width": 450,
@@ -3702,10 +3870,13 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "padding": 8,
                           "stroke": "none",
+                          "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3721,10 +3892,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "style": Object {
                         "max": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "maxLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3732,10 +3904,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                         },
                         "median": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "medianLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3743,30 +3916,33 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                         },
                         "min": Object {
                           "padding": 8,
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "minLabels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q1": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q1Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "q3": Object {
+                          "fill": "#8b8d8f",
                           "padding": 8,
                         },
                         "q3Labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3776,14 +3952,19 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "width": 450,
                     },
                     "candlestick": Object {
+                      "candleColors": Object {
+                        "negative": "#151515",
+                        "positive": "#fff",
+                      },
                       "height": 300,
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3796,11 +3977,6 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                     "chart": Object {
                       "height": 300,
                       "padding": 50,
-                      "style": Object {
-                        "parent": Object {
-                          "border": "1px solid",
-                        },
-                      },
                       "width": 450,
                     },
                     "errorbar": Object {
@@ -3810,10 +3986,12 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3836,14 +4014,14 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                           "type": "square",
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
                           "stroke": "transparent",
                         },
                         "title": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 2,
@@ -3858,10 +4036,12 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "style": Object {
                         "data": Object {
                           "fill": "transparent",
+                          "opacity": 1,
+                          "stroke": "#151515",
                           "strokeWidth": 2,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3877,10 +4057,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "style": Object {
                         "data": Object {
                           "padding": 8,
+                          "stroke": "transparent",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -3894,11 +4075,13 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "padding": 50,
                       "style": Object {
                         "data": Object {
+                          "fill": "#151515",
+                          "opacity": 1,
                           "stroke": "transparent",
                           "strokeWidth": 0,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 10,
@@ -3922,19 +4105,17 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                       "cornerRadius": 0,
                       "flyoutStyle": Object {
                         "cornerRadius": 0,
+                        "fill": "#151515",
                         "pointerEvents": "none",
+                        "stroke": "#151515",
                         "strokeWidth": 0,
                       },
                       "pointerLength": 3,
                       "pointerWidth": 15,
                       "style": Object {
-                        "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
-                        "fontSize": 14,
-                        "letterSpacing": "normal",
+                        "fill": "#ededed",
                         "padding": 16,
                         "pointerEvents": "none",
-                        "stroke": "transparent",
-                        "textAnchor": "middle",
                       },
                     },
                     "voronoi": Object {
@@ -3947,11 +4128,14 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                           "strokeWidth": 0,
                         },
                         "flyout": Object {
+                          "fill": "#151515",
                           "pointerEvents": "none",
+                          "stroke": "#151515",
                           "strokeWidth": 1,
                         },
                         "labels": Object {
-                          "fontFamily": "overpass,overpass,open sans,-apple-system,blinkmacsystemfont,Segoe UI,roboto,Helvetica Neue,arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol",
+                          "fill": "#ededed",
+                          "fontFamily": "overpass, overpass, open sans, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                           "fontSize": 14,
                           "letterSpacing": "normal",
                           "padding": 8,
@@ -3985,6 +4169,7 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
     </h2>
     <CardActions>
       <Dropdown
+        autoFocus={true}
         className=""
         direction="down"
         dropdownItems={Array []}

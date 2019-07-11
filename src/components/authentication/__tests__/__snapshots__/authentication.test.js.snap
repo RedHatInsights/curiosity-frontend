@@ -76,7 +76,7 @@ exports[`Authorization Component should render a non-connected component error: 
         className="layout-pf curiosity"
         header={null}
         isManagedSidebar={false}
-        onPageResize={null}
+        onPageResize={[Function]}
         sidebar={null}
         skipToContent={null}
       >
@@ -88,10 +88,7 @@ exports[`Authorization Component should render a non-connected component error: 
             role="main"
           >
             <PageSection
-              className=""
               noPadding={true}
-              noPaddingMobile={false}
-              variant="default"
             >
               <section
                 className="pf-c-page__main-section pf-m-no-padding"
