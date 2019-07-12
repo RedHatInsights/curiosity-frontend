@@ -45,10 +45,7 @@
     ]
   },
   "standard-version": {
-    "skip": {
-      "commit": true,
-      "tag": true
-    }
+    "skip": {}
   },
   "scripts": {
     "api:dev": "mock -p 5000 -w ./src/services",
@@ -85,21 +82,21 @@
     "@redhat-cloud-services/frontend-components": "0.0.7",
     "@redhat-cloud-services/frontend-components-utilities": "0.0.7",
     "axios": "^0.19.0",
-    "i18next": "^15.1.3",
-    "i18next-xhr-backend": "^2.0.1",
-    "lodash": "^4.17.11",
+    "i18next": "^17.0.6",
+    "i18next-xhr-backend": "^3.0.0",
+    "lodash": "^4.17.14",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-breakpoints": "^3.0.3",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.11.1",
+    "react-i18next": "^10.11.4",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.1",
+    "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.1",
     "redux-thunk": "^2.3.0",
@@ -110,12 +107,12 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jest": "^22.7.1",
+    "eslint-plugin-jest": "^22.7.2",
     "eslint-plugin-json": "^1.4.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "express": "^4.17.1",
@@ -125,7 +122,7 @@
     "prettier": "^1.18.2",
     "redux-mock-store": "^1.5.3",
     "standard-version": "^6.0.1",
-    "swagger-ui-express": "^4.0.6",
+    "swagger-ui-express": "^4.0.7",
     "yamljs": "^0.3.0"
   },
   "resolutions": {
