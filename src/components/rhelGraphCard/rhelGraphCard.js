@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withBreakpoints } from 'react-breakpoints';
 import {
   Card,
   CardHead,
@@ -9,7 +10,7 @@ import {
   DropdownToggle,
   DropdownPosition
 } from '@patternfly/react-core';
-import { Chart, ChartBar, ChartStack } from '@patternfly/react-charts';
+import { Chart, ChartBar, ChartBaseTheme, ChartLabel, ChartStack, ChartTooltip } from '@patternfly/react-charts';
 import { connectTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
 import { graphHelpers } from '../../common/graphHelpers';
@@ -36,7 +37,7 @@ class RhelGraphCard extends React.Component {
   };
 
   render() {
-    const { error, fulfilled, graphData, pending, t } = this.props;
+    const { error, fulfilled, graphData, pending, t, breakpoints, currentBreakpoint } = this.props;
     const { isOpen } = this.state;
 
     if (error) {
@@ -50,6 +51,32 @@ class RhelGraphCard extends React.Component {
       <DropdownToggle isDisabled onToggle={this.onToggle}>
         {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
       </DropdownToggle>
+    );
+
+    // heights are breakpoint specific since they are scaled via svg
+    const graphHeight = graphHelpers.getGraphHeight(breakpoints, currentBreakpoint);
+    const tooltipDimensions = graphHelpers.getTooltipDimensions(breakpoints, currentBreakpoint);
+
+    const tooltipTheme = {
+      ...ChartBaseTheme,
+      tooltip: {
+        ...ChartBaseTheme.tooltip,
+        pointerLength: 3,
+        pointerWidth: 15
+      }
+    };
+    const textStyle = {
+      // note: fontSize will also determine vertical space between tooltip tspans
+      fontSize: graphHelpers.getTooltipFontSize(breakpoints, currentBreakpoint)
+    };
+
+    const chartTooltip = (
+      <ChartTooltip
+        {...tooltipDimensions}
+        style={textStyle}
+        theme={tooltipTheme}
+        labelComponent={<ChartLabel dy={-1} className="curiosity-usage-graph-tooltip-text" />}
+      />
     );
 
     // todo: correct pending/loading display
@@ -77,9 +104,9 @@ class RhelGraphCard extends React.Component {
         {fulfilled && (
           <CardBody>
             <div className="stack-chart-container">
-              <Chart height={200} domainPadding={{ x: [10, 2], y: [1, 1] }}>
+              <Chart height={graphHeight} domainPadding={{ x: [10, 2], y: [1, 1] }}>
                 <ChartStack>
-                  <ChartBar data={chartData} />
+                  <ChartBar data={chartData} labelComponent={chartTooltip} />
                 </ChartStack>
               </Chart>
             </div>
@@ -98,7 +125,16 @@ RhelGraphCard.propTypes = {
     usage: PropTypes.array
   }),
   pending: PropTypes.bool,
-  t: PropTypes.func
+  t: PropTypes.func,
+  breakpoints: PropTypes.shape({
+    xs: PropTypes.number,
+    sm: PropTypes.number,
+    md: PropTypes.number,
+    lg: PropTypes.number,
+    xl: PropTypes.number,
+    xl2: PropTypes.number
+  }),
+  currentBreakpoint: PropTypes.string
 };
 
 RhelGraphCard.defaultProps = {
@@ -109,7 +145,9 @@ RhelGraphCard.defaultProps = {
     usage: []
   },
   pending: false,
-  t: helpers.noopTranslate
+  t: helpers.noopTranslate,
+  breakpoints: {},
+  currentBreakpoint: ''
 };
 
 const mapStateToProps = state => ({
@@ -120,6 +158,6 @@ const mapDispatchToProps = dispatch => ({
   getGraphReports: () => dispatch(reduxActions.rhel.getGraphReports())
 });
 
-const ConnectedRhelGraphCard = connectTranslate(mapStateToProps, mapDispatchToProps)(RhelGraphCard);
+const ConnectedRhelGraphCard = connectTranslate(mapStateToProps, mapDispatchToProps)(withBreakpoints(RhelGraphCard));
 
 export { ConnectedRhelGraphCard as default, ConnectedRhelGraphCard, RhelGraphCard };
