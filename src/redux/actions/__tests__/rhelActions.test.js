@@ -25,7 +25,7 @@ describe('RhelActions', () => {
         status: 200,
         response: {
           test: 'success',
-          [rhelApiTypes.RHSM_API_RESPONSE_ACCOUNTS_PRODUCTS_DATA]: ['success']
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: ['success']
         }
       });
     });

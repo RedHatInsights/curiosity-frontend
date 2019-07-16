@@ -14,6 +14,7 @@ import { Chart, ChartBar, ChartBaseTheme, ChartLabel, ChartStack, ChartTooltip }
 import { connectTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
 import { graphHelpers } from '../../common/graphHelpers';
+import { rhelApiTypes } from '../../types/rhelApiTypes';
 
 class RhelGraphCard extends React.Component {
   state = { isOpen: false };
@@ -21,7 +22,11 @@ class RhelGraphCard extends React.Component {
   componentDidMount() {
     const { getGraphReports } = this.props;
 
-    getGraphReports();
+    getGraphReports({
+      [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: 'daily',
+      [rhelApiTypes.RHSM_API_QUERY_START_DATE]: '2019-01-01T00:00:00Z',
+      [rhelApiTypes.RHSM_API_QUERY_END_DATE]: '2019-01-31T00:00:00Z'
+    });
   }
 
   onToggle = isOpen => {
@@ -155,7 +160,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getGraphReports: () => dispatch(reduxActions.rhel.getGraphReports())
+  getGraphReports: query => dispatch(reduxActions.rhel.getGraphReports(query))
 });
 
 const ConnectedRhelGraphCard = connectTranslate(mapStateToProps, mapDispatchToProps)(withBreakpoints(RhelGraphCard));

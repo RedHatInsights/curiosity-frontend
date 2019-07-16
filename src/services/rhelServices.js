@@ -3,88 +3,13 @@ import serviceConfig from './config';
 
 /**
  * @apiMock {DelayResponse} 2000
- * @api {get} /api/cloudigrade/v2/concurrent/ Get Cloud Meter graph data
- * @apiDescription Retrieve Cloud Meter graph data.
- *
- * Reference [cloudigrade for report params and commands](https://gitlab.com/cloudigrade/cloudigrade/blob/master/docs/rest-api-examples.rst)
- * Reference [cloudigrade, accessing the APIs](https://gitlab.com/cloudigrade/cloudigrade/wikis/how-do-i-reach-these-apis)
- *
- * @apiParam (Query string) {Mixed} [limit] Limit the number of results
- * @apiParam (Query string) {Mixed} [offset]
- * @apiParam (Query string) {Date} [start_date] Start date in ISO format
- * @apiParam (Query string) {Date} [end_date] End date in ISO format
- *
- * @apiSuccess {Array} data
- * @apiSuccess {Object} links
- * @apiSuccess {Object} meta
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "data": [
- *          {
- *            "date": "2019-05-01",
- *            "instances": 0,
- *            "memory": 0.0,
- *            "vcpu": 0.0
- *          },
- *          {
- *            "date": "2019-05-02",
- *            "instances": 0,
- *            "memory": 0.0,
- *            "vcpu": 0.0
- *          },
- *          {
- *            "date": "2019-05-03",
- *            "instances": 0,
- *            "memory": 0.0,
- *            "vcpu": 0.0
- *          },
- *          {
- *            "date": "2019-05-04",
- *            "instances": 0,
- *            "memory": 0.0,
- *            "vcpu": 0.0
- *          }
- *        ],
- *        "links": {
- *          "first": "/api/cloudigrade/v2/concurrent/?end_date=2019-05-05&limit=10&offset=0&start_date=2019-05-01",
- *          "last": "/api/cloudigrade/v2/concurrent/?end_date=2019-05-05&limit=10&offset=0&start_date=2019-05-01",
- *          "next": null,
- *          "previous": null
- *        },
- *        "meta": {
- *          "count": 4
- *        }
- *     }
- *
- * @apiError {String} detail
- * @apiErrorExample {json} Error-Response:
- *     HTTP/1.1 401 Unauthorized
- *     {
- *       "detail": "Authentication credentials were not provided."
- *     }
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
- *     HTTP/1.1 500 Internal Server Error
- *     {
- *       "detail": "Failed because of {reasons}"
- *     }
- */
-const getGraphReportsCm = (params = {}) =>
-  axios(
-    serviceConfig({
-      url: process.env.REACT_APP_SERVICES_CLOUDMETER_REPORT_RHEL,
-      params
-    })
-  );
-
-/**
- * @apiMock {DelayResponse} 2000
- * @api {get} /api/rhsm-subscriptions/v1/tally/accounts/:ACCOUNT_ID/products/RHEL Get RHSM graph data
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id Get RHSM graph data
  * @apiDescription Retrieve graph data.
  *
  * Reference [RHSM for report params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiParam {Enum} product_id The ID for the product we wish to query.
+ * - RHEL
  *
  * @apiParam (Query string) {Enum} granularity The level of granularity to return.
  * - DAILY
@@ -92,51 +17,190 @@ const getGraphReportsCm = (params = {}) =>
  * - MONTHLY
  * - QUARTERLY
  * - YEARLY
- * @apiParam (Query string) {Date} [beginning] Defines the start of the report period. Dates should be provided in ISO 8601 format but the only accepted offset is UTC. E.g. 2017-07-21T17:32:28Z
- * @apiParam (Query string) {Date} [ending] Defines the end of the report period. Defaults to the current time. Dates should be provided in UTC.
+ * @apiParam (Query string) {Date} beginning Defines the start of the report period. Dates should be provided in ISO 8601 format but the only accepted offset is UTC. E.g. 2017-07-21T17:32:28Z
+ * @apiParam (Query string) {Date} ending Defines the end of the report period. Defaults to the current time. Dates should be provided in UTC.
+ * @apiParam (Query string) {Number} [limit] The numbers of items to return.
+ * @apiParam (Query string) {Number} [offset] The number of items to skip before starting to collect the result set.
  *
- * @apiSuccess {Enum} granularity
+ * @apiSuccess {Array} data
+ * @apiSuccess {Object} links
+ * @apiSuccess {Object} meta
+ * @apiSuccess {Enum} meta.granularity
  * - DAILY
  * - WEEKLY
  * - MONTHLY
  * - QUARTERLY
  * - YEARLY
- * @apiSuccess {Enum} product
+ * @apiSuccess {Enum} meta.product
  * - RHEL
- * @apiSuccess {Array} tally_snapshots
+ * @apiSuccess {Number} meta.resultSetSize
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       "granularity": "DAILY",
- *       "product": "RHEL",
- *       "tally_snapshots": [
+ *       "data": [
  *          {
  *            "cores": 56,
- *            "date": "2019-01-01T00:00:00Z",
+ *            "date": "2019-06-01T00:00:00Z",
  *            "instance_count": 28
  *          },
  *          {
  *            "cores": 52,
- *            "date": "2019-01-02T00:00:00Z",
+ *            "date": "2019-06-02T00:00:00Z",
  *            "instance_count": 26
  *          },
  *          {
  *            "cores": 48,
- *            "date": "2019-01-03T00:00:00Z",
+ *            "date": "2019-06-03T00:00:00Z",
  *            "instance_count": 24
  *          },
  *          {
  *            "cores": 44,
- *            "date": "2019-01-04T00:00:00Z",
+ *            "date": "2019-06-04T00:00:00Z",
  *            "instance_count": 22
  *          },
  *          {
  *            "cores": 40,
- *            "date": "2019-01-05T00:00:00Z",
+ *            "date": "2019-06-05T00:00:00Z",
  *            "instance_count": 20
+ *          },
+ *          {
+ *            "cores": 20,
+ *            "date": "2019-06-06T00:00:00Z",
+ *            "instance_count": 20
+ *          },
+ *          {
+ *            "cores": 80,
+ *            "date": "2019-06-07T00:00:00Z",
+ *            "instance_count": 40
+ *          },
+ *          {
+ *            "cores": 43,
+ *            "date": "2019-06-08T00:00:00Z",
+ *            "instance_count": 18
+ *          },
+ *          {
+ *            "cores": 50,
+ *            "date": "2019-06-09T00:00:00Z",
+ *            "instance_count": 22
+ *          },
+ *          {
+ *            "cores": 40,
+ *            "date": "2019-06-10T00:00:00Z",
+ *            "instance_count": 20
+ *          },
+ *          {
+ *            "cores": 56,
+ *            "date": "2019-06-11T00:00:00Z",
+ *            "instance_count": 28
+ *          },
+ *          {
+ *            "cores": 52,
+ *            "date": "2019-06-12T00:00:00Z",
+ *            "instance_count": 26
+ *          },
+ *          {
+ *            "cores": 48,
+ *            "date": "2019-06-13T00:00:00Z",
+ *            "instance_count": 24
+ *          },
+ *          {
+ *            "cores": 44,
+ *            "date": "2019-06-14T00:00:00Z",
+ *            "instance_count": 22
+ *          },
+ *          {
+ *            "cores": 40,
+ *            "date": "2019-06-15T00:00:00Z",
+ *            "instance_count": 20
+ *          },
+ *          {
+ *            "cores": 20,
+ *            "date": "2019-06-16T00:00:00Z",
+ *            "instance_count": 20
+ *          },
+ *          {
+ *            "cores": 80,
+ *            "date": "2019-06-17T00:00:00Z",
+ *            "instance_count": 40
+ *          },
+ *          {
+ *            "cores": 43,
+ *            "date": "2019-06-18T00:00:00Z",
+ *            "instance_count": 18
+ *          },
+ *          {
+ *            "cores": 50,
+ *            "date": "2019-06-19T00:00:00Z",
+ *            "instance_count": 22
+ *          },
+ *          {
+ *            "cores": 40,
+ *            "date": "2019-06-20T00:00:00Z",
+ *            "instance_count": 20
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-21T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-22T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-23T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-24T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-25T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-26T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-27T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-28T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-29T00:00:00Z",
+ *            "instance_count": 0
+ *          },
+ *          {
+ *            "cores": 0,
+ *            "date": "2019-06-30T00:00:00Z",
+ *            "instance_count": 0
  *          }
- *        ]
+ *        ],
+ *        "links": {
+ *          "first": null,
+ *          "last": null,
+ *          "previous": null,
+ *          "next": null
+ *        },
+ *        "meta": {
+ *          "resultSetSize": 30,
+ *          "product": "RHEL",
+ *          "granularity": "DAILY"
+ *        }
  *     }
  *
  * @apiError {String} detail
@@ -179,14 +243,14 @@ const getGraphReportsCm = (params = {}) =>
  *        ]
  *     }
  */
-const getGraphReportsRhsm = (accountId, params = {}) =>
+const getGraphReportsRhsm = (params = {}) =>
   axios(
     serviceConfig({
-      url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT_RHEL.replace('{0}', accountId)}`,
+      url: process.env.REACT_APP_SERVICES_RHSM_REPORT_RHEL,
       params
     })
   );
 
-const rhelServices = { getGraphReportsCm, getGraphReportsRhsm };
+const rhelServices = { getGraphReportsRhsm };
 
-export { rhelServices as default, rhelServices, getGraphReportsCm, getGraphReportsRhsm };
+export { rhelServices as default, rhelServices, getGraphReportsRhsm };

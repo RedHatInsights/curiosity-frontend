@@ -46,7 +46,7 @@ const rhelGraphReducer = (state = initialState, action) => {
         null,
         {
           graphData: {
-            usage: action.payload.data[rhelApiTypes.RHSM_API_RESPONSE_ACCOUNTS_PRODUCTS_DATA] || []
+            usage: action.payload.data[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA] || []
           },
           fulfilled: true
         },

@@ -60,7 +60,7 @@
     "release": "standard-version",
     "start": "sh ./scripts/dev.chrome.sh; run-p -l api:dev start:js",
     "start:js": "react-scripts start",
-    "start:proxy": "sh -ac '. ./.env.proxy; open https://ci.foo.redhat.com:1337/; run-s api:proxy-hosts; run-p -l start:js api:proxy api:dev'",
+    "start:proxy": "sh -ac '. ./.env.proxy; open https://ci.foo.redhat.com:1337/; run-s api:proxy-hosts; run-p -l start:js api:proxy'",
     "start:standalone": "rm ./.env.development.local; run-p -l api:dev start:js",
     "test": "run-s test:lint test:ci",
     "test:ci": "export CI=true; react-scripts test --env=jsdom --roots=./src --coverage",

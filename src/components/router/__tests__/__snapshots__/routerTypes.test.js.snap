@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterTypes should return specific properties: baseName 1`] = `"/apps/subscriptions/"`;
+exports[`RouterTypes should return specific properties: baseName 1`] = `"/apps/subscription-reporting/"`;
 
 exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [

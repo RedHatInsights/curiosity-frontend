@@ -17,4 +17,10 @@ describe('Build distribution', () => {
 
     expect(replacedGeneratedFilesMinsHash).toMatchSnapshot();
   });
+
+  it('should not contain references to localhost', () => {
+    const output = execSync(`grep -roi "localhost:" ./${outputDir}/static | wc -l`).toString();
+
+    expect(Number.parseInt(output.trim(), 10)).toBe(0);
+  });
 });

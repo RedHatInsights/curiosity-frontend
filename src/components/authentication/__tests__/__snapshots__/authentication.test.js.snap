@@ -16,7 +16,17 @@ exports[`Authorization Component should render a non-connected component authori
       "push": [Function],
     }
   }
-  routes={Array []}
+  routes={
+    Array [
+      Object {
+        "component": [Function],
+        "id": "rhel",
+        "redirect": true,
+        "title": "Red Hat Enterprise Linux",
+        "to": "/redhatenterpriselinux",
+      },
+    ]
+  }
   session={
     Object {
       "authorized": true,
@@ -44,7 +54,17 @@ exports[`Authorization Component should render a non-connected component error: 
       "push": [Function],
     }
   }
-  routes={Array []}
+  routes={
+    Array [
+      Object {
+        "component": [Function],
+        "id": "rhel",
+        "redirect": true,
+        "title": "Red Hat Enterprise Linux",
+        "to": "/redhatenterpriselinux",
+      },
+    ]
+  }
   session={
     Object {
       "authorized": false,

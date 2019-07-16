@@ -17,11 +17,10 @@ describe('RhelServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(rhelServices)).toHaveLength(2);
+    expect(Object.keys(rhelServices)).toHaveLength(1);
   });
 
   it('should have specific methods', () => {
-    expect(rhelServices.getGraphReportsCm).toBeDefined();
     expect(rhelServices.getGraphReportsRhsm).toBeDefined();
   });
 

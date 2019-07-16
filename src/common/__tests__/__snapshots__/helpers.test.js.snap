@@ -4,9 +4,11 @@ exports[`Helpers should have specific functions: helpers 1`] = `
 Object {
   "DEV_MODE": false,
   "PROD_MODE": false,
-  "PUBLIC_URL": "/apps/subscriptions/",
   "REVIEW_MODE": false,
   "TEST_MODE": true,
+  "UI_DISPLAY_NAME": "Subscription Reporting",
+  "UI_NAME": "subscription-reporting",
+  "UI_PATH": "/apps/subscription-reporting/",
   "UI_VERSION": "0.0.0.0000000",
   "breakpoints": Object {
     "lg": 992,
