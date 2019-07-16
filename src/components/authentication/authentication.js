@@ -5,18 +5,30 @@ import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant } from '@
 import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connectRouter, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
+import { routes as appRoutes } from '../router/router';
 import PageLayout from '../pageLayout/pageLayout';
 
 class Authentication extends Component {
+  appNav = helpers.noop;
+
+  buildNav = helpers.noop;
+
   componentDidMount() {
-    const { appName, authorizeUser, insights, routes, session } = this.props;
+    const { appName, authorizeUser, history, insights, routes, session } = this.props;
 
     try {
       insights.chrome.init();
 
+      /**
+       * ToDo: add condition check for proxy with "helpers.REVIEW_MODE" once navigation is integrated with chrome
+       * i.e. "if (helpers.PROD_MODE || helpers.REVIEW_MODE)"
+       */
       if (helpers.PROD_MODE) {
         insights.chrome.identifyApp(appName);
         insights.chrome.navigation(routes);
+
+        this.appNav = insights.chrome.on('APP_NAVIGATION', event => history.push(`/${event.navId}`));
+        this.buildNav = history.listen(() => insights.chrome.navigation(this.buildNavigation()));
       }
 
       if (!session.authorized) {
@@ -34,24 +46,15 @@ class Authentication extends Component {
     this.buildNav();
   }
 
-  appNav() {
-    const { history, insights } = this.props;
+  buildNavigation = () => {
+    const { routes } = this.props;
+    const currentPath = window.location.pathname.split('/').slice(-1)[0];
 
-    if (history && insights.chrome) {
-      insights.chrome.on('APP_NAVIGATION', event => {
-        console.log('test HISTORY', event);
-        return history.push(`/${event.navId}`);
-      });
-    }
-  }
-
-  buildNav() {
-    const { history, insights, routes } = this.props;
-
-    if (history && insights.chrome) {
-      history.listen(() => insights.chrome.navigation(routes));
-    }
-  }
+    return routes.map(item => ({
+      ...item,
+      active: item.id === currentPath
+    }));
+  };
 
   render() {
     const { children, session } = this.props;
@@ -104,7 +107,11 @@ Authentication.propTypes = {
       on: PropTypes.func
     })
   }),
-  routes: PropTypes.array,
+  routes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string
+    })
+  ),
   session: PropTypes.shape({
     authorized: PropTypes.bool,
     error: PropTypes.bool,
@@ -114,10 +121,10 @@ Authentication.propTypes = {
 };
 
 Authentication.defaultProps = {
-  appName: process.env.REACT_APP_NAME,
+  appName: helpers.UI_NAME,
   authorizeUser: helpers.noop,
   insights: window.insights,
-  routes: [],
+  routes: appRoutes,
   session: {
     authorized: false,
     error: false,

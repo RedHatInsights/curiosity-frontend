@@ -5,7 +5,7 @@ import RhelView from '../rhelView/rhelView';
  * Return the application base directory.
  * @type {string}
  */
-const baseName = helpers.PUBLIC_URL;
+const baseName = helpers.UI_PATH;
 
 /**
  * Return array of objects that describe navigation
