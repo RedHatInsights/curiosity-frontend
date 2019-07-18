@@ -140,34 +140,34 @@ import serviceConfig from './config';
  *            "instance_count": 20
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 6,
  *            "date": "2019-06-21T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 6
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 2,
  *            "date": "2019-06-22T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 2
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 4,
  *            "date": "2019-06-23T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 4
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 6,
  *            "date": "2019-06-24T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 6
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 10,
  *            "date": "2019-06-25T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 10
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 2,
  *            "date": "2019-06-26T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 4
  *          },
  *          {
  *            "cores": 0,
@@ -175,19 +175,19 @@ import serviceConfig from './config';
  *            "instance_count": 0
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 6,
  *            "date": "2019-06-28T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 2
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 4,
  *            "date": "2019-06-29T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 2
  *          },
  *          {
- *            "cores": 0,
+ *            "cores": 2,
  *            "date": "2019-06-30T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 2
  *          }
  *        ],
  *        "links": {

@@ -1,11 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphHelpers should have specific functions: helpers 1`] = `
+exports[`GraphHelpers should convert graph data and generate tooltips when usage is populated: usage populated 1`] = `
+Array [
+  Object {
+    "label": "56 sockets on Jun 1",
+    "x": "Jun 1",
+    "y": 56,
+  },
+  Object {
+    "label": "30 sockets on Jun 2
+ -26 from previous day",
+    "x": "Jun 2",
+    "y": 30,
+  },
+  Object {
+    "label": "40 sockets on Jun 3
+ +10 from previous day",
+    "x": "Jun 3",
+    "y": 40,
+  },
+]
+`;
+
+exports[`GraphHelpers should convert graph data and return zeroed usage array if usage is empty: zeroed array 1`] = `
+Array [
+  Object {
+    "x": "Jun 1",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 2",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 3",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 4",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 5",
+    "y": "0",
+  },
+]
+`;
+
+exports[`GraphHelpers should convert graph data and returned zeroed array when usage throws error: throws error 1`] = `
+Array [
+  Object {
+    "x": "Jun 1",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 2",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 3",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 4",
+    "y": "0",
+  },
+  Object {
+    "x": "Jun 5",
+    "y": "0",
+  },
+]
+`;
+
+exports[`GraphHelpers should have specific functions: graphHelpers 1`] = `
 Object {
+  "chartDateFormat": "MMM D",
   "convertGraphData": [Function],
   "getGraphHeight": [Function],
   "getTooltipDimensions": [Function],
   "getTooltipFontSize": [Function],
+  "zeroedUsageData": [Function],
 }
 `;
 
