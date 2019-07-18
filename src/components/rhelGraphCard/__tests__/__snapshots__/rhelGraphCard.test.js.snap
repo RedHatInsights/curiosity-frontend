@@ -64,6 +64,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
 <RhelGraphCard
   breakpoints={Object {}}
   currentBreakpoint=""
+  endDate={2019-06-30T00:00:00.000Z}
   error={false}
   fulfilled={false}
   getGraphReports={[Function]}
@@ -73,6 +74,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
     }
   }
   pending={false}
+  startDate={2019-06-01T00:00:00.000Z}
   t={[Function]}
 >
   <Card
@@ -241,7 +243,132 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
 </RhelGraphCard>
 `;
 
-exports[`RhelGraphCard Component should render multiple states: error 1`] = `""`;
+exports[`RhelGraphCard Component should render multiple states: error shows zeroed bar values 1`] = `
+Object {
+  "chartBarData": Array [
+    Object {
+      "x": "Jun 1",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 2",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 3",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 4",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 5",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 6",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 7",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 8",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 9",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 10",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 11",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 12",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 13",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 14",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 15",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 16",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 17",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 18",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 19",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 20",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 21",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 22",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 23",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 24",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 25",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 26",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 27",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 28",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 29",
+      "y": "0",
+    },
+    Object {
+      "x": "Jun 30",
+      "y": "0",
+    },
+  ],
+}
+`;
 
 exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = `
 <Card
@@ -287,6 +414,14 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
       className="stack-chart-container"
     >
       <Chart
+        domain={
+          Object {
+            "x": Array [
+              0,
+              31,
+            ],
+          }
+        }
         domainPadding={
           Object {
             "x": Array [
@@ -306,131 +441,124 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
             data={
               Array [
                 Object {
-                  "label": "30 Sockets on May 25",
-                  "x": "May 25",
-                  "y": 30,
-                },
-                Object {
-                  "label": "60 Sockets on May 26 
- +30 from previous day",
-                  "x": "May 26",
-                  "y": 60,
-                },
-                Object {
-                  "x": "May 27",
-                  "y": 1,
-                },
-                Object {
-                  "x": "May 28",
-                  "y": 1,
-                },
-                Object {
-                  "x": "May 29",
-                  "y": 2,
-                },
-                Object {
-                  "x": "May 30",
-                  "y": 2,
-                },
-                Object {
-                  "x": "May 31",
-                  "y": 2,
-                },
-                Object {
                   "x": "Jun 1",
-                  "y": 2,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 2",
-                  "y": 2,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 3",
-                  "y": 2,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 4",
-                  "y": 2,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 5",
-                  "y": 2,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 6",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 7",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 8",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 9",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 10",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 11",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 12",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 13",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 14",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 15",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 16",
-                  "y": 4,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 17",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 18",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 19",
-                  "y": 1,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 20",
-                  "y": 2,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 21",
-                  "y": 5,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 22",
-                  "y": 3,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 23",
-                  "y": 1,
+                  "y": "0",
                 },
                 Object {
                   "x": "Jun 24",
-                  "y": 1,
+                  "y": "0",
+                },
+                Object {
+                  "x": "Jun 25",
+                  "y": "0",
+                },
+                Object {
+                  "x": "Jun 26",
+                  "y": "0",
+                },
+                Object {
+                  "x": "Jun 27",
+                  "y": "0",
+                },
+                Object {
+                  "x": "Jun 28",
+                  "y": "0",
+                },
+                Object {
+                  "x": "Jun 29",
+                  "y": "0",
+                },
+                Object {
+                  "x": "Jun 30",
+                  "y": "0",
                 },
               ]
             }
@@ -852,11 +980,20 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
   </CardHead>
   <CardBody>
     <div
-      className="stack-chart-container"
+      className="skeleton-container"
     >
-      <small>
-        Loading...
-      </small>
+      <Skeleton
+        size="xs"
+      />
+      <Skeleton
+        size="sm"
+      />
+      <Skeleton
+        size="md"
+      />
+      <Skeleton
+        size="lg"
+      />
     </div>
   </CardBody>
 </Card>

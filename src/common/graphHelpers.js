@@ -1,39 +1,97 @@
-const convertGraphData = () => {
-  // todo: convert passed params to consumable chart data
+import moment from 'moment';
+import { rhelApiTypes } from '../types/rhelApiTypes';
+import { helpers } from './helpers';
 
-  return [
-    { x: 'May 25', y: 30, label: '30 Sockets on May 25' },
-    { x: 'May 26', y: 60, label: '60 Sockets on May 26 \r\n +30 from previous day' },
-    { x: 'May 27', y: 1 },
-    { x: 'May 28', y: 1 },
-    { x: 'May 29', y: 2 },
-    { x: 'May 30', y: 2 },
-    { x: 'May 31', y: 2 },
-    { x: 'Jun 1', y: 2 },
-    { x: 'Jun 2', y: 2 },
-    { x: 'Jun 3', y: 2 },
-    { x: 'Jun 4', y: 2 },
-    { x: 'Jun 5', y: 2 },
-    { x: 'Jun 6', y: 3 },
-    { x: 'Jun 7', y: 3 },
-    { x: 'Jun 8', y: 3 },
-    { x: 'Jun 9', y: 3 },
-    { x: 'Jun 10', y: 4 },
-    { x: 'Jun 11', y: 4 },
-    { x: 'Jun 12', y: 4 },
-    { x: 'Jun 13', y: 4 },
-    { x: 'Jun 14', y: 4 },
-    { x: 'Jun 15', y: 4 },
-    { x: 'Jun 16', y: 4 },
-    { x: 'Jun 17', y: 3 },
-    { x: 'Jun 18', y: 3 },
-    { x: 'Jun 19', y: 1 },
-    { x: 'Jun 20', y: 2 },
-    { x: 'Jun 21', y: 5 },
-    { x: 'Jun 22', y: 3 },
-    { x: 'Jun 23', y: 1 },
-    { x: 'Jun 24', y: 1 }
-  ];
+const chartDateFormat = 'MMM D';
+
+/**
+ * Generate a fallback graph with zeroed data
+ *
+ * @param startDate {string}
+ * @param endDate {string}
+ * @returns {Array}
+ */
+const zeroedUsageData = (startDate, endDate) => {
+  const zeroedArray = [];
+  const endDateStartDateDiff = moment(endDate).diff(startDate, 'days');
+
+  // todo: convert "y" back towards a number if/when we handle "chartDomain.y = [0, 100]" within helpers
+  for (let i = 0; i <= endDateStartDateDiff; i++) {
+    const clonedStartDate = moment.utc(startDate);
+    zeroedArray.push({
+      x: clonedStartDate.add(i, 'days').format(chartDateFormat),
+      y: '0'
+    });
+  }
+
+  return zeroedArray;
+};
+
+/**
+ * Apply label formatting
+ *
+ * @param cores {number}
+ * @param previousCores {number}
+ * @param formattedDate {string}
+ * @param socketLabel {string}
+ * @param previousLabel {string}
+ * @returns {string}
+ */
+const getLabel = ({ cores, previousCores, formattedDate, socketLabel, previousLabel }) => {
+  const prev = cores - previousCores;
+  const label = `${cores} ${socketLabel} ${formattedDate}`;
+
+  if (previousCores === null) {
+    return label;
+  }
+
+  return `${label}\n ${prev > -1 ? '+' : ''}${prev} ${previousLabel}`;
+};
+
+/**
+ * Convert graph data to usable format
+ * convert json usage report from this format:
+ *  {cores: 56, date: "2019-06-01T00:00:00Z", instance_count: 28}
+ * to this format:
+ *  { x: 'Jun 1', y: 56, label: '56 Sockets on Jun 1 \r\n +5 from previous day' }
+ *
+ * @param usage {Array}
+ * @param startDate {string}
+ * @param endDate {string}
+ * @param socketLabel {string}
+ * @param previousLabel {string}
+ * @returns {Array}
+ */
+const convertGraphData = ({ usage, startDate, endDate, socketLabel, previousLabel }) => {
+  let chartData = [];
+
+  try {
+    for (let i = 0; i < usage.length; i++) {
+      const formattedDate = moment
+        .utc(usage[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
+        .format(chartDateFormat);
+
+      const label = getLabel({
+        cores: usage[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES],
+        previousCores: i > 0 ? usage[i - 1][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES] : null,
+        formattedDate,
+        socketLabel,
+        previousLabel
+      });
+
+      chartData.push({ x: formattedDate, y: usage[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES], label });
+    }
+  } catch (e) {
+    if (!helpers.TEST_MODE) {
+      console.warn(`Malformed API response ${e.message}`);
+    }
+  }
+
+  if (!chartData.length) {
+    chartData = zeroedUsageData(startDate, endDate);
+  }
+
+  return chartData;
 };
 
 const getGraphHeight = (breakpoints, currentBreakpoint) =>
@@ -68,13 +126,22 @@ const getTooltipFontSize = (breakpoints, currentBreakpoint) => {
   return 14;
 };
 
-const graphHelpers = { convertGraphData, getGraphHeight, getTooltipDimensions, getTooltipFontSize };
+const graphHelpers = {
+  chartDateFormat,
+  convertGraphData,
+  getGraphHeight,
+  getTooltipDimensions,
+  getTooltipFontSize,
+  zeroedUsageData
+};
 
 export {
   graphHelpers as default,
   graphHelpers,
+  chartDateFormat,
   convertGraphData,
   getGraphHeight,
   getTooltipDimensions,
-  getTooltipFontSize
+  getTooltipFontSize,
+  zeroedUsageData
 };

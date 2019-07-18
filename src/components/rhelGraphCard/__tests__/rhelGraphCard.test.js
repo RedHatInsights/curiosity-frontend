@@ -2,13 +2,15 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Chart, ChartBar } from '@patternfly/react-charts';
 import { RhelGraphCard } from '../rhelGraphCard';
-import { helpers } from '../../../common/helpers';
+import { helpers } from '../../../common';
 
 describe('RhelGraphCard Component', () => {
   const { breakpoints } = helpers;
+  const startDate = new Date('2019-06-01T00:00:00Z');
+  const endDate = new Date('2019-06-30T00:00:00Z');
 
   it('should render a non-connected component', () => {
-    const props = {};
+    const props = { startDate, endDate };
 
     const component = mount(<RhelGraphCard {...props} />);
 
@@ -16,7 +18,7 @@ describe('RhelGraphCard Component', () => {
   });
 
   it('should render multiple states', () => {
-    const props = {};
+    const props = { startDate, endDate };
 
     const component = shallow(<RhelGraphCard {...props} />);
 
@@ -24,7 +26,9 @@ describe('RhelGraphCard Component', () => {
       error: true
     });
 
-    expect(component).toMatchSnapshot('error');
+    expect({
+      chartBarData: component.find(ChartBar).prop('data')
+    }).toMatchSnapshot('error shows zeroed bar values');
 
     component.setProps({
       error: false,
@@ -48,7 +52,9 @@ describe('RhelGraphCard Component', () => {
       pending: false,
       fulfilled: true,
       breakpoints,
-      currentBreakpoint: 'xs'
+      currentBreakpoint: 'xs',
+      startDate,
+      endDate
     };
     const component = shallow(<RhelGraphCard {...props} />);
 
