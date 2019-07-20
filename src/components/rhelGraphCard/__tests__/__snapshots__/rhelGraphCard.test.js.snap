@@ -64,7 +64,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
 <RhelGraphCard
   breakpoints={Object {}}
   currentBreakpoint=""
-  endDate={2019-06-30T00:00:00.000Z}
+  endDate={2019-07-20T23:59:59.999Z}
   error={false}
   fulfilled={false}
   getGraphReports={[Function]}
@@ -74,7 +74,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
     }
   }
   pending={false}
-  startDate={2019-06-01T00:00:00.000Z}
+  startDate={2019-06-20T00:00:00.000Z}
   t={[Function]}
 >
   <Card
@@ -441,124 +441,21 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
             data={
               Array [
                 Object {
+                  "label": "5 sockets active Jun 1",
                   "x": "Jun 1",
-                  "y": "0",
+                  "y": 5,
                 },
                 Object {
-                  "x": "Jun 2",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 3",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 4",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 5",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 6",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 7",
-                  "y": "0",
-                },
-                Object {
+                  "label": "7 sockets active Jun 8
+ +2 from previous day",
                   "x": "Jun 8",
-                  "y": "0",
+                  "y": 7,
                 },
                 Object {
-                  "x": "Jun 9",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 10",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 11",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 12",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 13",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 14",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 15",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 16",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 17",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 18",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 19",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 20",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 21",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 22",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 23",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 24",
-                  "y": "0",
-                },
-                Object {
+                  "label": "3 sockets active Jun 25
+ -4 from previous day",
                   "x": "Jun 25",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 26",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 27",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 28",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 29",
-                  "y": "0",
-                },
-                Object {
-                  "x": "Jun 30",
-                  "y": "0",
+                  "y": 3,
                 },
               ]
             }

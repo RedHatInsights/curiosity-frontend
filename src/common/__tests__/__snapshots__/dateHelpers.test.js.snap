@@ -3,8 +3,8 @@
 exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
 Object {
   "defaultDateTime": Object {
-    "end": null,
-    "start": null,
+    "end": 2019-07-20T23:59:59.999Z,
+    "start": 2019-06-20T00:00:00.000Z,
   },
 }
 `;

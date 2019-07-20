@@ -3,14 +3,11 @@ import { mount, shallow } from 'enzyme';
 import { Chart, ChartBar } from '@patternfly/react-charts';
 import { RhelGraphCard } from '../rhelGraphCard';
 import { helpers } from '../../../common';
+import { rhelApiTypes } from '../../../types/rhelApiTypes';
 
 describe('RhelGraphCard Component', () => {
-  const { breakpoints } = helpers;
-  const startDate = new Date('2019-06-01T00:00:00Z');
-  const endDate = new Date('2019-06-30T00:00:00Z');
-
   it('should render a non-connected component', () => {
-    const props = { startDate, endDate };
+    const props = {};
 
     const component = mount(<RhelGraphCard {...props} />);
 
@@ -18,7 +15,32 @@ describe('RhelGraphCard Component', () => {
   });
 
   it('should render multiple states', () => {
-    const props = { startDate, endDate };
+    const props = {
+      startDate: new Date('2019-06-01T00:00:00Z'),
+      endDate: new Date('2019-06-30T23:59:59Z'),
+      graphData: {
+        usage: [
+          {
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES]: 56,
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE]: '2019-06-01T00:00:00Z',
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_INSTANCES]: 28,
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS]: 5
+          },
+          {
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES]: 30,
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE]: '2019-06-08T00:00:00Z',
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_INSTANCES]: 28,
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS]: 7
+          },
+          {
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES]: 40,
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE]: '2019-06-25T00:00:00Z',
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_INSTANCES]: 28,
+            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS]: 3
+          }
+        ]
+      }
+    };
 
     const component = shallow(<RhelGraphCard {...props} />);
 
@@ -47,15 +69,15 @@ describe('RhelGraphCard Component', () => {
   });
 
   it('should have specific breakpoint styles based on state', () => {
+    const { breakpoints } = helpers;
     const props = {
       error: false,
       pending: false,
       fulfilled: true,
       breakpoints,
-      currentBreakpoint: 'xs',
-      startDate,
-      endDate
+      currentBreakpoint: 'xs'
     };
+
     const component = shallow(<RhelGraphCard {...props} />);
 
     expect({

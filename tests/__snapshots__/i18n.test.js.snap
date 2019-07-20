@@ -12,7 +12,7 @@ msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:71
 msgctxt \\"from previous day\\"
-msgid \\"curiosity-graph.fromPrevious\\"
+msgid \\"curiosity-graph.previousLabel\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:77
@@ -21,8 +21,8 @@ msgid \\"curiosity-graph.dropdownDefault\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:70
-msgctxt \\"sockets on\\"
-msgid \\"curiosity-graph.socketsOn\\"
+msgctxt \\"sockets active\\"
+msgid \\"curiosity-graph.activeLabel\\"
 msgstr \\"\\"
 "
 `;

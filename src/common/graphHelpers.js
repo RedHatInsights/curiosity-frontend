@@ -30,22 +30,22 @@ const zeroedUsageData = (startDate, endDate) => {
 /**
  * Apply label formatting
  *
- * @param cores {number}
- * @param previousCores {number}
+ * @param data {number}
+ * @param previousData {number}
  * @param formattedDate {string}
- * @param socketLabel {string}
+ * @param label {string}
  * @param previousLabel {string}
  * @returns {string}
  */
-const getLabel = ({ cores, previousCores, formattedDate, socketLabel, previousLabel }) => {
-  const prev = cores - previousCores;
-  const label = `${cores} ${socketLabel} ${formattedDate}`;
+const getLabel = ({ data, previousData, formattedDate, label, previousLabel }) => {
+  const previousCount = data - previousData;
+  const updatedLabel = `${data} ${label} ${formattedDate}`;
 
-  if (previousCores === null) {
-    return label;
+  if (previousData === null || previousCount === 0) {
+    return updatedLabel;
   }
 
-  return `${label}\n ${prev > -1 ? '+' : ''}${prev} ${previousLabel}`;
+  return `${updatedLabel}\n ${previousCount > -1 ? '+' : ''}${previousCount} ${previousLabel}`;
 };
 
 /**
@@ -55,31 +55,35 @@ const getLabel = ({ cores, previousCores, formattedDate, socketLabel, previousLa
  * to this format:
  *  { x: 'Jun 1', y: 56, label: '56 Sockets on Jun 1 \r\n +5 from previous day' }
  *
- * @param usage {Array}
+ * @param data {Array}
  * @param startDate {string}
  * @param endDate {string}
- * @param socketLabel {string}
+ * @param label {string}
  * @param previousLabel {string}
  * @returns {Array}
  */
-const convertGraphData = ({ usage, startDate, endDate, socketLabel, previousLabel }) => {
+const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel }) => {
   let chartData = [];
 
   try {
-    for (let i = 0; i < usage.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       const formattedDate = moment
-        .utc(usage[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
+        .utc(data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
         .format(chartDateFormat);
 
-      const label = getLabel({
-        cores: usage[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES],
-        previousCores: i > 0 ? usage[i - 1][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES] : null,
+      const updatedLabel = getLabel({
+        data: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS],
+        previousData: i > 0 ? data[i - 1][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS] : null,
         formattedDate,
-        socketLabel,
+        label,
         previousLabel
       });
 
-      chartData.push({ x: formattedDate, y: usage[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_CORES], label });
+      chartData.push({
+        x: formattedDate,
+        y: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS],
+        label: updatedLabel
+      });
     }
   } catch (e) {
     if (!helpers.TEST_MODE) {
@@ -128,7 +132,7 @@ const getTooltipFontSize = (breakpoints, currentBreakpoint) => {
 
 const graphHelpers = {
   chartDateFormat,
-  convertGraphData,
+  convertGraphUsageData,
   getGraphHeight,
   getTooltipDimensions,
   getTooltipFontSize,
@@ -139,7 +143,7 @@ export {
   graphHelpers as default,
   graphHelpers,
   chartDateFormat,
-  convertGraphData,
+  convertGraphUsageData,
   getGraphHeight,
   getTooltipDimensions,
   getTooltipFontSize,

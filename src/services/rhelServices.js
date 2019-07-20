@@ -42,162 +42,192 @@ import serviceConfig from './config';
  *          {
  *            "cores": 56,
  *            "date": "2019-06-01T00:00:00Z",
- *            "instance_count": 28
+ *            "instance_count": 28,
+ *            "sockets": 5
  *          },
  *          {
  *            "cores": 52,
  *            "date": "2019-06-02T00:00:00Z",
- *            "instance_count": 26
+ *            "instance_count": 26,
+ *            "sockets": 15
  *          },
  *          {
  *            "cores": 48,
  *            "date": "2019-06-03T00:00:00Z",
- *            "instance_count": 24
+ *            "instance_count": 24,
+ *            "sockets": 15
  *          },
  *          {
  *            "cores": 44,
  *            "date": "2019-06-04T00:00:00Z",
- *            "instance_count": 22
+ *            "instance_count": 22,
+ *            "sockets": 17
  *          },
  *          {
  *            "cores": 40,
  *            "date": "2019-06-05T00:00:00Z",
- *            "instance_count": 20
+ *            "instance_count": 20,
+ *            "sockets": 24
  *          },
  *          {
  *            "cores": 20,
  *            "date": "2019-06-06T00:00:00Z",
- *            "instance_count": 20
+ *            "instance_count": 20,
+ *            "sockets": 4
  *          },
  *          {
  *            "cores": 80,
  *            "date": "2019-06-07T00:00:00Z",
- *            "instance_count": 40
+ *            "instance_count": 40,
+ *            "sockets": 35
  *          },
  *          {
  *            "cores": 43,
  *            "date": "2019-06-08T00:00:00Z",
- *            "instance_count": 18
+ *            "instance_count": 18,
+ *            "sockets": 18
  *          },
  *          {
  *            "cores": 50,
  *            "date": "2019-06-09T00:00:00Z",
- *            "instance_count": 22
+ *            "instance_count": 22,
+ *            "sockets": 22
  *          },
  *          {
  *            "cores": 40,
  *            "date": "2019-06-10T00:00:00Z",
- *            "instance_count": 20
+ *            "instance_count": 20,
+ *            "sockets": 17
  *          },
  *          {
  *            "cores": 56,
  *            "date": "2019-06-11T00:00:00Z",
- *            "instance_count": 28
+ *            "instance_count": 28,
+ *            "sockets": 5
  *          },
  *          {
  *            "cores": 52,
  *            "date": "2019-06-12T00:00:00Z",
- *            "instance_count": 26
+ *            "instance_count": 26,
+ *            "sockets": 7
  *          },
  *          {
  *            "cores": 48,
  *            "date": "2019-06-13T00:00:00Z",
- *            "instance_count": 24
+ *            "instance_count": 24,
+ *            "sockets": 10
  *          },
  *          {
  *            "cores": 44,
  *            "date": "2019-06-14T00:00:00Z",
- *            "instance_count": 22
+ *            "instance_count": 22,
+ *            "sockets": 10
  *          },
  *          {
  *            "cores": 40,
  *            "date": "2019-06-15T00:00:00Z",
- *            "instance_count": 20
+ *            "instance_count": 20,
+ *            "sockets": 12
  *          },
  *          {
  *            "cores": 20,
  *            "date": "2019-06-16T00:00:00Z",
- *            "instance_count": 20
+ *            "instance_count": 20,
+ *            "sockets": 13
  *          },
  *          {
  *            "cores": 80,
  *            "date": "2019-06-17T00:00:00Z",
- *            "instance_count": 40
+ *            "instance_count": 40,
+ *            "sockets": 11
  *          },
  *          {
  *            "cores": 43,
  *            "date": "2019-06-18T00:00:00Z",
- *            "instance_count": 18
+ *            "instance_count": 18,
+ *            "sockets": 8
  *          },
  *          {
  *            "cores": 50,
  *            "date": "2019-06-19T00:00:00Z",
- *            "instance_count": 22
+ *            "instance_count": 22,
+ *            "sockets": 7
  *          },
  *          {
  *            "cores": 40,
  *            "date": "2019-06-20T00:00:00Z",
- *            "instance_count": 20
+ *            "instance_count": 20,
+ *            "sockets": 6
  *          },
  *          {
  *            "cores": 6,
  *            "date": "2019-06-21T00:00:00Z",
- *            "instance_count": 6
+ *            "instance_count": 6,
+ *            "sockets": 3
  *          },
  *          {
  *            "cores": 2,
  *            "date": "2019-06-22T00:00:00Z",
- *            "instance_count": 2
+ *            "instance_count": 2,
+ *            "sockets": 1
  *          },
  *          {
  *            "cores": 4,
  *            "date": "2019-06-23T00:00:00Z",
- *            "instance_count": 4
+ *            "instance_count": 4,
+ *            "sockets": 1
  *          },
  *          {
  *            "cores": 6,
  *            "date": "2019-06-24T00:00:00Z",
- *            "instance_count": 6
+ *            "instance_count": 6,
+ *            "sockets": 2
  *          },
  *          {
  *            "cores": 10,
  *            "date": "2019-06-25T00:00:00Z",
- *            "instance_count": 10
+ *            "instance_count": 10,
+ *            "sockets": 1
  *          },
  *          {
  *            "cores": 2,
  *            "date": "2019-06-26T00:00:00Z",
- *            "instance_count": 4
+ *            "instance_count": 4,
+ *            "sockets": 1
  *          },
  *          {
  *            "cores": 0,
  *            "date": "2019-06-27T00:00:00Z",
- *            "instance_count": 0
+ *            "instance_count": 0,
+ *            "sockets": 0
  *          },
  *          {
  *            "cores": 6,
  *            "date": "2019-06-28T00:00:00Z",
- *            "instance_count": 2
+ *            "instance_count": 2,
+ *            "sockets": 1
  *          },
  *          {
  *            "cores": 4,
  *            "date": "2019-06-29T00:00:00Z",
- *            "instance_count": 2
+ *            "instance_count": 2,
+ *            "sockets": 1
  *          },
  *          {
  *            "cores": 2,
  *            "date": "2019-06-30T00:00:00Z",
- *            "instance_count": 2
+ *            "instance_count": 2,
+ *            "sockets": 1
  *          }
  *        ],
  *        "links": {
- *          "first": null,
- *          "last": null,
+ *          "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=DAILY&beginning=2019-06-20T00:00:00.000Z&ending=2019-07-20T23:59:59.999Z&offset=0&limit=30",
+ *          "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=DAILY&beginning=2019-06-20T00:00:00.000Z&ending=2019-07-20T23:59:59.999Z&offset=30&limit=30",
  *          "previous": null,
- *          "next": null
+ *          "next": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=DAILY&beginning=2019-06-20T00:00:00.000Z&ending=2019-07-20T23:59:59.999Z&offset=30&limit=30"
  *        },
  *        "meta": {
- *          "resultSetSize": 30,
+ *          "count": 30,
  *          "product": "RHEL",
  *          "granularity": "DAILY"
  *        }
