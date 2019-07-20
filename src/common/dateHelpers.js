@@ -2,16 +2,25 @@ import moment from 'moment/moment';
 import { helpers } from './helpers';
 
 const defaultDateTime = (helpers.TEST_MODE && {
-  start: null,
-  end: null
+  start: moment
+    .utc('20190720')
+    .startOf('day')
+    .subtract(30, 'days')
+    .toDate(),
+  end: moment
+    .utc('20190720')
+    .endOf('day')
+    .toDate()
 }) || {
-  start: moment()
+  start: moment
     .utc()
     .startOf('day')
-    .subtract(30, 'days'),
-  end: moment()
+    .subtract(30, 'days')
+    .toDate(),
+  end: moment
     .utc()
     .endOf('day')
+    .toDate()
 };
 
 const dateHelpers = {

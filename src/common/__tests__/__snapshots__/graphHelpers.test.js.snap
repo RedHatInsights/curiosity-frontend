@@ -3,21 +3,32 @@
 exports[`GraphHelpers should convert graph data and generate tooltips when usage is populated: usage populated 1`] = `
 Array [
   Object {
-    "label": "56 sockets on Jun 1",
+    "label": "5 sockets on Jun 1",
     "x": "Jun 1",
-    "y": 56,
+    "y": 5,
   },
   Object {
-    "label": "30 sockets on Jun 2
- -26 from previous day",
+    "label": "7 sockets on Jun 2
+ +2 from previous day",
     "x": "Jun 2",
-    "y": 30,
+    "y": 7,
   },
   Object {
-    "label": "40 sockets on Jun 3
- +10 from previous day",
+    "label": "3 sockets on Jun 3
+ -4 from previous day",
     "x": "Jun 3",
-    "y": 40,
+    "y": 3,
+  },
+  Object {
+    "label": "0 sockets on Jun 4
+ -3 from previous day",
+    "x": "Jun 4",
+    "y": 0,
+  },
+  Object {
+    "label": "0 sockets on Jun 5",
+    "x": "Jun 5",
+    "y": 0,
   },
 ]
 `;
@@ -75,7 +86,7 @@ Array [
 exports[`GraphHelpers should have specific functions: graphHelpers 1`] = `
 Object {
   "chartDateFormat": "MMM D",
-  "convertGraphData": [Function],
+  "convertGraphUsageData": [Function],
   "getGraphHeight": [Function],
   "getTooltipDimensions": [Function],
   "getTooltipFontSize": [Function],

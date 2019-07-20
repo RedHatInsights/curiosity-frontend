@@ -63,12 +63,12 @@ class RhelGraphCard extends React.Component {
     }
 
     if (fulfilled) {
-      chartData = graphHelpers.convertGraphData({
-        usage: graphData.usage,
+      chartData = graphHelpers.convertGraphUsageData({
+        data: graphData.usage,
         startDate,
         endDate,
-        socketLabel: t('curiosity-graph.socketsOn', 'sockets on'),
-        previousLabel: t('curiosity-graph.fromPrevious', 'from previous day')
+        label: t('curiosity-graph.activeLabel', 'sockets active'),
+        previousLabel: t('curiosity-graph.previousLabel', 'from previous day')
       });
     }
 
