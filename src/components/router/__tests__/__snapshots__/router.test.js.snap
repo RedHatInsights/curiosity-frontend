@@ -7,12 +7,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
   <Switch>
     <Route
       component={[Function]}
-      key="/redhatenterpriselinux"
-      path="/redhatenterpriselinux"
+      key="/rhel"
+      path="/rhel"
     />
     <Redirect
       from="/"
-      to="/redhatenterpriselinux"
+      to="/rhel"
     />
   </Switch>
 </div>
