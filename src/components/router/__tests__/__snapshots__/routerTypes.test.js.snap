@@ -9,7 +9,7 @@ Array [
     "id": "rhel",
     "redirect": true,
     "title": "Red Hat Enterprise Linux",
-    "to": "/redhatenterpriselinux",
+    "to": "/rhel",
   },
 ]
 `;

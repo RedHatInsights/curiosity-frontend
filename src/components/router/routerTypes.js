@@ -15,7 +15,7 @@ const routes = [
   {
     title: 'Red Hat Enterprise Linux',
     id: 'rhel',
-    to: '/redhatenterpriselinux',
+    to: '/rhel',
     redirect: true,
     component: RhelView
   }

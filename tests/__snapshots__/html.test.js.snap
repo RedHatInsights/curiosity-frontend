@@ -8,12 +8,12 @@ exports[`Index.HTML should have a specific html output: html output 1`] = `
 <meta charset=\\"utf-8\\"/>
 <title>Subscription Reporting
 </title>
-<esi:include src=\\"/@@env/chrome/snippets/head.html\\" />
+<esi:include src=\\"*/apps/chrome/snippets/head.html\\" />
 <link href=\\"*/apps/subscription-reporting/static/css/*.chunk.css\\" rel=\\"stylesheet\\">
 <link href=\\"*/apps/subscription-reporting/static/css/*.chunk.css\\" rel=\\"stylesheet\\">
 </head>
 <body>
-<esi:include src=\\"/@@env/chrome/snippets/body.html\\" />
+<esi:include src=\\"*/apps/chrome/snippets/body.html\\" />
 <script>/* filtered */</script>
 <script src=\\"*/apps/subscription-reporting/static/js/*.chunk.js\\">
 </script>

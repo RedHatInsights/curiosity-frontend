@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 #
 #
-# Update public path
+# Update deployment paths, prefixes
 #
-path()
+deployPaths()
 {
-
   local CI_BRANCH=$1
 
-  PUBLIC_URL_PREFIX=""
+  DEPLOY_PATH_PREFIX=""
 
   if [[ $CI_BRANCH == *"beta"* ]] || [[ $CI_BRANCH == *"master"* ]]; then
-    PUBLIC_URL_PREFIX=/beta
+    DEPLOY_PATH_PREFIX=/beta
   fi
 
-  echo "Path prefix for branch ${CI_BRANCH}... PUBLIC_URL_PREFIX=$PUBLIC_URL_PREFIX"
-  echo PUBLIC_URL_PREFIX="$PUBLIC_URL_PREFIX" >> ./.env.production.local
+  echo UI_DEPLOY_PATH_PREFIX="$DEPLOY_PATH_PREFIX" >> ./.env.production.local
+
+  echo "Deploy config for branch \"${CI_BRANCH}\"..."
+  echo "Deploy path prefix ... UI_DEPLOY_PATH_PREFIX=$DEPLOY_PATH_PREFIX"
 }
 #
 #
@@ -25,7 +26,7 @@ version()
 {
   UI_VERSION="$(node -p 'require(`./package.json`).version').$(git rev-parse --short HEAD)"
   echo "Version... UI_VERSION=$UI_VERSION"
-  echo UI_VERSION="$UI_VERSION" > ./.env.production.local
+  echo UI_VERSION="$UI_VERSION" >> ./.env.production.local
 }
 #
 #
@@ -33,9 +34,12 @@ version()
 #
 clean()
 {
-  echo "Cleaning build directories..."
+  FILE="$(pwd)/.env.production.local"
+
+  echo "Cleaning build directories, files..."
   rm -rf -- "$(pwd)"/build
-  rm -rf -- "$(pwd)"/public/apps;
+  rm -rf -- "$(pwd)"/public/apps
+  rm $FILE
 }
 #
 #
@@ -46,5 +50,5 @@ clean()
   version
 
   # see .travis.yml globals
-  path $BRANCH
+  deployPaths ${BRANCH:-local}
 }
