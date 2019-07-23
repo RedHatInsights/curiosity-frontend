@@ -15,12 +15,11 @@ const zeroedUsageData = (startDate, endDate) => {
   const zeroedArray = [];
   const endDateStartDateDiff = moment(endDate).diff(startDate, 'days');
 
-  // todo: convert "y" back towards a number if/when we handle "chartDomain.y = [0, 100]" within helpers
   for (let i = 0; i <= endDateStartDateDiff; i++) {
     const clonedStartDate = moment.utc(startDate);
     zeroedArray.push({
       x: clonedStartDate.add(i, 'days').format(chartDateFormat),
-      y: '0'
+      y: 0
     });
   }
 
@@ -49,6 +48,67 @@ const getLabel = ({ data, previousData, formattedDate, label, previousLabel }) =
 };
 
 /**
+ * Fills missing dates with zeroed y-values, updates labels
+ * walk the date range and fill missing values, all the while updating previous labels
+ *
+ * @param startDate {string}
+ * @param endDate {string}
+ * @param values {object} pre-filled key-value object
+ * @param label {string} i18n specific label
+ * @param previousLabel {string} i18n specific prevousLabel
+ * @returns {Array}
+ */
+const fillMissingValues = ({ startDate, endDate, values, label, previousLabel }) => {
+  const endDateStartDateDiff = moment(endDate).diff(startDate, 'days');
+  const chartData = [];
+
+  for (let i = 0; i <= endDateStartDateDiff; i++) {
+    const formattedDate = moment
+      .utc(startDate)
+      .add(i, 'days')
+      .format(chartDateFormat);
+    const updatedLabel = getLabel({
+      data: values[formattedDate] ? values[formattedDate].y : 0,
+      previousData: i > 0 ? chartData[i - 1].y : null,
+      formattedDate,
+      label,
+      previousLabel
+    });
+
+    if (values[formattedDate]) {
+      chartData.push({
+        x: values[formattedDate].x,
+        y: values[formattedDate].y,
+        label: updatedLabel
+      });
+    } else {
+      chartData.push({
+        x: formattedDate,
+        y: 0,
+        label: updatedLabel
+      });
+    }
+  }
+  return chartData;
+};
+
+/**
+ * Returns chart domain setting for given inputs
+ * the y axis returns large enough number that zeroed bars dont show
+ *
+ * @param empty {boolean} Chart data is empty
+ * @returns {Object}
+ */
+const getChartDomain = ({ empty }) => {
+  // todo: daily vs weekly
+  const chartDomain = { x: [0, 31] };
+  if (empty) {
+    chartDomain.y = [0, 100];
+  }
+  return chartDomain;
+};
+
+/**
  * Convert graph data to usable format
  * convert json usage report from this format:
  *  {cores: 56, date: "2019-06-01T00:00:00Z", instance_count: 28}
@@ -60,30 +120,29 @@ const getLabel = ({ data, previousData, formattedDate, label, previousLabel }) =
  * @param endDate {string}
  * @param label {string}
  * @param previousLabel {string}
- * @returns {Array}
+ * @returns {Object} Object array result converted { chartData: {...} chartDomain {...} }
  */
 const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel }) => {
   let chartData = [];
+  let chartDomain = {};
 
   try {
+    chartDomain = getChartDomain({});
+
+    const values = {};
     for (let i = 0; i < data.length; i++) {
       const formattedDate = moment
         .utc(data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
         .format(chartDateFormat);
 
-      const updatedLabel = getLabel({
-        data: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS],
-        previousData: i > 0 ? data[i - 1][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS] : null,
-        formattedDate,
-        label,
-        previousLabel
-      });
-
-      chartData.push({
+      values[formattedDate] = {
         x: formattedDate,
-        y: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS],
-        label: updatedLabel
-      });
+        y: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS]
+      };
+    }
+
+    if (data.length) {
+      chartData = fillMissingValues({ startDate, endDate, values, label, previousLabel });
     }
   } catch (e) {
     if (!helpers.TEST_MODE) {
@@ -93,9 +152,10 @@ const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel 
 
   if (!chartData.length) {
     chartData = zeroedUsageData(startDate, endDate);
+    chartDomain = getChartDomain({ empty: true });
   }
 
-  return chartData;
+  return { chartData, chartDomain };
 };
 
 const getGraphHeight = (breakpoints, currentBreakpoint) =>
