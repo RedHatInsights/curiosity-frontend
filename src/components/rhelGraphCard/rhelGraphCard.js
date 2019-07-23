@@ -41,42 +41,21 @@ class RhelGraphCard extends React.Component {
     }));
   };
 
-  render() {
-    const { error, fulfilled, graphData, pending, t, breakpoints, currentBreakpoint, startDate, endDate } = this.props;
-    const { dropdownIsOpen } = this.state;
+  renderChart() {
+    const { graphData, t, breakpoints, currentBreakpoint, startDate, endDate } = this.props;
 
     const graphHeight = graphHelpers.getGraphHeight(breakpoints, currentBreakpoint);
     const tooltipDimensions = graphHelpers.getTooltipDimensions(breakpoints, currentBreakpoint);
 
-    // todo: evaluate the granularity here: "daily" "weekly" etc. this may need to move towards the helpers
-    const chartDomain = { x: [0, 31] };
-
-    let chartData;
-
-    if (error) {
-      // todo: evaluate show error toast
-      // todo: this only fires on error, not in the event an array with a valid zero length.
-      // todo: we may need to combine error and fulfilled checks and handle the x and y axis defaults in the helpers
-      // note: specify a y range if we are showing the zeroed view
-      chartDomain.y = [0, 100];
-      chartData = graphHelpers.zeroedUsageData(startDate, endDate);
-    }
-
-    if (fulfilled) {
-      chartData = graphHelpers.convertGraphUsageData({
-        data: graphData.usage,
-        startDate,
-        endDate,
-        label: t('curiosity-graph.activeLabel', 'sockets active'),
-        previousLabel: t('curiosity-graph.previousLabel', 'from previous day')
-      });
-    }
-
-    const dropdownToggle = (
-      <DropdownToggle isDisabled onToggle={this.onToggle}>
-        {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
-      </DropdownToggle>
-    );
+    // todo: evaluate show error toast
+    // todo: evaluate the granularity here: "daily" "weekly" etc. and pass startDate/endDate
+    const { chartData, chartDomain } = graphHelpers.convertGraphUsageData({
+      data: graphData.usage,
+      startDate,
+      endDate,
+      label: t('curiosity-graph.tooltipLabel', 'sockets on'),
+      previousLabel: t('curiosity-graph.tooltipPreviousLabel', 'from previous day')
+    });
 
     const tooltipTheme = {
       ...ChartBaseTheme,
@@ -99,6 +78,29 @@ class RhelGraphCard extends React.Component {
         theme={tooltipTheme}
         labelComponent={<ChartLabel dy={-1} className="curiosity-usage-graph-tooltip-text" />}
       />
+    );
+
+    return (
+      <CardBody>
+        <div className="stack-chart-container">
+          <Chart height={graphHeight} domainPadding={{ x: [10, 2], y: [1, 1] }} domain={chartDomain}>
+            <ChartStack>
+              <ChartBar data={chartData} labelComponent={chartTooltip} />
+            </ChartStack>
+          </Chart>
+        </div>
+      </CardBody>
+    );
+  }
+
+  render() {
+    const { error, fulfilled, pending, t } = this.props;
+    const { dropdownIsOpen } = this.state;
+
+    const dropdownToggle = (
+      <DropdownToggle isDisabled onToggle={this.onToggle}>
+        {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
+      </DropdownToggle>
     );
 
     return (
@@ -125,17 +127,7 @@ class RhelGraphCard extends React.Component {
             </div>
           </CardBody>
         )}
-        {(fulfilled || error) && (
-          <CardBody>
-            <div className="stack-chart-container">
-              <Chart height={graphHeight} domainPadding={{ x: [10, 2], y: [1, 1] }} domain={chartDomain}>
-                <ChartStack>
-                  <ChartBar data={chartData} labelComponent={chartTooltip} />
-                </ChartStack>
-              </Chart>
-            </div>
-          </CardBody>
-        )}
+        {(fulfilled || error) && this.renderChart()}
       </Card>
     );
   }

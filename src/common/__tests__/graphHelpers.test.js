@@ -13,6 +13,16 @@ describe('GraphHelpers', () => {
     expect(graphHelpers).toMatchSnapshot('graphHelpers');
   });
 
+  it('should convert graph data and return zeroed usage array if error', () => {
+    const props = {
+      startDate: new Date('2019-06-01T00:00:00Z'),
+      endDate: new Date('2019-06-05T23:59:59Z'),
+      error: true
+    };
+
+    expect(convertGraphUsageData(props)).toMatchSnapshot('error is true');
+  });
+
   it('should convert graph data and return zeroed usage array if usage is empty', () => {
     const props = {
       startDate: new Date('2019-06-01T00:00:00Z'),

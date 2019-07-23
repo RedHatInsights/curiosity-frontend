@@ -1,86 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphHelpers should convert graph data and generate tooltips when usage is populated: usage populated 1`] = `
-Array [
-  Object {
-    "label": "5 sockets on Jun 1",
-    "x": "Jun 1",
-    "y": 5,
-  },
-  Object {
-    "label": "7 sockets on Jun 2
+Object {
+  "chartData": Array [
+    Object {
+      "label": "5 sockets on Jun 1",
+      "x": "Jun 1",
+      "y": 5,
+    },
+    Object {
+      "label": "7 sockets on Jun 2
  +2 from previous day",
-    "x": "Jun 2",
-    "y": 7,
-  },
-  Object {
-    "label": "3 sockets on Jun 3
+      "x": "Jun 2",
+      "y": 7,
+    },
+    Object {
+      "label": "3 sockets on Jun 3
  -4 from previous day",
-    "x": "Jun 3",
-    "y": 3,
-  },
-  Object {
-    "label": "0 sockets on Jun 4
+      "x": "Jun 3",
+      "y": 3,
+    },
+    Object {
+      "label": "0 sockets on Jun 4
  -3 from previous day",
-    "x": "Jun 4",
-    "y": 0,
+      "x": "Jun 4",
+      "y": 0,
+    },
+    Object {
+      "label": "0 sockets on Jun 5",
+      "x": "Jun 5",
+      "y": 0,
+    },
+  ],
+  "chartDomain": Object {
+    "x": Array [
+      0,
+      31,
+    ],
   },
-  Object {
-    "label": "0 sockets on Jun 5",
-    "x": "Jun 5",
-    "y": 0,
+}
+`;
+
+exports[`GraphHelpers should convert graph data and return zeroed usage array if error: error is true 1`] = `
+Object {
+  "chartData": Array [
+    Object {
+      "x": "Jun 1",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 2",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 3",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 4",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 5",
+      "y": 0,
+    },
+  ],
+  "chartDomain": Object {
+    "x": Array [
+      0,
+      31,
+    ],
+    "y": Array [
+      0,
+      100,
+    ],
   },
-]
+}
 `;
 
 exports[`GraphHelpers should convert graph data and return zeroed usage array if usage is empty: zeroed array 1`] = `
-Array [
-  Object {
-    "x": "Jun 1",
-    "y": "0",
+Object {
+  "chartData": Array [
+    Object {
+      "x": "Jun 1",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 2",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 3",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 4",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 5",
+      "y": 0,
+    },
+  ],
+  "chartDomain": Object {
+    "x": Array [
+      0,
+      31,
+    ],
+    "y": Array [
+      0,
+      100,
+    ],
   },
-  Object {
-    "x": "Jun 2",
-    "y": "0",
-  },
-  Object {
-    "x": "Jun 3",
-    "y": "0",
-  },
-  Object {
-    "x": "Jun 4",
-    "y": "0",
-  },
-  Object {
-    "x": "Jun 5",
-    "y": "0",
-  },
-]
+}
 `;
 
 exports[`GraphHelpers should convert graph data and returned zeroed array when usage throws error: throws error 1`] = `
-Array [
-  Object {
-    "x": "Jun 1",
-    "y": "0",
+Object {
+  "chartData": Array [
+    Object {
+      "x": "Jun 1",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 2",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 3",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 4",
+      "y": 0,
+    },
+    Object {
+      "x": "Jun 5",
+      "y": 0,
+    },
+  ],
+  "chartDomain": Object {
+    "x": Array [
+      0,
+      31,
+    ],
+    "y": Array [
+      0,
+      100,
+    ],
   },
-  Object {
-    "x": "Jun 2",
-    "y": "0",
-  },
-  Object {
-    "x": "Jun 3",
-    "y": "0",
-  },
-  Object {
-    "x": "Jun 4",
-    "y": "0",
-  },
-  Object {
-    "x": "Jun 5",
-    "y": "0",
-  },
-]
+}
 `;
 
 exports[`GraphHelpers should have specific functions: graphHelpers 1`] = `

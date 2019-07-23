@@ -2,7 +2,7 @@
   "curiosity-graph": {
     "heading": "Daily CPU socket usage",
     "dropdownDefault": "Last 30 Days",
-    "activeLabel": "sockets active",
-    "previousLabel": "from previous day"
+    "tooltipLabel": "sockets on",
+    "tooltipPreviousLabel": "from previous day"
   }
 }
