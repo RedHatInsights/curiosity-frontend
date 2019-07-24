@@ -6,6 +6,7 @@ exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
   Object {
     "component": [Function],
+    "exact": true,
     "id": "rhel",
     "redirect": true,
     "title": "Red Hat Enterprise Linux",

@@ -20,6 +20,7 @@ exports[`Authorization Component should render a non-connected component authori
     Array [
       Object {
         "component": [Function],
+        "exact": true,
         "id": "rhel",
         "redirect": true,
         "title": "Red Hat Enterprise Linux",
@@ -58,6 +59,7 @@ exports[`Authorization Component should render a non-connected component error: 
     Array [
       Object {
         "component": [Function],
+        "exact": true,
         "id": "rhel",
         "redirect": true,
         "title": "Red Hat Enterprise Linux",
