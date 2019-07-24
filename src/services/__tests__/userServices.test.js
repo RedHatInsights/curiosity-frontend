@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import userServices from '../userServices';
 
 describe('UserServices', () => {
@@ -16,6 +17,29 @@ describe('UserServices', () => {
 
     Promise.all(promises).then(success => {
       expect(success.length).toEqual(Object.keys(userServices).length);
+      done();
+    });
+  });
+
+  it('should return default locale if no locale cookie is present', done => {
+    userServices.getLocale().then(locale => {
+      expect(locale).toMatchSnapshot();
+      done();
+    });
+  });
+
+  it('should return a specific locale cookie value', done => {
+    Cookies.get = jest.fn().mockImplementation(() => 'en_US');
+    userServices.getLocale().then(locale => {
+      expect(locale).toMatchSnapshot();
+      done();
+    });
+  });
+
+  it('should return the default locale with an invalid ISO_639 code', done => {
+    Cookies.get = jest.fn().mockImplementation(() => 'test_US');
+    userServices.getLocale().then(locale => {
+      expect(locale).toMatchSnapshot();
       done();
     });
   });

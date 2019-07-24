@@ -21,7 +21,7 @@ build
 public/apps
 public/locales/*.json
 !public/locales/locales.json
-!public/locales/en.json
+!public/locales/en*.json
 !.env
 .env*.local
 .chrome

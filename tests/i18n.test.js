@@ -1,6 +1,6 @@
 const get = require('lodash/get');
 const { GettextExtractor, JsExtractors } = require('gettext-extractor');
-const enLocales = require('../public/locales/en');
+const enLocales = require('../public/locales/en-US');
 
 const textExtractor = () => {
   const extractor = new GettextExtractor();
