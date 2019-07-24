@@ -4,6 +4,7 @@ exports[`Build distribution should match a specific file output 1`] = `
 Array [
   "",
   "./build/index.html",
+  "./build/locales/en-US.json",
   "./build/locales/en.json",
   "./build/locales/locales.json",
   "./build/static/css/2*chunk*map",

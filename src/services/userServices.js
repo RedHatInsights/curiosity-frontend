@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+import LocaleCode from 'locale-code';
 import { helpers } from '../common/helpers';
 
 const authorizeUser = () => {
@@ -14,21 +16,23 @@ const authorizeUser = () => {
   return returnMethod;
 };
 
+const getLocaleFromCookie = () => {
+  const value = (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace('_', '-');
+  const key = (value && LocaleCode.getLanguageName(value)) || null;
+
+  return (key && { value, key }) || null;
+};
+
 const getLocale = () => {
-  const locale = {
+  const defaultLocale = {
     value: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG,
     key: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG_DESC
   };
-
-  return new Promise(resolve => {
-    if (locale) {
-      return resolve({
-        data: locale
-      });
-    }
-
-    return resolve({});
-  });
+  return new Promise(resolve =>
+    resolve({
+      data: getLocaleFromCookie() || defaultLocale
+    })
+  );
 };
 
 const logoutUser = () =>
