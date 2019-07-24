@@ -7,6 +7,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
   <Switch>
     <Route
       component={[Function]}
+      exact={true}
       key="/rhel"
       path="/rhel"
     />

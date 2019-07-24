@@ -17,7 +17,8 @@ const routes = [
     id: 'rhel',
     to: '/rhel',
     redirect: true,
-    component: RhelView
+    component: RhelView,
+    exact: true
   }
 ];
 
