@@ -10,10 +10,9 @@ node_js:
 cache: yarn
 jobs:
   include:
-    - stage: Lint
-      script: yarn test:lint
     - stage: Test
-      before_script: yarn global add codecov
+      script: yarn test:lint
+    - before_script: yarn global add codecov
       script: yarn test:ci
       after_success: codecov
     - stage: Deploy
