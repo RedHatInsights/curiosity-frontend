@@ -1,67 +1,75 @@
-.curiosity-usage-graph .pf-c-card__head {
-  border-bottom: var(--pf-global--BorderWidth--sm) solid
-    var(--pf-global--BorderColor--100);
-}
+.curiosity-usage-graph {
+  .pf-c-card__head {
+    border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+  }
 
-.curiosity-usage-graph .skeleton-container {
-  padding-top: var(--pf-c-card--child--PaddingBottom);
-}
+  .curiosity-skeleton-container {
+    padding-top: var(--pf-c-card--child--PaddingBottom);
+  }
 
-.curiosity-usage-graph .skeleton-container .ins-c-skeleton {
-  margin-bottom: 20px;
+  .curiosity-skeleton-container .ins-c-skeleton {
+    margin-bottom: 20px;
 
-  &:last-child {
-    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-}
 
-.curiosity-usage-graph .stack-chart-container svg {
-  > g:nth-child(2) {
-    > g {
-      display: none;
-    }
-    > g:nth-child(5n-3) {
-      display: block;
-    }
+  .curiosity-usage-graph-label {
+    background-color: transparent;
+    color: var(--pf-global--Color--100);
   }
-  @media (min-width: $pf-global--breakpoint--xs) and (max-width: $pf-global--breakpoint--sm) {
-    tspan {
-      font-size: 14px !important;
+
+  .curiosity-stack-chart-container svg {
+    > g:nth-child(2) {
+      > g {
+        display: none;
+      }
+
+      > g:nth-child(5n-3) {
+        display: block;
+      }
     }
-  }
-  @media (min-width: $pf-global--breakpoint--sm) and (max-width: $pf-global--breakpoint--md) {
-    margin-top: -15px;
-    margin-bottom: -10px;
-    tspan {
-      font-size: 12px !important;
+
+    @media (min-width: $pf-global--breakpoint--xs) {
+      tspan {
+        font-size: 14px !important;
+      }
     }
-  }
-  @media (min-width: $pf-global--breakpoint--md) and (max-width: $pf-global--breakpoint--lg) {
-    margin-top: -25px;
-    margin-bottom: -20px;
-    tspan {
-      font-size: 10px !important;
+    @media (min-width: $pf-global--breakpoint--sm) {
+      margin-top: -15px;
+      margin-bottom: -10px;
+      tspan {
+        font-size: 12px !important;
+      }
     }
-  }
-  @media (min-width: $pf-global--breakpoint--lg) and (max-width: $pf-global--breakpoint--xl) {
-    margin-top: -35px;
-    margin-bottom: -20px;
-    tspan {
-      font-size: 8px !important;
+    @media (min-width: $pf-global--breakpoint--md) {
+      margin-top: -25px;
+      margin-bottom: -20px;
+      tspan {
+        font-size: 10px !important;
+      }
     }
-  }
-  @media (min-width: $pf-global--breakpoint--xl) and (max-width: 1500px) {
-    margin-top: -50px;
-    margin-bottom: -20px;
-    tspan {
-      font-size: 6px !important;
+    @media (min-width: $pf-global--breakpoint--lg) {
+      margin-top: -35px;
+      margin-bottom: -20px;
+      tspan {
+        font-size: 8px !important;
+      }
     }
-  }
-  @media (min-width: 1500px) {
-    margin-top: -70px;
-    margin-bottom: -40px;
-    tspan {
-      font-size: 6px !important;
+    @media (min-width: $pf-global--breakpoint--xl) {
+      margin-top: -50px;
+      margin-bottom: -20px;
+      tspan {
+        font-size: 6px !important;
+      }
+    }
+    @media (min-width: 1500px) {
+      margin-top: -70px;
+      margin-bottom: -40px;
+      tspan {
+        font-size: 6px !important;
+      }
     }
   }
 }

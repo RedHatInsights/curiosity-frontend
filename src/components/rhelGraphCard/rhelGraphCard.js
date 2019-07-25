@@ -8,7 +8,8 @@ import {
   CardBody,
   Dropdown,
   DropdownToggle,
-  DropdownPosition
+  DropdownPosition,
+  Label as PfLabel
 } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Chart, ChartBar, ChartBaseTheme, ChartLabel, ChartStack, ChartTooltip } from '@patternfly/react-charts';
@@ -82,7 +83,7 @@ class RhelGraphCard extends React.Component {
 
     return (
       <CardBody>
-        <div className="stack-chart-container">
+        <div className="curiosity-stack-chart-container">
           <Chart height={graphHeight} domainPadding={{ x: [10, 2], y: [1, 1] }} domain={chartDomain}>
             <ChartStack>
               <ChartBar data={chartData} labelComponent={chartTooltip} />
@@ -108,18 +109,24 @@ class RhelGraphCard extends React.Component {
         <CardHead>
           <h2>{t('curiosity-graph.heading', 'Daily CPU socket usage')}</h2>
           <CardActions>
-            <Dropdown
-              onSelect={this.onSelect}
-              position={DropdownPosition.right}
-              toggle={dropdownToggle}
-              isOpen={dropdownIsOpen}
-              dropdownItems={[]}
-            />
+            <PfLabel className="curiosity-usage-graph-label">
+              {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
+            </PfLabel>
+            {/* todo: revisit dropdown in future iterations */}
+            {false && (
+              <Dropdown
+                onSelect={this.onSelect}
+                position={DropdownPosition.right}
+                toggle={dropdownToggle}
+                isOpen={dropdownIsOpen}
+                dropdownItems={[]}
+              />
+            )}
           </CardActions>
         </CardHead>
         {pending && (
           <CardBody>
-            <div className="skeleton-container">
+            <div className="curiosity-skeleton-container">
               <Skeleton size={SkeletonSize.xs} />
               <Skeleton size={SkeletonSize.sm} />
               <Skeleton size={SkeletonSize.md} />

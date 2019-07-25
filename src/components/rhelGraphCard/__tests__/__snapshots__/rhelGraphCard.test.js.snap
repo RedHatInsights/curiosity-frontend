@@ -94,146 +94,15 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
             <div
               className="pf-c-card__actions"
             >
-              <Dropdown
-                autoFocus={true}
-                className=""
-                direction="down"
-                dropdownItems={Array []}
-                isGrouped={false}
-                isOpen={false}
-                isPlain={false}
-                onSelect={[Function]}
-                position="right"
-                toggle={
-                  <DropdownToggle
-                    className=""
-                    iconComponent={[Function]}
-                    id=""
-                    isActive={false}
-                    isDisabled={true}
-                    isFocused={false}
-                    isHovered={false}
-                    isOpen={false}
-                    isPlain={false}
-                    onToggle={[Function]}
-                    parentRef={null}
-                  >
-                    Last 30 Days
-                  </DropdownToggle>
-                }
+              <Label
+                className="curiosity-usage-graph-label"
               >
-                <DropdownWithContext
-                  autoFocus={true}
-                  className=""
-                  direction="down"
-                  dropdownItems={Array []}
-                  isGrouped={false}
-                  isOpen={false}
-                  isPlain={false}
-                  onSelect={[Function]}
-                  position="right"
-                  toggle={
-                    <DropdownToggle
-                      className=""
-                      iconComponent={[Function]}
-                      id=""
-                      isActive={false}
-                      isDisabled={true}
-                      isFocused={false}
-                      isHovered={false}
-                      isOpen={false}
-                      isPlain={false}
-                      onToggle={[Function]}
-                      parentRef={null}
-                    >
-                      Last 30 Days
-                    </DropdownToggle>
-                  }
+                <span
+                  className="pf-c-label curiosity-usage-graph-label"
                 >
-                  <div
-                    className="pf-c-dropdown"
-                  >
-                    <DropdownToggle
-                      ariaHasPopup={null}
-                      className=""
-                      iconComponent={[Function]}
-                      id="pf-toggle-id-0"
-                      isActive={false}
-                      isDisabled={true}
-                      isFocused={false}
-                      isHovered={false}
-                      isOpen={false}
-                      isPlain={false}
-                      key=".0"
-                      onEnter={[Function]}
-                      onToggle={[Function]}
-                      parentRef={null}
-                    >
-                      <Toggle
-                        ariaHasPopup={null}
-                        className=""
-                        id="pf-toggle-id-0"
-                        isActive={false}
-                        isDisabled={true}
-                        isFocused={false}
-                        isHovered={false}
-                        isOpen={false}
-                        isPlain={false}
-                        isSplitButton={false}
-                        onEnter={[Function]}
-                        onToggle={[Function]}
-                        parentRef={null}
-                        type={null}
-                      >
-                        <button
-                          aria-expanded={false}
-                          aria-haspopup={null}
-                          className="pf-c-dropdown__toggle pf-m-disabled"
-                          disabled={true}
-                          id="pf-toggle-id-0"
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          type="button"
-                        >
-                          <span
-                            className="pf-c-dropdown__toggle-text"
-                          >
-                            Last 30 Days
-                          </span>
-                          <CaretDownIcon
-                            className="pf-c-dropdown__toggle-icon"
-                            color="currentColor"
-                            noVerticalAlign={false}
-                            size="sm"
-                            title={null}
-                          >
-                            <svg
-                              aria-hidden={true}
-                              aria-labelledby={null}
-                              className="pf-c-dropdown__toggle-icon"
-                              fill="currentColor"
-                              height="1em"
-                              role="img"
-                              style={
-                                Object {
-                                  "verticalAlign": "-0.125em",
-                                }
-                              }
-                              viewBox="0 0 320 512"
-                              width="1em"
-                            >
-                              <path
-                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                                transform=""
-                              />
-                            </svg>
-                          </CaretDownIcon>
-                        </button>
-                      </Toggle>
-                    </DropdownToggle>
-                  </div>
-                </DropdownWithContext>
-              </Dropdown>
+                  Last 30 Days
+                </span>
+              </Label>
             </div>
           </CardActions>
         </div>
@@ -414,39 +283,16 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
       Daily CPU socket usage
     </h2>
     <CardActions>
-      <Dropdown
-        autoFocus={true}
-        className=""
-        direction="down"
-        dropdownItems={Array []}
-        isGrouped={false}
-        isOpen={false}
-        isPlain={false}
-        onSelect={[Function]}
-        position="right"
-        toggle={
-          <DropdownToggle
-            className=""
-            iconComponent={[Function]}
-            id=""
-            isActive={false}
-            isDisabled={true}
-            isFocused={false}
-            isHovered={false}
-            isOpen={false}
-            isPlain={false}
-            onToggle={[Function]}
-            parentRef={null}
-          >
-            Last 30 Days
-          </DropdownToggle>
-        }
-      />
+      <Label
+        className="curiosity-usage-graph-label"
+      >
+        Last 30 Days
+      </Label>
     </CardActions>
   </CardHead>
   <CardBody>
     <div
-      className="stack-chart-container"
+      className="curiosity-stack-chart-container"
     >
       <Chart
         domain={
@@ -1018,39 +864,16 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
       Daily CPU socket usage
     </h2>
     <CardActions>
-      <Dropdown
-        autoFocus={true}
-        className=""
-        direction="down"
-        dropdownItems={Array []}
-        isGrouped={false}
-        isOpen={false}
-        isPlain={false}
-        onSelect={[Function]}
-        position="right"
-        toggle={
-          <DropdownToggle
-            className=""
-            iconComponent={[Function]}
-            id=""
-            isActive={false}
-            isDisabled={true}
-            isFocused={false}
-            isHovered={false}
-            isOpen={false}
-            isPlain={false}
-            onToggle={[Function]}
-            parentRef={null}
-          >
-            Last 30 Days
-          </DropdownToggle>
-        }
-      />
+      <Label
+        className="curiosity-usage-graph-label"
+      >
+        Last 30 Days
+      </Label>
     </CardActions>
   </CardHead>
   <CardBody>
     <div
-      className="skeleton-container"
+      className="curiosity-skeleton-container"
     >
       <Skeleton
         size="xs"
