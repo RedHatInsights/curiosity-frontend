@@ -5,22 +5,23 @@ exports[`i18n locale should generate a predictable pot output snapshot: pot outp
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:109
+#: src/components/rhelGraphCard/rhelGraphCard.js:110
 msgctxt \\"Daily CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:57
+#: src/components/rhelGraphCard/rhelGraphCard.js:58
 msgctxt \\"from previous day\\"
 msgid \\"curiosity-graph.tooltipPreviousLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:102
+#: src/components/rhelGraphCard/rhelGraphCard.js:103
+#: src/components/rhelGraphCard/rhelGraphCard.js:113
 msgctxt \\"Last 30 Days\\"
 msgid \\"curiosity-graph.dropdownDefault\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:56
+#: src/components/rhelGraphCard/rhelGraphCard.js:57
 msgctxt \\"sockets on\\"
 msgid \\"curiosity-graph.tooltipLabel\\"
 msgstr \\"\\"
