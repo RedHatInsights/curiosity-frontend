@@ -301,6 +301,10 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               0,
               31,
             ],
+            "y": Array [
+              0,
+              10,
+            ],
           }
         }
         domainPadding={
