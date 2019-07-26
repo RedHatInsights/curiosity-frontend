@@ -93,18 +93,26 @@ const fillMissingValues = ({ startDate, endDate, values, label, previousLabel })
 };
 
 /**
- * Returns chart domain setting for given inputs
+ * Returns chart domain setting for given inputs.
+ *
+ * the y axis max should be rounded to the nearest 10 if less than 50,
+ * otherwise round to the nearest power of 10
+ *
  * the y axis returns large enough number that zeroed bars dont show
  *
  * @param empty {boolean} Chart data is empty
+ * @param maxY {boolean} The max y-value
  * @returns {Object}
  */
-const getChartDomain = ({ empty }) => {
-  // todo: daily vs weekly
+const getChartDomain = ({ empty, maxY = 0 }) => {
   const chartDomain = { x: [0, 31] };
-  if (empty) {
-    chartDomain.y = [0, 100];
+
+  if (empty || maxY < 50) {
+    chartDomain.y = [0, Math.ceil((maxY + 1) / 10) * 10];
+  } else {
+    chartDomain.y = [0, Math.pow(10, maxY.toString().length)];
   }
+
   return chartDomain;
 };
 
@@ -127,9 +135,9 @@ const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel 
   let chartDomain = {};
 
   try {
-    chartDomain = getChartDomain({});
-
     const values = {};
+    let maxY = 0;
+
     for (let i = 0; i < data.length; i++) {
       const formattedDate = moment
         .utc(data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
@@ -139,7 +147,9 @@ const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel 
         x: formattedDate,
         y: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS]
       };
+      maxY = values[formattedDate].y > maxY ? values[formattedDate].y : maxY;
     }
+    chartDomain = getChartDomain({ maxY });
 
     if (data.length) {
       chartData = fillMissingValues({ startDate, endDate, values, label, previousLabel });
@@ -193,6 +203,7 @@ const getTooltipFontSize = (breakpoints, currentBreakpoint) => {
 const graphHelpers = {
   chartDateFormat,
   convertGraphUsageData,
+  getChartDomain,
   getGraphHeight,
   getTooltipDimensions,
   getTooltipFontSize,
@@ -204,6 +215,7 @@ export {
   graphHelpers,
   chartDateFormat,
   convertGraphUsageData,
+  getChartDomain,
   getGraphHeight,
   getTooltipDimensions,
   getTooltipFontSize,

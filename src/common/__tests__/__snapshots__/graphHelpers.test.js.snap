@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GraphHelpers getChartDomain should return expected y domain for given inputs 1`] = `
+Object {
+  "empty array": Array [
+    0,
+    10,
+  ],
+  "maxY = 0": Array [
+    0,
+    10,
+  ],
+  "maxY = 100": Array [
+    0,
+    1000,
+  ],
+  "maxY = 1000": Array [
+    0,
+    10000,
+  ],
+  "maxY = 49": Array [
+    0,
+    50,
+  ],
+  "maxY = 50": Array [
+    0,
+    100,
+  ],
+  "maxY = 9": Array [
+    0,
+    10,
+  ],
+}
+`;
+
 exports[`GraphHelpers should convert graph data and generate tooltips when usage is populated: usage populated 1`] = `
 Object {
   "chartData": Array [
@@ -37,6 +70,10 @@ Object {
       0,
       31,
     ],
+    "y": Array [
+      0,
+      10,
+    ],
   },
 }
 `;
@@ -72,7 +109,7 @@ Object {
     ],
     "y": Array [
       0,
-      100,
+      10,
     ],
   },
 }
@@ -109,7 +146,7 @@ Object {
     ],
     "y": Array [
       0,
-      100,
+      10,
     ],
   },
 }
@@ -146,7 +183,7 @@ Object {
     ],
     "y": Array [
       0,
-      100,
+      10,
     ],
   },
 }
@@ -156,6 +193,7 @@ exports[`GraphHelpers should have specific functions: graphHelpers 1`] = `
 Object {
   "chartDateFormat": "MMM D",
   "convertGraphUsageData": [Function],
+  "getChartDomain": [Function],
   "getGraphHeight": [Function],
   "getTooltipDimensions": [Function],
   "getTooltipFontSize": [Function],

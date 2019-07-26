@@ -1,6 +1,7 @@
 import {
   graphHelpers,
   convertGraphUsageData,
+  getChartDomain,
   getGraphHeight,
   getTooltipDimensions,
   getTooltipFontSize
@@ -92,6 +93,18 @@ describe('GraphHelpers', () => {
         ...props
       })
     ).toMatchSnapshot('throws error');
+  });
+
+  it('getChartDomain should return expected y domain for given inputs', () => {
+    expect({
+      'empty array': getChartDomain({ empty: true }).y,
+      'maxY = 0': getChartDomain({ maxY: 0 }).y,
+      'maxY = 9': getChartDomain({ maxY: 9 }).y,
+      'maxY = 49': getChartDomain({ maxY: 49 }).y,
+      'maxY = 50': getChartDomain({ maxY: 50 }).y,
+      'maxY = 100': getChartDomain({ maxY: 100 }).y,
+      'maxY = 1000': getChartDomain({ maxY: 1000 }).y
+    }).toMatchSnapshot();
   });
 
   it('should match graph heights at all breakpoints', () => {
