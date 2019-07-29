@@ -16,7 +16,7 @@ class Router extends React.Component {
         }
 
         if (item.redirect === true) {
-          redirectRoot = <Redirect from="/" to={item.to} />;
+          redirectRoot = <Redirect to={item.to} />;
         }
 
         return (
