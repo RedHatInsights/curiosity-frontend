@@ -6,23 +6,19 @@ describe('ServiceConfig', () => {
   });
 
   it('should export a default services config', () => {
-    expect(service.serviceConfig).toBeDefined();
+    const configObject = service.serviceConfig();
 
-    const configObject = service.serviceConfig(
-      {
-        method: 'post',
-        timeout: 3
-      },
-      false
-    );
-
-    expect(configObject.method).toEqual('post');
-    expect(configObject.timeout).toEqual(3);
+    expect(Object.keys(configObject.headers).length).toBe(0);
+    expect(configObject.timeout).toBe(process.env.REACT_APP_AJAX_TIMEOUT);
   });
 
-  it('should export a default services config without authorization', () => {
-    const configObject = service.serviceConfig({}, false);
+  it('should export a customized services config', () => {
+    const configObject = service.serviceConfig({
+      method: 'post',
+      timeout: 3
+    });
 
-    expect(configObject.headers[process.env.REACT_APP_AUTH_HEADER]).toBeUndefined();
+    expect(configObject.method).toBe('post');
+    expect(configObject.timeout).toBe(3);
   });
 });

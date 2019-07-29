@@ -12,7 +12,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
       path="/rhel"
     />
     <Redirect
-      from="/"
       to="/rhel"
     />
   </Switch>
