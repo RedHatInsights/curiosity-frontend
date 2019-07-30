@@ -1,27 +1,21 @@
 import moment from 'moment/moment';
 import { helpers } from './helpers';
 
-const defaultDateTime = (helpers.TEST_MODE && {
+const defaultDateTime = ((
+  date = (helpers.TEST_MODE && '20190720') ||
+    (helpers.DEV_MODE && process.env.REACT_APP_DEBUG_DEFAULT_DATETIME) ||
+    new Date()
+) => ({
   start: moment
-    .utc('20190720')
+    .utc(date)
     .startOf('day')
     .subtract(30, 'days')
     .toDate(),
   end: moment
-    .utc('20190720')
+    .utc(date)
     .endOf('day')
     .toDate()
-}) || {
-  start: moment
-    .utc()
-    .startOf('day')
-    .subtract(30, 'days')
-    .toDate(),
-  end: moment
-    .utc()
-    .endOf('day')
-    .toDate()
-};
+}))();
 
 const dateHelpers = {
   defaultDateTime

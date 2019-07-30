@@ -65,6 +65,14 @@ can be found in [.codecov.yml](./.codecov.yml).
 
 ### Debugging and Testing
 
+#### Debugging the Graph Display
+You can apply a date override during local development by adding a `.env.local` (dotenv) file with the following line, in the repository root directory
+   ```
+   REACT_APP_DEBUG_DEFAULT_DATETIME=20190630
+   ```
+
+*Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
+
 #### Debugging Redux
 This project makes use of React & Redux. To enable Redux console logging, within the repository root directory, add a `.env.local` (dotenv) file with the follow line
   ```
