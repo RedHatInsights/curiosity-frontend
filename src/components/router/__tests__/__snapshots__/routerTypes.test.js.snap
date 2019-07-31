@@ -7,8 +7,14 @@ Array [
   Object {
     "component": [Function],
     "exact": true,
+    "id": "overview",
+    "title": "Subscription Reporting",
+    "to": "/",
+  },
+  Object {
+    "component": [Function],
+    "exact": true,
     "id": "rhel",
-    "redirect": true,
     "title": "Red Hat Enterprise Linux",
     "to": "/rhel",
   },

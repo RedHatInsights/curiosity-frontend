@@ -13,10 +13,16 @@ const baseName = helpers.UI_PATH;
  */
 const routes = [
   {
+    title: 'Subscription Reporting',
+    id: 'overview',
+    to: '/',
+    component: RhelView,
+    exact: true
+  },
+  {
     title: 'Red Hat Enterprise Linux',
     id: 'rhel',
     to: '/rhel',
-    redirect: true,
     component: RhelView,
     exact: true
   }
