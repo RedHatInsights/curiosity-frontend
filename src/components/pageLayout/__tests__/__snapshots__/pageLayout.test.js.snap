@@ -2,54 +2,40 @@
 
 exports[`PageLayout Component should render a basic component: basic 1`] = `
 <PageLayout>
-  <ReactBreakpoints
-    breakpointUnit="px"
-    breakpoints={
-      Object {
-        "lg": 992,
-        "md": 768,
-        "sm": 576,
-        "xl": 1200,
-        "xl2": 1450,
-        "xs": 0,
-      }
-    }
-    debounceDelay={50}
-    debounceResize={false}
-    snapMode={true}
+  <Page
+    breadcrumb={null}
+    className="layout-pf curiosity"
+    header={null}
+    isManagedSidebar={false}
+    mainContainerId={null}
+    onPageResize={[Function]}
+    sidebar={null}
+    skipToContent={null}
   >
-    <Page
-      breadcrumb={null}
-      className="layout-pf curiosity"
-      header={null}
-      isManagedSidebar={false}
-      onPageResize={[Function]}
-      sidebar={null}
-      skipToContent={null}
+    <div
+      className="pf-c-page layout-pf curiosity"
     >
-      <div
-        className="pf-c-page layout-pf curiosity"
+      <main
+        className="pf-c-page__main"
+        id={null}
+        role="main"
+        tabIndex={-1}
       >
-        <main
-          className="pf-c-page__main"
-          role="main"
+        <PageSection
+          noPadding={true}
         >
-          <PageSection
-            noPadding={true}
+          <section
+            className="pf-c-page__main-section pf-m-no-padding"
           >
-            <section
-              className="pf-c-page__main-section pf-m-no-padding"
+            <span
+              className="test"
             >
-              <span
-                className="test"
-              >
-                lorem
-              </span>
-            </section>
-          </PageSection>
-        </main>
-      </div>
-    </Page>
-  </ReactBreakpoints>
+              lorem
+            </span>
+          </section>
+        </PageSection>
+      </main>
+    </div>
+  </Page>
 </PageLayout>
 `;

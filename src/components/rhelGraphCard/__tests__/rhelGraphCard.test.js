@@ -1,8 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { Chart, ChartBar } from '@patternfly/react-charts';
+import { ChartBar } from '@patternfly/react-charts';
 import { RhelGraphCard } from '../rhelGraphCard';
-import { helpers } from '../../../common';
 import { rhelApiTypes } from '../../../types/rhelApiTypes';
 
 describe('RhelGraphCard Component', () => {
@@ -68,72 +67,29 @@ describe('RhelGraphCard Component', () => {
     expect(component).toMatchSnapshot('fulfilled');
   });
 
-  it('should have specific breakpoint styles based on state', () => {
-    const { breakpoints } = helpers;
-    const props = {
-      error: false,
-      pending: false,
-      fulfilled: true,
-      breakpoints,
-      currentBreakpoint: 'xs'
-    };
+  it('should set initial width to zero and then resize', () => {
+    const component = shallow(<RhelGraphCard />);
 
-    const component = shallow(<RhelGraphCard {...props} />);
+    expect(component.instance().onResizeContainer).toBeDefined();
 
-    expect({
-      chartHeight: component.find(Chart).prop('height'),
-      chartBarLabelComponentHeight: component.find(ChartBar).prop('labelComponent').props.height,
-      chartBarLabelComponentStyle: component.find(ChartBar).prop('labelComponent').props.style
-    }).toMatchSnapshot('xs breakpoint');
+    // initial state width should be zero
+    expect(component.state().chartWidth).toEqual(0);
 
-    component.setProps({
-      currentBreakpoint: 'sm'
-    });
+    // set the container size arbitrarily
+    component.instance().containerRef.current = { clientWidth: 100 };
+    global.dispatchEvent(new Event('resize'));
+    expect(component.state().chartWidth).toEqual(100);
 
-    expect({
-      chartHeight: component.find(Chart).prop('height'),
-      chartBarLabelComponentHeight: component.find(ChartBar).prop('labelComponent').props.height,
-      chartBarLabelComponentStyle: component.find(ChartBar).prop('labelComponent').props.style
-    }).toMatchSnapshot('sm breakpoint');
+    // set the container size arbitrarily and force handleResize to fire
+    component.instance().containerRef.current = { clientWidth: 1337 };
+    global.dispatchEvent(new Event('resize'));
+    expect(component.state().chartWidth).toEqual(1337);
+  });
 
-    component.setProps({
-      currentBreakpoint: 'md'
-    });
-
-    expect({
-      chartHeight: component.find(Chart).prop('height'),
-      chartBarLabelComponentHeight: component.find(ChartBar).prop('labelComponent').props.height,
-      chartBarLabelComponentStyle: component.find(ChartBar).prop('labelComponent').props.style
-    }).toMatchSnapshot('md breakpoint');
-
-    component.setProps({
-      currentBreakpoint: 'lg'
-    });
-
-    expect({
-      chartHeight: component.find(Chart).prop('height'),
-      chartBarLabelComponentHeight: component.find(ChartBar).prop('labelComponent').props.height,
-      chartBarLabelComponentStyle: component.find(ChartBar).prop('labelComponent').props.style
-    }).toMatchSnapshot('lg breakpoint');
-
-    component.setProps({
-      currentBreakpoint: 'xl'
-    });
-
-    expect({
-      chartHeight: component.find(Chart).prop('height'),
-      chartBarLabelComponentHeight: component.find(ChartBar).prop('labelComponent').props.height,
-      chartBarLabelComponentStyle: component.find(ChartBar).prop('labelComponent').props.style
-    }).toMatchSnapshot('xl breakpoint');
-
-    component.setProps({
-      currentBreakpoint: 'xl2'
-    });
-
-    expect({
-      chartHeight: component.find(Chart).prop('height'),
-      chartBarLabelComponentHeight: component.find(ChartBar).prop('labelComponent').props.height,
-      chartBarLabelComponentStyle: component.find(ChartBar).prop('labelComponent').props.style
-    }).toMatchSnapshot('xl2 breakpoint');
+  it('should run componentWillUnmount method successfully', () => {
+    const component = mount(<RhelGraphCard />);
+    const componentWillUnmount = jest.spyOn(component.instance(), 'componentWillUnmount');
+    component.unmount();
+    expect(componentWillUnmount).toHaveBeenCalled();
   });
 });
