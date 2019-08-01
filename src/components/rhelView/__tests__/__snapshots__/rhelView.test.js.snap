@@ -8,7 +8,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
     />
   </PageHeader>
   <PageSection>
-    <Connect(withBreakpoints(RhelGraphCard)) />
+    <Connect(RhelGraphCard) />
   </PageSection>
 </Fragment>
 `;

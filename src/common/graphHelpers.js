@@ -2,6 +2,9 @@ import moment from 'moment';
 import { rhelApiTypes } from '../types/rhelApiTypes';
 import { helpers } from './helpers';
 
+/**
+ * Chart Date Format (used in axis and tooltips)
+ */
 const chartDateFormat = 'MMM D';
 
 /**
@@ -55,7 +58,7 @@ const getLabel = ({ data, previousData, formattedDate, label, previousLabel }) =
  * @param endDate {string}
  * @param values {object} pre-filled key-value object
  * @param label {string} i18n specific label
- * @param previousLabel {string} i18n specific prevousLabel
+ * @param previousLabel {string} i18n specific previousLabel
  * @returns {Array}
  */
 const fillMissingValues = ({ startDate, endDate, values, label, previousLabel }) => {
@@ -117,6 +120,16 @@ const getChartDomain = ({ empty, maxY = 0 }) => {
 };
 
 /**
+ * Returns x axis ticks/intervals array for the xAxisTickInterval
+ *
+ * @param {Array} chartData
+ * @param {number} xAxisTickInterval
+ * @returns {Array}
+ */
+const getTickValues = ({ chartData, xAxisTickInterval = 5 }) =>
+  chartData.reduce((acc, current, index) => (index % xAxisTickInterval === 0 ? acc.concat(current.x) : acc), []);
+
+/**
  * Convert graph data to usable format
  * convert json usage report from this format:
  *  {cores: 56, date: "2019-06-01T00:00:00Z", instance_count: 28}
@@ -128,9 +141,10 @@ const getChartDomain = ({ empty, maxY = 0 }) => {
  * @param endDate {string}
  * @param label {string}
  * @param previousLabel {string}
+ * @param xAxisTickInterval {number}
  * @returns {Object} Object array result converted { chartData: {...} chartDomain {...} }
  */
-const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel }) => {
+const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel, xAxisTickInterval }) => {
   let chartData = [];
   let chartDomain = {};
 
@@ -165,48 +179,16 @@ const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel 
     chartDomain = getChartDomain({ empty: true });
   }
 
-  return { chartData, chartDomain };
-};
+  const tickValues = getTickValues({ chartData, xAxisTickInterval });
 
-const getGraphHeight = (breakpoints, currentBreakpoint) =>
-  (breakpoints[currentBreakpoint] > breakpoints.md && 200) || 400;
-
-const getTooltipDimensions = (breakpoints, currentBreakpoint) => {
-  if (breakpoints[currentBreakpoint] < breakpoints.sm) {
-    return { height: 60, width: 200 };
-  }
-  if (breakpoints[currentBreakpoint] < breakpoints.md) {
-    return { height: 50, width: 180 };
-  }
-  if (breakpoints[currentBreakpoint] < breakpoints.lg) {
-    return { height: 40, width: 140 };
-  }
-  if (breakpoints[currentBreakpoint] < breakpoints.xl) {
-    return { height: 40, width: 120 };
-  }
-  if (breakpoints[currentBreakpoint] < breakpoints.xl2) {
-    return { height: 30, width: 90 };
-  }
-  return { height: 20, width: 80 };
-};
-
-const getTooltipFontSize = (breakpoints, currentBreakpoint) => {
-  if (breakpoints[currentBreakpoint] > breakpoints.lg) {
-    return 8;
-  }
-  if (breakpoints[currentBreakpoint] > breakpoints.md) {
-    return 12;
-  }
-  return 14;
+  return { chartData, chartDomain, tickValues };
 };
 
 const graphHelpers = {
   chartDateFormat,
   convertGraphUsageData,
   getChartDomain,
-  getGraphHeight,
-  getTooltipDimensions,
-  getTooltipFontSize,
+  getTickValues,
   zeroedUsageData
 };
 
@@ -216,8 +198,6 @@ export {
   chartDateFormat,
   convertGraphUsageData,
   getChartDomain,
-  getGraphHeight,
-  getTooltipDimensions,
-  getTooltipFontSize,
+  getTickValues,
   zeroedUsageData
 };

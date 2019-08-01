@@ -10,7 +10,7 @@ msgctxt \\"Daily CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:58
+#: src/components/rhelGraphCard/rhelGraphCard.js:72
 msgctxt \\"from previous day\\"
 msgid \\"curiosity-graph.tooltipPreviousLabel\\"
 msgstr \\"\\"
@@ -21,7 +21,7 @@ msgctxt \\"Last 30 Days\\"
 msgid \\"curiosity-graph.dropdownDefault\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:57
+#: src/components/rhelGraphCard/rhelGraphCard.js:71
 msgctxt \\"sockets on\\"
 msgid \\"curiosity-graph.tooltipLabel\\"
 msgstr \\"\\"

@@ -75,6 +75,9 @@ Object {
       10,
     ],
   },
+  "tickValues": Array [
+    "Jun 1",
+  ],
 }
 `;
 
@@ -112,6 +115,9 @@ Object {
       10,
     ],
   },
+  "tickValues": Array [
+    "Jun 1",
+  ],
 }
 `;
 
@@ -149,6 +155,9 @@ Object {
       10,
     ],
   },
+  "tickValues": Array [
+    "Jun 1",
+  ],
 }
 `;
 
@@ -186,6 +195,20 @@ Object {
       10,
     ],
   },
+  "tickValues": Array [
+    "Jun 1",
+  ],
+}
+`;
+
+exports[`GraphHelpers should get tick values array given chart data 1`] = `
+Object {
+  "empty array": Array [],
+  "x axis interval": Array [
+    "Jan 1",
+    "Jan 3",
+    "Jan 5",
+  ],
 }
 `;
 
@@ -194,75 +217,7 @@ Object {
   "chartDateFormat": "MMM D",
   "convertGraphUsageData": [Function],
   "getChartDomain": [Function],
-  "getGraphHeight": [Function],
-  "getTooltipDimensions": [Function],
-  "getTooltipFontSize": [Function],
+  "getTickValues": [Function],
   "zeroedUsageData": [Function],
 }
 `;
-
-exports[`GraphHelpers should match graph heights at all breakpoints: lg graph height 1`] = `200`;
-
-exports[`GraphHelpers should match graph heights at all breakpoints: md graph height 1`] = `400`;
-
-exports[`GraphHelpers should match graph heights at all breakpoints: sm graph height 1`] = `400`;
-
-exports[`GraphHelpers should match graph heights at all breakpoints: xl graph height 1`] = `200`;
-
-exports[`GraphHelpers should match graph heights at all breakpoints: xl2 graph height 1`] = `200`;
-
-exports[`GraphHelpers should match graph heights at all breakpoints: xs graph height 1`] = `400`;
-
-exports[`GraphHelpers should match tooltip dimensions at all breakpoints: lg tooltip dimensions 1`] = `
-Object {
-  "height": 40,
-  "width": 120,
-}
-`;
-
-exports[`GraphHelpers should match tooltip dimensions at all breakpoints: md tooltip dimensions 1`] = `
-Object {
-  "height": 40,
-  "width": 140,
-}
-`;
-
-exports[`GraphHelpers should match tooltip dimensions at all breakpoints: sm tooltip dimensions 1`] = `
-Object {
-  "height": 50,
-  "width": 180,
-}
-`;
-
-exports[`GraphHelpers should match tooltip dimensions at all breakpoints: xl tooltip dimensions 1`] = `
-Object {
-  "height": 30,
-  "width": 90,
-}
-`;
-
-exports[`GraphHelpers should match tooltip dimensions at all breakpoints: xl2 tooltip dimensions 1`] = `
-Object {
-  "height": 20,
-  "width": 80,
-}
-`;
-
-exports[`GraphHelpers should match tooltip dimensions at all breakpoints: xs tooltip dimensions 1`] = `
-Object {
-  "height": 60,
-  "width": 200,
-}
-`;
-
-exports[`GraphHelpers should match tooltip font sizes at all breakpoints: lg tooltip font sizes 1`] = `12`;
-
-exports[`GraphHelpers should match tooltip font sizes at all breakpoints: md tooltip font sizes 1`] = `14`;
-
-exports[`GraphHelpers should match tooltip font sizes at all breakpoints: sm tooltip font sizes 1`] = `14`;
-
-exports[`GraphHelpers should match tooltip font sizes at all breakpoints: xl tooltip font sizes 1`] = `8`;
-
-exports[`GraphHelpers should match tooltip font sizes at all breakpoints: xl2 tooltip font sizes 1`] = `8`;
-
-exports[`GraphHelpers should match tooltip font sizes at all breakpoints: xs tooltip font sizes 1`] = `14`;

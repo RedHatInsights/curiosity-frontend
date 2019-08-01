@@ -79,123 +79,110 @@ exports[`Authorization Component should render a non-connected component error: 
   }
 >
   <PageLayout>
-    <ReactBreakpoints
-      breakpointUnit="px"
-      breakpoints={
-        Object {
-          "lg": 992,
-          "md": 768,
-          "sm": 576,
-          "xl": 1200,
-          "xl2": 1450,
-          "xs": 0,
-        }
-      }
-      debounceDelay={50}
-      debounceResize={false}
-      snapMode={true}
+    <Page
+      breadcrumb={null}
+      className="layout-pf curiosity"
+      header={null}
+      isManagedSidebar={false}
+      mainContainerId={null}
+      onPageResize={[Function]}
+      sidebar={null}
+      skipToContent={null}
     >
-      <Page
-        breadcrumb={null}
-        className="layout-pf curiosity"
-        header={null}
-        isManagedSidebar={false}
-        onPageResize={[Function]}
-        sidebar={null}
-        skipToContent={null}
+      <div
+        className="pf-c-page layout-pf curiosity"
       >
-        <div
-          className="pf-c-page layout-pf curiosity"
+        <main
+          className="pf-c-page__main"
+          id={null}
+          role="main"
+          tabIndex={-1}
         >
-          <main
-            className="pf-c-page__main"
-            role="main"
+          <PageSection
+            noPadding={true}
           >
-            <PageSection
-              noPadding={true}
+            <section
+              className="pf-c-page__main-section pf-m-no-padding"
             >
-              <section
-                className="pf-c-page__main-section pf-m-no-padding"
-              >
-                <PageHeader>
-                  <section
-                    className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-                    widget-type="InsightsPageHeader"
+              <PageHeader>
+                <section
+                  className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+                  widget-type="InsightsPageHeader"
+                >
+                  <PageHeaderTitle
+                    title="Unauthorized"
                   >
-                    <PageHeaderTitle
-                      title="Unauthorized"
+                    <Title
+                      className=""
+                      size="2xl"
+                      widget-type="InsightsPageHeaderTitle"
                     >
-                      <Title
-                        className=""
-                        size="2xl"
+                      <h1
+                        className="pf-c-title pf-m-2xl"
                         widget-type="InsightsPageHeaderTitle"
                       >
-                        <h1
-                          className="pf-c-title pf-m-2xl"
-                          widget-type="InsightsPageHeaderTitle"
-                        >
-                           
-                          Unauthorized
-                           
-                        </h1>
-                      </Title>
-                    </PageHeaderTitle>
-                  </section>
-                </PageHeader>
-                <EmptyState
-                  className="fadein"
-                  variant="full"
+                         
+                        Unauthorized
+                         
+                      </h1>
+                    </Title>
+                  </PageHeaderTitle>
+                </section>
+              </PageHeader>
+              <EmptyState
+                className="fadein"
+                variant="full"
+              >
+                <div
+                  className="pf-c-empty-state fadein"
                 >
-                  <div
-                    className="pf-c-empty-state fadein"
+                  <EmptyStateIcon
+                    icon={[Function]}
                   >
-                    <EmptyStateIcon
-                      icon={[Function]}
+                    <BanIcon
+                      aria-hidden="true"
+                      className="pf-c-empty-state__icon"
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                      title={null}
                     >
-                      <BanIcon
+                      <svg
                         aria-hidden="true"
+                        aria-labelledby={null}
                         className="pf-c-empty-state__icon"
-                        color="currentColor"
-                        size="sm"
-                        title={null}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          aria-labelledby={null}
-                          className="pf-c-empty-state__icon"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
-                          style={
-                            Object {
-                              "verticalAlign": "-0.125em",
-                            }
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
                           }
-                          viewBox="0 0 512 512"
-                          width="1em"
-                        >
-                          <path
-                            d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
-                            transform=""
-                          />
-                        </svg>
-                      </BanIcon>
-                    </EmptyStateIcon>
-                    <EmptyStateBody>
-                      <p
-                        className="pf-c-empty-state__body"
+                        }
+                        viewBox="0 0 512 512"
+                        width="1em"
                       >
-                        You do not have permission to access reporting. Contact your administrator.
-                      </p>
-                    </EmptyStateBody>
-                  </div>
-                </EmptyState>
-              </section>
-            </PageSection>
-          </main>
-        </div>
-      </Page>
-    </ReactBreakpoints>
+                        <path
+                          d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
+                          transform=""
+                        />
+                      </svg>
+                    </BanIcon>
+                  </EmptyStateIcon>
+                  <EmptyStateBody>
+                    <div
+                      className="pf-c-empty-state__body"
+                    >
+                      You do not have permission to access reporting. Contact your administrator.
+                    </div>
+                  </EmptyStateBody>
+                </div>
+              </EmptyState>
+            </section>
+          </PageSection>
+        </main>
+      </div>
+    </Page>
   </PageLayout>
 </Authentication>
 `;

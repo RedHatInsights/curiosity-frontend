@@ -1,6 +1,7 @@
 .curiosity-usage-graph {
   .pf-c-card__head {
-    border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+    border-bottom: var(--pf-global--BorderWidth--sm) solid
+      var(--pf-global--BorderColor--100);
   }
 
   .curiosity-skeleton-container {
@@ -18,58 +19,5 @@
   .curiosity-usage-graph-label {
     background-color: transparent;
     color: var(--pf-global--Color--100);
-  }
-
-  .curiosity-stack-chart-container svg {
-    > g:nth-child(2) {
-      > g {
-        display: none;
-      }
-
-      > g:nth-child(5n-3) {
-        display: block;
-      }
-    }
-
-    @media (min-width: $pf-global--breakpoint--xs) {
-      tspan {
-        font-size: 14px !important;
-      }
-    }
-    @media (min-width: $pf-global--breakpoint--sm) {
-      margin-top: -15px;
-      margin-bottom: -10px;
-      tspan {
-        font-size: 12px !important;
-      }
-    }
-    @media (min-width: $pf-global--breakpoint--md) {
-      margin-top: -25px;
-      margin-bottom: -20px;
-      tspan {
-        font-size: 10px !important;
-      }
-    }
-    @media (min-width: $pf-global--breakpoint--lg) {
-      margin-top: -35px;
-      margin-bottom: -20px;
-      tspan {
-        font-size: 8px !important;
-      }
-    }
-    @media (min-width: $pf-global--breakpoint--xl) {
-      margin-top: -50px;
-      margin-bottom: -20px;
-      tspan {
-        font-size: 6px !important;
-      }
-    }
-    @media (min-width: 1500px) {
-      margin-top: -70px;
-      margin-bottom: -40px;
-      tspan {
-        font-size: 6px !important;
-      }
-    }
   }
 }
