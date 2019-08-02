@@ -2,10 +2,27 @@ import { helpers } from '../../common/helpers';
 import RhelView from '../rhelView/rhelView';
 
 /**
- * Return the application base directory.
- * @type {string}
+ * Return an assumed dynamic route baseName directory
+ * based on a predictable platform directory depth of
+ * /[OPTIONAL]/apps/[APP NAME]
+ *
+ * @param pathName {string}
+ * @param pathPrefix {string}
+ * @return {string}
  */
-const baseName = helpers.UI_PATH;
+const dynamicBaseName = ({ pathName, pathPrefix }) => {
+  const path = pathName.split('/');
+
+  path.shift();
+
+  const pathSlice = pathPrefix && new RegExp(path[0]).test(pathPrefix) ? 3 : 2;
+
+  return `/${path.slice(0, pathSlice).join('/')}`;
+};
+
+const baseName =
+  (helpers.TEST_MODE && '/') ||
+  dynamicBaseName({ pathName: window.location.pathname, pathPrefix: helpers.UI_DEPLOY_PATH_PREFIX });
 
 /**
  * Return array of objects that describe navigation
@@ -13,19 +30,13 @@ const baseName = helpers.UI_PATH;
  */
 const routes = [
   {
-    title: 'Subscription Reporting',
-    id: 'overview',
-    to: '/',
-    component: RhelView,
-    exact: true
-  },
-  {
     title: 'Red Hat Enterprise Linux',
     id: 'rhel',
     to: '/rhel',
+    redirect: true,
     component: RhelView,
     exact: true
   }
 ];
 
-export { routes as default, baseName, routes };
+export { routes as default, baseName, dynamicBaseName, routes };

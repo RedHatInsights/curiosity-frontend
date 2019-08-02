@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterTypes should return specific properties: baseName 1`] = `"/apps/subscription-reporting/"`;
+exports[`RouterTypes should return a generated baseName: app base lorem base name 1`] = `"/apps/lorem"`;
+
+exports[`RouterTypes should return a generated baseName: app base name 1`] = `"/apps/appName"`;
+
+exports[`RouterTypes should return a generated baseName: beta app base name 1`] = `"/beta/apps/appName"`;
+
+exports[`RouterTypes should return a generated baseName: beta app lorem base name 1`] = `"/beta/apps/lorem"`;
 
 exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
   Object {
     "component": [Function],
     "exact": true,
-    "id": "overview",
-    "title": "Subscription Reporting",
-    "to": "/",
-  },
-  Object {
-    "component": [Function],
-    "exact": true,
     "id": "rhel",
+    "redirect": true,
     "title": "Red Hat Enterprise Linux",
     "to": "/rhel",
   },

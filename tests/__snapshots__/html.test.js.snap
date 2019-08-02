@@ -3,7 +3,7 @@
 exports[`Index.HTML should have a specific html output: html output 1`] = `
 "
 <!doctype html>
-<html lang=\\"en\\">
+<html lang=\\"en-US\\">
 <head>
 <meta charset=\\"utf-8\\"/>
 <title>Subscription Reporting
