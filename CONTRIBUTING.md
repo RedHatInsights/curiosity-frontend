@@ -65,6 +65,23 @@ can be found in [.codecov.yml](./.codecov.yml).
 
 ### Debugging and Testing
 
+#### Debugging in environments
+You can access basic dotenv config values via a global window object unique to the application. You'll need to access the GUI through a browser, open the development console and type
+   ```
+   curiosity
+   ```
+   or
+   ```
+   window.curiosity
+   ```
+
+This should expose a quick grouping of string values (along with a few superfluous helper functions) enabling you to identify things such as the `release version`.
+
+The name of the window value can be found under the dotenv file `.env`
+   ```
+   REACT_APP_UI_LOGGER_ID=curiosity
+   ```
+
 #### Debugging the Graph Display
 You can apply a date override during local development by adding a `.env.local` (dotenv) file with the following line, in the repository root directory
    ```

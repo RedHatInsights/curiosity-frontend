@@ -33,11 +33,13 @@ const REVIEW_MODE = process.env.REACT_APP_ENV === 'review';
 
 const TEST_MODE = process.env.REACT_APP_ENV === 'test';
 
-const UI_NAME = process.env.REACT_APP_UI_NAME;
-
 const UI_DEPLOY_PATH_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_PREFIX;
 
 const UI_DISPLAY_NAME = process.env.REACT_APP_UI_DISPLAY_NAME;
+
+const UI_LOGGER_ID = process.env.REACT_APP_UI_LOGGER_ID || 'GUI';
+
+const UI_NAME = process.env.REACT_APP_UI_NAME;
 
 const UI_PATH = process.env.PUBLIC_URL || '/';
 
@@ -53,11 +55,14 @@ const helpers = {
   PROD_MODE,
   REVIEW_MODE,
   TEST_MODE,
-  UI_NAME,
   UI_DEPLOY_PATH_PREFIX,
   UI_DISPLAY_NAME,
+  UI_LOGGER_ID,
+  UI_NAME,
   UI_PATH,
   UI_VERSION
 };
+
+window[UI_LOGGER_ID] = { ...helpers };
 
 export { helpers as default, helpers };
