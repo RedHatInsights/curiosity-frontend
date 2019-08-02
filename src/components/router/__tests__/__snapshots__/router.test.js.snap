@@ -8,14 +8,11 @@ exports[`Router Component should render a basic component: basic 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="/"
-      path="/"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
       key="/rhel"
       path="/rhel"
+    />
+    <Redirect
+      to="/rhel"
     />
   </Switch>
 </div>

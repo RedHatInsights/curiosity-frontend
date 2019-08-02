@@ -21,14 +21,8 @@ exports[`Authorization Component should render a non-connected component authori
       Object {
         "component": [Function],
         "exact": true,
-        "id": "overview",
-        "title": "Subscription Reporting",
-        "to": "/",
-      },
-      Object {
-        "component": [Function],
-        "exact": true,
         "id": "rhel",
+        "redirect": true,
         "title": "Red Hat Enterprise Linux",
         "to": "/rhel",
       },
@@ -66,14 +60,8 @@ exports[`Authorization Component should render a non-connected component error: 
       Object {
         "component": [Function],
         "exact": true,
-        "id": "overview",
-        "title": "Subscription Reporting",
-        "to": "/",
-      },
-      Object {
-        "component": [Function],
-        "exact": true,
         "id": "rhel",
+        "redirect": true,
         "title": "Red Hat Enterprise Linux",
         "to": "/rhel",
       },

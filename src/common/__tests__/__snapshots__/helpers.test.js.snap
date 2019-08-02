@@ -6,6 +6,7 @@ Object {
   "PROD_MODE": false,
   "REVIEW_MODE": false,
   "TEST_MODE": true,
+  "UI_DEPLOY_PATH_PREFIX": "",
   "UI_DISPLAY_NAME": "Subscription Reporting",
   "UI_NAME": "subscription-reporting",
   "UI_PATH": "/apps/subscription-reporting/",

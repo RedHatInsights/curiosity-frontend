@@ -35,6 +35,8 @@ const TEST_MODE = process.env.REACT_APP_ENV === 'test';
 
 const UI_NAME = process.env.REACT_APP_UI_NAME;
 
+const UI_DEPLOY_PATH_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_PREFIX;
+
 const UI_DISPLAY_NAME = process.env.REACT_APP_UI_DISPLAY_NAME;
 
 const UI_PATH = process.env.PUBLIC_URL || '/';
@@ -52,6 +54,7 @@ const helpers = {
   REVIEW_MODE,
   TEST_MODE,
   UI_NAME,
+  UI_DEPLOY_PATH_PREFIX,
   UI_DISPLAY_NAME,
   UI_PATH,
   UI_VERSION
