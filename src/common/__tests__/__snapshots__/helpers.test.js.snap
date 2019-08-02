@@ -8,6 +8,7 @@ Object {
   "TEST_MODE": true,
   "UI_DEPLOY_PATH_PREFIX": "",
   "UI_DISPLAY_NAME": "Subscription Reporting",
+  "UI_LOGGER_ID": "curiosity",
   "UI_NAME": "subscription-reporting",
   "UI_PATH": "/apps/subscription-reporting/",
   "UI_VERSION": "0.0.0.0000000",
