@@ -35,7 +35,8 @@ const routes = [
     to: '/rhel',
     redirect: true,
     component: RhelView,
-    exact: true
+    exact: true,
+    disabled: helpers.UI_DISABLED
   }
 ];
 

@@ -35,6 +35,8 @@ const TEST_MODE = process.env.REACT_APP_ENV === 'test';
 
 const UI_DEPLOY_PATH_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_PREFIX;
 
+const UI_DISABLED = process.env.REACT_APP_UI_DISABLED === 'true';
+
 const UI_DISPLAY_NAME = process.env.REACT_APP_UI_DISPLAY_NAME;
 
 const UI_LOGGER_ID = process.env.REACT_APP_UI_LOGGER_ID || 'GUI';
@@ -56,6 +58,7 @@ const helpers = {
   REVIEW_MODE,
   TEST_MODE,
   UI_DEPLOY_PATH_PREFIX,
+  UI_DISABLED,
   UI_DISPLAY_NAME,
   UI_LOGGER_ID,
   UI_NAME,

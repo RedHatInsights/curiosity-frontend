@@ -20,6 +20,7 @@ exports[`Authorization Component should render a non-connected component authori
     Array [
       Object {
         "component": [Function],
+        "disabled": false,
         "exact": true,
         "id": "rhel",
         "redirect": true,
@@ -59,6 +60,7 @@ exports[`Authorization Component should render a non-connected component error: 
     Array [
       Object {
         "component": [Function],
+        "disabled": false,
         "exact": true,
         "id": "rhel",
         "redirect": true,

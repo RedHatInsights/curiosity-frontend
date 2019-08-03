@@ -7,6 +7,7 @@ Object {
   "REVIEW_MODE": false,
   "TEST_MODE": true,
   "UI_DEPLOY_PATH_PREFIX": "",
+  "UI_DISABLED": false,
   "UI_DISPLAY_NAME": "Subscription Reporting",
   "UI_LOGGER_ID": "curiosity",
   "UI_NAME": "subscription-reporting",
