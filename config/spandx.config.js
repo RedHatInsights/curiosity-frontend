@@ -5,10 +5,13 @@ module.exports = {
     '/': {
       host: `http://${localhost}:5001`
     },
-    '/apps/subscription-reporting': {
+    '/apps/subscriptions': {
       host: `http://${localhost}:5001`
     },
-    '/staging/subscription-reporting': {
+    '/staging/subscriptions': {
+      host: `http://${localhost}:5001`
+    },
+    '/subscriptions': {
       host: `http://${localhost}:5001`
     },
     '/api': {
