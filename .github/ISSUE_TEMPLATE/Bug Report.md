@@ -4,7 +4,7 @@ about: Create a report to help us improve
 
 ---
 
-## Bug Description:
+## Description
 <!-- Provide a quick overview of the issue being raised. -->
 
 ### Expected behavior
@@ -15,14 +15,14 @@ about: Create a report to help us improve
 <!-- Provide the actual behavior for the program. -->
 ...
 
-### Steps to reproduce
+#### Steps to reproduce
 <!-- List clear steps to reproduce the bug. -->
 1.
 1.
 
-## Additional Context
+### Additional Context
 <!-- Append a demo/screenshot/animated gif of the problem -->
 
-### Version Information
+#### Version Information
 <!-- Package.json version, tag, or git commit information. -->
 ...
