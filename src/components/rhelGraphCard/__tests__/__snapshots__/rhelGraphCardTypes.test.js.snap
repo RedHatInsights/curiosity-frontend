@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RhelGraphCardTypes should have specific types: rhelGraphCardTypes 1`] = `
+Object {
+  "getDateMenuOptions": [Function],
+}
+`;
+
+exports[`RhelGraphCardTypes should return a specific output for getDateMenuOptionsType: getDateMenuOptionsType 1`] = `
+Array [
+  Object {
+    "title": "Daily",
+    "value": "daily",
+  },
+  Object {
+    "title": "Weekly",
+    "value": "weekly",
+  },
+  Object {
+    "title": "Monthly",
+    "value": "monthly",
+  },
+  Object {
+    "title": "Quarterly",
+    "value": "quarterly",
+  },
+]
+`;

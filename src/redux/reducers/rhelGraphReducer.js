@@ -1,6 +1,7 @@
-import { rhelTypes } from '../types';
+import { reduxTypes, rhelTypes } from '../types';
 import { rhelApiTypes } from '../../types/rhelApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
+import { dateHelpers } from '../../common/dateHelpers';
 
 const initialState = {
   graphData: {
@@ -49,6 +50,19 @@ const rhelGraphReducer = (state = initialState, action) => {
             usage: action.payload.data[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA] || []
           },
           fulfilled: true
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case reduxTypes.rhel.SET_GRAPH_RHEL_GRANULARITY:
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          graphGranularity: action.graphGranularity,
+          ...dateHelpers.getRangedDateTime(action.graphGranularity)
         },
         {
           state,

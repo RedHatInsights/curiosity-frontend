@@ -1,8 +1,15 @@
 {
   "curiosity-graph": {
     "heading": "Daily CPU socket usage",
-    "dropdownDefault": "Last 30 Days",
+    "dropdownDaily": "Daily",
+    "dropdownWeekly": "Weekly",
+    "dropdownMonthly": "Monthly",
+    "dropdownQuarterly": "Quarterly",
+    "dropdownPlaceholder": "Select date range",
     "tooltipLabel": "sockets on",
-    "tooltipPreviousLabel": "from previous day"
+    "tooltipPreviousLabelDaily": "from previous day",
+    "tooltipPreviousLabelWeekly": "from previous week",
+    "tooltipPreviousLabelMonthly": "from previous month",
+    "tooltipPreviousLabelQuarterly": "from previous quarter"
   }
 }

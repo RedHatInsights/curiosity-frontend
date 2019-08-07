@@ -1,7 +1,6 @@
 .curiosity-usage-graph {
   .pf-c-card__head {
-    border-bottom: var(--pf-global--BorderWidth--sm) solid
-      var(--pf-global--BorderColor--100);
+    border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
   }
 
   .curiosity-skeleton-container {
@@ -14,10 +13,5 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  .curiosity-usage-graph-label {
-    background-color: transparent;
-    color: var(--pf-global--Color--100);
   }
 }

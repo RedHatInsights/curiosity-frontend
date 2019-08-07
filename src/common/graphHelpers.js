@@ -1,45 +1,97 @@
 import moment from 'moment';
 import { rhelApiTypes } from '../types/rhelApiTypes';
-import { helpers } from './helpers';
+import { translate } from '../components/i18n/i18n';
+
+const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
 
 /**
  * Chart Date Format (used in axis and tooltips)
  */
-const chartDateFormat = 'MMM D';
+const chartDateDayFormatShort = 'MMM D';
+const chartDateDayFormat = 'MMM D YYYY';
+
+const chartDateMonthFormatShort = 'MMM';
+const chartDateMonthFormat = 'MMM YYYY';
 
 /**
- * Generate a fallback graph with zeroed data
+ * Returns x axis ticks/intervals array for the xAxisTickInterval
  *
- * @param startDate {string}
- * @param endDate {string}
- * @returns {Array}
+ * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
+ * @returns {number}
  */
-const zeroedUsageData = (startDate, endDate) => {
-  const zeroedArray = [];
-  const endDateStartDateDiff = moment(endDate).diff(startDate, 'days');
+const getChartXAxisLabelIncrement = granularity => {
+  switch (granularity) {
+    case GRANULARITY_TYPES.DAILY:
+      return 5;
+    case GRANULARITY_TYPES.WEEKLY:
+    case GRANULARITY_TYPES.MONTHLY:
+      return 2;
+    case GRANULARITY_TYPES.QUARTERLY:
+    default:
+      return 1;
+  }
+};
 
-  for (let i = 0; i <= endDateStartDateDiff; i++) {
-    const clonedStartDate = moment.utc(startDate);
-    zeroedArray.push({
-      x: clonedStartDate.add(i, 'days').format(chartDateFormat),
-      y: 0
-    });
+/**
+ * Return translated labels based on granularity.
+ *
+ * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
+ * @returns {Object}
+ */
+const getGraphLabels = granularity => {
+  const labels = {
+    label: translate('curiosity-graph.tooltipLabel')
+  };
+
+  switch (granularity) {
+    case GRANULARITY_TYPES.WEEKLY:
+      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelWeekly');
+      break;
+    case GRANULARITY_TYPES.MONTHLY:
+      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelMonthly');
+      break;
+    case GRANULARITY_TYPES.QUARTERLY:
+      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelQuarterly');
+      break;
+    case GRANULARITY_TYPES.DAILY:
+    default:
+      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelDaily');
+      break;
   }
 
-  return zeroedArray;
+  return labels;
+};
+
+/**
+ * Return a time allotment based on granularity
+ *
+ * @param {string} granularity enum based on rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
+ * @returns {string}
+ */
+const getGranularityDateType = granularity => {
+  switch (granularity) {
+    case GRANULARITY_TYPES.DAILY:
+      return 'days';
+    case GRANULARITY_TYPES.WEEKLY:
+      return 'weeks';
+    case GRANULARITY_TYPES.MONTHLY:
+    case GRANULARITY_TYPES.QUARTERLY:
+    default:
+      return 'months';
+  }
 };
 
 /**
  * Apply label formatting
  *
- * @param data {number}
- * @param previousData {number}
- * @param formattedDate {string}
- * @param label {string}
- * @param previousLabel {string}
+ * @param {number} data
+ * @param {number} previousData
+ * @param {string} formattedDate
+ * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {string}
  */
-const getLabel = ({ data, previousData, formattedDate, label, previousLabel }) => {
+const getLabel = ({ data, previousData, formattedDate, granularity }) => {
+  const { label, previousLabel } = getGraphLabels(granularity);
   const previousCount = data - previousData;
   const updatedLabel = `${data} ${label} ${formattedDate}`;
 
@@ -50,154 +102,118 @@ const getLabel = ({ data, previousData, formattedDate, label, previousLabel }) =
   return `${updatedLabel}\n ${previousCount > -1 ? '+' : ''}${previousCount} ${previousLabel}`;
 };
 
+// ToDo: when the API returns filler date values "fillFormatChartData" should be updated
 /**
- * Fills missing dates with zeroed y-values, updates labels
- * walk the date range and fill missing values, all the while updating previous labels
+ * Fill missing dates, and format graph data
  *
- * @param startDate {string}
- * @param endDate {string}
- * @param values {object} pre-filled key-value object
- * @param label {string} i18n specific label
- * @param previousLabel {string} i18n specific previousLabel
+ * @param {Array} data
+ * @param {Date} endDate
+ * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {Date} startDate
  * @returns {Array}
  */
-const fillMissingValues = ({ startDate, endDate, values, label, previousLabel }) => {
-  const endDateStartDateDiff = moment(endDate).diff(startDate, 'days');
+const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
+  const granularityType = getGranularityDateType(granularity);
+  const granularityTick = getChartXAxisLabelIncrement(granularity);
+  const endDateStartDateDiff = moment(endDate).diff(startDate, granularityType);
   const chartData = [];
 
+  let previousData = null;
+  let previousYear = null;
+
   for (let i = 0; i <= endDateStartDateDiff; i++) {
-    const formattedDate = moment
-      .utc(startDate)
-      .add(i, 'days')
-      .format(chartDateFormat);
-    const updatedLabel = getLabel({
-      data: values[formattedDate] ? values[formattedDate].y : 0,
-      previousData: i > 0 ? chartData[i - 1].y : null,
+    if (GRANULARITY_TYPES.QUARTERLY === granularity && i % 4 !== 0) {
+      continue;
+    }
+
+    const momentDate = moment.utc(startDate).add(i, granularityType);
+    const stringDate = momentDate.toISOString();
+    const year = parseInt(momentDate.year(), 10);
+
+    const checkTick = i % granularityTick === 0;
+    const isNewYear = i !== 0 && checkTick && year !== previousYear;
+    let formattedDate;
+
+    if (granularityType === 'months') {
+      formattedDate = isNewYear
+        ? momentDate.format(chartDateMonthFormat)
+        : momentDate.format(chartDateMonthFormatShort);
+    } else {
+      formattedDate = isNewYear ? momentDate.format(chartDateDayFormat) : momentDate.format(chartDateDayFormatShort);
+    }
+
+    const yAxis = data[stringDate] || 0;
+
+    const labelData = {
+      data: yAxis,
+      previousData,
       formattedDate,
-      label,
-      previousLabel
+      granularity
+    };
+
+    chartData.push({
+      x: chartData.length,
+      y: yAxis,
+      tooltip: getLabel(labelData),
+      xAxisLabel: granularityType === 'months' ? formattedDate.replace(/\s/, '\n') : formattedDate
     });
 
-    if (values[formattedDate]) {
-      chartData.push({
-        x: values[formattedDate].x,
-        y: values[formattedDate].y,
-        label: updatedLabel
-      });
-    } else {
-      chartData.push({
-        x: formattedDate,
-        y: 0,
-        label: updatedLabel
-      });
+    previousData = yAxis;
+
+    if (checkTick && year !== previousYear) {
+      previousYear = year;
     }
   }
+
   return chartData;
 };
 
 /**
- * Returns chart domain setting for given inputs.
- *
- * the y axis max should be rounded to the nearest 10 if less than 50,
- * otherwise round to the nearest power of 10
- *
- * the y axis returns large enough number that zeroed bars dont show
- *
- * @param empty {boolean} Chart data is empty
- * @param maxY {boolean} The max y-value
- * @returns {Object}
+ * ToDo: the y axis should be a total of all y axis values, an aspect of threshold
+ * When multiple data facets are being displayed "convertChartData" should be cleaned up.
  */
-const getChartDomain = ({ empty, maxY = 0 }) => {
-  const chartDomain = { x: [0, 31] };
-
-  if (empty || maxY < 50) {
-    chartDomain.y = [0, Math.ceil((maxY + 1) / 10) * 10];
-  } else {
-    chartDomain.y = [0, Math.pow(10, maxY.toString().length)];
-  }
-
-  return chartDomain;
-};
-
 /**
- * Returns x axis ticks/intervals array for the xAxisTickInterval
+ * Convert graph data to consumable format
  *
- * @param {Array} chartData
- * @param {number} xAxisTickInterval
- * @returns {Array}
- */
-const getTickValues = ({ chartData, xAxisTickInterval = 5 }) =>
-  chartData.reduce((acc, current, index) => (index % xAxisTickInterval === 0 ? acc.concat(current.x) : acc), []);
-
-/**
- * Convert graph data to usable format
- * convert json usage report from this format:
- *  {cores: 56, date: "2019-06-01T00:00:00Z", instance_count: 28}
- * to this format:
- *  { x: 'Jun 1', y: 56, label: '56 Sockets on Jun 1 \r\n +5 from previous day' }
- *
- * @param data {Array}
- * @param startDate {string}
- * @param endDate {string}
- * @param label {string}
- * @param previousLabel {string}
- * @param xAxisTickInterval {number}
+ * @param {Array} data
+ * @param {string} dataFacet the response property used for the y axis
+ * @param {date} startDate
+ * @param {date} endDate
+ * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {Object} Object array result converted { chartData: {...} chartDomain {...} }
  */
-const convertGraphUsageData = ({ data, startDate, endDate, label, previousLabel, xAxisTickInterval }) => {
-  let chartData = [];
-  let chartDomain = {};
+const convertChartData = ({ data, dataFacet, startDate, endDate, granularity }) => {
+  const formattedData = {};
 
-  try {
-    const values = {};
-    let maxY = 0;
-
-    for (let i = 0; i < data.length; i++) {
-      const formattedDate = moment
-        .utc(data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
-        .format(chartDateFormat);
-
-      values[formattedDate] = {
-        x: formattedDate,
-        y: data[i][rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS]
-      };
-      maxY = values[formattedDate].y > maxY ? values[formattedDate].y : maxY;
+  (data || []).forEach(value => {
+    if (value) {
+      const stringDate = moment.utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE]).toISOString();
+      formattedData[stringDate] = Number.parseInt(value[dataFacet], 10);
     }
-    chartDomain = getChartDomain({ maxY });
+  });
 
-    if (data.length) {
-      chartData = fillMissingValues({ startDate, endDate, values, label, previousLabel });
-    }
-  } catch (e) {
-    if (!helpers.TEST_MODE) {
-      console.warn(`Malformed API response ${e.message}`);
-    }
-  }
-
-  if (!chartData.length) {
-    chartData = zeroedUsageData(startDate, endDate);
-    chartDomain = getChartDomain({ empty: true });
-  }
-
-  const tickValues = getTickValues({ chartData, xAxisTickInterval });
-
-  return { chartData, chartDomain, tickValues };
+  return {
+    chartData: fillFormatChartData({ data: formattedData, endDate, granularity, startDate }),
+    chartXAxisLabelIncrement: getChartXAxisLabelIncrement(granularity)
+  };
 };
 
 const graphHelpers = {
-  chartDateFormat,
-  convertGraphUsageData,
-  getChartDomain,
-  getTickValues,
-  zeroedUsageData
+  fillFormatChartData,
+  convertChartData,
+  getGranularityDateType,
+  getGraphLabels,
+  getChartXAxisLabelIncrement,
+  getLabel
 };
 
 export {
   graphHelpers as default,
   graphHelpers,
-  chartDateFormat,
-  convertGraphUsageData,
-  getChartDomain,
-  getTickValues,
-  zeroedUsageData
+  fillFormatChartData,
+  convertChartData,
+  getGranularityDateType,
+  getGraphLabels,
+  getChartXAxisLabelIncrement,
+  getLabel
 };

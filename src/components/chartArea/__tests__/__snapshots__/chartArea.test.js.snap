@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChartArea Component should render a basic component: basic 1`] = `
+<div>
+  <Chart
+    domain={
+      Object {
+        "x": Array [
+          0,
+          10,
+        ],
+        "y": Array [
+          0,
+          10,
+        ],
+      }
+    }
+    width={0}
+  >
+    <ChartAxis />
+    <ChartAxis
+      dependentAxis={true}
+      showGrid={true}
+    />
+    <ChartStack />
+  </Chart>
+</div>
+`;
+
+exports[`ChartArea Component should render basic data: data 1`] = `
+<div>
+  <Chart
+    containerComponent={
+      <ChartVoronoiContainer
+        activateData={true}
+        activateLabels={true}
+        className="VictoryContainer"
+        labelComponent={
+          <VictoryTooltip
+            active={false}
+            flyoutComponent={
+              <Flyout
+                pathComponent={<Path />}
+              />
+            }
+            groupComponent={<g />}
+            labelComponent={
+              <VictoryLabel
+                capHeight={0.71}
+                direction="inherit"
+                lineHeight={1}
+                textComponent={<Text />}
+                tspanComponent={<TSpan />}
+              />
+            }
+            renderInPortal={true}
+          />
+        }
+        labels={[Function]}
+        portalComponent={<Portal />}
+        portalZIndex={99}
+        responsive={true}
+        voronoiPadding={5}
+      />
+    }
+    width={0}
+  >
+    <ChartAxis
+      fixLabelOverlap={false}
+      tickFormat={[Function]}
+      tickValues={
+        Array [
+          1,
+          2,
+        ]
+      }
+    />
+    <ChartAxis
+      dependentAxis={true}
+      fixLabelOverlap={false}
+      showGrid={true}
+      tickFormat={[Function]}
+      tickValues={
+        Array [
+          1,
+          2,
+        ]
+      }
+    />
+    <ChartStack>
+      <ChartArea
+        data={
+          Array [
+            Object {
+              "tooltip": "1 lorem ipsum",
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 1,
+              "yAxisLabel": "1 y axis label",
+            },
+            Object {
+              "tooltip": "2 lorem ipsum",
+              "x": 2,
+              "xAxisLabel": "2 x axis label",
+              "y": 2,
+              "yAxisLabel": "2 y axis label",
+            },
+          ]
+        }
+      />
+    </ChartStack>
+  </Chart>
+</div>
+`;

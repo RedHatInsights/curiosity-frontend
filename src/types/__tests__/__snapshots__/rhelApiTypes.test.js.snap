@@ -4,6 +4,12 @@ exports[`RhelApiTypes Should have specific API properties: all exported api type
 Object {
   "RHSM_API_QUERY_END_DATE": "ending",
   "RHSM_API_QUERY_GRANULARITY": "granularity",
+  "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+    "DAILY": "daily",
+    "MONTHLY": "monthly",
+    "QUARTERLY": "quarterly",
+    "WEEKLY": "weekly",
+  },
   "RHSM_API_QUERY_LIMIT": "limit",
   "RHSM_API_QUERY_OFFSET": "offset",
   "RHSM_API_QUERY_START_DATE": "beginning",
@@ -17,6 +23,12 @@ Object {
   "default": Object {
     "RHSM_API_QUERY_END_DATE": "ending",
     "RHSM_API_QUERY_GRANULARITY": "granularity",
+    "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+      "DAILY": "daily",
+      "MONTHLY": "monthly",
+      "QUARTERLY": "quarterly",
+      "WEEKLY": "weekly",
+    },
     "RHSM_API_QUERY_LIMIT": "limit",
     "RHSM_API_QUERY_OFFSET": "offset",
     "RHSM_API_QUERY_START_DATE": "beginning",
@@ -31,6 +43,12 @@ Object {
   "rhelApiTypes": Object {
     "RHSM_API_QUERY_END_DATE": "ending",
     "RHSM_API_QUERY_GRANULARITY": "granularity",
+    "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+      "DAILY": "daily",
+      "MONTHLY": "monthly",
+      "QUARTERLY": "quarterly",
+      "WEEKLY": "weekly",
+    },
     "RHSM_API_QUERY_LIMIT": "limit",
     "RHSM_API_QUERY_OFFSET": "offset",
     "RHSM_API_QUERY_START_DATE": "beginning",
@@ -49,6 +67,12 @@ exports[`RhelApiTypes Should have specific API properties: specific types 1`] = 
 Object {
   "RHSM_API_QUERY_END_DATE": "ending",
   "RHSM_API_QUERY_GRANULARITY": "granularity",
+  "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+    "DAILY": "daily",
+    "MONTHLY": "monthly",
+    "QUARTERLY": "quarterly",
+    "WEEKLY": "weekly",
+  },
   "RHSM_API_QUERY_LIMIT": "limit",
   "RHSM_API_QUERY_OFFSET": "offset",
   "RHSM_API_QUERY_START_DATE": "beginning",

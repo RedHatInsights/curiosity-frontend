@@ -1159,12 +1159,12 @@
   resolved "https://registry.yarnpkg.com/@patternfly/patternfly/-/patternfly-2.8.3.tgz#914e09f4512addc6712d9f963c3e444860bed33f"
   integrity sha512-x+zxOCEOtxqoLwBQK+I2BB1CGY/uX40uFpE4RMUPv75W8BLegC0jvXHMM+BK5eP3680AMfVZn5xbfQVAVzyT1A==
 
-"@patternfly/react-charts@4.7.2":
-  version "4.7.2"
-  resolved "https://registry.npmjs.org/@patternfly/react-charts/-/react-charts-4.7.2.tgz#714ae22491485773da3a7696406f3f8b771631a1"
-  integrity sha512-RZmPu8tViT7YyTYhYHTJ8PLgvjxv07sLR272OBcQ/1yrB1GlAJOkT5BkpED3zJ8uONj6nqAJ8x9zcN7nM55RvA==
+"@patternfly/react-charts@4.7.9":
+  version "4.7.9"
+  resolved "https://registry.yarnpkg.com/@patternfly/react-charts/-/react-charts-4.7.9.tgz#0418032490637890904a2c11275767a17a923604"
+  integrity sha512-3fXyTeJhNJHOH1xp+Unql4IcSYC1UYloPoafWKnfKgPDxicCt9LxEErRybqNyZHSNDXtVS2ZhjSR2KSvRWUUZg==
   dependencies:
-    "@patternfly/react-styles" "^3.5.7"
+    "@patternfly/react-styles" "^3.5.13"
   optionalDependencies:
     "@types/lodash" "^4.14.132"
     "@types/victory" "^31.0.18"
@@ -1201,7 +1201,26 @@
   dependencies:
     "@fortawesome/free-brands-svg-icons" "^5.8.1"
 
-"@patternfly/react-styles@3.5.7", "@patternfly/react-styles@^3.5.7":
+"@patternfly/react-styles@3.5.13", "@patternfly/react-styles@^3.5.13":
+  version "3.5.13"
+  resolved "https://registry.yarnpkg.com/@patternfly/react-styles/-/react-styles-3.5.13.tgz#b6d4454eaf8ce2041f6e410aa85eef0e53892b24"
+  integrity sha512-aiyOp/n4cMxWhNmokG9EAFt06YmWDi3EdGfa5gyjYRwABGLUhyHo2r7kBqT3xxw0bLcOYDTPU94SaH63uAaRag==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0-beta.48"
+    camel-case "^3.0.0"
+    css "^2.2.3"
+    cssom "^0.3.4"
+    cssstyle "^0.3.1"
+    emotion "^9.2.9"
+    emotion-server "^9.2.9"
+    fbjs-scripts "^0.8.3"
+    fs-extra "^6.0.1"
+    jsdom "^15.1.0"
+    relative "^3.0.2"
+    resolve-from "^4.0.0"
+    typescript "3.4.5"
+
+"@patternfly/react-styles@^3.5.7":
   version "3.5.7"
   resolved "https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-3.5.7.tgz#0bf8e615d09c2ed37235f3bcdb633764469ff499"
   integrity sha512-6EzVzSnn3hTnsxeKvB5rZY1f/egkDIJRuSO5VGeXtuQv52KEyb3UDLSIuuZVBR7RZdgXsL0FvQ0lsyIxEPYcFg==

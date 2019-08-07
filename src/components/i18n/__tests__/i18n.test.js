@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { I18n } from '../i18n';
+import { I18n, translate } from '../i18n';
 
 describe('I18n Component', () => {
   it('should render a basic component', () => {
@@ -25,5 +25,15 @@ describe('I18n Component', () => {
     );
 
     expect(component.html()).toMatchSnapshot('children');
+  });
+
+  it('should attempt to perform a string replace', () => {
+    const localeKey = translate('lorem.ipsum');
+    const placeholder = translate('lorem.ipsum', 'hello world');
+
+    expect({
+      localeKey,
+      placeholder
+    }).toMatchSnapshot('translate');
   });
 });
