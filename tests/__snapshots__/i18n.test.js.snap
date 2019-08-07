@@ -5,25 +5,55 @@ exports[`i18n locale should generate a predictable pot output snapshot: pot outp
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:110
+#: src/common/graphHelpers.js:43
+msgid \\"curiosity-graph.tooltipLabel\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:58
+msgid \\"curiosity-graph.tooltipPreviousLabelDaily\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:51
+msgid \\"curiosity-graph.tooltipPreviousLabelMonthly\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:54
+msgid \\"curiosity-graph.tooltipPreviousLabelQuarterly\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:48
+msgid \\"curiosity-graph.tooltipPreviousLabelWeekly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
+msgctxt \\"Daily\\"
+msgid \\"curiosity-graph.dropdownDaily\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:68
 msgctxt \\"Daily CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:72
-msgctxt \\"from previous day\\"
-msgid \\"curiosity-graph.tooltipPreviousLabel\\"
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:9
+msgctxt \\"Monthly\\"
+msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:103
-#: src/components/rhelGraphCard/rhelGraphCard.js:113
-msgctxt \\"Last 30 Days\\"
-msgid \\"curiosity-graph.dropdownDefault\\"
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:10
+msgctxt \\"Quarterly\\"
+msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:71
-msgctxt \\"sockets on\\"
-msgid \\"curiosity-graph.tooltipLabel\\"
+#: src/components/rhelGraphCard/rhelGraphCard.js:75
+msgctxt \\"Select date range\\"
+msgid \\"curiosity-graph.dropdownPlaceholder\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:8
+msgctxt \\"Weekly\\"
+msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 "
 `;

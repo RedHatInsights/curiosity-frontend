@@ -3,6 +3,7 @@ import serviceConfig from './config';
 
 /**
  * @apiMock {DelayResponse} 2000
+ * @apiMock {ForceStatus} 200
  * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id Get RHSM graph data
  * @apiDescription Retrieve graph data.
  *
@@ -35,202 +36,260 @@ import serviceConfig from './config';
  * - RHEL
  * @apiSuccess {Number} meta.resultSetSize
  *
- * @apiSuccessExample {json} Success-Response:
+ * @apiSuccessExample {json} DAILY, Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       "data": [
- *          {
- *            "cores": 56,
- *            "date": "2019-06-01T00:00:00Z",
- *            "instance_count": 28,
- *            "sockets": 5
- *          },
- *          {
- *            "cores": 52,
- *            "date": "2019-06-02T00:00:00Z",
- *            "instance_count": 26,
- *            "sockets": 15
- *          },
- *          {
- *            "cores": 48,
- *            "date": "2019-06-03T00:00:00Z",
- *            "instance_count": 24,
- *            "sockets": 15
- *          },
- *          {
- *            "cores": 44,
- *            "date": "2019-06-04T00:00:00Z",
- *            "instance_count": 22,
- *            "sockets": 17
- *          },
- *          {
- *            "cores": 40,
- *            "date": "2019-06-05T00:00:00Z",
- *            "instance_count": 20,
- *            "sockets": 24
- *          },
- *          {
- *            "cores": 20,
- *            "date": "2019-06-06T00:00:00Z",
- *            "instance_count": 20,
- *            "sockets": 4
- *          },
- *          {
- *            "cores": 80,
- *            "date": "2019-06-07T00:00:00Z",
- *            "instance_count": 40,
- *            "sockets": 35
- *          },
- *          {
- *            "cores": 43,
- *            "date": "2019-06-08T00:00:00Z",
- *            "instance_count": 18,
- *            "sockets": 18
- *          },
- *          {
- *            "cores": 50,
- *            "date": "2019-06-09T00:00:00Z",
- *            "instance_count": 22,
- *            "sockets": 22
- *          },
- *          {
- *            "cores": 40,
- *            "date": "2019-06-10T00:00:00Z",
- *            "instance_count": 20,
- *            "sockets": 17
- *          },
- *          {
- *            "cores": 56,
- *            "date": "2019-06-11T00:00:00Z",
- *            "instance_count": 28,
- *            "sockets": 5
- *          },
- *          {
- *            "cores": 52,
- *            "date": "2019-06-12T00:00:00Z",
- *            "instance_count": 26,
- *            "sockets": 7
- *          },
- *          {
- *            "cores": 48,
- *            "date": "2019-06-13T00:00:00Z",
- *            "instance_count": 24,
- *            "sockets": 10
- *          },
- *          {
- *            "cores": 44,
- *            "date": "2019-06-14T00:00:00Z",
- *            "instance_count": 22,
- *            "sockets": 10
- *          },
- *          {
- *            "cores": 40,
- *            "date": "2019-06-15T00:00:00Z",
- *            "instance_count": 20,
- *            "sockets": 12
- *          },
- *          {
- *            "cores": 20,
- *            "date": "2019-06-16T00:00:00Z",
- *            "instance_count": 20,
- *            "sockets": 13
- *          },
- *          {
- *            "cores": 80,
- *            "date": "2019-06-17T00:00:00Z",
- *            "instance_count": 40,
- *            "sockets": 11
- *          },
- *          {
- *            "cores": 43,
- *            "date": "2019-06-18T00:00:00Z",
- *            "instance_count": 18,
- *            "sockets": 8
- *          },
- *          {
- *            "cores": 50,
- *            "date": "2019-06-19T00:00:00Z",
- *            "instance_count": 22,
- *            "sockets": 7
- *          },
- *          {
- *            "cores": 40,
- *            "date": "2019-06-20T00:00:00Z",
- *            "instance_count": 20,
- *            "sockets": 6
- *          },
- *          {
- *            "cores": 6,
- *            "date": "2019-06-21T00:00:00Z",
- *            "instance_count": 6,
- *            "sockets": 3
- *          },
- *          {
- *            "cores": 2,
- *            "date": "2019-06-22T00:00:00Z",
- *            "instance_count": 2,
- *            "sockets": 1
- *          },
- *          {
- *            "cores": 4,
- *            "date": "2019-06-23T00:00:00Z",
- *            "instance_count": 4,
- *            "sockets": 1
- *          },
- *          {
- *            "cores": 6,
- *            "date": "2019-06-24T00:00:00Z",
- *            "instance_count": 6,
- *            "sockets": 2
- *          },
- *          {
- *            "cores": 10,
- *            "date": "2019-06-25T00:00:00Z",
- *            "instance_count": 10,
- *            "sockets": 1
- *          },
- *          {
- *            "cores": 2,
- *            "date": "2019-06-26T00:00:00Z",
- *            "instance_count": 4,
- *            "sockets": 1
- *          },
- *          {
- *            "cores": 0,
- *            "date": "2019-06-27T00:00:00Z",
- *            "instance_count": 0,
- *            "sockets": 0
- *          },
- *          {
- *            "cores": 6,
- *            "date": "2019-06-28T00:00:00Z",
- *            "instance_count": 2,
- *            "sockets": 1
- *          },
- *          {
- *            "cores": 4,
- *            "date": "2019-06-29T00:00:00Z",
- *            "instance_count": 2,
- *            "sockets": 1
- *          },
- *          {
- *            "cores": 2,
- *            "date": "2019-06-30T00:00:00Z",
- *            "instance_count": 2,
- *            "sockets": 1
- *          }
- *        ],
- *        "links": {
- *          "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=DAILY&beginning=2019-06-20T00:00:00.000Z&ending=2019-07-20T23:59:59.999Z&offset=0&limit=30",
- *          "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=DAILY&beginning=2019-06-20T00:00:00.000Z&ending=2019-07-20T23:59:59.999Z&offset=30&limit=30",
- *          "previous": null,
- *          "next": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=DAILY&beginning=2019-06-20T00:00:00.000Z&ending=2019-07-20T23:59:59.999Z&offset=30&limit=30"
- *        },
- *        "meta": {
- *          "count": 30,
- *          "product": "RHEL",
- *          "granularity": "DAILY"
- *        }
+ *         {
+ *           "date": "2019-07-20T00:00:00Z",
+ *           "instance_count": 10,
+ *           "cores": 20,
+ *           "sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-21T00:00:00Z",
+ *           "instance_count": 12,
+ *           "cores": 24,
+ *           "sockets": 24
+ *         },
+ *         {
+ *           "date": "2019-07-22T00:00:00Z",
+ *           "instance_count": 14,
+ *           "cores": 28,
+ *           "sockets": 28
+ *         },
+ *         {
+ *           "date": "2019-07-23T00:00:00Z",
+ *           "instance_count": 16,
+ *           "cores": 32,
+ *           "sockets": 32
+ *         },
+ *         {
+ *           "date": "2019-07-24T00:00:00Z",
+ *           "instance_count": 18,
+ *           "cores": 36,
+ *           "sockets": 36
+ *         },
+ *         {
+ *           "date": "2019-07-25T00:00:00Z",
+ *           "instance_count": 20,
+ *           "cores": 40,
+ *           "sockets": 40
+ *         },
+ *         {
+ *           "date": "2019-07-26T00:00:00Z",
+ *           "instance_count": 22,
+ *           "cores": 44,
+ *           "sockets": 44
+ *         },
+ *         {
+ *           "date": "2019-07-27T00:00:00Z",
+ *           "instance_count": 24,
+ *           "cores": 48,
+ *           "sockets": 48
+ *         },
+ *         {
+ *           "date": "2019-07-28T00:00:00Z",
+ *           "instance_count": 26,
+ *           "cores": 52,
+ *           "sockets": 52
+ *         },
+ *         {
+ *           "date": "2019-07-29T00:00:00Z",
+ *           "instance_count": 28,
+ *           "cores": 56,
+ *           "sockets": 56
+ *         },
+ *         {
+ *           "date": "2019-07-30T00:00:00Z",
+ *           "instance_count": 30,
+ *           "cores": 60,
+ *           "sockets": 60
+ *         },
+ *         {
+ *           "date": "2019-07-31T00:00:00Z",
+ *           "instance_count": 32,
+ *           "cores": 64,
+ *           "sockets": 64
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=daily&beginning=2019-07-20T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
+ *         "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=daily&beginning=2019-07-20T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0"
+ *       },
+ *       "meta": {
+ *         "count": 12,
+ *         "product": "RHEL",
+ *         "granularity": "daily"
+ *       }
+ *     }
+ *
+ * @apiSuccessExample {json} WEEKLY, Success-Response:
+ *     HTTP/1.1 201 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2019-05-26T00:00:00Z",
+ *           "instance_count": 16,
+ *           "cores": 32,
+ *           "sockets": 32
+ *         },
+ *         {
+ *           "date": "2019-06-02T00:00:00Z",
+ *           "instance_count": 6,
+ *           "cores": 12,
+ *           "sockets": 12
+ *         },
+ *         {
+ *           "date": "2019-06-09T00:00:00Z",
+ *           "instance_count": 6,
+ *           "cores": 12,
+ *           "sockets": 12
+ *         },
+ *         {
+ *           "date": "2019-06-16T00:00:00Z",
+ *           "instance_count": 6,
+ *           "cores": 12,
+ *           "sockets": 12
+ *         },
+ *         {
+ *           "date": "2019-06-23T00:00:00Z",
+ *           "instance_count": 6,
+ *           "cores": 12,
+ *           "sockets": 12
+ *         },
+ *         {
+ *           "date": "2019-06-30T00:00:00Z",
+ *           "instance_count": 6,
+ *           "cores": 12,
+ *           "sockets": 12
+ *         },
+ *         {
+ *           "date": "2019-07-07T00:00:00Z",
+ *           "instance_count": 5,
+ *           "cores": 10,
+ *           "sockets": 10
+ *         },
+ *         {
+ *           "date": "2019-07-14T00:00:00Z",
+ *           "instance_count": 5,
+ *           "cores": 10,
+ *           "sockets": 10
+ *         },
+ *         {
+ *           "date": "2019-07-21T00:00:00Z",
+ *           "instance_count": 5,
+ *           "cores": 10,
+ *           "sockets": 10
+ *         },
+ *         {
+ *           "date": "2019-07-28T00:00:00Z",
+ *           "instance_count": 6,
+ *           "cores": 12,
+ *           "sockets": 12
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=weekly&beginning=2019-05-26T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
+ *         "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=weekly&beginning=2019-05-26T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0"
+ *       },
+ *       "meta": {
+ *         "count": 10,
+ *         "product": "RHEL",
+ *         "granularity": "weekly"
+ *       }
+ *     }
+ *
+ * @apiSuccessExample {json} MONTHLY, Success-Response:
+ *     HTTP/1.1 201 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2019-01-01T00:00:00Z",
+ *           "instance_count": 16,
+ *           "cores": 32,
+ *           "sockets": 32
+ *         },
+ *         {
+ *           "date": "2019-02-01T00:00:00Z",
+ *           "instance_count": 8,
+ *           "cores": 16,
+ *           "sockets": 16
+ *         },
+ *         {
+ *           "date": "2019-03-01T00:00:00Z",
+ *           "instance_count": 0,
+ *           "cores": 0,
+ *           "sockets": 0
+ *         },
+ *         {
+ *           "date": "2019-04-01T00:00:00Z",
+ *           "instance_count": 8,
+ *           "cores": 16,
+ *           "sockets": 16
+ *         },
+ *         {
+ *           "date": "2019-05-01T00:00:00Z",
+ *           "instance_count": 16,
+ *           "cores": 32,
+ *           "sockets": 32
+ *         },
+ *         {
+ *           "date": "2019-06-01T00:00:00Z",
+ *           "instance_count": 24,
+ *           "cores": 48,
+ *           "sockets": 48
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=monthly&beginning=2018-08-01T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
+ *         "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=monthly&beginning=2018-08-01T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0"
+ *       },
+ *       "meta": {
+ *         "count": 6,
+ *         "product": "RHEL",
+ *         "granularity": "monthly"
+ *       }
+ *     }
+ *
+ * @apiSuccessExample {json} QUARTERLY, Success-Response:
+ *     HTTP/1.1 201 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2018-01-01T00:00:00Z",
+ *           "instance_count": 24,
+ *           "cores": 48,
+ *           "sockets": 48
+ *         },
+ *         {
+ *           "date": "2018-04-01T00:00:00Z",
+ *           "instance_count": 16,
+ *           "cores": 32,
+ *           "sockets": 32
+ *         },
+ *         {
+ *           "date": "2018-07-01T00:00:00Z",
+ *           "instance_count": 8,
+ *           "cores": 16,
+ *           "sockets": 16
+ *         },
+ *         {
+ *           "date": "2018-10-01T00:00:00Z",
+ *           "instance_count": 0,
+ *           "cores": 0,
+ *           "sockets": 0
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=quarterly&beginning=2015-01-01T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
+ *         "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=quarterly&beginning=2015-01-01T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0"
+ *       },
+ *       "meta": {
+ *         "count": 4,
+ *         "product": "RHEL",
+ *         "granularity": "quarterly"
+ *       }
  *     }
  *
  * @apiError {String} detail

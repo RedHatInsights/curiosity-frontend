@@ -1,13 +1,12 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { ChartBar } from '@patternfly/react-charts';
+import { ChartArea } from '../../chartArea/chartArea';
 import { RhelGraphCard } from '../rhelGraphCard';
 import { rhelApiTypes } from '../../../types/rhelApiTypes';
 
 describe('RhelGraphCard Component', () => {
   it('should render a non-connected component', () => {
     const props = {};
-
     const component = mount(<RhelGraphCard {...props} />);
 
     expect(component).toMatchSnapshot('non-connected');
@@ -48,7 +47,7 @@ describe('RhelGraphCard Component', () => {
     });
 
     expect({
-      chartBarData: component.find(ChartBar).prop('data')
+      chartBarData: component.find(ChartArea).prop('dataSetOne')
     }).toMatchSnapshot('error shows zeroed bar values');
 
     component.setProps({
@@ -65,31 +64,5 @@ describe('RhelGraphCard Component', () => {
     });
 
     expect(component).toMatchSnapshot('fulfilled');
-  });
-
-  it('should set initial width to zero and then resize', () => {
-    const component = shallow(<RhelGraphCard />);
-
-    expect(component.instance().onResizeContainer).toBeDefined();
-
-    // initial state width should be zero
-    expect(component.state().chartWidth).toEqual(0);
-
-    // set the container size arbitrarily
-    component.instance().containerRef.current = { clientWidth: 100 };
-    global.dispatchEvent(new Event('resize'));
-    expect(component.state().chartWidth).toEqual(100);
-
-    // set the container size arbitrarily and force handleResize to fire
-    component.instance().containerRef.current = { clientWidth: 1337 };
-    global.dispatchEvent(new Event('resize'));
-    expect(component.state().chartWidth).toEqual(1337);
-  });
-
-  it('should run componentWillUnmount method successfully', () => {
-    const component = mount(<RhelGraphCard />);
-    const componentWillUnmount = jest.spyOn(component.instance(), 'componentWillUnmount');
-    component.unmount();
-    expect(componentWillUnmount).toHaveBeenCalled();
   });
 });

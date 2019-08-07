@@ -2,7 +2,7 @@
 
 exports[`RhelGraphCard Component should render a non-connected component: non-connected 1`] = `
 <RhelGraphCard
-  endDate={2019-07-20T23:59:59.999Z}
+  endDate={2019-07-20T00:00:00.000Z}
   error={false}
   fulfilled={false}
   getGraphReports={[Function]}
@@ -11,6 +11,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
       "usage": Array [],
     }
   }
+  graphGranularity="daily"
   pending={false}
   startDate={2019-06-20T00:00:00.000Z}
   t={[Function]}
@@ -32,15 +33,176 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
             <div
               className="pf-c-card__actions"
             >
-              <Label
-                className="curiosity-usage-graph-label"
+              <Select
+                aria-label="Select date range"
+                ariaLabel="Select option"
+                className=""
+                id="generatedid-"
+                isDisabled={false}
+                name={null}
+                onSelect={[Function]}
+                options={
+                  Array [
+                    Object {
+                      "title": "Daily",
+                      "value": "daily",
+                    },
+                    Object {
+                      "title": "Weekly",
+                      "value": "weekly",
+                    },
+                    Object {
+                      "title": "Monthly",
+                      "value": "monthly",
+                    },
+                    Object {
+                      "title": "Quarterly",
+                      "value": "quarterly",
+                    },
+                  ]
+                }
+                placeholder="Select date range"
+                selectedOptions="daily"
+                variant="single"
               >
-                <span
-                  className="pf-c-label curiosity-usage-graph-label"
+                <Select
+                  aria-label="Select option"
+                  ariaLabelClear="Clear all"
+                  ariaLabelRemove="Remove"
+                  ariaLabelToggle="Options menu"
+                  ariaLabelTypeAhead=""
+                  ariaLabelledBy=""
+                  className="curiosity-select "
+                  isExpanded={false}
+                  isGrouped={false}
+                  isPlain={false}
+                  onClear={[Function]}
+                  onSelect={[Function]}
+                  onToggle={[Function]}
+                  placeholderText="Select date range"
+                  selections="Daily"
+                  toggleId={null}
+                  variant="single"
+                  width=""
                 >
-                  Last 30 Days
-                </span>
-              </Label>
+                  <div
+                    className="pf-c-select curiosity-select "
+                    style={
+                      Object {
+                        "width": "",
+                      }
+                    }
+                  >
+                    <SelectToggle
+                      ariaLabelToggle="Options menu"
+                      ariaLabelledBy=" pf-toggle-id-2"
+                      className=""
+                      handleTypeaheadKeys={[Function]}
+                      id="pf-toggle-id-2"
+                      isActive={false}
+                      isExpanded={false}
+                      isFocused={false}
+                      isHovered={false}
+                      isPlain={false}
+                      onClose={[Function]}
+                      onEnter={[Function]}
+                      onToggle={[Function]}
+                      parentRef={
+                        Object {
+                          "current": <div
+                            class="pf-c-select curiosity-select "
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-labelledby=" pf-toggle-id-2"
+                              class="pf-c-select__toggle"
+                              id="pf-toggle-id-2"
+                              type="button"
+                            >
+                              <div
+                                class="pf-c-select__toggle-wrapper"
+                              >
+                                <span
+                                  class="pf-c-select__toggle-text"
+                                >
+                                  Daily
+                                </span>
+                              </div>
+                              <svg
+                                aria-hidden="true"
+                                class="pf-c-select__toggle-arrow"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                  transform=""
+                                />
+                              </svg>
+                            </button>
+                          </div>,
+                        }
+                      }
+                      type="button"
+                      variant="single"
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        aria-labelledby=" pf-toggle-id-2"
+                        className="pf-c-select__toggle"
+                        id="pf-toggle-id-2"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="pf-c-select__toggle-wrapper"
+                        >
+                          <span
+                            className="pf-c-select__toggle-text"
+                          >
+                            Daily
+                          </span>
+                        </div>
+                        <CaretDownIcon
+                          className="pf-c-select__toggle-arrow"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          size="sm"
+                          title={null}
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="pf-c-select__toggle-arrow"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
+                              }
+                            }
+                            viewBox="0 0 320 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                              transform=""
+                            />
+                          </svg>
+                        </CaretDownIcon>
+                      </button>
+                    </SelectToggle>
+                  </div>
+                </Select>
+              </Select>
             </div>
           </CardActions>
         </div>
@@ -63,158 +225,188 @@ exports[`RhelGraphCard Component should render multiple states: error shows zero
 Object {
   "chartBarData": Array [
     Object {
-      "label": "5 sockets on Jun 1",
-      "x": "Jun 1",
+      "tooltip": "5 t('curiosity-graph.tooltipLabel') Jun 1",
+      "x": 0,
+      "xAxisLabel": "Jun 1",
       "y": 5,
     },
     Object {
-      "label": "0 sockets on Jun 2
- -5 from previous day",
-      "x": "Jun 2",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2
+ -5 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 1,
+      "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 3",
-      "x": "Jun 3",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "x": 2,
+      "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 4",
-      "x": "Jun 4",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "x": 3,
+      "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 5",
-      "x": "Jun 5",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "x": 4,
+      "xAxisLabel": "Jun 5",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 6",
-      "x": "Jun 6",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 6",
+      "x": 5,
+      "xAxisLabel": "Jun 6",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 7",
-      "x": "Jun 7",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 7",
+      "x": 6,
+      "xAxisLabel": "Jun 7",
       "y": 0,
     },
     Object {
-      "label": "7 sockets on Jun 8
- +7 from previous day",
-      "x": "Jun 8",
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jun 8
+ +7 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 7,
+      "xAxisLabel": "Jun 8",
       "y": 7,
     },
     Object {
-      "label": "0 sockets on Jun 9
- -7 from previous day",
-      "x": "Jun 9",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 9
+ -7 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 8,
+      "xAxisLabel": "Jun 9",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 10",
-      "x": "Jun 10",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 10",
+      "x": 9,
+      "xAxisLabel": "Jun 10",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 11",
-      "x": "Jun 11",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 11",
+      "x": 10,
+      "xAxisLabel": "Jun 11",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 12",
-      "x": "Jun 12",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 12",
+      "x": 11,
+      "xAxisLabel": "Jun 12",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 13",
-      "x": "Jun 13",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 13",
+      "x": 12,
+      "xAxisLabel": "Jun 13",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 14",
-      "x": "Jun 14",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 14",
+      "x": 13,
+      "xAxisLabel": "Jun 14",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 15",
-      "x": "Jun 15",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 15",
+      "x": 14,
+      "xAxisLabel": "Jun 15",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 16",
-      "x": "Jun 16",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 16",
+      "x": 15,
+      "xAxisLabel": "Jun 16",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 17",
-      "x": "Jun 17",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 17",
+      "x": 16,
+      "xAxisLabel": "Jun 17",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 18",
-      "x": "Jun 18",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 18",
+      "x": 17,
+      "xAxisLabel": "Jun 18",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 19",
-      "x": "Jun 19",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 19",
+      "x": 18,
+      "xAxisLabel": "Jun 19",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 20",
-      "x": "Jun 20",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 20",
+      "x": 19,
+      "xAxisLabel": "Jun 20",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 21",
-      "x": "Jun 21",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 21",
+      "x": 20,
+      "xAxisLabel": "Jun 21",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 22",
-      "x": "Jun 22",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 22",
+      "x": 21,
+      "xAxisLabel": "Jun 22",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 23",
-      "x": "Jun 23",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 23",
+      "x": 22,
+      "xAxisLabel": "Jun 23",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 24",
-      "x": "Jun 24",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 24",
+      "x": 23,
+      "xAxisLabel": "Jun 24",
       "y": 0,
     },
     Object {
-      "label": "3 sockets on Jun 25
- +3 from previous day",
-      "x": "Jun 25",
+      "tooltip": "3 t('curiosity-graph.tooltipLabel') Jun 25
+ +3 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 24,
+      "xAxisLabel": "Jun 25",
       "y": 3,
     },
     Object {
-      "label": "0 sockets on Jun 26
- -3 from previous day",
-      "x": "Jun 26",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 26
+ -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 25,
+      "xAxisLabel": "Jun 26",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 27",
-      "x": "Jun 27",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 27",
+      "x": 26,
+      "xAxisLabel": "Jun 27",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 28",
-      "x": "Jun 28",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 28",
+      "x": 27,
+      "xAxisLabel": "Jun 28",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 29",
-      "x": "Jun 29",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 29",
+      "x": 28,
+      "xAxisLabel": "Jun 29",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 30",
-      "x": "Jun 30",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 30",
+      "x": 29,
+      "xAxisLabel": "Jun 30",
       "y": 0,
     },
   ],
@@ -230,231 +422,249 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
       Daily CPU socket usage
     </h2>
     <CardActions>
-      <Label
-        className="curiosity-usage-graph-label"
-      >
-        Last 30 Days
-      </Label>
+      <Select
+        aria-label="Select date range"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "Daily",
+              "value": "daily",
+            },
+            Object {
+              "title": "Weekly",
+              "value": "weekly",
+            },
+            Object {
+              "title": "Monthly",
+              "value": "monthly",
+            },
+            Object {
+              "title": "Quarterly",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="Select date range"
+        selectedOptions="daily"
+        variant="single"
+      />
     </CardActions>
   </CardHead>
   <CardBody>
     <div
       className="curiosity-skeleton-container"
     >
-      <Chart
-        domain={
-          Object {
-            "x": Array [
-              0,
-              31,
-            ],
-            "y": Array [
-              0,
-              10,
-            ],
-          }
+      <ChartArea
+        dataSetOne={
+          Array [
+            Object {
+              "tooltip": "5 t('curiosity-graph.tooltipLabel') Jun 1",
+              "x": 0,
+              "xAxisLabel": "Jun 1",
+              "y": 5,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2
+ -5 t('curiosity-graph.tooltipPreviousLabelDaily')",
+              "x": 1,
+              "xAxisLabel": "Jun 2",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+              "x": 2,
+              "xAxisLabel": "Jun 3",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+              "x": 3,
+              "xAxisLabel": "Jun 4",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+              "x": 4,
+              "xAxisLabel": "Jun 5",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 6",
+              "x": 5,
+              "xAxisLabel": "Jun 6",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 7",
+              "x": 6,
+              "xAxisLabel": "Jun 7",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "7 t('curiosity-graph.tooltipLabel') Jun 8
+ +7 t('curiosity-graph.tooltipPreviousLabelDaily')",
+              "x": 7,
+              "xAxisLabel": "Jun 8",
+              "y": 7,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 9
+ -7 t('curiosity-graph.tooltipPreviousLabelDaily')",
+              "x": 8,
+              "xAxisLabel": "Jun 9",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 10",
+              "x": 9,
+              "xAxisLabel": "Jun 10",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 11",
+              "x": 10,
+              "xAxisLabel": "Jun 11",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 12",
+              "x": 11,
+              "xAxisLabel": "Jun 12",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 13",
+              "x": 12,
+              "xAxisLabel": "Jun 13",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 14",
+              "x": 13,
+              "xAxisLabel": "Jun 14",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 15",
+              "x": 14,
+              "xAxisLabel": "Jun 15",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 16",
+              "x": 15,
+              "xAxisLabel": "Jun 16",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 17",
+              "x": 16,
+              "xAxisLabel": "Jun 17",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 18",
+              "x": 17,
+              "xAxisLabel": "Jun 18",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 19",
+              "x": 18,
+              "xAxisLabel": "Jun 19",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 20",
+              "x": 19,
+              "xAxisLabel": "Jun 20",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 21",
+              "x": 20,
+              "xAxisLabel": "Jun 21",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 22",
+              "x": 21,
+              "xAxisLabel": "Jun 22",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 23",
+              "x": 22,
+              "xAxisLabel": "Jun 23",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 24",
+              "x": 23,
+              "xAxisLabel": "Jun 24",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "3 t('curiosity-graph.tooltipLabel') Jun 25
+ +3 t('curiosity-graph.tooltipPreviousLabelDaily')",
+              "x": 24,
+              "xAxisLabel": "Jun 25",
+              "y": 3,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 26
+ -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
+              "x": 25,
+              "xAxisLabel": "Jun 26",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 27",
+              "x": 26,
+              "xAxisLabel": "Jun 27",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 28",
+              "x": 27,
+              "xAxisLabel": "Jun 28",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 29",
+              "x": 28,
+              "xAxisLabel": "Jun 29",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 30",
+              "x": 29,
+              "xAxisLabel": "Jun 30",
+              "y": 0,
+            },
+          ]
         }
-        domainPadding={
-          Object {
-            "x": Array [
-              30,
-              25,
-            ],
-          }
-        }
+        domain={Object {}}
         height={275}
         padding={
           Object {
-            "bottom": 75,
-            "left": 50,
-            "right": 50,
+            "bottom": 50,
+            "left": 85,
+            "right": 85,
             "top": 50,
           }
         }
-        width={0}
-      >
-        <ChartAxis
-          fixLabelOverlap={true}
-          tickValues={
-            Array [
-              "Jun 1",
-              "Jun 6",
-              "Jun 11",
-              "Jun 16",
-              "Jun 21",
-              "Jun 26",
-            ]
-          }
-        />
-        <ChartAxis
-          dependentAxis={true}
-          showGrid={true}
-        />
-        <ChartStack>
-          <ChartBar
-            data={
-              Array [
-                Object {
-                  "label": "5 sockets on Jun 1",
-                  "x": "Jun 1",
-                  "y": 5,
-                },
-                Object {
-                  "label": "0 sockets on Jun 2
- -5 from previous day",
-                  "x": "Jun 2",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 3",
-                  "x": "Jun 3",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 4",
-                  "x": "Jun 4",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 5",
-                  "x": "Jun 5",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 6",
-                  "x": "Jun 6",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 7",
-                  "x": "Jun 7",
-                  "y": 0,
-                },
-                Object {
-                  "label": "7 sockets on Jun 8
- +7 from previous day",
-                  "x": "Jun 8",
-                  "y": 7,
-                },
-                Object {
-                  "label": "0 sockets on Jun 9
- -7 from previous day",
-                  "x": "Jun 9",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 10",
-                  "x": "Jun 10",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 11",
-                  "x": "Jun 11",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 12",
-                  "x": "Jun 12",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 13",
-                  "x": "Jun 13",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 14",
-                  "x": "Jun 14",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 15",
-                  "x": "Jun 15",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 16",
-                  "x": "Jun 16",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 17",
-                  "x": "Jun 17",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 18",
-                  "x": "Jun 18",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 19",
-                  "x": "Jun 19",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 20",
-                  "x": "Jun 20",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 21",
-                  "x": "Jun 21",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 22",
-                  "x": "Jun 22",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 23",
-                  "x": "Jun 23",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 24",
-                  "x": "Jun 24",
-                  "y": 0,
-                },
-                Object {
-                  "label": "3 sockets on Jun 25
- +3 from previous day",
-                  "x": "Jun 25",
-                  "y": 3,
-                },
-                Object {
-                  "label": "0 sockets on Jun 26
- -3 from previous day",
-                  "x": "Jun 26",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 27",
-                  "x": "Jun 27",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 28",
-                  "x": "Jun 28",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 29",
-                  "x": "Jun 29",
-                  "y": 0,
-                },
-                Object {
-                  "label": "0 sockets on Jun 30",
-                  "x": "Jun 30",
-                  "y": 0,
-                },
-              ]
-            }
-            labelComponent={<ChartTooltip />}
-          />
-        </ChartStack>
-      </Chart>
+        xAxisLabelIncrement={5}
+        xAxisLabelUseDataSet="one"
+        yAxisLabelIncrement={1}
+        yAxisLabelUseDataSet="one"
+      />
     </div>
   </CardBody>
 </Card>
@@ -469,11 +679,38 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
       Daily CPU socket usage
     </h2>
     <CardActions>
-      <Label
-        className="curiosity-usage-graph-label"
-      >
-        Last 30 Days
-      </Label>
+      <Select
+        aria-label="Select date range"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "Daily",
+              "value": "daily",
+            },
+            Object {
+              "title": "Weekly",
+              "value": "weekly",
+            },
+            Object {
+              "title": "Monthly",
+              "value": "monthly",
+            },
+            Object {
+              "title": "Quarterly",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="Select date range"
+        selectedOptions="daily"
+        variant="single"
+      />
     </CardActions>
   </CardHead>
   <CardBody>

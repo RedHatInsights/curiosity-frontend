@@ -6,14 +6,14 @@ const textExtractor = () => {
   const extractor = new GettextExtractor();
   extractor
     .createJsParser([
-      JsExtractors.callExpression(['t', '[this].t'], {
+      JsExtractors.callExpression(['t', '[this].t', 'translate'], {
         arguments: {
           text: 0,
           context: 1
         }
       })
     ])
-    .parseFilesGlob('./src/components/**/*!(.test|.spec).@(js|jsx)');
+    .parseFilesGlob('./src/**/!(*.test|*.spec).@(js|jsx)');
 
   return extractor;
 };

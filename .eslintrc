@@ -45,6 +45,7 @@
     ],
     "no-case-declarations": 0,
     "no-console": 0,
+    "no-continue": 0,
     "no-debugger": 1,
     "no-lonely-if": 1,
     "no-plusplus": 0,

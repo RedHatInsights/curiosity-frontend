@@ -1,132 +1,83 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Card,
-  CardHead,
-  CardActions,
-  CardBody,
-  Dropdown,
-  DropdownToggle,
-  DropdownPosition,
-  Label as PfLabel
-} from '@patternfly/react-core';
+import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { Chart, ChartAxis, ChartBar, ChartStack, ChartTooltip } from '@patternfly/react-charts';
-import { connectTranslate, reduxActions } from '../../redux';
+import { Select } from '../select/select';
+import { connectTranslate, reduxActions, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers, graphHelpers } from '../../common';
 import { rhelApiTypes } from '../../types/rhelApiTypes';
+import { rhelGraphCardTypes } from './rhelGraphCardTypes';
+import ChartArea from '../chartArea/chartArea';
+
+const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
 
 class RhelGraphCard extends React.Component {
-  state = { dropdownIsOpen: false, chartWidth: 0 };
-
-  containerRef = React.createRef();
-
   componentDidMount() {
-    const { getGraphReports, startDate, endDate } = this.props;
+    this.onUpdateGraphData();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { graphGranularity } = this.props;
+
+    if (graphGranularity !== prevProps.graphGranularity) {
+      this.onUpdateGraphData();
+    }
+  }
+
+  onUpdateGraphData = () => {
+    const { getGraphReports, graphGranularity, startDate, endDate } = this.props;
 
     getGraphReports({
-      [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: 'daily',
+      [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
       [rhelApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
       [rhelApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
     });
-
-    this.onResizeContainer();
-    window.addEventListener('resize', this.onResizeContainer);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onResizeContainer);
-  }
-
-  onResizeContainer = () => {
-    const containerElement = this.containerRef.current;
-
-    if (containerElement && containerElement.clientWidth) {
-      this.setState({ chartWidth: containerElement.clientWidth });
-    }
   };
 
-  onSelect = () => {
-    this.setState(prevState => ({
-      dropdownIsOpen: !prevState.state.dropdownIsOpen
-    }));
-  };
+  onSelect = event => {
+    const { value } = event;
 
-  onToggle = dropdownIsOpen => {
-    this.setState({
-      dropdownIsOpen
+    store.dispatch({
+      type: reduxTypes.rhel.SET_GRAPH_RHEL_GRANULARITY,
+      graphGranularity: value
     });
   };
 
+  // ToDo: evaluate show error toast on chart error
   renderChart() {
-    const { chartWidth } = this.state;
-    const { graphData, t, startDate, endDate } = this.props;
-
-    // todo: evaluate show error toast
-    // todo: evaluate the granularity here: "daily" "weekly" etc. and pass startDate/endDate
-    const { chartData, chartDomain, tickValues } = graphHelpers.convertGraphUsageData({
+    const { graphData, graphGranularity, startDate, endDate } = this.props;
+    const { chartXAxisLabelIncrement, chartData } = graphHelpers.convertChartData({
       data: graphData.usage,
+      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       startDate,
       endDate,
-      label: t('curiosity-graph.tooltipLabel', 'sockets on'),
-      previousLabel: t('curiosity-graph.tooltipPreviousLabel', 'from previous day')
+      granularity: graphGranularity
     });
 
-    return (
-      <Chart
-        height={275}
-        domainPadding={{ x: [30, 25] }}
-        padding={{
-          bottom: 75, // Adjusted to accommodate legend
-          left: 50,
-          right: 50,
-          top: 50
-        }}
-        domain={chartDomain}
-        width={chartWidth}
-      >
-        <ChartAxis tickValues={tickValues} fixLabelOverlap />
-        <ChartAxis dependentAxis showGrid />
-        <ChartStack>
-          <ChartBar data={chartData} labelComponent={<ChartTooltip />} />
-        </ChartStack>
-      </Chart>
-    );
+    return <ChartArea xAxisLabelIncrement={chartXAxisLabelIncrement} dataSetOne={chartData} />;
   }
 
+  // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
-    const { error, fulfilled, pending, t } = this.props;
-    const { dropdownIsOpen } = this.state;
-
-    const dropdownToggle = (
-      <DropdownToggle isDisabled onToggle={this.onToggle}>
-        {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
-      </DropdownToggle>
-    );
+    const { error, fulfilled, graphGranularity, pending, t } = this.props;
+    const getDateMenuOptions = rhelGraphCardTypes.getDateMenuOptions();
 
     return (
       <Card className="curiosity-usage-graph fadein">
         <CardHead>
           <h2>{t('curiosity-graph.heading', 'Daily CPU socket usage')}</h2>
           <CardActions>
-            <PfLabel className="curiosity-usage-graph-label">
-              {t('curiosity-graph.dropdownDefault', 'Last 30 Days')}
-            </PfLabel>
-            {/* todo: revisit dropdown in future iterations */}
-            {false && (
-              <Dropdown
-                onSelect={this.onSelect}
-                position={DropdownPosition.right}
-                toggle={dropdownToggle}
-                isOpen={dropdownIsOpen}
-                dropdownItems={[]}
-              />
-            )}
+            <Select
+              aria-label={t('curiosity-graph.dropdownPlaceholder', 'Select date range')}
+              onSelect={this.onSelect}
+              options={getDateMenuOptions}
+              selectedOptions={graphGranularity}
+              placeholder={t('curiosity-graph.dropdownPlaceholder', 'Select date range')}
+            />
           </CardActions>
         </CardHead>
         <CardBody>
-          {/** todo: combine into a single class w/ --loading and BEM style */}
-          <div className="curiosity-skeleton-container" ref={this.containerRef}>
+          <div className="curiosity-skeleton-container">
             {pending && (
               <React.Fragment>
                 <Skeleton size={SkeletonSize.xs} />
@@ -135,7 +86,7 @@ class RhelGraphCard extends React.Component {
                 <Skeleton size={SkeletonSize.lg} />
               </React.Fragment>
             )}
-            {(fulfilled || error) && this.renderChart()}
+            {!pending && (fulfilled || error) && this.renderChart()}
           </div>
         </CardBody>
       </Card>
@@ -150,6 +101,12 @@ RhelGraphCard.propTypes = {
   graphData: PropTypes.shape({
     usage: PropTypes.array
   }),
+  graphGranularity: PropTypes.oneOf([
+    GRANULARITY_TYPES.DAILY,
+    GRANULARITY_TYPES.WEEKLY,
+    GRANULARITY_TYPES.MONTHLY,
+    GRANULARITY_TYPES.QUARTERLY
+  ]),
   pending: PropTypes.bool,
   t: PropTypes.func,
   startDate: PropTypes.instanceOf(Date),
@@ -163,10 +120,11 @@ RhelGraphCard.defaultProps = {
   graphData: {
     usage: []
   },
+  graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
   t: helpers.noopTranslate,
-  startDate: dateHelpers.defaultDateTime.start,
-  endDate: dateHelpers.defaultDateTime.end
+  startDate: dateHelpers.defaultDateTime.startDate,
+  endDate: dateHelpers.defaultDateTime.endDate
 };
 
 const mapStateToProps = state => ({

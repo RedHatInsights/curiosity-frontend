@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component should allow a alternate array and object options: key value object 1`] = `
+<div
+  class="pf-c-select curiosity-select "
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby=" pf-toggle-id-11"
+    class="pf-c-select__toggle"
+    id="pf-toggle-id-11"
+    type="button"
+  >
+    <div
+      class="pf-c-select__toggle-wrapper"
+    >
+      <span
+        class="pf-c-select__toggle-text"
+      >
+        lorem
+      </span>
+    </div>
+    <svg
+      aria-hidden="true"
+      class="pf-c-select__toggle-arrow"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align: -0.125em;"
+      viewBox="0 0 320 512"
+      width="1em"
+    >
+      <path
+        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        transform=""
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`Select Component should allow a alternate array and object options: string array 1`] = `
+<div
+  class="pf-c-select curiosity-select "
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby=" pf-toggle-id-8"
+    class="pf-c-select__toggle"
+    id="pf-toggle-id-8"
+    type="button"
+  >
+    <div
+      class="pf-c-select__toggle-wrapper"
+    >
+      <span
+        class="pf-c-select__toggle-text"
+      >
+        ipsum
+      </span>
+    </div>
+    <svg
+      aria-hidden="true"
+      class="pf-c-select__toggle-arrow"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align: -0.125em;"
+      viewBox="0 0 320 512"
+      width="1em"
+    >
+      <path
+        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        transform=""
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`Select Component should render a basic component: basic dropdown 1`] = `
+<div
+  class="pf-c-select curiosity-select "
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby=" pf-toggle-id-2"
+    class="pf-c-select__toggle"
+    id="pf-toggle-id-2"
+    type="button"
+  >
+    <div
+      class="pf-c-select__toggle-wrapper"
+    >
+      <span
+        class="pf-c-select__toggle-text"
+      >
+        hello
+      </span>
+    </div>
+    <svg
+      aria-hidden="true"
+      class="pf-c-select__toggle-arrow"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align: -0.125em;"
+      viewBox="0 0 320 512"
+      width="1em"
+    >
+      <path
+        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        transform=""
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`Select Component should render a checkbox select: checkbox select 1`] = `
+<div
+  class="pf-c-select curiosity-select "
+>
+  <button
+    aria-expanded="false"
+    aria-labelledby=" pf-toggle-id-5"
+    class="pf-c-select__toggle"
+    id="pf-toggle-id-5"
+    type="button"
+  >
+    <div
+      class="pf-c-select__toggle-wrapper"
+    >
+      <span
+        class="pf-c-select__toggle-text"
+      >
+        multiselect test
+      </span>
+      <div
+        class="pf-c-select__toggle-badge"
+      >
+        <span
+          class="pf-c-badge pf-m-read"
+        >
+          2
+        </span>
+      </div>
+    </div>
+    <svg
+      aria-hidden="true"
+      class="pf-c-select__toggle-arrow"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align: -0.125em;"
+      viewBox="0 0 320 512"
+      width="1em"
+    >
+      <path
+        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        transform=""
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`Select Component should return an emulated onchange event: emulated event 1`] = `
+Object {
+  "currentTarget": Object {
+    "id": "test",
+    "name": "test",
+    "options": Array [
+      Object {
+        "label": "lorem",
+        "selected": false,
+        "text": "lorem",
+        "textContent": "lorem",
+        "title": "lorem",
+        "value": "lorem",
+      },
+      Object {
+        "label": "ipsum",
+        "selected": false,
+        "text": "ipsum",
+        "textContent": "ipsum",
+        "title": "ipsum",
+        "value": "ipsum",
+      },
+      Object {
+        "label": "hello",
+        "selected": true,
+        "text": "hello",
+        "textContent": "hello",
+        "title": "hello",
+        "value": "hello",
+      },
+      Object {
+        "label": "world",
+        "selected": false,
+        "text": "world",
+        "textContent": "world",
+        "title": "world",
+        "value": "world",
+      },
+    ],
+    "selectedIndex": 2,
+    "type": "select-one",
+    "value": "hello",
+  },
+  "id": "test",
+  "name": "test",
+  "options": Array [
+    Object {
+      "label": "lorem",
+      "selected": false,
+      "text": "lorem",
+      "textContent": "lorem",
+      "title": "lorem",
+      "value": "lorem",
+    },
+    Object {
+      "label": "ipsum",
+      "selected": false,
+      "text": "ipsum",
+      "textContent": "ipsum",
+      "title": "ipsum",
+      "value": "ipsum",
+    },
+    Object {
+      "label": "hello",
+      "selected": true,
+      "text": "hello",
+      "textContent": "hello",
+      "title": "hello",
+      "value": "hello",
+    },
+    Object {
+      "label": "world",
+      "selected": false,
+      "text": "world",
+      "textContent": "world",
+      "title": "world",
+      "value": "world",
+    },
+  ],
+  "persist": [Function],
+  "selectedIndex": 2,
+  "target": Object {
+    "id": "test",
+    "name": "test",
+    "options": Array [
+      Object {
+        "label": "lorem",
+        "selected": false,
+        "text": "lorem",
+        "textContent": "lorem",
+        "title": "lorem",
+        "value": "lorem",
+      },
+      Object {
+        "label": "ipsum",
+        "selected": false,
+        "text": "ipsum",
+        "textContent": "ipsum",
+        "title": "ipsum",
+        "value": "ipsum",
+      },
+      Object {
+        "label": "hello",
+        "selected": true,
+        "text": "hello",
+        "textContent": "hello",
+        "title": "hello",
+        "value": "hello",
+      },
+      Object {
+        "label": "world",
+        "selected": false,
+        "text": "world",
+        "textContent": "world",
+        "title": "world",
+        "value": "world",
+      },
+    ],
+    "selectedIndex": 2,
+    "type": "select-one",
+    "value": "hello",
+  },
+  "type": "select-one",
+  "value": "hello",
+}
+`;

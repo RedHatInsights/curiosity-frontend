@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`I18n Component should attempt to perform a string replace: translate 1`] = `
+Object {
+  "localeKey": "t('lorem.ipsum')",
+  "placeholder": "hello world",
+}
+`;
+
 exports[`I18n Component should pass children: children 1`] = `"lorem ipsum"`;
 
 exports[`I18n Component should render a basic component: basic 1`] = `

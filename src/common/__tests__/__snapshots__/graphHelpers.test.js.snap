@@ -1,83 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphHelpers getChartDomain should return expected y domain for given inputs 1`] = `
-Object {
-  "empty array": Array [
-    0,
-    10,
-  ],
-  "maxY = 0": Array [
-    0,
-    10,
-  ],
-  "maxY = 100": Array [
-    0,
-    1000,
-  ],
-  "maxY = 1000": Array [
-    0,
-    10000,
-  ],
-  "maxY = 49": Array [
-    0,
-    50,
-  ],
-  "maxY = 50": Array [
-    0,
-    100,
-  ],
-  "maxY = 9": Array [
-    0,
-    10,
-  ],
-}
-`;
-
 exports[`GraphHelpers should convert graph data and generate tooltips when usage is populated: usage populated 1`] = `
 Object {
   "chartData": Array [
     Object {
-      "label": "5 sockets on Jun 1",
-      "x": "Jun 1",
+      "tooltip": "5 t('curiosity-graph.tooltipLabel') Jun 1",
+      "x": 0,
+      "xAxisLabel": "Jun 1",
       "y": 5,
     },
     Object {
-      "label": "7 sockets on Jun 2
- +2 from previous day",
-      "x": "Jun 2",
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jun 2
+ +2 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 1,
+      "xAxisLabel": "Jun 2",
       "y": 7,
     },
     Object {
-      "label": "3 sockets on Jun 3
- -4 from previous day",
-      "x": "Jun 3",
+      "tooltip": "3 t('curiosity-graph.tooltipLabel') Jun 3
+ -4 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 2,
+      "xAxisLabel": "Jun 3",
       "y": 3,
     },
     Object {
-      "label": "0 sockets on Jun 4
- -3 from previous day",
-      "x": "Jun 4",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4
+ -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 3,
+      "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "label": "0 sockets on Jun 5",
-      "x": "Jun 5",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "x": 4,
+      "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
-  "chartDomain": Object {
-    "x": Array [
-      0,
-      31,
-    ],
-    "y": Array [
-      0,
-      10,
-    ],
-  },
-  "tickValues": Array [
-    "Jun 1",
-  ],
+  "chartXAxisLabelIncrement": 5,
 }
 `;
 
@@ -85,39 +45,37 @@ exports[`GraphHelpers should convert graph data and return zeroed usage array if
 Object {
   "chartData": Array [
     Object {
-      "x": "Jun 1",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 1",
+      "x": 0,
+      "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "x": "Jun 2",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2",
+      "x": 1,
+      "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "x": "Jun 3",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "x": 2,
+      "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "x": "Jun 4",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "x": 3,
+      "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "x": "Jun 5",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "x": 4,
+      "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
-  "chartDomain": Object {
-    "x": Array [
-      0,
-      31,
-    ],
-    "y": Array [
-      0,
-      10,
-    ],
-  },
-  "tickValues": Array [
-    "Jun 1",
-  ],
+  "chartXAxisLabelIncrement": 5,
 }
 `;
 
@@ -125,39 +83,37 @@ exports[`GraphHelpers should convert graph data and return zeroed usage array if
 Object {
   "chartData": Array [
     Object {
-      "x": "Jun 1",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 1",
+      "x": 0,
+      "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "x": "Jun 2",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2",
+      "x": 1,
+      "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "x": "Jun 3",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "x": 2,
+      "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "x": "Jun 4",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "x": 3,
+      "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "x": "Jun 5",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "x": 4,
+      "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
-  "chartDomain": Object {
-    "x": Array [
-      0,
-      31,
-    ],
-    "y": Array [
-      0,
-      10,
-    ],
-  },
-  "tickValues": Array [
-    "Jun 1",
-  ],
+  "chartXAxisLabelIncrement": 5,
 }
 `;
 
@@ -165,59 +121,171 @@ exports[`GraphHelpers should convert graph data and returned zeroed array when u
 Object {
   "chartData": Array [
     Object {
-      "x": "Jun 1",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 1",
+      "x": 0,
+      "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "x": "Jun 2",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2",
+      "x": 1,
+      "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "x": "Jun 3",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "x": 2,
+      "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "x": "Jun 4",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "x": 3,
+      "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "x": "Jun 5",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "x": 4,
+      "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
-  "chartDomain": Object {
-    "x": Array [
-      0,
-      31,
-    ],
-    "y": Array [
-      0,
-      10,
-    ],
-  },
-  "tickValues": Array [
-    "Jun 1",
-  ],
+  "chartXAxisLabelIncrement": 5,
 }
 `;
 
-exports[`GraphHelpers should get tick values array given chart data 1`] = `
+exports[`GraphHelpers should handle cross quarter labels: quarter granularity 1`] = `
 Object {
-  "empty array": Array [],
-  "x axis interval": Array [
-    "Jan 1",
-    "Jan 3",
-    "Jan 5",
+  "chartData": Array [
+    Object {
+      "tooltip": "5 t('curiosity-graph.tooltipLabel') Apr",
+      "x": 0,
+      "xAxisLabel": "Apr",
+      "y": 5,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Aug
+ +2 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
+      "x": 1,
+      "xAxisLabel": "Aug",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Dec",
+      "x": 2,
+      "xAxisLabel": "Dec",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Apr 2019",
+      "x": 3,
+      "xAxisLabel": "Apr
+2019",
+      "y": 7,
+    },
   ],
+  "chartXAxisLabelIncrement": 1,
+}
+`;
+
+exports[`GraphHelpers should handle cross year labels: cross year 1`] = `
+Object {
+  "chartData": Array [
+    Object {
+      "tooltip": "5 t('curiosity-graph.tooltipLabel') Dec 31",
+      "x": 0,
+      "xAxisLabel": "Dec 31",
+      "y": 5,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 1
+ +2 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "x": 1,
+      "xAxisLabel": "Jan 1",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 2",
+      "x": 2,
+      "xAxisLabel": "Jan 2",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 3",
+      "x": 3,
+      "xAxisLabel": "Jan 3",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 4",
+      "x": 4,
+      "xAxisLabel": "Jan 4",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 5 2019",
+      "x": 5,
+      "xAxisLabel": "Jan 5 2019",
+      "y": 7,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 6",
+      "x": 6,
+      "xAxisLabel": "Jan 6",
+      "y": 7,
+    },
+  ],
+  "chartXAxisLabelIncrement": 5,
 }
 `;
 
 exports[`GraphHelpers should have specific functions: graphHelpers 1`] = `
 Object {
-  "chartDateFormat": "MMM D",
-  "convertGraphUsageData": [Function],
-  "getChartDomain": [Function],
-  "getTickValues": [Function],
-  "zeroedUsageData": [Function],
+  "convertChartData": [Function],
+  "fillFormatChartData": [Function],
+  "getChartXAxisLabelIncrement": [Function],
+  "getGranularityDateType": [Function],
+  "getGraphLabels": [Function],
+  "getLabel": [Function],
+}
+`;
+
+exports[`GraphHelpers should return a date type based on granularity: granularity date type 1`] = `
+Object {
+  "daily": "days",
+  "monthly": "months",
+  "quarterly": "months",
+  "weekly": "weeks",
+}
+`;
+
+exports[`GraphHelpers should return a label based on granularity: granularity based label 1`] = `
+Object {
+  "daily": Object {
+    "label": "t('curiosity-graph.tooltipLabel')",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
+  },
+  "monthly": Object {
+    "label": "t('curiosity-graph.tooltipLabel')",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelMonthly')",
+  },
+  "quarterly": Object {
+    "label": "t('curiosity-graph.tooltipLabel')",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelQuarterly')",
+  },
+  "weekly": Object {
+    "label": "t('curiosity-graph.tooltipLabel')",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelWeekly')",
+  },
+}
+`;
+
+exports[`GraphHelpers should return a x axis tick increment based on granularity: x axis tick increment 1`] = `
+Object {
+  "daily": 5,
+  "monthly": 2,
+  "quarterly": 1,
+  "weekly": 2,
 }
 `;

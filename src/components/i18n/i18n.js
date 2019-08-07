@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import i18n from 'i18next';
+import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
 import { initReactI18next } from 'react-i18next';
 import { helpers } from '../../common/helpers';
+
+const translate = (str, placeholder = null) =>
+  (!helpers.TEST_MODE && i18next.t(str, placeholder)) || helpers.noopTranslate(str, placeholder);
 
 /**
  * ToDo: reevaluate the "I18nextProvider" on package update.
@@ -27,7 +30,7 @@ class I18n extends React.Component {
   i18nInit() {
     const { fallbackLng, loadPath, locale } = this.props;
 
-    i18n
+    i18next
       .use(XHR)
       .use(initReactI18next)
       .init({
@@ -65,4 +68,4 @@ I18n.defaultProps = {
   locale: null
 };
 
-export { I18n as default, I18n };
+export { I18n as default, I18n, translate };
