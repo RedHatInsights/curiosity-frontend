@@ -1,3 +1,44 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 0.1.0 (2019-08-08)
+
+
+### Bug Fixes
+
+* **api spec:** issues/17 local run openapi spec ([#31](https://github.com/RedHatInsights/curiosity-frontend/issues/31)) ([1aa0bcd](https://github.com/RedHatInsights/curiosity-frontend/commit/1aa0bcd))
+* **app name:** issues/14 codify app name ([#15](https://github.com/RedHatInsights/curiosity-frontend/issues/15)) ([5e2e0dd](https://github.com/RedHatInsights/curiosity-frontend/commit/5e2e0dd))
+* **build:** issues/16 separate out hosts update ([#22](https://github.com/RedHatInsights/curiosity-frontend/issues/22)) ([8c2815a](https://github.com/RedHatInsights/curiosity-frontend/commit/8c2815a))
+* **build:** issues/34 app id, path updates ([#73](https://github.com/RedHatInsights/curiosity-frontend/issues/73)) ([d3e7bc2](https://github.com/RedHatInsights/curiosity-frontend/commit/d3e7bc2))
+* **build:** issues/34 correct deployment path prefix ([#49](https://github.com/RedHatInsights/curiosity-frontend/issues/49)) ([34cb100](https://github.com/RedHatInsights/curiosity-frontend/commit/34cb100))
+* **build:** issues/34 custom dotenv, rhsm path ([#58](https://github.com/RedHatInsights/curiosity-frontend/issues/58)) ([53f409a](https://github.com/RedHatInsights/curiosity-frontend/commit/53f409a))
+* **build:** issues/34 dotenv update, correct locale path ([#54](https://github.com/RedHatInsights/curiosity-frontend/issues/54)) ([bc6aecb](https://github.com/RedHatInsights/curiosity-frontend/commit/bc6aecb))
+* **build:** issues/7 beta path prefix ([#28](https://github.com/RedHatInsights/curiosity-frontend/issues/28)) ([a24d037](https://github.com/RedHatInsights/curiosity-frontend/commit/a24d037))
+* **build, rhelServices, auth:** issues/9 build, rhsm api updates ([66f34ef](https://github.com/RedHatInsights/curiosity-frontend/commit/66f34ef))
+* **build, routerTypes:** issues/34 dynamic router baseName ([#68](https://github.com/RedHatInsights/curiosity-frontend/issues/68)) ([fdd3b06](https://github.com/RedHatInsights/curiosity-frontend/commit/fdd3b06))
+* **graphHelpers:** set min y domain appropriately ([#61](https://github.com/RedHatInsights/curiosity-frontend/issues/61)) ([6402585](https://github.com/RedHatInsights/curiosity-frontend/commit/6402585))
+* **integration tests:** issues/24 build html output test ([#32](https://github.com/RedHatInsights/curiosity-frontend/issues/32)) ([83ed9d5](https://github.com/RedHatInsights/curiosity-frontend/commit/83ed9d5))
+* **rhelGraphCard:** issues/38 test snapshot update ([#39](https://github.com/RedHatInsights/curiosity-frontend/issues/39)) ([5e85eb3](https://github.com/RedHatInsights/curiosity-frontend/commit/5e85eb3))
+* **rhelGraphCard:** issues/5 graphCard i18n ref ([#20](https://github.com/RedHatInsights/curiosity-frontend/issues/20)) ([032296f](https://github.com/RedHatInsights/curiosity-frontend/commit/032296f))
+* **rhelGraphCard:** use label instead of dropdown, phase 1 ([#57](https://github.com/RedHatInsights/curiosity-frontend/issues/57)) ([9828e6a](https://github.com/RedHatInsights/curiosity-frontend/commit/9828e6a))
+* **routerTypes:** root path added ([#65](https://github.com/RedHatInsights/curiosity-frontend/issues/65)) ([1128cf5](https://github.com/RedHatInsights/curiosity-frontend/commit/1128cf5))
+* **services, router:** remove unused header func ([#62](https://github.com/RedHatInsights/curiosity-frontend/issues/62)) ([3a12056](https://github.com/RedHatInsights/curiosity-frontend/commit/3a12056))
+
+
+### Features
+
+* **api spec:** issues/17 local run open api spec ([#21](https://github.com/RedHatInsights/curiosity-frontend/issues/21)) ([58182e0](https://github.com/RedHatInsights/curiosity-frontend/commit/58182e0))
+* **build:** issues/52 default date time override ([#64](https://github.com/RedHatInsights/curiosity-frontend/issues/64)) ([bd9239c](https://github.com/RedHatInsights/curiosity-frontend/commit/bd9239c))
+* **build, helpers:** issues/52 debug config params ([#69](https://github.com/RedHatInsights/curiosity-frontend/issues/69)) ([2760ab2](https://github.com/RedHatInsights/curiosity-frontend/commit/2760ab2))
+* **build, routerTypes:** issues/71 disable views config ([#72](https://github.com/RedHatInsights/curiosity-frontend/issues/72)) ([a4f7da7](https://github.com/RedHatInsights/curiosity-frontend/commit/a4f7da7))
+* **chartGraph:** convert graph data, add error/loading states ([#40](https://github.com/RedHatInsights/curiosity-frontend/issues/40)) ([da2158a](https://github.com/RedHatInsights/curiosity-frontend/commit/da2158a))
+* **graph-tooltip:** issues/23 tooltip, react-breakpoints ([#35](https://github.com/RedHatInsights/curiosity-frontend/issues/35)) ([dd1b46d](https://github.com/RedHatInsights/curiosity-frontend/commit/dd1b46d))
+* **integration tests:** issues/24 build html output test ([#30](https://github.com/RedHatInsights/curiosity-frontend/issues/30)) ([ccb73ae](https://github.com/RedHatInsights/curiosity-frontend/commit/ccb73ae))
+* **integration tests:** issues/24 build testing ([#25](https://github.com/RedHatInsights/curiosity-frontend/issues/25)) ([409150f](https://github.com/RedHatInsights/curiosity-frontend/commit/409150f))
+* **locale:** use cookie to determine current locale ([#55](https://github.com/RedHatInsights/curiosity-frontend/issues/55)) ([c568794](https://github.com/RedHatInsights/curiosity-frontend/commit/c568794))
+* **rhelGraphCard:** issues/5 add StackChart UI components and responsive CSS ([#13](https://github.com/RedHatInsights/curiosity-frontend/issues/13)) ([0551b11](https://github.com/RedHatInsights/curiosity-frontend/commit/0551b11))
+* **rhelGraphCard:** partial data and empty array domain ([#50](https://github.com/RedHatInsights/curiosity-frontend/issues/50)) ([a9c63db](https://github.com/RedHatInsights/curiosity-frontend/commit/a9c63db))
+* **rhelGraphCard redux:** issues/9 redux connect card ([#33](https://github.com/RedHatInsights/curiosity-frontend/issues/33)) ([1283e8a](https://github.com/RedHatInsights/curiosity-frontend/commit/1283e8a))
+* **rhelServices, redux:** issues/17 rhsm api, and mock ([#27](https://github.com/RedHatInsights/curiosity-frontend/issues/27)) ([4641c5b](https://github.com/RedHatInsights/curiosity-frontend/commit/4641c5b))
+* **rhelServices,graphHelpers:** issues/42 cores to sockets ([#48](https://github.com/RedHatInsights/curiosity-frontend/issues/48)) ([1255279](https://github.com/RedHatInsights/curiosity-frontend/commit/1255279))
