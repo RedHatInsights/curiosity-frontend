@@ -34,12 +34,10 @@ version()
 #
 clean()
 {
-  FILE="$(pwd)/.env.production.local"
-
   echo "Cleaning build directories, files..."
-  rm -rf -- "$(pwd)"/build
-  rm -rf -- "$(pwd)"/public/apps
-  rm $FILE
+  rm -rf -- ./build
+  rm -rf -- ./public/apps
+  rm ./.env.production.local
 }
 #
 #
