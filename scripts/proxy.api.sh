@@ -22,7 +22,7 @@ gitRepo()
     rm -rf $DIR/temp
     rm -rf $DIR_REPO/.git
 
-    printf "${GREEN}SUCCESS${NOCOLOR}\n"
+    printf "${GREEN}Clone SUCCESS${NOCOLOR}\n"
 
   elif [ -d $DIR_REPO ]; then
     printf "${YELLOW}Unable to connect, using cached ${GITREPO}...${NOCOLOR}\n"
@@ -30,6 +30,15 @@ gitRepo()
     printf "${RED}Build Error cloning ${GITREPO}, unable to setup Docker${NOCOLOR}\n"
     exit 1
   fi
+}
+#
+#
+# Clean up build env
+#
+cleanLocalDotEnv()
+{
+  echo "" > ./.env.development.local
+  echo "" > ./.env.production.local
 }
 #
 #
@@ -45,7 +54,7 @@ updateHosts()
   else
     printf "${RED}Updating hosts... you may need to \"allow write access\"...${NOCOLOR}\n"
     sh $PROXYDIR_REPO/scripts/patch-etc-hosts.sh || sudo sh $PROXYDIR_REPO/scripts/patch-etc-hosts.sh
-    echo "Hosts file updated $(date)" >> "$PROXYDIR/hosts.txt"
+    echo "Hosts file updated $(date)" >> $PROXYDIR/hosts.txt
     printf "${GREEN}Hosts file updated${NOCOLOR}\n"
   fi
 }
@@ -101,7 +110,6 @@ runProxy()
   if [ -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
     echo "Starting development proxy..."
 
-
     if [ ! -z "$RUN_CONFIG" ]; then
       RUN_CONFIG="-e CUSTOM_CONF=true -v ${RUN_CONFIG}:/config/spandx.config.js"
     fi
@@ -138,8 +146,8 @@ runProxy()
 
 
   REPO="https://github.com/RedHatInsights/insights-proxy.git"
-  DATADIR="$(pwd)/.proxy"
-  DATADIR_REPO="$(pwd)/.proxy/insights-proxy"
+  DATADIR=./.proxy
+  DATADIR_REPO=./.proxy/insights-proxy
   CONTAINER="redhatinsights/insights-proxy"
   CONTAINER_NAME="insightsproxy"
 
@@ -171,5 +179,6 @@ runProxy()
     exit 0
   fi
 
+  cleanLocalDotEnv
   runProxy $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG
 }

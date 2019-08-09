@@ -17,12 +17,10 @@ class Authentication extends Component {
     const { appName, authorizeUser, history, insights, routes, session } = this.props;
 
     try {
-      insights.chrome.init();
+      if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
+        insights.chrome.init();
+      }
 
-      /**
-       * ToDo: add condition check for proxy with "helpers.REVIEW_MODE" once navigation is integrated with chrome
-       * i.e. "if (helpers.PROD_MODE || helpers.REVIEW_MODE)"
-       */
       if (helpers.PROD_MODE) {
         insights.chrome.identifyApp(appName);
         insights.chrome.navigation(routes);

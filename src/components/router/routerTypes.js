@@ -4,7 +4,7 @@ import RhelView from '../rhelView/rhelView';
 /**
  * Return an assumed dynamic route baseName directory
  * based on a predictable platform directory depth of
- * /[OPTIONAL]/apps/[APP NAME]
+ * /[OPTIONAL]/[environment]/[APP NAME]
  *
  * @param pathName {string}
  * @param pathPrefix {string}
@@ -22,6 +22,7 @@ const dynamicBaseName = ({ pathName, pathPrefix }) => {
 
 const baseName =
   (helpers.TEST_MODE && '/') ||
+  (helpers.DEV_MODE && '/') ||
   dynamicBaseName({ pathName: window.location.pathname, pathPrefix: helpers.UI_DEPLOY_PATH_PREFIX });
 
 /**

@@ -15,7 +15,7 @@ gitRepo()
     (cd $DIR && git clone --depth=1 $GITREPO temp > /dev/null 2>&1)
 
     if [ $? -eq 0 ]; then
-      printf "\n${GREEN}Cloning ${GITREPO}...${NOCOLOR}"
+      printf "\n${GREEN}Checking ${GITREPO} ...${NOCOLOR}"
 
       rm -rf $DIR_REPO
       cp -R  $DIR/temp $DIR_REPO
@@ -35,6 +35,15 @@ gitRepo()
 }
 #
 #
+# Clean up build env
+#
+cleanLocalDotEnv()
+{
+  echo "" > ./.env.development.local
+  echo "" > ./.env.production.local
+}
+#
+#
 # Build chrome resources
 #
 buildChrome()
@@ -45,7 +54,7 @@ buildChrome()
   local SNIPPET_BODY=$4
 
   if [ ! -d $DIR_REPO/build ]; then
-    printf "\n${GREEN}Building...${NOCOLOR}"
+    printf "\n${GREEN}Building Chrome...${NOCOLOR}"
 
     if [ -z "$(node -v)" ] || [ -z "$(yarn -v)" ]; then
       printf "${YELLOW}Node and Yarn need to be installed in order to local run.${NOCOLOR}\n"
@@ -56,16 +65,18 @@ buildChrome()
     printf "\n${GREEN}Build SUCCESS${NOCOLOR}"
   fi
 
-  printf "\n${GREEN}Setting up local chrome...${NOCOLOR}\n"
+  printf "\n${GREEN}Setting up local chrome... ${NOCOLOR}"
 
   mkdir -p $DIR_PUBLIC
-  cp -R "${DIR_REPO}/build/" $DIR_PUBLIC
-  printf "${GREEN}SUCCESS${NOCOLOR}\n"
+  cp -R $DIR_REPO/build/ $DIR_PUBLIC
 
-  HEADER_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g,'')")
-  BODY_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_BODY}').toString().replace(/\n/g,'')")
+  printf "${GREEN}dotenv includes... ${NOCOLOR}"
+
+  HEADER_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g, '').concat('<style>.pf-c-page__sidebar .ins-c-skeleton{display:none}</style>')")
+  BODY_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_BODY}').toString().replace(/\n/g,'').replace(/Logging in\.\.\./i, 'Development')")
 
   echo "\nREACT_APP_INCLUDE_CONTENT_HEADER=${HEADER_CONTENT}\nREACT_APP_INCLUDE_CONTENT_BODY=${BODY_CONTENT}\n" > ./.env.development.local
+  printf "${GREEN}SUCCESS${NOCOLOR}\n"
 }
 #
 #
@@ -79,12 +90,13 @@ buildChrome()
   NOCOLOR="\e[39m"
 
   REPO="https://github.com/RedHatInsights/insights-chrome.git"
-  DATADIR="$(pwd)/.chrome"
-  DATADIR_REPO="$(pwd)/.chrome/insights-chrome"
-  PUBLICDIR="$(pwd)/public/apps/chrome"
-  HEAD="$(pwd)/public/apps/chrome/snippets/head.html"
-  BODY="$(pwd)/public/apps/chrome/snippets/body.html"
+  DATADIR=./.chrome
+  DATADIR_REPO=./.chrome/insights-chrome
+  PUBLICDIR=./public/apps/chrome
+  HEAD=./public/apps/chrome/snippets/head.html
+  BODY=./public/apps/chrome/snippets/body.html
 
   gitRepo $REPO $DATADIR $DATADIR_REPO
+  cleanLocalDotEnv
   buildChrome $DATADIR_REPO $PUBLICDIR $HEAD $BODY
 }
