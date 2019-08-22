@@ -35,12 +35,15 @@ class RhelGraphCard extends React.Component {
   };
 
   onSelect = event => {
+    const { graphGranularity } = this.props;
     const { value } = event;
 
-    store.dispatch({
-      type: reduxTypes.rhel.SET_GRAPH_RHEL_GRANULARITY,
-      graphGranularity: value
-    });
+    if (graphGranularity !== value) {
+      store.dispatch({
+        type: reduxTypes.rhel.SET_GRAPH_RHEL_GRANULARITY,
+        graphGranularity: value
+      });
+    }
   };
 
   // ToDo: evaluate show error toast on chart error
