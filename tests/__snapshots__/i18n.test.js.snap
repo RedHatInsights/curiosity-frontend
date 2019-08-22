@@ -30,7 +30,7 @@ msgctxt \\"Daily\\"
 msgid \\"curiosity-graph.dropdownDaily\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:68
+#: src/components/rhelGraphCard/rhelGraphCard.js:78
 msgctxt \\"Daily CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
@@ -45,8 +45,8 @@ msgctxt \\"Quarterly\\"
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:71
-#: src/components/rhelGraphCard/rhelGraphCard.js:75
+#: src/components/rhelGraphCard/rhelGraphCard.js:81
+#: src/components/rhelGraphCard/rhelGraphCard.js:85
 msgctxt \\"Select date range\\"
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"

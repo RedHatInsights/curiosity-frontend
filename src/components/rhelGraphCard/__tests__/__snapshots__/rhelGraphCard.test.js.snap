@@ -662,8 +662,10 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
         }
         xAxisLabelIncrement={5}
         xAxisLabelUseDataSet="one"
+        xAxisTickFormat={null}
         yAxisLabelIncrement={1}
         yAxisLabelUseDataSet="one"
+        yAxisTickFormat={[Function]}
       />
     </div>
   </CardBody>
