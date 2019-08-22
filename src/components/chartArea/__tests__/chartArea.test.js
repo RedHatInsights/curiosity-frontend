@@ -34,6 +34,29 @@ describe('ChartArea Component', () => {
     expect(component).toMatchSnapshot('data');
   });
 
+  it('should allow tick formatting', () => {
+    const props = {
+      yAxisTickFormat: ({ tick }) => `${tick} dolor sit`,
+      dataSetOne: [
+        {
+          x: 1,
+          y: 0,
+          tooltip: '1 lorem ipsum',
+          xAxisLabel: '1 x axis label'
+        },
+        {
+          x: 2,
+          y: 1,
+          tooltip: '2 lorem ipsum',
+          xAxisLabel: '2 x axis label'
+        }
+      ]
+    };
+
+    const component = shallow(<ChartArea {...props} />);
+    expect(component.render()).toMatchSnapshot('y tick format');
+  });
+
   it('should set initial width to zero and then resize', () => {
     const component = shallow(<ChartArea />);
 

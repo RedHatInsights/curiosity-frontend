@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import numeral from 'numeral';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Select } from '../select/select';
@@ -57,7 +58,13 @@ class RhelGraphCard extends React.Component {
       granularity: graphGranularity
     });
 
-    return <ChartArea xAxisLabelIncrement={chartXAxisLabelIncrement} dataSetOne={chartData} />;
+    return (
+      <ChartArea
+        xAxisLabelIncrement={chartXAxisLabelIncrement}
+        yAxisTickFormat={({ tick }) => numeral(tick).format('0a')}
+        dataSetOne={chartData}
+      />
+    );
   }
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style

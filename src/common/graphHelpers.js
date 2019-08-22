@@ -187,7 +187,10 @@ const convertChartData = ({ data, dataFacet, startDate, endDate, granularity }) 
 
   (data || []).forEach(value => {
     if (value) {
-      const stringDate = moment.utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE]).toISOString();
+      const stringDate = moment
+        .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
+        .startOf('day')
+        .toISOString();
       formattedData[stringDate] = Number.parseInt(value[dataFacet], 10);
     }
   });

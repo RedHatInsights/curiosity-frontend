@@ -7,6 +7,7 @@ import {
   ChartStack,
   ChartArea as PfChartArea
 } from '@patternfly/react-charts';
+import _cloneDeep from 'lodash/cloneDeep';
 
 class ChartArea extends React.Component {
   state = { chartWidth: 0 };
@@ -36,6 +37,8 @@ class ChartArea extends React.Component {
       yAxisLabelIncrement,
       xAxisLabelUseDataSet,
       yAxisLabelUseDataSet,
+      xAxisTickFormat,
+      yAxisTickFormat,
       dataSetOne
     } = this.props;
     const xAxisProps = {};
@@ -62,9 +65,12 @@ class ChartArea extends React.Component {
         (acc, current, index) => (index % xAxisLabelIncrement === 0 ? acc.concat(current.x) : acc),
         []
       );
-
       xAxisProps.xAxisTickFormat = tickValue =>
         (xAxisDataSet[tickValue] && xAxisDataSet[tickValue].xAxisLabel) || tickValue;
+    }
+
+    if (typeof xAxisTickFormat === 'function') {
+      xAxisProps.xAxisTickFormat = tickValue => xAxisTickFormat({ dataSet: _cloneDeep(xAxisDataSet), tick: tickValue });
     }
 
     if (yAxisDataSet.find(value => value.yAxisLabel && value.yAxisLabel)) {
@@ -74,6 +80,10 @@ class ChartArea extends React.Component {
       );
       yAxisProps.yAxisTickFormat = tickValue =>
         (yAxisDataSet[tickValue] && yAxisDataSet[tickValue].yAxisLabel) || tickValue;
+    }
+
+    if (typeof yAxisTickFormat === 'function') {
+      yAxisProps.yAxisTickFormat = tickValue => yAxisTickFormat({ dataSet: _cloneDeep(yAxisDataSet), tick: tickValue });
     }
 
     return {
@@ -102,7 +112,8 @@ class ChartArea extends React.Component {
     }
 
     if (!isYAxisTicks) {
-      generatedDomain.y = [0, Math.ceil((dataSetOneMaxY + 1) / 10) * 10];
+      const floored = Math.pow(10, Math.floor(Math.log10(dataSetOneMaxY || 10)));
+      generatedDomain.y = [0, Math.ceil((dataSetOneMaxY + 1) / floored) * floored];
     }
 
     return {
@@ -116,22 +127,28 @@ class ChartArea extends React.Component {
     const { dataSetOne } = this.props;
 
     const { xAxisTickValues, xAxisTickFormat, yAxisTickValues, yAxisTickFormat } = this.getChartTicks();
-    const xAxisProps = {};
-    const yAxisProps = {
+    const updatedXAxisProps = {};
+    const updatedYAxisProps = {
       dependentAxis: true,
       showGrid: true
     };
 
     if (xAxisTickValues) {
-      xAxisProps.tickValues = xAxisTickValues;
-      xAxisProps.tickFormat = xAxisTickFormat;
-      xAxisProps.fixLabelOverlap = false;
+      updatedXAxisProps.tickValues = xAxisTickValues;
+      updatedXAxisProps.fixLabelOverlap = false;
+    }
+
+    if (xAxisTickFormat) {
+      updatedXAxisProps.tickFormat = xAxisTickFormat;
     }
 
     if (yAxisTickValues) {
-      yAxisProps.tickValues = yAxisTickValues;
-      yAxisProps.tickFormat = yAxisTickFormat;
-      yAxisProps.fixLabelOverlap = false;
+      updatedYAxisProps.tickValues = yAxisTickValues;
+      updatedYAxisProps.fixLabelOverlap = false;
+    }
+
+    if (yAxisTickFormat) {
+      updatedYAxisProps.tickFormat = yAxisTickFormat;
     }
 
     const { domain, maxY } = this.getChartDomain({ isXAxisTicks: !!xAxisTickValues, isYAxisTicks: !!yAxisTickValues });
@@ -149,8 +166,8 @@ class ChartArea extends React.Component {
     return (
       <div ref={this.containerRef}>
         <Chart width={chartWidth} {...chartProps}>
-          <ChartAxis {...xAxisProps} />
-          <ChartAxis {...yAxisProps} />
+          <ChartAxis {...updatedXAxisProps} />
+          <ChartAxis {...updatedYAxisProps} />
           <ChartStack>{(dataSetOne && dataSetOne.length && <PfChartArea data={dataSetOne} />) || null}</ChartStack>
         </Chart>
       </div>
@@ -178,8 +195,10 @@ ChartArea.propTypes = {
   }),
   xAxisLabelIncrement: PropTypes.number,
   xAxisLabelUseDataSet: PropTypes.oneOf(['one']),
+  xAxisTickFormat: PropTypes.func,
   yAxisLabelIncrement: PropTypes.number,
-  yAxisLabelUseDataSet: PropTypes.oneOf(['one'])
+  yAxisLabelUseDataSet: PropTypes.oneOf(['one']),
+  yAxisTickFormat: PropTypes.func
 };
 
 ChartArea.defaultProps = {
@@ -194,8 +213,10 @@ ChartArea.defaultProps = {
   },
   xAxisLabelIncrement: 1,
   xAxisLabelUseDataSet: 'one',
+  xAxisTickFormat: null,
   yAxisLabelIncrement: 1,
-  yAxisLabelUseDataSet: 'one'
+  yAxisLabelUseDataSet: 'one',
+  yAxisTickFormat: null
 };
 
 export { ChartArea as default, ChartArea };
