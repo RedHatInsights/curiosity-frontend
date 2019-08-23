@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.0...v0.1.1) (2019-08-23)
+
+
+### Bug Fixes
+
+* **build:** local, proxy run updates ([#83](https://github.com/RedHatInsights/curiosity-frontend/issues/83)) ([84a6023](https://github.com/RedHatInsights/curiosity-frontend/commit/84a6023))
+* **graphHelper,chartArea:** reset api timestamp start of day ([#89](https://github.com/RedHatInsights/curiosity-frontend/issues/89)) ([ee39a48](https://github.com/RedHatInsights/curiosity-frontend/commit/ee39a48))
+* **graphHelpers,chartArea:** quarters granularity display ([#90](https://github.com/RedHatInsights/curiosity-frontend/issues/90)) ([62f3c58](https://github.com/RedHatInsights/curiosity-frontend/commit/62f3c58))
+* **rhelGraphCard:** prevent resubmit on chosen granularity option ([fe857ae](https://github.com/RedHatInsights/curiosity-frontend/commit/fe857ae))
+
+
+### Features
+
+* **rhelGraphCard:** update responsive usage and apply ChartAxis ([#70](https://github.com/RedHatInsights/curiosity-frontend/issues/70)) ([b67efb8](https://github.com/RedHatInsights/curiosity-frontend/commit/b67efb8))
+* **rhelGraphCard,chartArea:** issues/6,88 granularity dropdown ([#81](https://github.com/RedHatInsights/curiosity-frontend/issues/81)) ([0368605](https://github.com/RedHatInsights/curiosity-frontend/commit/0368605))
+
 ## 0.1.0 (2019-08-08)
 
 
