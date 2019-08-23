@@ -57,10 +57,13 @@
         "printWidth": 120
       }
     ],
-    "react/no-unused-prop-types": 1,
-    "react/jsx-filename-extension": 0,
     "react/forbid-prop-types": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-fragments": [ 1, "element" ],
+    "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": 0,
+    "react/no-unused-prop-types": 1,
+    "react/state-in-constructor": [ 1, "never" ],
     "space-before-function-paren": 0,
     "jsx-a11y/anchor-is-valid": 1,
     "jsx-a11y/label-has-for": [ 2, {
