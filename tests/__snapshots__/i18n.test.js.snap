@@ -5,23 +5,23 @@ exports[`i18n locale should generate a predictable pot output snapshot: pot outp
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/common/graphHelpers.js:43
+#: src/common/graphHelpers.js:46
 msgid \\"curiosity-graph.tooltipLabel\\"
 msgstr \\"\\"
 
-#: src/common/graphHelpers.js:58
+#: src/common/graphHelpers.js:61
 msgid \\"curiosity-graph.tooltipPreviousLabelDaily\\"
 msgstr \\"\\"
 
-#: src/common/graphHelpers.js:51
+#: src/common/graphHelpers.js:54
 msgid \\"curiosity-graph.tooltipPreviousLabelMonthly\\"
 msgstr \\"\\"
 
-#: src/common/graphHelpers.js:54
+#: src/common/graphHelpers.js:57
 msgid \\"curiosity-graph.tooltipPreviousLabelQuarterly\\"
 msgstr \\"\\"
 
-#: src/common/graphHelpers.js:48
+#: src/common/graphHelpers.js:51
 msgid \\"curiosity-graph.tooltipPreviousLabelWeekly\\"
 msgstr \\"\\"
 
@@ -30,7 +30,7 @@ msgctxt \\"Daily\\"
 msgid \\"curiosity-graph.dropdownDaily\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:78
+#: src/components/rhelGraphCard/rhelGraphCard.js:79
 msgctxt \\"Daily CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
@@ -45,8 +45,8 @@ msgctxt \\"Quarterly\\"
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:81
-#: src/components/rhelGraphCard/rhelGraphCard.js:85
+#: src/components/rhelGraphCard/rhelGraphCard.js:82
+#: src/components/rhelGraphCard/rhelGraphCard.js:86
 msgctxt \\"Select date range\\"
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"

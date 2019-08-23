@@ -60,6 +60,7 @@ class RhelGraphCard extends React.Component {
 
     return (
       <ChartArea
+        xAxisFixLabelOverlap
         xAxisLabelIncrement={chartXAxisLabelIncrement}
         yAxisTickFormat={({ tick }) => numeral(tick).format('0a')}
         dataSetOne={chartData}

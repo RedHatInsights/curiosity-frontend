@@ -165,23 +165,30 @@ Object {
       "y": 5,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Aug
- +2 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jul
+ -5 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
       "x": 1,
-      "xAxisLabel": "Aug",
-      "y": 7,
+      "xAxisLabel": "Jul",
+      "y": 0,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Dec",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Oct",
       "x": 2,
-      "xAxisLabel": "Dec",
-      "y": 7,
+      "xAxisLabel": "Oct",
+      "y": 0,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Apr 2019",
+      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jan 2019",
       "x": 3,
-      "xAxisLabel": "Apr
+      "xAxisLabel": "Jan
 2019",
+      "y": 0,
+    },
+    Object {
+      "tooltip": "7 t('curiosity-graph.tooltipLabel') Apr
+ +7 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
+      "x": 4,
+      "xAxisLabel": "Apr",
       "y": 7,
     },
   ],
@@ -255,7 +262,7 @@ exports[`GraphHelpers should return a date type based on granularity: granularit
 Object {
   "daily": "days",
   "monthly": "months",
-  "quarterly": "months",
+  "quarterly": "quarters",
   "weekly": "weeks",
 }
 `;

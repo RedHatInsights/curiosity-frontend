@@ -4,8 +4,6 @@
 @import '~@patternfly/patternfly/sass-utilities/all';
 
 // App
-.curiosity {
-  @import 'app';
-  @import 'common';
-  @import 'usage-graph';
-}
+@import 'app';
+@import 'common';
+@import 'usage-graph';
