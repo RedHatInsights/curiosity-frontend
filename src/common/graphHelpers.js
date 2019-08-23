@@ -13,6 +13,9 @@ const chartDateDayFormat = 'MMM D YYYY';
 const chartDateMonthFormatShort = 'MMM';
 const chartDateMonthFormat = 'MMM YYYY';
 
+const chartDateQuarterFormatShort = 'MMM';
+const chartDateQuarterFormat = 'MMM YYYY';
+
 /**
  * Returns x axis ticks/intervals array for the xAxisTickInterval
  *
@@ -70,14 +73,15 @@ const getGraphLabels = granularity => {
  */
 const getGranularityDateType = granularity => {
   switch (granularity) {
-    case GRANULARITY_TYPES.DAILY:
-      return 'days';
     case GRANULARITY_TYPES.WEEKLY:
       return 'weeks';
     case GRANULARITY_TYPES.MONTHLY:
-    case GRANULARITY_TYPES.QUARTERLY:
-    default:
       return 'months';
+    case GRANULARITY_TYPES.QUARTERLY:
+      return 'quarters';
+    case GRANULARITY_TYPES.DAILY:
+    default:
+      return 'days';
   }
 };
 
@@ -122,11 +126,10 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
   let previousYear = null;
 
   for (let i = 0; i <= endDateStartDateDiff; i++) {
-    if (GRANULARITY_TYPES.QUARTERLY === granularity && i % 4 !== 0) {
-      continue;
-    }
-
-    const momentDate = moment.utc(startDate).add(i, granularityType);
+    const momentDate = moment
+      .utc(startDate)
+      .add(i, granularityType)
+      .startOf(granularityType);
     const stringDate = momentDate.toISOString();
     const year = parseInt(momentDate.year(), 10);
 
@@ -134,7 +137,11 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
     const isNewYear = i !== 0 && checkTick && year !== previousYear;
     let formattedDate;
 
-    if (granularityType === 'months') {
+    if (granularityType === 'quarters') {
+      formattedDate = isNewYear
+        ? momentDate.format(chartDateQuarterFormat)
+        : momentDate.format(chartDateQuarterFormatShort);
+    } else if (granularityType === 'months') {
       formattedDate = isNewYear
         ? momentDate.format(chartDateMonthFormat)
         : momentDate.format(chartDateMonthFormatShort);
@@ -155,7 +162,10 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
       x: chartData.length,
       y: yAxis,
       tooltip: getLabel(labelData),
-      xAxisLabel: granularityType === 'months' ? formattedDate.replace(/\s/, '\n') : formattedDate
+      xAxisLabel:
+        granularityType === 'months' || granularityType === 'quarters'
+          ? formattedDate.replace(/\s/, '\n')
+          : formattedDate
     });
 
     previousData = yAxis;

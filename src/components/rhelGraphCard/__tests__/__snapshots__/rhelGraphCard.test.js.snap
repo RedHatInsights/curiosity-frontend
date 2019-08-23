@@ -655,14 +655,16 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
         padding={
           Object {
             "bottom": 50,
-            "left": 85,
-            "right": 85,
+            "left": 50,
+            "right": 50,
             "top": 50,
           }
         }
+        xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisLabelUseDataSet="one"
         xAxisTickFormat={null}
+        yAxisFixLabelOverlap={false}
         yAxisLabelIncrement={1}
         yAxisLabelUseDataSet="one"
         yAxisTickFormat={[Function]}

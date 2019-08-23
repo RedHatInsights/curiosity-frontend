@@ -342,9 +342,12 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
     }
     width={0}
   >
-    <ChartAxis />
+    <ChartAxis
+      fixLabelOverlap={false}
+    />
     <ChartAxis
       dependentAxis={true}
+      fixLabelOverlap={false}
       showGrid={true}
     />
     <ChartStack />

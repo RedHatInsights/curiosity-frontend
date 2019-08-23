@@ -124,18 +124,20 @@ class ChartArea extends React.Component {
 
   render() {
     const { chartWidth } = this.state;
-    const { dataSetOne } = this.props;
+    const { dataSetOne, xAxisFixLabelOverlap, yAxisFixLabelOverlap } = this.props;
 
     const { xAxisTickValues, xAxisTickFormat, yAxisTickValues, yAxisTickFormat } = this.getChartTicks();
-    const updatedXAxisProps = {};
+    const updatedXAxisProps = {
+      fixLabelOverlap: xAxisFixLabelOverlap
+    };
     const updatedYAxisProps = {
       dependentAxis: true,
-      showGrid: true
+      showGrid: true,
+      fixLabelOverlap: yAxisFixLabelOverlap
     };
 
     if (xAxisTickValues) {
       updatedXAxisProps.tickValues = xAxisTickValues;
-      updatedXAxisProps.fixLabelOverlap = false;
     }
 
     if (xAxisTickFormat) {
@@ -144,7 +146,6 @@ class ChartArea extends React.Component {
 
     if (yAxisTickValues) {
       updatedYAxisProps.tickValues = yAxisTickValues;
-      updatedYAxisProps.fixLabelOverlap = false;
     }
 
     if (yAxisTickFormat) {
@@ -193,9 +194,11 @@ ChartArea.propTypes = {
     right: PropTypes.number,
     top: PropTypes.number
   }),
+  xAxisFixLabelOverlap: PropTypes.bool,
   xAxisLabelIncrement: PropTypes.number,
   xAxisLabelUseDataSet: PropTypes.oneOf(['one']),
   xAxisTickFormat: PropTypes.func,
+  yAxisFixLabelOverlap: PropTypes.bool,
   yAxisLabelIncrement: PropTypes.number,
   yAxisLabelUseDataSet: PropTypes.oneOf(['one']),
   yAxisTickFormat: PropTypes.func
@@ -207,13 +210,15 @@ ChartArea.defaultProps = {
   height: 275,
   padding: {
     bottom: 50,
-    left: 85,
-    right: 85,
+    left: 50,
+    right: 50,
     top: 50
   },
+  xAxisFixLabelOverlap: false,
   xAxisLabelIncrement: 1,
   xAxisLabelUseDataSet: 'one',
   xAxisTickFormat: null,
+  yAxisFixLabelOverlap: false,
   yAxisLabelIncrement: 1,
   yAxisLabelUseDataSet: 'one',
   yAxisTickFormat: null
