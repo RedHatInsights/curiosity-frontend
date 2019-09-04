@@ -1,330 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
-<div>
-  <div
-    class="VictoryContainer"
-    style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative"
-  >
-    <svg
-      aria-labelledby="victory-container-1-title victory-container-1-desc"
-      height="300"
-      role="img"
-      style="pointer-events:all;width:100%;height:auto"
-      viewBox="0 0 0 300"
-      width="0"
-    >
-      <g
-        role="presentation"
-      >
-        <line
-          role="presentation"
-          shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
-          vector-effect="non-scaling-stroke"
-          x1="50"
-          x2="-50"
-          y1="250"
-          y2="250"
-        />
-        <g
-          role="presentation"
-        >
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:none;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="50"
-            y1="250"
-            y2="50"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:none;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="50"
-            y1="250"
-            y2="255"
-          />
-          <text
-            direction="inherit"
-            dx="0"
-            dy="11.969999999999999"
-            x="50"
-            y="265"
-          >
-            <tspan
-              dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
-              text-anchor="middle"
-              x="50"
-            >
-              2 x axis label
-            </tspan>
-          </text>
-        </g>
-        <g
-          role="presentation"
-        >
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:none;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="-50"
-            x2="-50"
-            y1="250"
-            y2="50"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:none;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
-            vector-effect="non-scaling-stroke"
-            x1="-50"
-            x2="-50"
-            y1="250"
-            y2="255"
-          />
-          <text
-            direction="inherit"
-            dx="0"
-            dy="11.969999999999999"
-            x="-50"
-            y="265"
-          >
-            <tspan
-              dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
-              text-anchor="middle"
-              x="-50"
-            >
-              2
-            </tspan>
-          </text>
-        </g>
-      </g>
-      <g
-        role="presentation"
-      >
-        <line
-          role="presentation"
-          shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
-          vector-effect="non-scaling-stroke"
-          x1="50"
-          x2="50"
-          y1="50"
-          y2="250"
-        />
-        <g
-          role="presentation"
-        >
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="-50"
-            y1="200"
-            y2="200"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="45"
-            y1="200"
-            y2="200"
-          />
-          <text
-            direction="inherit"
-            dx="0"
-            dy="4.97"
-            x="35"
-            y="200"
-          >
-            <tspan
-              dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
-              text-anchor="end"
-              x="35"
-            >
-              0.5 dolor sit
-            </tspan>
-          </text>
-        </g>
-        <g
-          role="presentation"
-        >
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="-50"
-            y1="150"
-            y2="150"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="45"
-            y1="150"
-            y2="150"
-          />
-          <text
-            direction="inherit"
-            dx="0"
-            dy="4.97"
-            x="35"
-            y="150"
-          >
-            <tspan
-              dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
-              text-anchor="end"
-              x="35"
-            >
-              1 dolor sit
-            </tspan>
-          </text>
-        </g>
-        <g
-          role="presentation"
-        >
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="-50"
-            y1="100"
-            y2="100"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="45"
-            y1="100"
-            y2="100"
-          />
-          <text
-            direction="inherit"
-            dx="0"
-            dy="4.97"
-            x="35"
-            y="100"
-          >
-            <tspan
-              dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
-              text-anchor="end"
-              x="35"
-            >
-              1.5 dolor sit
-            </tspan>
-          </text>
-        </g>
-        <g
-          role="presentation"
-        >
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="-50"
-            y1="50"
-            y2="50"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="45"
-            y1="50"
-            y2="50"
-          />
-          <text
-            direction="inherit"
-            dx="0"
-            dy="4.97"
-            x="35"
-            y="50"
-          >
-            <tspan
-              dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
-              text-anchor="end"
-              x="35"
-            >
-              2 dolor sit
-            </tspan>
-          </text>
-        </g>
-      </g>
-      <g>
-        <g
-          clip-path="url(#victory-clip-2)"
-          style="height:100%;width:100%;user-select:none"
-        >
-          <defs>
-            <clipPath
-              id="victory-clip-2"
-            >
-              <rect
-                height="200"
-                role="presentation"
-                shape-rendering="auto"
-                vector-effect="non-scaling-stroke"
-                width="100"
-                x="-50"
-                y="50"
-              />
-            </clipPath>
-          </defs>
-          <path
-            d="M50,250L-50,150L-50,250L50,250Z"
-            role="presentation"
-            shape-rendering="auto"
-            style="fill:#06c;stroke-width:1;fill-opacity:0.4;stroke:none"
-          />
-        </g>
-      </g>
-    </svg>
-    <div
-      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
-    >
-      <svg
-        height="300"
-        style="overflow:visible;width:100%;height:auto"
-        viewBox="0 0 0 300"
-        width="0"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ChartArea Component should render a basic component: basic 1`] = `
 <div>
   <Chart
@@ -340,6 +15,17 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
         ],
       }
     }
+    legendData={Array []}
+    legendOrientation="horizontal"
+    legendPosition="bottom"
+    padding={
+      Object {
+        "bottom": 75,
+        "left": 50,
+        "right": 50,
+        "top": 50,
+      }
+    }
     width={0}
   >
     <ChartAxis
@@ -350,6 +36,7 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
       fixLabelOverlap={false}
       showGrid={true}
     />
+    0
     <ChartStack />
   </Chart>
 </div>
@@ -391,6 +78,17 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         voronoiPadding={5}
       />
     }
+    legendData={Array []}
+    legendOrientation="horizontal"
+    legendPosition="bottom"
+    padding={
+      Object {
+        "bottom": 75,
+        "left": 50,
+        "right": 50,
+        "top": 50,
+      }
+    }
     width={0}
   >
     <ChartAxis
@@ -415,6 +113,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         ]
       }
     />
+    0
     <ChartStack>
       <ChartArea
         data={

@@ -162,6 +162,12 @@ class ChartArea extends React.Component {
       chartProps.containerComponent = <ChartVoronoiContainer labels={d => d.tooltip} />;
     }
 
+    if (legendData) {
+      chartProps.legendData = legendData;
+      chartProps.legendOrientation = 'horizontal';
+      chartProps.legendPosition = 'bottom';
+    }
+
     if (Object.keys(domain).length) {
       chartProps.domain = domain;
     }
@@ -171,9 +177,6 @@ class ChartArea extends React.Component {
         <Chart
           width={chartWidth}
           {...chartProps}
-          legendData={legendData}
-          legendOrientation="horizontal"
-          legendPosition="bottom"
           padding={{
             bottom: 75, // Adjusted to accomodate legend
             left: 50,

@@ -7,6 +7,8 @@ import {
 } from '../graphHelpers';
 import { rhelApiTypes } from '../../types/rhelApiTypes';
 
+import { translate } from '../../components/i18n/i18n';
+
 describe('GraphHelpers', () => {
   const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
 
@@ -18,6 +20,8 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-05T23:59:59Z')
@@ -30,6 +34,8 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-05T23:59:59Z'),
@@ -43,6 +49,8 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-05T23:59:59Z'),
@@ -92,6 +100,8 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-05T23:59:59Z'),
@@ -109,6 +119,8 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2018-12-31T00:00:00Z'),
       endDate: new Date('2019-01-06T00:00:00Z'),
@@ -172,6 +184,8 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
       dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       granularity: GRANULARITY_TYPES.QUARTERLY,
       startDate: new Date('2018-04-01T00:00:00Z'),
       endDate: new Date('2019-04-01T00:00:00Z'),
