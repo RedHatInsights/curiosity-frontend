@@ -44,73 +44,85 @@ import serviceConfig from './config';
  *           "date": "2019-07-20T00:00:00Z",
  *           "instance_count": 10,
  *           "cores": 20,
- *           "sockets": 20
+ *           "sockets": 20,
+ *           "sockets_threshold": 30
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
  *           "instance_count": 12,
  *           "cores": 24,
- *           "sockets": 24
+ *           "sockets": 24,
+ *           "sockets_threshold": 30
  *         },
  *         {
  *           "date": "2019-07-22T00:00:00Z",
  *           "instance_count": 14,
  *           "cores": 28,
- *           "sockets": 28
+ *           "sockets": 28,
+ *           "sockets_threshold": 30
  *         },
  *         {
  *           "date": "2019-07-23T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
- *           "sockets": 32
+ *           "sockets": 32,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-24T00:00:00Z",
  *           "instance_count": 18,
  *           "cores": 36,
- *           "sockets": 36
+ *           "sockets": 36,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-25T00:00:00Z",
  *           "instance_count": 20,
  *           "cores": 40,
- *           "sockets": 40
+ *           "sockets": 40,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-26T00:00:00Z",
  *           "instance_count": 22,
  *           "cores": 44,
- *           "sockets": 44
+ *           "sockets": 44,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-27T00:00:00Z",
  *           "instance_count": 24,
  *           "cores": 48,
- *           "sockets": 48
+ *           "sockets": 48,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-28T00:00:00Z",
  *           "instance_count": 26,
  *           "cores": 52,
- *           "sockets": 52
+ *           "sockets": 52,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-29T00:00:00Z",
  *           "instance_count": 28,
  *           "cores": 56,
- *           "sockets": 56
+ *           "sockets": 56,
+ *           "sockets_threshold": 50
  *         },
  *         {
  *           "date": "2019-07-30T00:00:00Z",
  *           "instance_count": 30,
  *           "cores": 60,
- *           "sockets": 60
+ *           "sockets": 60,
+ *           "sockets_threshold": 70
  *         },
  *         {
  *           "date": "2019-07-31T00:00:00Z",
  *           "instance_count": 32,
  *           "cores": 64,
- *           "sockets": 64
+ *           "sockets": 64,
+ *           "sockets_threshold": 70
  *         }
  *       ],
  *       "links": {

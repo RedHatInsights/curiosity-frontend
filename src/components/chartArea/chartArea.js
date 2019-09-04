@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Chart,
   ChartAxis,
+  ChartLine,
   ChartVoronoiContainer,
   ChartStack,
   ChartArea as PfChartArea
@@ -94,6 +95,7 @@ class ChartArea extends React.Component {
 
   // ToDo: the domain range needs to be update when additional datasets are added
   getChartDomain({ isXAxisTicks, isYAxisTicks }) {
+    // todo: make this method also account for chart thresholds when calc'ing domain
     const { domain, dataSetOne } = this.props;
 
     if (Object.keys(domain).length) {
@@ -124,7 +126,7 @@ class ChartArea extends React.Component {
 
   render() {
     const { chartWidth } = this.state;
-    const { dataSetOne, xAxisFixLabelOverlap, yAxisFixLabelOverlap } = this.props;
+    const { legendData, dataSetOne, dataSetOneThresholds, xAxisFixLabelOverlap, yAxisFixLabelOverlap } = this.props;
 
     const { xAxisTickValues, xAxisTickFormat, yAxisTickValues, yAxisTickFormat } = this.getChartTicks();
     const updatedXAxisProps = {
@@ -166,9 +168,25 @@ class ChartArea extends React.Component {
 
     return (
       <div ref={this.containerRef}>
-        <Chart width={chartWidth} {...chartProps}>
+        <Chart
+          width={chartWidth}
+          {...chartProps}
+          legendData={legendData}
+          legendOrientation="horizontal"
+          legendPosition="bottom"
+          padding={{
+            bottom: 75, // Adjusted to accomodate legend
+            left: 50,
+            right: 50,
+            top: 50
+          }}
+        >
           <ChartAxis {...updatedXAxisProps} />
           <ChartAxis {...updatedYAxisProps} />
+          {dataSetOneThresholds && dataSetOneThresholds.length && (
+            /** todo: split this out into a new wrapper called ChartThreshold in PF React */
+            <ChartLine data={dataSetOneThresholds} style={{ data: { strokeDasharray: 3.3 } }} />
+          )}
           <ChartStack>{(dataSetOne && dataSetOne.length && <PfChartArea data={dataSetOne} />) || null}</ChartStack>
         </Chart>
       </div>
@@ -177,6 +195,7 @@ class ChartArea extends React.Component {
 }
 
 ChartArea.propTypes = {
+  legendData: PropTypes.arrayOf(PropTypes.object),
   dataSetOne: PropTypes.arrayOf(
     PropTypes.shape({
       x: PropTypes.number,
@@ -184,6 +203,12 @@ ChartArea.propTypes = {
       tooltip: PropTypes.string,
       xAxisLabel: PropTypes.string,
       yAxisLabel: PropTypes.string
+    })
+  ),
+  dataSetOneThresholds: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.number,
+      y: PropTypes.number
     })
   ),
   domain: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -205,8 +230,10 @@ ChartArea.propTypes = {
 };
 
 ChartArea.defaultProps = {
+  legendData: [],
   domain: {},
   dataSetOne: [],
+  dataSetOneThresholds: [],
   height: 275,
   padding: {
     bottom: 50,

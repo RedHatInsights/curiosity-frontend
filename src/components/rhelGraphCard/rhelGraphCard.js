@@ -4,6 +4,7 @@ import numeral from 'numeral';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Select } from '../select/select';
+import { translate } from '../i18n/i18n';
 import { connectTranslate, reduxActions, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers, graphHelpers } from '../../common';
 import { rhelApiTypes } from '../../types/rhelApiTypes';
@@ -50,9 +51,12 @@ class RhelGraphCard extends React.Component {
   // ToDo: evaluate show error toast on chart error
   renderChart() {
     const { graphData, graphGranularity, startDate, endDate } = this.props;
-    const { chartXAxisLabelIncrement, chartData } = graphHelpers.convertChartData({
+    const { chartXAxisLabelIncrement, chartData, dataThresholds } = graphHelpers.convertChartData({
       data: graphData.usage,
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
+      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      tooltipLabel: translate('curiosity-graph.tooltipSockets'),
+      tooltipThresholdLabel: translate('curiosity-graph.tooltipSocketsThreshold'),
       startDate,
       endDate,
       granularity: graphGranularity
@@ -60,10 +64,15 @@ class RhelGraphCard extends React.Component {
 
     return (
       <ChartArea
+        legendData={[
+          { name: translate('curiosity-graph.legendSocketsThresholdLabel'), symbol: { type: 'dash' } },
+          { name: translate('curiosity-graph.legendSocketsLabel') }
+        ]}
         xAxisFixLabelOverlap
         xAxisLabelIncrement={chartXAxisLabelIncrement}
         yAxisTickFormat={({ tick }) => numeral(tick).format('0a')}
         dataSetOne={chartData}
+        dataSetOneThresholds={dataThresholds}
       />
     );
   }
