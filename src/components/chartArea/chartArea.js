@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import {
   Chart,
   ChartAxis,
+  ChartLegend,
+  ChartLine,
   ChartVoronoiContainer,
   ChartStack,
   ChartArea as PfChartArea
 } from '@patternfly/react-charts';
 import _cloneDeep from 'lodash/cloneDeep';
+import { helpers } from '../../common';
 
 class ChartArea extends React.Component {
   state = { chartWidth: 0 };
@@ -31,34 +34,22 @@ class ChartArea extends React.Component {
     }
   };
 
-  getChartTicks() {
-    const {
-      xAxisLabelIncrement,
-      yAxisLabelIncrement,
-      xAxisLabelUseDataSet,
-      yAxisLabelUseDataSet,
-      xAxisTickFormat,
-      yAxisTickFormat,
-      dataSetOne
-    } = this.props;
+  setChartTicks() {
+    const { xAxisLabelIncrement, yAxisLabelIncrement, xAxisTickFormat, yAxisTickFormat, dataSets } = this.props;
     const xAxisProps = {};
     const yAxisProps = {};
-    let xAxisDataSet = [];
-    let yAxisDataSet = [];
+    let xAxisDataSet = (dataSets.length && dataSets[0].data) || [];
+    let yAxisDataSet = (dataSets.length && dataSets[0].data) || [];
 
-    switch (xAxisLabelUseDataSet) {
-      case 'one':
-      default:
-        xAxisDataSet = dataSetOne;
-        break;
-    }
+    dataSets.forEach(dataSet => {
+      if (dataSet.xAxisLabelUseDataSet) {
+        xAxisDataSet = dataSet.data;
+      }
 
-    switch (yAxisLabelUseDataSet) {
-      case 'one':
-      default:
-        yAxisDataSet = dataSetOne;
-        break;
-    }
+      if (dataSet.yAxisLabelUseDataSet) {
+        yAxisDataSet = dataSet.data;
+      }
+    });
 
     if (xAxisDataSet.find(value => value.xAxisLabel && value.xAxisLabel)) {
       xAxisProps.xAxisTickValues = xAxisDataSet.reduce(
@@ -92,41 +83,10 @@ class ChartArea extends React.Component {
     };
   }
 
-  // ToDo: the domain range needs to be update when additional datasets are added
-  getChartDomain({ isXAxisTicks, isYAxisTicks }) {
-    const { domain, dataSetOne } = this.props;
+  getChartTicks() {
+    const { xAxisFixLabelOverlap, yAxisFixLabelOverlap } = this.props;
 
-    if (Object.keys(domain).length) {
-      return domain;
-    }
-
-    const generatedDomain = {};
-    let dataSetOneMaxY = 0;
-
-    dataSetOne.forEach(value => {
-      dataSetOneMaxY = value.y > dataSetOneMaxY ? value.y : dataSetOneMaxY;
-    });
-
-    if (!isXAxisTicks) {
-      generatedDomain.x = [0, dataSetOne.length || 10];
-    }
-
-    if (!isYAxisTicks) {
-      const floored = Math.pow(10, Math.floor(Math.log10(dataSetOneMaxY || 10)));
-      generatedDomain.y = [0, Math.ceil((dataSetOneMaxY + 1) / floored) * floored];
-    }
-
-    return {
-      maxY: dataSetOneMaxY,
-      domain: generatedDomain
-    };
-  }
-
-  render() {
-    const { chartWidth } = this.state;
-    const { dataSetOne, xAxisFixLabelOverlap, yAxisFixLabelOverlap } = this.props;
-
-    const { xAxisTickValues, xAxisTickFormat, yAxisTickValues, yAxisTickFormat } = this.getChartTicks();
+    const { xAxisTickValues, xAxisTickFormat, yAxisTickValues, yAxisTickFormat } = this.setChartTicks();
     const updatedXAxisProps = {
       fixLabelOverlap: xAxisFixLabelOverlap
     };
@@ -152,24 +112,133 @@ class ChartArea extends React.Component {
       updatedYAxisProps.tickFormat = yAxisTickFormat;
     }
 
-    const { domain, maxY } = this.getChartDomain({ isXAxisTicks: !!xAxisTickValues, isYAxisTicks: !!yAxisTickValues });
-    const chartProps = {};
+    return {
+      isXAxisTicks: !!xAxisTickValues,
+      isYAxisTicks: !!yAxisTickValues,
+      xAxisProps: updatedXAxisProps,
+      yAxisProps: updatedYAxisProps
+    };
+  }
+
+  // ToDo: the domain range needs to be update when additional datasets are added
+  getChartDomain({ isXAxisTicks, isYAxisTicks }) {
+    const { domain, dataSets } = this.props;
+
+    if (Object.keys(domain).length) {
+      return domain;
+    }
+
+    const generatedDomain = {};
+    const updatedChartDomain = {};
+    let dataSetMaxX = 0;
+    let dataSetMaxY = 0;
+
+    dataSets.forEach(dataSet => {
+      dataSetMaxX = dataSet.data.length > dataSetMaxX ? dataSet.data : dataSetMaxX;
+
+      dataSet.data.forEach(value => {
+        dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
+      });
+
+      if (dataSet.thresholds) {
+        dataSet.thresholds.forEach(value => {
+          dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
+        });
+      }
+    });
+
+    if (!isXAxisTicks) {
+      generatedDomain.x = [0, dataSetMaxX || 10];
+    }
+
+    if (!isYAxisTicks) {
+      const floored = Math.pow(10, Math.floor(Math.log10(dataSetMaxY || 10)));
+      generatedDomain.y = [0, Math.ceil((dataSetMaxY + 1) / floored) * floored];
+    }
+
+    if (Object.keys(generatedDomain).length) {
+      updatedChartDomain.domain = generatedDomain;
+    }
+
+    return {
+      maxY: dataSetMaxY,
+      chartDomain: { ...updatedChartDomain }
+    };
+  }
+
+  getChartLegend() {
+    const { dataSets } = this.props;
+    const legendData = [];
+
+    dataSets.forEach(dataSet => {
+      if (dataSet.legendThreshold) {
+        legendData.push({ symbol: { type: 'dash' }, ...dataSet.legendThreshold });
+      }
+
+      if (dataSet.legendData) {
+        legendData.push(dataSet.legendData);
+      }
+    });
+
+    return {
+      legendData,
+      legendOrientation: 'horizontal',
+      legendPosition: 'bottom-left',
+      legendComponent: <ChartLegend borderPadding={{ top: 20 }} />
+    };
+  }
+
+  render() {
+    const { chartWidth } = this.state;
+    const { dataSets, padding } = this.props;
+
+    const { isXAxisTicks, isYAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
+    const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks, isYAxisTicks });
+    const chartLegendProps = this.getChartLegend();
+    const chartProps = { padding, ...chartLegendProps, ...chartDomain };
 
     // FixMe: Check maxY has value, and conditionally apply ChartVoronoiContainer to avoid a massive memory leak?
     if (maxY > 0) {
       chartProps.containerComponent = <ChartVoronoiContainer labels={d => d.tooltip} />;
     }
 
-    if (Object.keys(domain).length) {
-      chartProps.domain = domain;
-    }
-
     return (
       <div ref={this.containerRef}>
         <Chart width={chartWidth} {...chartProps}>
-          <ChartAxis {...updatedXAxisProps} />
-          <ChartAxis {...updatedYAxisProps} />
-          <ChartStack>{(dataSetOne && dataSetOne.length && <PfChartArea data={dataSetOne} />) || null}</ChartStack>
+          <ChartAxis {...xAxisProps} />
+          <ChartAxis {...yAxisProps} />
+          {(dataSets &&
+            dataSets.length &&
+            dataSets.map(
+              dataSet =>
+                (dataSet.thresholds && dataSet.thresholds.length && (
+                  /** fixme: split this out into a new wrapper called ChartThreshold in PF React */
+                  <ChartLine
+                    interpolation={dataSet.thresholdInterpolation || 'step'}
+                    key={helpers.generateId()}
+                    data={dataSet.thresholds}
+                    style={dataSet.thresholdStyle || { data: { strokeDasharray: 3.3 } }}
+                  />
+                )) ||
+                null
+            )) ||
+            null}
+          <ChartStack>
+            {(dataSets &&
+              dataSets.length &&
+              dataSets.map(
+                dataSet =>
+                  (dataSet.data && dataSet.data.length && (
+                    <PfChartArea
+                      interpolation={dataSet.dataInterpolation || 'catmullRom'}
+                      key={helpers.generateId()}
+                      data={dataSet.data}
+                    />
+                  )) ||
+                  null
+              )) ||
+              null}
+          </ChartStack>
         </Chart>
       </div>
     );
@@ -177,13 +246,34 @@ class ChartArea extends React.Component {
 }
 
 ChartArea.propTypes = {
-  dataSetOne: PropTypes.arrayOf(
+  dataSets: PropTypes.arrayOf(
     PropTypes.shape({
-      x: PropTypes.number,
-      y: PropTypes.number,
-      tooltip: PropTypes.string,
-      xAxisLabel: PropTypes.string,
-      yAxisLabel: PropTypes.string
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          x: PropTypes.number,
+          y: PropTypes.number,
+          tooltip: PropTypes.string,
+          xAxisLabel: PropTypes.string,
+          yAxisLabel: PropTypes.string
+        })
+      ),
+      dataInterpolation: PropTypes.string,
+      threshold: PropTypes.arrayOf(
+        PropTypes.shape({
+          x: PropTypes.number,
+          y: PropTypes.number
+        })
+      ),
+      thresholdInterpolation: PropTypes.string,
+      thresholdStyle: PropTypes.object,
+      legendData: PropTypes.shape({
+        name: PropTypes.string
+      }),
+      legendThreshold: PropTypes.shape({
+        name: PropTypes.string
+      }),
+      xAxisLabelUseDataSet: PropTypes.bool,
+      yAxisLabelUseDataSet: PropTypes.bool
     })
   ),
   domain: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -196,31 +286,27 @@ ChartArea.propTypes = {
   }),
   xAxisFixLabelOverlap: PropTypes.bool,
   xAxisLabelIncrement: PropTypes.number,
-  xAxisLabelUseDataSet: PropTypes.oneOf(['one']),
   xAxisTickFormat: PropTypes.func,
   yAxisFixLabelOverlap: PropTypes.bool,
   yAxisLabelIncrement: PropTypes.number,
-  yAxisLabelUseDataSet: PropTypes.oneOf(['one']),
   yAxisTickFormat: PropTypes.func
 };
 
 ChartArea.defaultProps = {
   domain: {},
-  dataSetOne: [],
+  dataSets: [],
   height: 275,
   padding: {
-    bottom: 50,
+    bottom: 75,
     left: 50,
     right: 50,
     top: 50
   },
   xAxisFixLabelOverlap: false,
   xAxisLabelIncrement: 1,
-  xAxisLabelUseDataSet: 'one',
   xAxisTickFormat: null,
   yAxisFixLabelOverlap: false,
   yAxisLabelIncrement: 1,
-  yAxisLabelUseDataSet: 'one',
   yAxisTickFormat: null
 };
 

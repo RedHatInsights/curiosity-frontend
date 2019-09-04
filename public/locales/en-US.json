@@ -6,10 +6,13 @@
     "dropdownMonthly": "Monthly",
     "dropdownQuarterly": "Quarterly",
     "dropdownPlaceholder": "Select date range",
-    "tooltipLabel": "sockets on",
     "tooltipPreviousLabelDaily": "from previous day",
     "tooltipPreviousLabelWeekly": "from previous week",
     "tooltipPreviousLabelMonthly": "from previous month",
-    "tooltipPreviousLabelQuarterly": "from previous quarter"
+    "tooltipPreviousLabelQuarterly": "from previous quarter",
+    "tooltipSockets": "sockets on",
+    "tooltipSocketsThreshold": "Socket Threshold",
+    "legendSocketsLabel": "Sockets",
+    "legendSocketsThresholdLabel": "Socket Threshold"
   }
 }
