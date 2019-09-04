@@ -39,11 +39,12 @@ const getChartXAxisLabelIncrement = granularity => {
  * Return translated labels based on granularity.
  *
  * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {string} tooltipLabel
  * @returns {Object}
  */
-const getGraphLabels = granularity => {
+const getGraphLabels = ({ granularity, tooltipLabel }) => {
   const labels = {
-    label: translate('curiosity-graph.tooltipLabel')
+    label: tooltipLabel
   };
 
   switch (granularity) {
@@ -92,10 +93,11 @@ const getGranularityDateType = granularity => {
  * @param {number} previousData
  * @param {string} formattedDate
  * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {string} tooltipLabel
  * @returns {string}
  */
-const getLabel = ({ data, previousData, formattedDate, granularity }) => {
-  const { label, previousLabel } = getGraphLabels(granularity);
+const getLabel = ({ data, previousData, formattedDate, granularity, tooltipLabel }) => {
+  const { label, previousLabel } = getGraphLabels({ granularity, tooltipLabel });
   const previousCount = data - previousData;
   const updatedLabel = `${data} ${label} ${formattedDate}`;
 
@@ -106,6 +108,15 @@ const getLabel = ({ data, previousData, formattedDate, granularity }) => {
   return `${updatedLabel}\n ${previousCount > -1 ? '+' : ''}${previousCount} ${previousLabel}`;
 };
 
+/**
+ * Apply Threshold Label formatting
+ * @param {number} yValue the yaxis value
+ * @param {string} tooltipThresholdLabel the threshold label
+ */
+const getThresholdLabel = ({ yValue, tooltipThresholdLabel }) => {
+  return `${tooltipThresholdLabel}: ${yValue}`;
+};
+
 // ToDo: when the API returns filler date values "fillFormatChartData" should be updated
 /**
  * Fill missing dates, and format graph data
@@ -114,14 +125,18 @@ const getLabel = ({ data, previousData, formattedDate, granularity }) => {
  * @param {Date} endDate
  * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
  * @param {Date} startDate
- * @returns {Array}
+ * @param {string} tooltipLabel
+ * @param {string} tooltipThresholdLabel
+ * @returns {Object}
  */
-const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
+const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLabel, tooltipThresholdLabel }) => {
   const granularityType = getGranularityDateType(granularity);
   const granularityTick = getChartXAxisLabelIncrement(granularity);
   const endDateStartDateDiff = moment(endDate).diff(startDate, granularityType);
   const chartData = [];
+  const chartDataThresholds = [];
 
+  let isThreshold = false;
   let previousData = null;
   let previousYear = null;
 
@@ -149,14 +164,24 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
       formattedDate = isNewYear ? momentDate.format(chartDateDayFormat) : momentDate.format(chartDateDayFormatShort);
     }
 
-    const yAxis = data[stringDate] || 0;
+    const yAxis = (data[stringDate] && data[stringDate].data) || 0;
+    const yAxisThreshold = (data[stringDate] && data[stringDate].dataThreshold) || 0;
+
+    isThreshold = isThreshold || yAxisThreshold > 0;
 
     const labelData = {
       data: yAxis,
       previousData,
       formattedDate,
-      granularity
+      granularity,
+      tooltipLabel
     };
+
+    chartDataThresholds.push({
+      x: chartData.length,
+      y: yAxisThreshold,
+      tooltip: getThresholdLabel({ yValue: yAxisThreshold, tooltipThresholdLabel })
+    });
 
     chartData.push({
       x: chartData.length,
@@ -175,7 +200,7 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
     }
   }
 
-  return chartData;
+  return { chartData, chartDataThresholds: (isThreshold && chartDataThresholds) || [] };
 };
 
 /**
@@ -187,12 +212,24 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate }) => {
  *
  * @param {Array} data
  * @param {string} dataFacet the response property used for the y axis
+ * @param {string} dataThresholdFacet the response property for the threshold line indicator
+ * @param {string} tooltipLabel the tooltip label
+ * @param {string} tooltipThresholdLabel the tooltip threshold label
  * @param {date} startDate
  * @param {date} endDate
  * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {Object} Object array result converted { chartData: {...} chartDomain {...} }
  */
-const convertChartData = ({ data, dataFacet, startDate, endDate, granularity }) => {
+const convertChartData = ({
+  data,
+  dataFacet,
+  dataThresholdFacet,
+  tooltipLabel,
+  tooltipThresholdLabel,
+  startDate,
+  endDate,
+  granularity
+}) => {
   const formattedData = {};
 
   (data || []).forEach(value => {
@@ -201,12 +238,25 @@ const convertChartData = ({ data, dataFacet, startDate, endDate, granularity }) 
         .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
         .startOf('day')
         .toISOString();
-      formattedData[stringDate] = Number.parseInt(value[dataFacet], 10);
+      formattedData[stringDate] = {
+        data: Number.parseInt(value[dataFacet], 10),
+        dataThreshold: Number.parseInt(value[dataThresholdFacet], 10)
+      };
     }
   });
 
+  const { chartData, chartDataThresholds } = fillFormatChartData({
+    data: formattedData,
+    endDate,
+    granularity,
+    startDate,
+    tooltipLabel,
+    tooltipThresholdLabel
+  });
+
   return {
-    chartData: fillFormatChartData({ data: formattedData, endDate, granularity, startDate }),
+    chartData,
+    chartDataThresholds,
     chartXAxisLabelIncrement: getChartXAxisLabelIncrement(granularity)
   };
 };

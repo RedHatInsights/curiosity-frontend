@@ -12,20 +12,25 @@ describe('ChartArea Component', () => {
 
   it('should render basic data', () => {
     const props = {
-      dataSetOne: [
+      dataSets: [
         {
-          x: 1,
-          y: 1,
-          tooltip: '1 lorem ipsum',
-          xAxisLabel: '1 x axis label',
-          yAxisLabel: '1 y axis label'
-        },
-        {
-          x: 2,
-          y: 2,
-          tooltip: '2 lorem ipsum',
-          xAxisLabel: '2 x axis label',
-          yAxisLabel: '2 y axis label'
+          data: [
+            {
+              x: 1,
+              y: 1,
+              tooltip: '1 lorem ipsum',
+              xAxisLabel: '1 x axis label',
+              yAxisLabel: '1 y axis label'
+            },
+            {
+              x: 2,
+              y: 2,
+              tooltip: '2 lorem ipsum',
+              xAxisLabel: '2 x axis label',
+              yAxisLabel: '2 y axis label'
+            }
+          ],
+          legendData: { name: 'Arma virumque cano' }
         }
       ]
     };
@@ -37,18 +42,24 @@ describe('ChartArea Component', () => {
   it('should allow tick formatting', () => {
     const props = {
       yAxisTickFormat: ({ tick }) => `${tick} dolor sit`,
-      dataSetOne: [
+      dataSets: [
         {
-          x: 1,
-          y: 0,
-          tooltip: '1 lorem ipsum',
-          xAxisLabel: '1 x axis label'
-        },
-        {
-          x: 2,
-          y: 1,
-          tooltip: '2 lorem ipsum',
-          xAxisLabel: '2 x axis label'
+          data: [
+            {
+              x: 1,
+              y: 0,
+              tooltip: '1 lorem ipsum',
+              xAxisLabel: '1 x axis label'
+            },
+            {
+              x: 2,
+              y: 1,
+              tooltip: '2 lorem ipsum',
+              xAxisLabel: '2 x axis label'
+            }
+          ],
+          legendData: { name: 'Arma virumque cano' },
+          legendThreshold: { name: 'Arma virumque cano' }
         }
       ]
     };
