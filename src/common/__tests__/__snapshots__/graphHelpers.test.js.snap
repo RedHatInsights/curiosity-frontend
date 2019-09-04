@@ -4,37 +4,64 @@ exports[`GraphHelpers should convert graph data and generate tooltips when usage
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "5 t('curiosity-graph.tooltipLabel') Jun 1",
+      "tooltip": "5 lorem tooltip label Jun 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 5,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jun 2
+      "tooltip": "7 lorem tooltip label Jun 2
  +2 t('curiosity-graph.tooltipPreviousLabelDaily')",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 7,
     },
     Object {
-      "tooltip": "3 t('curiosity-graph.tooltipLabel') Jun 3
+      "tooltip": "3 lorem tooltip label Jun 3
  -4 t('curiosity-graph.tooltipPreviousLabelDaily')",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 3,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4
+      "tooltip": "0 lorem tooltip label Jun 4
  -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "tooltip": "0 lorem tooltip label Jun 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
+    },
+  ],
+  "chartDataThresholds": Array [
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 0,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 1,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 2,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 3,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 4,
+      "y": 10,
     },
   ],
   "chartXAxisLabelIncrement": 5,
@@ -45,36 +72,37 @@ exports[`GraphHelpers should convert graph data and return zeroed usage array if
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 1",
+      "tooltip": "0 lorem tooltip label Jun 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2",
+      "tooltip": "0 lorem tooltip label Jun 2",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "tooltip": "0 lorem tooltip label Jun 3",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "tooltip": "0 lorem tooltip label Jun 4",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "tooltip": "0 lorem tooltip label Jun 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
+  "chartDataThresholds": Array [],
   "chartXAxisLabelIncrement": 5,
 }
 `;
@@ -83,36 +111,37 @@ exports[`GraphHelpers should convert graph data and return zeroed usage array if
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 1",
+      "tooltip": "0 lorem tooltip label Jun 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2",
+      "tooltip": "0 lorem tooltip label Jun 2",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "tooltip": "0 lorem tooltip label Jun 3",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "tooltip": "0 lorem tooltip label Jun 4",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "tooltip": "0 lorem tooltip label Jun 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
+  "chartDataThresholds": Array [],
   "chartXAxisLabelIncrement": 5,
 }
 `;
@@ -121,36 +150,37 @@ exports[`GraphHelpers should convert graph data and returned zeroed array when u
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 1",
+      "tooltip": "0 lorem tooltip label Jun 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 2",
+      "tooltip": "0 lorem tooltip label Jun 2",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 3",
+      "tooltip": "0 lorem tooltip label Jun 3",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 4",
+      "tooltip": "0 lorem tooltip label Jun 4",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jun 5",
+      "tooltip": "0 lorem tooltip label Jun 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
     },
   ],
+  "chartDataThresholds": Array [],
   "chartXAxisLabelIncrement": 5,
 }
 `;
@@ -159,37 +189,64 @@ exports[`GraphHelpers should handle cross quarter labels: quarter granularity 1`
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "5 t('curiosity-graph.tooltipLabel') Apr",
+      "tooltip": "5 lorem tooltip label Apr",
       "x": 0,
       "xAxisLabel": "Apr",
       "y": 5,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jul
+      "tooltip": "0 lorem tooltip label Jul
  -5 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
       "x": 1,
       "xAxisLabel": "Jul",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Oct",
+      "tooltip": "0 lorem tooltip label Oct",
       "x": 2,
       "xAxisLabel": "Oct",
       "y": 0,
     },
     Object {
-      "tooltip": "0 t('curiosity-graph.tooltipLabel') Jan 2019",
+      "tooltip": "0 lorem tooltip label Jan 2019",
       "x": 3,
       "xAxisLabel": "Jan
 2019",
       "y": 0,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Apr
+      "tooltip": "7 lorem tooltip label Apr
  +7 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
       "x": 4,
       "xAxisLabel": "Apr",
       "y": 7,
+    },
+  ],
+  "chartDataThresholds": Array [
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 0,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 0",
+      "x": 1,
+      "y": 0,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 0",
+      "x": 2,
+      "y": 0,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 0",
+      "x": 3,
+      "y": 0,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 4,
+      "y": 10,
     },
   ],
   "chartXAxisLabelIncrement": 1,
@@ -200,47 +257,84 @@ exports[`GraphHelpers should handle cross year labels: cross year 1`] = `
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "5 t('curiosity-graph.tooltipLabel') Dec 31",
+      "tooltip": "5 lorem tooltip label Dec 31",
       "x": 0,
       "xAxisLabel": "Dec 31",
       "y": 5,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 1
+      "tooltip": "7 lorem tooltip label Jan 1
  +2 t('curiosity-graph.tooltipPreviousLabelDaily')",
       "x": 1,
       "xAxisLabel": "Jan 1",
       "y": 7,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 2",
+      "tooltip": "7 lorem tooltip label Jan 2",
       "x": 2,
       "xAxisLabel": "Jan 2",
       "y": 7,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 3",
+      "tooltip": "7 lorem tooltip label Jan 3",
       "x": 3,
       "xAxisLabel": "Jan 3",
       "y": 7,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 4",
+      "tooltip": "7 lorem tooltip label Jan 4",
       "x": 4,
       "xAxisLabel": "Jan 4",
       "y": 7,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 5 2019",
+      "tooltip": "7 lorem tooltip label Jan 5 2019",
       "x": 5,
       "xAxisLabel": "Jan 5 2019",
       "y": 7,
     },
     Object {
-      "tooltip": "7 t('curiosity-graph.tooltipLabel') Jan 6",
+      "tooltip": "7 lorem tooltip label Jan 6",
       "x": 6,
       "xAxisLabel": "Jan 6",
       "y": 7,
+    },
+  ],
+  "chartDataThresholds": Array [
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 0,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 1,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 2,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 3,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 4,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 5,
+      "y": 10,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 10",
+      "x": 6,
+      "y": 10,
     },
   ],
   "chartXAxisLabelIncrement": 5,
@@ -270,19 +364,19 @@ Object {
 exports[`GraphHelpers should return a label based on granularity: granularity based label 1`] = `
 Object {
   "daily": Object {
-    "label": "t('curiosity-graph.tooltipLabel')",
+    "label": "ipsum tooltip label",
     "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
   },
   "monthly": Object {
-    "label": "t('curiosity-graph.tooltipLabel')",
+    "label": "ipsum tooltip label",
     "previousLabel": "t('curiosity-graph.tooltipPreviousLabelMonthly')",
   },
   "quarterly": Object {
-    "label": "t('curiosity-graph.tooltipLabel')",
+    "label": "ipsum tooltip label",
     "previousLabel": "t('curiosity-graph.tooltipPreviousLabelQuarterly')",
   },
   "weekly": Object {
-    "label": "t('curiosity-graph.tooltipLabel')",
+    "label": "ipsum tooltip label",
     "previousLabel": "t('curiosity-graph.tooltipPreviousLabelWeekly')",
   },
 }
