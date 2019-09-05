@@ -12,18 +12,31 @@ It's encouraged that commit messaging follow the format
 
 Settings for [Standard Version](https://github.com/conventional-changelog/standard-version#readme) can be found in [package.json](./package.json)
 
-## Build
-### dotenv files
-Our current build leverages `dotenv`, or `.env*`, files to apply environment build configuration. 
+## Branching, Pull Requests, and Releases
 
-There are currently build processes in place that leverage the `.env*.local` files, these files are actively applied in our `.gitignore` in order to avoid build conflicts. They should continue to remain ignored, and not be added to the repository.
+### Branches
+Curiosity makes use of only two branches `master` and `ci`. 
+- `master` branch is a protected representation of production environments
+   - Adding commits, or a PR, into `master` should generate `prod-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `prod-*` branches are manually deployed through coordination with the operations team.
+- `ci` branch is a representation of `ci`, or `dev`, and `qa`.
+   - Adding commits, or a PR, into `ci` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged timeframe for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
 
-Specific uses:
-- `.env.local`, is left alone for developer purposes, typically around displaying Redux logging
-- `.env.development.local`, is used by the local run NPM script `$ yarn start:local`
-- `.env.production.local`, is used by the build to relate version information
+#### Branching and Pull Request Workflow
+1. General development PRs should be opened against the `ci` branch.
+1. PRs to master branch are considered production ready releases.
+1. Development PRs opened against master, unless a team agreed exception occurs, will be closed.
+1. All PRs to master branch should include a final review, or coordination, from Quality Engineering.
 
-## Serving Content
+### Releases and Tagging
+1. Merging a PR into `master` is considered production ready.
+1. Merging a PR into `master` doesn't require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
+1. Tagging and `CHANGELOG.md` updates should be coordinated against a consistent release cycle, and can take place at an independent time.
+1. Tagging should make use of semver.
+1. Manipulating tags against commits directly should be avoided in favor of a semantic version increment.
+
+## Serving content, or getting everything to run in your local environment.
 To serve content you'll need to have Docker, Node, and Yarn installed.
 
 Serving content comes in 3 variations
@@ -53,6 +66,17 @@ Things to try:
 
 #### It's still failing, and now I'm frustrated!
 You can take the easy way out and just run, `$ yarn start`, it'll be styled and use mock data but you'll have enough access to continue development. 
+
+## Build
+### dotenv files
+Our current build leverages `dotenv`, or `.env*`, files to apply environment build configuration. 
+
+There are currently build processes in place that leverage the `.env*.local` files, these files are actively applied in our `.gitignore` in order to avoid build conflicts. They should continue to remain ignored, and not be added to the repository.
+
+Specific uses:
+- `.env.local`, is left alone for developer purposes, typically around displaying Redux logging
+- `.env.development.local`, is used by the local run NPM script `$ yarn start:local`
+- `.env.production.local`, is used by the build to relate version information
 
 ## Testing
 To test content you'll need to have Node and Yarn installed.
@@ -126,7 +150,7 @@ If you're having trouble getting an accurate code coverage report, or it's faili
   $ yarn test:clearCache
   ```
 
-## Typical Workflow
+## Typical Development Workflow
 After setting up the repository...
 1. Make sure Docker is running
 1. Open a couple of instances of Terminal and run...
