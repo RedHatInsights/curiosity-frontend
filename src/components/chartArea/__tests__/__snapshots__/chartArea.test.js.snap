@@ -1,5 +1,510 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
+<div>
+  <div
+    class="VictoryContainer"
+    style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative"
+  >
+    <svg
+      aria-labelledby="victory-container-1-title victory-container-1-desc"
+      height="300"
+      role="img"
+      style="pointer-events:all;width:100%;height:auto"
+      viewBox="0 0 0 300"
+      width="0"
+    >
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="-50"
+          y1="225"
+          y2="225"
+        />
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:none;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="49.99999999"
+            x2="49.99999999"
+            y1="225"
+            y2="50"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:none;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="49.99999999"
+            x2="49.99999999"
+            y1="225"
+            y2="230"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="11.969999999999999"
+            x="49.99999999"
+            y="240"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="middle"
+              x="49.99999999"
+            >
+              2 x axis label
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:none;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="-50"
+            x2="-50"
+            y1="225"
+            y2="50"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:none;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="-50"
+            x2="-50"
+            y1="225"
+            y2="230"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="11.969999999999999"
+            x="-50"
+            y="240"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="middle"
+              x="-50"
+            >
+              2
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="50"
+          y1="50"
+          y2="225"
+        />
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="195.83333333333334"
+            y2="195.83333333333334"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="195.83333333333334"
+            y2="195.83333333333334"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="195.83333333333334"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              0.5 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="166.66666666666669"
+            y2="166.66666666666669"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="166.66666666666669"
+            y2="166.66666666666669"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="166.66666666666669"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              1 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="137.5"
+            y2="137.5"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="137.5"
+            y2="137.5"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="137.5"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              1.5 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="108.33333333333334"
+            y2="108.33333333333334"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="108.33333333333334"
+            y2="108.33333333333334"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="108.33333333333334"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              2 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="79.16666666666666"
+            y2="79.16666666666666"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="79.16666666666666"
+            y2="79.16666666666666"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="79.16666666666666"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              2.5 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="50"
+            y2="50"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="50"
+            y2="50"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="50"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              3 dolor sit
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <g
+        clip-path="url(#victory-clip-2)"
+        style="height:100%;width:100%;user-select:none"
+      >
+        <defs>
+          <clipPath
+            id="victory-clip-2"
+          >
+            <rect
+              height="175"
+              role="presentation"
+              shape-rendering="auto"
+              vector-effect="non-scaling-stroke"
+              width="100"
+              x="-50"
+              y="50"
+            />
+          </clipPath>
+        </defs>
+        <path
+          d="M49.99999999,166.66666666666669L49.99999999,108.33333333333334"
+          role="presentation"
+          shape-rendering="auto"
+          style="fill:transparent;stroke:#06c;stroke-dasharray:3.3;opacity:1;stroke-width:2"
+        />
+      </g>
+      <g>
+        <g
+          clip-path="url(#victory-clip-3)"
+          style="height:100%;width:100%;user-select:none"
+        >
+          <defs>
+            <clipPath
+              id="victory-clip-3"
+            >
+              <rect
+                height="175"
+                role="presentation"
+                shape-rendering="auto"
+                vector-effect="non-scaling-stroke"
+                width="100"
+                x="-50"
+                y="50"
+              />
+            </clipPath>
+          </defs>
+          <path
+            d="M49.99999999,225L-50,166.66666666666669L-50,225L49.99999999,225Z"
+            role="presentation"
+            shape-rendering="auto"
+            style="fill:#06c;stroke-width:1;fill-opacity:0.4;stroke:none"
+          />
+        </g>
+      </g>
+      <g>
+        <rect
+          height="30.904999999999998"
+          role="presentation"
+          shape-rendering="auto"
+          style="fill:none"
+          vector-effect="non-scaling-stroke"
+          width="369.85743944636675"
+          x="0"
+          y="257"
+        />
+        <path
+          d="M 7.84, 273.156
+      h3.6959999999999997
+      v-4.312
+      h-3.6959999999999997
+      z
+      M 12.767999999999999, 273.156
+      h3.6959999999999997
+      v-4.312
+      h-3.6959999999999997
+      z
+      M 17.695999999999998, 273.156
+      h3.6959999999999997
+      v-4.312
+      h-3.6959999999999997
+      z"
+          role="presentation"
+          shape-rendering="auto"
+          style="type:dash;fill:#06c"
+        />
+        <path
+          d="M 194.0567197231834, 275.872
+      h9.743999999999971
+      v-9.743999999999971
+      h-9.743999999999971
+      z"
+          role="presentation"
+          shape-rendering="auto"
+          style="type:square;fill:#8bc1f7"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          dy="4.97"
+          x="30.8"
+          y="271"
+        >
+          <tspan
+            dx="0"
+            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
+            text-anchor="start"
+            x="30.8"
+          >
+            Arma virumque cano
+          </tspan>
+        </text>
+        <text
+          direction="inherit"
+          dx="0"
+          dy="4.97"
+          x="215.7287197231834"
+          y="271"
+        >
+          <tspan
+            dx="0"
+            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
+            text-anchor="start"
+            x="215.7287197231834"
+          >
+            Arma virumque cano
+          </tspan>
+        </text>
+      </g>
+    </svg>
+    <div
+      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
+    >
+      <svg
+        height="300"
+        style="overflow:visible;width:100%;height:auto"
+        viewBox="0 0 0 300"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ChartArea Component should render a basic component: basic 1`] = `
 <div>
   <Chart
@@ -15,17 +520,6 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
         ],
       }
     }
-    legendData={Array []}
-    legendOrientation="horizontal"
-    legendPosition="bottom"
-    padding={
-      Object {
-        "bottom": 75,
-        "left": 50,
-        "right": 50,
-        "top": 50,
-      }
-    }
     width={0}
   >
     <ChartAxis
@@ -36,7 +530,6 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
       fixLabelOverlap={false}
       showGrid={true}
     />
-    0
     <ChartStack />
   </Chart>
 </div>
@@ -78,7 +571,19 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         voronoiPadding={5}
       />
     }
-    legendData={Array []}
+    legendData={
+      Array [
+        Object {
+          "name": "Arma virumque cano",
+          "symbol": Object {
+            "type": "dash",
+          },
+        },
+        Object {
+          "name": "Arma virumque cano",
+        },
+      ]
+    }
     legendOrientation="horizontal"
     legendPosition="bottom"
     padding={
@@ -113,7 +618,29 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         ]
       }
     />
-    0
+    <ChartLine
+      data={
+        Array [
+          Object {
+            "tooltip": "1 threshold tooltip",
+            "x": 1,
+            "y": 1,
+          },
+          Object {
+            "tooltip": "2 threshold tooltip",
+            "x": 1,
+            "y": 2,
+          },
+        ]
+      }
+      style={
+        Object {
+          "data": Object {
+            "strokeDasharray": 3.3,
+          },
+        }
+      }
+    />
     <ChartStack>
       <ChartArea
         data={

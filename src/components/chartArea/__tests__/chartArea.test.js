@@ -12,22 +12,38 @@ describe('ChartArea Component', () => {
 
   it('should render basic data', () => {
     const props = {
-      dataSetOne: [
-        {
-          x: 1,
-          y: 1,
-          tooltip: '1 lorem ipsum',
-          xAxisLabel: '1 x axis label',
-          yAxisLabel: '1 y axis label'
-        },
-        {
-          x: 2,
-          y: 2,
-          tooltip: '2 lorem ipsum',
-          xAxisLabel: '2 x axis label',
-          yAxisLabel: '2 y axis label'
-        }
-      ]
+      dataSetOne: {
+        data: [
+          {
+            x: 1,
+            y: 1,
+            tooltip: '1 lorem ipsum',
+            xAxisLabel: '1 x axis label',
+            yAxisLabel: '1 y axis label'
+          },
+          {
+            x: 2,
+            y: 2,
+            tooltip: '2 lorem ipsum',
+            xAxisLabel: '2 x axis label',
+            yAxisLabel: '2 y axis label'
+          }
+        ],
+        thresholds: [
+          {
+            x: 1,
+            y: 1,
+            tooltip: '1 threshold tooltip'
+          },
+          {
+            x: 1,
+            y: 2,
+            tooltip: '2 threshold tooltip'
+          }
+        ],
+        dataLegend: { name: 'Arma virumque cano' },
+        thresholdLegend: { name: 'Arma virumque cano', symbol: { type: 'dash' } }
+      }
     };
 
     const component = shallow(<ChartArea {...props} />);
@@ -37,20 +53,36 @@ describe('ChartArea Component', () => {
   it('should allow tick formatting', () => {
     const props = {
       yAxisTickFormat: ({ tick }) => `${tick} dolor sit`,
-      dataSetOne: [
-        {
-          x: 1,
-          y: 0,
-          tooltip: '1 lorem ipsum',
-          xAxisLabel: '1 x axis label'
-        },
-        {
-          x: 2,
-          y: 1,
-          tooltip: '2 lorem ipsum',
-          xAxisLabel: '2 x axis label'
-        }
-      ]
+      dataSetOne: {
+        data: [
+          {
+            x: 1,
+            y: 0,
+            tooltip: '1 lorem ipsum',
+            xAxisLabel: '1 x axis label'
+          },
+          {
+            x: 2,
+            y: 1,
+            tooltip: '2 lorem ipsum',
+            xAxisLabel: '2 x axis label'
+          }
+        ],
+        thresholds: [
+          {
+            x: 1,
+            y: 1,
+            tooltip: '1 threshold tooltip'
+          },
+          {
+            x: 1,
+            y: 2,
+            tooltip: '2 threshold tooltip'
+          }
+        ],
+        dataLegend: { name: 'Arma virumque cano' },
+        thresholdLegend: { name: 'Arma virumque cano', symbol: { type: 'dash' } }
+      }
     };
 
     const component = shallow(<ChartArea {...props} />);

@@ -223,193 +223,205 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
 
 exports[`RhelGraphCard Component should render multiple states: error shows zeroed bar values 1`] = `
 Object {
-  "chartBarData": Array [
-    Object {
-      "tooltip": "5 t('curiosity-graph.tooltipSockets') Jun 1",
-      "x": 0,
-      "xAxisLabel": "Jun 1",
-      "y": 5,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 2
+  "chartBarData": Object {
+    "data": Array [
+      Object {
+        "tooltip": "5 t('curiosity-graph.tooltipSockets') Jun 1",
+        "x": 0,
+        "xAxisLabel": "Jun 1",
+        "y": 5,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 2
  -5 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 1,
-      "xAxisLabel": "Jun 2",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 3",
-      "x": 2,
-      "xAxisLabel": "Jun 3",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 4",
-      "x": 3,
-      "xAxisLabel": "Jun 4",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 5",
-      "x": 4,
-      "xAxisLabel": "Jun 5",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 6",
-      "x": 5,
-      "xAxisLabel": "Jun 6",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 7",
-      "x": 6,
-      "xAxisLabel": "Jun 7",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "7 t('curiosity-graph.tooltipSockets') Jun 8
+        "x": 1,
+        "xAxisLabel": "Jun 2",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 3",
+        "x": 2,
+        "xAxisLabel": "Jun 3",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 4",
+        "x": 3,
+        "xAxisLabel": "Jun 4",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 5",
+        "x": 4,
+        "xAxisLabel": "Jun 5",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 6",
+        "x": 5,
+        "xAxisLabel": "Jun 6",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 7",
+        "x": 6,
+        "xAxisLabel": "Jun 7",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "7 t('curiosity-graph.tooltipSockets') Jun 8
  +7 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 7,
-      "xAxisLabel": "Jun 8",
-      "y": 7,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 9
+        "x": 7,
+        "xAxisLabel": "Jun 8",
+        "y": 7,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 9
  -7 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 8,
-      "xAxisLabel": "Jun 9",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 10",
-      "x": 9,
-      "xAxisLabel": "Jun 10",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 11",
-      "x": 10,
-      "xAxisLabel": "Jun 11",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 12",
-      "x": 11,
-      "xAxisLabel": "Jun 12",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 13",
-      "x": 12,
-      "xAxisLabel": "Jun 13",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 14",
-      "x": 13,
-      "xAxisLabel": "Jun 14",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 15",
-      "x": 14,
-      "xAxisLabel": "Jun 15",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 16",
-      "x": 15,
-      "xAxisLabel": "Jun 16",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 17",
-      "x": 16,
-      "xAxisLabel": "Jun 17",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 18",
-      "x": 17,
-      "xAxisLabel": "Jun 18",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 19",
-      "x": 18,
-      "xAxisLabel": "Jun 19",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 20",
-      "x": 19,
-      "xAxisLabel": "Jun 20",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 21",
-      "x": 20,
-      "xAxisLabel": "Jun 21",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 22",
-      "x": 21,
-      "xAxisLabel": "Jun 22",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 23",
-      "x": 22,
-      "xAxisLabel": "Jun 23",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 24",
-      "x": 23,
-      "xAxisLabel": "Jun 24",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "3 t('curiosity-graph.tooltipSockets') Jun 25
+        "x": 8,
+        "xAxisLabel": "Jun 9",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 10",
+        "x": 9,
+        "xAxisLabel": "Jun 10",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 11",
+        "x": 10,
+        "xAxisLabel": "Jun 11",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 12",
+        "x": 11,
+        "xAxisLabel": "Jun 12",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 13",
+        "x": 12,
+        "xAxisLabel": "Jun 13",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 14",
+        "x": 13,
+        "xAxisLabel": "Jun 14",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 15",
+        "x": 14,
+        "xAxisLabel": "Jun 15",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 16",
+        "x": 15,
+        "xAxisLabel": "Jun 16",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 17",
+        "x": 16,
+        "xAxisLabel": "Jun 17",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 18",
+        "x": 17,
+        "xAxisLabel": "Jun 18",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 19",
+        "x": 18,
+        "xAxisLabel": "Jun 19",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 20",
+        "x": 19,
+        "xAxisLabel": "Jun 20",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 21",
+        "x": 20,
+        "xAxisLabel": "Jun 21",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 22",
+        "x": 21,
+        "xAxisLabel": "Jun 22",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 23",
+        "x": 22,
+        "xAxisLabel": "Jun 23",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 24",
+        "x": 23,
+        "xAxisLabel": "Jun 24",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "3 t('curiosity-graph.tooltipSockets') Jun 25
  +3 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 24,
-      "xAxisLabel": "Jun 25",
-      "y": 3,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 26
+        "x": 24,
+        "xAxisLabel": "Jun 25",
+        "y": 3,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 26
  -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 25,
-      "xAxisLabel": "Jun 26",
-      "y": 0,
+        "x": 25,
+        "xAxisLabel": "Jun 26",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 27",
+        "x": 26,
+        "xAxisLabel": "Jun 27",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 28",
+        "x": 27,
+        "xAxisLabel": "Jun 28",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 29",
+        "x": 28,
+        "xAxisLabel": "Jun 29",
+        "y": 0,
+      },
+      Object {
+        "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 30",
+        "x": 29,
+        "xAxisLabel": "Jun 30",
+        "y": 0,
+      },
+    ],
+    "dataLegend": Object {
+      "name": "t('curiosity-graph.legendSocketsLabel')",
     },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 27",
-      "x": 26,
-      "xAxisLabel": "Jun 27",
-      "y": 0,
+    "thresholdLegend": Object {
+      "name": "t('curiosity-graph.legendSocketsThresholdLabel')",
+      "symbol": Object {
+        "type": "dash",
+      },
     },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 28",
-      "x": 27,
-      "xAxisLabel": "Jun 28",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 29",
-      "x": 28,
-      "xAxisLabel": "Jun 29",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 30",
-      "x": 29,
-      "xAxisLabel": "Jun 30",
-      "y": 0,
-    },
-  ],
+    "thresholds": Array [],
+  },
 }
 `;
 
@@ -462,213 +474,211 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
     >
       <ChartArea
         dataSetOne={
-          Array [
-            Object {
-              "tooltip": "5 t('curiosity-graph.tooltipSockets') Jun 1",
-              "x": 0,
-              "xAxisLabel": "Jun 1",
-              "y": 5,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 2
+          Object {
+            "data": Array [
+              Object {
+                "tooltip": "5 t('curiosity-graph.tooltipSockets') Jun 1",
+                "x": 0,
+                "xAxisLabel": "Jun 1",
+                "y": 5,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 2
  -5 t('curiosity-graph.tooltipPreviousLabelDaily')",
-              "x": 1,
-              "xAxisLabel": "Jun 2",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 3",
-              "x": 2,
-              "xAxisLabel": "Jun 3",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 4",
-              "x": 3,
-              "xAxisLabel": "Jun 4",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 5",
-              "x": 4,
-              "xAxisLabel": "Jun 5",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 6",
-              "x": 5,
-              "xAxisLabel": "Jun 6",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 7",
-              "x": 6,
-              "xAxisLabel": "Jun 7",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "7 t('curiosity-graph.tooltipSockets') Jun 8
+                "x": 1,
+                "xAxisLabel": "Jun 2",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 3",
+                "x": 2,
+                "xAxisLabel": "Jun 3",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 4",
+                "x": 3,
+                "xAxisLabel": "Jun 4",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 5",
+                "x": 4,
+                "xAxisLabel": "Jun 5",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 6",
+                "x": 5,
+                "xAxisLabel": "Jun 6",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 7",
+                "x": 6,
+                "xAxisLabel": "Jun 7",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "7 t('curiosity-graph.tooltipSockets') Jun 8
  +7 t('curiosity-graph.tooltipPreviousLabelDaily')",
-              "x": 7,
-              "xAxisLabel": "Jun 8",
-              "y": 7,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 9
+                "x": 7,
+                "xAxisLabel": "Jun 8",
+                "y": 7,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 9
  -7 t('curiosity-graph.tooltipPreviousLabelDaily')",
-              "x": 8,
-              "xAxisLabel": "Jun 9",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 10",
-              "x": 9,
-              "xAxisLabel": "Jun 10",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 11",
-              "x": 10,
-              "xAxisLabel": "Jun 11",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 12",
-              "x": 11,
-              "xAxisLabel": "Jun 12",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 13",
-              "x": 12,
-              "xAxisLabel": "Jun 13",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 14",
-              "x": 13,
-              "xAxisLabel": "Jun 14",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 15",
-              "x": 14,
-              "xAxisLabel": "Jun 15",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 16",
-              "x": 15,
-              "xAxisLabel": "Jun 16",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 17",
-              "x": 16,
-              "xAxisLabel": "Jun 17",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 18",
-              "x": 17,
-              "xAxisLabel": "Jun 18",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 19",
-              "x": 18,
-              "xAxisLabel": "Jun 19",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 20",
-              "x": 19,
-              "xAxisLabel": "Jun 20",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 21",
-              "x": 20,
-              "xAxisLabel": "Jun 21",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 22",
-              "x": 21,
-              "xAxisLabel": "Jun 22",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 23",
-              "x": 22,
-              "xAxisLabel": "Jun 23",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 24",
-              "x": 23,
-              "xAxisLabel": "Jun 24",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "3 t('curiosity-graph.tooltipSockets') Jun 25
+                "x": 8,
+                "xAxisLabel": "Jun 9",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 10",
+                "x": 9,
+                "xAxisLabel": "Jun 10",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 11",
+                "x": 10,
+                "xAxisLabel": "Jun 11",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 12",
+                "x": 11,
+                "xAxisLabel": "Jun 12",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 13",
+                "x": 12,
+                "xAxisLabel": "Jun 13",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 14",
+                "x": 13,
+                "xAxisLabel": "Jun 14",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 15",
+                "x": 14,
+                "xAxisLabel": "Jun 15",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 16",
+                "x": 15,
+                "xAxisLabel": "Jun 16",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 17",
+                "x": 16,
+                "xAxisLabel": "Jun 17",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 18",
+                "x": 17,
+                "xAxisLabel": "Jun 18",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 19",
+                "x": 18,
+                "xAxisLabel": "Jun 19",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 20",
+                "x": 19,
+                "xAxisLabel": "Jun 20",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 21",
+                "x": 20,
+                "xAxisLabel": "Jun 21",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 22",
+                "x": 21,
+                "xAxisLabel": "Jun 22",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 23",
+                "x": 22,
+                "xAxisLabel": "Jun 23",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 24",
+                "x": 23,
+                "xAxisLabel": "Jun 24",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "3 t('curiosity-graph.tooltipSockets') Jun 25
  +3 t('curiosity-graph.tooltipPreviousLabelDaily')",
-              "x": 24,
-              "xAxisLabel": "Jun 25",
-              "y": 3,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 26
+                "x": 24,
+                "xAxisLabel": "Jun 25",
+                "y": 3,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 26
  -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
-              "x": 25,
-              "xAxisLabel": "Jun 26",
-              "y": 0,
+                "x": 25,
+                "xAxisLabel": "Jun 26",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 27",
+                "x": 26,
+                "xAxisLabel": "Jun 27",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 28",
+                "x": 27,
+                "xAxisLabel": "Jun 28",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 29",
+                "x": 28,
+                "xAxisLabel": "Jun 29",
+                "y": 0,
+              },
+              Object {
+                "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 30",
+                "x": 29,
+                "xAxisLabel": "Jun 30",
+                "y": 0,
+              },
+            ],
+            "dataLegend": Object {
+              "name": "t('curiosity-graph.legendSocketsLabel')",
             },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 27",
-              "x": 26,
-              "xAxisLabel": "Jun 27",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 28",
-              "x": 27,
-              "xAxisLabel": "Jun 28",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 29",
-              "x": 28,
-              "xAxisLabel": "Jun 29",
-              "y": 0,
-            },
-            Object {
-              "tooltip": "0 t('curiosity-graph.tooltipSockets') Jun 30",
-              "x": 29,
-              "xAxisLabel": "Jun 30",
-              "y": 0,
-            },
-          ]
-        }
-        dataSetOneThresholds={Array []}
-        domain={Object {}}
-        height={275}
-        legendData={
-          Array [
-            Object {
+            "thresholdLegend": Object {
               "name": "t('curiosity-graph.legendSocketsThresholdLabel')",
               "symbol": Object {
                 "type": "dash",
               },
             },
-            Object {
-              "name": "t('curiosity-graph.legendSocketsLabel')",
-            },
-          ]
+            "thresholds": Array [],
+          }
         }
+        domain={Object {}}
+        height={275}
         padding={
           Object {
-            "bottom": 50,
+            "bottom": 75,
             "left": 50,
             "right": 50,
             "top": 50,

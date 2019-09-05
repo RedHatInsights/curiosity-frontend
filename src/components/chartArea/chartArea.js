@@ -50,14 +50,14 @@ class ChartArea extends React.Component {
     switch (xAxisLabelUseDataSet) {
       case 'one':
       default:
-        xAxisDataSet = dataSetOne;
+        xAxisDataSet = dataSetOne.data;
         break;
     }
 
     switch (yAxisLabelUseDataSet) {
       case 'one':
       default:
-        yAxisDataSet = dataSetOne;
+        yAxisDataSet = dataSetOne.data;
         break;
     }
 
@@ -95,7 +95,6 @@ class ChartArea extends React.Component {
 
   // ToDo: the domain range needs to be update when additional datasets are added
   getChartDomain({ isXAxisTicks, isYAxisTicks }) {
-    // todo: make this method also account for chart thresholds when calc'ing domain
     const { domain, dataSetOne } = this.props;
 
     if (Object.keys(domain).length) {
@@ -105,12 +104,16 @@ class ChartArea extends React.Component {
     const generatedDomain = {};
     let dataSetOneMaxY = 0;
 
-    dataSetOne.forEach(value => {
+    dataSetOne.data.forEach(value => {
+      dataSetOneMaxY = value.y > dataSetOneMaxY ? value.y : dataSetOneMaxY;
+    });
+
+    dataSetOne.thresholds.forEach(value => {
       dataSetOneMaxY = value.y > dataSetOneMaxY ? value.y : dataSetOneMaxY;
     });
 
     if (!isXAxisTicks) {
-      generatedDomain.x = [0, dataSetOne.length || 10];
+      generatedDomain.x = [0, dataSetOne.data.length || 10];
     }
 
     if (!isYAxisTicks) {
@@ -124,9 +127,21 @@ class ChartArea extends React.Component {
     };
   }
 
+  getLegendData() {
+    const { dataSetOne } = this.props;
+    const legendData = [];
+    if (dataSetOne.thresholdLegend) {
+      legendData.push(dataSetOne.thresholdLegend);
+    }
+    if (dataSetOne.dataLegend) {
+      legendData.push(dataSetOne.dataLegend);
+    }
+    return legendData;
+  }
+
   render() {
     const { chartWidth } = this.state;
-    const { legendData, dataSetOne, dataSetOneThresholds, xAxisFixLabelOverlap, yAxisFixLabelOverlap } = this.props;
+    const { dataSetOne, xAxisFixLabelOverlap, yAxisFixLabelOverlap, padding } = this.props;
 
     const { xAxisTickValues, xAxisTickFormat, yAxisTickValues, yAxisTickFormat } = this.getChartTicks();
     const updatedXAxisProps = {
@@ -162,10 +177,12 @@ class ChartArea extends React.Component {
       chartProps.containerComponent = <ChartVoronoiContainer labels={d => d.tooltip} />;
     }
 
-    if (legendData) {
+    const legendData = this.getLegendData();
+    if (legendData.length) {
       chartProps.legendData = legendData;
       chartProps.legendOrientation = 'horizontal';
       chartProps.legendPosition = 'bottom';
+      chartProps.padding = padding; // Adjusted to accomodate legend
     }
 
     if (Object.keys(domain).length) {
@@ -174,32 +191,25 @@ class ChartArea extends React.Component {
 
     return (
       <div ref={this.containerRef}>
-        <Chart
-          width={chartWidth}
-          {...chartProps}
-          padding={{
-            bottom: 75, // Adjusted to accomodate legend
-            left: 50,
-            right: 50,
-            top: 50
-          }}
-        >
+        <Chart width={chartWidth} {...chartProps}>
           <ChartAxis {...updatedXAxisProps} />
           <ChartAxis {...updatedYAxisProps} />
-          {dataSetOneThresholds && dataSetOneThresholds.length && (
-            /** todo: split this out into a new wrapper called ChartThreshold in PF React */
-            <ChartLine data={dataSetOneThresholds} style={{ data: { strokeDasharray: 3.3 } }} />
-          )}
-          <ChartStack>{(dataSetOne && dataSetOne.length && <PfChartArea data={dataSetOne} />) || null}</ChartStack>
+          {(dataSetOne.thresholds && dataSetOne.thresholds.length && (
+            /** fixme: split this out into a new wrapper called ChartThreshold in PF React */
+            <ChartLine data={dataSetOne.thresholds} style={{ data: { strokeDasharray: 3.3 } }} />
+          )) ||
+            null}
+          <ChartStack>
+            {(dataSetOne.data && dataSetOne.data.length && <PfChartArea data={dataSetOne.data} />) || null}
+          </ChartStack>
         </Chart>
       </div>
     );
   }
 }
 
-ChartArea.propTypes = {
-  legendData: PropTypes.arrayOf(PropTypes.object),
-  dataSetOne: PropTypes.arrayOf(
+const dataSetPropTypes = PropTypes.shape({
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       x: PropTypes.number,
       y: PropTypes.number,
@@ -208,12 +218,18 @@ ChartArea.propTypes = {
       yAxisLabel: PropTypes.string
     })
   ),
-  dataSetOneThresholds: PropTypes.arrayOf(
+  thresholds: PropTypes.arrayOf(
     PropTypes.shape({
       x: PropTypes.number,
       y: PropTypes.number
     })
   ),
+  dataLegend: PropTypes.object,
+  thresholdLegend: PropTypes.object
+});
+
+ChartArea.propTypes = {
+  dataSetOne: dataSetPropTypes,
   domain: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   height: PropTypes.number,
   padding: PropTypes.shape({
@@ -233,13 +249,16 @@ ChartArea.propTypes = {
 };
 
 ChartArea.defaultProps = {
-  legendData: [],
   domain: {},
-  dataSetOne: [],
-  dataSetOneThresholds: [],
+  dataSetOne: {
+    data: [],
+    thresholds: [],
+    dataLegend: null,
+    thresholdLegend: null
+  },
   height: 275,
   padding: {
-    bottom: 50,
+    bottom: 75,
     left: 50,
     right: 50,
     top: 50
