@@ -240,10 +240,10 @@ describe('GraphHelpers', () => {
   });
 
   it('should return a label based on granularity', () => {
-    const daily = getGraphLabels(GRANULARITY_TYPES.DAILY);
-    const weekly = getGraphLabels(GRANULARITY_TYPES.WEEKLY);
-    const monthly = getGraphLabels(GRANULARITY_TYPES.MONTHLY);
-    const quarterly = getGraphLabels(GRANULARITY_TYPES.QUARTERLY);
+    const daily = getGraphLabels({ granularity: GRANULARITY_TYPES.DAILY, tooltipLabel: 'ipsum' });
+    const weekly = getGraphLabels({ granularity: GRANULARITY_TYPES.WEEKLY, tooltipLabel: 'ipsum' });
+    const monthly = getGraphLabels({ granularity: GRANULARITY_TYPES.MONTHLY, tooltipLabel: 'ipsum' });
+    const quarterly = getGraphLabels({ granularity: GRANULARITY_TYPES.QUARTERLY, tooltipLabel: 'ipsum' });
     expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('granularity based label');
   });
 

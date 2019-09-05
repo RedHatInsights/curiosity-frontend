@@ -349,20 +349,20 @@ Object {
 exports[`GraphHelpers should return a label based on granularity: granularity based label 1`] = `
 Object {
   "daily": Object {
-    "label": undefined,
+    "label": "ipsum",
     "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
   },
   "monthly": Object {
-    "label": undefined,
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
+    "label": "ipsum",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelMonthly')",
   },
   "quarterly": Object {
-    "label": undefined,
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
+    "label": "ipsum",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelQuarterly')",
   },
   "weekly": Object {
-    "label": undefined,
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
+    "label": "ipsum",
+    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelWeekly')",
   },
 }
 `;
