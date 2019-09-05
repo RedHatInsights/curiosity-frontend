@@ -27,7 +27,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
           className="pf-c-card__head"
         >
           <h2>
-            Daily CPU socket usage
+            CPU socket usage
           </h2>
           <CardActions>
             <div
@@ -419,7 +419,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
 >
   <CardHead>
     <h2>
-      Daily CPU socket usage
+      CPU socket usage
     </h2>
     <CardActions>
       <Select
@@ -680,7 +680,7 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
 >
   <CardHead>
     <h2>
-      Daily CPU socket usage
+      CPU socket usage
     </h2>
     <CardActions>
       <Select
