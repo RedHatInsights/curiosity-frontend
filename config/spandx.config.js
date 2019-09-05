@@ -15,7 +15,7 @@ module.exports = {
       host: `http://${localhost}:5001`
     },
     '/api': {
-      host: 'https://ci.cloud.paas.psi.redhat.com'
+      host: 'https://ci.cloud.redhat.com'
     }
   }
 };
