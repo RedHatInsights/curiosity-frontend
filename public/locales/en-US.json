@@ -1,6 +1,6 @@
 {
   "curiosity-graph": {
-    "heading": "Daily CPU socket usage",
+    "heading": "CPU socket usage",
     "dropdownDaily": "Daily",
     "dropdownWeekly": "Weekly",
     "dropdownMonthly": "Monthly",

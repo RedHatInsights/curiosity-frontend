@@ -76,7 +76,7 @@ class RhelGraphCard extends React.Component {
     return (
       <Card className="curiosity-usage-graph fadein">
         <CardHead>
-          <h2>{t('curiosity-graph.heading', 'Daily CPU socket usage')}</h2>
+          <h2>{t('curiosity-graph.heading', 'CPU socket usage')}</h2>
           <CardActions>
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder', 'Select date range')}

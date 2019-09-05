@@ -25,14 +25,14 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.tooltipPreviousLabelWeekly\\"
 msgstr \\"\\"
 
+#: src/components/rhelGraphCard/rhelGraphCard.js:79
+msgctxt \\"CPU socket usage\\"
+msgid \\"curiosity-graph.heading\\"
+msgstr \\"\\"
+
 #: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
 msgctxt \\"Daily\\"
 msgid \\"curiosity-graph.dropdownDaily\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCard.js:79
-msgctxt \\"Daily CPU socket usage\\"
-msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCardTypes.js:9
