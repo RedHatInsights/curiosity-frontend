@@ -15,12 +15,15 @@ jobs:
     - before_script: yarn global add codecov
       script: yarn test:ci
       after_success: codecov
-    - stage: Deploy
+    - stage: Beta Deploy
+      script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
+    - stage: Stable Deploy
       script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
 env:
   global:
     - REPO="git@github.com:RedHatInsights/curiosity-frontend-build"
     - REPO_DIR="curiosity-frontend-build"
     - BRANCH=${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}
+    - BUILD_STAGE="${TRAVIS_BUILD_STAGE_NAME}"
     - NODE_OPTIONS="--max-old-space-size=4096 --max_old_space_size=4096"
     - APP_BUILD_DIR="build"
