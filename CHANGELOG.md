@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.1...v0.1.2) (2019-09-16)
+
+
+### Bug Fixes
+
+* **build:** issues/95 proxy domain updated ([#100](https://github.com/RedHatInsights/curiosity-frontend/issues/100)) ([7c6dbab](https://github.com/RedHatInsights/curiosity-frontend/commit/7c6dbab))
+* **build:** issues/97 branching and integration ([7417cc4](https://github.com/RedHatInsights/curiosity-frontend/commit/7417cc4))
+* **rhelGraphCard:** issues/93 remove the word daily ([#96](https://github.com/RedHatInsights/curiosity-frontend/issues/96)) ([1c56c8b](https://github.com/RedHatInsights/curiosity-frontend/commit/1c56c8b))
+
+
+### Features
+
+* **build:** issues/97 branching and qe integration ([#98](https://github.com/RedHatInsights/curiosity-frontend/issues/98)) ([07ddcdf](https://github.com/RedHatInsights/curiosity-frontend/commit/07ddcdf))
+* **chartArea,graphHelpers:** issues/78,87 threshold ([#94](https://github.com/RedHatInsights/curiosity-frontend/issues/94)) ([db2855f](https://github.com/RedHatInsights/curiosity-frontend/commit/db2855f))
+
 ### [0.1.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.0...v0.1.1) (2019-08-23)
 
 
