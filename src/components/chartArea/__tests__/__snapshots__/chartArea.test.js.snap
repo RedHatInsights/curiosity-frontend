@@ -131,8 +131,8 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="-50"
-            y1="181.25"
-            y2="181.25"
+            y1="190"
+            y2="190"
           />
           <line
             role="presentation"
@@ -141,15 +141,15 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
-            y1="181.25"
-            y2="181.25"
+            y1="190"
+            y2="190"
           />
           <text
             direction="inherit"
             dx="0"
             dy="4.97"
             x="35"
-            y="181.25"
+            y="190"
           >
             <tspan
               dx="0"
@@ -157,7 +157,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
               text-anchor="end"
               x="35"
             >
-              0.5 dolor sit
+              2 dolor sit
             </tspan>
           </text>
         </g>
@@ -171,8 +171,8 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="-50"
-            y1="137.5"
-            y2="137.5"
+            y1="155"
+            y2="155"
           />
           <line
             role="presentation"
@@ -181,15 +181,15 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
-            y1="137.5"
-            y2="137.5"
+            y1="155"
+            y2="155"
           />
           <text
             direction="inherit"
             dx="0"
             dy="4.97"
             x="35"
-            y="137.5"
+            y="155"
           >
             <tspan
               dx="0"
@@ -197,7 +197,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
               text-anchor="end"
               x="35"
             >
-              1 dolor sit
+              4 dolor sit
             </tspan>
           </text>
         </g>
@@ -211,8 +211,8 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="-50"
-            y1="93.75"
-            y2="93.75"
+            y1="120"
+            y2="120"
           />
           <line
             role="presentation"
@@ -221,15 +221,15 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="45"
-            y1="93.75"
-            y2="93.75"
+            y1="120"
+            y2="120"
           />
           <text
             direction="inherit"
             dx="0"
             dy="4.97"
             x="35"
-            y="93.75"
+            y="120"
           >
             <tspan
               dx="0"
@@ -237,7 +237,47 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
               text-anchor="end"
               x="35"
             >
-              1.5 dolor sit
+              6 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="85"
+            y2="85"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="85"
+            y2="85"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            x="35"
+            y="85"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              text-anchor="end"
+              x="35"
+            >
+              8 dolor sit
             </tspan>
           </text>
         </g>
@@ -277,7 +317,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
               text-anchor="end"
               x="35"
             >
-              2 dolor sit
+              10 dolor sit
             </tspan>
           </text>
         </g>
@@ -303,7 +343,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             </clipPath>
           </defs>
           <path
-            d="M50,225L-50,137.5L-50,225L50,225Z"
+            d="M50,225L-50,207.5L-50,225L50,225Z"
             role="presentation"
             shape-rendering="auto"
             style="fill:#06c;stroke-width:1;fill-opacity:0.4;stroke:none"
@@ -561,4 +601,18 @@ exports[`ChartArea Component should render basic data: data 1`] = `
     </ChartStack>
   </Chart>
 </div>
+`;
+
+exports[`ChartArea Component should set a minimum y axis domain or range: y axis domain or range 1`] = `
+Object {
+  "chartDomain": Object {
+    "domain": Object {
+      "y": Array [
+        0,
+        10,
+      ],
+    },
+  },
+  "maxY": 1,
+}
 `;

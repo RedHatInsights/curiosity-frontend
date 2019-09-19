@@ -152,7 +152,7 @@ class ChartArea extends React.Component {
     }
 
     if (!isYAxisTicks) {
-      const floored = Math.pow(10, Math.floor(Math.log10(dataSetMaxY || 10)));
+      const floored = Math.pow(10, Math.floor(Math.log10((dataSetMaxY > 10 && dataSetMaxY) || 10)));
       generatedDomain.y = [0, Math.ceil((dataSetMaxY + 1) / floored) * floored];
     }
 
