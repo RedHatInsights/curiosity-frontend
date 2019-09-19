@@ -68,6 +68,45 @@ describe('ChartArea Component', () => {
     expect(component.render()).toMatchSnapshot('y tick format');
   });
 
+  it('should set a minimum y axis domain or range', () => {
+    const props = {
+      yAxisTickFormat: ({ tick }) => `${tick} dolor sit`,
+      dataSets: [
+        {
+          data: [
+            {
+              x: 1,
+              y: 0,
+              tooltip: '1 lorem ipsum',
+              xAxisLabel: '1 x axis label'
+            },
+            {
+              x: 2,
+              y: 1,
+              tooltip: '2 lorem ipsum',
+              xAxisLabel: '2 x axis label'
+            },
+            {
+              x: 2,
+              y: 1,
+              tooltip: '2 lorem ipsum',
+              xAxisLabel: '2 x axis label'
+            }
+          ],
+          legendData: { name: 'Arma virumque cano' },
+          legendThreshold: { name: 'Arma virumque cano' }
+        }
+      ]
+    };
+
+    const component = mount(<ChartArea {...props} />);
+    const componentInstance = component.instance();
+
+    expect(componentInstance.getChartDomain({ isXAxisTicks: true, isYAxisTicks: false })).toMatchSnapshot(
+      'y axis domain or range'
+    );
+  });
+
   it('should set initial width to zero and then resize', () => {
     const component = shallow(<ChartArea />);
 
