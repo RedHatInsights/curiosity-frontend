@@ -1,19 +1,36 @@
 import { rhelTypes } from '../types';
 import rhelServices from '../../services/rhelServices';
 
-const getGraphReports = (query = {}) => dispatch =>
+const getGraphReportsRhel = (query = {}) => dispatch =>
   dispatch({
-    type: rhelTypes.GET_GRAPH_REPORT,
-    payload: rhelServices.getGraphReportsRhsm(query),
+    type: rhelTypes.GET_GRAPH_REPORT_RHEL,
+    payload: rhelServices.getGraphReportsRhel(query),
     meta: {
+      query,
       notifications: {
         rejected: {
           variant: 'info',
-          title: 'RHSM connection has failed',
-          description: 'Product ID Red Hat Enterprise Linux'
+          title: 'Reporting connection has failed',
+          description: 'Product ID: Red Hat Enterprise Linux'
         }
       }
     }
   });
 
-export { getGraphReports as default, getGraphReports };
+const getGraphCapacityRhel = (query = {}) => dispatch =>
+  dispatch({
+    type: rhelTypes.GET_GRAPH_CAPACITY_RHEL,
+    payload: rhelServices.getGraphCapacityRhel(query),
+    meta: {
+      query,
+      notifications: {
+        rejected: {
+          variant: 'info',
+          title: 'Capacity connection has failed',
+          description: 'Product ID: Red Hat Enterprise Linux'
+        }
+      }
+    }
+  });
+
+export { getGraphCapacityRhel, getGraphReportsRhel };

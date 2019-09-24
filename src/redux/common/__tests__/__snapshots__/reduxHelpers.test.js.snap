@@ -5,6 +5,7 @@ Object {
   "FULFILLED_ACTION": [Function],
   "PENDING_ACTION": [Function],
   "REJECTED_ACTION": [Function],
+  "generatedPromiseActionReducer": [Function],
   "getMessageFromResults": [Function],
   "getStatusFromResults": [Function],
   "setStateProp": [Function],

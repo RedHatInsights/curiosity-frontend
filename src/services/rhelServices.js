@@ -44,85 +44,73 @@ import serviceConfig from './config';
  *           "date": "2019-07-20T00:00:00Z",
  *           "instance_count": 10,
  *           "cores": 20,
- *           "sockets": 20,
- *           "sockets_threshold": 30
+ *           "sockets": 20
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
  *           "instance_count": 12,
  *           "cores": 24,
- *           "sockets": 24,
- *           "sockets_threshold": 30
+ *           "sockets": 24
  *         },
  *         {
  *           "date": "2019-07-22T00:00:00Z",
  *           "instance_count": 14,
  *           "cores": 28,
- *           "sockets": 28,
- *           "sockets_threshold": 0
+ *           "sockets": 28
  *         },
  *         {
  *           "date": "2019-07-23T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
- *           "sockets": 32,
- *           "sockets_threshold": 0
+ *           "sockets": 32
  *         },
  *         {
  *           "date": "2019-07-24T00:00:00Z",
  *           "instance_count": 18,
  *           "cores": 36,
- *           "sockets": 36,
- *           "sockets_threshold": 50
+ *           "sockets": 36
  *         },
  *         {
  *           "date": "2019-07-25T00:00:00Z",
  *           "instance_count": 20,
  *           "cores": 40,
- *           "sockets": 40,
- *           "sockets_threshold": 50
+ *           "sockets": 40
  *         },
  *         {
  *           "date": "2019-07-26T00:00:00Z",
  *           "instance_count": 22,
  *           "cores": 44,
- *           "sockets": 44,
- *           "sockets_threshold": 50
+ *           "sockets": 44
  *         },
  *         {
  *           "date": "2019-07-27T00:00:00Z",
  *           "instance_count": 24,
  *           "cores": 48,
- *           "sockets": 48,
- *           "sockets_threshold": 50
+ *           "sockets": 48
  *         },
  *         {
  *           "date": "2019-07-28T00:00:00Z",
  *           "instance_count": 26,
  *           "cores": 52,
- *           "sockets": 52,
- *           "sockets_threshold": 50
+ *           "sockets": 52
  *         },
  *         {
  *           "date": "2019-07-29T00:00:00Z",
  *           "instance_count": 28,
  *           "cores": 56,
- *           "sockets": 56,
- *           "sockets_threshold": 50
+ *           "sockets": 56
  *         },
  *         {
  *           "date": "2019-07-30T00:00:00Z",
  *           "instance_count": 30,
  *           "cores": 60,
- *           "sockets": 60,
- *           "sockets_threshold": 70
+ *           "sockets": 60
  *         },
  *         {
  *           "date": "2019-07-31T00:00:00Z",
  *           "instance_count": 32,
  *           "cores": 64,
- *           "sockets": 64,
- *           "sockets_threshold": 70
+ *           "sockets": 64
  *         }
  *       ],
  *       "links": {
@@ -344,7 +332,7 @@ import serviceConfig from './config';
  *        ]
  *     }
  */
-const getGraphReportsRhsm = (params = {}) =>
+const getGraphReportsRhel = (params = {}) =>
   axios(
     serviceConfig({
       url: process.env.REACT_APP_SERVICES_RHSM_REPORT_RHEL,
@@ -352,6 +340,155 @@ const getGraphReportsRhsm = (params = {}) =>
     })
   );
 
-const rhelServices = { getGraphReportsRhsm };
+/**
+ * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id Get RHSM graph capacity data, i.e. thresholds
+ * @apiDescription Retrieve graph capacity data, such as thresholds.
+ *
+ * Reference [RHSM for capacity params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2019-07-20T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 32,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-21T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 32,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-22T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 32,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-23T00:00:00Z",
+ *           "sockets": null,
+ *           "physical_sockets": null,
+ *           "hypervisor_sockets": null,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-24T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-25T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-26T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-27T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-28T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-29T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-30T00:00:00Z",
+ *           "sockets": 10,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 5,
+ *           "has_infinite_quantity": true
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?granularity=daily&beginning=2019-07-20T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
+ *         "last": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?granularity=daily&beginning=2019-07-20T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
+ *         "previous": null,
+ *         "next": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?granularity=daily&beginning=2019-07-20T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0"
+ *       },
+ *       "meta": {
+ *         "count": 11,
+ *         "product": "RHEL",
+ *         "granularity": "daily"
+ *       }
+ *     }
+ *
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {text} Error-Response:
+ *     HTTP/1.1 404 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {text} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+const getGraphCapacityRhel = (params = {}) =>
+  axios(
+    serviceConfig({
+      url: process.env.REACT_APP_SERVICES_RHSM_CAPACITY_RHEL,
+      params
+    })
+  );
 
-export { rhelServices as default, rhelServices, getGraphReportsRhsm };
+const rhelServices = { getGraphCapacityRhel, getGraphReportsRhel };
+
+export { rhelServices as default, rhelServices, getGraphCapacityRhel, getGraphReportsRhel };

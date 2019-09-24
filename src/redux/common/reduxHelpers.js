@@ -106,10 +106,87 @@ const setStateProp = (prop, data, options) => {
   return obj;
 };
 
+const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
+  const { type } = action;
+  const expandedTypes = [];
+
+  types.forEach(
+    val =>
+      (Array.isArray(val.type) && val.type.forEach(subVal => expandedTypes.push({ ref: val.ref, type: subVal }))) ||
+      expandedTypes.push(val)
+  );
+
+  const [whichType] = expandedTypes.filter(val =>
+    new RegExp(
+      `^(${REJECTED_ACTION(val.type || val)}|${PENDING_ACTION(val.type || val)}|${FULFILLED_ACTION(val.type || val)})$`
+    ).test(type)
+  );
+
+  if (!whichType) {
+    return state;
+  }
+
+  const baseState = {
+    error: false,
+    errorMessage: '',
+    fulfilled: false,
+    metaData: action.meta && action.meta.data,
+    metaId: action.meta && action.meta.id,
+    metaQuery: action.meta && action.meta.query,
+    pending: false,
+    update: false
+  };
+
+  const setId = data =>
+    (action.meta && action.meta.id && { [action.meta.id]: { ...baseState, ...data } }) || { ...baseState, ...data };
+
+  switch (type) {
+    case REJECTED_ACTION(whichType.type || whichType):
+      return setStateProp(
+        whichType.ref || null,
+        setId({
+          error: true,
+          errorMessage: getMessageFromResults(action.payload),
+          errorStatus: getStatusFromResults(action.payload)
+        }),
+        {
+          state
+        }
+      );
+    case PENDING_ACTION(whichType.type || whichType):
+      return setStateProp(
+        whichType.ref || null,
+        setId({
+          pending: true
+        }),
+        {
+          state
+        }
+      );
+
+    case FULFILLED_ACTION(whichType.type || whichType):
+      return setStateProp(
+        whichType.ref || null,
+        setId({
+          date: action.payload.headers && action.payload.headers.date,
+          data: (action.payload && action.payload.data) || {},
+          fulfilled: true
+        }),
+        {
+          state
+        }
+      );
+
+    default:
+      return state;
+  }
+};
+
 const reduxHelpers = {
   FULFILLED_ACTION,
   PENDING_ACTION,
   REJECTED_ACTION,
+  generatedPromiseActionReducer,
   getMessageFromResults,
   getStatusFromResults,
   setStateProp
