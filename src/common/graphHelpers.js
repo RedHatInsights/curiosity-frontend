@@ -210,8 +210,9 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLab
 /**
  * Convert graph data to consumable format
  *
- * @param {Array} data
+ * @param {Array} data list of available report data
  * @param {string} dataFacet the response property used for the y axis
+ * @param {Array} dataThreshold list of available capacity data
  * @param {string} dataThresholdFacet the response property for the threshold line indicator
  * @param {string} tooltipLabel the tooltip label
  * @param {string} tooltipThresholdLabel the tooltip threshold label
@@ -223,6 +224,7 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLab
 const convertChartData = ({
   data,
   dataFacet,
+  dataThreshold,
   dataThresholdFacet,
   tooltipLabel,
   tooltipThresholdLabel,
@@ -232,15 +234,36 @@ const convertChartData = ({
 }) => {
   const formattedData = {};
 
-  (data || []).forEach(value => {
+  (data || []).forEach((value, index) => {
     if (value) {
       const stringDate = moment
-        .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_DATE])
+        .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
         .startOf('day')
         .toISOString();
+
+      /**
+       * FixMe: per API the list indexes should match on capacity and reporting.Once resonable
+       * Once reasonable testing has occurred consider removing this check.
+       */
+      const checkThresholdDate = dataThresholdItem => {
+        if (!dataThresholdItem) {
+          return false;
+        }
+
+        const stringThresholdDate = moment
+          .utc(dataThresholdItem[rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE])
+          .startOf('day')
+          .toISOString();
+
+        return moment(stringDate).isSame(stringThresholdDate);
+      };
+
       formattedData[stringDate] = {
         data: Number.parseInt(value[dataFacet], 10),
-        dataThreshold: Number.parseInt(value[dataThresholdFacet], 10)
+        dataThreshold: Number.parseInt(
+          (checkThresholdDate(dataThreshold && dataThreshold[index]) && dataThreshold[index][dataThresholdFacet]) || 0,
+          10
+        )
       };
     }
   });

@@ -140,8 +140,8 @@ class ChartArea extends React.Component {
         dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
       });
 
-      if (dataSet.thresholds) {
-        dataSet.thresholds.forEach(value => {
+      if (dataSet.threshold) {
+        dataSet.threshold.forEach(value => {
           dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
         });
       }
@@ -171,12 +171,24 @@ class ChartArea extends React.Component {
     const legendData = [];
 
     dataSets.forEach(dataSet => {
-      if (dataSet.legendThreshold) {
-        legendData.push({ symbol: { type: 'threshold' }, ...dataSet.legendThreshold });
+      if (dataSet.dataLegendLabel) {
+        const legendDataSettings = { symbol: {}, name: dataSet.dataLegendLabel };
+
+        if (dataSet.dataColor) {
+          legendDataSettings.symbol.fill = dataSet.dataColor;
+        }
+
+        legendData.push(legendDataSettings);
       }
 
-      if (dataSet.legendData) {
-        legendData.push(dataSet.legendData);
+      if (dataSet.thresholdLegendLabel) {
+        const legendThresholdSettings = { symbol: { type: 'threshold' }, name: dataSet.thresholdLegendLabel };
+
+        if (dataSet.thresholdColor) {
+          legendThresholdSettings.symbol.fill = dataSet.thresholdColor;
+        }
+
+        legendData.push(legendThresholdSettings);
       }
     });
 
@@ -193,29 +205,33 @@ class ChartArea extends React.Component {
     const { dataSets, padding } = this.props;
 
     const { isXAxisTicks, isYAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
-    const { chartDomain } = this.getChartDomain({ isXAxisTicks, isYAxisTicks });
+    const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks, isYAxisTicks });
     const chartLegendProps = this.getChartLegend();
     const chartProps = { padding, ...chartLegendProps, ...chartDomain };
 
-    chartProps.containerComponent = (
-      <ChartVoronoiContainer constrainToVisibleArea labels={({ datum }) => datum.tooltip} />
-    );
+    if (maxY > 0) {
+      chartProps.containerComponent = (
+        <ChartVoronoiContainer constrainToVisibleArea labels={({ datum }) => datum.tooltip} />
+      );
+    }
 
     return (
       <div ref={this.containerRef}>
-        <Chart width={chartWidth} {...chartProps}>
-          <ChartAxis {...xAxisProps} />
-          <ChartAxis {...yAxisProps} />
+        <Chart animate={{ duration: 0 }} width={chartWidth} {...chartProps}>
+          <ChartAxis {...xAxisProps} animate={false} />
+          <ChartAxis {...yAxisProps} animate={false} />
           {(dataSets &&
             dataSets.length &&
             dataSets.map(
               dataSet =>
-                (dataSet.thresholds && dataSet.thresholds.length && (
-                  /** fixme: split this out into a new wrapper called ChartThreshold in PF React */
+                (dataSet.threshold && dataSet.threshold.length && (
                   <ChartThreshold
+                    animate={dataSet.thresholdAnimate || false}
                     interpolation={dataSet.thresholdInterpolation || 'step'}
                     key={helpers.generateId()}
-                    data={dataSet.thresholds}
+                    data={dataSet.threshold}
+                    // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartArea. Appears enforced, see PFCharts. Leads to multiple annoyance checks and implementations.
+                    themeColor={dataSet.thresholdColor}
                     style={dataSet.thresholdStyle || {}}
                   />
                 )) ||
@@ -229,9 +245,12 @@ class ChartArea extends React.Component {
                 dataSet =>
                   (dataSet.data && dataSet.data.length && (
                     <PfChartArea
+                      animate={dataSet.dataAnimate || false}
                       interpolation={dataSet.dataInterpolation || 'catmullRom'}
                       key={helpers.generateId()}
                       data={dataSet.data}
+                      // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartThreshold themeColor and style
+                      style={{ data: { fill: dataSet.dataColor }, ...dataSet.dataStyle }}
                     />
                   )) ||
                   null
@@ -256,21 +275,22 @@ ChartArea.propTypes = {
           yAxisLabel: PropTypes.string
         })
       ),
+      dataAnimate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+      dataColor: PropTypes.string,
       dataInterpolation: PropTypes.string,
+      dataLegendLabel: PropTypes.string,
+      dataStyle: PropTypes.object,
       threshold: PropTypes.arrayOf(
         PropTypes.shape({
           x: PropTypes.number,
           y: PropTypes.number
         })
       ),
+      thresholdAnimate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+      thresholdColor: PropTypes.string,
       thresholdInterpolation: PropTypes.string,
+      thresholdLegendLabel: PropTypes.string,
       thresholdStyle: PropTypes.object,
-      legendData: PropTypes.shape({
-        name: PropTypes.string
-      }),
-      legendThreshold: PropTypes.shape({
-        name: PropTypes.string
-      }),
       xAxisLabelUseDataSet: PropTypes.bool,
       yAxisLabelUseDataSet: PropTypes.bool
     })

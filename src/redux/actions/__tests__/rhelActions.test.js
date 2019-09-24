@@ -35,14 +35,26 @@ describe('RhelActions', () => {
     moxios.uninstall();
   });
 
-  it('Should return response content for getGraphReports method', done => {
+  it('Should return response content for getGraphReportsRhel method', done => {
     const store = generateStore();
-    const dispatcher = rhelActions.getGraphReports();
+    const dispatcher = rhelActions.getGraphReportsRhel();
 
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().rhelGraph;
 
-      expect(response.fulfilled).toBe(true);
+      expect(response.report.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getGraphCapacity method', done => {
+    const store = generateStore();
+    const dispatcher = rhelActions.getGraphCapacityRhel();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().rhelGraph;
+
+      expect(response.capacity.fulfilled).toBe(true);
       done();
     });
   });

@@ -346,25 +346,25 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
           y="257"
         />
         <path
-          d="M 47.84, 293.156
+          d="M 49.128, 295.872
+      h9.744
+      v-9.744
+      h-9.744
+      z"
+          style="type:square;fill:#06c"
+        />
+        <path
+          d="M 232.76871972318338, 293.156
       h6.159999999999997
       v-4.312
       h-6.159999999999997
       z
-      M 56.053333333333335, 293.156
+      M 240.98205305651672, 293.156
       h6.159999999999997
       v-4.312
       h-6.159999999999997
       z"
-          style="type:threshold;fill:#06c"
-        />
-        <path
-          d="M 234.0567197231834, 295.872
-      h9.743999999999971
-      v-9.743999999999971
-      h-9.743999999999971
-      z"
-          style="type:square;fill:#8bc1f7"
+          style="type:threshold;fill:#8bc1f7"
         />
         <text
           direction="inherit"
@@ -419,6 +419,11 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 exports[`ChartArea Component should handle render displays for both data and threshold: threshold 1`] = `
 <div>
   <Chart
+    animate={
+      Object {
+        "duration": 0,
+      }
+    }
     containerComponent={
       <ChartVoronoiContainer
         activateData={true}
@@ -476,12 +481,13 @@ exports[`ChartArea Component should handle render displays for both data and thr
       Array [
         Object {
           "name": "Arma virumque cano",
-          "symbol": Object {
-            "type": "threshold",
-          },
+          "symbol": Object {},
         },
         Object {
           "name": "Arma virumque cano",
+          "symbol": Object {
+            "type": "threshold",
+          },
         },
       ]
     }
@@ -498,6 +504,7 @@ exports[`ChartArea Component should handle render displays for both data and thr
     width={0}
   >
     <ChartAxis
+      animate={false}
       fixLabelOverlap={false}
       tickFormat={[Function]}
       tickValues={
@@ -508,11 +515,13 @@ exports[`ChartArea Component should handle render displays for both data and thr
       }
     />
     <ChartAxis
+      animate={false}
       dependentAxis={true}
       fixLabelOverlap={false}
       showGrid={true}
     />
     <ChartThreshold
+      animate={false}
       data={
         Array [
           Object {
@@ -535,6 +544,7 @@ exports[`ChartArea Component should handle render displays for both data and thr
     />
     <ChartStack>
       <ChartArea
+        animate={false}
         data={
           Array [
             Object {
@@ -553,6 +563,13 @@ exports[`ChartArea Component should handle render displays for both data and thr
         }
         interpolation="catmullRom"
         key="generatedid-"
+        style={
+          Object {
+            "data": Object {
+              "fill": undefined,
+            },
+          }
+        }
       />
     </ChartStack>
   </Chart>
@@ -612,12 +629,13 @@ Object {
   "legendData": Array [
     Object {
       "name": "Arma virumque cano",
-      "symbol": Object {
-        "type": "threshold",
-      },
+      "symbol": Object {},
     },
     Object {
       "name": "Arma virumque cano",
+      "symbol": Object {
+        "type": "threshold",
+      },
     },
   ],
   "legendOrientation": "horizontal",
@@ -671,6 +689,11 @@ Object {
 exports[`ChartArea Component should handle variation in passed properties with specific methods: variation 1`] = `
 <div>
   <Chart
+    animate={
+      Object {
+        "duration": 0,
+      }
+    }
     containerComponent={
       <ChartVoronoiContainer
         activateData={true}
@@ -728,12 +751,13 @@ exports[`ChartArea Component should handle variation in passed properties with s
       Array [
         Object {
           "name": "Arma virumque cano",
-          "symbol": Object {
-            "type": "threshold",
-          },
+          "symbol": Object {},
         },
         Object {
           "name": "Arma virumque cano",
+          "symbol": Object {
+            "type": "threshold",
+          },
         },
       ]
     }
@@ -750,6 +774,7 @@ exports[`ChartArea Component should handle variation in passed properties with s
     width={0}
   >
     <ChartAxis
+      animate={false}
       fixLabelOverlap={false}
       tickFormat={[Function]}
       tickValues={
@@ -759,11 +784,13 @@ exports[`ChartArea Component should handle variation in passed properties with s
       }
     />
     <ChartAxis
+      animate={false}
       dependentAxis={true}
       fixLabelOverlap={false}
       showGrid={true}
     />
     <ChartThreshold
+      animate={false}
       data={
         Array [
           Object {
@@ -780,6 +807,7 @@ exports[`ChartArea Component should handle variation in passed properties with s
     />
     <ChartStack>
       <ChartArea
+        animate={false}
         data={
           Array [
             Object {
@@ -792,6 +820,13 @@ exports[`ChartArea Component should handle variation in passed properties with s
         }
         interpolation="natural"
         key="generatedid-"
+        style={
+          Object {
+            "data": Object {
+              "fill": undefined,
+            },
+          }
+        }
       />
     </ChartStack>
   </Chart>
@@ -801,41 +836,10 @@ exports[`ChartArea Component should handle variation in passed properties with s
 exports[`ChartArea Component should render a basic component: basic 1`] = `
 <div>
   <Chart
-    containerComponent={
-      <ChartVoronoiContainer
-        activateData={true}
-        activateLabels={true}
-        className="VictoryContainer"
-        constrainToVisibleArea={true}
-        labelComponent={
-          <VictoryTooltip
-            active={false}
-            flyoutComponent={
-              <Flyout
-                pathComponent={<Path />}
-                role="presentation"
-                shapeRendering="auto"
-              />
-            }
-            groupComponent={<g />}
-            labelComponent={
-              <VictoryLabel
-                capHeight={0.71}
-                direction="inherit"
-                lineHeight={1}
-                textComponent={<Text />}
-                tspanComponent={<TSpan />}
-              />
-            }
-            renderInPortal={true}
-          />
-        }
-        labels={[Function]}
-        portalComponent={<Portal />}
-        portalZIndex={99}
-        responsive={true}
-        voronoiPadding={5}
-      />
+    animate={
+      Object {
+        "duration": 0,
+      }
     }
     domain={
       Object {
@@ -872,9 +876,11 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
     width={0}
   >
     <ChartAxis
+      animate={false}
       fixLabelOverlap={false}
     />
     <ChartAxis
+      animate={false}
       dependentAxis={true}
       fixLabelOverlap={false}
       showGrid={true}
@@ -887,6 +893,11 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
 exports[`ChartArea Component should render basic data: data 1`] = `
 <div>
   <Chart
+    animate={
+      Object {
+        "duration": 0,
+      }
+    }
     containerComponent={
       <ChartVoronoiContainer
         activateData={true}
@@ -936,6 +947,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
       Array [
         Object {
           "name": "Arma virumque cano",
+          "symbol": Object {},
         },
       ]
     }
@@ -952,6 +964,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
     width={0}
   >
     <ChartAxis
+      animate={false}
       fixLabelOverlap={false}
       tickFormat={[Function]}
       tickValues={
@@ -962,6 +975,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
       }
     />
     <ChartAxis
+      animate={false}
       dependentAxis={true}
       fixLabelOverlap={false}
       showGrid={true}
@@ -975,6 +989,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
     />
     <ChartStack>
       <ChartArea
+        animate={false}
         data={
           Array [
             Object {
@@ -995,6 +1010,13 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         }
         interpolation="catmullRom"
         key="generatedid-"
+        style={
+          Object {
+            "data": Object {
+              "fill": undefined,
+            },
+          }
+        }
       />
     </ChartStack>
   </Chart>
