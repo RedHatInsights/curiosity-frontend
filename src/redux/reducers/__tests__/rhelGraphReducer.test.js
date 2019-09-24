@@ -7,8 +7,22 @@ describe('RhelGraphReducer', () => {
     expect(rhelGraphReducer.initialState).toBeDefined();
   });
 
+  it('should handle specific defined types', () => {
+    const specificTypes = [types.SET_GRAPH_RHEL_GRANULARITY];
+
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: value
+      };
+
+      const resultState = rhelGraphReducer(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
+  });
+
   it('should handle all defined error types', () => {
-    const specificTypes = [types.GET_GRAPH_REPORT];
+    const specificTypes = [types.GET_GRAPH_CAPACITY_RHEL, types.GET_GRAPH_REPORT_RHEL];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -35,7 +49,7 @@ describe('RhelGraphReducer', () => {
   });
 
   it('should handle all defined pending types', () => {
-    const specificTypes = [types.GET_GRAPH_REPORT];
+    const specificTypes = [types.GET_GRAPH_CAPACITY_RHEL, types.GET_GRAPH_REPORT_RHEL];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -51,7 +65,7 @@ describe('RhelGraphReducer', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    const specificTypes = [types.GET_GRAPH_REPORT];
+    const specificTypes = [types.GET_GRAPH_CAPACITY_RHEL, types.GET_GRAPH_REPORT_RHEL];
 
     specificTypes.forEach(value => {
       const dispatched = {

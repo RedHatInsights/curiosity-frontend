@@ -1,5 +1,7 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
+import axios from 'axios';
+import serviceConfig from './config';
 import { helpers } from '../common/helpers';
 
 const authorizeUser = () => {
@@ -17,6 +19,45 @@ const authorizeUser = () => {
 
   return returnMethod;
 };
+
+/**
+ * @api {get} /api/rhsm-subscriptions/v1/version
+ * @apiDescription Retrieve API version information
+ *
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "build": {
+ *       "version": "0.0.0",
+ *       "gitDescription": "lorem ipsum",
+ *       "artifact": "dolor sit",
+ *       "name": "lorem",
+ *       "group": "ipsum",
+ *       "gitHash": "0000000000000000"
+ *     }
+ *
+ * @apiError {String} detail
+ * @apiErrorExample {text} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+const getApiVersion = () =>
+  axios(
+    serviceConfig({
+      url: process.env.REACT_APP_SERVICES_RHSM_VERSION
+    })
+  );
 
 const getLocaleFromCookie = () => {
   const value = (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace('_', '-');
@@ -42,6 +83,6 @@ const logoutUser = () =>
     resolve({});
   });
 
-const userServices = { authorizeUser, getLocale, logoutUser };
+const userServices = { authorizeUser, getApiVersion, getLocale, logoutUser };
 
-export { userServices as default, userServices, authorizeUser, getLocale, logoutUser };
+export { userServices as default, userServices, authorizeUser, getApiVersion, getLocale, logoutUser };

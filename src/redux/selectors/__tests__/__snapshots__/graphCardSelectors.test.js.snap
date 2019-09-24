@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphCardSelectors Should error on a RHEL product ID without granularity provided: rhelGraphCard: no granularity error 1`] = `
+Object {
+  "cached": false,
+  "error": true,
+  "fulfilled": false,
+  "graphData": Object {
+    "capacity": Array [],
+    "usage": Array [],
+  },
+  "initialLoad": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors Should handle pending state on a RHEL product ID: rhelGraphCard: pending 1`] = `
+Object {
+  "cached": false,
+  "error": false,
+  "fulfilled": false,
+  "graphData": Object {
+    "capacity": Array [],
+    "usage": Array [],
+  },
+  "initialLoad": true,
+  "pending": true,
+}
+`;
+
+exports[`GraphCardSelectors Should map a fulfilled RHEL product ID response to an aggregated output: rhelGraphCard: fulfilled granularity 1`] = `
+Object {
+  "cached": false,
+  "error": false,
+  "fulfilled": true,
+  "graphData": Object {
+    "capacity": Array [
+      Object {
+        "date": "2019-09-04T00:00:00.000Z",
+        "hypervisor_sockets": 50,
+        "physical_sockets": 50,
+      },
+      Object {
+        "date": "2019-09-05T00:00:00.000Z",
+        "hypervisor_sockets": 0,
+        "physical_sockets": 0,
+      },
+      Object {
+        "date": "2019-09-06T00:00:00.000Z",
+        "hypervisor_sockets": 50,
+        "physical_sockets": 50,
+      },
+    ],
+    "usage": Array [
+      Object {
+        "cores": 32,
+        "date": "2019-09-04T00:00:00.000Z",
+        "instance_count": 1,
+        "sockets": 1,
+      },
+      Object {
+        "cores": 32,
+        "date": "2019-09-05T00:00:00.000Z",
+        "instance_count": 3,
+        "sockets": 1,
+      },
+      Object {
+        "cores": 25,
+        "date": "2019-09-06T00:00:00.000Z",
+        "instance_count": 1,
+        "sockets": 2,
+      },
+    ],
+  },
+  "initialLoad": false,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors Should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch fulfilled 1`] = `
+Object {
+  "cached": false,
+  "error": false,
+  "fulfilled": true,
+  "graphData": Object {
+    "capacity": Array [],
+    "usage": Array [],
+  },
+  "initialLoad": false,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should return specific selectors: selectors 1`] = `
+Object {
+  "makeRhelGraphCard": [Function],
+  "rhelGraphCard": [Function],
+}
+`;

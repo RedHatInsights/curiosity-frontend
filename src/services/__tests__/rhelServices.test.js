@@ -5,7 +5,7 @@ describe('RhelServices', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(cloudigrade|tally).*?/, {
+    moxios.stubRequest(/\/(tally|capacity).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
@@ -17,13 +17,18 @@ describe('RhelServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(rhelServices)).toHaveLength(1);
+    expect(Object.keys(rhelServices)).toHaveLength(2);
   });
 
   it('should have specific methods', () => {
-    expect(rhelServices.getGraphReportsRhsm).toBeDefined();
+    expect(rhelServices.getGraphCapacityRhel).toBeDefined();
+    expect(rhelServices.getGraphReportsRhel).toBeDefined();
   });
 
+  /**
+   *  timeout errors associated with this test sometimes stem from endpoint
+   *  settings, see "before each" regex above
+   */
   it('should return promises for every method', done => {
     const promises = Object.keys(rhelServices).map(value => rhelServices[value]());
 

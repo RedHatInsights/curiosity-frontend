@@ -4,7 +4,8 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
 Object {
   "default": Object {
     "rhel": Object {
-      "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+      "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
+      "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
       "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
     },
     "user": Object {
@@ -15,7 +16,8 @@ Object {
   },
   "reduxTypes": Object {
     "rhel": Object {
-      "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+      "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
+      "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
       "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
     },
     "user": Object {
@@ -25,7 +27,8 @@ Object {
     },
   },
   "rhelTypes": Object {
-    "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+    "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
+    "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
     "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
   },
   "userTypes": Object {
@@ -39,7 +42,8 @@ Object {
 exports[`ReduxTypes should have specific type properties: specific types 1`] = `
 Object {
   "rhel": Object {
-    "GET_GRAPH_REPORT": "GET_GRAPH_REPORT",
+    "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
+    "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
     "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
   },
   "user": Object {

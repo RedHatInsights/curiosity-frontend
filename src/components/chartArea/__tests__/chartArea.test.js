@@ -30,7 +30,7 @@ describe('ChartArea Component', () => {
               yAxisLabel: '2 y axis label'
             }
           ],
-          legendData: { name: 'Arma virumque cano' }
+          dataLegendLabel: 'Arma virumque cano'
         }
       ]
     };
@@ -58,8 +58,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendData: { name: 'Arma virumque cano' },
-          legendThreshold: { name: 'Arma virumque cano' }
+          dataLegendLabel: 'Arma virumque cano',
+          thresholdLegendLabel: 'Arma virumque cano'
         }
       ]
     };
@@ -93,8 +93,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendData: { name: 'Arma virumque cano' },
-          legendThreshold: { name: 'Arma virumque cano' }
+          dataLegendLabel: 'Arma virumque cano',
+          thresholdLegendLabel: 'Arma virumque cano'
         }
       ]
     };
@@ -125,7 +125,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          thresholds: [
+          threshold: [
             {
               x: 1,
               y: 10,
@@ -139,8 +139,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendData: { name: 'Arma virumque cano' },
-          legendThreshold: { name: 'Arma virumque cano' }
+          dataLegendLabel: 'Arma virumque cano',
+          thresholdLegendLabel: 'Arma virumque cano'
         }
       ]
     };
@@ -161,7 +161,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
-          thresholds: [
+          threshold: [
             {
               x: 1,
               y: 10,
@@ -170,8 +170,8 @@ describe('ChartArea Component', () => {
             }
           ],
           dataInterpolation: 'natural',
-          legendData: { name: 'Arma virumque cano' },
-          legendThreshold: { name: 'Arma virumque cano' }
+          dataLegendLabel: 'Arma virumque cano',
+          thresholdLegendLabel: 'Arma virumque cano'
         }
       ]
     };

@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import numeral from 'numeral';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
+import { ChartThemeColor } from '@patternfly/react-charts';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Select } from '../select/select';
-import { connectTranslate, reduxActions, reduxTypes, store } from '../../redux';
+import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers, graphHelpers } from '../../common';
 import { rhelApiTypes } from '../../types/rhelApiTypes';
 import { rhelGraphCardTypes } from './rhelGraphCardTypes';
@@ -26,13 +27,15 @@ class RhelGraphCard extends React.Component {
   }
 
   onUpdateGraphData = () => {
-    const { getGraphReports, graphGranularity, startDate, endDate } = this.props;
-
-    getGraphReports({
+    const { getGraphCapacityRhel, getGraphReportsRhel, graphGranularity, startDate, endDate } = this.props;
+    const submit = {
       [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
       [rhelApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
       [rhelApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
-    });
+    };
+
+    getGraphCapacityRhel(submit);
+    getGraphReportsRhel(submit);
   };
 
   onSelect = event => {
@@ -52,8 +55,9 @@ class RhelGraphCard extends React.Component {
     const { graphData, graphGranularity, startDate, endDate, t } = this.props;
     const { chartXAxisLabelIncrement, chartData, chartDataThresholds } = graphHelpers.convertChartData({
       data: graphData.usage,
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS,
-      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_SOCKETS_THRESHOLD,
+      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
+      dataThreshold: graphData.capacity,
+      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS,
       tooltipLabel: t('curiosity-graph.tooltipSockets'),
       tooltipThresholdLabel: t('curiosity-graph.tooltipSocketsThreshold'),
       startDate,
@@ -69,9 +73,18 @@ class RhelGraphCard extends React.Component {
         dataSets={[
           {
             data: chartData,
-            thresholds: chartDataThresholds,
-            legendThreshold: { name: t('curiosity-graph.legendSocketsThresholdLabel') },
-            legendData: { name: t('curiosity-graph.legendSocketsLabel') }
+            dataAnimate: {
+              duration: 250,
+              onLoad: { duration: 250 }
+            },
+            dataLegendLabel: t('curiosity-graph.legendSocketsLabel'),
+            threshold: chartDataThresholds,
+            thresholdAnimate: {
+              duration: 100,
+              onLoad: { duration: 100 }
+            },
+            thresholdColor: ChartThemeColor.green,
+            thresholdLegendLabel: t('curiosity-graph.legendSocketsThresholdLabel')
           }
         ]}
       />
@@ -80,7 +93,7 @@ class RhelGraphCard extends React.Component {
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
-    const { error, fulfilled, graphGranularity, pending, t } = this.props;
+    const { graphGranularity, pending, t } = this.props;
     const getDateMenuOptions = rhelGraphCardTypes.getDateMenuOptions();
 
     return (
@@ -107,7 +120,7 @@ class RhelGraphCard extends React.Component {
                 <Skeleton size={SkeletonSize.lg} />
               </React.Fragment>
             )}
-            {!pending && (fulfilled || error) && this.renderChart()}
+            {!pending && this.renderChart()}
           </div>
         </CardBody>
       </Card>
@@ -116,10 +129,10 @@ class RhelGraphCard extends React.Component {
 }
 
 RhelGraphCard.propTypes = {
-  error: PropTypes.bool,
-  fulfilled: PropTypes.bool,
-  getGraphReports: PropTypes.func,
+  getGraphCapacityRhel: PropTypes.func,
+  getGraphReportsRhel: PropTypes.func,
   graphData: PropTypes.shape({
+    capacity: PropTypes.array,
     usage: PropTypes.array
   }),
   graphGranularity: PropTypes.oneOf([
@@ -135,10 +148,10 @@ RhelGraphCard.propTypes = {
 };
 
 RhelGraphCard.defaultProps = {
-  error: false,
-  fulfilled: false,
-  getGraphReports: helpers.noop,
+  getGraphCapacityRhel: helpers.noop,
+  getGraphReportsRhel: helpers.noop,
   graphData: {
+    capacity: [],
     usage: []
   },
   graphGranularity: GRANULARITY_TYPES.DAILY,
@@ -148,14 +161,20 @@ RhelGraphCard.defaultProps = {
   endDate: dateHelpers.defaultDateTime.endDate
 };
 
-const mapStateToProps = state => ({
-  ...state.rhelGraph
-});
+const makeMapStateToProps = () => {
+  const getRhelGraphCard = reduxSelectors.graphCard.makeRhelGraphCard();
+
+  return (state, props) => ({
+    ...state.rhelGraph.component,
+    ...getRhelGraphCard(state, props)
+  });
+};
 
 const mapDispatchToProps = dispatch => ({
-  getGraphReports: query => dispatch(reduxActions.rhel.getGraphReports(query))
+  getGraphCapacityRhel: query => dispatch(reduxActions.rhel.getGraphCapacityRhel(query)),
+  getGraphReportsRhel: query => dispatch(reduxActions.rhel.getGraphReportsRhel(query))
 });
 
-const ConnectedRhelGraphCard = connectTranslate(mapStateToProps, mapDispatchToProps)(RhelGraphCard);
+const ConnectedRhelGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(RhelGraphCard);
 
 export { ConnectedRhelGraphCard as default, ConnectedRhelGraphCard, RhelGraphCard };
