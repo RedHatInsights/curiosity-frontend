@@ -4,9 +4,9 @@ import {
   Chart,
   ChartAxis,
   ChartLegend,
-  ChartLine,
   ChartVoronoiContainer,
   ChartStack,
+  ChartThreshold,
   ChartArea as PfChartArea
 } from '@patternfly/react-charts';
 import _cloneDeep from 'lodash/cloneDeep';
@@ -134,7 +134,7 @@ class ChartArea extends React.Component {
     let dataSetMaxY = 0;
 
     dataSets.forEach(dataSet => {
-      dataSetMaxX = dataSet.data.length > dataSetMaxX ? dataSet.data : dataSetMaxX;
+      dataSetMaxX = dataSet.data.length > dataSetMaxX ? dataSet.data.length : dataSetMaxX;
 
       dataSet.data.forEach(value => {
         dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
@@ -172,7 +172,7 @@ class ChartArea extends React.Component {
 
     dataSets.forEach(dataSet => {
       if (dataSet.legendThreshold) {
-        legendData.push({ symbol: { type: 'dash' }, ...dataSet.legendThreshold });
+        legendData.push({ symbol: { type: 'threshold' }, ...dataSet.legendThreshold });
       }
 
       if (dataSet.legendData) {
@@ -193,14 +193,13 @@ class ChartArea extends React.Component {
     const { dataSets, padding } = this.props;
 
     const { isXAxisTicks, isYAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
-    const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks, isYAxisTicks });
+    const { chartDomain } = this.getChartDomain({ isXAxisTicks, isYAxisTicks });
     const chartLegendProps = this.getChartLegend();
     const chartProps = { padding, ...chartLegendProps, ...chartDomain };
 
-    // FixMe: Check maxY has value, and conditionally apply ChartVoronoiContainer to avoid a massive memory leak?
-    if (maxY > 0) {
-      chartProps.containerComponent = <ChartVoronoiContainer labels={d => d.tooltip} />;
-    }
+    chartProps.containerComponent = (
+      <ChartVoronoiContainer constrainToVisibleArea labels={({ datum }) => datum.tooltip} />
+    );
 
     return (
       <div ref={this.containerRef}>
@@ -213,11 +212,11 @@ class ChartArea extends React.Component {
               dataSet =>
                 (dataSet.thresholds && dataSet.thresholds.length && (
                   /** fixme: split this out into a new wrapper called ChartThreshold in PF React */
-                  <ChartLine
+                  <ChartThreshold
                     interpolation={dataSet.thresholdInterpolation || 'step'}
                     key={helpers.generateId()}
                     data={dataSet.thresholds}
-                    style={dataSet.thresholdStyle || { data: { strokeDasharray: 3.3 } }}
+                    style={dataSet.thresholdStyle || {}}
                   />
                 )) ||
                 null

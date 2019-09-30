@@ -2,19 +2,19 @@ const localhost = (process.env.PLATFORM === 'linux' && 'localhost') || 'host.doc
 
 module.exports = {
   routes: {
-    '/': {
+    '/locales': {
       host: `http://${localhost}:5001`
     },
-    '/apps/subscriptions': {
+    '/static': {
       host: `http://${localhost}:5001`
     },
-    '/staging/subscriptions': {
+    '/beta/apps/subscriptions': {
       host: `http://${localhost}:5001`
     },
-    '/subscriptions': {
+    '/beta/staging/subscriptions': {
       host: `http://${localhost}:5001`
     },
-    '/api': {
+    '/api/rhsm-subscriptions': {
       host: 'https://ci.cloud.redhat.com'
     }
   }
