@@ -8,8 +8,10 @@ gitRepo()
   local GITREPO=$1
   local DIR=$2
   local DIR_REPO=$3
+  local CURRENT_DATE=$(date "+%s")
+  local EXPIRE=$(head -n 1 $DIR/expire.txt)
 
-  if [ ! -d $DIR_REPO/build ]; then
+  if [ ! -d $DIR_REPO/build ] || [ "${EXPIRE:-0}" -lt "${CURRENT_DATE}" ]; then
     mkdir -p $DIR
     rm -rf $DIR/temp
     (cd $DIR && git clone --depth=1 $GITREPO temp > /dev/null 2>&1)
@@ -22,6 +24,8 @@ gitRepo()
 
       rm -rf $DIR/temp
       rm -rf $DIR_REPO/.git
+
+      echo $(date -v +10d "+%s") > $DIR/expire.txt
 
       printf "${GREEN}Clone SUCCESS${NOCOLOR}\n"
 
