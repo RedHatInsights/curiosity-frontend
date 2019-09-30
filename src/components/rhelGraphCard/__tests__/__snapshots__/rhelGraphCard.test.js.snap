@@ -73,14 +73,19 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                   ariaLabelTypeAhead=""
                   ariaLabelledBy=""
                   className="curiosity-select "
+                  direction="down"
+                  isCreatable={false}
+                  isDisabled={false}
                   isExpanded={false}
                   isGrouped={false}
                   isPlain={false}
                   onClear={[Function]}
+                  onCreateOption={[Function]}
                   onSelect={[Function]}
                   onToggle={[Function]}
                   placeholderText="Select date range"
                   selections="Daily"
+                  toggleIcon={null}
                   toggleId={null}
                   variant="single"
                   width=""
@@ -100,6 +105,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                       handleTypeaheadKeys={[Function]}
                       id="pf-toggle-id-2"
                       isActive={false}
+                      isDisabled={false}
                       isExpanded={false}
                       isFocused={false}
                       isHovered={false}
@@ -156,6 +162,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                         aria-haspopup="listbox"
                         aria-labelledby=" pf-toggle-id-2"
                         className="pf-c-select__toggle"
+                        disabled={false}
                         id="pf-toggle-id-2"
                         onClick={[Function]}
                         onKeyDown={[Function]}
@@ -742,15 +749,19 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
       className="curiosity-skeleton-container"
     >
       <Skeleton
+        isDark={false}
         size="xs"
       />
       <Skeleton
+        isDark={false}
         size="sm"
       />
       <Skeleton
+        isDark={false}
         size="md"
       />
       <Skeleton
+        isDark={false}
         size="lg"
       />
     </div>

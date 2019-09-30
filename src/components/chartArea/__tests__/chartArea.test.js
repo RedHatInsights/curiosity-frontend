@@ -107,6 +107,144 @@ describe('ChartArea Component', () => {
     );
   });
 
+  it('should handle render displays for both data and threshold', () => {
+    const props = {
+      dataSets: [
+        {
+          data: [
+            {
+              x: 1,
+              y: 0,
+              tooltip: '1 lorem ipsum',
+              xAxisLabel: '1 x axis label'
+            },
+            {
+              x: 2,
+              y: 1,
+              tooltip: '2 lorem ipsum',
+              xAxisLabel: '2 x axis label'
+            }
+          ],
+          thresholds: [
+            {
+              x: 1,
+              y: 10,
+              tooltip: '10 dolor sit',
+              xAxisLabel: '1 x axis label'
+            },
+            {
+              x: 2,
+              y: 10,
+              tooltip: '10 dolor sit',
+              xAxisLabel: '2 x axis label'
+            }
+          ],
+          legendData: { name: 'Arma virumque cano' },
+          legendThreshold: { name: 'Arma virumque cano' }
+        }
+      ]
+    };
+
+    const component = shallow(<ChartArea {...props} />);
+    expect(component).toMatchSnapshot('threshold');
+  });
+
+  it('should handle variation in passed properties with specific methods', () => {
+    const props = {
+      dataSets: [
+        {
+          data: [
+            {
+              x: 1,
+              y: 0,
+              tooltip: '1 lorem ipsum',
+              xAxisLabel: '1 x axis label'
+            }
+          ],
+          thresholds: [
+            {
+              x: 1,
+              y: 10,
+              tooltip: '10 dolor sit',
+              xAxisLabel: '1 x axis label'
+            }
+          ],
+          dataInterpolation: 'natural',
+          legendData: { name: 'Arma virumque cano' },
+          legendThreshold: { name: 'Arma virumque cano' }
+        }
+      ]
+    };
+
+    const component = shallow(<ChartArea {...props} />);
+    expect(component).toMatchSnapshot('variation');
+
+    // check setChartTicks label increment and tick format directly
+    component.setProps({
+      xAxisLabelIncrement: 2,
+      yAxisLabelIncrement: 2,
+      xAxisTickFormat: lorem => `${lorem} ipsum`,
+      yAxisTickFormat: dolor => `${dolor} sit`
+    });
+    expect(component.instance().setChartTicks()).toMatchSnapshot('setChartTicks');
+
+    // check getChartTicks setting xAxisFixLabelOverlap and yAxisFixLabelOverlap directly
+    component.setProps({
+      xAxisFixLabelOverlap: true,
+      yAxisFixLabelOverlap: true
+    });
+    expect(component.instance().getChartTicks()).toMatchSnapshot('getChartTicks');
+
+    // check getChartDomain setting domain directly
+    component.setProps({
+      domain: {
+        x: [0, 100],
+        y: [0, 20]
+      }
+    });
+    expect(component.instance().getChartDomain({ isXAxisTicks: false, isYAxisTicks: false })).toMatchSnapshot(
+      'getChartDomain: domain'
+    );
+
+    // check getChartDomain: isYAxisTicks and isXAxisTicks
+    component.setProps({
+      domain: {}
+    });
+    expect(component.instance().getChartDomain({ isXAxisTicks: false, isYAxisTicks: true })).toMatchSnapshot(
+      'getChartDomain: isYAxisTicks true'
+    );
+    expect(component.instance().getChartDomain({ isXAxisTicks: true, isYAxisTicks: false })).toMatchSnapshot(
+      'getChartDomain: isXAxisTicks true'
+    );
+
+    // check getChartLegend
+    expect(component.instance().getChartLegend()).toMatchSnapshot('getChartLegend');
+
+    // check setChartTicks: xAxisLabelUseDataSet, yAxisLabelUseDataSet
+    const additionalDataSet = [
+      {
+        data: [
+          {
+            x: 2,
+            y: 1,
+            tooltip: '1 hello world',
+            xAxisLabel: '1 hello world x-axis label',
+            yAxisLabel: '1 hello world y-axis label'
+          }
+        ],
+        legendData: { name: 'Hello world' },
+        xAxisLabelUseDataSet: true,
+        yAxisLabelUseDataSet: true
+      }
+    ];
+    component.setProps({
+      dataSets: [...props.dataSets, ...additionalDataSet]
+    });
+    expect(component.instance().setChartTicks()).toMatchSnapshot(
+      'setChartTicks: xAxisLabelUseDataSet, yAxisLabelUseDataSet'
+    );
+  });
+
   it('should set initial width to zero and then resize', () => {
     const component = shallow(<ChartArea />);
 

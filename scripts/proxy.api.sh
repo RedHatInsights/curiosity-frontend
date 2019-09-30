@@ -99,12 +99,16 @@ runProxy()
   local RUN_DOMAIN=$3
   local RUN_PORT=$4
   local RUN_CONFIG=$5
+  local DIR=$6
+  local CURRENT_DATE=$(date "+%s")
+  local EXPIRE=$(head -n 1 $DIR/expire.txt)
 
   docker stop -t 0 $RUN_NAME >/dev/null
 
-  if [ -z "$(docker images -q $RUN_CONTAINER)" ]; then
+  if [ -z "$(docker images -q $RUN_CONTAINER)" ] || [ "${EXPIRE:-0}" -lt "${CURRENT_DATE}" ]; then
     echo "Setting up development Docker proxy container"
     docker pull $RUN_CONTAINER
+    echo $(date -v +10d "+%s") > $DIR/expire.txt
   fi
 
   if [ -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
@@ -180,5 +184,5 @@ runProxy()
   fi
 
   cleanLocalDotEnv
-  runProxy $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG
+  runProxy $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG $DATADIR
 }

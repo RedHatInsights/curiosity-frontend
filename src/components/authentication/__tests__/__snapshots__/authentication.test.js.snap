@@ -82,6 +82,7 @@ exports[`Authorization Component should render a non-connected component error: 
     <Page
       breadcrumb={null}
       className="layout-pf curiosity"
+      defaultManagedSidebarIsOpen={true}
       header={null}
       isManagedSidebar={false}
       mainContainerId={null}

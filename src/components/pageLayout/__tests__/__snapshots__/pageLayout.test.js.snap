@@ -5,6 +5,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
   <Page
     breadcrumb={null}
     className="layout-pf curiosity"
+    defaultManagedSidebarIsOpen={true}
     header={null}
     isManagedSidebar={false}
     mainContainerId={null}

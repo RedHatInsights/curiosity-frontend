@@ -3,11 +3,10 @@
 exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 <div>
   <div
-    class="VictoryContainer"
+    class="pf-c-chart"
     style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative"
   >
     <svg
-      aria-labelledby="victory-container-1-title victory-container-1-desc"
       height="300"
       role="img"
       style="pointer-events:all;width:100%;height:auto"
@@ -33,17 +32,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke:none;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="50"
-            x2="50"
-            y1="225"
-            y2="50"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:none;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
             vector-effect="non-scaling-stroke"
             x1="50"
             x2="50"
@@ -54,12 +43,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="11.969999999999999"
+            id="chart-axis-0-tickLabels-0"
             x="50"
             y="240"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="middle"
               x="50"
             >
@@ -73,17 +63,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
           <line
             role="presentation"
             shape-rendering="auto"
-            style="stroke:none;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
-            vector-effect="non-scaling-stroke"
-            x1="-50"
-            x2="-50"
-            y1="225"
-            y2="50"
-          />
-          <line
-            role="presentation"
-            shape-rendering="auto"
-            style="stroke:none;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
             vector-effect="non-scaling-stroke"
             x1="-50"
             x2="-50"
@@ -94,12 +74,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="11.969999999999999"
+            id="chart-axis-0-tickLabels-1"
             x="-50"
             y="240"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="middle"
               x="-50"
             >
@@ -148,12 +129,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="4.97"
+            id="chart-axis-1-tickLabels-0"
             x="35"
             y="190"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -188,12 +170,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="4.97"
+            id="chart-axis-1-tickLabels-1"
             x="35"
             y="155"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -228,12 +211,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="4.97"
+            id="chart-axis-1-tickLabels-2"
             x="35"
             y="120"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -268,12 +252,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="4.97"
+            id="chart-axis-1-tickLabels-3"
             x="35"
             y="85"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -308,12 +293,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             direction="inherit"
             dx="0"
             dy="4.97"
+            id="chart-axis-1-tickLabels-4"
             x="35"
             y="50"
           >
             <tspan
               dx="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4d5258"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -333,8 +319,6 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             >
               <rect
                 height="175"
-                role="presentation"
-                shape-rendering="auto"
                 vector-effect="non-scaling-stroke"
                 width="100"
                 x="-50"
@@ -346,7 +330,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             d="M50,225L-50,207.5L-50,225L50,225Z"
             role="presentation"
             shape-rendering="auto"
-            style="fill:#06c;stroke-width:1;fill-opacity:0.4;stroke:none"
+            style="fill:#06c;stroke-width:1;fill-opacity:0.3;stroke:#06c"
           />
         </g>
       </g>
@@ -363,23 +347,16 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
         />
         <path
           d="M 47.84, 293.156
-      h3.695999999999998
+      h6.159999999999997
       v-4.312
-      h-3.695999999999998
+      h-6.159999999999997
       z
-      M 52.768, 293.156
-      h3.695999999999998
+      M 56.053333333333335, 293.156
+      h6.159999999999997
       v-4.312
-      h-3.695999999999998
-      z
-      M 57.696, 293.156
-      h3.695999999999998
-      v-4.312
-      h-3.695999999999998
+      h-6.159999999999997
       z"
-          role="presentation"
-          shape-rendering="auto"
-          style="type:dash;fill:#06c"
+          style="type:threshold;fill:#06c"
         />
         <path
           d="M 234.0567197231834, 295.872
@@ -387,14 +364,13 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       v-9.743999999999971
       h-9.743999999999971
       z"
-          role="presentation"
-          shape-rendering="auto"
           style="type:square;fill:#8bc1f7"
         />
         <text
           direction="inherit"
           dx="0"
           dy="4.97"
+          id="legend-labels-0"
           x="70.8"
           y="291"
         >
@@ -411,6 +387,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
           direction="inherit"
           dx="0"
           dy="4.97"
+          id="legend-labels-1"
           x="255.7287197231834"
           y="291"
         >
@@ -439,9 +416,427 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 </div>
 `;
 
+exports[`ChartArea Component should handle render displays for both data and threshold: threshold 1`] = `
+<div>
+  <Chart
+    containerComponent={
+      <ChartVoronoiContainer
+        activateData={true}
+        activateLabels={true}
+        className="VictoryContainer"
+        constrainToVisibleArea={true}
+        labelComponent={
+          <VictoryTooltip
+            active={false}
+            flyoutComponent={
+              <Flyout
+                pathComponent={<Path />}
+                role="presentation"
+                shapeRendering="auto"
+              />
+            }
+            groupComponent={<g />}
+            labelComponent={
+              <VictoryLabel
+                capHeight={0.71}
+                direction="inherit"
+                lineHeight={1}
+                textComponent={<Text />}
+                tspanComponent={<TSpan />}
+              />
+            }
+            renderInPortal={true}
+          />
+        }
+        labels={[Function]}
+        portalComponent={<Portal />}
+        portalZIndex={99}
+        responsive={true}
+        voronoiPadding={5}
+      />
+    }
+    domain={
+      Object {
+        "y": Array [
+          0,
+          20,
+        ],
+      }
+    }
+    legendComponent={
+      <ChartLegend
+        borderPadding={
+          Object {
+            "top": 20,
+          }
+        }
+      />
+    }
+    legendData={
+      Array [
+        Object {
+          "name": "Arma virumque cano",
+          "symbol": Object {
+            "type": "threshold",
+          },
+        },
+        Object {
+          "name": "Arma virumque cano",
+        },
+      ]
+    }
+    legendOrientation="horizontal"
+    legendPosition="bottom-left"
+    padding={
+      Object {
+        "bottom": 75,
+        "left": 50,
+        "right": 50,
+        "top": 50,
+      }
+    }
+    width={0}
+  >
+    <ChartAxis
+      fixLabelOverlap={false}
+      tickFormat={[Function]}
+      tickValues={
+        Array [
+          1,
+          2,
+        ]
+      }
+    />
+    <ChartAxis
+      dependentAxis={true}
+      fixLabelOverlap={false}
+      showGrid={true}
+    />
+    <ChartThreshold
+      data={
+        Array [
+          Object {
+            "tooltip": "10 dolor sit",
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 10,
+          },
+          Object {
+            "tooltip": "10 dolor sit",
+            "x": 2,
+            "xAxisLabel": "2 x axis label",
+            "y": 10,
+          },
+        ]
+      }
+      interpolation="step"
+      key="generatedid-"
+      style={Object {}}
+    />
+    <ChartStack>
+      <ChartArea
+        data={
+          Array [
+            Object {
+              "tooltip": "1 lorem ipsum",
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 0,
+            },
+            Object {
+              "tooltip": "2 lorem ipsum",
+              "x": 2,
+              "xAxisLabel": "2 x axis label",
+              "y": 1,
+            },
+          ]
+        }
+        interpolation="catmullRom"
+        key="generatedid-"
+      />
+    </ChartStack>
+  </Chart>
+</div>
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartDomain: domain 1`] = `
+Object {
+  "x": Array [
+    0,
+    100,
+  ],
+  "y": Array [
+    0,
+    20,
+  ],
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartDomain: isXAxisTicks true 1`] = `
+Object {
+  "chartDomain": Object {
+    "domain": Object {
+      "y": Array [
+        0,
+        20,
+      ],
+    },
+  },
+  "maxY": 10,
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartDomain: isYAxisTicks true 1`] = `
+Object {
+  "chartDomain": Object {
+    "domain": Object {
+      "x": Array [
+        0,
+        1,
+      ],
+    },
+  },
+  "maxY": 10,
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartLegend 1`] = `
+Object {
+  "legendComponent": <ChartLegend
+    borderPadding={
+      Object {
+        "top": 20,
+      }
+    }
+  />,
+  "legendData": Array [
+    Object {
+      "name": "Arma virumque cano",
+      "symbol": Object {
+        "type": "threshold",
+      },
+    },
+    Object {
+      "name": "Arma virumque cano",
+    },
+  ],
+  "legendOrientation": "horizontal",
+  "legendPosition": "bottom-left",
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartTicks 1`] = `
+Object {
+  "isXAxisTicks": true,
+  "isYAxisTicks": false,
+  "xAxisProps": Object {
+    "fixLabelOverlap": true,
+    "tickFormat": [Function],
+    "tickValues": Array [
+      1,
+    ],
+  },
+  "yAxisProps": Object {
+    "dependentAxis": true,
+    "fixLabelOverlap": true,
+    "showGrid": true,
+    "tickFormat": [Function],
+  },
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: setChartTicks 1`] = `
+Object {
+  "xAxisTickFormat": [Function],
+  "xAxisTickValues": Array [
+    1,
+  ],
+  "yAxisTickFormat": [Function],
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: setChartTicks: xAxisLabelUseDataSet, yAxisLabelUseDataSet 1`] = `
+Object {
+  "xAxisTickFormat": [Function],
+  "xAxisTickValues": Array [
+    2,
+  ],
+  "yAxisTickFormat": [Function],
+  "yAxisTickValues": Array [
+    1,
+  ],
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: variation 1`] = `
+<div>
+  <Chart
+    containerComponent={
+      <ChartVoronoiContainer
+        activateData={true}
+        activateLabels={true}
+        className="VictoryContainer"
+        constrainToVisibleArea={true}
+        labelComponent={
+          <VictoryTooltip
+            active={false}
+            flyoutComponent={
+              <Flyout
+                pathComponent={<Path />}
+                role="presentation"
+                shapeRendering="auto"
+              />
+            }
+            groupComponent={<g />}
+            labelComponent={
+              <VictoryLabel
+                capHeight={0.71}
+                direction="inherit"
+                lineHeight={1}
+                textComponent={<Text />}
+                tspanComponent={<TSpan />}
+              />
+            }
+            renderInPortal={true}
+          />
+        }
+        labels={[Function]}
+        portalComponent={<Portal />}
+        portalZIndex={99}
+        responsive={true}
+        voronoiPadding={5}
+      />
+    }
+    domain={
+      Object {
+        "y": Array [
+          0,
+          20,
+        ],
+      }
+    }
+    legendComponent={
+      <ChartLegend
+        borderPadding={
+          Object {
+            "top": 20,
+          }
+        }
+      />
+    }
+    legendData={
+      Array [
+        Object {
+          "name": "Arma virumque cano",
+          "symbol": Object {
+            "type": "threshold",
+          },
+        },
+        Object {
+          "name": "Arma virumque cano",
+        },
+      ]
+    }
+    legendOrientation="horizontal"
+    legendPosition="bottom-left"
+    padding={
+      Object {
+        "bottom": 75,
+        "left": 50,
+        "right": 50,
+        "top": 50,
+      }
+    }
+    width={0}
+  >
+    <ChartAxis
+      fixLabelOverlap={false}
+      tickFormat={[Function]}
+      tickValues={
+        Array [
+          1,
+        ]
+      }
+    />
+    <ChartAxis
+      dependentAxis={true}
+      fixLabelOverlap={false}
+      showGrid={true}
+    />
+    <ChartThreshold
+      data={
+        Array [
+          Object {
+            "tooltip": "10 dolor sit",
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 10,
+          },
+        ]
+      }
+      interpolation="step"
+      key="generatedid-"
+      style={Object {}}
+    />
+    <ChartStack>
+      <ChartArea
+        data={
+          Array [
+            Object {
+              "tooltip": "1 lorem ipsum",
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 0,
+            },
+          ]
+        }
+        interpolation="natural"
+        key="generatedid-"
+      />
+    </ChartStack>
+  </Chart>
+</div>
+`;
+
 exports[`ChartArea Component should render a basic component: basic 1`] = `
 <div>
   <Chart
+    containerComponent={
+      <ChartVoronoiContainer
+        activateData={true}
+        activateLabels={true}
+        className="VictoryContainer"
+        constrainToVisibleArea={true}
+        labelComponent={
+          <VictoryTooltip
+            active={false}
+            flyoutComponent={
+              <Flyout
+                pathComponent={<Path />}
+                role="presentation"
+                shapeRendering="auto"
+              />
+            }
+            groupComponent={<g />}
+            labelComponent={
+              <VictoryLabel
+                capHeight={0.71}
+                direction="inherit"
+                lineHeight={1}
+                textComponent={<Text />}
+                tspanComponent={<TSpan />}
+              />
+            }
+            renderInPortal={true}
+          />
+        }
+        labels={[Function]}
+        portalComponent={<Portal />}
+        portalZIndex={99}
+        responsive={true}
+        voronoiPadding={5}
+      />
+    }
     domain={
       Object {
         "x": Array [
@@ -497,12 +892,15 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         activateData={true}
         activateLabels={true}
         className="VictoryContainer"
+        constrainToVisibleArea={true}
         labelComponent={
           <VictoryTooltip
             active={false}
             flyoutComponent={
               <Flyout
                 pathComponent={<Path />}
+                role="presentation"
+                shapeRendering="auto"
               />
             }
             groupComponent={<g />}

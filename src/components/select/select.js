@@ -145,6 +145,12 @@ class Select extends React.Component {
       pfSelectOptions.isDisabled = true;
     }
 
+    /**
+     * FixMe: PFReact quirks around PfSelect, requires children
+     * "Null" is a typical fallback we use across the board on a multitude of React apps.
+     * In this case "null" is a fallback for scenarios where an "undefined" list is passed
+     * during initial mount. Converted to an empty list/array "[]" to compensate.
+     */
     return (
       <PfSelect
         className={`curiosity-select ${className}`}
@@ -166,7 +172,7 @@ class Select extends React.Component {
               data-title={option.title}
             />
           ))) ||
-          null}
+          []}
       </PfSelect>
     );
   }

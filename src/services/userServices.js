@@ -6,7 +6,9 @@ const authorizeUser = () => {
   let returnMethod = helpers.noopPromise;
 
   try {
-    returnMethod = window.insights.chrome.auth.getUser;
+    if (!helpers.DEV_MODE) {
+      returnMethod = window.insights.chrome.auth.getUser;
+    }
   } catch (e) {
     if (!helpers.TEST_MODE) {
       console.warn(`{ getUser } = insights.chrome.auth: ${e.message}`);
