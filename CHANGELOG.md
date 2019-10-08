@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.2...v0.1.3) (2019-10-08)
+
+
+### Bug Fixes
+
+* **build:** issues/105 local run chroming updates ([#106](https://github.com/RedHatInsights/curiosity-frontend/issues/106)) ([e4e24d0](https://github.com/RedHatInsights/curiosity-frontend/commit/e4e24d0))
+* **chartArea:** issues/103 y axis domain minimum ([#104](https://github.com/RedHatInsights/curiosity-frontend/issues/104)) ([f4ce68a](https://github.com/RedHatInsights/curiosity-frontend/commit/f4ce68a))
+
+
+### Features
+
+* **notifications:** issues/11 toast notifications ([#107](https://github.com/RedHatInsights/curiosity-frontend/issues/107)) ([80f6ef5](https://github.com/RedHatInsights/curiosity-frontend/commit/80f6ef5))
+* **rhelGraphCard:** issues/80 activate threshold api ([#108](https://github.com/RedHatInsights/curiosity-frontend/issues/108)) ([252afc1](https://github.com/RedHatInsights/curiosity-frontend/commit/252afc1))
+
 ### [0.1.2](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.1...v0.1.2) (2019-09-16)
 
 
