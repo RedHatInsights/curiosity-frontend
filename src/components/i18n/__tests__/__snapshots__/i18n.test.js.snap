@@ -7,6 +7,78 @@ Object {
 }
 `;
 
+exports[`I18n Component should generate a predictable pot output snapshot: pot output 1`] = `
+"msgid \\"\\"
+msgstr \\"\\"
+\\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:80
+msgid \\"curiosity-graph.legendSocketsLabel\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:87
+msgid \\"curiosity-graph.legendSocketsThresholdLabel\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:62
+msgid \\"curiosity-graph.tooltipPreviousLabelDaily\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:55
+msgid \\"curiosity-graph.tooltipPreviousLabelMonthly\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:58
+msgid \\"curiosity-graph.tooltipPreviousLabelQuarterly\\"
+msgstr \\"\\"
+
+#: src/common/graphHelpers.js:52
+msgid \\"curiosity-graph.tooltipPreviousLabelWeekly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:61
+msgid \\"curiosity-graph.tooltipSockets\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:62
+msgid \\"curiosity-graph.tooltipSocketsThreshold\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:102
+msgctxt \\"CPU socket usage\\"
+msgid \\"curiosity-graph.heading\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
+msgctxt \\"Daily\\"
+msgid \\"curiosity-graph.dropdownDaily\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:9
+msgctxt \\"Monthly\\"
+msgid \\"curiosity-graph.dropdownMonthly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:10
+msgctxt \\"Quarterly\\"
+msgid \\"curiosity-graph.dropdownQuarterly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:105
+#: src/components/rhelGraphCard/rhelGraphCard.js:109
+msgctxt \\"Select date range\\"
+msgid \\"curiosity-graph.dropdownPlaceholder\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:8
+msgctxt \\"Weekly\\"
+msgid \\"curiosity-graph.dropdownWeekly\\"
+msgstr \\"\\"
+"
+`;
+
+exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `Array []`;
+
 exports[`I18n Component should pass children: children 1`] = `"lorem ipsum"`;
 
 exports[`I18n Component should render a basic component: basic 1`] = `
