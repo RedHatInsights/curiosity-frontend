@@ -4399,6 +4399,13 @@ delaunay-find@0.0.3:
   dependencies:
     delaunator "^4.0.0"
 
+delaunay-find@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/delaunay-find/-/delaunay-find-0.0.4.tgz#144c3da64e5a4b7b841bc709cfb899d8437324ac"
+  integrity sha512-Dlez+Pc4Q33Y2mKe/h+p4NmQ6+W6kT6tXL+1dQfuVvp1mEDKTXRjbr6HcW5ftDKyVEY08MCCdqbR0Y6dnYYEPA==
+  dependencies:
+    delaunator "^4.0.0"
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
@@ -12531,6 +12538,19 @@ victory-create-container@^33.1.0:
     victory-voronoi-container "^33.1.0"
     victory-zoom-container "^33.1.0"
 
+victory-create-container@^33.1.1:
+  version "33.1.1"
+  resolved "https://registry.yarnpkg.com/victory-create-container/-/victory-create-container-33.1.1.tgz#49b8f3d9e55ed380b6d88c9ddb902bcd1749e099"
+  integrity sha512-M4cRC5rjtRcWqUCegc6CkPKL0CNM0SJwlp/kFG5qOv736P+u5wm883C6BevW7a+aOy6lbYgKRUH19Yboxcuydw==
+  dependencies:
+    lodash "^4.17.15"
+    victory-brush-container "^33.1.0"
+    victory-core "^33.1.0"
+    victory-cursor-container "^33.1.0"
+    victory-selection-container "^33.1.0"
+    victory-voronoi-container "^33.1.1"
+    victory-zoom-container "^33.1.0"
+
 victory-cursor-container@^33.1.0:
   version "33.1.0"
   resolved "https://registry.yarnpkg.com/victory-cursor-container/-/victory-cursor-container-33.1.0.tgz#6614baece4683a6e7db9e28da2c67c238db5f1e8"
@@ -12655,6 +12675,17 @@ victory-voronoi-container@^33.1.0:
     victory-core "^33.1.0"
     victory-tooltip "^33.1.0"
 
+victory-voronoi-container@^33.1.1:
+  version "33.1.1"
+  resolved "https://registry.yarnpkg.com/victory-voronoi-container/-/victory-voronoi-container-33.1.1.tgz#3b66953e00109b7eb0976425c7a9124335b3c072"
+  integrity sha512-oZtOmF1ODQWmkXgOU3XnR1frEB8ZJaEwIWc1fQVpnmAXhXD4k6a2/B0w9DanHWk2KgcMkmP2c0zriGeSgmNj4Q==
+  dependencies:
+    delaunay-find "0.0.4"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^33.1.0"
+    victory-tooltip "^33.1.0"
+
 victory-voronoi@^33.1.0:
   version "33.1.0"
   resolved "https://registry.yarnpkg.com/victory-voronoi/-/victory-voronoi-33.1.0.tgz#0496da977c2bdaa2bb85394694e8f7f8dd5447aa"
@@ -12703,6 +12734,37 @@ victory@^33.0.5:
     victory-tooltip "^33.1.0"
     victory-voronoi "^33.1.0"
     victory-voronoi-container "^33.1.0"
+    victory-zoom-container "^33.1.0"
+
+victory@^33.1.1:
+  version "33.1.1"
+  resolved "https://registry.yarnpkg.com/victory/-/victory-33.1.1.tgz#c83f0438b04f48b555936d875518c6256d516357"
+  integrity sha512-V/jBG4s3ZZBgqc1D9OKXRptKlpLZroPoJ+0hIq5RvAIqYndqpy2g9xdYQOKtvL62C8LavbgDpd0iKR7ejI/I/g==
+  dependencies:
+    victory-area "^33.1.0"
+    victory-axis "^33.1.0"
+    victory-bar "^33.1.0"
+    victory-box-plot "^33.1.0"
+    victory-brush-container "^33.1.0"
+    victory-brush-line "^33.1.0"
+    victory-candlestick "^33.1.0"
+    victory-chart "^33.1.0"
+    victory-core "^33.1.0"
+    victory-create-container "^33.1.1"
+    victory-cursor-container "^33.1.0"
+    victory-errorbar "^33.1.0"
+    victory-group "^33.1.0"
+    victory-legend "^33.1.0"
+    victory-line "^33.1.0"
+    victory-pie "^33.1.0"
+    victory-polar-axis "^33.1.0"
+    victory-scatter "^33.1.0"
+    victory-selection-container "^33.1.0"
+    victory-shared-events "^33.1.0"
+    victory-stack "^33.1.0"
+    victory-tooltip "^33.1.0"
+    victory-voronoi "^33.1.0"
+    victory-voronoi-container "^33.1.1"
     victory-zoom-container "^33.1.0"
 
 vm-browserify@^1.0.1:

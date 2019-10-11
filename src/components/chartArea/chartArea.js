@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { createContainer, VictoryPortal } from 'victory';
 import {
   Chart,
   ChartAxis,
   ChartLegend,
-  ChartVoronoiContainer,
   ChartStack,
   ChartThreshold,
+  ChartTooltip,
   ChartArea as PfChartArea
 } from '@patternfly/react-charts';
 import _cloneDeep from 'lodash/cloneDeep';
@@ -210,8 +211,22 @@ class ChartArea extends React.Component {
     const chartProps = { padding, ...chartLegendProps, ...chartDomain };
 
     if (maxY > 0) {
+      const VictoryVoronoiCursorContainer = createContainer('voronoi', 'cursor');
+      const labelComponent = (
+        <VictoryPortal>
+          <ChartTooltip centerOffset={{ x: 120, y: 0 }} />
+        </VictoryPortal>
+      );
+
       chartProps.containerComponent = (
-        <ChartVoronoiContainer constrainToVisibleArea labels={({ datum }) => datum.tooltip} />
+        <VictoryVoronoiCursorContainer
+          constrainToVisibleArea
+          cursorDimension="x"
+          voronoiDimension="x"
+          voronoiPadding={50}
+          labels={({ datum }) => datum.tooltip}
+          labelComponent={labelComponent}
+        />
       );
     }
 

@@ -10,9 +10,9 @@
     "tooltipPreviousLabelWeekly": "from previous week",
     "tooltipPreviousLabelMonthly": "from previous month",
     "tooltipPreviousLabelQuarterly": "from previous quarter",
-    "tooltipSockets": "sockets on",
-    "tooltipSocketsThreshold": "Socket Threshold",
-    "legendSocketsLabel": "Sockets",
-    "legendSocketsThresholdLabel": "Socket Threshold"
+    "tooltipSockets": "systems on",
+    "tooltipSocketsThreshold": "Subscription Threshold",
+    "legendSocketsLabel": "Systems",
+    "legendSocketsThresholdLabel": "Subscription Threshold"
   }
 }
