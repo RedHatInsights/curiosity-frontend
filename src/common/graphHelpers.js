@@ -7,14 +7,20 @@ const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
 /**
  * Chart Date Format (used in axis and tooltips)
  */
+const chartDateDayFormatLong = 'MMMM D';
+const chartDateDayFormatYearLong = 'MMMM D YYYY';
 const chartDateDayFormatShort = 'MMM D';
-const chartDateDayFormat = 'MMM D YYYY';
+const chartDateDayFormatYearShort = 'MMM D YYYY';
 
+const chartDateMonthFormatLong = 'MMMM';
+const chartDateMonthFormatYearLong = 'MMMM YYYY';
 const chartDateMonthFormatShort = 'MMM';
-const chartDateMonthFormat = 'MMM YYYY';
+const chartDateMonthFormatYearShort = 'MMM YYYY';
 
+const chartDateQuarterFormatLong = 'MMMM';
+const chartDateQuarterFormatYearLong = 'MMMM YYYY';
 const chartDateQuarterFormatShort = 'MMM';
-const chartDateQuarterFormat = 'MMM YYYY';
+const chartDateQuarterFormatYearShort = 'MMM YYYY';
 
 /**
  * Returns x axis ticks/intervals array for the xAxisTickInterval
@@ -151,17 +157,32 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLab
     const checkTick = i % granularityTick === 0;
     const isNewYear = i !== 0 && checkTick && year !== previousYear;
     let formattedDate;
+    let formattedDateTooltip;
 
     if (granularityType === 'quarters') {
       formattedDate = isNewYear
-        ? momentDate.format(chartDateQuarterFormat)
+        ? momentDate.format(chartDateQuarterFormatYearShort)
         : momentDate.format(chartDateQuarterFormatShort);
+
+      formattedDateTooltip = isNewYear
+        ? momentDate.format(chartDateQuarterFormatYearLong)
+        : momentDate.format(chartDateQuarterFormatLong);
     } else if (granularityType === 'months') {
       formattedDate = isNewYear
-        ? momentDate.format(chartDateMonthFormat)
+        ? momentDate.format(chartDateMonthFormatYearShort)
         : momentDate.format(chartDateMonthFormatShort);
+
+      formattedDateTooltip = isNewYear
+        ? momentDate.format(chartDateMonthFormatYearLong)
+        : momentDate.format(chartDateMonthFormatLong);
     } else {
-      formattedDate = isNewYear ? momentDate.format(chartDateDayFormat) : momentDate.format(chartDateDayFormatShort);
+      formattedDate = isNewYear
+        ? momentDate.format(chartDateDayFormatYearShort)
+        : momentDate.format(chartDateDayFormatShort);
+
+      formattedDateTooltip = isNewYear
+        ? momentDate.format(chartDateDayFormatYearLong)
+        : momentDate.format(chartDateDayFormatLong);
     }
 
     const yAxis = (data[stringDate] && data[stringDate].data) || 0;
@@ -172,7 +193,7 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLab
     const labelData = {
       data: yAxis,
       previousData,
-      formattedDate,
+      formattedDate: formattedDateTooltip,
       granularity,
       tooltipLabel
     };
