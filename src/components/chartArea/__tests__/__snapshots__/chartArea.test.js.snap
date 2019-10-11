@@ -310,12 +310,12 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       </g>
       <g>
         <g
-          clip-path="url(#victory-clip-2)"
+          clip-path="url(#victory-clip-6)"
           style="height:100%;width:100%;user-select:none"
         >
           <defs>
             <clipPath
-              id="victory-clip-2"
+              id="victory-clip-6"
             >
               <rect
                 height="175"
@@ -425,39 +425,54 @@ exports[`ChartArea Component should handle render displays for both data and thr
       }
     }
     containerComponent={
-      <ChartVoronoiContainer
+      <VictoryVoronoiCursorContainer
         activateData={true}
         activateLabels={true}
         className="VictoryContainer"
         constrainToVisibleArea={true}
-        labelComponent={
-          <VictoryTooltip
-            active={false}
-            flyoutComponent={
-              <Flyout
-                pathComponent={<Path />}
-                role="presentation"
-                shapeRendering="auto"
-              />
-            }
-            groupComponent={<g />}
-            labelComponent={
-              <VictoryLabel
-                capHeight={0.71}
-                direction="inherit"
-                lineHeight={1}
-                textComponent={<Text />}
-                tspanComponent={<TSpan />}
-              />
-            }
-            renderInPortal={true}
+        cursorComponent={
+          <LineSegment
+            lineComponent={<Line />}
+            role="presentation"
+            shapeRendering="auto"
           />
+        }
+        cursorDimension="x"
+        cursorLabelComponent={
+          <VictoryLabel
+            capHeight={0.71}
+            direction="inherit"
+            lineHeight={1}
+            textComponent={<Text />}
+            tspanComponent={<TSpan />}
+          />
+        }
+        cursorLabelOffset={
+          Object {
+            "x": 5,
+            "y": -10,
+          }
+        }
+        labelComponent={
+          <VictoryPortal
+            groupComponent={<g />}
+          >
+            <ChartTooltip
+              centerOffset={
+                Object {
+                  "x": 120,
+                  "y": 0,
+                }
+              }
+            />
+          </VictoryPortal>
         }
         labels={[Function]}
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}
-        voronoiPadding={5}
+        voronoiDimension="x"
+        voronoiPadding={50}
       />
     }
     domain={
@@ -695,39 +710,54 @@ exports[`ChartArea Component should handle variation in passed properties with s
       }
     }
     containerComponent={
-      <ChartVoronoiContainer
+      <VictoryVoronoiCursorContainer
         activateData={true}
         activateLabels={true}
         className="VictoryContainer"
         constrainToVisibleArea={true}
-        labelComponent={
-          <VictoryTooltip
-            active={false}
-            flyoutComponent={
-              <Flyout
-                pathComponent={<Path />}
-                role="presentation"
-                shapeRendering="auto"
-              />
-            }
-            groupComponent={<g />}
-            labelComponent={
-              <VictoryLabel
-                capHeight={0.71}
-                direction="inherit"
-                lineHeight={1}
-                textComponent={<Text />}
-                tspanComponent={<TSpan />}
-              />
-            }
-            renderInPortal={true}
+        cursorComponent={
+          <LineSegment
+            lineComponent={<Line />}
+            role="presentation"
+            shapeRendering="auto"
           />
+        }
+        cursorDimension="x"
+        cursorLabelComponent={
+          <VictoryLabel
+            capHeight={0.71}
+            direction="inherit"
+            lineHeight={1}
+            textComponent={<Text />}
+            tspanComponent={<TSpan />}
+          />
+        }
+        cursorLabelOffset={
+          Object {
+            "x": 5,
+            "y": -10,
+          }
+        }
+        labelComponent={
+          <VictoryPortal
+            groupComponent={<g />}
+          >
+            <ChartTooltip
+              centerOffset={
+                Object {
+                  "x": 120,
+                  "y": 0,
+                }
+              }
+            />
+          </VictoryPortal>
         }
         labels={[Function]}
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}
-        voronoiPadding={5}
+        voronoiDimension="x"
+        voronoiPadding={50}
       />
     }
     domain={
@@ -899,39 +929,54 @@ exports[`ChartArea Component should render basic data: data 1`] = `
       }
     }
     containerComponent={
-      <ChartVoronoiContainer
+      <VictoryVoronoiCursorContainer
         activateData={true}
         activateLabels={true}
         className="VictoryContainer"
         constrainToVisibleArea={true}
-        labelComponent={
-          <VictoryTooltip
-            active={false}
-            flyoutComponent={
-              <Flyout
-                pathComponent={<Path />}
-                role="presentation"
-                shapeRendering="auto"
-              />
-            }
-            groupComponent={<g />}
-            labelComponent={
-              <VictoryLabel
-                capHeight={0.71}
-                direction="inherit"
-                lineHeight={1}
-                textComponent={<Text />}
-                tspanComponent={<TSpan />}
-              />
-            }
-            renderInPortal={true}
+        cursorComponent={
+          <LineSegment
+            lineComponent={<Line />}
+            role="presentation"
+            shapeRendering="auto"
           />
+        }
+        cursorDimension="x"
+        cursorLabelComponent={
+          <VictoryLabel
+            capHeight={0.71}
+            direction="inherit"
+            lineHeight={1}
+            textComponent={<Text />}
+            tspanComponent={<TSpan />}
+          />
+        }
+        cursorLabelOffset={
+          Object {
+            "x": 5,
+            "y": -10,
+          }
+        }
+        labelComponent={
+          <VictoryPortal
+            groupComponent={<g />}
+          >
+            <ChartTooltip
+              centerOffset={
+                Object {
+                  "x": 120,
+                  "y": 0,
+                }
+              }
+            />
+          </VictoryPortal>
         }
         labels={[Function]}
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}
-        voronoiPadding={5}
+        voronoiDimension="x"
+        voronoiPadding={50}
       />
     }
     legendComponent={

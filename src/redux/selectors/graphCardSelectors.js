@@ -17,7 +17,6 @@ const rhelGraphCardSelector = createSelector(
     const initialLoad = typeof cachedGranularity.initialLoad === 'boolean' ? cachedGranularity.initialLoad : true;
 
     const updatedData = {
-      cached: false,
       error: false,
       fulfilled: false,
       pending: false,
@@ -44,10 +43,9 @@ const rhelGraphCardSelector = createSelector(
       updatedData.graphData.capacity = _get(capacity, ['data', rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
       updatedData.initialLoad = false;
       updatedData.fulfilled = true;
-      updatedData.cached = false;
 
       if (reportGranularity === capacityGranularity) {
-        rhelGraphCardCache[granularity] = { ...updatedData, cached: true };
+        rhelGraphCardCache[granularity] = { ...updatedData };
       }
     }
 
