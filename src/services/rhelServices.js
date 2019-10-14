@@ -44,25 +44,25 @@ import serviceConfig from './config';
  *           "date": "2019-07-20T00:00:00Z",
  *           "instance_count": 10,
  *           "cores": 20,
- *           "sockets": 20
+ *           "sockets": 0
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
  *           "instance_count": 12,
  *           "cores": 24,
- *           "sockets": 24
+ *           "sockets": 0
  *         },
  *         {
  *           "date": "2019-07-22T00:00:00Z",
  *           "instance_count": 14,
  *           "cores": 28,
- *           "sockets": 28
+ *           "sockets": 0
  *         },
  *         {
  *           "date": "2019-07-23T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
- *           "sockets": 32
+ *           "sockets": 0
  *         },
  *         {
  *           "date": "2019-07-24T00:00:00Z",

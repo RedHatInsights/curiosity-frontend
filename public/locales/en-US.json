@@ -11,6 +11,7 @@
     "tooltipPreviousLabelMonthly": "from previous month",
     "tooltipPreviousLabelQuarterly": "from previous quarter",
     "tooltipSockets": "systems on",
+    "tooltipSocketsNoData": "No data",
     "tooltipSocketsThreshold": "Subscription Threshold",
     "legendSocketsLabel": "Systems",
     "legendSocketsThresholdLabel": "Subscription Threshold"

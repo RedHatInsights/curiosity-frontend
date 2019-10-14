@@ -460,14 +460,16 @@ exports[`ChartArea Component should handle render displays for both data and thr
             <ChartTooltip
               centerOffset={
                 Object {
-                  "x": 120,
+                  "x": [Function],
                   "y": 0,
                 }
               }
+              pointerLength={0}
             />
           </VictoryPortal>
         }
         labels={[Function]}
+        mouseFollowTooltips={true}
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}
@@ -745,14 +747,16 @@ exports[`ChartArea Component should handle variation in passed properties with s
             <ChartTooltip
               centerOffset={
                 Object {
-                  "x": 120,
+                  "x": [Function],
                   "y": 0,
                 }
               }
+              pointerLength={0}
             />
           </VictoryPortal>
         }
         labels={[Function]}
+        mouseFollowTooltips={true}
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}
@@ -964,14 +968,16 @@ exports[`ChartArea Component should render basic data: data 1`] = `
             <ChartTooltip
               centerOffset={
                 Object {
-                  "x": 120,
+                  "x": [Function],
                   "y": 0,
                 }
               }
+              pointerLength={0}
             />
           </VictoryPortal>
         }
         labels={[Function]}
+        mouseFollowTooltips={true}
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}

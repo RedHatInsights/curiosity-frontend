@@ -12,11 +12,11 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:80
+#: src/components/rhelGraphCard/rhelGraphCard.js:81
 msgid \\"curiosity-graph.legendSocketsLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:87
+#: src/components/rhelGraphCard/rhelGraphCard.js:88
 msgid \\"curiosity-graph.legendSocketsThresholdLabel\\"
 msgstr \\"\\"
 
@@ -41,10 +41,14 @@ msgid \\"curiosity-graph.tooltipSockets\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:62
+msgid \\"curiosity-graph.tooltipSocketsNoData\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:63
 msgid \\"curiosity-graph.tooltipSocketsThreshold\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:102
+#: src/components/rhelGraphCard/rhelGraphCard.js:103
 msgctxt \\"CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
@@ -64,8 +68,8 @@ msgctxt \\"Quarterly\\"
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:105
-#: src/components/rhelGraphCard/rhelGraphCard.js:109
+#: src/components/rhelGraphCard/rhelGraphCard.js:106
+#: src/components/rhelGraphCard/rhelGraphCard.js:110
 msgctxt \\"Select date range\\"
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
