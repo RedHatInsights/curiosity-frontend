@@ -47,6 +47,7 @@ describe('GraphHelpers', () => {
     const props = {
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
+      tooltipLabelNoData: 'No lorem data',
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-05T23:59:59Z'),
@@ -146,6 +147,75 @@ describe('GraphHelpers', () => {
     ];
 
     expect(convertChartData(props)).toMatchSnapshot('threshold check date and index mismatch from data');
+  });
+
+  it('should handle tooltips in a specific set of ways', () => {
+    const props = {
+      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
+      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS,
+      tooltipLabel: 'lorem tooltip label',
+      tooltipThresholdLabel: 'ipsum threshhold label',
+      tooltipLabelNoData: 'No lorem data',
+      granularity: GRANULARITY_TYPES.DAILY,
+      startDate: new Date('2019-06-01T00:00:00Z'),
+      endDate: new Date('2019-06-05T23:59:59Z'),
+      data: [
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 56,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.INSTANCES]: 28,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 30,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-02T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.INSTANCES]: 28,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 40,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-03T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.INSTANCES]: 28,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 3
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 0,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.INSTANCES]: 0,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 0,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-05T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.INSTANCES]: 0,
+          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 3
+        }
+      ],
+      dataThreshold: [
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-02T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-03T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+        },
+        {
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
+          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+        }
+      ]
+    };
+
+    expect(convertChartData(props)).toMatchSnapshot('tooltip check');
   });
 
   it('should convert graph data and returned zeroed array when usage throws error', () => {

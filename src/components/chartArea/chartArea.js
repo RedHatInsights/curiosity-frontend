@@ -214,7 +214,7 @@ class ChartArea extends React.Component {
       const VictoryVoronoiCursorContainer = createContainer('voronoi', 'cursor');
       const labelComponent = (
         <VictoryPortal>
-          <ChartTooltip centerOffset={{ x: 120, y: 0 }} />
+          <ChartTooltip pointerLength={0} centerOffset={{ x: tooltip => tooltip.flyoutWidth / 2 + 5, y: 0 }} />
         </VictoryPortal>
       );
 
@@ -224,6 +224,7 @@ class ChartArea extends React.Component {
           cursorDimension="x"
           voronoiDimension="x"
           voronoiPadding={50}
+          mouseFollowTooltips
           labels={({ datum }) => datum.tooltip}
           labelComponent={labelComponent}
         />

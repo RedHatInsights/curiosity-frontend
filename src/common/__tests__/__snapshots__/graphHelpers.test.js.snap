@@ -24,14 +24,13 @@ Object {
       "y": 3,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 4
- -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "tooltip": "No lorem data",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 5",
+      "tooltip": "No lorem data",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
@@ -46,31 +45,26 @@ exports[`GraphHelpers should convert graph data and return zeroed usage array if
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "0 lorem tooltip label June 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 2",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 3",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 4",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
@@ -85,31 +79,26 @@ exports[`GraphHelpers should convert graph data and return zeroed usage array if
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "0 lorem tooltip label June 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 2",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 3",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 4",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
@@ -124,31 +113,26 @@ exports[`GraphHelpers should convert graph data and returned zeroed array when u
 Object {
   "chartData": Array [
     Object {
-      "tooltip": "0 lorem tooltip label June 1",
       "x": 0,
       "xAxisLabel": "Jun 1",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 2",
       "x": 1,
       "xAxisLabel": "Jun 2",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 3",
       "x": 2,
       "xAxisLabel": "Jun 3",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 4",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 0,
@@ -183,15 +167,12 @@ Object {
       "y": 3,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 4
- -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "1 lorem tooltip label June 5
- +1 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "tooltip": "1 lorem tooltip label June 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 1,
@@ -204,22 +185,18 @@ Object {
       "y": 100,
     },
     Object {
-      "tooltip": "ipsum threshhold label: 0",
       "x": 1,
       "y": 0,
     },
     Object {
-      "tooltip": "ipsum threshhold label: 0",
       "x": 2,
       "y": 0,
     },
     Object {
-      "tooltip": "ipsum threshhold label: 0",
       "x": 3,
       "y": 0,
     },
     Object {
-      "tooltip": "ipsum threshhold label: 0",
       "x": 4,
       "y": 0,
     },
@@ -252,15 +229,12 @@ Object {
       "y": 3,
     },
     Object {
-      "tooltip": "0 lorem tooltip label June 4
- -3 t('curiosity-graph.tooltipPreviousLabelDaily')",
       "x": 3,
       "xAxisLabel": "Jun 4",
       "y": 0,
     },
     Object {
-      "tooltip": "1 lorem tooltip label June 5
- +1 t('curiosity-graph.tooltipPreviousLabelDaily')",
+      "tooltip": "1 lorem tooltip label June 5",
       "x": 4,
       "xAxisLabel": "Jun 5",
       "y": 1,
@@ -281,28 +255,23 @@ Object {
       "y": 5,
     },
     Object {
-      "tooltip": "0 lorem tooltip label July
- -5 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
       "x": 1,
       "xAxisLabel": "Jul",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label October",
       "x": 2,
       "xAxisLabel": "Oct",
       "y": 0,
     },
     Object {
-      "tooltip": "0 lorem tooltip label January 2019",
       "x": 3,
       "xAxisLabel": "Jan
 2019",
       "y": 0,
     },
     Object {
-      "tooltip": "7 lorem tooltip label April
- +7 t('curiosity-graph.tooltipPreviousLabelQuarterly')",
+      "tooltip": "7 lorem tooltip label April",
       "x": 4,
       "xAxisLabel": "Apr",
       "y": 7,
@@ -361,6 +330,67 @@ Object {
     },
   ],
   "chartDataThresholds": Array [],
+  "chartXAxisLabelIncrement": 5,
+}
+`;
+
+exports[`GraphHelpers should handle tooltips in a specific set of ways: tooltip check 1`] = `
+Object {
+  "chartData": Array [
+    Object {
+      "x": 0,
+      "xAxisLabel": "Jun 1",
+      "y": 0,
+    },
+    Object {
+      "x": 1,
+      "xAxisLabel": "Jun 2",
+      "y": 0,
+    },
+    Object {
+      "tooltip": "3 lorem tooltip label June 3",
+      "x": 2,
+      "xAxisLabel": "Jun 3",
+      "y": 3,
+    },
+    Object {
+      "tooltip": "No lorem data",
+      "x": 3,
+      "xAxisLabel": "Jun 4",
+      "y": 0,
+    },
+    Object {
+      "tooltip": "3 lorem tooltip label June 5",
+      "x": 4,
+      "xAxisLabel": "Jun 5",
+      "y": 3,
+    },
+  ],
+  "chartDataThresholds": Array [
+    Object {
+      "tooltip": "ipsum threshhold label: 100",
+      "x": 0,
+      "y": 100,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 100",
+      "x": 1,
+      "y": 100,
+    },
+    Object {
+      "tooltip": "ipsum threshhold label: 100",
+      "x": 2,
+      "y": 100,
+    },
+    Object {
+      "x": 3,
+      "y": 0,
+    },
+    Object {
+      "x": 4,
+      "y": 0,
+    },
+  ],
   "chartXAxisLabelIncrement": 5,
 }
 `;
