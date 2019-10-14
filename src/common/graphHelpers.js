@@ -107,7 +107,7 @@ const getLabel = ({ data, previousData, formattedDate, granularity, tooltipLabel
   const previousCount = data - previousData;
   const updatedLabel = `${data} ${label} ${formattedDate}`;
 
-  if (previousData === null || previousCount === 0) {
+  if (!previousData || previousCount === 0) {
     return updatedLabel;
   }
 
@@ -132,10 +132,19 @@ const getThresholdLabel = ({ yValue, tooltipThresholdLabel }) => {
  * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
  * @param {Date} startDate
  * @param {string} tooltipLabel
+ * @param {string} tooltipLabelNoData
  * @param {string} tooltipThresholdLabel
  * @returns {Object}
  */
-const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLabel, tooltipThresholdLabel }) => {
+const fillFormatChartData = ({
+  data,
+  endDate,
+  granularity,
+  startDate,
+  tooltipLabel,
+  tooltipLabelNoData,
+  tooltipThresholdLabel
+}) => {
   const granularityType = getGranularityDateType(granularity);
   const granularityTick = getChartXAxisLabelIncrement(granularity);
   const endDateStartDateDiff = moment(endDate).diff(startDate, granularityType);
@@ -198,21 +207,33 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLab
       tooltipLabel
     };
 
-    chartDataThresholds.push({
+    const chartDataThresholdsItem = {
       x: chartData.length,
-      y: yAxisThreshold,
-      tooltip: getThresholdLabel({ yValue: yAxisThreshold, tooltipThresholdLabel })
-    });
+      y: yAxisThreshold
+    };
 
-    chartData.push({
+    if (yAxisThreshold) {
+      chartDataThresholdsItem.tooltip = getThresholdLabel({ yValue: yAxisThreshold, tooltipThresholdLabel });
+    }
+
+    chartDataThresholds.push(chartDataThresholdsItem);
+
+    const chartDataItem = {
       x: chartData.length,
       y: yAxis,
-      tooltip: getLabel(labelData),
       xAxisLabel:
         granularityType === 'months' || granularityType === 'quarters'
           ? formattedDate.replace(/\s/, '\n')
           : formattedDate
-    });
+    };
+
+    chartDataItem.tooltip = yAxis ? getLabel(labelData) : tooltipLabelNoData;
+
+    if ((!yAxis && yAxisThreshold) || !chartDataItem.tooltip) {
+      delete chartDataItem.tooltip;
+    }
+
+    chartData.push(chartDataItem);
 
     previousData = yAxis;
 
@@ -236,6 +257,7 @@ const fillFormatChartData = ({ data, endDate, granularity, startDate, tooltipLab
  * @param {Array} dataThreshold list of available capacity data
  * @param {string} dataThresholdFacet the response property for the threshold line indicator
  * @param {string} tooltipLabel the tooltip label
+ * @param {string} tooltipLabelNoData
  * @param {string} tooltipThresholdLabel the tooltip threshold label
  * @param {date} startDate
  * @param {date} endDate
@@ -248,6 +270,7 @@ const convertChartData = ({
   dataThreshold,
   dataThresholdFacet,
   tooltipLabel,
+  tooltipLabelNoData,
   tooltipThresholdLabel,
   startDate,
   endDate,
@@ -295,6 +318,7 @@ const convertChartData = ({
     granularity,
     startDate,
     tooltipLabel,
+    tooltipLabelNoData,
     tooltipThresholdLabel
   });
 
