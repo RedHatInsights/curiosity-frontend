@@ -1,5 +1,6 @@
 import {
   graphHelpers,
+  yAxisTickFormat,
   convertChartData,
   getChartXAxisLabelIncrement,
   getGraphLabels,
@@ -12,6 +13,22 @@ describe('GraphHelpers', () => {
 
   it('should have specific functions', () => {
     expect(graphHelpers).toMatchSnapshot('graphHelpers');
+  });
+
+  it('should produce consistent y axis tick values', () => {
+    const ticks = {};
+
+    for (let i = 0; i < 11; i++) {
+      const multiplier = Math.pow(10, i);
+      const thirteenMultiplier = 13 * multiplier;
+      const fifteenMultiplier = 15 * multiplier;
+
+      ticks[multiplier] = yAxisTickFormat(multiplier);
+      ticks[thirteenMultiplier] = yAxisTickFormat(thirteenMultiplier);
+      ticks[fifteenMultiplier] = yAxisTickFormat(fifteenMultiplier);
+    }
+
+    expect(ticks).toMatchSnapshot('y axis tick values');
   });
 
   it('should convert graph data and return zeroed usage array if error', () => {
