@@ -11,7 +11,7 @@ Object {
   "UI_DISPLAY_NAME": "Subscription Reporting",
   "UI_LOGGER_ID": "curiosity",
   "UI_NAME": "subscriptions",
-  "UI_PATH": "/apps/subscriptions/",
+  "UI_PATH": "/",
   "UI_VERSION": "0.0.0.0000000",
   "generateId": [Function],
   "noop": [Function],
