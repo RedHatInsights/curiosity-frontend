@@ -1,4 +1,5 @@
 import moment from 'moment';
+import numbro from 'numbro';
 import { rhelApiTypes } from '../types/rhelApiTypes';
 import { translate } from '../components/i18n/i18n';
 
@@ -329,7 +330,10 @@ const convertChartData = ({
   };
 };
 
+const yAxisTickFormat = tick => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
+
 const graphHelpers = {
+  yAxisTickFormat,
   fillFormatChartData,
   convertChartData,
   getGranularityDateType,
@@ -341,6 +345,7 @@ const graphHelpers = {
 export {
   graphHelpers as default,
   graphHelpers,
+  yAxisTickFormat,
   fillFormatChartData,
   convertChartData,
   getGranularityDateType,

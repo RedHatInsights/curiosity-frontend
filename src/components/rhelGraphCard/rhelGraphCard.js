@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import numeral from 'numeral';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { ChartThemeColor } from '@patternfly/react-charts';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
@@ -70,7 +69,7 @@ class RhelGraphCard extends React.Component {
       <ChartArea
         xAxisFixLabelOverlap
         xAxisLabelIncrement={chartXAxisLabelIncrement}
-        yAxisTickFormat={({ tick }) => numeral(tick).format('0a')}
+        yAxisTickFormat={({ tick }) => graphHelpers.yAxisTickFormat(tick)}
         dataSets={[
           {
             data: chartData,
