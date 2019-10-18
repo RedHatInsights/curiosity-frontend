@@ -56,7 +56,7 @@ class RhelGraphCard extends React.Component {
       data: graphData.usage,
       dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       dataThreshold: graphData.capacity,
-      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS,
+      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS,
       tooltipLabel: t('curiosity-graph.tooltipSockets'),
       tooltipLabelNoData: t('curiosity-graph.tooltipSocketsNoData'),
       tooltipThresholdLabel: t('curiosity-graph.tooltipSocketsThreshold'),
