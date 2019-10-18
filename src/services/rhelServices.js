@@ -41,76 +41,102 @@ import serviceConfig from './config';
  *     {
  *       "data": [
  *         {
+ *           "date": "2018-07-19T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2018-07-20T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true
+ *         },
+ *         {
  *           "date": "2019-07-20T00:00:00Z",
- *           "instance_count": 10,
- *           "cores": 20,
- *           "sockets": 0
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
- *           "instance_count": 12,
- *           "cores": 24,
- *           "sockets": 0
+ *           "sockets": 24,
+ *           "physical_sockets": 24,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-22T00:00:00Z",
- *           "instance_count": 14,
- *           "cores": 28,
- *           "sockets": 0
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false
  *         },
  *         {
  *           "date": "2019-07-23T00:00:00Z",
- *           "instance_count": 16,
- *           "cores": 32,
- *           "sockets": 0
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false
  *         },
  *         {
  *           "date": "2019-07-24T00:00:00Z",
- *           "instance_count": 18,
- *           "cores": 36,
- *           "sockets": 36
+ *           "sockets": 76,
+ *           "physical_sockets": 36,
+ *           "hypervisor_sockets": 40,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-25T00:00:00Z",
- *           "instance_count": 20,
- *           "cores": 40,
- *           "sockets": 40
+ *           "sockets": 90,
+ *           "physical_sockets": 40,
+ *           "hypervisor_sockets": 50,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-26T00:00:00Z",
- *           "instance_count": 22,
- *           "cores": 44,
- *           "sockets": 44
+ *           "sockets": 104,
+ *           "physical_sockets": 44,
+ *           "hypervisor_sockets": 60,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-27T00:00:00Z",
- *           "instance_count": 24,
- *           "cores": 48,
- *           "sockets": 48
+ *           "sockets": 78,
+ *           "physical_sockets": 48,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-28T00:00:00Z",
- *           "instance_count": 26,
- *           "cores": 52,
- *           "sockets": 52
+ *           "sockets": 82,
+ *           "physical_sockets": 52,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-29T00:00:00Z",
- *           "instance_count": 28,
- *           "cores": 56,
- *           "sockets": 56
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-30T00:00:00Z",
- *           "instance_count": 30,
- *           "cores": 60,
- *           "sockets": 60
+ *           "sockets": 90,
+ *           "physical_sockets": 60,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true
  *         },
  *         {
  *           "date": "2019-07-31T00:00:00Z",
- *           "instance_count": 32,
- *           "cores": 64,
- *           "sockets": 64
+ *           "sockets": 144,
+ *           "physical_sockets": 64,
+ *           "hypervisor_sockets": 80,
+ *           "has_data": true
  *         }
  *       ],
  *       "links": {
@@ -132,60 +158,70 @@ import serviceConfig from './config';
  *           "date": "2019-05-26T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
+ *           "hypervisor": 50,
  *           "sockets": 32
  *         },
  *         {
  *           "date": "2019-06-02T00:00:00Z",
  *           "instance_count": 6,
  *           "cores": 12,
+ *           "hypervisor": 20,
  *           "sockets": 12
  *         },
  *         {
  *           "date": "2019-06-09T00:00:00Z",
  *           "instance_count": 6,
  *           "cores": 12,
+ *           "hypervisor": 20,
  *           "sockets": 12
  *         },
  *         {
  *           "date": "2019-06-16T00:00:00Z",
  *           "instance_count": 6,
  *           "cores": 12,
+ *           "hypervisor": 20,
  *           "sockets": 12
  *         },
  *         {
  *           "date": "2019-06-23T00:00:00Z",
  *           "instance_count": 6,
  *           "cores": 12,
+ *           "hypervisor": 20,
  *           "sockets": 12
  *         },
  *         {
  *           "date": "2019-06-30T00:00:00Z",
  *           "instance_count": 6,
  *           "cores": 12,
+ *           "hypervisor": 20,
  *           "sockets": 12
  *         },
  *         {
  *           "date": "2019-07-07T00:00:00Z",
  *           "instance_count": 5,
  *           "cores": 10,
+ *           "hypervisor": 0,
  *           "sockets": 10
  *         },
  *         {
  *           "date": "2019-07-14T00:00:00Z",
  *           "instance_count": 5,
  *           "cores": 10,
+ *           "hypervisor": 0,
  *           "sockets": 10
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
  *           "instance_count": 5,
  *           "cores": 10,
+ *           "hypervisor": 0,
  *           "sockets": 10
  *         },
  *         {
  *           "date": "2019-07-28T00:00:00Z",
  *           "instance_count": 6,
  *           "cores": 12,
+ *           "hypervisor": 20,
  *           "sockets": 12
  *         }
  *       ],
@@ -208,36 +244,42 @@ import serviceConfig from './config';
  *           "date": "2019-01-01T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
+ *           "hypervisor": 50,
  *           "sockets": 32
  *         },
  *         {
  *           "date": "2019-02-01T00:00:00Z",
  *           "instance_count": 8,
  *           "cores": 16,
+ *           "hypervisor": 20,
  *           "sockets": 16
  *         },
  *         {
  *           "date": "2019-03-01T00:00:00Z",
  *           "instance_count": 0,
  *           "cores": 0,
+ *           "hypervisor": 0,
  *           "sockets": 0
  *         },
  *         {
  *           "date": "2019-04-01T00:00:00Z",
  *           "instance_count": 8,
  *           "cores": 16,
+ *           "hypervisor": 20,
  *           "sockets": 16
  *         },
  *         {
  *           "date": "2019-05-01T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
+ *           "hypervisor": 50,
  *           "sockets": 32
  *         },
  *         {
  *           "date": "2019-06-01T00:00:00Z",
  *           "instance_count": 24,
  *           "cores": 48,
+ *           "hypervisor": 50,
  *           "sockets": 48
  *         }
  *       ],
@@ -260,24 +302,28 @@ import serviceConfig from './config';
  *           "date": "2018-01-01T00:00:00Z",
  *           "instance_count": 24,
  *           "cores": 48,
+ *           "hypervisor": 50,
  *           "sockets": 48
  *         },
  *         {
  *           "date": "2018-04-01T00:00:00Z",
  *           "instance_count": 16,
  *           "cores": 32,
+ *           "hypervisor": 50,
  *           "sockets": 32
  *         },
  *         {
  *           "date": "2018-07-01T00:00:00Z",
  *           "instance_count": 8,
  *           "cores": 16,
+ *           "hypervisor": 20,
  *           "sockets": 16
  *         },
  *         {
  *           "date": "2018-10-01T00:00:00Z",
  *           "instance_count": 0,
  *           "cores": 0,
+ *           "hypervisor": 10,
  *           "sockets": 0
  *         }
  *       ],
@@ -351,24 +397,38 @@ const getGraphReportsRhel = (params = {}) =>
  *     {
  *       "data": [
  *         {
- *           "date": "2019-07-20T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 32,
+ *           "date": "2018-07-19T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2018-07-20T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-20T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 32,
+ *           "hypervisor_sockets": 18,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
- *           "sockets": 0,
+ *           "sockets": 50,
  *           "physical_sockets": 32,
- *           "hypervisor_sockets": 0,
+ *           "hypervisor_sockets": 18,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2019-07-22T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 50,
  *           "physical_sockets": 32,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 18,
  *           "has_infinite_quantity": false
  *         },
  *         {
@@ -380,51 +440,51 @@ const getGraphReportsRhel = (params = {}) =>
  *         },
  *         {
  *           "date": "2019-07-24T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2019-07-25T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2019-07-26T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2019-07-27T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2019-07-28T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2019-07-29T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2019-07-30T00:00:00Z",
- *           "sockets": 10,
+ *           "sockets": 100,
  *           "physical_sockets": 75,
- *           "hypervisor_sockets": 5,
+ *           "hypervisor_sockets": 25,
  *           "has_infinite_quantity": true
  *         }
  *       ],
