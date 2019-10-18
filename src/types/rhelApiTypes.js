@@ -1,9 +1,10 @@
 const RHSM_API_RESPONSE_CAPACITY_DATA = 'data';
 const RHSM_API_RESPONSE_CAPACITY_DATA_TYPES = {
   DATE: 'date',
+  SOCKETS: 'sockets',
   PHYSICAL_SOCKETS: 'physical_sockets',
   HYPERVISOR_SOCKETS: 'hypervisor_sockets',
-  INFINITE: 'has_infinite_quantity'
+  HAS_INFINITE: 'has_infinite_quantity'
 };
 const RHSM_API_RESPONSE_CAPACITY_META = 'meta';
 const RHSM_API_RESPONSE_CAPACITY_META_TYPES = {
@@ -12,10 +13,11 @@ const RHSM_API_RESPONSE_CAPACITY_META_TYPES = {
 
 const RHSM_API_RESPONSE_PRODUCTS_DATA = 'data';
 const RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES = {
-  CORES: 'cores',
   DATE: 'date',
-  INSTANCES: 'instance_count',
-  SOCKETS: 'sockets'
+  SOCKETS: 'sockets',
+  PHYSICAL_SOCKETS: 'physical_sockets',
+  HYPERVISOR_SOCKETS: 'hypervisor_sockets',
+  HAS_DATA: 'has_data'
 };
 const RHSM_API_RESPONSE_PRODUCTS_META = 'meta';
 const RHSM_API_RESPONSE_PRODUCTS_META_TYPES = {

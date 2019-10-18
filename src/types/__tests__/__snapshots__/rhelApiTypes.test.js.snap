@@ -16,9 +16,10 @@ Object {
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
     "DATE": "date",
+    "HAS_INFINITE": "has_infinite_quantity",
     "HYPERVISOR_SOCKETS": "hypervisor_sockets",
-    "INFINITE": "has_infinite_quantity",
     "PHYSICAL_SOCKETS": "physical_sockets",
+    "SOCKETS": "sockets",
   },
   "RHSM_API_RESPONSE_CAPACITY_META": "meta",
   "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
@@ -26,9 +27,10 @@ Object {
   },
   "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
   "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
-    "CORES": "cores",
     "DATE": "date",
-    "INSTANCES": "instance_count",
+    "HAS_DATA": "has_data",
+    "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+    "PHYSICAL_SOCKETS": "physical_sockets",
     "SOCKETS": "sockets",
   },
   "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
@@ -50,9 +52,10 @@ Object {
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
       "DATE": "date",
+      "HAS_INFINITE": "has_infinite_quantity",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
-      "INFINITE": "has_infinite_quantity",
       "PHYSICAL_SOCKETS": "physical_sockets",
+      "SOCKETS": "sockets",
     },
     "RHSM_API_RESPONSE_CAPACITY_META": "meta",
     "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
@@ -60,9 +63,10 @@ Object {
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
-      "CORES": "cores",
       "DATE": "date",
-      "INSTANCES": "instance_count",
+      "HAS_DATA": "has_data",
+      "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
     "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
@@ -85,9 +89,10 @@ Object {
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
       "DATE": "date",
+      "HAS_INFINITE": "has_infinite_quantity",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
-      "INFINITE": "has_infinite_quantity",
       "PHYSICAL_SOCKETS": "physical_sockets",
+      "SOCKETS": "sockets",
     },
     "RHSM_API_RESPONSE_CAPACITY_META": "meta",
     "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
@@ -95,9 +100,10 @@ Object {
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
-      "CORES": "cores",
       "DATE": "date",
-      "INSTANCES": "instance_count",
+      "HAS_DATA": "has_data",
+      "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
     "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
@@ -124,9 +130,10 @@ Object {
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
     "DATE": "date",
+    "HAS_INFINITE": "has_infinite_quantity",
     "HYPERVISOR_SOCKETS": "hypervisor_sockets",
-    "INFINITE": "has_infinite_quantity",
     "PHYSICAL_SOCKETS": "physical_sockets",
+    "SOCKETS": "sockets",
   },
   "RHSM_API_RESPONSE_CAPACITY_META": "meta",
   "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
@@ -134,9 +141,10 @@ Object {
   },
   "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
   "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
-    "CORES": "cores",
     "DATE": "date",
-    "INSTANCES": "instance_count",
+    "HAS_DATA": "has_data",
+    "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+    "PHYSICAL_SOCKETS": "physical_sockets",
     "SOCKETS": "sockets",
   },
   "RHSM_API_RESPONSE_PRODUCTS_META": "meta",

@@ -286,10 +286,10 @@ Object {
     Object {
       "data": Array [
         Object {
-          "tooltip": "5 t('curiosity-graph.tooltipSockets') June 1",
+          "tooltip": "10 t('curiosity-graph.tooltipSockets') June 1",
           "x": 0,
           "xAxisLabel": "Jun 1",
-          "y": 5,
+          "y": 10,
         },
         Object {
           "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
@@ -328,10 +328,10 @@ Object {
           "y": 0,
         },
         Object {
-          "tooltip": "7 t('curiosity-graph.tooltipSockets') June 8",
+          "tooltip": "12 t('curiosity-graph.tooltipSockets') June 8",
           "x": 7,
           "xAxisLabel": "Jun 8",
-          "y": 7,
+          "y": 12,
         },
         Object {
           "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
@@ -540,10 +540,10 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
             Object {
               "data": Array [
                 Object {
-                  "tooltip": "5 t('curiosity-graph.tooltipSockets') June 1",
+                  "tooltip": "10 t('curiosity-graph.tooltipSockets') June 1",
                   "x": 0,
                   "xAxisLabel": "Jun 1",
-                  "y": 5,
+                  "y": 10,
                 },
                 Object {
                   "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
@@ -582,10 +582,10 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                   "y": 0,
                 },
                 Object {
-                  "tooltip": "7 t('curiosity-graph.tooltipSockets') June 8",
+                  "tooltip": "12 t('curiosity-graph.tooltipSockets') June 8",
                   "x": 7,
                   "xAxisLabel": "Jun 8",
-                  "y": 7,
+                  "y": 12,
                 },
                 Object {
                   "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
