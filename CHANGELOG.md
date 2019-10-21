@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.2...v0.1.4) (2019-10-21)
+
+
+### Bug Fixes
+
+* **build:** issues/105 local run chroming update ([9937f12](https://github.com/RedHatInsights/curiosity-frontend/commit/9937f12))
+* **build:** issues/105 local run chroming updates ([#106](https://github.com/RedHatInsights/curiosity-frontend/issues/106)) ([b2fdd05](https://github.com/RedHatInsights/curiosity-frontend/commit/b2fdd05))
+* **chartArea:** issues/103 y axis domain minimum ([#104](https://github.com/RedHatInsights/curiosity-frontend/issues/104)) ([6b49e1a](https://github.com/RedHatInsights/curiosity-frontend/commit/6b49e1a))
+* **graphHelpers,chartArea:** issues/92 tooltip labels ([#113](https://github.com/RedHatInsights/curiosity-frontend/issues/113)) ([87772eb](https://github.com/RedHatInsights/curiosity-frontend/commit/87772eb))
+* **i18n:** combine i18n integration and unit test ([ccf77f9](https://github.com/RedHatInsights/curiosity-frontend/commit/ccf77f9))
+* **rhelGraphCard,graphHelpers:** correct y axis ticks ([351e264](https://github.com/RedHatInsights/curiosity-frontend/commit/351e264))
+
+
+### Features
+
+* **build:** commit message integration check ([#110](https://github.com/RedHatInsights/curiosity-frontend/issues/110)) ([296c11c](https://github.com/RedHatInsights/curiosity-frontend/commit/296c11c))
+* **chartArea:** issues/75 aggregated tooltips ([#112](https://github.com/RedHatInsights/curiosity-frontend/issues/112)) ([0031dfd](https://github.com/RedHatInsights/curiosity-frontend/commit/0031dfd))
+* **notifications:** issues/11 toast notifications ([#107](https://github.com/RedHatInsights/curiosity-frontend/issues/107)) ([cf72c5c](https://github.com/RedHatInsights/curiosity-frontend/commit/cf72c5c))
+* **rhelGraphCard:** issues/80 activate threshold api ([#108](https://github.com/RedHatInsights/curiosity-frontend/issues/108)) ([294ff07](https://github.com/RedHatInsights/curiosity-frontend/commit/294ff07))
+
 ### [0.1.3](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.2...v0.1.3) (2019-10-08)
 
 
