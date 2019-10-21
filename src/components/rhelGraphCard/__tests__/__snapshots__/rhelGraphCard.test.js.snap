@@ -51,6 +51,12 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
         dataSets={
           Array [
             Object {
+              "animate": Object {
+                "duration": 250,
+                "onLoad": Object {
+                  "duration": 250,
+                },
+              },
               "data": Array [
                 Object {
                   "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
@@ -239,22 +245,20 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                   "y": 0,
                 },
               ],
-              "dataAnimate": Object {
-                "duration": 250,
-                "onLoad": Object {
-                  "duration": 250,
-                },
-              },
-              "dataLegendLabel": "t('curiosity-graph.legendSocketsLabel')",
-              "threshold": Array [],
-              "thresholdAnimate": Object {
+              "isStacked": true,
+              "legendLabel": "t('curiosity-graph.legendSocketsLabel')",
+            },
+            Object {
+              "animate": Object {
                 "duration": 100,
                 "onLoad": Object {
                   "duration": 100,
                 },
               },
-              "thresholdColor": "green",
-              "thresholdLegendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
+              "color": "green",
+              "data": Array [],
+              "isThreshold": true,
+              "legendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
             },
           ]
         }
@@ -284,6 +288,12 @@ exports[`RhelGraphCard Component should render multiple states: error shows zero
 Object {
   "chartBarData": Array [
     Object {
+      "animate": Object {
+        "duration": 250,
+        "onLoad": Object {
+          "duration": 250,
+        },
+      },
       "data": Array [
         Object {
           "tooltip": "10 t('curiosity-graph.tooltipSockets') June 1",
@@ -466,22 +476,20 @@ Object {
           "y": 0,
         },
       ],
-      "dataAnimate": Object {
-        "duration": 250,
-        "onLoad": Object {
-          "duration": 250,
-        },
-      },
-      "dataLegendLabel": "t('curiosity-graph.legendSocketsLabel')",
-      "threshold": Array [],
-      "thresholdAnimate": Object {
+      "isStacked": true,
+      "legendLabel": "t('curiosity-graph.legendSocketsLabel')",
+    },
+    Object {
+      "animate": Object {
         "duration": 100,
         "onLoad": Object {
           "duration": 100,
         },
       },
-      "thresholdColor": "green",
-      "thresholdLegendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
+      "color": "green",
+      "data": Array [],
+      "isThreshold": true,
+      "legendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
     },
   ],
 }
@@ -538,6 +546,12 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
         dataSets={
           Array [
             Object {
+              "animate": Object {
+                "duration": 250,
+                "onLoad": Object {
+                  "duration": 250,
+                },
+              },
               "data": Array [
                 Object {
                   "tooltip": "10 t('curiosity-graph.tooltipSockets') June 1",
@@ -720,22 +734,20 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                   "y": 0,
                 },
               ],
-              "dataAnimate": Object {
-                "duration": 250,
-                "onLoad": Object {
-                  "duration": 250,
-                },
-              },
-              "dataLegendLabel": "t('curiosity-graph.legendSocketsLabel')",
-              "threshold": Array [],
-              "thresholdAnimate": Object {
+              "isStacked": true,
+              "legendLabel": "t('curiosity-graph.legendSocketsLabel')",
+            },
+            Object {
+              "animate": Object {
                 "duration": 100,
                 "onLoad": Object {
                   "duration": 100,
                 },
               },
-              "thresholdColor": "green",
-              "thresholdLegendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
+              "color": "green",
+              "data": Array [],
+              "isThreshold": true,
+              "legendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
             },
           ]
         }
