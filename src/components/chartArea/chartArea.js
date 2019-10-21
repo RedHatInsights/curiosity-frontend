@@ -135,14 +135,10 @@ class ChartArea extends React.Component {
     let dataSetMaxY = 0;
 
     dataSets.forEach(dataSet => {
-      dataSetMaxX = dataSet.data.length > dataSetMaxX ? dataSet.data.length : dataSetMaxX;
+      if (dataSet.data) {
+        dataSetMaxX = dataSet.data.length > dataSetMaxX ? dataSet.data.length : dataSetMaxX;
 
-      dataSet.data.forEach(value => {
-        dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
-      });
-
-      if (dataSet.threshold) {
-        dataSet.threshold.forEach(value => {
+        dataSet.data.forEach(value => {
           dataSetMaxY = value.y > dataSetMaxY ? value.y : dataSetMaxY;
         });
       }
@@ -172,24 +168,18 @@ class ChartArea extends React.Component {
     const legendData = [];
 
     dataSets.forEach(dataSet => {
-      if (dataSet.dataLegendLabel) {
-        const legendDataSettings = { symbol: {}, name: dataSet.dataLegendLabel };
+      if (dataSet.legendLabel) {
+        const legendDataSettings = { symbol: {}, name: dataSet.legendLabel };
 
-        if (dataSet.dataColor) {
-          legendDataSettings.symbol.fill = dataSet.dataColor;
+        if (dataSet.isThreshold) {
+          legendDataSettings.symbol = { type: 'threshold' };
+        }
+
+        if (dataSet.color) {
+          legendDataSettings.symbol.fill = dataSet.color;
         }
 
         legendData.push(legendDataSettings);
-      }
-
-      if (dataSet.thresholdLegendLabel) {
-        const legendThresholdSettings = { symbol: { type: 'threshold' }, name: dataSet.thresholdLegendLabel };
-
-        if (dataSet.thresholdColor) {
-          legendThresholdSettings.symbol.fill = dataSet.thresholdColor;
-        }
-
-        legendData.push(legendThresholdSettings);
       }
     });
 
@@ -201,9 +191,52 @@ class ChartArea extends React.Component {
     };
   }
 
+  renderChart({ stacked = false }) {
+    const { dataSets } = this.props;
+    const charts = [];
+    const chartsStacked = [];
+
+    const thresholdChart = dataSet => (
+      <ChartThreshold
+        animate={dataSet.animate || false}
+        interpolation={dataSet.interpolation || 'step'}
+        key={helpers.generateId()}
+        data={dataSet.data}
+        // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartArea. Appears enforced, see PFCharts. Leads to multiple checks and implementations.
+        themeColor={dataSet.color}
+        style={dataSet.style || {}}
+      />
+    );
+
+    const areaChart = dataSet => (
+      <PfChartArea
+        animate={dataSet.animate || false}
+        interpolation={dataSet.interpolation || 'catmullRom'}
+        key={helpers.generateId()}
+        data={dataSet.data}
+        // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartThreshold themeColor and style
+        style={{ data: { fill: dataSet.color }, ...dataSet.style }}
+      />
+    );
+
+    dataSets.forEach(dataSet => {
+      if (dataSet.data && dataSet.data.length) {
+        const updatedDataSet = (dataSet.isThreshold && thresholdChart(dataSet)) || areaChart(dataSet);
+
+        if (dataSet.isStacked) {
+          chartsStacked.push(updatedDataSet);
+        } else {
+          charts.push(updatedDataSet);
+        }
+      }
+    });
+
+    return (stacked && chartsStacked) || charts;
+  }
+
   render() {
     const { chartWidth } = this.state;
-    const { dataSets, padding } = this.props;
+    const { padding } = this.props;
 
     const { isXAxisTicks, isYAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
     const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks, isYAxisTicks });
@@ -231,48 +264,18 @@ class ChartArea extends React.Component {
       );
     }
 
+    /**
+     * FixMe: PFCharts or Victory, unable to return null or empty content.
+     * General practice of returning "null" shouldn't necessarily melt the
+     * graph. To avoid issues we return an empty array
+     */
     return (
       <div ref={this.containerRef}>
         <Chart animate={{ duration: 0 }} width={chartWidth} {...chartProps}>
           <ChartAxis {...xAxisProps} animate={false} />
           <ChartAxis {...yAxisProps} animate={false} />
-          {(dataSets &&
-            dataSets.length &&
-            dataSets.map(
-              dataSet =>
-                (dataSet.threshold && dataSet.threshold.length && (
-                  <ChartThreshold
-                    animate={dataSet.thresholdAnimate || false}
-                    interpolation={dataSet.thresholdInterpolation || 'step'}
-                    key={helpers.generateId()}
-                    data={dataSet.threshold}
-                    // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartArea. Appears enforced, see PFCharts. Leads to multiple annoyance checks and implementations.
-                    themeColor={dataSet.thresholdColor}
-                    style={dataSet.thresholdStyle || {}}
-                  />
-                )) ||
-                null
-            )) ||
-            null}
-          <ChartStack>
-            {(dataSets &&
-              dataSets.length &&
-              dataSets.map(
-                dataSet =>
-                  (dataSet.data && dataSet.data.length && (
-                    <PfChartArea
-                      animate={dataSet.dataAnimate || false}
-                      interpolation={dataSet.dataInterpolation || 'catmullRom'}
-                      key={helpers.generateId()}
-                      data={dataSet.data}
-                      // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartThreshold themeColor and style
-                      style={{ data: { fill: dataSet.dataColor }, ...dataSet.dataStyle }}
-                    />
-                  )) ||
-                  null
-              )) ||
-              null}
-          </ChartStack>
+          {this.renderChart({})}
+          <ChartStack>{this.renderChart({ stacked: true })}</ChartStack>
         </Chart>
       </div>
     );
@@ -284,29 +287,20 @@ ChartArea.propTypes = {
     PropTypes.shape({
       data: PropTypes.arrayOf(
         PropTypes.shape({
-          x: PropTypes.number,
-          y: PropTypes.number,
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired,
           tooltip: PropTypes.string,
           xAxisLabel: PropTypes.string,
           yAxisLabel: PropTypes.string
         })
       ),
-      dataAnimate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-      dataColor: PropTypes.string,
-      dataInterpolation: PropTypes.string,
-      dataLegendLabel: PropTypes.string,
-      dataStyle: PropTypes.object,
-      threshold: PropTypes.arrayOf(
-        PropTypes.shape({
-          x: PropTypes.number,
-          y: PropTypes.number
-        })
-      ),
-      thresholdAnimate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-      thresholdColor: PropTypes.string,
-      thresholdInterpolation: PropTypes.string,
-      thresholdLegendLabel: PropTypes.string,
-      thresholdStyle: PropTypes.object,
+      animate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+      color: PropTypes.string,
+      interpolation: PropTypes.string,
+      legendLabel: PropTypes.string,
+      style: PropTypes.object,
+      isStacked: PropTypes.bool,
+      isThreshold: PropTypes.bool,
       xAxisLabelUseDataSet: PropTypes.bool,
       yAxisLabelUseDataSet: PropTypes.bool
     })
