@@ -73,18 +73,22 @@ class RhelGraphCard extends React.Component {
         dataSets={[
           {
             data: chartData,
-            dataAnimate: {
+            animate: {
               duration: 250,
               onLoad: { duration: 250 }
             },
-            dataLegendLabel: t('curiosity-graph.legendSocketsLabel'),
-            threshold: chartDataThresholds,
-            thresholdAnimate: {
+            legendLabel: t('curiosity-graph.legendSocketsLabel'),
+            isStacked: true
+          },
+          {
+            data: chartDataThresholds,
+            animate: {
               duration: 100,
               onLoad: { duration: 100 }
             },
-            thresholdColor: ChartThemeColor.green,
-            thresholdLegendLabel: t('curiosity-graph.legendSocketsThresholdLabel')
+            color: ChartThemeColor.green,
+            legendLabel: t('curiosity-graph.legendSocketsThresholdLabel'),
+            isThreshold: true
           }
         ]}
       />

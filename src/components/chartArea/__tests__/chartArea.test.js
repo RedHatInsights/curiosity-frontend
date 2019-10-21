@@ -30,7 +30,8 @@ describe('ChartArea Component', () => {
               yAxisLabel: '2 y axis label'
             }
           ],
-          dataLegendLabel: 'Arma virumque cano'
+          legendLabel: 'Arma virumque cano',
+          isStacked: true
         }
       ]
     };
@@ -58,8 +59,13 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          dataLegendLabel: 'Arma virumque cano',
-          thresholdLegendLabel: 'Arma virumque cano'
+          legendLabel: 'Arma virumque cano',
+          isStacked: true
+        },
+        {
+          data: [],
+          legendLabel: 'Arma virumque cano',
+          isThreshold: true
         }
       ]
     };
@@ -93,8 +99,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          dataLegendLabel: 'Arma virumque cano',
-          thresholdLegendLabel: 'Arma virumque cano'
+          legendLabel: 'Arma virumque cano',
+          isStacked: true
         }
       ]
     };
@@ -125,7 +131,11 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          threshold: [
+          legendLabel: 'Arma virumque cano',
+          isStacked: true
+        },
+        {
+          data: [
             {
               x: 1,
               y: 10,
@@ -139,8 +149,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          dataLegendLabel: 'Arma virumque cano',
-          thresholdLegendLabel: 'Arma virumque cano'
+          legendLabel: 'Arma virumque cano',
+          isThreshold: true
         }
       ]
     };
@@ -161,7 +171,12 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
-          threshold: [
+          interpolation: 'natural',
+          legendLabel: 'Arma virumque cano',
+          isStacked: true
+        },
+        {
+          data: [
             {
               x: 1,
               y: 10,
@@ -169,9 +184,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
-          dataInterpolation: 'natural',
-          dataLegendLabel: 'Arma virumque cano',
-          thresholdLegendLabel: 'Arma virumque cano'
+          legendLabel: 'Arma virumque cano',
+          isThreshold: true
         }
       ]
     };
@@ -232,7 +246,7 @@ describe('ChartArea Component', () => {
             yAxisLabel: '1 hello world y-axis label'
           }
         ],
-        legendData: { name: 'Hello world' },
+        legendLabel: 'Hello world',
         xAxisLabelUseDataSet: true,
         yAxisLabelUseDataSet: true
       }

@@ -16,7 +16,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.legendSocketsLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:87
+#: src/components/rhelGraphCard/rhelGraphCard.js:90
 msgid \\"curiosity-graph.legendSocketsThresholdLabel\\"
 msgstr \\"\\"
 
@@ -48,7 +48,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.tooltipSocketsThreshold\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:102
+#: src/components/rhelGraphCard/rhelGraphCard.js:106
 msgctxt \\"CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
@@ -68,8 +68,8 @@ msgctxt \\"Quarterly\\"
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:105
 #: src/components/rhelGraphCard/rhelGraphCard.js:109
+#: src/components/rhelGraphCard/rhelGraphCard.js:113
 msgctxt \\"Select date range\\"
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
