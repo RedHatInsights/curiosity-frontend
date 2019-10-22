@@ -33,7 +33,6 @@ describe('GraphHelpers', () => {
 
   it('should convert graph data and return zeroed usage array if error', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       tooltipThresholdLabel: 'ipsum threshhold label',
       granularity: GRANULARITY_TYPES.DAILY,
@@ -47,9 +46,7 @@ describe('GraphHelpers', () => {
   it('should convert graph data and return zeroed usage array if usage is empty', () => {
     const props = {
       data: [],
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       dataThreshold: [],
-      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       tooltipThresholdLabel: 'ipsum threshhold label',
       granularity: GRANULARITY_TYPES.DAILY,
@@ -62,7 +59,6 @@ describe('GraphHelpers', () => {
 
   it('should convert graph data and generate tooltips when usage is populated', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       tooltipLabelNoData: 'No lorem data',
       granularity: GRANULARITY_TYPES.DAILY,
@@ -70,34 +66,29 @@ describe('GraphHelpers', () => {
       endDate: new Date('2019-06-05T23:59:59Z'),
       data: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 10,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 5
+          date: '2019-06-01T00:00:00Z',
+          y: 10,
+          x: 0
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-02T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-06-02T00:00:00Z',
+          y: 12,
+          x: 1
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-03T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 3,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 3
+          date: '2019-06-03T00:00:00Z',
+          y: 3,
+          x: 2
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-04T00:00:00Z',
+          y: 0,
+          x: 3
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-05T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-05T00:00:00Z',
+          y: 0,
+          x: 4
         }
       ]
     };
@@ -107,8 +98,6 @@ describe('GraphHelpers', () => {
 
   it('should convert graph data and threshold data', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
-      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       tooltipThresholdLabel: 'ipsum threshhold label',
       granularity: GRANULARITY_TYPES.DAILY,
@@ -116,64 +105,45 @@ describe('GraphHelpers', () => {
       endDate: new Date('2019-06-05T23:59:59Z'),
       data: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 10,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 5
+          date: '2019-06-01T00:00:00Z',
+          y: 10,
+          x: 0
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-02T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-06-02T00:00:00Z',
+          y: 12,
+          x: 1
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-03T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 3,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 3
+          date: '2019-06-03T00:00:00Z',
+          y: 3,
+          x: 2
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-04T00:00:00Z',
+          y: 0,
+          x: 3
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-05T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 1,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+          date: '2019-06-05T00:00:00Z',
+          y: 1,
+          x: 4
         }
       ],
       dataThreshold: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 200,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 100,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+          date: '2019-06-01T00:00:00Z',
+          y: 200,
+          x: 0
         }
       ]
     };
 
     expect(convertChartData(props)).toMatchSnapshot('threshold check');
-
-    props.dataThreshold = [
-      {
-        [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-05T00:00:00Z',
-        [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 150,
-        [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-        [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
-      }
-    ];
-
-    expect(convertChartData(props)).toMatchSnapshot('threshold check date and index mismatch from data');
   });
 
   it('should handle tooltips in a specific set of ways', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
-      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       tooltipThresholdLabel: 'ipsum threshhold label',
       tooltipLabelNoData: 'No lorem data',
@@ -182,66 +152,56 @@ describe('GraphHelpers', () => {
       endDate: new Date('2019-06-05T23:59:59Z'),
       data: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-01T00:00:00Z',
+          y: 0,
+          x: 0
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-02T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-02T00:00:00Z',
+          y: 0,
+          x: 1
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-03T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 6,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 3,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 3
+          date: '2019-06-03T00:00:00Z',
+          y: 6,
+          x: 2
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-04T00:00:00Z',
+          y: 0,
+          x: 3
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-06-05T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 6,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 3,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 3
+          date: '2019-06-05T00:00:00Z',
+          y: 6,
+          x: 4
         }
       ],
       dataThreshold: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 150,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+          date: '2019-06-01T00:00:00Z',
+          y: 150,
+          x: 0
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-02T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 150,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+          date: '2019-06-02T00:00:00Z',
+          y: 150,
+          x: 1
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-03T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 150,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 100
+          date: '2019-06-03T00:00:00Z',
+          y: 150,
+          x: 2
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-04T00:00:00Z',
+          y: 0,
+          x: 3
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-06-04T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-          [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+          date: '2019-06-04T00:00:00Z',
+          y: 0,
+          x: 4
         }
       ]
     };
@@ -251,7 +211,6 @@ describe('GraphHelpers', () => {
 
   it('should convert graph data and returned zeroed array when usage throws error', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2019-06-01T00:00:00Z'),
@@ -268,53 +227,45 @@ describe('GraphHelpers', () => {
 
   it('should handle cross year labels', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       granularity: GRANULARITY_TYPES.DAILY,
       startDate: new Date('2018-12-31T00:00:00Z'),
       endDate: new Date('2019-01-06T00:00:00Z'),
       data: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2018-12-31T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 10,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 5
+          date: '2018-12-31T00:00:00Z',
+          y: 10,
+          x: 0
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-01-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-01-01T00:00:00Z',
+          y: 12,
+          x: 1
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-01-02T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-01-02T00:00:00Z',
+          y: 12,
+          x: 2
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-01-03T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-01-03T00:00:00Z',
+          y: 12,
+          x: 3
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-01-04T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-01-04T00:00:00Z',
+          y: 12,
+          x: 4
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-01-05T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-01-05T00:00:00Z',
+          y: 12,
+          x: 5
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-01-06T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-01-06T00:00:00Z',
+          y: 12,
+          x: 6
         }
       ]
     };
@@ -324,41 +275,35 @@ describe('GraphHelpers', () => {
 
   it('should handle cross quarter labels', () => {
     const props = {
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
       tooltipLabel: 'lorem tooltip label',
       granularity: GRANULARITY_TYPES.QUARTERLY,
       startDate: new Date('2018-04-01T00:00:00Z'),
       endDate: new Date('2019-04-01T00:00:00Z'),
       data: [
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2018-04-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 10,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 5
+          date: '2018-04-01T00:00:00Z',
+          y: 10,
+          x: 0
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2018-08-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2018-08-01T00:00:00Z',
+          y: 12,
+          x: 1
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2018-12-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2018-12-01T00:00:00Z',
+          y: 12,
+          x: 2
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-04-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-04-01T00:00:00Z',
+          y: 12,
+          x: 3
         },
         {
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-08-01T00:00:00Z',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 12,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 5,
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 7
+          date: '2019-08-01T00:00:00Z',
+          y: 12,
+          x: 4
         }
       ]
     };

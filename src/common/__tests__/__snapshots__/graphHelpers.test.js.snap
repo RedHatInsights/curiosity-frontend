@@ -205,46 +205,6 @@ Object {
 }
 `;
 
-exports[`GraphHelpers should convert graph data and threshold data: threshold check date and index mismatch from data 1`] = `
-Object {
-  "chartData": Array [
-    Object {
-      "tooltip": "10 lorem tooltip label June 1",
-      "x": 0,
-      "xAxisLabel": "Jun 1",
-      "y": 10,
-    },
-    Object {
-      "tooltip": "12 lorem tooltip label June 2
- +2 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 1,
-      "xAxisLabel": "Jun 2",
-      "y": 12,
-    },
-    Object {
-      "tooltip": "3 lorem tooltip label June 3
- -9 t('curiosity-graph.tooltipPreviousLabelDaily')",
-      "x": 2,
-      "xAxisLabel": "Jun 3",
-      "y": 3,
-    },
-    Object {
-      "x": 3,
-      "xAxisLabel": "Jun 4",
-      "y": 0,
-    },
-    Object {
-      "tooltip": "1 lorem tooltip label June 5",
-      "x": 4,
-      "xAxisLabel": "Jun 5",
-      "y": 1,
-    },
-  ],
-  "chartDataThresholds": Array [],
-  "chartXAxisLabelIncrement": 5,
-}
-`;
-
 exports[`GraphHelpers should handle cross quarter labels: quarter granularity 1`] = `
 Object {
   "chartData": Array [

@@ -53,10 +53,8 @@ class RhelGraphCard extends React.Component {
   renderChart() {
     const { graphData, graphGranularity, startDate, endDate, t } = this.props;
     const { chartXAxisLabelIncrement, chartData, chartDataThresholds } = graphHelpers.convertChartData({
-      data: graphData.usage,
-      dataFacet: rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS,
-      dataThreshold: graphData.capacity,
-      dataThresholdFacet: rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS,
+      data: graphData.sockets,
+      dataThreshold: graphData.threshold,
       tooltipLabel: t('curiosity-graph.tooltipSockets'),
       tooltipLabelNoData: t('curiosity-graph.tooltipSocketsNoData'),
       tooltipThresholdLabel: t('curiosity-graph.tooltipSocketsThreshold'),
@@ -136,8 +134,20 @@ RhelGraphCard.propTypes = {
   getGraphCapacityRhel: PropTypes.func,
   getGraphReportsRhel: PropTypes.func,
   graphData: PropTypes.shape({
-    capacity: PropTypes.array,
-    usage: PropTypes.array
+    sockets: PropTypes.arrayOf(
+      PropTypes.shape({
+        date: PropTypes.instanceOf(Date),
+        x: PropTypes.number,
+        y: PropTypes.number
+      })
+    ),
+    threshold: PropTypes.arrayOf(
+      PropTypes.shape({
+        date: PropTypes.instanceOf(Date),
+        x: PropTypes.number,
+        y: PropTypes.number
+      })
+    )
   }),
   graphGranularity: PropTypes.oneOf([
     GRANULARITY_TYPES.DAILY,
@@ -155,8 +165,8 @@ RhelGraphCard.defaultProps = {
   getGraphCapacityRhel: helpers.noop,
   getGraphReportsRhel: helpers.noop,
   graphData: {
-    capacity: [],
-    usage: []
+    sockets: [],
+    threshold: []
   },
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,

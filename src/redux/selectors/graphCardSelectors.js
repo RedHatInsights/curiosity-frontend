@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import moment from 'moment';
 import _get from 'lodash/get';
 import { rhelApiTypes } from '../../types/rhelApiTypes';
 
@@ -22,8 +23,9 @@ const rhelGraphCardSelector = createSelector(
       pending: false,
       initialLoad,
       graphData: {
-        usage: [],
-        capacity: []
+        sockets: [],
+        hypervisor: [],
+        threshold: []
       },
       ...cachedGranularity
     };
@@ -39,8 +41,52 @@ const rhelGraphCardSelector = createSelector(
     }
 
     if (capacity.fulfilled && report.fulfilled && granularity) {
-      updatedData.graphData.usage = _get(report, ['data', rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
-      updatedData.graphData.capacity = _get(capacity, ['data', rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
+      const productsData = _get(report, ['data', rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
+      const thresholdData = _get(capacity, ['data', rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
+
+      productsData.forEach((value, index) => {
+        const date = moment
+          .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
+          .startOf('day')
+          .toDate();
+
+        const checkThresholdDate = item => {
+          if (!item) {
+            return false;
+          }
+
+          const itemDate = moment
+            .utc(item[rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE])
+            .startOf('day')
+            .toDate();
+
+          return moment(date).isSame(itemDate);
+        };
+
+        updatedData.graphData.sockets.push({
+          date,
+          x: index,
+          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10)
+        });
+
+        updatedData.graphData.hypervisor.push({
+          date,
+          x: index,
+          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10)
+        });
+
+        updatedData.graphData.threshold.push({
+          date,
+          x: index,
+          y: Number.parseInt(
+            (checkThresholdDate(thresholdData && thresholdData[index]) &&
+              thresholdData[index][rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]) ||
+              0,
+            10
+          )
+        });
+      });
+
       updatedData.initialLoad = false;
       updatedData.fulfilled = true;
 
