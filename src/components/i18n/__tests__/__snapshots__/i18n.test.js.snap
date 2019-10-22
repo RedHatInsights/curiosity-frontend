@@ -12,11 +12,11 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:80
+#: src/components/rhelGraphCard/rhelGraphCard.js:78
 msgid \\"curiosity-graph.legendSocketsLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:90
+#: src/components/rhelGraphCard/rhelGraphCard.js:88
 msgid \\"curiosity-graph.legendSocketsThresholdLabel\\"
 msgstr \\"\\"
 
@@ -36,19 +36,19 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.tooltipPreviousLabelWeekly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:60
+#: src/components/rhelGraphCard/rhelGraphCard.js:58
 msgid \\"curiosity-graph.tooltipSockets\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:61
+#: src/components/rhelGraphCard/rhelGraphCard.js:59
 msgid \\"curiosity-graph.tooltipSocketsNoData\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:62
+#: src/components/rhelGraphCard/rhelGraphCard.js:60
 msgid \\"curiosity-graph.tooltipSocketsThreshold\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:106
+#: src/components/rhelGraphCard/rhelGraphCard.js:104
 msgctxt \\"CPU socket usage\\"
 msgid \\"curiosity-graph.heading\\"
 msgstr \\"\\"
@@ -68,8 +68,8 @@ msgctxt \\"Quarterly\\"
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:109
-#: src/components/rhelGraphCard/rhelGraphCard.js:113
+#: src/components/rhelGraphCard/rhelGraphCard.js:107
+#: src/components/rhelGraphCard/rhelGraphCard.js:111
 msgctxt \\"Select date range\\"
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
