@@ -1,7 +1,5 @@
 import { translate } from '../i18n/i18n';
-import { rhelApiTypes } from '../../types/rhelApiTypes';
-
-const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
 
 const getDateMenuOptionsType = () => [
   { title: translate('curiosity-graph.dropdownDaily', 'Daily'), value: GRANULARITY_TYPES.DAILY },

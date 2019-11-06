@@ -6,11 +6,9 @@ import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-componen
 import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers, graphHelpers } from '../../common';
-import { rhelApiTypes } from '../../types/rhelApiTypes';
+import { rhelApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
 import { rhelGraphCardTypes } from './rhelGraphCardTypes';
 import ChartArea from '../chartArea/chartArea';
-
-const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
 
 class RhelGraphCard extends React.Component {
   componentDidMount() {
