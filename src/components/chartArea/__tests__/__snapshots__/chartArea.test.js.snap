@@ -1,5 +1,421 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
+<div>
+  <div
+    class="pf-c-chart"
+    style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative"
+  >
+    <svg
+      height="300"
+      role="img"
+      style="pointer-events:all;width:100%;height:auto"
+      viewBox="0 0 0 300"
+      width="0"
+    >
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="-50"
+          y1="225"
+          y2="225"
+        />
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="50"
+            y1="225"
+            y2="230"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="11.969999999999999"
+            id="chart-axis-0-tickLabels-0"
+            x="50"
+            y="240"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="middle"
+              x="50"
+            >
+              1 ipsum
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="-50"
+            x2="-50"
+            y1="225"
+            y2="230"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="11.969999999999999"
+            id="chart-axis-0-tickLabels-1"
+            x="-50"
+            y="240"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="middle"
+              x="-50"
+            >
+              2 ipsum
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="50"
+          y1="50"
+          y2="225"
+        />
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="190"
+            y2="190"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="190"
+            y2="190"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            id="chart-axis-1-tickLabels-0"
+            x="35"
+            y="190"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="end"
+              x="35"
+            >
+              2 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="155"
+            y2="155"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="155"
+            y2="155"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            id="chart-axis-1-tickLabels-1"
+            x="35"
+            y="155"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="end"
+              x="35"
+            >
+              4 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="120"
+            y2="120"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="120"
+            y2="120"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            id="chart-axis-1-tickLabels-2"
+            x="35"
+            y="120"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="end"
+              x="35"
+            >
+              6 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="85"
+            y2="85"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="85"
+            y2="85"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            id="chart-axis-1-tickLabels-3"
+            x="35"
+            y="85"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="end"
+              x="35"
+            >
+              8 dolor sit
+            </tspan>
+          </text>
+        </g>
+        <g
+          role="presentation"
+        >
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:none;pointer-events:painted;stroke-linecap:round;stroke-linejoin:round"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="-50"
+            y1="50"
+            y2="50"
+          />
+          <line
+            role="presentation"
+            shape-rendering="auto"
+            style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+            vector-effect="non-scaling-stroke"
+            x1="50"
+            x2="45"
+            y1="50"
+            y2="50"
+          />
+          <text
+            direction="inherit"
+            dx="0"
+            dy="4.97"
+            id="chart-axis-1-tickLabels-4"
+            x="35"
+            y="50"
+          >
+            <tspan
+              dx="0"
+              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              text-anchor="end"
+              x="35"
+            >
+              10 dolor sit
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <g>
+        <g
+          clip-path="url(#victory-clip-10)"
+          style="height:100%;width:100%;user-select:none"
+        >
+          <defs>
+            <clipPath
+              id="victory-clip-10"
+            >
+              <rect
+                height="175"
+                vector-effect="non-scaling-stroke"
+                width="100"
+                x="-50"
+                y="50"
+              />
+            </clipPath>
+          </defs>
+          <path
+            d="M50,225L-50,207.5L-50,225L50,225Z"
+            role="presentation"
+            shape-rendering="auto"
+            style="fill:#06c;stroke-width:1;fill-opacity:0.3;stroke:#06c"
+          />
+        </g>
+      </g>
+      <g>
+        <rect
+          height="50.905"
+          role="presentation"
+          shape-rendering="auto"
+          style="fill:none"
+          vector-effect="non-scaling-stroke"
+          width="369.85743944636675"
+          x="40"
+          y="257"
+        />
+        <path
+          d="M 49.128, 295.872
+      h9.744
+      v-9.744
+      h-9.744
+      z"
+          style="type:square;fill:#06c"
+        />
+        <path
+          d="M 232.76871972318338, 293.156
+      h6.159999999999997
+      v-4.312
+      h-6.159999999999997
+      z
+      M 240.98205305651672, 293.156
+      h6.159999999999997
+      v-4.312
+      h-6.159999999999997
+      z"
+          style="type:threshold;fill:#8bc1f7"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          dy="4.97"
+          id="legend-labels-0"
+          x="70.8"
+          y="291"
+        >
+          <tspan
+            dx="0"
+            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
+            text-anchor="start"
+            x="70.8"
+          >
+            Arma virumque cano
+          </tspan>
+        </text>
+        <text
+          direction="inherit"
+          dx="0"
+          dy="4.97"
+          id="legend-labels-1"
+          x="255.7287197231834"
+          y="291"
+        >
+          <tspan
+            dx="0"
+            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
+            text-anchor="start"
+            x="255.7287197231834"
+          >
+            Arma virumque cano
+          </tspan>
+        </text>
+      </g>
+    </svg>
+    <div
+      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
+    >
+      <svg
+        height="300"
+        style="overflow:visible;width:100%;height:auto"
+        viewBox="0 0 0 300"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 <div>
   <div
@@ -534,7 +950,6 @@ exports[`ChartArea Component should handle render displays for both data and thr
     <ChartAxis
       animate={false}
       dependentAxis={true}
-      fixLabelOverlap={false}
       showGrid={true}
     />
     <ChartThreshold
@@ -557,6 +972,7 @@ exports[`ChartArea Component should handle render displays for both data and thr
       }
       interpolation="step"
       key="generatedid-"
+      name="chartArea-1-threshold"
       style={Object {}}
     />
     <ChartStack>
@@ -580,6 +996,7 @@ exports[`ChartArea Component should handle render displays for both data and thr
         }
         interpolation="catmullRom"
         key="generatedid-"
+        name="chartArea-0-area"
         style={
           Object {
             "data": Object {
@@ -628,6 +1045,10 @@ Object {
         0,
         1,
       ],
+      "y": Array [
+        0,
+        20,
+      ],
     },
   },
   "maxY": 10,
@@ -663,7 +1084,6 @@ Object {
 exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartTicks 1`] = `
 Object {
   "isXAxisTicks": true,
-  "isYAxisTicks": false,
   "xAxisProps": Object {
     "fixLabelOverlap": true,
     "tickFormat": [Function],
@@ -673,10 +1093,65 @@ Object {
   },
   "yAxisProps": Object {
     "dependentAxis": true,
-    "fixLabelOverlap": true,
     "showGrid": true,
     "tickFormat": [Function],
   },
+}
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getContainerComponent: should return a custom container 1`] = `
+Object {
+  "containerComponent": <VictoryVoronoiCursorContainer
+    activateData={true}
+    activateLabels={true}
+    className="VictoryContainer"
+    constrainToVisibleArea={true}
+    cursorComponent={
+      <LineSegment
+        lineComponent={<Line />}
+        role="presentation"
+        shapeRendering="auto"
+      />
+    }
+    cursorDimension="x"
+    cursorLabelComponent={
+      <VictoryLabel
+        capHeight={0.71}
+        direction="inherit"
+        lineHeight={1}
+        textComponent={<Text />}
+        tspanComponent={<TSpan />}
+      />
+    }
+    cursorLabelOffset={
+      Object {
+        "x": 5,
+        "y": -10,
+      }
+    }
+    labelComponent={
+      <VictoryPortal
+        groupComponent={<g />}
+      >
+        <ChartTooltip
+          centerOffset={
+            Object {
+              "x": [Function],
+              "y": 0,
+            }
+          }
+          pointerLength={0}
+        />
+      </VictoryPortal>
+    }
+    labels={[Function]}
+    mouseFollowTooltips={true}
+    portalComponent={<Portal />}
+    portalZIndex={99}
+    responsive={true}
+    voronoiDimension="x"
+    voronoiPadding={50}
+  />,
 }
 `;
 
@@ -690,17 +1165,75 @@ Object {
 }
 `;
 
-exports[`ChartArea Component should handle variation in passed properties with specific methods: setChartTicks: xAxisLabelUseDataSet, yAxisLabelUseDataSet 1`] = `
+exports[`ChartArea Component should handle variation in passed properties with specific methods: setChartTicks: xAxisLabelUseDataSet 1`] = `
 Object {
   "xAxisTickFormat": [Function],
   "xAxisTickValues": Array [
     2,
   ],
   "yAxisTickFormat": [Function],
-  "yAxisTickValues": Array [
-    1,
-  ],
 }
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: setDataSets:after 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "_tooltip": "lorem ipsum dolor...",
+        "tooltip": "1 lorem ipsum",
+        "x": 1,
+        "xAxisLabel": "1 x axis label",
+        "y": 0,
+      },
+    ],
+    "interpolation": "natural",
+    "isStacked": true,
+    "legendLabel": "Arma virumque cano",
+  },
+  Object {
+    "data": Array [
+      Object {
+        "tooltip": "10 dolor sit",
+        "x": 1,
+        "xAxisLabel": "1 x axis label",
+        "y": 10,
+      },
+    ],
+    "isThreshold": true,
+    "legendLabel": "Arma virumque cano",
+  },
+]
+`;
+
+exports[`ChartArea Component should handle variation in passed properties with specific methods: setDataSets:before 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "tooltip": "1 lorem ipsum",
+        "x": 1,
+        "xAxisLabel": "1 x axis label",
+        "y": 0,
+      },
+    ],
+    "interpolation": "natural",
+    "isStacked": true,
+    "legendLabel": "Arma virumque cano",
+  },
+  Object {
+    "data": Array [
+      Object {
+        "tooltip": "10 dolor sit",
+        "x": 1,
+        "xAxisLabel": "1 x axis label",
+        "y": 10,
+      },
+    ],
+    "isThreshold": true,
+    "legendLabel": "Arma virumque cano",
+  },
+]
 `;
 
 exports[`ChartArea Component should handle variation in passed properties with specific methods: variation 1`] = `
@@ -820,7 +1353,6 @@ exports[`ChartArea Component should handle variation in passed properties with s
     <ChartAxis
       animate={false}
       dependentAxis={true}
-      fixLabelOverlap={false}
       showGrid={true}
     />
     <ChartThreshold
@@ -837,6 +1369,7 @@ exports[`ChartArea Component should handle variation in passed properties with s
       }
       interpolation="step"
       key="generatedid-"
+      name="chartArea-1-threshold"
       style={Object {}}
     />
     <ChartStack>
@@ -854,6 +1387,7 @@ exports[`ChartArea Component should handle variation in passed properties with s
         }
         interpolation="natural"
         key="generatedid-"
+        name="chartArea-0-area"
         style={
           Object {
             "data": Object {
@@ -877,10 +1411,6 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
     }
     domain={
       Object {
-        "x": Array [
-          0,
-          10,
-        ],
         "y": Array [
           0,
           10,
@@ -912,11 +1442,12 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
     <ChartAxis
       animate={false}
       fixLabelOverlap={false}
+      tickFormat={[Function]}
+      tickValues={Array []}
     />
     <ChartAxis
       animate={false}
       dependentAxis={true}
-      fixLabelOverlap={false}
       showGrid={true}
     />
     <ChartStack />
@@ -985,6 +1516,14 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         voronoiPadding={50}
       />
     }
+    domain={
+      Object {
+        "y": Array [
+          0,
+          10,
+        ],
+      }
+    }
     legendComponent={
       <ChartLegend
         borderPadding={
@@ -1028,15 +1567,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
     <ChartAxis
       animate={false}
       dependentAxis={true}
-      fixLabelOverlap={false}
       showGrid={true}
-      tickFormat={[Function]}
-      tickValues={
-        Array [
-          1,
-          2,
-        ]
-      }
     />
     <ChartStack>
       <ChartArea
@@ -1048,19 +1579,18 @@ exports[`ChartArea Component should render basic data: data 1`] = `
               "x": 1,
               "xAxisLabel": "1 x axis label",
               "y": 1,
-              "yAxisLabel": "1 y axis label",
             },
             Object {
               "tooltip": "2 lorem ipsum",
               "x": 2,
               "xAxisLabel": "2 x axis label",
               "y": 2,
-              "yAxisLabel": "2 y axis label",
             },
           ]
         }
         interpolation="catmullRom"
         key="generatedid-"
+        name="chartArea-0-area"
         style={
           Object {
             "data": Object {

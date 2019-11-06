@@ -19,15 +19,13 @@ describe('ChartArea Component', () => {
               x: 1,
               y: 1,
               tooltip: '1 lorem ipsum',
-              xAxisLabel: '1 x axis label',
-              yAxisLabel: '1 y axis label'
+              xAxisLabel: '1 x axis label'
             },
             {
               x: 2,
               y: 2,
               tooltip: '2 lorem ipsum',
-              xAxisLabel: '2 x axis label',
-              yAxisLabel: '2 y axis label'
+              xAxisLabel: '2 x axis label'
             }
           ],
           legendLabel: 'Arma virumque cano',
@@ -72,6 +70,11 @@ describe('ChartArea Component', () => {
 
     const component = shallow(<ChartArea {...props} />);
     expect(component.render()).toMatchSnapshot('y tick format');
+
+    component.setProps({
+      xAxisTickFormat: ({ tick }) => `${tick} ipsum`
+    });
+    expect(component.render()).toMatchSnapshot('x tick format');
   });
 
   it('should set a minimum y axis domain or range', () => {
@@ -108,9 +111,7 @@ describe('ChartArea Component', () => {
     const component = mount(<ChartArea {...props} />);
     const componentInstance = component.instance();
 
-    expect(componentInstance.getChartDomain({ isXAxisTicks: true, isYAxisTicks: false })).toMatchSnapshot(
-      'y axis domain or range'
-    );
+    expect(componentInstance.getChartDomain({ isXAxisTicks: true })).toMatchSnapshot('y axis domain or range');
   });
 
   it('should handle render displays for both data and threshold', () => {
@@ -193,10 +194,16 @@ describe('ChartArea Component', () => {
     const component = shallow(<ChartArea {...props} />);
     expect(component).toMatchSnapshot('variation');
 
+    // check setDataSets for tooltip updates
+    expect(component.instance().setDataSets()).toMatchSnapshot('setDataSets:before');
+    component.setProps({
+      tooltips: () => 'lorem ipsum dolor...'
+    });
+    expect(component.instance().setDataSets()).toMatchSnapshot('setDataSets:after');
+
     // check setChartTicks label increment and tick format directly
     component.setProps({
       xAxisLabelIncrement: 2,
-      yAxisLabelIncrement: 2,
       xAxisTickFormat: lorem => `${lorem} ipsum`,
       yAxisTickFormat: dolor => `${dolor} sit`
     });
@@ -204,8 +211,7 @@ describe('ChartArea Component', () => {
 
     // check getChartTicks setting xAxisFixLabelOverlap and yAxisFixLabelOverlap directly
     component.setProps({
-      xAxisFixLabelOverlap: true,
-      yAxisFixLabelOverlap: true
+      xAxisFixLabelOverlap: true
     });
     expect(component.instance().getChartTicks()).toMatchSnapshot('getChartTicks');
 
@@ -216,18 +222,16 @@ describe('ChartArea Component', () => {
         y: [0, 20]
       }
     });
-    expect(component.instance().getChartDomain({ isXAxisTicks: false, isYAxisTicks: false })).toMatchSnapshot(
-      'getChartDomain: domain'
-    );
+    expect(component.instance().getChartDomain({ isXAxisTicks: false })).toMatchSnapshot('getChartDomain: domain');
 
     // check getChartDomain: isYAxisTicks and isXAxisTicks
     component.setProps({
       domain: {}
     });
-    expect(component.instance().getChartDomain({ isXAxisTicks: false, isYAxisTicks: true })).toMatchSnapshot(
+    expect(component.instance().getChartDomain({ isXAxisTicks: false })).toMatchSnapshot(
       'getChartDomain: isYAxisTicks true'
     );
-    expect(component.instance().getChartDomain({ isXAxisTicks: true, isYAxisTicks: false })).toMatchSnapshot(
+    expect(component.instance().getChartDomain({ isXAxisTicks: true })).toMatchSnapshot(
       'getChartDomain: isXAxisTicks true'
     );
 
@@ -242,20 +246,21 @@ describe('ChartArea Component', () => {
             x: 2,
             y: 1,
             tooltip: '1 hello world',
-            xAxisLabel: '1 hello world x-axis label',
-            yAxisLabel: '1 hello world y-axis label'
+            xAxisLabel: '1 hello world x-axis label'
           }
         ],
         legendLabel: 'Hello world',
-        xAxisLabelUseDataSet: true,
-        yAxisLabelUseDataSet: true
+        xAxisLabelUseDataSet: true
       }
     ];
     component.setProps({
       dataSets: [...props.dataSets, ...additionalDataSet]
     });
-    expect(component.instance().setChartTicks()).toMatchSnapshot(
-      'setChartTicks: xAxisLabelUseDataSet, yAxisLabelUseDataSet'
+    expect(component.instance().setChartTicks()).toMatchSnapshot('setChartTicks: xAxisLabelUseDataSet');
+
+    // check getContainerComponent
+    expect(ChartArea.getContainerComponent()).toMatchSnapshot(
+      'getContainerComponent: should return a custom container'
     );
   });
 

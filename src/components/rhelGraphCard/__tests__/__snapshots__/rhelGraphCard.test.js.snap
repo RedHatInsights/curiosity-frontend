@@ -272,11 +272,10 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
             "top": 50,
           }
         }
+        tooltips={null}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisTickFormat={null}
-        yAxisFixLabelOverlap={false}
-        yAxisLabelIncrement={1}
         yAxisTickFormat={[Function]}
       />
     </div>
@@ -761,11 +760,10 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
             "top": 50,
           }
         }
+        tooltips={null}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisTickFormat={null}
-        yAxisFixLabelOverlap={false}
-        yAxisLabelIncrement={1}
         yAxisTickFormat={[Function]}
       />
     </div>
