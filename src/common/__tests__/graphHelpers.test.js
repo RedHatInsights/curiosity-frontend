@@ -6,11 +6,9 @@ import {
   getGraphLabels,
   getGranularityDateType
 } from '../graphHelpers';
-import { rhelApiTypes } from '../../types/rhelApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
 
 describe('GraphHelpers', () => {
-  const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
-
   it('should have specific functions', () => {
     expect(graphHelpers).toMatchSnapshot('graphHelpers');
   });
