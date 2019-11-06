@@ -1,6 +1,6 @@
 import moment from 'moment/moment';
 import { helpers } from './helpers';
-import { rhelApiTypes } from '../types/rhelApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../types/rhelApiTypes';
 
 const getCurrentDate = () =>
   (helpers.TEST_MODE && '20190720') || (helpers.DEV_MODE && process.env.REACT_APP_DEBUG_DEFAULT_DATETIME) || new Date();
@@ -28,8 +28,6 @@ const quarterlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 
  * @param {string} granularity
  * @returns {{endDate: Date, startDate: Date}}
  */
-const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
-
 const getRangedDateTime = granularity => {
   switch (granularity) {
     case GRANULARITY_TYPES.WEEKLY:

@@ -1,9 +1,7 @@
 import moment from 'moment';
 import numbro from 'numbro';
-import { rhelApiTypes } from '../types/rhelApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../types/rhelApiTypes';
 import { translate } from '../components/i18n/i18n';
-
-const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
 
 /**
  * Chart Date Format (used in axis and tooltips)

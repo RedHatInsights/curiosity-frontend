@@ -1,5 +1,5 @@
 import { dateHelpers, getCurrentDate, setRangedDateTime, getRangedDateTime } from '../dateHelpers';
-import { rhelApiTypes } from '../../types/rhelApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
 
 describe('DateHelpers', () => {
   it('should have specific functions', () => {
@@ -31,7 +31,6 @@ describe('DateHelpers', () => {
   });
 
   it('should return a predictable range based on granularity', () => {
-    const GRANULARITY_TYPES = rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES;
     const rangesOfDatesTimes = Object.values(GRANULARITY_TYPES).map(value => ({
       granularity: value,
       range: getRangedDateTime(value)
