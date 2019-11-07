@@ -7,6 +7,7 @@ import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers, graphHelpers } from '../../common';
 import { rhelApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
+import { rhelGraphCardHelpers } from './rhelGraphCardHelpers';
 import { rhelGraphCardTypes } from './rhelGraphCardTypes';
 import ChartArea from '../chartArea/chartArea';
 
@@ -65,7 +66,7 @@ class RhelGraphCard extends React.Component {
       <ChartArea
         xAxisFixLabelOverlap
         xAxisLabelIncrement={chartXAxisLabelIncrement}
-        yAxisTickFormat={({ tick }) => graphHelpers.yAxisTickFormat(tick)}
+        yAxisTickFormat={({ tick }) => rhelGraphCardHelpers.yAxisTickFormat(tick)}
         dataSets={[
           {
             data: chartData,

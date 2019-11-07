@@ -17,6 +17,24 @@ Object {
     "startDate": 2016-07-01T00:00:00.000Z,
   },
   "setRangedDateTime": [Function],
+  "timestampDayFormats": Object {
+    "long": "MMMM D",
+    "short": "MMM D",
+    "yearLong": "MMMM D YYYY",
+    "yearShort": "MMM D YYYY",
+  },
+  "timestampMonthFormats": Object {
+    "long": "MMMM",
+    "short": "MMM",
+    "yearLong": "MMMM YYYY",
+    "yearShort": "MMM YYYY",
+  },
+  "timestampQuarterFormats": Object {
+    "long": "MMMM",
+    "short": "MMM",
+    "yearLong": "MMMM YYYY",
+    "yearShort": "MMM YYYY",
+  },
   "weeklyDateTime": Object {
     "endDate": 2019-07-14T00:00:00.000Z,
     "startDate": 2019-04-21T00:00:00.000Z,

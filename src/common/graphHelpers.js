@@ -1,75 +1,7 @@
 import moment from 'moment';
-import numbro from 'numbro';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../types/rhelApiTypes';
-import { translate } from '../components/i18n/i18n';
-
-/**
- * Chart Date Format (used in axis and tooltips)
- */
-const chartDateDayFormatLong = 'MMMM D';
-const chartDateDayFormatYearLong = 'MMMM D YYYY';
-const chartDateDayFormatShort = 'MMM D';
-const chartDateDayFormatYearShort = 'MMM D YYYY';
-
-const chartDateMonthFormatLong = 'MMMM';
-const chartDateMonthFormatYearLong = 'MMMM YYYY';
-const chartDateMonthFormatShort = 'MMM';
-const chartDateMonthFormatYearShort = 'MMM YYYY';
-
-const chartDateQuarterFormatLong = 'MMMM';
-const chartDateQuarterFormatYearLong = 'MMMM YYYY';
-const chartDateQuarterFormatShort = 'MMM';
-const chartDateQuarterFormatYearShort = 'MMM YYYY';
-
-/**
- * Returns x axis ticks/intervals array for the xAxisTickInterval
- *
- * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
- * @returns {number}
- */
-const getChartXAxisLabelIncrement = granularity => {
-  switch (granularity) {
-    case GRANULARITY_TYPES.DAILY:
-      return 5;
-    case GRANULARITY_TYPES.WEEKLY:
-    case GRANULARITY_TYPES.MONTHLY:
-      return 2;
-    case GRANULARITY_TYPES.QUARTERLY:
-    default:
-      return 1;
-  }
-};
-
-/**
- * Return translated labels based on granularity.
- *
- * @param {string} granularity, see enum of rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES
- * @param {string} tooltipLabel
- * @returns {Object}
- */
-const getGraphLabels = ({ granularity, tooltipLabel }) => {
-  const labels = {
-    label: tooltipLabel
-  };
-
-  switch (granularity) {
-    case GRANULARITY_TYPES.WEEKLY:
-      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelWeekly');
-      break;
-    case GRANULARITY_TYPES.MONTHLY:
-      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelMonthly');
-      break;
-    case GRANULARITY_TYPES.QUARTERLY:
-      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelQuarterly');
-      break;
-    case GRANULARITY_TYPES.DAILY:
-    default:
-      labels.previousLabel = translate('curiosity-graph.tooltipPreviousLabelDaily');
-      break;
-  }
-
-  return labels;
-};
+import { dateHelpers } from './dateHelpers';
+import { rhelGraphCardHelpers } from '../components/rhelGraphCard/rhelGraphCardHelpers';
 
 /**
  * Return a time allotment based on granularity
@@ -102,7 +34,7 @@ const getGranularityDateType = granularity => {
  * @returns {string}
  */
 const getLabel = ({ data, previousData, formattedDate, granularity, tooltipLabel }) => {
-  const { label, previousLabel } = getGraphLabels({ granularity, tooltipLabel });
+  const { label, previousLabel } = rhelGraphCardHelpers.getGraphLabels({ granularity, tooltipLabel });
   const previousCount = data - previousData;
   const updatedLabel = `${data} ${label} ${formattedDate}`;
 
@@ -145,7 +77,7 @@ const fillFormatChartData = ({
   tooltipThresholdLabel
 }) => {
   const granularityType = getGranularityDateType(granularity);
-  const granularityTick = getChartXAxisLabelIncrement(granularity);
+  const granularityTick = rhelGraphCardHelpers.getChartXAxisLabelIncrement(granularity);
   const endDateStartDateDiff = moment(endDate).diff(startDate, granularityType);
   const chartData = [];
   const chartDataThresholds = [];
@@ -169,28 +101,28 @@ const fillFormatChartData = ({
 
     if (granularityType === 'quarters') {
       formattedDate = isNewYear
-        ? momentDate.format(chartDateQuarterFormatYearShort)
-        : momentDate.format(chartDateQuarterFormatShort);
+        ? momentDate.format(dateHelpers.timestampQuarterFormats.yearShort)
+        : momentDate.format(dateHelpers.timestampQuarterFormats.short);
 
       formattedDateTooltip = isNewYear
-        ? momentDate.format(chartDateQuarterFormatYearLong)
-        : momentDate.format(chartDateQuarterFormatLong);
+        ? momentDate.format(dateHelpers.timestampQuarterFormats.yearLong)
+        : momentDate.format(dateHelpers.timestampQuarterFormats.long);
     } else if (granularityType === 'months') {
       formattedDate = isNewYear
-        ? momentDate.format(chartDateMonthFormatYearShort)
-        : momentDate.format(chartDateMonthFormatShort);
+        ? momentDate.format(dateHelpers.timestampMonthFormats.yearShort)
+        : momentDate.format(dateHelpers.timestampMonthFormats.short);
 
       formattedDateTooltip = isNewYear
-        ? momentDate.format(chartDateMonthFormatYearLong)
-        : momentDate.format(chartDateMonthFormatLong);
+        ? momentDate.format(dateHelpers.timestampMonthFormats.yearLong)
+        : momentDate.format(dateHelpers.timestampMonthFormats.long);
     } else {
       formattedDate = isNewYear
-        ? momentDate.format(chartDateDayFormatYearShort)
-        : momentDate.format(chartDateDayFormatShort);
+        ? momentDate.format(dateHelpers.timestampDayFormats.yearShort)
+        : momentDate.format(dateHelpers.timestampDayFormats.short);
 
       formattedDateTooltip = isNewYear
-        ? momentDate.format(chartDateDayFormatYearLong)
-        : momentDate.format(chartDateDayFormatLong);
+        ? momentDate.format(dateHelpers.timestampDayFormats.yearLong)
+        : momentDate.format(dateHelpers.timestampDayFormats.long);
     }
 
     const yAxis = (data[stringDate] && data[stringDate].data) || 0;
@@ -300,30 +232,22 @@ const convertChartData = ({
   return {
     chartData,
     chartDataThresholds,
-    chartXAxisLabelIncrement: getChartXAxisLabelIncrement(granularity)
+    chartXAxisLabelIncrement: rhelGraphCardHelpers.getChartXAxisLabelIncrement(granularity)
   };
 };
 
-const yAxisTickFormat = tick => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
-
 const graphHelpers = {
-  yAxisTickFormat,
   fillFormatChartData,
   convertChartData,
   getGranularityDateType,
-  getGraphLabels,
-  getChartXAxisLabelIncrement,
   getLabel
 };
 
 export {
   graphHelpers as default,
   graphHelpers,
-  yAxisTickFormat,
   fillFormatChartData,
   convertChartData,
   getGranularityDateType,
-  getGraphLabels,
-  getChartXAxisLabelIncrement,
   getLabel
 };

@@ -42,6 +42,24 @@ const getRangedDateTime = granularity => {
   }
 };
 
+const timestampDayFormats = {
+  long: 'MMMM D',
+  yearLong: 'MMMM D YYYY',
+  short: 'MMM D',
+  yearShort: 'MMM D YYYY'
+};
+
+const timestampMonthFormats = {
+  long: 'MMMM',
+  yearLong: 'MMMM YYYY',
+  short: 'MMM',
+  yearShort: 'MMM YYYY'
+};
+
+const timestampQuarterFormats = {
+  ...timestampMonthFormats
+};
+
 const dateHelpers = {
   getCurrentDate,
   getRangedDateTime,
@@ -49,7 +67,10 @@ const dateHelpers = {
   defaultDateTime,
   monthlyDateTime,
   quarterlyDateTime,
-  weeklyDateTime
+  weeklyDateTime,
+  timestampDayFormats,
+  timestampMonthFormats,
+  timestampQuarterFormats
 };
 
 export {
@@ -61,5 +82,8 @@ export {
   defaultDateTime,
   monthlyDateTime,
   quarterlyDateTime,
-  weeklyDateTime
+  weeklyDateTime,
+  timestampDayFormats,
+  timestampMonthFormats,
+  timestampQuarterFormats
 };
