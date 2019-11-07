@@ -359,49 +359,8 @@ exports[`GraphHelpers should have specific functions: graphHelpers 1`] = `
 Object {
   "convertChartData": [Function],
   "fillFormatChartData": [Function],
-  "getChartXAxisLabelIncrement": [Function],
   "getGranularityDateType": [Function],
-  "getGraphLabels": [Function],
   "getLabel": [Function],
-  "yAxisTickFormat": [Function],
-}
-`;
-
-exports[`GraphHelpers should produce consistent y axis tick values: y axis tick values 1`] = `
-Object {
-  "1": "1",
-  "10": "10",
-  "100": "100",
-  "1000": "1k",
-  "10000": "10k",
-  "100000": "100k",
-  "1000000": "1m",
-  "10000000": "10m",
-  "100000000": "100m",
-  "1000000000": "1b",
-  "10000000000": "10b",
-  "13": "13",
-  "130": "130",
-  "1300": "1.3k",
-  "13000": "13k",
-  "130000": "130k",
-  "1300000": "1.3m",
-  "13000000": "13m",
-  "130000000": "130m",
-  "1300000000": "1.3b",
-  "13000000000": "13b",
-  "130000000000": "130b",
-  "15": "15",
-  "150": "150",
-  "1500": "1.5k",
-  "15000": "15k",
-  "150000": "150k",
-  "1500000": "1.5m",
-  "15000000": "15m",
-  "150000000": "150m",
-  "1500000000": "1.5b",
-  "15000000000": "15b",
-  "150000000000": "150b",
 }
 `;
 
@@ -411,35 +370,5 @@ Object {
   "monthly": "months",
   "quarterly": "quarters",
   "weekly": "weeks",
-}
-`;
-
-exports[`GraphHelpers should return a label based on granularity: granularity based label 1`] = `
-Object {
-  "daily": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
-  },
-  "monthly": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelMonthly')",
-  },
-  "quarterly": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelQuarterly')",
-  },
-  "weekly": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelWeekly')",
-  },
-}
-`;
-
-exports[`GraphHelpers should return a x axis tick increment based on granularity: x axis tick increment 1`] = `
-Object {
-  "daily": 5,
-  "monthly": 2,
-  "quarterly": 1,
-  "weekly": 2,
 }
 `;
