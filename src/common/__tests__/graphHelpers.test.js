@@ -1,32 +1,9 @@
-import {
-  graphHelpers,
-  yAxisTickFormat,
-  convertChartData,
-  getChartXAxisLabelIncrement,
-  getGraphLabels,
-  getGranularityDateType
-} from '../graphHelpers';
+import { graphHelpers, convertChartData, getGranularityDateType } from '../graphHelpers';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
 
 describe('GraphHelpers', () => {
   it('should have specific functions', () => {
     expect(graphHelpers).toMatchSnapshot('graphHelpers');
-  });
-
-  it('should produce consistent y axis tick values', () => {
-    const ticks = {};
-
-    for (let i = 0; i < 11; i++) {
-      const multiplier = Math.pow(10, i);
-      const thirteenMultiplier = 13 * multiplier;
-      const fifteenMultiplier = 15 * multiplier;
-
-      ticks[multiplier] = yAxisTickFormat(multiplier);
-      ticks[thirteenMultiplier] = yAxisTickFormat(thirteenMultiplier);
-      ticks[fifteenMultiplier] = yAxisTickFormat(fifteenMultiplier);
-    }
-
-    expect(ticks).toMatchSnapshot('y axis tick values');
   });
 
   it('should convert graph data and return zeroed usage array if error', () => {
@@ -307,24 +284,6 @@ describe('GraphHelpers', () => {
     };
 
     expect(convertChartData(props)).toMatchSnapshot('quarter granularity');
-  });
-
-  it('should return a x axis tick increment based on granularity', () => {
-    const daily = getChartXAxisLabelIncrement(GRANULARITY_TYPES.DAILY);
-    const weekly = getChartXAxisLabelIncrement(GRANULARITY_TYPES.WEEKLY);
-    const monthly = getChartXAxisLabelIncrement(GRANULARITY_TYPES.MONTHLY);
-    const quarterly = getChartXAxisLabelIncrement(GRANULARITY_TYPES.QUARTERLY);
-
-    expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('x axis tick increment');
-  });
-
-  it('should return a label based on granularity', () => {
-    const daily = getGraphLabels({ granularity: GRANULARITY_TYPES.DAILY, tooltipLabel: 'ipsum tooltip label' });
-    const weekly = getGraphLabels({ granularity: GRANULARITY_TYPES.WEEKLY, tooltipLabel: 'ipsum tooltip label' });
-    const monthly = getGraphLabels({ granularity: GRANULARITY_TYPES.MONTHLY, tooltipLabel: 'ipsum tooltip label' });
-    const quarterly = getGraphLabels({ granularity: GRANULARITY_TYPES.QUARTERLY, tooltipLabel: 'ipsum tooltip label' });
-
-    expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('granularity based label');
   });
 
   it('should return a date type based on granularity', () => {
