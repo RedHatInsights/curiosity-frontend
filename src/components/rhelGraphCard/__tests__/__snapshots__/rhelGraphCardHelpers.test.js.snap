@@ -9,41 +9,50 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardHelpers getGraphLabels should return a label based on granularity: granularity based label 1`] = `
-Object {
-  "daily": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelDaily')",
-  },
-  "monthly": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelMonthly')",
-  },
-  "quarterly": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelQuarterly')",
-  },
-  "weekly": Object {
-    "label": "ipsum tooltip label",
-    "previousLabel": "t('curiosity-graph.tooltipPreviousLabelWeekly')",
-  },
-}
-`;
-
 exports[`RhelGraphCardHelpers getTooltipDate should return a formatted date based on granularity: granularity based date 1`] = `
 Object {
   "daily": "June 1",
-  "monthly": "June",
-  "quarterly": "June",
+  "monthly": "June 2019",
+  "quarterly": "June 2019",
   "weekly": "June 1",
+}
+`;
+
+exports[`RhelGraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: granularity data display 1`] = `
+Object {
+  "daily": "t('curiosity-graph.rhelTooltipThreshold'): 100
+t('curiosity-graph.rhelTooltipSockets'): 50
+t('curiosity-graph.rhelTooltipHypervisor'): 50
+t('curiosity-graph.rhelTooltipDate'): June 1",
+  "monthly": "t('curiosity-graph.rhelTooltipThreshold'): 100
+t('curiosity-graph.rhelTooltipSockets'): 50
+t('curiosity-graph.rhelTooltipHypervisor'): 50
+t('curiosity-graph.rhelTooltipDate'): June 2019",
+  "quarterly": "t('curiosity-graph.rhelTooltipThreshold'): 100
+t('curiosity-graph.rhelTooltipSockets'): 50
+t('curiosity-graph.rhelTooltipHypervisor'): 50
+t('curiosity-graph.rhelTooltipDate'): June 2019",
+  "weekly": "t('curiosity-graph.rhelTooltipThreshold'): 100
+t('curiosity-graph.rhelTooltipSockets'): 50
+t('curiosity-graph.rhelTooltipHypervisor'): 50
+t('curiosity-graph.rhelTooltipDate'): June 1",
+}
+`;
+
+exports[`RhelGraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: no data granularity data display 1`] = `
+Object {
+  "daily": "t('curiosity-graph.tooltipNoData')",
+  "monthly": "t('curiosity-graph.tooltipNoData')",
+  "quarterly": "t('curiosity-graph.tooltipNoData')",
+  "weekly": "t('curiosity-graph.tooltipNoData')",
 }
 `;
 
 exports[`RhelGraphCardHelpers should have specific functions: rhelGraphCardHelpers 1`] = `
 Object {
   "getChartXAxisLabelIncrement": [Function],
-  "getGraphLabels": [Function],
   "getTooltipDate": [Function],
+  "getTooltips": [Function],
   "xAxisTickFormat": [Function],
   "yAxisTickFormat": [Function],
 }

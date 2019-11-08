@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { ChartThemeColor } from '@patternfly/react-charts';
+import {
+  chart_color_blue_100 as chartColorBlue100,
+  chart_color_blue_400 as chartColorBlue400,
+  chart_color_cyan_100 as chartColorCyan100,
+  chart_color_cyan_400 as chartColorCyan400
+} from '@patternfly/react-tokens';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
-import { helpers, dateHelpers, graphHelpers } from '../../common';
+import { helpers, dateHelpers } from '../../common';
 import { rhelApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
 import { rhelGraphCardHelpers } from './rhelGraphCardHelpers';
 import { rhelGraphCardTypes } from './rhelGraphCardTypes';
@@ -48,43 +54,68 @@ class RhelGraphCard extends React.Component {
     }
   };
 
-  // ToDo: evaluate show error toast on chart error
   renderChart() {
-    const { graphData, graphGranularity, startDate, endDate, t } = this.props;
-    const { chartXAxisLabelIncrement, chartData, chartDataThresholds } = graphHelpers.convertChartData({
-      data: graphData.sockets,
-      dataThreshold: graphData.threshold,
-      tooltipLabel: t('curiosity-graph.tooltipSockets'),
-      tooltipLabelNoData: t('curiosity-graph.tooltipSocketsNoData'),
-      tooltipThresholdLabel: t('curiosity-graph.tooltipSocketsThreshold'),
-      startDate,
-      endDate,
-      granularity: graphGranularity
-    });
+    const { graphData, graphGranularity, t } = this.props;
+
+    const xAxisTickFormat = ({ item, previousItem, tick }) =>
+      rhelGraphCardHelpers.xAxisTickFormat({
+        tick,
+        date: item.date,
+        previousDate: previousItem.date,
+        granularity: graphGranularity
+      });
+
+    const tooltips = ({ itemsByKey }) =>
+      rhelGraphCardHelpers.getTooltips({
+        itemsByKey,
+        granularity: graphGranularity
+      });
+
+    const chartAreaProps = {
+      xAxisFixLabelOverlap: true,
+      xAxisLabelIncrement: rhelGraphCardHelpers.getChartXAxisLabelIncrement(graphGranularity),
+      xAxisTickFormat,
+      yAxisTickFormat: rhelGraphCardHelpers.yAxisTickFormat,
+      tooltips
+    };
 
     return (
       <ChartArea
-        xAxisFixLabelOverlap
-        xAxisLabelIncrement={chartXAxisLabelIncrement}
-        yAxisTickFormat={({ tick }) => rhelGraphCardHelpers.yAxisTickFormat(tick)}
+        {...chartAreaProps}
         dataSets={[
           {
-            data: chartData,
+            data: graphData.sockets,
+            id: 'sockets',
             animate: {
               duration: 250,
               onLoad: { duration: 250 }
             },
-            legendLabel: t('curiosity-graph.legendSocketsLabel'),
+            fill: chartColorBlue100.value,
+            stroke: chartColorBlue400.value,
+            legendLabel: t('curiosity-graph.rhelLegendSocketsLabel'),
             isStacked: true
           },
           {
-            data: chartDataThresholds,
+            data: graphData.hypervisor,
+            id: 'hypervisor',
+            animate: {
+              duration: 250,
+              onLoad: { duration: 250 }
+            },
+            fill: chartColorCyan100.value,
+            stroke: chartColorCyan400.value,
+            legendLabel: t('curiosity-graph.rhelLegendHypervisorLabel'),
+            isStacked: true
+          },
+          {
+            data: graphData.threshold,
+            id: 'threshold',
             animate: {
               duration: 100,
               onLoad: { duration: 100 }
             },
-            color: ChartThemeColor.green,
-            legendLabel: t('curiosity-graph.legendSocketsThresholdLabel'),
+            themeColor: ChartThemeColor.green,
+            legendLabel: t('curiosity-graph.rhelLegendThresholdLabel'),
             isThreshold: true
           }
         ]}
@@ -140,6 +171,13 @@ RhelGraphCard.propTypes = {
         y: PropTypes.number
       })
     ),
+    hypervisor: PropTypes.arrayOf(
+      PropTypes.shape({
+        date: PropTypes.instanceOf(Date),
+        x: PropTypes.number,
+        y: PropTypes.number
+      })
+    ),
     threshold: PropTypes.arrayOf(
       PropTypes.shape({
         date: PropTypes.instanceOf(Date),
@@ -165,6 +203,7 @@ RhelGraphCard.defaultProps = {
   getGraphReportsRhel: helpers.noop,
   graphData: {
     sockets: [],
+    hypervisor: [],
     threshold: []
   },
   graphGranularity: GRANULARITY_TYPES.DAILY,

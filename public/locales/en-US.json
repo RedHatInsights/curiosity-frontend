@@ -6,14 +6,13 @@
     "dropdownMonthly": "Monthly",
     "dropdownQuarterly": "Quarterly",
     "dropdownPlaceholder": "Select date range",
-    "tooltipPreviousLabelDaily": "from previous day",
-    "tooltipPreviousLabelWeekly": "from previous week",
-    "tooltipPreviousLabelMonthly": "from previous month",
-    "tooltipPreviousLabelQuarterly": "from previous quarter",
-    "tooltipSockets": "systems on",
-    "tooltipSocketsNoData": "No data",
-    "tooltipSocketsThreshold": "Subscription Threshold",
-    "legendSocketsLabel": "Systems",
-    "legendSocketsThresholdLabel": "Subscription Threshold"
+    "tooltipNoData": "No data",
+    "rhelTooltipDate": "Date",
+    "rhelTooltipHypervisor": "Hypervisors",
+    "rhelTooltipSockets": "Physical systems",
+    "rhelTooltipThreshold": "Subscription threshold",
+    "rhelLegendHypervisorLabel": "Hypervisors",
+    "rhelLegendSocketsLabel": "Physical systems",
+    "rhelLegendThresholdLabel": "Subscription threshold"
   }
 }
