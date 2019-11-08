@@ -8,6 +8,7 @@ import {
   ChartStack,
   ChartThreshold,
   ChartTooltip,
+  ChartThemeColor,
   ChartArea as PfChartArea
 } from '@patternfly/react-charts';
 import _cloneDeep from 'lodash/cloneDeep';
@@ -212,8 +213,12 @@ class ChartArea extends React.Component {
           legendDataSettings.symbol = { type: 'threshold' };
         }
 
-        if (dataSet.color) {
-          legendDataSettings.symbol.fill = dataSet.color;
+        if (dataSet.themeColor) {
+          legendDataSettings.symbol.fill = dataSet.themeColor;
+        } else if (dataSet.stroke) {
+          legendDataSettings.symbol.fill = dataSet.stroke;
+        } else if (dataSet.fill) {
+          legendDataSettings.symbol.fill = dataSet.fill;
         }
 
         legendData.push(legendDataSettings);
@@ -257,30 +262,57 @@ class ChartArea extends React.Component {
     const charts = [];
     const chartsStacked = [];
 
-    const thresholdChart = (dataSet, index) => (
-      <ChartThreshold
-        animate={dataSet.animate || false}
-        interpolation={dataSet.interpolation || 'step'}
-        key={helpers.generateId()}
-        name={`chartArea-${index}-threshold`}
-        data={dataSet.data}
-        // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartArea. Appears enforced, see PFCharts. Leads to multiple checks and implementations.
-        themeColor={dataSet.color}
-        style={dataSet.style || {}}
-      />
-    );
+    const thresholdChart = (dataSet, index) => {
+      const dataColorStroke = { data: {} };
 
-    const areaChart = (dataSet, index) => (
-      <PfChartArea
-        animate={dataSet.animate || false}
-        interpolation={dataSet.interpolation || 'catmullRom'}
-        key={helpers.generateId()}
-        name={`chartArea-${index}-area`}
-        data={dataSet.data}
-        // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartThreshold themeColor and style
-        style={{ data: { fill: dataSet.color }, ...dataSet.style }}
-      />
-    );
+      if (dataSet.fill) {
+        dataColorStroke.data.fill = dataSet.fill;
+      }
+
+      if (dataSet.stroke) {
+        dataColorStroke.data.stroke = dataSet.stroke;
+      }
+
+      return (
+        <ChartThreshold
+          animate={dataSet.animate || false}
+          interpolation={dataSet.interpolation || 'step'}
+          key={helpers.generateId()}
+          name={`chartArea-${index}-threshold`}
+          data={dataSet.data}
+          style={{ ...(dataSet.style || {}), ...dataColorStroke }}
+          // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartArea. Appears enforced, see PFCharts. Leads to multiple checks and implementations.
+          themeColor={dataSet.themeColor}
+          themeVariant={dataSet.themeVariant}
+        />
+      );
+    };
+
+    const areaChart = (dataSet, index) => {
+      const dataColorStroke = { data: {} };
+
+      if (dataSet.fill) {
+        dataColorStroke.data.fill = dataSet.fill;
+      }
+
+      if (dataSet.stroke) {
+        dataColorStroke.data.stroke = dataSet.stroke;
+      }
+
+      return (
+        <PfChartArea
+          animate={dataSet.animate || false}
+          interpolation={dataSet.interpolation || 'catmullRom'}
+          key={helpers.generateId()}
+          name={`chartArea-${index}-area`}
+          data={dataSet.data}
+          style={{ ...(dataSet.style || {}), ...dataColorStroke }}
+          // FixMe: PFCharts inconsistent implementation around themeColor and style, see ChartThreshold themeColor and style
+          themeColor={dataSet.themeColor}
+          themeVariant={dataSet.themeVariant}
+        />
+      );
+    };
 
     dataSets.forEach((dataSet, index) => {
       if (dataSet.data && dataSet.data.length) {
@@ -299,7 +331,7 @@ class ChartArea extends React.Component {
 
   render() {
     const { chartWidth } = this.state;
-    const { padding } = this.props;
+    const { padding, themeColor } = this.props;
 
     const { isXAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
     const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks });
@@ -314,7 +346,7 @@ class ChartArea extends React.Component {
      */
     return (
       <div ref={this.containerRef}>
-        <Chart animate={{ duration: 0 }} width={chartWidth} {...chartProps}>
+        <Chart animate={{ duration: 0 }} width={chartWidth} themeColor={themeColor} {...chartProps}>
           <ChartAxis {...xAxisProps} animate={false} />
           <ChartAxis {...yAxisProps} animate={false} />
           {this.renderChart({})}
@@ -337,7 +369,10 @@ ChartArea.propTypes = {
         })
       ),
       animate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-      color: PropTypes.string,
+      fill: PropTypes.string,
+      stroke: PropTypes.string,
+      themeColor: PropTypes.string,
+      themeVariant: PropTypes.string,
       id: PropTypes.string,
       interpolation: PropTypes.string,
       legendLabel: PropTypes.string,
@@ -355,6 +390,7 @@ ChartArea.propTypes = {
     right: PropTypes.number,
     top: PropTypes.number
   }),
+  themeColor: PropTypes.oneOf(Object.values(ChartThemeColor)),
   tooltips: PropTypes.func,
   xAxisFixLabelOverlap: PropTypes.bool,
   xAxisLabelIncrement: PropTypes.number,
@@ -372,6 +408,7 @@ ChartArea.defaultProps = {
     right: 50,
     top: 50
   },
+  themeColor: 'blue',
   tooltips: null,
   xAxisFixLabelOverlap: false,
   xAxisLabelIncrement: 1,

@@ -2,8 +2,8 @@ import moment from 'moment';
 import {
   rhelGraphCardHelpers,
   getChartXAxisLabelIncrement,
-  getGraphLabels,
   getTooltipDate,
+  getTooltips,
   xAxisTickFormat,
   yAxisTickFormat
 } from '../rhelGraphCardHelpers';
@@ -24,15 +24,6 @@ describe('RhelGraphCardHelpers', () => {
     expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('x axis tick increment');
   });
 
-  it('getGraphLabels should return a label based on granularity', () => {
-    const daily = getGraphLabels({ granularity: GRANULARITY_TYPES.DAILY, tooltipLabel: 'ipsum tooltip label' });
-    const weekly = getGraphLabels({ granularity: GRANULARITY_TYPES.WEEKLY, tooltipLabel: 'ipsum tooltip label' });
-    const monthly = getGraphLabels({ granularity: GRANULARITY_TYPES.MONTHLY, tooltipLabel: 'ipsum tooltip label' });
-    const quarterly = getGraphLabels({ granularity: GRANULARITY_TYPES.QUARTERLY, tooltipLabel: 'ipsum tooltip label' });
-
-    expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('granularity based label');
-  });
-
   it('getTooltipDate should return a formatted date based on granularity', () => {
     const daily = getTooltipDate({ granularity: GRANULARITY_TYPES.DAILY, date: '2019-06-01T00:00:00Z' });
     const weekly = getTooltipDate({ granularity: GRANULARITY_TYPES.WEEKLY, date: '2019-06-01T00:00:00Z' });
@@ -40,6 +31,27 @@ describe('RhelGraphCardHelpers', () => {
     const quarterly = getTooltipDate({ granularity: GRANULARITY_TYPES.QUARTERLY, date: '2019-06-01T00:00:00Z' });
 
     expect({ daily, weekly, monthly, quarterly }).toMatchSnapshot('granularity based date');
+  });
+
+  it('getTooltips should return a formatted tooltip based on data and granularity', () => {
+    const itemsByKey = {};
+
+    const daily = () => getTooltips({ itemsByKey, granularity: GRANULARITY_TYPES.DAILY });
+    const weekly = () => getTooltips({ itemsByKey, granularity: GRANULARITY_TYPES.WEEKLY });
+    const monthly = () => getTooltips({ itemsByKey, granularity: GRANULARITY_TYPES.MONTHLY });
+    const quarterly = () => getTooltips({ itemsByKey, granularity: GRANULARITY_TYPES.QUARTERLY });
+
+    expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
+      'no data granularity data display'
+    );
+
+    itemsByKey.hypervisor = { x: 0, y: 50, date: '2019-06-01T00:00:00Z' };
+    itemsByKey.sockets = { x: 0, y: 50, date: '2019-06-01T00:00:00Z' };
+    itemsByKey.threshold = { x: 0, y: 100, date: '2019-06-01T00:00:00Z' };
+
+    expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
+      'granularity data display'
+    );
   });
 
   /**
@@ -106,9 +118,9 @@ describe('RhelGraphCardHelpers', () => {
       const thirteenMultiplier = 13 * multiplier;
       const fifteenMultiplier = 15 * multiplier;
 
-      ticks[multiplier] = yAxisTickFormat(multiplier);
-      ticks[thirteenMultiplier] = yAxisTickFormat(thirteenMultiplier);
-      ticks[fifteenMultiplier] = yAxisTickFormat(fifteenMultiplier);
+      ticks[multiplier] = yAxisTickFormat({ tick: multiplier });
+      ticks[thirteenMultiplier] = yAxisTickFormat({ tick: thirteenMultiplier });
+      ticks[fifteenMultiplier] = yAxisTickFormat({ tick: fifteenMultiplier });
     }
 
     expect(ticks).toMatchSnapshot('y axis tick values');
