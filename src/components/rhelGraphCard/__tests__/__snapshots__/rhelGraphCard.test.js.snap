@@ -57,196 +57,26 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                   "duration": 250,
                 },
               },
-              "data": Array [
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 0,
-                  "xAxisLabel": "Jun 20",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 1,
-                  "xAxisLabel": "Jun 21",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 2,
-                  "xAxisLabel": "Jun 22",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 3,
-                  "xAxisLabel": "Jun 23",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 4,
-                  "xAxisLabel": "Jun 24",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 5,
-                  "xAxisLabel": "Jun 25",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 6,
-                  "xAxisLabel": "Jun 26",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 7,
-                  "xAxisLabel": "Jun 27",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 8,
-                  "xAxisLabel": "Jun 28",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 9,
-                  "xAxisLabel": "Jun 29",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 10,
-                  "xAxisLabel": "Jun 30",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 11,
-                  "xAxisLabel": "Jul 1",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 12,
-                  "xAxisLabel": "Jul 2",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 13,
-                  "xAxisLabel": "Jul 3",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 14,
-                  "xAxisLabel": "Jul 4",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 15,
-                  "xAxisLabel": "Jul 5",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 16,
-                  "xAxisLabel": "Jul 6",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 17,
-                  "xAxisLabel": "Jul 7",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 18,
-                  "xAxisLabel": "Jul 8",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 19,
-                  "xAxisLabel": "Jul 9",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 20,
-                  "xAxisLabel": "Jul 10",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 21,
-                  "xAxisLabel": "Jul 11",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 22,
-                  "xAxisLabel": "Jul 12",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 23,
-                  "xAxisLabel": "Jul 13",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 24,
-                  "xAxisLabel": "Jul 14",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 25,
-                  "xAxisLabel": "Jul 15",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 26,
-                  "xAxisLabel": "Jul 16",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 27,
-                  "xAxisLabel": "Jul 17",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 28,
-                  "xAxisLabel": "Jul 18",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 29,
-                  "xAxisLabel": "Jul 19",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 30,
-                  "xAxisLabel": "Jul 20",
-                  "y": 0,
-                },
-              ],
+              "data": Array [],
+              "fill": "#8bc1f7",
+              "id": "sockets",
               "isStacked": true,
-              "legendLabel": "t('curiosity-graph.legendSocketsLabel')",
+              "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
+              "stroke": "#004b95",
+            },
+            Object {
+              "animate": Object {
+                "duration": 250,
+                "onLoad": Object {
+                  "duration": 250,
+                },
+              },
+              "data": Array [],
+              "fill": "#a2d9d9",
+              "id": "hypervisor",
+              "isStacked": true,
+              "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
+              "stroke": "#005f60",
             },
             Object {
               "animate": Object {
@@ -255,10 +85,11 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
                   "duration": 100,
                 },
               },
-              "color": "green",
               "data": Array [],
+              "id": "threshold",
               "isThreshold": true,
-              "legendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
+              "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
+              "themeColor": "green",
             },
           ]
         }
@@ -272,10 +103,11 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
             "top": 50,
           }
         }
-        tooltips={null}
+        themeColor="blue"
+        tooltips={[Function]}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
-        xAxisTickFormat={null}
+        xAxisTickFormat={[Function]}
         yAxisTickFormat={[Function]}
       />
     </div>
@@ -295,188 +127,40 @@ Object {
       },
       "data": Array [
         Object {
-          "tooltip": "10 t('curiosity-graph.tooltipSockets') June 1",
+          "date": 2019-06-01T00:00:00.000Z,
           "x": 0,
-          "xAxisLabel": "Jun 1",
           "y": 10,
         },
         Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
+          "date": 2019-06-08T00:00:00.000Z,
           "x": 1,
-          "xAxisLabel": "Jun 2",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 2,
-          "xAxisLabel": "Jun 3",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 3,
-          "xAxisLabel": "Jun 4",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 4,
-          "xAxisLabel": "Jun 5",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 5,
-          "xAxisLabel": "Jun 6",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 6,
-          "xAxisLabel": "Jun 7",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "12 t('curiosity-graph.tooltipSockets') June 8",
-          "x": 7,
-          "xAxisLabel": "Jun 8",
           "y": 12,
         },
         Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 8,
-          "xAxisLabel": "Jun 9",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 9,
-          "xAxisLabel": "Jun 10",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 10,
-          "xAxisLabel": "Jun 11",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 11,
-          "xAxisLabel": "Jun 12",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 12,
-          "xAxisLabel": "Jun 13",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 13,
-          "xAxisLabel": "Jun 14",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 14,
-          "xAxisLabel": "Jun 15",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 15,
-          "xAxisLabel": "Jun 16",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 16,
-          "xAxisLabel": "Jun 17",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 17,
-          "xAxisLabel": "Jun 18",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 18,
-          "xAxisLabel": "Jun 19",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 19,
-          "xAxisLabel": "Jun 20",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 20,
-          "xAxisLabel": "Jun 21",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 21,
-          "xAxisLabel": "Jun 22",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 22,
-          "xAxisLabel": "Jun 23",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 23,
-          "xAxisLabel": "Jun 24",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "3 t('curiosity-graph.tooltipSockets') June 25",
-          "x": 24,
-          "xAxisLabel": "Jun 25",
+          "date": 2019-06-25T00:00:00.000Z,
+          "x": 2,
           "y": 3,
         },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 25,
-          "xAxisLabel": "Jun 26",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 26,
-          "xAxisLabel": "Jun 27",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 27,
-          "xAxisLabel": "Jun 28",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 28,
-          "xAxisLabel": "Jun 29",
-          "y": 0,
-        },
-        Object {
-          "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-          "x": 29,
-          "xAxisLabel": "Jun 30",
-          "y": 0,
-        },
       ],
+      "fill": "#8bc1f7",
+      "id": "sockets",
       "isStacked": true,
-      "legendLabel": "t('curiosity-graph.legendSocketsLabel')",
+      "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
+      "stroke": "#004b95",
+    },
+    Object {
+      "animate": Object {
+        "duration": 250,
+        "onLoad": Object {
+          "duration": 250,
+        },
+      },
+      "data": undefined,
+      "fill": "#a2d9d9",
+      "id": "hypervisor",
+      "isStacked": true,
+      "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
+      "stroke": "#005f60",
     },
     Object {
       "animate": Object {
@@ -485,10 +169,11 @@ Object {
           "duration": 100,
         },
       },
-      "color": "green",
-      "data": Array [],
+      "data": undefined,
+      "id": "threshold",
       "isThreshold": true,
-      "legendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
+      "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
+      "themeColor": "green",
     },
   ],
 }
@@ -553,188 +238,40 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               },
               "data": Array [
                 Object {
-                  "tooltip": "10 t('curiosity-graph.tooltipSockets') June 1",
+                  "date": 2019-06-01T00:00:00.000Z,
                   "x": 0,
-                  "xAxisLabel": "Jun 1",
                   "y": 10,
                 },
                 Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
+                  "date": 2019-06-08T00:00:00.000Z,
                   "x": 1,
-                  "xAxisLabel": "Jun 2",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 2,
-                  "xAxisLabel": "Jun 3",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 3,
-                  "xAxisLabel": "Jun 4",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 4,
-                  "xAxisLabel": "Jun 5",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 5,
-                  "xAxisLabel": "Jun 6",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 6,
-                  "xAxisLabel": "Jun 7",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "12 t('curiosity-graph.tooltipSockets') June 8",
-                  "x": 7,
-                  "xAxisLabel": "Jun 8",
                   "y": 12,
                 },
                 Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 8,
-                  "xAxisLabel": "Jun 9",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 9,
-                  "xAxisLabel": "Jun 10",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 10,
-                  "xAxisLabel": "Jun 11",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 11,
-                  "xAxisLabel": "Jun 12",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 12,
-                  "xAxisLabel": "Jun 13",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 13,
-                  "xAxisLabel": "Jun 14",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 14,
-                  "xAxisLabel": "Jun 15",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 15,
-                  "xAxisLabel": "Jun 16",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 16,
-                  "xAxisLabel": "Jun 17",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 17,
-                  "xAxisLabel": "Jun 18",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 18,
-                  "xAxisLabel": "Jun 19",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 19,
-                  "xAxisLabel": "Jun 20",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 20,
-                  "xAxisLabel": "Jun 21",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 21,
-                  "xAxisLabel": "Jun 22",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 22,
-                  "xAxisLabel": "Jun 23",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 23,
-                  "xAxisLabel": "Jun 24",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "3 t('curiosity-graph.tooltipSockets') June 25",
-                  "x": 24,
-                  "xAxisLabel": "Jun 25",
+                  "date": 2019-06-25T00:00:00.000Z,
+                  "x": 2,
                   "y": 3,
                 },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 25,
-                  "xAxisLabel": "Jun 26",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 26,
-                  "xAxisLabel": "Jun 27",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 27,
-                  "xAxisLabel": "Jun 28",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 28,
-                  "xAxisLabel": "Jun 29",
-                  "y": 0,
-                },
-                Object {
-                  "tooltip": "t('curiosity-graph.tooltipSocketsNoData')",
-                  "x": 29,
-                  "xAxisLabel": "Jun 30",
-                  "y": 0,
-                },
               ],
+              "fill": "#8bc1f7",
+              "id": "sockets",
               "isStacked": true,
-              "legendLabel": "t('curiosity-graph.legendSocketsLabel')",
+              "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
+              "stroke": "#004b95",
+            },
+            Object {
+              "animate": Object {
+                "duration": 250,
+                "onLoad": Object {
+                  "duration": 250,
+                },
+              },
+              "data": undefined,
+              "fill": "#a2d9d9",
+              "id": "hypervisor",
+              "isStacked": true,
+              "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
+              "stroke": "#005f60",
             },
             Object {
               "animate": Object {
@@ -743,10 +280,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
                   "duration": 100,
                 },
               },
-              "color": "green",
-              "data": Array [],
+              "data": undefined,
+              "id": "threshold",
               "isThreshold": true,
-              "legendLabel": "t('curiosity-graph.legendSocketsThresholdLabel')",
+              "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
+              "themeColor": "green",
             },
           ]
         }
@@ -760,10 +298,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
             "top": 50,
           }
         }
-        tooltips={null}
+        themeColor="blue"
+        tooltips={[Function]}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
-        xAxisTickFormat={null}
+        xAxisTickFormat={[Function]}
         yAxisTickFormat={[Function]}
       />
     </div>
