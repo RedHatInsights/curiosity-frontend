@@ -44,6 +44,10 @@ const rhelGraphCardSelector = createSelector(
       const productsData = _get(report, ['data', rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
       const thresholdData = _get(capacity, ['data', rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
+      updatedData.graphData.sockets.length = 0;
+      updatedData.graphData.hypervisor.length = 0;
+      updatedData.graphData.threshold.length = 0;
+
       productsData.forEach((value, index) => {
         const date = moment
           .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
