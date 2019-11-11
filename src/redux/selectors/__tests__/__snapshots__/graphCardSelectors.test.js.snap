@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphCardSelectors Should error on a RHEL product ID without granularity provided: rhelGraphCard: no granularity error 1`] = `
+exports[`GraphCardSelectors should error on a RHEL product ID without granularity provided: rhelGraphCard: no granularity error 1`] = `
 Object {
   "error": true,
   "fulfilled": false,
@@ -14,7 +14,21 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors Should handle pending state on a RHEL product ID: rhelGraphCard: pending 1`] = `
+exports[`GraphCardSelectors should error on missing a reducer response: rhelGraphCard: missing reducer error 1`] = `
+Object {
+  "error": true,
+  "fulfilled": false,
+  "graphData": Object {
+    "hypervisor": Array [],
+    "sockets": Array [],
+    "threshold": Array [],
+  },
+  "initialLoad": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should handle pending state on a RHEL product ID: rhelGraphCard: pending 1`] = `
 Object {
   "error": false,
   "fulfilled": false,
@@ -28,8 +42,9 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors Should map a fulfilled RHEL product ID response to an aggregated output: rhelGraphCard: fulfilled granularity 1`] = `
+exports[`GraphCardSelectors should map a fulfilled RHEL product ID response to an aggregated output: rhelGraphCard: fulfilled granularity 1`] = `
 Object {
+  "endDate": 2019-07-20T00:00:00.000Z,
   "error": false,
   "fulfilled": true,
   "graphData": Object {
@@ -85,22 +100,91 @@ Object {
       },
     ],
   },
+  "graphGranularity": "daily",
   "initialLoad": false,
   "pending": false,
+  "startDate": 2019-06-20T00:00:00.000Z,
 }
 `;
 
-exports[`GraphCardSelectors Should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch fulfilled 1`] = `
+exports[`GraphCardSelectors should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch fulfilled 1`] = `
 Object {
-  "error": false,
-  "fulfilled": true,
+  "error": true,
+  "fulfilled": false,
   "graphData": Object {
     "hypervisor": Array [],
     "sockets": Array [],
     "threshold": Array [],
   },
+  "initialLoad": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch on component 1`] = `
+Object {
+  "error": false,
+  "fulfilled": true,
+  "graphData": Object {
+    "hypervisor": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 100,
+      },
+    ],
+  },
   "initialLoad": false,
   "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should populate data on a RHEL product ID when api response provided mismatches index or date: rhelGraphCard: data populated on mismatch fulfilled 1`] = `
+Object {
+  "endDate": 2019-07-20T00:00:00.000Z,
+  "error": false,
+  "fulfilled": true,
+  "graphData": Object {
+    "hypervisor": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+  },
+  "graphGranularity": "daily",
+  "initialLoad": false,
+  "pending": false,
+  "startDate": 2019-06-20T00:00:00.000Z,
 }
 `;
 

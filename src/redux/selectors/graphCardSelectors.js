@@ -10,10 +10,20 @@ const rhelGraph = state => state.rhelGraph;
 const rhelGraphCardSelector = createSelector(
   [rhelGraph],
   rhelGraphReducer => {
-    const { capacity = {}, report = {} } = rhelGraphReducer || {};
-    const reportGranularity = _get(report, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY]);
-    const capacityGranularity = _get(capacity, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY]);
-    const granularity = reportGranularity || capacityGranularity || null;
+    const { component = {}, capacity = {}, report = {} } = rhelGraphReducer || {};
+
+    const graphGranularity = component.graphGranularity || null;
+    const reportGranularity = _get(report, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY], null);
+    const capacityGranularity = _get(capacity, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY], null);
+    let granularity = null;
+
+    if (
+      (graphGranularity && graphGranularity === reportGranularity && graphGranularity === capacityGranularity) ||
+      (!graphGranularity && reportGranularity === capacityGranularity)
+    ) {
+      granularity = reportGranularity;
+    }
+
     const cachedGranularity = (granularity && rhelGraphCardCache[granularity]) || {};
     const initialLoad = typeof cachedGranularity.initialLoad === 'boolean' ? cachedGranularity.initialLoad : true;
 
@@ -27,7 +37,8 @@ const rhelGraphCardSelector = createSelector(
         hypervisor: [],
         threshold: []
       },
-      ...cachedGranularity
+      ...cachedGranularity,
+      ...component
     };
 
     if (granularity === null) {
@@ -93,10 +104,7 @@ const rhelGraphCardSelector = createSelector(
 
       updatedData.initialLoad = false;
       updatedData.fulfilled = true;
-
-      if (reportGranularity === capacityGranularity) {
-        rhelGraphCardCache[granularity] = { ...updatedData };
-      }
+      rhelGraphCardCache[granularity] = { ...updatedData };
     }
 
     return updatedData;

@@ -217,7 +217,6 @@ const makeMapStateToProps = () => {
   const getRhelGraphCard = reduxSelectors.graphCard.makeRhelGraphCard();
 
   return (state, props) => ({
-    ...state.rhelGraph.component,
     ...getRhelGraphCard(state, props)
   });
 };
