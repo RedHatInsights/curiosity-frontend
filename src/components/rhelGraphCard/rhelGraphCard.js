@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
-import { ChartThemeColor } from '@patternfly/react-charts';
 import {
+  chart_color_green_400 as chartColorGreen400,
   chart_color_blue_100 as chartColorBlue100,
   chart_color_blue_400 as chartColorBlue400,
   chart_color_cyan_100 as chartColorCyan100,
@@ -114,7 +114,7 @@ class RhelGraphCard extends React.Component {
               duration: 100,
               onLoad: { duration: 100 }
             },
-            themeColor: ChartThemeColor.green,
+            stroke: chartColorGreen400.value,
             legendLabel: t('curiosity-graph.rhelLegendThresholdLabel'),
             isThreshold: true
           }
