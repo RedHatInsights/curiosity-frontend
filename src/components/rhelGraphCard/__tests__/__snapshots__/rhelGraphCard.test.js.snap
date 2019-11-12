@@ -89,7 +89,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "id": "threshold",
               "isThreshold": true,
               "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
-              "themeColor": "green",
+              "stroke": "#38812f",
             },
           ]
         }
@@ -173,7 +173,7 @@ Object {
       "id": "threshold",
       "isThreshold": true,
       "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
-      "themeColor": "green",
+      "stroke": "#38812f",
     },
   ],
 }
@@ -284,7 +284,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "id": "threshold",
               "isThreshold": true,
               "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
-              "themeColor": "green",
+              "stroke": "#38812f",
             },
           ]
         }

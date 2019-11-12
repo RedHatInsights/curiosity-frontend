@@ -351,6 +351,8 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
       v-9.744
       h-9.744
       z"
+          role="presentation"
+          shape-rendering="auto"
           style="type:square;fill:#06c"
         />
         <path
@@ -364,13 +366,15 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
       v-4.312
       h-6.159999999999997
       z"
+          role="presentation"
+          shape-rendering="auto"
           style="type:threshold;fill:#8bc1f7"
         />
         <text
           direction="inherit"
           dx="0"
           dy="4.97"
-          id="legend-labels-0"
+          id="chart-legend-3-labels-0"
           x="70.8"
           y="291"
         >
@@ -387,7 +391,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
           direction="inherit"
           dx="0"
           dy="4.97"
-          id="legend-labels-1"
+          id="chart-legend-3-labels-1"
           x="255.7287197231834"
           y="291"
         >
@@ -767,6 +771,8 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       v-9.744
       h-9.744
       z"
+          role="presentation"
+          shape-rendering="auto"
           style="type:square;fill:#06c"
         />
         <path
@@ -780,13 +786,15 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       v-4.312
       h-6.159999999999997
       z"
+          role="presentation"
+          shape-rendering="auto"
           style="type:threshold;fill:#8bc1f7"
         />
         <text
           direction="inherit"
           dx="0"
           dy="4.97"
-          id="legend-labels-0"
+          id="chart-legend-3-labels-0"
           x="70.8"
           y="291"
         >
@@ -803,7 +811,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
           direction="inherit"
           dx="0"
           dy="4.97"
-          id="legend-labels-1"
+          id="chart-legend-3-labels-1"
           x="255.7287197231834"
           y="291"
         >
