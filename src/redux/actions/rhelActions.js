@@ -1,11 +1,12 @@
 import { rhelTypes } from '../types';
 import rhelServices from '../../services/rhelServices';
 
-const getGraphReportsRhel = (query = {}) => dispatch =>
+const getGraphReportsRhel = (id = null, query = {}) => dispatch =>
   dispatch({
     type: rhelTypes.GET_GRAPH_REPORT_RHEL,
-    payload: rhelServices.getGraphReportsRhel(query),
+    payload: rhelServices.getGraphReportsRhel(id, query),
     meta: {
+      productId: id,
       query,
       notifications: {
         rejected: {
@@ -17,11 +18,12 @@ const getGraphReportsRhel = (query = {}) => dispatch =>
     }
   });
 
-const getGraphCapacityRhel = (query = {}) => dispatch =>
+const getGraphCapacityRhel = (id = null, query = {}) => dispatch =>
   dispatch({
     type: rhelTypes.GET_GRAPH_CAPACITY_RHEL,
-    payload: rhelServices.getGraphCapacityRhel(query),
+    payload: rhelServices.getGraphCapacityRhel(id, query),
     meta: {
+      productId: id,
       query,
       notifications: {
         rejected: {

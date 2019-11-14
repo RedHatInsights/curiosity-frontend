@@ -378,10 +378,10 @@ import serviceConfig from './config';
  *        ]
  *     }
  */
-const getGraphReportsRhel = (params = {}) =>
+const getGraphReportsRhel = (id, params = {}) =>
   axios(
     serviceConfig({
-      url: process.env.REACT_APP_SERVICES_RHSM_REPORT_RHEL,
+      url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
       params
     })
   );
@@ -541,10 +541,10 @@ const getGraphReportsRhel = (params = {}) =>
  *        ]
  *     }
  */
-const getGraphCapacityRhel = (params = {}) =>
+const getGraphCapacityRhel = (id, params = {}) =>
   axios(
     serviceConfig({
-      url: process.env.REACT_APP_SERVICES_RHSM_CAPACITY_RHEL,
+      url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
       params
     })
   );

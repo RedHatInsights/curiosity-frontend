@@ -2,6 +2,17 @@
 
 exports[`RhelApiTypes Should have specific API properties: all exported api types 1`] = `
 Object {
+  "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+    "ARM": "RHEL for ARM",
+    "COMPUTE_NODE": "RHEL Compute Node",
+    "DESKTOP": "RHEL Desktop",
+    "IBM_POWER": "RHEL for IBM Power",
+    "IBM_Z": "RHEL for IBM z",
+    "RHEL": "RHEL",
+    "SERVER": "RHEL Server",
+    "WORKSTATION": "RHEL Workstation",
+    "X86": "RHEL for x86",
+  },
   "RHSM_API_QUERY_END_DATE": "ending",
   "RHSM_API_QUERY_GRANULARITY": "granularity",
   "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -38,6 +49,17 @@ Object {
     "COUNT": "count",
   },
   "default": Object {
+    "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+      "ARM": "RHEL for ARM",
+      "COMPUTE_NODE": "RHEL Compute Node",
+      "DESKTOP": "RHEL Desktop",
+      "IBM_POWER": "RHEL for IBM Power",
+      "IBM_Z": "RHEL for IBM z",
+      "RHEL": "RHEL",
+      "SERVER": "RHEL Server",
+      "WORKSTATION": "RHEL Workstation",
+      "X86": "RHEL for x86",
+    },
     "RHSM_API_QUERY_END_DATE": "ending",
     "RHSM_API_QUERY_GRANULARITY": "granularity",
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -75,6 +97,17 @@ Object {
     },
   },
   "rhelApiTypes": Object {
+    "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+      "ARM": "RHEL for ARM",
+      "COMPUTE_NODE": "RHEL Compute Node",
+      "DESKTOP": "RHEL Desktop",
+      "IBM_POWER": "RHEL for IBM Power",
+      "IBM_Z": "RHEL for IBM z",
+      "RHEL": "RHEL",
+      "SERVER": "RHEL Server",
+      "WORKSTATION": "RHEL Workstation",
+      "X86": "RHEL for x86",
+    },
     "RHSM_API_QUERY_END_DATE": "ending",
     "RHSM_API_QUERY_GRANULARITY": "granularity",
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -116,6 +149,17 @@ Object {
 
 exports[`RhelApiTypes Should have specific API properties: specific types 1`] = `
 Object {
+  "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+    "ARM": "RHEL for ARM",
+    "COMPUTE_NODE": "RHEL Compute Node",
+    "DESKTOP": "RHEL Desktop",
+    "IBM_POWER": "RHEL for IBM Power",
+    "IBM_Z": "RHEL for IBM z",
+    "RHEL": "RHEL",
+    "SERVER": "RHEL Server",
+    "WORKSTATION": "RHEL Workstation",
+    "X86": "RHEL for x86",
+  },
   "RHSM_API_QUERY_END_DATE": "ending",
   "RHSM_API_QUERY_GRANULARITY": "granularity",
   "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
