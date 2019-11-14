@@ -31,15 +31,17 @@ class RhelGraphCard extends React.Component {
   }
 
   onUpdateGraphData = () => {
-    const { getGraphCapacityRhel, getGraphReportsRhel, graphGranularity, startDate, endDate } = this.props;
-    const submit = {
+    const { getGraphCapacityRhel, getGraphReportsRhel, graphGranularity, startDate, endDate, productId } = this.props;
+    const query = {
       [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
       [rhelApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
       [rhelApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
     };
 
-    getGraphCapacityRhel(submit);
-    getGraphReportsRhel(submit);
+    if (productId) {
+      getGraphCapacityRhel(productId, query);
+      getGraphReportsRhel(productId, query);
+    }
   };
 
   onSelect = event => {
@@ -193,6 +195,7 @@ RhelGraphCard.propTypes = {
     GRANULARITY_TYPES.QUARTERLY
   ]),
   pending: PropTypes.bool,
+  productId: PropTypes.string,
   t: PropTypes.func,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date)
@@ -208,6 +211,7 @@ RhelGraphCard.defaultProps = {
   },
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
+  productId: rhelApiTypes.RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
   t: helpers.noopTranslate,
   startDate: dateHelpers.defaultDateTime.startDate,
   endDate: dateHelpers.defaultDateTime.endDate
@@ -222,8 +226,8 @@ const makeMapStateToProps = () => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getGraphCapacityRhel: query => dispatch(reduxActions.rhel.getGraphCapacityRhel(query)),
-  getGraphReportsRhel: query => dispatch(reduxActions.rhel.getGraphReportsRhel(query))
+  getGraphCapacityRhel: (id, query) => dispatch(reduxActions.rhel.getGraphCapacityRhel(id, query)),
+  getGraphReportsRhel: (id, query) => dispatch(reduxActions.rhel.getGraphReportsRhel(id, query))
 });
 
 const ConnectedRhelGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(RhelGraphCard);
