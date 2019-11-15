@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.4...v0.1.5) (2019-11-15)
+
+
+### Bug Fixes
+
+* **chartArea:** custom tooltips, remove unused properties ([#124](https://github.com/RedHatInsights/curiosity-frontend/issues/124)) ([53eb21f](https://github.com/RedHatInsights/curiosity-frontend/commit/53eb21f))
+* **chartArea:** issues/79 streamline multiple data facets ([#122](https://github.com/RedHatInsights/curiosity-frontend/issues/122)) ([2fbc4e0](https://github.com/RedHatInsights/curiosity-frontend/commit/2fbc4e0))
+* **graphCardSelectors:** confirm granularity loaded correctly ([#127](https://github.com/RedHatInsights/curiosity-frontend/issues/127)) ([a709f34](https://github.com/RedHatInsights/curiosity-frontend/commit/a709f34))
+* **graphCardSelectors:** handle malformed api response ([cb1ab49](https://github.com/RedHatInsights/curiosity-frontend/commit/cb1ab49))
+* **graphCardSelectors:** reset data facets to avoid duplication ([acf1763](https://github.com/RedHatInsights/curiosity-frontend/commit/acf1763))
+* **graphHelpers,rhelGraphCardHelpers:** restructured helpers ([#125](https://github.com/RedHatInsights/curiosity-frontend/issues/125)) ([3d853d9](https://github.com/RedHatInsights/curiosity-frontend/commit/3d853d9))
+* **pfReactCharts,build:** npm and related fixes ([#128](https://github.com/RedHatInsights/curiosity-frontend/issues/128)) ([5380567](https://github.com/RedHatInsights/curiosity-frontend/commit/5380567))
+* **rhelApiTypes:** optimized import for granularity types ([e0f9128](https://github.com/RedHatInsights/curiosity-frontend/commit/e0f9128))
+
+
+### Features
+
+* **graphCardSelectors:** issues/79 hypervisor breakout ([#123](https://github.com/RedHatInsights/curiosity-frontend/issues/123)) ([1db2bbf](https://github.com/RedHatInsights/curiosity-frontend/commit/1db2bbf))
+* **rhelGraphCard:** issues/79 activate hypervisor display ([#119](https://github.com/RedHatInsights/curiosity-frontend/issues/119)) ([83276b3](https://github.com/RedHatInsights/curiosity-frontend/commit/83276b3))
+* **rhelServices,rhelApiTypes:** issues/77 allow passed id ([035e9e6](https://github.com/RedHatInsights/curiosity-frontend/commit/035e9e6))
+* **rhelServices,rhelGraphCard:** issues/79 hypervisor api ([#121](https://github.com/RedHatInsights/curiosity-frontend/issues/121)) ([479f05d](https://github.com/RedHatInsights/curiosity-frontend/commit/479f05d))
+* **rhelView,authentication:** issues/77 pass path parameter ([2fb501f](https://github.com/RedHatInsights/curiosity-frontend/commit/2fb501f))
+* **router,routerTypes:** issues/77 navigation types ([14680bb](https://github.com/RedHatInsights/curiosity-frontend/commit/14680bb))
+
 ### [0.1.4](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.2...v0.1.4) (2019-10-21)
 
 
