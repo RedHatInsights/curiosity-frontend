@@ -11,6 +11,7 @@ exports[`Platform Configuration should have a proxy configuration with path refe
 Array [
   "'/beta/apps/subscriptions': {",
   "'/beta/staging/subscriptions': {",
+  "'/beta/subscriptions': {",
   "",
 ]
 `;
