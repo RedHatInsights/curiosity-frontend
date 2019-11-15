@@ -1,18 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Router Component should render a basic component: basic 1`] = `
+exports[`Router Component should handle unique route settings: settings 1`] = `
 <div
   className="curiosity-content"
 >
   <Switch>
     <Route
       component={[Function]}
+      exact={false}
+      key="/lorem"
+      path="/lorem"
+    />
+  </Switch>
+</div>
+`;
+
+exports[`Router Component should render a basic component: basic 1`] = `
+<div
+  className="curiosity-content"
+>
+  <Switch>
+    <Route
       exact={true}
-      key="/rhel"
-      path="/rhel"
+      key="/rhel/:variant?"
+      path="/rhel/:variant?"
+      render={[Function]}
     />
     <Redirect
-      to="/rhel"
+      to="/rhel/:variant?"
     />
   </Switch>
 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { baseName, routes } from './routerTypes';
+import { baseName, getRouteDetail, navigation, routes } from './routerTypes';
 
 class Router extends React.Component {
   renderRoutes() {
@@ -17,6 +17,29 @@ class Router extends React.Component {
 
         if (item.redirect === true) {
           redirectRoot = <Redirect to={item.to} />;
+        }
+
+        if (item.render === true) {
+          return (
+            <Route
+              exact={item.hasParameters || item.exact}
+              key={item.to}
+              path={item.to}
+              render={routeProps => {
+                const routeDetail = getRouteDetail(routeProps.match.params);
+                return (
+                  <item.component
+                    routeDetail={{
+                      baseName,
+                      navigation,
+                      ...routeDetail
+                    }}
+                    {...routeProps}
+                  />
+                );
+              }}
+            />
+          );
         }
 
         return (
@@ -49,4 +72,4 @@ Router.defaultProps = {
   routesType: routes
 };
 
-export { Router as default, Router, baseName, routes };
+export { Router as default, Router, baseName, navigation, routes };

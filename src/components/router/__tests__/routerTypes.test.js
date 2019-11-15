@@ -1,9 +1,11 @@
-import { baseName, dynamicBaseName, routes } from '../routerTypes';
+import { baseName, dynamicBaseName, getRouteDetail, navigation, routes } from '../routerTypes';
 
 describe('RouterTypes', () => {
   it('should return specific properties', () => {
     expect(baseName).toBeDefined();
     expect(dynamicBaseName).toBeDefined();
+    expect(getRouteDetail).toBeDefined();
+    expect(navigation).toMatchSnapshot('navigation');
     expect(routes).toMatchSnapshot('routes');
   });
 
@@ -35,5 +37,11 @@ describe('RouterTypes', () => {
         pathPrefix: '/beta'
       })
     ).toMatchSnapshot('beta app lorem base name');
+  });
+
+  it('should return route details that match navigation', () => {
+    expect(getRouteDetail({ test: 'computenode' })).toMatchSnapshot('route detail: computenode');
+    expect(getRouteDetail({})).toMatchSnapshot('route detail: default');
+    expect(getRouteDetail(null)).toMatchSnapshot('route detail: null or undefined');
   });
 });
