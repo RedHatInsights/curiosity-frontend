@@ -153,7 +153,72 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should populate data on a RHEL product ID when api response provided mismatches index or date: rhelGraphCard: data populated on mismatch fulfilled 1`] = `
+exports[`GraphCardSelectors should populate data on a RHEL product ID when the api response is missing expected properties: rhelGraphCard: data populated, missing properties 1`] = `
+Object {
+  "endDate": 2019-07-20T00:00:00.000Z,
+  "error": false,
+  "fulfilled": true,
+  "graphData": Object {
+    "hypervisor": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 1,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 2,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 100,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 100,
+      },
+    ],
+  },
+  "graphGranularity": "daily",
+  "initialLoad": false,
+  "pending": false,
+  "startDate": 2019-06-20T00:00:00.000Z,
+}
+`;
+
+exports[`GraphCardSelectors should populate data on a RHEL product ID when the api response provided mismatches index or date: rhelGraphCard: data populated on mismatch fulfilled 1`] = `
 Object {
   "endDate": 2019-07-20T00:00:00.000Z,
   "error": false,

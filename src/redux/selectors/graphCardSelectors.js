@@ -81,13 +81,13 @@ const rhelGraphCardSelector = createSelector(
         updatedData.graphData.sockets.push({
           date,
           x: index,
-          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10)
+          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10) || 0
         });
 
         updatedData.graphData.hypervisor.push({
           date,
           x: index,
-          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10)
+          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
         });
 
         updatedData.graphData.threshold.push({
