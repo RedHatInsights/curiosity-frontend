@@ -14,6 +14,9 @@ module.exports = {
     '/beta/staging/subscriptions': {
       host: `http://${localhost}:5001`
     },
+    '/beta/subscriptions': {
+      host: `http://${localhost}:5001`
+    },
     '/api/rhsm-subscriptions': {
       host: 'https://ci.cloud.redhat.com'
     }
