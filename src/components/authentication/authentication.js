@@ -5,7 +5,7 @@ import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant } from '@
 import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connectRouter, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
-import { routes as appRoutes } from '../router/router';
+import { navigation as appNavigation } from '../router/router';
 import PageLayout from '../pageLayout/pageLayout';
 
 class Authentication extends Component {
@@ -14,7 +14,7 @@ class Authentication extends Component {
   buildNav = helpers.noop;
 
   componentDidMount() {
-    const { appName, authorizeUser, history, insights, routes, session } = this.props;
+    const { appName, authorizeUser, history, insights, session } = this.props;
 
     try {
       if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
@@ -23,7 +23,7 @@ class Authentication extends Component {
 
       if (helpers.PROD_MODE) {
         insights.chrome.identifyApp(appName);
-        insights.chrome.navigation(routes);
+        insights.chrome.navigation(this.buildNavigation());
 
         this.appNav = insights.chrome.on('APP_NAVIGATION', event => history.push(`/${event.navId}`));
         this.buildNav = history.listen(() => insights.chrome.navigation(this.buildNavigation()));
@@ -45,10 +45,10 @@ class Authentication extends Component {
   }
 
   buildNavigation = () => {
-    const { routes } = this.props;
+    const { navigation } = this.props;
     const currentPath = window.location.pathname.split('/').slice(-1)[0];
 
-    return routes.map(item => ({
+    return navigation.map(item => ({
       ...item,
       active: item.id === currentPath
     }));
@@ -105,7 +105,7 @@ Authentication.propTypes = {
       on: PropTypes.func
     })
   }),
-  routes: PropTypes.arrayOf(
+  navigation: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string
     })
@@ -122,7 +122,7 @@ Authentication.defaultProps = {
   appName: helpers.UI_NAME,
   authorizeUser: helpers.noop,
   insights: window.insights,
-  routes: appRoutes,
+  navigation: appNavigation,
   session: {
     authorized: false,
     error: false,

@@ -8,7 +8,9 @@ exports[`RhelView Component should render a non-connected component: non-connect
     />
   </PageHeader>
   <PageSection>
-    <Connect(RhelGraphCard) />
+    <Connect(RhelGraphCard)
+      productId="lorem ipsum"
+    />
   </PageSection>
 </Fragment>
 `;
