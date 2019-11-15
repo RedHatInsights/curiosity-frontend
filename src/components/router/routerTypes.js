@@ -1,5 +1,6 @@
 import { helpers } from '../../common/helpers';
 import RhelView from '../rhelView/rhelView';
+import { RHSM_API_PATH_RHEL_ID_TYPES } from '../../types/rhelApiTypes';
 
 /**
  * Return an assumed dynamic route baseName directory
@@ -33,12 +34,77 @@ const routes = [
   {
     title: 'Red Hat Enterprise Linux',
     id: 'rhel',
-    to: '/rhel',
+    to: '/rhel/:variant?',
     redirect: true,
     component: RhelView,
     exact: true,
+    render: true,
     disabled: helpers.UI_DISABLED
   }
 ];
 
-export { routes as default, baseName, dynamicBaseName, routes };
+const navigation = [
+  {
+    title: 'Red Hat Enterprise Linux',
+    id: 'all',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
+    default: true
+  },
+  {
+    title: 'Compute Node',
+    id: 'computenode',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.COMPUTE_NODE
+  },
+  {
+    title: 'Desktop',
+    id: 'desktop',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.DESKTOP
+  },
+  {
+    title: 'Server',
+    id: 'server',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.SERVER
+  },
+  {
+    title: 'Workstation',
+    id: 'workstation',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.WORKSTATION
+  },
+  {
+    title: 'ARM',
+    id: 'arm',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.ARM
+  },
+  {
+    title: 'IBM Power',
+    id: 'ibmpower',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.IBM_POWER
+  },
+  {
+    title: 'IBM System Z',
+    id: 'ibmsystemz',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.IBM_Z
+  },
+  {
+    title: 'x86',
+    id: 'x86',
+    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.X86
+  }
+];
+
+const getRouteDetail = (params = {}) => {
+  let navigationItem = {};
+
+  if (params) {
+    Object.values(params).forEach(value => {
+      navigationItem = navigation.find(item => item.id === value) || navigationItem;
+    });
+  }
+
+  navigationItem =
+    (Object.keys(navigationItem || {}).length && navigationItem) || navigation.find(item => item.default === true);
+
+  return navigationItem;
+};
+
+export { routes as default, baseName, dynamicBaseName, getRouteDetail, navigation, routes };
