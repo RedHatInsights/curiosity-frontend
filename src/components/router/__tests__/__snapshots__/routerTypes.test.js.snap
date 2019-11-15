@@ -8,6 +8,83 @@ exports[`RouterTypes should return a generated baseName: beta app base name 1`] 
 
 exports[`RouterTypes should return a generated baseName: beta app lorem base name 1`] = `"/beta/apps/lorem"`;
 
+exports[`RouterTypes should return route details that match navigation: route detail: computenode 1`] = `
+Object {
+  "id": "computenode",
+  "pathParameter": "RHEL Compute Node",
+  "title": "Compute Node",
+}
+`;
+
+exports[`RouterTypes should return route details that match navigation: route detail: default 1`] = `
+Object {
+  "default": true,
+  "id": "all",
+  "pathParameter": "RHEL",
+  "title": "Red Hat Enterprise Linux",
+}
+`;
+
+exports[`RouterTypes should return route details that match navigation: route detail: null or undefined 1`] = `
+Object {
+  "default": true,
+  "id": "all",
+  "pathParameter": "RHEL",
+  "title": "Red Hat Enterprise Linux",
+}
+`;
+
+exports[`RouterTypes should return specific properties: navigation 1`] = `
+Array [
+  Object {
+    "default": true,
+    "id": "all",
+    "pathParameter": "RHEL",
+    "title": "Red Hat Enterprise Linux",
+  },
+  Object {
+    "id": "computenode",
+    "pathParameter": "RHEL Compute Node",
+    "title": "Compute Node",
+  },
+  Object {
+    "id": "desktop",
+    "pathParameter": "RHEL Desktop",
+    "title": "Desktop",
+  },
+  Object {
+    "id": "server",
+    "pathParameter": "RHEL Server",
+    "title": "Server",
+  },
+  Object {
+    "id": "workstation",
+    "pathParameter": "RHEL Workstation",
+    "title": "Workstation",
+  },
+  Object {
+    "id": "arm",
+    "pathParameter": "RHEL for ARM",
+    "title": "ARM",
+  },
+  Object {
+    "id": "ibmpower",
+    "pathParameter": "RHEL for IBM Power",
+    "title": "IBM Power",
+  },
+  Object {
+    "id": "ibmsystemz",
+    "pathParameter": "RHEL for IBM z",
+    "title": "IBM System Z",
+  },
+  Object {
+    "id": "x86",
+    "pathParameter": "RHEL for x86",
+    "title": "x86",
+  },
+]
+`;
+
 exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
   Object {
@@ -16,8 +93,9 @@ Array [
     "exact": true,
     "id": "rhel",
     "redirect": true,
+    "render": true,
     "title": "Red Hat Enterprise Linux",
-    "to": "/rhel",
+    "to": "/rhel/:variant?",
   },
 ]
 `;

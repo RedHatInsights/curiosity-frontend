@@ -24,8 +24,9 @@ exports[`Authorization Component should render a non-connected component authori
         "exact": true,
         "id": "rhel",
         "redirect": true,
+        "render": true,
         "title": "Red Hat Enterprise Linux",
-        "to": "/rhel",
+        "to": "/rhel/:variant?",
       },
     ]
   }
@@ -64,8 +65,9 @@ exports[`Authorization Component should render a non-connected component error: 
         "exact": true,
         "id": "rhel",
         "redirect": true,
+        "render": true,
         "title": "Red Hat Enterprise Linux",
-        "to": "/rhel",
+        "to": "/rhel/:variant?",
       },
     ]
   }
