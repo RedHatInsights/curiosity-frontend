@@ -73,9 +73,9 @@ Array [
     "title": "IBM Power",
   },
   Object {
-    "id": "ibmsystemz",
+    "id": "ibmz",
     "pathParameter": "RHEL for IBM z",
-    "title": "IBM System Z",
+    "title": "IBM Z systems",
   },
   Object {
     "id": "x86",
