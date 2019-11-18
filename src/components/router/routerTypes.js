@@ -81,8 +81,8 @@ const navigation = [
     pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.IBM_POWER
   },
   {
-    title: 'IBM System Z',
-    id: 'ibmsystemz',
+    title: 'IBM Z systems',
+    id: 'ibmz',
     pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.IBM_Z
   },
   {

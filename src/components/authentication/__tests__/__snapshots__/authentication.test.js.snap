@@ -55,9 +55,9 @@ exports[`Authorization Component should render a non-connected component authori
         "title": "IBM Power",
       },
       Object {
-        "id": "ibmsystemz",
+        "id": "ibmz",
         "pathParameter": "RHEL for IBM z",
-        "title": "IBM System Z",
+        "title": "IBM Z systems",
       },
       Object {
         "id": "x86",
@@ -132,9 +132,9 @@ exports[`Authorization Component should render a non-connected component error: 
         "title": "IBM Power",
       },
       Object {
-        "id": "ibmsystemz",
+        "id": "ibmz",
         "pathParameter": "RHEL for IBM z",
-        "title": "IBM System Z",
+        "title": "IBM Z systems",
       },
       Object {
         "id": "x86",
