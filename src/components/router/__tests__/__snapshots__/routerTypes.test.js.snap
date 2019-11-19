@@ -1,18 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterTypes should return a generated baseName: app base lorem base name 1`] = `"/apps/lorem"`;
+exports[`RouterTypes should return a generated baseName: app base lorem base name 1`] = `"/beta/appName"`;
 
-exports[`RouterTypes should return a generated baseName: app base name 1`] = `"/apps/appName"`;
+exports[`RouterTypes should return a generated baseName: app base name 1`] = `"/appName"`;
 
-exports[`RouterTypes should return a generated baseName: beta app base name 1`] = `"/beta/apps/appName"`;
+exports[`RouterTypes should return a generated baseName: beta app base name 1`] = `"/beta/appName"`;
 
-exports[`RouterTypes should return a generated baseName: beta app lorem base name 1`] = `"/beta/apps/lorem"`;
+exports[`RouterTypes should return a generated baseName: beta app lorem route name 1`] = `"/beta/appName"`;
 
 exports[`RouterTypes should return route details that match navigation: route detail: computenode 1`] = `
 Object {
-  "id": "computenode",
-  "pathParameter": "RHEL Compute Node",
-  "title": "Compute Node",
+  "default": true,
+  "id": "all",
+  "pathParameter": "RHEL",
+  "title": "Red Hat Enterprise Linux",
 }
 `;
 
@@ -43,26 +44,6 @@ Array [
     "title": "Red Hat Enterprise Linux",
   },
   Object {
-    "id": "computenode",
-    "pathParameter": "RHEL Compute Node",
-    "title": "Compute Node",
-  },
-  Object {
-    "id": "desktop",
-    "pathParameter": "RHEL Desktop",
-    "title": "Desktop",
-  },
-  Object {
-    "id": "server",
-    "pathParameter": "RHEL Server",
-    "title": "Server",
-  },
-  Object {
-    "id": "workstation",
-    "pathParameter": "RHEL Workstation",
-    "title": "Workstation",
-  },
-  Object {
     "id": "arm",
     "pathParameter": "RHEL for ARM",
     "title": "ARM",
@@ -91,11 +72,37 @@ Array [
     "component": [Function],
     "disabled": false,
     "exact": true,
-    "id": "rhel",
     "redirect": true,
     "render": true,
     "title": "Red Hat Enterprise Linux",
-    "to": "/rhel/:variant?",
+    "to": "/rhel-sw/all",
+  },
+  Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "id": "rhel-sw",
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/:variant",
+  },
+  Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "id": "soon",
+    "render": true,
+    "title": "Tour",
+    "to": "/soon",
+  },
+  Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "id": "tour",
+    "render": true,
+    "title": "Tour",
+    "to": "/tour",
   },
 ]
 `;
