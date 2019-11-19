@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
-import { initReactI18next } from 'react-i18next';
+import { initReactI18next, withTranslation } from 'react-i18next';
 import { helpers } from '../../common/helpers';
 
 const translate = (str, placeholder = null) =>
   (!helpers.TEST_MODE && i18next.t(str, placeholder)) || helpers.noopTranslate(str, placeholder);
+
+const translateComponent = component => (!helpers.TEST_MODE && withTranslation()(component)) || component;
 
 /**
  * ToDo: reevaluate the "I18nextProvider" on package update.
@@ -68,4 +70,4 @@ I18n.defaultProps = {
   locale: null
 };
 
-export { I18n as default, I18n, translate };
+export { I18n as default, I18n, translate, translateComponent };

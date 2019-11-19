@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`I18n Component should attempt to perform a component translate: translated component 1`] = `"<div>hello world</div>"`;
+
 exports[`I18n Component should attempt to perform a string replace: translate 1`] = `
 Object {
   "localeKey": "t('lorem.ipsum')",
@@ -42,6 +44,26 @@ msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCardHelpers.js:82
 msgid \\"curiosity-graph.tooltipNoData\\"
+msgstr \\"\\"
+
+#: src/components/tourView/tourView.js:44
+msgid \\"curiosity-tour.emptyStateButton\\"
+msgstr \\"\\"
+
+#: src/components/tourView/tourView.js:41
+msgid \\"curiosity-tour.emptyStateDescription\\"
+msgstr \\"\\"
+
+#: src/components/tourView/tourView.js:31
+msgid \\"curiosity-tour.emptyStateIconAlt\\"
+msgstr \\"\\"
+
+#: src/components/tourView/tourView.js:52
+msgid \\"curiosity-tour.emptyStateLink\\"
+msgstr \\"\\"
+
+#: src/components/tourView/tourView.js:36
+msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:136
