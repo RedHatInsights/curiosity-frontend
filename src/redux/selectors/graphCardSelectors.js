@@ -15,6 +15,10 @@ const rhelGraphCardSelector = createSelector(
     const graphGranularity = component.graphGranularity || null;
     const reportGranularity = _get(report, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY], null);
     const capacityGranularity = _get(capacity, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY], null);
+    const reportProductId = _get(report, ['metaData', 'id'], null);
+    const capacityProductId = _get(capacity, ['metaData', 'id'], null);
+
+    let productId = null;
     let granularity = null;
 
     if (
@@ -24,7 +28,11 @@ const rhelGraphCardSelector = createSelector(
       granularity = reportGranularity;
     }
 
-    const cachedGranularity = (granularity && rhelGraphCardCache[granularity]) || {};
+    if (reportProductId === capacityProductId) {
+      productId = reportProductId;
+    }
+
+    const cachedGranularity = (granularity && productId && rhelGraphCardCache[`${productId}_${granularity}`]) || {};
     const initialLoad = typeof cachedGranularity.initialLoad === 'boolean' ? cachedGranularity.initialLoad : true;
 
     const updatedData = {
@@ -41,7 +49,7 @@ const rhelGraphCardSelector = createSelector(
       ...component
     };
 
-    if (granularity === null) {
+    if (granularity === null || productId === null) {
       updatedData.error = true;
       return updatedData;
     }
@@ -51,7 +59,7 @@ const rhelGraphCardSelector = createSelector(
       updatedData.pending = report.pending || capacity.pending || false;
     }
 
-    if (capacity.fulfilled && report.fulfilled && granularity) {
+    if (capacity.fulfilled && report.fulfilled && granularity && productId) {
       const productsData = _get(report, ['data', rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
       const thresholdData = _get(capacity, ['data', rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
@@ -104,7 +112,7 @@ const rhelGraphCardSelector = createSelector(
 
       updatedData.initialLoad = false;
       updatedData.fulfilled = true;
-      rhelGraphCardCache[granularity] = { ...updatedData };
+      rhelGraphCardCache[`${productId}_${granularity}`] = { ...updatedData };
     }
 
     return updatedData;

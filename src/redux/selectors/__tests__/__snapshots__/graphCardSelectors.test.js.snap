@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GraphCardSelectors should error on a RHEL product ID without a product ID provided: rhelGraphCard: no product id error 1`] = `
+Object {
+  "error": true,
+  "fulfilled": false,
+  "graphData": Object {
+    "hypervisor": Array [],
+    "sockets": Array [],
+    "threshold": Array [],
+  },
+  "initialLoad": true,
+  "pending": false,
+}
+`;
+
 exports[`GraphCardSelectors should error on a RHEL product ID without granularity provided: rhelGraphCard: no granularity error 1`] = `
 Object {
   "error": true,
