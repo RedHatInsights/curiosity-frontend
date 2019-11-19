@@ -1,30 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { RhelView } from '../rhelView';
+import { TourView } from '../tourView';
 
-describe('RhelView Component', () => {
+describe('TourView Component', () => {
   it('should render a non-connected component', () => {
     const props = {
       routeDetail: {
-        pathParameter: 'lorem ipsum',
         routeItem: {
           title: 'Dolor sit'
         }
       }
     };
 
-    const component = shallow(<RhelView {...props} />);
+    const component = shallow(<TourView {...props} />);
     expect(component).toMatchSnapshot('non-connected');
   });
 
   it('should have a fallback title', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum'
-      }
-    };
+    const props = {};
 
-    const component = shallow(<RhelView {...props} />);
+    const component = shallow(<TourView {...props} />);
     expect(component).toMatchSnapshot('title');
   });
 });

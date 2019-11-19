@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TourView Component should have a fallback title: title 1`] = `
+<Fragment>
+  <PageHeader>
+    <PageHeaderTitle
+      title="Subscription watch"
+    />
+  </PageHeader>
+  <PageSection>
+    Subscription watch
+     helps you understand your total subscription usage and capacity over time.
+  </PageSection>
+</Fragment>
+`;
+
+exports[`TourView Component should render a non-connected component: non-connected 1`] = `
+<Fragment>
+  <PageHeader>
+    <PageHeaderTitle
+      title="Dolor sit"
+    />
+  </PageHeader>
+  <PageSection>
+    Subscription watch
+     helps you understand your total subscription usage and capacity over time.
+  </PageSection>
+</Fragment>
+`;

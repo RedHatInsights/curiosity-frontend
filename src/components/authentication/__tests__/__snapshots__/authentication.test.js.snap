@@ -25,26 +25,6 @@ exports[`Authorization Component should render a non-connected component authori
         "title": "Red Hat Enterprise Linux",
       },
       Object {
-        "id": "computenode",
-        "pathParameter": "RHEL Compute Node",
-        "title": "Compute Node",
-      },
-      Object {
-        "id": "desktop",
-        "pathParameter": "RHEL Desktop",
-        "title": "Desktop",
-      },
-      Object {
-        "id": "server",
-        "pathParameter": "RHEL Server",
-        "title": "Server",
-      },
-      Object {
-        "id": "workstation",
-        "pathParameter": "RHEL Workstation",
-        "title": "Workstation",
-      },
-      Object {
         "id": "arm",
         "pathParameter": "RHEL for ARM",
         "title": "ARM",
@@ -100,26 +80,6 @@ exports[`Authorization Component should render a non-connected component error: 
         "id": "all",
         "pathParameter": "RHEL",
         "title": "Red Hat Enterprise Linux",
-      },
-      Object {
-        "id": "computenode",
-        "pathParameter": "RHEL Compute Node",
-        "title": "Compute Node",
-      },
-      Object {
-        "id": "desktop",
-        "pathParameter": "RHEL Desktop",
-        "title": "Desktop",
-      },
-      Object {
-        "id": "server",
-        "pathParameter": "RHEL Server",
-        "title": "Server",
-      },
-      Object {
-        "id": "workstation",
-        "pathParameter": "RHEL Workstation",
-        "title": "Workstation",
       },
       Object {
         "id": "arm",
