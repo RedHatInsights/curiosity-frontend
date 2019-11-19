@@ -6,7 +6,7 @@ const getGraphReportsRhel = (id = null, query = {}) => dispatch =>
     type: rhelTypes.GET_GRAPH_REPORT_RHEL,
     payload: rhelServices.getGraphReportsRhel(id, query),
     meta: {
-      productId: id,
+      data: { id },
       query,
       notifications: {
         rejected: {
@@ -23,7 +23,7 @@ const getGraphCapacityRhel = (id = null, query = {}) => dispatch =>
     type: rhelTypes.GET_GRAPH_CAPACITY_RHEL,
     payload: rhelServices.getGraphCapacityRhel(id, query),
     meta: {
-      productId: id,
+      data: { id },
       query,
       notifications: {
         rejected: {
