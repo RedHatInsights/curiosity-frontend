@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.5...v0.1.6) (2019-11-19)
+
+
+### Bug Fixes
+
+* **build,routing:** issues/77 naming, routing, views ([#132](https://github.com/RedHatInsights/curiosity-frontend/issues/132)) ([400ee1d](https://github.com/RedHatInsights/curiosity-frontend/commit/400ee1d))
+* **dateHelpers:** end of day adjustment for display ([#138](https://github.com/RedHatInsights/curiosity-frontend/issues/138)) ([f6c6fc3](https://github.com/RedHatInsights/curiosity-frontend/commit/f6c6fc3))
+* **graphCardSelectors:** cache update for product id ([60a1a5c](https://github.com/RedHatInsights/curiosity-frontend/commit/60a1a5c))
+* **i18n:** translateComponent wrapper, alias ([edc6169](https://github.com/RedHatInsights/curiosity-frontend/commit/edc6169))
+* **routerTypes:** IBM Z systems name ([4ee6a8d](https://github.com/RedHatInsights/curiosity-frontend/commit/4ee6a8d))
+
+
+### Features
+
+* **tourView,i18n:** issues/133 empty state tour ([8574c1c](https://github.com/RedHatInsights/curiosity-frontend/commit/8574c1c))
+
 ### [0.1.5](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.4...v0.1.5) (2019-11-15)
 
 
