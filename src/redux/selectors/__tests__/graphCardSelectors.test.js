@@ -18,11 +18,17 @@ describe('GraphCardSelectors', () => {
         component: {},
         capacity: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {},
           data: { [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
         },
         report: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {},
           data: { [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
         }
@@ -32,12 +38,41 @@ describe('GraphCardSelectors', () => {
     expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: no granularity error');
   });
 
+  it('should error on a RHEL product ID without a product ID provided', () => {
+    const state = {
+      rhelGraph: {
+        component: {},
+        capacity: {
+          fulfilled: true,
+          metaData: {},
+          metaQuery: {
+            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+          },
+          data: { [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+        },
+        report: {
+          fulfilled: true,
+          metaData: {},
+          metaQuery: {
+            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+          },
+          data: { [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+        }
+      }
+    };
+
+    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: no product id error');
+  });
+
   it('should handle pending state on a RHEL product ID', () => {
     const state = {
       rhelGraph: {
         component: {},
         capacity: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -45,6 +80,9 @@ describe('GraphCardSelectors', () => {
         },
         report: {
           pending: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -62,6 +100,9 @@ describe('GraphCardSelectors', () => {
         component: {},
         capacity: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.MONTHLY
           },
@@ -78,6 +119,9 @@ describe('GraphCardSelectors', () => {
         },
         report: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -123,6 +167,9 @@ describe('GraphCardSelectors', () => {
         },
         capacity: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -130,6 +177,9 @@ describe('GraphCardSelectors', () => {
         },
         report: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -161,6 +211,9 @@ describe('GraphCardSelectors', () => {
         },
         capacity: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -189,6 +242,9 @@ describe('GraphCardSelectors', () => {
         },
         report: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -229,6 +285,9 @@ describe('GraphCardSelectors', () => {
         },
         capacity: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
@@ -257,6 +316,9 @@ describe('GraphCardSelectors', () => {
         },
         report: {
           fulfilled: true,
+          metaData: {
+            id: 'Lorem Ipsum'
+          },
           metaQuery: {
             [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
