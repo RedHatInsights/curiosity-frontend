@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { TourView } from '../tourView';
+import { TranslatedTourView, TourView } from '../tourView';
 
 describe('TourView Component', () => {
   it('should render a non-connected component', () => {
@@ -14,6 +14,19 @@ describe('TourView Component', () => {
 
     const component = shallow(<TourView {...props} />);
     expect(component).toMatchSnapshot('non-connected');
+  });
+
+  it('should render a translated component', () => {
+    const props = {
+      routeDetail: {
+        routeItem: {
+          title: 'Lorem ipsum'
+        }
+      }
+    };
+
+    const component = shallow(<TranslatedTourView {...props} />);
+    expect(component).toMatchSnapshot('translated');
   });
 
   it('should have a fallback title', () => {

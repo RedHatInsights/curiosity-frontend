@@ -14,5 +14,12 @@
     "rhelLegendHypervisorLabel": "Hypervisors",
     "rhelLegendSocketsLabel": "Physical systems",
     "rhelLegendThresholdLabel": "Subscription threshold"
+  },
+  "curiosity-tour": {
+    "emptyStateIconAlt": "{{appName}} logo",
+    "emptyStateTitle": "{{appName}} is an early access beta",
+    "emptyStateDescription": "{{appName}} helps you understand your total subscription usage and capacity over time. Take a quick tour to learn more.",
+    "emptyStateButton": "Take a tour",
+    "emptyStateLink": "Learn more"
   }
 }
