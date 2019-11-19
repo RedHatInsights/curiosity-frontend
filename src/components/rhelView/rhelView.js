@@ -4,6 +4,7 @@ import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-com
 import { PageSection } from '@patternfly/react-core';
 import { connectRouter } from '../../redux';
 import RhelGraphCard from '../rhelGraphCard/rhelGraphCard';
+import { helpers } from '../../common';
 
 class RhelView extends React.Component {
   componentDidMount() {}
@@ -14,10 +15,12 @@ class RhelView extends React.Component {
     return (
       <React.Fragment>
         <PageHeader>
-          <PageHeaderTitle title="Red Hat Enterprise Linux" />
+          <PageHeaderTitle
+            title={(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_START_NAME}
+          />
         </PageHeader>
         <PageSection>
-          <RhelGraphCard productId={routeDetail.pathParameter} />
+          <RhelGraphCard key={routeDetail.pathParameter} productId={routeDetail.pathParameter} />
         </PageSection>
       </React.Fragment>
     );
@@ -26,11 +29,16 @@ class RhelView extends React.Component {
 
 RhelView.propTypes = {
   routeDetail: PropTypes.shape({
-    pathParameter: PropTypes.string.isRequired
-  }).isRequired
+    pathParameter: PropTypes.string.isRequired,
+    routeItem: PropTypes.shape({
+      title: PropTypes.string
+    })
+  })
 };
 
-RhelView.defaultProps = {};
+RhelView.defaultProps = {
+  routeDetail: {}
+};
 
 const mapStateToProps = () => ({});
 

@@ -19,13 +19,10 @@ class Authentication extends Component {
     try {
       if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
         insights.chrome.init();
-      }
-
-      if (helpers.PROD_MODE) {
         insights.chrome.identifyApp(appName);
         insights.chrome.navigation(this.buildNavigation());
 
-        this.appNav = insights.chrome.on('APP_NAVIGATION', event => history.push(`/${event.navId}`));
+        this.appNav = insights.chrome.on('APP_NAVIGATION', event => history.push(`${event.navId}`));
         this.buildNav = history.listen(() => insights.chrome.navigation(this.buildNavigation()));
       }
 

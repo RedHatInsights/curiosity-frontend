@@ -12,31 +12,31 @@ describe('RouterTypes', () => {
   it('should return a generated baseName', () => {
     expect(
       dynamicBaseName({
-        pathName: '/apps/appName',
+        pathName: '/appName',
         pathPrefix: '/beta'
       })
     ).toMatchSnapshot('app base name');
 
     expect(
       dynamicBaseName({
-        pathName: '/apps/lorem/appName',
+        pathName: '/beta/appName',
         pathPrefix: '/beta'
       })
     ).toMatchSnapshot('app base lorem base name');
 
     expect(
       dynamicBaseName({
-        pathName: '/beta/apps/appName',
+        pathName: '/beta/appName',
         pathPrefix: '/beta'
       })
     ).toMatchSnapshot('beta app base name');
 
     expect(
       dynamicBaseName({
-        pathName: '/beta/apps/lorem/appName',
+        pathName: '/beta/appName/loremRoute',
         pathPrefix: '/beta'
       })
-    ).toMatchSnapshot('beta app lorem base name');
+    ).toMatchSnapshot('beta app lorem route name');
   });
 
   it('should return route details that match navigation', () => {

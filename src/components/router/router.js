@@ -31,7 +31,8 @@ class Router extends React.Component {
                   <item.component
                     routeDetail={{
                       baseName,
-                      navigation,
+                      routes,
+                      routeItem: { ...item },
                       ...routeDetail
                     }}
                     {...routeProps}

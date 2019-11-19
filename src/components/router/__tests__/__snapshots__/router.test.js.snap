@@ -22,12 +22,30 @@ exports[`Router Component should render a basic component: basic 1`] = `
   <Switch>
     <Route
       exact={true}
-      key="/rhel/:variant?"
-      path="/rhel/:variant?"
+      key="/rhel-sw/all"
+      path="/rhel-sw/all"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/rhel-sw/:variant"
+      path="/rhel-sw/:variant"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/soon"
+      path="/soon"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/tour"
+      path="/tour"
       render={[Function]}
     />
     <Redirect
-      to="/rhel/:variant?"
+      to="/rhel-sw/all"
     />
   </Switch>
 </div>

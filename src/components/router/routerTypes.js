@@ -1,5 +1,6 @@
 import { helpers } from '../../common/helpers';
 import RhelView from '../rhelView/rhelView';
+import TourView from '../tourView/tourView';
 import { RHSM_API_PATH_RHEL_ID_TYPES } from '../../types/rhelApiTypes';
 
 /**
@@ -16,7 +17,7 @@ const dynamicBaseName = ({ pathName, pathPrefix }) => {
 
   path.shift();
 
-  const pathSlice = pathPrefix && new RegExp(path[0]).test(pathPrefix) ? 3 : 2;
+  const pathSlice = pathPrefix && new RegExp(path[0]).test(pathPrefix) ? 2 : 1;
 
   return `/${path.slice(0, pathSlice).join('/')}`;
 };
@@ -33,12 +34,38 @@ const baseName =
 const routes = [
   {
     title: 'Red Hat Enterprise Linux',
-    id: 'rhel',
-    to: '/rhel/:variant?',
+    to: '/rhel-sw/all',
     redirect: true,
     component: RhelView,
     exact: true,
     render: true,
+    disabled: helpers.UI_DISABLED
+  },
+  {
+    title: 'Red Hat Enterprise Linux',
+    id: 'rhel-sw',
+    to: '/rhel-sw/:variant',
+    component: RhelView,
+    exact: true,
+    render: true,
+    disabled: helpers.UI_DISABLED
+  },
+  {
+    title: 'Tour',
+    id: 'soon',
+    to: '/soon',
+    exact: true,
+    render: true,
+    component: TourView,
+    disabled: helpers.UI_DISABLED
+  },
+  {
+    title: 'Tour',
+    id: 'tour',
+    to: '/tour',
+    exact: true,
+    render: true,
+    component: TourView,
     disabled: helpers.UI_DISABLED
   }
 ];
@@ -49,26 +76,6 @@ const navigation = [
     id: 'all',
     pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
     default: true
-  },
-  {
-    title: 'Compute Node',
-    id: 'computenode',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.COMPUTE_NODE
-  },
-  {
-    title: 'Desktop',
-    id: 'desktop',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.DESKTOP
-  },
-  {
-    title: 'Server',
-    id: 'server',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.SERVER
-  },
-  {
-    title: 'Workstation',
-    id: 'workstation',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.WORKSTATION
   },
   {
     title: 'ARM',
