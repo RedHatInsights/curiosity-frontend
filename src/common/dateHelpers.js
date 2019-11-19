@@ -14,6 +14,7 @@ const setRangedDateTime = ({ date, subtract, measurement }) => ({
   endDate: moment
     .utc(date)
     .startOf(measurement)
+    .endOf('days')
     .toDate()
 });
 

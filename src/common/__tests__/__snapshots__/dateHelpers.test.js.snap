@@ -3,17 +3,17 @@
 exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
 Object {
   "defaultDateTime": Object {
-    "endDate": 2019-07-20T00:00:00.000Z,
+    "endDate": 2019-07-20T23:59:59.999Z,
     "startDate": 2019-06-20T00:00:00.000Z,
   },
   "getCurrentDate": [Function],
   "getRangedDateTime": [Function],
   "monthlyDateTime": Object {
-    "endDate": 2019-07-01T00:00:00.000Z,
+    "endDate": 2019-07-01T23:59:59.999Z,
     "startDate": 2018-07-01T00:00:00.000Z,
   },
   "quarterlyDateTime": Object {
-    "endDate": 2019-07-01T00:00:00.000Z,
+    "endDate": 2019-07-01T23:59:59.999Z,
     "startDate": 2016-07-01T00:00:00.000Z,
   },
   "setRangedDateTime": [Function],
@@ -36,7 +36,7 @@ Object {
     "yearShort": "MMM YYYY",
   },
   "weeklyDateTime": Object {
-    "endDate": 2019-07-14T00:00:00.000Z,
+    "endDate": 2019-07-14T23:59:59.999Z,
     "startDate": 2019-04-21T00:00:00.000Z,
   },
 }
@@ -47,28 +47,28 @@ Array [
   Object {
     "granularity": "daily",
     "range": Object {
-      "endDate": 2019-07-20T00:00:00.000Z,
+      "endDate": 2019-07-20T23:59:59.999Z,
       "startDate": 2019-06-20T00:00:00.000Z,
     },
   },
   Object {
     "granularity": "weekly",
     "range": Object {
-      "endDate": 2019-07-14T00:00:00.000Z,
+      "endDate": 2019-07-14T23:59:59.999Z,
       "startDate": 2019-04-21T00:00:00.000Z,
     },
   },
   Object {
     "granularity": "monthly",
     "range": Object {
-      "endDate": 2019-07-01T00:00:00.000Z,
+      "endDate": 2019-07-01T23:59:59.999Z,
       "startDate": 2018-07-01T00:00:00.000Z,
     },
   },
   Object {
     "granularity": "quarterly",
     "range": Object {
-      "endDate": 2019-07-01T00:00:00.000Z,
+      "endDate": 2019-07-01T23:59:59.999Z,
       "startDate": 2016-07-01T00:00:00.000Z,
     },
   },
@@ -79,7 +79,7 @@ exports[`DateHelpers should return a predictable range of time: range of time 1`
 Object {
   "currentDate": "20190720",
   "rangeDateTime": Object {
-    "endDate": 2019-07-20T00:00:00.000Z,
+    "endDate": 2019-07-20T23:59:59.999Z,
     "startDate": 2019-07-15T00:00:00.000Z,
   },
 }
