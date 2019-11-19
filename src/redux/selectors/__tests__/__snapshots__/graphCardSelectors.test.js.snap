@@ -58,7 +58,7 @@ Object {
 
 exports[`GraphCardSelectors should map a fulfilled RHEL product ID response to an aggregated output: rhelGraphCard: fulfilled granularity 1`] = `
 Object {
-  "endDate": 2019-07-20T00:00:00.000Z,
+  "endDate": 2019-07-20T23:59:59.999Z,
   "error": false,
   "fulfilled": true,
   "graphData": Object {
@@ -169,7 +169,7 @@ Object {
 
 exports[`GraphCardSelectors should populate data on a RHEL product ID when the api response is missing expected properties: rhelGraphCard: data populated, missing properties 1`] = `
 Object {
-  "endDate": 2019-07-20T00:00:00.000Z,
+  "endDate": 2019-07-20T23:59:59.999Z,
   "error": false,
   "fulfilled": true,
   "graphData": Object {
@@ -234,7 +234,7 @@ Object {
 
 exports[`GraphCardSelectors should populate data on a RHEL product ID when the api response provided mismatches index or date: rhelGraphCard: data populated on mismatch fulfilled 1`] = `
 Object {
-  "endDate": 2019-07-20T00:00:00.000Z,
+  "endDate": 2019-07-20T23:59:59.999Z,
   "error": false,
   "fulfilled": true,
   "graphData": Object {
