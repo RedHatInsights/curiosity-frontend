@@ -8,8 +8,44 @@ exports[`TourView Component should have a fallback title: title 1`] = `
     />
   </PageHeader>
   <PageSection>
-    Subscription watch
-     helps you understand your total subscription usage and capacity over time.
+    <EmptyState
+      variant="full"
+    >
+      <img
+        alt={
+          Object {
+            "appName": "Subscription Watch",
+          }
+        }
+        aria-hidden={true}
+        className="curiosity-emptystate-img-icon"
+        src="subscriptions.svg"
+      />
+      <Title
+        headingLevel="h5"
+        size="lg"
+      >
+        <Component />
+      </Title>
+      <EmptyStateBody>
+        <Component />
+      </EmptyStateBody>
+      <Component
+        variant="primary"
+      >
+        t('curiosity-tour.emptyStateButton')
+      </Component>
+      <EmptyStateSecondaryActions>
+        <Component
+          component="a"
+          href="https://access.redhat.com/products/subscription-central"
+          target="_blank"
+          variant="link"
+        >
+          t('curiosity-tour.emptyStateLink')
+        </Component>
+      </EmptyStateSecondaryActions>
+    </EmptyState>
   </PageSection>
 </Fragment>
 `;
@@ -22,8 +58,94 @@ exports[`TourView Component should render a non-connected component: non-connect
     />
   </PageHeader>
   <PageSection>
-    Subscription watch
-     helps you understand your total subscription usage and capacity over time.
+    <EmptyState
+      variant="full"
+    >
+      <img
+        alt={
+          Object {
+            "appName": "Subscription Watch",
+          }
+        }
+        aria-hidden={true}
+        className="curiosity-emptystate-img-icon"
+        src="subscriptions.svg"
+      />
+      <Title
+        headingLevel="h5"
+        size="lg"
+      >
+        <Component />
+      </Title>
+      <EmptyStateBody>
+        <Component />
+      </EmptyStateBody>
+      <Component
+        variant="primary"
+      >
+        t('curiosity-tour.emptyStateButton')
+      </Component>
+      <EmptyStateSecondaryActions>
+        <Component
+          component="a"
+          href="https://access.redhat.com/products/subscription-central"
+          target="_blank"
+          variant="link"
+        >
+          t('curiosity-tour.emptyStateLink')
+        </Component>
+      </EmptyStateSecondaryActions>
+    </EmptyState>
+  </PageSection>
+</Fragment>
+`;
+
+exports[`TourView Component should render a translated component: translated 1`] = `
+<Fragment>
+  <PageHeader>
+    <PageHeaderTitle
+      title="Lorem ipsum"
+    />
+  </PageHeader>
+  <PageSection>
+    <EmptyState
+      variant="full"
+    >
+      <img
+        alt={
+          Object {
+            "appName": "Subscription Watch",
+          }
+        }
+        aria-hidden={true}
+        className="curiosity-emptystate-img-icon"
+        src="subscriptions.svg"
+      />
+      <Title
+        headingLevel="h5"
+        size="lg"
+      >
+        <Component />
+      </Title>
+      <EmptyStateBody>
+        <Component />
+      </EmptyStateBody>
+      <Component
+        variant="primary"
+      >
+        t('curiosity-tour.emptyStateButton')
+      </Component>
+      <EmptyStateSecondaryActions>
+        <Component
+          component="a"
+          href="https://access.redhat.com/products/subscription-central"
+          target="_blank"
+          variant="link"
+        >
+          t('curiosity-tour.emptyStateLink')
+        </Component>
+      </EmptyStateSecondaryActions>
+    </EmptyState>
   </PageSection>
 </Fragment>
 `;
