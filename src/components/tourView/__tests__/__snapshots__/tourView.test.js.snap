@@ -4,11 +4,12 @@ exports[`TourView Component should have a fallback title: title 1`] = `
 <Fragment>
   <PageHeader>
     <PageHeaderTitle
-      title="Subscription watch"
+      title="Subscription Watch"
     />
   </PageHeader>
   <PageSection>
     <EmptyState
+      className="fadein"
       variant="full"
     >
       <img
@@ -54,11 +55,12 @@ exports[`TourView Component should render a non-connected component: non-connect
 <Fragment>
   <PageHeader>
     <PageHeaderTitle
-      title="Dolor sit"
+      title="Subscription Watch"
     />
   </PageHeader>
   <PageSection>
     <EmptyState
+      className="fadein"
       variant="full"
     >
       <img
@@ -104,11 +106,12 @@ exports[`TourView Component should render a translated component: translated 1`]
 <Fragment>
   <PageHeader>
     <PageHeaderTitle
-      title="Lorem ipsum"
+      title="Subscription Watch"
     />
   </PageHeader>
   <PageSection>
     <EmptyState
+      className="fadein"
       variant="full"
     >
       <img

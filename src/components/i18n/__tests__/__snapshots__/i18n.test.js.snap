@@ -46,23 +46,23 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.tooltipNoData\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:50
+#: src/components/tourView/tourView.js:48
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:47
+#: src/components/tourView/tourView.js:45
 msgid \\"curiosity-tour.emptyStateDescription\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:37
+#: src/components/tourView/tourView.js:35
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:58
+#: src/components/tourView/tourView.js:56
 msgid \\"curiosity-tour.emptyStateLink\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:42
+#: src/components/tourView/tourView.js:40
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
