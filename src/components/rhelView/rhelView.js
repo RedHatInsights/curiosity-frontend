@@ -16,7 +16,7 @@ class RhelView extends React.Component {
       <React.Fragment>
         <PageHeader>
           <PageHeaderTitle
-            title={(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_START_NAME}
+            title={(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_CONFIG_NAME}
           />
         </PageHeader>
         <PageSection>
