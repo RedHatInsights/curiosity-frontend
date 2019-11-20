@@ -22,15 +22,13 @@ import subscriptionsSvg from '../../images/subscriptions.svg';
  * FixMe: Patternfly EmptyStateBody and Title appear to throw an error on translate string replacement
  * Wrap with a fragment to pass.
  */
-const TourView = ({ routeDetail, t }) => (
+const TourView = ({ t }) => (
   <React.Fragment>
     <PageHeader>
-      <PageHeaderTitle
-        title={(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_START_NAME}
-      />
+      <PageHeaderTitle title={helpers.UI_DISPLAY_CONFIG_NAME} />
     </PageHeader>
     <PageSection>
-      <EmptyState variant={EmptyStateVariant.full}>
+      <EmptyState variant={EmptyStateVariant.full} className="fadein">
         <img
           src={subscriptionsSvg}
           className="curiosity-emptystate-img-icon"
@@ -44,7 +42,7 @@ const TourView = ({ routeDetail, t }) => (
         </Title>
         <EmptyStateBody>
           <React.Fragment>
-            {t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_START_NAME })}
+            {t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
           </React.Fragment>
         </EmptyStateBody>
         <Button variant="primary">{t('curiosity-tour.emptyStateButton')}</Button>

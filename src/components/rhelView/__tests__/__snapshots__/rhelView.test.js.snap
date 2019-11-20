@@ -4,7 +4,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
 <Fragment>
   <PageHeader>
     <PageHeaderTitle
-      title="Subscription watch"
+      title="Subscription Watch"
     />
   </PageHeader>
   <PageSection>
