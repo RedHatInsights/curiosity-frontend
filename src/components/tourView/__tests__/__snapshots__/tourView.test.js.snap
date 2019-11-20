@@ -38,7 +38,7 @@ exports[`TourView Component should have a fallback title: title 1`] = `
       <EmptyStateSecondaryActions>
         <Component
           component="a"
-          href="https://access.redhat.com/products/subscription-central"
+          href="https://access.redhat.com/documentation/subscription_central/2019-11/"
           target="_blank"
           variant="link"
         >
@@ -88,7 +88,7 @@ exports[`TourView Component should render a non-connected component: non-connect
       <EmptyStateSecondaryActions>
         <Component
           component="a"
-          href="https://access.redhat.com/products/subscription-central"
+          href="https://access.redhat.com/documentation/subscription_central/2019-11/"
           target="_blank"
           variant="link"
         >
@@ -138,7 +138,7 @@ exports[`TourView Component should render a translated component: translated 1`]
       <EmptyStateSecondaryActions>
         <Component
           component="a"
-          href="https://access.redhat.com/products/subscription-central"
+          href="https://access.redhat.com/documentation/subscription_central/2019-11/"
           target="_blank"
           variant="link"
         >
