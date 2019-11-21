@@ -87,6 +87,7 @@ Array [
     "to": "/rhel-sw/:variant",
   },
   Object {
+    "activateOnError": true,
     "component": [Function],
     "disabled": false,
     "exact": true,

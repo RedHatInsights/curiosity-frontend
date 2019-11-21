@@ -3,6 +3,7 @@
 exports[`GraphCardSelectors should error on a RHEL product ID without a product ID provided: rhelGraphCard: no product id error 1`] = `
 Object {
   "error": true,
+  "errorStatus": null,
   "fulfilled": false,
   "graphData": Object {
     "hypervisor": Array [],
@@ -17,6 +18,7 @@ Object {
 exports[`GraphCardSelectors should error on a RHEL product ID without granularity provided: rhelGraphCard: no granularity error 1`] = `
 Object {
   "error": true,
+  "errorStatus": null,
   "fulfilled": false,
   "graphData": Object {
     "hypervisor": Array [],
@@ -31,6 +33,7 @@ Object {
 exports[`GraphCardSelectors should error on missing a reducer response: rhelGraphCard: missing reducer error 1`] = `
 Object {
   "error": true,
+  "errorStatus": null,
   "fulfilled": false,
   "graphData": Object {
     "hypervisor": Array [],
@@ -45,6 +48,7 @@ Object {
 exports[`GraphCardSelectors should handle pending state on a RHEL product ID: rhelGraphCard: pending 1`] = `
 Object {
   "error": false,
+  "errorStatus": null,
   "fulfilled": false,
   "graphData": Object {
     "hypervisor": Array [],
@@ -60,6 +64,7 @@ exports[`GraphCardSelectors should map a fulfilled RHEL product ID response to a
 Object {
   "endDate": 2019-07-20T23:59:59.999Z,
   "error": false,
+  "errorStatus": null,
   "fulfilled": true,
   "graphData": Object {
     "hypervisor": Array [
@@ -124,6 +129,7 @@ Object {
 exports[`GraphCardSelectors should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch fulfilled 1`] = `
 Object {
   "error": true,
+  "errorStatus": null,
   "fulfilled": false,
   "graphData": Object {
     "hypervisor": Array [],
@@ -138,6 +144,7 @@ Object {
 exports[`GraphCardSelectors should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch on component 1`] = `
 Object {
   "error": false,
+  "errorStatus": null,
   "fulfilled": true,
   "graphData": Object {
     "hypervisor": Array [
@@ -171,6 +178,7 @@ exports[`GraphCardSelectors should populate data on a RHEL product ID when the a
 Object {
   "endDate": 2019-07-20T23:59:59.999Z,
   "error": false,
+  "errorStatus": null,
   "fulfilled": true,
   "graphData": Object {
     "hypervisor": Array [
@@ -236,6 +244,7 @@ exports[`GraphCardSelectors should populate data on a RHEL product ID when the a
 Object {
   "endDate": 2019-07-20T23:59:59.999Z,
   "error": false,
+  "errorStatus": null,
   "fulfilled": true,
   "graphData": Object {
     "hypervisor": Array [

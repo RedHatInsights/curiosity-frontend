@@ -20,7 +20,11 @@ class RhelView extends React.Component {
           />
         </PageHeader>
         <PageSection>
-          <RhelGraphCard key={routeDetail.pathParameter} productId={routeDetail.pathParameter} />
+          <RhelGraphCard
+            key={routeDetail.pathParameter}
+            productId={routeDetail.pathParameter}
+            errorRoute={routeDetail.errorRoute}
+          />
         </PageSection>
       </React.Fragment>
     );
@@ -32,6 +36,9 @@ RhelView.propTypes = {
     pathParameter: PropTypes.string.isRequired,
     routeItem: PropTypes.shape({
       title: PropTypes.string
+    }),
+    errorRoute: PropTypes.shape({
+      to: PropTypes.string
     })
   })
 };
