@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import {
-  chart_color_green_400 as chartColorGreen400,
-  chart_color_blue_100 as chartColorBlue100,
-  chart_color_blue_400 as chartColorBlue400,
-  chart_color_cyan_100 as chartColorCyan100,
-  chart_color_cyan_400 as chartColorCyan400
+  chart_color_green_300 as chartColorGreenDark,
+  chart_color_blue_100 as chartColorBlueLight,
+  chart_color_blue_300 as chartColorBlueDark,
+  chart_color_cyan_100 as chartColorCyanLight,
+  chart_color_cyan_300 as chartColorCyanDark
 } from '@patternfly/react-tokens';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Select } from '../select/select';
@@ -93,8 +93,8 @@ class RhelGraphCard extends React.Component {
               duration: 250,
               onLoad: { duration: 250 }
             },
-            fill: chartColorBlue100.value,
-            stroke: chartColorBlue400.value,
+            fill: chartColorBlueLight.value,
+            stroke: chartColorBlueDark.value,
             legendLabel: t('curiosity-graph.rhelLegendSocketsLabel'),
             isStacked: true
           },
@@ -105,8 +105,8 @@ class RhelGraphCard extends React.Component {
               duration: 250,
               onLoad: { duration: 250 }
             },
-            fill: chartColorCyan100.value,
-            stroke: chartColorCyan400.value,
+            fill: chartColorCyanLight.value,
+            stroke: chartColorCyanDark.value,
             legendLabel: t('curiosity-graph.rhelLegendHypervisorLabel'),
             isStacked: true
           },
@@ -117,7 +117,7 @@ class RhelGraphCard extends React.Component {
               duration: 100,
               onLoad: { duration: 100 }
             },
-            stroke: chartColorGreen400.value,
+            stroke: chartColorGreenDark.value,
             legendLabel: t('curiosity-graph.rhelLegendThresholdLabel'),
             isThreshold: true
           }

@@ -62,7 +62,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "id": "sockets",
               "isStacked": true,
               "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
-              "stroke": "#004b95",
+              "stroke": "#06c",
             },
             Object {
               "animate": Object {
@@ -76,7 +76,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "id": "hypervisor",
               "isStacked": true,
               "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
-              "stroke": "#005f60",
+              "stroke": "#009596",
             },
             Object {
               "animate": Object {
@@ -89,7 +89,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "id": "threshold",
               "isThreshold": true,
               "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
-              "stroke": "#38812f",
+              "stroke": "#4cb140",
             },
           ]
         }
@@ -146,7 +146,7 @@ Object {
       "id": "sockets",
       "isStacked": true,
       "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
-      "stroke": "#004b95",
+      "stroke": "#06c",
     },
     Object {
       "animate": Object {
@@ -160,7 +160,7 @@ Object {
       "id": "hypervisor",
       "isStacked": true,
       "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
-      "stroke": "#005f60",
+      "stroke": "#009596",
     },
     Object {
       "animate": Object {
@@ -173,7 +173,7 @@ Object {
       "id": "threshold",
       "isThreshold": true,
       "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
-      "stroke": "#38812f",
+      "stroke": "#4cb140",
     },
   ],
 }
@@ -269,7 +269,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "id": "sockets",
               "isStacked": true,
               "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
-              "stroke": "#004b95",
+              "stroke": "#06c",
             },
             Object {
               "animate": Object {
@@ -283,7 +283,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "id": "hypervisor",
               "isStacked": true,
               "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
-              "stroke": "#005f60",
+              "stroke": "#009596",
             },
             Object {
               "animate": Object {
@@ -296,7 +296,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "id": "threshold",
               "isThreshold": true,
               "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
-              "stroke": "#38812f",
+              "stroke": "#4cb140",
             },
           ]
         }
