@@ -4,28 +4,6 @@
 
 @Library("github.com/RedHatInsights/insights-pipeline-lib@v3") _
 
-pipeline {
-    agent {
-        docker {
-            image 'quay.io/redhatqe/selenium-standalone'
-        }
-    }
-    options {
-        pipelineUtils.pipelineUtils.cancelPriorBuilds()
-    }
-    stages {
-        stage('Build') {
-            steps {
-
-            }
-        }
-        stage('UI_Tests') {
-            steps {
-
-            }
-        }
-    }
-}
 node {
     pipelineUtils.pipelineUtils.cancelPriorBuilds()
     pipelineUtils.runIfMasterOrPullReq {
@@ -61,4 +39,3 @@ def runStages() {
         }
     }
 }
-
