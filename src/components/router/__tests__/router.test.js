@@ -26,6 +26,16 @@ describe('Router Component', () => {
           exact: false,
           render: false,
           disabled: false
+        },
+        {
+          title: 'Ipsum',
+          to: '/ipsum',
+          redirect: false,
+          component: () => <div>Ipsum</div>,
+          activateOnError: true,
+          exact: false,
+          render: false,
+          disabled: false
         }
       ]
     };

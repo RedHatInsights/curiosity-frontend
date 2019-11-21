@@ -11,6 +11,12 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
       key="/lorem"
       path="/lorem"
     />
+    <Route
+      component={[Function]}
+      exact={false}
+      key="/ipsum"
+      path="/ipsum"
+    />
   </Switch>
 </div>
 `;

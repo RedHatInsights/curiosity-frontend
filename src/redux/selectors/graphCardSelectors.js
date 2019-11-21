@@ -37,6 +37,7 @@ const rhelGraphCardSelector = createSelector(
 
     const updatedData = {
       error: false,
+      errorStatus: null,
       fulfilled: false,
       pending: false,
       initialLoad,
@@ -55,9 +56,11 @@ const rhelGraphCardSelector = createSelector(
     }
 
     if (initialLoad) {
-      updatedData.error = report.error || capacity.error || false;
       updatedData.pending = report.pending || capacity.pending || false;
     }
+
+    updatedData.error = report.error || capacity.error || false;
+    updatedData.errorStatus = report.errorStatus || capacity.errorStatus || null;
 
     if (capacity.fulfilled && report.fulfilled && granularity && productId) {
       const productsData = _get(report, ['data', rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);

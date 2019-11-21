@@ -56,6 +56,7 @@ const routes = [
     to: '/soon',
     exact: true,
     render: true,
+    activateOnError: true,
     component: TourView,
     disabled: helpers.UI_DISABLED
   },

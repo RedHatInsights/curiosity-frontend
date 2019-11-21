@@ -179,6 +179,18 @@ Object {
 }
 `;
 
+exports[`RhelGraphCard Component should render multiple states: error with 403 status redirects 1`] = `
+<Redirect
+  to="/lorem-error-403-route"
+/>
+`;
+
+exports[`RhelGraphCard Component should render multiple states: error with 500 status redirects 1`] = `
+<Redirect
+  to="/lorem-error-500-route"
+/>
+`;
+
 exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = `
 <Card
   className="curiosity-usage-graph fadein"

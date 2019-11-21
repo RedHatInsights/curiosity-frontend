@@ -6,6 +6,7 @@ import { baseName, getRouteDetail, navigation, routes } from './routerTypes';
 class Router extends React.Component {
   renderRoutes() {
     const { routesType } = this.props;
+    const activateOnErrorRoute = routesType.find(route => route.activateOnError === true);
 
     let redirectRoot = null;
 
@@ -31,6 +32,7 @@ class Router extends React.Component {
                   <item.component
                     routeDetail={{
                       baseName,
+                      errorRoute: activateOnErrorRoute,
                       routes,
                       routeItem: { ...item },
                       ...routeDetail
