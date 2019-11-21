@@ -8,11 +8,11 @@
     "dropdownPlaceholder": "Select date range",
     "tooltipNoData": "No data",
     "rhelTooltipDate": "Date",
-    "rhelTooltipHypervisor": "Hypervisors",
-    "rhelTooltipSockets": "Physical systems",
+    "rhelTooltipHypervisor": "Virtualized RHEL",
+    "rhelTooltipSockets": "Physical RHEL",
     "rhelTooltipThreshold": "Subscription threshold",
-    "rhelLegendHypervisorLabel": "Hypervisors",
-    "rhelLegendSocketsLabel": "Physical systems",
+    "rhelLegendHypervisorLabel": "Virtualized RHEL",
+    "rhelLegendSocketsLabel": "Physical RHEL",
     "rhelLegendThresholdLabel": "Subscription threshold"
   },
   "curiosity-tour": {
