@@ -47,6 +47,24 @@ describe('RhelGraphCard Component', () => {
     }).toMatchSnapshot('error shows zeroed bar values');
 
     component.setProps({
+      errorStatus: 403,
+      errorRoute: {
+        to: '/lorem-error-403-route'
+      }
+    });
+
+    expect(component).toMatchSnapshot('error with 403 status redirects');
+
+    component.setProps({
+      errorStatus: 500,
+      errorRoute: {
+        to: '/lorem-error-500-route'
+      }
+    });
+
+    expect(component).toMatchSnapshot('error with 500 status redirects');
+
+    component.setProps({
       error: false,
       pending: true
     });

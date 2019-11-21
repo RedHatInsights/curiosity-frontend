@@ -5,7 +5,7 @@ import { notificationsMiddleware } from '@redhat-cloud-services/frontend-compone
 import { reduxHelpers } from '../common/reduxHelpers';
 
 const notificationsOptions = {
-  dispatchDefaultFailure: true, // automatic error notifications
+  dispatchDefaultFailure: false, // automatic error notifications
   pendingSuffix: reduxHelpers.PENDING_ACTION(), // pending state action suffix
   fulfilledSuffix: reduxHelpers.FULFILLED_ACTION(), // fulfilled state action suffix
   rejectedSuffix: reduxHelpers.REJECTED_ACTION(), // rejected state action suffix

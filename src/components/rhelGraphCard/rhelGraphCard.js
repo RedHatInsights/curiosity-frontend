@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import {
   chart_color_green_400 as chartColorGreen400,
@@ -127,8 +128,12 @@ class RhelGraphCard extends React.Component {
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
-    const { graphGranularity, pending, t } = this.props;
+    const { error, errorRoute, errorStatus, graphGranularity, pending, t } = this.props;
     const getDateMenuOptions = rhelGraphCardTypes.getDateMenuOptions();
+
+    if (error && (errorStatus === 403 || errorStatus >= 500)) {
+      return (errorRoute && errorRoute.to && <Redirect to={errorRoute.to} />) || null;
+    }
 
     return (
       <Card className="curiosity-usage-graph fadein">
@@ -163,6 +168,11 @@ class RhelGraphCard extends React.Component {
 }
 
 RhelGraphCard.propTypes = {
+  error: PropTypes.bool,
+  errorRoute: PropTypes.shape({
+    to: PropTypes.string
+  }),
+  errorStatus: PropTypes.number,
   getGraphCapacityRhel: PropTypes.func,
   getGraphReportsRhel: PropTypes.func,
   graphData: PropTypes.shape({
@@ -202,6 +212,9 @@ RhelGraphCard.propTypes = {
 };
 
 RhelGraphCard.defaultProps = {
+  error: false,
+  errorRoute: {},
+  errorStatus: null,
   getGraphCapacityRhel: helpers.noop,
   getGraphReportsRhel: helpers.noop,
   graphData: {
