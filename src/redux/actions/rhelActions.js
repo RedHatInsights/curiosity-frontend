@@ -1,6 +1,7 @@
 import { rhelTypes } from '../types';
 import rhelServices from '../../services/rhelServices';
 
+// ToDo: add notifications settings back once "auth" end point available from API
 const getGraphReportsRhel = (id = null, query = {}) => dispatch =>
   dispatch({
     type: rhelTypes.GET_GRAPH_REPORT_RHEL,
@@ -8,16 +9,11 @@ const getGraphReportsRhel = (id = null, query = {}) => dispatch =>
     meta: {
       data: { id },
       query,
-      notifications: {
-        rejected: {
-          variant: 'info',
-          title: 'Reporting connection has failed',
-          description: 'Product ID: Red Hat Enterprise Linux'
-        }
-      }
+      notifications: {}
     }
   });
 
+// ToDo: add notifications settings back once "auth" end point available from API
 const getGraphCapacityRhel = (id = null, query = {}) => dispatch =>
   dispatch({
     type: rhelTypes.GET_GRAPH_CAPACITY_RHEL,
@@ -25,13 +21,7 @@ const getGraphCapacityRhel = (id = null, query = {}) => dispatch =>
     meta: {
       data: { id },
       query,
-      notifications: {
-        rejected: {
-          variant: 'info',
-          title: 'Capacity connection has failed',
-          description: 'Product ID: Red Hat Enterprise Linux'
-        }
-      }
+      notifications: {}
     }
   });
 
