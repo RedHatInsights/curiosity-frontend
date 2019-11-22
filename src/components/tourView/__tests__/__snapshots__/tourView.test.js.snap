@@ -31,6 +31,9 @@ exports[`TourView Component should have a fallback title: title 1`] = `
       <EmptyStateBody>
         <Component />
       </EmptyStateBody>
+      <EmptyStateBody>
+        <Component />
+      </EmptyStateBody>
       <Component
         variant="primary"
       >
@@ -43,7 +46,15 @@ exports[`TourView Component should have a fallback title: title 1`] = `
           target="_blank"
           variant="link"
         >
-          t('curiosity-tour.emptyStateLink')
+          t('curiosity-tour.emptyStateLinkLearnMore')
+        </Component>
+        <Component
+          component="a"
+          href="https://access.redhat.com/account-team"
+          target="_blank"
+          variant="link"
+        >
+          t('curiosity-tour.emptyStateLinkContactUs')
         </Component>
       </EmptyStateSecondaryActions>
     </EmptyState>
@@ -82,6 +93,9 @@ exports[`TourView Component should render a non-connected component: non-connect
       <EmptyStateBody>
         <Component />
       </EmptyStateBody>
+      <EmptyStateBody>
+        <Component />
+      </EmptyStateBody>
       <Component
         variant="primary"
       >
@@ -94,7 +108,15 @@ exports[`TourView Component should render a non-connected component: non-connect
           target="_blank"
           variant="link"
         >
-          t('curiosity-tour.emptyStateLink')
+          t('curiosity-tour.emptyStateLinkLearnMore')
+        </Component>
+        <Component
+          component="a"
+          href="https://access.redhat.com/account-team"
+          target="_blank"
+          variant="link"
+        >
+          t('curiosity-tour.emptyStateLinkContactUs')
         </Component>
       </EmptyStateSecondaryActions>
     </EmptyState>
@@ -133,6 +155,9 @@ exports[`TourView Component should render a translated component: translated 1`]
       <EmptyStateBody>
         <Component />
       </EmptyStateBody>
+      <EmptyStateBody>
+        <Component />
+      </EmptyStateBody>
       <Component
         variant="primary"
       >
@@ -145,7 +170,15 @@ exports[`TourView Component should render a translated component: translated 1`]
           target="_blank"
           variant="link"
         >
-          t('curiosity-tour.emptyStateLink')
+          t('curiosity-tour.emptyStateLinkLearnMore')
+        </Component>
+        <Component
+          component="a"
+          href="https://access.redhat.com/account-team"
+          target="_blank"
+          variant="link"
+        >
+          t('curiosity-tour.emptyStateLinkContactUs')
         </Component>
       </EmptyStateSecondaryActions>
     </EmptyState>
