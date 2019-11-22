@@ -1007,7 +1007,7 @@ exports[`ChartArea Component should handle render displays for both data and thr
             },
           ]
         }
-        interpolation="catmullRom"
+        interpolation="monotoneX"
         key="generatedid-"
         name="chartArea-0-area"
         style={
@@ -1604,7 +1604,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
             },
           ]
         }
-        interpolation="catmullRom"
+        interpolation="monotoneX"
         key="generatedid-"
         name="chartArea-0-area"
         style={
