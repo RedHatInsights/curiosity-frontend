@@ -40,7 +40,6 @@ exports[`TourView Component should have a fallback title: title 1`] = `
         <Component
           component="a"
           href="https://access.redhat.com/documentation/subscription_central/2019-11/"
-          rel="noopener noreferrer"
           target="_blank"
           variant="link"
         >
@@ -92,7 +91,6 @@ exports[`TourView Component should render a non-connected component: non-connect
         <Component
           component="a"
           href="https://access.redhat.com/documentation/subscription_central/2019-11/"
-          rel="noopener noreferrer"
           target="_blank"
           variant="link"
         >
@@ -144,7 +142,6 @@ exports[`TourView Component should render a translated component: translated 1`]
         <Component
           component="a"
           href="https://access.redhat.com/documentation/subscription_central/2019-11/"
-          rel="noopener noreferrer"
           target="_blank"
           variant="link"
         >

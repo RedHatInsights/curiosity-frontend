@@ -58,7 +58,7 @@ msgstr \\"\\"
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:57
+#: src/components/tourView/tourView.js:56
 msgid \\"curiosity-tour.emptyStateLink\\"
 msgstr \\"\\"
 
