@@ -45,6 +45,11 @@ const TourView = ({ t }) => (
             {t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
           </React.Fragment>
         </EmptyStateBody>
+        <EmptyStateBody>
+          <React.Fragment>
+            {t('curiosity-tour.emptyStateDescriptionExtended', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
+          </React.Fragment>
+        </EmptyStateBody>
         <Button variant="primary">{t('curiosity-tour.emptyStateButton')}</Button>
         <EmptyStateSecondaryActions>
           <Button
@@ -53,7 +58,10 @@ const TourView = ({ t }) => (
             target="_blank"
             href="https://access.redhat.com/documentation/subscription_central/2019-11/"
           >
-            {t('curiosity-tour.emptyStateLink')}
+            {t('curiosity-tour.emptyStateLinkLearnMore')}
+          </Button>
+          <Button component="a" variant="link" target="_blank" href="https://access.redhat.com/account-team">
+            {t('curiosity-tour.emptyStateLinkContactUs')}
           </Button>
         </EmptyStateSecondaryActions>
       </EmptyState>
