@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.6...v0.1.7) (2019-11-22)
+
+
+### Bug Fixes
+
+* **chartArea:** issues/142 update interpolation default ([#149](https://github.com/RedHatInsights/curiosity-frontend/issues/149)) ([57af67a](https://github.com/RedHatInsights/curiosity-frontend/commit/57af67a))
+* **i18n:** issues/146 update system label copy ([eb7a394](https://github.com/RedHatInsights/curiosity-frontend/commit/eb7a394))
+* **rhelActions:** issues/133 disable toasts ([#150](https://github.com/RedHatInsights/curiosity-frontend/issues/150)) ([ba18bbf](https://github.com/RedHatInsights/curiosity-frontend/commit/ba18bbf))
+* **rhelGraphCard:** issues/148 subtle color adjustment ([219f3d2](https://github.com/RedHatInsights/curiosity-frontend/commit/219f3d2))
+* **rhelGraphCard,redux:** issues/133 add tour redirect ([#145](https://github.com/RedHatInsights/curiosity-frontend/issues/145)) ([380e1e4](https://github.com/RedHatInsights/curiosity-frontend/commit/380e1e4))
+* **tourView:** learn more href update ([2385189](https://github.com/RedHatInsights/curiosity-frontend/commit/2385189))
+* **tourView,rhelView:** issues/133 copy updates ([#139](https://github.com/RedHatInsights/curiosity-frontend/issues/139)) ([b0b4e62](https://github.com/RedHatInsights/curiosity-frontend/commit/b0b4e62))
+
 ### [0.1.6](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.5...v0.1.6) (2019-11-19)
 
 
