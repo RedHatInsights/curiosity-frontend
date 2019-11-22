@@ -302,7 +302,7 @@ class ChartArea extends React.Component {
       return (
         <PfChartArea
           animate={dataSet.animate || false}
-          interpolation={dataSet.interpolation || 'catmullRom'}
+          interpolation={dataSet.interpolation || 'monotoneX'}
           key={helpers.generateId()}
           name={`chartArea-${index}-area`}
           data={dataSet.data}
