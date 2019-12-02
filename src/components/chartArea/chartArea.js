@@ -345,7 +345,11 @@ class ChartArea extends React.Component {
      * graph. To avoid issues we return an empty array
      */
     return (
-      <div ref={this.containerRef}>
+      <div
+        id="curiosity-chartarea"
+        className="uxui-curiosity__modal uxui-curiosity__modal--loading"
+        ref={this.containerRef}
+      >
         <Chart animate={{ duration: 0 }} width={chartWidth} themeColor={themeColor} {...chartProps}>
           <ChartAxis {...xAxisProps} animate={false} />
           <ChartAxis {...yAxisProps} animate={false} />
