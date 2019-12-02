@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
-<div>
+<div
+  class="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
   <div
     class="pf-c-chart"
     style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative"
@@ -421,7 +424,10 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
 `;
 
 exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
-<div>
+<div
+  class="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
   <div
     class="pf-c-chart"
     style="height:100%;width:100%;user-select:none;pointer-events:none;touch-action:none;position:relative"
@@ -841,7 +847,10 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 `;
 
 exports[`ChartArea Component should handle render displays for both data and threshold: threshold 1`] = `
-<div>
+<div
+  className="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
   <Chart
     animate={
       Object {
@@ -1248,7 +1257,10 @@ Array [
 `;
 
 exports[`ChartArea Component should handle variation in passed properties with specific methods: variation 1`] = `
-<div>
+<div
+  className="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
   <Chart
     animate={
       Object {
@@ -1416,7 +1428,10 @@ exports[`ChartArea Component should handle variation in passed properties with s
 `;
 
 exports[`ChartArea Component should render a basic component: basic 1`] = `
-<div>
+<div
+  className="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
   <Chart
     animate={
       Object {
@@ -1471,7 +1486,10 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
 `;
 
 exports[`ChartArea Component should render basic data: data 1`] = `
-<div>
+<div
+  className="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
   <Chart
     animate={
       Object {
