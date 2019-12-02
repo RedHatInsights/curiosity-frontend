@@ -78,6 +78,15 @@ Specific uses:
 - `.env.development.local`, is used by the local run NPM script `$ yarn start:local`
 - `.env.production.local`, is used by the build to relate version information
 
+## Writing code
+### Reserved CSS class names
+This project makes use of reserved css class prefixes used by external resources. 
+> Updating elements with these classes should be done with the knowledge "you are affecting an external resource in a potentially unanticipated way".
+
+1. Prefix `uiux-`
+
+   CSS classes with the prefix `uiux-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
+
 ## Testing
 To test content you'll need to have Node and Yarn installed.
 
