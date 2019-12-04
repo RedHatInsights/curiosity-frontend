@@ -106,7 +106,8 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
   }
 
   const momentDate = moment.utc(date);
-  const isNewYear = tick !== 0 && parseInt(momentDate.year(), 10) !== parseInt(moment.utc(previousDate).year(), 10);
+  const isNewYear =
+    tick !== 0 && Number.parseInt(momentDate.year(), 10) !== Number.parseInt(moment.utc(previousDate).year(), 10);
   let formattedDate;
 
   switch (granularity) {
