@@ -37,6 +37,7 @@
     ],
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
+    "jest/no-test-callback": 0,
     "jest/prefer-to-have-length": 0,
     "max-len": [
       "error",
