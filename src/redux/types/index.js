@@ -1,5 +1,5 @@
-import * as rhsmTypes from './rhsmTypes';
-import * as userTypes from './userTypes';
+import { rhsmTypes } from './rhsmTypes';
+import { userTypes } from './userTypes';
 
 const reduxTypes = {
   rhsm: rhsmTypes,
