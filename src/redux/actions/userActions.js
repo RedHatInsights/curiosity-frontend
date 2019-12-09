@@ -12,4 +12,6 @@ const getLocale = () => ({
   payload: userService.getLocale()
 });
 
-export { authorizeUser, getLocale };
+const userActions = { authorizeUser, getLocale };
+
+export { userActions as default, userActions, authorizeUser, getLocale };
