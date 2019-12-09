@@ -8,7 +8,7 @@ import {
   yAxisTickFormat
 } from '../rhelGraphCardHelpers';
 import { dateHelpers } from '../../../common';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhelApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('RhelGraphCardHelpers', () => {
   it('should have specific functions', () => {

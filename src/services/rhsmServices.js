@@ -378,7 +378,7 @@ import serviceConfig from './config';
  *        ]
  *     }
  */
-const getGraphReportsRhel = (id, params = {}) =>
+const getGraphReports = (id, params = {}) =>
   axios(
     serviceConfig({
       url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
@@ -541,7 +541,7 @@ const getGraphReportsRhel = (id, params = {}) =>
  *        ]
  *     }
  */
-const getGraphCapacityRhel = (id, params = {}) =>
+const getGraphCapacity = (id, params = {}) =>
   axios(
     serviceConfig({
       url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
@@ -549,6 +549,6 @@ const getGraphCapacityRhel = (id, params = {}) =>
     })
   );
 
-const rhelServices = { getGraphCapacityRhel, getGraphReportsRhel };
+const rhsmServices = { getGraphCapacity, getGraphReports };
 
-export { rhelServices as default, rhelServices, getGraphCapacityRhel, getGraphReportsRhel };
+export { rhsmServices as default, rhsmServices, getGraphCapacity, getGraphReports };

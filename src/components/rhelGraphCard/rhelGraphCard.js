@@ -13,7 +13,7 @@ import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-componen
 import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
-import { rhelApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhelApiTypes';
+import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { rhelGraphCardHelpers } from './rhelGraphCardHelpers';
 import { rhelGraphCardTypes } from './rhelGraphCardTypes';
 import ChartArea from '../chartArea/chartArea';
@@ -32,16 +32,16 @@ class RhelGraphCard extends React.Component {
   }
 
   onUpdateGraphData = () => {
-    const { getGraphCapacityRhel, getGraphReportsRhel, graphGranularity, startDate, endDate, productId } = this.props;
+    const { getGraphCapacity, getGraphReports, graphGranularity, startDate, endDate, productId } = this.props;
     const query = {
-      [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
-      [rhelApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
-      [rhelApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
+      [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
+      [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
+      [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
     };
 
     if (productId) {
-      getGraphCapacityRhel(productId, query);
-      getGraphReportsRhel(productId, query);
+      getGraphCapacity(productId, query);
+      getGraphReports(productId, query);
     }
   };
 
@@ -51,7 +51,7 @@ class RhelGraphCard extends React.Component {
 
     if (graphGranularity !== value) {
       store.dispatch({
-        type: reduxTypes.rhel.SET_GRAPH_RHEL_GRANULARITY,
+        type: reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM,
         graphGranularity: value
       });
     }
@@ -173,8 +173,8 @@ RhelGraphCard.propTypes = {
     to: PropTypes.string
   }),
   errorStatus: PropTypes.number,
-  getGraphCapacityRhel: PropTypes.func,
-  getGraphReportsRhel: PropTypes.func,
+  getGraphCapacity: PropTypes.func,
+  getGraphReports: PropTypes.func,
   graphData: PropTypes.shape({
     sockets: PropTypes.arrayOf(
       PropTypes.shape({
@@ -215,8 +215,8 @@ RhelGraphCard.defaultProps = {
   error: false,
   errorRoute: {},
   errorStatus: null,
-  getGraphCapacityRhel: helpers.noop,
-  getGraphReportsRhel: helpers.noop,
+  getGraphCapacity: helpers.noop,
+  getGraphReports: helpers.noop,
   graphData: {
     sockets: [],
     hypervisor: [],
@@ -224,7 +224,7 @@ RhelGraphCard.defaultProps = {
   },
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
-  productId: rhelApiTypes.RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
+  productId: rhsmApiTypes.RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
   t: helpers.noopTranslate,
   startDate: dateHelpers.defaultDateTime.startDate,
   endDate: dateHelpers.defaultDateTime.endDate
@@ -239,8 +239,8 @@ const makeMapStateToProps = () => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getGraphCapacityRhel: (id, query) => dispatch(reduxActions.rhel.getGraphCapacityRhel(id, query)),
-  getGraphReportsRhel: (id, query) => dispatch(reduxActions.rhel.getGraphReportsRhel(id, query))
+  getGraphCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphCapacity(id, query)),
+  getGraphReports: (id, query) => dispatch(reduxActions.rhsm.getGraphReports(id, query))
 });
 
 const ConnectedRhelGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(RhelGraphCard);

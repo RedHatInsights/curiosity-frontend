@@ -2,10 +2,10 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import moxios from 'moxios';
 import { rhelGraphReducer, rhelViewReducer } from '../../reducers';
-import { rhelApiTypes } from '../../../types/rhelApiTypes';
-import { rhelActions } from '..';
+import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import { rhsmActions } from '../rhsmActions';
 
-describe('RhelActions', () => {
+describe('RhsmActions', () => {
   const middleware = [promiseMiddleware];
   const generateStore = () =>
     createStore(
@@ -25,7 +25,7 @@ describe('RhelActions', () => {
         status: 200,
         response: {
           test: 'success',
-          [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: ['success']
+          [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: ['success']
         }
       });
     });
@@ -35,9 +35,9 @@ describe('RhelActions', () => {
     moxios.uninstall();
   });
 
-  it('Should return response content for getGraphReportsRhel method', done => {
+  it('Should return response content for getGraphReports method', done => {
     const store = generateStore();
-    const dispatcher = rhelActions.getGraphReportsRhel();
+    const dispatcher = rhsmActions.getGraphReports();
 
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().rhelGraph;
@@ -49,7 +49,7 @@ describe('RhelActions', () => {
 
   it('Should return response content for getGraphCapacity method', done => {
     const store = generateStore();
-    const dispatcher = rhelActions.getGraphCapacityRhel();
+    const dispatcher = rhsmActions.getGraphCapacity();
 
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().rhelGraph;

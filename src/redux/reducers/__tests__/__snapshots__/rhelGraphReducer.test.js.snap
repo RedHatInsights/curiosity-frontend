@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RhelGraphReducer should handle all defined error types: rejected types GET_GRAPH_CAPACITY_RHEL 1`] = `
+exports[`RhelGraphReducer should handle all defined error types: rejected types GET_GRAPH_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {
@@ -17,11 +17,11 @@ Object {
     "component": Object {},
     "report": Object {},
   },
-  "type": "GET_GRAPH_CAPACITY_RHEL_REJECTED",
+  "type": "GET_GRAPH_CAPACITY_RHSM_REJECTED",
 }
 `;
 
-exports[`RhelGraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_RHEL 1`] = `
+exports[`RhelGraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {},
@@ -38,11 +38,11 @@ Object {
       "update": false,
     },
   },
-  "type": "GET_GRAPH_REPORT_RHEL_REJECTED",
+  "type": "GET_GRAPH_REPORT_RHSM_REJECTED",
 }
 `;
 
-exports[`RhelGraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_CAPACITY_RHEL 1`] = `
+exports[`RhelGraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {
@@ -62,11 +62,11 @@ Object {
     "component": Object {},
     "report": Object {},
   },
-  "type": "GET_GRAPH_CAPACITY_RHEL_FULFILLED",
+  "type": "GET_GRAPH_CAPACITY_RHSM_FULFILLED",
 }
 `;
 
-exports[`RhelGraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_RHEL 1`] = `
+exports[`RhelGraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {},
@@ -86,11 +86,11 @@ Object {
       "update": false,
     },
   },
-  "type": "GET_GRAPH_REPORT_RHEL_FULFILLED",
+  "type": "GET_GRAPH_REPORT_RHSM_FULFILLED",
 }
 `;
 
-exports[`RhelGraphReducer should handle all defined pending types: pending types GET_GRAPH_CAPACITY_RHEL 1`] = `
+exports[`RhelGraphReducer should handle all defined pending types: pending types GET_GRAPH_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {
@@ -106,11 +106,11 @@ Object {
     "component": Object {},
     "report": Object {},
   },
-  "type": "GET_GRAPH_CAPACITY_RHEL_PENDING",
+  "type": "GET_GRAPH_CAPACITY_RHSM_PENDING",
 }
 `;
 
-exports[`RhelGraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_RHEL 1`] = `
+exports[`RhelGraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {},
@@ -126,11 +126,11 @@ Object {
       "update": false,
     },
   },
-  "type": "GET_GRAPH_REPORT_RHEL_PENDING",
+  "type": "GET_GRAPH_REPORT_RHSM_PENDING",
 }
 `;
 
-exports[`RhelGraphReducer should handle specific defined types: defined type SET_GRAPH_RHEL_GRANULARITY 1`] = `
+exports[`RhelGraphReducer should handle specific defined types: defined type SET_GRAPH_GRANULARITY_RHSM 1`] = `
 Object {
   "result": Object {
     "capacity": Object {},
@@ -141,6 +141,6 @@ Object {
     },
     "report": Object {},
   },
-  "type": "SET_GRAPH_RHEL_GRANULARITY",
+  "type": "SET_GRAPH_GRANULARITY_RHSM",
 }
 `;
