@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
 import _get from 'lodash/get';
-import { rhelApiTypes } from '../../types/rhelApiTypes';
+import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 
 const rhelGraphCardCache = {};
 
@@ -13,8 +13,8 @@ const rhelGraphCardSelector = createSelector(
     const { component = {}, capacity = {}, report = {} } = rhelGraphReducer || {};
 
     const graphGranularity = component.graphGranularity || null;
-    const reportGranularity = _get(report, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY], null);
-    const capacityGranularity = _get(capacity, ['metaQuery', rhelApiTypes.RHSM_API_QUERY_GRANULARITY], null);
+    const reportGranularity = _get(report, ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY], null);
+    const capacityGranularity = _get(capacity, ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY], null);
     const reportProductId = _get(report, ['metaData', 'id'], null);
     const capacityProductId = _get(capacity, ['metaData', 'id'], null);
 
@@ -63,8 +63,8 @@ const rhelGraphCardSelector = createSelector(
     updatedData.errorStatus = report.errorStatus || capacity.errorStatus || null;
 
     if (capacity.fulfilled && report.fulfilled && granularity && productId) {
-      const productsData = _get(report, ['data', rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
-      const thresholdData = _get(capacity, ['data', rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
+      const productsData = _get(report, ['data', rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
+      const thresholdData = _get(capacity, ['data', rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
       updatedData.graphData.sockets.length = 0;
       updatedData.graphData.hypervisor.length = 0;
@@ -72,7 +72,7 @@ const rhelGraphCardSelector = createSelector(
 
       productsData.forEach((value, index) => {
         const date = moment
-          .utc(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
+          .utc(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
           .startOf('day')
           .toDate();
 
@@ -82,7 +82,7 @@ const rhelGraphCardSelector = createSelector(
           }
 
           const itemDate = moment
-            .utc(item[rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE])
+            .utc(item[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE])
             .startOf('day')
             .toDate();
 
@@ -92,13 +92,13 @@ const rhelGraphCardSelector = createSelector(
         updatedData.graphData.sockets.push({
           date,
           x: index,
-          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10) || 0
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10) || 0
         });
 
         updatedData.graphData.hypervisor.push({
           date,
           x: index,
-          y: Number.parseInt(value[rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
         });
 
         updatedData.graphData.threshold.push({
@@ -106,7 +106,7 @@ const rhelGraphCardSelector = createSelector(
           x: index,
           y: Number.parseInt(
             (checkThresholdDate(thresholdData && thresholdData[index]) &&
-              thresholdData[index][rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]) ||
+              thresholdData[index][rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]) ||
               0,
             10
           )

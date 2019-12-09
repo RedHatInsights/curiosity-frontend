@@ -3,10 +3,10 @@
 exports[`ReduxTypes should have specific type properties: all redux types 1`] = `
 Object {
   "default": Object {
-    "rhel": Object {
-      "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
-      "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
-      "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
+    "rhsm": Object {
+      "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
+      "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
+      "SET_GRAPH_GRANULARITY_RHSM": "SET_GRAPH_GRANULARITY_RHSM",
     },
     "user": Object {
       "USER_AUTH": "USER_AUTH",
@@ -15,10 +15,10 @@ Object {
     },
   },
   "reduxTypes": Object {
-    "rhel": Object {
-      "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
-      "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
-      "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
+    "rhsm": Object {
+      "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
+      "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
+      "SET_GRAPH_GRANULARITY_RHSM": "SET_GRAPH_GRANULARITY_RHSM",
     },
     "user": Object {
       "USER_AUTH": "USER_AUTH",
@@ -26,10 +26,10 @@ Object {
       "USER_LOGOUT": "USER_LOGOUT",
     },
   },
-  "rhelTypes": Object {
-    "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
-    "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
-    "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
+  "rhsmTypes": Object {
+    "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
+    "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
+    "SET_GRAPH_GRANULARITY_RHSM": "SET_GRAPH_GRANULARITY_RHSM",
   },
   "userTypes": Object {
     "USER_AUTH": "USER_AUTH",
@@ -41,10 +41,10 @@ Object {
 
 exports[`ReduxTypes should have specific type properties: specific types 1`] = `
 Object {
-  "rhel": Object {
-    "GET_GRAPH_CAPACITY_RHEL": "GET_GRAPH_CAPACITY_RHEL",
-    "GET_GRAPH_REPORT_RHEL": "GET_GRAPH_REPORT_RHEL",
-    "SET_GRAPH_RHEL_GRANULARITY": "SET_GRAPH_RHEL_GRANULARITY",
+  "rhsm": Object {
+    "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
+    "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
+    "SET_GRAPH_GRANULARITY_RHSM": "SET_GRAPH_GRANULARITY_RHSM",
   },
   "user": Object {
     "USER_AUTH": "USER_AUTH",

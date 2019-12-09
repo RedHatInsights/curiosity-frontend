@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RhelApiTypes Should have specific API properties: all exported api types 1`] = `
+exports[`RhsmApiTypes Should have specific API properties: all exported api types 1`] = `
 Object {
   "RHSM_API_PATH_RHEL_ID_TYPES": Object {
     "ARM": "RHEL for ARM",
@@ -96,7 +96,7 @@ Object {
       "COUNT": "count",
     },
   },
-  "rhelApiTypes": Object {
+  "rhsmApiTypes": Object {
     "RHSM_API_PATH_RHEL_ID_TYPES": Object {
       "ARM": "RHEL for ARM",
       "COMPUTE_NODE": "RHEL Compute Node",
@@ -147,7 +147,7 @@ Object {
 }
 `;
 
-exports[`RhelApiTypes Should have specific API properties: specific types 1`] = `
+exports[`RhsmApiTypes Should have specific API properties: specific types 1`] = `
 Object {
   "RHSM_API_PATH_RHEL_ID_TYPES": Object {
     "ARM": "RHEL for ARM",

@@ -1,7 +1,7 @@
 import moxios from 'moxios';
-import rhelServices from '../rhelServices';
+import { rhsmServices } from '../rhsmServices';
 
-describe('RhelServices', () => {
+describe('RhsmServices', () => {
   beforeEach(() => {
     moxios.install();
 
@@ -17,12 +17,12 @@ describe('RhelServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(rhelServices)).toHaveLength(2);
+    expect(Object.keys(rhsmServices)).toHaveLength(2);
   });
 
   it('should have specific methods', () => {
-    expect(rhelServices.getGraphCapacityRhel).toBeDefined();
-    expect(rhelServices.getGraphReportsRhel).toBeDefined();
+    expect(rhsmServices.getGraphCapacity).toBeDefined();
+    expect(rhsmServices.getGraphReports).toBeDefined();
   });
 
   /**
@@ -30,10 +30,10 @@ describe('RhelServices', () => {
    *  settings, see "before each" regex above
    */
   it('should return promises for every method', done => {
-    const promises = Object.keys(rhelServices).map(value => rhelServices[value]());
+    const promises = Object.keys(rhsmServices).map(value => rhsmServices[value]());
 
     Promise.all(promises).then(success => {
-      expect(success.length).toEqual(Object.keys(rhelServices).length);
+      expect(success.length).toEqual(Object.keys(rhsmServices).length);
       done();
     });
   });

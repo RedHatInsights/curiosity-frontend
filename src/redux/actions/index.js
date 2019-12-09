@@ -1,11 +1,11 @@
-import * as rhelActions from './rhelActions';
-import * as userActions from './userActions';
+import { rhsmActions } from './rhsmActions';
+import { userActions } from './userActions';
 
 const actions = {
-  rhel: rhelActions,
+  rhsm: rhsmActions,
   user: userActions
 };
 
 const reduxActions = { ...actions };
 
-export { reduxActions as default, reduxActions, rhelActions, userActions };
+export { reduxActions as default, reduxActions, rhsmActions, userActions };
