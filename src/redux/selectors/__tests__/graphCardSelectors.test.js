@@ -1,5 +1,5 @@
 import graphCardSelectors from '../graphCardSelectors';
-import { rhelApiTypes } from '../../../types/rhelApiTypes';
+import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
 import { dateHelpers } from '../../../common/dateHelpers';
 
 describe('GraphCardSelectors', () => {
@@ -22,7 +22,7 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {},
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
         },
         report: {
           fulfilled: true,
@@ -30,7 +30,7 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {},
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
         }
       }
     };
@@ -46,17 +46,17 @@ describe('GraphCardSelectors', () => {
           fulfilled: true,
           metaData: {},
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
         },
         report: {
           fulfilled: true,
           metaData: {},
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
         }
       }
     };
@@ -74,9 +74,9 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
         },
         report: {
           pending: true,
@@ -84,9 +84,9 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
         }
       }
     };
@@ -104,15 +104,15 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.MONTHLY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.MONTHLY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
               }
             ]
           }
@@ -123,15 +123,15 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
               }
             ]
           }
@@ -147,7 +147,7 @@ describe('GraphCardSelectors', () => {
           capacity: {
             ...state.rhelGraph.capacity,
             metaQuery: {
-              [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             }
           },
           report: {
@@ -162,8 +162,8 @@ describe('GraphCardSelectors', () => {
     const state = {
       rhelGraph: {
         component: {
-          graphGranularity: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
-          ...dateHelpers.getRangedDateTime(rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
+          graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
+          ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
         },
         capacity: {
           fulfilled: true,
@@ -171,9 +171,9 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
         },
         report: {
           fulfilled: true,
@@ -181,15 +181,15 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
               }
             ]
           }
@@ -206,8 +206,8 @@ describe('GraphCardSelectors', () => {
     const state = {
       rhelGraph: {
         component: {
-          graphGranularity: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
-          ...dateHelpers.getRangedDateTime(rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
+          graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
+          ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
         },
         capacity: {
           fulfilled: true,
@@ -215,27 +215,27 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
               }
             ]
           }
@@ -246,24 +246,24 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
               }
             ]
           }
@@ -280,8 +280,8 @@ describe('GraphCardSelectors', () => {
     const state = {
       rhelGraph: {
         component: {
-          graphGranularity: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
-          ...dateHelpers.getRangedDateTime(rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
+          graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
+          ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
         },
         capacity: {
           fulfilled: true,
@@ -289,27 +289,27 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhelApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
               }
             ]
           }
@@ -320,27 +320,27 @@ describe('GraphCardSelectors', () => {
             id: 'Lorem Ipsum'
           },
           metaQuery: {
-            [rhelApiTypes.RHSM_API_QUERY_GRANULARITY]: rhelApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: {
-            [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
               },
               {
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 2,
-                [rhelApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 2,
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
               }
             ]
           }

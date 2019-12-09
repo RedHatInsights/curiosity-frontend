@@ -1,7 +1,7 @@
 import { helpers } from '../../common/helpers';
 import RhelView from '../rhelView/rhelView';
 import TourView from '../tourView/tourView';
-import { RHSM_API_PATH_RHEL_ID_TYPES } from '../../types/rhelApiTypes';
+import { RHSM_API_PATH_RHEL_ID_TYPES } from '../../types/rhsmApiTypes';
 
 /**
  * Return an assumed dynamic route baseName directory

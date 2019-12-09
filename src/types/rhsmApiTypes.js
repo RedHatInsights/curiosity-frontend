@@ -48,7 +48,7 @@ const RHSM_API_QUERY_OFFSET = 'offset';
 const RHSM_API_QUERY_START_DATE = 'beginning';
 const RHSM_API_QUERY_END_DATE = 'ending';
 
-const rhelApiTypes = {
+const rhsmApiTypes = {
   RHSM_API_RESPONSE_CAPACITY_DATA,
   RHSM_API_RESPONSE_CAPACITY_DATA_TYPES,
   RHSM_API_RESPONSE_CAPACITY_META,
@@ -67,8 +67,8 @@ const rhelApiTypes = {
 };
 
 export {
-  rhelApiTypes as default,
-  rhelApiTypes,
+  rhsmApiTypes as default,
+  rhsmApiTypes,
   RHSM_API_RESPONSE_CAPACITY_DATA,
   RHSM_API_RESPONSE_CAPACITY_DATA_TYPES,
   RHSM_API_RESPONSE_CAPACITY_META,

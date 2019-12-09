@@ -1,5 +1,5 @@
 import rhelGraphReducer from '../rhelGraphReducer';
-import { rhelTypes as types } from '../../types';
+import { rhsmTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
 describe('RhelGraphReducer', () => {
@@ -8,7 +8,7 @@ describe('RhelGraphReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [types.SET_GRAPH_RHEL_GRANULARITY];
+    const specificTypes = [types.SET_GRAPH_GRANULARITY_RHSM];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -22,7 +22,7 @@ describe('RhelGraphReducer', () => {
   });
 
   it('should handle all defined error types', () => {
-    const specificTypes = [types.GET_GRAPH_CAPACITY_RHEL, types.GET_GRAPH_REPORT_RHEL];
+    const specificTypes = [types.GET_GRAPH_CAPACITY_RHSM, types.GET_GRAPH_REPORT_RHSM];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -49,7 +49,7 @@ describe('RhelGraphReducer', () => {
   });
 
   it('should handle all defined pending types', () => {
-    const specificTypes = [types.GET_GRAPH_CAPACITY_RHEL, types.GET_GRAPH_REPORT_RHEL];
+    const specificTypes = [types.GET_GRAPH_CAPACITY_RHSM, types.GET_GRAPH_REPORT_RHSM];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -65,7 +65,7 @@ describe('RhelGraphReducer', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    const specificTypes = [types.GET_GRAPH_CAPACITY_RHEL, types.GET_GRAPH_REPORT_RHEL];
+    const specificTypes = [types.GET_GRAPH_CAPACITY_RHSM, types.GET_GRAPH_REPORT_RHSM];
 
     specificTypes.forEach(value => {
       const dispatched = {

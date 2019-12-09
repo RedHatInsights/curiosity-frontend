@@ -1,4 +1,4 @@
-import { reduxTypes, rhelTypes } from '../types';
+import { reduxTypes, rhsmTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { dateHelpers } from '../../common/dateHelpers';
 
@@ -10,7 +10,7 @@ const initialState = {
 
 const rhelGraphReducer = (state = initialState, action) => {
   switch (action.type) {
-    case reduxTypes.rhel.SET_GRAPH_RHEL_GRANULARITY:
+    case reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM:
       return reduxHelpers.setStateProp(
         'component',
         {
@@ -26,8 +26,8 @@ const rhelGraphReducer = (state = initialState, action) => {
     default:
       return reduxHelpers.generatedPromiseActionReducer(
         [
-          { ref: 'capacity', type: rhelTypes.GET_GRAPH_CAPACITY_RHEL },
-          { ref: 'report', type: rhelTypes.GET_GRAPH_REPORT_RHEL }
+          { ref: 'capacity', type: rhsmTypes.GET_GRAPH_CAPACITY_RHSM },
+          { ref: 'report', type: rhsmTypes.GET_GRAPH_REPORT_RHSM }
         ],
         state,
         action
