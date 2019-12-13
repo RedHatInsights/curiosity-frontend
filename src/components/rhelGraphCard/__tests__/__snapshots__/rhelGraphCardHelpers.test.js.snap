@@ -20,31 +20,31 @@ Object {
 
 exports[`RhelGraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: granularity data display 1`] = `
 Object {
-  "daily": "t('curiosity-graph.rhelTooltipThreshold'): 100
-t('curiosity-graph.rhelTooltipSockets'): 50
-t('curiosity-graph.rhelTooltipHypervisor'): 50
-t('curiosity-graph.rhelTooltipDate'): June 1",
-  "monthly": "t('curiosity-graph.rhelTooltipThreshold'): 100
-t('curiosity-graph.rhelTooltipSockets'): 50
-t('curiosity-graph.rhelTooltipHypervisor'): 50
-t('curiosity-graph.rhelTooltipDate'): June 2019",
-  "quarterly": "t('curiosity-graph.rhelTooltipThreshold'): 100
-t('curiosity-graph.rhelTooltipSockets'): 50
-t('curiosity-graph.rhelTooltipHypervisor'): 50
-t('curiosity-graph.rhelTooltipDate'): June 2019",
-  "weekly": "t('curiosity-graph.rhelTooltipThreshold'): 100
-t('curiosity-graph.rhelTooltipSockets'): 50
-t('curiosity-graph.rhelTooltipHypervisor'): 50
-t('curiosity-graph.rhelTooltipDate'): June 1",
+  "daily": "t('curiosity-graph.thresholdLabel'): 100
+[object Object]: 50
+[object Object]: 50
+t('curiosity-graph.dateLabel'): June 1",
+  "monthly": "t('curiosity-graph.thresholdLabel'): 100
+[object Object]: 50
+[object Object]: 50
+t('curiosity-graph.dateLabel'): June 2019",
+  "quarterly": "t('curiosity-graph.thresholdLabel'): 100
+[object Object]: 50
+[object Object]: 50
+t('curiosity-graph.dateLabel'): June 2019",
+  "weekly": "t('curiosity-graph.thresholdLabel'): 100
+[object Object]: 50
+[object Object]: 50
+t('curiosity-graph.dateLabel'): June 1",
 }
 `;
 
 exports[`RhelGraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: no data granularity data display 1`] = `
 Object {
-  "daily": "t('curiosity-graph.tooltipNoData')",
-  "monthly": "t('curiosity-graph.tooltipNoData')",
-  "quarterly": "t('curiosity-graph.tooltipNoData')",
-  "weekly": "t('curiosity-graph.tooltipNoData')",
+  "daily": "t('curiosity-graph.noDataLabel')",
+  "monthly": "t('curiosity-graph.noDataLabel')",
+  "quarterly": "t('curiosity-graph.noDataLabel')",
+  "weekly": "t('curiosity-graph.noDataLabel')",
 }
 `;
 

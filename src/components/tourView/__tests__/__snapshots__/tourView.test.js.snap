@@ -13,11 +13,7 @@ exports[`TourView Component should have a fallback title: title 1`] = `
       variant="full"
     >
       <img
-        alt={
-          Object {
-            "appName": "Subscription Watch",
-          }
-        }
+        alt="[object Object]"
         aria-hidden={true}
         className="curiosity-emptystate-img-icon"
         src="subscriptions.svg"
@@ -26,13 +22,13 @@ exports[`TourView Component should have a fallback title: title 1`] = `
         headingLevel="h5"
         size="lg"
       >
-        <Component />
+        [object Object]
       </Title>
       <EmptyStateBody>
-        <Component />
+        [object Object]
       </EmptyStateBody>
       <EmptyStateBody>
-        <Component />
+        [object Object]
       </EmptyStateBody>
       <Component
         variant="primary"
@@ -75,11 +71,7 @@ exports[`TourView Component should render a non-connected component: non-connect
       variant="full"
     >
       <img
-        alt={
-          Object {
-            "appName": "Subscription Watch",
-          }
-        }
+        alt="[object Object]"
         aria-hidden={true}
         className="curiosity-emptystate-img-icon"
         src="subscriptions.svg"
@@ -88,13 +80,13 @@ exports[`TourView Component should render a non-connected component: non-connect
         headingLevel="h5"
         size="lg"
       >
-        <Component />
+        [object Object]
       </Title>
       <EmptyStateBody>
-        <Component />
+        [object Object]
       </EmptyStateBody>
       <EmptyStateBody>
-        <Component />
+        [object Object]
       </EmptyStateBody>
       <Component
         variant="primary"
@@ -137,11 +129,7 @@ exports[`TourView Component should render a translated component: translated 1`]
       variant="full"
     >
       <img
-        alt={
-          Object {
-            "appName": "Subscription Watch",
-          }
-        }
+        alt="[object Object]"
         aria-hidden={true}
         className="curiosity-emptystate-img-icon"
         src="subscriptions.svg"
@@ -150,13 +138,13 @@ exports[`TourView Component should render a translated component: translated 1`]
         headingLevel="h5"
         size="lg"
       >
-        <Component />
+        [object Object]
       </Title>
       <EmptyStateBody>
-        <Component />
+        [object Object]
       </EmptyStateBody>
       <EmptyStateBody>
-        <Component />
+        [object Object]
       </EmptyStateBody>
       <Component
         variant="primary"
