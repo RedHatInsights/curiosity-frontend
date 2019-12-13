@@ -278,7 +278,7 @@ Object {
 
 exports[`GraphCardSelectors should return specific selectors: selectors 1`] = `
 Object {
-  "makeRhelGraphCard": [Function],
-  "rhelGraphCard": [Function],
+  "graphCard": [Function],
+  "makeGraphCard": [Function],
 }
 `;

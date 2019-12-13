@@ -8,7 +8,7 @@ const initialState = {
   report: {}
 };
 
-const rhelGraphReducer = (state = initialState, action) => {
+const graphReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM:
       return reduxHelpers.setStateProp(
@@ -35,6 +35,6 @@ const rhelGraphReducer = (state = initialState, action) => {
   }
 };
 
-rhelGraphReducer.initialState = initialState;
+graphReducer.initialState = initialState;
 
-export { rhelGraphReducer as default, initialState, rhelGraphReducer };
+export { graphReducer as default, initialState, graphReducer };

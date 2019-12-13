@@ -231,10 +231,10 @@ RhelGraphCard.defaultProps = {
 };
 
 const makeMapStateToProps = () => {
-  const getRhelGraphCard = reduxSelectors.graphCard.makeRhelGraphCard();
+  const getGraphCard = reduxSelectors.graphCard.makeGraphCard();
 
   return (state, props) => ({
-    ...getRhelGraphCard(state, props)
+    ...getGraphCard(state, props)
   });
 };
 

@@ -9,12 +9,12 @@ describe('GraphCardSelectors', () => {
 
   it('should error on missing a reducer response', () => {
     const state = {};
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: missing reducer error');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: missing reducer error');
   });
 
   it('should error on a RHEL product ID without granularity provided', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {},
         capacity: {
           fulfilled: true,
@@ -35,12 +35,12 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: no granularity error');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: no granularity error');
   });
 
   it('should error on a RHEL product ID without a product ID provided', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {},
         capacity: {
           fulfilled: true,
@@ -61,12 +61,12 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: no product id error');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: no product id error');
   });
 
   it('should handle pending state on a RHEL product ID', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {},
         capacity: {
           fulfilled: true,
@@ -91,12 +91,12 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: pending');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: pending');
   });
 
   it('should pass data through on a RHEL product ID when granularity provided mismatches between aggregated responses', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {},
         capacity: {
           fulfilled: true,
@@ -139,19 +139,19 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: granularity mismatch fulfilled');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: granularity mismatch fulfilled');
 
     expect(
-      graphCardSelectors.rhelGraphCard({
-        rhelGraph: {
+      graphCardSelectors.graphCard({
+        graph: {
           capacity: {
-            ...state.rhelGraph.capacity,
+            ...state.graph.capacity,
             metaQuery: {
               [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             }
           },
           report: {
-            ...state.rhelGraph.report
+            ...state.graph.report
           }
         }
       })
@@ -160,7 +160,7 @@ describe('GraphCardSelectors', () => {
 
   it('should populate data on a RHEL product ID when the api response provided mismatches index or date', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {
           graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
           ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
@@ -197,14 +197,12 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot(
-      'rhelGraphCard: data populated on mismatch fulfilled'
-    );
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: data populated on mismatch fulfilled');
   });
 
   it('should populate data on a RHEL product ID when the api response is missing expected properties', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {
           graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
           ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
@@ -271,14 +269,12 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot(
-      'rhelGraphCard: data populated, missing properties'
-    );
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: data populated, missing properties');
   });
 
   it('should map a fulfilled RHEL product ID response to an aggregated output', () => {
     const state = {
-      rhelGraph: {
+      graph: {
         component: {
           graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
           ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
@@ -348,6 +344,6 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.rhelGraphCard(state)).toMatchSnapshot('rhelGraphCard: fulfilled granularity');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: fulfilled granularity');
   });
 });
