@@ -1,7 +1,7 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import moxios from 'moxios';
-import { rhelGraphReducer, rhelViewReducer } from '../../reducers';
+import { graphReducer, viewReducer } from '../../reducers';
 import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
 import { rhsmActions } from '../rhsmActions';
 
@@ -10,8 +10,8 @@ describe('RhsmActions', () => {
   const generateStore = () =>
     createStore(
       combineReducers({
-        rhelGraph: rhelGraphReducer,
-        rhelView: rhelViewReducer
+        graph: graphReducer,
+        view: viewReducer
       }),
       applyMiddleware(...middleware)
     );
@@ -40,7 +40,7 @@ describe('RhsmActions', () => {
     const dispatcher = rhsmActions.getGraphReports();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().rhelGraph;
+      const response = store.getState().graph;
 
       expect(response.report.fulfilled).toBe(true);
       done();
@@ -52,7 +52,7 @@ describe('RhsmActions', () => {
     const dispatcher = rhsmActions.getGraphCapacity();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().rhelGraph;
+      const response = store.getState().graph;
 
       expect(response.capacity.fulfilled).toBe(true);
       done();
