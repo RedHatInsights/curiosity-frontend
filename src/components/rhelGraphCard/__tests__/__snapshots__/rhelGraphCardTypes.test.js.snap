@@ -9,19 +9,19 @@ Object {
 exports[`RhelGraphCardTypes should return a specific output for getDateMenuOptionsType: getDateMenuOptionsType 1`] = `
 Array [
   Object {
-    "title": "t('curiosity-graph.dropdownDaily')",
+    "title": "t(curiosity-graph.dropdownDaily)",
     "value": "daily",
   },
   Object {
-    "title": "t('curiosity-graph.dropdownWeekly')",
+    "title": "t(curiosity-graph.dropdownWeekly)",
     "value": "weekly",
   },
   Object {
-    "title": "t('curiosity-graph.dropdownMonthly')",
+    "title": "t(curiosity-graph.dropdownMonthly)",
     "value": "monthly",
   },
   Object {
-    "title": "t('curiosity-graph.dropdownQuarterly')",
+    "title": "t(curiosity-graph.dropdownQuarterly)",
     "value": "quarterly",
   },
 ]
