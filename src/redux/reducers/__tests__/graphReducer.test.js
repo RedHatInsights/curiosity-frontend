@@ -1,10 +1,10 @@
-import rhelGraphReducer from '../rhelGraphReducer';
+import graphReducer from '../graphReducer';
 import { rhsmTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
-describe('RhelGraphReducer', () => {
+describe('GraphReducer', () => {
   it('should return the initial state', () => {
-    expect(rhelGraphReducer.initialState).toBeDefined();
+    expect(graphReducer.initialState).toBeDefined();
   });
 
   it('should handle specific defined types', () => {
@@ -15,7 +15,7 @@ describe('RhelGraphReducer', () => {
         type: value
       };
 
-      const resultState = rhelGraphReducer(undefined, dispatched);
+      const resultState = graphReducer(undefined, dispatched);
 
       expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
     });
@@ -40,7 +40,7 @@ describe('RhelGraphReducer', () => {
         }
       };
 
-      const resultState = rhelGraphReducer(undefined, dispatched);
+      const resultState = graphReducer(undefined, dispatched);
 
       expect({ type: reduxHelpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot(
         `rejected types ${value}`
@@ -56,7 +56,7 @@ describe('RhelGraphReducer', () => {
         type: reduxHelpers.PENDING_ACTION(value)
       };
 
-      const resultState = rhelGraphReducer(undefined, dispatched);
+      const resultState = graphReducer(undefined, dispatched);
 
       expect({ type: reduxHelpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot(
         `pending types ${value}`
@@ -77,7 +77,7 @@ describe('RhelGraphReducer', () => {
         }
       };
 
-      const resultState = rhelGraphReducer(undefined, dispatched);
+      const resultState = graphReducer(undefined, dispatched);
 
       expect({ type: reduxHelpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot(
         `fulfilled types ${value}`

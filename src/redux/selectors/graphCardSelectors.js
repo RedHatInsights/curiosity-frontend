@@ -3,14 +3,14 @@ import moment from 'moment';
 import _get from 'lodash/get';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 
-const rhelGraphCardCache = {};
+const graphCardCache = {};
 
-const rhelGraph = state => state.rhelGraph;
+const graph = state => state.graph;
 
-const rhelGraphCardSelector = createSelector(
-  [rhelGraph],
-  rhelGraphReducer => {
-    const { component = {}, capacity = {}, report = {} } = rhelGraphReducer || {};
+const graphCardSelector = createSelector(
+  [graph],
+  graphReducer => {
+    const { component = {}, capacity = {}, report = {} } = graphReducer || {};
 
     const graphGranularity = component.graphGranularity || null;
     const reportGranularity = _get(report, ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY], null);
@@ -32,7 +32,7 @@ const rhelGraphCardSelector = createSelector(
       productId = reportProductId;
     }
 
-    const cachedGranularity = (granularity && productId && rhelGraphCardCache[`${productId}_${granularity}`]) || {};
+    const cachedGranularity = (granularity && productId && graphCardCache[`${productId}_${granularity}`]) || {};
     const initialLoad = typeof cachedGranularity.initialLoad === 'boolean' ? cachedGranularity.initialLoad : true;
 
     const updatedData = {
@@ -115,18 +115,18 @@ const rhelGraphCardSelector = createSelector(
 
       updatedData.initialLoad = false;
       updatedData.fulfilled = true;
-      rhelGraphCardCache[`${productId}_${granularity}`] = { ...updatedData };
+      graphCardCache[`${productId}_${granularity}`] = { ...updatedData };
     }
 
     return updatedData;
   }
 );
 
-const makeRhelGraphCardSelector = () => rhelGraphCardSelector;
+const makeGraphCardSelector = () => graphCardSelector;
 
 const graphCardSelectors = {
-  rhelGraphCard: rhelGraphCardSelector,
-  makeRhelGraphCard: makeRhelGraphCardSelector
+  graphCard: graphCardSelector,
+  makeGraphCard: makeGraphCardSelector
 };
 
-export { graphCardSelectors as default, graphCardSelectors, rhelGraphCardSelector, makeRhelGraphCardSelector };
+export { graphCardSelectors as default, graphCardSelectors, graphCardSelector, makeGraphCardSelector };
