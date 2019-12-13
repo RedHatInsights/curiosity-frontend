@@ -6,11 +6,11 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
 >
   <CardHead>
     <h2>
-      CPU socket usage
+      t('curiosity-graph.heading')
     </h2>
     <CardActions>
       <Select
-        aria-label="Select date range"
+        aria-label="t('curiosity-graph.dropdownPlaceholder')"
         ariaLabel="Select option"
         className=""
         id="generatedid-"
@@ -20,24 +20,24 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
         options={
           Array [
             Object {
-              "title": "Daily",
+              "title": "t('curiosity-graph.dropdownDaily')",
               "value": "daily",
             },
             Object {
-              "title": "Weekly",
+              "title": "t('curiosity-graph.dropdownWeekly')",
               "value": "weekly",
             },
             Object {
-              "title": "Monthly",
+              "title": "t('curiosity-graph.dropdownMonthly')",
               "value": "monthly",
             },
             Object {
-              "title": "Quarterly",
+              "title": "t('curiosity-graph.dropdownQuarterly')",
               "value": "quarterly",
             },
           ]
         }
-        placeholder="Select date range"
+        placeholder="t('curiosity-graph.dropdownPlaceholder')"
         selectedOptions="daily"
         variant="single"
       />
@@ -61,7 +61,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "fill": "#8bc1f7",
               "id": "sockets",
               "isStacked": true,
-              "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
+              "legendLabel": "[object Object]",
               "stroke": "#06c",
             },
             Object {
@@ -75,7 +75,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "fill": "#a2d9d9",
               "id": "hypervisor",
               "isStacked": true,
-              "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
+              "legendLabel": "[object Object]",
               "stroke": "#009596",
             },
             Object {
@@ -88,7 +88,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "data": Array [],
               "id": "threshold",
               "isThreshold": true,
-              "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
+              "legendLabel": "t('curiosity-graph.thresholdLabel')",
               "stroke": "#4cb140",
             },
           ]
@@ -145,7 +145,7 @@ Object {
       "fill": "#8bc1f7",
       "id": "sockets",
       "isStacked": true,
-      "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
+      "legendLabel": "[object Object]",
       "stroke": "#06c",
     },
     Object {
@@ -159,7 +159,7 @@ Object {
       "fill": "#a2d9d9",
       "id": "hypervisor",
       "isStacked": true,
-      "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
+      "legendLabel": "[object Object]",
       "stroke": "#009596",
     },
     Object {
@@ -172,7 +172,7 @@ Object {
       "data": undefined,
       "id": "threshold",
       "isThreshold": true,
-      "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
+      "legendLabel": "t('curiosity-graph.thresholdLabel')",
       "stroke": "#4cb140",
     },
   ],
@@ -197,11 +197,11 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
 >
   <CardHead>
     <h2>
-      CPU socket usage
+      t('curiosity-graph.heading')
     </h2>
     <CardActions>
       <Select
-        aria-label="Select date range"
+        aria-label="t('curiosity-graph.dropdownPlaceholder')"
         ariaLabel="Select option"
         className=""
         id="generatedid-"
@@ -211,24 +211,24 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
         options={
           Array [
             Object {
-              "title": "Daily",
+              "title": "t('curiosity-graph.dropdownDaily')",
               "value": "daily",
             },
             Object {
-              "title": "Weekly",
+              "title": "t('curiosity-graph.dropdownWeekly')",
               "value": "weekly",
             },
             Object {
-              "title": "Monthly",
+              "title": "t('curiosity-graph.dropdownMonthly')",
               "value": "monthly",
             },
             Object {
-              "title": "Quarterly",
+              "title": "t('curiosity-graph.dropdownQuarterly')",
               "value": "quarterly",
             },
           ]
         }
-        placeholder="Select date range"
+        placeholder="t('curiosity-graph.dropdownPlaceholder')"
         selectedOptions="daily"
         variant="single"
       />
@@ -268,7 +268,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "fill": "#8bc1f7",
               "id": "sockets",
               "isStacked": true,
-              "legendLabel": "t('curiosity-graph.rhelLegendSocketsLabel')",
+              "legendLabel": "[object Object]",
               "stroke": "#06c",
             },
             Object {
@@ -282,7 +282,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "fill": "#a2d9d9",
               "id": "hypervisor",
               "isStacked": true,
-              "legendLabel": "t('curiosity-graph.rhelLegendHypervisorLabel')",
+              "legendLabel": "[object Object]",
               "stroke": "#009596",
             },
             Object {
@@ -295,7 +295,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "data": undefined,
               "id": "threshold",
               "isThreshold": true,
-              "legendLabel": "t('curiosity-graph.rhelLegendThresholdLabel')",
+              "legendLabel": "t('curiosity-graph.thresholdLabel')",
               "stroke": "#4cb140",
             },
           ]
@@ -328,11 +328,11 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
 >
   <CardHead>
     <h2>
-      CPU socket usage
+      t('curiosity-graph.heading')
     </h2>
     <CardActions>
       <Select
-        aria-label="Select date range"
+        aria-label="t('curiosity-graph.dropdownPlaceholder')"
         ariaLabel="Select option"
         className=""
         id="generatedid-"
@@ -342,24 +342,24 @@ exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
         options={
           Array [
             Object {
-              "title": "Daily",
+              "title": "t('curiosity-graph.dropdownDaily')",
               "value": "daily",
             },
             Object {
-              "title": "Weekly",
+              "title": "t('curiosity-graph.dropdownWeekly')",
               "value": "weekly",
             },
             Object {
-              "title": "Monthly",
+              "title": "t('curiosity-graph.dropdownMonthly')",
               "value": "monthly",
             },
             Object {
-              "title": "Quarterly",
+              "title": "t('curiosity-graph.dropdownQuarterly')",
               "value": "quarterly",
             },
           ]
         }
-        placeholder="Select date range"
+        placeholder="t('curiosity-graph.dropdownPlaceholder')"
         selectedOptions="daily"
         variant="single"
       />
