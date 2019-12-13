@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`I18n Component should attempt to perform a component translate: translated component 1`] = `"<div>hello world</div>"`;
+exports[`I18n Component should attempt to perform a component translate: translated component 1`] = `"<div>t(lorem.ipsum, hello world)</div>"`;
 
 exports[`I18n Component should attempt to perform a string replace: translate 1`] = `
 Object {
-  "localeKey": "t('lorem.ipsum')",
-  "placeholder": "hello world",
+  "localeKey": "t(lorem.ipsum)",
+  "placeholder": "t(lorem.ipsum, hello world)",
 }
 `;
 
