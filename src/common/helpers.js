@@ -5,7 +5,7 @@ const noop = Function.prototype;
 
 const noopPromise = Promise.resolve({});
 
-const noopTranslate = (key, value) => value || `t('${key}')`;
+const noopTranslate = (key, value) => (value && `${value}`) || `t('${key}')`;
 
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 

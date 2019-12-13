@@ -6,14 +6,11 @@
     "dropdownMonthly": "Monthly",
     "dropdownQuarterly": "Quarterly",
     "dropdownPlaceholder": "Select date range",
-    "tooltipNoData": "No data",
-    "rhelTooltipDate": "Date",
-    "rhelTooltipHypervisor": "Virtualized RHEL",
-    "rhelTooltipSockets": "Physical RHEL",
-    "rhelTooltipThreshold": "Subscription threshold",
-    "rhelLegendHypervisorLabel": "Virtualized RHEL",
-    "rhelLegendSocketsLabel": "Physical RHEL",
-    "rhelLegendThresholdLabel": "Subscription threshold"
+    "noDataLabel": "No data",
+    "dateLabel": "Date",
+    "productHypervisorLabel": "Virtualized {{product}}",
+    "productSocketsLabel": "Physical {{product}}",
+    "thresholdLabel": "Subscription threshold"
   },
   "curiosity-tour": {
     "emptyStateIconAlt": "{{appName}} logo",

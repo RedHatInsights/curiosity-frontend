@@ -95,7 +95,7 @@ class RhelGraphCard extends React.Component {
             },
             fill: chartColorBlueLight.value,
             stroke: chartColorBlueDark.value,
-            legendLabel: t('curiosity-graph.rhelLegendSocketsLabel'),
+            legendLabel: t('curiosity-graph.productSocketsLabel', { product: 'RHEL' }),
             isStacked: true
           },
           {
@@ -107,7 +107,7 @@ class RhelGraphCard extends React.Component {
             },
             fill: chartColorCyanLight.value,
             stroke: chartColorCyanDark.value,
-            legendLabel: t('curiosity-graph.rhelLegendHypervisorLabel'),
+            legendLabel: t('curiosity-graph.productHypervisorLabel', { product: 'RHEL' }),
             isStacked: true
           },
           {
@@ -118,7 +118,7 @@ class RhelGraphCard extends React.Component {
               onLoad: { duration: 100 }
             },
             stroke: chartColorGreenDark.value,
-            legendLabel: t('curiosity-graph.rhelLegendThresholdLabel'),
+            legendLabel: t('curiosity-graph.thresholdLabel'),
             isThreshold: true
           }
         ]}
@@ -138,14 +138,14 @@ class RhelGraphCard extends React.Component {
     return (
       <Card className="curiosity-usage-graph fadein">
         <CardHead>
-          <h2>{t('curiosity-graph.heading', 'CPU socket usage')}</h2>
+          <h2>{t('curiosity-graph.heading')}</h2>
           <CardActions>
             <Select
-              aria-label={t('curiosity-graph.dropdownPlaceholder', 'Select date range')}
+              aria-label={t('curiosity-graph.dropdownPlaceholder')}
               onSelect={this.onSelect}
               options={getDateMenuOptions}
               selectedOptions={graphGranularity}
-              placeholder={t('curiosity-graph.dropdownPlaceholder', 'Select date range')}
+              placeholder={t('curiosity-graph.dropdownPlaceholder')}
             />
           </CardActions>
         </CardHead>

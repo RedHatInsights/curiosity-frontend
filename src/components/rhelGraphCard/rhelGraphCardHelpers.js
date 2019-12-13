@@ -65,13 +65,15 @@ const getTooltips = ({ itemsByKey, granularity }) => {
   let sockets = itemsByKey.sockets && itemsByKey.sockets.y;
   let threshold = itemsByKey.threshold && itemsByKey.threshold.y;
 
-  hypervisor = (hypervisor && `${translate('curiosity-graph.rhelTooltipHypervisor')}: ${hypervisor}`) || '';
-  sockets = (sockets && `${translate('curiosity-graph.rhelTooltipSockets')}: ${sockets}`) || '';
-  threshold = (threshold && `${translate('curiosity-graph.rhelTooltipThreshold')}: ${threshold}`) || '';
+  hypervisor =
+    (hypervisor && `${translate('curiosity-graph.productHypervisorLabel', { product: 'RHEL' })}: ${hypervisor}`) || '';
+
+  sockets = (sockets && `${translate('curiosity-graph.productSocketsLabel', { product: 'RHEL' })}: ${sockets}`) || '';
+  threshold = (threshold && `${translate('curiosity-graph.thresholdLabel')}: ${threshold}`) || '';
 
   const date =
     ((hypervisor || sockets || threshold) &&
-      `${translate('curiosity-graph.rhelTooltipDate')}: ${getTooltipDate({
+      `${translate('curiosity-graph.dateLabel')}: ${getTooltipDate({
         date: itemsByKey.sockets.date,
         granularity
       })}`) ||
@@ -79,7 +81,7 @@ const getTooltips = ({ itemsByKey, granularity }) => {
 
   return (
     `${threshold}\n${sockets}${(sockets && '\n') || ''}${hypervisor}${(hypervisor && '\n') || ''}${date}`.trim() ||
-    translate('curiosity-graph.tooltipNoData')
+    translate('curiosity-graph.noDataLabel')
   );
 };
 

@@ -14,36 +14,52 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
+#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:76
+msgid \\"curiosity-graph.dateLabel\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:5
+msgid \\"curiosity-graph.dropdownDaily\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
+msgid \\"curiosity-graph.dropdownMonthly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:144
+#: src/components/rhelGraphCard/rhelGraphCard.js:148
+msgid \\"curiosity-graph.dropdownPlaceholder\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:8
+msgid \\"curiosity-graph.dropdownQuarterly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:6
+msgid \\"curiosity-graph.dropdownWeekly\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCard.js:141
+msgid \\"curiosity-graph.heading\\"
+msgstr \\"\\"
+
+#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:84
+msgid \\"curiosity-graph.noDataLabel\\"
+msgstr \\"\\"
+
 #: src/components/rhelGraphCard/rhelGraphCard.js:110
-msgid \\"curiosity-graph.rhelLegendHypervisorLabel\\"
+#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:69
+msgid \\"curiosity-graph.productHypervisorLabel\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:98
-msgid \\"curiosity-graph.rhelLegendSocketsLabel\\"
+#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:71
+msgid \\"curiosity-graph.productSocketsLabel\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCard.js:121
-msgid \\"curiosity-graph.rhelLegendThresholdLabel\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:74
-msgid \\"curiosity-graph.rhelTooltipDate\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:68
-msgid \\"curiosity-graph.rhelTooltipHypervisor\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:69
-msgid \\"curiosity-graph.rhelTooltipSockets\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:70
-msgid \\"curiosity-graph.rhelTooltipThreshold\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:82
-msgid \\"curiosity-graph.tooltipNoData\\"
+#: src/components/rhelGraphCard/rhelGraphCardHelpers.js:72
+msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
 #: src/components/tourView/tourView.js:53
@@ -72,37 +88,6 @@ msgstr \\"\\"
 
 #: src/components/tourView/tourView.js:40
 msgid \\"curiosity-tour.emptyStateTitle\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCard.js:141
-msgctxt \\"CPU socket usage\\"
-msgid \\"curiosity-graph.heading\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:5
-msgctxt \\"Daily\\"
-msgid \\"curiosity-graph.dropdownDaily\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
-msgctxt \\"Monthly\\"
-msgid \\"curiosity-graph.dropdownMonthly\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:8
-msgctxt \\"Quarterly\\"
-msgid \\"curiosity-graph.dropdownQuarterly\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCard.js:144
-#: src/components/rhelGraphCard/rhelGraphCard.js:148
-msgctxt \\"Select date range\\"
-msgid \\"curiosity-graph.dropdownPlaceholder\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:6
-msgctxt \\"Weekly\\"
-msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 "
 `;
