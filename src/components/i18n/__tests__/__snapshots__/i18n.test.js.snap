@@ -18,11 +18,11 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dateLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:5
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
 msgid \\"curiosity-graph.dropdownDaily\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:7
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:9
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
@@ -31,11 +31,11 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:8
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:10
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCardTypes.js:6
+#: src/components/rhelGraphCard/rhelGraphCardTypes.js:8
 msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
