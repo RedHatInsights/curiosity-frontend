@@ -61,7 +61,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "fill": "#8bc1f7",
               "id": "physicalSockets",
               "isStacked": true,
-              "legendLabel": "t(curiosity-graph.productSocketsLabel, [object Object])",
+              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
               "stroke": "#06c",
             },
             Object {
@@ -75,7 +75,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
               "fill": "#a2d9d9",
               "id": "hypervisorSockets",
               "isStacked": true,
-              "legendLabel": "t(curiosity-graph.productHypervisorLabel, [object Object])",
+              "legendLabel": "t(curiosity-graph.hypervisorSocketsLabel, [object Object])",
               "stroke": "#009596",
             },
             Object {
@@ -145,7 +145,7 @@ Object {
       "fill": "#8bc1f7",
       "id": "physicalSockets",
       "isStacked": true,
-      "legendLabel": "t(curiosity-graph.productSocketsLabel, [object Object])",
+      "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
       "stroke": "#06c",
     },
     Object {
@@ -159,7 +159,7 @@ Object {
       "fill": "#a2d9d9",
       "id": "hypervisorSockets",
       "isStacked": true,
-      "legendLabel": "t(curiosity-graph.productHypervisorLabel, [object Object])",
+      "legendLabel": "t(curiosity-graph.hypervisorSocketsLabel, [object Object])",
       "stroke": "#009596",
     },
     Object {
@@ -268,7 +268,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "fill": "#8bc1f7",
               "id": "physicalSockets",
               "isStacked": true,
-              "legendLabel": "t(curiosity-graph.productSocketsLabel, [object Object])",
+              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
               "stroke": "#06c",
             },
             Object {
@@ -282,7 +282,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
               "fill": "#a2d9d9",
               "id": "hypervisorSockets",
               "isStacked": true,
-              "legendLabel": "t(curiosity-graph.productHypervisorLabel, [object Object])",
+              "legendLabel": "t(curiosity-graph.hypervisorSocketsLabel, [object Object])",
               "stroke": "#009596",
             },
             Object {
