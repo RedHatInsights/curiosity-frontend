@@ -1,18 +1,18 @@
 import moment from 'moment';
 import {
-  rhelGraphCardHelpers,
+  graphCardHelpers,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   getTooltips,
   xAxisTickFormat,
   yAxisTickFormat
-} from '../rhelGraphCardHelpers';
+} from '../graphCardHelpers';
 import { dateHelpers } from '../../../common';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhsmApiTypes';
 
-describe('RhelGraphCardHelpers', () => {
+describe('GraphCardHelpers', () => {
   it('should have specific functions', () => {
-    expect(rhelGraphCardHelpers).toMatchSnapshot('rhelGraphCardHelpers');
+    expect(graphCardHelpers).toMatchSnapshot('graphCardHelpers');
   });
 
   it('getChartXAxisLabelIncrement should return a x axis tick increment based on granularity', () => {
