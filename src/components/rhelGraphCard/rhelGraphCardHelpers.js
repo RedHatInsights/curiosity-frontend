@@ -41,6 +41,8 @@ const getTooltipDate = ({ date, granularity }) => {
     case GRANULARITY_TYPES.MONTHLY:
       formattedDateTooltip = dateHelpers.timestampMonthFormats.yearLong;
       break;
+    case GRANULARITY_TYPES.WEEKLY:
+    case GRANULARITY_TYPES.DAILY:
     default:
       formattedDateTooltip = dateHelpers.timestampDayFormats.long;
       break;
@@ -54,33 +56,37 @@ const getTooltipDate = ({ date, granularity }) => {
  *
  * @param {Object} itemsByKey
  * @param {string} granularity, see enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {string} product, apply the product to locale strings
  * @returns {string | *}
  */
 /**
  * ToDo: we have access to the datasets and index which gives us access to the previous date.
  * Consider adding back in the year on tooltip cross year displays
  */
-const getTooltips = ({ itemsByKey, granularity }) => {
-  let hypervisor = itemsByKey.hypervisorSockets && itemsByKey.hypervisorSockets.y;
-  let sockets = itemsByKey.physicalSockets && itemsByKey.physicalSockets.y;
-  let threshold = itemsByKey.threshold && itemsByKey.threshold.y;
+const getTooltips = ({ itemsByKey, granularity, product = '' }) => {
+  let dateString = '';
+  let thresholdString = '';
+  const dataFacets = [];
 
-  hypervisor =
-    (hypervisor && `${translate('curiosity-graph.hypervisorSocketsLabel', { product: 'RHEL' })}: ${hypervisor}`) || '';
-
-  sockets = (sockets && `${translate('curiosity-graph.physicalSocketsLabel', { product: 'RHEL' })}: ${sockets}`) || '';
-  threshold = (threshold && `${translate('curiosity-graph.thresholdLabel')}: ${threshold}`) || '';
-
-  const date =
-    ((hypervisor || sockets || threshold) &&
-      `${translate('curiosity-graph.dateLabel')}: ${getTooltipDate({
-        date: itemsByKey.physicalSockets.date,
+  Object.keys(itemsByKey).forEach((key, index) => {
+    if (index === 0) {
+      dateString = `${translate('curiosity-graph.dateLabel')}: ${getTooltipDate({
+        date: itemsByKey[key].date,
         granularity
-      })}`) ||
-    '';
+      })}`;
+    }
+
+    if (itemsByKey[key].y) {
+      if (key === 'threshold') {
+        thresholdString = `${translate(`curiosity-graph.${key}Label`, { product })}: ${itemsByKey[key].y}\n`;
+      } else {
+        dataFacets.push(`${translate(`curiosity-graph.${key}Label`, { product })}: ${itemsByKey[key].y}\n`);
+      }
+    }
+  });
 
   return (
-    `${threshold}\n${sockets}${(sockets && '\n') || ''}${hypervisor}${(hypervisor && '\n') || ''}${date}`.trim() ||
+    ((thresholdString || dataFacets.length) && `${thresholdString}${dataFacets.join('')}${dateString}`.trim()) ||
     translate('curiosity-graph.noDataLabel')
   );
 };
@@ -118,6 +124,8 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
 
       formattedDate = formattedDate.replace(/\s/, '\n');
       break;
+    case GRANULARITY_TYPES.WEEKLY:
+    case GRANULARITY_TYPES.DAILY:
     default:
       formattedDate = isNewYear
         ? momentDate.format(dateHelpers.timestampDayFormats.yearShort)
