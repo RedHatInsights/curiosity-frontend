@@ -1,8 +1,8 @@
-import { rhelGraphCardTypes, getGranularityOptionsType } from '../rhelGraphCardTypes';
+import { graphCardTypes, getGranularityOptionsType } from '../graphCardTypes';
 
 describe('RhelGraphCardTypes', () => {
   it('should have specific types', () => {
-    expect(rhelGraphCardTypes).toMatchSnapshot('rhelGraphCardTypes');
+    expect(graphCardTypes).toMatchSnapshot('rhelGraphCardTypes');
   });
 
   it('should return an output for granularity selection', () => {

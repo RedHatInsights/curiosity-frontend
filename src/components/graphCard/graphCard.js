@@ -8,11 +8,11 @@ import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
 import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
-import { rhelGraphCardHelpers } from './rhelGraphCardHelpers';
-import { rhelGraphCardTypes } from './rhelGraphCardTypes';
+import { graphCardHelpers } from './graphCardHelpers';
+import { graphCardTypes } from './graphCardTypes';
 import ChartArea from '../chartArea/chartArea';
 
-class RhelGraphCard extends React.Component {
+class GraphCard extends React.Component {
   componentDidMount() {
     this.onUpdateGraphData();
   }
@@ -55,7 +55,7 @@ class RhelGraphCard extends React.Component {
     const { filterGraphData, graphData, graphGranularity, t, translateProduct } = this.props;
 
     const xAxisTickFormat = ({ item, previousItem, tick }) =>
-      rhelGraphCardHelpers.xAxisTickFormat({
+      graphCardHelpers.xAxisTickFormat({
         tick,
         date: item.date,
         previousDate: previousItem.date,
@@ -63,7 +63,7 @@ class RhelGraphCard extends React.Component {
       });
 
     const tooltips = ({ itemsByKey }) =>
-      rhelGraphCardHelpers.getTooltips({
+      graphCardHelpers.getTooltips({
         itemsByKey,
         granularity: graphGranularity,
         product: translateProduct
@@ -71,9 +71,9 @@ class RhelGraphCard extends React.Component {
 
     const chartAreaProps = {
       xAxisFixLabelOverlap: true,
-      xAxisLabelIncrement: rhelGraphCardHelpers.getChartXAxisLabelIncrement(graphGranularity),
+      xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(graphGranularity),
       xAxisTickFormat,
-      yAxisTickFormat: rhelGraphCardHelpers.yAxisTickFormat,
+      yAxisTickFormat: graphCardHelpers.yAxisTickFormat,
       tooltips
     };
 
@@ -115,7 +115,7 @@ class RhelGraphCard extends React.Component {
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
     const { error, errorRoute, errorStatus, graphGranularity, selectOptionsType, pending, t } = this.props;
-    const getGranularityOptions = rhelGraphCardTypes.getGranularityOptions(selectOptionsType);
+    const getGranularityOptions = graphCardTypes.getGranularityOptions(selectOptionsType);
 
     if (error && (errorStatus === 403 || errorStatus >= 500)) {
       return (errorRoute && errorRoute.to && <Redirect to={errorRoute.to} />) || null;
@@ -153,7 +153,7 @@ class RhelGraphCard extends React.Component {
   }
 }
 
-RhelGraphCard.propTypes = {
+GraphCard.propTypes = {
   error: PropTypes.bool,
   errorRoute: PropTypes.shape({
     to: PropTypes.string
@@ -184,7 +184,7 @@ RhelGraphCard.propTypes = {
   endDate: PropTypes.instanceOf(Date)
 };
 
-RhelGraphCard.defaultProps = {
+GraphCard.defaultProps = {
   error: false,
   errorRoute: {},
   errorStatus: null,
@@ -215,6 +215,6 @@ const mapDispatchToProps = dispatch => ({
   getGraphReports: (id, query) => dispatch(reduxActions.rhsm.getGraphReports(id, query))
 });
 
-const ConnectedRhelGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(RhelGraphCard);
+const ConnectedGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(GraphCard);
 
-export { ConnectedRhelGraphCard as default, ConnectedRhelGraphCard, RhelGraphCard };
+export { ConnectedGraphCard as default, ConnectedGraphCard, GraphCard };

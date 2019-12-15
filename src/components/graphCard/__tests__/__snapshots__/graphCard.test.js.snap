@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RhelGraphCard Component should render a non-connected component: non-connected 1`] = `
+exports[`GraphCard Component should render a non-connected component: non-connected 1`] = `
 <Card
   className="curiosity-usage-graph fadein"
 >
@@ -71,7 +71,7 @@ exports[`RhelGraphCard Component should render a non-connected component: non-co
 </Card>
 `;
 
-exports[`RhelGraphCard Component should render multiple states: error passes values 1`] = `
+exports[`GraphCard Component should render multiple states: error passes values 1`] = `
 Object {
   "chartBarData": Array [
     Object {
@@ -107,19 +107,19 @@ Object {
 }
 `;
 
-exports[`RhelGraphCard Component should render multiple states: error with 403 status redirects 1`] = `
+exports[`GraphCard Component should render multiple states: error with 403 status redirects 1`] = `
 <Redirect
   to="/lorem-error-403-route"
 />
 `;
 
-exports[`RhelGraphCard Component should render multiple states: error with 500 status redirects 1`] = `
+exports[`GraphCard Component should render multiple states: error with 500 status redirects 1`] = `
 <Redirect
   to="/lorem-error-500-route"
 />
 `;
 
-exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = `
+exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
 <Card
   className="curiosity-usage-graph fadein"
 >
@@ -222,7 +222,7 @@ exports[`RhelGraphCard Component should render multiple states: fulfilled 1`] = 
 </Card>
 `;
 
-exports[`RhelGraphCard Component should render multiple states: pending 1`] = `
+exports[`GraphCard Component should render multiple states: pending 1`] = `
 <Card
   className="curiosity-usage-graph fadein"
 >

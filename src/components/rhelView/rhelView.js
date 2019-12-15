@@ -8,7 +8,7 @@ import {
 } from '@patternfly/react-tokens';
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { PageSection } from '@patternfly/react-core';
-import RhelGraphCard from '../rhelGraphCard/rhelGraphCard';
+import GraphCard from '../graphCard/graphCard';
 import { helpers } from '../../common';
 
 class RhelView extends React.Component {
@@ -25,7 +25,7 @@ class RhelView extends React.Component {
           />
         </PageHeader>
         <PageSection>
-          <RhelGraphCard
+          <GraphCard
             key={routeDetail.pathParameter}
             filterGraphData={[
               { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },

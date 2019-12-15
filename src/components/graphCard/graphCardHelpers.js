@@ -146,7 +146,7 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  */
 const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
 
-const rhelGraphCardHelpers = {
+const graphCardHelpers = {
   getChartXAxisLabelIncrement,
   getTooltipDate,
   getTooltips,
@@ -155,8 +155,8 @@ const rhelGraphCardHelpers = {
 };
 
 export {
-  rhelGraphCardHelpers as default,
-  rhelGraphCardHelpers,
+  graphCardHelpers as default,
+  graphCardHelpers,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   getTooltips,

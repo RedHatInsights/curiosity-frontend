@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ChartArea } from '../../chartArea/chartArea';
-import { RhelGraphCard } from '../rhelGraphCard';
+import { GraphCard } from '../graphCard';
 
-describe('RhelGraphCard Component', () => {
+describe('GraphCard Component', () => {
   it('should render a non-connected component', () => {
     const props = {};
-    const component = shallow(<RhelGraphCard {...props} />);
+    const component = shallow(<GraphCard {...props} />);
 
     expect(component).toMatchSnapshot('non-connected');
   });
@@ -36,7 +36,7 @@ describe('RhelGraphCard Component', () => {
       }
     };
 
-    const component = shallow(<RhelGraphCard {...props} />);
+    const component = shallow(<GraphCard {...props} />);
 
     component.setProps({
       error: true
