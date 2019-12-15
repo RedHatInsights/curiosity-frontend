@@ -95,7 +95,7 @@ class RhelGraphCard extends React.Component {
             },
             fill: chartColorBlueLight.value,
             stroke: chartColorBlueDark.value,
-            legendLabel: t('curiosity-graph.productSocketsLabel', { product: 'RHEL' }),
+            legendLabel: t('curiosity-graph.physicalSocketsLabel', { product: 'RHEL' }),
             isStacked: true
           },
           {
@@ -107,7 +107,7 @@ class RhelGraphCard extends React.Component {
             },
             fill: chartColorCyanLight.value,
             stroke: chartColorCyanDark.value,
-            legendLabel: t('curiosity-graph.productHypervisorLabel', { product: 'RHEL' }),
+            legendLabel: t('curiosity-graph.hypervisorSocketsLabel', { product: 'RHEL' }),
             isStacked: true
           },
           {

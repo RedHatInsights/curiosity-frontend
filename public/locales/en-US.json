@@ -8,8 +8,8 @@
     "dropdownPlaceholder": "Select date range",
     "noDataLabel": "No data",
     "dateLabel": "Date",
-    "productHypervisorLabel": "Virtualized {{product}}",
-    "productSocketsLabel": "Physical {{product}}",
+    "hypervisorSocketsLabel": "Virtualized {{product}}",
+    "physicalSocketsLabel": "Physical {{product}}",
     "thresholdLabel": "Subscription threshold"
   },
   "curiosity-tour": {
