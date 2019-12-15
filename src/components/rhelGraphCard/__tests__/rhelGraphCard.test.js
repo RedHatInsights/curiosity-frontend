@@ -16,7 +16,7 @@ describe('RhelGraphCard Component', () => {
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-30T23:59:59Z'),
       graphData: {
-        sockets: [
+        physicalSockets: [
           {
             date: new Date('2019-06-01T00:00:00Z'),
             y: 10,

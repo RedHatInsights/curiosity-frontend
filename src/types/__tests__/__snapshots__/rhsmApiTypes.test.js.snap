@@ -2,12 +2,13 @@
 
 exports[`RhsmApiTypes Should have specific API properties: all exported api types 1`] = `
 Object {
-  "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+  "RHSM_API_PATH_ID_TYPES": Object {
     "ARM": "RHEL for ARM",
     "COMPUTE_NODE": "RHEL Compute Node",
     "DESKTOP": "RHEL Desktop",
     "IBM_POWER": "RHEL for IBM Power",
     "IBM_Z": "RHEL for IBM z",
+    "OPENSHIFT": "OpenShift Container Platform",
     "RHEL": "RHEL",
     "SERVER": "RHEL Server",
     "WORKSTATION": "RHEL Workstation",
@@ -26,9 +27,12 @@ Object {
   "RHSM_API_QUERY_START_DATE": "beginning",
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+    "CORES": "cores",
     "DATE": "date",
     "HAS_INFINITE": "has_infinite_quantity",
+    "HYPERVISOR_CORES": "hypervisor_cores",
     "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+    "PHYSICAL_CORES": "physical_cores",
     "PHYSICAL_SOCKETS": "physical_sockets",
     "SOCKETS": "sockets",
   },
@@ -38,9 +42,12 @@ Object {
   },
   "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
   "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+    "CORES": "cores",
     "DATE": "date",
     "HAS_DATA": "has_data",
+    "HYPERVISOR_CORES": "hypervisor_cores",
     "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+    "PHYSICAL_CORES": "physical_cores",
     "PHYSICAL_SOCKETS": "physical_sockets",
     "SOCKETS": "sockets",
   },
@@ -49,12 +56,13 @@ Object {
     "COUNT": "count",
   },
   "default": Object {
-    "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+    "RHSM_API_PATH_ID_TYPES": Object {
       "ARM": "RHEL for ARM",
       "COMPUTE_NODE": "RHEL Compute Node",
       "DESKTOP": "RHEL Desktop",
       "IBM_POWER": "RHEL for IBM Power",
       "IBM_Z": "RHEL for IBM z",
+      "OPENSHIFT": "OpenShift Container Platform",
       "RHEL": "RHEL",
       "SERVER": "RHEL Server",
       "WORKSTATION": "RHEL Workstation",
@@ -73,9 +81,12 @@ Object {
     "RHSM_API_QUERY_START_DATE": "beginning",
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+      "CORES": "cores",
       "DATE": "date",
       "HAS_INFINITE": "has_infinite_quantity",
+      "HYPERVISOR_CORES": "hypervisor_cores",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
@@ -85,9 +96,12 @@ Object {
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+      "CORES": "cores",
       "DATE": "date",
       "HAS_DATA": "has_data",
+      "HYPERVISOR_CORES": "hypervisor_cores",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
@@ -97,12 +111,13 @@ Object {
     },
   },
   "rhsmApiTypes": Object {
-    "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+    "RHSM_API_PATH_ID_TYPES": Object {
       "ARM": "RHEL for ARM",
       "COMPUTE_NODE": "RHEL Compute Node",
       "DESKTOP": "RHEL Desktop",
       "IBM_POWER": "RHEL for IBM Power",
       "IBM_Z": "RHEL for IBM z",
+      "OPENSHIFT": "OpenShift Container Platform",
       "RHEL": "RHEL",
       "SERVER": "RHEL Server",
       "WORKSTATION": "RHEL Workstation",
@@ -121,9 +136,12 @@ Object {
     "RHSM_API_QUERY_START_DATE": "beginning",
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+      "CORES": "cores",
       "DATE": "date",
       "HAS_INFINITE": "has_infinite_quantity",
+      "HYPERVISOR_CORES": "hypervisor_cores",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
@@ -133,9 +151,12 @@ Object {
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+      "CORES": "cores",
       "DATE": "date",
       "HAS_DATA": "has_data",
+      "HYPERVISOR_CORES": "hypervisor_cores",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
@@ -149,12 +170,13 @@ Object {
 
 exports[`RhsmApiTypes Should have specific API properties: specific types 1`] = `
 Object {
-  "RHSM_API_PATH_RHEL_ID_TYPES": Object {
+  "RHSM_API_PATH_ID_TYPES": Object {
     "ARM": "RHEL for ARM",
     "COMPUTE_NODE": "RHEL Compute Node",
     "DESKTOP": "RHEL Desktop",
     "IBM_POWER": "RHEL for IBM Power",
     "IBM_Z": "RHEL for IBM z",
+    "OPENSHIFT": "OpenShift Container Platform",
     "RHEL": "RHEL",
     "SERVER": "RHEL Server",
     "WORKSTATION": "RHEL Workstation",
@@ -173,9 +195,12 @@ Object {
   "RHSM_API_QUERY_START_DATE": "beginning",
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+    "CORES": "cores",
     "DATE": "date",
     "HAS_INFINITE": "has_infinite_quantity",
+    "HYPERVISOR_CORES": "hypervisor_cores",
     "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+    "PHYSICAL_CORES": "physical_cores",
     "PHYSICAL_SOCKETS": "physical_sockets",
     "SOCKETS": "sockets",
   },
@@ -185,9 +210,12 @@ Object {
   },
   "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
   "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+    "CORES": "cores",
     "DATE": "date",
     "HAS_DATA": "has_data",
+    "HYPERVISOR_CORES": "hypervisor_cores",
     "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+    "PHYSICAL_CORES": "physical_cores",
     "PHYSICAL_SOCKETS": "physical_sockets",
     "SOCKETS": "sockets",
   },

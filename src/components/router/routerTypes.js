@@ -1,7 +1,7 @@
 import { helpers } from '../../common/helpers';
 import RhelView from '../rhelView/rhelView';
 import TourView from '../tourView/tourView';
-import { RHSM_API_PATH_RHEL_ID_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
 
 /**
  * Return an assumed dynamic route baseName directory
@@ -75,28 +75,28 @@ const navigation = [
   {
     title: 'Red Hat Enterprise Linux',
     id: 'all',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
+    pathParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     default: true
   },
   {
     title: 'ARM',
     id: 'arm',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.ARM
+    pathParameter: RHSM_API_PATH_ID_TYPES.ARM
   },
   {
     title: 'IBM Power',
     id: 'ibmpower',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.IBM_POWER
+    pathParameter: RHSM_API_PATH_ID_TYPES.IBM_POWER
   },
   {
     title: 'IBM Z systems',
     id: 'ibmz',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.IBM_Z
+    pathParameter: RHSM_API_PATH_ID_TYPES.IBM_Z
   },
   {
     title: 'x86',
     id: 'x86',
-    pathParameter: RHSM_API_PATH_RHEL_ID_TYPES.X86
+    pathParameter: RHSM_API_PATH_ID_TYPES.X86
   }
 ];
 

@@ -87,8 +87,8 @@ class RhelGraphCard extends React.Component {
         {...chartAreaProps}
         dataSets={[
           {
-            data: graphData.sockets,
-            id: 'sockets',
+            data: graphData.physicalSockets,
+            id: 'physicalSockets',
             animate: {
               duration: 250,
               onLoad: { duration: 250 }
@@ -99,8 +99,8 @@ class RhelGraphCard extends React.Component {
             isStacked: true
           },
           {
-            data: graphData.hypervisor,
-            id: 'hypervisor',
+            data: graphData.hypervisorSockets,
+            id: 'hypervisorSockets',
             animate: {
               duration: 250,
               onLoad: { duration: 250 }
@@ -176,14 +176,14 @@ RhelGraphCard.propTypes = {
   getGraphCapacity: PropTypes.func,
   getGraphReports: PropTypes.func,
   graphData: PropTypes.shape({
-    sockets: PropTypes.arrayOf(
+    physicalSockets: PropTypes.arrayOf(
       PropTypes.shape({
         date: PropTypes.instanceOf(Date),
         x: PropTypes.number,
         y: PropTypes.number
       })
     ),
-    hypervisor: PropTypes.arrayOf(
+    hypervisorSockets: PropTypes.arrayOf(
       PropTypes.shape({
         date: PropTypes.instanceOf(Date),
         x: PropTypes.number,
@@ -218,13 +218,13 @@ RhelGraphCard.defaultProps = {
   getGraphCapacity: helpers.noop,
   getGraphReports: helpers.noop,
   graphData: {
-    sockets: [],
-    hypervisor: [],
+    physicalSockets: [],
+    hypervisorSockets: [],
     threshold: []
   },
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
-  productId: rhsmApiTypes.RHSM_API_PATH_RHEL_ID_TYPES.RHEL,
+  productId: rhsmApiTypes.RHSM_API_PATH_ID_TYPES.RHEL,
   t: helpers.noopTranslate,
   startDate: dateHelpers.defaultDateTime.startDate,
   endDate: dateHelpers.defaultDateTime.endDate

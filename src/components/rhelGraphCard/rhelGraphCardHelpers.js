@@ -61,8 +61,8 @@ const getTooltipDate = ({ date, granularity }) => {
  * Consider adding back in the year on tooltip cross year displays
  */
 const getTooltips = ({ itemsByKey, granularity }) => {
-  let hypervisor = itemsByKey.hypervisor && itemsByKey.hypervisor.y;
-  let sockets = itemsByKey.sockets && itemsByKey.sockets.y;
+  let hypervisor = itemsByKey.hypervisorSockets && itemsByKey.hypervisorSockets.y;
+  let sockets = itemsByKey.physicalSockets && itemsByKey.physicalSockets.y;
   let threshold = itemsByKey.threshold && itemsByKey.threshold.y;
 
   hypervisor =
@@ -74,7 +74,7 @@ const getTooltips = ({ itemsByKey, granularity }) => {
   const date =
     ((hypervisor || sockets || threshold) &&
       `${translate('curiosity-graph.dateLabel')}: ${getTooltipDate({
-        date: itemsByKey.sockets.date,
+        date: itemsByKey.physicalSockets.date,
         granularity
       })}`) ||
     '';
