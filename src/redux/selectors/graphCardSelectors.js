@@ -42,8 +42,12 @@ const graphCardSelector = createSelector(
       pending: false,
       initialLoad,
       graphData: {
+        cores: [],
+        hypervisorCores: [],
+        hypervisorSockets: [],
+        physicalCores: [],
+        physicalSockets: [],
         sockets: [],
-        hypervisor: [],
         threshold: []
       },
       ...cachedGranularity,
@@ -66,8 +70,12 @@ const graphCardSelector = createSelector(
       const productsData = _get(report, ['data', rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
       const thresholdData = _get(capacity, ['data', rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
+      updatedData.graphData.cores.length = 0;
+      updatedData.graphData.hypervisorCores.length = 0;
+      updatedData.graphData.hypervisorSockets.length = 0;
+      updatedData.graphData.physicalCores.length = 0;
+      updatedData.graphData.physicalSockets.length = 0;
       updatedData.graphData.sockets.length = 0;
-      updatedData.graphData.hypervisor.length = 0;
       updatedData.graphData.threshold.length = 0;
 
       productsData.forEach((value, index) => {
@@ -89,16 +97,40 @@ const graphCardSelector = createSelector(
           return moment(date).isSame(itemDate);
         };
 
-        updatedData.graphData.sockets.push({
+        updatedData.graphData.cores.push({
+          date,
+          x: index,
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES], 10) || 0
+        });
+
+        updatedData.graphData.hypervisorCores.push({
+          date,
+          x: index,
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES], 10) || 0
+        });
+
+        updatedData.graphData.hypervisorSockets.push({
+          date,
+          x: index,
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
+        });
+
+        updatedData.graphData.physicalCores.push({
+          date,
+          x: index,
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES], 10) || 0
+        });
+
+        updatedData.graphData.physicalSockets.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10) || 0
         });
 
-        updatedData.graphData.hypervisor.push({
+        updatedData.graphData.sockets.push({
           date,
           x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
+          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS], 10) || 0
         });
 
         updatedData.graphData.threshold.push({

@@ -1,9 +1,12 @@
 const RHSM_API_RESPONSE_CAPACITY_DATA = 'data';
 const RHSM_API_RESPONSE_CAPACITY_DATA_TYPES = {
+  CORES: 'cores',
   DATE: 'date',
-  SOCKETS: 'sockets',
-  PHYSICAL_SOCKETS: 'physical_sockets',
+  HYPERVISOR_CORES: 'hypervisor_cores',
   HYPERVISOR_SOCKETS: 'hypervisor_sockets',
+  PHYSICAL_CORES: 'physical_cores',
+  PHYSICAL_SOCKETS: 'physical_sockets',
+  SOCKETS: 'sockets',
   HAS_INFINITE: 'has_infinite_quantity'
 };
 const RHSM_API_RESPONSE_CAPACITY_META = 'meta';
@@ -13,10 +16,13 @@ const RHSM_API_RESPONSE_CAPACITY_META_TYPES = {
 
 const RHSM_API_RESPONSE_PRODUCTS_DATA = 'data';
 const RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES = {
+  CORES: 'cores',
   DATE: 'date',
-  SOCKETS: 'sockets',
-  PHYSICAL_SOCKETS: 'physical_sockets',
+  HYPERVISOR_CORES: 'hypervisor_cores',
   HYPERVISOR_SOCKETS: 'hypervisor_sockets',
+  PHYSICAL_CORES: 'physical_cores',
+  PHYSICAL_SOCKETS: 'physical_sockets',
+  SOCKETS: 'sockets',
   HAS_DATA: 'has_data'
 };
 const RHSM_API_RESPONSE_PRODUCTS_META = 'meta';
@@ -24,7 +30,7 @@ const RHSM_API_RESPONSE_PRODUCTS_META_TYPES = {
   COUNT: 'count'
 };
 
-const RHSM_API_PATH_RHEL_ID_TYPES = {
+const RHSM_API_PATH_ID_TYPES = {
   RHEL: 'RHEL',
   COMPUTE_NODE: 'RHEL Compute Node',
   DESKTOP: 'RHEL Desktop',
@@ -33,7 +39,8 @@ const RHSM_API_PATH_RHEL_ID_TYPES = {
   ARM: 'RHEL for ARM',
   IBM_POWER: 'RHEL for IBM Power',
   IBM_Z: 'RHEL for IBM z',
-  X86: 'RHEL for x86'
+  X86: 'RHEL for x86',
+  OPENSHIFT: 'OpenShift Container Platform'
 };
 
 const RHSM_API_QUERY_GRANULARITY = 'granularity';
@@ -57,7 +64,7 @@ const rhsmApiTypes = {
   RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES,
   RHSM_API_RESPONSE_PRODUCTS_META,
   RHSM_API_RESPONSE_PRODUCTS_META_TYPES,
-  RHSM_API_PATH_RHEL_ID_TYPES,
+  RHSM_API_PATH_ID_TYPES,
   RHSM_API_QUERY_GRANULARITY,
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_LIMIT,
@@ -77,7 +84,7 @@ export {
   RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES,
   RHSM_API_RESPONSE_PRODUCTS_META,
   RHSM_API_RESPONSE_PRODUCTS_META_TYPES,
-  RHSM_API_PATH_RHEL_ID_TYPES,
+  RHSM_API_PATH_ID_TYPES,
   RHSM_API_QUERY_GRANULARITY,
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_LIMIT,

@@ -45,8 +45,8 @@ describe('RhelGraphCardHelpers', () => {
       'no data granularity data display'
     );
 
-    itemsByKey.hypervisor = { x: 0, y: 50, date: '2019-06-01T00:00:00Z' };
-    itemsByKey.sockets = { x: 0, y: 50, date: '2019-06-01T00:00:00Z' };
+    itemsByKey.hypervisorSockets = { x: 0, y: 50, date: '2019-06-01T00:00:00Z' };
+    itemsByKey.physicalSockets = { x: 0, y: 50, date: '2019-06-01T00:00:00Z' };
     itemsByKey.threshold = { x: 0, y: 100, date: '2019-06-01T00:00:00Z' };
 
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
