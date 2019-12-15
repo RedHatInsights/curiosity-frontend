@@ -66,9 +66,9 @@ const getTooltips = ({ itemsByKey, granularity }) => {
   let threshold = itemsByKey.threshold && itemsByKey.threshold.y;
 
   hypervisor =
-    (hypervisor && `${translate('curiosity-graph.productHypervisorLabel', { product: 'RHEL' })}: ${hypervisor}`) || '';
+    (hypervisor && `${translate('curiosity-graph.hypervisorSocketsLabel', { product: 'RHEL' })}: ${hypervisor}`) || '';
 
-  sockets = (sockets && `${translate('curiosity-graph.productSocketsLabel', { product: 'RHEL' })}: ${sockets}`) || '';
+  sockets = (sockets && `${translate('curiosity-graph.physicalSocketsLabel', { product: 'RHEL' })}: ${sockets}`) || '';
   threshold = (threshold && `${translate('curiosity-graph.thresholdLabel')}: ${threshold}`) || '';
 
   const date =
