@@ -71,7 +71,8 @@ class RhelGraphCard extends React.Component {
     const tooltips = ({ itemsByKey }) =>
       rhelGraphCardHelpers.getTooltips({
         itemsByKey,
-        granularity: graphGranularity
+        granularity: graphGranularity,
+        product: 'RHEL'
       });
 
     const chartAreaProps = {
