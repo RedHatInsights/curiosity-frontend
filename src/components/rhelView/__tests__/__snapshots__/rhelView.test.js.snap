@@ -9,6 +9,23 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
   </PageHeader>
   <PageSection>
     <Connect(RhelGraphCard)
+      filterGraphData={
+        Array [
+          Object {
+            "fill": "#8bc1f7",
+            "id": "physicalSockets",
+            "stroke": "#06c",
+          },
+          Object {
+            "fill": "#a2d9d9",
+            "id": "hypervisorSockets",
+            "stroke": "#009596",
+          },
+          Object {
+            "id": "threshold",
+          },
+        ]
+      }
       key="lorem ipsum"
       productId="lorem ipsum"
     />
@@ -25,6 +42,23 @@ exports[`RhelView Component should render a non-connected component: non-connect
   </PageHeader>
   <PageSection>
     <Connect(RhelGraphCard)
+      filterGraphData={
+        Array [
+          Object {
+            "fill": "#8bc1f7",
+            "id": "physicalSockets",
+            "stroke": "#06c",
+          },
+          Object {
+            "fill": "#a2d9d9",
+            "id": "hypervisorSockets",
+            "stroke": "#009596",
+          },
+          Object {
+            "id": "threshold",
+          },
+        ]
+      }
       key="lorem ipsum"
       productId="lorem ipsum"
     />

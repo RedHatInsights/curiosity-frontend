@@ -26,8 +26,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:145
-#: src/components/rhelGraphCard/rhelGraphCard.js:149
+#: src/components/rhelGraphCard/rhelGraphCard.js:130
+#: src/components/rhelGraphCard/rhelGraphCard.js:134
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -39,24 +39,12 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
-#: src/components/rhelGraphCard/rhelGraphCard.js:142
+#: src/components/rhelGraphCard/rhelGraphCard.js:127
 msgid \\"curiosity-graph.heading\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCard.js:111
-msgid \\"curiosity-graph.hypervisorSocketsLabel\\"
 msgstr \\"\\"
 
 #: src/components/rhelGraphCard/rhelGraphCardHelpers.js:90
 msgid \\"curiosity-graph.noDataLabel\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCard.js:99
-msgid \\"curiosity-graph.physicalSocketsLabel\\"
-msgstr \\"\\"
-
-#: src/components/rhelGraphCard/rhelGraphCard.js:122
-msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
 #: src/components/tourView/tourView.js:53
