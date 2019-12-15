@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RhelGraphCardHelpers getChartXAxisLabelIncrement should return a x axis tick increment based on granularity: x axis tick increment 1`] = `
+exports[`GraphCardHelpers getChartXAxisLabelIncrement should return a x axis tick increment based on granularity: x axis tick increment 1`] = `
 Object {
   "daily": 5,
   "monthly": 2,
@@ -9,7 +9,7 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardHelpers getTooltipDate should return a formatted date based on granularity: granularity based date 1`] = `
+exports[`GraphCardHelpers getTooltipDate should return a formatted date based on granularity: granularity based date 1`] = `
 Object {
   "daily": "June 1",
   "monthly": "June 2019",
@@ -18,7 +18,7 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: granularity data display 1`] = `
+exports[`GraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: granularity data display 1`] = `
 Object {
   "daily": "t(curiosity-graph.thresholdLabel, [object Object]): 100
 t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
@@ -39,7 +39,7 @@ t(curiosity-graph.dateLabel): June 1",
 }
 `;
 
-exports[`RhelGraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: no data granularity data display 1`] = `
+exports[`GraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: no data granularity data display 1`] = `
 Object {
   "daily": "t(curiosity-graph.noDataLabel)",
   "monthly": "t(curiosity-graph.noDataLabel)",
@@ -48,7 +48,7 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardHelpers should have specific functions: rhelGraphCardHelpers 1`] = `
+exports[`GraphCardHelpers should have specific functions: graphCardHelpers 1`] = `
 Object {
   "getChartXAxisLabelIncrement": [Function],
   "getTooltipDate": [Function],
@@ -58,14 +58,14 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardHelpers xAxisTickFormat should produce consistent x axis tick values: x axis should be undefined if date or granularity are missing 1`] = `
+exports[`GraphCardHelpers xAxisTickFormat should produce consistent x axis tick values: x axis should be undefined if date or granularity are missing 1`] = `
 Object {
   "missingDate": undefined,
   "missingGranularity": undefined,
 }
 `;
 
-exports[`RhelGraphCardHelpers xAxisTickFormat should produce consistent x axis tick values: x axis tick values 1`] = `
+exports[`GraphCardHelpers xAxisTickFormat should produce consistent x axis tick values: x axis tick values 1`] = `
 Object {
   "daily": Array [
     "Jun 20",
@@ -152,7 +152,7 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardHelpers yAxisTickFormat should produce consistent y axis tick values: y axis tick values 1`] = `
+exports[`GraphCardHelpers yAxisTickFormat should produce consistent y axis tick values: y axis tick values 1`] = `
 Object {
   "1": "1",
   "10": "10",

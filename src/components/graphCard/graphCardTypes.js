@@ -14,8 +14,8 @@ const getGranularityOptionsType = optionsType => {
   return [];
 };
 
-const rhelGraphCardTypes = {
+const graphCardTypes = {
   getGranularityOptions: getGranularityOptionsType
 };
 
-export { rhelGraphCardTypes as default, rhelGraphCardTypes, getGranularityOptionsType };
+export { graphCardTypes as default, graphCardTypes, getGranularityOptionsType };
