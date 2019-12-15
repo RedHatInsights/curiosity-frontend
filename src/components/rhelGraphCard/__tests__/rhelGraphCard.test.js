@@ -44,7 +44,7 @@ describe('RhelGraphCard Component', () => {
 
     expect({
       chartBarData: component.find(ChartArea).prop('dataSets')
-    }).toMatchSnapshot('error shows zeroed bar values');
+    }).toMatchSnapshot('error passes values');
 
     component.setProps({
       errorStatus: 403,

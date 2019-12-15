@@ -2,13 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
-import {
-  chart_color_green_300 as chartColorGreenDark,
-  chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_cyan_100 as chartColorCyanLight,
-  chart_color_cyan_300 as chartColorCyanDark
-} from '@patternfly/react-tokens';
+import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
@@ -58,7 +52,7 @@ class RhelGraphCard extends React.Component {
   };
 
   renderChart() {
-    const { graphData, graphGranularity, t } = this.props;
+    const { filterGraphData, graphData, graphGranularity, t, translateProduct } = this.props;
 
     const xAxisTickFormat = ({ item, previousItem, tick }) =>
       rhelGraphCardHelpers.xAxisTickFormat({
@@ -72,7 +66,7 @@ class RhelGraphCard extends React.Component {
       rhelGraphCardHelpers.getTooltips({
         itemsByKey,
         granularity: graphGranularity,
-        product: 'RHEL'
+        product: translateProduct
       });
 
     const chartAreaProps = {
@@ -83,48 +77,39 @@ class RhelGraphCard extends React.Component {
       tooltips
     };
 
-    return (
-      <ChartArea
-        {...chartAreaProps}
-        dataSets={[
-          {
-            data: graphData.physicalSockets,
-            id: 'physicalSockets',
-            animate: {
-              duration: 250,
-              onLoad: { duration: 250 }
-            },
-            fill: chartColorBlueLight.value,
-            stroke: chartColorBlueDark.value,
-            legendLabel: t('curiosity-graph.physicalSocketsLabel', { product: 'RHEL' }),
-            isStacked: true
+    const filteredGraphData = data => {
+      const filtered = key => {
+        const tempFiltered = {
+          data: data[key],
+          id: key,
+          animate: {
+            duration: 250,
+            onLoad: { duration: 250 }
           },
-          {
-            data: graphData.hypervisorSockets,
-            id: 'hypervisorSockets',
-            animate: {
-              duration: 250,
-              onLoad: { duration: 250 }
-            },
-            fill: chartColorCyanLight.value,
-            stroke: chartColorCyanDark.value,
-            legendLabel: t('curiosity-graph.hypervisorSocketsLabel', { product: 'RHEL' }),
-            isStacked: true
-          },
-          {
-            data: graphData.threshold,
-            id: 'threshold',
-            animate: {
-              duration: 100,
-              onLoad: { duration: 100 }
-            },
-            stroke: chartColorGreenDark.value,
-            legendLabel: t('curiosity-graph.thresholdLabel'),
-            isThreshold: true
-          }
-        ]}
-      />
-    );
+          legendLabel: t(`curiosity-graph.${key}Label`, { product: translateProduct }),
+          isStacked: key !== 'threshold',
+          isThreshold: key === 'threshold'
+        };
+
+        if (key === 'threshold') {
+          tempFiltered.animate = {
+            duration: 100,
+            onLoad: { duration: 100 }
+          };
+          tempFiltered.stroke = chartColorGreenDark.value;
+        }
+
+        return tempFiltered;
+      };
+
+      if (filterGraphData.length) {
+        return filterGraphData.map(value => Object.assign(filtered(value.id), value));
+      }
+
+      return Object.keys(data).map(key => filtered(key));
+    };
+
+    return <ChartArea {...chartAreaProps} dataSets={filteredGraphData(graphData)} />;
   }
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
@@ -174,31 +159,16 @@ RhelGraphCard.propTypes = {
     to: PropTypes.string
   }),
   errorStatus: PropTypes.number,
+  filterGraphData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      fill: PropTypes.string,
+      stroke: PropTypes.string
+    })
+  ),
   getGraphCapacity: PropTypes.func,
   getGraphReports: PropTypes.func,
-  graphData: PropTypes.shape({
-    physicalSockets: PropTypes.arrayOf(
-      PropTypes.shape({
-        date: PropTypes.instanceOf(Date),
-        x: PropTypes.number,
-        y: PropTypes.number
-      })
-    ),
-    hypervisorSockets: PropTypes.arrayOf(
-      PropTypes.shape({
-        date: PropTypes.instanceOf(Date),
-        x: PropTypes.number,
-        y: PropTypes.number
-      })
-    ),
-    threshold: PropTypes.arrayOf(
-      PropTypes.shape({
-        date: PropTypes.instanceOf(Date),
-        x: PropTypes.number,
-        y: PropTypes.number
-      })
-    )
-  }),
+  graphData: PropTypes.object,
   graphGranularity: PropTypes.oneOf([
     GRANULARITY_TYPES.DAILY,
     GRANULARITY_TYPES.WEEKLY,
@@ -209,6 +179,7 @@ RhelGraphCard.propTypes = {
   productId: PropTypes.string,
   selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
+  translateProduct: PropTypes.string,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date)
 };
@@ -217,18 +188,16 @@ RhelGraphCard.defaultProps = {
   error: false,
   errorRoute: {},
   errorStatus: null,
+  filterGraphData: [],
   getGraphCapacity: helpers.noop,
   getGraphReports: helpers.noop,
-  graphData: {
-    physicalSockets: [],
-    hypervisorSockets: [],
-    threshold: []
-  },
+  graphData: {},
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
   productId: rhsmApiTypes.RHSM_API_PATH_ID_TYPES.RHEL,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,
+  translateProduct: 'RHEL',
   startDate: dateHelpers.defaultDateTime.startDate,
   endDate: dateHelpers.defaultDateTime.endDate
 };
