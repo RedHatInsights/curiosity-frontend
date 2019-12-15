@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  chart_color_blue_100 as chartColorBlueLight,
+  chart_color_blue_300 as chartColorBlueDark,
+  chart_color_cyan_100 as chartColorCyanLight,
+  chart_color_cyan_300 as chartColorCyanDark
+} from '@patternfly/react-tokens';
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { PageSection } from '@patternfly/react-core';
-import { connectRouter } from '../../redux';
 import RhelGraphCard from '../rhelGraphCard/rhelGraphCard';
 import { helpers } from '../../common';
 
@@ -22,6 +27,11 @@ class RhelView extends React.Component {
         <PageSection>
           <RhelGraphCard
             key={routeDetail.pathParameter}
+            filterGraphData={[
+              { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
+              { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
+              { id: 'threshold' }
+            ]}
             productId={routeDetail.pathParameter}
             errorRoute={routeDetail.errorRoute}
           />
@@ -47,11 +57,4 @@ RhelView.defaultProps = {
   routeDetail: {}
 };
 
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = () => ({});
-
-// Todo: clean up "connected" component appears unnecessary, look at converting from class
-const ConnectedRhelView = connectRouter(mapStateToProps, mapDispatchToProps)(RhelView);
-
-export { ConnectedRhelView as default, ConnectedRhelView, RhelView };
+export { RhelView as default, RhelView };

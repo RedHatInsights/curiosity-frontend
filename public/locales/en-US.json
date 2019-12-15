@@ -8,7 +8,11 @@
     "dropdownPlaceholder": "Select date range",
     "noDataLabel": "No data",
     "dateLabel": "Date",
+    "coresLabel": "Cores",
+    "socketsLabel": "Sockets",
+    "hypervisorCoresLabel": "Virtualized cores",
     "hypervisorSocketsLabel": "Virtualized {{product}}",
+    "physicalCoresLabel": "Physical cores",
     "physicalSocketsLabel": "Physical {{product}}",
     "thresholdLabel": "Subscription threshold"
   },
