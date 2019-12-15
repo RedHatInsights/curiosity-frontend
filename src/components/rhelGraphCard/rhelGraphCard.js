@@ -129,8 +129,8 @@ class RhelGraphCard extends React.Component {
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
-    const { error, errorRoute, errorStatus, graphGranularity, pending, t } = this.props;
-    const getDateMenuOptions = rhelGraphCardTypes.getDateMenuOptions();
+    const { error, errorRoute, errorStatus, graphGranularity, selectOptionsType, pending, t } = this.props;
+    const getGranularityOptions = rhelGraphCardTypes.getGranularityOptions(selectOptionsType);
 
     if (error && (errorStatus === 403 || errorStatus >= 500)) {
       return (errorRoute && errorRoute.to && <Redirect to={errorRoute.to} />) || null;
@@ -144,7 +144,7 @@ class RhelGraphCard extends React.Component {
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
               onSelect={this.onSelect}
-              options={getDateMenuOptions}
+              options={getGranularityOptions}
               selectedOptions={graphGranularity}
               placeholder={t('curiosity-graph.dropdownPlaceholder')}
             />
@@ -207,6 +207,7 @@ RhelGraphCard.propTypes = {
   ]),
   pending: PropTypes.bool,
   productId: PropTypes.string,
+  selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date)
@@ -226,6 +227,7 @@ RhelGraphCard.defaultProps = {
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
   productId: rhsmApiTypes.RHSM_API_PATH_ID_TYPES.RHEL,
+  selectOptionsType: 'default',
   t: helpers.noopTranslate,
   startDate: dateHelpers.defaultDateTime.startDate,
   endDate: dateHelpers.defaultDateTime.endDate

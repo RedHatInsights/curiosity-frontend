@@ -2,11 +2,13 @@
 
 exports[`RhelGraphCardTypes should have specific types: rhelGraphCardTypes 1`] = `
 Object {
-  "getDateMenuOptions": [Function],
+  "getGranularityOptions": [Function],
 }
 `;
 
-exports[`RhelGraphCardTypes should return a specific output for getDateMenuOptionsType: getDateMenuOptionsType 1`] = `
+exports[`RhelGraphCardTypes should return an output for granularity selection: getGranularityOptionsType 1`] = `Array []`;
+
+exports[`RhelGraphCardTypes should return an output for granularity selection: getGranularityOptionsType:default 1`] = `
 Array [
   Object {
     "title": "t(curiosity-graph.dropdownDaily)",
