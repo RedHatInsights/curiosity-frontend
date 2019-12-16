@@ -12,6 +12,7 @@ exports[`RouterTypes should return route details that match navigation: route de
 Object {
   "default": true,
   "id": "all",
+  "path": "/rhel-sw/all",
   "pathParameter": "RHEL",
   "title": "Red Hat Enterprise Linux",
 }
@@ -21,6 +22,17 @@ exports[`RouterTypes should return route details that match navigation: route de
 Object {
   "default": true,
   "id": "all",
+  "path": "/rhel-sw/all",
+  "pathParameter": "RHEL",
+  "title": "Red Hat Enterprise Linux",
+}
+`;
+
+exports[`RouterTypes should return route details that match navigation: route detail: match specific navigation 1`] = `
+Object {
+  "default": true,
+  "id": "all",
+  "path": "/rhel-sw/all",
   "pathParameter": "RHEL",
   "title": "Red Hat Enterprise Linux",
 }
@@ -30,6 +42,7 @@ exports[`RouterTypes should return route details that match navigation: route de
 Object {
   "default": true,
   "id": "all",
+  "path": "/rhel-sw/all",
   "pathParameter": "RHEL",
   "title": "Red Hat Enterprise Linux",
 }
@@ -40,28 +53,39 @@ Array [
   Object {
     "default": true,
     "id": "all",
+    "path": "/rhel-sw/all",
     "pathParameter": "RHEL",
     "title": "Red Hat Enterprise Linux",
   },
   Object {
     "id": "arm",
+    "path": "/rhel-sw/arm",
     "pathParameter": "RHEL for ARM",
     "title": "ARM",
   },
   Object {
     "id": "ibmpower",
+    "path": "/rhel-sw/ibmpower",
     "pathParameter": "RHEL for IBM Power",
     "title": "IBM Power",
   },
   Object {
     "id": "ibmz",
+    "path": "/rhel-sw/ibmz",
     "pathParameter": "RHEL for IBM z",
     "title": "IBM Z systems",
   },
   Object {
     "id": "x86",
+    "path": "/rhel-sw/x86",
     "pathParameter": "RHEL for x86",
     "title": "x86",
+  },
+  Object {
+    "id": "openshift-sw",
+    "path": "/openshift-sw",
+    "pathParameter": "OpenShift Container Platform",
+    "title": "Red Hat OpenShift",
   },
 ]
 `;
@@ -85,6 +109,15 @@ Array [
     "render": true,
     "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/:variant",
+  },
+  Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "id": "openshift-sw",
+    "render": true,
+    "title": "Red Hat OpenShift",
+    "to": "/openshift-sw",
   },
   Object {
     "activateOnError": true,
