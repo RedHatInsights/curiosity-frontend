@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import {
   chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_cyan_100 as chartColorCyanLight,
-  chart_color_cyan_300 as chartColorCyanDark
+  chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { PageSection } from '@patternfly/react-core';
 import GraphCard from '../graphCard/graphCard';
 import { helpers } from '../../common';
 
-class RhelView extends React.Component {
+class OpenshiftView extends React.Component {
   componentDidMount() {}
 
   render() {
@@ -29,12 +27,11 @@ class RhelView extends React.Component {
           <GraphCard
             key={routeDetail.pathParameter}
             filterGraphData={[
-              { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
-              { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
+              { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
               { id: 'threshold' }
             ]}
             productId={routeDetail.pathParameter}
-            cardTitle={t('curiosity-graph.socketsHeading')}
+            cardTitle={t('curiosity-graph.coresHeading')}
             errorRoute={routeDetail.errorRoute}
           />
         </PageSection>
@@ -43,7 +40,7 @@ class RhelView extends React.Component {
   }
 }
 
-RhelView.propTypes = {
+OpenshiftView.propTypes = {
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     routeItem: PropTypes.shape({
@@ -56,11 +53,11 @@ RhelView.propTypes = {
   t: PropTypes.func
 };
 
-RhelView.defaultProps = {
+OpenshiftView.defaultProps = {
   routeDetail: {},
   t: helpers.noopTranslate
 };
 
-const TranslatedRhelView = withTranslation()(RhelView);
+const TranslatedOpenshiftView = withTranslation()(OpenshiftView);
 
-export { TranslatedRhelView as default, TranslatedRhelView, RhelView };
+export { TranslatedOpenshiftView as default, TranslatedOpenshiftView, OpenshiftView };

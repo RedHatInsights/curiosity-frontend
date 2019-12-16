@@ -5,9 +5,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   className="curiosity-usage-graph fadein"
 >
   <CardHead>
-    <h2>
-      t(curiosity-graph.heading)
-    </h2>
+    <h2 />
     <CardActions>
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
@@ -124,9 +122,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   className="curiosity-usage-graph fadein"
 >
   <CardHead>
-    <h2>
-      t(curiosity-graph.heading)
-    </h2>
+    <h2 />
     <CardActions>
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
@@ -227,9 +223,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   className="curiosity-usage-graph fadein"
 >
   <CardHead>
-    <h2>
-      t(curiosity-graph.heading)
-    </h2>
+    <h2 />
     <CardActions>
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"

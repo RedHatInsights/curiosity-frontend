@@ -41,7 +41,8 @@ describe('RouterTypes', () => {
 
   it('should return route details that match navigation', () => {
     expect(getRouteDetail({ test: 'computenode' })).toMatchSnapshot('route detail: computenode');
-    expect(getRouteDetail({})).toMatchSnapshot('route detail: default');
-    expect(getRouteDetail(null)).toMatchSnapshot('route detail: null or undefined');
+    expect(getRouteDetail({ params: {} })).toMatchSnapshot('route detail: default');
+    expect(getRouteDetail({ pathname: '/rhel-sw/all' })).toMatchSnapshot('route detail: match specific navigation');
+    expect(getRouteDetail({})).toMatchSnapshot('route detail: null or undefined');
   });
 });

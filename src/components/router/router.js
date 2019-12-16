@@ -27,7 +27,7 @@ class Router extends React.Component {
               key={item.to}
               path={item.to}
               render={routeProps => {
-                const routeDetail = getRouteDetail(routeProps.match.params);
+                const routeDetail = getRouteDetail({ ...routeProps.match, ...routeProps.location });
                 return (
                   <item.component
                     routeDetail={{

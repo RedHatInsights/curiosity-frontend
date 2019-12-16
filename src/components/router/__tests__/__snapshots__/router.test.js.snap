@@ -40,6 +40,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
     />
     <Route
       exact={true}
+      key="/openshift-sw"
+      path="/openshift-sw"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
       key="/soon"
       path="/soon"
       render={[Function]}
