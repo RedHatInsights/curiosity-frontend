@@ -114,7 +114,7 @@ class GraphCard extends React.Component {
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
-    const { error, errorRoute, errorStatus, graphGranularity, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, error, errorRoute, errorStatus, graphGranularity, selectOptionsType, pending, t } = this.props;
     const getGranularityOptions = graphCardTypes.getGranularityOptions(selectOptionsType);
 
     if (error && (errorStatus === 403 || errorStatus >= 500)) {
@@ -124,7 +124,7 @@ class GraphCard extends React.Component {
     return (
       <Card className="curiosity-usage-graph fadein">
         <CardHead>
-          <h2>{t('curiosity-graph.heading')}</h2>
+          <h2>{cardTitle}</h2>
           <CardActions>
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
@@ -154,6 +154,7 @@ class GraphCard extends React.Component {
 }
 
 GraphCard.propTypes = {
+  cardTitle: PropTypes.string,
   error: PropTypes.bool,
   errorRoute: PropTypes.shape({
     to: PropTypes.string
@@ -185,6 +186,7 @@ GraphCard.propTypes = {
 };
 
 GraphCard.defaultProps = {
+  cardTitle: null,
   error: false,
   errorRoute: {},
   errorStatus: null,

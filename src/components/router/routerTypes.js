@@ -1,4 +1,5 @@
 import { helpers } from '../../common/helpers';
+import OpenshiftView from '../openshiftView/openshiftView';
 import RhelView from '../rhelView/rhelView';
 import TourView from '../tourView/tourView';
 import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
@@ -51,22 +52,31 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
+    title: 'Red Hat OpenShift',
+    id: 'openshift-sw',
+    to: '/openshift-sw',
+    component: OpenshiftView,
+    exact: true,
+    render: true,
+    disabled: helpers.UI_DISABLED
+  },
+  {
     title: 'Tour',
     id: 'soon',
     to: '/soon',
+    component: TourView,
     exact: true,
     render: true,
     activateOnError: true,
-    component: TourView,
     disabled: helpers.UI_DISABLED
   },
   {
     title: 'Tour',
     id: 'tour',
     to: '/tour',
+    component: TourView,
     exact: true,
     render: true,
-    component: TourView,
     disabled: helpers.UI_DISABLED
   }
 ];
@@ -75,44 +85,45 @@ const navigation = [
   {
     title: 'Red Hat Enterprise Linux',
     id: 'all',
+    path: '/rhel-sw/all',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     default: true
   },
   {
     title: 'ARM',
     id: 'arm',
+    path: '/rhel-sw/arm',
     pathParameter: RHSM_API_PATH_ID_TYPES.ARM
   },
   {
     title: 'IBM Power',
     id: 'ibmpower',
+    path: '/rhel-sw/ibmpower',
     pathParameter: RHSM_API_PATH_ID_TYPES.IBM_POWER
   },
   {
     title: 'IBM Z systems',
     id: 'ibmz',
+    path: '/rhel-sw/ibmz',
     pathParameter: RHSM_API_PATH_ID_TYPES.IBM_Z
   },
   {
     title: 'x86',
     id: 'x86',
+    path: '/rhel-sw/x86',
     pathParameter: RHSM_API_PATH_ID_TYPES.X86
+  },
+  {
+    title: 'Red Hat OpenShift',
+    id: 'openshift-sw',
+    path: '/openshift-sw',
+    pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT
   }
 ];
 
-const getRouteDetail = (params = {}) => {
-  let navigationItem = {};
-
-  if (params) {
-    Object.values(params).forEach(value => {
-      navigationItem = navigation.find(item => item.id === value) || navigationItem;
-    });
-  }
-
-  navigationItem =
-    (Object.keys(navigationItem || {}).length && navigationItem) || navigation.find(item => item.default === true);
-
-  return navigationItem;
+const getRouteDetail = ({ pathname = null }) => {
+  const navigationItem = navigation.find(item => item.path === pathname) || {};
+  return (Object.keys(navigationItem || {}).length && navigationItem) || navigation.find(item => item.default === true);
 };
 
 export { routes as default, baseName, dynamicBaseName, getRouteDetail, navigation, routes };
