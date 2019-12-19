@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.8...v0.1.9) (2019-12-19)
+
+
+### Bug Fixes
+
+* **graphCard,helpers,types:** issues/161 directory, file rename ([c02c2ea](https://github.com/RedHatInsights/curiosity-frontend/commit/c02c2ea))
+* **helpers:** noopTranslate display locale keys in tests ([26110ca](https://github.com/RedHatInsights/curiosity-frontend/commit/26110ca))
+* **locale:** clean up default locale strings ([6ee8b89](https://github.com/RedHatInsights/curiosity-frontend/commit/6ee8b89))
+* **locales:** align keys to rhsm types ([287972c](https://github.com/RedHatInsights/curiosity-frontend/commit/287972c))
+* **redux:** issues/161 rename rhel to generic ([0ca9067](https://github.com/RedHatInsights/curiosity-frontend/commit/0ca9067))
+* **rhelGraphCardHelpers:** issues/161 generate tooltips ([7d3b350](https://github.com/RedHatInsights/curiosity-frontend/commit/7d3b350))
+* **rhelGraphCardTypes:** issues/161 pass param optionsType ([1c7cb0c](https://github.com/RedHatInsights/curiosity-frontend/commit/1c7cb0c))
+* **rhelView:** issues/161 pass graph card options ([25be1ef](https://github.com/RedHatInsights/curiosity-frontend/commit/25be1ef))
+* **rhsmApiTypes:** issues/161 expand rhsm types ([e4430bb](https://github.com/RedHatInsights/curiosity-frontend/commit/e4430bb))
+* **tourView:** issues/133 generic learn more link ([2c7490e](https://github.com/RedHatInsights/curiosity-frontend/commit/2c7490e))
+* **types,services,redux:** issues/161 rename rhel rhsm ([#162](https://github.com/RedHatInsights/curiosity-frontend/issues/162)) ([418fe91](https://github.com/RedHatInsights/curiosity-frontend/commit/418fe91))
+* **userActions,userTypes,rhsmTypes:** minor restructure ([fce919e](https://github.com/RedHatInsights/curiosity-frontend/commit/fce919e))
+
+
+### Features
+
+* **openShiftView,rhelView:** issues/157 openshift route ([#164](https://github.com/RedHatInsights/curiosity-frontend/issues/164)) ([0b5be21](https://github.com/RedHatInsights/curiosity-frontend/commit/0b5be21))
+
 ### [0.1.8](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.7...v0.1.8) (2019-12-03)
 
 
