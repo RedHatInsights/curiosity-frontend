@@ -1,5 +1,41 @@
-import axios from 'axios';
-import serviceConfig from './config';
+import { serviceCall } from './config';
+
+/**
+ * @api {get} /api/rhsm-subscriptions/v1/version
+ * @apiDescription Retrieve API version information
+ *
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "build": {
+ *       "version": "0.0.0",
+ *       "gitDescription": "lorem ipsum",
+ *       "artifact": "dolor sit",
+ *       "name": "lorem",
+ *       "group": "ipsum",
+ *       "gitHash": "0000000000000000"
+ *     }
+ *
+ * @apiError {String} detail
+ * @apiErrorExample {text} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+const getApiVersion = () =>
+  serviceCall({
+    url: process.env.REACT_APP_SERVICES_RHSM_VERSION
+  });
 
 /**
  * @apiMock {DelayResponse} 2000
@@ -379,12 +415,10 @@ import serviceConfig from './config';
  *     }
  */
 const getGraphReports = (id, params = {}) =>
-  axios(
-    serviceConfig({
-      url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
-      params
-    })
-  );
+  serviceCall({
+    url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
+    params
+  });
 
 /**
  * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id Get RHSM graph capacity data, i.e. thresholds
@@ -542,13 +576,11 @@ const getGraphReports = (id, params = {}) =>
  *     }
  */
 const getGraphCapacity = (id, params = {}) =>
-  axios(
-    serviceConfig({
-      url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
-      params
-    })
-  );
+  serviceCall({
+    url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
+    params
+  });
 
-const rhsmServices = { getGraphCapacity, getGraphReports };
+const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports };
 
-export { rhsmServices as default, rhsmServices, getGraphCapacity, getGraphReports };
+export { rhsmServices as default, rhsmServices, getApiVersion, getGraphCapacity, getGraphReports };
