@@ -1,63 +1,28 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
-import axios from 'axios';
-import serviceConfig from './config';
 import { helpers } from '../common/helpers';
 
-const authorizeUser = () => {
-  let returnMethod = helpers.noopPromise;
+const authorizeUser = async () => {
+  let getUserData = (helpers.TEST_MODE || helpers.DEV_MODE) && {};
+  let platformResponse;
 
-  try {
-    if (!helpers.DEV_MODE) {
-      returnMethod = window.insights.chrome.auth.getUser;
-    }
-  } catch (e) {
-    if (!helpers.TEST_MODE) {
-      console.warn(`{ getUser } = insights.chrome.auth: ${e.message}`);
-    }
+  if (!helpers.DEV_MODE && window.insights && window.insights.chrome.auth.getUser) {
+    getUserData = await window.insights.chrome.auth.getUser();
   }
 
-  return returnMethod;
-};
+  /**
+   * ToDo: evaluate this periodically, expecting specific platform behavior, this could be simplified
+   * Basic check for missing user data. Allowing GUI auth to pass in those cases affects our API
+   * auth for RHSM, so we block it.
+   */
+  if (getUserData) {
+    platformResponse = Promise.resolve(getUserData);
+  } else {
+    platformResponse = Promise.reject(new Error('{ getUser } = insights.chrome.auth'));
+  }
 
-/**
- * @api {get} /api/rhsm-subscriptions/v1/version
- * @apiDescription Retrieve API version information
- *
- * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "build": {
- *       "version": "0.0.0",
- *       "gitDescription": "lorem ipsum",
- *       "artifact": "dolor sit",
- *       "name": "lorem",
- *       "group": "ipsum",
- *       "gitHash": "0000000000000000"
- *     }
- *
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
- *     HTTP/1.1 500 Internal Server Error
- *     {
- *        "errors": [
- *          {
- *            "status": "string",
- *            "code": "string",
- *            "title": "string",
- *            "detail": "string"
- *          }
- *        ]
- *     }
- */
-const getApiVersion = () =>
-  axios(
-    serviceConfig({
-      url: process.env.REACT_APP_SERVICES_RHSM_VERSION
-    })
-  );
+  return platformResponse;
+};
 
 const getLocaleFromCookie = () => {
   const value = (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace('_', '-');
@@ -83,6 +48,6 @@ const logoutUser = () =>
     resolve({});
   });
 
-const userServices = { authorizeUser, getApiVersion, getLocale, logoutUser };
+const userServices = { authorizeUser, getLocale, logoutUser };
 
-export { userServices as default, userServices, authorizeUser, getApiVersion, getLocale, logoutUser };
+export { userServices as default, userServices, authorizeUser, getLocale, logoutUser };

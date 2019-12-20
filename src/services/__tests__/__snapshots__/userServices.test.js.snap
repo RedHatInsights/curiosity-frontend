@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UserServices should return a failed authorized user: failed authorized user 1`] = `[Error: { getUser } = insights.chrome.auth]`;
+
 exports[`UserServices should return a specific locale cookie value 1`] = `
 Object {
   "data": Object {
@@ -8,6 +10,8 @@ Object {
   },
 }
 `;
+
+exports[`UserServices should return a successful authorized user: success authorized user 1`] = `"lorem ipsum"`;
 
 exports[`UserServices should return default locale if no locale cookie is present 1`] = `
 Object {
