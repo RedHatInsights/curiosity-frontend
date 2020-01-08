@@ -6,7 +6,7 @@ Object {
     "session": Object {
       "authorized": false,
       "error": true,
-      "errorMessage": "ERROR",
+      "errorMessage": "MESSAGE",
       "errorStatus": 0,
       "fulfilled": false,
       "locale": null,
