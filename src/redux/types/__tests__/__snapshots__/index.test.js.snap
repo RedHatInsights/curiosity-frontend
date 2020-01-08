@@ -2,7 +2,15 @@
 
 exports[`ReduxTypes should have specific type properties: all redux types 1`] = `
 Object {
+  "appTypes": Object {
+    "STATUS_4XX": "4XX",
+    "STATUS_5XX": "5XX",
+  },
   "default": Object {
+    "app": Object {
+      "STATUS_4XX": "4XX",
+      "STATUS_5XX": "5XX",
+    },
     "rhsm": Object {
       "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
       "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
@@ -15,6 +23,10 @@ Object {
     },
   },
   "reduxTypes": Object {
+    "app": Object {
+      "STATUS_4XX": "4XX",
+      "STATUS_5XX": "5XX",
+    },
     "rhsm": Object {
       "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
       "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
@@ -41,6 +53,10 @@ Object {
 
 exports[`ReduxTypes should have specific type properties: specific types 1`] = `
 Object {
+  "app": Object {
+    "STATUS_4XX": "4XX",
+    "STATUS_5XX": "5XX",
+  },
   "rhsm": Object {
     "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
     "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
