@@ -19,6 +19,7 @@ exports[`ReduxHelpers should get a message from a service call response: respons
 exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `
 Object {
   "FULFILLED_ACTION": [Function],
+  "HTTP_STATUS_RANGE": [Function],
   "PENDING_ACTION": [Function],
   "REJECTED_ACTION": [Function],
   "generatedPromiseActionReducer": [Function],

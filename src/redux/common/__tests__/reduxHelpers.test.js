@@ -9,6 +9,7 @@ describe('ReduxHelpers', () => {
     expect(reduxHelpers.FULFILLED_ACTION('lorem')).toBe('lorem_FULFILLED');
     expect(reduxHelpers.PENDING_ACTION('lorem')).toBe('lorem_PENDING');
     expect(reduxHelpers.REJECTED_ACTION('lorem')).toBe('lorem_REJECTED');
+    expect(reduxHelpers.HTTP_STATUS_RANGE('lorem')).toBe('lorem_STATUS_RANGE');
   });
 
   it('should get a message from a service call response', () => {
