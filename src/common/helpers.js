@@ -1,6 +1,8 @@
 const generateId = prefix =>
   `${prefix || 'generatedid'}-${(process.env.REACT_APP_ENV !== 'test' && Math.ceil(1e5 * Math.random())) || ''}`;
 
+const isPromise = obj => Object.prototype.toString.call(obj) === '[object Promise]';
+
 const noop = Function.prototype;
 
 const noopPromise = Promise.resolve({});
@@ -35,6 +37,7 @@ const UI_VERSION = process.env.REACT_APP_UI_VERSION;
 
 const helpers = {
   generateId,
+  isPromise,
   noop,
   noopPromise,
   noopTranslate,

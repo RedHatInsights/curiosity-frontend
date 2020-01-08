@@ -1,6 +1,6 @@
 import _get from 'lodash/get';
-import _join from 'lodash/join';
-import _map from 'lodash/map';
+import _isPlainObject from 'lodash/isPlainObject';
+import { helpers } from '../../common';
 
 const FULFILLED_ACTION = (base = '') => `${base}_FULFILLED`;
 
@@ -8,63 +8,44 @@ const PENDING_ACTION = (base = '') => `${base}_PENDING`;
 
 const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
 
-const getMessageFromResults = (results, filterField = null) => {
-  const status = _get(results, 'response.status', results.status);
-  const statusResponse = _get(results, 'response.statusText', results.statusText);
-  const messageResponse = _get(results, 'response.data', results.message);
-  const detailResponse = _get(results, 'response.data', results.detail);
+const getMessageFromResults = results => {
+  const updatedResults = results.payload || results;
 
-  let serverStatus = '';
-
-  if (!messageResponse && !detailResponse) {
-    if (status < 400) {
-      return statusResponse;
-    }
-
-    if (status >= 500 || status === undefined) {
-      return `${status || ''} Server is currently unable to handle this request.`;
-    }
+  if (helpers.isPromise(updatedResults)) {
+    return null;
   }
 
-  if (status >= 500 || status === undefined) {
-    serverStatus = status ? `${status} ` : '';
+  const status = _get(updatedResults, 'response.status', updatedResults.status);
+  const statusResponse = _get(updatedResults, 'response.statusText', updatedResults.statusText);
+  const messageResponse = _get(updatedResults, 'response.message', updatedResults.message);
+  const dataResponse = _get(updatedResults, 'response.data', updatedResults.data);
+  const formattedStatus = (status && `${status} `) || '';
+
+  if (messageResponse && typeof messageResponse === 'string') {
+    return messageResponse.trim();
   }
 
-  if (typeof messageResponse === 'string') {
-    return `${serverStatus}${messageResponse}`;
+  if (dataResponse && typeof dataResponse === 'string') {
+    return `${formattedStatus}${dataResponse}`.trim();
   }
 
-  if (typeof detailResponse === 'string') {
-    return `${serverStatus}${detailResponse}`;
+  if (status >= 300 && _isPlainObject(dataResponse)) {
+    return `${formattedStatus}${JSON.stringify(dataResponse)}`;
   }
 
-  const getMessages = (messageObject, filterKey) => {
-    const obj = filterKey ? messageObject[filterKey] : messageObject;
-
-    return _map(
-      obj,
-      next => {
-        if (Array.isArray(next)) {
-          return getMessages(next);
-        }
-
-        return next;
-      },
-      null
-    );
-  };
-
-  return `${serverStatus}${_join(getMessages(messageResponse || detailResponse, filterField), '\n')}`;
+  return (statusResponse && statusResponse.trim()) || null;
 };
 
 const getStatusFromResults = results => {
-  let status = _get(results, 'response.status', results.status);
+  const updatedResults = results.payload || results;
 
-  if (status === undefined) {
-    status = 0;
+  if (helpers.isPromise(updatedResults)) {
+    return 0;
   }
 
-  return status;
+  const status = _get(updatedResults, 'response.status', updatedResults.status);
+
+  return status || 0;
 };
 
 const setStateProp = (prop, data, options) => {
@@ -146,8 +127,8 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
         whichType.ref || null,
         setId({
           error: true,
-          errorMessage: getMessageFromResults(action.payload),
-          errorStatus: getStatusFromResults(action.payload)
+          errorMessage: getMessageFromResults(action),
+          errorStatus: getStatusFromResults(action)
         }),
         {
           state

@@ -5,7 +5,7 @@ Object {
   "result": Object {
     "capacity": Object {
       "error": true,
-      "errorMessage": "ERROR",
+      "errorMessage": "MESSAGE",
       "errorStatus": 0,
       "fulfilled": false,
       "metaData": undefined,
@@ -28,7 +28,7 @@ Object {
     "component": Object {},
     "report": Object {
       "error": true,
-      "errorMessage": "ERROR",
+      "errorMessage": "MESSAGE",
       "errorStatus": 0,
       "fulfilled": false,
       "metaData": undefined,
