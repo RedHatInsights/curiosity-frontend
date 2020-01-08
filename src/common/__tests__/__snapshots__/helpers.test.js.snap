@@ -16,6 +16,7 @@ Object {
   "UI_PATH": "/",
   "UI_VERSION": "0.0.0.0000000",
   "generateId": [Function],
+  "isPromise": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],

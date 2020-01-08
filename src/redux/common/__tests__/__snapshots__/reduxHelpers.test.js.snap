@@ -8,19 +8,13 @@ exports[`ReduxHelpers should get a http status from a service call response: sta
 
 exports[`ReduxHelpers should get a message from a service call response: 3XX fallback message 1`] = `"Multiple Choices"`;
 
-exports[`ReduxHelpers should get a message from a service call response: 4XX fallback message 1`] = `""`;
+exports[`ReduxHelpers should get a message from a service call response: 4XX fallback message 1`] = `"Bad Request"`;
 
-exports[`ReduxHelpers should get a message from a service call response: 5XX fallback message 1`] = `"500 Server is currently unable to handle this request."`;
+exports[`ReduxHelpers should get a message from a service call response: 5XX fallback message 1`] = `"Internal Server Error"`;
 
-exports[`ReduxHelpers should get a message from a service call response: response for 2XX 1`] = `
-"ipsum
-sit"
-`;
+exports[`ReduxHelpers should get a message from a service call response: response for 2XX 1`] = `"OK"`;
 
-exports[`ReduxHelpers should get a message from a service call response: response for 4XX 1`] = `
-"ipsum
-sit"
-`;
+exports[`ReduxHelpers should get a message from a service call response: response for 4XX 1`] = `"Request failed with status code 400"`;
 
 exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `
 Object {
