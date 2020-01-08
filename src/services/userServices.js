@@ -2,26 +2,34 @@ import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
 import { helpers } from '../common/helpers';
 
+/**
+ * Emulate service response http status to aid in error handling.
+ * @returns {Promise<{statusText: string, message: string, status: number}>}
+ */
 const authorizeUser = async () => {
+  const response = {
+    status: 418,
+    message: '{ getUser } = insights.chrome.auth'
+  };
   let getUserData = (helpers.TEST_MODE || helpers.DEV_MODE) && {};
-  let platformResponse;
 
   if (!helpers.DEV_MODE && window.insights && window.insights.chrome.auth.getUser) {
     getUserData = await window.insights.chrome.auth.getUser();
   }
 
   /**
-   * ToDo: evaluate this periodically, expecting specific platform behavior, this could be simplified
-   * Basic check for missing user data. Allowing GUI auth to pass in those cases affects our API
-   * auth for RHSM, so we block it.
+   * ToDo: evaluate this periodically, expecting specific platform behavior.
+   * Basic check for missing user data. Allowing GUI auth to pass with missing data affects our API
+   * auth for RHSM, so we block it. An additional, more specific, check for "account_number" may be needed.
    */
   if (getUserData) {
-    platformResponse = Promise.resolve(getUserData);
-  } else {
-    platformResponse = Promise.reject(new Error('{ getUser } = insights.chrome.auth'));
+    response.status = 200;
+    response.data = getUserData;
+    return Promise.resolve(response);
   }
 
-  return platformResponse;
+  const emulatedError = { ...new Error('{ getUser } = insights.chrome.auth'), ...response };
+  return Promise.reject(emulatedError);
 };
 
 const getLocaleFromCookie = () => {
