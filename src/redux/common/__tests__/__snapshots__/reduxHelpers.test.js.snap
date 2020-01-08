@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ReduxHelpers should get a http status from a service call response: fallback status 1`] = `200`;
+
+exports[`ReduxHelpers should get a http status from a service call response: missing status 1`] = `0`;
+
+exports[`ReduxHelpers should get a http status from a service call response: status 1`] = `200`;
+
+exports[`ReduxHelpers should get a message from a service call response: 3XX fallback message 1`] = `"Multiple Choices"`;
+
+exports[`ReduxHelpers should get a message from a service call response: 4XX fallback message 1`] = `""`;
+
+exports[`ReduxHelpers should get a message from a service call response: 5XX fallback message 1`] = `"500 Server is currently unable to handle this request."`;
+
+exports[`ReduxHelpers should get a message from a service call response: response for 2XX 1`] = `
+"ipsum
+sit"
+`;
+
+exports[`ReduxHelpers should get a message from a service call response: response for 4XX 1`] = `
+"ipsum
+sit"
+`;
+
 exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `
 Object {
   "FULFILLED_ACTION": [Function],
