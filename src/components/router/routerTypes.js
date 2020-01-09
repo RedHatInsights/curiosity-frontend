@@ -1,3 +1,4 @@
+import path from 'path';
 import { helpers } from '../../common/helpers';
 import OpenshiftView from '../openshiftView/openshiftView';
 import RhelView from '../rhelView/rhelView';
@@ -5,31 +6,13 @@ import TourView from '../tourView/tourView';
 import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
 
 /**
- * Return an assumed dynamic route baseName directory
- * based on a predictable platform directory depth of
- * /[OPTIONAL]/[environment]/[APP NAME]
- *
- * @param pathName {string}
- * @param pathPrefix {string}
- * @return {string}
+ * Return a string that describes a platform redirect.
+ * @return {array}
  */
-const dynamicBaseName = ({ pathName, pathPrefix }) => {
-  const path = pathName.split('/');
-
-  path.shift();
-
-  const pathSlice = pathPrefix && new RegExp(path[0]).test(pathPrefix) ? 2 : 1;
-
-  return `/${path.slice(0, pathSlice).join('/')}`;
-};
-
-const baseName =
-  (helpers.TEST_MODE && '/') ||
-  (helpers.DEV_MODE && '/') ||
-  dynamicBaseName({ pathName: window.location.pathname, pathPrefix: helpers.UI_DEPLOY_PATH_PREFIX });
+const platformRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitled=subscriptions');
 
 /**
- * Return array of objects that describe navigation
+ * Return array of objects that describes routing.
  * @return {array}
  */
 const routes = [
@@ -81,6 +64,10 @@ const routes = [
   }
 ];
 
+/**
+ * Return an array of objects that describes platform navigation.
+ * @return {array}
+ */
 const navigation = [
   {
     title: 'Red Hat Enterprise Linux',
@@ -121,9 +108,10 @@ const navigation = [
   }
 ];
 
-const getRouteDetail = ({ pathname = null }) => {
-  const navigationItem = navigation.find(item => item.path === pathname) || {};
-  return (Object.keys(navigationItem || {}).length && navigationItem) || navigation.find(item => item.default === true);
+const routerTypes = {
+  navigation,
+  platformRedirect,
+  routes
 };
 
-export { routes as default, baseName, dynamicBaseName, getRouteDetail, navigation, routes };
+export { routerTypes as default, routerTypes, navigation, platformRedirect, routes };

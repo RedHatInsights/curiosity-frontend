@@ -1,53 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterTypes should return a generated baseName: app base lorem base name 1`] = `"/beta/appName"`;
-
-exports[`RouterTypes should return a generated baseName: app base name 1`] = `"/appName"`;
-
-exports[`RouterTypes should return a generated baseName: beta app base name 1`] = `"/beta/appName"`;
-
-exports[`RouterTypes should return a generated baseName: beta app lorem route name 1`] = `"/beta/appName"`;
-
-exports[`RouterTypes should return route details that match navigation: route detail: computenode 1`] = `
-Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
-}
-`;
-
-exports[`RouterTypes should return route details that match navigation: route detail: default 1`] = `
-Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
-}
-`;
-
-exports[`RouterTypes should return route details that match navigation: route detail: match specific navigation 1`] = `
-Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
-}
-`;
-
-exports[`RouterTypes should return route details that match navigation: route detail: null or undefined 1`] = `
-Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
-}
-`;
-
 exports[`RouterTypes should return specific properties: navigation 1`] = `
 Array [
   Object {
@@ -89,6 +41,8 @@ Array [
   },
 ]
 `;
+
+exports[`RouterTypes should return specific properties: platformRedirect 1`] = `"/?not_entitled=subscriptions"`;
 
 exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
