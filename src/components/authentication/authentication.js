@@ -5,7 +5,7 @@ import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant } from '@
 import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connectRouter, reduxActions } from '../../redux';
 import { helpers } from '../../common/helpers';
-import { navigation as appNavigation } from '../router/router';
+import { Redirect, routerTypes } from '../router/router';
 import PageLayout from '../pageLayout/pageLayout';
 
 class Authentication extends Component {
@@ -52,7 +52,7 @@ class Authentication extends Component {
   };
 
   render() {
-    const { children, session } = this.props;
+    const { children, redirectUrl, session } = this.props;
 
     if (session.authorized) {
       return <React.Fragment>{children}</React.Fragment>;
@@ -69,6 +69,19 @@ class Authentication extends Component {
             <EmptyStateBody>Authenticating...</EmptyStateBody>
           </EmptyState>
         </PageLayout>
+      );
+    }
+
+    if (session.errorStatus === 418) {
+      return <Redirect isRedirect isReplace url={redirectUrl} />;
+    }
+
+    if (session.errorStatus === 403) {
+      return (
+        <React.Fragment>
+          {children}
+          <Redirect isRedirect />
+        </React.Fragment>
       );
     }
 
@@ -107,10 +120,12 @@ Authentication.propTypes = {
       id: PropTypes.string
     })
   ),
+  redirectUrl: PropTypes.string,
   session: PropTypes.shape({
     authorized: PropTypes.bool,
     error: PropTypes.bool,
     errorMessage: PropTypes.string,
+    errorStatus: PropTypes.number,
     pending: PropTypes.bool
   })
 };
@@ -119,11 +134,13 @@ Authentication.defaultProps = {
   appName: helpers.UI_NAME,
   authorizeUser: helpers.noop,
   insights: window.insights,
-  navigation: appNavigation,
+  navigation: routerTypes.navigation,
+  redirectUrl: routerTypes.platformRedirect,
   session: {
     authorized: false,
     error: false,
     errorMessage: '',
+    errorStatus: null,
     pending: false
   }
 };

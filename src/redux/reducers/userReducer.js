@@ -1,4 +1,4 @@
-import { userTypes } from '../types';
+import { appTypes, userTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 const initialState = {
@@ -20,8 +20,8 @@ const userReducer = (state = initialState, action) => {
         'session',
         {
           error: action.error,
-          errorMessage: reduxHelpers.getMessageFromResults(action.payload),
-          errorStatus: reduxHelpers.getStatusFromResults(action.payload),
+          errorMessage: reduxHelpers.getMessageFromResults(action),
+          errorStatus: reduxHelpers.getStatusFromResults(action),
           locale: state.session.locale
         },
         {
@@ -69,6 +69,25 @@ const userReducer = (state = initialState, action) => {
           reset: false
         }
       );
+
+    case reduxHelpers.HTTP_STATUS_RANGE(appTypes.STATUS_4XX):
+      if (action.status === 401 || action.status === 403) {
+        return reduxHelpers.setStateProp(
+          'session',
+          {
+            error: true,
+            errorMessage: reduxHelpers.getMessageFromResults(action),
+            errorStatus: reduxHelpers.getStatusFromResults(action),
+            locale: state.session.locale
+          },
+          {
+            state,
+            initialState
+          }
+        );
+      }
+
+      return state;
 
     default:
       return state;

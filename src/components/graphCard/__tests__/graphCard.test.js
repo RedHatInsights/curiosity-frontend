@@ -47,22 +47,16 @@ describe('GraphCard Component', () => {
     }).toMatchSnapshot('error passes values');
 
     component.setProps({
-      errorStatus: 403,
-      errorRoute: {
-        to: '/lorem-error-403-route'
-      }
+      errorStatus: 403
     });
 
-    expect(component).toMatchSnapshot('error with 403 status redirects');
+    expect(component).toMatchSnapshot('error with 403 status');
 
     component.setProps({
-      errorStatus: 500,
-      errorRoute: {
-        to: '/lorem-error-500-route'
-      }
+      errorStatus: 500
     });
 
-    expect(component).toMatchSnapshot('error with 500 status redirects');
+    expect(component).toMatchSnapshot('error with 500 status');
 
     component.setProps({
       error: false,

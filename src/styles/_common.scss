@@ -1,4 +1,8 @@
 .curiosity {
+  .blur {
+    filter: blur(4px);
+  }
+
   .fadein {
     opacity:0;
     animation:fadein .25s ease-in forwards;
