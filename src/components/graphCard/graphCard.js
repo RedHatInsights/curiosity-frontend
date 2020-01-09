@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
@@ -114,12 +113,8 @@ class GraphCard extends React.Component {
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
-    const { cardTitle, error, errorRoute, errorStatus, graphGranularity, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, error, graphGranularity, selectOptionsType, pending, t } = this.props;
     const getGranularityOptions = graphCardTypes.getGranularityOptions(selectOptionsType);
-
-    if (error && (errorStatus === 403 || errorStatus >= 500)) {
-      return (errorRoute && errorRoute.to && <Redirect to={errorRoute.to} />) || null;
-    }
 
     return (
       <Card className="curiosity-usage-graph fadein">
@@ -136,7 +131,7 @@ class GraphCard extends React.Component {
           </CardActions>
         </CardHead>
         <CardBody>
-          <div className="curiosity-skeleton-container">
+          <div className={`curiosity-skeleton-container ${(error && 'blur') || ''}`}>
             {pending && (
               <React.Fragment>
                 <Skeleton size={SkeletonSize.xs} />
@@ -156,10 +151,6 @@ class GraphCard extends React.Component {
 GraphCard.propTypes = {
   cardTitle: PropTypes.string,
   error: PropTypes.bool,
-  errorRoute: PropTypes.shape({
-    to: PropTypes.string
-  }),
-  errorStatus: PropTypes.number,
   filterGraphData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -188,8 +179,6 @@ GraphCard.propTypes = {
 GraphCard.defaultProps = {
   cardTitle: null,
   error: false,
-  errorRoute: {},
-  errorStatus: null,
   filterGraphData: [],
   getGraphCapacity: helpers.noop,
   getGraphReports: helpers.noop,

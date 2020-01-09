@@ -30,8 +30,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:130
-#: src/components/graphCard/graphCard.js:134
+#: src/components/graphCard/graphCard.js:125
+#: src/components/graphCard/graphCard.js:129
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 

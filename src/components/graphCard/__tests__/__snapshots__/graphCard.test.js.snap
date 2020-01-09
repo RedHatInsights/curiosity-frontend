@@ -43,7 +43,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   </CardHead>
   <CardBody>
     <div
-      className="curiosity-skeleton-container"
+      className="curiosity-skeleton-container "
     >
       <ChartArea
         dataSets={Array []}
@@ -105,16 +105,206 @@ Object {
 }
 `;
 
-exports[`GraphCard Component should render multiple states: error with 403 status redirects 1`] = `
-<Redirect
-  to="/lorem-error-403-route"
-/>
+exports[`GraphCard Component should render multiple states: error with 403 status 1`] = `
+<Card
+  className="curiosity-usage-graph fadein"
+>
+  <CardHead>
+    <h2 />
+    <CardActions>
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        variant="single"
+      />
+    </CardActions>
+  </CardHead>
+  <CardBody>
+    <div
+      className="curiosity-skeleton-container blur"
+    >
+      <ChartArea
+        dataSets={
+          Array [
+            Object {
+              "animate": Object {
+                "duration": 250,
+                "onLoad": Object {
+                  "duration": 250,
+                },
+              },
+              "data": Array [
+                Object {
+                  "date": 2019-06-01T00:00:00.000Z,
+                  "x": 0,
+                  "y": 10,
+                },
+                Object {
+                  "date": 2019-06-08T00:00:00.000Z,
+                  "x": 1,
+                  "y": 12,
+                },
+                Object {
+                  "date": 2019-06-25T00:00:00.000Z,
+                  "x": 2,
+                  "y": 3,
+                },
+              ],
+              "id": "physicalSockets",
+              "isStacked": true,
+              "isThreshold": false,
+              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+            },
+          ]
+        }
+        domain={Object {}}
+        height={275}
+        padding={
+          Object {
+            "bottom": 75,
+            "left": 50,
+            "right": 50,
+            "top": 50,
+          }
+        }
+        themeColor="blue"
+        tooltips={[Function]}
+        xAxisFixLabelOverlap={true}
+        xAxisLabelIncrement={5}
+        xAxisTickFormat={[Function]}
+        yAxisTickFormat={[Function]}
+      />
+    </div>
+  </CardBody>
+</Card>
 `;
 
-exports[`GraphCard Component should render multiple states: error with 500 status redirects 1`] = `
-<Redirect
-  to="/lorem-error-500-route"
-/>
+exports[`GraphCard Component should render multiple states: error with 500 status 1`] = `
+<Card
+  className="curiosity-usage-graph fadein"
+>
+  <CardHead>
+    <h2 />
+    <CardActions>
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        variant="single"
+      />
+    </CardActions>
+  </CardHead>
+  <CardBody>
+    <div
+      className="curiosity-skeleton-container blur"
+    >
+      <ChartArea
+        dataSets={
+          Array [
+            Object {
+              "animate": Object {
+                "duration": 250,
+                "onLoad": Object {
+                  "duration": 250,
+                },
+              },
+              "data": Array [
+                Object {
+                  "date": 2019-06-01T00:00:00.000Z,
+                  "x": 0,
+                  "y": 10,
+                },
+                Object {
+                  "date": 2019-06-08T00:00:00.000Z,
+                  "x": 1,
+                  "y": 12,
+                },
+                Object {
+                  "date": 2019-06-25T00:00:00.000Z,
+                  "x": 2,
+                  "y": 3,
+                },
+              ],
+              "id": "physicalSockets",
+              "isStacked": true,
+              "isThreshold": false,
+              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+            },
+          ]
+        }
+        domain={Object {}}
+        height={275}
+        padding={
+          Object {
+            "bottom": 75,
+            "left": 50,
+            "right": 50,
+            "top": 50,
+          }
+        }
+        themeColor="blue"
+        tooltips={[Function]}
+        xAxisFixLabelOverlap={true}
+        xAxisLabelIncrement={5}
+        xAxisTickFormat={[Function]}
+        yAxisTickFormat={[Function]}
+      />
+    </div>
+  </CardBody>
+</Card>
 `;
 
 exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
@@ -160,7 +350,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   </CardHead>
   <CardBody>
     <div
-      className="curiosity-skeleton-container"
+      className="curiosity-skeleton-container "
     >
       <ChartArea
         dataSets={
@@ -261,7 +451,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   </CardHead>
   <CardBody>
     <div
-      className="curiosity-skeleton-container"
+      className="curiosity-skeleton-container "
     >
       <Skeleton
         isDark={false}

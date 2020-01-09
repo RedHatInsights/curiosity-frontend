@@ -1,6 +1,7 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import { mount, shallow } from 'enzyme';
+import { BrowserRouter } from 'react-router-dom';
 import { helpers } from '../../../common/helpers';
 import { ConnectedAuthentication, Authentication } from '../authentication';
 
@@ -42,6 +43,81 @@ describe('Authorization Component', () => {
     );
 
     expect(component).toMatchSnapshot('non-connected error');
+  });
+
+  it('should return a redirect on 418 error', () => {
+    const props = {
+      history: {
+        listen: helpers.noop,
+        push: helpers.noop
+      },
+      session: {
+        authorized: false,
+        error: true,
+        errorStatus: 418,
+        errorMessage: `I'm a teapot`,
+        pending: false
+      }
+    };
+    const component = mount(
+      <BrowserRouter>
+        <Authentication {...props}>
+          <span className="test">lorem</span>
+        </Authentication>
+      </BrowserRouter>
+    );
+
+    expect(component.find('Redirect')).toMatchSnapshot('418 error');
+  });
+
+  it('should return a redirect on 403 error', () => {
+    const props = {
+      history: {
+        listen: helpers.noop,
+        push: helpers.noop
+      },
+      session: {
+        authorized: false,
+        error: true,
+        errorStatus: 403,
+        errorMessage: `Forbidden`,
+        pending: false
+      }
+    };
+    const component = mount(
+      <BrowserRouter>
+        <Authentication {...props}>
+          <span className="test">lorem</span>
+        </Authentication>
+      </BrowserRouter>
+    );
+
+    expect(component.find('Redirect > Redirect')).toMatchSnapshot('403 error');
+  });
+
+  it('should return a message on 401 error', () => {
+    const props = {
+      history: {
+        listen: helpers.noop,
+        push: helpers.noop
+      },
+      session: {
+        authorized: false,
+        error: true,
+        errorStatus: 401,
+        errorMessage: `Unauthorized`,
+        pending: false
+      }
+    };
+    const component = mount(
+      <BrowserRouter>
+        <Authentication {...props}>
+          <span className="test">lorem</span>
+        </Authentication>
+      </BrowserRouter>
+    );
+
+    expect(component.find('PageLayout')).toMatchSnapshot('401 error');
   });
 
   it('should render a non-connected component pending', () => {
