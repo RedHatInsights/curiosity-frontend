@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Redirect Component should handle a redirect with a url: redirect url 1`] = `
+<Fragment>
+  Redirected towards 
+  //lorem/ipsum?dolor=sit
+</Fragment>
+`;
+
+exports[`Redirect Component should handle a routed redirect with a route update: routed redirect route 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <withRouter(Redirect)
+    isRedirect={true}
+    route="/lorem-ipsum"
+  />
+</Router>
+`;
+
+exports[`Redirect Component should handle a window.location redirect with a route update: window.location redirect route 1`] = `""`;
+
+exports[`Redirect Component should render a basic component: basic 1`] = `null`;
+
+exports[`Redirect Component should render a routed component: routed 1`] = `null`;
