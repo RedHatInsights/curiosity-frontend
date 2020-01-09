@@ -57,6 +57,7 @@ exports[`Authorization Component should render a non-connected component authori
       },
     ]
   }
+  redirectUrl="/?not_entitled=subscriptions"
   session={
     Object {
       "authorized": true,
@@ -125,6 +126,7 @@ exports[`Authorization Component should render a non-connected component error: 
       },
     ]
   }
+  redirectUrl="/?not_entitled=subscriptions"
   session={
     Object {
       "authorized": false,
@@ -263,4 +265,175 @@ exports[`Authorization Component should render a non-connected component pending
     </EmptyStateBody>
   </EmptyState>
 </PageLayout>
+`;
+
+exports[`Authorization Component should return a message on 401 error: 401 error 1`] = `
+<PageLayout>
+  <Page
+    breadcrumb={null}
+    className="layout-pf curiosity"
+    defaultManagedSidebarIsOpen={true}
+    header={null}
+    isManagedSidebar={false}
+    mainContainerId={null}
+    onPageResize={[Function]}
+    sidebar={null}
+    skipToContent={null}
+  >
+    <div
+      className="pf-c-page layout-pf curiosity"
+    >
+      <main
+        className="pf-c-page__main"
+        id={null}
+        role="main"
+        tabIndex={-1}
+      >
+        <PageSection
+          noPadding={true}
+        >
+          <section
+            className="pf-c-page__main-section pf-m-no-padding"
+          >
+            <PageHeader>
+              <section
+                className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+                widget-type="InsightsPageHeader"
+              >
+                <PageHeaderTitle
+                  title="Unauthorized"
+                >
+                  <Title
+                    className=""
+                    size="2xl"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                    <h1
+                      className="pf-c-title pf-m-2xl"
+                      widget-type="InsightsPageHeaderTitle"
+                    >
+                       
+                      Unauthorized
+                       
+                    </h1>
+                  </Title>
+                </PageHeaderTitle>
+              </section>
+            </PageHeader>
+            <EmptyState
+              className="fadein"
+              variant="full"
+            >
+              <div
+                className="pf-c-empty-state fadein"
+              >
+                <EmptyStateIcon
+                  icon={[Function]}
+                >
+                  <BanIcon
+                    aria-hidden="true"
+                    className="pf-c-empty-state__icon"
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                    title={null}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      aria-labelledby={null}
+                      className="pf-c-empty-state__icon"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style={
+                        Object {
+                          "verticalAlign": "-0.125em",
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
+                        transform=""
+                      />
+                    </svg>
+                  </BanIcon>
+                </EmptyStateIcon>
+                <EmptyStateBody>
+                  <div
+                    className="pf-c-empty-state__body"
+                  >
+                    You do not have permission to access reporting. Contact your administrator.
+                  </div>
+                </EmptyStateBody>
+              </div>
+            </EmptyState>
+          </section>
+        </PageSection>
+      </main>
+    </div>
+  </Page>
+</PageLayout>
+`;
+
+exports[`Authorization Component should return a redirect on 403 error: 403 error 1`] = `
+<Redirect
+  to="/soon"
+>
+  <Lifecycle
+    onMount={[Function]}
+    onUpdate={[Function]}
+    to="/soon"
+  />
+</Redirect>
+`;
+
+exports[`Authorization Component should return a redirect on 418 error: 418 error 1`] = `
+<Redirect
+  baseName="/"
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  isRedirect={true}
+  isReplace={true}
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/",
+      "search": "",
+      "state": undefined,
+    }
+  }
+  match={
+    Object {
+      "isExact": true,
+      "params": Object {},
+      "path": "/",
+      "url": "/",
+    }
+  }
+  route="/soon"
+  url="/?not_entitled=subscriptions"
+>
+  Redirected towards 
+  /?not_entitled=subscriptions
+</Redirect>
 `;
