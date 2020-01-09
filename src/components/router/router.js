@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { baseName, getRouteDetail, navigation, routes } from './routerTypes';
+import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-dom';
+import Redirect from './redirect';
+import { routerHelpers } from './routerHelpers';
+import { routerTypes } from './routerTypes';
 
 class Router extends React.Component {
   renderRoutes() {
-    const { routesType } = this.props;
-    const activateOnErrorRoute = routesType.find(route => route.activateOnError === true);
+    const { routes } = this.props;
+    const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
 
     let redirectRoot = null;
 
     return {
-      renderRoutes: routesType.map(item => {
+      renderRoutes: routes.map(item => {
         if (item.disabled) {
           return null;
         }
 
         if (item.redirect === true) {
-          redirectRoot = <Redirect to={item.to} />;
+          redirectRoot = <ReactRouterDomRedirect to={item.to} />;
         }
 
         if (item.render === true) {
@@ -27,11 +29,11 @@ class Router extends React.Component {
               key={item.to}
               path={item.to}
               render={routeProps => {
-                const routeDetail = getRouteDetail({ ...routeProps.match, ...routeProps.location });
+                const routeDetail = routerHelpers.getRouteDetail({ ...routeProps.match, ...routeProps.location });
                 return (
                   <item.component
                     routeDetail={{
-                      baseName,
+                      baseName: routerHelpers.baseName,
                       errorRoute: activateOnErrorRoute,
                       routes,
                       routeItem: { ...item },
@@ -68,11 +70,11 @@ class Router extends React.Component {
 }
 
 Router.propTypes = {
-  routesType: PropTypes.array
+  routes: PropTypes.array
 };
 
 Router.defaultProps = {
-  routesType: routes
+  routes: routerTypes.routes
 };
 
-export { Router as default, Router, baseName, navigation, routes };
+export { Router as default, Router, Redirect, routerHelpers, routerTypes };

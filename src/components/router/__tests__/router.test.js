@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Router, baseName, navigation, routes } from '../router';
+import { Router, Redirect, routerHelpers, routerTypes } from '../router';
 
 describe('Router Component', () => {
   it('should export specific properties', () => {
     expect(Router).toBeDefined();
-    expect(baseName).toBeDefined();
-    expect(navigation).toBeDefined();
-    expect(routes).toBeDefined();
+    expect(Redirect).toBeDefined();
+    expect(routerHelpers).toBeDefined();
+    expect(routerTypes).toBeDefined();
   });
 
   it('should render a basic component', () => {
@@ -17,7 +17,7 @@ describe('Router Component', () => {
 
   it('should handle unique route settings', () => {
     const props = {
-      routesType: [
+      routes: [
         {
           title: 'Lorem',
           to: '/lorem',
