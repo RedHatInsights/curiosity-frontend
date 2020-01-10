@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant } from '@patternfly/react-core';
 import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
-import { connectRouter, reduxActions } from '../../redux';
-import { helpers } from '../../common/helpers';
+import { connectRouterTranslate, reduxActions } from '../../redux';
+import { helpers } from '../../common';
 import { Redirect, routerTypes } from '../router/router';
 import PageLayout from '../pageLayout/pageLayout';
 
@@ -52,7 +52,7 @@ class Authentication extends Component {
   };
 
   render() {
-    const { children, redirectUrl, session } = this.props;
+    const { children, redirectUrl, session, t } = this.props;
 
     if (session.authorized) {
       return <React.Fragment>{children}</React.Fragment>;
@@ -66,7 +66,7 @@ class Authentication extends Component {
           </PageHeader>
           <EmptyState variant={EmptyStateVariant.full} className="fadein">
             <EmptyStateIcon icon={BinocularsIcon} />
-            <EmptyStateBody>Authenticating...</EmptyStateBody>
+            <EmptyStateBody>{t('curiosity-auth.pending', '...')}</EmptyStateBody>
           </EmptyState>
         </PageLayout>
       );
@@ -88,11 +88,11 @@ class Authentication extends Component {
     return (
       <PageLayout>
         <PageHeader>
-          <PageHeaderTitle title="Unauthorized" />
+          <PageHeaderTitle title={t('curiosity-auth.authorizedTitle', '...')} />
         </PageHeader>
         <EmptyState variant={EmptyStateVariant.full} className="fadein">
           <EmptyStateIcon icon={BanIcon} />
-          <EmptyStateBody>You do not have permission to access reporting. Contact your administrator.</EmptyStateBody>
+          <EmptyStateBody>{t('curiosity-auth.authorizedCopy', '...')}</EmptyStateBody>
         </EmptyState>
       </PageLayout>
     );
@@ -127,7 +127,8 @@ Authentication.propTypes = {
     errorMessage: PropTypes.string,
     errorStatus: PropTypes.number,
     pending: PropTypes.bool
-  })
+  }),
+  t: PropTypes.func
 };
 
 Authentication.defaultProps = {
@@ -142,7 +143,8 @@ Authentication.defaultProps = {
     errorMessage: '',
     errorStatus: null,
     pending: false
-  }
+  },
+  t: helpers.noopTranslate
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -151,6 +153,6 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({ session: state.user.session });
 
-const ConnectedAuthentication = connectRouter(mapStateToProps, mapDispatchToProps)(Authentication);
+const ConnectedAuthentication = connectRouterTranslate(mapStateToProps, mapDispatchToProps)(Authentication);
 
 export { ConnectedAuthentication as default, ConnectedAuthentication, Authentication };

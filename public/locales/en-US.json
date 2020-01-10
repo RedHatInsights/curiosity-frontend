@@ -1,4 +1,9 @@
 {
+  "curiosity-auth": {
+    "pending": "Authenticating...",
+    "authorizedTitle": "Unauthorized",
+    "authorizedCopy": "You do not have permission to access reporting. Contact your administrator."
+  },
   "curiosity-graph": {
     "coresHeading": "CPU core usage",
     "socketsHeading": "CPU socket usage",
