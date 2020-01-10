@@ -78,6 +78,21 @@ msgstr \\"\\"
 #: src/components/tourView/tourView.js:40
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
+
+#: src/components/authentication/authentication.js:95
+msgctxt \\"...\\"
+msgid \\"curiosity-auth.authorizedCopy\\"
+msgstr \\"\\"
+
+#: src/components/authentication/authentication.js:91
+msgctxt \\"...\\"
+msgid \\"curiosity-auth.authorizedTitle\\"
+msgstr \\"\\"
+
+#: src/components/authentication/authentication.js:69
+msgctxt \\"...\\"
+msgid \\"curiosity-auth.pending\\"
+msgstr \\"\\"
 "
 `;
 
