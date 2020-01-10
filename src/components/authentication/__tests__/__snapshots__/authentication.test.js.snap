@@ -66,6 +66,7 @@ exports[`Authorization Component should render a non-connected component authori
       "pending": false,
     }
   }
+  t={[Function]}
 >
   <span
     className="test"
@@ -135,6 +136,7 @@ exports[`Authorization Component should render a non-connected component error: 
       "pending": false,
     }
   }
+  t={[Function]}
 >
   <PageLayout>
     <Page
@@ -169,7 +171,7 @@ exports[`Authorization Component should render a non-connected component error: 
                   widget-type="InsightsPageHeader"
                 >
                   <PageHeaderTitle
-                    title="Unauthorized"
+                    title="t(curiosity-auth.authorizedTitle, ...)"
                   >
                     <Title
                       className=""
@@ -181,7 +183,7 @@ exports[`Authorization Component should render a non-connected component error: 
                         widget-type="InsightsPageHeaderTitle"
                       >
                          
-                        Unauthorized
+                        t(curiosity-auth.authorizedTitle, ...)
                          
                       </h1>
                     </Title>
@@ -232,7 +234,7 @@ exports[`Authorization Component should render a non-connected component error: 
                     <div
                       className="pf-c-empty-state__body"
                     >
-                      You do not have permission to access reporting. Contact your administrator.
+                      t(curiosity-auth.authorizedCopy, ...)
                     </div>
                   </EmptyStateBody>
                 </div>
@@ -261,7 +263,7 @@ exports[`Authorization Component should render a non-connected component pending
       icon={[Function]}
     />
     <EmptyStateBody>
-      Authenticating...
+      t(curiosity-auth.pending, ...)
     </EmptyStateBody>
   </EmptyState>
 </PageLayout>
@@ -301,7 +303,7 @@ exports[`Authorization Component should return a message on 401 error: 401 error
                 widget-type="InsightsPageHeader"
               >
                 <PageHeaderTitle
-                  title="Unauthorized"
+                  title="t(curiosity-auth.authorizedTitle, ...)"
                 >
                   <Title
                     className=""
@@ -313,7 +315,7 @@ exports[`Authorization Component should return a message on 401 error: 401 error
                       widget-type="InsightsPageHeaderTitle"
                     >
                        
-                      Unauthorized
+                      t(curiosity-auth.authorizedTitle, ...)
                        
                     </h1>
                   </Title>
@@ -364,7 +366,7 @@ exports[`Authorization Component should return a message on 401 error: 401 error
                   <div
                     className="pf-c-empty-state__body"
                   >
-                    You do not have permission to access reporting. Contact your administrator.
+                    t(curiosity-auth.authorizedCopy, ...)
                   </div>
                 </EmptyStateBody>
               </div>
