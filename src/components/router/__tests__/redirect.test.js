@@ -33,13 +33,13 @@ describe('Redirect Component', () => {
     expect(component).toMatchSnapshot('redirect url');
   });
 
-  it('should handle a window.location redirect with a route update', () => {
+  it('should handle a routed redirect if used outside of withRouter', () => {
     const props = {
       isRedirect: true,
       route: '/lorem-ipsum'
     };
     const component = shallow(<Redirect {...props} />);
-    expect(component).toMatchSnapshot('window.location redirect route');
+    expect(component.render()).toMatchSnapshot('outside of withRouter');
   });
 
   it('should handle a routed redirect with a route update', () => {
