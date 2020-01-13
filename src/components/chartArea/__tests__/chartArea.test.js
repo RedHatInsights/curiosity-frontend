@@ -250,12 +250,14 @@ describe('ChartArea Component', () => {
           }
         ],
         legendLabel: 'Hello world',
+        legendSymbolType: 'dash',
         xAxisLabelUseDataSet: true
       }
     ];
     component.setProps({
       dataSets: [...props.dataSets, ...additionalDataSet]
     });
+    expect(component.instance().getChartLegend()).toMatchSnapshot('getChartLegend: custom legend symbol');
     expect(component.instance().setChartTicks()).toMatchSnapshot('setChartTicks: xAxisLabelUseDataSet');
 
     // check getContainerComponent

@@ -209,8 +209,10 @@ class ChartArea extends React.Component {
       if (dataSet.legendLabel) {
         const legendDataSettings = { symbol: {}, name: dataSet.legendLabel };
 
-        if (dataSet.isThreshold) {
-          legendDataSettings.symbol = { type: 'threshold' };
+        if (dataSet.legendSymbolType) {
+          legendDataSettings.symbol.type = dataSet.legendSymbolType;
+        } else if (dataSet.isThreshold) {
+          legendDataSettings.symbol.type = 'threshold';
         }
 
         if (dataSet.themeColor) {
@@ -271,6 +273,14 @@ class ChartArea extends React.Component {
 
       if (dataSet.stroke) {
         dataColorStroke.data.stroke = dataSet.stroke;
+      }
+
+      if (dataSet.strokeWidth) {
+        dataColorStroke.data.strokeWidth = dataSet.strokeWidth;
+      }
+
+      if (dataSet.strokeDasharray) {
+        dataColorStroke.data.strokeDasharray = dataSet.strokeDasharray;
       }
 
       return (
@@ -375,11 +385,14 @@ ChartArea.propTypes = {
       animate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
       fill: PropTypes.string,
       stroke: PropTypes.string,
+      strokeWidth: PropTypes.number,
+      strokeDasharray: PropTypes.string,
       themeColor: PropTypes.string,
       themeVariant: PropTypes.string,
       id: PropTypes.string,
       interpolation: PropTypes.string,
       legendLabel: PropTypes.string,
+      legendSymbolType: PropTypes.string,
       style: PropTypes.object,
       isStacked: PropTypes.bool,
       isThreshold: PropTypes.bool,
