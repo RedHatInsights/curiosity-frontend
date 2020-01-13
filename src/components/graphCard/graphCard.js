@@ -50,6 +50,10 @@ class GraphCard extends React.Component {
     }
   };
 
+  /**
+   * FixMe: custom use of dash over threshold vs updating PF Charts legend threshold symbol
+   * @patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
+   */
   renderChart() {
     const { filterGraphData, graphData, graphGranularity, t, translateProduct } = this.props;
 
@@ -95,7 +99,10 @@ class GraphCard extends React.Component {
             duration: 100,
             onLoad: { duration: 100 }
           };
+          tempFiltered.legendSymbolType = 'dash';
           tempFiltered.stroke = chartColorGreenDark.value;
+          tempFiltered.strokeDasharray = '4,3';
+          tempFiltered.strokeWidth = 2.5;
         }
 
         return tempFiltered;

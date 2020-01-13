@@ -1101,6 +1101,38 @@ Object {
 }
 `;
 
+exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartLegend: custom legend symbol 1`] = `
+Object {
+  "legendComponent": <ChartLegend
+    borderPadding={
+      Object {
+        "top": 20,
+      }
+    }
+  />,
+  "legendData": Array [
+    Object {
+      "name": "Arma virumque cano",
+      "symbol": Object {},
+    },
+    Object {
+      "name": "Arma virumque cano",
+      "symbol": Object {
+        "type": "threshold",
+      },
+    },
+    Object {
+      "name": "Hello world",
+      "symbol": Object {
+        "type": "dash",
+      },
+    },
+  ],
+  "legendOrientation": "horizontal",
+  "legendPosition": "bottom-left",
+}
+`;
+
 exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartTicks 1`] = `
 Object {
   "isXAxisTicks": true,
