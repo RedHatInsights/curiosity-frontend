@@ -7,6 +7,14 @@ import { I18n, translate, translateComponent } from '../i18n';
 import { helpers } from '../../../common';
 import enLocales from '../../../../public/locales/en-US';
 
+/**
+ * Emulate for component render checks
+ */
+jest.mock('i18next');
+
+/**
+ * Help generate a POT output.
+ */
 const textExtractor = () => {
   const extractor = new GettextExtractor();
   extractor
