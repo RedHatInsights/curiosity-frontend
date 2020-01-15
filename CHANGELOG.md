@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.9...v0.1.10) (2020-01-15)
+
+
+### Features
+
+* **statusMiddleware:** issues/159 redux for http status ([dc4c318](https://github.com/RedHatInsights/curiosity-frontend/commit/dc4c31885981e73d0ad671cfb0fb0bf688ed655a))
+
+
+### Bug Fixes
+
+* **authentication,locale:** enUS additions ([9ac3d00](https://github.com/RedHatInsights/curiosity-frontend/commit/9ac3d002c6c5d832ea4775823682cfa2f21d65bd))
+* **build:** integration version check regex updated ([e6587ec](https://github.com/RedHatInsights/curiosity-frontend/commit/e6587ec36af633b11dff3b83016234a016b9b5b4))
+* **chartArea,graphCard:** use dash instead of threshold ([d4d3466](https://github.com/RedHatInsights/curiosity-frontend/commit/d4d34664084aba16808f3c8d9206043de9801b98))
+* **graphCardHelpers:** consistency clean up ([a7bc253](https://github.com/RedHatInsights/curiosity-frontend/commit/a7bc253a93aa9e9e655f3c885fecfab81dd6b7ba))
+* **i18n:** issues/159 correct locale load sequence ([#173](https://github.com/RedHatInsights/curiosity-frontend/issues/173)) ([b15b03a](https://github.com/RedHatInsights/curiosity-frontend/commit/b15b03aa5bfd86554d503e52e3ffb0c5e53d515e))
+* **openshiftView:** test name correction ([75dcaf5](https://github.com/RedHatInsights/curiosity-frontend/commit/75dcaf5fb21fc52b6679dcc011f508681b18debb))
+* **reduxHelpers:** getMessageFromResults testing baseline ([2e91262](https://github.com/RedHatInsights/curiosity-frontend/commit/2e91262883c1e2dcd51c5a3792ae2ba581873c2b))
+* **reduxHelpers,helpers:** streamlined response messages ([9e85217](https://github.com/RedHatInsights/curiosity-frontend/commit/9e852171636ea8bcc256ad68a936c6c1a6f3359c))
+* **rhsmActions,redirect:** comments clean up ([51e67a9](https://github.com/RedHatInsights/curiosity-frontend/commit/51e67a929667e811e3fb3b9fa4c0cdf8ef248771))
+* **routerHelpers,routerTypes,redirect:** restructure components ([8eb8fab](https://github.com/RedHatInsights/curiosity-frontend/commit/8eb8fab843c1f9de9d676beeadb148548d7ac448))
+* **services:** issues/167 login, update platform getUser ([#168](https://github.com/RedHatInsights/curiosity-frontend/issues/168)) ([cc08a2e](https://github.com/RedHatInsights/curiosity-frontend/commit/cc08a2e13dc2e77d0b2e16bde2ad10d395cd25be))
+* **userReducer,authorization:** issues/159 managed redirect ([#170](https://github.com/RedHatInsights/curiosity-frontend/issues/170)) ([47b580d](https://github.com/RedHatInsights/curiosity-frontend/commit/47b580d28ec8d6d0e8db16535e41b6a5a8473533))
+* **userServices:** issues/159 emulate response error ([1277d80](https://github.com/RedHatInsights/curiosity-frontend/commit/1277d804b1f6be90e7f0b5016d8304a923838f10))
+
 ### [0.1.9](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.8...v0.1.9) (2019-12-19)
 
 
