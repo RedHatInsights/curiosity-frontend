@@ -19,6 +19,7 @@ coverage
 dist
 build
 public/apps
+public/beta
 public/locales/*.json
 !public/locales/locales.json
 !public/locales/en*.json
