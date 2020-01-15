@@ -17,6 +17,8 @@ const translateComponent = component => (!helpers.TEST_MODE && withTranslation()
  * the scenes appears more predictable.
  */
 class I18n extends React.Component {
+  state = { isLoaded: false };
+
   componentDidMount() {
     this.i18nInit();
   }
@@ -29,31 +31,38 @@ class I18n extends React.Component {
     }
   }
 
-  i18nInit() {
+  i18nInit = async () => {
     const { fallbackLng, loadPath, locale } = this.props;
 
-    i18next
-      .use(XHR)
-      .use(initReactI18next)
-      .init({
-        backend: {
-          loadPath
-        },
-        fallbackLng,
-        lng: locale,
-        debug: !helpers.PROD_MODE,
-        ns: ['default'],
-        defaultNS: 'default',
-        react: {
-          useSuspense: false
-        }
-      });
-  }
+    try {
+      await i18next
+        .use(XHR)
+        .use(initReactI18next)
+        .init({
+          backend: {
+            loadPath
+          },
+          fallbackLng,
+          lng: locale,
+          debug: !helpers.PROD_MODE,
+          ns: ['default'],
+          defaultNS: 'default',
+          react: {
+            useSuspense: false
+          }
+        });
+    } catch (e) {
+      // ToDo: eval the need for an isError state ref
+    }
+
+    this.setState({ isLoaded: true });
+  };
 
   render() {
+    const { isLoaded } = this.state;
     const { children } = this.props;
 
-    return <React.Fragment>{children}</React.Fragment>;
+    return (isLoaded && <React.Fragment>{children}</React.Fragment>) || <React.Fragment />;
   }
 }
 
@@ -70,4 +79,4 @@ I18n.defaultProps = {
   locale: null
 };
 
-export { I18n as default, I18n, translate, translateComponent };
+export { I18n as default, I18n, i18next, translate, translateComponent };
