@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlatformServices should return a failed authorized user: failed authorized user 1`] = `
+Object {
+  "message": "{ getUser } = insights.chrome.auth",
+  "status": 418,
+}
+`;
+
+exports[`PlatformServices should return a successful authorized user: success authorized user 1`] = `
+Object {
+  "data": "lorem ipsum",
+  "message": "{ getUser } = insights.chrome.auth",
+  "status": 200,
+}
+`;

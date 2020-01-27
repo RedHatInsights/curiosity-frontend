@@ -79,17 +79,17 @@ msgstr \\"\\"
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:95
+#: src/components/authentication/authentication.js:90
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedCopy\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:91
+#: src/components/authentication/authentication.js:86
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:69
+#: src/components/authentication/authentication.js:64
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.pending\\"
 msgstr \\"\\"
