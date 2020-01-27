@@ -14,43 +14,13 @@ describe('UserServices', () => {
 
   /**
    *  timeout errors associated with this test sometimes stem from endpoint
-   *  settings, see "before each" regex above
+   *  settings or missing globals, see "before" above
    */
   it('should return promises for every method', done => {
     const promises = Object.keys(userServices).map(value => userServices[value]());
 
     Promise.all(promises).then(success => {
       expect(success.length).toEqual(Object.keys(userServices).length);
-      done();
-    });
-  });
-
-  it('should return a successful authorized user', done => {
-    window.insights = {
-      chrome: {
-        auth: {
-          getUser: jest.fn().mockImplementation(() => Promise.resolve('lorem ipsum'))
-        }
-      }
-    };
-
-    userServices.authorizeUser().then(value => {
-      expect(value).toMatchSnapshot('success authorized user');
-      done();
-    });
-  });
-
-  it('should return a failed authorized user', done => {
-    window.insights = {
-      chrome: {
-        auth: {
-          getUser: jest.fn().mockImplementation(() => undefined)
-        }
-      }
-    };
-
-    userServices.authorizeUser().catch(error => {
-      expect(error).toMatchSnapshot('failed authorized user');
       done();
     });
   });

@@ -1,15 +1,15 @@
 import { userTypes } from '../types';
-import userService from '../../services/userServices';
+import { userServices } from '../../services/userServices';
 
 const authorizeUser = () => dispatch =>
   dispatch({
     type: userTypes.USER_AUTH,
-    payload: userService.authorizeUser()
+    payload: userServices.authorizeUser()
   });
 
 const getLocale = () => ({
   type: userTypes.USER_LOCALE,
-  payload: userService.getLocale()
+  payload: userServices.getLocale()
 });
 
 const userActions = { authorizeUser, getLocale };

@@ -9,47 +9,42 @@ import { Redirect, routerTypes } from '../router/router';
 import PageLayout from '../pageLayout/pageLayout';
 
 class Authentication extends Component {
-  appNav = helpers.noop;
-
-  buildNav = helpers.noop;
+  removeListeners = helpers.noop;
 
   componentDidMount() {
-    const { appName, authorizeUser, history, insights, session } = this.props;
+    const {
+      appName,
+      authorizeUser,
+      history,
+      initializeChrome,
+      onNavigation,
+      navigation,
+      setAppName,
+      setNavigation,
+      session
+    } = this.props;
 
-    try {
-      if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
-        insights.chrome.init();
-        insights.chrome.identifyApp(appName);
-        insights.chrome.navigation(this.buildNavigation());
+    if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
+      initializeChrome();
+      setAppName(appName);
 
-        this.appNav = insights.chrome.on('APP_NAVIGATION', event => history.push(`${event.navId}`));
-        this.buildNav = history.listen(() => insights.chrome.navigation(this.buildNavigation()));
-      }
+      const appNav = onNavigation(event => history.push(`${event.navId}`));
+      const buildNav = history.listen(() => setNavigation(navigation));
 
-      if (!session.authorized) {
-        authorizeUser();
-      }
-    } catch (e) {
-      if (!helpers.TEST_MODE) {
-        console.warn(`{ init, identifyApp, navigation } = insights.chrome: ${e.message}`);
-      }
+      this.removeListeners = () => {
+        appNav();
+        buildNav();
+      };
+    }
+
+    if (!session.authorized) {
+      authorizeUser();
     }
   }
 
   componentWillUnmount() {
-    this.appNav();
-    this.buildNav();
+    this.removeListeners();
   }
-
-  buildNavigation = () => {
-    const { navigation } = this.props;
-    const currentPath = window.location.pathname.split('/').slice(-1)[0];
-
-    return navigation.map(item => ({
-      ...item,
-      active: item.id === currentPath
-    }));
-  };
 
   render() {
     const { children, redirectUrl, session, t } = this.props;
@@ -107,14 +102,10 @@ Authentication.propTypes = {
     listen: PropTypes.func.isRequired,
     push: PropTypes.func.isRequired
   }).isRequired,
-  insights: PropTypes.shape({
-    chrome: PropTypes.shape({
-      init: PropTypes.func,
-      identifyApp: PropTypes.func,
-      navigation: PropTypes.func,
-      on: PropTypes.func
-    })
-  }),
+  initializeChrome: PropTypes.func,
+  onNavigation: PropTypes.func,
+  setAppName: PropTypes.func,
+  setNavigation: PropTypes.func,
   navigation: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string
@@ -134,7 +125,10 @@ Authentication.propTypes = {
 Authentication.defaultProps = {
   appName: helpers.UI_NAME,
   authorizeUser: helpers.noop,
-  insights: window.insights,
+  initializeChrome: helpers.noop,
+  onNavigation: helpers.noop,
+  setAppName: helpers.noop,
+  setNavigation: helpers.noop,
   navigation: routerTypes.navigation,
   redirectUrl: routerTypes.platformRedirect,
   session: {
@@ -148,7 +142,11 @@ Authentication.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  authorizeUser: () => dispatch(reduxActions.user.authorizeUser())
+  authorizeUser: () => dispatch(reduxActions.user.authorizeUser()),
+  initializeChrome: () => dispatch(reduxActions.platform.initializeChrome()),
+  onNavigation: callback => dispatch(reduxActions.platform.onNavigation(callback)),
+  setAppName: name => dispatch(reduxActions.platform.setAppName(name)),
+  setNavigation: data => dispatch(reduxActions.platform.setNavigation(data))
 });
 
 const mapStateToProps = state => ({ session: state.user.session });
