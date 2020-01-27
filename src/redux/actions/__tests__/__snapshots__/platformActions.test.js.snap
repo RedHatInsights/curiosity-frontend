@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlatformActions Should return a dispatch object for the initializeChrome method: dispatch object 1`] = `
+Object {
+  "payload": Promise {},
+  "type": "PLATFORM_INIT",
+}
+`;
+
+exports[`PlatformActions Should return a dispatch object for the onNavigation method: dispatch object 1`] = `
+Object {
+  "meta": Object {
+    "data": Object {
+      "callback": undefined,
+    },
+  },
+  "payload": Promise {},
+  "type": "PLATFORM_ON_NAV",
+}
+`;
+
+exports[`PlatformActions Should return a dispatch object for the setAppName method: dispatch object 1`] = `
+Object {
+  "meta": Object {
+    "data": Object {
+      "name": undefined,
+    },
+  },
+  "payload": Promise {},
+  "type": "PLATFORM_APP_NAME",
+}
+`;
+
+exports[`PlatformActions Should return a dispatch object for the setNavigation method: dispatch object 1`] = `
+Object {
+  "meta": Object {
+    "data": undefined,
+  },
+  "payload": Promise {},
+  "type": "PLATFORM_SET_NAV",
+}
+`;

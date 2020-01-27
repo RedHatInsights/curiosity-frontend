@@ -28,7 +28,7 @@ describe('RhsmServices', () => {
 
   /**
    *  timeout errors associated with this test sometimes stem from endpoint
-   *  settings, see "before each" regex above
+   *  settings or missing globals, see "before" above
    */
   it('should return promises for every method', done => {
     const promises = Object.keys(rhsmServices).map(value => rhsmServices[value]());

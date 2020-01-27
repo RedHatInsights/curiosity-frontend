@@ -11,6 +11,12 @@ Object {
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
     },
+    "platform": Object {
+      "PLATFORM_APP_NAME": "PLATFORM_APP_NAME",
+      "PLATFORM_INIT": "PLATFORM_INIT",
+      "PLATFORM_ON_NAV": "PLATFORM_ON_NAV",
+      "PLATFORM_SET_NAV": "PLATFORM_SET_NAV",
+    },
     "rhsm": Object {
       "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
       "GET_GRAPH_REPORT_RHSM": "GET_GRAPH_REPORT_RHSM",
@@ -22,10 +28,22 @@ Object {
       "USER_LOGOUT": "USER_LOGOUT",
     },
   },
+  "platformTypes": Object {
+    "PLATFORM_APP_NAME": "PLATFORM_APP_NAME",
+    "PLATFORM_INIT": "PLATFORM_INIT",
+    "PLATFORM_ON_NAV": "PLATFORM_ON_NAV",
+    "PLATFORM_SET_NAV": "PLATFORM_SET_NAV",
+  },
   "reduxTypes": Object {
     "app": Object {
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
+    },
+    "platform": Object {
+      "PLATFORM_APP_NAME": "PLATFORM_APP_NAME",
+      "PLATFORM_INIT": "PLATFORM_INIT",
+      "PLATFORM_ON_NAV": "PLATFORM_ON_NAV",
+      "PLATFORM_SET_NAV": "PLATFORM_SET_NAV",
     },
     "rhsm": Object {
       "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
@@ -56,6 +74,12 @@ Object {
   "app": Object {
     "STATUS_4XX": "4XX",
     "STATUS_5XX": "5XX",
+  },
+  "platform": Object {
+    "PLATFORM_APP_NAME": "PLATFORM_APP_NAME",
+    "PLATFORM_INIT": "PLATFORM_INIT",
+    "PLATFORM_ON_NAV": "PLATFORM_ON_NAV",
+    "PLATFORM_SET_NAV": "PLATFORM_SET_NAV",
   },
   "rhsm": Object {
     "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
