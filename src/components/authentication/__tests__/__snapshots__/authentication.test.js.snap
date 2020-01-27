@@ -16,6 +16,7 @@ exports[`Authorization Component should render a non-connected component authori
       "push": [Function],
     }
   }
+  initializeChrome={[Function]}
   navigation={
     Array [
       Object {
@@ -57,6 +58,7 @@ exports[`Authorization Component should render a non-connected component authori
       },
     ]
   }
+  onNavigation={[Function]}
   redirectUrl="/?not_entitled=subscriptions"
   session={
     Object {
@@ -66,6 +68,8 @@ exports[`Authorization Component should render a non-connected component authori
       "pending": false,
     }
   }
+  setAppName={[Function]}
+  setNavigation={[Function]}
   t={[Function]}
 >
   <span
@@ -86,6 +90,7 @@ exports[`Authorization Component should render a non-connected component error: 
       "push": [Function],
     }
   }
+  initializeChrome={[Function]}
   navigation={
     Array [
       Object {
@@ -127,6 +132,7 @@ exports[`Authorization Component should render a non-connected component error: 
       },
     ]
   }
+  onNavigation={[Function]}
   redirectUrl="/?not_entitled=subscriptions"
   session={
     Object {
@@ -136,6 +142,8 @@ exports[`Authorization Component should render a non-connected component error: 
       "pending": false,
     }
   }
+  setAppName={[Function]}
+  setNavigation={[Function]}
   t={[Function]}
 >
   <PageLayout>
