@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RhelView Component should have a fallback title: title 1`] = `
-<Fragment>
+<PageLayout>
   <PageHeader>
     <PageHeaderTitle
       title="Subscription Watch"
@@ -31,11 +31,11 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
     />
   </PageSection>
-</Fragment>
+</PageLayout>
 `;
 
 exports[`RhelView Component should render a non-connected component: non-connected 1`] = `
-<Fragment>
+<PageLayout>
   <PageHeader>
     <PageHeaderTitle
       title="Dolor sit"
@@ -65,5 +65,5 @@ exports[`RhelView Component should render a non-connected component: non-connect
       productId="lorem ipsum"
     />
   </PageSection>
-</Fragment>
+</PageLayout>
 `;

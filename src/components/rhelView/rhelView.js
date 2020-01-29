@@ -10,6 +10,7 @@ import {
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { PageSection } from '@patternfly/react-core';
 import GraphCard from '../graphCard/graphCard';
+import PageLayout from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 
 class RhelView extends React.Component {
@@ -19,7 +20,7 @@ class RhelView extends React.Component {
     const { routeDetail, t } = this.props;
 
     return (
-      <React.Fragment>
+      <PageLayout>
         <PageHeader>
           <PageHeaderTitle
             title={(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_CONFIG_NAME}
@@ -38,7 +39,7 @@ class RhelView extends React.Component {
             errorRoute={routeDetail.errorRoute}
           />
         </PageSection>
-      </React.Fragment>
+      </PageLayout>
     );
   }
 }

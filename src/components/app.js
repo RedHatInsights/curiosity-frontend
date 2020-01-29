@@ -5,12 +5,10 @@ import { helpers } from '../common/helpers';
 import { I18n } from './i18n/i18n';
 import { Router } from './router/router';
 import Authentication from './authentication/authentication';
-import PageLayout from './pageLayout/pageLayout';
 
 class App extends React.Component {
   componentDidMount() {
     const { getLocale } = this.props;
-
     getLocale();
   }
 
@@ -20,9 +18,7 @@ class App extends React.Component {
     return (
       <I18n locale={(locale && locale.value) || null}>
         <Authentication>
-          <PageLayout>
-            <Router />
-          </PageLayout>
+          <Router />
         </Authentication>
       </I18n>
     );

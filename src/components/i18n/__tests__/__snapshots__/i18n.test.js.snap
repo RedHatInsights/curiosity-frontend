@@ -14,7 +14,7 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:34
+#: src/components/openshiftView/openshiftView.js:35
 msgid \\"curiosity-graph.coresHeading\\"
 msgstr \\"\\"
 
@@ -47,49 +47,49 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelView/rhelView.js:37
+#: src/components/rhelView/rhelView.js:38
 msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:53
+#: src/components/tourView/tourView.js:54
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:45
+#: src/components/tourView/tourView.js:46
 msgid \\"curiosity-tour.emptyStateDescription\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:50
+#: src/components/tourView/tourView.js:51
 msgid \\"curiosity-tour.emptyStateDescriptionExtended\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:35
+#: src/components/tourView/tourView.js:36
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:64
+#: src/components/tourView/tourView.js:65
 msgid \\"curiosity-tour.emptyStateLinkContactUs\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:61
+#: src/components/tourView/tourView.js:62
 msgid \\"curiosity-tour.emptyStateLinkLearnMore\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:40
+#: src/components/tourView/tourView.js:41
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:90
+#: src/components/authentication/authentication.js:74
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedCopy\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:86
+#: src/components/authentication/authentication.js:73
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:64
+#: src/components/authentication/authentication.js:55
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.pending\\"
 msgstr \\"\\"
