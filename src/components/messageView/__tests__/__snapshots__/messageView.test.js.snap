@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageView Component should have fallback conditions for all props: fallback display 1`] = `
+<PageLayout>
+  <PageHeader>
+    <PageHeaderTitle
+      title="Subscription Watch"
+    />
+  </PageHeader>
+  <EmptyState
+    className="fadein"
+    variant="full"
+  />
+</PageLayout>
+`;
+
+exports[`MessageView Component should render a non-connected component: non-connected 1`] = `
+<PageLayout>
+  <PageHeader>
+    <PageHeaderTitle
+      title="lorem"
+    />
+  </PageHeader>
+  <EmptyState
+    className="fadein"
+    variant="full"
+  >
+    <EmptyStateIcon
+      icon={[Function]}
+    />
+    <EmptyStateBody>
+      ipsum
+    </EmptyStateBody>
+  </EmptyState>
+</PageLayout>
+`;

@@ -59,12 +59,10 @@ class Router extends React.Component {
     const { renderRoutes, redirectRoot } = this.renderRoutes();
 
     return (
-      <div className="curiosity-content">
-        <Switch>
-          {renderRoutes}
-          {redirectRoot}
-        </Switch>
-      </div>
+      <Switch>
+        {renderRoutes}
+        {redirectRoot}
+      </Switch>
     );
   }
 }

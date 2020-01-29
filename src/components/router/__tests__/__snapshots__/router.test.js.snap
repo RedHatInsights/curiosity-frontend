@@ -1,64 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Router Component should handle unique route settings: settings 1`] = `
-<div
-  className="curiosity-content"
->
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={false}
-      key="/lorem"
-      path="/lorem"
-    />
-    <Route
-      component={[Function]}
-      exact={false}
-      key="/ipsum"
-      path="/ipsum"
-    />
-  </Switch>
-</div>
+<Switch>
+  <Route
+    component={[Function]}
+    exact={false}
+    key="/lorem"
+    path="/lorem"
+  />
+  <Route
+    component={[Function]}
+    exact={false}
+    key="/ipsum"
+    path="/ipsum"
+  />
+</Switch>
 `;
 
 exports[`Router Component should render a basic component: basic 1`] = `
-<div
-  className="curiosity-content"
->
-  <Switch>
-    <Route
-      exact={true}
-      key="/rhel-sw/all"
-      path="/rhel-sw/all"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/rhel-sw/:variant"
-      path="/rhel-sw/:variant"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/openshift-sw"
-      path="/openshift-sw"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/soon"
-      path="/soon"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/tour"
-      path="/tour"
-      render={[Function]}
-    />
-    <Redirect
-      to="/rhel-sw/all"
-    />
-  </Switch>
-</div>
+<Switch>
+  <Route
+    exact={true}
+    key="/rhel-sw/all"
+    path="/rhel-sw/all"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    key="/rhel-sw/:variant"
+    path="/rhel-sw/:variant"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    key="/openshift-sw"
+    path="/openshift-sw"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    key="/soon"
+    path="/soon"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    key="/tour"
+    path="/tour"
+    render={[Function]}
+  />
+  <Redirect
+    to="/rhel-sw/all"
+  />
+</Switch>
 `;
