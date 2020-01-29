@@ -10,6 +10,7 @@ import {
   PageSection,
   Title
 } from '@patternfly/react-core';
+import PageLayout from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 import { translateComponent } from '../i18n/i18n';
 import subscriptionsSvg from '../../images/subscriptions.svg';
@@ -23,7 +24,7 @@ import subscriptionsSvg from '../../images/subscriptions.svg';
  * Wrap with a fragment to pass.
  */
 const TourView = ({ t }) => (
-  <React.Fragment>
+  <PageLayout>
     <PageHeader>
       <PageHeaderTitle title={helpers.UI_DISPLAY_CONFIG_NAME} />
     </PageHeader>
@@ -66,7 +67,7 @@ const TourView = ({ t }) => (
         </EmptyStateSecondaryActions>
       </EmptyState>
     </PageSection>
-  </React.Fragment>
+  </PageLayout>
 );
 
 TourView.propTypes = {

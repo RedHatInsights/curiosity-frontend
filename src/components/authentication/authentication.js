@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant } from '@patternfly/react-core';
 import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connectRouterTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common';
 import { Redirect, routerTypes } from '../router/router';
-import PageLayout from '../pageLayout/pageLayout';
+import MessageView from '../messageView/messageView';
 
 class Authentication extends Component {
   removeListeners = helpers.noop;
@@ -54,17 +52,7 @@ class Authentication extends Component {
     }
 
     if (session.pending) {
-      return (
-        <PageLayout>
-          <PageHeader>
-            <PageHeaderTitle title="&nbsp;" />
-          </PageHeader>
-          <EmptyState variant={EmptyStateVariant.full} className="fadein">
-            <EmptyStateIcon icon={BinocularsIcon} />
-            <EmptyStateBody>{t('curiosity-auth.pending', '...')}</EmptyStateBody>
-          </EmptyState>
-        </PageLayout>
-      );
+      return <MessageView title="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
     }
 
     if (session.errorStatus === 418) {
@@ -81,15 +69,11 @@ class Authentication extends Component {
     }
 
     return (
-      <PageLayout>
-        <PageHeader>
-          <PageHeaderTitle title={t('curiosity-auth.authorizedTitle', '...')} />
-        </PageHeader>
-        <EmptyState variant={EmptyStateVariant.full} className="fadein">
-          <EmptyStateIcon icon={BanIcon} />
-          <EmptyStateBody>{t('curiosity-auth.authorizedCopy', '...')}</EmptyStateBody>
-        </EmptyState>
-      </PageLayout>
+      <MessageView
+        title={t('curiosity-auth.authorizedTitle', '...')}
+        message={t('curiosity-auth.authorizedCopy', '...')}
+        icon={BanIcon}
+      />
     );
   }
 }

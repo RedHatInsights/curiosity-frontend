@@ -4,7 +4,9 @@ import { Page, PageSection } from '@patternfly/react-core';
 
 const PageLayout = ({ children }) => (
   <Page className="layout-pf curiosity">
-    <PageSection noPadding>{children}</PageSection>
+    <PageSection noPadding>
+      <div className="curiosity-content">{children}</div>
+    </PageSection>
   </Page>
 );
 
