@@ -8,42 +8,78 @@ exports[`RouterHelpers should return a generated baseName: beta app base name 1`
 
 exports[`RouterHelpers should return a generated baseName: beta app lorem route name 1`] = `"/beta/appName"`;
 
-exports[`RouterHelpers should return route details that match navigation: route detail: computenode 1`] = `
+exports[`RouterHelpers should return navigation and route details that align to location: detail: computenode 1`] = `
 Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
+  "nav": Object {},
+  "navRoute": Object {},
+  "route": Object {},
 }
 `;
 
-exports[`RouterHelpers should return route details that match navigation: route detail: default 1`] = `
+exports[`RouterHelpers should return navigation and route details that align to location: detail: default 1`] = `
 Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
+  "nav": Object {
+    "default": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "title": "Red Hat Enterprise Linux",
+  },
+  "navRoute": Object {
+    "component": [Function],
+    "default": true,
+    "disabled": false,
+    "exact": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "redirect": true,
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/all",
+  },
+  "route": Object {},
 }
 `;
 
-exports[`RouterHelpers should return route details that match navigation: route detail: match specific navigation 1`] = `
+exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific navigation 1`] = `
 Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
+  "nav": Object {
+    "default": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "title": "Red Hat Enterprise Linux",
+  },
+  "navRoute": Object {
+    "component": [Function],
+    "default": true,
+    "disabled": false,
+    "exact": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "redirect": true,
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/all",
+  },
+  "route": Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "redirect": true,
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/all",
+  },
 }
 `;
 
-exports[`RouterHelpers should return route details that match navigation: route detail: null or undefined 1`] = `
+exports[`RouterHelpers should return navigation and route details that align to location: detail: null or undefined 1`] = `
 Object {
-  "default": true,
-  "id": "all",
-  "path": "/rhel-sw/all",
-  "pathParameter": "RHEL",
-  "title": "Red Hat Enterprise Linux",
+  "nav": Object {},
+  "navRoute": Object {},
+  "route": Object {},
 }
 `;

@@ -389,15 +389,90 @@ exports[`Authorization Component should return a message on 401 error: 401 error
 `;
 
 exports[`Authorization Component should return a redirect on 403 error: 403 error 1`] = `
-<Redirect
-  to="/soon"
+<div
+  class="pf-c-page layout-pf curiosity"
 >
-  <Lifecycle
-    onMount={[Function]}
-    onUpdate={[Function]}
-    to="/soon"
-  />
-</Redirect>
+  <main
+    class="pf-c-page__main"
+    role="main"
+    tabindex="-1"
+  >
+    <section
+      class="pf-c-page__main-section pf-m-no-padding"
+    >
+      <div
+        class="curiosity-content"
+      >
+        <section
+          class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+          widget-type="InsightsPageHeader"
+        >
+          <h1
+            class="pf-c-title pf-m-2xl"
+            widget-type="InsightsPageHeaderTitle"
+          >
+             Subscription Watch 
+          </h1>
+        </section>
+        <section
+          class="pf-c-page__main-section"
+        >
+          <div
+            class="pf-c-empty-state fadein"
+          >
+            <img
+              alt="t(curiosity-tour.emptyStateIconAlt, [object Object])"
+              aria-hidden="true"
+              class="curiosity-emptystate-img-icon"
+              src="subscriptions.svg"
+            />
+            <h5
+              class="pf-c-title pf-m-lg"
+            >
+              t(curiosity-tour.emptyStateTitle, [object Object])
+            </h5>
+            <div
+              class="pf-c-empty-state__body"
+            >
+              t(curiosity-tour.emptyStateDescription, [object Object])
+            </div>
+            <div
+              class="pf-c-empty-state__body"
+            >
+              t(curiosity-tour.emptyStateDescriptionExtended, [object Object])
+            </div>
+            <button
+              class="pf-c-button pf-m-primary"
+              type="button"
+            >
+              t(curiosity-tour.emptyStateButton)
+            </button>
+            <div
+              class="pf-c-empty-state__secondary"
+            >
+              <a
+                aria-disabled="false"
+                class="pf-c-button pf-m-link"
+                href="https://access.redhat.com/documentation/Subscription_Central/"
+                target="_blank"
+              >
+                t(curiosity-tour.emptyStateLinkLearnMore)
+              </a>
+              <a
+                aria-disabled="false"
+                class="pf-c-button pf-m-link"
+                href="https://access.redhat.com/account-team"
+                target="_blank"
+              >
+                t(curiosity-tour.emptyStateLinkContactUs)
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
 `;
 
 exports[`Authorization Component should return a redirect on 418 error: 418 error 1`] = `
@@ -441,7 +516,7 @@ exports[`Authorization Component should return a redirect on 418 error: 418 erro
       "url": "/",
     }
   }
-  route="/soon"
+  route={null}
   url="/?not_entitled=subscriptions"
 >
   Redirected towards 
