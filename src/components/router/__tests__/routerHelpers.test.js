@@ -1,10 +1,12 @@
-import { baseName, dynamicBaseName, getRouteDetail } from '../routerHelpers';
+import { baseName, dynamicBaseName, getNavigationDetail, getRouteDetail, getNavRouteDetail } from '../routerHelpers';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
     expect(baseName).toBeDefined();
     expect(dynamicBaseName).toBeDefined();
+    expect(getNavigationDetail).toBeDefined();
     expect(getRouteDetail).toBeDefined();
+    expect(getNavRouteDetail).toBeDefined();
   });
 
   it('should return a generated baseName', () => {
@@ -37,10 +39,29 @@ describe('RouterHelpers', () => {
     ).toMatchSnapshot('beta app lorem route name');
   });
 
-  it('should return route details that match navigation', () => {
-    expect(getRouteDetail({ test: 'computenode' })).toMatchSnapshot('route detail: computenode');
-    expect(getRouteDetail({ params: {} })).toMatchSnapshot('route detail: default');
-    expect(getRouteDetail({ pathname: '/rhel-sw/all' })).toMatchSnapshot('route detail: match specific navigation');
-    expect(getRouteDetail({})).toMatchSnapshot('route detail: null or undefined');
+  it('should return navigation and route details that align to location', () => {
+    expect({
+      nav: getNavigationDetail({ test: 'computenode' }),
+      route: getRouteDetail({ test: 'computenode' }),
+      navRoute: getNavRouteDetail({ test: 'computenode' })
+    }).toMatchSnapshot('detail: computenode');
+
+    expect({
+      nav: getNavigationDetail({ params: {}, pathname: 'default' }),
+      route: getRouteDetail({ params: {}, pathname: 'default' }),
+      navRoute: getNavRouteDetail({ params: {}, pathname: 'default' })
+    }).toMatchSnapshot('detail: default');
+
+    expect({
+      nav: getNavigationDetail({ pathname: '/rhel-sw/all' }),
+      route: getRouteDetail({ pathname: '/rhel-sw/all' }),
+      navRoute: getNavRouteDetail({ pathname: '/rhel-sw/all' })
+    }).toMatchSnapshot('detail: match specific navigation');
+
+    expect({
+      nav: getNavigationDetail({}),
+      route: getRouteDetail({}),
+      navRoute: getNavRouteDetail({})
+    }).toMatchSnapshot('detail: null or undefined');
   });
 });
