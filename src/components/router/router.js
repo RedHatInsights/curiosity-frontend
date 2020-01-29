@@ -29,7 +29,7 @@ class Router extends React.Component {
               key={item.to}
               path={item.to}
               render={routeProps => {
-                const routeDetail = routerHelpers.getRouteDetail({ ...routeProps.match, ...routeProps.location });
+                const navDetail = routerHelpers.getNavigationDetail({ ...routeProps.match, ...routeProps.location });
                 return (
                   <item.component
                     routeDetail={{
@@ -37,7 +37,7 @@ class Router extends React.Component {
                       errorRoute: activateOnErrorRoute,
                       routes,
                       routeItem: { ...item },
-                      ...routeDetail
+                      ...navDetail
                     }}
                     {...routeProps}
                   />
