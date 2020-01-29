@@ -33,25 +33,39 @@ describe('Redirect Component', () => {
     expect(component).toMatchSnapshot('redirect url');
   });
 
-  it('should handle a routed redirect if used outside of withRouter', () => {
+  it('should handle missing routes with and without withRouter', () => {
     const props = {
       isRedirect: true,
       route: '/lorem-ipsum'
     };
     const component = shallow(<Redirect {...props} />);
-    expect(component.render()).toMatchSnapshot('outside of withRouter');
-  });
 
-  it('should handle a routed redirect with a route update', () => {
-    const props = {
-      isRedirect: true,
-      route: '/lorem-ipsum'
-    };
-    const component = shallow(
+    expect(component).toMatchSnapshot('missing route: outside of withRouter');
+
+    const componentWithRouter = shallow(
       <BrowserRouter>
         <RoutedRedirect {...props} />
       </BrowserRouter>
     );
-    expect(component).toMatchSnapshot('routed redirect route');
+
+    expect(componentWithRouter).toMatchSnapshot('missing route: routed redirect route');
+  });
+
+  it('should handle existing routes with and without withRouter', () => {
+    const props = {
+      isRedirect: true,
+      route: '/openshift-sw'
+    };
+    const component = shallow(<Redirect {...props} />);
+
+    expect(component).toMatchSnapshot('existing route: outside of withRouter');
+
+    const componentWithRouter = shallow(
+      <BrowserRouter>
+        <RoutedRedirect {...props} />
+      </BrowserRouter>
+    );
+
+    expect(componentWithRouter).toMatchSnapshot('existing route: routed redirect route');
   });
 });

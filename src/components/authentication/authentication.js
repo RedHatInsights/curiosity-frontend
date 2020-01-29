@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connectRouterTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common';
-import { Redirect, routerTypes } from '../router/router';
+import { Redirect, routerHelpers, routerTypes } from '../router/router';
 import MessageView from '../messageView/messageView';
 
 class Authentication extends Component {
@@ -60,12 +60,7 @@ class Authentication extends Component {
     }
 
     if (session.errorStatus === 403) {
-      return (
-        <React.Fragment>
-          {children}
-          <Redirect isRedirect />
-        </React.Fragment>
-      );
+      return <Redirect isRedirect route={routerHelpers.getErrorRoute.to} />;
     }
 
     return (

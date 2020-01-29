@@ -7,9 +7,51 @@ exports[`Redirect Component should handle a redirect with a url: redirect url 1`
 </Fragment>
 `;
 
-exports[`Redirect Component should handle a routed redirect if used outside of withRouter: outside of withRouter 1`] = `null`;
+exports[`Redirect Component should handle existing routes with and without withRouter: existing route: outside of withRouter 1`] = `
+<Fragment>
+  Redirected towards 
+  /openshift-sw
+</Fragment>
+`;
 
-exports[`Redirect Component should handle a routed redirect with a route update: routed redirect route 1`] = `
+exports[`Redirect Component should handle existing routes with and without withRouter: existing route: routed redirect route 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <withRouter(Redirect)
+    isRedirect={true}
+    route="/openshift-sw"
+  />
+</Router>
+`;
+
+exports[`Redirect Component should handle missing routes with and without withRouter: missing route: outside of withRouter 1`] = `
+<Fragment>
+  Redirected towards 
+  /lorem-ipsum
+</Fragment>
+`;
+
+exports[`Redirect Component should handle missing routes with and without withRouter: missing route: routed redirect route 1`] = `
 <Router
   history={
     Object {

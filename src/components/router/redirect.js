@@ -1,35 +1,34 @@
 import path from 'path';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter, Redirect as ReactRouterDomRedirect } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
 import { helpers } from '../../common';
 
 const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
-  const navigate = p => {
+  const forceNavigation = urlRoute => {
     if (!helpers.DEV_MODE && !helpers.TEST_MODE) {
       if (isReplace) {
-        window.location.replace(p);
+        window.location.replace(urlRoute);
       } else {
-        window.location.href = p;
+        window.location.href = urlRoute;
       }
     }
   };
 
   if (isRedirect === true) {
-    if (url) {
-      navigate(url);
-      return (
-        ((helpers.DEV_MODE || helpers.TEST_MODE) && <React.Fragment>Redirected towards {url}</React.Fragment>) || null
-      );
+    if (route && history) {
+      const routeDetail = routerHelpers.getRouteDetail({ pathname: route });
+      return <Route path="*">{routeDetail && <routeDetail.component />}</Route>;
     }
 
-    if (route) {
-      if (history) {
-        return <ReactRouterDomRedirect to={route} />;
-      }
-      navigate(path.join(baseName, route));
-    }
+    const forcePath = url || (route && path.join(baseName, route));
+    forceNavigation(forcePath);
+
+    return (
+      ((helpers.DEV_MODE || helpers.TEST_MODE) && <React.Fragment>Redirected towards {forcePath}</React.Fragment>) ||
+      null
+    );
   }
 
   return null;
@@ -49,7 +48,7 @@ Redirect.defaultProps = {
   isReplace: false,
   url: null,
   baseName: routerHelpers.baseName,
-  route: routerHelpers.getErrorRoute.to
+  route: null
 };
 
 const RoutedRedirect = withRouter(Redirect);
