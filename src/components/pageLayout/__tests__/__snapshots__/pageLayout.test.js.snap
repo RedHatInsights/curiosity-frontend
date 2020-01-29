@@ -28,11 +28,15 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
           <section
             className="pf-c-page__main-section pf-m-no-padding"
           >
-            <span
-              className="test"
+            <div
+              className="curiosity-content"
             >
-              lorem
-            </span>
+              <span
+                className="test"
+              >
+                lorem
+              </span>
+            </div>
           </section>
         </PageSection>
       </main>
