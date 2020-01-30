@@ -8,7 +8,6 @@ exports[`Authorization Component should render a connected component: connected 
 
 exports[`Authorization Component should render a non-connected component authorized: non-connected authorized 1`] = `
 <Authentication
-  appName="subscriptions"
   authorizeUser={[Function]}
   history={
     Object {
@@ -82,7 +81,6 @@ exports[`Authorization Component should render a non-connected component authori
 
 exports[`Authorization Component should render a non-connected component error: non-connected error 1`] = `
 <Authentication
-  appName="subscriptions"
   authorizeUser={[Function]}
   history={
     Object {

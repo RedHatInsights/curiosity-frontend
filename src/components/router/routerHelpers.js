@@ -12,9 +12,7 @@ import { routes, navigation } from './routerTypes';
  */
 const dynamicBaseName = ({ pathName, pathPrefix }) => {
   const path = pathName.split('/');
-
   path.shift();
-
   const pathSlice = pathPrefix && new RegExp(path[0]).test(pathPrefix) ? 2 : 1;
 
   return `/${path.slice(0, pathSlice).join('/')}`;
@@ -37,46 +35,64 @@ const getErrorRoute = routes.find(route => route.activateOnError === true) || {}
 
 /**
  * Return an object matching a specific navigation object.
+ * @param id {string}
  * @param pathname {string}
+ * @param returnDefault {boolean}
  * @returns {Object}
  */
-const getNavigationDetail = ({ pathname = null }) => {
+const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false }) => {
+  const defaultItem = returnDefault && navigation.find(item => item.default === true);
   let navigationItem;
 
-  if (pathname === 'default') {
-    navigationItem = navigation.find(item => item.default === true);
-  } else {
-    navigationItem = navigation.find(item => item.path === pathname) || {};
+  if (id) {
+    navigationItem = navigation.find(item => item.id === id);
   }
 
-  return { ...navigationItem };
+  if (!navigationItem && pathname) {
+    navigationItem = navigation.find(item => item.path === pathname) || (returnDefault && defaultItem);
+  }
+
+  if (!navigationItem && returnDefault) {
+    navigationItem = defaultItem;
+  }
+
+  return { ...(navigationItem || {}) };
 };
 
 /**
  * Return an object matching a specific, or the first generic route.
+ * @param id {string}
  * @param pathname {string}
  * @returns {Object}
  */
-const getRouteDetail = ({ pathname = null }) => {
-  let routeItem = pathname && routes.find(value => pathname === value.to);
-  routeItem = routeItem || (pathname && routes.find(item => pathname.includes(item.to.split(':')[0]))) || {};
-  return { ...routeItem };
+const getRouteDetail = ({ id = null, pathname = null }) => {
+  let routeItem;
+
+  if (id) {
+    routeItem = routes.find(value => id === value.id);
+  }
+
+  if (!routeItem && pathname) {
+    routeItem = routes.find(value => pathname === value.to);
+    routeItem = routeItem || routes.find(item => pathname.includes(item.to.split(':')[0]));
+  }
+
+  return { ...(routeItem || {}) };
 };
 
 /**
  * Return an object generated from both generic routes and specific navigation objects.
+ * ID is not passed to "getRouteDetail" to avoid conflicts between routing and
+ * navigation.
+ *
+ * @param id {string}
  * @param pathname {string}
+ * @param returnDefault {boolean}
  * @returns {Object}
  */
-const getNavRouteDetail = ({ pathname = null }) => {
-  const navDetail = getNavigationDetail({ pathname });
-  let routeDetail;
-
-  if (navDetail.path) {
-    routeDetail = getRouteDetail({ pathname: navDetail.path });
-  } else {
-    routeDetail = getRouteDetail({ pathname });
-  }
+const getNavRouteDetail = ({ id = null, pathname = null, returnDefault = false }) => {
+  const navDetail = getNavigationDetail({ id, pathname, returnDefault });
+  const routeDetail = getRouteDetail({ pathname: navDetail.path || pathname });
 
   return { ...routeDetail, ...navDetail };
 };
