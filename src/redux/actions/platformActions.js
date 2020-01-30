@@ -6,13 +6,12 @@ const initializeChrome = () => ({
   payload: platformServices.initializeChrome()
 });
 
-const onNavigation = callback => ({
-  type: platformTypes.PLATFORM_ON_NAV,
-  payload: platformServices.onNavigation(callback),
-  meta: {
-    data: { callback }
-  }
-});
+const onNavigation = callback => dispatch => {
+  dispatch({
+    type: platformTypes.PLATFORM_ON_NAV
+  });
+  return platformServices.onNavigation(callback);
+};
 
 const setAppName = name => ({
   type: platformTypes.PLATFORM_APP_NAME,
@@ -22,11 +21,12 @@ const setAppName = name => ({
   }
 });
 
-const setNavigation = data => ({
-  type: platformTypes.PLATFORM_SET_NAV,
-  payload: platformServices.setNavigation(data),
-  meta: { data }
-});
+const setNavigation = data => dispatch => {
+  dispatch({
+    type: platformTypes.PLATFORM_SET_NAV
+  });
+  return platformServices.setNavigation(data);
+};
 
 const platformActions = { initializeChrome, onNavigation, setAppName, setNavigation };
 

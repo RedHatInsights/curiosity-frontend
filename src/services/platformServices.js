@@ -1,39 +1,19 @@
-import { helpers } from '../common';
-
-const emulateService = async ({ successStatus = 200, errorStatus = 418, message = `I'm a teapot`, callback }) => {
-  const response = {
-    status: errorStatus,
-    message
-  };
-  let getData = (helpers.TEST_MODE || helpers.DEV_MODE) && {};
-
-  if (!helpers.DEV_MODE && callback) {
-    getData = await callback();
-  }
-
-  if (getData) {
-    response.status = successStatus;
-    response.data = getData;
-    return Promise.resolve(response);
-  }
-
-  const emulatedError = { ...new Error(message), ...response };
-  return Promise.reject(emulatedError);
-};
-
 /**
  * Basic user authentication.
- * @returns {Promise<{statusText: string, message: string, status: number}>}
+ * @returns {Promise<void>}
  */
-const getUser = () => {
+const getUser = async () => {
   const { insights } = window;
-  const method = insights && insights.chrome && insights.chrome.auth.getUser;
-  return emulateService({ message: '{ getUser } = insights.chrome.auth', callback: method });
+  try {
+    return await insights.chrome.auth.getUser();
+  } catch (e) {
+    throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
+  }
 };
 
 /**
  * Help initialize global platform methods.
- * @returns {Promise<{statusText: string, message: string, status: number}>}
+ * @returns {Promise<void>}
  */
 const initializeChrome = async () => {
   const { insights } = window;
@@ -45,19 +25,20 @@ const initializeChrome = async () => {
 };
 
 /**
- * Apply on "app_navigation" event.
+ * Apply on "app_navigation" event. Return an un-listener.
  * @param callback {function}
- * @returns {Promise<void>}
+ * @returns {Function}
  */
-const onNavigation = async callback => {
+const onNavigation = callback => {
   const { insights } = window;
   try {
-    await insights.chrome.on('APP_NAVIGATION', callback);
+    return insights.chrome.on('APP_NAVIGATION', callback);
   } catch (e) {
     throw new Error(`{ on } = insights.chrome, ${e.message}`);
   }
 };
 
+// FixMe: Revert catch to throwing an error. Relaxed for development
 /**
  * Set application ID.
  * @param name {string}
@@ -68,19 +49,20 @@ const setAppName = async (name = null) => {
   try {
     await insights.chrome.identifyApp(name);
   } catch (e) {
-    throw new Error(`{ identifyApp } = insights.chrome, ${e.message}`);
+    const error = `{ identifyApp } = insights.chrome, ${e.message}`;
+    await Promise.reject(error);
   }
 };
 
 /**
  * Set platform left hand navigation active item.
  * @param data {Array}
- * @returns {Promise<void>}
+ * @returns {*}
  */
-const setNavigation = async (data = []) => {
+const setNavigation = (data = []) => {
   const { insights, location } = window;
   try {
-    await insights.chrome.navigation(
+    return insights.chrome.navigation(
       data.map(item => ({
         ...item,
         active: item.id === location.pathname.split('/').slice(-1)[0]
