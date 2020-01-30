@@ -28,7 +28,6 @@ Object {
       "fulfilled": true,
       "locale": null,
       "pending": false,
-      "username": undefined,
     },
   },
   "type": "USER_AUTH_FULFILLED",

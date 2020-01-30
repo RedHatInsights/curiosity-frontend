@@ -14,7 +14,7 @@ describe('UserServices', () => {
 
   /**
    *  timeout errors associated with this test sometimes stem from endpoint
-   *  settings or missing globals, see "before" above
+   *  settings or missing globals, see "before" above, or the "setupTests" config
    */
   it('should return promises for every method', done => {
     const promises = Object.keys(userServices).map(value => userServices[value]());
@@ -44,6 +44,22 @@ describe('UserServices', () => {
     Cookies.get = jest.fn().mockImplementation(() => 'test_US');
     userServices.getLocale().then(locale => {
       expect(locale).toMatchSnapshot();
+      done();
+    });
+  });
+
+  it('should return a successful authorized user', done => {
+    userServices.authorizeUser().then(value => {
+      expect(value).toMatchSnapshot('success authorized user');
+      done();
+    });
+  });
+
+  it('should return a failed authorized user', done => {
+    window.insights.chrome.auth.getUser = undefined;
+
+    userServices.authorizeUser().catch(error => {
+      expect(error).toMatchSnapshot('failed authorized user');
       done();
     });
   });

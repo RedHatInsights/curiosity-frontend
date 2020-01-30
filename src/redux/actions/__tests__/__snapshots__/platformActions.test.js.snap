@@ -7,18 +7,6 @@ Object {
 }
 `;
 
-exports[`PlatformActions Should return a dispatch object for the onNavigation method: dispatch object 1`] = `
-Object {
-  "meta": Object {
-    "data": Object {
-      "callback": undefined,
-    },
-  },
-  "payload": Promise {},
-  "type": "PLATFORM_ON_NAV",
-}
-`;
-
 exports[`PlatformActions Should return a dispatch object for the setAppName method: dispatch object 1`] = `
 Object {
   "meta": Object {
@@ -31,12 +19,21 @@ Object {
 }
 `;
 
-exports[`PlatformActions Should return a dispatch object for the setNavigation method: dispatch object 1`] = `
-Object {
-  "meta": Object {
-    "data": undefined,
+exports[`PlatformActions Should return a function for the onNavigation method: expected process 1`] = `"lorem ipsum"`;
+
+exports[`PlatformActions Should return a function for the onNavigation method: function 1`] = `[Function]`;
+
+exports[`PlatformActions Should return a function for the setNavigation method: expected process 1`] = `
+Array [
+  Object {
+    "active": false,
+    "id": "lorem",
   },
-  "payload": Promise {},
-  "type": "PLATFORM_SET_NAV",
-}
+  Object {
+    "active": false,
+    "id": "ipsum",
+  },
+]
 `;
+
+exports[`PlatformActions Should return a function for the setNavigation method: function 1`] = `[Function]`;
