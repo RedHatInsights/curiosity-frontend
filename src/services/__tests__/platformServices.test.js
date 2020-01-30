@@ -1,19 +1,6 @@
-import { helpers } from '../../common';
 import platformServices from '../platformServices';
 
 describe('PlatformServices', () => {
-  beforeAll(() => {
-    window.insights = {
-      chrome: {
-        auth: helpers.noop,
-        identifyApp: helpers.noop,
-        init: helpers.noop,
-        navigation: helpers.noop,
-        on: helpers.noop
-      }
-    };
-  });
-
   it('should export a specific number of methods and classes', () => {
     expect(Object.keys(platformServices)).toHaveLength(5);
   });
@@ -28,9 +15,9 @@ describe('PlatformServices', () => {
 
   /**
    *  timeout errors associated with this test sometimes stem from endpoint
-   *  settings or missing globals, see "before" above
+   *  settings or missing globals, see "before" above, or the "setupTests" config
    */
-  it('should return promises for every method', done => {
+  it('should return async for most methods and resolve successfully', done => {
     const promises = Object.keys(platformServices).map(value => platformServices[value]());
 
     Promise.all(promises).then(success => {
@@ -39,17 +26,24 @@ describe('PlatformServices', () => {
     });
   });
 
-  it('should return a successful authorized user', done => {
-    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => Promise.resolve('lorem ipsum'));
-
+  it('should return a successful getUser', done => {
     platformServices.getUser().then(value => {
       expect(value).toMatchSnapshot('success authorized user');
       done();
     });
   });
 
-  it('should return a failed authorized user', done => {
-    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => undefined);
+  it('should return a successful getUser with a specific response', done => {
+    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => Promise.resolve('lorem ipsum'));
+
+    platformServices.getUser().then(value => {
+      expect(value).toMatchSnapshot('specific success for authorized user');
+      done();
+    });
+  });
+
+  it('should return a failed getUser', done => {
+    window.insights.chrome.auth.getUser = undefined;
 
     platformServices.getUser().catch(error => {
       expect(error).toMatchSnapshot('failed authorized user');
