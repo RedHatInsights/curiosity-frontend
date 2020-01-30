@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { userServices } from './userServices';
+import { platformServices } from './platformServices';
 
 const serviceConfig = (passedConfig = {}) => ({
   headers: {},
@@ -8,7 +8,7 @@ const serviceConfig = (passedConfig = {}) => ({
 });
 
 const serviceCall = async config => {
-  await userServices.authorizeUser();
+  await platformServices.getUser();
   return axios(serviceConfig(config));
 };
 

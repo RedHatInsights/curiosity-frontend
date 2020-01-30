@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlatformServices should return a failed authorized user: failed authorized user 1`] = `
-Object {
-  "message": "{ getUser } = insights.chrome.auth",
-  "status": 418,
-}
-`;
+exports[`PlatformServices should return a failed getUser: failed authorized user 1`] = `[Error: { getUser } = insights.chrome.auth, insights.chrome.auth.getUser is not a function]`;
 
-exports[`PlatformServices should return a successful authorized user: success authorized user 1`] = `
+exports[`PlatformServices should return a successful getUser with a specific response: specific success for authorized user 1`] = `"lorem ipsum"`;
+
+exports[`PlatformServices should return a successful getUser: success authorized user 1`] = `
 Object {
-  "data": "lorem ipsum",
-  "message": "{ getUser } = insights.chrome.auth",
-  "status": 200,
+  "identity": Object {
+    "account_number": "0",
+    "type": "User",
+  },
 }
 `;

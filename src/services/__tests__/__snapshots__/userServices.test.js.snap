@@ -1,11 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UserServices should return a failed authorized user: failed authorized user 1`] = `
+Object {
+  "message": "{ getUser } = insights.chrome.auth, insights.chrome.auth.getUser is not a function",
+  "status": 418,
+}
+`;
+
 exports[`UserServices should return a specific locale cookie value 1`] = `
 Object {
   "data": Object {
     "key": "English",
     "value": "en-US",
   },
+}
+`;
+
+exports[`UserServices should return a successful authorized user: success authorized user 1`] = `
+Object {
+  "data": Object {
+    "identity": Object {
+      "account_number": "0",
+      "type": "User",
+    },
+  },
+  "message": "{ getUser } = insights.chrome.auth",
+  "status": 200,
 }
 `;
 

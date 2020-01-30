@@ -1,6 +1,29 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
-import { getUser as authorizeUser } from './platformServices';
+import { getUser } from './platformServices';
+
+const authorizeUser = async () => {
+  let message = '{ getUser } = insights.chrome.auth';
+  let userData;
+
+  try {
+    userData = await getUser();
+  } catch (e) {
+    message = e.message;
+  }
+
+  if (userData) {
+    return Promise.resolve({ data: userData, message, status: 200 });
+  }
+
+  const emulatedErrorResponse = {
+    ...new Error(message),
+    message,
+    status: 418
+  };
+
+  return Promise.reject(emulatedErrorResponse);
+};
 
 const getLocaleFromCookie = () => {
   const value = (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace('_', '-');

@@ -41,7 +41,6 @@ describe('RhsmActions', () => {
 
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().graph;
-
       expect(response.report.fulfilled).toBe(true);
       done();
     });
