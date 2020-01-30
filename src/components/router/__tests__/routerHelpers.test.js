@@ -41,27 +41,45 @@ describe('RouterHelpers', () => {
 
   it('should return navigation and route details that align to location', () => {
     expect({
-      nav: getNavigationDetail({ test: 'computenode' }),
-      route: getRouteDetail({ test: 'computenode' }),
-      navRoute: getNavRouteDetail({ test: 'computenode' })
-    }).toMatchSnapshot('detail: computenode');
+      nav: getNavigationDetail({ id: 'soon' }),
+      route: getRouteDetail({ id: 'soon' }),
+      navRoute: getNavRouteDetail({ id: 'soon' })
+    }).toMatchSnapshot('detail: specific route ID');
 
     expect({
-      nav: getNavigationDetail({ params: {}, pathname: 'default' }),
-      route: getRouteDetail({ params: {}, pathname: 'default' }),
-      navRoute: getNavRouteDetail({ params: {}, pathname: 'default' })
-    }).toMatchSnapshot('detail: default');
+      nav: getNavigationDetail({ id: 'arm' }),
+      route: getRouteDetail({ id: 'arm' }),
+      navRoute: getNavRouteDetail({ id: 'arm' })
+    }).toMatchSnapshot('detail: specific navigation ID');
 
     expect({
       nav: getNavigationDetail({ pathname: '/rhel-sw/all' }),
       route: getRouteDetail({ pathname: '/rhel-sw/all' }),
       navRoute: getNavRouteDetail({ pathname: '/rhel-sw/all' })
-    }).toMatchSnapshot('detail: match specific navigation');
+    }).toMatchSnapshot('detail: match specific path navigation');
+
+    expect({
+      nav: getNavigationDetail({ id: 'lorem-missing', pathname: '/rhel-sw/all' }),
+      route: getRouteDetail({ id: 'lorem-missing', pathname: '/rhel-sw/all' }),
+      navRoute: getNavRouteDetail({ id: 'lorem-missing', pathname: '/rhel-sw/all' })
+    }).toMatchSnapshot('detail: missing ID, specific path');
+
+    expect({
+      nav: getNavigationDetail({ id: 'lorem', pathname: '/lorem-ipsum-missing', returnDefault: true }),
+      route: getRouteDetail({ id: 'lorem', pathname: '/lorem-ipsum-missing', returnDefault: true }),
+      navRoute: getNavRouteDetail({ id: 'lorem', pathname: '/lorem-ipsum-missing', returnDefault: true })
+    }).toMatchSnapshot('detail: missing id and pathname, default');
+
+    expect({
+      nav: getNavigationDetail({ id: 'lorem', pathname: '/lorem-ipsum-missing', returnDefault: false }),
+      route: getRouteDetail({ id: 'lorem', pathname: '/lorem-ipsum-missing', returnDefault: false }),
+      navRoute: getNavRouteDetail({ id: 'lorem', pathname: '/lorem-ipsum-missing', returnDefault: false })
+    }).toMatchSnapshot('detail: missing id and pathname and default');
 
     expect({
       nav: getNavigationDetail({}),
       route: getRouteDetail({}),
       navRoute: getNavRouteDetail({})
-    }).toMatchSnapshot('detail: null or undefined');
+    }).toMatchSnapshot('detail: missing parameters');
   });
 });
