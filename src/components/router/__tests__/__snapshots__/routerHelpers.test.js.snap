@@ -8,41 +8,7 @@ exports[`RouterHelpers should return a generated baseName: beta app base name 1`
 
 exports[`RouterHelpers should return a generated baseName: beta app lorem route name 1`] = `"/beta/appName"`;
 
-exports[`RouterHelpers should return navigation and route details that align to location: detail: computenode 1`] = `
-Object {
-  "nav": Object {},
-  "navRoute": Object {},
-  "route": Object {},
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: default 1`] = `
-Object {
-  "nav": Object {
-    "default": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathParameter": "RHEL",
-    "title": "Red Hat Enterprise Linux",
-  },
-  "navRoute": Object {
-    "component": [Function],
-    "default": true,
-    "disabled": false,
-    "exact": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathParameter": "RHEL",
-    "redirect": true,
-    "render": true,
-    "title": "Red Hat Enterprise Linux",
-    "to": "/rhel-sw/all",
-  },
-  "route": Object {},
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific navigation 1`] = `
+exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
 Object {
   "nav": Object {
     "default": true,
@@ -76,10 +42,118 @@ Object {
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details that align to location: detail: null or undefined 1`] = `
+exports[`RouterHelpers should return navigation and route details that align to location: detail: missing ID, specific path 1`] = `
+Object {
+  "nav": Object {
+    "default": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "title": "Red Hat Enterprise Linux",
+  },
+  "navRoute": Object {
+    "component": [Function],
+    "default": true,
+    "disabled": false,
+    "exact": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "redirect": true,
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/all",
+  },
+  "route": Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "redirect": true,
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/all",
+  },
+}
+`;
+
+exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathname and default 1`] = `
 Object {
   "nav": Object {},
   "navRoute": Object {},
   "route": Object {},
+}
+`;
+
+exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathname, default 1`] = `
+Object {
+  "nav": Object {
+    "default": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "title": "Red Hat Enterprise Linux",
+  },
+  "navRoute": Object {
+    "component": [Function],
+    "default": true,
+    "disabled": false,
+    "exact": true,
+    "id": "all",
+    "path": "/rhel-sw/all",
+    "pathParameter": "RHEL",
+    "redirect": true,
+    "render": true,
+    "title": "Red Hat Enterprise Linux",
+    "to": "/rhel-sw/all",
+  },
+  "route": Object {},
+}
+`;
+
+exports[`RouterHelpers should return navigation and route details that align to location: detail: missing parameters 1`] = `
+Object {
+  "nav": Object {},
+  "navRoute": Object {},
+  "route": Object {},
+}
+`;
+
+exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
+Object {
+  "nav": Object {
+    "id": "arm",
+    "path": "/rhel-sw/arm",
+    "pathParameter": "RHEL for ARM",
+    "title": "ARM",
+  },
+  "navRoute": Object {
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "id": "arm",
+    "path": "/rhel-sw/arm",
+    "pathParameter": "RHEL for ARM",
+    "render": true,
+    "title": "ARM",
+    "to": "/rhel-sw/:variant",
+  },
+  "route": Object {},
+}
+`;
+
+exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
+Object {
+  "nav": Object {},
+  "navRoute": Object {},
+  "route": Object {
+    "activateOnError": true,
+    "component": [Function],
+    "disabled": false,
+    "exact": true,
+    "id": "soon",
+    "render": true,
+    "title": "Tour",
+    "to": "/soon",
+  },
 }
 `;

@@ -7,11 +7,12 @@ import { Redirect, routerHelpers, routerTypes } from '../router/router';
 import MessageView from '../messageView/messageView';
 
 class Authentication extends Component {
+  appName = routerTypes.appName;
+
   removeListeners = helpers.noop;
 
   componentDidMount() {
     const {
-      appName,
       authorizeUser,
       history,
       initializeChrome,
@@ -24,9 +25,12 @@ class Authentication extends Component {
 
     if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
       initializeChrome();
-      setAppName(appName);
+      setAppName(this.appName);
 
-      const appNav = onNavigation(event => history.push(`${event.navId}`));
+      const appNav = onNavigation(event => {
+        const { path } = routerHelpers.getNavRouteDetail({ id: event.navId, returnDefault: true });
+        history.push(path);
+      });
       const buildNav = history.listen(() => setNavigation(navigation));
 
       this.removeListeners = () => {
@@ -74,7 +78,6 @@ class Authentication extends Component {
 }
 
 Authentication.propTypes = {
-  appName: PropTypes.string,
   authorizeUser: PropTypes.func,
   children: PropTypes.node.isRequired,
   history: PropTypes.shape({
@@ -102,7 +105,6 @@ Authentication.propTypes = {
 };
 
 Authentication.defaultProps = {
-  appName: helpers.UI_NAME,
   authorizeUser: helpers.noop,
   initializeChrome: helpers.noop,
   onNavigation: helpers.noop,

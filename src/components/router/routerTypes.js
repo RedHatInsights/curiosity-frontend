@@ -6,6 +6,11 @@ import TourView from '../tourView/tourView';
 import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
 
 /**
+ * Platform name/id.
+ */
+const appName = helpers.UI_NAME;
+
+/**
  * Return a string that describes a platform redirect.
  * @return {array}
  */
@@ -109,9 +114,10 @@ const navigation = [
 ];
 
 const routerTypes = {
+  appName,
   navigation,
   platformRedirect,
   routes
 };
 
-export { routerTypes as default, routerTypes, navigation, platformRedirect, routes };
+export { routerTypes as default, routerTypes, appName, navigation, platformRedirect, routes };

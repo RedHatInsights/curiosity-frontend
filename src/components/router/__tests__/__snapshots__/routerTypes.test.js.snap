@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RouterTypes should return specific properties: appName 1`] = `"subscriptions"`;
+
 exports[`RouterTypes should return specific properties: navigation 1`] = `
 Array [
   Object {
