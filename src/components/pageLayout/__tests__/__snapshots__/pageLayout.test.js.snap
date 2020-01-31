@@ -2,45 +2,74 @@
 
 exports[`PageLayout Component should render a basic component: basic 1`] = `
 <PageLayout>
-  <Page
-    breadcrumb={null}
-    className="layout-pf curiosity"
-    defaultManagedSidebarIsOpen={true}
-    header={null}
-    isManagedSidebar={false}
-    mainContainerId={null}
-    onPageResize={[Function]}
-    sidebar={null}
-    skipToContent={null}
+  <PageSection
+    className="curiosity"
   >
-    <div
-      className="pf-c-page layout-pf curiosity"
+    <section
+      className="pf-c-page__main-section curiosity"
     >
-      <main
-        className="pf-c-page__main"
-        id={null}
-        role="main"
-        tabIndex={-1}
+      <span
+        className="test"
+        key=".0"
       >
-        <PageSection
-          noPadding={true}
+        lorem
+      </span>
+    </section>
+  </PageSection>
+</PageLayout>
+`;
+
+exports[`PageLayout Component should render header and section children: multiple children 1`] = `
+<PageLayout>
+  <PageHeader
+    key=".1"
+  >
+    <PageHeader>
+      <section
+        className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+        widget-type="InsightsPageHeader"
+      >
+        <PageHeaderTitle
+          title="lorem"
         >
-          <section
-            className="pf-c-page__main-section pf-m-no-padding"
+          <Title
+            className=""
+            size="2xl"
+            widget-type="InsightsPageHeaderTitle"
           >
-            <div
-              className="curiosity-content"
+            <h1
+              className="pf-c-title pf-m-2xl"
+              widget-type="InsightsPageHeaderTitle"
             >
-              <span
-                className="test"
-              >
-                lorem
-              </span>
-            </div>
+               
+              lorem
+               
+            </h1>
+          </Title>
+        </PageHeaderTitle>
+      </section>
+    </PageHeader>
+  </PageHeader>
+  <PageSection
+    className="curiosity"
+  >
+    <section
+      className="pf-c-page__main-section curiosity"
+    >
+      <PageSection
+        key=".0"
+      >
+        <Section>
+          <section
+            className=""
+          >
+             
+            ipsum
+             
           </section>
-        </PageSection>
-      </main>
-    </div>
-  </Page>
+        </Section>
+      </PageSection>
+    </section>
+  </PageSection>
 </PageLayout>
 `;

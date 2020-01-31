@@ -14,7 +14,7 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:35
+#: src/components/openshiftView/openshiftView.js:31
 msgid \\"curiosity-graph.coresHeading\\"
 msgstr \\"\\"
 
@@ -47,35 +47,35 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelView/rhelView.js:38
+#: src/components/rhelView/rhelView.js:34
 msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:54
+#: src/components/tourView/tourView.js:50
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:46
+#: src/components/tourView/tourView.js:42
 msgid \\"curiosity-tour.emptyStateDescription\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:51
+#: src/components/tourView/tourView.js:47
 msgid \\"curiosity-tour.emptyStateDescriptionExtended\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:36
+#: src/components/tourView/tourView.js:32
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:65
+#: src/components/tourView/tourView.js:61
 msgid \\"curiosity-tour.emptyStateLinkContactUs\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:62
+#: src/components/tourView/tourView.js:58
 msgid \\"curiosity-tour.emptyStateLinkLearnMore\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:41
+#: src/components/tourView/tourView.js:37
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 

@@ -1,17 +1,26 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { PageLayout } from '../pageLayout';
+import { PageLayout, PageSection, PageHeader } from '../pageLayout';
 
 describe('PageLayout Component', () => {
   it('should render a basic component', () => {
-    const props = {};
-
     const component = mount(
-      <PageLayout {...props}>
+      <PageLayout>
         <span className="test">lorem</span>
       </PageLayout>
     );
 
     expect(component).toMatchSnapshot('basic');
+  });
+
+  it('should render header and section children', () => {
+    const component = mount(
+      <PageLayout>
+        <PageSection>ipsum</PageSection>
+        <PageHeader>lorem</PageHeader>
+      </PageLayout>
+    );
+
+    expect(component).toMatchSnapshot('multiple children');
   });
 });

@@ -3,9 +3,7 @@
 exports[`TourView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader>
-    <PageHeaderTitle
-      title="Subscription Watch"
-    />
+    Subscription Watch
   </PageHeader>
   <PageSection>
     <EmptyState
@@ -61,9 +59,7 @@ exports[`TourView Component should have a fallback title: title 1`] = `
 exports[`TourView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader>
-    <PageHeaderTitle
-      title="Subscription Watch"
-    />
+    Subscription Watch
   </PageHeader>
   <PageSection>
     <EmptyState
@@ -119,9 +115,7 @@ exports[`TourView Component should render a non-connected component: non-connect
 exports[`TourView Component should render a translated component: translated 1`] = `
 <PageLayout>
   <PageHeader>
-    <PageHeaderTitle
-      title="Subscription Watch"
-    />
+    Subscription Watch
   </PageHeader>
   <PageSection>
     <EmptyState
