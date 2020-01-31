@@ -3,9 +3,7 @@
 exports[`RhelView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader>
-    <PageHeaderTitle
-      title="Subscription Watch"
-    />
+    Subscription Watch
   </PageHeader>
   <PageSection>
     <Connect(GraphCard)
@@ -37,9 +35,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
 exports[`RhelView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader>
-    <PageHeaderTitle
-      title="Dolor sit"
-    />
+    Dolor sit
   </PageHeader>
   <PageSection>
     <Connect(GraphCard)

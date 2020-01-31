@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSection Component should render a basic component: basic 1`] = `
+<PageSection
+  className="lorem"
+>
+  <Section
+    className="lorem"
+  >
+    <section
+      className="lorem"
+    >
+       
+      <span
+        className="test"
+      >
+        lorem
+      </span>
+       
+    </section>
+  </Section>
+</PageSection>
+`;

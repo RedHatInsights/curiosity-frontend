@@ -152,115 +152,93 @@ exports[`Authorization Component should render a non-connected component error: 
     title="t(curiosity-auth.authorizedTitle, ...)"
   >
     <PageLayout>
-      <Page
-        breadcrumb={null}
-        className="layout-pf curiosity"
-        defaultManagedSidebarIsOpen={true}
-        header={null}
-        isManagedSidebar={false}
-        mainContainerId={null}
-        onPageResize={[Function]}
-        sidebar={null}
-        skipToContent={null}
+      <PageHeader
+        key=".0"
       >
-        <div
-          className="pf-c-page layout-pf curiosity"
-        >
-          <main
-            className="pf-c-page__main"
-            id={null}
-            role="main"
-            tabIndex={-1}
+        <PageHeader>
+          <section
+            className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+            widget-type="InsightsPageHeader"
           >
-            <PageSection
-              noPadding={true}
+            <PageHeaderTitle
+              title="t(curiosity-auth.authorizedTitle, ...)"
             >
-              <section
-                className="pf-c-page__main-section pf-m-no-padding"
+              <Title
+                className=""
+                size="2xl"
+                widget-type="InsightsPageHeaderTitle"
               >
-                <div
-                  className="curiosity-content"
+                <h1
+                  className="pf-c-title pf-m-2xl"
+                  widget-type="InsightsPageHeaderTitle"
                 >
-                  <PageHeader>
-                    <section
-                      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-                      widget-type="InsightsPageHeader"
-                    >
-                      <PageHeaderTitle
-                        title="t(curiosity-auth.authorizedTitle, ...)"
-                      >
-                        <Title
-                          className=""
-                          size="2xl"
-                          widget-type="InsightsPageHeaderTitle"
-                        >
-                          <h1
-                            className="pf-c-title pf-m-2xl"
-                            widget-type="InsightsPageHeaderTitle"
-                          >
-                             
-                            t(curiosity-auth.authorizedTitle, ...)
-                             
-                          </h1>
-                        </Title>
-                      </PageHeaderTitle>
-                    </section>
-                  </PageHeader>
-                  <EmptyState
-                    className="fadein"
-                    variant="full"
+                   
+                  t(curiosity-auth.authorizedTitle, ...)
+                   
+                </h1>
+              </Title>
+            </PageHeaderTitle>
+          </section>
+        </PageHeader>
+      </PageHeader>
+      <PageSection
+        className="curiosity"
+      >
+        <section
+          className="pf-c-page__main-section curiosity"
+        >
+          <EmptyState
+            className="fadein"
+            key=".1"
+            variant="full"
+          >
+            <div
+              className="pf-c-empty-state fadein"
+            >
+              <EmptyStateIcon
+                icon={[Function]}
+              >
+                <BanIcon
+                  aria-hidden="true"
+                  className="pf-c-empty-state__icon"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                  title={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    aria-labelledby={null}
+                    className="pf-c-empty-state__icon"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style={
+                      Object {
+                        "verticalAlign": "-0.125em",
+                      }
+                    }
+                    viewBox="0 0 512 512"
+                    width="1em"
                   >
-                    <div
-                      className="pf-c-empty-state fadein"
-                    >
-                      <EmptyStateIcon
-                        icon={[Function]}
-                      >
-                        <BanIcon
-                          aria-hidden="true"
-                          className="pf-c-empty-state__icon"
-                          color="currentColor"
-                          noVerticalAlign={false}
-                          size="sm"
-                          title={null}
-                        >
-                          <svg
-                            aria-hidden="true"
-                            aria-labelledby={null}
-                            className="pf-c-empty-state__icon"
-                            fill="currentColor"
-                            height="1em"
-                            role="img"
-                            style={
-                              Object {
-                                "verticalAlign": "-0.125em",
-                              }
-                            }
-                            viewBox="0 0 512 512"
-                            width="1em"
-                          >
-                            <path
-                              d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
-                              transform=""
-                            />
-                          </svg>
-                        </BanIcon>
-                      </EmptyStateIcon>
-                      <EmptyStateBody>
-                        <div
-                          className="pf-c-empty-state__body"
-                        >
-                          t(curiosity-auth.authorizedCopy, ...)
-                        </div>
-                      </EmptyStateBody>
-                    </div>
-                  </EmptyState>
+                    <path
+                      d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
+                      transform=""
+                    />
+                  </svg>
+                </BanIcon>
+              </EmptyStateIcon>
+              <EmptyStateBody>
+                <div
+                  className="pf-c-empty-state__body"
+                >
+                  t(curiosity-auth.authorizedCopy, ...)
                 </div>
-              </section>
-            </PageSection>
-          </main>
-        </div>
-      </Page>
+              </EmptyStateBody>
+            </div>
+          </EmptyState>
+        </section>
+      </PageSection>
     </PageLayout>
   </MessageView>
 </Authentication>
@@ -276,115 +254,93 @@ exports[`Authorization Component should render a non-connected component pending
 
 exports[`Authorization Component should return a message on 401 error: 401 error 1`] = `
 <PageLayout>
-  <Page
-    breadcrumb={null}
-    className="layout-pf curiosity"
-    defaultManagedSidebarIsOpen={true}
-    header={null}
-    isManagedSidebar={false}
-    mainContainerId={null}
-    onPageResize={[Function]}
-    sidebar={null}
-    skipToContent={null}
+  <PageHeader
+    key=".0"
   >
-    <div
-      className="pf-c-page layout-pf curiosity"
-    >
-      <main
-        className="pf-c-page__main"
-        id={null}
-        role="main"
-        tabIndex={-1}
+    <PageHeader>
+      <section
+        className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+        widget-type="InsightsPageHeader"
       >
-        <PageSection
-          noPadding={true}
+        <PageHeaderTitle
+          title="t(curiosity-auth.authorizedTitle, ...)"
         >
-          <section
-            className="pf-c-page__main-section pf-m-no-padding"
+          <Title
+            className=""
+            size="2xl"
+            widget-type="InsightsPageHeaderTitle"
           >
-            <div
-              className="curiosity-content"
+            <h1
+              className="pf-c-title pf-m-2xl"
+              widget-type="InsightsPageHeaderTitle"
             >
-              <PageHeader>
-                <section
-                  className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-                  widget-type="InsightsPageHeader"
-                >
-                  <PageHeaderTitle
-                    title="t(curiosity-auth.authorizedTitle, ...)"
-                  >
-                    <Title
-                      className=""
-                      size="2xl"
-                      widget-type="InsightsPageHeaderTitle"
-                    >
-                      <h1
-                        className="pf-c-title pf-m-2xl"
-                        widget-type="InsightsPageHeaderTitle"
-                      >
-                         
-                        t(curiosity-auth.authorizedTitle, ...)
-                         
-                      </h1>
-                    </Title>
-                  </PageHeaderTitle>
-                </section>
-              </PageHeader>
-              <EmptyState
-                className="fadein"
-                variant="full"
+               
+              t(curiosity-auth.authorizedTitle, ...)
+               
+            </h1>
+          </Title>
+        </PageHeaderTitle>
+      </section>
+    </PageHeader>
+  </PageHeader>
+  <PageSection
+    className="curiosity"
+  >
+    <section
+      className="pf-c-page__main-section curiosity"
+    >
+      <EmptyState
+        className="fadein"
+        key=".1"
+        variant="full"
+      >
+        <div
+          className="pf-c-empty-state fadein"
+        >
+          <EmptyStateIcon
+            icon={[Function]}
+          >
+            <BanIcon
+              aria-hidden="true"
+              className="pf-c-empty-state__icon"
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+              title={null}
+            >
+              <svg
+                aria-hidden="true"
+                aria-labelledby={null}
+                className="pf-c-empty-state__icon"
+                fill="currentColor"
+                height="1em"
+                role="img"
+                style={
+                  Object {
+                    "verticalAlign": "-0.125em",
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
               >
-                <div
-                  className="pf-c-empty-state fadein"
-                >
-                  <EmptyStateIcon
-                    icon={[Function]}
-                  >
-                    <BanIcon
-                      aria-hidden="true"
-                      className="pf-c-empty-state__icon"
-                      color="currentColor"
-                      noVerticalAlign={false}
-                      size="sm"
-                      title={null}
-                    >
-                      <svg
-                        aria-hidden="true"
-                        aria-labelledby={null}
-                        className="pf-c-empty-state__icon"
-                        fill="currentColor"
-                        height="1em"
-                        role="img"
-                        style={
-                          Object {
-                            "verticalAlign": "-0.125em",
-                          }
-                        }
-                        viewBox="0 0 512 512"
-                        width="1em"
-                      >
-                        <path
-                          d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
-                          transform=""
-                        />
-                      </svg>
-                    </BanIcon>
-                  </EmptyStateIcon>
-                  <EmptyStateBody>
-                    <div
-                      className="pf-c-empty-state__body"
-                    >
-                      t(curiosity-auth.authorizedCopy, ...)
-                    </div>
-                  </EmptyStateBody>
-                </div>
-              </EmptyState>
+                <path
+                  d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"
+                  transform=""
+                />
+              </svg>
+            </BanIcon>
+          </EmptyStateIcon>
+          <EmptyStateBody>
+            <div
+              className="pf-c-empty-state__body"
+            >
+              t(curiosity-auth.authorizedCopy, ...)
             </div>
-          </section>
-        </PageSection>
-      </main>
-    </div>
-  </Page>
+          </EmptyStateBody>
+        </div>
+      </EmptyState>
+    </section>
+  </PageSection>
 </PageLayout>
 `;
 

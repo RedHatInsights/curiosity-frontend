@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import {
   Button,
   EmptyState,
   EmptyStateVariant,
   EmptyStateBody,
   EmptyStateSecondaryActions,
-  PageSection,
   Title
 } from '@patternfly/react-core';
-import PageLayout from '../pageLayout/pageLayout';
+import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 import { translateComponent } from '../i18n/i18n';
 import subscriptionsSvg from '../../images/subscriptions.svg';
@@ -25,9 +23,7 @@ import subscriptionsSvg from '../../images/subscriptions.svg';
  */
 const TourView = ({ t }) => (
   <PageLayout>
-    <PageHeader>
-      <PageHeaderTitle title={helpers.UI_DISPLAY_CONFIG_NAME} />
-    </PageHeader>
+    <PageHeader>{helpers.UI_DISPLAY_CONFIG_NAME}</PageHeader>
     <PageSection>
       <EmptyState variant={EmptyStateVariant.full} className="fadein">
         <img
