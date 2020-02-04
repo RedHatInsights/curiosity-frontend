@@ -9,7 +9,7 @@ Object {
   "UI_DEPLOY_PATH_PREFIX": "",
   "UI_DISABLED": false,
   "UI_DISPLAY_CONFIG_NAME": "Subscription Watch",
-  "UI_DISPLAY_NAME": "subscription watch",
+  "UI_DISPLAY_NAME": "Subscription Watch",
   "UI_DISPLAY_START_NAME": "Subscription watch",
   "UI_LOGGER_ID": "curiosity",
   "UI_NAME": "subscriptions",
