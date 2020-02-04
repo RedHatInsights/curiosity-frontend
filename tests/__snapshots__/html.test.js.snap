@@ -6,7 +6,7 @@ exports[`Index.HTML should have a specific html output: html output 1`] = `
 <html lang=\\"en-US\\">
 <head>
 <meta charset=\\"utf-8\\"/>
-<title>subscription watch
+<title>Subscription Watch
 </title>
 <esi:include src=\\"*/apps/chrome/snippets/head.html\\" />
 <link href=\\"*/apps/subscriptions/static/css/*.chunk.css\\" rel=\\"stylesheet\\">
