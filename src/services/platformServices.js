@@ -1,3 +1,5 @@
+import { helpers } from '../common';
+
 /**
  * Basic user authentication.
  * @returns {Promise<void>}
@@ -5,7 +7,7 @@
 const getUser = async () => {
   const { insights } = window;
   try {
-    return await insights.chrome.auth.getUser();
+    return (!helpers.DEV_MODE && (await insights.chrome.auth.getUser())) || {};
   } catch (e) {
     throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
   }

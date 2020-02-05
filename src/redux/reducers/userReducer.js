@@ -49,8 +49,7 @@ const userReducer = (state = initialState, action) => {
         {
           authorized: true,
           fulfilled: true,
-          locale: state.session.locale,
-          username: action.username
+          locale: state.session.locale
         },
         {
           state,
