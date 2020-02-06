@@ -29,6 +29,7 @@ exports[`TourView Component should have a fallback title: title 1`] = `
         t(curiosity-tour.emptyStateDescriptionExtended, [object Object])
       </EmptyStateBody>
       <Component
+        className="uiux-button__tour"
         variant="primary"
       >
         t(curiosity-tour.emptyStateButton)
@@ -85,6 +86,7 @@ exports[`TourView Component should render a non-connected component: non-connect
         t(curiosity-tour.emptyStateDescriptionExtended, [object Object])
       </EmptyStateBody>
       <Component
+        className="uiux-button__tour"
         variant="primary"
       >
         t(curiosity-tour.emptyStateButton)
@@ -141,6 +143,7 @@ exports[`TourView Component should render a translated component: translated 1`]
         t(curiosity-tour.emptyStateDescriptionExtended, [object Object])
       </EmptyStateBody>
       <Component
+        className="uiux-button__tour"
         variant="primary"
       >
         t(curiosity-tour.emptyStateButton)

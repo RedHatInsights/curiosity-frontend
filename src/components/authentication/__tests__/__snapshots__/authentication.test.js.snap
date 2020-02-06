@@ -64,7 +64,6 @@ exports[`Authorization Component should render a non-connected component authori
     ]
   }
   onNavigation={[Function]}
-  redirectUrl="/?not_entitled=subscriptions"
   session={
     Object {
       "authorized": true,
@@ -143,7 +142,6 @@ exports[`Authorization Component should render a non-connected component error: 
     ]
   }
   onNavigation={[Function]}
-  redirectUrl="/?not_entitled=subscriptions"
   session={
     Object {
       "authorized": false,
@@ -399,7 +397,7 @@ Array [
           t(curiosity-tour.emptyStateDescriptionExtended, [object Object])
         </div>
         <button
-          class="pf-c-button pf-m-primary"
+          class="pf-c-button pf-m-primary uiux-button__tour"
           type="button"
         >
           t(curiosity-tour.emptyStateButton)
@@ -455,7 +453,7 @@ exports[`Authorization Component should return a redirect on 418 error: 418 erro
     }
   }
   isRedirect={true}
-  isReplace={true}
+  isReplace={false}
   location={
     Object {
       "hash": "",
@@ -472,10 +470,243 @@ exports[`Authorization Component should return a redirect on 418 error: 418 erro
       "url": "/",
     }
   }
-  route={null}
-  url="/?not_entitled=subscriptions"
+  route="/soon"
+  url={null}
 >
-  Redirected towards 
-  /?not_entitled=subscriptions
+  <Route
+    path="*"
+  >
+    <TourView
+      routeDetail={Object {}}
+      t={[Function]}
+    >
+      <PageLayout>
+        <PageHeader
+          key=".0"
+        >
+          <PageHeader>
+            <section
+              className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+              widget-type="InsightsPageHeader"
+            >
+              <PageHeaderTitle
+                title="Subscription Watch"
+              >
+                <Title
+                  className=""
+                  size="2xl"
+                  widget-type="InsightsPageHeaderTitle"
+                >
+                  <h1
+                    className="pf-c-title pf-m-2xl"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                     
+                    Subscription Watch
+                     
+                  </h1>
+                </Title>
+              </PageHeaderTitle>
+            </section>
+          </PageHeader>
+        </PageHeader>
+        <PageSection
+          className="curiosity"
+        >
+          <section
+            className="pf-c-page__main-section curiosity"
+          >
+            <PageSection
+              key=".1"
+            >
+              <Section>
+                <section
+                  className=""
+                >
+                   
+                  <EmptyState
+                    className="fadein"
+                    variant="full"
+                  >
+                    <div
+                      className="pf-c-empty-state fadein"
+                    >
+                      <img
+                        alt="t(curiosity-tour.emptyStateIconAlt, [object Object])"
+                        aria-hidden={true}
+                        className="curiosity-emptystate-img-icon"
+                        src="subscriptions.svg"
+                      />
+                      <Title
+                        headingLevel="h5"
+                        size="lg"
+                      >
+                        <h5
+                          className="pf-c-title pf-m-lg"
+                        >
+                          t(curiosity-tour.emptyStateTitle, [object Object])
+                        </h5>
+                      </Title>
+                      <EmptyStateBody>
+                        <div
+                          className="pf-c-empty-state__body"
+                        >
+                          t(curiosity-tour.emptyStateDescription, [object Object])
+                        </div>
+                      </EmptyStateBody>
+                      <EmptyStateBody>
+                        <div
+                          className="pf-c-empty-state__body"
+                        >
+                          t(curiosity-tour.emptyStateDescriptionExtended, [object Object])
+                        </div>
+                      </EmptyStateBody>
+                      <Component
+                        className="uiux-button__tour"
+                        variant="primary"
+                      >
+                        <ComponentWithOuia
+                          component={[Function]}
+                          componentProps={
+                            Object {
+                              "children": "t(curiosity-tour.emptyStateButton)",
+                              "className": "uiux-button__tour",
+                              "variant": "primary",
+                            }
+                          }
+                          consumerContext={null}
+                        >
+                          <Button
+                            className="uiux-button__tour"
+                            ouiaContext={
+                              Object {
+                                "isOuia": false,
+                                "ouiaId": null,
+                              }
+                            }
+                            variant="primary"
+                          >
+                            <button
+                              aria-disabled={null}
+                              aria-label={null}
+                              className="pf-c-button pf-m-primary uiux-button__tour"
+                              disabled={false}
+                              tabIndex={null}
+                              type="button"
+                            >
+                              t(curiosity-tour.emptyStateButton)
+                            </button>
+                          </Button>
+                        </ComponentWithOuia>
+                      </Component>
+                      <EmptyStateSecondaryActions>
+                        <div
+                          className="pf-c-empty-state__secondary"
+                        >
+                          <Component
+                            component="a"
+                            href="https://access.redhat.com/products/subscription-central"
+                            target="_blank"
+                            variant="link"
+                          >
+                            <ComponentWithOuia
+                              component={[Function]}
+                              componentProps={
+                                Object {
+                                  "children": "t(curiosity-tour.emptyStateLinkLearnMore)",
+                                  "component": "a",
+                                  "href": "https://access.redhat.com/products/subscription-central",
+                                  "target": "_blank",
+                                  "variant": "link",
+                                }
+                              }
+                              consumerContext={null}
+                            >
+                              <Button
+                                component="a"
+                                href="https://access.redhat.com/products/subscription-central"
+                                ouiaContext={
+                                  Object {
+                                    "isOuia": false,
+                                    "ouiaId": null,
+                                  }
+                                }
+                                target="_blank"
+                                variant="link"
+                              >
+                                <a
+                                  aria-disabled={false}
+                                  aria-label={null}
+                                  className="pf-c-button pf-m-link"
+                                  disabled={null}
+                                  href="https://access.redhat.com/products/subscription-central"
+                                  tabIndex={null}
+                                  target="_blank"
+                                  type={null}
+                                >
+                                  t(curiosity-tour.emptyStateLinkLearnMore)
+                                </a>
+                              </Button>
+                            </ComponentWithOuia>
+                          </Component>
+                          <Component
+                            component="a"
+                            href="https://access.redhat.com/account-team"
+                            target="_blank"
+                            variant="link"
+                          >
+                            <ComponentWithOuia
+                              component={[Function]}
+                              componentProps={
+                                Object {
+                                  "children": "t(curiosity-tour.emptyStateLinkContactUs)",
+                                  "component": "a",
+                                  "href": "https://access.redhat.com/account-team",
+                                  "target": "_blank",
+                                  "variant": "link",
+                                }
+                              }
+                              consumerContext={null}
+                            >
+                              <Button
+                                component="a"
+                                href="https://access.redhat.com/account-team"
+                                ouiaContext={
+                                  Object {
+                                    "isOuia": false,
+                                    "ouiaId": null,
+                                  }
+                                }
+                                target="_blank"
+                                variant="link"
+                              >
+                                <a
+                                  aria-disabled={false}
+                                  aria-label={null}
+                                  className="pf-c-button pf-m-link"
+                                  disabled={null}
+                                  href="https://access.redhat.com/account-team"
+                                  tabIndex={null}
+                                  target="_blank"
+                                  type={null}
+                                >
+                                  t(curiosity-tour.emptyStateLinkContactUs)
+                                </a>
+                              </Button>
+                            </ComponentWithOuia>
+                          </Component>
+                        </div>
+                      </EmptyStateSecondaryActions>
+                    </div>
+                  </EmptyState>
+                   
+                </section>
+              </Section>
+            </PageSection>
+          </section>
+        </PageSection>
+      </PageLayout>
+    </TourView>
+  </Route>
 </Redirect>
 `;

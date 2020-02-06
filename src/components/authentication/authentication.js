@@ -49,7 +49,7 @@ class Authentication extends Component {
   }
 
   render() {
-    const { children, redirectUrl, session, t } = this.props;
+    const { children, session, t } = this.props;
 
     if (session.authorized) {
       return <React.Fragment>{children}</React.Fragment>;
@@ -59,11 +59,7 @@ class Authentication extends Component {
       return <MessageView title="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
     }
 
-    if (session.errorStatus === 418) {
-      return <Redirect isRedirect isReplace url={redirectUrl} />;
-    }
-
-    if (session.errorStatus === 403) {
+    if (session.errorStatus === 403 || session.errorStatus === 418) {
       return <Redirect isRedirect route={routerHelpers.getErrorRoute.to} />;
     }
 
@@ -93,7 +89,6 @@ Authentication.propTypes = {
       id: PropTypes.string
     })
   ),
-  redirectUrl: PropTypes.string,
   session: PropTypes.shape({
     authorized: PropTypes.bool,
     error: PropTypes.bool,
@@ -111,7 +106,6 @@ Authentication.defaultProps = {
   setAppName: helpers.noop,
   setNavigation: helpers.noop,
   navigation: routerTypes.navigation,
-  redirectUrl: routerTypes.platformRedirect,
   session: {
     authorized: false,
     error: false,
