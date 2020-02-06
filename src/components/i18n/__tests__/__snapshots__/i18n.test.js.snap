@@ -53,7 +53,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:50
+#: src/components/tourView/tourView.js:51
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
 
@@ -69,11 +69,11 @@ msgstr \\"\\"
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:61
+#: src/components/tourView/tourView.js:63
 msgid \\"curiosity-tour.emptyStateLinkContactUs\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:58
+#: src/components/tourView/tourView.js:60
 msgid \\"curiosity-tour.emptyStateLinkLearnMore\\"
 msgstr \\"\\"
 
@@ -81,12 +81,12 @@ msgstr \\"\\"
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:73
+#: src/components/authentication/authentication.js:69
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedCopy\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:72
+#: src/components/authentication/authentication.js:68
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"

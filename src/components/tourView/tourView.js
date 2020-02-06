@@ -47,7 +47,9 @@ const TourView = ({ t }) => (
             {t('curiosity-tour.emptyStateDescriptionExtended', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
           </React.Fragment>
         </EmptyStateBody>
-        <Button variant="primary">{t('curiosity-tour.emptyStateButton')}</Button>
+        <Button className="uiux-button__tour" variant="primary">
+          {t('curiosity-tour.emptyStateButton')}
+        </Button>
         <EmptyStateSecondaryActions>
           <Button
             component="a"
