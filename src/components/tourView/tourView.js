@@ -53,7 +53,7 @@ const TourView = ({ t }) => (
             component="a"
             variant="link"
             target="_blank"
-            href="https://access.redhat.com/documentation/Subscription_Central/"
+            href="https://access.redhat.com/products/subscription-central"
           >
             {t('curiosity-tour.emptyStateLinkLearnMore')}
           </Button>

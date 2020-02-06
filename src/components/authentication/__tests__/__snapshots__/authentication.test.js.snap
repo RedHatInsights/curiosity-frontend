@@ -398,7 +398,7 @@ Array [
           <a
             aria-disabled="false"
             class="pf-c-button pf-m-link"
-            href="https://access.redhat.com/documentation/Subscription_Central/"
+            href="https://access.redhat.com/products/subscription-central"
             target="_blank"
           >
             t(curiosity-tour.emptyStateLinkLearnMore)
