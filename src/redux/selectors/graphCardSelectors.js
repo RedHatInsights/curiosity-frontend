@@ -18,18 +18,13 @@ const graphCardSelector = createSelector(
     const reportProductId = _get(report, ['metaData', 'id'], null);
     const capacityProductId = _get(capacity, ['metaData', 'id'], null);
 
-    let productId = null;
+    const productId = (reportProductId === capacityProductId && reportProductId) || null;
     let granularity = null;
 
-    if (
-      (graphGranularity && graphGranularity === reportGranularity && graphGranularity === capacityGranularity) ||
-      (!graphGranularity && reportGranularity === capacityGranularity)
-    ) {
+    if (graphGranularity === reportGranularity || reportGranularity === capacityGranularity) {
       granularity = reportGranularity;
-    }
-
-    if (reportProductId === capacityProductId) {
-      productId = reportProductId;
+    } else if (graphGranularity === capacityGranularity) {
+      granularity = capacityGranularity;
     }
 
     const cachedGranularity = (granularity && productId && graphCardCache[`${productId}_${granularity}`]) || {};
