@@ -16,8 +16,31 @@ Object {
     },
     "component": Object {},
     "report": Object {},
+    "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_CAPACITY_RHSM_REJECTED",
+}
+`;
+
+exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "capacity": Object {},
+    "component": Object {},
+    "report": Object {},
+    "reportCapacity": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "update": false,
+    },
+  },
+  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_REJECTED",
 }
 `;
 
@@ -37,6 +60,7 @@ Object {
       "pending": false,
       "update": false,
     },
+    "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_REPORT_RHSM_REJECTED",
 }
@@ -49,7 +73,7 @@ Object {
       "data": Object {
         "test": "success",
       },
-      "date": undefined,
+      "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
@@ -61,8 +85,34 @@ Object {
     },
     "component": Object {},
     "report": Object {},
+    "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_CAPACITY_RHSM_FULFILLED",
+}
+`;
+
+exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "capacity": Object {},
+    "component": Object {},
+    "report": Object {},
+    "reportCapacity": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "update": false,
+    },
+  },
+  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_FULFILLED",
 }
 `;
 
@@ -75,7 +125,7 @@ Object {
       "data": Object {
         "test": "success",
       },
-      "date": undefined,
+      "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
@@ -85,6 +135,7 @@ Object {
       "pending": false,
       "update": false,
     },
+    "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_REPORT_RHSM_FULFILLED",
 }
@@ -105,8 +156,30 @@ Object {
     },
     "component": Object {},
     "report": Object {},
+    "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_CAPACITY_RHSM_PENDING",
+}
+`;
+
+exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "capacity": Object {},
+    "component": Object {},
+    "report": Object {},
+    "reportCapacity": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+      "update": false,
+    },
+  },
+  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
 }
 `;
 
@@ -125,6 +198,7 @@ Object {
       "pending": true,
       "update": false,
     },
+    "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_REPORT_RHSM_PENDING",
 }
@@ -140,6 +214,7 @@ Object {
       "startDate": 2019-06-20T00:00:00.000Z,
     },
     "report": Object {},
+    "reportCapacity": Object {},
   },
   "type": "SET_GRAPH_GRANULARITY_RHSM",
 }

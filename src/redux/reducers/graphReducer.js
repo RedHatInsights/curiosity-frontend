@@ -5,7 +5,8 @@ import { dateHelpers } from '../../common/dateHelpers';
 const initialState = {
   capacity: {},
   component: {},
-  report: {}
+  report: {},
+  reportCapacity: {}
 };
 
 const graphReducer = (state = initialState, action) => {
@@ -26,6 +27,7 @@ const graphReducer = (state = initialState, action) => {
     default:
       return reduxHelpers.generatedPromiseActionReducer(
         [
+          { ref: 'reportCapacity', type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM },
           { ref: 'capacity', type: rhsmTypes.GET_GRAPH_CAPACITY_RHSM },
           { ref: 'report', type: rhsmTypes.GET_GRAPH_REPORT_RHSM }
         ],

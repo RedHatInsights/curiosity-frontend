@@ -25,7 +25,7 @@ class GraphCard extends React.Component {
   }
 
   onUpdateGraphData = () => {
-    const { getGraphCapacity, getGraphReports, graphGranularity, startDate, endDate, productId } = this.props;
+    const { getGraphReportsCapacity, graphGranularity, startDate, endDate, productId } = this.props;
     const query = {
       [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
       [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
@@ -33,8 +33,7 @@ class GraphCard extends React.Component {
     };
 
     if (productId) {
-      getGraphCapacity(productId, query);
-      getGraphReports(productId, query);
+      getGraphReportsCapacity(productId, query);
     }
   };
 
@@ -164,8 +163,7 @@ GraphCard.propTypes = {
       stroke: PropTypes.string
     })
   ),
-  getGraphCapacity: PropTypes.func,
-  getGraphReports: PropTypes.func,
+  getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
   graphGranularity: PropTypes.oneOf([
     GRANULARITY_TYPES.DAILY,
@@ -186,8 +184,7 @@ GraphCard.defaultProps = {
   cardTitle: null,
   error: false,
   filterGraphData: [],
-  getGraphCapacity: helpers.noop,
-  getGraphReports: helpers.noop,
+  getGraphReportsCapacity: helpers.noop,
   graphData: {},
   graphGranularity: GRANULARITY_TYPES.DAILY,
   pending: false,
@@ -208,8 +205,7 @@ const makeMapStateToProps = () => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getGraphCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphCapacity(id, query)),
-  getGraphReports: (id, query) => dispatch(reduxActions.rhsm.getGraphReports(id, query))
+  getGraphReportsCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphReportsCapacity(id, query))
 });
 
 const ConnectedGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(GraphCard);

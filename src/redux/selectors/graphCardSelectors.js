@@ -10,21 +10,20 @@ const graph = state => state.graph;
 const graphCardSelector = createSelector(
   [graph],
   graphReducer => {
-    const { component = {}, capacity = {}, report = {} } = graphReducer || {};
+    const { component = {}, reportCapacity = {} } = graphReducer || {};
 
     const graphGranularity = component.graphGranularity || null;
-    const reportGranularity = _get(report, ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY], null);
-    const capacityGranularity = _get(capacity, ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY], null);
-    const reportProductId = _get(report, ['metaData', 'id'], null);
-    const capacityProductId = _get(capacity, ['metaData', 'id'], null);
+    const reportCapacityGranularity = _get(
+      reportCapacity,
+      ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY],
+      null
+    );
 
-    const productId = (reportProductId === capacityProductId && reportProductId) || null;
+    const productId = _get(reportCapacity, ['metaData', 'id'], null);
     let granularity = null;
 
-    if (graphGranularity === reportGranularity || reportGranularity === capacityGranularity) {
-      granularity = reportGranularity;
-    } else if (graphGranularity === capacityGranularity) {
-      granularity = capacityGranularity;
+    if (graphGranularity === reportCapacityGranularity) {
+      granularity = reportCapacityGranularity;
     }
 
     const cachedGranularity = (granularity && productId && graphCardCache[`${productId}_${granularity}`]) || {};
@@ -49,21 +48,25 @@ const graphCardSelector = createSelector(
       ...component
     };
 
+    if (initialLoad && granularity === null) {
+      granularity = reportCapacityGranularity;
+    }
+
     if (granularity === null || productId === null) {
       updatedData.error = true;
       return updatedData;
     }
 
     if (initialLoad) {
-      updatedData.pending = report.pending || capacity.pending || false;
+      updatedData.pending = reportCapacity.pending || false;
     }
 
-    updatedData.error = report.error || capacity.error || false;
-    updatedData.errorStatus = report.errorStatus || capacity.errorStatus || null;
+    updatedData.error = reportCapacity.error || false;
+    updatedData.errorStatus = reportCapacity.errorStatus || null;
 
-    if (capacity.fulfilled && report.fulfilled && granularity && productId) {
-      const productsData = _get(report, ['data', rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
-      const thresholdData = _get(capacity, ['data', rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
+    if (reportCapacity.fulfilled && granularity && productId) {
+      const productsData = _get(reportCapacity.data[0], [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
+      const thresholdData = _get(reportCapacity.data[1], [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
       updatedData.graphData.cores.length = 0;
       updatedData.graphData.hypervisorCores.length = 0;

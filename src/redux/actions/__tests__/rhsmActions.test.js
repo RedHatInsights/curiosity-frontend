@@ -19,20 +19,30 @@ describe('RhsmActions', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        response: {
-          test: 'success',
-          [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: ['success']
-        }
-      });
+    moxios.stubRequest(/\/(tally|capacity|version).*?/, {
+      status: 200,
+      responseText: 'success',
+      timeout: 1,
+      response: {
+        test: 'success',
+        [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: ['success']
+      }
     });
   });
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('Should return response content for getGraphReportsCapacity method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getGraphReportsCapacity();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().graph;
+      expect(response.reportCapacity.fulfilled).toBe(true);
+      done();
+    });
   });
 
   it('Should return response content for getGraphReports method', done => {
