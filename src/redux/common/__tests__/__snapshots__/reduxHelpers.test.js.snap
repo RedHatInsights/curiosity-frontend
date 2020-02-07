@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ReduxHelpers should get a date from a service call response: ARRAY date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
+
+exports[`ReduxHelpers should get a date from a service call response: date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
+
+exports[`ReduxHelpers should get a http status from a service call response: ARRAY mismatched status 1`] = `400`;
+
+exports[`ReduxHelpers should get a http status from a service call response: ARRAY status 1`] = `200`;
+
 exports[`ReduxHelpers should get a http status from a service call response: fallback status 1`] = `200`;
 
 exports[`ReduxHelpers should get a http status from a service call response: missing status 1`] = `0`;
@@ -12,6 +20,12 @@ exports[`ReduxHelpers should get a message from a service call response: 4XX fal
 
 exports[`ReduxHelpers should get a message from a service call response: 5XX fallback message 1`] = `"Internal Server Error"`;
 
+exports[`ReduxHelpers should get a message from a service call response: ARRAY mismatched response messages 1`] = `"Request failed with status code 400"`;
+
+exports[`ReduxHelpers should get a message from a service call response: ARRAY response for 2XX 1`] = `"OK"`;
+
+exports[`ReduxHelpers should get a message from a service call response: ARRAY response for 4XX 1`] = `"Request failed with status code 400"`;
+
 exports[`ReduxHelpers should get a message from a service call response: response for 2XX 1`] = `"OK"`;
 
 exports[`ReduxHelpers should get a message from a service call response: response for 4XX 1`] = `"Request failed with status code 400"`;
@@ -23,9 +37,12 @@ Object {
   "PENDING_ACTION": [Function],
   "REJECTED_ACTION": [Function],
   "generatedPromiseActionReducer": [Function],
+  "getDateFromResults": [Function],
   "getMessageFromResults": [Function],
+  "getSingleResponseFromResultArray": [Function],
   "getStatusFromResults": [Function],
   "setStateProp": [Function],
+  "singlePromiseDataResponseFromArray": [Function],
 }
 `;
 

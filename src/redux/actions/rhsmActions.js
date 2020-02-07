@@ -1,6 +1,23 @@
 import { rhsmTypes } from '../types';
 import { rhsmServices } from '../../services/rhsmServices';
 
+const getGraphReportsCapacity = (id = null, query = {}) => dispatch =>
+  dispatch({
+    type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM,
+    payload: Promise.all([rhsmServices.getGraphReports(id, query), rhsmServices.getGraphCapacity(id, query)]),
+    meta: {
+      data: { id },
+      query,
+      notifications: {
+        rejected: {
+          variant: 'info',
+          title: 'Reporting and capacity connection has failed',
+          description: `Product ID: ${id}`
+        }
+      }
+    }
+  });
+
 const getGraphReports = (id = null, query = {}) => dispatch =>
   dispatch({
     type: rhsmTypes.GET_GRAPH_REPORT_RHSM,
@@ -35,6 +52,6 @@ const getGraphCapacity = (id = null, query = {}) => dispatch =>
     }
   });
 
-const rhsmActions = { getGraphCapacity, getGraphReports };
+const rhsmActions = { getGraphReportsCapacity, getGraphCapacity, getGraphReports };
 
-export { rhsmActions as default, rhsmActions, getGraphCapacity, getGraphReports };
+export { rhsmActions as default, rhsmActions, getGraphReportsCapacity, getGraphCapacity, getGraphReports };
