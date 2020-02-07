@@ -32,14 +32,14 @@ const RHSM_API_RESPONSE_PRODUCTS_META_TYPES = {
 
 const RHSM_API_PATH_ID_TYPES = {
   RHEL: 'RHEL',
-  COMPUTE_NODE: 'RHEL Compute Node',
-  DESKTOP: 'RHEL Desktop',
-  SERVER: 'RHEL Server',
-  WORKSTATION: 'RHEL Workstation',
-  ARM: 'RHEL for ARM',
-  IBM_POWER: 'RHEL for IBM Power',
-  IBM_Z: 'RHEL for IBM z',
-  X86: 'RHEL for x86',
+  RHEL_COMPUTE_NODE: 'RHEL Compute Node',
+  RHEL_DESKTOP: 'RHEL Desktop',
+  RHEL_SERVER: 'RHEL Server',
+  RHEL_WORKSTATION: 'RHEL Workstation',
+  RHEL_ARM: 'RHEL for ARM',
+  RHEL_IBM_POWER: 'RHEL for IBM Power',
+  RHEL_IBM_Z: 'RHEL for IBM z',
+  RHEL_X86: 'RHEL for x86',
   OPENSHIFT: 'OpenShift Container Platform'
 };
 
