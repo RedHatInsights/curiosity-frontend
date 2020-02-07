@@ -210,7 +210,68 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should pass data through on a product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch fulfilled 1`] = `
+exports[`GraphCardSelectors should pass data through on a product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch on API 1`] = `
+Object {
+  "error": false,
+  "errorStatus": null,
+  "fulfilled": true,
+  "graphData": Object {
+    "cores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "hypervisorCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 100,
+      },
+    ],
+  },
+  "initialLoad": false,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should pass data through on a product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch on API fulfilled 1`] = `
 Object {
   "error": true,
   "errorStatus": null,
@@ -229,7 +290,148 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should pass data through on a product ID when granularity provided mismatches between aggregated responses: rhelGraphCard: granularity mismatch on component 1`] = `
+exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: ERROR, no component, report and capacity mismatch 1`] = `
+Object {
+  "error": true,
+  "errorStatus": null,
+  "fulfilled": false,
+  "graphData": Object {
+    "cores": Array [],
+    "hypervisorCores": Array [],
+    "hypervisorSockets": Array [],
+    "physicalCores": Array [],
+    "physicalSockets": Array [],
+    "sockets": Array [],
+    "threshold": Array [],
+  },
+  "initialLoad": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: cached data 1`] = `
+Object {
+  "error": false,
+  "errorStatus": null,
+  "fulfilled": true,
+  "graphData": Object {
+    "cores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "hypervisorCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 100,
+      },
+    ],
+  },
+  "initialLoad": false,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: component and capacity match 1`] = `
+Object {
+  "error": false,
+  "errorStatus": null,
+  "fulfilled": true,
+  "graphData": Object {
+    "cores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "hypervisorCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 100,
+      },
+    ],
+  },
+  "initialLoad": false,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: component and report match 1`] = `
 Object {
   "error": false,
   "errorStatus": null,

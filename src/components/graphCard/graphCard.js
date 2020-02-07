@@ -114,8 +114,7 @@ class GraphCard extends React.Component {
 
       return Object.keys(data).map(key => filtered(key));
     };
-
-    return <ChartArea {...chartAreaProps} dataSets={filteredGraphData(graphData)} />;
+    return <ChartArea key={helpers.generateId()} {...chartAreaProps} dataSets={filteredGraphData(graphData)} />;
   }
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
