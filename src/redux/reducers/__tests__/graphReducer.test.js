@@ -22,7 +22,11 @@ describe('GraphReducer', () => {
   });
 
   it('should handle all defined error types', () => {
-    const specificTypes = [types.GET_GRAPH_CAPACITY_RHSM, types.GET_GRAPH_REPORT_RHSM];
+    const specificTypes = [
+      types.GET_GRAPH_REPORT_CAPACITY_RHSM,
+      types.GET_GRAPH_CAPACITY_RHSM,
+      types.GET_GRAPH_REPORT_RHSM
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -49,7 +53,11 @@ describe('GraphReducer', () => {
   });
 
   it('should handle all defined pending types', () => {
-    const specificTypes = [types.GET_GRAPH_CAPACITY_RHSM, types.GET_GRAPH_REPORT_RHSM];
+    const specificTypes = [
+      types.GET_GRAPH_REPORT_CAPACITY_RHSM,
+      types.GET_GRAPH_CAPACITY_RHSM,
+      types.GET_GRAPH_REPORT_RHSM
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -65,7 +73,11 @@ describe('GraphReducer', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    const specificTypes = [types.GET_GRAPH_CAPACITY_RHSM, types.GET_GRAPH_REPORT_RHSM];
+    const specificTypes = [
+      types.GET_GRAPH_REPORT_CAPACITY_RHSM,
+      types.GET_GRAPH_CAPACITY_RHSM,
+      types.GET_GRAPH_REPORT_RHSM
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {

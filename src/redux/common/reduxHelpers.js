@@ -10,8 +10,21 @@ const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
 
 const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
-const getMessageFromResults = results => {
+const getSingleResponseFromResultArray = results => {
   const updatedResults = results.payload || results;
+
+  if (Array.isArray(updatedResults)) {
+    const firstErrorResponse = updatedResults.find(value => _get(value, 'response.status', value.status) >= 300);
+    const firstSuccessResponse = updatedResults.find(value => _get(value, 'response.status', value.status) < 300);
+
+    return firstErrorResponse || firstSuccessResponse;
+  }
+
+  return updatedResults;
+};
+
+const getMessageFromResults = results => {
+  const updatedResults = getSingleResponseFromResultArray(results);
 
   if (helpers.isPromise(updatedResults)) {
     return null;
@@ -38,16 +51,24 @@ const getMessageFromResults = results => {
   return (statusResponse && statusResponse.trim()) || null;
 };
 
+const getDateFromResults = results => {
+  const updatedResults = getSingleResponseFromResultArray(results);
+
+  if (helpers.isPromise(updatedResults)) {
+    return null;
+  }
+
+  return _get(updatedResults, 'headers.date', null);
+};
+
 const getStatusFromResults = results => {
-  const updatedResults = results.payload || results;
+  const updatedResults = getSingleResponseFromResultArray(results);
 
   if (helpers.isPromise(updatedResults)) {
     return 0;
   }
 
-  const status = _get(updatedResults, 'response.status', updatedResults.status);
-
-  return status || 0;
+  return _get(updatedResults, 'response.status', updatedResults.status) || 0;
 };
 
 const setStateProp = (prop, data, options) => {
@@ -87,6 +108,15 @@ const setStateProp = (prop, data, options) => {
   }
 
   return obj;
+};
+
+const singlePromiseDataResponseFromArray = results => {
+  const updatedResults = results.payload || results;
+
+  if (Array.isArray(updatedResults)) {
+    return updatedResults.map(value => value.data || {});
+  }
+  return updatedResults.data || {};
 };
 
 const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
@@ -151,8 +181,8 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
       return setStateProp(
         whichType.ref || null,
         setId({
-          date: action.payload.headers && action.payload.headers.date,
-          data: (action.payload && action.payload.data) || {},
+          date: getDateFromResults(action),
+          data: singlePromiseDataResponseFromArray(action),
           fulfilled: true
         }),
         {
@@ -171,9 +201,12 @@ const reduxHelpers = {
   REJECTED_ACTION,
   HTTP_STATUS_RANGE,
   generatedPromiseActionReducer,
+  getDateFromResults,
   getMessageFromResults,
+  getSingleResponseFromResultArray,
   getStatusFromResults,
-  setStateProp
+  setStateProp,
+  singlePromiseDataResponseFromArray
 };
 
 export { reduxHelpers as default, reduxHelpers };

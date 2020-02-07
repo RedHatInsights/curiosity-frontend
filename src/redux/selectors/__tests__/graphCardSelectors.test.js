@@ -16,21 +16,16 @@ describe('GraphCardSelectors', () => {
     const state = {
       graph: {
         component: {},
-        capacity: {
+        reportCapacity: {
           fulfilled: true,
           metaData: {
             id: 'Lorem Ipsum ID missing granularity'
           },
           metaQuery: {},
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum ID missing granularity'
-          },
-          metaQuery: {},
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+          data: [
+            { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] },
+            { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          ]
         }
       }
     };
@@ -42,21 +37,16 @@ describe('GraphCardSelectors', () => {
     const state = {
       graph: {
         component: {},
-        capacity: {
+        reportCapacity: {
           fulfilled: true,
           metaData: {},
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {},
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+          data: [
+            { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] },
+            { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          ]
         }
       }
     };
@@ -68,17 +58,7 @@ describe('GraphCardSelectors', () => {
     const state = {
       graph: {
         component: {},
-        capacity: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum ID pending state'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
-        },
-        report: {
+        reportCapacity: {
           pending: true,
           metaData: {
             id: 'Lorem Ipsum ID pending state'
@@ -86,79 +66,15 @@ describe('GraphCardSelectors', () => {
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] }
+          data: [
+            { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] },
+            { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          ]
         }
       }
     };
 
     expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: pending');
-  });
-
-  it('should pass data through on a product ID when granularity provided mismatches between aggregated responses', () => {
-    const state = {
-      graph: {
-        component: {},
-        capacity: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum mismatched granularity'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.MONTHLY
-          },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
-              }
-            ]
-          }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum mismatched granularity'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
-              }
-            ]
-          }
-        }
-      }
-    };
-
-    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('rhelGraphCard: granularity mismatch on API fulfilled');
-
-    expect(
-      graphCardSelectors.graphCard({
-        graph: {
-          capacity: {
-            ...state.graph.capacity,
-            metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-            }
-          },
-          report: {
-            ...state.graph.report
-          }
-        }
-      })
-    ).toMatchSnapshot('rhelGraphCard: granularity mismatch on API');
   });
 
   it('should populate data on a product ID when the api response provided mismatches index or date', () => {
@@ -168,7 +84,7 @@ describe('GraphCardSelectors', () => {
           graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
           ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
         },
-        capacity: {
+        reportCapacity: {
           fulfilled: true,
           metaData: {
             id: 'Lorem Ipsum mismatched index or date'
@@ -176,29 +92,22 @@ describe('GraphCardSelectors', () => {
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum mismatched index or date'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
-              }
-            ]
-          }
+          data: [
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                }
+              ]
+            },
+            { [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [] }
+          ]
         }
       }
     };
@@ -213,7 +122,7 @@ describe('GraphCardSelectors', () => {
           graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
           ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
         },
-        capacity: {
+        reportCapacity: {
           fulfilled: true,
           metaData: {
             id: 'Lorem Ipsum missing expected properties'
@@ -221,56 +130,49 @@ describe('GraphCardSelectors', () => {
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
-              }
-            ]
-          }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum missing expected properties'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
-              }
-            ]
-          }
+          data: [
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
+                }
+              ]
+            },
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                }
+              ]
+            }
+          ]
         }
       }
     };
@@ -285,7 +187,7 @@ describe('GraphCardSelectors', () => {
           graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY,
           ...dateHelpers.getRangedDateTime(rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY)
         },
-        capacity: {
+        reportCapacity: {
           fulfilled: true,
           metaData: {
             id: 'Lorem Ipsum fulfilled aggregated output'
@@ -293,68 +195,61 @@ describe('GraphCardSelectors', () => {
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
-              }
-            ]
-          }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum fulfilled aggregated output'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
-              },
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 4,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
-              }
-            ]
-          }
+          data: [
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 4,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 4,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 2
+                }
+              ]
+            },
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-05T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 0,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 0,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 0
+                },
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-06T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                }
+              ]
+            }
+          ]
         }
       }
     };
@@ -366,7 +261,7 @@ describe('GraphCardSelectors', () => {
     const stateDailyGranularityFulfilled = {
       graph: {
         component: {},
-        capacity: {
+        reportCapacity: {
           fulfilled: true,
           metaData: {
             id: 'Lorem Ipsum ID cached'
@@ -374,38 +269,31 @@ describe('GraphCardSelectors', () => {
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
-                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
-              }
-            ]
-          }
-        },
-        report: {
-          fulfilled: true,
-          metaData: {
-            id: 'Lorem Ipsum ID cached'
-          },
-          metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          },
-          data: {
-            [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
-              {
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
-                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
-              }
-            ]
-          }
+          data: [
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1
+                }
+              ]
+            },
+            {
+              [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2019-09-04T00:00:00.000Z',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50
+                }
+              ]
+            }
+          ]
         }
       }
     };
@@ -415,12 +303,8 @@ describe('GraphCardSelectors', () => {
     const stateDailyGranularityPending = {
       graph: {
         component: {},
-        capacity: {
-          ...stateDailyGranularityFulfilled.graph.capacity,
-          pending: true
-        },
-        report: {
-          ...stateDailyGranularityFulfilled.graph.report,
+        reportCapacity: {
+          ...stateDailyGranularityFulfilled.graph.reportCapacity,
           pending: true
         }
       }
@@ -431,65 +315,35 @@ describe('GraphCardSelectors', () => {
     );
 
     const stateDailyComponentCapacityGranularity = {
-      component: {
-        graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-      },
       graph: {
-        component: {},
-        capacity: {
-          ...stateDailyGranularityFulfilled.graph.capacity,
-          fulfilled: true
+        component: {
+          graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
         },
-        report: {
-          ...stateDailyGranularityFulfilled.graph.report,
-          pending: true
+        reportCapacity: {
+          ...stateDailyGranularityFulfilled.graph.reportCapacity,
+          fulfilled: true
         }
       }
     };
 
     expect(graphCardSelectors.graphCard(stateDailyComponentCapacityGranularity)).toMatchSnapshot(
-      'granularity cached data: component and capacity match'
-    );
-
-    const stateDailyComponentReportGranularity = {
-      component: {
-        graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-      },
-      graph: {
-        component: {},
-        capacity: {
-          ...stateDailyGranularityFulfilled.graph.capacity,
-          pending: true
-        },
-        report: {
-          ...stateDailyGranularityFulfilled.graph.report,
-          fulfilled: true
-        }
-      }
-    };
-
-    expect(graphCardSelectors.graphCard(stateDailyComponentReportGranularity)).toMatchSnapshot(
-      'granularity cached data: component and report match'
+      'granularity cached data: component and reportCapacity match'
     );
 
     const stateDailyReportCapacityGranularityMismatch = {
-      component: {},
       graph: {
         component: {},
-        capacity: {
-          ...stateDailyGranularityFulfilled.graph.capacity,
+        reportCapacity: {
+          ...stateDailyGranularityFulfilled.graph.reportCapacity,
           metaQuery: {
             [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.WEEKLY
           }
-        },
-        report: {
-          ...stateDailyGranularityFulfilled.graph.report
         }
       }
     };
 
     expect(graphCardSelectors.graphCard(stateDailyReportCapacityGranularityMismatch)).toMatchSnapshot(
-      'granularity cached data: ERROR, no component, report and capacity mismatch'
+      'granularity cached data: ERROR, no component reportCapacity mismatch'
     );
   });
 });
