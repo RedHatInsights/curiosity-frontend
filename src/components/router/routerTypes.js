@@ -85,25 +85,25 @@ const navigation = [
     title: 'ARM',
     id: 'arm',
     path: '/rhel-sw/arm',
-    pathParameter: RHSM_API_PATH_ID_TYPES.ARM
+    pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_ARM
   },
   {
     title: 'IBM Power',
     id: 'ibmpower',
     path: '/rhel-sw/ibmpower',
-    pathParameter: RHSM_API_PATH_ID_TYPES.IBM_POWER
+    pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER
   },
   {
     title: 'IBM Z systems',
     id: 'ibmz',
     path: '/rhel-sw/ibmz',
-    pathParameter: RHSM_API_PATH_ID_TYPES.IBM_Z
+    pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z
   },
   {
     title: 'x86',
     id: 'x86',
     path: '/rhel-sw/x86',
-    pathParameter: RHSM_API_PATH_ID_TYPES.X86
+    pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_X86
   },
   {
     title: 'Red Hat OpenShift',
