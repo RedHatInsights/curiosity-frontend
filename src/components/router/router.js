@@ -28,10 +28,11 @@ class Router extends React.Component {
               exact={item.hasParameters || item.exact}
               key={item.to}
               path={item.to}
+              strict={item.strict}
               render={routeProps => {
                 const navDetail = routerHelpers.getNavigationDetail({
                   pathname: routeProps.location && routeProps.location.pathname,
-                  returnDefault: true
+                  returnDefault: false
                 });
 
                 return (

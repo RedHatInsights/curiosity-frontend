@@ -49,7 +49,9 @@ const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false
   }
 
   if (!navigationItem && pathname) {
-    navigationItem = navigation.find(item => item.path === pathname) || (returnDefault && defaultItem);
+    navigationItem =
+      navigation.find(item => item.path.replace(/\/$/, '') === pathname.replace(/\/$/, '')) ||
+      (returnDefault && defaultItem);
   }
 
   if (!navigationItem && returnDefault) {
