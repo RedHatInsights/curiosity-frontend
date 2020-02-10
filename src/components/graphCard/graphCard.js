@@ -55,7 +55,7 @@ class GraphCard extends React.Component {
    * @patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
    */
   renderChart() {
-    const { filterGraphData, graphData, graphGranularity, t, translateProduct } = this.props;
+    const { filterGraphData, graphData, graphGranularity, t, productShortLabel } = this.props;
 
     const xAxisTickFormat = ({ item, previousItem, tick }) =>
       graphCardHelpers.xAxisTickFormat({
@@ -69,7 +69,7 @@ class GraphCard extends React.Component {
       graphCardHelpers.getTooltips({
         itemsByKey,
         granularity: graphGranularity,
-        product: translateProduct
+        product: productShortLabel
       });
 
     const chartAreaProps = {
@@ -89,7 +89,7 @@ class GraphCard extends React.Component {
             duration: 250,
             onLoad: { duration: 250 }
           },
-          legendLabel: t(`curiosity-graph.${key}Label`, { product: translateProduct }),
+          legendLabel: t(`curiosity-graph.${key}Label`, { product: productShortLabel }),
           isStacked: key !== 'threshold',
           isThreshold: key === 'threshold'
         };
@@ -177,7 +177,7 @@ GraphCard.propTypes = {
   productId: PropTypes.string,
   selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
-  translateProduct: PropTypes.string,
+  productShortLabel: PropTypes.string,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date)
 };
@@ -194,7 +194,7 @@ GraphCard.defaultProps = {
   productId: rhsmApiTypes.RHSM_API_PATH_ID_TYPES.RHEL,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,
-  translateProduct: 'RHEL',
+  productShortLabel: '',
   startDate: dateHelpers.defaultDateTime.startDate,
   endDate: dateHelpers.defaultDateTime.endDate
 };
