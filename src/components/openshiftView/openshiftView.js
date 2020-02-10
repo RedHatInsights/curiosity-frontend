@@ -30,6 +30,7 @@ class OpenshiftView extends React.Component {
             productId={routeDetail.pathParameter}
             cardTitle={t('curiosity-graph.coresHeading')}
             errorRoute={routeDetail.errorRoute}
+            productShortLabel="OpenShift"
           />
         </PageSection>
       </PageLayout>

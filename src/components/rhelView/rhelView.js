@@ -33,6 +33,7 @@ class RhelView extends React.Component {
             productId={routeDetail.pathParameter}
             cardTitle={t('curiosity-graph.socketsHeading')}
             errorRoute={routeDetail.errorRoute}
+            productShortLabel="RHEL"
           />
         </PageSection>
       </PageLayout>
