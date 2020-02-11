@@ -214,4 +214,73 @@ describe('ReduxHelpers', () => {
       )
     ).toMatchSnapshot('dont reset state object');
   });
+
+  it('should automate creating general promise action reducers', () => {
+    const state = {};
+    const action = {
+      type: reduxHelpers.FULFILLED_ACTION('DOLOR'),
+      payload: {
+        headers: {
+          date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+        },
+        status: 200,
+        statusText: 'OK',
+        data: { lorem: 'ipsum', dolor: 'sit' }
+      }
+    };
+
+    const fulfilledState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
+
+    action.type = reduxHelpers.PENDING_ACTION('DOLOR');
+    action.payload = {};
+
+    const pendingState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
+
+    action.type = reduxHelpers.REJECTED_ACTION('DOLOR');
+    action.payload = {
+      status: 400,
+      statusText: 'Bad Request',
+      data: { hello: 'world' },
+      message: 'Request failed with status code 400'
+    };
+
+    const rejectedState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
+
+    expect({
+      rejectedState,
+      pendingState,
+      fulfilledState
+    }).toMatchSnapshot('generatedPromiseActionReducer basic updated state');
+  });
+
+  it('should automate creating promise action reducers with meta data', () => {
+    const state = {};
+    const action = {
+      type: reduxHelpers.FULFILLED_ACTION('DOLOR'),
+      meta: {
+        query: { test: 'query' },
+        data: 'test data',
+        test: 'test property'
+      },
+      payload: {
+        headers: {
+          date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+        },
+        status: 200,
+        statusText: 'OK',
+        data: { lorem: 'ipsum', dolor: 'sit' }
+      }
+    };
+
+    const fulfilledState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
+
+    action.meta.id = 'test id';
+
+    const appliedMetaIdFulfilledState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
+
+    expect({
+      fulfilledState,
+      appliedMetaIdFulfilledState
+    }).toMatchSnapshot('generatedPromiseActionReducer passed meta data');
+  });
 });
