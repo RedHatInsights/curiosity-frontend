@@ -1,6 +1,5 @@
 import { reduxTypes, rhsmTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
-import { dateHelpers } from '../../common/dateHelpers';
 
 const initialState = {
   capacity: {},
@@ -15,12 +14,13 @@ const graphReducer = (state = initialState, action) => {
       return reduxHelpers.setStateProp(
         'component',
         {
-          graphGranularity: action.graphGranularity,
-          ...dateHelpers.getRangedDateTime(action.graphGranularity)
+          [action.viewId]: {
+            graphGranularity: action.graphGranularity
+          }
         },
         {
           state,
-          initialState
+          reset: false
         }
       );
 

@@ -18,6 +18,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
         options={
           Array [
             Object {
+              "selected": true,
               "title": "t(curiosity-graph.dropdownDaily)",
               "value": "daily",
             },
@@ -36,7 +37,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
+        selectedOptions={null}
         variant="single"
       />
     </CardActions>
@@ -124,6 +125,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
         options={
           Array [
             Object {
+              "selected": true,
               "title": "t(curiosity-graph.dropdownDaily)",
               "value": "daily",
             },
@@ -142,7 +144,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
+        selectedOptions={null}
         variant="single"
       />
     </CardActions>
@@ -226,6 +228,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
         options={
           Array [
             Object {
+              "selected": true,
               "title": "t(curiosity-graph.dropdownDaily)",
               "value": "daily",
             },
@@ -244,7 +247,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
+        selectedOptions={null}
         variant="single"
       />
     </CardActions>
@@ -328,6 +331,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
         options={
           Array [
             Object {
+              "selected": true,
               "title": "t(curiosity-graph.dropdownDaily)",
               "value": "daily",
             },
@@ -346,7 +350,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
+        selectedOptions={null}
         variant="single"
       />
     </CardActions>
@@ -430,6 +434,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
         options={
           Array [
             Object {
+              "selected": true,
               "title": "t(curiosity-graph.dropdownDaily)",
               "value": "daily",
             },
@@ -448,7 +453,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
+        selectedOptions={null}
         variant="single"
       />
     </CardActions>

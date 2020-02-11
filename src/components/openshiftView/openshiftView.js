@@ -28,8 +28,8 @@ class OpenshiftView extends React.Component {
               { id: 'threshold' }
             ]}
             productId={routeDetail.pathParameter}
+            viewId={routeDetail.pathId}
             cardTitle={t('curiosity-graph.coresHeading')}
-            errorRoute={routeDetail.errorRoute}
             productShortLabel="OpenShift"
           />
         </PageSection>
@@ -41,18 +41,15 @@ class OpenshiftView extends React.Component {
 OpenshiftView.propTypes = {
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
+    pathId: PropTypes.string.isRequired,
     routeItem: PropTypes.shape({
       title: PropTypes.string
-    }),
-    errorRoute: PropTypes.shape({
-      to: PropTypes.string
     })
-  }),
+  }).isRequired,
   t: PropTypes.func
 };
 
 OpenshiftView.defaultProps = {
-  routeDetail: {},
   t: helpers.noopTranslate
 };
 

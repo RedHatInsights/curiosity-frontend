@@ -14,7 +14,7 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:31
+#: src/components/openshiftView/openshiftView.js:32
 msgid \\"curiosity-graph.coresHeading\\"
 msgstr \\"\\"
 
@@ -22,24 +22,24 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dateLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:7
+#: src/components/graphCard/graphCardTypes.js:9
 msgid \\"curiosity-graph.dropdownDaily\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:9
+#: src/components/graphCard/graphCardTypes.js:11
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:130
-#: src/components/graphCard/graphCard.js:134
+#: src/components/graphCard/graphCard.js:139
+#: src/components/graphCard/graphCard.js:143
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:10
+#: src/components/graphCard/graphCardTypes.js:12
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:8
+#: src/components/graphCard/graphCardTypes.js:10
 msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
@@ -47,7 +47,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelView/rhelView.js:34
+#: src/components/rhelView/rhelView.js:35
 msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 

@@ -23,6 +23,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="OpenShift"
+      viewId="test_id"
     />
   </PageSection>
 </PageLayout>
@@ -51,6 +52,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="OpenShift"
+      viewId="test_id"
     />
   </PageSection>
 </PageLayout>

@@ -31,8 +31,8 @@ class RhelView extends React.Component {
               { id: 'threshold' }
             ]}
             productId={routeDetail.pathParameter}
+            viewId={routeDetail.pathId}
             cardTitle={t('curiosity-graph.socketsHeading')}
-            errorRoute={routeDetail.errorRoute}
             productShortLabel="RHEL"
           />
         </PageSection>
@@ -44,18 +44,15 @@ class RhelView extends React.Component {
 RhelView.propTypes = {
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
+    pathId: PropTypes.string.isRequired,
     routeItem: PropTypes.shape({
       title: PropTypes.string
-    }),
-    errorRoute: PropTypes.shape({
-      to: PropTypes.string
     })
-  }),
+  }).isRequired,
   t: PropTypes.func
 };
 
 RhelView.defaultProps = {
-  routeDetail: {},
   t: helpers.noopTranslate
 };
 
