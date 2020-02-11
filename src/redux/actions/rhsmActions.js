@@ -6,7 +6,7 @@ const getGraphReportsCapacity = (id = null, query = {}) => dispatch =>
     type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM,
     payload: Promise.all([rhsmServices.getGraphReports(id, query), rhsmServices.getGraphCapacity(id, query)]),
     meta: {
-      data: { id },
+      id,
       query,
       notifications: {
         rejected: {
@@ -23,7 +23,7 @@ const getGraphReports = (id = null, query = {}) => dispatch =>
     type: rhsmTypes.GET_GRAPH_REPORT_RHSM,
     payload: rhsmServices.getGraphReports(id, query),
     meta: {
-      data: { id },
+      id,
       query,
       notifications: {
         rejected: {
@@ -40,7 +40,7 @@ const getGraphCapacity = (id = null, query = {}) => dispatch =>
     type: rhsmTypes.GET_GRAPH_CAPACITY_RHSM,
     payload: rhsmServices.getGraphCapacity(id, query),
     meta: {
-      data: { id },
+      id,
       query,
       notifications: {
         rejected: {

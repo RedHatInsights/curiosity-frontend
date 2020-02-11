@@ -209,9 +209,9 @@ Object {
   "result": Object {
     "capacity": Object {},
     "component": Object {
-      "endDate": 2019-07-20T23:59:59.999Z,
-      "graphGranularity": undefined,
-      "startDate": 2019-06-20T00:00:00.000Z,
+      "dolor id": Object {
+        "graphGranularity": "lorem granularity",
+      },
     },
     "report": Object {},
     "reportCapacity": Object {},

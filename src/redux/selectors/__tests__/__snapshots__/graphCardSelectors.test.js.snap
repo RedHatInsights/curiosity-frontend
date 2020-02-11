@@ -2,9 +2,9 @@
 
 exports[`GraphCardSelectors should error on a product ID without a product ID provided: rhelGraphCard: no product id error 1`] = `
 Object {
-  "error": true,
-  "errorStatus": null,
-  "fulfilled": false,
+  "error": undefined,
+  "errorStatus": undefined,
+  "fulfilled": undefined,
   "graphData": Object {
     "cores": Array [],
     "hypervisorCores": Array [],
@@ -15,15 +15,15 @@ Object {
     "threshold": Array [],
   },
   "initialLoad": true,
-  "pending": false,
+  "pending": undefined,
 }
 `;
 
 exports[`GraphCardSelectors should error on a product ID without granularity provided: rhelGraphCard: no granularity error 1`] = `
 Object {
-  "error": true,
-  "errorStatus": null,
-  "fulfilled": false,
+  "error": undefined,
+  "errorStatus": undefined,
+  "fulfilled": undefined,
   "graphData": Object {
     "cores": Array [],
     "hypervisorCores": Array [],
@@ -34,15 +34,15 @@ Object {
     "threshold": Array [],
   },
   "initialLoad": true,
-  "pending": false,
+  "pending": undefined,
 }
 `;
 
 exports[`GraphCardSelectors should error on missing a reducer response: rhelGraphCard: missing reducer error 1`] = `
 Object {
-  "error": true,
-  "errorStatus": null,
-  "fulfilled": false,
+  "error": undefined,
+  "errorStatus": undefined,
+  "fulfilled": undefined,
   "graphData": Object {
     "cores": Array [],
     "hypervisorCores": Array [],
@@ -53,15 +53,15 @@ Object {
     "threshold": Array [],
   },
   "initialLoad": true,
-  "pending": false,
+  "pending": undefined,
 }
 `;
 
 exports[`GraphCardSelectors should handle pending state on a product ID: rhelGraphCard: pending 1`] = `
 Object {
-  "error": false,
-  "errorStatus": null,
-  "fulfilled": false,
+  "error": undefined,
+  "errorStatus": undefined,
+  "fulfilled": undefined,
   "graphData": Object {
     "cores": Array [],
     "hypervisorCores": Array [],
@@ -71,6 +71,7 @@ Object {
     "sockets": Array [],
     "threshold": Array [],
   },
+  "graphGranularity": "daily",
   "initialLoad": true,
   "pending": true,
 }
@@ -78,9 +79,8 @@ Object {
 
 exports[`GraphCardSelectors should map a fulfilled product ID response to an aggregated output: rhelGraphCard: fulfilled granularity 1`] = `
 Object {
-  "endDate": 2019-07-20T23:59:59.999Z,
-  "error": false,
-  "errorStatus": null,
+  "error": undefined,
+  "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
     "cores": Array [
@@ -206,14 +206,13 @@ Object {
   "graphGranularity": "daily",
   "initialLoad": false,
   "pending": false,
-  "startDate": 2019-06-20T00:00:00.000Z,
 }
 `;
 
 exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: ERROR, no component reportCapacity mismatch 1`] = `
 Object {
-  "error": false,
-  "errorStatus": null,
+  "error": undefined,
+  "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
     "cores": Array [
@@ -273,69 +272,8 @@ Object {
 
 exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: cached data 1`] = `
 Object {
-  "error": false,
-  "errorStatus": null,
-  "fulfilled": true,
-  "graphData": Object {
-    "cores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 2,
-      },
-    ],
-    "hypervisorCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "hypervisorSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "physicalCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "physicalSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "sockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 2,
-      },
-    ],
-    "threshold": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 100,
-      },
-    ],
-  },
-  "initialLoad": false,
-  "pending": true,
-}
-`;
-
-exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: component and reportCapacity match 1`] = `
-Object {
-  "error": false,
-  "errorStatus": null,
+  "error": undefined,
+  "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
     "cores": Array [
@@ -390,15 +328,76 @@ Object {
   },
   "graphGranularity": "daily",
   "initialLoad": false,
-  "pending": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: component and reportCapacity match 1`] = `
+Object {
+  "error": undefined,
+  "errorStatus": undefined,
+  "fulfilled": true,
+  "graphData": Object {
+    "cores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "hypervisorCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "threshold": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 100,
+      },
+    ],
+  },
+  "graphGranularity": "daily",
+  "initialLoad": false,
+  "pending": false,
 }
 `;
 
 exports[`GraphCardSelectors should populate data on a product ID when the api response is missing expected properties: rhelGraphCard: data populated, missing properties 1`] = `
 Object {
-  "endDate": 2019-07-20T23:59:59.999Z,
-  "error": false,
-  "errorStatus": null,
+  "error": undefined,
+  "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
     "cores": Array [
@@ -524,15 +523,13 @@ Object {
   "graphGranularity": "daily",
   "initialLoad": false,
   "pending": false,
-  "startDate": 2019-06-20T00:00:00.000Z,
 }
 `;
 
 exports[`GraphCardSelectors should populate data on a product ID when the api response provided mismatches index or date: rhelGraphCard: data populated on mismatch fulfilled 1`] = `
 Object {
-  "endDate": 2019-07-20T23:59:59.999Z,
-  "error": false,
-  "errorStatus": null,
+  "error": undefined,
+  "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
     "cores": Array [
@@ -588,7 +585,6 @@ Object {
   "graphGranularity": "daily",
   "initialLoad": false,
   "pending": false,
-  "startDate": 2019-06-20T00:00:00.000Z,
 }
 `;
 

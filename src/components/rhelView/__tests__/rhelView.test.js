@@ -6,6 +6,7 @@ describe('RhelView Component', () => {
   it('should render a non-connected component', () => {
     const props = {
       routeDetail: {
+        pathId: 'test_id',
         pathParameter: 'lorem ipsum',
         routeItem: {
           title: 'Dolor sit'
@@ -20,6 +21,7 @@ describe('RhelView Component', () => {
   it('should have a fallback title', () => {
     const props = {
       routeDetail: {
+        pathId: 'test_id',
         pathParameter: 'lorem ipsum'
       }
     };
