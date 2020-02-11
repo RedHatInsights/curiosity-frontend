@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ReduxHelpers should automate creating general promise action reducers: generatedPromiseActionReducer basic updated state 1`] = `
+Object {
+  "fulfilledState": Object {
+    "data": Object {
+      "dolor": "sit",
+      "lorem": "ipsum",
+    },
+    "date": "Tue, 11 Feb 2020 15:27:16 GMT",
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": true,
+    "metaData": undefined,
+    "metaId": undefined,
+    "metaQuery": undefined,
+    "pending": false,
+    "update": false,
+  },
+  "pendingState": Object {
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": false,
+    "metaData": undefined,
+    "metaId": undefined,
+    "metaQuery": undefined,
+    "pending": true,
+    "update": false,
+  },
+  "rejectedState": Object {
+    "error": true,
+    "errorMessage": "Request failed with status code 400",
+    "errorStatus": 400,
+    "fulfilled": false,
+    "metaData": undefined,
+    "metaId": undefined,
+    "metaQuery": undefined,
+    "pending": false,
+    "update": false,
+  },
+}
+`;
+
+exports[`ReduxHelpers should automate creating promise action reducers with meta data: generatedPromiseActionReducer passed meta data 1`] = `
+Object {
+  "appliedMetaIdFulfilledState": Object {
+    "test id": Object {
+      "data": Object {
+        "dolor": "sit",
+        "lorem": "ipsum",
+      },
+      "date": "Tue, 11 Feb 2020 15:27:16 GMT",
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "metaData": "test data",
+      "metaId": "test id",
+      "metaQuery": Object {
+        "test": "query",
+      },
+      "pending": false,
+      "update": false,
+    },
+  },
+  "fulfilledState": Object {
+    "data": Object {
+      "dolor": "sit",
+      "lorem": "ipsum",
+    },
+    "date": "Tue, 11 Feb 2020 15:27:16 GMT",
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": true,
+    "metaData": "test data",
+    "metaId": undefined,
+    "metaQuery": Object {
+      "test": "query",
+    },
+    "pending": false,
+    "update": false,
+  },
+}
+`;
+
 exports[`ReduxHelpers should get a date from a service call response: ARRAY date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
 
 exports[`ReduxHelpers should get a date from a service call response: date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
