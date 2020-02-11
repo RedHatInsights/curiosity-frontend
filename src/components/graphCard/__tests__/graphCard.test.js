@@ -5,7 +5,7 @@ import { GraphCard } from '../graphCard';
 
 describe('GraphCard Component', () => {
   it('should render a non-connected component', () => {
-    const props = {};
+    const props = { productId: 'lorem' };
     const component = shallow(<GraphCard {...props} />);
 
     expect(component).toMatchSnapshot('non-connected');
@@ -13,6 +13,7 @@ describe('GraphCard Component', () => {
 
   it('should render multiple states', () => {
     const props = {
+      productId: 'lorem',
       startDate: new Date('2019-06-01T00:00:00Z'),
       endDate: new Date('2019-06-30T23:59:59Z'),
       graphData: {

@@ -3,37 +3,44 @@ import moment from 'moment';
 import _get from 'lodash/get';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 
-const graphCardCache = {};
+const graphCardCache = { dataId: null, data: {} };
 
-const graph = state => state.graph;
+const graphComponent = (state, props = {}) => ({ ..._get(state, ['graph', 'component', props.viewId]) });
+
+const graphResponse = (state, props = {}) => ({
+  ..._get(state, ['graph', 'reportCapacity', props.productId]),
+  ...{ viewId: props.viewId }
+});
 
 const graphCardSelector = createSelector(
-  [graph],
-  graphReducer => {
-    const { component = {}, reportCapacity = {} } = graphReducer || {};
+  [graphResponse, graphComponent],
+  (response, component) => {
+    const { viewId = null, metaId = null, metaQuery = {}, ...responseData } = response || {};
 
-    const graphGranularity = component.graphGranularity || null;
-    const reportCapacityGranularity = _get(
-      reportCapacity,
-      ['metaQuery', rhsmApiTypes.RHSM_API_QUERY_GRANULARITY],
-      null
-    );
+    const productId = metaId;
+    const responseGranularity = metaQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY] || null;
 
-    const productId = _get(reportCapacity, ['metaData', 'id'], null);
     let granularity = null;
 
-    if (graphGranularity === reportCapacityGranularity) {
-      granularity = reportCapacityGranularity;
+    if (component.graphGranularity === responseGranularity || (!component.graphGranularity && responseData.fulfilled)) {
+      granularity = responseGranularity;
     }
 
-    const cachedGranularity = (granularity && productId && graphCardCache[`${productId}_${granularity}`]) || {};
+    const cachedGranularity =
+      (viewId && granularity && productId && graphCardCache.data[`${viewId}_${productId}_${granularity}`]) || {};
     const initialLoad = typeof cachedGranularity.initialLoad === 'boolean' ? cachedGranularity.initialLoad : true;
 
-    const updatedData = {
-      error: false,
-      errorStatus: null,
-      fulfilled: false,
-      pending: false,
+    if (viewId && graphCardCache.dataId !== viewId) {
+      graphCardCache.dataId = viewId;
+      graphCardCache.data = {};
+    }
+
+    const updatedResponseData = {
+      ...component,
+      error: responseData.error,
+      errorStatus: responseData.errorStatus,
+      fulfilled: responseData.fulfilled,
+      pending: responseData.pending,
       initialLoad,
       graphData: {
         cores: [],
@@ -44,37 +51,28 @@ const graphCardSelector = createSelector(
         sockets: [],
         threshold: []
       },
-      ...cachedGranularity,
-      ...component
+      ...cachedGranularity
     };
 
-    if (initialLoad && granularity === null) {
-      granularity = reportCapacityGranularity;
-    }
-
-    if (granularity === null || productId === null) {
-      updatedData.error = true;
-      return updatedData;
+    if (productId === null || granularity === null) {
+      return updatedResponseData;
     }
 
     if (initialLoad) {
-      updatedData.pending = reportCapacity.pending || false;
+      updatedResponseData.pending = responseData.pending || false;
     }
 
-    updatedData.error = reportCapacity.error || false;
-    updatedData.errorStatus = reportCapacity.errorStatus || null;
+    if (responseData.fulfilled && granularity && productId) {
+      const productsData = _get(responseData.data[0], [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
+      const thresholdData = _get(responseData.data[1], [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
-    if (reportCapacity.fulfilled && granularity && productId) {
-      const productsData = _get(reportCapacity.data[0], [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
-      const thresholdData = _get(reportCapacity.data[1], [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
-
-      updatedData.graphData.cores.length = 0;
-      updatedData.graphData.hypervisorCores.length = 0;
-      updatedData.graphData.hypervisorSockets.length = 0;
-      updatedData.graphData.physicalCores.length = 0;
-      updatedData.graphData.physicalSockets.length = 0;
-      updatedData.graphData.sockets.length = 0;
-      updatedData.graphData.threshold.length = 0;
+      updatedResponseData.graphData.cores.length = 0;
+      updatedResponseData.graphData.hypervisorCores.length = 0;
+      updatedResponseData.graphData.hypervisorSockets.length = 0;
+      updatedResponseData.graphData.physicalCores.length = 0;
+      updatedResponseData.graphData.physicalSockets.length = 0;
+      updatedResponseData.graphData.sockets.length = 0;
+      updatedResponseData.graphData.threshold.length = 0;
 
       productsData.forEach((value, index) => {
         const date = moment
@@ -95,43 +93,43 @@ const graphCardSelector = createSelector(
           return moment(date).isSame(itemDate);
         };
 
-        updatedData.graphData.cores.push({
+        updatedResponseData.graphData.cores.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES], 10) || 0
         });
 
-        updatedData.graphData.hypervisorCores.push({
+        updatedResponseData.graphData.hypervisorCores.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES], 10) || 0
         });
 
-        updatedData.graphData.hypervisorSockets.push({
+        updatedResponseData.graphData.hypervisorSockets.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
         });
 
-        updatedData.graphData.physicalCores.push({
+        updatedResponseData.graphData.physicalCores.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES], 10) || 0
         });
 
-        updatedData.graphData.physicalSockets.push({
+        updatedResponseData.graphData.physicalSockets.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10) || 0
         });
 
-        updatedData.graphData.sockets.push({
+        updatedResponseData.graphData.sockets.push({
           date,
           x: index,
           y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS], 10) || 0
         });
 
-        updatedData.graphData.threshold.push({
+        updatedResponseData.graphData.threshold.push({
           date,
           x: index,
           y: Number.parseInt(
@@ -143,12 +141,11 @@ const graphCardSelector = createSelector(
         });
       });
 
-      updatedData.initialLoad = false;
-      updatedData.fulfilled = true;
-      graphCardCache[`${productId}_${granularity}`] = { ...updatedData };
+      updatedResponseData.initialLoad = false;
+      graphCardCache.data[`${viewId}_${productId}_${granularity}`] = { ...updatedResponseData };
     }
 
-    return updatedData;
+    return updatedResponseData;
   }
 );
 

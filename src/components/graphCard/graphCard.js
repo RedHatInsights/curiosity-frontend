@@ -25,26 +25,32 @@ class GraphCard extends React.Component {
   }
 
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, graphGranularity, startDate, endDate, productId } = this.props;
-    const query = {
-      [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
-      [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
-      [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
-    };
+    const { getGraphReportsCapacity, graphGranularity, productId, selectOptionsType } = this.props;
 
     if (productId) {
+      const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
+      const updatedGranularity = graphGranularity || selected;
+
+      const { startDate, endDate } = dateHelpers.getRangedDateTime(updatedGranularity);
+      const query = {
+        [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: updatedGranularity,
+        [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
+        [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
+      };
+
       getGraphReportsCapacity(productId, query);
     }
   };
 
   onSelect = event => {
-    const { graphGranularity } = this.props;
+    const { graphGranularity, viewId } = this.props;
     const { value } = event;
 
     if (graphGranularity !== value) {
       store.dispatch({
         type: reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM,
-        graphGranularity: value
+        graphGranularity: value,
+        viewId
       });
     }
   };
@@ -54,26 +60,28 @@ class GraphCard extends React.Component {
    * @patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
    */
   renderChart() {
-    const { filterGraphData, graphData, graphGranularity, t, productShortLabel } = this.props;
+    const { filterGraphData, graphData, graphGranularity, selectOptionsType, t, productShortLabel } = this.props;
+    const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
+    const updatedGranularity = graphGranularity || selected;
 
     const xAxisTickFormat = ({ item, previousItem, tick }) =>
       graphCardHelpers.xAxisTickFormat({
         tick,
         date: item.date,
         previousDate: previousItem.date,
-        granularity: graphGranularity
+        granularity: updatedGranularity
       });
 
     const tooltips = ({ itemsByKey }) =>
       graphCardHelpers.getTooltips({
         itemsByKey,
-        granularity: graphGranularity,
+        granularity: updatedGranularity,
         product: productShortLabel
       });
 
     const chartAreaProps = {
       xAxisFixLabelOverlap: true,
-      xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(graphGranularity),
+      xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(updatedGranularity),
       xAxisTickFormat,
       yAxisTickFormat: graphCardHelpers.yAxisTickFormat,
       tooltips
@@ -113,13 +121,14 @@ class GraphCard extends React.Component {
 
       return Object.keys(data).map(key => filtered(key));
     };
+
     return <ChartArea key={helpers.generateId()} {...chartAreaProps} dataSets={filteredGraphData(graphData)} />;
   }
 
   // ToDo: combine "curiosity-skeleton-container" into a single class w/ --loading and BEM style
   render() {
     const { cardTitle, error, graphGranularity, selectOptionsType, pending, t } = this.props;
-    const getGranularityOptions = graphCardTypes.getGranularityOptions(selectOptionsType);
+    const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
 
     return (
       <Card className="curiosity-usage-graph fadein">
@@ -129,7 +138,7 @@ class GraphCard extends React.Component {
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
               onSelect={this.onSelect}
-              options={getGranularityOptions}
+              options={options}
               selectedOptions={graphGranularity}
               placeholder={t('curiosity-graph.dropdownPlaceholder')}
             />
@@ -165,19 +174,13 @@ GraphCard.propTypes = {
   ),
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
-  graphGranularity: PropTypes.oneOf([
-    GRANULARITY_TYPES.DAILY,
-    GRANULARITY_TYPES.WEEKLY,
-    GRANULARITY_TYPES.MONTHLY,
-    GRANULARITY_TYPES.QUARTERLY
-  ]),
+  graphGranularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
   pending: PropTypes.bool,
-  productId: PropTypes.string,
+  productId: PropTypes.string.isRequired,
   selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
   productShortLabel: PropTypes.string,
-  startDate: PropTypes.instanceOf(Date),
-  endDate: PropTypes.instanceOf(Date)
+  viewId: PropTypes.string
 };
 
 GraphCard.defaultProps = {
@@ -186,14 +189,12 @@ GraphCard.defaultProps = {
   filterGraphData: [],
   getGraphReportsCapacity: helpers.noop,
   graphData: {},
-  graphGranularity: GRANULARITY_TYPES.DAILY,
+  graphGranularity: null,
   pending: false,
-  productId: rhsmApiTypes.RHSM_API_PATH_ID_TYPES.RHEL,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,
   productShortLabel: '',
-  startDate: dateHelpers.defaultDateTime.startDate,
-  endDate: dateHelpers.defaultDateTime.endDate
+  viewId: 'graphCard'
 };
 
 const makeMapStateToProps = () => {

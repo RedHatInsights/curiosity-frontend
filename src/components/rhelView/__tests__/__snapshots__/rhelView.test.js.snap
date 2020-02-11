@@ -28,6 +28,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="RHEL"
+      viewId="test_id"
     />
   </PageSection>
 </PageLayout>
@@ -61,6 +62,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="RHEL"
+      viewId="test_id"
     />
   </PageSection>
 </PageLayout>

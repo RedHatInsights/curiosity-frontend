@@ -6,25 +6,33 @@ Object {
 }
 `;
 
-exports[`RhelGraphCardTypes should return an output for granularity selection: getGranularityOptionsType 1`] = `Array []`;
+exports[`RhelGraphCardTypes should return an output for granularity selection: getGranularityOptionsType 1`] = `
+Object {
+  "options": Array [],
+}
+`;
 
 exports[`RhelGraphCardTypes should return an output for granularity selection: getGranularityOptionsType:default 1`] = `
-Array [
-  Object {
-    "title": "t(curiosity-graph.dropdownDaily)",
-    "value": "daily",
-  },
-  Object {
-    "title": "t(curiosity-graph.dropdownWeekly)",
-    "value": "weekly",
-  },
-  Object {
-    "title": "t(curiosity-graph.dropdownMonthly)",
-    "value": "monthly",
-  },
-  Object {
-    "title": "t(curiosity-graph.dropdownQuarterly)",
-    "value": "quarterly",
-  },
-]
+Object {
+  "options": Array [
+    Object {
+      "selected": true,
+      "title": "t(curiosity-graph.dropdownDaily)",
+      "value": "daily",
+    },
+    Object {
+      "title": "t(curiosity-graph.dropdownWeekly)",
+      "value": "weekly",
+    },
+    Object {
+      "title": "t(curiosity-graph.dropdownMonthly)",
+      "value": "monthly",
+    },
+    Object {
+      "title": "t(curiosity-graph.dropdownQuarterly)",
+      "value": "quarterly",
+    },
+  ],
+  "selected": "daily",
+}
 `;

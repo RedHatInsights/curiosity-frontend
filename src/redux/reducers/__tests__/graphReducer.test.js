@@ -12,7 +12,9 @@ describe('GraphReducer', () => {
 
     specificTypes.forEach(value => {
       const dispatched = {
-        type: value
+        type: value,
+        graphGranularity: 'lorem granularity',
+        viewId: 'dolor id'
       };
 
       const resultState = graphReducer(undefined, dispatched);
