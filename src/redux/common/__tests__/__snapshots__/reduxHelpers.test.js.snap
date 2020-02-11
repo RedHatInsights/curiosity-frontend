@@ -11,32 +11,32 @@ Object {
     "error": false,
     "errorMessage": "",
     "fulfilled": true,
+    "meta": Object {},
     "metaData": undefined,
     "metaId": undefined,
     "metaQuery": undefined,
     "pending": false,
-    "update": false,
   },
   "pendingState": Object {
     "error": false,
     "errorMessage": "",
     "fulfilled": false,
+    "meta": Object {},
     "metaData": undefined,
     "metaId": undefined,
     "metaQuery": undefined,
     "pending": true,
-    "update": false,
   },
   "rejectedState": Object {
     "error": true,
     "errorMessage": "Request failed with status code 400",
     "errorStatus": 400,
     "fulfilled": false,
+    "meta": Object {},
     "metaData": undefined,
     "metaId": undefined,
     "metaQuery": undefined,
     "pending": false,
-    "update": false,
   },
 }
 `;
@@ -53,13 +53,15 @@ Object {
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
+      "meta": Object {
+        "test": "test property",
+      },
       "metaData": "test data",
       "metaId": "test id",
       "metaQuery": Object {
         "test": "query",
       },
       "pending": false,
-      "update": false,
     },
   },
   "fulfilledState": Object {
@@ -71,13 +73,15 @@ Object {
     "error": false,
     "errorMessage": "",
     "fulfilled": true,
+    "meta": Object {
+      "test": "test property",
+    },
     "metaData": "test data",
     "metaId": undefined,
     "metaQuery": Object {
       "test": "query",
     },
     "pending": false,
-    "update": false,
   },
 }
 `;

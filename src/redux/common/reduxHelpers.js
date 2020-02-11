@@ -139,15 +139,27 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
     return state;
   }
 
+  const expandMetaTypes = (meta = {}) => {
+    const updatedMeta = { ...meta };
+
+    delete updatedMeta.data;
+    delete updatedMeta.id;
+    delete updatedMeta.query;
+
+    return {
+      meta: { ...updatedMeta },
+      metaData: meta.data,
+      metaId: meta.id,
+      metaQuery: meta.query
+    };
+  };
+
   const baseState = {
     error: false,
     errorMessage: '',
     fulfilled: false,
-    metaData: action.meta && action.meta.data,
-    metaId: action.meta && action.meta.id,
-    metaQuery: action.meta && action.meta.query,
     pending: false,
-    update: false
+    ...expandMetaTypes(action.meta)
   };
 
   const setId = data =>
