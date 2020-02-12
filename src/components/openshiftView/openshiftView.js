@@ -25,7 +25,7 @@ class OpenshiftView extends React.Component {
             key={routeDetail.pathParameter}
             filterGraphData={[
               { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
-              { id: 'threshold' }
+              { id: 'thresholdCores' }
             ]}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
