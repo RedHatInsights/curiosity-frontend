@@ -20,19 +20,19 @@ Object {
 
 exports[`GraphCardHelpers getTooltips should return a formatted tooltip based on data and granularity: granularity data display 1`] = `
 Object {
-  "daily": "t(curiosity-graph.thresholdLabel, [object Object]): 100
+  "daily": "t(curiosity-graph.thresholdLabel): 100
 t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
 t(curiosity-graph.physicalSocketsLabel, [object Object]): 50
 t(curiosity-graph.dateLabel): June 1",
-  "monthly": "t(curiosity-graph.thresholdLabel, [object Object]): 100
+  "monthly": "t(curiosity-graph.thresholdLabel): 100
 t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
 t(curiosity-graph.physicalSocketsLabel, [object Object]): 50
 t(curiosity-graph.dateLabel): June 2019",
-  "quarterly": "t(curiosity-graph.thresholdLabel, [object Object]): 100
+  "quarterly": "t(curiosity-graph.thresholdLabel): 100
 t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
 t(curiosity-graph.physicalSocketsLabel, [object Object]): 50
 t(curiosity-graph.dateLabel): June 2019",
-  "weekly": "t(curiosity-graph.thresholdLabel, [object Object]): 100
+  "weekly": "t(curiosity-graph.thresholdLabel): 100
 t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
 t(curiosity-graph.physicalSocketsLabel, [object Object]): 50
 t(curiosity-graph.dateLabel): June 1",

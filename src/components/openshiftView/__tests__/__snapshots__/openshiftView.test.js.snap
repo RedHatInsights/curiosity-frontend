@@ -16,7 +16,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
             "stroke": "#06c",
           },
           Object {
-            "id": "threshold",
+            "id": "thresholdCores",
           },
         ]
       }
@@ -45,7 +45,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
             "stroke": "#06c",
           },
           Object {
-            "id": "threshold",
+            "id": "thresholdCores",
           },
         ]
       }
