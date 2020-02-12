@@ -377,7 +377,7 @@ ChartArea.propTypes = {
       data: PropTypes.arrayOf(
         PropTypes.shape({
           x: PropTypes.number.isRequired,
-          y: PropTypes.number.isRequired,
+          y: PropTypes.number,
           tooltip: PropTypes.string,
           xAxisLabel: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)])
         })

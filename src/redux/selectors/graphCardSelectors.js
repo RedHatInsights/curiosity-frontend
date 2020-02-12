@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
 import _get from 'lodash/get';
+import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 
 const graphCardCache = { dataId: null, data: {} };
@@ -9,135 +10,106 @@ const graphComponent = (state, props = {}) => ({ ..._get(state, ['graph', 'compo
 
 const graphResponse = (state, props = {}) => ({
   ..._get(state, ['graph', 'reportCapacity', props.productId]),
-  ...{ viewId: props.viewId }
+  ...{ viewId: props.viewId, productId: props.productId }
 });
 
 const graphCardSelector = createSelector(
   [graphResponse, graphComponent],
   (response, component) => {
-    const { viewId = null, metaId = null, metaQuery = {}, ...responseData } = response || {};
+    const { viewId = null, productId = null, metaQuery = {}, ...responseData } = response || {};
 
-    const productId = metaId;
+    const updatedResponseData = {
+      ...component,
+      error: responseData.error || false,
+      errorStatus: responseData.errorStatus,
+      fulfilled: responseData.fulfilled || false,
+      pending: responseData.pending || false,
+      graphData: {},
+      syncing: false
+    };
+
     const responseGranularity = metaQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY] || null;
-
     let granularity = null;
 
     if (component.graphGranularity === responseGranularity || (!component.graphGranularity && responseData.fulfilled)) {
       granularity = responseGranularity;
     }
 
+    if (!granularity && responseData.fulfilled) {
+      updatedResponseData.syncing = true;
+    }
+
     const cachedGranularity =
-      (viewId && granularity && productId && graphCardCache.data[`${viewId}_${productId}_${granularity}`]) || {};
-    const initialLoad = typeof cachedGranularity.initialLoad === 'boolean' ? cachedGranularity.initialLoad : true;
+      (granularity && viewId && productId && graphCardCache.data[`${viewId}_${productId}_${granularity}`]) || {};
+    const initialLoad = 'initialLoad' in cachedGranularity ? cachedGranularity.initialLoad : true;
+
+    Object.assign(updatedResponseData, { initialLoad, ...cachedGranularity });
 
     if (viewId && graphCardCache.dataId !== viewId) {
       graphCardCache.dataId = viewId;
       graphCardCache.data = {};
     }
 
-    const updatedResponseData = {
-      ...component,
-      error: responseData.error,
-      errorStatus: responseData.errorStatus,
-      fulfilled: responseData.fulfilled,
-      pending: responseData.pending,
-      initialLoad,
-      graphData: {
-        cores: [],
-        hypervisorCores: [],
-        hypervisorSockets: [],
-        physicalCores: [],
-        physicalSockets: [],
-        sockets: [],
-        threshold: []
-      },
-      ...cachedGranularity
-    };
-
-    if (productId === null || granularity === null) {
-      return updatedResponseData;
-    }
-
-    if (initialLoad) {
-      updatedResponseData.pending = responseData.pending || false;
-    }
-
     if (responseData.fulfilled && granularity && productId) {
-      const productsData = _get(responseData.data[0], [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
-      const thresholdData = _get(responseData.data[1], [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
+      const [report, capacity] = responseData.data;
+      const reportData = _get(report, [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
+      const capacityData = _get(capacity, [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
 
-      updatedResponseData.graphData.cores.length = 0;
-      updatedResponseData.graphData.hypervisorCores.length = 0;
-      updatedResponseData.graphData.hypervisorSockets.length = 0;
-      updatedResponseData.graphData.physicalCores.length = 0;
-      updatedResponseData.graphData.physicalSockets.length = 0;
-      updatedResponseData.graphData.sockets.length = 0;
-      updatedResponseData.graphData.threshold.length = 0;
+      /**
+       * ToDo: Reevaluate this reset on graphData when working with Reselect's memoize.
+       * Creating a new object i.e. updatedResponseData.graphData = {}; causes an update,
+       * which in turn causes the graph to reload and flash.
+       */
+      Object.keys(updatedResponseData.graphData).forEach(graphDataKey => {
+        updatedResponseData.graphData[graphDataKey] = [];
+      });
 
-      productsData.forEach((value, index) => {
+      const tallySchema = {};
+      const capacitySchema = {};
+
+      Object.values(rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES).forEach(value => {
+        tallySchema[value] = undefined;
+      });
+      Object.values(rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES).forEach(value => {
+        capacitySchema[value] = undefined;
+      });
+
+      reportData.forEach((value, index) => {
         const date = moment
           .utc(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
           .startOf('day')
           .toDate();
 
-        const checkThresholdDate = item => {
-          if (!item) {
-            return false;
-          }
+        const generateGraphData = ({ graphDataObj, keyPrefix = '' }) => {
+          Object.keys(graphDataObj).forEach(graphDataObjKey => {
+            const casedGraphDataObjKey = _camelCase(`${keyPrefix} ${graphDataObjKey}`).trim();
 
-          const itemDate = moment
-            .utc(item[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE])
-            .startOf('day')
-            .toDate();
+            if (!updatedResponseData.graphData[casedGraphDataObjKey]) {
+              updatedResponseData.graphData[casedGraphDataObjKey] = [];
+            }
 
-          return moment(date).isSame(itemDate);
+            let generatedY;
+
+            if (typeof graphDataObj[graphDataObjKey] === 'number') {
+              generatedY = Number.parseInt(graphDataObj[graphDataObjKey], 10);
+            } else if (graphDataObj[graphDataObjKey] === undefined) {
+              generatedY = 0;
+            } else {
+              generatedY = graphDataObj[graphDataObjKey];
+            }
+
+            updatedResponseData.graphData[casedGraphDataObjKey][index] = {
+              date,
+              x: index,
+              y: generatedY
+            };
+          });
         };
 
-        updatedResponseData.graphData.cores.push({
-          date,
-          x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES], 10) || 0
-        });
-
-        updatedResponseData.graphData.hypervisorCores.push({
-          date,
-          x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES], 10) || 0
-        });
-
-        updatedResponseData.graphData.hypervisorSockets.push({
-          date,
-          x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS], 10) || 0
-        });
-
-        updatedResponseData.graphData.physicalCores.push({
-          date,
-          x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES], 10) || 0
-        });
-
-        updatedResponseData.graphData.physicalSockets.push({
-          date,
-          x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS], 10) || 0
-        });
-
-        updatedResponseData.graphData.sockets.push({
-          date,
-          x: index,
-          y: Number.parseInt(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS], 10) || 0
-        });
-
-        updatedResponseData.graphData.threshold.push({
-          date,
-          x: index,
-          y: Number.parseInt(
-            (checkThresholdDate(thresholdData && thresholdData[index]) &&
-              thresholdData[index][rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]) ||
-              0,
-            10
-          )
+        generateGraphData({ graphDataObj: { ...tallySchema, ...value } });
+        generateGraphData({
+          graphDataObj: { ...capacitySchema, ...capacityData[index] },
+          keyPrefix: 'threshold'
         });
       });
 

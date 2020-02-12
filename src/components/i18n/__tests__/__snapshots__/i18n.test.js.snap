@@ -30,8 +30,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:139
-#: src/components/graphCard/graphCard.js:143
+#: src/components/graphCard/graphCard.js:140
+#: src/components/graphCard/graphCard.js:144
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -49,6 +49,11 @@ msgstr \\"\\"
 
 #: src/components/rhelView/rhelView.js:35
 msgid \\"curiosity-graph.socketsHeading\\"
+msgstr \\"\\"
+
+#: src/components/graphCard/graphCard.js:112
+#: src/components/graphCard/graphCardHelpers.js:81
+msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
 #: src/components/tourView/tourView.js:50

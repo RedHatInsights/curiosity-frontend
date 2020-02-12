@@ -7,8 +7,8 @@ import {
   chart_color_cyan_100 as chartColorCyanLight,
   chart_color_cyan_300 as chartColorCyanDark
 } from '@patternfly/react-tokens';
-import GraphCard from '../graphCard/graphCard';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
+import GraphCard from '../graphCard/graphCard';
 import { helpers } from '../../common';
 
 class RhelView extends React.Component {
@@ -28,7 +28,7 @@ class RhelView extends React.Component {
             filterGraphData={[
               { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
               { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
-              { id: 'threshold' }
+              { id: 'thresholdSockets' }
             ]}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}

@@ -77,8 +77,8 @@ const getTooltips = ({ itemsByKey, granularity, product = '' }) => {
     }
 
     if (itemsByKey[key].y) {
-      if (key === 'threshold') {
-        thresholdString = `${translate(`curiosity-graph.${key}Label`, { product })}: ${itemsByKey[key].y}\n`;
+      if (/^threshold/.test(key)) {
+        thresholdString = `${translate(`curiosity-graph.thresholdLabel`)}: ${itemsByKey[key].y}\n`;
       } else {
         dataFacets.push(`${translate(`curiosity-graph.${key}Label`, { product })}: ${itemsByKey[key].y}\n`);
       }
