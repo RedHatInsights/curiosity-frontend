@@ -7,12 +7,44 @@ import {
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import GraphCard from '../graphCard/graphCard';
+import { Select } from '../select/select';
 import { helpers } from '../../common';
 
 class OpenshiftView extends React.Component {
-  componentDidMount() {}
+  state = {
+    option: null,
+    filters: []
+  };
+
+  componentDidMount() {
+    const { initialOption } = this.props;
+    this.onSelect({ value: initialOption });
+  }
+
+  onSelect = (event = {}) => {
+    const { option } = this.state;
+    const { initialFilters } = this.props;
+    const { value } = event;
+
+    if (value !== option) {
+      const filters = initialFilters.filter(val => new RegExp(value, 'i').test(val.id));
+      this.setState({
+        option,
+        filters
+      });
+    }
+  };
+
+  renderSelect() {
+    const { option } = this.state;
+    const { initialOption } = this.props;
+    const options = [{ title: 'Cores', value: 'cores' }, { title: 'Sockets', value: 'sockets' }];
+
+    return <Select onSelect={this.onSelect} options={options} selectedOptions={option || initialOption} />;
+  }
 
   render() {
+    const { filters } = this.state;
     const { routeDetail, t } = this.props;
 
     return (
@@ -23,15 +55,14 @@ class OpenshiftView extends React.Component {
         <PageSection>
           <GraphCard
             key={routeDetail.pathParameter}
-            filterGraphData={[
-              { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
-              { id: 'thresholdCores' }
-            ]}
+            filterGraphData={filters}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
-            cardTitle={t('curiosity-graph.coresHeading')}
+            cardTitle={t('curiosity-graph.cardHeading')}
             productShortLabel="OpenShift"
-          />
+          >
+            {this.renderSelect()}
+          </GraphCard>
         </PageSection>
       </PageLayout>
     );
@@ -39,6 +70,8 @@ class OpenshiftView extends React.Component {
 }
 
 OpenshiftView.propTypes = {
+  initialOption: PropTypes.oneOf(['cores', 'sockets']),
+  initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     pathId: PropTypes.string.isRequired,
@@ -50,6 +83,13 @@ OpenshiftView.propTypes = {
 };
 
 OpenshiftView.defaultProps = {
+  initialOption: 'cores',
+  initialFilters: [
+    { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
+    { id: 'sockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
+    { id: 'thresholdSockets' },
+    { id: 'thresholdCores' }
+  ],
   t: helpers.noopTranslate
 };
 

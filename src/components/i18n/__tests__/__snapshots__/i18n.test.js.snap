@@ -14,8 +14,9 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:32
-msgid \\"curiosity-graph.coresHeading\\"
+#: src/components/openshiftView/openshiftView.js:61
+#: src/components/rhelView/rhelView.js:31
+msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
 #: src/components/graphCard/graphCardHelpers.js:73
@@ -30,8 +31,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:140
-#: src/components/graphCard/graphCard.js:144
+#: src/components/graphCard/graphCard.js:141
+#: src/components/graphCard/graphCard.js:145
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -45,10 +46,6 @@ msgstr \\"\\"
 
 #: src/components/graphCard/graphCardHelpers.js:90
 msgid \\"curiosity-graph.noDataLabel\\"
-msgstr \\"\\"
-
-#: src/components/rhelView/rhelView.js:35
-msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
 #: src/components/graphCard/graphCard.js:112

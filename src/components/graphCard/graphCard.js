@@ -128,7 +128,7 @@ class GraphCard extends React.Component {
   }
 
   render() {
-    const { cardTitle, error, graphGranularity, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, children, error, graphGranularity, selectOptionsType, pending, t } = this.props;
     const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
 
     return (
@@ -136,6 +136,7 @@ class GraphCard extends React.Component {
         <CardHead>
           <h2>{cardTitle}</h2>
           <CardActions>
+            {children}
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
               onSelect={this.onSelect}
@@ -165,6 +166,7 @@ class GraphCard extends React.Component {
 
 GraphCard.propTypes = {
   cardTitle: PropTypes.string,
+  children: PropTypes.node,
   error: PropTypes.bool,
   filterGraphData: PropTypes.arrayOf(
     PropTypes.shape({
@@ -186,6 +188,7 @@ GraphCard.propTypes = {
 
 GraphCard.defaultProps = {
   cardTitle: null,
+  children: null,
   error: false,
   filterGraphData: [],
   getGraphReportsCapacity: helpers.noop,
