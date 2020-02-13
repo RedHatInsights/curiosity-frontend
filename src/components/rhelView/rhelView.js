@@ -15,7 +15,7 @@ class RhelView extends React.Component {
   componentDidMount() {}
 
   render() {
-    const { routeDetail, t } = this.props;
+    const { initialFilters, routeDetail, t } = this.props;
 
     return (
       <PageLayout>
@@ -25,14 +25,10 @@ class RhelView extends React.Component {
         <PageSection>
           <GraphCard
             key={routeDetail.pathParameter}
-            filterGraphData={[
-              { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
-              { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
-              { id: 'thresholdSockets' }
-            ]}
+            filterGraphData={initialFilters}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
-            cardTitle={t('curiosity-graph.socketsHeading')}
+            cardTitle={t('curiosity-graph.cardHeading')}
             productShortLabel="RHEL"
           />
         </PageSection>
@@ -42,6 +38,7 @@ class RhelView extends React.Component {
 }
 
 RhelView.propTypes = {
+  initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     pathId: PropTypes.string.isRequired,
@@ -53,6 +50,11 @@ RhelView.propTypes = {
 };
 
 RhelView.defaultProps = {
+  initialFilters: [
+    { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
+    { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
+    { id: 'thresholdSockets' }
+  ],
   t: helpers.noopTranslate
 };
 

@@ -5,6 +5,7 @@
     "authorizedCopy": "You do not have permission to access reporting. Contact your administrator."
   },
   "curiosity-graph": {
+    "cardHeading": "CPU usage",
     "coresHeading": "CPU core usage",
     "socketsHeading": "CPU socket usage",
     "dropdownDaily": "Daily",

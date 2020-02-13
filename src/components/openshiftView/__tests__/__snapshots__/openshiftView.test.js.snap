@@ -7,7 +7,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   </PageHeader>
   <PageSection>
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.coresHeading)"
+      cardTitle="t(curiosity-graph.cardHeading)"
       filterGraphData={
         Array [
           Object {
@@ -24,7 +24,31 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       productShortLabel="OpenShift"
       viewId="test_id"
-    />
+    >
+      <Select
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "Cores",
+              "value": "cores",
+            },
+            Object {
+              "title": "Sockets",
+              "value": "sockets",
+            },
+          ]
+        }
+        placeholder="Select option"
+        selectedOptions="cores"
+        variant="single"
+      />
+    </Connect(GraphCard)>
   </PageSection>
 </PageLayout>
 `;
@@ -36,7 +60,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   </PageHeader>
   <PageSection>
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.coresHeading)"
+      cardTitle="t(curiosity-graph.cardHeading)"
       filterGraphData={
         Array [
           Object {
@@ -53,7 +77,31 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       productShortLabel="OpenShift"
       viewId="test_id"
-    />
+    >
+      <Select
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "Cores",
+              "value": "cores",
+            },
+            Object {
+              "title": "Sockets",
+              "value": "sockets",
+            },
+          ]
+        }
+        placeholder="Select option"
+        selectedOptions="cores"
+        variant="single"
+      />
+    </Connect(GraphCard)>
   </PageSection>
 </PageLayout>
 `;
