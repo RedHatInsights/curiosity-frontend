@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 import { connectRouter, reduxActions } from '../redux';
 import { helpers } from '../common/helpers';
 import { I18n } from './i18n/i18n';
@@ -17,6 +18,7 @@ class App extends React.Component {
 
     return (
       <I18n locale={(locale && locale.value) || null}>
+        <NotificationsPortal />
         <Authentication>
           <Router />
         </Authentication>
