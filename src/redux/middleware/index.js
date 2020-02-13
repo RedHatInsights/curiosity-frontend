@@ -11,7 +11,7 @@ const notificationsOptions = {
   fulfilledSuffix: reduxHelpers.FULFILLED_ACTION(), // fulfilled state action suffix
   rejectedSuffix: reduxHelpers.REJECTED_ACTION(), // rejected state action suffix
   autoDismiss: true, // autoDismiss pending and success notifications
-  dismissDelay: 5000, // autoDismiss delay in ms
+  dismissDelay: 3000, // autoDismiss delay in ms
   errorTitleKey: 'title', // path to notification title in error response
   errorDescriptionKey: 'detail' // path to notification description in error response
 };

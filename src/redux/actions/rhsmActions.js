@@ -8,13 +8,7 @@ const getGraphReportsCapacity = (id = null, query = {}) => dispatch =>
     meta: {
       id,
       query,
-      notifications: {
-        rejected: {
-          variant: 'info',
-          title: 'Reporting and capacity connection has failed',
-          description: `Product ID: ${id}`
-        }
-      }
+      notifications: {}
     }
   });
 
@@ -25,13 +19,7 @@ const getGraphReports = (id = null, query = {}) => dispatch =>
     meta: {
       id,
       query,
-      notifications: {
-        rejected: {
-          variant: 'info',
-          title: 'Reporting connection has failed',
-          description: `Product ID: ${id}`
-        }
-      }
+      notifications: {}
     }
   });
 
@@ -42,13 +30,7 @@ const getGraphCapacity = (id = null, query = {}) => dispatch =>
     meta: {
       id,
       query,
-      notifications: {
-        rejected: {
-          variant: 'info',
-          title: 'Capacity connection has failed',
-          description: `Product ID: ${id}`
-        }
-      }
+      notifications: {}
     }
   });
 

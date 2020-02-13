@@ -1,5 +1,16 @@
+import {
+  addNotification as RcsAddNotification,
+  removeNotification as RcsRemoveNotification,
+  clearNotifications as RcsClearNotifications
+} from '@redhat-cloud-services/frontend-components-notifications';
 import { platformTypes } from '../types';
 import { platformServices } from '../../services/platformServices';
+
+const addNotification = data => RcsAddNotification(data);
+
+const removeNotification = id => RcsRemoveNotification(id);
+
+const clearNotifications = () => RcsClearNotifications();
 
 const initializeChrome = () => ({
   type: platformTypes.PLATFORM_INIT,
@@ -28,6 +39,24 @@ const setNavigation = data => dispatch => {
   return platformServices.setNavigation(data);
 };
 
-const platformActions = { initializeChrome, onNavigation, setAppName, setNavigation };
+const platformActions = {
+  addNotification,
+  removeNotification,
+  clearNotifications,
+  initializeChrome,
+  onNavigation,
+  setAppName,
+  setNavigation
+};
 
-export { platformActions as default, platformActions, initializeChrome, onNavigation, setAppName, setNavigation };
+export {
+  platformActions as default,
+  platformActions,
+  addNotification,
+  removeNotification,
+  clearNotifications,
+  initializeChrome,
+  onNavigation,
+  setAppName,
+  setNavigation
+};
