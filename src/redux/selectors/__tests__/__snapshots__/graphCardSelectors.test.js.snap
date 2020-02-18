@@ -147,29 +147,12 @@ Object {
       Object {
         "date": 2019-09-05T00:00:00.000Z,
         "x": 1,
-        "y": 0,
+        "y": null,
       },
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 0,
-      },
-    ],
-    "thresholdHasInfiniteQuantity": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "x": 0,
-        "y": 0,
-      },
-      Object {
-        "date": 2019-09-05T00:00:00.000Z,
-        "x": 1,
-        "y": 0,
-      },
-      Object {
-        "date": 2019-09-06T00:00:00.000Z,
-        "x": 2,
-        "y": 0,
+        "y": null,
       },
     ],
     "thresholdHypervisorCores": Array [
@@ -181,12 +164,12 @@ Object {
       Object {
         "date": 2019-09-05T00:00:00.000Z,
         "x": 1,
-        "y": 0,
+        "y": null,
       },
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 0,
+        "y": null,
       },
     ],
     "thresholdHypervisorSockets": Array [
@@ -198,12 +181,12 @@ Object {
       Object {
         "date": 2019-09-05T00:00:00.000Z,
         "x": 1,
-        "y": 0,
+        "y": null,
       },
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 50,
+        "y": null,
       },
     ],
     "thresholdPhysicalCores": Array [
@@ -215,12 +198,12 @@ Object {
       Object {
         "date": 2019-09-05T00:00:00.000Z,
         "x": 1,
-        "y": 0,
+        "y": null,
       },
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 0,
+        "y": null,
       },
     ],
     "thresholdPhysicalSockets": Array [
@@ -232,12 +215,12 @@ Object {
       Object {
         "date": 2019-09-05T00:00:00.000Z,
         "x": 1,
-        "y": 0,
+        "y": null,
       },
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 50,
+        "y": null,
       },
     ],
     "thresholdSockets": Array [
@@ -249,12 +232,12 @@ Object {
       Object {
         "date": 2019-09-05T00:00:00.000Z,
         "x": 1,
-        "y": 0,
+        "y": null,
       },
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 100,
+        "y": null,
       },
     ],
   },

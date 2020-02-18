@@ -71,6 +71,13 @@ const graphCardSelector = createSelector(
         rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES
       ]);
 
+      // Apply "display logic" then return a custom value for Capacity graph entries
+      const customCapacityValue = (data, key, { date, x, y }) => ({
+        date,
+        x,
+        y: data[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HAS_INFINITE] === true ? null : y
+      });
+
       // Generate reflected graph data for number, undefined, and null
       reportData.forEach((value, index) => {
         const date = moment
@@ -119,7 +126,8 @@ const graphCardSelector = createSelector(
         generateGraphData({ graphDataObj: { ...tallySchema, ...value } });
         generateGraphData({
           graphDataObj: { ...capacitySchema, ...capacityData[index] },
-          keyPrefix: 'threshold'
+          keyPrefix: 'threshold',
+          customValue: customCapacityValue
         });
       });
 
