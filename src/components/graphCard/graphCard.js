@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/Skeleton';
 import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
