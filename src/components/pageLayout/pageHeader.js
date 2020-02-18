@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PageHeader as RcsPageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
+import {
+  PageHeader as RcsPageHeader,
+  PageHeaderTitle
+} from '@redhat-cloud-services/frontend-components/components/PageHeader';
 
 const PageHeader = ({ children }) => (
   <RcsPageHeader>
