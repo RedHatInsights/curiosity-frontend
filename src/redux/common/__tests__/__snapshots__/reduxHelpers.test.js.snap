@@ -86,6 +86,30 @@ Object {
 }
 `;
 
+exports[`ReduxHelpers should generate an expected API response with an existing schema: array 1`] = `
+Array [
+  Object {
+    "ipsum": undefined,
+    "lorem": undefined,
+  },
+  Object {
+    "hello": undefined,
+    "world": undefined,
+  },
+]
+`;
+
+exports[`ReduxHelpers should generate an expected API response with an existing schema: object 1`] = `
+Array [
+  Object {
+    "ipsum": undefined,
+  },
+  Object {
+    "world": undefined,
+  },
+]
+`;
+
 exports[`ReduxHelpers should get a date from a service call response: ARRAY date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
 
 exports[`ReduxHelpers should get a date from a service call response: date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
@@ -127,6 +151,7 @@ Object {
   "getMessageFromResults": [Function],
   "getSingleResponseFromResultArray": [Function],
   "getStatusFromResults": [Function],
+  "setResponseSchemas": [Function],
   "setStateProp": [Function],
   "singlePromiseDataResponseFromArray": [Function],
 }
