@@ -3,6 +3,7 @@ import moment from 'moment';
 import _get from 'lodash/get';
 import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { reduxHelpers } from '../common/reduxHelpers';
 
 const graphCardCache = { dataId: null, data: {} };
 
@@ -64,45 +65,54 @@ const graphCardSelector = createSelector(
         updatedResponseData.graphData[graphDataKey] = [];
       });
 
-      const tallySchema = {};
-      const capacitySchema = {};
+      // Populate expected API response values with undefined
+      const [tallySchema = {}, capacitySchema = {}] = reduxHelpers.setResponseSchemas([
+        rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES,
+        rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES
+      ]);
 
-      Object.values(rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES).forEach(value => {
-        tallySchema[value] = undefined;
-      });
-      Object.values(rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES).forEach(value => {
-        capacitySchema[value] = undefined;
-      });
-
+      // Generate reflected graph data for number, undefined, and null
       reportData.forEach((value, index) => {
         const date = moment
           .utc(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
           .startOf('day')
           .toDate();
 
-        const generateGraphData = ({ graphDataObj, keyPrefix = '' }) => {
+        const generateGraphData = ({ graphDataObj, keyPrefix = '', customValue = null }) => {
           Object.keys(graphDataObj).forEach(graphDataObjKey => {
-            const casedGraphDataObjKey = _camelCase(`${keyPrefix} ${graphDataObjKey}`).trim();
+            if (
+              typeof graphDataObj[graphDataObjKey] === 'number' ||
+              graphDataObj[graphDataObjKey] === undefined ||
+              graphDataObj[graphDataObjKey] === null
+            ) {
+              const casedGraphDataObjKey = _camelCase(`${keyPrefix} ${graphDataObjKey}`).trim();
 
-            if (!updatedResponseData.graphData[casedGraphDataObjKey]) {
-              updatedResponseData.graphData[casedGraphDataObjKey] = [];
+              if (!updatedResponseData.graphData[casedGraphDataObjKey]) {
+                updatedResponseData.graphData[casedGraphDataObjKey] = [];
+              }
+
+              let generatedY;
+
+              if (typeof graphDataObj[graphDataObjKey] === 'number') {
+                generatedY = Number.parseInt(graphDataObj[graphDataObjKey], 10);
+              } else if (graphDataObj[graphDataObjKey] === undefined) {
+                generatedY = 0;
+              } else if (graphDataObj[graphDataObjKey] === null) {
+                generatedY = graphDataObj[graphDataObjKey];
+              }
+
+              const updatedItem =
+                (typeof customValue === 'function' &&
+                  customValue(graphDataObj, graphDataObjKey, { date, x: index, y: generatedY })) ||
+                {};
+
+              updatedResponseData.graphData[casedGraphDataObjKey][index] = {
+                date,
+                x: index,
+                y: generatedY,
+                ...updatedItem
+              };
             }
-
-            let generatedY;
-
-            if (typeof graphDataObj[graphDataObjKey] === 'number') {
-              generatedY = Number.parseInt(graphDataObj[graphDataObjKey], 10);
-            } else if (graphDataObj[graphDataObjKey] === undefined) {
-              generatedY = 0;
-            } else {
-              generatedY = graphDataObj[graphDataObjKey];
-            }
-
-            updatedResponseData.graphData[casedGraphDataObjKey][index] = {
-              date,
-              x: index,
-              y: generatedY
-            };
           });
         };
 
@@ -113,6 +123,7 @@ const graphCardSelector = createSelector(
         });
       });
 
+      // Update response and cache
       updatedResponseData.initialLoad = false;
       graphCardCache.data[`${viewId}_${productId}_${granularity}`] = { ...updatedResponseData };
     }

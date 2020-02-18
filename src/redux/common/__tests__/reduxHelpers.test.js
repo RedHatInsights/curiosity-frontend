@@ -12,6 +12,11 @@ describe('ReduxHelpers', () => {
     expect(reduxHelpers.HTTP_STATUS_RANGE('lorem')).toBe('lorem_STATUS_RANGE');
   });
 
+  it('should generate an expected API response with an existing schema', () => {
+    expect(reduxHelpers.setResponseSchemas([{ LOREM: 'ipsum' }, { HELLO: 'world' }])).toMatchSnapshot('object');
+    expect(reduxHelpers.setResponseSchemas([['lorem', 'ipsum'], ['hello', 'world']])).toMatchSnapshot('array');
+  });
+
   it('should get a message from a service call response', () => {
     expect(
       reduxHelpers.getMessageFromResults({

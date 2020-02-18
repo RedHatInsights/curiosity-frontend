@@ -10,6 +10,27 @@ const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
 
 const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
+/**
+ * Apply a set of schemas using either an array of objects in the
+ * form of [{ madeUpKey: 'some_api_key' }], or an array of arrays
+ * in the form of [['some_api_key','another_api_key']]
+ *
+ * @param {array} schemas
+ * @param {*} initialValue
+ * @returns {unknown[]}
+ */
+const setResponseSchemas = (schemas = [], initialValue) =>
+  schemas.map(schema => {
+    const generated = {};
+    const arr = (Array.isArray(schema) && schema) || Object.values(schema);
+
+    arr.forEach(value => {
+      generated[value] = initialValue;
+    });
+
+    return generated;
+  });
+
 const getSingleResponseFromResultArray = results => {
   const updatedResults = results.payload || results;
 
@@ -212,6 +233,7 @@ const reduxHelpers = {
   PENDING_ACTION,
   REJECTED_ACTION,
   HTTP_STATUS_RANGE,
+  setResponseSchemas,
   generatedPromiseActionReducer,
   getDateFromResults,
   getMessageFromResults,
