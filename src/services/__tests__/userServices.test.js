@@ -63,4 +63,22 @@ describe('UserServices', () => {
       done();
     });
   });
+
+  it('should return a failed authorized user on empty response', done => {
+    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => ({}));
+
+    userServices.authorizeUser().catch(error => {
+      expect(error).toMatchSnapshot('failed authorized user: empty object');
+      done();
+    });
+  });
+
+  it('should return a failed authorized user on an unexpected response', done => {
+    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => 'lorem ipsum');
+
+    userServices.authorizeUser().catch(error => {
+      expect(error).toMatchSnapshot('failed authorized user: unexpected');
+      done();
+    });
+  });
 });

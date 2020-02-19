@@ -7,7 +7,7 @@ import { helpers } from '../common';
 const getUser = async () => {
   const { insights } = window;
   try {
-    return (!helpers.DEV_MODE && (await insights.chrome.auth.getUser())) || {};
+    return (helpers.DEV_MODE && { test: {} }) || (await insights.chrome.auth.getUser());
   } catch (e) {
     throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
   }

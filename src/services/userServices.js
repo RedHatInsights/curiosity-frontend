@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
+import _isPlainObject from 'lodash/isPlainObject';
 import { getUser } from './platformServices';
 
 const authorizeUser = async () => {
@@ -12,7 +13,7 @@ const authorizeUser = async () => {
     message = e.message;
   }
 
-  if (userData) {
+  if (_isPlainObject(userData) && Object.keys(userData).length) {
     return Promise.resolve({ data: userData, message, status: 200 });
   }
 
