@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UserServices should return a failed authorized user on an unexpected response: failed authorized user: unexpected 1`] = `
+Object {
+  "message": "{ getUser } = insights.chrome.auth",
+  "status": 418,
+}
+`;
+
+exports[`UserServices should return a failed authorized user on empty response: failed authorized user: empty object 1`] = `
+Object {
+  "message": "{ getUser } = insights.chrome.auth",
+  "status": 418,
+}
+`;
+
 exports[`UserServices should return a failed authorized user: failed authorized user 1`] = `
 Object {
   "message": "{ getUser } = insights.chrome.auth, insights.chrome.auth.getUser is not a function",
