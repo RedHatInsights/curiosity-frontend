@@ -18,9 +18,9 @@ class Select extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { options } = this.props;
+    const { options, selectedOptions } = this.props;
 
-    if (!_isEqual(prevProps.options, options)) {
+    if (!_isEqual(prevProps.options, options) || !_isEqual(prevProps.selectedOptions, selectedOptions)) {
       this.formatOptions();
     }
   }
@@ -34,7 +34,7 @@ class Select extends React.Component {
     updatedOptions[optionsIndex].selected =
       variant === SelectVariant.single ? true : !updatedOptions[optionsIndex].selected;
 
-    if (SelectVariant.single) {
+    if (variant === SelectVariant.single) {
       updatedOptions.forEach((option, index) => {
         if (optionsIndex !== index) {
           updatedOptions[index].selected = false;
@@ -59,10 +59,16 @@ class Select extends React.Component {
           id,
           name: name || id,
           value: mockUpdatedOptions[optionsIndex].value,
+          selected:
+            (variant === SelectVariant.single && mockUpdatedOptions[optionsIndex]) || _cloneDeep(updateSelected),
           selectedIndex: optionsIndex,
           type: `select-${(variant === SelectVariant.single && 'one') || 'multiple'}`,
           options: mockUpdatedOptions
         };
+
+        if (variant === SelectVariant.checkbox) {
+          mockTarget.checked = mockUpdatedOptions[optionsIndex].selected;
+        }
 
         const mockEvent = {
           ...mockTarget,
@@ -116,7 +122,8 @@ class Select extends React.Component {
       convertedOption.label = convertedOption.label || convertedOption.title;
 
       if (activateOptions) {
-        updatedOptions[index].selected = activateOptions.includes(convertedOption.value);
+        updatedOptions[index].selected =
+          activateOptions.includes(convertedOption.value) || activateOptions.includes(convertedOption.title);
       }
     });
 

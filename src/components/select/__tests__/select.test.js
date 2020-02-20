@@ -52,6 +52,18 @@ describe('Select Component', () => {
     expect(component.render()).toMatchSnapshot('key value object');
   });
 
+  it('should allow selected options to match value or title', () => {
+    const props = {
+      id: 'test',
+      options: { lorem: 'ipsum', hello: 'world', dolor: 'set' },
+      selectedOptions: ['world', 'lorem', 'fail'],
+      variant: SelectVariant.checkbox
+    };
+
+    const component = mount(<Select {...props} />);
+    expect(component.render()).toMatchSnapshot('value or title match');
+  });
+
   it('should return an emulated onchange event', done => {
     const props = {
       id: 'test',
@@ -65,7 +77,12 @@ describe('Select Component', () => {
     };
 
     const component = mount(<Select {...props} />);
-    const componentInstance = component.instance();
-    componentInstance.onSelect({}, 'hello');
+    component.instance().onSelect({}, 'hello');
+
+    component.setProps({
+      variant: SelectVariant.checkbox
+    });
+
+    component.instance().onSelect({}, 'world');
   });
 });
