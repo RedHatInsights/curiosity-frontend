@@ -10,7 +10,7 @@ import {
 } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
-import { translateComponent } from '../i18n/i18n';
+import { connectTranslate } from '../../redux';
 import subscriptionsSvg from '../../images/subscriptions.svg';
 
 /**
@@ -21,7 +21,7 @@ import subscriptionsSvg from '../../images/subscriptions.svg';
  * FixMe: Patternfly EmptyStateBody and Title appear to throw an error on translate string replacement
  * Wrap with a fragment to pass.
  */
-const TourView = ({ t }) => (
+const TourView = ({ session, t }) => (
   <PageLayout>
     <PageHeader>{helpers.UI_DISPLAY_CONFIG_NAME}</PageHeader>
     <PageSection>
@@ -40,6 +40,8 @@ const TourView = ({ t }) => (
         <EmptyStateBody>
           <React.Fragment>
             {t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
+            {session.errorStatus !== 418 &&
+              ` ${t('curiosity-tour.emptyStateDescriptionTour', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}`}
           </React.Fragment>
         </EmptyStateBody>
         <EmptyStateBody>
@@ -47,18 +49,32 @@ const TourView = ({ t }) => (
             {t('curiosity-tour.emptyStateDescriptionExtended', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
           </React.Fragment>
         </EmptyStateBody>
-        <Button className="uiux-button__tour" variant="primary">
-          {t('curiosity-tour.emptyStateButton')}
-        </Button>
-        <EmptyStateSecondaryActions>
+        {(session.errorStatus === 418 && (
           <Button
+            className="uxui-curiosity__button-learn"
+            variant="primary"
             component="a"
-            variant="link"
             target="_blank"
             href="https://access.redhat.com/products/subscription-central"
           >
             {t('curiosity-tour.emptyStateLinkLearnMore')}
           </Button>
+        )) || (
+          <Button className="uxui-curiosity__button-tour" variant="primary">
+            {t('curiosity-tour.emptyStateButton')}
+          </Button>
+        )}
+        <EmptyStateSecondaryActions>
+          {session.errorStatus !== 418 && (
+            <Button
+              component="a"
+              variant="link"
+              target="_blank"
+              href="https://access.redhat.com/products/subscription-central"
+            >
+              {t('curiosity-tour.emptyStateLinkLearnMore')}
+            </Button>
+          )}
           <Button component="a" variant="link" target="_blank" href="https://access.redhat.com/account-team">
             {t('curiosity-tour.emptyStateLinkContactUs')}
           </Button>
@@ -69,19 +85,21 @@ const TourView = ({ t }) => (
 );
 
 TourView.propTypes = {
-  routeDetail: PropTypes.shape({
-    routeItem: PropTypes.shape({
-      title: PropTypes.string
-    })
+  session: PropTypes.shape({
+    errorStatus: PropTypes.number
   }),
   t: PropTypes.func
 };
 
 TourView.defaultProps = {
-  routeDetail: {},
+  session: {
+    errorStatus: null
+  },
   t: helpers.noopTranslate
 };
 
-const TranslatedTourView = translateComponent(TourView);
+const mapStateToProps = state => ({ session: state.user.session });
 
-export { TranslatedTourView as default, TranslatedTourView, TourView };
+const ConnectedTourView = connectTranslate(mapStateToProps)(TourView);
+
+export { ConnectedTourView as default, ConnectedTourView, TourView };

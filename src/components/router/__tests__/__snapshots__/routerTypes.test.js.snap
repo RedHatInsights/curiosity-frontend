@@ -83,7 +83,13 @@ Array [
   },
   Object {
     "activateOnError": true,
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(TourView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "id": "soon",
@@ -92,7 +98,13 @@ Array [
     "to": "/soon",
   },
   Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(TourView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "id": "tour",

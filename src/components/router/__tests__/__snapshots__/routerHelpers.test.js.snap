@@ -155,7 +155,13 @@ Object {
   "navRoute": Object {},
   "route": Object {
     "activateOnError": true,
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(TourView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "id": "soon",
