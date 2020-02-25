@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.10...v0.1.11) (2020-02-25)
+
+
+### Features
+
+* **graphCard,redux:** issues/185 maintain state by view ([#202](https://github.com/RedHatInsights/curiosity-frontend/issues/202)) ([5b1df0c](https://github.com/RedHatInsights/curiosity-frontend/commit/5b1df0c6b86bf5c0d80d01c50254a2ea76434b5f))
+* **graphCardSelectors:** issues/188 infinite quantity, threshold ([#207](https://github.com/RedHatInsights/curiosity-frontend/issues/207)) ([41342b2](https://github.com/RedHatInsights/curiosity-frontend/commit/41342b23d7108da32fb57be69d091367aa5eb7ea))
+* **openshiftView:** issues/185 add cores sockets selector ([#205](https://github.com/RedHatInsights/curiosity-frontend/issues/205)) ([a713c9e](https://github.com/RedHatInsights/curiosity-frontend/commit/a713c9ea25d29095bb706c67647533d4c76a440d))
+
+
+### Bug Fixes
+
+* **authentication:** issues/190 relax platform redirect ([#196](https://github.com/RedHatInsights/curiosity-frontend/issues/196)) ([c7d9168](https://github.com/RedHatInsights/curiosity-frontend/commit/c7d9168ad946c48a417b9998e65f18a589937651))
+* **build:** dotenv app display name casing ([#194](https://github.com/RedHatInsights/curiosity-frontend/issues/194)) ([1460e3b](https://github.com/RedHatInsights/curiosity-frontend/commit/1460e3b63a8d46ceb79e1198b323494100cbeb84))
+* **graphCard:** rename prop, productShortLabel ([5396223](https://github.com/RedHatInsights/curiosity-frontend/commit/5396223b762c3a5f9441d81ea53d9ad3eb3313e2))
+* **graphCardSelectors:** generic rename test snapshots ([a8c5df0](https://github.com/RedHatInsights/curiosity-frontend/commit/a8c5df06c90e94c2598231e124cbc09dbadc7255))
+* **graphCardSelectors:** issues/176 graph error blur ([#198](https://github.com/RedHatInsights/curiosity-frontend/issues/198)) ([d283917](https://github.com/RedHatInsights/curiosity-frontend/commit/d283917bde0d6a14451970d1efeb89ac1b714a54))
+* **graphCardSelectors:** issues/185 apply response schemas ([#204](https://github.com/RedHatInsights/curiosity-frontend/issues/204)) ([319050a](https://github.com/RedHatInsights/curiosity-frontend/commit/319050a9020944b7cd49b5702e78efa11557241f))
+* **graphCardSelectors,reduxHelpers:** issues/188 allow custom logic ([5e00a3b](https://github.com/RedHatInsights/curiosity-frontend/commit/5e00a3bb9506d10ea8b78dbcfda1ccf0a695bb34))
+* **pageLayout:** restructure view layout ([#187](https://github.com/RedHatInsights/curiosity-frontend/issues/187)) ([1884c75](https://github.com/RedHatInsights/curiosity-frontend/commit/1884c756d4def6afc8613d536ae0a7821f624d7c))
+* **pageLayout,messageView:** restructure view layout ([#184](https://github.com/RedHatInsights/curiosity-frontend/issues/184)) ([779e647](https://github.com/RedHatInsights/curiosity-frontend/commit/779e64762c920f323fcad7f9edb43875100d20df))
+* **platform,userServices:** issues/43 centralize globals ([#189](https://github.com/RedHatInsights/curiosity-frontend/issues/189)) ([4d8b053](https://github.com/RedHatInsights/curiosity-frontend/commit/4d8b053034c9db36adcb5e8897b514da6398b729))
+* **platformServices:** issues/179 platform app name ([#191](https://github.com/RedHatInsights/curiosity-frontend/issues/191)) ([d3cb587](https://github.com/RedHatInsights/curiosity-frontend/commit/d3cb58767e3e6a066db76021ca863966cf9a92bb))
+* **platformServices:** issues/43 centralize globals ([#183](https://github.com/RedHatInsights/curiosity-frontend/issues/183)) ([253ff56](https://github.com/RedHatInsights/curiosity-frontend/commit/253ff56d27d3bf7f577ac2aeea9e389fb90c0bbd))
+* **reduxHelpers:** add generated reducer unit tests ([eabba6a](https://github.com/RedHatInsights/curiosity-frontend/commit/eabba6a779822fbb25efcbb353d194ba0af8e53e))
+* **reduxHelpers:** issues/185 apply consistent meta types ([#203](https://github.com/RedHatInsights/curiosity-frontend/issues/203)) ([5b9c5b4](https://github.com/RedHatInsights/curiosity-frontend/commit/5b9c5b4d7c6f29ae10cb4190d4a09c55bd945582))
+* **rhsmActions:** issues/185 combine actions, promise.all ([#201](https://github.com/RedHatInsights/curiosity-frontend/issues/201)) ([d478ed3](https://github.com/RedHatInsights/curiosity-frontend/commit/d478ed3378db1ac2e2418883520851fee3e2cc6d))
+* **rhsmActions,platformActions:** issues/190 toast notifications ([533250e](https://github.com/RedHatInsights/curiosity-frontend/commit/533250e6db873bfdbba84ac8e4321451719e499a))
+* **rhsmApiTypes:** apply RHEL prefix to types ([dd196c6](https://github.com/RedHatInsights/curiosity-frontend/commit/dd196c6979bd22d887d375d7620fff88d7332eae))
+* **router,redirect:** issues/176 restructure redirect ([#184](https://github.com/RedHatInsights/curiosity-frontend/issues/184)) ([3dab747](https://github.com/RedHatInsights/curiosity-frontend/commit/3dab747c38ab69d15c1d9d5cf35ad473173cedcf))
+* **router,routerTypes:** relax path comparison ([980e859](https://github.com/RedHatInsights/curiosity-frontend/commit/980e8598ceb1fb7e7c1e075e962be65590067f52))
+* **tourView:** issues/190 copy update for malformed users ([#211](https://github.com/RedHatInsights/curiosity-frontend/issues/211)) ([aab081b](https://github.com/RedHatInsights/curiosity-frontend/commit/aab081b515504baef4fbd4376ac41c2a457fa056))
+* **tourView:** issues/192 update learn more link ([#197](https://github.com/RedHatInsights/curiosity-frontend/issues/197)) ([1172de2](https://github.com/RedHatInsights/curiosity-frontend/commit/1172de221af4f069a47ae6bc1ccbe9a2a1530510))
+* **userServices:** issues/43 catch empty response objects ([#209](https://github.com/RedHatInsights/curiosity-frontend/issues/209)) ([b4313ca](https://github.com/RedHatInsights/curiosity-frontend/commit/b4313ca8dd18023841ad16761d4bb2f242edb379))
+
 ### [0.1.10](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.9...v0.1.10) (2020-01-15)
 
 
