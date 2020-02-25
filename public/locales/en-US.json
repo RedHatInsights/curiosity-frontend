@@ -26,7 +26,8 @@
   "curiosity-tour": {
     "emptyStateIconAlt": "{{appName}} logo",
     "emptyStateTitle": "{{appName}} is an early access beta",
-    "emptyStateDescription": "{{appName}} helps you understand your total subscription usage and capacity over time. Take a quick tour to learn more.",
+    "emptyStateDescription": "{{appName}} helps you understand your total subscription usage and capacity over time.",
+    "emptyStateDescriptionTour": "Take a quick tour to learn more.",
     "emptyStateDescriptionExtended": "If you are interested in trying {{appName}}, your Red Hat account team can help.",
     "emptyStateButton": "Take a tour",
     "emptyStateLinkLearnMore": "Learn more",
