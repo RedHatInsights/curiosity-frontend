@@ -60,6 +60,9 @@ class Authentication extends Component {
     }
 
     if (session.errorStatus === 403 || session.errorStatus === 418) {
+      if (helpers.TEST_MODE) {
+        return <React.Fragment>{session.errorStatus} redirect</React.Fragment>;
+      }
       return <Redirect isRedirect route={routerHelpers.getErrorRoute.to} />;
     }
 

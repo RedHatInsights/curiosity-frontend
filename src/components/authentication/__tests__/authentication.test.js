@@ -67,7 +67,7 @@ describe('Authorization Component', () => {
       </BrowserRouter>
     );
 
-    expect(component.find('Redirect')).toMatchSnapshot('418 error');
+    expect(component.html()).toMatchSnapshot('418 error');
   });
 
   it('should return a redirect on 403 error', () => {
@@ -92,7 +92,7 @@ describe('Authorization Component', () => {
       </BrowserRouter>
     );
 
-    expect(component.find('Redirect').render()).toMatchSnapshot('403 error');
+    expect(component.html()).toMatchSnapshot('403 error');
   });
 
   it('should return a message on 401 error', () => {
