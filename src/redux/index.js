@@ -9,21 +9,13 @@ import { reduxTypes } from './types';
 import { helpers } from '../common/helpers';
 
 const connectTranslate = (mapStateToProps, mapDispatchToProps) => component =>
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )((!helpers.TEST_MODE && withTranslation()(component)) || component);
+  connect(mapStateToProps, mapDispatchToProps)((!helpers.TEST_MODE && withTranslation()(component)) || component);
 
 const connectRouterTranslate = (mapStateToProps, mapDispatchToProps) => component =>
   withRouter(connectTranslate(mapStateToProps, mapDispatchToProps)(component));
 
 const connectRouter = (mapStateToProps, mapDispatchToProps) => component =>
-  withRouter(
-    connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(component)
-  );
+  withRouter(connect(mapStateToProps, mapDispatchToProps)(component));
 
 export {
   connect,
