@@ -87,7 +87,7 @@
     "@redhat-cloud-services/frontend-components-utilities": "1.0.0",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
-    "i18next": "^19.0.3",
+    "i18next": "^19.3.2",
     "i18next-xhr-backend": "^3.2.2",
     "js-cookie": "^2.2.1",
     "locale-code": "^2.0.2",
@@ -98,7 +98,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-i18next": "^11.3.0",
+    "react-i18next": "^11.3.3",
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
@@ -108,9 +108,9 @@
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "victory": "^33.1.1",
-    "victory-core": "^33.1.0",
-    "victory-legend": "^33.1.0"
+    "victory": "^34.1.1",
+    "victory-core": "^34.1.1",
+    "victory-legend": "^34.1.1"
   },
   "devDependencies": {
     "apidoc-mock": "^3.0.2",
