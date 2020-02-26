@@ -38,7 +38,10 @@ class OpenshiftView extends React.Component {
   renderSelect() {
     const { option } = this.state;
     const { initialOption } = this.props;
-    const options = [{ title: 'Cores', value: 'cores' }, { title: 'Sockets', value: 'sockets' }];
+    const options = [
+      { title: 'Cores', value: 'cores' },
+      { title: 'Sockets', value: 'sockets' }
+    ];
 
     return <Select onSelect={this.onSelect} options={options} selectedOptions={option || initialOption} />;
   }

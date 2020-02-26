@@ -14,7 +14,7 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:61
+#: src/components/openshiftView/openshiftView.js:64
 #: src/components/rhelView/rhelView.js:31
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"

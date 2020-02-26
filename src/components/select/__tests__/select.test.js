@@ -7,7 +7,10 @@ describe('Select Component', () => {
   it('should render a basic component', () => {
     const props = {
       id: 'test',
-      options: [{ title: 'lorem', value: 'ipsum' }, { title: 'hello', value: 'world', selected: true }]
+      options: [
+        { title: 'lorem', value: 'ipsum' },
+        { title: 'hello', value: 'world', selected: true }
+      ]
     };
 
     const component = mount(<Select {...props} />);
@@ -17,7 +20,10 @@ describe('Select Component', () => {
   it('should render a checkbox select', () => {
     const props = {
       id: 'test',
-      options: [{ title: 'lorem', value: 'ipsum' }, { title: 'hello', value: 'world', selected: true }],
+      options: [
+        { title: 'lorem', value: 'ipsum' },
+        { title: 'hello', value: 'world', selected: true }
+      ],
       selectedOptions: ['world', 'ipsum'],
       variant: SelectVariant.checkbox,
       placeholder: 'multiselect test'
