@@ -19,7 +19,13 @@ Object {
     "title": "Red Hat Enterprise Linux",
   },
   "navRoute": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "default": true,
     "disabled": false,
     "exact": true,
@@ -33,7 +39,13 @@ Object {
     "to": "/rhel-sw/all",
   },
   "route": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "redirect": true,
@@ -55,7 +67,13 @@ Object {
     "title": "Red Hat Enterprise Linux",
   },
   "navRoute": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "default": true,
     "disabled": false,
     "exact": true,
@@ -69,7 +87,13 @@ Object {
     "to": "/rhel-sw/all",
   },
   "route": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "redirect": true,
@@ -99,7 +123,13 @@ Object {
     "title": "Red Hat Enterprise Linux",
   },
   "navRoute": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "default": true,
     "disabled": false,
     "exact": true,
@@ -134,7 +164,13 @@ Object {
     "title": "ARM",
   },
   "navRoute": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "id": "arm",

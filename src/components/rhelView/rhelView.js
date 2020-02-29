@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark,
@@ -8,6 +7,8 @@ import {
   chart_color_cyan_300 as chartColorCyanDark
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
+import { connectTranslate } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { helpers } from '../../common';
 
@@ -15,7 +16,7 @@ class RhelView extends React.Component {
   componentDidMount() {}
 
   render() {
-    const { initialFilters, routeDetail, t } = this.props;
+    const { granularity, initialFilters, routeDetail, t } = this.props;
 
     return (
       <PageLayout>
@@ -26,6 +27,7 @@ class RhelView extends React.Component {
           <GraphCard
             key={routeDetail.pathParameter}
             filterGraphData={initialFilters}
+            graphGranularity={granularity}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
             cardTitle={t('curiosity-graph.cardHeading')}
@@ -38,6 +40,7 @@ class RhelView extends React.Component {
 }
 
 RhelView.propTypes = {
+  granularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
   initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
@@ -50,6 +53,7 @@ RhelView.propTypes = {
 };
 
 RhelView.defaultProps = {
+  granularity: GRANULARITY_TYPES.DAILY,
   initialFilters: [
     { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
     { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
@@ -58,6 +62,8 @@ RhelView.defaultProps = {
   t: helpers.noopTranslate
 };
 
-const TranslatedRhelView = withTranslation()(RhelView);
+const mapStateToProps = state => ({ ...state.view });
 
-export { TranslatedRhelView as default, TranslatedRhelView, RhelView };
+const ConnectedRhelView = connectTranslate(mapStateToProps)(RhelView);
+
+export { ConnectedRhelView as default, ConnectedRhelView, RhelView };

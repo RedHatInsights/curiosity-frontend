@@ -18,7 +18,6 @@ describe('GraphCardSelectors', () => {
     };
     const state = {
       graph: {
-        component: {},
         reportCapacity: {
           fulfilled: true,
           metaId: 'Lorem Ipsum ID missing granularity',
@@ -37,11 +36,11 @@ describe('GraphCardSelectors', () => {
   it('should pass minimal data on a product ID without a product ID provided', () => {
     const props = {
       viewId: 'test',
-      productId: undefined
+      productId: undefined,
+      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
     };
     const state = {
       graph: {
-        component: {},
         reportCapacity: {
           fulfilled: true,
           metaId: undefined,
@@ -62,15 +61,11 @@ describe('GraphCardSelectors', () => {
   it('should handle pending state on a product ID', () => {
     const props = {
       viewId: 'test',
-      productId: 'Lorem Ipsum ID pending state'
+      productId: 'Lorem Ipsum ID pending state',
+      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
     };
     const state = {
       graph: {
-        component: {
-          test: {
-            graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          }
-        },
         reportCapacity: {
           'Lorem Ipsum ID pending state': {
             pending: true,
@@ -93,15 +88,11 @@ describe('GraphCardSelectors', () => {
   it('should populate data on a product ID when the api response provided mismatches index or date', () => {
     const props = {
       viewId: 'test',
-      productId: 'Lorem Ipsum mismatched index or date'
+      productId: 'Lorem Ipsum mismatched index or date',
+      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
     };
     const state = {
       graph: {
-        component: {
-          test: {
-            graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          }
-        },
         reportCapacity: {
           'Lorem Ipsum mismatched index or date': {
             fulfilled: true,
@@ -138,15 +129,11 @@ describe('GraphCardSelectors', () => {
   it('should populate data on a product ID when the api response is missing expected properties', () => {
     const props = {
       viewId: 'test',
-      productId: 'Lorem Ipsum missing expected properties'
+      productId: 'Lorem Ipsum missing expected properties',
+      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
     };
     const state = {
       graph: {
-        component: {
-          test: {
-            graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          }
-        },
         reportCapacity: {
           'Lorem Ipsum missing expected properties': {
             fulfilled: true,
@@ -208,15 +195,11 @@ describe('GraphCardSelectors', () => {
   it('should map a fulfilled product ID response to an aggregated output', () => {
     const props = {
       viewId: 'test',
-      productId: 'Lorem Ipsum fulfilled aggregated output'
+      productId: 'Lorem Ipsum fulfilled aggregated output',
+      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
     };
     const state = {
       graph: {
-        component: {
-          test: {
-            graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          }
-        },
         reportCapacity: {
           'Lorem Ipsum fulfilled aggregated output': {
             fulfilled: true,
@@ -293,15 +276,11 @@ describe('GraphCardSelectors', () => {
   it('should populate data from the in memory cache', () => {
     const props = {
       viewId: 'cache-test',
-      productId: 'Lorem Ipsum ID cached'
+      productId: 'Lorem Ipsum ID cached',
+      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
     };
     const stateDailyGranularityFulfilled = {
       graph: {
-        component: {
-          'cache-test': {
-            graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          }
-        },
         reportCapacity: {
           'Lorem Ipsum ID cached': {
             fulfilled: true,
@@ -359,11 +338,6 @@ describe('GraphCardSelectors', () => {
 
     const stateDailyComponentCapacityGranularity = {
       graph: {
-        component: {
-          'cache-test': {
-            graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
-          }
-        },
         reportCapacity: {
           'Lorem Ipsum ID cached': {
             ...stateDailyGranularityFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
@@ -379,7 +353,6 @@ describe('GraphCardSelectors', () => {
 
     const stateDailyReportCapacityGranularityMismatch = {
       graph: {
-        component: {},
         reportCapacity: {
           'Lorem Ipsum ID cached': {
             ...stateDailyGranularityFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
