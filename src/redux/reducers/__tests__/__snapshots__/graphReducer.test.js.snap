@@ -1,31 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_CAPACITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {
-      "error": true,
-      "errorMessage": "MESSAGE",
-      "errorStatus": 0,
-      "fulfilled": false,
-      "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
-      "pending": false,
-    },
-    "report": Object {},
-    "reportCapacity": Object {},
-  },
-  "type": "GET_GRAPH_CAPACITY_RHSM_REJECTED",
-}
-`;
-
 exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
-    "capacity": Object {},
-    "report": Object {},
     "reportCapacity": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -42,56 +19,9 @@ Object {
 }
 `;
 
-exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {},
-    "report": Object {
-      "error": true,
-      "errorMessage": "MESSAGE",
-      "errorStatus": 0,
-      "fulfilled": false,
-      "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
-      "pending": false,
-    },
-    "reportCapacity": Object {},
-  },
-  "type": "GET_GRAPH_REPORT_RHSM_REJECTED",
-}
-`;
-
-exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_CAPACITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {
-      "data": Object {
-        "test": "success",
-      },
-      "date": null,
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
-      "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
-      "pending": false,
-    },
-    "report": Object {},
-    "reportCapacity": Object {},
-  },
-  "type": "GET_GRAPH_CAPACITY_RHSM_FULFILLED",
-}
-`;
-
 exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
-    "capacity": Object {},
-    "report": Object {},
     "reportCapacity": Object {
       "data": Object {
         "test": "success",
@@ -111,55 +41,9 @@ Object {
 }
 `;
 
-exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {},
-    "report": Object {
-      "data": Object {
-        "test": "success",
-      },
-      "date": null,
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
-      "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
-      "pending": false,
-    },
-    "reportCapacity": Object {},
-  },
-  "type": "GET_GRAPH_REPORT_RHSM_FULFILLED",
-}
-`;
-
-exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_CAPACITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": false,
-      "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
-      "pending": true,
-    },
-    "report": Object {},
-    "reportCapacity": Object {},
-  },
-  "type": "GET_GRAPH_CAPACITY_RHSM_PENDING",
-}
-`;
-
 exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
-    "capacity": Object {},
-    "report": Object {},
     "reportCapacity": Object {
       "error": false,
       "errorMessage": "",
@@ -172,25 +56,5 @@ Object {
     },
   },
   "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
-}
-`;
-
-exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {},
-    "report": Object {
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": false,
-      "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
-      "pending": true,
-    },
-    "reportCapacity": Object {},
-  },
-  "type": "GET_GRAPH_REPORT_RHSM_PENDING",
 }
 `;
