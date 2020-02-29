@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
+import { connectTranslate } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { Select } from '../select/select';
 import { helpers } from '../../common';
@@ -48,7 +49,7 @@ class OpenshiftView extends React.Component {
 
   render() {
     const { filters } = this.state;
-    const { routeDetail, t } = this.props;
+    const { granularity, routeDetail, t } = this.props;
 
     return (
       <PageLayout>
@@ -59,6 +60,7 @@ class OpenshiftView extends React.Component {
           <GraphCard
             key={routeDetail.pathParameter}
             filterGraphData={filters}
+            graphGranularity={granularity}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
             cardTitle={t('curiosity-graph.cardHeading')}
@@ -73,6 +75,7 @@ class OpenshiftView extends React.Component {
 }
 
 OpenshiftView.propTypes = {
+  granularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
   initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
@@ -86,6 +89,7 @@ OpenshiftView.propTypes = {
 };
 
 OpenshiftView.defaultProps = {
+  granularity: GRANULARITY_TYPES.DAILY,
   initialOption: 'cores',
   initialFilters: [
     { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
@@ -96,6 +100,8 @@ OpenshiftView.defaultProps = {
   t: helpers.noopTranslate
 };
 
-const TranslatedOpenshiftView = withTranslation()(OpenshiftView);
+const mapStateToProps = state => ({ ...state.view });
 
-export { TranslatedOpenshiftView as default, TranslatedOpenshiftView, OpenshiftView };
+const ConnectedOpenshiftView = connectTranslate(mapStateToProps)(OpenshiftView);
+
+export { ConnectedOpenshiftView as default, ConnectedOpenshiftView, OpenshiftView };

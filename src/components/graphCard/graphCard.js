@@ -17,23 +17,20 @@ class GraphCard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { graphGranularity } = this.props;
+    const { graphGranularity, productId } = this.props;
 
-    if (graphGranularity !== prevProps.graphGranularity) {
+    if (graphGranularity !== prevProps.graphGranularity || productId !== prevProps.productId) {
       this.onUpdateGraphData();
     }
   }
 
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, graphGranularity, productId, selectOptionsType } = this.props;
+    const { getGraphReportsCapacity, graphGranularity, productId } = this.props;
 
-    if (productId) {
-      const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
-      const updatedGranularity = graphGranularity || selected;
-
-      const { startDate, endDate } = dateHelpers.getRangedDateTime(updatedGranularity);
+    if (graphGranularity && productId) {
+      const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
       const query = {
-        [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: updatedGranularity,
+        [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
         [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
         [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
       };
@@ -42,17 +39,13 @@ class GraphCard extends React.Component {
     }
   };
 
-  onSelect = event => {
-    const { graphGranularity, viewId } = this.props;
+  onSelect = (event = {}) => {
     const { value } = event;
 
-    if (graphGranularity !== value) {
-      store.dispatch({
-        type: reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM,
-        graphGranularity: value,
-        viewId
-      });
-    }
+    store.dispatch({
+      type: reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM,
+      granularity: value
+    });
   };
 
   /**
@@ -177,7 +170,7 @@ GraphCard.propTypes = {
   ),
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
-  graphGranularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
+  graphGranularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired,
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
   selectOptionsType: PropTypes.oneOf(['default']),
@@ -193,7 +186,6 @@ GraphCard.defaultProps = {
   filterGraphData: [],
   getGraphReportsCapacity: helpers.noop,
   graphData: {},
-  graphGranularity: null,
   pending: false,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,

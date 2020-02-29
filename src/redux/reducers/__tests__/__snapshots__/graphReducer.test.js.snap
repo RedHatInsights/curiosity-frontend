@@ -14,7 +14,6 @@ Object {
       "metaQuery": undefined,
       "pending": false,
     },
-    "component": Object {},
     "report": Object {},
     "reportCapacity": Object {},
   },
@@ -26,7 +25,6 @@ exports[`GraphReducer should handle all defined error types: rejected types GET_
 Object {
   "result": Object {
     "capacity": Object {},
-    "component": Object {},
     "report": Object {},
     "reportCapacity": Object {
       "error": true,
@@ -48,7 +46,6 @@ exports[`GraphReducer should handle all defined error types: rejected types GET_
 Object {
   "result": Object {
     "capacity": Object {},
-    "component": Object {},
     "report": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -83,7 +80,6 @@ Object {
       "metaQuery": undefined,
       "pending": false,
     },
-    "component": Object {},
     "report": Object {},
     "reportCapacity": Object {},
   },
@@ -95,7 +91,6 @@ exports[`GraphReducer should handle all defined fulfilled types: fulfilled types
 Object {
   "result": Object {
     "capacity": Object {},
-    "component": Object {},
     "report": Object {},
     "reportCapacity": Object {
       "data": Object {
@@ -120,7 +115,6 @@ exports[`GraphReducer should handle all defined fulfilled types: fulfilled types
 Object {
   "result": Object {
     "capacity": Object {},
-    "component": Object {},
     "report": Object {
       "data": Object {
         "test": "success",
@@ -154,7 +148,6 @@ Object {
       "metaQuery": undefined,
       "pending": true,
     },
-    "component": Object {},
     "report": Object {},
     "reportCapacity": Object {},
   },
@@ -166,7 +159,6 @@ exports[`GraphReducer should handle all defined pending types: pending types GET
 Object {
   "result": Object {
     "capacity": Object {},
-    "component": Object {},
     "report": Object {},
     "reportCapacity": Object {
       "error": false,
@@ -187,7 +179,6 @@ exports[`GraphReducer should handle all defined pending types: pending types GET
 Object {
   "result": Object {
     "capacity": Object {},
-    "component": Object {},
     "report": Object {
       "error": false,
       "errorMessage": "",
@@ -201,21 +192,5 @@ Object {
     "reportCapacity": Object {},
   },
   "type": "GET_GRAPH_REPORT_RHSM_PENDING",
-}
-`;
-
-exports[`GraphReducer should handle specific defined types: defined type SET_GRAPH_GRANULARITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "capacity": Object {},
-    "component": Object {
-      "dolor id": Object {
-        "graphGranularity": "lorem granularity",
-      },
-    },
-    "report": Object {},
-    "reportCapacity": Object {},
-  },
-  "type": "SET_GRAPH_GRANULARITY_RHSM",
 }
 `;

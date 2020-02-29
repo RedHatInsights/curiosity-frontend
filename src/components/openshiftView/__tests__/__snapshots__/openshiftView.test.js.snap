@@ -20,6 +20,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           },
         ]
       }
+      graphGranularity="daily"
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="OpenShift"
@@ -73,6 +74,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           },
         ]
       }
+      graphGranularity="daily"
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="OpenShift"
