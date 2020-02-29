@@ -44,27 +44,4 @@ describe('RhsmActions', () => {
       done();
     });
   });
-
-  it('Should return response content for getGraphReports method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getGraphReports();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().graph;
-      expect(response.report.fulfilled).toBe(true);
-      done();
-    });
-  });
-
-  it('Should return response content for getGraphCapacity method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getGraphCapacity();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().graph;
-
-      expect(response.capacity.fulfilled).toBe(true);
-      done();
-    });
-  });
 });
