@@ -116,7 +116,7 @@ Object {
       Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
-        "y": 2,
+        "y": null,
       },
     ],
     "sockets": Array [

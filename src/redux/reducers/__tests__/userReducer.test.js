@@ -1,10 +1,30 @@
 import userReducer from '../userReducer';
-import { userTypes as types } from '../../types';
+import { appTypes, userTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
 describe('UserReducer', () => {
   it('should return the initial state', () => {
     expect(userReducer.initialState).toBeDefined();
+  });
+
+  it('should handle specific http status types', () => {
+    const specificTypes = [
+      { type: appTypes.STATUS_4XX, status: 400 },
+      { type: appTypes.STATUS_4XX, status: 401 },
+      { type: appTypes.STATUS_4XX, status: 403 }
+    ];
+
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: reduxHelpers.HTTP_STATUS_RANGE(value.type),
+        status: value.status,
+        message: 'Lorem test status'
+      };
+
+      const resultState = userReducer(undefined, dispatched);
+
+      expect({ type: value.type, result: resultState }).toMatchSnapshot(`http status ${value.type} ${value.status}`);
+    });
   });
 
   it('should handle all defined error types', () => {
