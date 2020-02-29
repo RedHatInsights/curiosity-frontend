@@ -37,7 +37,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions={null}
+        selectedOptions="daily"
         variant="single"
       />
     </CardActions>
@@ -144,7 +144,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions={null}
+        selectedOptions="daily"
         variant="single"
       />
     </CardActions>
@@ -247,7 +247,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions={null}
+        selectedOptions="daily"
         variant="single"
       />
     </CardActions>
@@ -350,7 +350,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions={null}
+        selectedOptions="daily"
         variant="single"
       />
     </CardActions>
@@ -453,7 +453,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
           ]
         }
         placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions={null}
+        selectedOptions="daily"
         variant="single"
       />
     </CardActions>

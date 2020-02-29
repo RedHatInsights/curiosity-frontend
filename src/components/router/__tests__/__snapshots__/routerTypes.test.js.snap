@@ -55,7 +55,13 @@ exports[`RouterTypes should return specific properties: platformRedirect 1`] = `
 exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
   Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "redirect": true,
@@ -64,7 +70,13 @@ Array [
     "to": "/rhel-sw/all",
   },
   Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(RhelView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "id": "rhel-sw",
@@ -73,7 +85,13 @@ Array [
     "to": "/rhel-sw/:variant",
   },
   Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.memo),
+      "WrappedComponent": [Function],
+      "compare": null,
+      "displayName": "Connect(OpenshiftView)",
+      "type": [Function],
+    },
     "disabled": false,
     "exact": true,
     "id": "openshift-sw",

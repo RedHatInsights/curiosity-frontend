@@ -1,15 +1,25 @@
-const initialState = {
-  view: {
-    data: [],
-    error: false,
-    errorStatus: null,
-    errorMessage: null,
-    pending: false,
-    fulfilled: false
+import { reduxTypes } from '../types';
+import { reduxHelpers } from '../common/reduxHelpers';
+
+const initialState = {};
+
+const viewReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM:
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          granularity: action.granularity
+        },
+        {
+          state,
+          initialState
+        }
+      );
+    default:
+      return state;
   }
 };
-
-const viewReducer = (state = initialState) => state;
 
 viewReducer.initialState = initialState;
 

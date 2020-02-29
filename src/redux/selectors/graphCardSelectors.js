@@ -7,39 +7,27 @@ import { reduxHelpers } from '../common/reduxHelpers';
 
 const graphCardCache = { dataId: null, data: {} };
 
-const graphComponent = (state, props = {}) => ({ ..._get(state, ['graph', 'component', props.viewId]) });
-
 const graphResponse = (state, props = {}) => ({
   ..._get(state, ['graph', 'reportCapacity', props.productId]),
-  ...{ viewId: props.viewId, productId: props.productId }
+  ...{ viewId: props.viewId, productId: props.productId, graphGranularity: props.graphGranularity }
 });
 
-const graphCardSelector = createSelector([graphResponse, graphComponent], (response, component) => {
-  const { viewId = null, productId = null, metaQuery = {}, ...responseData } = response || {};
+const graphCardSelector = createSelector([graphResponse], response => {
+  const { viewId = null, productId = null, graphGranularity, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
-    ...component,
     error: responseData.error || false,
     errorStatus: responseData.errorStatus,
-    fulfilled: responseData.fulfilled || false,
+    fulfilled: false,
     pending: responseData.pending || false,
-    graphData: {},
-    syncing: false
+    graphData: {}
   };
 
   const responseGranularity = metaQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY] || null;
-  let granularity = null;
-
-  if (component.graphGranularity === responseGranularity || (!component.graphGranularity && responseData.fulfilled)) {
-    granularity = responseGranularity;
-  }
-
-  if (!granularity && responseData.fulfilled) {
-    updatedResponseData.syncing = true;
-  }
 
   const cachedGranularity =
-    (granularity && viewId && productId && graphCardCache.data[`${viewId}_${productId}_${granularity}`]) || {};
+    (graphGranularity && viewId && productId && graphCardCache.data[`${viewId}_${productId}_${graphGranularity}`]) ||
+    {};
   const initialLoad = 'initialLoad' in cachedGranularity ? cachedGranularity.initialLoad : true;
 
   Object.assign(updatedResponseData, { initialLoad, ...cachedGranularity });
@@ -49,7 +37,7 @@ const graphCardSelector = createSelector([graphResponse, graphComponent], (respo
     graphCardCache.data = {};
   }
 
-  if (responseData.fulfilled && granularity && productId) {
+  if (responseData.fulfilled && graphGranularity === responseGranularity && productId === metaId) {
     const [report, capacity] = responseData.data;
     const reportData = _get(report, [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
     const capacityData = _get(capacity, [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
@@ -130,8 +118,9 @@ const graphCardSelector = createSelector([graphResponse, graphComponent], (respo
     });
 
     // Update response and cache
+    updatedResponseData.fulfilled = true;
     updatedResponseData.initialLoad = false;
-    graphCardCache.data[`${viewId}_${productId}_${granularity}`] = { ...updatedResponseData };
+    graphCardCache.data[`${viewId}_${productId}_${graphGranularity}`] = { ...updatedResponseData };
   }
 
   return updatedResponseData;
