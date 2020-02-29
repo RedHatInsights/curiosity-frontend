@@ -69,3 +69,54 @@ Object {
   "type": "USER_AUTH_PENDING",
 }
 `;
+
+exports[`UserReducer should handle specific http status types: http status 4XX 400 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "4XX",
+}
+`;
+
+exports[`UserReducer should handle specific http status types: http status 4XX 401 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": false,
+      "error": true,
+      "errorMessage": "Lorem test status",
+      "errorStatus": 401,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "4XX",
+}
+`;
+
+exports[`UserReducer should handle specific http status types: http status 4XX 403 1`] = `
+Object {
+  "result": Object {
+    "session": Object {
+      "authorized": false,
+      "error": true,
+      "errorMessage": "Lorem test status",
+      "errorStatus": 403,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "4XX",
+}
+`;

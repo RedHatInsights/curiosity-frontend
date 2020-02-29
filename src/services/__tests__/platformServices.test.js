@@ -50,4 +50,36 @@ describe('PlatformServices', () => {
       done();
     });
   });
+
+  it('should return a failed initializeChrome', done => {
+    window.insights.chrome.init = undefined;
+
+    platformServices.initializeChrome().catch(error => {
+      expect(error).toMatchSnapshot('failed initializeChrome');
+      done();
+    });
+  });
+
+  it('should return a failed onNavigation', () => {
+    window.insights.chrome.on = undefined;
+    expect(platformServices.onNavigation).toThrowError(
+      '{ on } = insights.chrome, insights.chrome.on is not a function'
+    );
+  });
+
+  it('should return a failed setAppName', done => {
+    window.insights.chrome.identifyApp = undefined;
+
+    platformServices.setAppName().catch(error => {
+      expect(error).toMatchSnapshot('failed setAppName');
+      done();
+    });
+  });
+
+  it('should return a failed setNavigation', () => {
+    window.insights.chrome.navigation = undefined;
+    expect(platformServices.setNavigation).toThrowError(
+      '{ navigation } = insights.chrome, insights.chrome.navigation is not a function'
+    );
+  });
 });
