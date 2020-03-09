@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
+import _isEqual from 'lodash/isEqual';
 import _get from 'lodash/get';
 import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
@@ -9,11 +10,15 @@ const graphCardCache = { dataId: null, data: {} };
 
 const graphResponse = (state, props = {}) => ({
   ..._get(state, ['graph', 'reportCapacity', props.productId]),
-  ...{ viewId: props.viewId, productId: props.productId, graphGranularity: props.graphGranularity }
+  ...{
+    viewId: props.viewId,
+    productId: props.productId,
+    graphQuery: props.graphQuery
+  }
 });
 
 const graphCardSelector = createSelector([graphResponse], response => {
-  const { viewId = null, productId = null, graphGranularity, metaId, metaQuery = {}, ...responseData } = response || {};
+  const { viewId = null, productId = null, graphQuery = {}, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
@@ -23,11 +28,12 @@ const graphCardSelector = createSelector([graphResponse], response => {
     graphData: {}
   };
 
-  const responseGranularity = metaQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY] || null;
+  const responseMetaQuery = { ...metaQuery };
+  delete responseMetaQuery[rhsmApiTypes.RHSM_API_QUERY_START_DATE];
+  delete responseMetaQuery[rhsmApiTypes.RHSM_API_QUERY_END_DATE];
 
   const cachedGranularity =
-    (graphGranularity && viewId && productId && graphCardCache.data[`${viewId}_${productId}_${graphGranularity}`]) ||
-    {};
+    (viewId && productId && graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`]) || {};
   const initialLoad = 'initialLoad' in cachedGranularity ? cachedGranularity.initialLoad : true;
 
   Object.assign(updatedResponseData, { initialLoad, ...cachedGranularity });
@@ -37,7 +43,7 @@ const graphCardSelector = createSelector([graphResponse], response => {
     graphCardCache.data = {};
   }
 
-  if (responseData.fulfilled && graphGranularity === responseGranularity && productId === metaId) {
+  if (responseData.fulfilled && productId === metaId && _isEqual(graphQuery, responseMetaQuery)) {
     const [report, capacity] = responseData.data;
     const reportData = _get(report, [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
     const capacityData = _get(capacity, [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
@@ -120,13 +126,17 @@ const graphCardSelector = createSelector([graphResponse], response => {
     // Update response and cache
     updatedResponseData.fulfilled = true;
     updatedResponseData.initialLoad = false;
-    graphCardCache.data[`${viewId}_${productId}_${graphGranularity}`] = { ...updatedResponseData };
+    graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`] = {
+      ...updatedResponseData
+    };
   }
 
   return updatedResponseData;
 });
 
-const makeGraphCardSelector = () => graphCardSelector;
+const makeGraphCardSelector = defaultProps => (state, props) => ({
+  ...graphCardSelector(state, props, defaultProps)
+});
 
 const graphCardSelectors = {
   graphCard: graphCardSelector,
