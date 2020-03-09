@@ -1,5 +1,5 @@
 import graphCardSelectors from '../graphCardSelectors';
-import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../../types/rhsmApiTypes';
 
 describe('GraphCardSelectors', () => {
   it('should return specific selectors', () => {
@@ -37,7 +37,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: undefined,
-      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -89,7 +89,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum mismatched index or date',
-      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -130,7 +130,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum missing expected properties',
-      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -196,7 +196,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum fulfilled aggregated output',
-      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -277,7 +277,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'cache-test',
       productId: 'Lorem Ipsum ID cached',
-      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const stateDailyGranularityFulfilled = {
       graph: {

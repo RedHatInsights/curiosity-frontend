@@ -18,24 +18,20 @@ class GraphCard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { graphGranularity, graphQuery, productId } = this.props;
+    const { graphQuery, productId } = this.props;
 
-    if (
-      graphGranularity !== prevProps.graphGranularity ||
-      productId !== prevProps.productId ||
-      !_isEqual(graphQuery, prevProps.graphQuery)
-    ) {
+    if (productId !== prevProps.productId || !_isEqual(graphQuery, prevProps.graphQuery)) {
       this.onUpdateGraphData();
     }
   }
 
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, graphQuery, graphGranularity, productId } = this.props;
+    const { getGraphReportsCapacity, graphQuery, productId } = this.props;
+    const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
     if (graphGranularity && productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
       const query = {
-        [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
         [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
         [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString(),
         ...graphQuery
@@ -59,7 +55,8 @@ class GraphCard extends React.Component {
    * @patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
    */
   renderChart() {
-    const { filterGraphData, graphData, graphGranularity, selectOptionsType, t, productShortLabel } = this.props;
+    const { filterGraphData, graphData, graphQuery, selectOptionsType, t, productShortLabel } = this.props;
+    const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
 
@@ -127,8 +124,9 @@ class GraphCard extends React.Component {
   }
 
   render() {
-    const { cardTitle, children, error, graphGranularity, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, children, error, graphQuery, selectOptionsType, pending, t } = this.props;
     const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
+    const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
     return (
       <Card className="curiosity-usage-graph fadein">
@@ -176,8 +174,9 @@ GraphCard.propTypes = {
   ),
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
-  graphGranularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired,
-  graphQuery: PropTypes.object,
+  graphQuery: PropTypes.shape({
+    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired
+  }).isRequired,
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
   selectOptionsType: PropTypes.oneOf(['default']),
@@ -193,7 +192,6 @@ GraphCard.defaultProps = {
   filterGraphData: [],
   getGraphReportsCapacity: helpers.noop,
   graphData: {},
-  graphQuery: {},
   pending: false,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,
@@ -201,13 +199,7 @@ GraphCard.defaultProps = {
   viewId: 'graphCard'
 };
 
-const makeMapStateToProps = () => {
-  const getGraphCard = reduxSelectors.graphCard.makeGraphCard();
-
-  return (state, props) => ({
-    ...getGraphCard(state, props)
-  });
-};
+const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 
 const mapDispatchToProps = dispatch => ({
   getGraphReportsCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphReportsCapacity(id, query))

@@ -1,6 +1,6 @@
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
-import { RHSM_API_QUERY_SLA } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY, RHSM_API_QUERY_SLA } from '../../types/rhsmApiTypes';
 
 const initialState = {
   graphQuery: {}
@@ -10,13 +10,13 @@ const viewReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM:
       return reduxHelpers.setStateProp(
-        null,
+        'graphQuery',
         {
-          granularity: action.granularity
+          [RHSM_API_QUERY_GRANULARITY]: action.granularity
         },
         {
           state,
-          initialState
+          reset: false
         }
       );
     case reduxTypes.rhsm.SET_GRAPH_SLA_RHSM:

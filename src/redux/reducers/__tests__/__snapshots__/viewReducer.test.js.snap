@@ -3,8 +3,9 @@
 exports[`ViewReducer should handle specific defined types: defined type SET_GRAPH_GRANULARITY_RHSM 1`] = `
 Object {
   "result": Object {
-    "granularity": "lorem granularity",
-    "graphQuery": Object {},
+    "graphQuery": Object {
+      "granularity": "lorem granularity",
+    },
   },
   "type": "SET_GRAPH_GRANULARITY_RHSM",
 }
