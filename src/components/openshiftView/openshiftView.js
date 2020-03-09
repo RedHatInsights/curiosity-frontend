@@ -5,8 +5,8 @@ import {
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
-import { connectTranslate } from '../../redux';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { Select } from '../select/select';
 import { helpers } from '../../common';
@@ -49,7 +49,7 @@ class OpenshiftView extends React.Component {
 
   render() {
     const { filters } = this.state;
-    const { granularity, graphQuery, routeDetail, t } = this.props;
+    const { graphQuery, routeDetail, t } = this.props;
 
     return (
       <PageLayout>
@@ -60,10 +60,9 @@ class OpenshiftView extends React.Component {
           <GraphCard
             key={routeDetail.pathParameter}
             filterGraphData={filters}
-            graphGranularity={granularity}
+            graphQuery={graphQuery}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
-            graphQuery={graphQuery}
             cardTitle={t('curiosity-graph.cardHeading')}
             productShortLabel="OpenShift"
           >
@@ -76,8 +75,9 @@ class OpenshiftView extends React.Component {
 }
 
 OpenshiftView.propTypes = {
-  granularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
-  graphQuery: PropTypes.object,
+  graphQuery: PropTypes.shape({
+    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
+  }),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
   initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
@@ -91,8 +91,9 @@ OpenshiftView.propTypes = {
 };
 
 OpenshiftView.defaultProps = {
-  granularity: GRANULARITY_TYPES.DAILY,
-  graphQuery: {},
+  graphQuery: {
+    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
+  },
   initialOption: 'cores',
   initialFilters: [
     { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
@@ -103,8 +104,8 @@ OpenshiftView.defaultProps = {
   t: helpers.noopTranslate
 };
 
-const mapStateToProps = state => ({ ...state.view });
+const makeMapStateToProps = reduxSelectors.view.makeView(OpenshiftView.defaultProps);
 
-const ConnectedOpenshiftView = connectTranslate(mapStateToProps)(OpenshiftView);
+const ConnectedOpenshiftView = connectTranslate(makeMapStateToProps)(OpenshiftView);
 
 export { ConnectedOpenshiftView as default, ConnectedOpenshiftView, OpenshiftView };
