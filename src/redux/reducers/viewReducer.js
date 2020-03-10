@@ -1,7 +1,10 @@
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
+import { RHSM_API_QUERY_SLA } from '../../types/rhsmApiTypes';
 
-const initialState = {};
+const initialState = {
+  graphQuery: {}
+};
 
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,6 +17,17 @@ const viewReducer = (state = initialState, action) => {
         {
           state,
           initialState
+        }
+      );
+    case reduxTypes.rhsm.SET_GRAPH_SLA_RHSM:
+      return reduxHelpers.setStateProp(
+        'graphQuery',
+        {
+          [RHSM_API_QUERY_SLA]: action.sla
+        },
+        {
+          state,
+          reset: false
         }
       );
     default:
