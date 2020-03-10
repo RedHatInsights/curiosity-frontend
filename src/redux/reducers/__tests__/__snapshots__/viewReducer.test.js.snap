@@ -4,7 +4,19 @@ exports[`ViewReducer should handle specific defined types: defined type SET_GRAP
 Object {
   "result": Object {
     "granularity": "lorem granularity",
+    "graphQuery": Object {},
   },
   "type": "SET_GRAPH_GRANULARITY_RHSM",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_GRAPH_SLA_RHSM 1`] = `
+Object {
+  "result": Object {
+    "graphQuery": Object {
+      "sla": "lorem sla",
+    },
+  },
+  "type": "SET_GRAPH_SLA_RHSM",
 }
 `;

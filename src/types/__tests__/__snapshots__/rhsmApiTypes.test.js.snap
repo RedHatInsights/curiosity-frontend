@@ -24,6 +24,13 @@ Object {
   },
   "RHSM_API_QUERY_LIMIT": "limit",
   "RHSM_API_QUERY_OFFSET": "offset",
+  "RHSM_API_QUERY_SLA": "sla",
+  "RHSM_API_QUERY_SLA_TYPES": Object {
+    "NONE": "",
+    "PREMIUM": "premium",
+    "SELF": "self-support",
+    "STANDARD": "standard",
+  },
   "RHSM_API_QUERY_START_DATE": "beginning",
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
@@ -78,6 +85,13 @@ Object {
     },
     "RHSM_API_QUERY_LIMIT": "limit",
     "RHSM_API_QUERY_OFFSET": "offset",
+    "RHSM_API_QUERY_SLA": "sla",
+    "RHSM_API_QUERY_SLA_TYPES": Object {
+      "NONE": "",
+      "PREMIUM": "premium",
+      "SELF": "self-support",
+      "STANDARD": "standard",
+    },
     "RHSM_API_QUERY_START_DATE": "beginning",
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
@@ -133,6 +147,13 @@ Object {
     },
     "RHSM_API_QUERY_LIMIT": "limit",
     "RHSM_API_QUERY_OFFSET": "offset",
+    "RHSM_API_QUERY_SLA": "sla",
+    "RHSM_API_QUERY_SLA_TYPES": Object {
+      "NONE": "",
+      "PREMIUM": "premium",
+      "SELF": "self-support",
+      "STANDARD": "standard",
+    },
     "RHSM_API_QUERY_START_DATE": "beginning",
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
@@ -192,6 +213,13 @@ Object {
   },
   "RHSM_API_QUERY_LIMIT": "limit",
   "RHSM_API_QUERY_OFFSET": "offset",
+  "RHSM_API_QUERY_SLA": "sla",
+  "RHSM_API_QUERY_SLA_TYPES": Object {
+    "NONE": "",
+    "PREMIUM": "premium",
+    "SELF": "self-support",
+    "STANDARD": "standard",
+  },
   "RHSM_API_QUERY_START_DATE": "beginning",
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
