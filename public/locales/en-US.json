@@ -23,6 +23,14 @@
     "physicalSocketsLabel": "Physical {{product}}",
     "thresholdLabel": "Subscription threshold"
   },
+  "curiosity-toolbar": {
+    "slaCategory": "SLA",
+    "slaNone": "No SLA",
+    "slaPlaceholder": "Filter by SLA",
+    "slaPremium": "Premium",
+    "slaSelfSupport": "Self-Support",
+    "slaStandard": "Standard"
+  },
   "curiosity-tour": {
     "emptyStateIconAlt": "{{appName}} logo",
     "emptyStateTitle": "{{appName}} is an early access beta",
