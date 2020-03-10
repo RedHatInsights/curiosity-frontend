@@ -16,7 +16,7 @@ class RhelView extends React.Component {
   componentDidMount() {}
 
   render() {
-    const { granularity, initialFilters, routeDetail, t } = this.props;
+    const { granularity, graphQuery, initialFilters, routeDetail, t } = this.props;
 
     return (
       <PageLayout>
@@ -30,6 +30,7 @@ class RhelView extends React.Component {
             graphGranularity={granularity}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
+            graphQuery={graphQuery}
             cardTitle={t('curiosity-graph.cardHeading')}
             productShortLabel="RHEL"
           />
@@ -41,6 +42,7 @@ class RhelView extends React.Component {
 
 RhelView.propTypes = {
   granularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
+  graphQuery: PropTypes.object,
   initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
@@ -54,6 +56,7 @@ RhelView.propTypes = {
 
 RhelView.defaultProps = {
   granularity: GRANULARITY_TYPES.DAILY,
+  graphQuery: {},
   initialFilters: [
     { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
     { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },

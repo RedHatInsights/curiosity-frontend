@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/Skeleton';
+import _isEqual from 'lodash/isEqual';
 import { Select } from '../select/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
@@ -17,22 +18,27 @@ class GraphCard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { graphGranularity, productId } = this.props;
+    const { graphGranularity, graphQuery, productId } = this.props;
 
-    if (graphGranularity !== prevProps.graphGranularity || productId !== prevProps.productId) {
+    if (
+      graphGranularity !== prevProps.graphGranularity ||
+      productId !== prevProps.productId ||
+      !_isEqual(graphQuery, prevProps.graphQuery)
+    ) {
       this.onUpdateGraphData();
     }
   }
 
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, graphGranularity, productId } = this.props;
+    const { getGraphReportsCapacity, graphQuery, graphGranularity, productId } = this.props;
 
     if (graphGranularity && productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
       const query = {
         [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: graphGranularity,
         [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
-        [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString()
+        [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString(),
+        ...graphQuery
       };
 
       getGraphReportsCapacity(productId, query);
@@ -171,6 +177,7 @@ GraphCard.propTypes = {
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
   graphGranularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired,
+  graphQuery: PropTypes.object,
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
   selectOptionsType: PropTypes.oneOf(['default']),
@@ -186,6 +193,7 @@ GraphCard.defaultProps = {
   filterGraphData: [],
   getGraphReportsCapacity: helpers.noop,
   graphData: {},
+  graphQuery: {},
   pending: false,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,

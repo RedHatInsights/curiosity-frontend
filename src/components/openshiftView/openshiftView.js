@@ -49,7 +49,7 @@ class OpenshiftView extends React.Component {
 
   render() {
     const { filters } = this.state;
-    const { granularity, routeDetail, t } = this.props;
+    const { granularity, graphQuery, routeDetail, t } = this.props;
 
     return (
       <PageLayout>
@@ -63,6 +63,7 @@ class OpenshiftView extends React.Component {
             graphGranularity={granularity}
             productId={routeDetail.pathParameter}
             viewId={routeDetail.pathId}
+            graphQuery={graphQuery}
             cardTitle={t('curiosity-graph.cardHeading')}
             productShortLabel="OpenShift"
           >
@@ -76,6 +77,7 @@ class OpenshiftView extends React.Component {
 
 OpenshiftView.propTypes = {
   granularity: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
+  graphQuery: PropTypes.object,
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
   initialFilters: PropTypes.array,
   routeDetail: PropTypes.shape({
@@ -90,6 +92,7 @@ OpenshiftView.propTypes = {
 
 OpenshiftView.defaultProps = {
   granularity: GRANULARITY_TYPES.DAILY,
+  graphQuery: {},
   initialOption: 'cores',
   initialFilters: [
     { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },

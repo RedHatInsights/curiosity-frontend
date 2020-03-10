@@ -26,6 +26,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
         ]
       }
       graphGranularity="daily"
+      graphQuery={Object {}}
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="RHEL"
@@ -61,6 +62,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
         ]
       }
       graphGranularity="daily"
+      graphQuery={Object {}}
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="RHEL"
