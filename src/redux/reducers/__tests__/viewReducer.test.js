@@ -7,13 +7,13 @@ describe('ViewReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [types.SET_GRAPH_GRANULARITY_RHSM];
+    const specificTypes = [types.SET_GRAPH_GRANULARITY_RHSM, types.SET_GRAPH_SLA_RHSM];
 
     specificTypes.forEach(value => {
       const dispatched = {
         type: value,
         granularity: 'lorem granularity',
-        viewId: 'dolor id'
+        sla: 'lorem sla'
       };
 
       const resultState = viewReducer(undefined, dispatched);
