@@ -53,6 +53,31 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
+#: src/components/toolbar/toolbar.js:68
+#: src/components/toolbar/toolbar.js:71
+msgid \\"curiosity-toolbar.slaCategory\\"
+msgstr \\"\\"
+
+#: src/components/toolbar/toolbarTypes.js:22
+msgid \\"curiosity-toolbar.slaNone\\"
+msgstr \\"\\"
+
+#: src/components/toolbar/toolbar.js:74
+msgid \\"curiosity-toolbar.slaPlaceholder\\"
+msgstr \\"\\"
+
+#: src/components/toolbar/toolbarTypes.js:10
+msgid \\"curiosity-toolbar.slaPremium\\"
+msgstr \\"\\"
+
+#: src/components/toolbar/toolbarTypes.js:18
+msgid \\"curiosity-toolbar.slaSelfSupport\\"
+msgstr \\"\\"
+
+#: src/components/toolbar/toolbarTypes.js:14
+msgid \\"curiosity-toolbar.slaStandard\\"
+msgstr \\"\\"
+
 #: src/components/tourView/tourView.js:64
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
