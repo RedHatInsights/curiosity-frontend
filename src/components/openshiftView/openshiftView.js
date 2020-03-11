@@ -4,11 +4,12 @@ import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
-import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
+import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { Select } from '../select/select';
+import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
 
 class OpenshiftView extends React.Component {
@@ -56,6 +57,9 @@ class OpenshiftView extends React.Component {
         <PageHeader>
           {(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_CONFIG_NAME}
         </PageHeader>
+        <PageToolbar>
+          <Toolbar viewId={routeDetail.pathId} />
+        </PageToolbar>
         <PageSection>
           <GraphCard
             key={routeDetail.pathParameter}
