@@ -256,10 +256,18 @@ describe('ReduxHelpers', () => {
 
     const rejectedState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
 
+    action.type = reduxHelpers.REJECTED_ACTION('DOLOR');
+    action.payload = {
+      message: 'cancelled request'
+    };
+
+    const cancelledState = reduxHelpers.generatedPromiseActionReducer([{ type: 'DOLOR' }], state, action);
+
     expect({
       rejectedState,
       pendingState,
-      fulfilledState
+      fulfilledState,
+      cancelledState
     }).toMatchSnapshot('generatedPromiseActionReducer basic updated state');
   });
 
