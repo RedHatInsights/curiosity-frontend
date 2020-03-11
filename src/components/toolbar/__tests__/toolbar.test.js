@@ -27,4 +27,13 @@ describe('Toolbar Component', () => {
 
     expect(dispatchFilter).toHaveBeenCalledTimes(2);
   });
+
+  it('should return an empty render when disabled', () => {
+    const props = {
+      isDisabled: true
+    };
+    const component = shallow(<Toolbar {...props} />);
+
+    expect(component).toMatchSnapshot('disabled component');
+  });
 });

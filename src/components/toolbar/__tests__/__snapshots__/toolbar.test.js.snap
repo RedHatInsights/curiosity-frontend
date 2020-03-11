@@ -73,3 +73,5 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
   </DataToolbarContent>
 </DataToolbar>
 `;
+
+exports[`Toolbar Component should return an empty render when disabled: disabled component 1`] = `""`;

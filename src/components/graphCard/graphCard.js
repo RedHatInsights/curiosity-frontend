@@ -26,10 +26,10 @@ class GraphCard extends React.Component {
   }
 
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, graphQuery, productId } = this.props;
+    const { getGraphReportsCapacity, graphQuery, isDisabled, productId } = this.props;
     const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
-    if (graphGranularity && productId) {
+    if (!isDisabled && graphGranularity && productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
       const query = {
         [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
@@ -124,7 +124,12 @@ class GraphCard extends React.Component {
   }
 
   render() {
-    const { cardTitle, children, error, graphQuery, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, children, error, graphQuery, isDisabled, selectOptionsType, pending, t } = this.props;
+
+    if (isDisabled) {
+      return null;
+    }
+
     const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
@@ -177,6 +182,7 @@ GraphCard.propTypes = {
   graphQuery: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired
   }).isRequired,
+  isDisabled: PropTypes.bool,
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
   selectOptionsType: PropTypes.oneOf(['default']),
@@ -192,6 +198,7 @@ GraphCard.defaultProps = {
   filterGraphData: [],
   getGraphReportsCapacity: helpers.noop,
   graphData: {},
+  isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
   selectOptionsType: 'default',
   t: helpers.noopTranslate,
