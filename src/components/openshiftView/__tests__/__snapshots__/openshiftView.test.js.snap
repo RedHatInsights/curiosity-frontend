@@ -5,6 +5,11 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   <PageHeader>
     Subscription Watch
   </PageHeader>
+  <PageToolbar>
+    <withI18nextTranslation(Toolbar)
+      viewId="test_id"
+    />
+  </PageToolbar>
   <PageSection>
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
@@ -63,6 +68,11 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   <PageHeader>
     Dolor sit
   </PageHeader>
+  <PageToolbar>
+    <withI18nextTranslation(Toolbar)
+      viewId="test_id"
+    />
+  </PageToolbar>
   <PageSection>
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
