@@ -77,4 +77,15 @@ describe('GraphCard Component', () => {
 
     expect(component).toMatchSnapshot('fulfilled');
   });
+
+  it('should return an empty render when disabled', () => {
+    const props = {
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      isDisabled: true,
+      productId: 'lorem'
+    };
+    const component = shallow(<GraphCard {...props} />);
+
+    expect(component).toMatchSnapshot('disabled component');
+  });
 });

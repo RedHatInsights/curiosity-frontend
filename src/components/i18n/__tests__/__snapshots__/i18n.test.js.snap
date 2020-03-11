@@ -31,8 +31,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:138
-#: src/components/graphCard/graphCard.js:142
+#: src/components/graphCard/graphCard.js:143
+#: src/components/graphCard/graphCard.js:147
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -53,8 +53,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbar.js:68
-#: src/components/toolbar/toolbar.js:71
+#: src/components/toolbar/toolbar.js:73
+#: src/components/toolbar/toolbar.js:76
 msgid \\"curiosity-toolbar.slaCategory\\"
 msgstr \\"\\"
 
@@ -62,7 +62,7 @@ msgstr \\"\\"
 msgid \\"curiosity-toolbar.slaNone\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbar.js:74
+#: src/components/toolbar/toolbar.js:79
 msgid \\"curiosity-toolbar.slaPlaceholder\\"
 msgstr \\"\\"
 
