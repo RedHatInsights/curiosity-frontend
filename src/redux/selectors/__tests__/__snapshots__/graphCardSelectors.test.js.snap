@@ -6,7 +6,6 @@ Object {
   "errorStatus": undefined,
   "fulfilled": false,
   "graphData": Object {},
-  "initialLoad": true,
   "pending": true,
 }
 `;
@@ -239,7 +238,6 @@ Object {
       },
     ],
   },
-  "initialLoad": false,
   "pending": false,
 }
 `;
@@ -250,7 +248,6 @@ Object {
   "errorStatus": undefined,
   "fulfilled": false,
   "graphData": Object {},
-  "initialLoad": true,
   "pending": false,
 }
 `;
@@ -261,7 +258,6 @@ Object {
   "errorStatus": undefined,
   "fulfilled": false,
   "graphData": Object {},
-  "initialLoad": true,
   "pending": false,
 }
 `;
@@ -272,7 +268,6 @@ Object {
   "errorStatus": undefined,
   "fulfilled": false,
   "graphData": Object {},
-  "initialLoad": true,
   "pending": false,
 }
 `;
@@ -382,7 +377,6 @@ Object {
       },
     ],
   },
-  "initialLoad": false,
   "pending": false,
 }
 `;
@@ -492,7 +486,6 @@ Object {
       },
     ],
   },
-  "initialLoad": false,
   "pending": false,
 }
 `;
@@ -602,7 +595,6 @@ Object {
       },
     ],
   },
-  "initialLoad": false,
   "pending": false,
 }
 `;
@@ -852,7 +844,6 @@ Object {
       },
     ],
   },
-  "initialLoad": false,
   "pending": false,
 }
 `;
@@ -969,7 +960,6 @@ Object {
       },
     ],
   },
-  "initialLoad": false,
   "pending": false,
 }
 `;

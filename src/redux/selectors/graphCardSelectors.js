@@ -24,7 +24,7 @@ const graphCardSelector = createSelector([graphResponse], response => {
     error: responseData.error || false,
     errorStatus: responseData.errorStatus,
     fulfilled: false,
-    pending: responseData.pending || false,
+    pending: responseData.pending || responseData.cancelled || false,
     graphData: {}
   };
 
@@ -33,10 +33,9 @@ const graphCardSelector = createSelector([graphResponse], response => {
   delete responseMetaQuery[rhsmApiTypes.RHSM_API_QUERY_END_DATE];
 
   const cachedGranularity =
-    (viewId && productId && graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`]) || {};
-  const initialLoad = 'initialLoad' in cachedGranularity ? cachedGranularity.initialLoad : true;
+    (viewId && productId && graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`]) || undefined;
 
-  Object.assign(updatedResponseData, { initialLoad, ...cachedGranularity });
+  Object.assign(updatedResponseData, { ...cachedGranularity });
 
   if (viewId && graphCardCache.dataId !== viewId) {
     graphCardCache.dataId = viewId;
@@ -125,7 +124,6 @@ const graphCardSelector = createSelector([graphResponse], response => {
 
     // Update response and cache
     updatedResponseData.fulfilled = true;
-    updatedResponseData.initialLoad = false;
     graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`] = {
       ...updatedResponseData
     };

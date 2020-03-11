@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { CancelToken } from 'axios';
 import { platformServices } from './platformServices';
 
 const serviceConfig = (passedConfig = {}) => ({
@@ -7,9 +7,26 @@ const serviceConfig = (passedConfig = {}) => ({
   ...passedConfig
 });
 
+const cancelTokens = {};
+
 const serviceCall = async config => {
   await platformServices.getUser();
-  return axios(serviceConfig(config));
+
+  const updatedConfig = { ...config };
+  const cancelTokensId = updatedConfig.url;
+
+  if (updatedConfig.cancel === true) {
+    if (cancelTokens[cancelTokensId]) {
+      cancelTokens[cancelTokensId].cancel('cancelled request');
+    }
+
+    cancelTokens[cancelTokensId] = CancelToken.source();
+    updatedConfig.cancelToken = cancelTokens[cancelTokensId].token;
+
+    delete updatedConfig.cancel;
+  }
+
+  return axios(serviceConfig(updatedConfig));
 };
 
 export { serviceConfig as default, serviceConfig, serviceCall };
