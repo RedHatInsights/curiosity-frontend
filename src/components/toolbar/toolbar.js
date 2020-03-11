@@ -48,7 +48,12 @@ class Toolbar extends React.Component {
 
   render() {
     const { filterSla } = this.state;
-    const { t } = this.props;
+    const { isDisabled, t } = this.props;
+
+    if (isDisabled) {
+      return null;
+    }
+
     const slaOptions = toolbarTypes.getOptions();
     const slaOptionsSelected =
       (filterSla && filterSla.title && [filterSla.title]) || (slaOptions.selected && [slaOptions.selected]) || [];
@@ -83,11 +88,13 @@ class Toolbar extends React.Component {
 }
 
 Toolbar.propTypes = {
+  isDisabled: PropTypes.bool,
   t: PropTypes.func,
   viewId: PropTypes.string
 };
 
 Toolbar.defaultProps = {
+  isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: helpers.noopTranslate,
   viewId: 'toolbar'
 };

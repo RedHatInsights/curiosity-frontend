@@ -482,3 +482,5 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   </CardBody>
 </Card>
 `;
+
+exports[`GraphCard Component should return an empty render when disabled: disabled component 1`] = `""`;
