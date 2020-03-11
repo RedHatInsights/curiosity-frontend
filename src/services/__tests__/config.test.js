@@ -43,4 +43,14 @@ describe('ServiceConfig', () => {
       done();
     });
   });
+
+  it('should handle cancelling service calls', done => {
+    Promise.all([
+      service.serviceCall({ url: '/test/', cancel: true }),
+      service.serviceCall({ url: '/test/', cancel: true })
+    ]).catch(error => {
+      expect(error).toMatchSnapshot('cancelled request');
+      done();
+    });
+  });
 });

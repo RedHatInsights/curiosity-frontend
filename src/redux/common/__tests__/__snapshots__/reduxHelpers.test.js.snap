@@ -2,6 +2,18 @@
 
 exports[`ReduxHelpers should automate creating general promise action reducers: generatedPromiseActionReducer basic updated state 1`] = `
 Object {
+  "cancelledState": Object {
+    "cancelled": true,
+    "date": null,
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": false,
+    "meta": Object {},
+    "metaData": undefined,
+    "metaId": undefined,
+    "metaQuery": undefined,
+    "pending": false,
+  },
   "fulfilledState": Object {
     "data": Object {
       "dolor": "sit",

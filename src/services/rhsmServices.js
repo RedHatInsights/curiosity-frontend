@@ -34,7 +34,8 @@ import { serviceCall } from './config';
  */
 const getApiVersion = () =>
   serviceCall({
-    url: process.env.REACT_APP_SERVICES_RHSM_VERSION
+    url: process.env.REACT_APP_SERVICES_RHSM_VERSION,
+    cancel: true
   });
 
 /**
@@ -417,7 +418,8 @@ const getApiVersion = () =>
 const getGraphReports = (id, params = {}) =>
   serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
-    params
+    params,
+    cancel: true
   });
 
 /**
@@ -578,7 +580,8 @@ const getGraphReports = (id, params = {}) =>
 const getGraphCapacity = (id, params = {}) =>
   serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
-    params
+    params,
+    cancel: true
   });
 
 const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports };

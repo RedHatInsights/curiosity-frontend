@@ -188,17 +188,25 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
 
   switch (type) {
     case REJECTED_ACTION(whichType.type || whichType):
-      return setStateProp(
-        whichType.ref || null,
-        setId({
+      const errorMessage = getMessageFromResults(action);
+      let errorResponse;
+
+      if (errorMessage === 'cancelled request') {
+        errorResponse = {
+          date: getDateFromResults(action),
+          cancelled: true
+        };
+      } else {
+        errorResponse = {
           error: true,
-          errorMessage: getMessageFromResults(action),
+          errorMessage,
           errorStatus: getStatusFromResults(action)
-        }),
-        {
-          state
-        }
-      );
+        };
+      }
+
+      return setStateProp(whichType.ref || null, setId(errorResponse), {
+        state
+      });
     case PENDING_ACTION(whichType.type || whichType):
       return setStateProp(
         whichType.ref || null,

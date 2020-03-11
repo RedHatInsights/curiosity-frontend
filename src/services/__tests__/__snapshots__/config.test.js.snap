@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServiceConfig should handle cancelling service calls: cancelled request 1`] = `
+Cancel {
+  "message": "cancelled request",
+}
+`;
