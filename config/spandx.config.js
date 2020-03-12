@@ -8,10 +8,19 @@ module.exports = {
     '/static': {
       host: `https://${localhost}:5001`
     },
+    '/apps/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
     '/beta/apps/subscriptions': {
       host: `https://${localhost}:5001`
     },
+    '/staging/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
     '/beta/staging/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
+    '/subscriptions': {
       host: `https://${localhost}:5001`
     },
     '/beta/subscriptions': {

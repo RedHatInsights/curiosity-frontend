@@ -5,18 +5,18 @@
 #
 deployPaths()
 {
-  local CI_BRANCH=$1
-  local CI_BUILD_STAGE=$2
+  local DEPLOY_BRANCH=$1
+  local DEPLOY_BUILD_STAGE=$2
 
   DEPLOY_PATH_PREFIX=""
 
-  if [[ $CI_BUILD_STAGE == *"Beta"* ]]; then
+  if [[ $DEPLOY_BUILD_STAGE == *"Beta"* ]]; then
     DEPLOY_PATH_PREFIX=/beta
   fi
 
   echo UI_DEPLOY_PATH_PREFIX="$DEPLOY_PATH_PREFIX" >> ./.env.production.local
 
-  echo "\"${CI_BUILD_STAGE}\" build stage config for branch \"${CI_BRANCH}\"..."
+  echo "\"${DEPLOY_BUILD_STAGE}\" build stage config for branch \"${DEPLOY_BRANCH}\"..."
   printf "Deploy path prefix ... ${GREEN}UI_DEPLOY_PATH_PREFIX=$DEPLOY_PATH_PREFIX${NOCOLOR}\n"
 }
 #

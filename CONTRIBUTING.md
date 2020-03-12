@@ -15,19 +15,36 @@ Settings for [Standard Version](https://github.com/conventional-changelog/standa
 ## Branching, Pull Requests, and Releases
 
 ### Branches
-Curiosity makes use of only two branches `master` and `ci`. 
+Curiosity primarily makes use of the branches `master`, `qa`, and `ci`. 
 - `master` branch is a protected representation of production environments
-   - Adding commits, or a PR, into `master` should generate `prod-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `prod-*` branches are manually deployed through coordination with the operations team.
-- `ci` branch is a representation of `ci`, or `dev`, and `qa`.
-   - Adding commits, or a PR, into `ci` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged timeframe for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+   - Adding commits, or a PR, into `master` should generate a `prod-stable` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `prod-stable` branch is manually deployed through coordination with the operations team.
+- `qa` branch is a representation of `qa-stable`, and `ci-stable`.
+   - Adding commits, or a PR, into `ci-stable` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+- `ci` branch is a representation of `ci-beta`, and `qa-beta`.
+   - Adding commits, or a PR, into `ci-beta` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+   
+#### Additional branches
+A staging branch can also be utilized.
+- `stage` branch is a protected representation of production environments
+   - Adding commits, or a PR, into `stage` should generate a `prod-beta` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `prod-beta` branch is manually deployed through coordination with the operations team.
 
 #### Branching and Pull Request Workflow
+It is preferred that all work is handled through GitHub's fork and pull workflow. Working directly on the master repository is discouraged
+since a form of Continuous Integration is implemented and dependent on branch structure.
+
 1. General development PRs should be opened against the `ci` branch.
-1. PRs to master branch are considered production ready releases.
+1. It is preferred that PRs to `qa` originate from `ci`, but development PRs opened against `qa` are allowed.
+1. PRs to master branch are considered production ready releases. It is preferred that PRs originate from `qa`,  or `stage` if available.
 1. Development PRs opened against master, unless a team agreed exception occurs, will be closed.
-1. All PRs to master branch should include a final review, or coordination, from Quality Engineering.
+1. All PRs to production, master branch, should have a final review, coordination, from Quality Engineering.
+
+```
+   PR -> ci <-> qa -> stage -> master
+```
 
 ### Releases and Tagging
 1. Merging a PR into `master` is considered production ready.
@@ -86,6 +103,14 @@ This project makes use of reserved CSS class prefixes used by external resources
 1. Prefix `uiux-`
 
    CSS classes with the prefix `uiux-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
+
+### Reserved QE testing attributes
+This project makes use of reserved DOM attributes used by the QE team.
+> Updating elements with these attributes should be done with the knowledge "you are affecting" QE's ability to test.
+
+1. Attribute `data-test`
+   
+   DOM attributes with `data-test=""` are used by QE as a means to identify specific DOM elements.
 
 ## Testing
 To test content you'll need to have Node and Yarn installed.
@@ -161,6 +186,7 @@ If you're having trouble getting an accurate code coverage report, or it's faili
 
 ## Typical Development Workflow
 After setting up the repository...
+1. Confirm you have access to the network
 1. Make sure Docker is running
 1. Open a couple of instances of Terminal and run...
     ```
