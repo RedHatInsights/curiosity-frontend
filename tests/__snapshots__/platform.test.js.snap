@@ -9,8 +9,11 @@ Array [
 
 exports[`Platform Configuration should have a proxy configuration with path references that match configuration: proxy references 1`] = `
 Array [
+  "'/apps/subscriptions': {",
   "'/beta/apps/subscriptions': {",
+  "'/staging/subscriptions': {",
   "'/beta/staging/subscriptions': {",
+  "'/subscriptions': {",
   "'/beta/subscriptions': {",
   "",
 ]
