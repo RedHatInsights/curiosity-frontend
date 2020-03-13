@@ -9,20 +9,42 @@ describe('RouterHelpers', () => {
     expect(getNavRouteDetail).toBeDefined();
   });
 
-  it('should return a generated baseName', () => {
+  it('should return a generated baseName using NO path prefix', () => {
+    expect(
+      dynamicBaseName({
+        pathName: '/appName',
+        pathPrefix: ''
+      })
+    ).toMatchSnapshot('empty pathPrefix: app base name');
+
+    expect(
+      dynamicBaseName({
+        pathName: '/appName'
+      })
+    ).toMatchSnapshot('undefined pathPrefix: app base name');
+
+    expect(
+      dynamicBaseName({
+        pathName: '/appName',
+        pathPrefix: '/'
+      })
+    ).toMatchSnapshot('root reference pathPrefix: app base name');
+
+    expect(
+      dynamicBaseName({
+        pathName: '/appName/loremRoute',
+        pathPrefix: ''
+      })
+    ).toMatchSnapshot('app lorem route name');
+  });
+
+  it('should return a generated baseName using a beta path prefix', () => {
     expect(
       dynamicBaseName({
         pathName: '/appName',
         pathPrefix: '/beta'
       })
     ).toMatchSnapshot('app base name');
-
-    expect(
-      dynamicBaseName({
-        pathName: '/beta/appName',
-        pathPrefix: '/beta'
-      })
-    ).toMatchSnapshot('app base lorem base name');
 
     expect(
       dynamicBaseName({
