@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterHelpers should return a generated baseName: app base lorem base name 1`] = `"/beta/appName"`;
+exports[`RouterHelpers should return a generated baseName using NO path prefix: app lorem route name 1`] = `"/appName"`;
 
-exports[`RouterHelpers should return a generated baseName: app base name 1`] = `"/appName"`;
+exports[`RouterHelpers should return a generated baseName using NO path prefix: empty pathPrefix: app base name 1`] = `"/appName"`;
 
-exports[`RouterHelpers should return a generated baseName: beta app base name 1`] = `"/beta/appName"`;
+exports[`RouterHelpers should return a generated baseName using NO path prefix: root reference pathPrefix: app base name 1`] = `"/appName"`;
 
-exports[`RouterHelpers should return a generated baseName: beta app lorem route name 1`] = `"/beta/appName"`;
+exports[`RouterHelpers should return a generated baseName using NO path prefix: undefined pathPrefix: app base name 1`] = `"/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using a beta path prefix: app base name 1`] = `"/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using a beta path prefix: beta app base name 1`] = `"/beta/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using a beta path prefix: beta app lorem route name 1`] = `"/beta/appName"`;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
 Object {
