@@ -16,6 +16,7 @@
   "extends": [
     "react-app",
     "airbnb",
+    "airbnb/hooks",
     "prettier",
     "plugin:jest/recommended"
   ],

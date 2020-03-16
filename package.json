@@ -96,8 +96,8 @@
     "node-sass": "^4.13.1",
     "numbro": "^2.1.2",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-i18next": "^11.3.3",
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
@@ -108,34 +108,35 @@
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "victory": "^34.1.1",
-    "victory-core": "^34.1.1",
-    "victory-legend": "^34.1.1"
+    "victory": "^34.1.3",
+    "victory-core": "^34.1.3",
+    "victory-legend": "^34.1.3"
   },
   "devDependencies": {
     "apidoc-mock": "^3.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
-    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.7.0",
-    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-json": "^2.1.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "express": "^4.17.1",
     "gettext-extractor": "^3.5.2",
     "moxios": "^0.4.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "redux-mock-store": "^1.5.4",
     "standard-version": "^7.1.0",
     "swagger-ui-express": "^4.1.3",
     "yamljs": "^0.3.0"
   },
   "resolutions": {
-    "**/eslint": "6.6.0"
+    "**/eslint": "6.8.0"
   }
 }
