@@ -5,7 +5,17 @@ import Redirect from './redirect';
 import { routerHelpers } from './routerHelpers';
 import { routerTypes } from './routerTypes';
 
+/**
+ * Load routes.
+ *
+ * @augments React.Component
+ */
 class Router extends React.Component {
+  /**
+   * Parse settings array with route options.
+   *
+   * @returns {{redirectRoot: Node, renderRoutes: Array}}
+   */
   renderRoutes() {
     const { routes } = this.props;
     const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
@@ -60,6 +70,11 @@ class Router extends React.Component {
     };
   }
 
+  /**
+   * Render router.
+   *
+   * @returns {Node}
+   */
   render() {
     const { renderRoutes, redirectRoot } = this.renderRoutes();
 
@@ -72,10 +87,32 @@ class Router extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{routes: Array}}
+ */
 Router.propTypes = {
-  routes: PropTypes.array
+  routes: PropTypes.arrayOf(
+    PropTypes.shape({
+      activateOnError: PropTypes.boolean,
+      component: PropTypes.any.isRequired,
+      disabled: PropTypes.boolean,
+      exact: PropTypes.boolean,
+      hasParameters: PropTypes.boolean,
+      redirect: PropTypes.boolean,
+      render: PropTypes.boolean,
+      strict: PropTypes.boolean,
+      to: PropTypes.string.isRequired
+    })
+  )
 };
 
+/**
+ * Default props.
+ *
+ * @type {{routes: Array}}
+ */
 Router.defaultProps = {
   routes: routerTypes.routes
 };

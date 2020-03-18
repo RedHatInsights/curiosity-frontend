@@ -12,6 +12,12 @@ import { Select } from '../select/select';
 import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
 
+/**
+ * An OpenShift encompassing view.
+ *
+ * @augments React.Component
+ * @fires onSelect
+ */
 class OpenshiftView extends React.Component {
   state = {
     option: null,
@@ -23,6 +29,12 @@ class OpenshiftView extends React.Component {
     this.onSelect({ value: initialOption });
   }
 
+  /**
+   * Apply a selected filtered value.
+   *
+   * @event onSelect
+   * @param {object} event
+   */
   onSelect = (event = {}) => {
     const { option } = this.state;
     const { initialFilters } = this.props;
@@ -37,6 +49,11 @@ class OpenshiftView extends React.Component {
     }
   };
 
+  /**
+   * Render a select/dropdown list.
+   *
+   * @returns {Node}
+   */
   renderSelect() {
     const { option } = this.state;
     const { initialOption } = this.props;
@@ -48,6 +65,11 @@ class OpenshiftView extends React.Component {
     return <Select onSelect={this.onSelect} options={options} selectedOptions={option || initialOption} />;
   }
 
+  /**
+   * Render an OpenShift view.
+   *
+   * @returns {Node}
+   */
   render() {
     const { filters } = this.state;
     const { graphQuery, routeDetail, t } = this.props;
@@ -78,6 +100,11 @@ class OpenshiftView extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{initialFilters: Array, initialOption: string, t: Function, routeDetail: object, graphQuery: object}}
+ */
 OpenshiftView.propTypes = {
   graphQuery: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
@@ -94,6 +121,11 @@ OpenshiftView.propTypes = {
   t: PropTypes.func
 };
 
+/**
+ * Default props.
+ *
+ * @type {{initialFilters: Array, initialOption: string, t: Function, graphQuery: object}}
+ */
 OpenshiftView.defaultProps = {
   graphQuery: {
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
@@ -108,6 +140,11 @@ OpenshiftView.defaultProps = {
   t: helpers.noopTranslate
 };
 
+/**
+ * Create a selector from applied state, props.
+ *
+ * @type {Function}
+ */
 const makeMapStateToProps = reduxSelectors.view.makeView(OpenshiftView.defaultProps);
 
 const ConnectedOpenshiftView = connectTranslate(makeMapStateToProps)(OpenshiftView);

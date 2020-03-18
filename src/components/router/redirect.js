@@ -5,6 +5,11 @@ import { withRouter, Route } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
 import { helpers } from '../../common';
 
+/**
+ * A routing redirect.
+ *
+ * @returns {Node}
+ */
 const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
   const forceNavigation = urlRoute => {
     if (!helpers.DEV_MODE && !helpers.TEST_MODE) {
@@ -34,6 +39,11 @@ const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
   return null;
 };
 
+/**
+ * Prop types.
+ *
+ * @type {{isRedirect: boolean, route: string, isReplace: boolean, history: object, baseName: string, url: string}}
+ */
 Redirect.propTypes = {
   history: PropTypes.object,
   isRedirect: PropTypes.bool.isRequired,
@@ -43,6 +53,11 @@ Redirect.propTypes = {
   route: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{route: null, isReplace: boolean, history: null, baseName: string, url: null}}
+ */
 Redirect.defaultProps = {
   history: null,
   isReplace: false,

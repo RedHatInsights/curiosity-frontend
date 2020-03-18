@@ -3,6 +3,11 @@ import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
 import { getUser } from './platformServices';
 
+/**
+ * Apply an emulated API response to the platforms getUser method.
+ *
+ * @returns {Promise<{data: void, message: string, status: number}>}
+ */
 const authorizeUser = async () => {
   let message = '{ getUser } = insights.chrome.auth';
   let userData;
@@ -26,6 +31,12 @@ const authorizeUser = async () => {
   return Promise.reject(emulatedErrorResponse);
 };
 
+/**
+ * Return a platform locale value from a cookie.
+ *
+ * @private
+ * @returns {{value: string, key: string | null}|null}
+ */
 const getLocaleFromCookie = () => {
   const value = (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace('_', '-');
   const key = (value && LocaleCode.getLanguageName(value)) || null;
@@ -33,6 +44,11 @@ const getLocaleFromCookie = () => {
   return (key && { value, key }) || null;
 };
 
+/**
+ * Return platform locale.
+ *
+ * @returns {Promise<{data: void}>}
+ */
 const getLocale = () => {
   const defaultLocale = {
     value: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG,

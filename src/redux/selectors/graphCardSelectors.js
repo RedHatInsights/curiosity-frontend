@@ -6,8 +6,22 @@ import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 
+/**
+ * Selector cache.
+ *
+ * @private
+ * @type {{dataId: {string}, data: {object}}}
+ */
 const graphCardCache = { dataId: null, data: {} };
 
+/**
+ * Return a combined state, props object.
+ *
+ * @private
+ * @param {object} state
+ * @param {object} props
+ * @returns {object}
+ */
 const graphResponse = (state, props = {}) => ({
   ..._get(state, ['graph', 'reportCapacity', props.productId]),
   ...{
@@ -17,6 +31,11 @@ const graphResponse = (state, props = {}) => ({
   }
 });
 
+/**
+ * Create selector, transform combined state, props into a consumable graph/charting object.
+ *
+ * @type {{pending: boolean, fulfilled: boolean, errorStatus: (*|number), graphData: object, error: boolean}}
+ */
 const graphCardSelector = createSelector([graphResponse], response => {
   const { viewId = null, productId = null, graphQuery = {}, metaId, metaQuery = {}, ...responseData } = response || {};
 
@@ -132,6 +151,12 @@ const graphCardSelector = createSelector([graphResponse], response => {
   return updatedResponseData;
 });
 
+/**
+ * Expose selector instance. For scenarios where a selector is reused across component instances.
+ *
+ * @param {object} defaultProps
+ * @returns {{pending: boolean, fulfilled: boolean, errorStatus: (*|number), graphData: object, error: boolean}}
+ */
 const makeGraphCardSelector = defaultProps => (state, props) => ({
   ...graphCardSelector(state, props, defaultProps)
 });

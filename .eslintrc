@@ -9,6 +9,7 @@
   "plugins": [
     "import",
     "jest",
+    "jsdoc",
     "json",
     "prettier",
     "react"
@@ -18,7 +19,8 @@
     "airbnb",
     "airbnb/hooks",
     "prettier",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:jsdoc/recommended"
   ],
   "rules": {
     "arrow-parens": [
@@ -46,6 +48,24 @@
     "import/no-named-as-default-member": 0,
     "jest/no-test-callback": 0,
     "jest/prefer-to-have-length": 0,
+    "jsdoc/check-tag-names": [
+      2,
+      {
+        "definedTags": [
+          "api",
+          "apiDescription",
+          "apiSuccess",
+          "apiSuccessExample",
+          "apiError",
+          "apiErrorExample",
+          "apiMock",
+          "apiParam"
+        ]
+      }
+    ],
+    "jsdoc/require-param-description": 0,
+    "jsdoc/require-property-description": 0,
+    "jsdoc/require-returns-description": 0,
     "max-len": [
       "error",
       {

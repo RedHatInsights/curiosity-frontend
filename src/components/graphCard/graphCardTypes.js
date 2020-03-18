@@ -1,6 +1,12 @@
 import { translate } from '../i18n/i18n';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 
+/**
+ * Return a set of options for display in a select/dropdown list.
+ *
+ * @param {string} optionsType
+ * @returns {object}
+ */
 const getGranularityOptionsType = optionsType => {
   if (optionsType === 'default') {
     return {

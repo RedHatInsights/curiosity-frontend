@@ -1,6 +1,12 @@
 import { translate } from '../i18n/i18n';
 import { RHSM_API_QUERY_SLA_TYPES as SLA_TYPES } from '../../types/rhsmApiTypes';
 
+/**
+ * Get filter options to display by type.
+ *
+ * @param {string} optionsType
+ * @returns {object}
+ */
 const getOptionsType = (optionsType = 'sla') => {
   if (optionsType === 'sla') {
     return {

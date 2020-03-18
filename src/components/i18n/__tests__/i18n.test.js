@@ -14,6 +14,8 @@ jest.mock('i18next');
 
 /**
  * Help generate a POT output.
+ *
+ * @returns {Function}
  */
 const textExtractor = () => {
   const extractor = new GettextExtractor();

@@ -6,6 +6,11 @@ import { helpers } from '../../common';
 import { Redirect, routerHelpers, routerTypes } from '../router/router';
 import MessageView from '../messageView/messageView';
 
+/**
+ * An authentication pass-through component.
+ *
+ * @augments React.Component
+ */
 class Authentication extends Component {
   appName = routerTypes.appName;
 
@@ -48,6 +53,11 @@ class Authentication extends Component {
     this.removeListeners();
   }
 
+  /**
+   * Render authenticated children or messaging.
+   *
+   * @returns {Node}
+   */
   render() {
     const { children, session, t } = this.props;
 
@@ -76,6 +86,13 @@ class Authentication extends Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, navigation: Array,
+ *     t: Function, children: Node, initializeChrome: Function, session: object, history: object,
+ *     setNavigation: Function}}
+ */
 Authentication.propTypes = {
   authorizeUser: PropTypes.func,
   children: PropTypes.node.isRequired,
@@ -102,6 +119,13 @@ Authentication.propTypes = {
   t: PropTypes.func
 };
 
+/**
+ * Default props.
+ *
+ * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, navigation: Array,
+ *     t: Function, initializeChrome: Function, session: {authorized: boolean, pending: boolean,
+ *     errorMessage: string, errorStatus: null, error: boolean}, setNavigation: Function}}
+ */
 Authentication.defaultProps = {
   authorizeUser: helpers.noop,
   initializeChrome: helpers.noop,
@@ -119,6 +143,12 @@ Authentication.defaultProps = {
   t: helpers.noopTranslate
 };
 
+/**
+ * Apply actions to props.
+ *
+ * @param {Function} dispatch
+ * @returns {object}
+ */
 const mapDispatchToProps = dispatch => ({
   authorizeUser: () => dispatch(reduxActions.user.authorizeUser()),
   initializeChrome: () => dispatch(reduxActions.platform.initializeChrome()),
@@ -127,6 +157,12 @@ const mapDispatchToProps = dispatch => ({
   setNavigation: data => dispatch(reduxActions.platform.setNavigation(data))
 });
 
+/**
+ * Apply state to props.
+ *
+ * @param {object} state
+ * @returns {object}
+ */
 const mapStateToProps = state => ({ session: state.user.session });
 
 const ConnectedAuthentication = connectRouterTranslate(mapStateToProps, mapDispatchToProps)(Authentication);
