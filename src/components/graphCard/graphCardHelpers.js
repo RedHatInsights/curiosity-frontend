@@ -7,7 +7,7 @@ import { dateHelpers } from '../../common/dateHelpers';
 /**
  * Returns x axis ticks/intervals array for the xAxisTickInterval
  *
- * @param {string} granularity, see enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {number}
  */
 const getChartXAxisLabelIncrement = granularity => {
@@ -26,8 +26,9 @@ const getChartXAxisLabelIncrement = granularity => {
 /**
  * Return a formatted date string.
  *
- * @param {Date} date
- * @param {string} granularity, see enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {object} params
+ * @property {Date} date
+ * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {string}
  */
 const getTooltipDate = ({ date, granularity }) => {
@@ -52,16 +53,17 @@ const getTooltipDate = ({ date, granularity }) => {
 };
 
 /**
- * Get tooltips for x axis while displaying y axis values.
- *
- * @param {Object} itemsByKey
- * @param {string} granularity, see enum of RHSM_API_QUERY_GRANULARITY_TYPES
- * @param {string} product, apply the product to locale strings
- * @returns {string | *}
- */
-/**
  * ToDo: we have access to the datasets and index which gives us access to the previous date.
  * Consider adding back in the year on tooltip cross year displays
+ */
+/**
+ * Get tooltips for x axis while displaying y axis values.
+ *
+ * @param {object} params
+ * @property {object} itemsByKey
+ * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @property {string} product Apply the product to locale strings
+ * @returns {string | *}
  */
 const getTooltips = ({ itemsByKey, granularity, product = '' }) => {
   let dateString = '';
@@ -94,10 +96,11 @@ const getTooltips = ({ itemsByKey, granularity, product = '' }) => {
 /**
  * Format x axis ticks.
  *
- * @param {Date} date
- * @param {string} granularity, see enum of RHSM_API_QUERY_GRANULARITY_TYPES
- * @param {number|string} tick
- * @param {Date} previousDate
+ * @param {object} params
+ * @property {Date} date
+ * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @property {number|string} tick
+ * @property {Date} previousDate
  * @returns {string|undefined}
  */
 const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
@@ -142,7 +145,8 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
 /**
  * Format y axis ticks.
  *
- * @param {number|string} tick
+ * @param {object} params
+ * @property {number|string} tick
  * @returns {string}
  */
 const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });

@@ -9,6 +9,11 @@ import { PageToolbar } from './pageToolbar';
  * ToDo: Reevaluate, import for Main component from @redhat-cloud-services/frontend-components
  * Fallback towards PF PageSection. Named export for Main is overridden by default connected export.
  */
+/**
+ * Render a platform page layout.
+ *
+ * @returns {Node}
+ */
 const PageLayout = ({ children }) => (
   <React.Fragment>
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageHeader)}
@@ -19,10 +24,18 @@ const PageLayout = ({ children }) => (
   </React.Fragment>
 );
 
+/**
+ * Prop types.
+ *
+ * @type {{children: Node}}
+ */
 PageLayout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
+/**
+ * Default props.
+ */
 PageLayout.defaultProps = {};
 
 export { PageLayout as default, PageLayout, PageHeader, PageSection, PageToolbar };

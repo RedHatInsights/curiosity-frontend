@@ -32,6 +32,11 @@ import { serviceCall } from './config';
  *        ]
  *     }
  */
+/**
+ * Get RHSM API version information.
+ *
+ * @returns {Promise<*>}
+ */
 const getApiVersion = () =>
   serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_VERSION,
@@ -415,6 +420,13 @@ const getApiVersion = () =>
  *        ]
  *     }
  */
+/**
+ * Get RHSM API reporting/tally graph/chart data.
+ *
+ * @param {string} id Product ID
+ * @param {object} params Query/search params
+ * @returns {Promise<*>}
+ */
 const getGraphReports = (id, params = {}) =>
   serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
@@ -576,6 +588,13 @@ const getGraphReports = (id, params = {}) =>
  *          }
  *        ]
  *     }
+ */
+/**
+ * Get RHSM API capacity/threshold graph/chart data.
+ *
+ * @param {string} id Product ID
+ * @param {object} params Query/search params
+ * @returns {Promise<*>}
  */
 const getGraphCapacity = (id, params = {}) =>
   serviceCall({

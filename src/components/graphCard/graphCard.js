@@ -12,6 +12,13 @@ import { graphCardHelpers } from './graphCardHelpers';
 import { graphCardTypes } from './graphCardTypes';
 import ChartArea from '../chartArea/chartArea';
 
+/**
+ * A chart/graph card.
+ *
+ * @augments React.Component
+ * @fires onUpdateGraphData
+ * @fires onSelect
+ */
 class GraphCard extends React.Component {
   componentDidMount() {
     this.onUpdateGraphData();
@@ -25,6 +32,11 @@ class GraphCard extends React.Component {
     }
   }
 
+  /**
+   * Call the RHSM APIs, apply filters.
+   *
+   * @event onUpdateGraphData
+   */
   onUpdateGraphData = () => {
     const { getGraphReportsCapacity, graphQuery, isDisabled, productId } = this.props;
     const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
@@ -41,6 +53,12 @@ class GraphCard extends React.Component {
     }
   };
 
+  /**
+   * On granularity select, dispatch granularity type.
+   *
+   * @event onSelect
+   * @param {object} event
+   */
   onSelect = (event = {}) => {
     const { value } = event;
 
@@ -52,7 +70,13 @@ class GraphCard extends React.Component {
 
   /**
    * FixMe: custom use of dash over threshold vs updating PF Charts legend threshold symbol
-   * @patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
+   *
+   * patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
+   */
+  /**
+   * Apply props to chart/graph.
+   *
+   * @returns {Node}
    */
   renderChart() {
     const { filterGraphData, graphData, graphQuery, selectOptionsType, t, productShortLabel } = this.props;
@@ -123,6 +147,11 @@ class GraphCard extends React.Component {
     return <ChartArea key={helpers.generateId()} {...chartAreaProps} dataSets={filteredGraphData(graphData)} />;
   }
 
+  /**
+   * Render a chart/graph card with chart/graph.
+   *
+   * @returns {Node}
+   */
   render() {
     const { cardTitle, children, error, graphQuery, isDisabled, selectOptionsType, pending, t } = this.props;
 
@@ -166,6 +195,13 @@ class GraphCard extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{productId: string, pending: boolean, error: boolean, graphQuery: object, cardTitle: string,
+ *     filterGraphData: Array, getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
+ *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
+ */
 GraphCard.propTypes = {
   cardTitle: PropTypes.string,
   children: PropTypes.node,
@@ -191,6 +227,13 @@ GraphCard.propTypes = {
   viewId: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
+ *     viewId: string, t: Function, children: null, pending: boolean, graphData: object,
+ *     isDisabled: boolean, error: boolean, cardTitle: null, filterGraphData: Array}}
+ */
 GraphCard.defaultProps = {
   cardTitle: null,
   children: null,
@@ -206,8 +249,19 @@ GraphCard.defaultProps = {
   viewId: 'graphCard'
 };
 
+/**
+ * Create a selector from applied state, props.
+ *
+ * @type {Function}
+ */
 const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 
+/**
+ * Apply actions to props.
+ *
+ * @param {Function} dispatch
+ * @returns {object}
+ */
 const mapDispatchToProps = dispatch => ({
   getGraphReportsCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphReportsCapacity(id, query))
 });

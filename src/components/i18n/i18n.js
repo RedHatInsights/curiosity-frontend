@@ -16,6 +16,11 @@ const translateComponent = component => (!helpers.TEST_MODE && withTranslation()
  * ajax/xhr setup. Reverting it to just a function call that populates behind
  * the scenes appears more predictable.
  */
+/**
+ * Load I18n.
+ *
+ * @augments React.Component
+ */
 class I18n extends React.Component {
   state = { isLoaded: false };
 
@@ -31,6 +36,11 @@ class I18n extends React.Component {
     }
   }
 
+  /**
+   * Load i18next.
+   *
+   * @returns {Promise<void>}
+   */
   i18nInit = async () => {
     const { fallbackLng, loadPath, locale } = this.props;
 
@@ -58,6 +68,11 @@ class I18n extends React.Component {
     this.setState({ isLoaded: true });
   };
 
+  /**
+   * Render children after i18next loads.
+   *
+   * @returns {Node}
+   */
   render() {
     const { isLoaded } = this.state;
     const { children } = this.props;
@@ -66,6 +81,11 @@ class I18n extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{loadPath: string, children: Node, locale: string, fallbackLng: string}}
+ */
 I18n.propTypes = {
   children: PropTypes.node.isRequired,
   fallbackLng: PropTypes.string,
@@ -73,6 +93,11 @@ I18n.propTypes = {
   locale: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{loadPath: string, locale: null, fallbackLng: string}}
+ */
 I18n.defaultProps = {
   fallbackLng: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG,
   loadPath: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_PATH,

@@ -8,6 +8,11 @@ import { helpers } from '../../common';
  * FixMe: Patternfly EmptyStateIcon PropType is not intuitive
  * Requires the use of a function proptype?!?
  */
+/**
+ * Render a message view.
+ *
+ * @returns {Node}
+ */
 const MessageView = ({ icon, message, title }) => (
   <PageLayout>
     <PageHeader>{title || helpers.UI_DISPLAY_CONFIG_NAME}</PageHeader>
@@ -18,12 +23,22 @@ const MessageView = ({ icon, message, title }) => (
   </PageLayout>
 );
 
+/**
+ * Prop types.
+ *
+ * @type {{icon: Node|Function, message: string, title: string}}
+ */
 MessageView.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   message: PropTypes.string,
   title: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{icon: null, message: null, title: null}}
+ */
 MessageView.defaultProps = {
   icon: null,
   message: null,

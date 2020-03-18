@@ -21,6 +21,11 @@ import subscriptionsSvg from '../../images/subscriptions.svg';
  * FixMe: Patternfly EmptyStateBody and Title appear to throw an error on translate string replacement
  * Wrap with a fragment to pass.
  */
+/**
+ * Render a user guided tour view.
+ *
+ * @returns {Node} Node containing tour view.
+ */
 const TourView = ({ session, t }) => (
   <PageLayout>
     <PageHeader>{helpers.UI_DISPLAY_CONFIG_NAME}</PageHeader>
@@ -84,6 +89,11 @@ const TourView = ({ session, t }) => (
   </PageLayout>
 );
 
+/**
+ * Prop types.
+ *
+ * @type {{t: Function, session: object}}
+ */
 TourView.propTypes = {
   session: PropTypes.shape({
     errorStatus: PropTypes.number
@@ -91,6 +101,11 @@ TourView.propTypes = {
   t: PropTypes.func
 };
 
+/**
+ * Default props.
+ *
+ * @type {{t: Function, session: {errorStatus: null}}}
+ */
 TourView.defaultProps = {
   session: {
     errorStatus: null

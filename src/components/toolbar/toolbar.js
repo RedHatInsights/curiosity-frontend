@@ -7,9 +7,21 @@ import { reduxTypes, store } from '../../redux';
 import { toolbarTypes } from './toolbarTypes';
 import { helpers } from '../../common';
 
+/**
+ * Application filter toolbar.
+ *
+ * @augments React.Component
+ * @fires onClear
+ * @fires onSlaSelect
+ */
 class Toolbar extends React.Component {
   state = { filterSla: toolbarTypes.getOptions().selected };
 
+  /**
+   * Clear filters' state.
+   *
+   * @event onClear
+   */
   onClear = () => {
     this.setState(
       {
@@ -21,6 +33,12 @@ class Toolbar extends React.Component {
     );
   };
 
+  /**
+   * Set SLA filter selection.
+   *
+   * @event onSlaSelect
+   * @param {object} event
+   */
   onSlaSelect = event => {
     const { selected, value } = event;
 
@@ -34,6 +52,12 @@ class Toolbar extends React.Component {
     );
   };
 
+  /**
+   * Dispatch a Redux store type.
+   *
+   * @param {string} type
+   * @param {object} data
+   */
   dispatchFilter(type, data = {}) {
     const { viewId } = this.props;
 
@@ -46,6 +70,11 @@ class Toolbar extends React.Component {
     }
   }
 
+  /**
+   * Render a filter toolbar.
+   *
+   * @returns {Node}
+   */
   render() {
     const { filterSla } = this.state;
     const { isDisabled, t } = this.props;
@@ -87,12 +116,22 @@ class Toolbar extends React.Component {
   }
 }
 
+/**
+ * Prop types
+ *
+ * @type {{viewId: string, t: Function, isDisabled: boolean}}
+ */
 Toolbar.propTypes = {
   isDisabled: PropTypes.bool,
   t: PropTypes.func,
   viewId: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{viewId: string, t: Function, isDisabled: boolean}}
+ */
 Toolbar.defaultProps = {
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: helpers.noopTranslate,

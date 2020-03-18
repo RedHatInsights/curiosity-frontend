@@ -5,6 +5,13 @@ import { notificationsMiddleware } from '@redhat-cloud-services/frontend-compone
 import { statusMiddleware } from './statusMiddleware';
 import { reduxHelpers } from '../common/reduxHelpers';
 
+/**
+ * Platform notifications settings.
+ *
+ * @private
+ * @type {{errorDescriptionKey: string, autoDismiss: boolean, errorTitleKey: string, fulfilledSuffix: string,
+ *     dispatchDefaultFailure: boolean, pendingSuffix: string, rejectedSuffix: string, dismissDelay: number}}
+ */
 const notificationsOptions = {
   dispatchDefaultFailure: false, // automatic error notifications
   pendingSuffix: reduxHelpers.PENDING_ACTION(), // pending state action suffix
@@ -16,6 +23,11 @@ const notificationsOptions = {
   errorDescriptionKey: 'detail' // path to notification description in error response
 };
 
+/**
+ * Redux middleware.
+ *
+ * @type {Array}
+ */
 const reduxMiddleware = [
   thunkMiddleware,
   statusMiddleware(),

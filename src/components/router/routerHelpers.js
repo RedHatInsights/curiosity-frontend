@@ -6,9 +6,10 @@ import { routes, navigation } from './routerTypes';
  * based on a predictable platform directory depth of
  * /[OPTIONAL]/[environment]/[APP NAME]
  *
- * @param pathName {string}
- * @param pathPrefix {string}
- * @return {string}
+ * @param {object} params
+ * @property {string} pathName
+ * @property {string} pathPrefix
+ * @returns {string}
  */
 const dynamicBaseName = ({ pathName, pathPrefix }) => {
   const path = pathName.split('/');
@@ -20,6 +21,7 @@ const dynamicBaseName = ({ pathName, pathPrefix }) => {
 
 /**
  * The app baseName.
+ *
  * @type {string}
  */
 const baseName =
@@ -29,16 +31,19 @@ const baseName =
 
 /**
  * The first error route.
- * @type {Object}
+ *
+ * @type {object}
  */
 const getErrorRoute = routes.find(route => route.activateOnError === true) || {};
 
 /**
  * Return an object matching a specific navigation object.
- * @param id {string}
- * @param pathname {string}
- * @param returnDefault {boolean}
- * @returns {Object}
+ *
+ * @param {object} params
+ * @property {string} id
+ * @property {string} pathname
+ * @property {boolean} returnDefault
+ * @returns {object}
  */
 const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false }) => {
   const defaultItem = returnDefault && navigation.find(item => item.default === true);
@@ -63,9 +68,11 @@ const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false
 
 /**
  * Return an object matching a specific, or the first generic route.
- * @param id {string}
- * @param pathname {string}
- * @returns {Object}
+ *
+ * @param {object} params
+ * @property {string} id
+ * @property {string} pathname
+ * @returns {object}
  */
 const getRouteDetail = ({ id = null, pathname = null }) => {
   let routeItem;
@@ -87,10 +94,11 @@ const getRouteDetail = ({ id = null, pathname = null }) => {
  * ID is not passed to "getRouteDetail" to avoid conflicts between routing and
  * navigation.
  *
- * @param id {string}
- * @param pathname {string}
- * @param returnDefault {boolean}
- * @returns {Object}
+ * @param {object} params
+ * @property {string} id
+ * @property {string} pathname
+ * @property {boolean} returnDefault
+ * @returns {object}
  */
 const getNavRouteDetail = ({ id = null, pathname = null, returnDefault = false }) => {
   const navDetail = getNavigationDetail({ id, pathname, returnDefault });
