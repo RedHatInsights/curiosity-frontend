@@ -14,6 +14,12 @@ import {
 import _cloneDeep from 'lodash/cloneDeep';
 import { helpers } from '../../common';
 
+/**
+ * A wrapper for Patternfly and Victory charts/graphs.
+ *
+ * @augments React.Component
+ * @fires onResizeContainer
+ */
 class ChartArea extends React.Component {
   state = { chartWidth: 0 };
 
@@ -28,6 +34,11 @@ class ChartArea extends React.Component {
     window.removeEventListener('resize', this.onResizeContainer);
   }
 
+  /**
+   * On window resize adjust graph display.
+   *
+   * @event onResizeContainer
+   */
   onResizeContainer = () => {
     const containerElement = this.containerRef.current;
 
@@ -36,6 +47,11 @@ class ChartArea extends React.Component {
     }
   };
 
+  /**
+   * Clone and update first dataSets list/array item with tooltip callbacks.
+   *
+   * @returns {object}
+   */
   setDataSets() {
     const { dataSets, tooltips } = this.props;
 
@@ -72,6 +88,11 @@ class ChartArea extends React.Component {
     return dataSets;
   }
 
+  /**
+   * Apply props, set x and y axis chart increments/ticks formatting.
+   *
+   * @returns {object}
+   */
   setChartTicks() {
     const { xAxisLabelIncrement, xAxisTickFormat, yAxisTickFormat, dataSets } = this.props;
     const xAxisProps = {};
@@ -114,6 +135,11 @@ class ChartArea extends React.Component {
     };
   }
 
+  /**
+   * Return x and y axis increments/ticks.
+   *
+   * @returns {object}
+   */
   getChartTicks() {
     const { xAxisFixLabelOverlap } = this.props;
 
@@ -145,7 +171,13 @@ class ChartArea extends React.Component {
     };
   }
 
-  // ToDo: the domain range needs to be update when additional datasets are added
+  // ToDo: the domain range needs to be updated when additional datasets are added
+  /**
+   * Calculate and return the x and y domain range.
+   *
+   * @param {boolean} isXAxisTicks
+   * @returns {object}
+   */
   getChartDomain({ isXAxisTicks }) {
     const { domain, dataSets } = this.props;
 
@@ -201,6 +233,11 @@ class ChartArea extends React.Component {
     };
   }
 
+  /**
+   * Apply props and return chart/graph legend.
+   *
+   * @returns {object}
+   */
   getChartLegend() {
     const { dataSets } = this.props;
     const legendData = [];
@@ -235,6 +272,11 @@ class ChartArea extends React.Component {
     };
   }
 
+  /**
+   * Return a chart/graph container component. Aids in aggregated tooltips.
+   *
+   * @returns {Node}
+   */
   static getContainerComponent() {
     const VictoryVoronoiCursorContainer = createContainer('voronoi', 'cursor');
     const containerComponentProps = {
@@ -259,6 +301,12 @@ class ChartArea extends React.Component {
     };
   }
 
+  /**
+   * Return a list/array of both stacked and non-stacked charts/graphs.
+   *
+   * @param {boolean} stacked
+   * @returns {Array}
+   */
   renderChart({ stacked = false }) {
     const dataSets = this.setDataSets();
     const charts = [];
@@ -339,6 +387,11 @@ class ChartArea extends React.Component {
     return (stacked && chartsStacked) || charts;
   }
 
+  /**
+   * Render a chart/graph.
+   *
+   * @returns {Node}
+   */
   render() {
     const { chartWidth } = this.state;
     const { padding, themeColor } = this.props;
@@ -371,6 +424,13 @@ class ChartArea extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{padding, xAxisTickFormat: Function, themeColor: string, yAxisTickFormat: Function,
+ *     domain: object|Array, dataSets: object, xAxisFixLabelOverlap: boolean, tooltips: Function,
+ *     xAxisLabelIncrement: number, height: number}}
+ */
 ChartArea.propTypes = {
   dataSets: PropTypes.arrayOf(
     PropTypes.shape({
@@ -415,6 +475,13 @@ ChartArea.propTypes = {
   yAxisTickFormat: PropTypes.func
 };
 
+/**
+ * Default props.
+ *
+ * @type {{padding: {top: number, left: number, bottom: number, right: number}, xAxisTickFormat: null,
+ *     themeColor: string, yAxisTickFormat: null, domain: object, dataSets: Array, xAxisFixLabelOverlap: boolean,
+ *     tooltips: null, xAxisLabelIncrement: number, height: number}}
+ */
 ChartArea.defaultProps = {
   domain: {},
   dataSets: [],

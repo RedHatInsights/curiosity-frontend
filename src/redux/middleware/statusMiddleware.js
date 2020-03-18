@@ -1,5 +1,17 @@
 import { reduxHelpers } from '../common/reduxHelpers';
 
+/**
+ * Apply a status type based on actions, such as those generated from redux-promise-middleware.
+ *
+ * @param {object} config
+ * @property {string} statusSuffix
+ * @property {string} rangeSuffix
+ * @property {string} rangeFiller
+ * @property {string} statusDelimiter
+ * @property {boolean} statusRange
+ * @property {boolean} dispatchStatus
+ * @returns {Function}
+ */
 const statusMiddleware = (config = {}) => {
   const statusSuffix = config.statusSuffix || 'STATUS';
   const rangeSuffix = config.rangeSuffix || 'STATUS_RANGE';

@@ -14,114 +14,114 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:70
-#: src/components/rhelView/rhelView.js:33
+#: src/components/openshiftView/openshiftView.js:92
+#: src/components/rhelView/rhelView.js:43
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardHelpers.js:73
+#: src/components/graphCard/graphCardHelpers.js:75
 msgid \\"curiosity-graph.dateLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:9
+#: src/components/graphCard/graphCardTypes.js:15
 msgid \\"curiosity-graph.dropdownDaily\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:11
+#: src/components/graphCard/graphCardTypes.js:17
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:143
-#: src/components/graphCard/graphCard.js:147
+#: src/components/graphCard/graphCard.js:172
+#: src/components/graphCard/graphCard.js:176
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:12
+#: src/components/graphCard/graphCardTypes.js:18
 msgid \\"curiosity-graph.dropdownQuarterly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardTypes.js:10
+#: src/components/graphCard/graphCardTypes.js:16
 msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardHelpers.js:90
+#: src/components/graphCard/graphCardHelpers.js:92
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:108
-#: src/components/graphCard/graphCardHelpers.js:81
+#: src/components/graphCard/graphCard.js:132
+#: src/components/graphCard/graphCardHelpers.js:83
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbar.js:73
-#: src/components/toolbar/toolbar.js:76
+#: src/components/toolbar/toolbar.js:102
+#: src/components/toolbar/toolbar.js:105
 msgid \\"curiosity-toolbar.slaCategory\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbarTypes.js:22
+#: src/components/toolbar/toolbarTypes.js:28
 msgid \\"curiosity-toolbar.slaNone\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbar.js:79
+#: src/components/toolbar/toolbar.js:108
 msgid \\"curiosity-toolbar.slaPlaceholder\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbarTypes.js:10
+#: src/components/toolbar/toolbarTypes.js:16
 msgid \\"curiosity-toolbar.slaPremium\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbarTypes.js:18
+#: src/components/toolbar/toolbarTypes.js:24
 msgid \\"curiosity-toolbar.slaSelfSupport\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbarTypes.js:14
+#: src/components/toolbar/toolbarTypes.js:20
 msgid \\"curiosity-toolbar.slaStandard\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:64
+#: src/components/tourView/tourView.js:69
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:42
+#: src/components/tourView/tourView.js:47
 msgid \\"curiosity-tour.emptyStateDescription\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:49
+#: src/components/tourView/tourView.js:54
 msgid \\"curiosity-tour.emptyStateDescriptionExtended\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:44
+#: src/components/tourView/tourView.js:49
 msgid \\"curiosity-tour.emptyStateDescriptionTour\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:32
+#: src/components/tourView/tourView.js:37
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:79
+#: src/components/tourView/tourView.js:84
 msgid \\"curiosity-tour.emptyStateLinkContactUs\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:60
-#: src/components/tourView/tourView.js:75
+#: src/components/tourView/tourView.js:65
+#: src/components/tourView/tourView.js:80
 msgid \\"curiosity-tour.emptyStateLinkLearnMore\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:37
+#: src/components/tourView/tourView.js:42
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:72
+#: src/components/authentication/authentication.js:82
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedCopy\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:71
+#: src/components/authentication/authentication.js:81
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:59
+#: src/components/authentication/authentication.js:69
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.pending\\"
 msgstr \\"\\"

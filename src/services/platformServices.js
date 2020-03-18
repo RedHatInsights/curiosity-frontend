@@ -2,6 +2,7 @@ import { helpers } from '../common';
 
 /**
  * Basic user authentication.
+ *
  * @returns {Promise<void>}
  */
 const getUser = async () => {
@@ -15,6 +16,7 @@ const getUser = async () => {
 
 /**
  * Help initialize global platform methods.
+ *
  * @returns {Promise<void>}
  */
 const initializeChrome = async () => {
@@ -28,7 +30,8 @@ const initializeChrome = async () => {
 
 /**
  * Apply on "app_navigation" event. Return an un-listener.
- * @param callback {function}
+ *
+ * @param {Function} callback
  * @returns {Function}
  */
 const onNavigation = callback => {
@@ -43,7 +46,8 @@ const onNavigation = callback => {
 // FixMe: Revert catch to throwing an error. Relaxed for development
 /**
  * Set application ID.
- * @param name {string}
+ *
+ * @param {string} name
  * @returns {Promise<void>}
  */
 const setAppName = async (name = null) => {
@@ -58,7 +62,8 @@ const setAppName = async (name = null) => {
 
 /**
  * Set platform left hand navigation active item.
- * @param data {Array}
+ *
+ * @param {Array} data
  * @returns {*}
  */
 const setNavigation = (data = []) => {

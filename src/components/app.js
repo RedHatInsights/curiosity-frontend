@@ -7,12 +7,22 @@ import { I18n } from './i18n/i18n';
 import { Router } from './router/router';
 import Authentication from './authentication/authentication';
 
+/**
+ * Application
+ *
+ * @augments React.Component
+ */
 class App extends React.Component {
   componentDidMount() {
     const { getLocale } = this.props;
     getLocale();
   }
 
+  /**
+   * Render application.
+   *
+   * @returns {Node}
+   */
   render() {
     const { locale } = this.props;
 
@@ -27,6 +37,11 @@ class App extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{locale: object, getLocale: Function}}
+ */
 App.propTypes = {
   getLocale: PropTypes.func,
   locale: PropTypes.shape({
@@ -34,15 +49,32 @@ App.propTypes = {
   })
 };
 
+/**
+ * Default props.
+ *
+ * @type {{locale: {}, getLocale: Function}}
+ */
 App.defaultProps = {
   getLocale: helpers.noop,
   locale: {}
 };
 
+/**
+ * Apply actions to props.
+ *
+ * @param {Function} dispatch
+ * @returns {object}
+ */
 const mapDispatchToProps = dispatch => ({
   getLocale: () => dispatch(reduxActions.user.getLocale())
 });
 
+/**
+ * Apply state to props.
+ *
+ * @param {object} state
+ * @returns {object}
+ */
 const mapStateToProps = state => ({ locale: state.user.session.locale });
 
 const ConnectedApp = connectRouter(mapStateToProps, mapDispatchToProps)(App);

@@ -7,18 +7,22 @@ import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
 
 /**
  * Platform name/id.
+ *
+ * @type {string}
  */
 const appName = helpers.UI_NAME;
 
 /**
  * Return a string that describes a platform redirect.
- * @return {array}
+ *
+ * @returns {Array}
  */
 const platformRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitled=subscriptions');
 
 /**
  * Return array of objects that describes routing.
- * @return {array}
+ *
+ * @returns {Array}
  */
 const routes = [
   {
@@ -71,7 +75,8 @@ const routes = [
 
 /**
  * Return an array of objects that describes platform navigation.
- * @return {array}
+ *
+ * @returns {Array}
  */
 const navigation = [
   {

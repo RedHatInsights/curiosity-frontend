@@ -2,12 +2,36 @@ import _get from 'lodash/get';
 import _isPlainObject from 'lodash/isPlainObject';
 import { helpers } from '../../common';
 
+/**
+ * Apply a "fulfilled" suffix for Redux Promise Middleware action responses.
+ *
+ * @param {string} base
+ * @returns {string}
+ */
 const FULFILLED_ACTION = (base = '') => `${base}_FULFILLED`;
 
+/**
+ * Apply a "pending" suffix for Redux Promise Middleware action responses.
+ *
+ * @param {string} base
+ * @returns {string}
+ */
 const PENDING_ACTION = (base = '') => `${base}_PENDING`;
 
+/**
+ * Apply a "rejected" suffix for Redux Promise Middleware action responses.
+ *
+ * @param {string} base
+ * @returns {string}
+ */
 const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
 
+/**
+ * Apply a "status range" suffix for Status Middleware action responses.
+ *
+ * @param {string} status
+ * @returns {string}
+ */
 const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
 /**
@@ -15,9 +39,9 @@ const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
  * form of [{ madeUpKey: 'some_api_key' }], or an array of arrays
  * in the form of [['some_api_key','another_api_key']]
  *
- * @param {array} schemas
+ * @param {Array} schemas
  * @param {*} initialValue
- * @returns {unknown[]}
+ * @returns {Array}
  */
 const setResponseSchemas = (schemas = [], initialValue) =>
   schemas.map(schema => {
@@ -31,6 +55,13 @@ const setResponseSchemas = (schemas = [], initialValue) =>
     return generated;
   });
 
+/**
+ * Create a single response from an array of service call responses.
+ * Aids in handling a Promise.all response.
+ *
+ * @param {Array|object} results
+ * @returns {object}
+ */
 const getSingleResponseFromResultArray = results => {
   const updatedResults = results.payload || results;
 
@@ -44,6 +75,12 @@ const getSingleResponseFromResultArray = results => {
   return updatedResults;
 };
 
+/**
+ * Get a http status message from a service call.
+ *
+ * @param {Array|object} results
+ * @returns {string|null|*}
+ */
 const getMessageFromResults = results => {
   const updatedResults = getSingleResponseFromResultArray(results);
 
@@ -72,6 +109,12 @@ const getMessageFromResults = results => {
   return (statusResponse && statusResponse.trim()) || null;
 };
 
+/**
+ * Get a date string from a service call.
+ *
+ * @param {Array|object} results
+ * @returns {null|string|Date}
+ */
 const getDateFromResults = results => {
   const updatedResults = getSingleResponseFromResultArray(results);
 
@@ -82,6 +125,12 @@ const getDateFromResults = results => {
   return _get(updatedResults, 'headers.date', null);
 };
 
+/**
+ * Get a http status from a service call response.
+ *
+ * @param {Array|object} results
+ * @returns {number}
+ */
 const getStatusFromResults = results => {
   const updatedResults = getSingleResponseFromResultArray(results);
 
@@ -92,6 +141,17 @@ const getStatusFromResults = results => {
   return _get(updatedResults, 'response.status', updatedResults.status) || 0;
 };
 
+/**
+ * Convenience method for setting object properties, specifically Redux reducer based state objects.
+ *
+ * @param {string} prop
+ * @param {object} data
+ * @param {object} options
+ * @property {object} state
+ * @property {object} initialState
+ * @property {boolean} reset
+ * @returns {object}
+ */
 const setStateProp = (prop, data, options) => {
   const { state = {}, initialState = {}, reset = true } = options;
   let obj = { ...state };
@@ -131,6 +191,12 @@ const setStateProp = (prop, data, options) => {
   return obj;
 };
 
+/**
+ * Retrieve a data property either from an array of responses, or a single response.
+ *
+ * @param {Array|object} results
+ * @returns {Array|object}
+ */
 const singlePromiseDataResponseFromArray = results => {
   const updatedResults = results.payload || results;
 
@@ -140,6 +206,15 @@ const singlePromiseDataResponseFromArray = results => {
   return updatedResults.data || {};
 };
 
+/**
+ * Automatically apply reducer logic to state by handling promise responses from redux-promise-middleware.
+ *
+ * @param {Array} types
+ * @param {object} state
+ * @param {object} action
+ * @property { string } type
+ * @returns {object}
+ */
 const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
   const { type } = action;
   const expandedTypes = [];

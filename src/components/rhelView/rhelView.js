@@ -12,9 +12,19 @@ import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { helpers } from '../../common';
 
+/**
+ * A Red Hat Enterprise Linux encompassing view, and system architectures.
+ *
+ * @augments React.Component
+ */
 class RhelView extends React.Component {
   componentDidMount() {}
 
+  /**
+   * Render a RHEL view.
+   *
+   * @returns {Node}
+   */
   render() {
     const { graphQuery, initialFilters, routeDetail, t } = this.props;
 
@@ -39,6 +49,11 @@ class RhelView extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{initialFilters: Array, t: Function, routeDetail: object, graphQuery: object}}
+ */
 RhelView.propTypes = {
   graphQuery: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
@@ -54,6 +69,11 @@ RhelView.propTypes = {
   t: PropTypes.func
 };
 
+/**
+ * Default props.
+ *
+ * @type {{initialFilters: Array, t: Function, graphQuery: object}}
+ */
 RhelView.defaultProps = {
   graphQuery: {
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
@@ -66,6 +86,11 @@ RhelView.defaultProps = {
   t: helpers.noopTranslate
 };
 
+/**
+ * Create a selector from applied state, props.
+ *
+ * @type {Function}
+ */
 const makeMapStateToProps = reduxSelectors.view.makeView(RhelView.defaultProps);
 
 const ConnectedRhelView = connectTranslate(makeMapStateToProps)(RhelView);

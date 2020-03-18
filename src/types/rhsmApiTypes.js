@@ -1,4 +1,17 @@
+/**
+ * RHSM response Capacity DATA type.
+ *
+ * @type {string}
+ */
 const RHSM_API_RESPONSE_CAPACITY_DATA = 'data';
+
+/**
+ * RHSM response Capacity DATA types.
+ * Schema/map of expected Capacity data response properties.
+ *
+ * @type {{HYPERVISOR_SOCKETS: string, CORES: string, DATE: string, SOCKETS: string, PHYSICAL_SOCKETS: string,
+ *     HYPERVISOR_CORES: string, HAS_INFINITE: string, PHYSICAL_CORES: string}}
+ */
 const RHSM_API_RESPONSE_CAPACITY_DATA_TYPES = {
   CORES: 'cores',
   DATE: 'date',
@@ -9,12 +22,38 @@ const RHSM_API_RESPONSE_CAPACITY_DATA_TYPES = {
   SOCKETS: 'sockets',
   HAS_INFINITE: 'has_infinite_quantity'
 };
+
+/**
+ * RHSM response Capacity META type.
+ *
+ * @type {string}
+ */
 const RHSM_API_RESPONSE_CAPACITY_META = 'meta';
+
+/**
+ * RHSM response Capacity META types.
+ * Schema/map of expected Capacity META response properties.
+ *
+ * @type {{COUNT: string}}
+ */
 const RHSM_API_RESPONSE_CAPACITY_META_TYPES = {
   COUNT: 'count'
 };
 
+/**
+ * RHSM response Reporting/Tally DATA type.
+ *
+ * @type {string}
+ */
 const RHSM_API_RESPONSE_PRODUCTS_DATA = 'data';
+
+/**
+ * RHSM response Reporting/Tally DATA types.
+ * Schema/map of expected Reporting/Tally DATA response properties.
+ *
+ * @type {{HYPERVISOR_SOCKETS: string, CORES: string, DATE: string, SOCKETS: string, HAS_DATA: string,
+ *     PHYSICAL_SOCKETS: string, HYPERVISOR_CORES: string, PHYSICAL_CORES: string}}
+ */
 const RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES = {
   CORES: 'cores',
   DATE: 'date',
@@ -25,11 +64,31 @@ const RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES = {
   SOCKETS: 'sockets',
   HAS_DATA: 'has_data'
 };
+
+/**
+ * RHSM response Reporting/Tally META type.
+ *
+ * @type {string}
+ */
 const RHSM_API_RESPONSE_PRODUCTS_META = 'meta';
+
+/**
+ * RHSM response Reporting/Tally META types.
+ * Schema/map of expected Reporting/Tally META response properties.
+ *
+ * @type {{COUNT: string}}
+ */
 const RHSM_API_RESPONSE_PRODUCTS_META_TYPES = {
   COUNT: 'count'
 };
 
+/**
+ * RHSM product id type values.
+ *
+ * @type {{RHEL_ARM: string, RHEL_WORKSTATION: string, RHEL_DESKTOP: string, RHEL: string,
+ *     RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_COMPUTE_NODE: string, RHEL_IBM_POWER: string,
+ *     RHEL_X86: string, OPENSHIFT: string}}
+ */
 const RHSM_API_PATH_ID_TYPES = {
   RHEL: 'RHEL',
   RHEL_COMPUTE_NODE: 'RHEL Compute Node',
@@ -43,25 +102,94 @@ const RHSM_API_PATH_ID_TYPES = {
   OPENSHIFT: 'OpenShift Container Platform'
 };
 
+/**
+ * RHSM API query/search parameter GRANULARITY type.
+ *
+ * @type {string}
+ */
 const RHSM_API_QUERY_GRANULARITY = 'granularity';
+
+/**
+ * RHSM API query/search parameter of GRANULARITY type values.
+ * Schema/map of expected query/search parameter granularity types.
+ *
+ * @type {{WEEKLY: string, QUARTERLY: string, DAILY: string, MONTHLY: string}}
+ */
 const RHSM_API_QUERY_GRANULARITY_TYPES = {
   DAILY: 'daily',
   WEEKLY: 'weekly',
   MONTHLY: 'monthly',
   QUARTERLY: 'quarterly'
 };
+
+/**
+ * RHSM API query/search parameter results LIMIT type.
+ *
+ * @type {string}
+ */
 const RHSM_API_QUERY_LIMIT = 'limit';
+
+/**
+ * RHSM API query/search parameter result set OFFSET type.
+ *
+ * @type {string}
+ */
 const RHSM_API_QUERY_OFFSET = 'offset';
+
+/**
+ * RHSM API query/search parameter SLA type.
+ *
+ * @type {string}
+ */
 const RHSM_API_QUERY_SLA = 'sla';
+
+/**
+ * RHSM API query/search parameter SLA type values.
+ *
+ * @type {{PREMIUM: string, SELF: string, NONE: string, STANDARD: string}}
+ */
 const RHSM_API_QUERY_SLA_TYPES = {
   PREMIUM: 'premium',
   STANDARD: 'standard',
   SELF: 'self-support',
   NONE: ''
 };
+
+/**
+ * RHSM API query/search parameter START DATE type.
+ * Associated with a sequential date prior/before the target date.
+ *
+ * @type {string}
+ */
 const RHSM_API_QUERY_START_DATE = 'beginning';
+
+/**
+ * RHSM API query/search parameter END DATE type.
+ * Associated with a sequential date on or after the target date. Limited by the current date.
+ *
+ * @type {string}
+ */
 const RHSM_API_QUERY_END_DATE = 'ending';
 
+/**
+ * RHSM API types.
+ *
+ * @type {{RHSM_API_QUERY_END_DATE: string, RHSM_API_QUERY_GRANULARITY: string, RHSM_API_QUERY_START_DATE: string,
+ *    RHSM_API_RESPONSE_CAPACITY_DATA: string, RHSM_API_PATH_ID_TYPES: {RHEL_ARM: string, RHEL_WORKSTATION: string,
+ *    RHEL_DESKTOP: string, RHEL: string, RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_COMPUTE_NODE: string,
+ *    RHEL_IBM_POWER: string, RHEL_X86: string, OPENSHIFT: string}, RHSM_API_QUERY_SLA: string,
+ *    RHSM_API_RESPONSE_CAPACITY_META_TYPES: {COUNT: string}, RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string,
+ *    SELF: string, NONE: string, STANDARD: string},
+ *    RHSM_API_RESPONSE_CAPACITY_DATA_TYPES: {HYPERVISOR_SOCKETS: string, CORES: string, DATE: string,
+ *    SOCKETS: string, PHYSICAL_SOCKETS: string, HYPERVISOR_CORES: string, HAS_INFINITE: string,
+ *    PHYSICAL_CORES: string}, RHSM_API_QUERY_LIMIT: string, RHSM_API_RESPONSE_CAPACITY_META: string,
+ *    RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES: {HYPERVISOR_SOCKETS: string, CORES: string, DATE: string,
+ *    SOCKETS: string, HAS_DATA: string, PHYSICAL_SOCKETS: string, HYPERVISOR_CORES: string,
+ *    PHYSICAL_CORES: string}, RHSM_API_RESPONSE_PRODUCTS_META: string,
+ *    RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY: string, MONTHLY: string},
+ *    RHSM_API_RESPONSE_PRODUCTS_DATA: string, RHSM_API_RESPONSE_PRODUCTS_META_TYPES: {COUNT: string},
+ *    RHSM_API_QUERY_OFFSET: string}}
+ */
 const rhsmApiTypes = {
   RHSM_API_RESPONSE_CAPACITY_DATA,
   RHSM_API_RESPONSE_CAPACITY_DATA_TYPES,

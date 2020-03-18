@@ -1,6 +1,13 @@
 import { appTypes, userTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
+/**
+ * Initial state.
+ *
+ * @private
+ * @type {{session: {pending: boolean, authorized: boolean, errorMessage: string, fulfilled: boolean,
+ *     errorStatus: (string|number), error: boolean, locale: string}}}
+ */
 const initialState = {
   session: {
     error: false,
@@ -13,6 +20,13 @@ const initialState = {
   }
 };
 
+/**
+ * Apply user observer/reducer logic for session to state, against actions.
+ *
+ * @param {object} state
+ * @param {object} action
+ * @returns {object|{}}
+ */
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxHelpers.REJECTED_ACTION(userTypes.USER_AUTH):

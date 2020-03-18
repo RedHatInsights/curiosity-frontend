@@ -2,9 +2,23 @@ import moment from 'moment/moment';
 import { helpers } from './helpers';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../types/rhsmApiTypes';
 
+/**
+ * Return a date.
+ *
+ * @returns {string|Date}
+ */
 const getCurrentDate = () =>
   (helpers.TEST_MODE && '20190720') || (helpers.DEV_MODE && process.env.REACT_APP_DEBUG_DEFAULT_DATETIME) || new Date();
 
+/**
+ * Set a date range based on a granularity type.
+ *
+ * @param {object} params
+ * @property {Date} date Start date, typically the current date.
+ * @property {number} subtract Number of granularity type to subtract from the current date.
+ * @property {string} measurement Granularity type.
+ * @returns {{endDate: Date, startDate: Date}}
+ */
 const setRangedDateTime = ({ date, subtract, measurement }) => ({
   startDate: moment
     .utc(date)
@@ -24,7 +38,7 @@ const monthlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12
 const quarterlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 36, measurement: 'months' });
 
 /**
- * Return a range of time based on granularity.
+ * Return a range of time based on known granularity types.
  *
  * @param {string} granularity
  * @returns {{endDate: Date, startDate: Date}}
@@ -43,6 +57,11 @@ const getRangedDateTime = granularity => {
   }
 };
 
+/**
+ * Consistent timestamp day formats.
+ *
+ * @type {{short: string, yearShort: string, yearLong: string, long: string}}
+ */
 const timestampDayFormats = {
   long: 'MMMM D',
   yearLong: 'MMMM D YYYY',
@@ -50,6 +69,11 @@ const timestampDayFormats = {
   yearShort: 'MMM D YYYY'
 };
 
+/**
+ * Consistent timestamp month formats.
+ *
+ * @type {{short: string, yearShort: string, yearLong: string, long: string}}
+ */
 const timestampMonthFormats = {
   long: 'MMMM',
   yearLong: 'MMMM YYYY',
@@ -57,6 +81,11 @@ const timestampMonthFormats = {
   yearShort: 'MMM YYYY'
 };
 
+/**
+ * Consistent timestamp quarter formats.
+ *
+ * @type {{short: string, yearShort: string, yearLong: string, long: string}}
+ */
 const timestampQuarterFormats = {
   ...timestampMonthFormats
 };

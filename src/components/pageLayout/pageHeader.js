@@ -5,16 +5,29 @@ import {
   PageHeaderTitle
 } from '@redhat-cloud-services/frontend-components/components/PageHeader';
 
+/**
+ * Render a platform page header.
+ *
+ * @returns {Node}
+ */
 const PageHeader = ({ children }) => (
   <RcsPageHeader>
     <PageHeaderTitle title={children} />
   </RcsPageHeader>
 );
 
+/**
+ * Prop types.
+ *
+ * @type {{children: Node}}
+ */
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired
 };
 
+/**
+ * Default props.
+ */
 PageHeader.defaultProps = {};
 
 export { PageHeader as default, PageHeader };

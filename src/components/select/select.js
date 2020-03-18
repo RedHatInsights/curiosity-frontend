@@ -6,6 +6,13 @@ import _isEqual from 'lodash/isEqual';
 import _isPlainObject from 'lodash/isPlainObject';
 import { helpers } from '../../common/helpers';
 
+/**
+ * A wrapper for Patternfly Select. Provides additional event data for onSelect callback.
+ *
+ * @augments React.Component
+ * @fires onSelect
+ * @param expanded
+ */
 class Select extends React.Component {
   state = { isExpanded: false, options: null, selected: null };
 
@@ -25,6 +32,13 @@ class Select extends React.Component {
     }
   }
 
+  /**
+   * Emulate select event object, apply to provided onSelect prop.
+   *
+   * @event onSelect
+   * @param {object} event
+   * @param {string} titleSelection
+   */
   onSelect = (event, titleSelection) => {
     const { options } = this.state;
     const { id, name, onSelect, variant } = this.props;
@@ -88,12 +102,20 @@ class Select extends React.Component {
     );
   };
 
+  /**
+   * Patternfly Select's open/closed state.
+   *
+   * @param {boolean} expanded
+   */
   onToggle = expanded => {
     this.setState({
       isExpanded: expanded
     });
   };
 
+  /**
+   * Format options into a consumable array of objects format.
+   */
   formatOptions() {
     const { options, selectedOptions, variant } = this.props;
     const updatedOptions = _isPlainObject(options)
@@ -141,6 +163,11 @@ class Select extends React.Component {
     });
   }
 
+  /**
+   * Render a select/dropdown list.
+   *
+   * @returns {Node}
+   */
   render() {
     const { options, selected, isExpanded } = this.state;
     const { ariaLabel, className, isDisabled, placeholder, variant } = this.props;
@@ -185,6 +212,13 @@ class Select extends React.Component {
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{name: string, options: object, selectedOptions: (number|string|Array), variant: (object|string),
+ *     className: string, id: string, isDisabled: boolean, placeholder: string, ariaLabel: string,
+ *     onSelect: Function}}
+ */
 Select.propTypes = {
   ariaLabel: PropTypes.string,
   className: PropTypes.string,
@@ -213,6 +247,13 @@ Select.propTypes = {
   variant: PropTypes.oneOf([...Object.values(SelectVariant)])
 };
 
+/**
+ * Default props.
+ *
+ * @type {{name: null, options: Array, selectedOptions: null, variant: SelectVariant.single,
+ *     className: string, id: string, isDisabled: boolean, placeholder: string,
+ *     ariaLabel: string, onSelect: Function}}
+ */
 Select.defaultProps = {
   ariaLabel: 'Select option',
   className: '',
