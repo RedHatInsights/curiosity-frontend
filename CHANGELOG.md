@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.11...v0.1.12) (2020-03-19)
+
+
+### Features
+
+* **build:** issues/76 apply dotenv feature disabling ([fca5041](https://github.com/RedHatInsights/curiosity-frontend/commit/fca50412c511623e8731157e2097000bf895beba))
+* **openshiftView:** issues/76 apply toolbar with SLA filter ([#219](https://github.com/RedHatInsights/curiosity-frontend/issues/219)) ([f3848ed](https://github.com/RedHatInsights/curiosity-frontend/commit/f3848edc7277d461a587c5e6a083010a0cd0e6ca))
+* **pageToolbar,pageLayout:** issues/76 add a page toolbar section ([d518ba4](https://github.com/RedHatInsights/curiosity-frontend/commit/d518ba4ec91a94d21108332401ed830424dd5018))
+* **toolbar,toolbarTypes:** issues/76 add toolbar with SLA filter ([efc9416](https://github.com/RedHatInsights/curiosity-frontend/commit/efc94169663b49d185ca30130cdcd7a93a39649c))
+* **viewReducer,rhsmTypes:** issues/76 apply SLA types ([539cfaa](https://github.com/RedHatInsights/curiosity-frontend/commit/539cfaa2721d6e9155a29005180cfa44a91ba26f))
+* **viewSelectors:** issues/76 add viewSelectors with graphQuery ([c39ee67](https://github.com/RedHatInsights/curiosity-frontend/commit/c39ee67e2d03c4a20fa129dd616b516ad626927f))
+
+
+### Bug Fixes
+
+* **build:** npm lint updates ([#208](https://github.com/RedHatInsights/curiosity-frontend/issues/208)) ([78eaf74](https://github.com/RedHatInsights/curiosity-frontend/commit/78eaf749eb8b4ff7561037652a482e4181ff6d80))
+* **build:** npm platform component updates ([#208](https://github.com/RedHatInsights/curiosity-frontend/issues/208)) ([90af68b](https://github.com/RedHatInsights/curiosity-frontend/commit/90af68b35a8bbd209e6c1e3d7553ac802caef3ab))
+* **build:** npm react scripts updated ([#208](https://github.com/RedHatInsights/curiosity-frontend/issues/208)) ([3e0df74](https://github.com/RedHatInsights/curiosity-frontend/commit/3e0df7436bcbdefe1b72193ddb5bdc85f3e60574))
+* **graphCard,redux,views:** issues/76 switch to graphQuery ([b498e24](https://github.com/RedHatInsights/curiosity-frontend/commit/b498e24c365288f90db68ea8510ee22bafee75d7))
+* **graphCard,views:** issues/76 add graphQuery prop ([3cf02d6](https://github.com/RedHatInsights/curiosity-frontend/commit/3cf02d6c317966a69eea4eee3a02e0f8293a275e))
+* **graphCardSelectors:** improve sync for multiple api calls ([#215](https://github.com/RedHatInsights/curiosity-frontend/issues/215)) ([6935cc9](https://github.com/RedHatInsights/curiosity-frontend/commit/6935cc94d630de396ee0222893738b12c8cb2434))
+* **graphCardSelectors,redux,services:** expand unit testing ([#216](https://github.com/RedHatInsights/curiosity-frontend/issues/216)) ([c6f44b6](https://github.com/RedHatInsights/curiosity-frontend/commit/c6f44b6c54602187f8698bae8c3bf4e4595bbcb2))
+* **graphCardSelectors,services:** cancellable axios responses ([9b8d652](https://github.com/RedHatInsights/curiosity-frontend/commit/9b8d652ca36cfc0d7f812ce6cd0c6c4797ef7752))
+* **graphReducer,rhsmActions:** clean up unused actions ([d068e3d](https://github.com/RedHatInsights/curiosity-frontend/commit/d068e3d3bd6cfcc867b0f112e54f519bf631213e))
+* **select:** correct single variant check ([#217](https://github.com/RedHatInsights/curiosity-frontend/issues/217)) ([fabf6f1](https://github.com/RedHatInsights/curiosity-frontend/commit/fabf6f16a474178b264aa02ca99c85cd349e84fc))
+
 ### [0.1.11](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.10...v0.1.11) (2020-02-25)
 
 
