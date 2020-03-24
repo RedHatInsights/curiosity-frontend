@@ -4,6 +4,7 @@ import { withTranslation } from 'react-i18next';
 import { DataToolbar, DataToolbarContent, DataToolbarFilter, DataToolbarGroup } from '@patternfly/react-core';
 import { Select } from '../select/select';
 import { reduxTypes, store } from '../../redux';
+import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { toolbarTypes } from './toolbarTypes';
 import { helpers } from '../../common';
 
@@ -15,22 +16,13 @@ import { helpers } from '../../common';
  * @fires onSlaSelect
  */
 class Toolbar extends React.Component {
-  state = { filterSla: toolbarTypes.getOptions().selected };
-
   /**
    * Clear filters' state.
    *
    * @event onClear
    */
   onClear = () => {
-    this.setState(
-      {
-        filterSla: null
-      },
-      () => {
-        this.dispatchFilter(reduxTypes.rhsm.SET_GRAPH_SLA_RHSM, { sla: null });
-      }
-    );
+    this.dispatchFilter(reduxTypes.rhsm.SET_GRAPH_SLA_RHSM, { [rhsmApiTypes.RHSM_API_QUERY_SLA]: null });
   };
 
   /**
@@ -40,16 +32,9 @@ class Toolbar extends React.Component {
    * @param {object} event
    */
   onSlaSelect = event => {
-    const { selected, value } = event;
+    const { value } = event;
 
-    this.setState(
-      {
-        filterSla: { ...selected }
-      },
-      () => {
-        this.dispatchFilter(reduxTypes.rhsm.SET_GRAPH_SLA_RHSM, { sla: value });
-      }
-    );
+    this.dispatchFilter(reduxTypes.rhsm.SET_GRAPH_SLA_RHSM, { [rhsmApiTypes.RHSM_API_QUERY_SLA]: value });
   };
 
   /**
@@ -70,22 +55,39 @@ class Toolbar extends React.Component {
     }
   }
 
+  // ToDo: API to provide SLA options from endpoint.
+  /**
+   * Available and selected SLA options.
+   *
+   * @returns {{slaOptionsSelected: Array, slaOptions: object}}
+   */
+  filterSla() {
+    const { graphQuery } = this.props;
+
+    const slaOptions = toolbarTypes.getOptions();
+    const filterSla =
+      typeof graphQuery[rhsmApiTypes.RHSM_API_QUERY_SLA] === 'string' &&
+      slaOptions.options.find(val => val.value === graphQuery[rhsmApiTypes.RHSM_API_QUERY_SLA]);
+
+    const slaOptionsSelected =
+      (filterSla && filterSla.title && [filterSla.title]) || (slaOptions.selected && [slaOptions.selected]) || [];
+
+    return { slaOptions, slaOptionsSelected };
+  }
+
   /**
    * Render a filter toolbar.
    *
    * @returns {Node}
    */
   render() {
-    const { filterSla } = this.state;
     const { isDisabled, t } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
-    const slaOptions = toolbarTypes.getOptions();
-    const slaOptionsSelected =
-      (filterSla && filterSla.title && [filterSla.title]) || (slaOptions.selected && [slaOptions.selected]) || [];
+    const { slaOptions, slaOptionsSelected } = this.filterSla();
 
     return (
       <DataToolbar
@@ -119,9 +121,12 @@ class Toolbar extends React.Component {
 /**
  * Prop types
  *
- * @type {{viewId: string, t: Function, isDisabled: boolean}}
+ * @type {{viewId: string, t: Function, isDisabled: boolean, graphQuery: object}}
  */
 Toolbar.propTypes = {
+  graphQuery: PropTypes.shape({
+    [rhsmApiTypes.RHSM_API_QUERY_SLA]: PropTypes.string
+  }),
   isDisabled: PropTypes.bool,
   t: PropTypes.func,
   viewId: PropTypes.string
@@ -130,9 +135,10 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: Function, isDisabled: boolean}}
+ * @type {{viewId: string, t: Function, isDisabled: boolean, graphQuery: {}}}
  */
 Toolbar.defaultProps = {
+  graphQuery: {},
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: helpers.noopTranslate,
   viewId: 'toolbar'

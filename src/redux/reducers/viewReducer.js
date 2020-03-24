@@ -25,7 +25,10 @@ const viewReducer = (state = initialState, action) => {
       return reduxHelpers.setStateProp(
         'graphQuery',
         {
-          [RHSM_API_QUERY_GRANULARITY]: action.granularity
+          [action.viewId]: {
+            ...state.graphQuery[action.viewId],
+            [RHSM_API_QUERY_GRANULARITY]: action[RHSM_API_QUERY_GRANULARITY]
+          }
         },
         {
           state,
@@ -36,7 +39,10 @@ const viewReducer = (state = initialState, action) => {
       return reduxHelpers.setStateProp(
         'graphQuery',
         {
-          [RHSM_API_QUERY_SLA]: action.sla
+          [action.viewId]: {
+            ...state.graphQuery[action.viewId],
+            [RHSM_API_QUERY_SLA]: action[RHSM_API_QUERY_SLA]
+          }
         },
         {
           state,
