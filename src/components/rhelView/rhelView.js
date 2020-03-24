@@ -6,10 +6,11 @@ import {
   chart_color_cyan_100 as chartColorCyanLight,
   chart_color_cyan_300 as chartColorCyanDark
 } from '@patternfly/react-tokens';
-import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
+import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
+import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
 
 /**
@@ -26,22 +27,25 @@ class RhelView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { graphQuery, initialFilters, routeDetail, t } = this.props;
+    const { graphQuery, initialFilters, routeDetail, t, viewId } = this.props;
 
     return (
       <PageLayout>
         <PageHeader>
           {(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_CONFIG_NAME}
         </PageHeader>
+        <PageToolbar>
+          <Toolbar graphQuery={graphQuery} viewId={viewId} />
+        </PageToolbar>
         <PageSection>
           <GraphCard
             key={routeDetail.pathParameter}
             filterGraphData={initialFilters}
             graphQuery={graphQuery}
             productId={routeDetail.pathParameter}
-            viewId={routeDetail.pathId}
+            viewId={viewId}
             cardTitle={t('curiosity-graph.cardHeading')}
-            productShortLabel="RHEL"
+            productShortLabel={viewId}
           />
         </PageSection>
       </PageLayout>
@@ -52,7 +56,7 @@ class RhelView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, t: Function, routeDetail: object, graphQuery: object}}
+ * @type {{initialFilters: Array, viewId: string, t: Function, routeDetail: object, graphQuery: object}}
  */
 RhelView.propTypes = {
   graphQuery: PropTypes.shape({
@@ -66,13 +70,14 @@ RhelView.propTypes = {
       title: PropTypes.string
     })
   }).isRequired,
-  t: PropTypes.func
+  t: PropTypes.func,
+  viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, t: Function, graphQuery: object}}
+ * @type {{initialFilters: Array, viewId: string, t: Function, graphQuery: object}}
  */
 RhelView.defaultProps = {
   graphQuery: {
@@ -83,7 +88,8 @@ RhelView.defaultProps = {
     { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
     { id: 'thresholdSockets' }
   ],
-  t: helpers.noopTranslate
+  t: helpers.noopTranslate,
+  viewId: 'RHEL'
 };
 
 /**

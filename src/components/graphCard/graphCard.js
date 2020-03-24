@@ -17,7 +17,7 @@ import ChartArea from '../chartArea/chartArea';
  *
  * @augments React.Component
  * @fires onUpdateGraphData
- * @fires onSelect
+ * @fires onGranularitySelect
  */
 class GraphCard extends React.Component {
   componentDidMount() {
@@ -56,15 +56,17 @@ class GraphCard extends React.Component {
   /**
    * On granularity select, dispatch granularity type.
    *
-   * @event onSelect
+   * @event onGranularitySelect
    * @param {object} event
    */
-  onSelect = (event = {}) => {
+  onGranularitySelect = (event = {}) => {
     const { value } = event;
+    const { viewId } = this.props;
 
     store.dispatch({
       type: reduxTypes.rhsm.SET_GRAPH_GRANULARITY_RHSM,
-      granularity: value
+      viewId,
+      [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: value
     });
   };
 
@@ -170,7 +172,7 @@ class GraphCard extends React.Component {
             {children}
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
-              onSelect={this.onSelect}
+              onSelect={this.onGranularitySelect}
               options={options}
               selectedOptions={graphGranularity}
               placeholder={t('curiosity-graph.dropdownPlaceholder')}

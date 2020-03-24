@@ -5,6 +5,16 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
   <PageHeader>
     Subscription Watch
   </PageHeader>
+  <PageToolbar>
+    <withI18nextTranslation(Toolbar)
+      graphQuery={
+        Object {
+          "granularity": "daily",
+        }
+      }
+      viewId="RHEL"
+    />
+  </PageToolbar>
   <PageSection>
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
@@ -33,7 +43,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="RHEL"
-      viewId="test_id"
+      viewId="RHEL"
     />
   </PageSection>
 </PageLayout>
@@ -44,6 +54,16 @@ exports[`RhelView Component should render a non-connected component: non-connect
   <PageHeader>
     Dolor sit
   </PageHeader>
+  <PageToolbar>
+    <withI18nextTranslation(Toolbar)
+      graphQuery={
+        Object {
+          "granularity": "daily",
+        }
+      }
+      viewId="RHEL"
+    />
+  </PageToolbar>
   <PageSection>
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
@@ -72,7 +92,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="RHEL"
-      viewId="test_id"
+      viewId="RHEL"
     />
   </PageSection>
 </PageLayout>

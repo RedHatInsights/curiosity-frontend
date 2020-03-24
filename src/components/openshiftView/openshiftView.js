@@ -72,7 +72,7 @@ class OpenshiftView extends React.Component {
    */
   render() {
     const { filters } = this.state;
-    const { graphQuery, routeDetail, t } = this.props;
+    const { graphQuery, routeDetail, t, viewId } = this.props;
 
     return (
       <PageLayout>
@@ -80,7 +80,7 @@ class OpenshiftView extends React.Component {
           {(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_CONFIG_NAME}
         </PageHeader>
         <PageToolbar>
-          <Toolbar viewId={routeDetail.pathId} />
+          <Toolbar graphQuery={graphQuery} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           <GraphCard
@@ -88,9 +88,9 @@ class OpenshiftView extends React.Component {
             filterGraphData={filters}
             graphQuery={graphQuery}
             productId={routeDetail.pathParameter}
-            viewId={routeDetail.pathId}
+            viewId={viewId}
             cardTitle={t('curiosity-graph.cardHeading')}
-            productShortLabel="OpenShift"
+            productShortLabel={viewId}
           >
             {this.renderSelect()}
           </GraphCard>
@@ -103,7 +103,7 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, initialOption: string, t: Function, routeDetail: object, graphQuery: object}}
+ * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, routeDetail: object, graphQuery: object}}
  */
 OpenshiftView.propTypes = {
   graphQuery: PropTypes.shape({
@@ -118,13 +118,14 @@ OpenshiftView.propTypes = {
       title: PropTypes.string
     })
   }).isRequired,
-  t: PropTypes.func
+  t: PropTypes.func,
+  viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, initialOption: string, t: Function, graphQuery: object}}
+ * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, graphQuery: object}}
  */
 OpenshiftView.defaultProps = {
   graphQuery: {
@@ -137,7 +138,8 @@ OpenshiftView.defaultProps = {
     { id: 'thresholdSockets' },
     { id: 'thresholdCores' }
   ],
-  t: helpers.noopTranslate
+  t: helpers.noopTranslate,
+  viewId: 'OpenShift'
 };
 
 /**

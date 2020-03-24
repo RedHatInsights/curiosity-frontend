@@ -1,19 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toolbar Component should handle updating state and dispatching an sla filter: clear filters 1`] = `
-Object {
-  "filterSla": null,
-}
-`;
+exports[`Toolbar Component should handle updating state and dispatching an sla filter: clear filters 1`] = `null`;
 
-exports[`Toolbar Component should handle updating state and dispatching an sla filter: sla selected 1`] = `
-Object {
-  "filterSla": Object {
-    "title": "t(curiosity-toolbar.slaPremium)",
-    "value": "premium",
-  },
-}
-`;
+exports[`Toolbar Component should handle updating state and dispatching an sla filter: sla selected 1`] = `null`;
 
 exports[`Toolbar Component should render a non-connected component: non-connected 1`] = `
 <DataToolbar
