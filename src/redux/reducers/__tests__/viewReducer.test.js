@@ -13,7 +13,8 @@ describe('ViewReducer', () => {
       const dispatched = {
         type: value,
         granularity: 'lorem granularity',
-        sla: 'lorem sla'
+        sla: 'lorem sla',
+        viewId: 'test_id'
       };
 
       const resultState = viewReducer(undefined, dispatched);

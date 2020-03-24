@@ -7,7 +7,12 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
-      viewId="test_id"
+      graphQuery={
+        Object {
+          "granularity": "daily",
+        }
+      }
+      viewId="OpenShift"
     />
   </PageToolbar>
   <PageSection>
@@ -33,7 +38,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="OpenShift"
-      viewId="test_id"
+      viewId="OpenShift"
     >
       <Select
         ariaLabel="Select option"
@@ -70,7 +75,12 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
-      viewId="test_id"
+      graphQuery={
+        Object {
+          "granularity": "daily",
+        }
+      }
+      viewId="OpenShift"
     />
   </PageToolbar>
   <PageSection>
@@ -96,7 +106,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       key="lorem ipsum"
       productId="lorem ipsum"
       productShortLabel="OpenShift"
-      viewId="test_id"
+      viewId="OpenShift"
     >
       <Select
         ariaLabel="Select option"

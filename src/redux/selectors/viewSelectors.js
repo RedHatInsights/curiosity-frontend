@@ -22,7 +22,7 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
 const viewGraphQuery = (state = {}, props, defaultProps = {}) => ({
   graphQuery: {
     ...defaultProps.graphQuery,
-    ..._get(state, ['view', 'graphQuery'])
+    ..._get(state, ['view', 'graphQuery', defaultProps.viewId])
   }
 });
 
