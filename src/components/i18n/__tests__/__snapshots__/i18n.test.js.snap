@@ -15,7 +15,7 @@ msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
 #: src/components/openshiftView/openshiftView.js:92
-#: src/components/rhelView/rhelView.js:43
+#: src/components/rhelView/rhelView.js:47
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
@@ -31,8 +31,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownMonthly\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:172
-#: src/components/graphCard/graphCard.js:176
+#: src/components/graphCard/graphCard.js:174
+#: src/components/graphCard/graphCard.js:178
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -48,13 +48,13 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCard.js:132
+#: src/components/graphCard/graphCard.js:134
 #: src/components/graphCard/graphCardHelpers.js:83
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbar.js:102
-#: src/components/toolbar/toolbar.js:105
+#: src/components/toolbar/toolbar.js:104
+#: src/components/toolbar/toolbar.js:107
 msgid \\"curiosity-toolbar.slaCategory\\"
 msgstr \\"\\"
 
@@ -62,7 +62,7 @@ msgstr \\"\\"
 msgid \\"curiosity-toolbar.slaNone\\"
 msgstr \\"\\"
 
-#: src/components/toolbar/toolbar.js:108
+#: src/components/toolbar/toolbar.js:110
 msgid \\"curiosity-toolbar.slaPlaceholder\\"
 msgstr \\"\\"
 

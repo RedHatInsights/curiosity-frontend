@@ -4,7 +4,9 @@ exports[`ViewReducer should handle specific defined types: defined type SET_GRAP
 Object {
   "result": Object {
     "graphQuery": Object {
-      "granularity": "lorem granularity",
+      "test_id": Object {
+        "granularity": "lorem granularity",
+      },
     },
   },
   "type": "SET_GRAPH_GRANULARITY_RHSM",
@@ -15,7 +17,9 @@ exports[`ViewReducer should handle specific defined types: defined type SET_GRAP
 Object {
   "result": Object {
     "graphQuery": Object {
-      "sla": "lorem sla",
+      "test_id": Object {
+        "sla": "lorem sla",
+      },
     },
   },
   "type": "SET_GRAPH_SLA_RHSM",
