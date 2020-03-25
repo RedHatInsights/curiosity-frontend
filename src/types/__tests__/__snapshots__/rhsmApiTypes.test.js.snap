@@ -34,6 +34,9 @@ Object {
   "RHSM_API_QUERY_START_DATE": "beginning",
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+    "CLOUD_CORES": "cloud_cores",
+    "CLOUD_INSTANCES": "cloud_instance_count",
+    "CLOUD_SOCKETS": "cloud_sockets",
     "CORES": "cores",
     "DATE": "date",
     "HAS_INFINITE": "has_infinite_quantity",
@@ -49,6 +52,9 @@ Object {
   },
   "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
   "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+    "CLOUD_CORES": "cloud_cores",
+    "CLOUD_INSTANCES": "cloud_instance_count",
+    "CLOUD_SOCKETS": "cloud_sockets",
     "CORES": "cores",
     "DATE": "date",
     "HAS_DATA": "has_data",
@@ -95,6 +101,9 @@ Object {
     "RHSM_API_QUERY_START_DATE": "beginning",
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+      "CLOUD_CORES": "cloud_cores",
+      "CLOUD_INSTANCES": "cloud_instance_count",
+      "CLOUD_SOCKETS": "cloud_sockets",
       "CORES": "cores",
       "DATE": "date",
       "HAS_INFINITE": "has_infinite_quantity",
@@ -110,6 +119,9 @@ Object {
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+      "CLOUD_CORES": "cloud_cores",
+      "CLOUD_INSTANCES": "cloud_instance_count",
+      "CLOUD_SOCKETS": "cloud_sockets",
       "CORES": "cores",
       "DATE": "date",
       "HAS_DATA": "has_data",
@@ -157,6 +169,9 @@ Object {
     "RHSM_API_QUERY_START_DATE": "beginning",
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+      "CLOUD_CORES": "cloud_cores",
+      "CLOUD_INSTANCES": "cloud_instance_count",
+      "CLOUD_SOCKETS": "cloud_sockets",
       "CORES": "cores",
       "DATE": "date",
       "HAS_INFINITE": "has_infinite_quantity",
@@ -172,6 +187,9 @@ Object {
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+      "CLOUD_CORES": "cloud_cores",
+      "CLOUD_INSTANCES": "cloud_instance_count",
+      "CLOUD_SOCKETS": "cloud_sockets",
       "CORES": "cores",
       "DATE": "date",
       "HAS_DATA": "has_data",
@@ -223,6 +241,9 @@ Object {
   "RHSM_API_QUERY_START_DATE": "beginning",
   "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
   "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+    "CLOUD_CORES": "cloud_cores",
+    "CLOUD_INSTANCES": "cloud_instance_count",
+    "CLOUD_SOCKETS": "cloud_sockets",
     "CORES": "cores",
     "DATE": "date",
     "HAS_INFINITE": "has_infinite_quantity",
@@ -238,6 +259,9 @@ Object {
   },
   "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
   "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+    "CLOUD_CORES": "cloud_cores",
+    "CLOUD_INSTANCES": "cloud_instance_count",
+    "CLOUD_SOCKETS": "cloud_sockets",
     "CORES": "cores",
     "DATE": "date",
     "HAS_DATA": "has_data",
