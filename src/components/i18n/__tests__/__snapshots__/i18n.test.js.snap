@@ -15,7 +15,7 @@ msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
 #: src/components/openshiftView/openshiftView.js:92
-#: src/components/rhelView/rhelView.js:47
+#: src/components/rhelView/rhelView.js:49
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
