@@ -46,7 +46,7 @@ class RhelView extends React.Component {
             graphQuery={graphQuery}
             productId={routeDetail.pathParameter}
             viewId={viewId}
-            cardTitle={t('curiosity-graph.cardHeading')}
+            cardTitle={t('curiosity-graph.socketsHeading')}
             productShortLabel={viewId}
           />
         </PageSection>

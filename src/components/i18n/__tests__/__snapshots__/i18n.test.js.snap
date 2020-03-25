@@ -15,7 +15,6 @@ msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
 #: src/components/openshiftView/openshiftView.js:92
-#: src/components/rhelView/rhelView.js:49
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
@@ -46,6 +45,10 @@ msgstr \\"\\"
 
 #: src/components/graphCard/graphCardHelpers.js:92
 msgid \\"curiosity-graph.noDataLabel\\"
+msgstr \\"\\"
+
+#: src/components/rhelView/rhelView.js:49
+msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
 #: src/components/graphCard/graphCard.js:134
