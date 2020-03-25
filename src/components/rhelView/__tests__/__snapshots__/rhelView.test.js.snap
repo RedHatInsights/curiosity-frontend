@@ -17,7 +17,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
   </PageToolbar>
   <PageSection>
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.cardHeading)"
+      cardTitle="t(curiosity-graph.socketsHeading)"
       filterGraphData={
         Array [
           Object {
@@ -71,7 +71,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
   </PageToolbar>
   <PageSection>
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.cardHeading)"
+      cardTitle="t(curiosity-graph.socketsHeading)"
       filterGraphData={
         Array [
           Object {
