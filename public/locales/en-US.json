@@ -17,6 +17,7 @@
     "dateLabel": "Date",
     "coresLabel": "Cores",
     "socketsLabel": "Sockets",
+    "cloudSocketsLabel": "Public cloud",
     "hypervisorCoresLabel": "Virtualized cores",
     "hypervisorSocketsLabel": "Virtualized {{product}}",
     "physicalCoresLabel": "Physical cores",

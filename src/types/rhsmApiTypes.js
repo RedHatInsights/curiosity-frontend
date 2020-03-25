@@ -13,6 +13,9 @@ const RHSM_API_RESPONSE_CAPACITY_DATA = 'data';
  *     HYPERVISOR_CORES: string, HAS_INFINITE: string, PHYSICAL_CORES: string}}
  */
 const RHSM_API_RESPONSE_CAPACITY_DATA_TYPES = {
+  CLOUD_CORES: 'cloud_cores',
+  CLOUD_INSTANCES: 'cloud_instance_count',
+  CLOUD_SOCKETS: 'cloud_sockets',
   CORES: 'cores',
   DATE: 'date',
   HYPERVISOR_CORES: 'hypervisor_cores',
@@ -55,6 +58,9 @@ const RHSM_API_RESPONSE_PRODUCTS_DATA = 'data';
  *     PHYSICAL_SOCKETS: string, HYPERVISOR_CORES: string, PHYSICAL_CORES: string}}
  */
 const RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES = {
+  CLOUD_CORES: 'cloud_cores',
+  CLOUD_INSTANCES: 'cloud_instance_count',
+  CLOUD_SOCKETS: 'cloud_sockets',
   CORES: 'cores',
   DATE: 'date',
   HYPERVISOR_CORES: 'hypervisor_cores',
