@@ -4,7 +4,9 @@ import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark,
   chart_color_cyan_100 as chartColorCyanLight,
-  chart_color_cyan_300 as chartColorCyanDark
+  chart_color_cyan_300 as chartColorCyanDark,
+  chart_color_purple_100 as chartColorPurpleLight,
+  chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
@@ -86,6 +88,7 @@ RhelView.defaultProps = {
   initialFilters: [
     { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
     { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
+    { id: 'cloudSockets', fill: chartColorPurpleLight.value, stroke: chartColorPurpleDark.value },
     { id: 'thresholdSockets' }
   ],
   t: helpers.noopTranslate,

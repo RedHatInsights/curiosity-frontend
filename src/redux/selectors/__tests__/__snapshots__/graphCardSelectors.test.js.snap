@@ -16,6 +16,57 @@ Object {
   "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -133,6 +184,57 @@ Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
         "y": 4,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": null,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": null,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": null,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": null,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": null,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": null,
       },
     ],
     "thresholdCores": Array [
@@ -278,6 +380,27 @@ Object {
   "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -325,6 +448,27 @@ Object {
         "date": 2019-09-04T00:00:00.000Z,
         "x": 0,
         "y": 2,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
       },
     ],
     "thresholdCores": Array [
@@ -387,6 +531,27 @@ Object {
   "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -434,6 +599,27 @@ Object {
         "date": 2019-09-04T00:00:00.000Z,
         "x": 0,
         "y": 2,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
       },
     ],
     "thresholdCores": Array [
@@ -496,6 +682,27 @@ Object {
   "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -543,6 +750,27 @@ Object {
         "date": 2019-09-04T00:00:00.000Z,
         "x": 0,
         "y": 2,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
       },
     ],
     "thresholdCores": Array [
@@ -605,6 +833,57 @@ Object {
   "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -722,6 +1001,57 @@ Object {
         "date": 2019-09-06T00:00:00.000Z,
         "x": 2,
         "y": 4,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "x": 2,
+        "y": 0,
       },
     ],
     "thresholdCores": Array [
@@ -854,6 +1184,27 @@ Object {
   "errorStatus": undefined,
   "fulfilled": true,
   "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -901,6 +1252,27 @@ Object {
         "date": 2019-09-04T00:00:00.000Z,
         "x": 0,
         "y": 2,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "x": 0,
+        "y": 0,
       },
     ],
     "thresholdCores": Array [

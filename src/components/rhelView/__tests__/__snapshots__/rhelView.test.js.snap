@@ -31,6 +31,11 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
             "stroke": "#009596",
           },
           Object {
+            "fill": "#b2b0ea",
+            "id": "cloudSockets",
+            "stroke": "#5752d1",
+          },
+          Object {
             "id": "thresholdSockets",
           },
         ]
@@ -78,6 +83,11 @@ exports[`RhelView Component should render a non-connected component: non-connect
             "fill": "#a2d9d9",
             "id": "hypervisorSockets",
             "stroke": "#009596",
+          },
+          Object {
+            "fill": "#b2b0ea",
+            "id": "cloudSockets",
+            "stroke": "#5752d1",
           },
           Object {
             "id": "thresholdSockets",
