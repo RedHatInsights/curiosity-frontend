@@ -28,7 +28,7 @@ describe('UserReducer', () => {
   });
 
   it('should handle all defined error types', () => {
-    const specificTypes = [types.USER_AUTH];
+    const specificTypes = [types.USER_AUTH, types.DELETE_USER_OPTIN, types.GET_USER_OPTIN, types.UPDATE_USER_OPTIN];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -55,7 +55,7 @@ describe('UserReducer', () => {
   });
 
   it('should handle all defined pending types', () => {
-    const specificTypes = [types.USER_AUTH];
+    const specificTypes = [types.USER_AUTH, types.DELETE_USER_OPTIN, types.GET_USER_OPTIN, types.UPDATE_USER_OPTIN];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -71,7 +71,13 @@ describe('UserReducer', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    const specificTypes = [types.USER_AUTH, types.USER_LOCALE];
+    const specificTypes = [
+      types.USER_AUTH,
+      types.USER_LOCALE,
+      types.DELETE_USER_OPTIN,
+      types.GET_USER_OPTIN,
+      types.UPDATE_USER_OPTIN
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {

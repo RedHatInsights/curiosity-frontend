@@ -1,15 +1,33 @@
 import Cookies from 'js-cookie';
+import moxios from 'moxios';
 import userServices from '../userServices';
 
 describe('UserServices', () => {
+  beforeEach(() => {
+    moxios.install();
+
+    moxios.stubRequest(/\/(opt-in).*?/, {
+      status: 200,
+      responseText: 'success',
+      timeout: 1
+    });
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(userServices)).toHaveLength(3);
+    expect(Object.keys(userServices)).toHaveLength(6);
   });
 
   it('should have specific methods', () => {
     expect(userServices.authorizeUser).toBeDefined();
     expect(userServices.getLocale).toBeDefined();
     expect(userServices.logoutUser).toBeDefined();
+    expect(userServices.deleteAccountOptIn).toBeDefined();
+    expect(userServices.getAccountOptIn).toBeDefined();
+    expect(userServices.updateAccountOptIn).toBeDefined();
   });
 
   /**
