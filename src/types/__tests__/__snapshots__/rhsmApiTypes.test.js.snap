@@ -24,6 +24,9 @@ Object {
   },
   "RHSM_API_QUERY_LIMIT": "limit",
   "RHSM_API_QUERY_OFFSET": "offset",
+  "RHSM_API_QUERY_OPTIN_CONDUIT_SYNC": "enable_conduit_sync",
+  "RHSM_API_QUERY_OPTIN_TALLY_REPORT": "enable_tally_reporting",
+  "RHSM_API_QUERY_OPTIN_TALLY_SYNC": "enable_tally_sync",
   "RHSM_API_QUERY_SLA": "sla",
   "RHSM_API_QUERY_SLA_TYPES": Object {
     "NONE": "",
@@ -91,6 +94,9 @@ Object {
     },
     "RHSM_API_QUERY_LIMIT": "limit",
     "RHSM_API_QUERY_OFFSET": "offset",
+    "RHSM_API_QUERY_OPTIN_CONDUIT_SYNC": "enable_conduit_sync",
+    "RHSM_API_QUERY_OPTIN_TALLY_REPORT": "enable_tally_reporting",
+    "RHSM_API_QUERY_OPTIN_TALLY_SYNC": "enable_tally_sync",
     "RHSM_API_QUERY_SLA": "sla",
     "RHSM_API_QUERY_SLA_TYPES": Object {
       "NONE": "",
@@ -159,6 +165,9 @@ Object {
     },
     "RHSM_API_QUERY_LIMIT": "limit",
     "RHSM_API_QUERY_OFFSET": "offset",
+    "RHSM_API_QUERY_OPTIN_CONDUIT_SYNC": "enable_conduit_sync",
+    "RHSM_API_QUERY_OPTIN_TALLY_REPORT": "enable_tally_reporting",
+    "RHSM_API_QUERY_OPTIN_TALLY_SYNC": "enable_tally_sync",
     "RHSM_API_QUERY_SLA": "sla",
     "RHSM_API_QUERY_SLA_TYPES": Object {
       "NONE": "",
@@ -231,6 +240,9 @@ Object {
   },
   "RHSM_API_QUERY_LIMIT": "limit",
   "RHSM_API_QUERY_OFFSET": "offset",
+  "RHSM_API_QUERY_OPTIN_CONDUIT_SYNC": "enable_conduit_sync",
+  "RHSM_API_QUERY_OPTIN_TALLY_REPORT": "enable_tally_reporting",
+  "RHSM_API_QUERY_OPTIN_TALLY_SYNC": "enable_tally_sync",
   "RHSM_API_QUERY_SLA": "sla",
   "RHSM_API_QUERY_SLA_TYPES": Object {
     "NONE": "",

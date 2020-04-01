@@ -18,8 +18,8 @@ import { serviceCall } from './config';
  *       "gitHash": "0000000000000000"
  *     }
  *
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 500 Internal Server Error
  *     {
  *        "errors": [
@@ -394,7 +394,7 @@ const getApiVersion = () =>
  *       }
  *     }
  *
- * @apiError {String} detail
+ * @apiError {Array} errors
  * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 400 Bad Request
  *     {
@@ -407,8 +407,8 @@ const getApiVersion = () =>
  *          }
  *        ]
  *     }
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 404 Internal Server Error
  *     {
  *        "errors": [
@@ -420,8 +420,8 @@ const getApiVersion = () =>
  *          }
  *        ]
  *     }
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 500 Internal Server Error
  *     {
  *        "errors": [
@@ -563,7 +563,7 @@ const getGraphReports = (id, params = {}) =>
  *       }
  *     }
  *
- * @apiError {String} detail
+ * @apiError {Array} errors
  * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 400 Bad Request
  *     {
@@ -576,8 +576,8 @@ const getGraphReports = (id, params = {}) =>
  *          }
  *        ]
  *     }
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 404 Internal Server Error
  *     {
  *        "errors": [
@@ -589,8 +589,8 @@ const getGraphReports = (id, params = {}) =>
  *          }
  *        ]
  *     }
- * @apiError {String} detail
- * @apiErrorExample {text} Error-Response:
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 500 Internal Server Error
  *     {
  *        "errors": [

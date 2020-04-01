@@ -143,6 +143,27 @@ const RHSM_API_QUERY_LIMIT = 'limit';
 const RHSM_API_QUERY_OFFSET = 'offset';
 
 /**
+ * RHSM API query/search parameter OPT-IN TALLY SYNC type.
+ *
+ * @type {string}
+ */
+const RHSM_API_QUERY_OPTIN_TALLY_SYNC = 'enable_tally_sync';
+
+/**
+ * RHSM API query/search parameter OPT-IN TALLY REPORT type.
+ *
+ * @type {string}
+ */
+const RHSM_API_QUERY_OPTIN_TALLY_REPORT = 'enable_tally_reporting';
+
+/**
+ * RHSM API query/search parameter OPTIN CONDUIT SYNC type.
+ *
+ * @type {string}
+ */
+const RHSM_API_QUERY_OPTIN_CONDUIT_SYNC = 'enable_conduit_sync';
+
+/**
  * RHSM API query/search parameter SLA type.
  *
  * @type {string}
@@ -210,6 +231,9 @@ const rhsmApiTypes = {
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_LIMIT,
   RHSM_API_QUERY_OFFSET,
+  RHSM_API_QUERY_OPTIN_TALLY_SYNC,
+  RHSM_API_QUERY_OPTIN_TALLY_REPORT,
+  RHSM_API_QUERY_OPTIN_CONDUIT_SYNC,
   RHSM_API_QUERY_SLA,
   RHSM_API_QUERY_SLA_TYPES,
   RHSM_API_QUERY_START_DATE,
@@ -232,6 +256,9 @@ export {
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_LIMIT,
   RHSM_API_QUERY_OFFSET,
+  RHSM_API_QUERY_OPTIN_TALLY_SYNC,
+  RHSM_API_QUERY_OPTIN_TALLY_REPORT,
+  RHSM_API_QUERY_OPTIN_CONDUIT_SYNC,
   RHSM_API_QUERY_SLA,
   RHSM_API_QUERY_SLA_TYPES,
   RHSM_API_QUERY_START_DATE,
