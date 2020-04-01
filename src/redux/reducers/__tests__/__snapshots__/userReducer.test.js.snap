@@ -1,8 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UserReducer should handle all defined error types: rejected types DELETE_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_USER_OPTIN_REJECTED",
+}
+`;
+
+exports[`UserReducer should handle all defined error types: rejected types GET_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "GET_USER_OPTIN_REJECTED",
+}
+`;
+
+exports[`UserReducer should handle all defined error types: rejected types UPDATE_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_USER_OPTIN_REJECTED",
+}
+`;
+
 exports[`UserReducer should handle all defined error types: rejected types USER_AUTH 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": false,
       "error": true,
@@ -17,9 +102,103 @@ Object {
 }
 `;
 
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types DELETE_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_USER_OPTIN_FULFILLED",
+}
+`;
+
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "GET_USER_OPTIN_FULFILLED",
+}
+`;
+
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types UPDATE_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_USER_OPTIN_FULFILLED",
+}
+`;
+
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types USER_AUTH 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": true,
       "error": false,
@@ -37,6 +216,7 @@ Object {
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types USER_LOCALE 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": false,
       "error": false,
@@ -53,9 +233,91 @@ Object {
 }
 `;
 
+exports[`UserReducer should handle all defined pending types: pending types DELETE_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_USER_OPTIN_PENDING",
+}
+`;
+
+exports[`UserReducer should handle all defined pending types: pending types GET_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "GET_USER_OPTIN_PENDING",
+}
+`;
+
+exports[`UserReducer should handle all defined pending types: pending types UPDATE_USER_OPTIN 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+    },
+    "session": Object {
+      "authorized": false,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "locale": null,
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_USER_OPTIN_PENDING",
+}
+`;
+
 exports[`UserReducer should handle all defined pending types: pending types USER_AUTH 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": false,
       "error": false,
@@ -73,6 +335,7 @@ Object {
 exports[`UserReducer should handle specific http status types: http status 4XX 400 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": false,
       "error": false,
@@ -90,6 +353,7 @@ Object {
 exports[`UserReducer should handle specific http status types: http status 4XX 401 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": false,
       "error": true,
@@ -107,6 +371,7 @@ Object {
 exports[`UserReducer should handle specific http status types: http status 4XX 403 1`] = `
 Object {
   "result": Object {
+    "optin": Object {},
     "session": Object {
       "authorized": false,
       "error": true,

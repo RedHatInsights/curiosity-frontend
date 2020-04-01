@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
 import { getUser } from './platformServices';
+import { serviceCall } from './config';
 
 /**
  * Apply an emulated API response to the platforms getUser method.
@@ -67,6 +68,211 @@ const logoutUser = () =>
     resolve({});
   });
 
-const userServices = { authorizeUser, getLocale, logoutUser };
+/**
+ * @apiMock {DelayResponse} 2000
+ * @api {delete} /api/rhsm-subscriptions/v1/opt-in
+ * @apiDescription Delete a RHSM account opt-in config
+ *
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {text} Success-Response:
+ *     HTTP/1.1 204 OK
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 403 Forbidden
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Delete a RHSM account opt-in config.
+ *
+ * @returns {Promise<*>}
+ */
+const deleteAccountOptIn = () =>
+  serviceCall({
+    method: 'delete',
+    url: process.env.REACT_APP_SERVICES_RHSM_OPTIN
+  });
 
-export { userServices as default, userServices, authorizeUser, getLocale, logoutUser };
+/**
+ * @api {get} /api/rhsm-subscriptions/v1/opt-in
+ * @apiDescription Get a RHSM account opt-in config
+ *
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "data": {
+ *          "opt_in_complete": true,
+ *          "account": {
+ *            "account_numner": 12345,
+ *            "tally_sync_enabled": true,
+ *            "tally_reporting_enabled": true,
+ *            "opt_in_type": "API",
+ *            "created": "2017-08-04T17:32:05Z",
+ *            "last_updated": "2017-08-04T17:32:05Z"
+ *          },
+ *          "org": {
+ *            "org_id": 1111,
+ *            "conduit_sync_enabled": true,
+ *            "opt_in_type": "API",
+ *            "created": "2017-08-04T17:32:05Z",
+ *            "last_updated": "2017-08-04T17:32:05Z"
+ *          }
+ *        },
+ *        "meta": {
+ *          "account_number": 12345,
+ *          "org_id": 1111
+ *        }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Get a RHSM account opt-in config.
+ *
+ * @returns {Promise<*>}
+ */
+const getAccountOptIn = () =>
+  serviceCall({
+    url: process.env.REACT_APP_SERVICES_RHSM_OPTIN,
+    cancel: true
+  });
+
+/**
+ * @api {put} /api/rhsm-subscriptions/v1/opt-in
+ * @apiDescription Create/Update an account's opt-in configuration. Account and Org ID are defined by
+ * the identity header. If no parameters are specified, everything will be enabled.
+ *
+ * Reference [RHSM API](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "data": {
+ *          "opt_in_complete": true,
+ *          "account": {
+ *            "account_numner": 12345,
+ *            "tally_sync_enabled": true,
+ *            "tally_reporting_enabled": true,
+ *            "opt_in_type": "API",
+ *            "created": "2017-08-04T17:32:05Z",
+ *            "last_updated": "2017-08-04T17:32:05Z"
+ *          },
+ *          "org": {
+ *            "org_id": 1111,
+ *            "conduit_sync_enabled": true,
+ *            "opt_in_type": "API",
+ *            "created": "2017-08-04T17:32:05Z",
+ *            "last_updated": "2017-08-04T17:32:05Z"
+ *          }
+ *        },
+ *        "meta": {
+ *          "account_number": 12345,
+ *          "org_id": 1111
+ *        }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Update a RHSM account opt-in config.
+ *
+ * @param {object} params Query/search params
+ * @returns {Promise<*>}
+ */
+const updateAccountOptIn = (params = {}) =>
+  serviceCall({
+    method: 'put',
+    url: process.env.REACT_APP_SERVICES_RHSM_OPTIN,
+    params
+  });
+
+const userServices = { authorizeUser, getLocale, logoutUser, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
+
+export {
+  userServices as default,
+  userServices,
+  authorizeUser,
+  getLocale,
+  logoutUser,
+  deleteAccountOptIn,
+  getAccountOptIn,
+  updateAccountOptIn
+};

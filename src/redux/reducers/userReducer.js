@@ -9,6 +9,7 @@ import { reduxHelpers } from '../common/reduxHelpers';
  *     errorStatus: (string|number), error: boolean, locale: string}}}
  */
 const initialState = {
+  optin: {},
   session: {
     error: false,
     errorMessage: null,
@@ -103,7 +104,15 @@ const userReducer = (state = initialState, action) => {
       return state;
 
     default:
-      return state;
+      return reduxHelpers.generatedPromiseActionReducer(
+        [
+          { ref: 'optin', type: userTypes.DELETE_USER_OPTIN },
+          { ref: 'optin', type: userTypes.GET_USER_OPTIN },
+          { ref: 'optin', type: userTypes.UPDATE_USER_OPTIN }
+        ],
+        state,
+        action
+      );
   }
 };
 

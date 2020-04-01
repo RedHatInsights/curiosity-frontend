@@ -17,14 +17,13 @@ describe('UserActions', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        response: {
-          test: 'success'
-        }
-      });
+    moxios.stubRequest(/\/(opt-in).*?/, {
+      status: 200,
+      responseText: 'success',
+      timeout: 1,
+      response: {
+        test: 'success'
+      }
     });
   });
 
@@ -41,6 +40,39 @@ describe('UserActions', () => {
 
       expect(response.session.fulfilled).toBe(true);
       expect(response.session.authorized).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for deleteAccountOptIn method', done => {
+    const store = generateStore();
+    const dispatcher = userActions.deleteAccountOptIn();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().user;
+      expect(response.optin.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getAccountOptIn method', done => {
+    const store = generateStore();
+    const dispatcher = userActions.getAccountOptIn();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().user;
+      expect(response.optin.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for updateAccountOptIn method', done => {
+    const store = generateStore();
+    const dispatcher = userActions.updateAccountOptIn();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().user;
+      expect(response.optin.fulfilled).toBe(true);
       done();
     });
   });
