@@ -1,10 +1,11 @@
-import { appName, navigation, platformRedirect, routes } from '../routerTypes';
+import { appName, navigation, platformLandingRedirect, platformModalRedirect, routes } from '../routerTypes';
 
 describe('RouterTypes', () => {
   it('should return specific properties', () => {
     expect(appName).toMatchSnapshot('appName');
     expect(navigation).toMatchSnapshot('navigation');
-    expect(platformRedirect).toMatchSnapshot('platformRedirect');
+    expect(platformLandingRedirect).toMatchSnapshot('platformLandingRedirect');
+    expect(platformModalRedirect).toMatchSnapshot('platformModalRedirect');
     expect(routes).toMatchSnapshot('routes');
   });
 });

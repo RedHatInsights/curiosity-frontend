@@ -44,7 +44,9 @@ Array [
 ]
 `;
 
-exports[`RouterTypes should return specific properties: platformRedirect 1`] = `"/?not_entitled=subscriptions"`;
+exports[`RouterTypes should return specific properties: platformLandingRedirect 1`] = `"/"`;
+
+exports[`RouterTypes should return specific properties: platformModalRedirect 1`] = `"/?not_entitled=subscriptions"`;
 
 exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
@@ -91,7 +93,6 @@ Array [
     "to": "/openshift-sw",
   },
   Object {
-    "activateOnError": true,
     "component": Object {
       "$$typeof": Symbol(react.memo),
       "WrappedComponent": [Function],
@@ -106,18 +107,19 @@ Array [
     "to": "/soon",
   },
   Object {
+    "activateOnError": true,
     "component": Object {
       "$$typeof": Symbol(react.memo),
       "WrappedComponent": [Function],
       "compare": null,
-      "displayName": "Connect(TourView)",
+      "displayName": "Connect(OptinView)",
       "type": [Function],
     },
     "disabled": false,
     "exact": true,
-    "id": "tour",
+    "id": "optin",
     "render": true,
-    "to": "/tour",
+    "to": "/optin",
   },
 ]
 `;

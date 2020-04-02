@@ -206,6 +206,8 @@ const getAccountOptIn = () =>
   });
 
 /**
+ * @apiMock {DelayResponse} 1000
+ * @apiMock {ForceStatus} 200
  * @api {put} /api/rhsm-subscriptions/v1/opt-in
  * @apiDescription Create/Update an account's opt-in configuration. Account and Org ID are defined by
  * the identity header. If no parameters are specified, everything will be enabled.
