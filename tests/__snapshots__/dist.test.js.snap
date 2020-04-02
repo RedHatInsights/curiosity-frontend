@@ -18,6 +18,8 @@ Array [
   "./build/static/js/main*chunk.js",
   "./build/static/js/runtime-main*js",
   "./build/static/js/runtime-main*js.map",
+  "./build/static/media/graph2x*png",
+  "./build/static/media/graph4x*png",
   "./build/static/media/pfbg_2000*jpg",
   "./build/static/media/pfbg_576*jpg",
   "./build/static/media/pfbg_576@2x*jpg",

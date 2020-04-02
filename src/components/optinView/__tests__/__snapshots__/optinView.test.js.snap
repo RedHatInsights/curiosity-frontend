@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptinView Component should render a non-connected component: non-connected 1`] = `
+<PageLayout>
+  <Card>
+    <Flex
+      breakpointMods={
+        Array [
+          Object {
+            "modifier": "column",
+          },
+          Object {
+            "breakpoint": "md",
+            "modifier": "row",
+          },
+        ]
+      }
+    >
+      <Flex
+        breakpointMods={
+          Array [
+            Object {
+              "modifier": "flex-2",
+            },
+          ]
+        }
+      >
+        <FlexItem>
+          <CardHeader
+            key="heading1Title"
+          >
+            <Title
+              size="2xl"
+            >
+              t(curiosity-optin.cardTitle, [object Object])
+            </Title>
+          </CardHeader>
+          <CardBody
+            key="heading1Desc"
+          >
+            t(curiosity-optin.cardDescription, [object Object])
+          </CardBody>
+          <CardHeader
+            key="heading2Title"
+          >
+            <Title
+              headingLevel="h2"
+              size="xl"
+            >
+              t(curiosity-optin.cardSeeTitle)
+            </Title>
+          </CardHeader>
+          <CardBody
+            key="heading2Desc"
+          >
+            t(curiosity-optin.cardSeeDescription)
+          </CardBody>
+          <CardHeader
+            key="heading3Title"
+          >
+            <Title
+              headingLevel="h2"
+              size="xl"
+            >
+              t(curiosity-optin.cardReportTitle)
+            </Title>
+          </CardHeader>
+          <CardBody
+            key="heading3Desc"
+          >
+            t(curiosity-optin.cardReportDescription)
+          </CardBody>
+          <CardHeader
+            key="heading4Title"
+          >
+            <Title
+              headingLevel="h2"
+              size="xl"
+            >
+              t(curiosity-optin.cardFilterTitle)
+            </Title>
+          </CardHeader>
+          <CardBody
+            key="heading4Desc"
+          >
+            t(curiosity-optin.cardFilterDescription)
+          </CardBody>
+          <CardFooter>
+            <p>
+              t(curiosity-optin.cardContactAdminDescription, [object Object])
+            </p>
+          </CardFooter>
+        </FlexItem>
+      </Flex>
+      <Flex
+        breakpointMods={
+          Array [
+            Object {
+              "modifier": "flex-1",
+            },
+            Object {
+              "modifier": "align-self-center",
+            },
+          ]
+        }
+      >
+        <FlexItem>
+          <CardBody>
+            <Card
+              className="curiosity-optin-tour"
+            >
+              <CardHead>
+                <CardHeadMain>
+                  <Brand
+                    alt="t(curiosity-optin.tourTitleImageAlt)"
+                    aria-hidden={true}
+                    className="curiosity-optin-image"
+                    src="graph4x.png"
+                    srcSet="graph4x.png 1064w, graph2x.png 600w"
+                  />
+                </CardHeadMain>
+              </CardHead>
+              <CardHeader>
+                <Title
+                  headingLevel="h3"
+                  size="2xl"
+                >
+                  t(curiosity-optin.tourTitle)
+                </Title>
+              </CardHeader>
+              <CardBody>
+                t(curiosity-optin.tourDescription)
+              </CardBody>
+              <CardFooter>
+                <Component
+                  className="uxui-curiosity__button-tour"
+                  variant="secondary"
+                >
+                  t(curiosity-optin.buttonTour)
+                </Component>
+              </CardFooter>
+            </Card>
+          </CardBody>
+        </FlexItem>
+      </Flex>
+    </Flex>
+  </Card>
+</PageLayout>
+`;

@@ -19,6 +19,7 @@ exports[`Authorization Component should render a non-connected component authori
   onNavigation={[Function]}
   session={
     Object {
+      "admin": true,
       "authorized": true,
       "error": false,
       "errorMessage": "",
@@ -36,7 +37,7 @@ exports[`Authorization Component should render a non-connected component authori
 </Authentication>
 `;
 
-exports[`Authorization Component should render a non-connected component error: non-connected error 1`] = `
+exports[`Authorization Component should render a non-connected component error: non-connected admin error 1`] = `
 <Authentication
   authorizeUser={[Function]}
   history={
@@ -49,6 +50,7 @@ exports[`Authorization Component should render a non-connected component error: 
   onNavigation={[Function]}
   session={
     Object {
+      "admin": true,
       "authorized": false,
       "error": true,
       "errorMessage": "Authentication credentials were not provided.",
@@ -164,6 +166,33 @@ exports[`Authorization Component should render a non-connected component error: 
       </PageSection>
     </PageLayout>
   </MessageView>
+</Authentication>
+`;
+
+exports[`Authorization Component should render a non-connected component error: non-connected error 1`] = `
+<Authentication
+  authorizeUser={[Function]}
+  history={
+    Object {
+      "listen": [Function],
+      "push": [Function],
+    }
+  }
+  initializeChrome={[Function]}
+  onNavigation={[Function]}
+  session={
+    Object {
+      "admin": false,
+      "authorized": false,
+      "error": true,
+      "errorMessage": "Authentication credentials were not provided.",
+      "pending": false,
+    }
+  }
+  setAppName={[Function]}
+  t={[Function]}
+>
+   redirect
 </Authentication>
 `;
 

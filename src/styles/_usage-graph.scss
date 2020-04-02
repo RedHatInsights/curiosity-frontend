@@ -3,17 +3,5 @@
     .pf-c-card__head {
       border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
     }
-
-    .curiosity-skeleton-container {
-      padding-top: var(--pf-c-card--child--PaddingBottom);
-    }
-
-    .curiosity-skeleton-container .ins-c-skeleton {
-      margin-bottom: 20px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
   }
 }

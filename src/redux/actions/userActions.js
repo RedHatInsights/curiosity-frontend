@@ -1,5 +1,7 @@
 import { userTypes } from '../types';
 import { userServices } from '../../services/userServices';
+import { helpers } from '../../common/helpers';
+import { translate } from '../../components/i18n/i18n';
 
 /**
  * Get an emulated API response from the platforms "getUser" method.
@@ -62,7 +64,21 @@ const updateAccountOptIn = (query = {}) => dispatch =>
     payload: userServices.updateAccountOptIn(query),
     meta: {
       query,
-      notifications: {}
+      notifications: {
+        rejected: {
+          variant: 'danger',
+          title: translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
+          description: translate('curiosity-optin.notificationsErrorDescription'),
+          dismissable: true
+        },
+        fulfilled: {
+          variant: 'success',
+          title: translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
+          description: translate('curiosity-optin.notificationsSuccessDescription'),
+          dismissable: true,
+          autoDismiss: false
+        }
+      }
     }
   });
 

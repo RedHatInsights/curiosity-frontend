@@ -10,7 +10,7 @@ describe('Authorization Component', () => {
 
   it('should render a connected component', () => {
     const store = generateEmptyStore({
-      user: { session: { authorized: false, error: false, errorMessage: '', pending: false } }
+      user: { session: { admin: false, authorized: false, error: false, errorMessage: '', pending: false } }
     });
 
     const component = shallow(
@@ -30,6 +30,7 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
+        admin: false,
         authorized: false,
         error: true,
         errorMessage: 'Authentication credentials were not provided.',
@@ -43,6 +44,18 @@ describe('Authorization Component', () => {
     );
 
     expect(component).toMatchSnapshot('non-connected error');
+
+    component.setProps({
+      session: {
+        admin: true,
+        authorized: false,
+        error: true,
+        errorMessage: 'Authentication credentials were not provided.',
+        pending: false
+      }
+    });
+
+    expect(component).toMatchSnapshot('non-connected admin error');
   });
 
   it('should return a redirect on 418 error', () => {
@@ -52,6 +65,7 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
+        admin: false,
         authorized: false,
         error: true,
         errorStatus: 418,
@@ -77,6 +91,7 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
+        admin: false,
         authorized: false,
         error: true,
         errorStatus: 403,
@@ -102,6 +117,7 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
+        admin: true,
         authorized: false,
         error: true,
         errorStatus: 401,
@@ -127,6 +143,7 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
+        admin: false,
         authorized: false,
         error: false,
         errorMessage: '',
@@ -149,6 +166,7 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
+        admin: true,
         authorized: true,
         error: false,
         errorMessage: '',

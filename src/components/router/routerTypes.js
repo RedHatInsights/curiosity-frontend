@@ -1,6 +1,7 @@
 import path from 'path';
 import { helpers } from '../../common/helpers';
 import OpenshiftView from '../openshiftView/openshiftView';
+import OptinView from '../optinView/optinView';
 import RhelView from '../rhelView/rhelView';
 import TourView from '../tourView/tourView';
 import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
@@ -17,7 +18,14 @@ const appName = helpers.UI_NAME;
  *
  * @returns {Array}
  */
-const platformRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitled=subscriptions');
+const platformLandingRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/');
+
+/**
+ * Return a string that describes a platform redirect.
+ *
+ * @returns {Array}
+ */
+const platformModalRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitled=subscriptions');
 
 /**
  * Return array of objects that describes routing.
@@ -55,15 +63,15 @@ const routes = [
     component: TourView,
     exact: true,
     render: true,
-    activateOnError: true,
     disabled: helpers.UI_DISABLED
   },
   {
-    id: 'tour',
-    to: '/tour',
-    component: TourView,
+    id: 'optin',
+    to: '/optin',
+    component: OptinView,
     exact: true,
     render: true,
+    activateOnError: true,
     disabled: helpers.UI_DISABLED
   }
 ];
@@ -116,8 +124,17 @@ const navigation = [
 const routerTypes = {
   appName,
   navigation,
-  platformRedirect,
+  platformLandingRedirect,
+  platformModalRedirect,
   routes
 };
 
-export { routerTypes as default, routerTypes, appName, navigation, platformRedirect, routes };
+export {
+  routerTypes as default,
+  routerTypes,
+  appName,
+  navigation,
+  platformLandingRedirect,
+  platformModalRedirect,
+  routes
+};

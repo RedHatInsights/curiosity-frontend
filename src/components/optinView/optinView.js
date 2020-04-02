@@ -1,0 +1,271 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  Brand,
+  Button,
+  Card,
+  CardHead,
+  CardHeadMain,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Flex,
+  FlexItem,
+  FlexBreakpoints,
+  FlexModifiers,
+  Form,
+  ActionGroup,
+  Spinner,
+  Title
+} from '@patternfly/react-core';
+import { connectTranslate, reduxActions } from '../../redux';
+import { translate } from '../i18n/i18n';
+import { PageLayout } from '../pageLayout/pageLayout';
+import { helpers } from '../../common';
+import graphPng2x from '../../images/graph2x.png';
+import graphPng4x from '../../images/graph4x.png';
+
+/**
+ * An account opt-in view.
+ *
+ * @augments React.Component
+ * @fires onSubmitOptIn
+ */
+class OptinView extends React.Component {
+  /**
+   * Submit and update account opt-in.
+   *
+   * @event onSubmitOptIn
+   */
+  onSubmitOptIn = () => {
+    const { updateAccountOptIn } = this.props;
+    updateAccountOptIn();
+  };
+
+  /**
+   * Render non-org-admin content.
+   *
+   * @returns {Node}
+   */
+  renderContactAdmin() {
+    const { t } = this.props;
+
+    return <p>{t('curiosity-optin.cardContactAdminDescription', { appName: helpers.UI_DISPLAY_NAME })}</p>;
+  }
+
+  /**
+   * Render org-admin opt-in form states.
+   *
+   * @returns {Node}
+   */
+  renderOptinForm() {
+    const { error, fulfilled, pending, t } = this.props;
+
+    if (pending) {
+      return (
+        <Form>
+          <ActionGroup>
+            <Button variant="primary" isDisabled>
+              <Spinner size="sm" /> {t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })}
+            </Button>
+          </ActionGroup>
+        </Form>
+      );
+    }
+
+    if (error) {
+      return (
+        <p>
+          {translate('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [
+            <Button
+              isInline
+              component="a"
+              variant="link"
+              target="_blank"
+              href="https://access.redhat.com/account-team"
+            />
+          ])}
+        </p>
+      );
+    }
+
+    if (fulfilled) {
+      return (
+        <Form>
+          <ActionGroup>
+            <Button variant="primary" isDisabled>
+              {t('curiosity-optin.buttonIsActive', { appName: helpers.UI_DISPLAY_NAME })}
+            </Button>
+          </ActionGroup>
+          <p>{t('curiosity-optin.cardIsActiveDescription')}</p>
+        </Form>
+      );
+    }
+
+    return (
+      <Form>
+        <ActionGroup>
+          <Button variant="primary" onClick={this.onSubmitOptIn}>
+            {t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })}
+          </Button>
+        </ActionGroup>
+      </Form>
+    );
+  }
+
+  /**
+   * Render tour copy and button.
+   *
+   * @returns {Node}
+   */
+  renderTour() {
+    const { t } = this.props;
+
+    return (
+      <Card className="curiosity-optin-tour">
+        <CardHead>
+          <CardHeadMain>
+            <Brand
+              srcSet={`${graphPng4x} 1064w, ${graphPng2x} 600w`}
+              src={graphPng4x}
+              alt={t('curiosity-optin.tourTitleImageAlt')}
+              aria-hidden
+              className="curiosity-optin-image"
+            />
+          </CardHeadMain>
+        </CardHead>
+        <CardHeader>
+          <Title headingLevel="h3" size="2xl">
+            {t('curiosity-optin.tourTitle')}
+          </Title>
+        </CardHeader>
+        <CardBody>{t('curiosity-optin.tourDescription')}</CardBody>
+        <CardFooter>
+          <Button variant="secondary" className="uxui-curiosity__button-tour">
+            {t('curiosity-optin.buttonTour')}
+          </Button>
+        </CardFooter>
+      </Card>
+    );
+  }
+
+  /**
+   * Render opt-in.
+   *
+   * @returns {Node}
+   */
+  render() {
+    const { session, t } = this.props;
+
+    return (
+      <PageLayout>
+        <Card>
+          <Flex
+            breakpointMods={[
+              { modifier: FlexModifiers.column },
+              { modifier: FlexModifiers.row, breakpoint: FlexBreakpoints.md }
+            ]}
+          >
+            <Flex breakpointMods={[{ modifier: FlexModifiers['flex-2'] }]}>
+              <FlexItem>
+                <CardHeader key="heading1Title">
+                  <Title size="2xl">{t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}</Title>
+                </CardHeader>
+                <CardBody key="heading1Desc">
+                  {t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })}
+                </CardBody>
+
+                <CardHeader key="heading2Title">
+                  <Title headingLevel="h2" size="xl">
+                    {t('curiosity-optin.cardSeeTitle')}
+                  </Title>
+                </CardHeader>
+                <CardBody key="heading2Desc">{t('curiosity-optin.cardSeeDescription')}</CardBody>
+
+                <CardHeader key="heading3Title">
+                  <Title headingLevel="h2" size="xl">
+                    {t('curiosity-optin.cardReportTitle')}
+                  </Title>
+                </CardHeader>
+                <CardBody key="heading3Desc">{t('curiosity-optin.cardReportDescription')}</CardBody>
+
+                <CardHeader key="heading4Title">
+                  <Title headingLevel="h2" size="xl">
+                    {t('curiosity-optin.cardFilterTitle')}
+                  </Title>
+                </CardHeader>
+                <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
+
+                <CardFooter>{(session.admin && this.renderOptinForm()) || this.renderContactAdmin()}</CardFooter>
+              </FlexItem>
+            </Flex>
+            <Flex
+              breakpointMods={[{ modifier: FlexModifiers['flex-1'] }, { modifier: FlexModifiers['align-self-center'] }]}
+            >
+              <FlexItem>
+                <CardBody>{this.renderTour()}</CardBody>
+              </FlexItem>
+            </Flex>
+          </Flex>
+        </Card>
+      </PageLayout>
+    );
+  }
+}
+
+/**
+ * Prop types.
+ *
+ * @type {{t: Function, session: object, updateAccountOptIn: Function, pending: boolean,
+ *     fulfilled: boolean, error: boolean}}
+ */
+OptinView.propTypes = {
+  error: PropTypes.bool,
+  fulfilled: PropTypes.bool,
+  pending: PropTypes.bool,
+  session: PropTypes.shape({
+    admin: PropTypes.bool
+  }),
+  t: PropTypes.func,
+  updateAccountOptIn: PropTypes.func
+};
+
+/**
+ * Default props.
+ *
+ * @type {{t: Function, session: {admin: boolean}, updateAccountOptIn: Function,
+ *     pending: boolean, fulfilled: boolean, error: boolean}}
+ */
+OptinView.defaultProps = {
+  error: false,
+  fulfilled: false,
+  pending: false,
+  session: {
+    admin: false
+  },
+  t: helpers.noopTranslate,
+  updateAccountOptIn: helpers.noop
+};
+
+/**
+ * Apply actions to props.
+ *
+ * @param {Function} dispatch
+ * @returns {object}
+ */
+const mapDispatchToProps = dispatch => ({
+  getAccountOptIn: () => dispatch(reduxActions.user.getAccountOptIn()),
+  updateAccountOptIn: query => dispatch(reduxActions.user.updateAccountOptIn(query))
+});
+
+/**
+ * Apply state to props.
+ *
+ * @param {object} state
+ * @returns {object}
+ */
+const mapStateToProps = ({ user }) => ({ ...user.optin, session: user.session });
+
+const ConnectedOptinView = connectTranslate(mapStateToProps, mapDispatchToProps)(OptinView);
+
+export { ConnectedOptinView as default, ConnectedOptinView, OptinView };
