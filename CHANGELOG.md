@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.12...v0.1.13) (2020-04-02)
+
+
+### Features
+
+* **build:** issues/231 code documentation, linting ([#232](https://github.com/RedHatInsights/curiosity-frontend/issues/232)) ([bb46552](https://github.com/RedHatInsights/curiosity-frontend/commit/bb46552e23f38fb26fb08c8ee0e29318883d489f))
+* **rhelView:** issues/226 display cloud metering data ([#237](https://github.com/RedHatInsights/curiosity-frontend/issues/237)) ([26319ae](https://github.com/RedHatInsights/curiosity-frontend/commit/26319ae66598ac30bfddd3381bdf1dcc72b47a57))
+* **rhelView:** issues/234 display SLA toolbar ([#236](https://github.com/RedHatInsights/curiosity-frontend/issues/236)) ([f39426c](https://github.com/RedHatInsights/curiosity-frontend/commit/f39426ce34e40a1f0ac2abeefd4d3de00f3a207d))
+
+
+### Bug Fixes
+
+* **build:** issues/234 enable toolbar with SLA filter ([#235](https://github.com/RedHatInsights/curiosity-frontend/issues/235)) ([17a2fab](https://github.com/RedHatInsights/curiosity-frontend/commit/17a2fab1e275d730c46cef29569e0d381730b618))
+* **rhelView:** sockets card heading ([45bf19e](https://github.com/RedHatInsights/curiosity-frontend/commit/45bf19ef5c5f7b553e9b26953ff10ff40b170ebe))
+* **routerHelpers:** issues/218 dynamic base name tests ([e235b1c](https://github.com/RedHatInsights/curiosity-frontend/commit/e235b1c3829e5011093aef7ee73800da567bf614))
+
 ### [0.1.12](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.11...v0.1.12) (2020-03-19)
 
 
