@@ -41,5 +41,9 @@
     "emptyStateButton": "Take a tour",
     "emptyStateLinkLearnMore": "Learn more",
     "emptyStateLinkContactUs": "Contact us"
+  },
+  "curiosity-view": {
+    "openshift": "Red Hat OpenShift",
+    "rhel": "Red Hat Enterprise Linux"
   }
 }

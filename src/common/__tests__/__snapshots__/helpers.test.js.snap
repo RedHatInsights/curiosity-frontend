@@ -13,7 +13,7 @@ Object {
   "UI_DISABLED_TOOLBAR": false,
   "UI_DISPLAY_CONFIG_NAME": "Subscription Watch",
   "UI_DISPLAY_NAME": "Subscription Watch",
-  "UI_DISPLAY_START_NAME": "Subscription watch",
+  "UI_DISPLAY_START_NAME": "Subscription Watch",
   "UI_LOGGER_ID": "curiosity",
   "UI_NAME": "subscriptions",
   "UI_PATH": "/",

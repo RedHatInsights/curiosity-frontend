@@ -3,7 +3,7 @@
 exports[`RhelView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader>
-    Subscription Watch
+    t(curiosity-view.rhel, Subscription Watch)
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
@@ -57,7 +57,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
 exports[`RhelView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader>
-    Dolor sit
+    t(curiosity-view.rhel, Subscription Watch)
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
