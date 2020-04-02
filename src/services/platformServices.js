@@ -60,6 +60,7 @@ const setAppName = async (name = null) => {
   }
 };
 
+// ToDo: Clean up, consider removing setNavigation, currently no longer used.
 /**
  * Set platform left hand navigation active item.
  *

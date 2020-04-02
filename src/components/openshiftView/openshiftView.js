@@ -76,9 +76,7 @@ class OpenshiftView extends React.Component {
 
     return (
       <PageLayout>
-        <PageHeader>
-          {(routeDetail.routeItem && routeDetail.routeItem.title) || helpers.UI_DISPLAY_CONFIG_NAME}
-        </PageHeader>
+        <PageHeader>{t('curiosity-view.openshift', helpers.UI_DISPLAY_CONFIG_NAME)}</PageHeader>
         <PageToolbar>
           <Toolbar graphQuery={graphQuery} viewId={viewId} />
         </PageToolbar>

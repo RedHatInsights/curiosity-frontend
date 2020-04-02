@@ -26,7 +26,6 @@ const platformRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitle
  */
 const routes = [
   {
-    title: 'Red Hat Enterprise Linux',
     to: '/rhel-sw/all',
     redirect: true,
     component: RhelView,
@@ -35,7 +34,6 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
-    title: 'Red Hat Enterprise Linux',
     id: 'rhel-sw',
     to: '/rhel-sw/:variant',
     component: RhelView,
@@ -44,7 +42,6 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
-    title: 'Red Hat OpenShift',
     id: 'openshift-sw',
     to: '/openshift-sw',
     component: OpenshiftView,
@@ -53,7 +50,6 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
-    title: 'Tour',
     id: 'soon',
     to: '/soon',
     component: TourView,
@@ -63,7 +59,6 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
-    title: 'Tour',
     id: 'tour',
     to: '/tour',
     component: TourView,
@@ -74,13 +69,12 @@ const routes = [
 ];
 
 /**
- * Return an array of objects that describes platform navigation.
+ * Return an array of objects that describes navigation against API product IDs.
  *
  * @returns {Array}
  */
 const navigation = [
   {
-    title: 'Red Hat Enterprise Linux',
     id: 'all',
     path: '/rhel-sw/all',
     pathId: 'rhel-sw',
@@ -88,35 +82,30 @@ const navigation = [
     default: true
   },
   {
-    title: 'ARM',
     id: 'arm',
     path: '/rhel-sw/arm',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_ARM
   },
   {
-    title: 'IBM Power',
     id: 'ibmpower',
     path: '/rhel-sw/ibmpower',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER
   },
   {
-    title: 'IBM Z systems',
     id: 'ibmz',
     path: '/rhel-sw/ibmz',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z
   },
   {
-    title: 'x86',
     id: 'x86',
     path: '/rhel-sw/x86',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_X86
   },
   {
-    title: 'Red Hat OpenShift',
     id: 'openshift-sw',
     path: '/openshift-sw',
     pathId: 'openshift-sw',

@@ -14,7 +14,7 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/openshiftView/openshiftView.js:92
+#: src/components/openshiftView/openshiftView.js:90
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
@@ -47,7 +47,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelView/rhelView.js:49
+#: src/components/rhelView/rhelView.js:47
 msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
@@ -114,17 +114,25 @@ msgstr \\"\\"
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:82
+#: src/components/openshiftView/openshiftView.js:79
+msgid \\"curiosity-view.openshift\\"
+msgstr \\"\\"
+
+#: src/components/rhelView/rhelView.js:36
+msgid \\"curiosity-view.rhel\\"
+msgstr \\"\\"
+
+#: src/components/authentication/authentication.js:71
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedCopy\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:81
+#: src/components/authentication/authentication.js:70
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:69
+#: src/components/authentication/authentication.js:58
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.pending\\"
 msgstr \\"\\"
