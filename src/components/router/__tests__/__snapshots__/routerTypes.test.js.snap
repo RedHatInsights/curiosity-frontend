@@ -10,42 +10,36 @@ Array [
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
-    "title": "Red Hat Enterprise Linux",
   },
   Object {
     "id": "arm",
     "path": "/rhel-sw/arm",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
-    "title": "ARM",
   },
   Object {
     "id": "ibmpower",
     "path": "/rhel-sw/ibmpower",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for IBM Power",
-    "title": "IBM Power",
   },
   Object {
     "id": "ibmz",
     "path": "/rhel-sw/ibmz",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for IBM z",
-    "title": "IBM Z systems",
   },
   Object {
     "id": "x86",
     "path": "/rhel-sw/x86",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for x86",
-    "title": "x86",
   },
   Object {
     "id": "openshift-sw",
     "path": "/openshift-sw",
     "pathId": "openshift-sw",
     "pathParameter": "OpenShift Container Platform",
-    "title": "Red Hat OpenShift",
   },
 ]
 `;
@@ -66,7 +60,6 @@ Array [
     "exact": true,
     "redirect": true,
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/all",
   },
   Object {
@@ -81,7 +74,6 @@ Array [
     "exact": true,
     "id": "rhel-sw",
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/:variant",
   },
   Object {
@@ -96,7 +88,6 @@ Array [
     "exact": true,
     "id": "openshift-sw",
     "render": true,
-    "title": "Red Hat OpenShift",
     "to": "/openshift-sw",
   },
   Object {
@@ -112,7 +103,6 @@ Array [
     "exact": true,
     "id": "soon",
     "render": true,
-    "title": "Tour",
     "to": "/soon",
   },
   Object {
@@ -127,7 +117,6 @@ Array [
     "exact": true,
     "id": "tour",
     "render": true,
-    "title": "Tour",
     "to": "/tour",
   },
 ]

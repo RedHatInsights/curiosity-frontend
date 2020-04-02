@@ -22,7 +22,6 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
-    "title": "Red Hat Enterprise Linux",
   },
   "navRoute": Object {
     "component": Object {
@@ -41,7 +40,6 @@ Object {
     "pathParameter": "RHEL",
     "redirect": true,
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/all",
   },
   "route": Object {
@@ -56,7 +54,6 @@ Object {
     "exact": true,
     "redirect": true,
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/all",
   },
 }
@@ -70,7 +67,6 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
-    "title": "Red Hat Enterprise Linux",
   },
   "navRoute": Object {
     "component": Object {
@@ -89,7 +85,6 @@ Object {
     "pathParameter": "RHEL",
     "redirect": true,
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/all",
   },
   "route": Object {
@@ -104,7 +99,6 @@ Object {
     "exact": true,
     "redirect": true,
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/all",
   },
 }
@@ -126,7 +120,6 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
-    "title": "Red Hat Enterprise Linux",
   },
   "navRoute": Object {
     "component": Object {
@@ -145,7 +138,6 @@ Object {
     "pathParameter": "RHEL",
     "redirect": true,
     "render": true,
-    "title": "Red Hat Enterprise Linux",
     "to": "/rhel-sw/all",
   },
   "route": Object {},
@@ -167,7 +159,6 @@ Object {
     "path": "/rhel-sw/arm",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
-    "title": "ARM",
   },
   "navRoute": Object {
     "component": Object {
@@ -184,7 +175,6 @@ Object {
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
     "render": true,
-    "title": "ARM",
     "to": "/rhel-sw/:variant",
   },
   "route": Object {},
@@ -208,7 +198,6 @@ Object {
     "exact": true,
     "id": "soon",
     "render": true,
-    "title": "Tour",
     "to": "/soon",
   },
 }
