@@ -1,9 +1,17 @@
-import { baseName, dynamicBaseName, getNavigationDetail, getRouteDetail, getNavRouteDetail } from '../routerHelpers';
+import {
+  baseName,
+  dynamicBaseName,
+  getErrorRoute,
+  getNavigationDetail,
+  getRouteDetail,
+  getNavRouteDetail
+} from '../routerHelpers';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
     expect(baseName).toBeDefined();
     expect(dynamicBaseName).toBeDefined();
+    expect(getErrorRoute).toBeDefined();
     expect(getNavigationDetail).toBeDefined();
     expect(getRouteDetail).toBeDefined();
     expect(getNavRouteDetail).toBeDefined();
@@ -59,6 +67,10 @@ describe('RouterHelpers', () => {
         pathPrefix: '/beta'
       })
     ).toMatchSnapshot('beta app lorem route name');
+  });
+
+  it('should return an error route', () => {
+    expect(getErrorRoute).toMatchSnapshot('error route');
   });
 
   it('should return navigation and route details that align to location', () => {

@@ -121,6 +121,8 @@ const userReducer = (state = initialState, action) => {
         return reduxHelpers.setStateProp(
           'session',
           {
+            admin: state.session.admin,
+            entitled: state.session.entitled,
             error: true,
             errorMessage: reduxHelpers.getMessageFromResults(action),
             errorStatus: reduxHelpers.getStatusFromResults(action),
