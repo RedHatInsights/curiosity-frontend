@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox Component should handle children as a label: children label checkbox 1`] = `
+<div
+  class="pf-c-check"
+>
+  <input
+    aria-invalid="false"
+    aria-label="lorem ipsum"
+    class="pf-c-check__input"
+    id="generatedid-"
+    name="generatedid-"
+    type="checkbox"
+    value=""
+  />
+  <label
+    class="pf-c-check__label"
+    for="generatedid-"
+  >
+    lorem ipsum
+  </label>
+</div>
+`;
+
+exports[`Checkbox Component should handle readOnly as isDisabled: active checkbox 1`] = `
+<div
+  class="pf-c-check"
+>
+  <input
+    aria-invalid="false"
+    aria-label=""
+    class="pf-c-check__input"
+    id="generatedid-"
+    name="generatedid-"
+    type="checkbox"
+    value=""
+  />
+</div>
+`;
+
+exports[`Checkbox Component should handle readOnly as isDisabled: isDisabled checkbox 1`] = `
+<div
+  class="pf-c-check"
+>
+  <input
+    aria-invalid="false"
+    aria-label=""
+    class="pf-c-check__input"
+    disabled=""
+    id="generatedid-"
+    name="generatedid-"
+    type="checkbox"
+    value=""
+  />
+</div>
+`;
+
+exports[`Checkbox Component should handle readOnly as isDisabled: readOnly checkbox 1`] = `
+<div
+  class="pf-c-check"
+>
+  <input
+    aria-invalid="false"
+    aria-label=""
+    class="pf-c-check__input"
+    disabled=""
+    id="generatedid-"
+    name="generatedid-"
+    readonly=""
+    type="checkbox"
+    value=""
+  />
+</div>
+`;
+
+exports[`Checkbox Component should render a basic component: basic checkbox 1`] = `
+<div
+  class="pf-c-check"
+>
+  <input
+    aria-invalid="false"
+    aria-label=""
+    class="pf-c-check__input"
+    id="generatedid-"
+    name="generatedid-"
+    type="checkbox"
+    value=""
+  />
+</div>
+`;
+
+exports[`Checkbox Component should return an emulated onchange event: emulated event 1`] = `
+Object {
+  "checked": false,
+  "currentTarget": <input
+    aria-invalid="false"
+    aria-label="lorem ipsum"
+    class="pf-c-check__input"
+    id="generatedid-"
+    name="generatedid-"
+    type="checkbox"
+    value=""
+  />,
+  "id": "generatedid-",
+  "name": "generatedid-",
+  "persist": [Function],
+  "target": <input
+    aria-invalid="false"
+    aria-label="lorem ipsum"
+    class="pf-c-check__input"
+    id="generatedid-"
+    name="generatedid-"
+    type="checkbox"
+    value=""
+  />,
+  "value": undefined,
+}
+`;
