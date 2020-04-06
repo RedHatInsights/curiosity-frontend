@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { DataToolbar, DataToolbarContent, DataToolbarFilter, DataToolbarGroup } from '@patternfly/react-core';
-import { Select } from '../select/select';
+import { Select } from '../form/select';
 import { reduxTypes, store } from '../../redux';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { toolbarTypes } from './toolbarTypes';

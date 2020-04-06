@@ -8,7 +8,7 @@ import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
-import { Select } from '../select/select';
+import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
 
