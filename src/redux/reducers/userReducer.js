@@ -1,4 +1,7 @@
+import _get from 'lodash/get';
 import { appTypes, userTypes } from '../types';
+import { platformApiTypes } from '../../types';
+import { helpers } from '../../common';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
@@ -11,13 +14,16 @@ import { reduxHelpers } from '../common/reduxHelpers';
 const initialState = {
   optin: {},
   session: {
+    admin: false,
+    authorized: false,
+    entitled: false,
     error: false,
     errorMessage: null,
     errorStatus: null,
-    pending: false,
     fulfilled: false,
-    authorized: false,
-    locale: null
+    locale: null,
+    pending: false,
+    permissions: []
   }
 };
 
@@ -59,12 +65,38 @@ const userReducer = (state = initialState, action) => {
       );
 
     case reduxHelpers.FULFILLED_ACTION(userTypes.USER_AUTH):
+      const { user, permissions } = reduxHelpers.getDataFromResults(action);
+      const admin = _get(
+        user,
+        [
+          platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY,
+          platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
+          platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
+        ],
+        false
+      );
+
+      const entitled = _get(
+        user,
+        [
+          platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
+          helpers.UI_NAME,
+          platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES.ENTITLED
+        ],
+        false
+      );
+
+      const subscriptionPermissions = permissions.filter(value => new RegExp(helpers.UI_NAME, 'i').test(value));
+
       return reduxHelpers.setStateProp(
         'session',
         {
+          admin,
           authorized: true,
+          entitled,
           fulfilled: true,
-          locale: state.session.locale
+          locale: state.session.locale,
+          permissions: subscriptionPermissions
         },
         {
           state,

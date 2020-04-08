@@ -15,6 +15,20 @@ const getUser = async () => {
 };
 
 /**
+ * Basic user permissions.
+ *
+ * @returns {Promise<void>}
+ */
+const getUserPermissions = async () => {
+  const { insights } = window;
+  try {
+    await insights.chrome.getUserPermissions();
+  } catch (e) {
+    throw new Error(`{ getUserPermissions } = insights.chrome, ${e.message}`);
+  }
+};
+
+/**
  * Help initialize global platform methods.
  *
  * @returns {Promise<void>}
@@ -81,12 +95,13 @@ const setNavigation = (data = []) => {
   }
 };
 
-const platformServices = { getUser, initializeChrome, onNavigation, setAppName, setNavigation };
+const platformServices = { getUser, getUserPermissions, initializeChrome, onNavigation, setAppName, setNavigation };
 
 export {
   platformServices as default,
   platformServices,
   getUser,
+  getUserPermissions,
   initializeChrome,
   onNavigation,
   setAppName,

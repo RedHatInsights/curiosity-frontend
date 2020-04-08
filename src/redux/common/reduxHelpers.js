@@ -207,6 +207,14 @@ const singlePromiseDataResponseFromArray = results => {
 };
 
 /**
+ * Alias for singlePromiseDataResponseFromArray.
+ *
+ * @param {Array|object} results
+ * @returns {Array|object}
+ */
+const getDataFromResults = results => singlePromiseDataResponseFromArray(results);
+
+/**
  * Automatically apply reducer logic to state by handling promise responses from redux-promise-middleware.
  *
  * @param {Array} types
@@ -318,6 +326,7 @@ const reduxHelpers = {
   HTTP_STATUS_RANGE,
   setResponseSchemas,
   generatedPromiseActionReducer,
+  getDataFromResults,
   getDateFromResults,
   getMessageFromResults,
   getSingleResponseFromResultArray,
