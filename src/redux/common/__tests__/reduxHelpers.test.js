@@ -187,6 +187,42 @@ describe('ReduxHelpers', () => {
     ).toMatchSnapshot('ARRAY date');
   });
 
+  it('should get data from a service call response', () => {
+    expect(
+      reduxHelpers.getDataFromResults({
+        payload: {
+          headers: {
+            date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+          },
+          status: 200,
+          statusText: 'OK',
+          data: { lorem: 'ipsum', dolor: 'sit' }
+        }
+      })
+    ).toMatchSnapshot('data');
+
+    expect(
+      reduxHelpers.getDataFromResults([
+        {
+          headers: {
+            date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+          },
+          status: 200,
+          statusText: 'OK',
+          data: { lorem: 'ipsum', dolor: 'sit' }
+        },
+        {
+          headers: {
+            date: 'Tue, 11 Feb 2020 15:27:18 GMT'
+          },
+          status: 200,
+          statusText: 'OK',
+          data: { hello: 'world' }
+        }
+      ])
+    ).toMatchSnapshot('ARRAY data');
+  });
+
   it('should update a state object', () => {
     const initialState = {
       lorem: false,
