@@ -2,11 +2,12 @@ import platformServices from '../platformServices';
 
 describe('PlatformServices', () => {
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(platformServices)).toHaveLength(5);
+    expect(Object.keys(platformServices)).toHaveLength(6);
   });
 
   it('should have specific methods', () => {
     expect(platformServices.getUser).toBeDefined();
+    expect(platformServices.getUserPermissions).toBeDefined();
     expect(platformServices.initializeChrome).toBeDefined();
     expect(platformServices.onNavigation).toBeDefined();
     expect(platformServices.setAppName).toBeDefined();
@@ -47,6 +48,15 @@ describe('PlatformServices', () => {
 
     platformServices.getUser().catch(error => {
       expect(error).toMatchSnapshot('failed authorized user');
+      done();
+    });
+  });
+
+  it('should return a failed getUserPermissions', done => {
+    window.insights.chrome.getUserPermissions = undefined;
+
+    platformServices.getUserPermissions().catch(error => {
+      expect(error).toMatchSnapshot('failed user permissions');
       done();
     });
   });

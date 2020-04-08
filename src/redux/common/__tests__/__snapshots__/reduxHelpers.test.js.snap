@@ -152,6 +152,25 @@ exports[`ReduxHelpers should get a message from a service call response: respons
 
 exports[`ReduxHelpers should get a message from a service call response: response for 4XX 1`] = `"Request failed with status code 400"`;
 
+exports[`ReduxHelpers should get data from a service call response: ARRAY data 1`] = `
+Array [
+  Object {
+    "dolor": "sit",
+    "lorem": "ipsum",
+  },
+  Object {
+    "hello": "world",
+  },
+]
+`;
+
+exports[`ReduxHelpers should get data from a service call response: data 1`] = `
+Object {
+  "dolor": "sit",
+  "lorem": "ipsum",
+}
+`;
+
 exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `
 Object {
   "FULFILLED_ACTION": [Function],
@@ -159,6 +178,7 @@ Object {
   "PENDING_ACTION": [Function],
   "REJECTED_ACTION": [Function],
   "generatedPromiseActionReducer": [Function],
+  "getDataFromResults": [Function],
   "getDateFromResults": [Function],
   "getMessageFromResults": [Function],
   "getSingleResponseFromResultArray": [Function],

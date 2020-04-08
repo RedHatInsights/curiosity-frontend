@@ -1,4 +1,5 @@
 import userReducer from '../userReducer';
+import { platformApiTypes } from '../../../types';
 import { appTypes, userTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
@@ -84,7 +85,15 @@ describe('UserReducer', () => {
         type: reduxHelpers.FULFILLED_ACTION(value),
         payload: {
           data: {
-            test: 'success'
+            test: 'success',
+            user: {
+              [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
+                [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {
+                  [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN]: true
+                }
+              }
+            },
+            permissions: []
           }
         }
       };

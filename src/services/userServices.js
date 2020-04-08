@@ -1,26 +1,28 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
-import { getUser } from './platformServices';
+import { getUser, getUserPermissions } from './platformServices';
 import { serviceCall } from './config';
 
 /**
  * Apply an emulated API response to the platforms getUser method.
  *
- * @returns {Promise<{data: void, message: string, status: number}>}
+ * @returns {Promise<{data: {permissions: (void|*[]), user: void}, message: string, status: number}>}
  */
 const authorizeUser = async () => {
-  let message = '{ getUser } = insights.chrome.auth';
+  let message = '{ auth.getUser, getUserPermissions } = insights.chrome';
   let userData;
+  let userPermissions;
 
   try {
     userData = await getUser();
+    userPermissions = await getUserPermissions();
   } catch (e) {
     message = e.message;
   }
 
   if (_isPlainObject(userData) && Object.keys(userData).length) {
-    return Promise.resolve({ data: userData, message, status: 200 });
+    return Promise.resolve({ data: { user: userData, permissions: userPermissions || [] }, message, status: 200 });
   }
 
   const emulatedErrorResponse = {
