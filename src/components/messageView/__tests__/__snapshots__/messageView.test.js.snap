@@ -15,12 +15,18 @@ exports[`MessageView Component should have fallback conditions for all props: fa
 exports[`MessageView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader>
-    lorem
+    Subscription Watch
   </PageHeader>
   <EmptyState
     className="fadein"
     variant="full"
   >
+    <Title
+      headingLevel="h2"
+      size="lg"
+    >
+      lorem
+    </Title>
     <EmptyStateIcon
       icon={[Function]}
     />
