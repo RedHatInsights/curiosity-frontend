@@ -100,9 +100,9 @@ Specific uses:
 This project makes use of reserved CSS class prefixes used by external resources. 
 > Updating elements with these classes should be done with the knowledge "you are affecting an external resource in a potentially unanticipated way".
 
-1. Prefix `uiux-`
+1. Prefix `uxui-`
 
-   CSS classes with the prefix `uiux-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
+   CSS classes with the prefix `uxui-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
 
 ### Reserved QE testing attributes
 This project makes use of reserved DOM attributes used by the QE team.
@@ -140,23 +140,32 @@ The name of the window value can be found under the dotenv file `.env`
    REACT_APP_UI_LOGGER_ID=curiosity
    ```
 
-#### Debugging the Graph Display
-You can apply a date override during local development by adding a `.env.local` (dotenv) file with the following line, in the repository root directory
+#### Debugging local development
+You can apply overrides during local development by adding a `.env.local` (dotenv) file in the repository root directory.
+
+Once you have made the dotenv file and/or changes, like the below "debug" flags, restart the project and the flags should be active.
+
+*Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
+
+##### Graph display
+You can apply a date override during **local development** (using `$ yarn start`) by adding the following line to your `.env.local` file.
    ```
    REACT_APP_DEBUG_DEFAULT_DATETIME=20190630
    ```
 
-*Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
+##### Admin role
+You can access the administrator role experience during **local development** (using `$ yarn start`) by adding the following line to your `.env.local` file.
+   ```
+   REACT_APP_DEBUG_ORG_ADMIN=true
+   ```
 
-#### Debugging Redux
-This project makes use of React & Redux. To enable Redux console logging, within the repository root directory, add a `.env.local` (dotenv) file with the follow line
+Combining this flag with [manipulating the http status on the API/service mocks](https://github.com/cdcabrera/apidoc-mock#more-examples-and-custom-responses) can be an effective emulation.
+
+##### Debugging Redux
+This project makes use of React & Redux. To enable Redux browser console logging add the following line to your `.env.local` file.
   ```
   REACT_APP_DEBUG_MIDDLEWARE=true
   ```
-
-Once you've made the change, restart the project and console browser logging should appear.
-
-*Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
 
 #### Unit Testing
 To run the unit tests with a watch during development you'll need to open an additional terminal instance, then run
