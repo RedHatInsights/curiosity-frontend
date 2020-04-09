@@ -1,4 +1,6 @@
+import _set from 'lodash/set';
 import { helpers } from '../common';
+import { platformApiTypes } from '../types';
 
 /**
  * Basic user authentication.
@@ -8,7 +10,19 @@ import { helpers } from '../common';
 const getUser = async () => {
   const { insights } = window;
   try {
-    return (helpers.DEV_MODE && { test: {} }) || (await insights.chrome.auth.getUser());
+    return (
+      (helpers.DEV_MODE &&
+        _set(
+          {},
+          [
+            platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY,
+            platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
+            platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
+          ],
+          process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
+        )) ||
+      (await insights.chrome.auth.getUser())
+    );
   } catch (e) {
     throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
   }
