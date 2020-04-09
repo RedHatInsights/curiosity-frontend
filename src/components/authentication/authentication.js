@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BanIcon, BinocularsIcon } from '@patternfly/react-icons';
+import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
 import { connectRouterTranslate, reduxActions } from '../../redux';
 import { helpers } from '../../common';
 import { Redirect, routerHelpers, routerTypes } from '../router/router';
@@ -55,7 +55,7 @@ class Authentication extends Component {
     }
 
     if (session.pending) {
-      return <MessageView title="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
+      return <MessageView pageTitle="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
     }
 
     if (session.errorStatus === 403 || session.errorStatus === 418) {
@@ -67,9 +67,9 @@ class Authentication extends Component {
 
     return (
       <MessageView
-        title={t('curiosity-auth.authorizedTitle', '...')}
+        title={t('curiosity-auth.authorizedTitle', { appName: helpers.UI_DISPLAY_NAME })}
         message={t('curiosity-auth.authorizedCopy', '...')}
-        icon={BanIcon}
+        icon={LockIcon}
       />
     );
   }
