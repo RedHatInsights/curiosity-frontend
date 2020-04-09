@@ -1,8 +1,8 @@
 {
   "curiosity-auth": {
     "pending": "Authenticating...",
-    "authorizedTitle": "Unauthorized",
-    "authorizedCopy": "You do not have permission to access reporting. Contact your administrator."
+    "authorizedTitle": "You do not have access to {{appName}}.",
+    "authorizedCopy": "Contact your organization administrator(s) for more information."
   },
   "curiosity-graph": {
     "cardHeading": "CPU usage",
