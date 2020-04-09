@@ -60,6 +60,17 @@ describe('I18n Component', () => {
     expect(component.html()).toMatchSnapshot('children');
   });
 
+  it('should attempt to perform translate with a node', () => {
+    const ExampleComponent = () => <div>{translate('lorem.ipsum', { hello: 'world' }, [<span id="test" />])}</div>;
+
+    ExampleComponent.propTypes = {};
+    ExampleComponent.defaultProps = {};
+
+    const component = shallow(<ExampleComponent />);
+
+    expect(component.html()).toMatchSnapshot('translated node');
+  });
+
   it('should attempt to perform a component translate', () => {
     const ExampleComponent = ({ t }) => <div>{t('lorem.ipsum', 'hello world')}</div>;
 
