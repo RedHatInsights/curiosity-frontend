@@ -9,6 +9,8 @@ Object {
 }
 `;
 
+exports[`I18n Component should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, [object Object], [object Object])</div>"`;
+
 exports[`I18n Component should generate a predictable pot output snapshot: pot output 1`] = `
 "msgid \\"\\"
 msgstr \\"\\"

@@ -35,10 +35,12 @@ const noopPromise = Promise.resolve({});
  * Associated with the i18n package, and typically used as a default prop.
  *
  * @param {string} key
- * @param {string} value
+ * @param {string|object} value
+ * @param {Array} components
  * @returns {string}
  */
-const noopTranslate = (key, value) => `t(${key}${(value && `, ${value}`) || ''})`;
+const noopTranslate = (key, value, components) =>
+  `t(${key}${(value && `, ${value}`) || ''}${(components && `, ${components}`) || ''})`;
 
 /**
  * Is dev mode active.
