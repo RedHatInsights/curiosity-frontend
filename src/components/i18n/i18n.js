@@ -2,12 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
-import { initReactI18next, withTranslation } from 'react-i18next';
+import { initReactI18next, Trans, withTranslation } from 'react-i18next';
 import { helpers } from '../../common/helpers';
 
-const translate = (str, placeholder = null) =>
-  (!helpers.TEST_MODE && i18next.t(str, placeholder)) || helpers.noopTranslate(str, placeholder);
+/**
+ * Apply a string towards a key. Optional replacement values and component/nodes.
+ * See, https://react.i18next.com/
+ *
+ * @param {string} translateKey
+ * @param {string|Array} values A default string if the key can't be found. An array of objects (key/value) pairs used to replace string tokes. i.e. "[{ hello: 'world' }]"
+ * @param {Array} components An array of HTML/React nodes used to replace string tokens. i.e. "[<span />, <React.Fragment />]"
+ * @returns {string|Node}
+ */
+const translate = (translateKey, values = null, components) => {
+  if (helpers.TEST_MODE) {
+    return helpers.noopTranslate(translateKey, values, components);
+  }
 
+  if (components) {
+    return <Trans i18nKey={translateKey} values={values} components={components} />;
+  }
+
+  return i18next.t(translateKey, values);
+};
+
+/**
+ * Apply string replacements against a component.
+ *
+ * @param {Node} component
+ * @returns {Node}
+ */
 const translateComponent = component => (!helpers.TEST_MODE && withTranslation()(component)) || component;
 
 /**
