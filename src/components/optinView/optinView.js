@@ -43,18 +43,7 @@ class OptinView extends React.Component {
   };
 
   /**
-   * Render non-org-admin content.
-   *
-   * @returns {Node}
-   */
-  renderContactAdmin() {
-    const { t } = this.props;
-
-    return <p>{t('curiosity-optin.cardContactAdminDescription', { appName: helpers.UI_DISPLAY_NAME })}</p>;
-  }
-
-  /**
-   * Render org-admin opt-in form states.
+   * Render opt-in form states.
    *
    * @returns {Node}
    */
@@ -155,7 +144,7 @@ class OptinView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { session, t } = this.props;
+    const { t } = this.props;
 
     return (
       <PageLayout>
@@ -196,7 +185,7 @@ class OptinView extends React.Component {
                 </CardHeader>
                 <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
 
-                <CardFooter>{(session.admin && this.renderOptinForm()) || this.renderContactAdmin()}</CardFooter>
+                <CardFooter>{this.renderOptinForm()}</CardFooter>
               </FlexItem>
             </Flex>
             <Flex
@@ -216,16 +205,13 @@ class OptinView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{t: Function, session: object, updateAccountOptIn: Function, pending: boolean,
- *     fulfilled: boolean, error: boolean}}
+ * @type {{t: Function, updateAccountOptIn: Function, pending: boolean, fulfilled: boolean,
+ *     error: boolean}}
  */
 OptinView.propTypes = {
   error: PropTypes.bool,
   fulfilled: PropTypes.bool,
   pending: PropTypes.bool,
-  session: PropTypes.shape({
-    admin: PropTypes.bool
-  }),
   t: PropTypes.func,
   updateAccountOptIn: PropTypes.func
 };
@@ -233,16 +219,13 @@ OptinView.propTypes = {
 /**
  * Default props.
  *
- * @type {{t: Function, session: {admin: boolean}, updateAccountOptIn: Function,
- *     pending: boolean, fulfilled: boolean, error: boolean}}
+ * @type {{t: Function, updateAccountOptIn: Function, pending: boolean,
+ *     fulfilled: boolean, error: boolean}}
  */
 OptinView.defaultProps = {
   error: false,
   fulfilled: false,
   pending: false,
-  session: {
-    admin: false
-  },
   t: helpers.noopTranslate,
   updateAccountOptIn: helpers.noop
 };
@@ -264,7 +247,7 @@ const mapDispatchToProps = dispatch => ({
  * @param {object} state
  * @returns {object}
  */
-const mapStateToProps = ({ user }) => ({ ...user.optin, session: user.session });
+const mapStateToProps = ({ user }) => ({ ...user.optin });
 
 const ConnectedOptinView = connectTranslate(mapStateToProps, mapDispatchToProps)(OptinView);
 

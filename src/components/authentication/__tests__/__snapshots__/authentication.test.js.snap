@@ -19,7 +19,6 @@ exports[`Authorization Component should render a non-connected component authori
   onNavigation={[Function]}
   session={
     Object {
-      "admin": true,
       "authorized": true,
       "error": false,
       "errorMessage": "",
@@ -37,7 +36,7 @@ exports[`Authorization Component should render a non-connected component authori
 </Authentication>
 `;
 
-exports[`Authorization Component should render a non-connected component error: non-connected admin error 1`] = `
+exports[`Authorization Component should render a non-connected component error: non-connected error 1`] = `
 <Authentication
   authorizeUser={[Function]}
   history={
@@ -50,7 +49,6 @@ exports[`Authorization Component should render a non-connected component error: 
   onNavigation={[Function]}
   session={
     Object {
-      "admin": true,
       "authorized": false,
       "error": true,
       "errorMessage": "Authentication credentials were not provided.",
@@ -169,33 +167,6 @@ exports[`Authorization Component should render a non-connected component error: 
 </Authentication>
 `;
 
-exports[`Authorization Component should render a non-connected component error: non-connected error 1`] = `
-<Authentication
-  authorizeUser={[Function]}
-  history={
-    Object {
-      "listen": [Function],
-      "push": [Function],
-    }
-  }
-  initializeChrome={[Function]}
-  onNavigation={[Function]}
-  session={
-    Object {
-      "admin": false,
-      "authorized": false,
-      "error": true,
-      "errorMessage": "Authentication credentials were not provided.",
-      "pending": false,
-    }
-  }
-  setAppName={[Function]}
-  t={[Function]}
->
-   redirect
-</Authentication>
-`;
-
 exports[`Authorization Component should render a non-connected component pending: non-connected pending 1`] = `
 <MessageView
   icon={[Function]}
@@ -205,7 +176,7 @@ exports[`Authorization Component should render a non-connected component pending
 />
 `;
 
-exports[`Authorization Component should return a message on 401 admin error: 401 admin error 1`] = `
+exports[`Authorization Component should return a message on 401 error: 401 error 1`] = `
 <PageLayout>
   <PageHeader
     key=".0"
@@ -307,12 +278,6 @@ exports[`Authorization Component should return a message on 401 admin error: 401
 </PageLayout>
 `;
 
-exports[`Authorization Component should return a message on 401 error: 401 error 1`] = `"401 redirect"`;
-
-exports[`Authorization Component should return a redirect on 403 error: 403 admin error 1`] = `"403 redirect"`;
-
 exports[`Authorization Component should return a redirect on 403 error: 403 error 1`] = `"403 redirect"`;
-
-exports[`Authorization Component should return a redirect on 418 error: 418 admin error 1`] = `"418 redirect"`;
 
 exports[`Authorization Component should return a redirect on 418 error: 418 error 1`] = `"418 redirect"`;
