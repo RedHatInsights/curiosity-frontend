@@ -47,11 +47,8 @@ describe('Authorization Component', () => {
 
     component.setProps({
       session: {
-        admin: true,
-        authorized: false,
-        error: true,
-        errorMessage: 'Authentication credentials were not provided.',
-        pending: false
+        ...props.session,
+        admin: true
       }
     });
 
@@ -82,6 +79,15 @@ describe('Authorization Component', () => {
     );
 
     expect(component.html()).toMatchSnapshot('418 error');
+
+    component.setProps({
+      session: {
+        ...props.session,
+        admin: true
+      }
+    });
+
+    expect(component.html()).toMatchSnapshot('418 admin error');
   });
 
   it('should return a redirect on 403 error', () => {
@@ -108,6 +114,15 @@ describe('Authorization Component', () => {
     );
 
     expect(component.html()).toMatchSnapshot('403 error');
+
+    component.setProps({
+      session: {
+        ...props.session,
+        admin: true
+      }
+    });
+
+    expect(component.html()).toMatchSnapshot('403 admin error');
   });
 
   it('should return a message on 401 error', () => {
@@ -117,12 +132,9 @@ describe('Authorization Component', () => {
         push: helpers.noop
       },
       session: {
-        admin: true,
+        admin: false,
         authorized: false,
-        error: true,
-        errorStatus: 401,
-        errorMessage: `Unauthorized`,
-        pending: false
+        errorStatus: 401
       }
     };
     const component = mount(
@@ -133,7 +145,30 @@ describe('Authorization Component', () => {
       </BrowserRouter>
     );
 
-    expect(component.find('PageLayout')).toMatchSnapshot('401 error');
+    expect(component.html()).toMatchSnapshot('401 error');
+  });
+
+  it('should return a message on 401 admin error', () => {
+    const props = {
+      history: {
+        listen: helpers.noop,
+        push: helpers.noop
+      },
+      session: {
+        admin: true,
+        authorized: false,
+        errorStatus: 401
+      }
+    };
+    const component = mount(
+      <BrowserRouter>
+        <Authentication {...props}>
+          <span className="test">lorem</span>
+        </Authentication>
+      </BrowserRouter>
+    );
+
+    expect(component.find('PageLayout')).toMatchSnapshot('401 admin error');
   });
 
   it('should render a non-connected component pending', () => {
