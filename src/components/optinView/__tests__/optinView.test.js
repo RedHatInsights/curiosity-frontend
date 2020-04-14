@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { OptinView } from '../optinView';
 
 describe('OptinView Component', () => {
@@ -8,5 +8,52 @@ describe('OptinView Component', () => {
 
     const component = shallow(<OptinView {...props} />);
     expect(component).toMatchSnapshot('non-connected');
+  });
+
+  it('should render an organization administrator view', () => {
+    const props = {
+      session: {
+        admin: true
+      }
+    };
+
+    const component = shallow(<OptinView {...props} />);
+    expect(component).toMatchSnapshot('initial admin view');
+
+    component.setProps({
+      pending: true
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('pending admin view');
+
+    component.setProps({
+      pending: false,
+      error: true
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('error admin view');
+
+    component.setProps({
+      pending: false,
+      error: false,
+      fulfilled: true
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('fulfilled admin view');
+  });
+
+  it('should submit an opt-in form', () => {
+    const props = {
+      session: {
+        admin: true
+      }
+    };
+
+    const component = mount(<OptinView {...props} />);
+    const componentInstance = component.instance();
+    const spy = jest.spyOn(componentInstance, 'onSubmitOptIn');
+
+    component.update();
+    componentInstance.forceUpdate();
+
+    component.find('form button').simulate('click');
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });
