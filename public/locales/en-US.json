@@ -46,7 +46,6 @@
     "cardFilterDescription": "View your inventory by critical indicators like Service Level Agreement (SLA) and architecture.",
     "cardIsActiveDescription": "Data can take up to 24 hours to be processed and will appear on this page when ready",
     "cardIsErrorDescription": "An opt-in error has occurred. <0>Contact us</0> for more information",
-    "cardContactAdminDescription": "You must be an organization administrator with the org-admin role to view {{appName}}.",
     "notificationsErrorTitle": "{{appName}} opt-in failed",
     "notificationsErrorDescription": "Contact us for more information",
     "notificationsSuccessTitle": "{{appName}} activated",

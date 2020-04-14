@@ -50,7 +50,7 @@ class Authentication extends Component {
   render() {
     const { children, session, t } = this.props;
 
-    if (session.authorized && session.admin) {
+    if (session.authorized) {
       return <React.Fragment>{children}</React.Fragment>;
     }
 
@@ -58,7 +58,7 @@ class Authentication extends Component {
       return <MessageView pageTitle="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
     }
 
-    if (!session.admin || session.errorStatus === 403 || session.errorStatus === 418) {
+    if (session.errorStatus === 403 || session.errorStatus === 418) {
       if (helpers.TEST_MODE) {
         return <React.Fragment>{session.errorStatus} redirect</React.Fragment>;
       }
@@ -93,7 +93,6 @@ Authentication.propTypes = {
   onNavigation: PropTypes.func,
   setAppName: PropTypes.func,
   session: PropTypes.shape({
-    admin: PropTypes.bool,
     authorized: PropTypes.bool,
     error: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -116,7 +115,6 @@ Authentication.defaultProps = {
   onNavigation: helpers.noop,
   setAppName: helpers.noop,
   session: {
-    admin: false,
     authorized: false,
     error: false,
     errorMessage: '',
