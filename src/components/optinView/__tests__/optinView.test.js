@@ -10,41 +10,33 @@ describe('OptinView Component', () => {
     expect(component).toMatchSnapshot('non-connected');
   });
 
-  it('should render an organization administrator view', () => {
-    const props = {
-      session: {
-        admin: true
-      }
-    };
+  it('should render an API state driven view', () => {
+    const props = {};
 
     const component = shallow(<OptinView {...props} />);
-    expect(component).toMatchSnapshot('initial admin view');
+    expect(component).toMatchSnapshot('initial view');
 
     component.setProps({
       pending: true
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('pending admin view');
+    expect(component.find('CardFooter').first()).toMatchSnapshot('pending view');
 
     component.setProps({
       pending: false,
       error: true
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('error admin view');
+    expect(component.find('CardFooter').first()).toMatchSnapshot('error view');
 
     component.setProps({
       pending: false,
       error: false,
       fulfilled: true
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('fulfilled admin view');
+    expect(component.find('CardFooter').first()).toMatchSnapshot('fulfilled view');
   });
 
   it('should submit an opt-in form', () => {
-    const props = {
-      session: {
-        admin: true
-      }
-    };
+    const props = {};
 
     const component = mount(<OptinView {...props} />);
     const componentInstance = component.instance();

@@ -86,9 +86,16 @@ exports[`OptinView Component should render a non-connected component: non-connec
             t(curiosity-optin.cardFilterDescription)
           </CardBody>
           <CardFooter>
-            <p>
-              t(curiosity-optin.cardContactAdminDescription, [object Object])
-            </p>
+            <Form>
+              <ActionGroup>
+                <Component
+                  onClick={[Function]}
+                  variant="primary"
+                >
+                  t(curiosity-optin.buttonActivate, [object Object])
+                </Component>
+              </ActionGroup>
+            </Form>
           </CardFooter>
         </FlexItem>
       </Flex>
@@ -148,7 +155,7 @@ exports[`OptinView Component should render a non-connected component: non-connec
 </PageLayout>
 `;
 
-exports[`OptinView Component should render an organization administrator view: error admin view 1`] = `
+exports[`OptinView Component should render an API state driven view: error view 1`] = `
 <CardFooter>
   <p>
     t(curiosity-optin.cardIsErrorDescription, [object Object], [object Object])
@@ -156,7 +163,7 @@ exports[`OptinView Component should render an organization administrator view: e
 </CardFooter>
 `;
 
-exports[`OptinView Component should render an organization administrator view: fulfilled admin view 1`] = `
+exports[`OptinView Component should render an API state driven view: fulfilled view 1`] = `
 <CardFooter>
   <Form>
     <ActionGroup>
@@ -174,7 +181,7 @@ exports[`OptinView Component should render an organization administrator view: f
 </CardFooter>
 `;
 
-exports[`OptinView Component should render an organization administrator view: initial admin view 1`] = `
+exports[`OptinView Component should render an API state driven view: initial view 1`] = `
 <PageLayout>
   <Card>
     <Flex
@@ -329,7 +336,7 @@ exports[`OptinView Component should render an organization administrator view: i
 </PageLayout>
 `;
 
-exports[`OptinView Component should render an organization administrator view: pending admin view 1`] = `
+exports[`OptinView Component should render an API state driven view: pending view 1`] = `
 <CardFooter>
   <Form>
     <ActionGroup>
