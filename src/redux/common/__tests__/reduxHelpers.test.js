@@ -202,6 +202,19 @@ describe('ReduxHelpers', () => {
     ).toMatchSnapshot('data');
 
     expect(
+      reduxHelpers.getDataFromResults({
+        payload: {
+          headers: {
+            date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+          },
+          status: 200,
+          statusText: 'OK',
+          data: [{ lorem: 'ipsum' }, { dolor: 'sit' }]
+        }
+      })
+    ).toMatchSnapshot('data that is an array');
+
+    expect(
       reduxHelpers.getDataFromResults([
         {
           headers: {
