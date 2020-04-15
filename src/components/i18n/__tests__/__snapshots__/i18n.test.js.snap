@@ -62,56 +62,56 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:58
-#: src/components/optinView/optinView.js:98
+#: src/components/optinView/optinView.js:59
+#: src/components/optinView/optinView.js:99
 msgid \\"curiosity-optin.buttonActivate\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:86
+#: src/components/optinView/optinView.js:87
 msgid \\"curiosity-optin.buttonIsActive\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:134
+#: src/components/optinView/optinView.js:135
 msgid \\"curiosity-optin.buttonTour\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:164
+#: src/components/optinView/optinView.js:165
 msgid \\"curiosity-optin.cardDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:186
+#: src/components/optinView/optinView.js:187
 msgid \\"curiosity-optin.cardFilterDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:183
+#: src/components/optinView/optinView.js:184
 msgid \\"curiosity-optin.cardFilterTitle\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:89
+#: src/components/optinView/optinView.js:90
 msgid \\"curiosity-optin.cardIsActiveDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:68
+#: src/components/optinView/optinView.js:69
 msgid \\"curiosity-optin.cardIsErrorDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:179
+#: src/components/optinView/optinView.js:180
 msgid \\"curiosity-optin.cardReportDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:176
+#: src/components/optinView/optinView.js:177
 msgid \\"curiosity-optin.cardReportTitle\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:172
+#: src/components/optinView/optinView.js:173
 msgid \\"curiosity-optin.cardSeeDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:169
+#: src/components/optinView/optinView.js:170
 msgid \\"curiosity-optin.cardSeeTitle\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:161
+#: src/components/optinView/optinView.js:162
 msgid \\"curiosity-optin.cardTitle\\"
 msgstr \\"\\"
 
@@ -131,15 +131,15 @@ msgstr \\"\\"
 msgid \\"curiosity-optin.notificationsSuccessTitle\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:131
+#: src/components/optinView/optinView.js:132
 msgid \\"curiosity-optin.tourDescription\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:128
+#: src/components/optinView/optinView.js:129
 msgid \\"curiosity-optin.tourTitle\\"
 msgstr \\"\\"
 
-#: src/components/optinView/optinView.js:120
+#: src/components/optinView/optinView.js:121
 msgid \\"curiosity-optin.tourTitleImageAlt\\"
 msgstr \\"\\"
 
