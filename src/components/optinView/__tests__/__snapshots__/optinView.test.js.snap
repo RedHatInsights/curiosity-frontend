@@ -89,10 +89,10 @@ exports[`OptinView Component should render a non-connected component: non-connec
             <Form>
               <ActionGroup>
                 <Component
-                  onClick={[Function]}
+                  isDisabled={true}
                   variant="primary"
                 >
-                  t(curiosity-optin.buttonActivate, [object Object])
+                  t(curiosity-optin.buttonIsActive, [object Object])
                 </Component>
               </ActionGroup>
             </Form>
@@ -153,6 +153,81 @@ exports[`OptinView Component should render a non-connected component: non-connec
     </Flex>
   </Card>
 </PageLayout>
+`;
+
+exports[`OptinView Component should render an API state driven view: 4XX view 1`] = `
+<CardFooter>
+  <Form>
+    <ActionGroup>
+      <Component
+        isDisabled={true}
+        variant="primary"
+      >
+        t(curiosity-optin.buttonIsActive, [object Object])
+      </Component>
+    </ActionGroup>
+  </Form>
+</CardFooter>
+`;
+
+exports[`OptinView Component should render an API state driven view: 200 view 1`] = `
+<CardFooter>
+  <Form>
+    <ActionGroup>
+      <Component
+        isDisabled={true}
+        variant="primary"
+      >
+        t(curiosity-optin.buttonIsActive, [object Object])
+      </Component>
+    </ActionGroup>
+  </Form>
+</CardFooter>
+`;
+
+exports[`OptinView Component should render an API state driven view: 401 view 1`] = `
+<CardFooter>
+  <Form>
+    <ActionGroup>
+      <Component
+        isDisabled={true}
+        variant="primary"
+      >
+        t(curiosity-optin.buttonIsActive, [object Object])
+      </Component>
+    </ActionGroup>
+  </Form>
+</CardFooter>
+`;
+
+exports[`OptinView Component should render an API state driven view: 403 view 1`] = `
+<CardFooter>
+  <Form>
+    <ActionGroup>
+      <Component
+        onClick={[Function]}
+        variant="primary"
+      >
+        t(curiosity-optin.buttonActivate, [object Object])
+      </Component>
+    </ActionGroup>
+  </Form>
+</CardFooter>
+`;
+
+exports[`OptinView Component should render an API state driven view: 500 view 1`] = `
+<CardFooter>
+  <Form>
+    <ActionGroup>
+      <Component
+        isDisabled={true}
+        variant="primary"
+      >
+        t(curiosity-optin.buttonIsActive, [object Object])
+      </Component>
+    </ActionGroup>
+  </Form>
+</CardFooter>
 `;
 
 exports[`OptinView Component should render an API state driven view: error view 1`] = `
@@ -270,10 +345,10 @@ exports[`OptinView Component should render an API state driven view: initial vie
             <Form>
               <ActionGroup>
                 <Component
-                  onClick={[Function]}
+                  isDisabled={true}
                   variant="primary"
                 >
-                  t(curiosity-optin.buttonActivate, [object Object])
+                  t(curiosity-optin.buttonIsActive, [object Object])
                 </Component>
               </ActionGroup>
             </Form>

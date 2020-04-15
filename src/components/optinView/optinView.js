@@ -48,7 +48,8 @@ class OptinView extends React.Component {
    * @returns {Node}
    */
   renderOptinForm() {
-    const { error, fulfilled, pending, t } = this.props;
+    const { error, fulfilled, pending, session, t } = this.props;
+    const disableButton = !session.status || session.status !== 403;
 
     if (pending) {
       return (
@@ -78,7 +79,7 @@ class OptinView extends React.Component {
       );
     }
 
-    if (fulfilled) {
+    if (disableButton || fulfilled) {
       return (
         <Form>
           <ActionGroup>
@@ -86,7 +87,7 @@ class OptinView extends React.Component {
               {t('curiosity-optin.buttonIsActive', { appName: helpers.UI_DISPLAY_NAME })}
             </Button>
           </ActionGroup>
-          <p>{t('curiosity-optin.cardIsActiveDescription')}</p>
+          {fulfilled && <p>{t('curiosity-optin.cardIsActiveDescription')}</p>}
         </Form>
       );
     }
@@ -205,13 +206,16 @@ class OptinView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{t: Function, updateAccountOptIn: Function, pending: boolean, fulfilled: boolean,
+ * @type {{t: Function, session: object, updateAccountOptIn: Function, pending: boolean, fulfilled: boolean,
  *     error: boolean}}
  */
 OptinView.propTypes = {
   error: PropTypes.bool,
   fulfilled: PropTypes.bool,
   pending: PropTypes.bool,
+  session: PropTypes.shape({
+    status: PropTypes.number
+  }),
   t: PropTypes.func,
   updateAccountOptIn: PropTypes.func
 };
@@ -219,13 +223,16 @@ OptinView.propTypes = {
 /**
  * Default props.
  *
- * @type {{t: Function, updateAccountOptIn: Function, pending: boolean,
+ * @type {{t: Function, session: {status: null}, updateAccountOptIn: Function, pending: boolean,
  *     fulfilled: boolean, error: boolean}}
  */
 OptinView.defaultProps = {
   error: false,
   fulfilled: false,
   pending: false,
+  session: {
+    status: null
+  },
   t: helpers.noopTranslate,
   updateAccountOptIn: helpers.noop
 };
@@ -237,7 +244,6 @@ OptinView.defaultProps = {
  * @returns {object}
  */
 const mapDispatchToProps = dispatch => ({
-  getAccountOptIn: () => dispatch(reduxActions.user.getAccountOptIn()),
   updateAccountOptIn: query => dispatch(reduxActions.user.updateAccountOptIn(query))
 });
 
