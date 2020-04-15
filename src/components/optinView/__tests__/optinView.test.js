@@ -17,7 +17,50 @@ describe('OptinView Component', () => {
     expect(component).toMatchSnapshot('initial view');
 
     component.setProps({
-      pending: true
+      session: {
+        status: 200
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('200 view');
+
+    component.setProps({
+      session: {
+        status: 401
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('401 view');
+
+    component.setProps({
+      session: {
+        status: 403
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('403 view');
+
+    component.setProps({
+      session: {
+        status: 418
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('4XX view');
+
+    component.setProps({
+      session: {
+        status: 500
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('500 view');
+
+    component.setProps({
+      session: {
+        status: null
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('null or undefined status view');
+
+    component.setProps({
+      pending: true,
+      session: {}
     });
     expect(component.find('CardFooter').first()).toMatchSnapshot('pending view');
 
@@ -36,7 +79,11 @@ describe('OptinView Component', () => {
   });
 
   it('should submit an opt-in form', () => {
-    const props = {};
+    const props = {
+      session: {
+        status: 403
+      }
+    };
 
     const component = mount(<OptinView {...props} />);
     const componentInstance = component.instance();
