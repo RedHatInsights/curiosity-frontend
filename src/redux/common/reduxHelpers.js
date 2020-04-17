@@ -283,7 +283,7 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
         errorResponse = {
           error: true,
           errorMessage,
-          errorStatus: getStatusFromResults(action)
+          status: getStatusFromResults(action)
         };
       }
 
@@ -307,7 +307,8 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
         setId({
           date: getDateFromResults(action),
           data: singlePromiseDataResponseFromArray(action),
-          fulfilled: true
+          fulfilled: true,
+          status: getStatusFromResults(action)
         }),
         {
           state

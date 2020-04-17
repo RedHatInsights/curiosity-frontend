@@ -51,13 +51,13 @@ describe('GraphCard Component', () => {
     }).toMatchSnapshot('error passes values');
 
     component.setProps({
-      errorStatus: 403
+      status: 403
     });
 
     expect(component).toMatchSnapshot('error with 403 status');
 
     component.setProps({
-      errorStatus: 500
+      status: 500
     });
 
     expect(component).toMatchSnapshot('error with 500 status');
