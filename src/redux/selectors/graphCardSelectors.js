@@ -34,17 +34,17 @@ const graphResponse = (state, props = {}) => ({
 /**
  * Create selector, transform combined state, props into a consumable graph/charting object.
  *
- * @type {{pending: boolean, fulfilled: boolean, errorStatus: (*|number), graphData: object, error: boolean}}
+ * @type {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
  */
 const graphCardSelector = createSelector([graphResponse], response => {
   const { viewId = null, productId = null, graphQuery = {}, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
-    errorStatus: responseData.errorStatus,
     fulfilled: false,
     pending: responseData.pending || responseData.cancelled || false,
-    graphData: {}
+    graphData: {},
+    status: responseData.status
   };
 
   const responseMetaQuery = { ...metaQuery };
@@ -155,7 +155,7 @@ const graphCardSelector = createSelector([graphResponse], response => {
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{pending: boolean, fulfilled: boolean, errorStatus: (*|number), graphData: object, error: boolean}}
+ * @returns {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
  */
 const makeGraphCardSelector = defaultProps => (state, props) => ({
   ...graphCardSelector(state, props, defaultProps)
