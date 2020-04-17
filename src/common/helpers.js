@@ -170,7 +170,31 @@ const UI_PATH = process.env.PUBLIC_URL || '/';
  */
 const UI_VERSION = process.env.REACT_APP_UI_VERSION;
 
+/**
+ * UI exposed window name/id.
+ * See dotenv config files for updating.
+ *
+ * @type {string}
+ */
+const UI_WINDOW_ID = process.env.REACT_APP_UI_WINDOW_ID || 'GUI';
+
+/**
+ * Expose an application specific object.
+ * Associated with access on a browser's developer console. Limits exposed additions to
+ * test and non-production environments only. Exposes helpers across all environments.
+ *
+ * @param {object} obj
+ * @param {object} options
+ * @property {boolean} limit
+ * @property {string} id
+ */
+const browserExpose = (obj = {}, options) => {
+  const { limit = PROD_MODE, id = UI_WINDOW_ID } = options || {};
+  window[id] = (limit && { ...window[id] }) || { ...window[id], ...obj };
+};
+
 const helpers = {
+  browserExpose,
   generateId,
   isPromise,
   noop,
@@ -191,20 +215,13 @@ const helpers = {
   UI_LOGGER_ID,
   UI_NAME,
   UI_PATH,
-  UI_VERSION
+  UI_VERSION,
+  UI_WINDOW_ID
 };
 
 /**
- * Expose an application specific type.
- * Associated with access on a browser's developer console.
- *
- * @type {{UI_DISABLED_TOOLBAR: boolean, UI_DISPLAY_CONFIG_NAME: string, generateId: function(string): string,
- *     REVIEW_MODE: boolean, UI_LOGGER_ID: string, UI_DISABLED_GRAPH: boolean, UI_DISPLAY_START_NAME: string,
- *     UI_DEPLOY_PATH_PREFIX: string, UI_DISPLAY_NAME: string, noopPromise: Promise<{}>, DEV_MODE: boolean,
- *     TEST_MODE: boolean, noop: Function, isPromise: function((Promise|*)): boolean, UI_PATH: string,
- *     UI_NAME: string, UI_DISABLED: boolean, UI_DISABLED_TABLE: boolean, UI_VERSION: string, PROD_MODE: boolean,
- *     noopTranslate: function(string, string): string}}
+ * Expose helpers to the browser's developer console.
  */
-window[UI_LOGGER_ID] = { ...helpers };
+helpers.browserExpose({ ...helpers }, { limit: false });
 
 export { helpers as default, helpers };
