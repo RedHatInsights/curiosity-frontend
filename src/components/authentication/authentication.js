@@ -58,9 +58,9 @@ class Authentication extends Component {
       return <MessageView pageTitle="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
     }
 
-    if (session.errorStatus === 403 || session.errorStatus === 418) {
+    if (session.status === 403 || session.status === 418) {
       if (helpers.TEST_MODE) {
-        return <React.Fragment>{session.errorStatus} redirect</React.Fragment>;
+        return <React.Fragment>{session.status} redirect</React.Fragment>;
       }
       return <Redirect isRedirect route={routerHelpers.getErrorRoute.to} />;
     }
@@ -96,8 +96,8 @@ Authentication.propTypes = {
     authorized: PropTypes.bool,
     error: PropTypes.bool,
     errorMessage: PropTypes.string,
-    errorStatus: PropTypes.number,
-    pending: PropTypes.bool
+    pending: PropTypes.bool,
+    status: PropTypes.number
   }),
   t: PropTypes.func
 };
@@ -107,7 +107,7 @@ Authentication.propTypes = {
  *
  * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, navigation: Array,
  *     t: Function, initializeChrome: Function, session: {authorized: boolean, pending: boolean,
- *     errorMessage: string, errorStatus: null, error: boolean}, setNavigation: Function}}
+ *     errorMessage: string, error: boolean, status: null}, setNavigation: Function}}
  */
 Authentication.defaultProps = {
   authorizeUser: helpers.noop,
@@ -118,8 +118,8 @@ Authentication.defaultProps = {
     authorized: false,
     error: false,
     errorMessage: '',
-    errorStatus: null,
-    pending: false
+    pending: false,
+    status: null
   },
   t: helpers.noopTranslate
 };

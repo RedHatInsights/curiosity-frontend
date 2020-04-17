@@ -54,7 +54,7 @@ describe('Authorization Component', () => {
       session: {
         authorized: false,
         error: true,
-        errorStatus: 418,
+        status: 418,
         errorMessage: `I'm a teapot`,
         pending: false
       }
@@ -79,7 +79,7 @@ describe('Authorization Component', () => {
       session: {
         authorized: false,
         error: true,
-        errorStatus: 403,
+        status: 403,
         errorMessage: `Forbidden`,
         pending: false
       }
@@ -103,7 +103,7 @@ describe('Authorization Component', () => {
       },
       session: {
         authorized: false,
-        errorStatus: 401
+        status: 401
       }
     };
     const component = mount(
