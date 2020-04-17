@@ -1,5 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Helpers should expose a window object: limited window object 1`] = `
+Object {
+  "DEV_MODE": false,
+  "PROD_MODE": false,
+  "REVIEW_MODE": false,
+  "TEST_MODE": true,
+  "UI_DEPLOY_PATH_PREFIX": "",
+  "UI_DISABLED": false,
+  "UI_DISABLED_GRAPH": false,
+  "UI_DISABLED_TABLE": false,
+  "UI_DISABLED_TOOLBAR": false,
+  "UI_DISPLAY_CONFIG_NAME": "Subscription Watch",
+  "UI_DISPLAY_NAME": "Subscription Watch",
+  "UI_DISPLAY_START_NAME": "Subscription Watch",
+  "UI_LOGGER_ID": "curiosity",
+  "UI_NAME": "subscriptions",
+  "UI_PATH": "/",
+  "UI_VERSION": "0.0.0.0000000",
+  "UI_WINDOW_ID": "curiosity",
+  "browserExpose": [Function],
+  "generateId": [Function],
+  "isPromise": [Function],
+  "lorem": "ipsum",
+  "noop": [Function],
+  "noopPromise": Promise {},
+  "noopTranslate": [Function],
+}
+`;
+
+exports[`Helpers should expose a window object: window object 1`] = `
+Object {
+  "DEV_MODE": false,
+  "PROD_MODE": false,
+  "REVIEW_MODE": false,
+  "TEST_MODE": true,
+  "UI_DEPLOY_PATH_PREFIX": "",
+  "UI_DISABLED": false,
+  "UI_DISABLED_GRAPH": false,
+  "UI_DISABLED_TABLE": false,
+  "UI_DISABLED_TOOLBAR": false,
+  "UI_DISPLAY_CONFIG_NAME": "Subscription Watch",
+  "UI_DISPLAY_NAME": "Subscription Watch",
+  "UI_DISPLAY_START_NAME": "Subscription Watch",
+  "UI_LOGGER_ID": "curiosity",
+  "UI_NAME": "subscriptions",
+  "UI_PATH": "/",
+  "UI_VERSION": "0.0.0.0000000",
+  "UI_WINDOW_ID": "curiosity",
+  "browserExpose": [Function],
+  "generateId": [Function],
+  "isPromise": [Function],
+  "lorem": "ipsum",
+  "noop": [Function],
+  "noopPromise": Promise {},
+  "noopTranslate": [Function],
+}
+`;
+
 exports[`Helpers should have specific functions: helpers 1`] = `
 Object {
   "DEV_MODE": false,
@@ -18,6 +76,8 @@ Object {
   "UI_NAME": "subscriptions",
   "UI_PATH": "/",
   "UI_VERSION": "0.0.0.0000000",
+  "UI_WINDOW_ID": "curiosity",
+  "browserExpose": [Function],
   "generateId": [Function],
   "isPromise": [Function],
   "noop": [Function],
