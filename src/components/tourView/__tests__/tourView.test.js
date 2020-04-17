@@ -20,7 +20,7 @@ describe('TourView Component', () => {
   it('should handle an error http status', () => {
     const props = {
       session: {
-        errorStatus: 418
+        status: 418
       }
     };
 

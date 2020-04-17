@@ -45,7 +45,7 @@ const TourView = ({ session, t }) => (
         <EmptyStateBody>
           <React.Fragment>
             {t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
-            {session.errorStatus !== 418 &&
+            {session.status !== 418 &&
               ` ${t('curiosity-tour.emptyStateDescriptionTour', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}`}
           </React.Fragment>
         </EmptyStateBody>
@@ -54,7 +54,7 @@ const TourView = ({ session, t }) => (
             {t('curiosity-tour.emptyStateDescriptionExtended', { appName: helpers.UI_DISPLAY_CONFIG_NAME })}
           </React.Fragment>
         </EmptyStateBody>
-        {(session.errorStatus === 418 && (
+        {(session.status === 418 && (
           <Button
             className="uxui-curiosity__button-learn"
             variant="primary"
@@ -70,7 +70,7 @@ const TourView = ({ session, t }) => (
           </Button>
         )}
         <EmptyStateSecondaryActions>
-          {session.errorStatus !== 418 && (
+          {session.status !== 418 && (
             <Button
               component="a"
               variant="link"
@@ -96,7 +96,7 @@ const TourView = ({ session, t }) => (
  */
 TourView.propTypes = {
   session: PropTypes.shape({
-    errorStatus: PropTypes.number
+    status: PropTypes.number
   }),
   t: PropTypes.func
 };
@@ -104,11 +104,11 @@ TourView.propTypes = {
 /**
  * Default props.
  *
- * @type {{t: Function, session: {errorStatus: null}}}
+ * @type {{t: Function, session: {status: null}}}
  */
 TourView.defaultProps = {
   session: {
-    errorStatus: null
+    status: null
   },
   t: helpers.noopTranslate
 };
