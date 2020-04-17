@@ -17,7 +17,7 @@ describe('ServiceConfig', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(service)).toHaveLength(3);
+    expect(Object.keys(service)).toHaveLength(4);
   });
 
   it('should export a default services config', () => {
