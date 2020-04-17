@@ -47,4 +47,6 @@ const serviceCall = async config => {
   return axios(serviceConfig(updatedConfig));
 };
 
-export { serviceConfig as default, serviceConfig, serviceCall };
+const config = { serviceCall, serviceConfig };
+
+export { config as default, config, serviceCall, serviceConfig };
