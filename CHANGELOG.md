@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.13...v0.1.14) (2020-04-17)
+
+
+### Features
+
+* **checkbox,formState:** issues/240 form components ([#246](https://github.com/RedHatInsights/curiosity-frontend/issues/246)) ([b1611ac](https://github.com/RedHatInsights/curiosity-frontend/commit/b1611ac915c697019e9c46389c1b7062feb68ed5))
+* **i18n:** issues/240 expose translating a node ([#250](https://github.com/RedHatInsights/curiosity-frontend/issues/250)) ([dcfeb08](https://github.com/RedHatInsights/curiosity-frontend/commit/dcfeb08a657bcdd799242d31c02f5bd60f38c7ea))
+* **optinView:** issues/240 add opt-in form ([#247](https://github.com/RedHatInsights/curiosity-frontend/issues/247)) ([155dd44](https://github.com/RedHatInsights/curiosity-frontend/commit/155dd44c66f3c922d9074e88afc4cafbd9002dca))
+* **platformServices:** issues/240 getUserPermissions ([#249](https://github.com/RedHatInsights/curiosity-frontend/issues/249)) ([e4d3f2a](https://github.com/RedHatInsights/curiosity-frontend/commit/e4d3f2a3511c7cfa183e607c9d3ff0d3d102d601))
+* **services,redux:** issues/240 add account opt-in services ([#243](https://github.com/RedHatInsights/curiosity-frontend/issues/243)) ([87fdb68](https://github.com/RedHatInsights/curiosity-frontend/commit/87fdb684fc2bd31af44fc1bda59c4847a6b2a07b))
+
+
+### Bug Fixes
+
+* **authentication,messageView:** auth empty state ([d279d34](https://github.com/RedHatInsights/curiosity-frontend/commit/d279d34e7e9bafae8790c93033bac18a9405e5d4))
+* **authentication,optinView:** issues/240 expand unit tests ([#254](https://github.com/RedHatInsights/curiosity-frontend/issues/254)) ([4477963](https://github.com/RedHatInsights/curiosity-frontend/commit/4477963bee58bc183f6d7d8bcbd5348b5b60db19))
+* **authentication,optinView:** issues/240 optin for all users ([#255](https://github.com/RedHatInsights/curiosity-frontend/issues/255)) ([a614d93](https://github.com/RedHatInsights/curiosity-frontend/commit/a614d93b7912a9aa7b5fe7ea329c351805b9a6b9))
+* **optinView:** issues/240 copy, image update ([#258](https://github.com/RedHatInsights/curiosity-frontend/issues/258)) ([8c1d5c0](https://github.com/RedHatInsights/curiosity-frontend/commit/8c1d5c073a32f1eeb526a96ddcfd65d1eb651265))
+* **platformServices:** issue/240 admin API debugging behavior ([5192152](https://github.com/RedHatInsights/curiosity-frontend/commit/5192152c5b517acdd82998ea7b3836cd9da5288f))
+* **routerTypes:** locale page titles, remove title attr ([#245](https://github.com/RedHatInsights/curiosity-frontend/issues/245)) ([7c8e571](https://github.com/RedHatInsights/curiosity-frontend/commit/7c8e57180a392f93c188e1a94c1974cdea548066))
+
 ### [0.1.13](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.12...v0.1.13) (2020-04-02)
 
 
