@@ -1,4 +1,5 @@
 import { serviceCall } from './config';
+import { helpers } from '../common';
 
 /**
  * @api {get} /api/rhsm-subscriptions/v1/version
@@ -618,5 +619,10 @@ const getGraphCapacity = (id, params = {}) =>
   });
 
 const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports };
+
+/**
+ * Expose services to the browser's developer console.
+ */
+helpers.browserExpose({ rhsmServices });
 
 export { rhsmServices as default, rhsmServices, getApiVersion, getGraphCapacity, getGraphReports };

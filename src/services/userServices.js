@@ -3,6 +3,7 @@ import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
 import { getUser, getUserPermissions } from './platformServices';
 import { serviceCall } from './config';
+import { helpers } from '../common';
 
 /**
  * Apply an emulated API response to the platforms getUser method.
@@ -269,6 +270,11 @@ const updateAccountOptIn = (params = {}) =>
   });
 
 const userServices = { authorizeUser, getLocale, logoutUser, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
+
+/**
+ * Expose services to the browser's developer console.
+ */
+helpers.browserExpose({ userServices });
 
 export {
   userServices as default,
