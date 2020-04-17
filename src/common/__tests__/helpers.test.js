@@ -14,4 +14,9 @@ describe('Helpers', () => {
     expect(helpers.isPromise(Promise.resolve())).toBe(true);
     expect(helpers.isPromise(() => 'lorem')).toBe(false);
   });
+
+  it('should expose a window object', () => {
+    helpers.browserExpose({ lorem: 'ipsum' });
+    expect(window[helpers.UI_WINDOW_ID]).toMatchSnapshot('window object');
+  });
 });
