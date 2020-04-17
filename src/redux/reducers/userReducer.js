@@ -8,8 +8,9 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * Initial state.
  *
  * @private
- * @type {{session: {pending: boolean, authorized: boolean, errorMessage: string, fulfilled: boolean,
- *     errorStatus: (string|number), error: boolean, locale: string}}}
+ * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, pending: boolean,
+ *    errorMessage: string, fulfilled: boolean, admin: boolean, error: boolean, locale: string,
+ *    status: (string|number)}, optin: {}}}
  */
 const initialState = {
   optin: {},
@@ -19,11 +20,11 @@ const initialState = {
     entitled: false,
     error: false,
     errorMessage: null,
-    errorStatus: null,
     fulfilled: false,
     locale: null,
     pending: false,
-    permissions: []
+    permissions: [],
+    status: null
   }
 };
 
@@ -42,8 +43,8 @@ const userReducer = (state = initialState, action) => {
         {
           error: action.error,
           errorMessage: reduxHelpers.getMessageFromResults(action),
-          errorStatus: reduxHelpers.getStatusFromResults(action),
-          locale: state.session.locale
+          locale: state.session.locale,
+          status: reduxHelpers.getStatusFromResults(action)
         },
         {
           state,
@@ -125,8 +126,8 @@ const userReducer = (state = initialState, action) => {
             entitled: state.session.entitled,
             error: true,
             errorMessage: reduxHelpers.getMessageFromResults(action),
-            errorStatus: reduxHelpers.getStatusFromResults(action),
-            locale: state.session.locale
+            locale: state.session.locale,
+            status: reduxHelpers.getStatusFromResults(action)
           },
           {
             state,
