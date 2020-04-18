@@ -8,27 +8,50 @@ gitRepo()
   local GITREPO=$1
   local DIR=$2
   local DIR_REPO=$3
+  local GITBRANCH=$4
+  local CURRENT_DATE=$(date "+%s")
+  local EXPIRE=$(head -n 1 $DIR/expire.txt)
 
-  mkdir -p $DIR
-  rm -rf $DIR/temp
-  (cd $DIR && git clone --depth=1 $GITREPO temp > /dev/null 2>&1)
-
-  if [ $? -eq 0 ]; then
-    printf "\n${GREEN}Checking ${GITREPO} ...${NOCOLOR}"
-
-    rm -rf $DIR_REPO
-    cp -R  $DIR/temp $DIR_REPO
-
+  if [ ! -d $DIR_REPO/build ] || [ "${EXPIRE:-0}" -lt "${CURRENT_DATE}" ]; then
+    mkdir -p $DIR
     rm -rf $DIR/temp
-    rm -rf $DIR_REPO/.git
 
-    printf "${GREEN}Clone SUCCESS${NOCOLOR}\n"
+    printf "\n${YELLOW}Accessing ${GITREPO}${NOCOLOR}\n"
 
-  elif [ -d $DIR_REPO ]; then
-    printf "${YELLOW}Unable to connect, using cached ${GITREPO}...${NOCOLOR}\n"
-  else
-    printf "${RED}Build Error cloning ${GITREPO}, unable to setup Docker${NOCOLOR}\n"
-    exit 1
+    if [ -z "$GITBRANCH" ]; then
+      (cd $DIR && git clone --depth=1 $GITREPO temp > /dev/null 2>&1)
+    else
+      (cd $DIR && git clone $GITREPO temp > /dev/null 2>&1)
+
+      printf "${YELLOW}Attempting to access branch \"${BRANCH}\" ...${NOCOLOR}"
+
+      if [ ! -z "$(cd $DIR/temp && git branch -a | grep $GITBRANCH)" ]; then
+        (cd $DIR/temp && git checkout $GITBRANCH > /dev/null 2>&1)
+        printf "${GREEN}SUCCESS${NOCOLOR}\n"
+      else
+        printf "${YELLOW}non-existant ...IGNORE, use default${NOCOLOR}\n"
+      fi
+    fi
+
+    if [ $? -eq 0 ]; then
+      printf "${YELLOW}Confirm repository ...${NOCOLOR}"
+
+      rm -rf $DIR_REPO
+      cp -R  $DIR/temp $DIR_REPO
+
+      rm -rf $DIR/temp
+      rm -rf $DIR_REPO/.git
+
+      echo $(date -v +10d "+%s") > $DIR/expire.txt
+
+      printf "${GREEN}SUCCESS${NOCOLOR}\n"
+
+    elif [ -d $DIR_REPO ]; then
+      printf "${YELLOW}Unable to connect, using cached ${GITREPO}...${NOCOLOR}\n"
+    else
+      printf "${RED}Build Error cloning ${GITREPO}, unable to setup repo${NOCOLOR}\n"
+      exit 1
+    fi
   fi
 }
 #
@@ -49,13 +72,16 @@ updateHosts()
   local PROXYDIR=$1
   local PROXYDIR_REPO=$2
 
+  printf "${YELLOW}Confirm hosts updated ...${NOCOLOR}"
+
   if [ $(cat /private/etc/hosts | grep -c "redhat.com") -eq 4 ]; then
-    printf "${BLUE}Hosts already up-to-date${NOCOLOR}\n"
+    printf "${GREEN}SUCCESS${NOCOLOR}\n\n"
   else
+    printf "${RED}ERROR${NOCOLOR}\n"
     printf "${RED}Updating hosts... you may need to \"allow write access\"...${NOCOLOR}\n"
     sh $PROXYDIR_REPO/scripts/patch-etc-hosts.sh || sudo sh $PROXYDIR_REPO/scripts/patch-etc-hosts.sh
     echo "Hosts file updated $(date)" >> $PROXYDIR/hosts.txt
-    printf "${GREEN}Hosts file updated${NOCOLOR}\n"
+    printf "${GREEN}Hosts file updated${NOCOLOR}\n\n"
   fi
 }
 #
@@ -69,7 +95,7 @@ checkContainerRunning()
   local DURATION=10
   local DELAY=0.1
 
-  printf "Check container running..."
+  printf "${YELLOW}Check container running ...${NOCOLOR}"
 
   while [ $COUNT -le $DURATION ]; do
     sleep $DELAY
@@ -101,14 +127,14 @@ runProxy()
   local RUN_CONFIG=$5
   local DIR=$6
   local CURRENT_DATE=$(date "+%s")
-  local EXPIRE=$(head -n 1 $DIR/expire.txt)
+  local EXPIRE=$(head -n 1 $DIR/expire-docker.txt)
 
   docker stop -t 0 $RUN_NAME >/dev/null
 
   if [ -z "$(docker images -q $RUN_CONTAINER)" ] || [ "${EXPIRE:-0}" -lt "${CURRENT_DATE}" ]; then
-    echo "Setting up development Docker proxy container"
+    printf "${YELLOW}Setting up development Docker proxy container...${NOCOLOR}\n"
     docker pull $RUN_CONTAINER
-    echo $(date -v +10d "+%s") > $DIR/expire.txt
+    echo $(date -v +10d "+%s") > $DIR/expire-docker.txt
   fi
 
   if [ -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
@@ -152,6 +178,7 @@ runProxy()
   REPO="https://github.com/RedHatInsights/insights-proxy.git"
   DATADIR=./.proxy
   DATADIR_REPO=./.proxy/insights-proxy
+  BRANCH="master"
   CONTAINER="redhatinsights/insights-proxy"
   CONTAINER_NAME="insightsproxy"
 
@@ -174,14 +201,13 @@ runProxy()
     exit 0
   fi
 
-  printf "${YELLOW}The proxy environment requires being able to access secure resources at runtime.${NOCOLOR}\n"
-
-  gitRepo $REPO $DATADIR $DATADIR_REPO
-
   if [ "$HOST" = true ]; then
+    gitRepo $REPO $DATADIR $DATADIR_REPO $BRANCH
     updateHosts $DATADIR $DATADIR_REPO
     exit 0
   fi
+
+  printf "${YELLOW}The proxy environment requires being able to access secure resources at runtime.${NOCOLOR}\n"
 
   cleanLocalDotEnv
   runProxy $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG $DATADIR
