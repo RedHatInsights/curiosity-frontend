@@ -49,7 +49,7 @@ gitRepo()
     elif [ -d $DIR_REPO ]; then
       printf "${YELLOW}Unable to connect, using cached ${GITREPO}...${NOCOLOR}\n"
     else
-      printf "${RED}Build Error cloning ${GITREPO}, unable to setup Docker${NOCOLOR}\n"
+      printf "${RED}Build Error cloning ${GITREPO}, unable to setup repo${NOCOLOR}\n"
       exit 1
     fi
   fi
@@ -99,7 +99,7 @@ buildChrome()
 
   if [[ ! -z "$HEADER_CONTENT" ]] && [[ ! -z "$BODY_CONTENT" ]]; then
     echo "\nREACT_APP_INCLUDE_CONTENT_HEADER=${HEADER_CONTENT}\nREACT_APP_INCLUDE_CONTENT_BODY=${BODY_CONTENT}\n" > ./.env.development.local
-    printf "${GREEN}SUCCESS${NOCOLOR}\n"
+    printf "${GREEN}SUCCESS${NOCOLOR}\n\n"
   else
     printf "\n${RED}ERROR, include content doesn't exist${NOCOLOR}\n"
     printf "${RED}    This is most likely due to an alteration on the includes repository.${NOCOLOR}\n"
