@@ -83,6 +83,7 @@ const routes = [
  */
 const navigation = [
   {
+    title: 'Red Hat Enterprise Linux',
     id: 'all',
     path: '/rhel-sw/all',
     pathId: 'rhel-sw',
@@ -90,30 +91,35 @@ const navigation = [
     default: true
   },
   {
+    title: 'ARM',
     id: 'arm',
     path: '/rhel-sw/arm',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_ARM
   },
   {
+    title: 'IBM Power',
     id: 'ibmpower',
     path: '/rhel-sw/ibmpower',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER
   },
   {
+    title: 'IBM Z systems',
     id: 'ibmz',
     path: '/rhel-sw/ibmz',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z
   },
   {
+    title: 'x86',
     id: 'x86',
     path: '/rhel-sw/x86',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_X86
   },
   {
+    title: 'Red Hat OpenShift',
     id: 'openshift-sw',
     path: '/openshift-sw',
     pathId: 'openshift-sw',

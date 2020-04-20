@@ -17,7 +17,16 @@ class Authentication extends Component {
   removeListeners = helpers.noop;
 
   componentDidMount() {
-    const { authorizeUser, history, initializeChrome, onNavigation, setAppName, session } = this.props;
+    const {
+      authorizeUser,
+      history,
+      initializeChrome,
+      navigation,
+      onNavigation,
+      setAppName,
+      setNavigation,
+      session
+    } = this.props;
 
     if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
       initializeChrome();
@@ -28,8 +37,11 @@ class Authentication extends Component {
         history.push(path);
       });
 
+      const buildNav = history.listen(() => setNavigation(navigation));
+
       this.removeListeners = () => {
         appNav();
+        buildNav();
       };
     }
 
@@ -92,6 +104,12 @@ Authentication.propTypes = {
   initializeChrome: PropTypes.func,
   onNavigation: PropTypes.func,
   setAppName: PropTypes.func,
+  setNavigation: PropTypes.func,
+  navigation: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string
+    })
+  ),
   session: PropTypes.shape({
     authorized: PropTypes.bool,
     error: PropTypes.bool,
@@ -114,6 +132,8 @@ Authentication.defaultProps = {
   initializeChrome: helpers.noop,
   onNavigation: helpers.noop,
   setAppName: helpers.noop,
+  setNavigation: helpers.noop,
+  navigation: routerTypes.navigation,
   session: {
     authorized: false,
     error: false,
@@ -134,7 +154,8 @@ const mapDispatchToProps = dispatch => ({
   authorizeUser: () => dispatch(reduxActions.user.authorizeUser()),
   initializeChrome: () => dispatch(reduxActions.platform.initializeChrome()),
   onNavigation: callback => dispatch(reduxActions.platform.onNavigation(callback)),
-  setAppName: name => dispatch(reduxActions.platform.setAppName(name))
+  setAppName: name => dispatch(reduxActions.platform.setAppName(name)),
+  setNavigation: data => dispatch(reduxActions.platform.setNavigation(data))
 });
 
 /**
