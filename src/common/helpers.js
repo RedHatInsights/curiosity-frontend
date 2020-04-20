@@ -184,15 +184,13 @@ const UI_WINDOW_ID = process.env.REACT_APP_UI_WINDOW_ID || 'GUI';
  * test and non-production environments only. Exposes helpers across all environments.
  *
  * @param {object} obj
+ * @param {object} options
+ * @property {boolean} limit
+ * @property {string} id
  */
-const browserExpose = (obj = {}) => {
-  let updatedObj = {};
-
-  if (!PROD_MODE) {
-    updatedObj = obj;
-  }
-
-  window[UI_WINDOW_ID] = { ...window[UI_WINDOW_ID], ...updatedObj };
+const browserExpose = (obj = {}, options) => {
+  const { limit = PROD_MODE, id = UI_WINDOW_ID } = options || {};
+  window[id] = (limit && { ...window[id] }) || { ...window[id], ...obj };
 };
 
 const helpers = {
@@ -224,6 +222,6 @@ const helpers = {
 /**
  * Expose helpers to the browser's developer console.
  */
-browserExpose({ ...helpers });
+helpers.browserExpose({ ...helpers }, { limit: false });
 
 export { helpers as default, helpers };

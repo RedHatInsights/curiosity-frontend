@@ -18,5 +18,8 @@ describe('Helpers', () => {
   it('should expose a window object', () => {
     helpers.browserExpose({ lorem: 'ipsum' });
     expect(window[helpers.UI_WINDOW_ID]).toMatchSnapshot('window object');
+
+    helpers.browserExpose({ dolor: 'sit' }, { limit: true });
+    expect(window[helpers.UI_WINDOW_ID]).toMatchSnapshot('limited window object');
   });
 });
