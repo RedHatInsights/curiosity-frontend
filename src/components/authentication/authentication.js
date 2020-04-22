@@ -16,8 +16,12 @@ class Authentication extends Component {
 
   removeListeners = helpers.noop;
 
-  componentDidMount() {
+  async componentDidMount() {
     const { authorizeUser, history, initializeChrome, onNavigation, setAppName, session } = this.props;
+
+    if (!session.authorized) {
+      await authorizeUser();
+    }
 
     if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
       initializeChrome();
@@ -31,10 +35,6 @@ class Authentication extends Component {
       this.removeListeners = () => {
         appNav();
       };
-    }
-
-    if (!session.authorized) {
-      authorizeUser();
     }
   }
 
