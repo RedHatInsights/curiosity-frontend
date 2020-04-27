@@ -49,7 +49,7 @@ class OptinView extends React.Component {
    */
   renderOptinForm() {
     const { error, fulfilled, pending, session, t } = this.props;
-    const disableButton = !session.status || session.status !== 403;
+    const disableButton = session.status !== 403;
 
     if (pending) {
       return (
@@ -253,7 +253,7 @@ const mapDispatchToProps = dispatch => ({
  * @param {object} state
  * @returns {object}
  */
-const mapStateToProps = ({ user }) => ({ ...user.optin });
+const mapStateToProps = ({ user }) => ({ ...user.optin, session: user.session });
 
 const ConnectedOptinView = connectTranslate(mapStateToProps, mapDispatchToProps)(OptinView);
 

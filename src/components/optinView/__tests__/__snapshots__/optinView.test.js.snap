@@ -411,6 +411,21 @@ exports[`OptinView Component should render an API state driven view: initial vie
 </PageLayout>
 `;
 
+exports[`OptinView Component should render an API state driven view: null or undefined status view 1`] = `
+<CardFooter>
+  <Form>
+    <ActionGroup>
+      <Component
+        isDisabled={true}
+        variant="primary"
+      >
+        t(curiosity-optin.buttonIsActive, [object Object])
+      </Component>
+    </ActionGroup>
+  </Form>
+</CardFooter>
+`;
+
 exports[`OptinView Component should render an API state driven view: pending view 1`] = `
 <CardFooter>
   <Form>

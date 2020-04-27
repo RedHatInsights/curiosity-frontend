@@ -52,6 +52,13 @@ describe('OptinView Component', () => {
     expect(component.find('CardFooter').first()).toMatchSnapshot('500 view');
 
     component.setProps({
+      session: {
+        status: null
+      }
+    });
+    expect(component.find('CardFooter').first()).toMatchSnapshot('null or undefined status view');
+
+    component.setProps({
       pending: true,
       session: {}
     });
