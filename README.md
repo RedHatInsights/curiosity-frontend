@@ -9,27 +9,9 @@ A web user interface for subscription reporting, based on [Patternfly <img src="
 Before developing for Curiosity Frontend, the basic requirements:
  * Your system needs to be running [NodeJS version 10+ and NPM](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
- * And [Yarn 1.16+](https://yarnpkg.com) for dependency and script management.
-
-### Docker & Mac
-Setting Docker up on a Mac? Install the appropriate package and you should be good to go. To check if everything installed correctly you can try these steps.
-  * At a terminal prompt type
-
-    ```
-    $ docker run hello-world
-    ```
-
-### Docker & Linux
-Setting Docker up on a Linux machine can include an additional convenience step. If you're having to prefix "sudo" in front of your Docker commands you can try these steps.
-  * [Docker postinstall documentation](https://docs.docker.com/install/linux/linux-postinstall/)
-
-### Yarn
- We recommend using [Homebrew](https://brew.sh/) to do the install.
-
-  ```
-  $ brew update
-  $ brew install yarn
-  ```
+ * And [Yarn 1.20+](https://yarnpkg.com) for dependency and script management.
+ 
+For in-depth tooling install guidance see the [contribution guidelines](./CONTRIBUTING.md#Install)
 
 ## Development, Quick Start
 

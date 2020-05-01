@@ -1,49 +1,84 @@
 # Contributing
 Contributing encompasses repository specific requirements and the global [Insights guidelines](https://cloud.redhat.com/docs/storybook?path=/story/welcome--getting-started).
 
-## Commits
-In an effort to bring in future automation around 
+## Install
+Before developing you'll need to install:
+ * [NodeJS and NPM](https://nodejs.org/)
+ * [Docker](https://docs.docker.com/engine/installation/)
+ * And [Yarn](https://yarnpkg.com)
+
+### Docker & Mac
+Setting Docker up on a Mac? Install the appropriate package and you should be good to go. To check if everything installed correctly you can try these steps.
+  * At a terminal prompt type
+
+    ```
+    $ docker run hello-world
+    ```
+
+### Docker & Linux
+Setting Docker up on a Linux machine can include an additional convenience step. If you're having to prefix "sudo" in front of your Docker commands you can try these steps.
+  * [Docker postinstall documentation](https://docs.docker.com/install/linux/linux-postinstall/)
+
+### Yarn
+Once you've installed NodeJS you can use NPM to perform the [Yarn](https://yarnpkg.com) install
+
+  ```
+  $ npm install yarn -g
+  ``` 
+
+You can also use [Homebrew](https://brew.sh/)
+
+  ```
+  $ brew update
+  $ brew install yarn
+  ```
+
+## Git process
+### Commits
+In an effort to continue enhancing future automation around 
 [CHANGELOG.md](./CHANGELOG.md) and tagging we make use of [Standard Version](https://github.com/conventional-changelog/standard-version#readme) and [Conventional Commits](https://www.conventionalcommits.org).
 
-It's encouraged that commit messaging follow the format
+It's required that commit messaging follow the format
 ```
    <type>[optional scope]: <issue number><description>
 ```
 
 Settings for [Standard Version](https://github.com/conventional-changelog/standard-version#readme) can be found in [package.json](./package.json)
 
-## Branching, Pull Requests, and Releases
-
-### Branches
-Curiosity primarily makes use of the branches `master`, `qa`, and `ci`. 
+### Branching, Pull Requests, and Releases
+Curiosity makes use of the branches `master`, `stage`, `qa`, and `ci`. 
 - `master` branch is a protected representation of production environments
    - Adding commits, or a PR, into `master` should generate a `prod-stable` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
    - The `prod-stable` branch is manually deployed through coordination with the operations team.
-- `qa` branch is a representation of `qa-stable`, and `ci-stable`.
-   - Adding commits, or a PR, into `ci-stable` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
-- `ci` branch is a representation of `ci-beta`, and `qa-beta`.
-   - Adding commits, or a PR, into `ci-beta` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
-   
-#### Additional branches
-A staging branch can also be utilized.
 - `stage` branch is a protected representation of production environments
    - Adding commits, or a PR, into `stage` should generate a `prod-beta` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
    - The `prod-beta` branch is manually deployed through coordination with the operations team.
+- `qa` branch is a representation of `qa-stable`, and `ci-stable`.
+   - Adding commits, or a PR, into `ci-stable` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+   - In the future, once the API is fully deployed to QA, this will be a representation of `qa-beta` and `qa-stable`
+- `ci` branch is a representation of `ci-beta`, and `qa-beta`.
+   - Adding commits, or a PR, into `ci-beta` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+   - In the future, once the API is fully deployed to QA, this will be a representation of `ci-beta` and `ci-stable`
 
 #### Branching and Pull Request Workflow
-It is preferred that all work is handled through GitHub's fork and pull workflow. Working directly on the master repository is discouraged
-since a form of Continuous Integration is implemented and dependent on branch structure.
+It is required that all work is handled through GitHub's fork and pull workflow. 
 
-1. General development PRs should be opened against the `ci` branch.
-1. It is preferred that PRs to `qa` originate from `ci`, but development PRs opened against `qa` are allowed.
-1. PRs to master branch are considered production ready releases. It is preferred that PRs originate from `qa`,  or `stage` if available.
-1. Development PRs opened against master, unless a team agreed exception occurs, will be closed.
+**Working directly on the master repository is highly discouraged since a form of Continuous Integration is implemented and dependent on branch structure.**
+
+1. General development PRs should almost always be opened against the `ci` branch.
+1. It is preferred that PRs to `qa` originate from `ci`, but testing related fixes and general PRs opened against `qa` are allowed.
+1  PRs from `ci` to `qa` are allowed
+1. PRs from `qa` to `stage` are preferred.
+1. PRs to `stage` require a QE team members approval/sign-off.
+1. PRs to `master` are only allowed from `stage`.
+1. PRs to `master` branch are considered production ready releases.
+1. Development or testing PRs opened against master, unless a team agreed exception occurs, will be closed.
 1. All PRs to production, master branch, should have a final review, coordination, from Quality Engineering.
 
 ```
-   PR -> ci <-> qa -> stage -> master
+   PR fork -> ci <-> qa -> stage -> master
 ```
 
 ### Releases and Tagging
@@ -51,7 +86,8 @@ since a form of Continuous Integration is implemented and dependent on branch st
 1. Merging a PR into `master` doesn't require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
 1. Tagging and `CHANGELOG.md` updates should be coordinated against a consistent release cycle, and can take place at an independent time.
 1. Tagging should make use of semver.
-1. Manipulating tags against commits directly should be avoided in favor of a semantic version increment.
+1. Manipulating tags against commits directly should be avoided in favor of a semantic version increment, iteration.
+1. Once a release commit and tag have been implemented `stage`, `qa`, and `ci` will be rebased accordingly.
 
 ## Serving content, or getting everything to run in your local environment.
 To serve content you'll need to have Docker, Node, and Yarn installed.
