@@ -1,12 +1,13 @@
 language: node_js
-sudo: required
 notifications:
   email: false
   slack:
-    rooms:
+    - rooms:
       - secure: juuizlfiQolXbqy4L2nfODB1K8xiSGvUrzsT3XeXIsQqX7yCYVvnRUssKLbqgLM9m85kgXJk1ef0qwjJoliNqGcrALTZLHPTkxWwTnV7tPEVS/4uQPSyy+DDHDwrTzCrF3qhCqyKJ6vB18z22qm3qLgStmNj4p1ZLznsdJR/u7U3spJ+WLL70QSNHCQy/5QjRDDiR3oqWdXjhVcUCeV+v/2CtfqK3dqYtzCL/b7z8lm/YbV6w1Rd8mwzTgLstbzjrvR/gq2IPALzzJTq1S8lXtV7ZtbYz4bjB8RNCRZFJrjBUH4CqD1oUskit4RRe+ilVs8qNQh0Tt3whsOdbJoRXJn2B/NVxppp2WGlODdsuMgfNh5iBocHKN3Qo4mONbstnHFG99Hr7L8GbUugJHEQlrZn1xRyO9ulyVp+hFp8/F088NNyhnd3+lERUPA5/4+HPQh6Ea+PyKq2TR41VoDGcRDBS4VY/6PfLEJzxEBjwRAAemfvtOFTUu2EocuAllPX1vMA4b1j7Wm+Bs7wft6nEcVdftVanfAgx4dNksnaS8zN9II8rdtBci2yXYJ6J+e+REDn/2IrHaUwr0N9BojYc0ePUElDcygW4Kk1oGklHp681j2zhi1Gt7rbuae1C9fD4QHnryx59uVH5NXqDsXI5EbwTJE3zvzRz9SzmyDqV5A=
+    - rooms:
+      - secure: cB1tOG48V5iia0O2dJ9+1gusBSCaohu5TR8PeWbqug/Yho+ZCQ3rp7Tfd7fRyYsf9ztWdu6G+VrHwOboR08Aef7cttZ743j/aXwo5m50Q9Ne3fkNzEUjL8IGeM4MtlRtwruD54RQmPzjmHjEapfx0dX2AHkB/8Zrnjs36YzPST1kT/YYrub9Kv5wUXB0TlzWmrRGj+pPGqBmJVksxQFxvbvafRcKI3kj91maJQhBHQe+19GboJbFOnwzPTPAL7Lf7j70ZmbPlQVG3G3VjN/QUALqaiwjlgH0owLHjBbDrMt8cpPoTq8Uw6ANBWYzENBMzHeiBwz0jqTY/BBP06WCxJSJCgOgd90L93/LAbJYiTyvpfAt8dOdWk7RhKy0L3kIalj5Mff8/3zDyLDOvd9Xtn7topHJv/5SBV6ZZVUvEJTxgEQq9337YEOka2omPvwt7UfHNcT/PH4flV70cy/OdR6J4x1UIKIUgX0iWYMZUj7QZqUhLybXv5BRS0vQTg4V8C7uvQ4aE8hzkv+pjXZ5aL5POtJhrgNPiO9iIHXtV/EUoGrT9iibijyQbWPusloJBwmPWkZ2j3UbaCY5bPTgnHnaPllnE3WKuTwxQA4bIL1Ma2C3yv2RSgfVvwM+pekeNsaVmpOD5xlcNYPPuW5bLE/jqhLmeKJaKQWujoC0glU=
 node_js:
-  - "10"
+  - 12
 cache: yarn
 jobs:
   include:
@@ -16,9 +17,11 @@ jobs:
       script: yarn test:ci
       after_success: codecov
     - stage: Beta Deploy
-      script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
+      script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
+        | bash -s
     - stage: Stable Deploy
-      script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
+      script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
+        | bash -s
 env:
   global:
     - REPO="git@github.com:RedHatInsights/curiosity-frontend-build"
