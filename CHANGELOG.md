@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.14...v0.1.15) (2020-05-04)
+
+
+### Bug Fixes
+
+* **authentication:** issues/262 await authorizeUser ([#264](https://github.com/RedHatInsights/curiosity-frontend/issues/264)) ([2510932](https://github.com/RedHatInsights/curiosity-frontend/commit/25109321834b061c6a3eda70d6edfbe0b990dc1e))
+* **helpers:** access to an app specific window object ([6404a03](https://github.com/RedHatInsights/curiosity-frontend/commit/6404a034a93016cf1d355208c337f009b3b13cf8))
+* **optinView:** issues/240 assume opt-in is activated ([#256](https://github.com/RedHatInsights/curiosity-frontend/issues/256)) ([b8a5ea0](https://github.com/RedHatInsights/curiosity-frontend/commit/b8a5ea06c01e156739379a8817666198a3f1d856))
+* **redux:** rename use of http errorStatus to just status ([35e0603](https://github.com/RedHatInsights/curiosity-frontend/commit/35e06031a2343fff70ccff88e428e3f6f8ba549e))
+* **services:** apply consistent exports for config ([74edcff](https://github.com/RedHatInsights/curiosity-frontend/commit/74edcff58df64ccb9cab28994671a8fdc0b789a3))
+
 ### [0.1.14](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.13...v0.1.14) (2020-04-17)
 
 
