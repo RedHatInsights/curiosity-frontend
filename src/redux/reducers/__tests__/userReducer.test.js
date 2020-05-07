@@ -1,5 +1,5 @@
 import userReducer from '../userReducer';
-import { platformApiTypes } from '../../../types';
+import { platformApiTypes, rhsmApiTypes } from '../../../types';
 import { appTypes, userTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
@@ -18,8 +18,22 @@ describe('UserReducer', () => {
     specificTypes.forEach(value => {
       const dispatched = {
         type: reduxHelpers.HTTP_STATUS_RANGE(value.type),
-        status: value.status,
-        message: 'Lorem test status'
+        error: true,
+        payload: {
+          message: `Request failed with status code ${value.status}`,
+          response: {
+            status: value.status,
+            statusText: 'Error',
+            data: {
+              [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_TYPES.CODE]:
+                    rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN
+                }
+              ]
+            }
+          }
+        }
       };
 
       const resultState = userReducer(undefined, dispatched);
