@@ -397,14 +397,14 @@ const getApiVersion = () =>
  *
  * @apiError {Array} errors
  * @apiErrorExample {json} Error-Response:
- *     HTTP/1.1 400 Bad Request
+ *     HTTP/1.1 403 Forbidden
  *     {
  *        "errors": [
  *          {
- *            "status": "string",
- *            "code": "string",
- *            "title": "string",
- *            "detail": "string"
+ *            "code": "SUBSCRIPTIONS1004",
+ *            "detail": "Opt-in required.",
+ *            "status": "403",
+ *            "title": "Access Denied"
  *          }
  *        ]
  *     }
