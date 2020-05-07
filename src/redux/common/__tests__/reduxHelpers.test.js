@@ -60,6 +60,19 @@ describe('ReduxHelpers', () => {
     ).toMatchSnapshot('response for 4XX');
 
     expect(
+      reduxHelpers.getMessageFromResults({
+        payload: {
+          response: {
+            status: 403,
+            statusText: 'Forbidden',
+            data: { lorem: 'ipsum', dolor: 'sit' }
+          },
+          message: 'Request failed with status code 403'
+        }
+      })
+    ).toMatchSnapshot('response payload for 4XX');
+
+    expect(
       reduxHelpers.getMessageFromResults([
         {
           status: 400,
@@ -130,6 +143,16 @@ describe('ReduxHelpers', () => {
     ).toMatchSnapshot('status');
 
     expect(
+      reduxHelpers.getStatusFromResults({
+        payload: {
+          response: {
+            status: 403
+          }
+        }
+      })
+    ).toMatchSnapshot('error response status');
+
+    expect(
       reduxHelpers.getStatusFromResults([
         {
           status: 200
@@ -170,6 +193,18 @@ describe('ReduxHelpers', () => {
     ).toMatchSnapshot('date');
 
     expect(
+      reduxHelpers.getDateFromResults({
+        payload: {
+          response: {
+            headers: {
+              date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+            }
+          }
+        }
+      })
+    ).toMatchSnapshot('error response date');
+
+    expect(
       reduxHelpers.getDateFromResults([
         {
           headers: {
@@ -200,6 +235,21 @@ describe('ReduxHelpers', () => {
         }
       })
     ).toMatchSnapshot('data');
+
+    expect(
+      reduxHelpers.getDataFromResults({
+        payload: {
+          response: {
+            headers: {
+              date: 'Tue, 11 Feb 2020 15:27:16 GMT'
+            },
+            status: 403,
+            statusText: 'Forbidden',
+            data: { lorem: 'ipsum', dolor: 'sit' }
+          }
+        }
+      })
+    ).toMatchSnapshot('error response data');
 
     expect(
       reduxHelpers.getDataFromResults({
