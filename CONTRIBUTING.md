@@ -107,6 +107,15 @@ Serving content comes in 3 variations
 Occasionally the proxy setup will attempt to connect, acknowledge that it's connected, but then fail to load the GUI.
 Things to try:
 
+#### It's the Port, maybe?
+The API requires a secure origin header within its AJAX/XHR calls.
+1. Stop the build
+1. Confirm within `package.json` that the NPM scripts
+   - `$ yarn api:proxy` has a port parameter setting of `443`
+   - `$ yarn api:proxy` has the `domain` or `-d` parameter setup like `...proxy.api.sh -d "https://ci.foo.redhat.com/beta/subscriptions/"...` 
+1. Run the build again, `$ yarn start:proxy`
+1. Confirm you browser is pointed at `https://ci.foo.redhat.com/...`
+
 #### It's Docker?
 1. Stop the build
 1. Restart Docker
@@ -241,5 +250,5 @@ After setting up the repository...
     ```
     $ yarn test:dev
     ```
-1. Make sure your browser opened around the domain `https://*.foo.redhat.com:1337`
+1. Make sure your browser opened around the domain `https://*.foo.redhat.com/`
 1. Start developing...
