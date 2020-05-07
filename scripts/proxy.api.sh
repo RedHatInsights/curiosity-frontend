@@ -144,15 +144,16 @@ runProxy()
       RUN_CONFIG="-e CUSTOM_CONF=true -v ${RUN_CONFIG}:/config/spandx.config.js"
     fi
 
-    docker run -d --rm -p $RUN_PORT:1337 $RUN_CONFIG -e PLATFORM -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
+    docker run -d --rm -p $RUN_PORT:$RUN_PORT $RUN_CONFIG -e PLATFORM -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT=$RUN_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
   fi
 
   checkContainerRunning $RUN_NAME
 
   if [ ! -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
     printf "  ${YELLOW}Container: $(docker ps | grep $RUN_CONTAINER | cut -c 1-50)${NOCOLOR}\n"
-    echo "  Development proxy running: http://${RUN_DOMAIN}:${RUN_PORT}/"
+    echo "  Development proxy running on ${RUN_PORT}: ${RUN_DOMAIN}"
     printf "  To stop: $ ${YELLOW}docker stop ${RUN_NAME}${NOCOLOR}\n"
+    open "${RUN_DOMAIN}"
   fi
 
   exit 0
@@ -168,8 +169,8 @@ runProxy()
   YELLOW="\e[33m"
   NOCOLOR="\e[39m"
 
-  DOMAIN="localhost"
   PORT=1337
+  DOMAIN=""
   CONFIG=""
   UPDATE=false
   HOST_ONLY=false
@@ -192,6 +193,14 @@ runProxy()
         s ) HOST=true;;
       esac
   done
+
+  if [ -z "$DOMAIN" ]; then
+    if (( $PORT % 2 )); then
+      DOMAIN="https://localhost:$PORT"
+    else
+      DOMAIN="http://localhost:$PORT"
+    fi
+  fi
 
   if [ "$UPDATE" = true ]; then
     printf "${YELLOW}Updating ${CONTAINER_NAME}, Docker and data...${NOCOLOR}\n"
