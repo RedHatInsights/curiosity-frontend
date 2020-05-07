@@ -63,16 +63,23 @@ const setResponseSchemas = (schemas = [], initialValue) =>
  * @returns {object}
  */
 const getSingleResponseFromResultArray = results => {
-  const updatedResults = results.payload || results;
+  const updatedResults =
+    (results.payload && results.payload.response) || results.payload || results.response || results;
+  const updatedResultsMessage =
+    (results.payload && results.payload.message && { message: results.payload.message }) ||
+    (results.message && { message: results.message });
 
   if (Array.isArray(updatedResults)) {
     const firstErrorResponse = updatedResults.find(value => _get(value, 'response.status', value.status) >= 300);
     const firstSuccessResponse = updatedResults.find(value => _get(value, 'response.status', value.status) < 300);
 
-    return firstErrorResponse || firstSuccessResponse;
+    return (
+      (firstErrorResponse && { ...firstErrorResponse, ...updatedResultsMessage }) ||
+      (firstSuccessResponse && { ...firstSuccessResponse, ...updatedResultsMessage })
+    );
   }
 
-  return updatedResults;
+  return { ...updatedResults, ...updatedResultsMessage };
 };
 
 /**
@@ -88,10 +95,10 @@ const getMessageFromResults = results => {
     return null;
   }
 
-  const status = _get(updatedResults, 'response.status', updatedResults.status);
-  const statusResponse = _get(updatedResults, 'response.statusText', updatedResults.statusText);
-  const messageResponse = _get(updatedResults, 'response.message', updatedResults.message);
-  const dataResponse = _get(updatedResults, 'response.data', updatedResults.data);
+  const status = updatedResults.status || 0;
+  const statusResponse = updatedResults.statusText || '';
+  const messageResponse = updatedResults.message;
+  const dataResponse = updatedResults.data || null;
   const formattedStatus = (status && `${status} `) || '';
 
   if (messageResponse && typeof messageResponse === 'string') {
@@ -138,7 +145,7 @@ const getStatusFromResults = results => {
     return 0;
   }
 
-  return _get(updatedResults, 'response.status', updatedResults.status) || 0;
+  return updatedResults.status || 0;
 };
 
 /**
@@ -198,7 +205,8 @@ const setStateProp = (prop, data, options) => {
  * @returns {Array|object}
  */
 const singlePromiseDataResponseFromArray = results => {
-  const updatedResults = results.payload || results;
+  const updatedResults =
+    (results.payload && results.payload.response) || results.payload || results.response || results;
 
   if (Array.isArray(updatedResults)) {
     return updatedResults.map(value => value.data || {});
