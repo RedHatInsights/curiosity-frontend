@@ -15,6 +15,10 @@ Object {
       "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
         "ORG_ADMIN": "is_org_admin",
       },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+        "PERMISSION": "permission",
+        "RESOURCE_DEFS": "resourceDefinitions",
+      },
     },
     "rhsmApi": Object {
       "RHSM_API_PATH_ID_TYPES": Object {
@@ -101,6 +105,10 @@ Object {
       "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
         "ORG_ADMIN": "is_org_admin",
       },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+        "PERMISSION": "permission",
+        "RESOURCE_DEFS": "resourceDefinitions",
+      },
     },
     "rhsmApi": Object {
       "RHSM_API_PATH_ID_TYPES": Object {
@@ -185,6 +193,10 @@ Object {
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
       "ORG_ADMIN": "is_org_admin",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+      "PERMISSION": "permission",
+      "RESOURCE_DEFS": "resourceDefinitions",
     },
   },
   "rhsmApiTypes": Object {
@@ -274,6 +286,10 @@ Object {
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
       "ORG_ADMIN": "is_org_admin",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+      "PERMISSION": "permission",
+      "RESOURCE_DEFS": "resourceDefinitions",
     },
   },
   "rhsmApi": Object {

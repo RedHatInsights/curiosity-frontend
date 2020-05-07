@@ -29,14 +29,20 @@ const getUser = async () => {
 };
 
 /**
+ * FixMe: revert this back towards async/await
+ * Removed because there appears to be some quirky behavior where permissions will not come through
+ * unless the function, and/or await are specifically returned, i.e. "return await insights.chrome...".
+ */
+/**
  * Basic user permissions.
  *
+ * @param {string} appName
  * @returns {Promise<void>}
  */
-const getUserPermissions = async () => {
+const getUserPermissions = (appName = '') => {
   const { insights } = window;
   try {
-    await insights.chrome.getUserPermissions();
+    return insights.chrome.getUserPermissions(appName);
   } catch (e) {
     throw new Error(`{ getUserPermissions } = insights.chrome, ${e.message}`);
   }
