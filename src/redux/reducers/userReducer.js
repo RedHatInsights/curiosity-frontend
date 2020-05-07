@@ -87,7 +87,10 @@ const userReducer = (state = initialState, action) => {
         false
       );
 
-      const subscriptionPermissions = permissions.filter(value => new RegExp(helpers.UI_NAME, 'i').test(value));
+      const subscriptionPermissions = permissions.map(value => ({
+        permission: value[platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION],
+        definitions: value[platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.RESOURCE_DEFS]
+      }));
 
       return reduxHelpers.setStateProp(
         'session',
@@ -127,6 +130,7 @@ const userReducer = (state = initialState, action) => {
             error: true,
             errorMessage: reduxHelpers.getMessageFromResults(action),
             locale: state.session.locale,
+            permissions: state.session.permissions,
             status: reduxHelpers.getStatusFromResults(action)
           },
           {
