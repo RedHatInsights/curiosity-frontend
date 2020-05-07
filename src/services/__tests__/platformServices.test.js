@@ -52,13 +52,12 @@ describe('PlatformServices', () => {
     });
   });
 
-  it('should return a failed getUserPermissions', done => {
+  it('should return a failed getUserPermissions', () => {
     window.insights.chrome.getUserPermissions = undefined;
 
-    platformServices.getUserPermissions().catch(error => {
-      expect(error).toMatchSnapshot('failed user permissions');
-      done();
-    });
+    expect(platformServices.getUserPermissions).toThrowError(
+      '{ getUserPermissions } = insights.chrome, insights.chrome.getUserPermissions is not a function'
+    );
   });
 
   it('should return a failed initializeChrome', done => {
