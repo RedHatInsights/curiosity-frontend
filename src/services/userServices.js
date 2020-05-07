@@ -17,7 +17,7 @@ const authorizeUser = async () => {
 
   try {
     userData = await getUser();
-    userPermissions = await getUserPermissions();
+    userPermissions = await getUserPermissions(helpers.UI_NAME);
   } catch (e) {
     message = e.message;
   }
