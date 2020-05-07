@@ -129,9 +129,13 @@ exports[`ReduxHelpers should get a date from a service call response: ARRAY date
 
 exports[`ReduxHelpers should get a date from a service call response: date 1`] = `"Fri, 07 Feb 2020 10:46:53 GMT"`;
 
+exports[`ReduxHelpers should get a date from a service call response: error response date 1`] = `"Tue, 11 Feb 2020 15:27:16 GMT"`;
+
 exports[`ReduxHelpers should get a http status from a service call response: ARRAY mismatched status 1`] = `400`;
 
 exports[`ReduxHelpers should get a http status from a service call response: ARRAY status 1`] = `200`;
+
+exports[`ReduxHelpers should get a http status from a service call response: error response status 1`] = `403`;
 
 exports[`ReduxHelpers should get a http status from a service call response: fallback status 1`] = `200`;
 
@@ -154,6 +158,8 @@ exports[`ReduxHelpers should get a message from a service call response: ARRAY r
 exports[`ReduxHelpers should get a message from a service call response: response for 2XX 1`] = `"OK"`;
 
 exports[`ReduxHelpers should get a message from a service call response: response for 4XX 1`] = `"Request failed with status code 400"`;
+
+exports[`ReduxHelpers should get a message from a service call response: response payload for 4XX 1`] = `"Request failed with status code 403"`;
 
 exports[`ReduxHelpers should get data from a service call response: ARRAY data 1`] = `
 Array [
@@ -183,6 +189,13 @@ Array [
     "dolor": "sit",
   },
 ]
+`;
+
+exports[`ReduxHelpers should get data from a service call response: error response data 1`] = `
+Object {
+  "dolor": "sit",
+  "lorem": "ipsum",
+}
 `;
 
 exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `

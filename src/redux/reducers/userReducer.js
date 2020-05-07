@@ -121,7 +121,9 @@ const userReducer = (state = initialState, action) => {
       );
 
     case reduxHelpers.HTTP_STATUS_RANGE(appTypes.STATUS_4XX):
-      if (action.status === 401 || action.status === 403) {
+      const actionStatus = reduxHelpers.getStatusFromResults(action);
+
+      if (actionStatus === 401 || actionStatus === 403) {
         return reduxHelpers.setStateProp(
           'session',
           {

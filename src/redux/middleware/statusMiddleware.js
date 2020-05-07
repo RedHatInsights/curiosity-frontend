@@ -29,26 +29,29 @@ const statusMiddleware = (config = {}) => {
 
         if (httpStatus > 99) {
           const message = reduxHelpers.getMessageFromResults({ ...action });
+          const data = reduxHelpers.getDataFromResults({ ...action });
           const payloadConfig = { ...(action.payload.config || {}) };
           const range = `${Math.floor(httpStatus / 100)}${rangeFiller}`;
 
           if (dispatchRange) {
             dispatch({
               type: `${range}${statusDelimiter}${rangeSuffix}`,
-              status: httpStatus,
               config: payloadConfig,
+              data,
+              message,
               range,
-              message
+              status: httpStatus
             });
           }
 
           if (dispatchStatus) {
             dispatch({
               type: `${httpStatus}${statusDelimiter}${statusSuffix}`,
-              status: httpStatus,
               config: payloadConfig,
+              data,
+              message,
               range,
-              message
+              status: httpStatus
             });
           }
         }
