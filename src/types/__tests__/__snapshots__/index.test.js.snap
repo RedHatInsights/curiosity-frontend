@@ -72,6 +72,14 @@ Object {
       "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
         "COUNT": "count",
       },
+      "RHSM_API_RESPONSE_ERROR_DATA": "errors",
+      "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+        "OPTIN": "SUBSCRIPTIONS1004",
+      },
+      "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+        "CODE": "code",
+        "DETAIL": "detail",
+      },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
         "CLOUD_CORES": "cloud_cores",
@@ -162,6 +170,14 @@ Object {
       "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
         "COUNT": "count",
       },
+      "RHSM_API_RESPONSE_ERROR_DATA": "errors",
+      "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+        "OPTIN": "SUBSCRIPTIONS1004",
+      },
+      "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+        "CODE": "code",
+        "DETAIL": "detail",
+      },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
         "CLOUD_CORES": "cloud_cores",
@@ -250,6 +266,14 @@ Object {
     "RHSM_API_RESPONSE_CAPACITY_META": "meta",
     "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
       "COUNT": "count",
+    },
+    "RHSM_API_RESPONSE_ERROR_DATA": "errors",
+    "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+      "OPTIN": "SUBSCRIPTIONS1004",
+    },
+    "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+      "CODE": "code",
+      "DETAIL": "detail",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -343,6 +367,14 @@ Object {
     "RHSM_API_RESPONSE_CAPACITY_META": "meta",
     "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
       "COUNT": "count",
+    },
+    "RHSM_API_RESPONSE_ERROR_DATA": "errors",
+    "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+      "OPTIN": "SUBSCRIPTIONS1004",
+    },
+    "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+      "CODE": "code",
+      "DETAIL": "detail",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
