@@ -1,6 +1,6 @@
 import _get from 'lodash/get';
 import { appTypes, userTypes } from '../types';
-import { platformApiTypes } from '../../types';
+import { platformApiTypes, rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
 import { reduxHelpers } from '../common/reduxHelpers';
 
@@ -8,9 +8,9 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * Initial state.
  *
  * @private
- * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, pending: boolean,
- *    errorMessage: string, fulfilled: boolean, admin: boolean, error: boolean, locale: string,
- *    status: (string|number)}, optin: {}}}
+ * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, errorCodes: Array,
+ *     pending: boolean, errorMessage: string, fulfilled: boolean, admin: boolean, error: boolean,
+ *     locale: string, status: (string|number)}, optin: {}}}
  */
 const initialState = {
   optin: {},
@@ -19,6 +19,7 @@ const initialState = {
     authorized: false,
     entitled: false,
     error: false,
+    errorCodes: [],
     errorMessage: null,
     fulfilled: false,
     locale: null,
@@ -124,12 +125,19 @@ const userReducer = (state = initialState, action) => {
       const actionStatus = reduxHelpers.getStatusFromResults(action);
 
       if (actionStatus === 401 || actionStatus === 403) {
+        const errorCodes = _get(
+          reduxHelpers.getDataFromResults(action),
+          [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA],
+          []
+        );
+
         return reduxHelpers.setStateProp(
           'session',
           {
             admin: state.session.admin,
             entitled: state.session.entitled,
             error: true,
+            errorCodes: errorCodes.map(value => value[rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_TYPES.CODE]),
             errorMessage: reduxHelpers.getMessageFromResults(action),
             locale: state.session.locale,
             permissions: state.session.permissions,
