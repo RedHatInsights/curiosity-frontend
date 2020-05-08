@@ -16,7 +16,7 @@ exports[`I18n Component should generate a predictable pot output snapshot: pot o
 msgstr \\"\\"
 \\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
 
-#: src/components/authentication/authentication.js:70
+#: src/components/authentication/authentication.js:74
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"
 
@@ -209,12 +209,12 @@ msgstr \\"\\"
 msgid \\"curiosity-view.rhel\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:71
+#: src/components/authentication/authentication.js:75
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.authorizedCopy\\"
 msgstr \\"\\"
 
-#: src/components/authentication/authentication.js:58
+#: src/components/authentication/authentication.js:59
 msgctxt \\"...\\"
 msgid \\"curiosity-auth.pending\\"
 msgstr \\"\\"
