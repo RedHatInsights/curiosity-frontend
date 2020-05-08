@@ -144,7 +144,7 @@ runProxy()
       RUN_CONFIG="-e CUSTOM_CONF=true -v ${RUN_CONFIG}:/config/spandx.config.js"
     fi
 
-    docker run -d --rm -p $RUN_PORT:1337 $RUN_CONFIG -e PLATFORM -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
+    docker run -d --rm -p $RUN_PORT:$RUN_PORT $RUN_CONFIG -e PLATFORM -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT=$RUN_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
   fi
 
   checkContainerRunning $RUN_NAME
