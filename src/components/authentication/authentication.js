@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
 import { connectRouterTranslate, reduxActions } from '../../redux';
+import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
 import { Redirect, routerHelpers, routerTypes } from '../router/router';
 import MessageView from '../messageView/messageView';
@@ -58,7 +59,10 @@ class Authentication extends Component {
       return <MessageView pageTitle="&nbsp;" message={t('curiosity-auth.pending', '...')} icon={BinocularsIcon} />;
     }
 
-    if (session.status === 403 || session.status === 418) {
+    if (
+      (session.errorCodes && session.errorCodes.includes(rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN)) ||
+      session.status === 418
+    ) {
       if (helpers.TEST_MODE) {
         return <React.Fragment>{session.status} redirect</React.Fragment>;
       }
@@ -95,6 +99,7 @@ Authentication.propTypes = {
   session: PropTypes.shape({
     authorized: PropTypes.bool,
     error: PropTypes.bool,
+    errorCodes: PropTypes.arrayOf(PropTypes.string),
     errorMessage: PropTypes.string,
     pending: PropTypes.bool,
     status: PropTypes.number
@@ -117,6 +122,7 @@ Authentication.defaultProps = {
   session: {
     authorized: false,
     error: false,
+    errorCodes: [],
     errorMessage: '',
     pending: false,
     status: null

@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Authorization Component should render a connected component: connected 1`] = `
+exports[`Authentication Component should render a connected component: connected 1`] = `
 <ContextConsumer>
   <Component />
 </ContextConsumer>
 `;
 
-exports[`Authorization Component should render a non-connected component authorized: non-connected authorized 1`] = `
+exports[`Authentication Component should render a non-connected component authorized: non-connected authorized 1`] = `
 <Authentication
   authorizeUser={[Function]}
   history={
@@ -36,7 +36,7 @@ exports[`Authorization Component should render a non-connected component authori
 </Authentication>
 `;
 
-exports[`Authorization Component should render a non-connected component error: non-connected error 1`] = `
+exports[`Authentication Component should render a non-connected component error: non-connected error 1`] = `
 <Authentication
   authorizeUser={[Function]}
   history={
@@ -167,7 +167,7 @@ exports[`Authorization Component should render a non-connected component error: 
 </Authentication>
 `;
 
-exports[`Authorization Component should render a non-connected component pending: non-connected pending 1`] = `
+exports[`Authentication Component should render a non-connected component pending: non-connected pending 1`] = `
 <MessageView
   icon={[Function]}
   message="t(curiosity-auth.pending, ...)"
@@ -176,108 +176,24 @@ exports[`Authorization Component should render a non-connected component pending
 />
 `;
 
-exports[`Authorization Component should return a message on 401 error: 401 error 1`] = `
-<PageLayout>
-  <PageHeader
-    key=".0"
-  >
-    <PageHeader>
-      <section
-        className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-        widget-type="InsightsPageHeader"
-      >
-        <PageHeaderTitle
-          title="Subscription Watch"
-        >
-          <Title
-            className=""
-            size="2xl"
-            widget-type="InsightsPageHeaderTitle"
-          >
-            <h1
-              className="pf-c-title pf-m-2xl"
-              widget-type="InsightsPageHeaderTitle"
-            >
-               
-              Subscription Watch
-               
-            </h1>
-          </Title>
-        </PageHeaderTitle>
-      </section>
-    </PageHeader>
-  </PageHeader>
-  <PageSection
-    className="curiosity"
-  >
-    <section
-      className="pf-c-page__main-section curiosity"
-    >
-      <EmptyState
-        className="fadein"
-        key=".1"
-        variant="full"
-      >
-        <div
-          className="pf-c-empty-state fadein"
-        >
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            <h2
-              className="pf-c-title pf-m-lg"
-            >
-              t(curiosity-auth.authorizedTitle, [object Object])
-            </h2>
-          </Title>
-          <EmptyStateIcon
-            icon={[Function]}
-          >
-            <LockIcon
-              aria-hidden="true"
-              className="pf-c-empty-state__icon"
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-              title={null}
-            >
-              <svg
-                aria-hidden="true"
-                aria-labelledby={null}
-                className="pf-c-empty-state__icon"
-                fill="currentColor"
-                height="1em"
-                role="img"
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
-                viewBox="0 0 448 512"
-                width="1em"
-              >
-                <path
-                  d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-                  transform=""
-                />
-              </svg>
-            </LockIcon>
-          </EmptyStateIcon>
-          <EmptyStateBody>
-            <div
-              className="pf-c-empty-state__body"
-            >
-              t(curiosity-auth.authorizedCopy, ...)
-            </div>
-          </EmptyStateBody>
-        </div>
-      </EmptyState>
-    </section>
-  </PageSection>
-</PageLayout>
+exports[`Authentication Component should return a message on 401 error: 401 error 1`] = `
+<MessageView
+  icon={[Function]}
+  message="t(curiosity-auth.authorizedCopy, ...)"
+  pageTitle={null}
+  title="t(curiosity-auth.authorizedTitle, [object Object])"
+/>
 `;
 
-exports[`Authorization Component should return a redirect on 403 error: 403 error 1`] = `"403 redirect"`;
+exports[`Authentication Component should return a redirect on 418 error: 418 error 1`] = `"418 redirect"`;
 
-exports[`Authorization Component should return a redirect on 418 error: 418 error 1`] = `"418 redirect"`;
+exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 error 1`] = `
+<MessageView
+  icon={[Function]}
+  message="t(curiosity-auth.authorizedCopy, ...)"
+  pageTitle={null}
+  title="t(curiosity-auth.authorizedTitle, [object Object])"
+/>
+`;
+
+exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `"403 redirect"`;
