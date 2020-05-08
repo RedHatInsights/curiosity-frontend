@@ -20,16 +20,8 @@ const getCurrentDate = () =>
  * @returns {{endDate: Date, startDate: Date}}
  */
 const setRangedDateTime = ({ date, subtract, measurement }) => ({
-  startDate: moment
-    .utc(date)
-    .startOf(measurement)
-    .subtract(subtract, measurement)
-    .toDate(),
-  endDate: moment
-    .utc(date)
-    .startOf(measurement)
-    .endOf('days')
-    .toDate()
+  startDate: moment.utc(date).startOf(measurement).subtract(subtract, measurement).toDate(),
+  endDate: moment.utc(date).startOf(measurement).endOf('days').toDate()
 });
 
 const defaultDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 30, measurement: 'days' });
