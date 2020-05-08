@@ -64,14 +64,8 @@ describe('GraphCardHelpers', () => {
       const generatedTicks = [];
 
       for (let i = 0; i <= endDateStartDateDiff; i++) {
-        const date = moment
-          .utc(startDate)
-          .add(i, momentGranularity)
-          .startOf(momentGranularity);
-
-        const previousDate = moment(date)
-          .subtract(1, momentGranularity)
-          .startOf(momentGranularity);
+        const date = moment.utc(startDate).add(i, momentGranularity).startOf(momentGranularity);
+        const previousDate = moment(date).subtract(1, momentGranularity).startOf(momentGranularity);
 
         generatedTicks.push(
           xAxisTickFormat({ date: date.toISOString(), granularity, tick: i, previousDate: previousDate.toISOString() })
