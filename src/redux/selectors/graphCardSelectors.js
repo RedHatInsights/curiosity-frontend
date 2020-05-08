@@ -90,10 +90,7 @@ const graphCardSelector = createSelector([graphResponse], response => {
 
     // Generate reflected graph data for number, undefined, and null
     reportData.forEach((value, index) => {
-      const date = moment
-        .utc(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE])
-        .startOf('day')
-        .toDate();
+      const date = moment.utc(value[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]).startOf('day').toDate();
 
       const generateGraphData = ({ graphDataObj, keyPrefix = '', customValue = null }) => {
         Object.keys(graphDataObj).forEach(graphDataObjKey => {
