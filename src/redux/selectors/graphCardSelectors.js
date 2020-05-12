@@ -81,11 +81,18 @@ const graphCardSelector = createSelector([graphResponse], response => {
       rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES
     ]);
 
+    // Apply "display logic" then return a custom value for Reporting graph entries
+    const customReportValue = (data, key, presetData) => ({
+      ...presetData,
+      hasData: data[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_DATA]
+    });
+
     // Apply "display logic" then return a custom value for Capacity graph entries
     const customCapacityValue = (data, key, { date, x, y }) => ({
       date,
       x,
-      y: data[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HAS_INFINITE] === true ? null : y
+      y: data[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HAS_INFINITE] === true ? null : y,
+      hasInfinite: data[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HAS_INFINITE]
     });
 
     // Generate reflected graph data for number, undefined, and null
@@ -130,7 +137,7 @@ const graphCardSelector = createSelector([graphResponse], response => {
         });
       };
 
-      generateGraphData({ graphDataObj: { ...tallySchema, ...value } });
+      generateGraphData({ graphDataObj: { ...tallySchema, ...value }, customValue: customReportValue });
       generateGraphData({
         graphDataObj: { ...capacitySchema, ...capacityData[index] },
         keyPrefix: 'threshold',
