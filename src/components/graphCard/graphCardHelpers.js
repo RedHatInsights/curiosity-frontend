@@ -78,18 +78,23 @@ const getTooltips = ({ itemsByKey, granularity, product = '' }) => {
       })}`;
     }
 
-    if (itemsByKey[key].y) {
-      if (/^threshold/.test(key)) {
-        thresholdString = `${translate(`curiosity-graph.thresholdLabel`)}: ${itemsByKey[key].y}\n`;
-      } else {
-        dataFacets.push(`${translate(`curiosity-graph.${key}Label`, { product })}: ${itemsByKey[key].y}\n`);
-      }
+    if (/^threshold/.test(key)) {
+      const thresholdStringValue =
+        (itemsByKey[key].hasInfinite && translate('curiosity-graph.infiniteThresholdLabel')) ||
+        (itemsByKey[key].y ?? translate('curiosity-graph.noDataLabel'));
+
+      thresholdString = `${translate(`curiosity-graph.thresholdLabel`)}: ${thresholdStringValue}\n`;
+    } else {
+      const dataFactsValue =
+        (itemsByKey[key].hasData === false && translate('curiosity-graph.noDataLabel')) || itemsByKey[key].y || 0;
+
+      dataFacets.push(`${translate(`curiosity-graph.${key}Label`, { product })}: ${dataFactsValue}\n`);
     }
   });
 
   return (
     ((thresholdString || dataFacets.length) && `${thresholdString}${dataFacets.join('')}${dateString}`.trim()) ||
-    translate('curiosity-graph.noDataLabel')
+    translate('curiosity-graph.noDataErrorLabel')
   );
 };
 
