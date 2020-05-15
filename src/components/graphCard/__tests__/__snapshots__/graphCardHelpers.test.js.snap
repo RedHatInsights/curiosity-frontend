@@ -13,8 +13,8 @@ exports[`GraphCardHelpers getTooltipDate should return a formatted date based on
 Object {
   "daily": "June 1",
   "monthly": "June 2019",
-  "quarterly": "June 2019",
-  "weekly": "June 1",
+  "quarterly": "Jun 2019 - Sep 2019",
+  "weekly": "Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -25,9 +25,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -38,9 +38,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -51,9 +51,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 50
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -64,9 +64,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -77,9 +77,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -90,9 +90,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -103,9 +103,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -116,9 +116,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -129,9 +129,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.hypervisorSocketsLabel, [object Object]): 0
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -151,9 +151,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): 100
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): 100
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): 100
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -164,9 +164,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): 100
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): 100
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): 100
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -177,9 +177,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -190,9 +190,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.noDataLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -203,9 +203,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.noDataLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.noDataLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -216,9 +216,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -229,9 +229,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): 0
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): 0
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): 0
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -242,9 +242,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): 0
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): 0
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): 0
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
@@ -255,9 +255,9 @@ t(curiosity-graph.dateLabel): June 1",
   "monthly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
 t(curiosity-graph.dateLabel): June 2019",
   "quarterly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
-t(curiosity-graph.dateLabel): June 2019",
+t(curiosity-graph.dateLabel): Jun 2019 - Sep 2019",
   "weekly": "t(curiosity-graph.thresholdLabel): t(curiosity-graph.infiniteThresholdLabel)
-t(curiosity-graph.dateLabel): June 1",
+t(curiosity-graph.dateLabel): Jun 1 - Jun 8 2019",
 }
 `;
 
