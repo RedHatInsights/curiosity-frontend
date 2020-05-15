@@ -33,23 +33,25 @@ const getChartXAxisLabelIncrement = granularity => {
  */
 const getTooltipDate = ({ date, granularity }) => {
   const momentDate = moment.utc(date);
-  let formattedDateTooltip;
 
   switch (granularity) {
     case GRANULARITY_TYPES.QUARTERLY:
-      formattedDateTooltip = dateHelpers.timestampQuarterFormats.yearLong;
-      break;
+      return `${momentDate.format(dateHelpers.timestampQuarterFormats.yearShort)} - ${momentDate
+        .add(1, 'quarter')
+        .format(dateHelpers.timestampQuarterFormats.yearShort)}`;
+
     case GRANULARITY_TYPES.MONTHLY:
-      formattedDateTooltip = dateHelpers.timestampMonthFormats.yearLong;
-      break;
+      return momentDate.format(dateHelpers.timestampMonthFormats.yearLong);
+
     case GRANULARITY_TYPES.WEEKLY:
+      return `${momentDate.format(dateHelpers.timestampDayFormats.short)} - ${momentDate
+        .add(1, 'week')
+        .format(dateHelpers.timestampDayFormats.yearShort)}`;
+
     case GRANULARITY_TYPES.DAILY:
     default:
-      formattedDateTooltip = dateHelpers.timestampDayFormats.long;
-      break;
+      return momentDate.format(dateHelpers.timestampDayFormats.long);
   }
-
-  return momentDate.format(formattedDateTooltip);
 };
 
 /**
