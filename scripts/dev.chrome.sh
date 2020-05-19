@@ -94,7 +94,7 @@ buildChrome()
 
   printf "${YELLOW}dotenv includes ...${NOCOLOR}"
 
-  HEADER_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g, '').concat('<style>.pf-c-page__sidebar .ins-c-skeleton{display:none}</style>')")
+  HEADER_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g, '').concat('<style>.pf-c-page__sidebar .ins-c-skeleton,.pf-c-page__sidebar .ins-c-navigation__header{display:none}</style>')")
   BODY_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_BODY}').toString().replace(/\n/g,'').replace(/Logging in\.\.\./i, 'Development')")
 
   if [[ ! -z "$HEADER_CONTENT" ]] && [[ ! -z "$BODY_CONTENT" ]]; then
