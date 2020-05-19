@@ -1,0 +1,400 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`C3GraphCard Component should filter result sets: filtered config 1`] = `
+Object {
+  "colors": Object {
+    "loremIpsumSockets": undefined,
+    "thresholdLoremIpsumSockets": "#4cb140",
+  },
+  "columns": Array [
+    Array [
+      "x",
+      "2019-06-01",
+      "2019-06-08",
+      "2019-06-25",
+    ],
+    Array [
+      "loremIpsumSockets",
+      10,
+      12,
+      3,
+    ],
+    Array [
+      "thresholdLoremIpsumSockets",
+      10,
+      12,
+      3,
+    ],
+  ],
+  "groups": Array [
+    Array [
+      "loremIpsumSockets",
+    ],
+  ],
+  "names": Object {
+    "loremIpsumSockets": "t(curiosity-graph.loremIpsumSocketsLabel, [object Object])",
+    "thresholdLoremIpsumSockets": "t(curiosity-graph.thresholdLabel)",
+  },
+  "types": Object {
+    "loremIpsumSockets": "area-spline",
+    "thresholdLoremIpsumSockets": "step",
+  },
+  "x": "x",
+}
+`;
+
+exports[`C3GraphCard Component should render a custom legend: empty legend 1`] = `Array []`;
+
+exports[`C3GraphCard Component should render a custom legend: legend 1`] = `
+Array [
+  <C3GraphCardLegendItem
+    chart={
+      Object {
+        "color": [Function],
+        "focus": [Function],
+        "hide": [Function],
+        "revert": [Function],
+        "toggle": [Function],
+      }
+    }
+    chartId="lorem"
+    getToggle={[Function]}
+    isDisabled={false}
+    isThreshold={false}
+    isToggled={false}
+    tooltipContent={
+      <p>
+        t(curiosity-graph.loremLegendTooltip)
+      </p>
+    }
+  >
+    t(curiosity-graph.loremLabel, [object Object])
+  </C3GraphCardLegendItem>,
+  <C3GraphCardLegendItem
+    chart={
+      Object {
+        "color": [Function],
+        "focus": [Function],
+        "hide": [Function],
+        "revert": [Function],
+        "toggle": [Function],
+      }
+    }
+    chartId="thresholdIpsum"
+    getToggle={[Function]}
+    isDisabled={false}
+    isThreshold={true}
+    isToggled={false}
+    tooltipContent={
+      <p>
+        t(curiosity-graph.thresholdLegendTooltip)
+      </p>
+    }
+  >
+    t(curiosity-graph.thresholdLabel)
+  </C3GraphCardLegendItem>,
+]
+`;
+
+exports[`C3GraphCard Component should render a non-connected component: non-connected 1`] = `
+<Card
+  className="curiosity-usage-graph fadein"
+>
+  <CardHead>
+    <h2 />
+    <CardActions>
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "selected": true,
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        variant="single"
+      />
+    </CardActions>
+  </CardHead>
+  <CardBody>
+    <div
+      className="curiosity-skeleton-container "
+    />
+  </CardBody>
+</Card>
+`;
+
+exports[`C3GraphCard Component should render multiple states: error passes values 1`] = `
+Object {
+  "chartBarData": Object {
+    "colors": Object {
+      "physicalSockets": undefined,
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "2019-06-01",
+        "2019-06-08",
+        "2019-06-25",
+      ],
+      Array [
+        "physicalSockets",
+        10,
+        12,
+        3,
+      ],
+    ],
+    "groups": Array [
+      Array [
+        "physicalSockets",
+      ],
+    ],
+    "names": Object {
+      "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+    },
+    "types": Object {
+      "physicalSockets": "area-spline",
+    },
+    "x": "x",
+  },
+}
+`;
+
+exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
+<Card
+  className="curiosity-usage-graph fadein"
+>
+  <CardHead>
+    <h2 />
+    <CardActions>
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "selected": true,
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        variant="single"
+      />
+    </CardActions>
+  </CardHead>
+  <CardBody>
+    <div
+      className="curiosity-skeleton-container "
+    >
+      <C3Chart
+        className={null}
+        config={
+          Object {
+            "axis": Object {
+              "x": Object {
+                "padding": 0,
+                "tick": Object {
+                  "format": [Function],
+                },
+                "type": "timeseries",
+              },
+              "y": Object {
+                "default": Array [
+                  0,
+                  50,
+                ],
+                "min": 0,
+                "padding": Object {
+                  "bottom": 0,
+                },
+                "tick": Object {
+                  "format": [Function],
+                  "outer": false,
+                  "show": false,
+                },
+              },
+            },
+            "data": Object {
+              "colors": Object {
+                "physicalSockets": undefined,
+              },
+              "columns": Array [
+                Array [
+                  "x",
+                  "2019-06-01",
+                  "2019-06-08",
+                  "2019-06-25",
+                ],
+                Array [
+                  "physicalSockets",
+                  10,
+                  12,
+                  3,
+                ],
+              ],
+              "groups": Array [
+                Array [
+                  "physicalSockets",
+                ],
+              ],
+              "names": Object {
+                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+              },
+              "types": Object {
+                "physicalSockets": "area-spline",
+              },
+              "x": "x",
+            },
+            "grid": Object {
+              "y": Object {
+                "show": true,
+              },
+            },
+            "legend": Object {
+              "show": false,
+            },
+            "padding": Object {
+              "bottom": 10,
+              "left": 40,
+              "right": 40,
+              "top": 10,
+            },
+            "point": Object {
+              "show": false,
+            },
+            "spline": Object {
+              "interpolation": Object {
+                "type": "monotone",
+              },
+            },
+            "tooltip": Object {
+              "format": Object {
+                "title": [Function],
+                "value": [Function],
+              },
+              "order": [Function],
+            },
+            "unloadBeforeLoad": true,
+          }
+        }
+        key="chart-lorem-daily"
+        onComplete={[Function]}
+        style={Object {}}
+      >
+        <Component />
+      </C3Chart>
+    </div>
+  </CardBody>
+</Card>
+`;
+
+exports[`C3GraphCard Component should render multiple states: pending 1`] = `
+<Card
+  className="curiosity-usage-graph fadein"
+>
+  <CardHead>
+    <h2 />
+    <CardActions>
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "selected": true,
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        variant="single"
+      />
+    </CardActions>
+  </CardHead>
+  <CardBody>
+    <div
+      className="curiosity-skeleton-container "
+    >
+      <Skeleton
+        isDark={false}
+        size="xs"
+      />
+      <Skeleton
+        isDark={false}
+        size="sm"
+      />
+      <Skeleton
+        isDark={false}
+        size="md"
+      />
+      <Skeleton
+        isDark={false}
+        size="lg"
+      />
+    </div>
+  </CardBody>
+</Card>
+`;
+
+exports[`C3GraphCard Component should return an empty render when disabled: disabled component 1`] = `""`;

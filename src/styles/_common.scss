@@ -3,6 +3,10 @@
     filter: blur(4px);
   }
 
+  .faded {
+    opacity: 0.3;
+  }
+
   .fadein {
     opacity:0;
     animation:fadein .25s ease-in forwards;
@@ -10,4 +14,12 @@
   }
 
   @keyframes fadein { 0%{opacity:0} 100%{opacity:1} }
+
+  .fadeout {
+    opacity:1;
+    animation:fadeout .25s ease-in forwards;
+    animation-delay:.25s;
+  }
+
+  @keyframes fadeout { 0%{opacity:1} 100%{opacity:0} }
 }
