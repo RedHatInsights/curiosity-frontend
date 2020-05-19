@@ -46,7 +46,7 @@ const getApiVersion = () =>
 
 /**
  * @apiMock {DelayResponse} 2000
- * @apiMock {ForceStatus} 200
+ * @apiMock {RandomSuccess}
  * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id Get RHSM graph data
  * @apiDescription Retrieve graph data.
  *
@@ -84,7 +84,143 @@ const getApiVersion = () =>
  *     {
  *       "data": [
  *         {
- *           "date": "2018-07-19T00:00:00Z",
+ *           "date": "2019-07-01T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true,
+ *           "cloud_sockets": 80
+ *         },
+ *         {
+ *           "date": "2019-07-02T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true,
+ *           "cloud_sockets": 80
+ *         },
+ *         {
+ *           "date": "2019-07-03T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true,
+ *           "cloud_sockets": 80
+ *         },
+ *         {
+ *           "date": "2019-07-04T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": true,
+ *           "cloud_sockets": 80
+ *         },
+ *         {
+ *           "date": "2019-07-05T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-06T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-07T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-08T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-09T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-10T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-11T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-12T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-13T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-14T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-15T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-16T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-17T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_data": false,
+ *           "cloud_sockets": 20
+ *         },
+ *         {
+ *           "date": "2019-07-18T00:00:00Z",
  *           "sockets": 50,
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
@@ -92,7 +228,7 @@ const getApiVersion = () =>
  *           "cloud_sockets": 20
  *         },
  *         {
- *           "date": "2018-07-20T00:00:00Z",
+ *           "date": "2019-07-19T00:00:00Z",
  *           "sockets": 50,
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
@@ -208,78 +344,104 @@ const getApiVersion = () =>
  *     }
  *
  * @apiSuccessExample {json} WEEKLY, Success-Response:
- *     HTTP/1.1 201 OK
+ *     HTTP/1.1 200 OK
  *     {
  *       "data": [
  *         {
+ *           "date": "2019-05-19T00:00:00Z",
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
+ *         },
+ *         {
  *           "date": "2019-05-26T00:00:00Z",
- *           "instance_count": 16,
- *           "cores": 32,
- *           "hypervisor": 50,
- *           "sockets": 32
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-06-02T00:00:00Z",
- *           "instance_count": 6,
- *           "cores": 12,
- *           "hypervisor": 20,
- *           "sockets": 12
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-06-09T00:00:00Z",
- *           "instance_count": 6,
- *           "cores": 12,
- *           "hypervisor": 20,
- *           "sockets": 12
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-06-16T00:00:00Z",
- *           "instance_count": 6,
- *           "cores": 12,
- *           "hypervisor": 20,
- *           "sockets": 12
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-06-23T00:00:00Z",
- *           "instance_count": 6,
- *           "cores": 12,
- *           "hypervisor": 20,
- *           "sockets": 12
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-06-30T00:00:00Z",
- *           "instance_count": 6,
- *           "cores": 12,
- *           "hypervisor": 20,
- *           "sockets": 12
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-07-07T00:00:00Z",
- *           "instance_count": 5,
- *           "cores": 10,
- *           "hypervisor": 0,
- *           "sockets": 10
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-07-14T00:00:00Z",
- *           "instance_count": 5,
- *           "cores": 10,
- *           "hypervisor": 0,
- *           "sockets": 10
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-07-21T00:00:00Z",
- *           "instance_count": 5,
- *           "cores": 10,
- *           "hypervisor": 0,
- *           "sockets": 10
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         },
  *         {
  *           "date": "2019-07-28T00:00:00Z",
- *           "instance_count": 6,
- *           "cores": 12,
- *           "hypervisor": 20,
- *           "sockets": 12
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
+ *         },
+ *         {
+ *           "date": "2019-08-04T00:00:00Z",
+ *           "sockets": 86,
+ *           "physical_sockets": 56,
+ *           "hypervisor_sockets": 30,
+ *           "has_data": true,
+ *           "cloud_sockets": 60
  *         }
  *       ],
  *       "links": {
@@ -294,50 +456,112 @@ const getApiVersion = () =>
  *     }
  *
  * @apiSuccessExample {json} MONTHLY, Success-Response:
- *     HTTP/1.1 201 OK
+ *     HTTP/1.1 200 OK
  *     {
  *       "data": [
  *         {
+ *           "date": "2018-08-01T00:00:00Z",
+ *           "sockets": 100,
+ *           "physical_sockets": 25,
+ *           "hypervisor_sockets": 50,
+ *           "has_data": true,
+ *           "cloud_sockets": 25
+ *         },
+ *         {
+ *           "date": "2018-09-01T00:00:00Z",
+ *           "sockets": 100,
+ *           "physical_sockets": 25,
+ *           "hypervisor_sockets": 50,
+ *           "has_data": true,
+ *           "cloud_sockets": 25
+ *         },
+ *         {
+ *           "date": "2018-10-01T00:00:00Z",
+ *           "sockets": 100,
+ *           "physical_sockets": 25,
+ *           "hypervisor_sockets": 50,
+ *           "has_data": true,
+ *           "cloud_sockets": 25
+ *         },
+ *         {
+ *           "date": "2018-11-01T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": null,
+ *           "has_data": false,
+ *           "cloud_sockets": 0
+ *         },
+ *         {
+ *           "date": "2018-12-01T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": null,
+ *           "has_data": false,
+ *           "cloud_sockets": 0
+ *         },
+ *         {
  *           "date": "2019-01-01T00:00:00Z",
- *           "instance_count": 16,
- *           "cores": 32,
- *           "hypervisor": 50,
- *           "sockets": 32
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": null,
+ *           "has_data": false,
+ *           "cloud_sockets": 0
  *         },
  *         {
  *           "date": "2019-02-01T00:00:00Z",
- *           "instance_count": 8,
- *           "cores": 16,
- *           "hypervisor": 20,
- *           "sockets": 16
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": null,
+ *           "has_data": false,
+ *           "cloud_sockets": 0
  *         },
  *         {
  *           "date": "2019-03-01T00:00:00Z",
- *           "instance_count": 0,
- *           "cores": 0,
- *           "hypervisor": 0,
- *           "sockets": 0
+ *           "sockets": 3000,
+ *           "physical_sockets": 500,
+ *           "hypervisor_sockets": 2000,
+ *           "has_data": true,
+ *           "cloud_sockets": 500
  *         },
  *         {
  *           "date": "2019-04-01T00:00:00Z",
- *           "instance_count": 8,
- *           "cores": 16,
- *           "hypervisor": 20,
- *           "sockets": 16
+ *           "sockets": 2600,
+ *           "physical_sockets": 100,
+ *           "hypervisor_sockets": 2000,
+ *           "has_data": true,
+ *           "cloud_sockets": 500
  *         },
  *         {
  *           "date": "2019-05-01T00:00:00Z",
- *           "instance_count": 16,
- *           "cores": 32,
- *           "hypervisor": 50,
- *           "sockets": 32
+ *           "sockets": 3000,
+ *           "physical_sockets": 500,
+ *           "hypervisor_sockets": 2000,
+ *           "has_data": true,
+ *           "cloud_sockets": 500
  *         },
  *         {
  *           "date": "2019-06-01T00:00:00Z",
- *           "instance_count": 24,
- *           "cores": 48,
- *           "hypervisor": 50,
- *           "sockets": 48
+ *           "sockets": 3000,
+ *           "physical_sockets": 500,
+ *           "hypervisor_sockets": 2000,
+ *           "has_data": true,
+ *           "cloud_sockets": 500
+ *         },
+ *         {
+ *           "date": "2019-07-01T00:00:00Z",
+ *           "sockets": 3000,
+ *           "physical_sockets": 500,
+ *           "hypervisor_sockets": 2000,
+ *           "has_data": true,
+ *           "cloud_sockets": 500
+ *         },
+ *         {
+ *           "date": "2019-08-01T00:00:00Z",
+ *           "sockets": 2600,
+ *           "physical_sockets": 100,
+ *           "hypervisor_sockets": 2000,
+ *           "has_data": true,
+ *           "cloud_sockets": 500
  *         }
  *       ],
  *       "links": {
@@ -351,49 +575,6 @@ const getApiVersion = () =>
  *       }
  *     }
  *
- * @apiSuccessExample {json} QUARTERLY, Success-Response:
- *     HTTP/1.1 201 OK
- *     {
- *       "data": [
- *         {
- *           "date": "2018-01-01T00:00:00Z",
- *           "instance_count": 24,
- *           "cores": 48,
- *           "hypervisor": 50,
- *           "sockets": 48
- *         },
- *         {
- *           "date": "2018-04-01T00:00:00Z",
- *           "instance_count": 16,
- *           "cores": 32,
- *           "hypervisor": 50,
- *           "sockets": 32
- *         },
- *         {
- *           "date": "2018-07-01T00:00:00Z",
- *           "instance_count": 8,
- *           "cores": 16,
- *           "hypervisor": 20,
- *           "sockets": 16
- *         },
- *         {
- *           "date": "2018-10-01T00:00:00Z",
- *           "instance_count": 0,
- *           "cores": 0,
- *           "hypervisor": 10,
- *           "sockets": 0
- *         }
- *       ],
- *       "links": {
- *         "first": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=quarterly&beginning=2015-01-01T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0",
- *         "last": "/api/rhsm-subscriptions/v1/tally/products/RHEL?granularity=quarterly&beginning=2015-01-01T00:00:00.000Z&ending=2019-08-19T23:59:59.999Z&offset=0"
- *       },
- *       "meta": {
- *         "count": 4,
- *         "product": "RHEL",
- *         "granularity": "quarterly"
- *       }
- *     }
  *
  * @apiError {Array} errors
  * @apiErrorExample {json} Error-Response:
@@ -460,14 +641,140 @@ const getGraphReports = (id, params = {}) =>
  *     {
  *       "data": [
  *         {
- *           "date": "2018-07-19T00:00:00Z",
+ *           "date": "2019-07-01T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-02T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-03T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-04T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-05T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-06T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-07T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-08T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-09T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-10T00:00:00Z",
+ *           "sockets": 0,
+ *           "physical_sockets": 0,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-11T00:00:00Z",
  *           "sockets": 50,
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_infinite_quantity": false
  *         },
  *         {
- *           "date": "2018-07-20T00:00:00Z",
+ *           "date": "2019-07-12T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-13T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-14T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-15T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-16T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-17T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-18T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-18T00:00:00Z",
+ *           "sockets": 50,
+ *           "physical_sockets": 50,
+ *           "hypervisor_sockets": 0,
+ *           "has_infinite_quantity": false
+ *         },
+ *         {
+ *           "date": "2019-07-19T00:00:00Z",
  *           "sockets": 50,
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
@@ -499,13 +806,13 @@ const getGraphReports = (id, params = {}) =>
  *           "sockets": null,
  *           "physical_sockets": null,
  *           "hypervisor_sockets": null,
- *           "has_infinite_quantity": true
+ *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2019-07-24T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "sockets": null,
+ *           "physical_sockets": null,
+ *           "hypervisor_sockets": null,
  *           "has_infinite_quantity": true
  *         },
  *         {
@@ -545,6 +852,13 @@ const getGraphReports = (id, params = {}) =>
  *         },
  *         {
  *           "date": "2019-07-30T00:00:00Z",
+ *           "sockets": 100,
+ *           "physical_sockets": 75,
+ *           "hypervisor_sockets": 25,
+ *           "has_infinite_quantity": true
+ *         },
+ *         {
+ *           "date": "2019-07-31T00:00:00Z",
  *           "sockets": 100,
  *           "physical_sockets": 75,
  *           "hypervisor_sockets": 25,

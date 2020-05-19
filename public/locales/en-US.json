@@ -18,13 +18,21 @@
     "noDataErrorLabel": "No data",
     "dateLabel": "Date",
     "coresLabel": "Cores",
+    "coresLegendTooltip": "Lorem ipsum dolor sit, cores.",
     "socketsLabel": "Sockets",
+    "socketsLegendTooltip": "Lorem ipsum dolor sit, sockets.",
     "cloudSocketsLabel": "Public cloud",
+    "cloudSocketsLegendTooltip": "Lorem ipsum dolor sit, cloudSockets.",
     "hypervisorCoresLabel": "Virtualized cores",
+    "hypervisorCoresLegendTooltip": "Lorem ipsum dolor sit, hypervisorCores.",
     "hypervisorSocketsLabel": "Virtualized {{product}}",
+    "hypervisorSocketsLegendTooltip": "Lorem ipsum dolor sit, hypervisorSockets.",
     "physicalCoresLabel": "Physical cores",
+    "physicalCoresLegendTooltip": "Lorem ipsum dolor sit, physicalCores.",
     "physicalSocketsLabel": "Physical {{product}}",
-    "thresholdLabel": "Subscription threshold"
+    "physicalSocketsLegendTooltip": "Lorem ipsum dolor sit, physicalSockets.",
+    "thresholdLabel": "Subscription threshold",
+    "thresholdLegendTooltip": "Lorem ipsum dolor sit, threshold."
   },
   "curiosity-toolbar": {
     "slaCategory": "SLA",

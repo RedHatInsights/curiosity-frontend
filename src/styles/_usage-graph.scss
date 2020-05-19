@@ -4,4 +4,62 @@
       border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
     }
   }
+
+  .c3 svg {
+    font: 1em var(--pf-chart-global--FontFamily);
+    letter-spacing: var(--pf-chart-global--letter-spacing);
+  }
+
+  .c3-axis.c3-axis-x,
+  .c3-axis.c3-axis-y {
+    opacity: 0.5 !important;
+  }
+
+  .c3-shape.c3-line[class*="threshold"] {
+    stroke-dasharray: 5,5;
+    stroke-width: 3;
+  }
+
+  .threshold-legend-icon,
+  .legend-icon {
+    vertical-align: baseline;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+  }
+
+  .threshold-legend-icon {
+    height: auto;
+    vertical-align: middle;
+    width: 25px;
+    border-width: 0;
+    border-top-width: 3px;
+    border-style: dashed;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .c3-xgrid, .c3-ygrid {
+    stroke-dasharray: none;
+    opacity: 0.5;
+  }
+
+  // ToDo: apply pf color variables
+  table.c3-tooltip {
+    background-color: #333333;
+    color: #ffffff;
+
+    tr,th,td {
+      background-color: inherit;
+      color: inherit;
+      border: none;
+    }
+  }
+
+  .curiosity-c3chart {
+    .curiosity-c3chart-description {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
