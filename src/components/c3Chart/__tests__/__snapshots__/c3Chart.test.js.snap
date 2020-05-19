@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`C3Chart Component should pass child components: child components 1`] = `
+<div
+  className="curiosity-c3chart null"
+  style={Object {}}
+>
+  <div
+    className="curiosity-c3chart-container"
+  />
+  <div
+    className="curiosity-c3chart-description"
+  >
+    lorem 
+    <span>
+      ipsum
+    </span>
+  </div>
+</div>
+`;
+
+exports[`C3Chart Component should render a basic component: basic 1`] = `
+<div
+  className="curiosity-c3chart null"
+  style={Object {}}
+>
+  <div
+    className="curiosity-c3chart-container"
+  />
+  <div
+    className="curiosity-c3chart-description"
+  />
+</div>
+`;
+
+exports[`C3Chart Component should return a chart and config reference: references 1`] = `
+<div
+  className="curiosity-c3chart null"
+  style={Object {}}
+>
+  <div
+    className="curiosity-c3chart-container"
+  />
+  <div
+    className="curiosity-c3chart-description"
+  >
+    <span>
+      <Component />
+       and 
+      {"data":{"columns":[]}}
+    </span>
+  </div>
+</div>
+`;
