@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.15...v0.1.16) (2020-05-20)
+
+
+### Features
+
+* **userReducer,rhsmApiTypes:** issues/260 error codes ([#277](https://github.com/RedHatInsights/curiosity-frontend/issues/277)) ([73ab02f](https://github.com/RedHatInsights/curiosity-frontend/commit/73ab02f4a3b59e8de378226c767c0d4ff7469177))
+
+
+### Bug Fixes
+
+* **authentication:** issues/260 apply optin code ([5d70f83](https://github.com/RedHatInsights/curiosity-frontend/commit/5d70f83c59331dab716d629e40678e68fea25fe9))
+* **build:** issues/274 update proxy docker port mapping ([#276](https://github.com/RedHatInsights/curiosity-frontend/issues/276)) ([254bb49](https://github.com/RedHatInsights/curiosity-frontend/commit/254bb4912482870bc02d2e55b33f02adba6220c0))
+* **graphCardHelpers:** issues/180 tooltip show data facets ([#282](https://github.com/RedHatInsights/curiosity-frontend/issues/282)) ([5cc2bc9](https://github.com/RedHatInsights/curiosity-frontend/commit/5cc2bc9fe8951e45f40815048394e89f3ff84c7d))
+* **graphCardHelpers:** issues/273 tooltip date ranges ([#284](https://github.com/RedHatInsights/curiosity-frontend/issues/284)) ([9f39ee8](https://github.com/RedHatInsights/curiosity-frontend/commit/9f39ee88bcf0e18bee25285e3e35b3b96ebff43f))
+* **platformServices:** issues/260 confirm user permissions ([73df889](https://github.com/RedHatInsights/curiosity-frontend/commit/73df889c14ae53a79f9b694a359ccc3d9ab4b71d))
+* **reduxHelpers,middleware:** issues/260 expose error data ([dfc10b7](https://github.com/RedHatInsights/curiosity-frontend/commit/dfc10b766313d39f5fd021076cef229ea5f48c9e))
+* **testing:** regex for scenarios testing platform config ([#271](https://github.com/RedHatInsights/curiosity-frontend/issues/271)) ([d90a2b2](https://github.com/RedHatInsights/curiosity-frontend/commit/d90a2b23e0a59967ae1c9da7ed09926a9091a06e))
+
 ### [0.1.15](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.14...v0.1.15) (2020-05-04)
 
 
