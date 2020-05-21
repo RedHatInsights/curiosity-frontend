@@ -39,11 +39,30 @@ class Router extends React.Component {
               key={item.to}
               path={item.to}
               strict={item.strict}
-              render={routeProps => {
+              render={({ location, ...routeProps }) => {
                 const navDetail = routerHelpers.getNavigationDetail({
-                  pathname: routeProps.location && routeProps.location.pathname,
+                  pathname: location && location.pathname,
                   returnDefault: false
                 });
+
+                const { URLSearchParams, decodeURIComponent } = window;
+                const parsedSearch = {};
+
+                [
+                  ...new Set(
+                    [...new URLSearchParams(decodeURIComponent(location.search))].map(
+                      ([param, value]) => `${param}~${value}`
+                    )
+                  )
+                ].forEach(v => {
+                  const [param, value] = v.split('~');
+                  parsedSearch[param] = value;
+                });
+
+                const updatedLocation = {
+                  ...location,
+                  parsedSearch
+                };
 
                 return (
                   <item.component
@@ -54,6 +73,7 @@ class Router extends React.Component {
                       routeItem: { ...item },
                       ...navDetail
                     }}
+                    location={updatedLocation}
                     {...routeProps}
                   />
                 );

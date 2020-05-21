@@ -8,6 +8,14 @@ import {
 } from '../routerHelpers';
 
 describe('RouterHelpers', () => {
+  const mockWindowLocationProp = async ({ prop, url, callback }) => {
+    const { location } = window;
+    delete window.location;
+    window.location = { [prop]: url };
+    await callback();
+    window.location = location;
+  };
+
   it('should return specific properties', () => {
     expect(baseName).toBeDefined();
     expect(dynamicBaseName).toBeDefined();
@@ -115,5 +123,47 @@ describe('RouterHelpers', () => {
       route: getRouteDetail({}),
       navRoute: getNavRouteDetail({})
     }).toMatchSnapshot('detail: missing parameters');
+  });
+
+  it('should handle location search and hash passthrough values', () => {
+    mockWindowLocationProp({
+      prop: 'href',
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all',
+      callback: () => {
+        expect({
+          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+        }).toMatchSnapshot('NO search and hash');
+      }
+    });
+
+    mockWindowLocationProp({
+      prop: 'href',
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all?dolor=sit',
+      callback: () => {
+        expect({
+          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+        }).toMatchSnapshot('search');
+      }
+    });
+
+    mockWindowLocationProp({
+      prop: 'href',
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all#lorem',
+      callback: () => {
+        expect({
+          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+        }).toMatchSnapshot('hash');
+      }
+    });
+
+    mockWindowLocationProp({
+      prop: 'href',
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all?dolor=sit#lorem',
+      callback: () => {
+        expect({
+          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+        }).toMatchSnapshot('search and hash');
+      }
+    });
   });
 });

@@ -63,6 +63,11 @@ const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false
     navigationItem = defaultItem;
   }
 
+  if (navigationItem) {
+    const [, routeHref] = window.location.href.split(navigationItem.path);
+    navigationItem.routeHref = `${navigationItem.path}${routeHref || ''}`;
+  }
+
   return { ...(navigationItem || {}) };
 };
 
