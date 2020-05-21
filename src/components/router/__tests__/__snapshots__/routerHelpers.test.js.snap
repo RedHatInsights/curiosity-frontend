@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RouterHelpers should handle location search and hash passthrough values: NO search and hash 1`] = `
+Object {
+  "routeHref": "/rhel-sw/all",
+}
+`;
+
+exports[`RouterHelpers should handle location search and hash passthrough values: hash 1`] = `
+Object {
+  "routeHref": "/rhel-sw/all#lorem",
+}
+`;
+
+exports[`RouterHelpers should handle location search and hash passthrough values: search 1`] = `
+Object {
+  "routeHref": "/rhel-sw/all?dolor=sit",
+}
+`;
+
+exports[`RouterHelpers should handle location search and hash passthrough values: search and hash 1`] = `
+Object {
+  "routeHref": "/rhel-sw/all?dolor=sit#lorem",
+}
+`;
+
 exports[`RouterHelpers should return a generated baseName using NO path prefix: app lorem route name 1`] = `"/appName"`;
 
 exports[`RouterHelpers should return a generated baseName using NO path prefix: empty pathPrefix: app base name 1`] = `"/appName"`;
@@ -40,6 +64,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "routeHref": "/rhel-sw/all",
   },
   "navRoute": Object {
     "component": Object {
@@ -58,6 +83,7 @@ Object {
     "pathParameter": "RHEL",
     "redirect": true,
     "render": true,
+    "routeHref": "/rhel-sw/all",
     "to": "/rhel-sw/all",
   },
   "route": Object {
@@ -85,6 +111,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "routeHref": "/rhel-sw/all",
   },
   "navRoute": Object {
     "component": Object {
@@ -103,6 +130,7 @@ Object {
     "pathParameter": "RHEL",
     "redirect": true,
     "render": true,
+    "routeHref": "/rhel-sw/all",
     "to": "/rhel-sw/all",
   },
   "route": Object {
@@ -138,6 +166,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "routeHref": "/rhel-sw/all",
   },
   "navRoute": Object {
     "component": Object {
@@ -156,6 +185,7 @@ Object {
     "pathParameter": "RHEL",
     "redirect": true,
     "render": true,
+    "routeHref": "/rhel-sw/all",
     "to": "/rhel-sw/all",
   },
   "route": Object {},
@@ -177,6 +207,7 @@ Object {
     "path": "/rhel-sw/arm",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
+    "routeHref": "/rhel-sw/arm",
   },
   "navRoute": Object {
     "component": Object {
@@ -193,6 +224,7 @@ Object {
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
     "render": true,
+    "routeHref": "/rhel-sw/arm",
     "to": "/rhel-sw/:variant",
   },
   "route": Object {},

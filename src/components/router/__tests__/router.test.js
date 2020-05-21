@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import { Router, Redirect, routerHelpers, routerTypes } from '../router';
 
 describe('Router Component', () => {
@@ -42,5 +43,33 @@ describe('Router Component', () => {
 
     const component = shallow(<Router {...props} />);
     expect(component).toMatchSnapshot('settings');
+  });
+
+  it('should pass customized props to routed components', () => {
+    const props = {
+      routes: [
+        {
+          title: 'Lorem',
+          to: '/lorem',
+          redirect: false,
+          component: () => <div>Lorem</div>,
+          exact: false,
+          render: true,
+          disabled: false
+        }
+      ]
+    };
+
+    const component = mount(
+      <MemoryRouter initialEntries={['/lorem?ipsum=1%202&dolor=sit&dolor=sit&dolor']}>
+        <Router {...props} />
+      </MemoryRouter>
+    );
+
+    const routedComponentProps = component.find(props.routes[0].component).props();
+    expect({
+      routeDetail: routedComponentProps.routeDetail,
+      locationParsedSearch: routedComponentProps.location.parsedSearch
+    }).toMatchSnapshot('routeDetail and location parsedSearch props');
   });
 });
