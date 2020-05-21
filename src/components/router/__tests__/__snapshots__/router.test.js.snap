@@ -17,6 +17,39 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
 </Switch>
 `;
 
+exports[`Router Component should pass customized props to routed components: routeDetail and location parsedSearch props 1`] = `
+Object {
+  "locationParsedSearch": Object {
+    "dolor": "",
+    "ipsum": "1 2",
+  },
+  "routeDetail": Object {
+    "baseName": "/",
+    "errorRoute": undefined,
+    "routeItem": Object {
+      "component": [Function],
+      "disabled": false,
+      "exact": false,
+      "redirect": false,
+      "render": true,
+      "title": "Lorem",
+      "to": "/lorem",
+    },
+    "routes": Array [
+      Object {
+        "component": [Function],
+        "disabled": false,
+        "exact": false,
+        "redirect": false,
+        "render": true,
+        "title": "Lorem",
+        "to": "/lorem",
+      },
+    ],
+  },
+}
+`;
+
 exports[`Router Component should render a basic component: basic 1`] = `
 <Switch>
   <Route
