@@ -29,8 +29,8 @@ class Authentication extends Component {
       setAppName(this.appName);
 
       const appNav = onNavigation(event => {
-        const { path } = routerHelpers.getNavRouteDetail({ id: event.navId, returnDefault: true });
-        history.push(path);
+        const { routeHref } = routerHelpers.getNavRouteDetail({ id: event.navId, returnDefault: true });
+        history.push(routeHref);
       });
 
       this.removeListeners = () => {
