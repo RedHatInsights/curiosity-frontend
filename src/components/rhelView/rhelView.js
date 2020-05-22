@@ -12,6 +12,7 @@ import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
+import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
 
@@ -29,7 +30,8 @@ class RhelView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { graphQuery, initialFilters, routeDetail, t, viewId } = this.props;
+    const { graphQuery, initialFilters, location, routeDetail, t, viewId } = this.props;
+    const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
       <PageLayout>
@@ -38,15 +40,27 @@ class RhelView extends React.Component {
           <Toolbar graphQuery={graphQuery} viewId={viewId} />
         </PageToolbar>
         <PageSection>
-          <GraphCard
-            key={routeDetail.pathParameter}
-            filterGraphData={initialFilters}
-            graphQuery={graphQuery}
-            productId={routeDetail.pathParameter}
-            viewId={viewId}
-            cardTitle={t('curiosity-graph.socketsHeading')}
-            productShortLabel={viewId}
-          />
+          {(isC3 && (
+            <C3GraphCard
+              key={routeDetail.pathParameter}
+              filterGraphData={initialFilters}
+              graphQuery={graphQuery}
+              productId={routeDetail.pathParameter}
+              viewId={viewId}
+              cardTitle={t('curiosity-graph.socketsHeading')}
+              productShortLabel={viewId}
+            />
+          )) || (
+            <GraphCard
+              key={routeDetail.pathParameter}
+              filterGraphData={initialFilters}
+              graphQuery={graphQuery}
+              productId={routeDetail.pathParameter}
+              viewId={viewId}
+              cardTitle={t('curiosity-graph.socketsHeading')}
+              productShortLabel={viewId}
+            />
+          )}
         </PageSection>
       </PageLayout>
     );
@@ -56,13 +70,17 @@ class RhelView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, viewId: string, t: Function, routeDetail: object, graphQuery: object}}
+ * @type {{initialFilters: Array, viewId: string, t: Function, routeDetail: object, location: object,
+ *     graphQuery: object}}
  */
 RhelView.propTypes = {
   graphQuery: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialFilters: PropTypes.array,
+  location: PropTypes.shape({
+    parsedSearch: PropTypes.objectOf(PropTypes.string)
+  }).isRequired,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     pathId: PropTypes.string.isRequired,
@@ -84,9 +102,24 @@ RhelView.defaultProps = {
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
   },
   initialFilters: [
-    { id: 'physicalSockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
-    { id: 'hypervisorSockets', fill: chartColorCyanLight.value, stroke: chartColorCyanDark.value },
-    { id: 'cloudSockets', fill: chartColorPurpleLight.value, stroke: chartColorPurpleDark.value },
+    {
+      id: 'physicalSockets',
+      fill: chartColorBlueLight.value,
+      stroke: chartColorBlueDark.value,
+      color: chartColorBlueDark.value
+    },
+    {
+      id: 'hypervisorSockets',
+      fill: chartColorCyanLight.value,
+      stroke: chartColorCyanDark.value,
+      color: chartColorCyanDark.value
+    },
+    {
+      id: 'cloudSockets',
+      fill: chartColorPurpleLight.value,
+      stroke: chartColorPurpleDark.value,
+      color: chartColorPurpleDark.value
+    },
     { id: 'thresholdSockets' }
   ],
   t: helpers.noopTranslate,
