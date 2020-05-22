@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GraphCard Component should filter result sets: filtered dataSets 1`] = `
+Array [
+  Object {
+    "animate": Object {
+      "duration": 250,
+      "onLoad": Object {
+        "duration": 250,
+      },
+    },
+    "data": Array [
+      Object {
+        "date": 2019-06-01T00:00:00.000Z,
+        "x": 0,
+        "y": 10,
+      },
+      Object {
+        "date": 2019-06-08T00:00:00.000Z,
+        "x": 1,
+        "y": 12,
+      },
+      Object {
+        "date": 2019-06-25T00:00:00.000Z,
+        "x": 2,
+        "y": 3,
+      },
+    ],
+    "id": "loremIpsumSockets",
+    "isStacked": true,
+    "isThreshold": false,
+    "legendLabel": "t(curiosity-graph.loremIpsumSocketsLabel, [object Object])",
+  },
+  Object {
+    "animate": Object {
+      "duration": 100,
+      "onLoad": Object {
+        "duration": 100,
+      },
+    },
+    "data": Array [
+      Object {
+        "date": 2019-06-01T00:00:00.000Z,
+        "x": 0,
+        "y": 10,
+      },
+      Object {
+        "date": 2019-06-08T00:00:00.000Z,
+        "x": 1,
+        "y": 12,
+      },
+      Object {
+        "date": 2019-06-25T00:00:00.000Z,
+        "x": 2,
+        "y": 3,
+      },
+    ],
+    "id": "thresholdLoremIpsumSockets",
+    "isStacked": false,
+    "isThreshold": true,
+    "legendLabel": "t(curiosity-graph.thresholdLabel)",
+    "legendSymbolType": "dash",
+    "stroke": "#4cb140",
+    "strokeDasharray": "4,3",
+    "strokeWidth": 2.5,
+  },
+]
+`;
+
 exports[`GraphCard Component should render a non-connected component: non-connected 1`] = `
 <Card
   className="curiosity-usage-graph fadein"
