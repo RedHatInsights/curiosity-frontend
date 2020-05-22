@@ -8,6 +8,7 @@ import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connectTranslate, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
+import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
@@ -72,7 +73,8 @@ class OpenshiftView extends React.Component {
    */
   render() {
     const { filters } = this.state;
-    const { graphQuery, routeDetail, t, viewId } = this.props;
+    const { graphQuery, location, routeDetail, t, viewId } = this.props;
+    const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
       <PageLayout>
@@ -81,17 +83,31 @@ class OpenshiftView extends React.Component {
           <Toolbar graphQuery={graphQuery} viewId={viewId} />
         </PageToolbar>
         <PageSection>
-          <GraphCard
-            key={routeDetail.pathParameter}
-            filterGraphData={filters}
-            graphQuery={graphQuery}
-            productId={routeDetail.pathParameter}
-            viewId={viewId}
-            cardTitle={t('curiosity-graph.cardHeading')}
-            productShortLabel={viewId}
-          >
-            {this.renderSelect()}
-          </GraphCard>
+          {(isC3 && (
+            <C3GraphCard
+              key={routeDetail.pathParameter}
+              filterGraphData={filters}
+              graphQuery={graphQuery}
+              productId={routeDetail.pathParameter}
+              viewId={viewId}
+              cardTitle={t('curiosity-graph.cardHeading')}
+              productShortLabel={viewId}
+            >
+              {this.renderSelect()}
+            </C3GraphCard>
+          )) || (
+            <GraphCard
+              key={routeDetail.pathParameter}
+              filterGraphData={filters}
+              graphQuery={graphQuery}
+              productId={routeDetail.pathParameter}
+              viewId={viewId}
+              cardTitle={t('curiosity-graph.cardHeading')}
+              productShortLabel={viewId}
+            >
+              {this.renderSelect()}
+            </GraphCard>
+          )}
         </PageSection>
       </PageLayout>
     );
@@ -101,7 +117,8 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, routeDetail: object, graphQuery: object}}
+ * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, routeDetail: object,
+ *     location: object, graphQuery: object}}
  */
 OpenshiftView.propTypes = {
   graphQuery: PropTypes.shape({
@@ -109,6 +126,9 @@ OpenshiftView.propTypes = {
   }),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
   initialFilters: PropTypes.array,
+  location: PropTypes.shape({
+    parsedSearch: PropTypes.objectOf(PropTypes.string)
+  }).isRequired,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     pathId: PropTypes.string.isRequired,
@@ -131,8 +151,13 @@ OpenshiftView.defaultProps = {
   },
   initialOption: 'cores',
   initialFilters: [
-    { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
-    { id: 'sockets', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value },
+    { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value, color: chartColorBlueDark.value },
+    {
+      id: 'sockets',
+      fill: chartColorBlueLight.value,
+      stroke: chartColorBlueDark.value,
+      color: chartColorBlueDark.value
+    },
     { id: 'thresholdSockets' },
     { id: 'thresholdCores' }
   ],

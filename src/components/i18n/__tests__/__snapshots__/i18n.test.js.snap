@@ -20,7 +20,8 @@ msgstr \\"\\"
 msgid \\"curiosity-auth.authorizedTitle\\"
 msgstr \\"\\"
 
-#: src/components/openshiftView/openshiftView.js:90
+#: src/components/openshiftView/openshiftView.js:105
+#: src/components/openshiftView/openshiftView.js:93
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
@@ -67,7 +68,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/rhelView/rhelView.js:47
+#: src/components/rhelView/rhelView.js:50
+#: src/components/rhelView/rhelView.js:60
 msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
@@ -221,11 +223,11 @@ msgstr \\"\\"
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
-#: src/components/openshiftView/openshiftView.js:79
+#: src/components/openshiftView/openshiftView.js:81
 msgid \\"curiosity-view.openshift\\"
 msgstr \\"\\"
 
-#: src/components/rhelView/rhelView.js:36
+#: src/components/rhelView/rhelView.js:38
 msgid \\"curiosity-view.rhel\\"
 msgstr \\"\\"
 
