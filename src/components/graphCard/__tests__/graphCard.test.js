@@ -78,6 +78,78 @@ describe('GraphCard Component', () => {
     expect(component).toMatchSnapshot('fulfilled');
   });
 
+  it('should filter result sets', () => {
+    const props = {
+      filterGraphData: [
+        {
+          id: 'loremIpsumSockets'
+        },
+        {
+          id: 'thresholdLoremIpsumSockets'
+        }
+      ],
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      productId: 'lorem',
+      graphData: {
+        loremIpsumSockets: [
+          {
+            date: new Date('2019-06-01T00:00:00Z'),
+            y: 10,
+            x: 0
+          },
+          {
+            date: new Date('2019-06-08T00:00:00Z'),
+            y: 12,
+            x: 1
+          },
+          {
+            date: new Date('2019-06-25T00:00:00Z'),
+            y: 3,
+            x: 2
+          }
+        ],
+        dolorSitSockets: [
+          {
+            date: new Date('2019-06-01T00:00:00Z'),
+            y: 10,
+            x: 0
+          },
+          {
+            date: new Date('2019-06-08T00:00:00Z'),
+            y: 12,
+            x: 1
+          },
+          {
+            date: new Date('2019-06-25T00:00:00Z'),
+            y: 3,
+            x: 2
+          }
+        ],
+        thresholdLoremIpsumSockets: [
+          {
+            date: new Date('2019-06-01T00:00:00Z'),
+            y: 10,
+            x: 0
+          },
+          {
+            date: new Date('2019-06-08T00:00:00Z'),
+            y: 12,
+            x: 1
+          },
+          {
+            date: new Date('2019-06-25T00:00:00Z'),
+            y: 3,
+            x: 2
+          }
+        ]
+      }
+    };
+
+    const component = shallow(<GraphCard {...props} />);
+
+    expect(component.find(ChartArea).prop('dataSets')).toMatchSnapshot('filtered dataSets');
+  });
+
   it('should return an empty render when disabled', () => {
     const props = {
       graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
