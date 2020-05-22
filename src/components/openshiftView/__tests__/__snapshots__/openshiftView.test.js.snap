@@ -1,5 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`OpenshiftView Component should display an alternate graph on query-string update: alternate graph 1`] = `
+<PageLayout>
+  <PageHeader>
+    t(curiosity-view.openshift, Subscription Watch)
+  </PageHeader>
+  <PageToolbar>
+    <withI18nextTranslation(Toolbar)
+      graphQuery={
+        Object {
+          "granularity": "daily",
+        }
+      }
+      viewId="OpenShift"
+    />
+  </PageToolbar>
+  <PageSection>
+    <Connect(C3GraphCard)
+      cardTitle="t(curiosity-graph.cardHeading)"
+      filterGraphData={
+        Array [
+          Object {
+            "color": "#06c",
+            "fill": "#8bc1f7",
+            "id": "cores",
+            "stroke": "#06c",
+          },
+          Object {
+            "id": "thresholdCores",
+          },
+        ]
+      }
+      graphQuery={
+        Object {
+          "granularity": "daily",
+        }
+      }
+      key="lorem ipsum"
+      productId="lorem ipsum"
+      productShortLabel="OpenShift"
+      viewId="OpenShift"
+    >
+      <Select
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "title": "Cores",
+              "value": "cores",
+            },
+            Object {
+              "title": "Sockets",
+              "value": "sockets",
+            },
+          ]
+        }
+        placeholder="Select option"
+        selectedOptions="cores"
+        variant="single"
+      />
+    </Connect(C3GraphCard)>
+  </PageSection>
+</PageLayout>
+`;
+
 exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader>
@@ -21,6 +90,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       filterGraphData={
         Array [
           Object {
+            "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
             "stroke": "#06c",
@@ -89,6 +159,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       filterGraphData={
         Array [
           Object {
+            "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
             "stroke": "#06c",
