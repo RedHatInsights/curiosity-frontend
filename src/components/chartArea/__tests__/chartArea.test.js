@@ -18,18 +18,38 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 1,
-              tooltip: '1 lorem ipsum',
               xAxisLabel: '1 x axis label'
             },
             {
               x: 2,
               y: 2,
-              tooltip: '2 lorem ipsum',
               xAxisLabel: '2 x axis label'
             }
           ],
           legendLabel: 'Arma virumque cano',
-          isStacked: true
+          isStacked: true,
+          fill: '#ipsum',
+          stroke: '#lorem'
+        },
+        {
+          data: [
+            {
+              x: 1,
+              y: 1,
+              xAxisLabel: '1 x axis label'
+            },
+            {
+              x: 2,
+              y: 2,
+              xAxisLabel: '2 x axis label'
+            }
+          ],
+          legendLabel: 'Dolor sit',
+          isThreshold: true,
+          fill: '#ipsum',
+          stroke: '#lorem',
+          strokeDasharray: '4,3',
+          strokeWidth: 2.5
         }
       ]
     };
@@ -47,13 +67,11 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 0,
-              tooltip: '1 lorem ipsum',
               xAxisLabel: '1 x axis label'
             },
             {
               x: 2,
               y: 1,
-              tooltip: '2 lorem ipsum',
               xAxisLabel: '2 x axis label'
             }
           ],
@@ -86,19 +104,16 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 0,
-              tooltip: '1 lorem ipsum',
               xAxisLabel: '1 x axis label'
             },
             {
               x: 2,
               y: 1,
-              tooltip: '2 lorem ipsum',
               xAxisLabel: '2 x axis label'
             },
             {
               x: 2,
               y: 1,
-              tooltip: '2 lorem ipsum',
               xAxisLabel: '2 x axis label'
             }
           ],
@@ -122,13 +137,11 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 0,
-              tooltip: '1 lorem ipsum',
               xAxisLabel: '1 x axis label'
             },
             {
               x: 2,
               y: 1,
-              tooltip: '2 lorem ipsum',
               xAxisLabel: '2 x axis label'
             }
           ],
@@ -140,13 +153,11 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 10,
-              tooltip: '10 dolor sit',
               xAxisLabel: '1 x axis label'
             },
             {
               x: 2,
               y: 10,
-              tooltip: '10 dolor sit',
               xAxisLabel: '2 x axis label'
             }
           ],
@@ -168,7 +179,6 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 0,
-              tooltip: '1 lorem ipsum',
               xAxisLabel: '1 x axis label'
             }
           ],
@@ -181,7 +191,6 @@ describe('ChartArea Component', () => {
             {
               x: 1,
               y: 10,
-              tooltip: '10 dolor sit',
               xAxisLabel: '1 x axis label'
             }
           ],
@@ -193,13 +202,6 @@ describe('ChartArea Component', () => {
 
     const component = shallow(<ChartArea {...props} />);
     expect(component).toMatchSnapshot('variation');
-
-    // check setDataSets for tooltip updates
-    expect(component.instance().setDataSets()).toMatchSnapshot('setDataSets:before');
-    component.setProps({
-      tooltips: () => 'lorem ipsum dolor...'
-    });
-    expect(component.instance().setDataSets()).toMatchSnapshot('setDataSets:after');
 
     // check setChartTicks label increment and tick format directly
     component.setProps({
@@ -245,7 +247,6 @@ describe('ChartArea Component', () => {
           {
             x: 2,
             y: 1,
-            tooltip: '1 hello world',
             xAxisLabel: '1 hello world x-axis label'
           }
         ],
@@ -259,11 +260,56 @@ describe('ChartArea Component', () => {
     });
     expect(component.instance().getChartLegend()).toMatchSnapshot('getChartLegend: custom legend symbol');
     expect(component.instance().setChartTicks()).toMatchSnapshot('setChartTicks: xAxisLabelUseDataSet');
+  });
 
-    // check getContainerComponent
-    expect(ChartArea.getContainerComponent()).toMatchSnapshot(
-      'getContainerComponent: should return a custom container'
-    );
+  it('should handle custom chart tooltips', () => {
+    const props = {
+      dataSets: [
+        {
+          data: [
+            {
+              x: 1,
+              y: 0,
+              xAxisLabel: '1 x axis label'
+            }
+          ],
+          interpolation: 'natural',
+          legendLabel: 'Arma virumque cano',
+          isStacked: true
+        },
+        {
+          data: [
+            {
+              x: 1,
+              y: 10,
+              xAxisLabel: '1 x axis label'
+            }
+          ],
+          legendLabel: 'Arma virumque cano',
+          isThreshold: true
+        }
+      ]
+    };
+
+    const component = shallow(<ChartArea {...props} />);
+
+    // check getTooltipData for tooltip updates
+    expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:before');
+    component.setProps({
+      chartTooltip: () => 'lorem ipsum dolor...'
+    });
+    expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after function');
+
+    component.setProps({
+      chartTooltip: propsObj => <div>{JSON.stringify(propsObj.datum)}</div>
+    });
+    expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after node');
+
+    // check renderTooltip
+    component.setProps({
+      chartTooltip: propsObj => <div>{JSON.stringify(propsObj.datum)}</div>
+    });
+    expect(component.instance().renderTooltip()).toMatchSnapshot('renderTooltip: should return a custom tooltip');
   });
 
   it('should set initial width to zero and then resize', () => {

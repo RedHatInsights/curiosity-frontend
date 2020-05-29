@@ -114,6 +114,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
       className="curiosity-skeleton-container "
     >
       <ChartArea
+        chartTooltip={[Function]}
         dataSets={Array []}
         domain={Object {}}
         height={275}
@@ -127,7 +128,6 @@ exports[`GraphCard Component should render a non-connected component: non-connec
           }
         }
         themeColor="blue"
-        tooltips={[Function]}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisTickFormat={[Function]}
@@ -221,6 +221,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
       className="curiosity-skeleton-container blur"
     >
       <ChartArea
+        chartTooltip={[Function]}
         dataSets={
           Array [
             Object {
@@ -266,7 +267,6 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
           }
         }
         themeColor="blue"
-        tooltips={[Function]}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisTickFormat={[Function]}
@@ -324,6 +324,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
       className="curiosity-skeleton-container blur"
     >
       <ChartArea
+        chartTooltip={[Function]}
         dataSets={
           Array [
             Object {
@@ -369,7 +370,6 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
           }
         }
         themeColor="blue"
-        tooltips={[Function]}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisTickFormat={[Function]}
@@ -427,6 +427,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
       className="curiosity-skeleton-container "
     >
       <ChartArea
+        chartTooltip={[Function]}
         dataSets={
           Array [
             Object {
@@ -472,7 +473,6 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
           }
         }
         themeColor="blue"
-        tooltips={[Function]}
         xAxisFixLabelOverlap={true}
         xAxisLabelIncrement={5}
         xAxisTickFormat={[Function]}

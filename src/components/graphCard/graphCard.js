@@ -10,7 +10,8 @@ import { helpers, dateHelpers } from '../../common';
 import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { graphCardHelpers } from './graphCardHelpers';
 import { graphCardTypes } from './graphCardTypes';
-import ChartArea from '../chartArea/chartArea';
+import GraphCardChartTooltip from './graphCardChartTooltip';
+import { ChartArea } from '../chartArea/chartArea';
 
 /**
  * A chart/graph card.
@@ -94,19 +95,11 @@ class GraphCard extends React.Component {
         granularity: updatedGranularity
       });
 
-    const tooltips = ({ itemsByKey }) =>
-      graphCardHelpers.getTooltips({
-        itemsByKey,
-        granularity: updatedGranularity,
-        product: productShortLabel
-      });
-
     const chartAreaProps = {
       xAxisFixLabelOverlap: true,
       xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(updatedGranularity),
       xAxisTickFormat,
-      yAxisTickFormat: graphCardHelpers.yAxisTickFormat,
-      tooltips
+      yAxisTickFormat: graphCardHelpers.yAxisTickFormat
     };
 
     const filteredGraphData = data => {
@@ -146,7 +139,16 @@ class GraphCard extends React.Component {
       return Object.keys(data).map(key => filtered(key));
     };
 
-    return <ChartArea key={helpers.generateId()} {...chartAreaProps} dataSets={filteredGraphData(graphData)} />;
+    return (
+      <ChartArea
+        key={helpers.generateId()}
+        {...chartAreaProps}
+        dataSets={filteredGraphData(graphData)}
+        chartTooltip={({ datum }) => (
+          <GraphCardChartTooltip datum={datum} granularity={updatedGranularity} product={productShortLabel} />
+        )}
+      />
+    );
   }
 
   /**

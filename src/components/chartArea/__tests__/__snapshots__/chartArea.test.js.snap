@@ -313,12 +313,12 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
       </g>
       <g>
         <g
-          clip-path="url(#victory-clip-10)"
+          clip-path="url(#victory-clip-4)"
           style="height:100%;width:100%;user-select:none"
         >
           <defs>
             <clipPath
-              id="victory-clip-10"
+              id="victory-clip-4"
             >
               <rect
                 height="175"
@@ -736,12 +736,12 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       </g>
       <g>
         <g
-          clip-path="url(#victory-clip-6)"
+          clip-path="url(#victory-clip-2)"
           style="height:100%;width:100%;user-select:none"
         >
           <defs>
             <clipPath
-              id="victory-clip-6"
+              id="victory-clip-2"
             >
               <rect
                 height="175"
@@ -846,6 +846,112 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 </div>
 `;
 
+exports[`ChartArea Component should handle custom chart tooltips: getTooltipData:after function 1`] = `
+Array [
+  Object {
+    "itemsByKey": Object {
+      "dataSet-0": Object {
+        "color": "",
+        "data": Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 0,
+        },
+      },
+      "dataSet-1": Object {
+        "color": "",
+        "data": Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 10,
+        },
+      },
+    },
+    "tooltip": "lorem ipsum dolor...",
+    "x": 1,
+    "y": null,
+  },
+]
+`;
+
+exports[`ChartArea Component should handle custom chart tooltips: getTooltipData:after node 1`] = `
+Array [
+  Object {
+    "itemsByKey": Object {
+      "dataSet-0": Object {
+        "color": "",
+        "data": Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 0,
+        },
+      },
+      "dataSet-1": Object {
+        "color": "",
+        "data": Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 10,
+        },
+      },
+    },
+    "tooltip": <div>
+      {"x":1,"y":0,"index":0,"itemsByKey":{"dataSet-0":{"color":"","data":{"x":1,"y":0,"xAxisLabel":"1 x axis label"}},"dataSet-1":{"color":"","data":{"x":1,"y":10,"xAxisLabel":"1 x axis label"}}},"dataSets":[{"data":[{"x":1,"y":0,"xAxisLabel":"1 x axis label"}],"interpolation":"natural","legendLabel":"Arma virumque cano","isStacked":true},{"data":[{"x":1,"y":10,"xAxisLabel":"1 x axis label"}],"legendLabel":"Arma virumque cano","isThreshold":true}]}
+    </div>,
+    "x": 1,
+    "y": null,
+  },
+]
+`;
+
+exports[`ChartArea Component should handle custom chart tooltips: getTooltipData:before 1`] = `Array []`;
+
+exports[`ChartArea Component should handle custom chart tooltips: renderTooltip: should return a custom tooltip 1`] = `
+<VictoryVoronoiCursorContainer
+  activateData={true}
+  activateLabels={true}
+  className="VictoryContainer"
+  cursorComponent={
+    <LineSegment
+      lineComponent={<Line />}
+      role="presentation"
+      shapeRendering="auto"
+    />
+  }
+  cursorDimension="x"
+  cursorLabelComponent={
+    <VictoryLabel
+      capHeight={0.71}
+      direction="inherit"
+      lineHeight={1}
+      textComponent={<Text />}
+      tspanComponent={<TSpan />}
+    />
+  }
+  cursorLabelOffset={
+    Object {
+      "x": 5,
+      "y": -10,
+    }
+  }
+  labelComponent={
+    <VictoryPortal
+      groupComponent={<g />}
+    >
+      <ChartTooltip
+        flyoutComponent={<FlyoutComponent />}
+      />
+    </VictoryPortal>
+  }
+  labels={[Function]}
+  portalComponent={<Portal />}
+  portalZIndex={99}
+  responsive={true}
+  voronoiDimension="x"
+  voronoiPadding={50}
+/>
+`;
+
 exports[`ChartArea Component should handle render displays for both data and threshold: threshold 1`] = `
 <div
   className="uxui-curiosity__modal uxui-curiosity__modal--loading"
@@ -856,59 +962,6 @@ exports[`ChartArea Component should handle render displays for both data and thr
       Object {
         "duration": 0,
       }
-    }
-    containerComponent={
-      <VictoryVoronoiCursorContainer
-        activateData={true}
-        activateLabels={true}
-        className="VictoryContainer"
-        constrainToVisibleArea={true}
-        cursorComponent={
-          <LineSegment
-            lineComponent={<Line />}
-            role="presentation"
-            shapeRendering="auto"
-          />
-        }
-        cursorDimension="x"
-        cursorLabelComponent={
-          <VictoryLabel
-            capHeight={0.71}
-            direction="inherit"
-            lineHeight={1}
-            textComponent={<Text />}
-            tspanComponent={<TSpan />}
-          />
-        }
-        cursorLabelOffset={
-          Object {
-            "x": 5,
-            "y": -10,
-          }
-        }
-        labelComponent={
-          <VictoryPortal
-            groupComponent={<g />}
-          >
-            <ChartTooltip
-              centerOffset={
-                Object {
-                  "x": [Function],
-                  "y": 0,
-                }
-              }
-              pointerLength={0}
-            />
-          </VictoryPortal>
-        }
-        labels={[Function]}
-        mouseFollowTooltips={true}
-        portalComponent={<Portal />}
-        portalZIndex={99}
-        responsive={true}
-        voronoiDimension="x"
-        voronoiPadding={50}
-      />
     }
     domain={
       Object {
@@ -975,13 +1028,11 @@ exports[`ChartArea Component should handle render displays for both data and thr
       data={
         Array [
           Object {
-            "tooltip": "10 dolor sit",
             "x": 1,
             "xAxisLabel": "1 x axis label",
             "y": 10,
           },
           Object {
-            "tooltip": "10 dolor sit",
             "x": 2,
             "xAxisLabel": "2 x axis label",
             "y": 10,
@@ -1003,13 +1054,11 @@ exports[`ChartArea Component should handle render displays for both data and thr
         data={
           Array [
             Object {
-              "tooltip": "1 lorem ipsum",
               "x": 1,
               "xAxisLabel": "1 x axis label",
               "y": 0,
             },
             Object {
-              "tooltip": "2 lorem ipsum",
               "x": 2,
               "xAxisLabel": "2 x axis label",
               "y": 1,
@@ -1151,62 +1200,6 @@ Object {
 }
 `;
 
-exports[`ChartArea Component should handle variation in passed properties with specific methods: getContainerComponent: should return a custom container 1`] = `
-Object {
-  "containerComponent": <VictoryVoronoiCursorContainer
-    activateData={true}
-    activateLabels={true}
-    className="VictoryContainer"
-    constrainToVisibleArea={true}
-    cursorComponent={
-      <LineSegment
-        lineComponent={<Line />}
-        role="presentation"
-        shapeRendering="auto"
-      />
-    }
-    cursorDimension="x"
-    cursorLabelComponent={
-      <VictoryLabel
-        capHeight={0.71}
-        direction="inherit"
-        lineHeight={1}
-        textComponent={<Text />}
-        tspanComponent={<TSpan />}
-      />
-    }
-    cursorLabelOffset={
-      Object {
-        "x": 5,
-        "y": -10,
-      }
-    }
-    labelComponent={
-      <VictoryPortal
-        groupComponent={<g />}
-      >
-        <ChartTooltip
-          centerOffset={
-            Object {
-              "x": [Function],
-              "y": 0,
-            }
-          }
-          pointerLength={0}
-        />
-      </VictoryPortal>
-    }
-    labels={[Function]}
-    mouseFollowTooltips={true}
-    portalComponent={<Portal />}
-    portalZIndex={99}
-    responsive={true}
-    voronoiDimension="x"
-    voronoiPadding={50}
-  />,
-}
-`;
-
 exports[`ChartArea Component should handle variation in passed properties with specific methods: setChartTicks 1`] = `
 Object {
   "xAxisTickFormat": [Function],
@@ -1227,67 +1220,6 @@ Object {
 }
 `;
 
-exports[`ChartArea Component should handle variation in passed properties with specific methods: setDataSets:after 1`] = `
-Array [
-  Object {
-    "data": Array [
-      Object {
-        "_tooltip": "lorem ipsum dolor...",
-        "tooltip": "1 lorem ipsum",
-        "x": 1,
-        "xAxisLabel": "1 x axis label",
-        "y": 0,
-      },
-    ],
-    "interpolation": "natural",
-    "isStacked": true,
-    "legendLabel": "Arma virumque cano",
-  },
-  Object {
-    "data": Array [
-      Object {
-        "tooltip": "10 dolor sit",
-        "x": 1,
-        "xAxisLabel": "1 x axis label",
-        "y": 10,
-      },
-    ],
-    "isThreshold": true,
-    "legendLabel": "Arma virumque cano",
-  },
-]
-`;
-
-exports[`ChartArea Component should handle variation in passed properties with specific methods: setDataSets:before 1`] = `
-Array [
-  Object {
-    "data": Array [
-      Object {
-        "tooltip": "1 lorem ipsum",
-        "x": 1,
-        "xAxisLabel": "1 x axis label",
-        "y": 0,
-      },
-    ],
-    "interpolation": "natural",
-    "isStacked": true,
-    "legendLabel": "Arma virumque cano",
-  },
-  Object {
-    "data": Array [
-      Object {
-        "tooltip": "10 dolor sit",
-        "x": 1,
-        "xAxisLabel": "1 x axis label",
-        "y": 10,
-      },
-    ],
-    "isThreshold": true,
-    "legendLabel": "Arma virumque cano",
-  },
-]
-`;
-
 exports[`ChartArea Component should handle variation in passed properties with specific methods: variation 1`] = `
 <div
   className="uxui-curiosity__modal uxui-curiosity__modal--loading"
@@ -1298,59 +1230,6 @@ exports[`ChartArea Component should handle variation in passed properties with s
       Object {
         "duration": 0,
       }
-    }
-    containerComponent={
-      <VictoryVoronoiCursorContainer
-        activateData={true}
-        activateLabels={true}
-        className="VictoryContainer"
-        constrainToVisibleArea={true}
-        cursorComponent={
-          <LineSegment
-            lineComponent={<Line />}
-            role="presentation"
-            shapeRendering="auto"
-          />
-        }
-        cursorDimension="x"
-        cursorLabelComponent={
-          <VictoryLabel
-            capHeight={0.71}
-            direction="inherit"
-            lineHeight={1}
-            textComponent={<Text />}
-            tspanComponent={<TSpan />}
-          />
-        }
-        cursorLabelOffset={
-          Object {
-            "x": 5,
-            "y": -10,
-          }
-        }
-        labelComponent={
-          <VictoryPortal
-            groupComponent={<g />}
-          >
-            <ChartTooltip
-              centerOffset={
-                Object {
-                  "x": [Function],
-                  "y": 0,
-                }
-              }
-              pointerLength={0}
-            />
-          </VictoryPortal>
-        }
-        labels={[Function]}
-        mouseFollowTooltips={true}
-        portalComponent={<Portal />}
-        portalZIndex={99}
-        responsive={true}
-        voronoiDimension="x"
-        voronoiPadding={50}
-      />
     }
     domain={
       Object {
@@ -1416,7 +1295,6 @@ exports[`ChartArea Component should handle variation in passed properties with s
       data={
         Array [
           Object {
-            "tooltip": "10 dolor sit",
             "x": 1,
             "xAxisLabel": "1 x axis label",
             "y": 10,
@@ -1438,7 +1316,6 @@ exports[`ChartArea Component should handle variation in passed properties with s
         data={
           Array [
             Object {
-              "tooltip": "1 lorem ipsum",
               "x": 1,
               "xAxisLabel": "1 x axis label",
               "y": 0,
@@ -1528,59 +1405,6 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         "duration": 0,
       }
     }
-    containerComponent={
-      <VictoryVoronoiCursorContainer
-        activateData={true}
-        activateLabels={true}
-        className="VictoryContainer"
-        constrainToVisibleArea={true}
-        cursorComponent={
-          <LineSegment
-            lineComponent={<Line />}
-            role="presentation"
-            shapeRendering="auto"
-          />
-        }
-        cursorDimension="x"
-        cursorLabelComponent={
-          <VictoryLabel
-            capHeight={0.71}
-            direction="inherit"
-            lineHeight={1}
-            textComponent={<Text />}
-            tspanComponent={<TSpan />}
-          />
-        }
-        cursorLabelOffset={
-          Object {
-            "x": 5,
-            "y": -10,
-          }
-        }
-        labelComponent={
-          <VictoryPortal
-            groupComponent={<g />}
-          >
-            <ChartTooltip
-              centerOffset={
-                Object {
-                  "x": [Function],
-                  "y": 0,
-                }
-              }
-              pointerLength={0}
-            />
-          </VictoryPortal>
-        }
-        labels={[Function]}
-        mouseFollowTooltips={true}
-        portalComponent={<Portal />}
-        portalZIndex={99}
-        responsive={true}
-        voronoiDimension="x"
-        voronoiPadding={50}
-      />
-    }
     domain={
       Object {
         "y": Array [
@@ -1602,7 +1426,16 @@ exports[`ChartArea Component should render basic data: data 1`] = `
       Array [
         Object {
           "name": "Arma virumque cano",
-          "symbol": Object {},
+          "symbol": Object {
+            "fill": "#lorem",
+          },
+        },
+        Object {
+          "name": "Dolor sit",
+          "symbol": Object {
+            "fill": "#lorem",
+            "type": "threshold",
+          },
         },
       ]
     }
@@ -1635,19 +1468,47 @@ exports[`ChartArea Component should render basic data: data 1`] = `
       dependentAxis={true}
       showGrid={true}
     />
+    <ChartThreshold
+      animate={false}
+      data={
+        Array [
+          Object {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 1,
+          },
+          Object {
+            "x": 2,
+            "xAxisLabel": "2 x axis label",
+            "y": 2,
+          },
+        ]
+      }
+      interpolation="step"
+      key="generatedid-"
+      name="chartArea-1-threshold"
+      style={
+        Object {
+          "data": Object {
+            "fill": "#ipsum",
+            "stroke": "#lorem",
+            "strokeDasharray": "4,3",
+            "strokeWidth": 2.5,
+          },
+        }
+      }
+    />
     <ChartStack>
       <ChartArea
         animate={false}
         data={
           Array [
             Object {
-              "tooltip": "1 lorem ipsum",
               "x": 1,
               "xAxisLabel": "1 x axis label",
               "y": 1,
             },
             Object {
-              "tooltip": "2 lorem ipsum",
               "x": 2,
               "xAxisLabel": "2 x axis label",
               "y": 2,
@@ -1659,7 +1520,10 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         name="chartArea-0-area"
         style={
           Object {
-            "data": Object {},
+            "data": Object {
+              "fill": "#ipsum",
+              "stroke": "#lorem",
+            },
           }
         }
       />

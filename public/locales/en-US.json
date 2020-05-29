@@ -32,7 +32,8 @@
     "physicalSocketsLabel": "Physical {{product}}",
     "physicalSocketsLegendTooltip": "Lorem ipsum dolor sit, physicalSockets.",
     "thresholdLabel": "Subscription threshold",
-    "thresholdLegendTooltip": "Lorem ipsum dolor sit, threshold."
+    "thresholdLegendTooltip": "Lorem ipsum dolor sit, threshold.",
+    "tooltipSummary": "Your subscription data facets. With one level of column and row headers."
   },
   "curiosity-toolbar": {
     "slaCategory": "SLA",
