@@ -1,0 +1,387 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphCardChartTooltip Component should render a basic component: basic 1`] = `
+<div
+  className="victory-tooltip"
+>
+  <table
+    summary="t(curiosity-graph.tooltipSummary)"
+  />
+  t(curiosity-graph.noDataErrorLabel)
+</div>
+`;
+
+exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
+<div
+  className="victory-tooltip"
+>
+  <table
+    summary="t(curiosity-graph.tooltipSummary)"
+  >
+    <thead>
+      <tr>
+        <th
+          colSpan={2}
+        >
+          June 1
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        key="tooltip-t(curiosity-graph.loremIpsumLabel, [object Object])"
+      >
+        <th>
+          <div
+            aria-hidden={true}
+            className="legend-icon victory-legend-icon"
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+              }
+            }
+          />
+          t(curiosity-graph.loremIpsumLabel, [object Object])
+        </th>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr
+        key="tooltip-t(curiosity-graph.dolorSitLabel, [object Object])"
+      >
+        <th>
+          <div
+            aria-hidden={true}
+            className="legend-icon victory-legend-icon"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+              }
+            }
+          />
+          t(curiosity-graph.dolorSitLabel, [object Object])
+        </th>
+        <td>
+          1
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display > 0 and NOT hasData on report 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display > 0 and UNDEFINED hasData on report 1`] = `
+Object {
+  "daily": <td>
+    50
+  </td>,
+  "monthly": <td>
+    50
+  </td>,
+  "quarterly": <td>
+    50
+  </td>,
+  "weekly": <td>
+    50
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display > 0 and hasData on report 1`] = `
+Object {
+  "daily": <td>
+    50
+  </td>,
+  "monthly": <td>
+    50
+  </td>,
+  "quarterly": <td>
+    50
+  </td>,
+  "weekly": <td>
+    50
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for null and NOT hasData on report 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for null and UNDEFINED hasData on report 1`] = `
+Object {
+  "daily": <td>
+    0
+  </td>,
+  "monthly": <td>
+    0
+  </td>,
+  "quarterly": <td>
+    0
+  </td>,
+  "weekly": <td>
+    0
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for null and hasData on report 1`] = `
+Object {
+  "daily": <td>
+    0
+  </td>,
+  "monthly": <td>
+    0
+  </td>,
+  "quarterly": <td>
+    0
+  </td>,
+  "weekly": <td>
+    0
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for zero and NOT hasData on report 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for zero and UNDEFINED hasData on report 1`] = `
+Object {
+  "daily": <td>
+    0
+  </td>,
+  "monthly": <td>
+    0
+  </td>,
+  "quarterly": <td>
+    0
+  </td>,
+  "weekly": <td>
+    0
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for zero and hasData on report 1`] = `
+Object {
+  "daily": <td>
+    0
+  </td>,
+  "monthly": <td>
+    0
+  </td>,
+  "quarterly": <td>
+    0
+  </td>,
+  "weekly": <td>
+    0
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: no data granularity data display 1`] = `
+Object {
+  "daily": null,
+  "monthly": null,
+  "quarterly": null,
+  "weekly": null,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for > 0 and NOT hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    100
+  </td>,
+  "monthly": <td>
+    100
+  </td>,
+  "quarterly": <td>
+    100
+  </td>,
+  "weekly": <td>
+    100
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for > 0 and UNDEFINED hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    100
+  </td>,
+  "monthly": <td>
+    100
+  </td>,
+  "quarterly": <td>
+    100
+  </td>,
+  "weekly": <td>
+    100
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for > 0 and hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and NOT hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and UNDEFINED hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.noDataLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for zero and NOT hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    0
+  </td>,
+  "monthly": <td>
+    0
+  </td>,
+  "quarterly": <td>
+    0
+  </td>,
+  "weekly": <td>
+    0
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for zero and UNDEFINED hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    0
+  </td>,
+  "monthly": <td>
+    0
+  </td>,
+  "quarterly": <td>
+    0
+  </td>,
+  "weekly": <td>
+    0
+  </td>,
+}
+`;
+
+exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for zero and hasInfinite on threshold 1`] = `
+Object {
+  "daily": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "monthly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "quarterly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+  "weekly": <td>
+    t(curiosity-graph.infiniteThresholdLabel)
+  </td>,
+}
+`;

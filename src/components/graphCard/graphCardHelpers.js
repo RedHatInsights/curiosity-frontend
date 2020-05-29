@@ -1,6 +1,5 @@
 import moment from 'moment';
 import numbro from 'numbro';
-import { translate } from '../i18n/i18n';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers } from '../../common/dateHelpers';
 
@@ -52,52 +51,6 @@ const getTooltipDate = ({ date, granularity }) => {
     default:
       return momentDate.format(dateHelpers.timestampDayFormats.long);
   }
-};
-
-/**
- * ToDo: we have access to the datasets and index which gives us access to the previous date.
- * Consider adding back in the year on tooltip cross year displays
- */
-/**
- * Get tooltips for x axis while displaying y axis values.
- *
- * @param {object} params
- * @property {object} itemsByKey
- * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
- * @property {string} product Apply the product to locale strings
- * @returns {string | *}
- */
-const getTooltips = ({ itemsByKey, granularity, product = '' }) => {
-  let dateString = '';
-  let thresholdString = '';
-  const dataFacets = [];
-
-  Object.keys(itemsByKey).forEach((key, index) => {
-    if (index === 0) {
-      dateString = `${translate('curiosity-graph.dateLabel')}: ${getTooltipDate({
-        date: itemsByKey[key].date,
-        granularity
-      })}`;
-    }
-
-    if (/^threshold/.test(key)) {
-      const thresholdStringValue =
-        (itemsByKey[key].hasInfinite && translate('curiosity-graph.infiniteThresholdLabel')) ||
-        (itemsByKey[key].y ?? translate('curiosity-graph.noDataLabel'));
-
-      thresholdString = `${translate(`curiosity-graph.thresholdLabel`)}: ${thresholdStringValue}\n`;
-    } else {
-      const dataFactsValue =
-        (itemsByKey[key].hasData === false && translate('curiosity-graph.noDataLabel')) || itemsByKey[key].y || 0;
-
-      dataFacets.push(`${translate(`curiosity-graph.${key}Label`, { product })}: ${dataFactsValue}\n`);
-    }
-  });
-
-  return (
-    ((thresholdString || dataFacets.length) && `${thresholdString}${dataFacets.join('')}${dateString}`.trim()) ||
-    translate('curiosity-graph.noDataErrorLabel')
-  );
 };
 
 /**
@@ -161,7 +114,6 @@ const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, manti
 const graphCardHelpers = {
   getChartXAxisLabelIncrement,
   getTooltipDate,
-  getTooltips,
   xAxisTickFormat,
   yAxisTickFormat
 };
@@ -171,7 +123,6 @@ export {
   graphCardHelpers,
   getChartXAxisLabelIncrement,
   getTooltipDate,
-  getTooltips,
   xAxisTickFormat,
   yAxisTickFormat
 };
