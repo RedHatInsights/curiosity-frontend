@@ -25,10 +25,6 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.cardHeading\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardHelpers.js:77
-msgid \\"curiosity-graph.dateLabel\\"
-msgstr \\"\\"
-
 #: src/components/graphCard/graphCardTypes.js:15
 msgid \\"curiosity-graph.dropdownDaily\\"
 msgstr \\"\\"
@@ -39,8 +35,8 @@ msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:189
 #: src/components/c3GraphCard/c3GraphCard.js:193
-#: src/components/graphCard/graphCard.js:174
-#: src/components/graphCard/graphCard.js:178
+#: src/components/graphCard/graphCard.js:176
+#: src/components/graphCard/graphCard.js:180
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -53,18 +49,18 @@ msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:176
-#: src/components/graphCard/graphCardHelpers.js:85
+#: src/components/graphCard/graphCardChartTooltip.js:31
 msgid \\"curiosity-graph.infiniteThresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardHelpers.js:99
+#: src/components/graphCard/graphCardChartTooltip.js:79
 msgid \\"curiosity-graph.noDataErrorLabel\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:177
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:180
-#: src/components/graphCard/graphCardHelpers.js:86
-#: src/components/graphCard/graphCardHelpers.js:91
+#: src/components/graphCard/graphCardChartTooltip.js:32
+#: src/components/graphCard/graphCardChartTooltip.js:38
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
@@ -75,13 +71,17 @@ msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:110
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:133
-#: src/components/graphCard/graphCard.js:134
-#: src/components/graphCard/graphCardHelpers.js:88
+#: src/components/graphCard/graphCard.js:127
+#: src/components/graphCard/graphCardChartTooltip.js:34
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:93
 msgid \\"curiosity-graph.thresholdLegendTooltip\\"
+msgstr \\"\\"
+
+#: src/components/graphCard/graphCardChartTooltip.js:49
+msgid \\"curiosity-graph.tooltipSummary\\"
 msgstr \\"\\"
 
 #: src/components/optinView/optinView.js:59
