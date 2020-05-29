@@ -11,12 +11,13 @@ import { helpers } from '../common';
  *     HTTP/1.1 200 OK
  *     {
  *       "build": {
- *       "version": "0.0.0",
- *       "gitDescription": "lorem ipsum",
- *       "artifact": "dolor sit",
- *       "name": "lorem",
- *       "group": "ipsum",
- *       "gitHash": "0000000000000000"
+ *         "version": "0.0.0",
+ *         "gitDescription": "lorem ipsum",
+ *         "artifact": "dolor sit",
+ *         "name": "lorem",
+ *         "group": "ipsum",
+ *         "gitHash": "0000000000000000"
+ *       }
  *     }
  *
  * @apiError {Array} errors
