@@ -25,6 +25,8 @@ class ChartArea extends React.Component {
 
   containerRef = React.createRef();
 
+  tooltipRef = React.createRef();
+
   componentDidMount() {
     this.onResizeContainer();
     window.addEventListener('resize', this.onResizeContainer);
@@ -46,47 +48,6 @@ class ChartArea extends React.Component {
       this.setState({ chartWidth: containerElement.clientWidth });
     }
   };
-
-  /**
-   * Clone and update first dataSets list/array item with tooltip callbacks.
-   *
-   * @returns {object}
-   */
-  setDataSets() {
-    const { dataSets, tooltips } = this.props;
-
-    if (tooltips && dataSets && dataSets[0] && dataSets[0].data) {
-      const updatedDataSets = _cloneDeep(dataSets);
-
-      updatedDataSets[0].data = updatedDataSets[0].data.map((value, index) => {
-        const itemsByKey = {};
-        const items = [];
-
-        dataSets.forEach((data, i) => {
-          if (data.data && data.data[value.x]) {
-            itemsByKey[data.id || `dataSet-${i}`] = data.data[value.x];
-            items.push(data.data[value.x]);
-          }
-        });
-
-        return {
-          ...value,
-          _tooltip: tooltips({
-            x: value.x,
-            y: value.y,
-            index,
-            items,
-            itemsByKey,
-            dataSets: _cloneDeep(dataSets)
-          })
-        };
-      });
-
-      return updatedDataSets;
-    }
-
-    return dataSets;
-  }
 
   /**
    * Apply props, set x and y axis chart increments/ticks formatting.
@@ -273,32 +234,123 @@ class ChartArea extends React.Component {
   }
 
   /**
-   * Return a chart/graph container component. Aids in aggregated tooltips.
+   * Apply data set to custom tooltips.
+   *
+   * @returns {Array}
+   */
+  getTooltipData() {
+    const { dataSets, chartTooltip } = this.props;
+    let tooltipDataSet = [];
+
+    if (chartTooltip && dataSets && dataSets[0] && dataSets[0].data) {
+      tooltipDataSet = dataSets[0].data.map((dataSet, index) => {
+        const itemsByKey = {};
+
+        dataSets.forEach((data, i) => {
+          if (data.data && data.data[index]) {
+            itemsByKey[data.id || `dataSet-${i}`] = {
+              color: data.stroke || data.fill || data.color || '',
+              data: _cloneDeep(data.data[index])
+            };
+          }
+        });
+
+        const mockDatum = {
+          datum: { x: dataSet.x, y: dataSet.y, index, itemsByKey, dataSets: _cloneDeep(dataSets) }
+        };
+
+        return {
+          x: dataSet.x,
+          y: null,
+          itemsByKey,
+          tooltip:
+            (React.isValidElement(chartTooltip) && React.cloneElement(chartTooltip, { ...mockDatum })) ||
+            chartTooltip({ ...mockDatum })
+        };
+      });
+    }
+
+    return tooltipDataSet;
+  }
+
+  /**
+   * Return a chart/graph tooltip Victory container component to allow custom tooltips.
    *
    * @returns {Node}
    */
-  static getContainerComponent() {
+  renderTooltip() {
+    const { chartTooltip } = this.props;
+
+    if (!chartTooltip) {
+      return null;
+    }
+
     const VictoryVoronoiCursorContainer = createContainer('voronoi', 'cursor');
-    const containerComponentProps = {
-      constrainToVisibleArea: true,
-      cursorDimension: 'x',
-      voronoiDimension: 'x',
-      voronoiPadding: 50,
-      mouseFollowTooltips: true
+    const parsedTooltipData = this.getTooltipData();
+    let globalContainerBounds = {};
+    let globalTooltipBounds = {};
+
+    const applyParsedTooltipData = ({ datum }) => {
+      const t = parsedTooltipData.find(v => v.x === datum.x) || {};
+      return t?.tooltip || '';
     };
 
-    containerComponentProps.labelComponent = (
+    const FlyoutComponent = obj => {
+      const containerRef = this.containerRef.current;
+      const tooltipRef = this.tooltipRef.current;
+      const containerBounds = (containerRef && containerRef.getBoundingClientRect()) || {};
+      const tooltipBounds = (tooltipRef && tooltipRef.getBoundingClientRect()) || {};
+
+      if (containerBounds.right) {
+        globalContainerBounds = containerBounds;
+      }
+
+      if (tooltipBounds.right) {
+        globalTooltipBounds = tooltipBounds;
+      }
+
+      let xCoordinate = obj.x + 10;
+
+      if (
+        globalContainerBounds.right < globalTooltipBounds.right ||
+        obj.x + globalTooltipBounds.width * 3 > globalContainerBounds.right
+      ) {
+        xCoordinate = obj.x - 10 - globalTooltipBounds.width;
+      }
+
+      const htmlContent = applyParsedTooltipData({ ...obj });
+
+      if (htmlContent) {
+        return (
+          <g>
+            <foreignObject x={xCoordinate} y={obj.y / 1.3} width="100%" height="100%">
+              <div ref={this.tooltipRef} style={{ display: 'inline-block' }} xmlns="http://www.w3.org/1999/xhtml">
+                {htmlContent}
+              </div>
+            </foreignObject>
+          </g>
+        );
+      }
+
+      return <g />;
+    };
+
+    // FixMe: "flyoutComponent" on ChartTooltip attribute requires very specific format.
+    const labelComponent = (
       <VictoryPortal>
-        <ChartTooltip pointerLength={0} centerOffset={{ x: tooltip => tooltip.flyoutWidth / 2 + 5, y: 0 }} />
+        <ChartTooltip flyoutComponent={<FlyoutComponent />} />
       </VictoryPortal>
     );
 
-    containerComponentProps.labels = ({ datum }) =>
-      (/^chartArea-0/.test(datum.childName) && datum._tooltip) || datum.tooltip || undefined;
-
-    return {
-      containerComponent: <VictoryVoronoiCursorContainer {...containerComponentProps} />
-    };
+    return (
+      <VictoryVoronoiCursorContainer
+        cursorDimension="x"
+        labels={() => ''}
+        labelComponent={labelComponent}
+        voronoiDimension="x"
+        voronoiPadding={50}
+      />
+    );
   }
 
   /**
@@ -308,7 +360,7 @@ class ChartArea extends React.Component {
    * @returns {Array}
    */
   renderChart({ stacked = false }) {
-    const dataSets = this.setDataSets();
+    const { dataSets } = this.props;
     const charts = [];
     const chartsStacked = [];
 
@@ -399,14 +451,9 @@ class ChartArea extends React.Component {
     const { isXAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
     const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks });
     const chartLegendProps = this.getChartLegend();
-    const containerComponent = (maxY > 0 && ChartArea.getContainerComponent()) || {};
-    const chartProps = { padding, ...chartLegendProps, ...chartDomain, ...containerComponent };
+    const tooltipComponent = { containerComponent: (maxY > 0 && this.renderTooltip()) || undefined };
+    const chartProps = { padding, ...chartLegendProps, ...chartDomain, ...tooltipComponent };
 
-    /**
-     * FixMe: PFCharts or Victory, unable to return null or empty content.
-     * General practice of returning "null" shouldn't necessarily melt the
-     * graph. To avoid issues we return an empty array
-     */
     return (
       <div
         id="curiosity-chartarea"
@@ -427,18 +474,18 @@ class ChartArea extends React.Component {
 /**
  * Prop types.
  *
- * @type {{padding, xAxisTickFormat: Function, themeColor: string, yAxisTickFormat: Function,
- *     domain: object|Array, dataSets: object, xAxisFixLabelOverlap: boolean, tooltips: Function,
- *     xAxisLabelIncrement: number, height: number}}
+ * @type {{chartTooltip: Node|Function, padding, xAxisTickFormat: Function, themeColor: string,
+ *     yAxisTickFormat: Function, domain: object|Array, dataSets: object,
+ *     xAxisFixLabelOverlap: boolean, xAxisLabelIncrement: number, height: number}}
  */
 ChartArea.propTypes = {
+  chartTooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   dataSets: PropTypes.arrayOf(
     PropTypes.shape({
       data: PropTypes.arrayOf(
         PropTypes.shape({
           x: PropTypes.number.isRequired,
           y: PropTypes.number,
-          tooltip: PropTypes.string,
           xAxisLabel: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)])
         })
       ),
@@ -468,7 +515,6 @@ ChartArea.propTypes = {
     top: PropTypes.number
   }),
   themeColor: PropTypes.oneOf(Object.values(ChartThemeColor)),
-  tooltips: PropTypes.func,
   xAxisFixLabelOverlap: PropTypes.bool,
   xAxisLabelIncrement: PropTypes.number,
   xAxisTickFormat: PropTypes.func,
@@ -478,11 +524,12 @@ ChartArea.propTypes = {
 /**
  * Default props.
  *
- * @type {{padding: {top: number, left: number, bottom: number, right: number}, xAxisTickFormat: null,
- *     themeColor: string, yAxisTickFormat: null, domain: object, dataSets: Array, xAxisFixLabelOverlap: boolean,
- *     tooltips: null, xAxisLabelIncrement: number, height: number}}
+ * @type {{chartTooltip: null, padding: {top: number, left: number, bottom: number, right: number},
+ *     xAxisTickFormat: null, themeColor: string, yAxisTickFormat: null, domain: object,
+ *     dataSets: Array, xAxisFixLabelOverlap: boolean, xAxisLabelIncrement: number, height: number}}
  */
 ChartArea.defaultProps = {
+  chartTooltip: null,
   domain: {},
   dataSets: [],
   height: 275,
@@ -493,7 +540,6 @@ ChartArea.defaultProps = {
     top: 50
   },
   themeColor: 'blue',
-  tooltips: null,
   xAxisFixLabelOverlap: false,
   xAxisLabelIncrement: 1,
   xAxisTickFormat: null,
