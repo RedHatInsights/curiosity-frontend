@@ -11,6 +11,7 @@ import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } f
 import { graphCardHelpers } from './graphCardHelpers';
 import { graphCardTypes } from './graphCardTypes';
 import GraphCardChartTooltip from './graphCardChartTooltip';
+import GraphCardChartLegend from './graphCardChartLegend';
 import { ChartArea } from '../chartArea/chartArea';
 
 /**
@@ -82,7 +83,7 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, graphQuery, selectOptionsType, t, productShortLabel } = this.props;
+    const { filterGraphData, graphData, graphQuery, selectOptionsType, productShortLabel } = this.props;
     const graphGranularity = graphQuery && graphQuery[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
@@ -120,13 +121,9 @@ class GraphCard extends React.Component {
             duration: 100,
             onLoad: { duration: 100 }
           };
-          tempFiltered.legendSymbolType = 'dash';
           tempFiltered.stroke = chartColorGreenDark.value;
           tempFiltered.strokeDasharray = '4,3';
           tempFiltered.strokeWidth = 2.5;
-          tempFiltered.legendLabel = t(`curiosity-graph.thresholdLabel`);
-        } else {
-          tempFiltered.legendLabel = t(`curiosity-graph.${key}Label`, { product: productShortLabel });
         }
 
         return tempFiltered;
@@ -144,6 +141,7 @@ class GraphCard extends React.Component {
         key={helpers.generateId()}
         {...chartAreaProps}
         dataSets={filteredGraphData(graphData)}
+        chartLegend={({ datum }) => <GraphCardChartLegend datum={datum} product={productShortLabel} />}
         chartTooltip={({ datum }) => (
           <GraphCardChartTooltip datum={datum} granularity={updatedGranularity} product={productShortLabel} />
         )}
@@ -212,7 +210,7 @@ GraphCard.propTypes = {
   error: PropTypes.bool,
   filterGraphData: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.string.isRequired,
       fill: PropTypes.string,
       stroke: PropTypes.string
     })

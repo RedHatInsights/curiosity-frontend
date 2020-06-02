@@ -29,7 +29,6 @@ Array [
     "id": "loremIpsumSockets",
     "isStacked": true,
     "isThreshold": false,
-    "legendLabel": "t(curiosity-graph.loremIpsumSocketsLabel, [object Object])",
   },
   Object {
     "animate": Object {
@@ -58,8 +57,6 @@ Array [
     "id": "thresholdLoremIpsumSockets",
     "isStacked": false,
     "isThreshold": true,
-    "legendLabel": "t(curiosity-graph.thresholdLabel)",
-    "legendSymbolType": "dash",
     "stroke": "#4cb140",
     "strokeDasharray": "4,3",
     "strokeWidth": 2.5,
@@ -114,6 +111,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
       className="curiosity-skeleton-container "
     >
       <ChartArea
+        chartLegend={[Function]}
         chartTooltip={[Function]}
         dataSets={Array []}
         domain={Object {}}
@@ -168,7 +166,6 @@ Object {
       "id": "physicalSockets",
       "isStacked": true,
       "isThreshold": false,
-      "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
     },
   ],
 }
@@ -221,6 +218,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
       className="curiosity-skeleton-container blur"
     >
       <ChartArea
+        chartLegend={[Function]}
         chartTooltip={[Function]}
         dataSets={
           Array [
@@ -251,7 +249,6 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
               "id": "physicalSockets",
               "isStacked": true,
               "isThreshold": false,
-              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
             },
           ]
         }
@@ -324,6 +321,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
       className="curiosity-skeleton-container blur"
     >
       <ChartArea
+        chartLegend={[Function]}
         chartTooltip={[Function]}
         dataSets={
           Array [
@@ -354,7 +352,6 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
               "id": "physicalSockets",
               "isStacked": true,
               "isThreshold": false,
-              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
             },
           ]
         }
@@ -427,6 +424,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
       className="curiosity-skeleton-container "
     >
       <ChartArea
+        chartLegend={[Function]}
         chartTooltip={[Function]}
         dataSets={
           Array [
@@ -457,7 +455,6 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
               "id": "physicalSockets",
               "isStacked": true,
               "isThreshold": false,
-              "legendLabel": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
             },
           ]
         }

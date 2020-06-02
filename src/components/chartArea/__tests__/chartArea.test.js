@@ -26,7 +26,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'loremGraph',
           isStacked: true,
           fill: '#ipsum',
           stroke: '#lorem'
@@ -44,7 +44,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendLabel: 'Dolor sit',
+          id: 'ipsumGraph',
           isThreshold: true,
           fill: '#ipsum',
           stroke: '#lorem',
@@ -75,12 +75,12 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'loremGraph',
           isStacked: true
         },
         {
           data: [],
-          legendLabel: 'Arma virumque cano',
+          id: 'ipsumGraph',
           isThreshold: true
         }
       ]
@@ -117,7 +117,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'loremGraph',
           isStacked: true
         }
       ]
@@ -145,7 +145,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'loremGraph',
           isStacked: true
         },
         {
@@ -161,7 +161,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '2 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'ipsumGraph',
           isThreshold: true
         }
       ]
@@ -182,8 +182,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
+          id: 'loremGraph',
           interpolation: 'natural',
-          legendLabel: 'Arma virumque cano',
           isStacked: true
         },
         {
@@ -194,7 +194,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'ipsumGraph',
           isThreshold: true
         }
       ]
@@ -237,9 +237,6 @@ describe('ChartArea Component', () => {
       'getChartDomain: isXAxisTicks true'
     );
 
-    // check getChartLegend
-    expect(component.instance().getChartLegend()).toMatchSnapshot('getChartLegend');
-
     // check setChartTicks: xAxisLabelUseDataSet, yAxisLabelUseDataSet
     const additionalDataSet = [
       {
@@ -250,15 +247,13 @@ describe('ChartArea Component', () => {
             xAxisLabel: '1 hello world x-axis label'
           }
         ],
-        legendLabel: 'Hello world',
-        legendSymbolType: 'dash',
+        id: 'dolorGraph',
         xAxisLabelUseDataSet: true
       }
     ];
     component.setProps({
       dataSets: [...props.dataSets, ...additionalDataSet]
     });
-    expect(component.instance().getChartLegend()).toMatchSnapshot('getChartLegend: custom legend symbol');
     expect(component.instance().setChartTicks()).toMatchSnapshot('setChartTicks: xAxisLabelUseDataSet');
   });
 
@@ -273,8 +268,8 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
+          id: 'loremGraph',
           interpolation: 'natural',
-          legendLabel: 'Arma virumque cano',
           isStacked: true
         },
         {
@@ -285,7 +280,7 @@ describe('ChartArea Component', () => {
               xAxisLabel: '1 x axis label'
             }
           ],
-          legendLabel: 'Arma virumque cano',
+          id: 'ipsumGraph',
           isThreshold: true
         }
       ]
@@ -301,15 +296,49 @@ describe('ChartArea Component', () => {
     expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after function');
 
     component.setProps({
-      chartTooltip: propsObj => <div>{JSON.stringify(propsObj.datum)}</div>
+      chartTooltip: propsObj => propsObj.datum
     });
     expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after node');
 
     // check renderTooltip
     component.setProps({
-      chartTooltip: propsObj => <div>{JSON.stringify(propsObj.datum)}</div>
+      chartTooltip: propsObj => propsObj.datum
     });
     expect(component.instance().renderTooltip()).toMatchSnapshot('renderTooltip: should return a custom tooltip');
+  });
+
+  it('should handle custom chart legends', () => {
+    const props = {
+      dataSets: [
+        {
+          data: [
+            {
+              x: 1,
+              y: 0,
+              xAxisLabel: '1 x axis label'
+            }
+          ],
+          id: 'loremGraph',
+          interpolation: 'natural',
+          isStacked: true
+        },
+        {
+          data: [
+            {
+              x: 1,
+              y: 10,
+              xAxisLabel: '1 x axis label'
+            }
+          ],
+          id: 'ipsumGraph',
+          isThreshold: true
+        }
+      ],
+      chartLegend: propsObj => propsObj.datum
+    };
+
+    const component = shallow(<ChartArea {...props} />);
+    expect(component.instance().renderLegend()).toMatchSnapshot('renderLegend: should return a custom legend');
   });
 
   it('should set initial width to zero and then resize', () => {
