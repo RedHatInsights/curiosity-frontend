@@ -337,77 +337,6 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
           />
         </g>
       </g>
-      <g>
-        <rect
-          height="50.905"
-          role="presentation"
-          shape-rendering="auto"
-          style="fill:none"
-          vector-effect="non-scaling-stroke"
-          width="369.85743944636675"
-          x="40"
-          y="257"
-        />
-        <path
-          d="M 49.128, 295.872
-      h9.744
-      v-9.744
-      h-9.744
-      z"
-          role="presentation"
-          shape-rendering="auto"
-          style="type:square;fill:#06c"
-        />
-        <path
-          d="M 232.76871972318338, 293.156
-      h6.159999999999997
-      v-4.312
-      h-6.159999999999997
-      z
-      M 240.98205305651672, 293.156
-      h6.159999999999997
-      v-4.312
-      h-6.159999999999997
-      z"
-          role="presentation"
-          shape-rendering="auto"
-          style="type:threshold;fill:#8bc1f7"
-        />
-        <text
-          direction="inherit"
-          dx="0"
-          dy="4.97"
-          id="chart-legend-3-labels-0"
-          x="70.8"
-          y="291"
-        >
-          <tspan
-            dx="0"
-            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
-            text-anchor="start"
-            x="70.8"
-          >
-            Arma virumque cano
-          </tspan>
-        </text>
-        <text
-          direction="inherit"
-          dx="0"
-          dy="4.97"
-          id="chart-legend-3-labels-1"
-          x="255.7287197231834"
-          y="291"
-        >
-          <tspan
-            dx="0"
-            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
-            text-anchor="start"
-            x="255.7287197231834"
-          >
-            Arma virumque cano
-          </tspan>
-        </text>
-      </g>
     </svg>
     <div
       style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
@@ -760,77 +689,6 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
           />
         </g>
       </g>
-      <g>
-        <rect
-          height="50.905"
-          role="presentation"
-          shape-rendering="auto"
-          style="fill:none"
-          vector-effect="non-scaling-stroke"
-          width="369.85743944636675"
-          x="40"
-          y="257"
-        />
-        <path
-          d="M 49.128, 295.872
-      h9.744
-      v-9.744
-      h-9.744
-      z"
-          role="presentation"
-          shape-rendering="auto"
-          style="type:square;fill:#06c"
-        />
-        <path
-          d="M 232.76871972318338, 293.156
-      h6.159999999999997
-      v-4.312
-      h-6.159999999999997
-      z
-      M 240.98205305651672, 293.156
-      h6.159999999999997
-      v-4.312
-      h-6.159999999999997
-      z"
-          role="presentation"
-          shape-rendering="auto"
-          style="type:threshold;fill:#8bc1f7"
-        />
-        <text
-          direction="inherit"
-          dx="0"
-          dy="4.97"
-          id="chart-legend-3-labels-0"
-          x="70.8"
-          y="291"
-        >
-          <tspan
-            dx="0"
-            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
-            text-anchor="start"
-            x="70.8"
-          >
-            Arma virumque cano
-          </tspan>
-        </text>
-        <text
-          direction="inherit"
-          dx="0"
-          dy="4.97"
-          id="chart-legend-3-labels-1"
-          x="255.7287197231834"
-          y="291"
-        >
-          <tspan
-            dx="0"
-            style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#252525"
-            text-anchor="start"
-            x="255.7287197231834"
-          >
-            Arma virumque cano
-          </tspan>
-        </text>
-      </g>
     </svg>
     <div
       style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
@@ -846,24 +704,54 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 </div>
 `;
 
-exports[`ChartArea Component should handle custom chart tooltips: getTooltipData:after function 1`] = `
-Array [
-  Object {
-    "itemsByKey": Object {
-      "dataSet-0": Object {
-        "color": "",
-        "data": Object {
+exports[`ChartArea Component should handle custom chart legends: renderLegend: should return a custom legend 1`] = `
+Object {
+  "dataSets": Array [
+    Object {
+      "data": Array [
+        Object {
           "x": 1,
           "xAxisLabel": "1 x axis label",
           "y": 0,
         },
-      },
-      "dataSet-1": Object {
+      ],
+      "id": "loremGraph",
+      "interpolation": "natural",
+      "isStacked": true,
+    },
+    Object {
+      "data": Array [
+        Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 10,
+        },
+      ],
+      "id": "ipsumGraph",
+      "isThreshold": true,
+    },
+  ],
+}
+`;
+
+exports[`ChartArea Component should handle custom chart tooltips: getTooltipData:after function 1`] = `
+Array [
+  Object {
+    "itemsByKey": Object {
+      "ipsumGraph": Object {
         "color": "",
         "data": Object {
           "x": 1,
           "xAxisLabel": "1 x axis label",
           "y": 10,
+        },
+      },
+      "loremGraph": Object {
+        "color": "",
+        "data": Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 0,
         },
       },
     },
@@ -878,15 +766,7 @@ exports[`ChartArea Component should handle custom chart tooltips: getTooltipData
 Array [
   Object {
     "itemsByKey": Object {
-      "dataSet-0": Object {
-        "color": "",
-        "data": Object {
-          "x": 1,
-          "xAxisLabel": "1 x axis label",
-          "y": 0,
-        },
-      },
-      "dataSet-1": Object {
+      "ipsumGraph": Object {
         "color": "",
         "data": Object {
           "x": 1,
@@ -894,10 +774,63 @@ Array [
           "y": 10,
         },
       },
+      "loremGraph": Object {
+        "color": "",
+        "data": Object {
+          "x": 1,
+          "xAxisLabel": "1 x axis label",
+          "y": 0,
+        },
+      },
     },
-    "tooltip": <div>
-      {"x":1,"y":0,"index":0,"itemsByKey":{"dataSet-0":{"color":"","data":{"x":1,"y":0,"xAxisLabel":"1 x axis label"}},"dataSet-1":{"color":"","data":{"x":1,"y":10,"xAxisLabel":"1 x axis label"}}},"dataSets":[{"data":[{"x":1,"y":0,"xAxisLabel":"1 x axis label"}],"interpolation":"natural","legendLabel":"Arma virumque cano","isStacked":true},{"data":[{"x":1,"y":10,"xAxisLabel":"1 x axis label"}],"legendLabel":"Arma virumque cano","isThreshold":true}]}
-    </div>,
+    "tooltip": Object {
+      "dataSets": Array [
+        Object {
+          "data": Array [
+            Object {
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 0,
+            },
+          ],
+          "id": "loremGraph",
+          "interpolation": "natural",
+          "isStacked": true,
+        },
+        Object {
+          "data": Array [
+            Object {
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 10,
+            },
+          ],
+          "id": "ipsumGraph",
+          "isThreshold": true,
+        },
+      ],
+      "index": 0,
+      "itemsByKey": Object {
+        "ipsumGraph": Object {
+          "color": "",
+          "data": Object {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 10,
+          },
+        },
+        "loremGraph": Object {
+          "color": "",
+          "data": Object {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 0,
+          },
+        },
+      },
+      "x": 1,
+      "y": 0,
+    },
     "x": 1,
     "y": null,
   },
@@ -971,31 +904,6 @@ exports[`ChartArea Component should handle render displays for both data and thr
         ],
       }
     }
-    legendComponent={
-      <ChartLegend
-        borderPadding={
-          Object {
-            "top": 20,
-          }
-        }
-      />
-    }
-    legendData={
-      Array [
-        Object {
-          "name": "Arma virumque cano",
-          "symbol": Object {},
-        },
-        Object {
-          "name": "Arma virumque cano",
-          "symbol": Object {
-            "type": "threshold",
-          },
-        },
-      ]
-    }
-    legendOrientation="horizontal"
-    legendPosition="bottom-left"
     padding={
       Object {
         "bottom": 75,
@@ -1124,64 +1032,6 @@ Object {
 }
 `;
 
-exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartLegend 1`] = `
-Object {
-  "legendComponent": <ChartLegend
-    borderPadding={
-      Object {
-        "top": 20,
-      }
-    }
-  />,
-  "legendData": Array [
-    Object {
-      "name": "Arma virumque cano",
-      "symbol": Object {},
-    },
-    Object {
-      "name": "Arma virumque cano",
-      "symbol": Object {
-        "type": "threshold",
-      },
-    },
-  ],
-  "legendOrientation": "horizontal",
-  "legendPosition": "bottom-left",
-}
-`;
-
-exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartLegend: custom legend symbol 1`] = `
-Object {
-  "legendComponent": <ChartLegend
-    borderPadding={
-      Object {
-        "top": 20,
-      }
-    }
-  />,
-  "legendData": Array [
-    Object {
-      "name": "Arma virumque cano",
-      "symbol": Object {},
-    },
-    Object {
-      "name": "Arma virumque cano",
-      "symbol": Object {
-        "type": "threshold",
-      },
-    },
-    Object {
-      "name": "Hello world",
-      "symbol": Object {
-        "type": "dash",
-      },
-    },
-  ],
-  "legendOrientation": "horizontal",
-  "legendPosition": "bottom-left",
-}
-`;
-
 exports[`ChartArea Component should handle variation in passed properties with specific methods: getChartTicks 1`] = `
 Object {
   "isXAxisTicks": true,
@@ -1239,31 +1089,6 @@ exports[`ChartArea Component should handle variation in passed properties with s
         ],
       }
     }
-    legendComponent={
-      <ChartLegend
-        borderPadding={
-          Object {
-            "top": 20,
-          }
-        }
-      />
-    }
-    legendData={
-      Array [
-        Object {
-          "name": "Arma virumque cano",
-          "symbol": Object {},
-        },
-        Object {
-          "name": "Arma virumque cano",
-          "symbol": Object {
-            "type": "threshold",
-          },
-        },
-      ]
-    }
-    legendOrientation="horizontal"
-    legendPosition="bottom-left"
     padding={
       Object {
         "bottom": 75,
@@ -1355,18 +1180,6 @@ exports[`ChartArea Component should render a basic component: basic 1`] = `
         ],
       }
     }
-    legendComponent={
-      <ChartLegend
-        borderPadding={
-          Object {
-            "top": 20,
-          }
-        }
-      />
-    }
-    legendData={Array []}
-    legendOrientation="horizontal"
-    legendPosition="bottom-left"
     padding={
       Object {
         "bottom": 75,
@@ -1413,34 +1226,6 @@ exports[`ChartArea Component should render basic data: data 1`] = `
         ],
       }
     }
-    legendComponent={
-      <ChartLegend
-        borderPadding={
-          Object {
-            "top": 20,
-          }
-        }
-      />
-    }
-    legendData={
-      Array [
-        Object {
-          "name": "Arma virumque cano",
-          "symbol": Object {
-            "fill": "#lorem",
-          },
-        },
-        Object {
-          "name": "Dolor sit",
-          "symbol": Object {
-            "fill": "#lorem",
-            "type": "threshold",
-          },
-        },
-      ]
-    }
-    legendOrientation="horizontal"
-    legendPosition="bottom-left"
     padding={
       Object {
         "bottom": 75,
