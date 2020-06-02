@@ -4,7 +4,6 @@ import { createContainer, VictoryPortal } from 'victory';
 import {
   Chart,
   ChartAxis,
-  ChartLegend,
   ChartStack,
   ChartThreshold,
   ChartTooltip,
@@ -195,45 +194,6 @@ class ChartArea extends React.Component {
   }
 
   /**
-   * Apply props and return chart/graph legend.
-   *
-   * @returns {object}
-   */
-  getChartLegend() {
-    const { dataSets } = this.props;
-    const legendData = [];
-
-    dataSets.forEach(dataSet => {
-      if (dataSet.legendLabel) {
-        const legendDataSettings = { symbol: {}, name: dataSet.legendLabel };
-
-        if (dataSet.legendSymbolType) {
-          legendDataSettings.symbol.type = dataSet.legendSymbolType;
-        } else if (dataSet.isThreshold) {
-          legendDataSettings.symbol.type = 'threshold';
-        }
-
-        if (dataSet.themeColor) {
-          legendDataSettings.symbol.fill = dataSet.themeColor;
-        } else if (dataSet.stroke) {
-          legendDataSettings.symbol.fill = dataSet.stroke;
-        } else if (dataSet.fill) {
-          legendDataSettings.symbol.fill = dataSet.fill;
-        }
-
-        legendData.push(legendDataSettings);
-      }
-    });
-
-    return {
-      legendData,
-      legendOrientation: 'horizontal',
-      legendPosition: 'bottom-left',
-      legendComponent: <ChartLegend borderPadding={{ top: 20 }} />
-    };
-  }
-
-  /**
    * Apply data set to custom tooltips.
    *
    * @returns {Array}
@@ -246,9 +206,9 @@ class ChartArea extends React.Component {
       tooltipDataSet = dataSets[0].data.map((dataSet, index) => {
         const itemsByKey = {};
 
-        dataSets.forEach((data, i) => {
+        dataSets.forEach(data => {
           if (data.data && data.data[index]) {
-            itemsByKey[data.id || `dataSet-${i}`] = {
+            itemsByKey[data.id] = {
               color: data.stroke || data.fill || data.color || '',
               data: _cloneDeep(data.data[index])
             };
@@ -354,6 +314,28 @@ class ChartArea extends React.Component {
   }
 
   /**
+   * Return a custom chart/graph legend component.
+   *
+   * @returns {Node}
+   */
+  renderLegend() {
+    const { chartLegend, dataSets } = this.props;
+
+    if (!chartLegend) {
+      return null;
+    }
+
+    const mockDatum = {
+      datum: { dataSets: _cloneDeep(dataSets) }
+    };
+
+    return (
+      (React.isValidElement(chartLegend) && React.cloneElement(chartLegend, { ...mockDatum })) ||
+      chartLegend({ ...mockDatum })
+    );
+  }
+
+  /**
    * Return a list/array of both stacked and non-stacked charts/graphs.
    *
    * @param {boolean} stacked
@@ -446,13 +428,12 @@ class ChartArea extends React.Component {
    */
   render() {
     const { chartWidth } = this.state;
-    const { padding, themeColor } = this.props;
+    const { chartLegend, padding, themeColor } = this.props;
 
     const { isXAxisTicks, xAxisProps, yAxisProps } = this.getChartTicks();
     const { chartDomain, maxY } = this.getChartDomain({ isXAxisTicks });
-    const chartLegendProps = this.getChartLegend();
-    const tooltipComponent = { containerComponent: (maxY > 0 && this.renderTooltip()) || undefined };
-    const chartProps = { padding, ...chartLegendProps, ...chartDomain, ...tooltipComponent };
+    const tooltipComponent = { containerComponent: (maxY >= 0 && this.renderTooltip()) || undefined };
+    const chartProps = { padding, ...chartDomain, ...tooltipComponent };
 
     return (
       <div
@@ -466,6 +447,7 @@ class ChartArea extends React.Component {
           {this.renderChart({})}
           <ChartStack>{this.renderChart({ stacked: true })}</ChartStack>
         </Chart>
+        {chartLegend && <div className="curiosity-chartarea-description victory-legend">{this.renderLegend()}</div>}
       </div>
     );
   }
@@ -474,11 +456,12 @@ class ChartArea extends React.Component {
 /**
  * Prop types.
  *
- * @type {{chartTooltip: Node|Function, padding, xAxisTickFormat: Function, themeColor: string,
- *     yAxisTickFormat: Function, domain: object|Array, dataSets: object,
+ * @type {{chartLegend: Node|Function, chartTooltip: Node|Function, padding, xAxisTickFormat: Function,
+ *     themeColor: string, yAxisTickFormat: Function, domain: object|Array, dataSets: object,
  *     xAxisFixLabelOverlap: boolean, xAxisLabelIncrement: number, height: number}}
  */
 ChartArea.propTypes = {
+  chartLegend: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   chartTooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   dataSets: PropTypes.arrayOf(
     PropTypes.shape({
@@ -496,7 +479,7 @@ ChartArea.propTypes = {
       strokeDasharray: PropTypes.string,
       themeColor: PropTypes.string,
       themeVariant: PropTypes.string,
-      id: PropTypes.string,
+      id: PropTypes.string.isRequired,
       interpolation: PropTypes.string,
       legendLabel: PropTypes.string,
       legendSymbolType: PropTypes.string,
@@ -524,11 +507,12 @@ ChartArea.propTypes = {
 /**
  * Default props.
  *
- * @type {{chartTooltip: null, padding: {top: number, left: number, bottom: number, right: number},
- *     xAxisTickFormat: null, themeColor: string, yAxisTickFormat: null, domain: object,
+ * @type {{chartLegend: null, chartTooltip: null, padding: {top: number, left: number, bottom: number,
+ *     right: number}, xAxisTickFormat: null, themeColor: string, yAxisTickFormat: null, domain: object,
  *     dataSets: Array, xAxisFixLabelOverlap: boolean, xAxisLabelIncrement: number, height: number}}
  */
 ChartArea.defaultProps = {
+  chartLegend: null,
   chartTooltip: null,
   domain: {},
   dataSets: [],
