@@ -3,6 +3,7 @@
 exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
+    "legend": Object {},
     "reportCapacity": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -22,6 +23,7 @@ Object {
 exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
+    "legend": Object {},
     "reportCapacity": Object {
       "data": Object {
         "test": "success",
@@ -45,6 +47,7 @@ Object {
 exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
 Object {
   "result": Object {
+    "legend": Object {},
     "reportCapacity": Object {
       "error": false,
       "errorMessage": "",
@@ -57,5 +60,17 @@ Object {
     },
   },
   "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
+}
+`;
+
+exports[`GraphReducer should handle specific defined types: defined type SET_GRAPH_LEGEND 1`] = `
+Object {
+  "result": Object {
+    "legend": Object {
+      "lorem": true,
+    },
+    "reportCapacity": Object {},
+  },
+  "type": "SET_GRAPH_LEGEND",
 }
 `;

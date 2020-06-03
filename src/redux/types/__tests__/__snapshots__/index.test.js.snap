@@ -11,6 +11,9 @@ Object {
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
     },
+    "graph": Object {
+      "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
+    },
     "platform": Object {
       "PLATFORM_ADD_NOTIFICATION": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",
       "PLATFORM_APP_NAME": "PLATFORM_APP_NAME",
@@ -36,6 +39,9 @@ Object {
       "USER_LOGOUT": "USER_LOGOUT",
     },
   },
+  "graphTypes": Object {
+    "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
+  },
   "platformTypes": Object {
     "PLATFORM_ADD_NOTIFICATION": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",
     "PLATFORM_APP_NAME": "PLATFORM_APP_NAME",
@@ -49,6 +55,9 @@ Object {
     "app": Object {
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
+    },
+    "graph": Object {
+      "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
     },
     "platform": Object {
       "PLATFORM_ADD_NOTIFICATION": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",
@@ -98,6 +107,9 @@ Object {
   "app": Object {
     "STATUS_4XX": "4XX",
     "STATUS_5XX": "5XX",
+  },
+  "graph": Object {
+    "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
   },
   "platform": Object {
     "PLATFORM_ADD_NOTIFICATION": "@@INSIGHTS-CORE/NOTIFICATIONS/ADD_NOTIFICATION",

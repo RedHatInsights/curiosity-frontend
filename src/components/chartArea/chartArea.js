@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createContainer, VictoryPortal } from 'victory';
+import { createContainer } from 'victory';
 import {
   Chart,
   ChartAxis,
   ChartStack,
   ChartThreshold,
-  ChartTooltip,
   ChartThemeColor,
   ChartArea as PfChartArea
 } from '@patternfly/react-charts';
@@ -18,9 +17,15 @@ import { helpers } from '../../common';
  *
  * @augments React.Component
  * @fires onResizeContainer
+ * @fires onHide
+ * @fires onRevert
+ * @fires onToggle
+ * @param id
  */
 class ChartArea extends React.Component {
   state = { chartWidth: 0 };
+
+  dataSetsToggle = {};
 
   containerRef = React.createRef();
 
@@ -47,6 +52,52 @@ class ChartArea extends React.Component {
       this.setState({ chartWidth: containerElement.clientWidth });
     }
   };
+
+  /**
+   * Consumer exposed, hides chart layer.
+   *
+   * @event onHide
+   * @param {string} id
+   */
+  onHide = id => {
+    this.dataSetsToggle = { ...this.dataSetsToggle, [id]: true };
+    this.forceUpdate();
+  };
+
+  /**
+   * Consumer exposed, turns all chart layers back on.
+   *
+   * @event onRevert
+   */
+  onRevert = () => {
+    this.dataSetsToggle = {};
+    this.forceUpdate();
+  };
+
+  /**
+   * Consumer exposed, turns chart layer on/off.
+   *
+   * @event onToggle
+   * @param {string} id
+   * @returns {boolean}
+   */
+  onToggle = id => {
+    const updatedToggle = !this.dataSetsToggle[id];
+    this.dataSetsToggle = { ...this.dataSetsToggle, [id]: updatedToggle };
+    this.forceUpdate();
+
+    return updatedToggle;
+  };
+
+  /**
+   * Consumer exposed, determine if chart layer on/off.
+   * Note: Using "setState" as related to this exposed check gives the appearance of a race condition.
+   * Using a class property with forceUpdate to bypass.
+   *
+   * @param {string} id
+   * @returns {boolean}
+   */
+  getIsToggled = id => this.dataSetsToggle[id] || false;
 
   /**
    * Apply props, set x and y axis chart increments/ticks formatting.
@@ -131,7 +182,6 @@ class ChartArea extends React.Component {
     };
   }
 
-  // ToDo: the domain range needs to be updated when additional datasets are added
   /**
    * Calculate and return the x and y domain range.
    *
@@ -139,6 +189,7 @@ class ChartArea extends React.Component {
    * @returns {object}
    */
   getChartDomain({ isXAxisTicks }) {
+    const { dataSetsToggle } = this;
     const { domain, dataSets } = this.props;
 
     if (Object.keys(domain).length) {
@@ -153,7 +204,7 @@ class ChartArea extends React.Component {
     const stackedSets = dataSets.filter(set => set.isStacked === true);
 
     stackedSets.forEach(dataSet => {
-      if (dataSet.data) {
+      if (!dataSetsToggle[dataSet.id] && dataSet.data) {
         let dataSetMaxYStacked = 0;
 
         dataSet.data.forEach((value, index) => {
@@ -167,7 +218,7 @@ class ChartArea extends React.Component {
     });
 
     dataSets.forEach(dataSet => {
-      if (dataSet.data) {
+      if (!dataSetsToggle[dataSet.id] && dataSet.data) {
         dataSetMaxX = dataSet.data.length > dataSetMaxX ? dataSet.data.length : dataSetMaxX;
 
         dataSet.data.forEach(value => {
@@ -199,6 +250,7 @@ class ChartArea extends React.Component {
    * @returns {Array}
    */
   getTooltipData() {
+    const { dataSetsToggle } = this;
     const { dataSets, chartTooltip } = this.props;
     let tooltipDataSet = [];
 
@@ -207,7 +259,7 @@ class ChartArea extends React.Component {
         const itemsByKey = {};
 
         dataSets.forEach(data => {
-          if (data.data && data.data[index]) {
+          if (!dataSetsToggle[data.id] && data.data && data.data[index]) {
             itemsByKey[data.id] = {
               color: data.stroke || data.fill || data.color || '',
               data: _cloneDeep(data.data[index])
@@ -239,9 +291,10 @@ class ChartArea extends React.Component {
    * @returns {Node}
    */
   renderTooltip() {
-    const { chartTooltip } = this.props;
+    const { dataSetsToggle } = this;
+    const { chartTooltip, dataSets } = this.props;
 
-    if (!chartTooltip) {
+    if (!chartTooltip || Object.values(dataSetsToggle).filter(v => v === true).length === dataSets.length) {
       return null;
     }
 
@@ -273,7 +326,7 @@ class ChartArea extends React.Component {
 
       if (
         globalContainerBounds.right < globalTooltipBounds.right ||
-        obj.x + globalTooltipBounds.width * 3 > globalContainerBounds.right
+        obj.x + globalTooltipBounds.width > globalContainerBounds.right / 2
       ) {
         xCoordinate = obj.x - 10 - globalTooltipBounds.width;
       }
@@ -283,7 +336,7 @@ class ChartArea extends React.Component {
       if (htmlContent) {
         return (
           <g>
-            <foreignObject x={xCoordinate} y={obj.y / 1.3} width="100%" height="100%">
+            <foreignObject x={xCoordinate} y={obj.y / 2} width="100%" height="100%">
               <div ref={this.tooltipRef} style={{ display: 'inline-block' }} xmlns="http://www.w3.org/1999/xhtml">
                 {htmlContent}
               </div>
@@ -295,20 +348,13 @@ class ChartArea extends React.Component {
       return <g />;
     };
 
-    // FixMe: "flyoutComponent" on ChartTooltip attribute requires very specific format.
-    const labelComponent = (
-      <VictoryPortal>
-        <ChartTooltip flyoutComponent={<FlyoutComponent />} />
-      </VictoryPortal>
-    );
-
     return (
       <VictoryVoronoiCursorContainer
         cursorDimension="x"
         labels={() => ''}
-        labelComponent={labelComponent}
+        labelComponent={<FlyoutComponent />}
         voronoiDimension="x"
-        voronoiPadding={50}
+        voronoiPadding={60}
       />
     );
   }
@@ -325,13 +371,19 @@ class ChartArea extends React.Component {
       return null;
     }
 
-    const mockDatum = {
-      datum: { dataSets: _cloneDeep(dataSets) }
+    const legendProps = {
+      datum: { dataSets: _cloneDeep(dataSets) },
+      chart: {
+        hide: this.onHide,
+        revert: this.onRevert,
+        toggle: this.onToggle,
+        isToggled: this.getIsToggled
+      }
     };
 
     return (
-      (React.isValidElement(chartLegend) && React.cloneElement(chartLegend, { ...mockDatum })) ||
-      chartLegend({ ...mockDatum })
+      (React.isValidElement(chartLegend) && React.cloneElement(chartLegend, { ...legendProps })) ||
+      chartLegend({ ...legendProps })
     );
   }
 
@@ -342,6 +394,7 @@ class ChartArea extends React.Component {
    * @returns {Array}
    */
   renderChart({ stacked = false }) {
+    const { dataSetsToggle } = this;
     const { dataSets } = this.props;
     const charts = [];
     const chartsStacked = [];
@@ -407,7 +460,7 @@ class ChartArea extends React.Component {
     };
 
     dataSets.forEach((dataSet, index) => {
-      if (dataSet.data && dataSet.data.length) {
+      if (!dataSetsToggle[dataSet.id] && dataSet.data && dataSet.data.length) {
         const updatedDataSet = (dataSet.isThreshold && thresholdChart(dataSet, index)) || areaChart(dataSet, index);
 
         if (dataSet.isStacked) {

@@ -1,4 +1,4 @@
-import { rhsmTypes } from '../types';
+import { rhsmTypes, graphTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
@@ -8,22 +8,39 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * @type {{reportCapacity: object}}
  */
 const initialState = {
+  legend: {},
   reportCapacity: {}
 };
 
 /**
- * Apply generated graph observer/reducer for reportCapacity to state, against actions.
+ * Apply graph interaction, and generated graph observer/reducer for reportCapacity to state,
+ * against actions.
  *
  * @param {object} state
  * @param {object} action
  * @returns {object|{}}
  */
-const graphReducer = (state = initialState, action) =>
-  reduxHelpers.generatedPromiseActionReducer(
-    [{ ref: 'reportCapacity', type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM }],
-    state,
-    action
-  );
+const graphReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case graphTypes.SET_GRAPH_LEGEND:
+      return reduxHelpers.setStateProp(
+        'legend',
+        {
+          ...action.legend
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    default:
+      return reduxHelpers.generatedPromiseActionReducer(
+        [{ ref: 'reportCapacity', type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM }],
+        state,
+        action
+      );
+  }
+};
 
 graphReducer.initialState = initialState;
 

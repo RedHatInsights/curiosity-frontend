@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Button } from '@patternfly/react-core';
 import { GraphCardChartLegend } from '../graphCardChartLegend';
 
 describe('GraphCardChartLegend Component', () => {
@@ -57,11 +58,76 @@ describe('GraphCardChartLegend Component', () => {
     expect(component).toMatchSnapshot('data');
   });
 
+  it('should handle a click event', () => {
+    const props = {
+      datum: {
+        dataSets: [
+          {
+            stroke: '#000000',
+            id: 'loremIpsum',
+            isThreshold: false,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
+            stroke: '#ff0000',
+            id: 'dolorSit',
+            isThreshold: true,
+            data: [{ y: 0, isInfinite: false }]
+          }
+        ]
+      },
+      legend: {
+        'test-dolorSit': true
+      },
+      product: 'test',
+      viewId: 'test'
+    };
+
+    const component = shallow(<GraphCardChartLegend {...props} />);
+    expect(component.find(Button).first()).toMatchSnapshot('click event pre');
+
+    component.find(Button).first().simulate('click');
+    // emulate a Redux state update.
+    component.setProps({
+      legend: { ...props.legend, ...{ 'test-loremIpsum': true } }
+    });
+    expect(component.find(Button).first()).toMatchSnapshot('click event update');
+
+    component.find(Button).first().simulate('keyPress');
+    // emulate a Redux state update.
+    component.setProps({
+      legend: { ...props.legend, ...{ 'test-loremIpsum': false } }
+    });
+    expect(component.find(Button).first()).toMatchSnapshot('click event post');
+  });
+
   it('should handle variations in data when returning legend items', () => {
+    const props = {
+      datum: {
+        dataSets: [
+          {
+            stroke: '#000000',
+            id: 'loremIpsum',
+            isThreshold: false,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
+            stroke: '#ff0000',
+            id: 'dolorSit',
+            isThreshold: true,
+            data: [{ y: 0, isInfinite: false }]
+          }
+        ]
+      },
+      product: 'test'
+    };
+
+    const component = shallow(<GraphCardChartLegend {...props} />);
+
     expect(
-      GraphCardChartLegend.renderLegendItem({
-        chartId: 'lorem',
-        color: '#ipsum',
+      component.instance().renderLegendItem({
+        chartId: 'loremIpsum',
+        color: '#000000',
         isDisabled: false,
         isThreshold: false,
         labelContent: 'lorem ispum',
@@ -70,9 +136,9 @@ describe('GraphCardChartLegend Component', () => {
     ).toMatchSnapshot('legend item, WITH tooltip content');
 
     expect(
-      GraphCardChartLegend.renderLegendItem({
-        chartId: 'lorem',
-        color: '#ipsum',
+      component.instance().renderLegendItem({
+        chartId: 'loremIpsum',
+        color: '#000000',
         isDisabled: false,
         isThreshold: false,
         labelContent: 'lorem ispum',
@@ -81,9 +147,9 @@ describe('GraphCardChartLegend Component', () => {
     ).toMatchSnapshot('legend item, MISSING tooltip content');
 
     expect(
-      GraphCardChartLegend.renderLegendItem({
-        chartId: 'lorem',
-        color: '#ipsum',
+      component.instance().renderLegendItem({
+        chartId: 'loremIpsum',
+        color: '#000000',
         isDisabled: true,
         isThreshold: false,
         labelContent: 'lorem ispum',

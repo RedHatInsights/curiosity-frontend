@@ -1,19 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 import { Button, Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { EyeSlashIcon } from '@patternfly/react-icons';
+import { connectTranslate, store, reduxTypes } from '../../redux';
 import { helpers } from '../../common';
 
 /**
  * A custom chart legend.
  *
  * @augments React.Component
+ * @fires onClick
  */
 class GraphCardChartLegend extends React.Component {
-  static renderLegendItem({ chartId, color, isDisabled, isThreshold, labelContent, tooltipContent }) {
+  componentDidMount() {
+    const { chart, datum, legend, viewId } = this.props;
+    datum.dataSets.forEach(({ id }) => {
+      const checkIsToggled = legend[`${viewId}-${id}`] || chart.isToggled(id);
+
+      if (checkIsToggled) {
+        chart.hide(id);
+      }
+    });
+  }
+
+  /**
+   * Toggle legend item and chart.
+   *
+   * @event onClick
+   * @param {string} id
+   */
+  onClick = id => {
+    const { chart, viewId } = this.props;
+    const updatedToggle = chart.toggle(id);
+
+    store.dispatch({
+      type: reduxTypes.graph.SET_GRAPH_LEGEND,
+      legend: {
+        [`${viewId}-${id}`]: updatedToggle
+      }
+    });
+  };
+
+  /**
+   * Return a legend item.
+   *
+   * @param {object} options
+   * @property {string} chartId
+   * @property {string} color
+   * @property {boolean} isDisabled
+   * @property {boolean} isThreshold
+   * @property {string} labelContent
+   * @property {string} tooltipContent
+   * @returns {Node}
+   */
+  renderLegendItem({ chartId, color, isDisabled, isThreshold, labelContent, tooltipContent }) {
+    const { chart, legend, viewId } = this.props;
+    const checkIsToggled = legend[`${viewId}-${chartId}`] || chart.isToggled(chartId);
+
     const button = (
       <Button
+        onClick={() => this.onClick(chartId)}
+        onKeyPress={() => this.onClick(chartId)}
         className="victory-legend-item"
         tabIndex={0}
         key={`curiosity-button-${chartId}`}
@@ -21,13 +68,13 @@ class GraphCardChartLegend extends React.Component {
         component="a"
         isDisabled={isDisabled}
         icon={
-          (isDisabled && <EyeSlashIcon />) ||
+          ((isDisabled || checkIsToggled) && <EyeSlashIcon />) ||
           (isThreshold && (
             <hr
               aria-hidden
               className="threshold-legend-icon"
               style={{
-                visibility: (isDisabled && 'hidden') || 'visible',
+                visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible',
                 borderTopColor: color
               }}
             />
@@ -36,7 +83,7 @@ class GraphCardChartLegend extends React.Component {
               aria-hidden
               className="legend-icon"
               style={{
-                visibility: (isDisabled && 'hidden') || 'visible',
+                visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible',
                 backgroundColor: color
               }}
             />
@@ -65,6 +112,11 @@ class GraphCardChartLegend extends React.Component {
     return button;
   }
 
+  /**
+   * Render a graph legend.
+   *
+   * @returns {Node}
+   */
   render() {
     const { datum, product, t } = this.props;
 
@@ -82,7 +134,7 @@ class GraphCardChartLegend extends React.Component {
           const tooltipContent =
             (isThreshold && t(`curiosity-graph.thresholdLegendTooltip`)) || t(`curiosity-graph.${id}LegendTooltip`);
 
-          return GraphCardChartLegend.renderLegendItem({
+          return this.renderLegendItem({
             chartId: id,
             color: stroke,
             labelContent,
@@ -99,9 +151,14 @@ class GraphCardChartLegend extends React.Component {
 /**
  * Prop types.
  *
- * @type {{datum, product: string, t: Function}}
+ * @type {{datum, product: string, t: Function, legend, chart}}
  */
 GraphCardChartLegend.propTypes = {
+  chart: PropTypes.shape({
+    hide: PropTypes.func,
+    toggle: PropTypes.func,
+    isToggled: PropTypes.func
+  }),
   datum: PropTypes.shape({
     dataSets: PropTypes.arrayOf(
       PropTypes.shape({
@@ -111,23 +168,35 @@ GraphCardChartLegend.propTypes = {
       })
     )
   }),
+  legend: PropTypes.objectOf(PropTypes.bool),
   product: PropTypes.string,
-  t: PropTypes.func
+  t: PropTypes.func,
+  viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{datum: {}, product: string, t: Function}}
+ * @type {{datum: { dataSets: [] }, product: string, t: Function, legend: {}, chart: {hide: Function,
+ *     toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
+  chart: {
+    hide: helpers.noop,
+    toggle: helpers.noop,
+    isToggled: helpers.noop
+  },
   datum: {
     dataSets: []
   },
+  legend: {},
   product: '',
-  t: helpers.noopTranslate
+  t: helpers.noopTranslate,
+  viewId: 'graphCardLegend'
 };
 
-const TranslatedGraphCardChartLegend = withTranslation()(GraphCardChartLegend);
+const mapStateToProps = ({ graph }) => ({ legend: graph.legend });
 
-export { TranslatedGraphCardChartLegend as default, TranslatedGraphCardChartLegend, GraphCardChartLegend };
+const ConnectedGraphCardChartLegend = connectTranslate(mapStateToProps)(GraphCardChartLegend);
+
+export { ConnectedGraphCardChartLegend as default, ConnectedGraphCardChartLegend, GraphCardChartLegend };
