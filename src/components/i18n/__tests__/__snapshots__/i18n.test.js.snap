@@ -35,8 +35,8 @@ msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:189
 #: src/components/c3GraphCard/c3GraphCard.js:193
-#: src/components/graphCard/graphCard.js:174
-#: src/components/graphCard/graphCard.js:178
+#: src/components/graphCard/graphCard.js:176
+#: src/components/graphCard/graphCard.js:180
 msgid \\"curiosity-graph.dropdownPlaceholder\\"
 msgstr \\"\\"
 
@@ -64,7 +64,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardChartLegend.js:80
+#: src/components/graphCard/graphCardChartLegend.js:132
 msgid \\"curiosity-graph.noLabel\\"
 msgstr \\"\\"
 
@@ -75,13 +75,13 @@ msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:110
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:133
-#: src/components/graphCard/graphCardChartLegend.js:78
+#: src/components/graphCard/graphCardChartLegend.js:130
 #: src/components/graphCard/graphCardChartTooltip.js:34
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:93
-#: src/components/graphCard/graphCardChartLegend.js:83
+#: src/components/graphCard/graphCardChartLegend.js:135
 msgid \\"curiosity-graph.thresholdLegendTooltip\\"
 msgstr \\"\\"
 

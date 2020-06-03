@@ -308,6 +308,7 @@ describe('ChartArea Component', () => {
   });
 
   it('should handle custom chart legends', () => {
+    let chartMethods = {};
     const props = {
       dataSets: [
         {
@@ -334,11 +335,26 @@ describe('ChartArea Component', () => {
           isThreshold: true
         }
       ],
-      chartLegend: propsObj => propsObj.datum
+      chartLegend: propsObj => {
+        chartMethods = propsObj.chart;
+        return propsObj;
+      }
     };
 
     const component = shallow(<ChartArea {...props} />);
     expect(component.instance().renderLegend()).toMatchSnapshot('renderLegend: should return a custom legend');
+
+    chartMethods.hide('loremGraph');
+    expect(component.instance().dataSetsToggle).toMatchSnapshot('hide state');
+
+    const returnedToggleValue = chartMethods.isToggled('loremGraph');
+    expect({ state: component.instance().dataSetsToggle, returnedToggleValue }).toMatchSnapshot('isToggled state');
+
+    chartMethods.toggle('loremGraph');
+    expect(component.instance().dataSetsToggle).toMatchSnapshot('toggle state');
+
+    chartMethods.revert();
+    expect(component.instance().dataSetsToggle).toMatchSnapshot('revert state');
   });
 
   it('should set initial width to zero and then resize', () => {
