@@ -1,10 +1,25 @@
 import graphReducer from '../graphReducer';
-import { rhsmTypes as types } from '../../types';
+import { rhsmTypes as types, graphTypes } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
 describe('GraphReducer', () => {
   it('should return the initial state', () => {
     expect(graphReducer.initialState).toBeDefined();
+  });
+
+  it('should handle specific defined types', () => {
+    const specificTypes = [graphTypes.SET_GRAPH_LEGEND];
+
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: value,
+        legend: { lorem: true }
+      };
+
+      const resultState = graphReducer(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
   });
 
   it('should handle all defined error types', () => {

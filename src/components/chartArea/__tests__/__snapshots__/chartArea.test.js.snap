@@ -704,33 +704,64 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
 </div>
 `;
 
+exports[`ChartArea Component should handle custom chart legends: hide state 1`] = `
+Object {
+  "loremGraph": true,
+}
+`;
+
+exports[`ChartArea Component should handle custom chart legends: isToggled state 1`] = `
+Object {
+  "returnedToggleValue": true,
+  "state": Object {
+    "loremGraph": true,
+  },
+}
+`;
+
 exports[`ChartArea Component should handle custom chart legends: renderLegend: should return a custom legend 1`] = `
 Object {
-  "dataSets": Array [
-    Object {
-      "data": Array [
-        Object {
-          "x": 1,
-          "xAxisLabel": "1 x axis label",
-          "y": 0,
-        },
-      ],
-      "id": "loremGraph",
-      "interpolation": "natural",
-      "isStacked": true,
-    },
-    Object {
-      "data": Array [
-        Object {
-          "x": 1,
-          "xAxisLabel": "1 x axis label",
-          "y": 10,
-        },
-      ],
-      "id": "ipsumGraph",
-      "isThreshold": true,
-    },
-  ],
+  "chart": Object {
+    "hide": [Function],
+    "isToggled": [Function],
+    "revert": [Function],
+    "toggle": [Function],
+  },
+  "datum": Object {
+    "dataSets": Array [
+      Object {
+        "data": Array [
+          Object {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 0,
+          },
+        ],
+        "id": "loremGraph",
+        "interpolation": "natural",
+        "isStacked": true,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 10,
+          },
+        ],
+        "id": "ipsumGraph",
+        "isThreshold": true,
+      },
+    ],
+  },
+}
+`;
+
+exports[`ChartArea Component should handle custom chart legends: revert state 1`] = `Object {}`;
+
+exports[`ChartArea Component should handle custom chart legends: toggle state 1`] = `
+Object {
+  "loremGraph": false,
 }
 `;
 
@@ -867,21 +898,13 @@ exports[`ChartArea Component should handle custom chart tooltips: renderTooltip:
       "y": -10,
     }
   }
-  labelComponent={
-    <VictoryPortal
-      groupComponent={<g />}
-    >
-      <ChartTooltip
-        flyoutComponent={<FlyoutComponent />}
-      />
-    </VictoryPortal>
-  }
+  labelComponent={<FlyoutComponent />}
   labels={[Function]}
   portalComponent={<Portal />}
   portalZIndex={99}
   responsive={true}
   voronoiDimension="x"
-  voronoiPadding={50}
+  voronoiPadding={60}
 />
 `;
 
