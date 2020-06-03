@@ -1,5 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GraphCardChartLegend Component should handle a click event: click event post 1`] = `
+<Component
+  className="victory-legend-item"
+  component="a"
+  icon={
+    <div
+      aria-hidden={true}
+      className="legend-icon"
+      style={
+        Object {
+          "backgroundColor": "#000000",
+          "visibility": "visible",
+        }
+      }
+    />
+  }
+  isDisabled={false}
+  key="curiosity-button-loremIpsum"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  tabIndex={0}
+  variant="link"
+>
+  t(curiosity-graph.loremIpsumLabel, [object Object])
+</Component>
+`;
+
+exports[`GraphCardChartLegend Component should handle a click event: click event pre 1`] = `
+<Component
+  className="victory-legend-item"
+  component="a"
+  icon={
+    <div
+      aria-hidden={true}
+      className="legend-icon"
+      style={
+        Object {
+          "backgroundColor": "#000000",
+          "visibility": "visible",
+        }
+      }
+    />
+  }
+  isDisabled={false}
+  key="curiosity-button-loremIpsum"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  tabIndex={0}
+  variant="link"
+>
+  t(curiosity-graph.loremIpsumLabel, [object Object])
+</Component>
+`;
+
+exports[`GraphCardChartLegend Component should handle a click event: click event update 1`] = `
+<Component
+  className="victory-legend-item"
+  component="a"
+  icon={
+    <EyeSlashIcon
+      color="currentColor"
+      noVerticalAlign={false}
+      size="sm"
+      title={null}
+    />
+  }
+  isDisabled={false}
+  key="curiosity-button-loremIpsum"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  tabIndex={0}
+  variant="link"
+>
+  t(curiosity-graph.loremIpsumLabel, [object Object])
+</Component>
+`;
+
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, MISSING tooltip content 1`] = `
 <Unknown
   className="victory-legend-item"
@@ -10,13 +87,15 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
       className="legend-icon"
       style={
         Object {
-          "backgroundColor": "#ipsum",
+          "backgroundColor": "#000000",
           "visibility": "visible",
         }
       }
     />
   }
   isDisabled={false}
+  onClick={[Function]}
+  onKeyPress={[Function]}
   tabIndex={0}
   variant="link"
 >
@@ -69,13 +148,15 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
         className="legend-icon"
         style={
           Object {
-            "backgroundColor": "#ipsum",
+            "backgroundColor": "#000000",
             "visibility": "visible",
           }
         }
       />
     }
     isDisabled={false}
+    onClick={[Function]}
+    onKeyPress={[Function]}
     tabIndex={0}
     variant="link"
   >
@@ -97,6 +178,8 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
     />
   }
   isDisabled={true}
+  onClick={[Function]}
+  onKeyPress={[Function]}
   tabIndex={0}
   variant="link"
 >
@@ -159,6 +242,8 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       }
       isDisabled={false}
       key="curiosity-button-loremIpsum"
+      onClick={[Function]}
+      onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
@@ -223,6 +308,8 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       }
       isDisabled={false}
       key="curiosity-button-loremIpsum"
+      onClick={[Function]}
+      onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
@@ -278,6 +365,8 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       }
       isDisabled={true}
       key="curiosity-button-ametConsectetur"
+      onClick={[Function]}
+      onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
@@ -337,6 +426,8 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       }
       isDisabled={false}
       key="curiosity-button-dolorSit"
+      onClick={[Function]}
+      onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
@@ -396,6 +487,8 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       }
       isDisabled={false}
       key="curiosity-button-nonCursus"
+      onClick={[Function]}
+      onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
