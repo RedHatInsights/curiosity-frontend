@@ -206,6 +206,17 @@ You can access the administrator role experience during **local development** (u
 
 Combining this flag with [manipulating the http status on the API/service mocks](https://github.com/cdcabrera/apidoc-mock#more-examples-and-custom-responses) can be an effective emulation.
 
+##### Permissions
+You can access different levels of user permissions during **local development** (using `$ yarn start`) by adding the following lines to your `.env.local` file.
+   ```
+   REACT_APP_DEBUG_PERMISSION_RESOURCE=*
+   REACT_APP_DEBUG_PERMISSION_OPERATION=*
+   ```
+
+As additional resource and operation checks are implemented these values can be altered accordingly.
+
+Combining these flags with [manipulating the http status on the API/service mocks](https://github.com/cdcabrera/apidoc-mock#more-examples-and-custom-responses) can be an effective emulation.
+
 ##### Debugging Redux
 This project makes use of React & Redux. To enable Redux browser console logging add the following line to your `.env.local` file.
   ```

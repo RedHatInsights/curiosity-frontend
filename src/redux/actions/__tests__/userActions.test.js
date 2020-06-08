@@ -39,7 +39,6 @@ describe('UserActions', () => {
       const response = store.getState().user;
 
       expect(response.session.fulfilled).toBe(true);
-      expect(response.session.authorized).toBe(true);
       done();
     });
   });
