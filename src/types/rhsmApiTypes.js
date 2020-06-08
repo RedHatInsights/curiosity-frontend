@@ -64,9 +64,10 @@ const RHSM_API_RESPONSE_ERROR_DATA_TYPES = {
 /**
  * RHSM response Error DATA CODE types.
  *
- * @type {{OPTIN: string}}
+ * @type {{GENERIC: string, OPTIN: string}}
  */
 const RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES = {
+  GENERIC: 'SUBSCRIPTIONS1003',
   OPTIN: 'SUBSCRIPTIONS1004'
 };
 
