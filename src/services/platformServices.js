@@ -42,7 +42,15 @@ const getUser = async () => {
 const getUserPermissions = (appName = '') => {
   const { insights } = window;
   try {
-    return insights.chrome.getUserPermissions(appName);
+    return (
+      (helpers.DEV_MODE && [
+        {
+          [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES
+            .PERMISSION]: `${helpers.UI_NAME}:${process.env.REACT_APP_DEBUG_PERMISSION_RESOURCE}:${process.env.REACT_APP_DEBUG_PERMISSION_OPERATION}`
+        }
+      ]) ||
+      insights.chrome.getUserPermissions(appName)
+    );
   } catch (e) {
     throw new Error(`{ getUserPermissions } = insights.chrome, ${e.message}`);
   }
