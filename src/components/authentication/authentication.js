@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
-import { connectRouterTranslate, reduxActions } from '../../redux';
+import { connectRouterTranslate, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
 import { Redirect, routerHelpers, routerTypes } from '../router/router';
@@ -144,13 +144,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 /**
- * Apply state to props.
+ * Create a selector from applied state, props.
  *
- * @param {object} state
- * @returns {object}
+ * @type {Function}
  */
-const mapStateToProps = state => ({ session: state.user.session });
+const makeMapStateToProps = reduxSelectors.user.makeUserSession();
 
-const ConnectedAuthentication = connectRouterTranslate(mapStateToProps, mapDispatchToProps)(Authentication);
+const ConnectedAuthentication = connectRouterTranslate(makeMapStateToProps, mapDispatchToProps)(Authentication);
 
 export { ConnectedAuthentication as default, ConnectedAuthentication, Authentication };

@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserSelectors should pass data with administrator checks: administrator, and missing user data 1`] = `
+Object {
+  "session": Object {
+    "admin": true,
+    "authorized": false,
+    "entitled": false,
+    "permissions": Array [],
+  },
+}
+`;
+
+exports[`UserSelectors should pass data with entitlements checks: entitlements, and missing user data 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": false,
+    "entitled": true,
+    "permissions": Array [],
+  },
+}
+`;
+
+exports[`UserSelectors should pass data with permissions checks: permissions, and missing user data 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": true,
+    "entitled": false,
+    "permissions": Array [
+      Object {
+        "definitions": undefined,
+        "permission": Object {
+          "app": "subscriptions",
+          "operation": "*",
+          "resource": "*",
+          "src": "subscriptions:*:*",
+        },
+      },
+      Object {
+        "definitions": undefined,
+        "permission": Object {
+          "app": "subscriptions",
+          "operation": "read",
+          "resource": "*",
+          "src": "subscriptions:*:read",
+        },
+      },
+      Object {
+        "definitions": undefined,
+        "permission": Object {
+          "app": "subscriptions",
+          "operation": "write",
+          "resource": "*",
+          "src": "subscriptions:*:write",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`UserSelectors should pass error state data through response: error state data 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": false,
+    "entitled": false,
+    "error": true,
+    "errorCodes": Array [
+      "loremIpsum",
+    ],
+    "errorMessage": "lorem ipsum",
+    "permissions": Array [],
+    "status": 403,
+  },
+}
+`;
+
+exports[`UserSelectors should pass existing state data through response: existing state data 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": false,
+    "entitled": false,
+    "locale": "en-US",
+    "permissions": Array [],
+  },
+}
+`;
+
+exports[`UserSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": false,
+    "entitled": false,
+    "permissions": Array [],
+  },
+}
+`;
+
+exports[`UserSelectors should return specific selectors: selectors 1`] = `
+Object {
+  "makeUserSession": [Function],
+  "userSession": [Function],
+}
+`;
