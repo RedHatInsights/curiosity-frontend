@@ -19,6 +19,17 @@ const getGraphReportsCapacity = (id = null, query = {}) => dispatch =>
     }
   });
 
-const rhsmActions = { getGraphReportsCapacity };
+const getHostsInventory = (id = null, query = {}) => dispatch =>
+  dispatch({
+    type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM,
+    payload: rhsmServices.getHostsInventory(id, query),
+    meta: {
+      id,
+      query,
+      notifications: {}
+    }
+  });
 
-export { rhsmActions as default, rhsmActions, getGraphReportsCapacity };
+const rhsmActions = { getGraphReportsCapacity, getHostsInventory };
+
+export { rhsmActions as default, rhsmActions, getGraphReportsCapacity, getHostsInventory };

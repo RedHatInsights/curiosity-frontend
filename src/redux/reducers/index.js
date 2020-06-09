@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux';
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
 import graphReducer from './graphReducer';
+import inventoryReducer from './inventoryReducer';
 import viewReducer from './viewReducer';
 import userReducer from './userReducer';
 
 const reducers = {
   notifications,
   graph: graphReducer,
-  view: viewReducer,
-  user: userReducer
+  inventory: inventoryReducer,
+  user: userReducer,
+  view: viewReducer
 };
 
 const reduxReducers = combineReducers(reducers);
 
-export { reduxReducers as default, reduxReducers, graphReducer, viewReducer, userReducer };
+export { reduxReducers as default, reduxReducers, graphReducer, inventoryReducer, userReducer, viewReducer };
