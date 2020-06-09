@@ -20,6 +20,7 @@ describe('UserSelectors', () => {
         }
       }
     };
+
     expect(userSelectors.userSession(state)).toMatchSnapshot('existing state data');
   });
 
@@ -34,6 +35,7 @@ describe('UserSelectors', () => {
         }
       }
     };
+
     expect(userSelectors.userSession(state)).toMatchSnapshot('error state data');
   });
 
@@ -102,5 +104,46 @@ describe('UserSelectors', () => {
     };
 
     expect(userSelectors.userSession(state)).toMatchSnapshot('permissions, and missing user data');
+  });
+
+  it('should not authorize a user when global errors exist', () => {
+    const state = {
+      user: {
+        session: {
+          error: true,
+          errorCodes: ['loremIpsum'],
+          errorMessage: 'lorem ipsum',
+          status: 403,
+          fulfilled: true,
+          data: {
+            user: {
+              [platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS]: {
+                [helpers.UI_NAME]: {
+                  [platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES.ENTITLED]: true
+                }
+              },
+              [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
+                [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {
+                  [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN]: true
+                }
+              }
+            },
+            permissions: [
+              {
+                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:*`
+              },
+              {
+                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:read`
+              },
+              {
+                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:write`
+              }
+            ]
+          }
+        }
+      }
+    };
+
+    expect(userSelectors.userSession(state)).toMatchSnapshot('global errors, unauthorized');
   });
 });
