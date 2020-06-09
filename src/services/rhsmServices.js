@@ -933,11 +933,81 @@ const getGraphCapacity = (id, params = {}) =>
     cancel: true
   });
 
-const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports };
+/**
+ * @api {get} /api/rhsm-subscriptions/v1/hosts/products/:product_id Get RHSM hosts/systems table/inventory data
+ * @apiDescription Retrieve hosts/systems table/inventory data.
+ *
+ * Reference [RHSM for hosts/system table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data" : [
+ *         {
+ *           "insights_id": "498cff02-8b4b-46f8-a655-56043XXX0d2f",
+ *           "display_name": "ipsum.example.com",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-2e65ad8e7d3e",
+ *           "cores": 4,
+ *           "sockets": 2,
+ *           "hardware_type": "physical",
+ *           "number_of_guests": 4,
+ *           "last_seen": "2020-04-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
+ *           "display_name": "lorem.example.com",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-2e25aa8e7d3e",
+ *           "cores": 4,
+ *           "sockets": 6,
+ *           "hardware_type": "physical",
+ *           "number_of_guests": 2,
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?offset=0&limit=5",
+ *         "last": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?offset=5&limit=5",
+ *         "previous": null,
+ *         "next": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?offset=5&limit=5"
+ *       },
+ *       "meta": {
+ *         "count": 2
+ *       }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Get RHSM API hosts table/inventory data.
+ *
+ * @param {string} id Product ID
+ * @param {object} params Query/search params
+ * @returns {Promise<*>}
+ */
+const getHostsInventory = (id, params = {}) =>
+  serviceCall({
+    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY}${id}`,
+    params,
+    cancel: true
+  });
+
+const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory };
 
 /**
  * Expose services to the browser's developer console.
  */
 helpers.browserExpose({ rhsmServices });
 
-export { rhsmServices as default, rhsmServices, getApiVersion, getGraphCapacity, getGraphReports };
+export { rhsmServices as default, rhsmServices, getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory };
