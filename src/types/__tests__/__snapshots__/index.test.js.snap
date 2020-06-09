@@ -81,6 +81,19 @@ Object {
         "CODE": "code",
         "DETAIL": "detail",
       },
+      "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
+      "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+        "CORES": "cores",
+        "HARDWARE": "hardware_type",
+        "ID": "insights_id",
+        "LAST_SEEN": "last_seen",
+        "NAME": "display_name",
+        "SOCKETS": "sockets",
+      },
+      "RHSM_API_RESPONSE_INVENTORY_META": "meta",
+      "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+        "COUNT": "count",
+      },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
         "CLOUD_CORES": "cloud_cores",
@@ -180,6 +193,19 @@ Object {
         "CODE": "code",
         "DETAIL": "detail",
       },
+      "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
+      "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+        "CORES": "cores",
+        "HARDWARE": "hardware_type",
+        "ID": "insights_id",
+        "LAST_SEEN": "last_seen",
+        "NAME": "display_name",
+        "SOCKETS": "sockets",
+      },
+      "RHSM_API_RESPONSE_INVENTORY_META": "meta",
+      "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+        "COUNT": "count",
+      },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
         "CLOUD_CORES": "cloud_cores",
@@ -277,6 +303,19 @@ Object {
     "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
       "CODE": "code",
       "DETAIL": "detail",
+    },
+    "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
+    "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+      "CORES": "cores",
+      "HARDWARE": "hardware_type",
+      "ID": "insights_id",
+      "LAST_SEEN": "last_seen",
+      "NAME": "display_name",
+      "SOCKETS": "sockets",
+    },
+    "RHSM_API_RESPONSE_INVENTORY_META": "meta",
+    "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+      "COUNT": "count",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -379,6 +418,19 @@ Object {
     "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
       "CODE": "code",
       "DETAIL": "detail",
+    },
+    "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
+    "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+      "CORES": "cores",
+      "HARDWARE": "hardware_type",
+      "ID": "insights_id",
+      "LAST_SEEN": "last_seen",
+      "NAME": "display_name",
+      "SOCKETS": "sockets",
+    },
+    "RHSM_API_RESPONSE_INVENTORY_META": "meta",
+    "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+      "COUNT": "count",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
