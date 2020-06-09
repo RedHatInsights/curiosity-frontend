@@ -1,11 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UserSelectors should not authorize a user when global errors exist: global errors, unauthorized 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": false,
+    "entitled": false,
+    "error": true,
+    "errorCodes": Array [
+      "loremIpsum",
+    ],
+    "errorMessage": "lorem ipsum",
+    "permissions": Array [],
+    "status": 403,
+  },
+}
+`;
+
 exports[`UserSelectors should pass data with administrator checks: administrator, and missing user data 1`] = `
 Object {
   "session": Object {
     "admin": true,
     "authorized": false,
     "entitled": false,
+    "error": false,
     "permissions": Array [],
   },
 }
@@ -17,6 +35,7 @@ Object {
     "admin": false,
     "authorized": false,
     "entitled": true,
+    "error": false,
     "permissions": Array [],
   },
 }
@@ -28,6 +47,7 @@ Object {
     "admin": false,
     "authorized": true,
     "entitled": false,
+    "error": false,
     "permissions": Array [
       Object {
         "definitions": undefined,
@@ -84,6 +104,7 @@ Object {
     "admin": false,
     "authorized": false,
     "entitled": false,
+    "error": false,
     "locale": "en-US",
     "permissions": Array [],
   },
@@ -96,6 +117,7 @@ Object {
     "admin": false,
     "authorized": false,
     "entitled": false,
+    "error": false,
     "permissions": Array [],
   },
 }
