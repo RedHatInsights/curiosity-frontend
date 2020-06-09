@@ -17,19 +17,20 @@ const userSession = state => ({
 /**
  * Create selector, transform combined state, props into a consumable graph/charting object.
  *
- * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, admin: boolean}}}
+ * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, admin: boolean, error: boolean}}}
  */
 const userSessionSelector = createSelector([userSession], response => {
-  const { fulfilled = false, data = {}, ...rest } = response || {};
+  const { error = false, fulfilled = false, data = {}, ...rest } = response || {};
   const updatedSession = {
     ...rest,
     admin: false,
     authorized: false,
     entitled: false,
+    error,
     permissions: []
   };
 
-  if (fulfilled) {
+  if (!error && fulfilled) {
     const { user = {}, permissions = [] } = data;
 
     const admin = _get(
