@@ -131,16 +131,17 @@ class GraphCardChartLegend extends React.Component {
             t(`curiosity-graph.${id}Label`, { product }) ||
             t(`curiosity-graph.noLabel`, { product });
 
-          const tooltipContent =
-            (isThreshold && t(`curiosity-graph.thresholdLegendTooltip`)) || t(`curiosity-graph.${id}LegendTooltip`);
+          // ToDo: Disabled tooltip content, reactivate accordingly, issues/158
+          // const tooltipContent =
+          //  (isThreshold && t(`curiosity-graph.thresholdLegendTooltip`)) || t(`curiosity-graph.${id}LegendTooltip`);
 
           return this.renderLegendItem({
             chartId: id,
             color: stroke,
             labelContent,
             isDisabled,
-            isThreshold,
-            tooltipContent
+            isThreshold
+            // tooltipContent
           });
         })}
       </React.Fragment>
