@@ -8,6 +8,13 @@ import { helpers } from '../../common';
 /**
  * A routing redirect.
  *
+ * @param {object} props
+ * @param {string} props.baseName
+ * @param {object} props.history
+ * @param {boolean} props.isRedirect
+ * @param {boolean} props.isReplace
+ * @param {string} props.url
+ * @param {string} props.route
  * @returns {Node}
  */
 const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
