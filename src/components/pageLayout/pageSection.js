@@ -5,6 +5,8 @@ import { Section } from '@redhat-cloud-services/frontend-components/components/S
 /**
  * Render a platform page section.
  *
+ * @param {object} props
+ * @param {Node} props.children
  * @returns {Node}
  */
 const PageSection = ({ children, ...props }) => <Section {...props}>{children}</Section>;

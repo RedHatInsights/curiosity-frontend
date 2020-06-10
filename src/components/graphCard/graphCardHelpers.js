@@ -26,8 +26,8 @@ const getChartXAxisLabelIncrement = granularity => {
  * Return a formatted date string.
  *
  * @param {object} params
- * @property {Date} date
- * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {Date} params.date
+ * @param {string} params.granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {string}
  */
 const getTooltipDate = ({ date, granularity }) => {
@@ -57,10 +57,10 @@ const getTooltipDate = ({ date, granularity }) => {
  * Format x axis ticks.
  *
  * @param {object} params
- * @property {Date} date
- * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
- * @property {number|string} tick
- * @property {Date} previousDate
+ * @param {Date} params.date
+ * @param {string} params.granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {number|string} params.tick
+ * @param {Date} params.previousDate
  * @returns {string|undefined}
  */
 const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
@@ -106,7 +106,7 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  * Format y axis ticks.
  *
  * @param {object} params
- * @property {number|string} tick
+ * @param {number|string} params.tick
  * @returns {string}
  */
 const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });

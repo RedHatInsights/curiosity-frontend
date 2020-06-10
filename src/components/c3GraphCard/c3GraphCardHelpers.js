@@ -9,8 +9,8 @@ import { dateHelpers, helpers } from '../../common';
  * Return a formatted date string.
  *
  * @param {object} params
- * @property {Date} date
- * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {Date} params.date
+ * @param {string} params.granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {string}
  */
 const getTooltipDate = ({ date, granularity }) => {
@@ -40,10 +40,10 @@ const getTooltipDate = ({ date, granularity }) => {
  * Format x axis ticks.
  *
  * @param {object} params
- * @property {Date} date
- * @property {string} granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
- * @property {number|string} tick
- * @property {Date} previousDate
+ * @param {Date} params.date
+ * @param {string} params.granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
+ * @param {number|string} params.tick
+ * @param {Date} params.previousDate
  * @returns {string|undefined}
  */
 const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
@@ -89,7 +89,7 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  * Format y axis ticks.
  *
  * @param {object} params
- * @property {number|string} tick
+ * @param {number|string} params.tick
  * @returns {string}
  */
 const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
@@ -98,9 +98,9 @@ const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, manti
  * Convert data into a C3 configuration object.
  *
  * @param {object} options
- * @property {Array} data
- * @property {string} granularity
- * @property {string} productShortLabel
+ * @param {Array} options.data
+ * @param {string} options.granularity
+ * @param {string} options.productShortLabel
  * @returns {{configuration: {padding: {top: number, left: number, bottom: number, right: number},
  *     data: {types: {}, names: {}, columns: [], x: string, groups: [[]], colors: {}},
  *     legend: {show: boolean}, grid: {y: {show: boolean}}, tooltip: {format: {title: (function(*): string),

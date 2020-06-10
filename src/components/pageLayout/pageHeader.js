@@ -8,6 +8,8 @@ import {
 /**
  * Render a platform page header.
  *
+ * @param {object} props
+ * @param {Node} props.children
  * @returns {Node}
  */
 const PageHeader = ({ children }) => (
