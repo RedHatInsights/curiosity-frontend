@@ -81,7 +81,6 @@ msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:93
-#: src/components/graphCard/graphCardChartLegend.js:135
 msgid \\"curiosity-graph.thresholdLegendTooltip\\"
 msgstr \\"\\"
 
