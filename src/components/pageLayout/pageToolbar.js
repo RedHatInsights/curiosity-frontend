@@ -5,6 +5,8 @@ import { Section } from '@redhat-cloud-services/frontend-components/components/S
 /**
  * Render a platform toolbar section.
  *
+ * @param {object} props
+ * @param {Node} props.children
  * @returns {Node}
  */
 const PageToolbar = ({ children, ...props }) => <Section {...props}>{children}</Section>;

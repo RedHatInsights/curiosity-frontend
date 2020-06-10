@@ -251,6 +251,7 @@ const mapDispatchToProps = dispatch => ({
  * Apply state to props.
  *
  * @param {object} state
+ * @param {object} state.user
  * @returns {object}
  */
 const mapStateToProps = ({ user }) => ({ ...user.optin, session: user.session });

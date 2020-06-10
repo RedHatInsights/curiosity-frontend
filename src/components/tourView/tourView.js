@@ -24,6 +24,9 @@ import subscriptionsSvg from '../../images/subscriptions.svg';
 /**
  * Render a user guided tour view.
  *
+ * @param {object} props
+ * @param {object} props.session
+ * @param {Function} props.t
  * @returns {Node} Node containing tour view.
  */
 const TourView = ({ session, t }) => (

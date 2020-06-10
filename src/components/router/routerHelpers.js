@@ -7,8 +7,8 @@ import { routes, navigation } from './routerTypes';
  * /[OPTIONAL]/[environment]/[APP NAME]
  *
  * @param {object} params
- * @property {string} pathName
- * @property {string} pathPrefix
+ * @param {string} params.pathName
+ * @param {string} params.pathPrefix
  * @returns {string}
  */
 const dynamicBaseName = ({ pathName, pathPrefix }) => {
@@ -40,9 +40,9 @@ const getErrorRoute = routes.find(route => route.activateOnError === true) || {}
  * Return an object matching a specific navigation object.
  *
  * @param {object} params
- * @property {string} id
- * @property {string} pathname
- * @property {boolean} returnDefault
+ * @param {string} params.id
+ * @param {string} params.pathname
+ * @param {boolean} params.returnDefault
  * @returns {object}
  */
 const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false }) => {
@@ -75,8 +75,8 @@ const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false
  * Return an object matching a specific, or the first generic route.
  *
  * @param {object} params
- * @property {string} id
- * @property {string} pathname
+ * @param {string} params.id
+ * @param {string} params.pathname
  * @returns {object}
  */
 const getRouteDetail = ({ id = null, pathname = null }) => {
@@ -100,9 +100,9 @@ const getRouteDetail = ({ id = null, pathname = null }) => {
  * navigation.
  *
  * @param {object} params
- * @property {string} id
- * @property {string} pathname
- * @property {boolean} returnDefault
+ * @param {string} params.id
+ * @param {string} params.pathname
+ * @param {boolean} params.returnDefault
  * @returns {object}
  */
 const getNavRouteDetail = ({ id = null, pathname = null, returnDefault = false }) => {
