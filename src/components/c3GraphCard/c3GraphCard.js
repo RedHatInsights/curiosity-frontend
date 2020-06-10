@@ -76,10 +76,10 @@ class C3GraphCard extends React.Component {
    * Apply a custom legend.
    *
    * @param {object} options
-   * @property {Function} chart
-   * @property {Array} filteredData
-   * @property {string} granularity
-   * @property {Array} hiddenDataFacets
+   * @param {Function} options.chart
+   * @param {Array} options.filteredData
+   * @param {string} options.granularity
+   * @param {Array} options.hiddenDataFacets
    * @returns {Array}
    */
   renderLegend({ chart, filteredData = [], granularity, hiddenDataFacets = [] }) {

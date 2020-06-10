@@ -45,12 +45,12 @@ class GraphCardChartLegend extends React.Component {
    * Return a legend item.
    *
    * @param {object} options
-   * @property {string} chartId
-   * @property {string} color
-   * @property {boolean} isDisabled
-   * @property {boolean} isThreshold
-   * @property {string} labelContent
-   * @property {string} tooltipContent
+   * @param {string} options.chartId
+   * @param {string} options.color
+   * @param {boolean} options.isDisabled
+   * @param {boolean} options.isThreshold
+   * @param {string} options.labelContent
+   * @param {string} options.tooltipContent
    * @returns {Node}
    */
   renderLegendItem({ chartId, color, isDisabled, isThreshold, labelContent, tooltipContent }) {

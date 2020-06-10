@@ -16,6 +16,11 @@ import { helpers } from '../../common';
 /**
  * Render a message view.
  *
+ * @param {object} props
+ * @param {Node|Function} props.icon
+ * @param {string} props.message
+ * @param {string} props.pageTitle
+ * @param {string} props.title
  * @returns {Node}
  */
 const MessageView = ({ icon, message, pageTitle, title }) => (
