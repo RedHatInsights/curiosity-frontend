@@ -14,9 +14,9 @@ const getCurrentDate = () =>
  * Set a date range based on a granularity type.
  *
  * @param {object} params
- * @property {Date} date Start date, typically the current date.
- * @property {number} subtract Number of granularity type to subtract from the current date.
- * @property {string} measurement Granularity type.
+ * @param {Date} params.date Start date, typically the current date.
+ * @param {number} params.subtract Number of granularity type to subtract from the current date.
+ * @param {string} params.measurement Granularity type.
  * @returns {{endDate: Date, startDate: Date}}
  */
 const setRangedDateTime = ({ date, subtract, measurement }) => ({

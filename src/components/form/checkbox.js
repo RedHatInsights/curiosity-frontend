@@ -6,6 +6,16 @@ import { helpers } from '../../common';
 /**
  * Render a checkbox form element.
  *
+ * @param {object} props
+ * @param {string} props.ariaLabel
+ * @param {*} props.checked
+ * @param {Node} props.children
+ * @param {boolean} props.isDisabled
+ * @param {Node} props.label
+ * @param {string} props.name
+ * @param {Function} props.onChange
+ * @param {boolean} props.readOnly
+ * @param {*} props.value
  * @returns {Node}
  */
 const Checkbox = ({ ariaLabel, checked, children, isDisabled, label, name, onChange, readOnly, value, ...props }) => {

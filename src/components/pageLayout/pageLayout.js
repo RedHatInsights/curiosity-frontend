@@ -12,6 +12,8 @@ import { PageToolbar } from './pageToolbar';
 /**
  * Render a platform page layout.
  *
+ * @param {object} props
+ * @param {Node} props.children
  * @returns {Node}
  */
 const PageLayout = ({ children }) => (

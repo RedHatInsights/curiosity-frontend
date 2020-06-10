@@ -7,6 +7,11 @@ import { helpers } from '../../common';
 /**
  * A custom chart tooltip.
  *
+ * @param {object} props
+ * @param {object} props.datum
+ * @param {string} props.granularity
+ * @param {string} props.product
+ * @param {Function} props.t
  * @returns {Node}
  */
 const GraphCardChartTooltip = ({ datum, granularity, product, t }) => {

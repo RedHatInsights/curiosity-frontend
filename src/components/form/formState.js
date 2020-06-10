@@ -31,8 +31,8 @@ class FormState extends React.Component {
    * Infer a field value is "checked" from a boolean value.
    *
    * @param {object} params
-   * @property {boolean} setValuesAssumeBoolIsChecked
-   * @property {object} setValues
+   * @param {boolean} params.setValuesAssumeBoolIsChecked
+   * @param {object} params.setValues
    * @returns {{}}
    */
   static checkedSetValues({ setValuesAssumeBoolIsChecked, setValues }) {

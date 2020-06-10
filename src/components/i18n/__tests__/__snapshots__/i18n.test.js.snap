@@ -49,18 +49,18 @@ msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:176
-#: src/components/graphCard/graphCardChartTooltip.js:31
+#: src/components/graphCard/graphCardChartTooltip.js:36
 msgid \\"curiosity-graph.infiniteThresholdLabel\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardChartTooltip.js:79
+#: src/components/graphCard/graphCardChartTooltip.js:84
 msgid \\"curiosity-graph.noDataErrorLabel\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:177
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:180
-#: src/components/graphCard/graphCardChartTooltip.js:32
-#: src/components/graphCard/graphCardChartTooltip.js:38
+#: src/components/graphCard/graphCardChartTooltip.js:37
+#: src/components/graphCard/graphCardChartTooltip.js:43
 msgid \\"curiosity-graph.noDataLabel\\"
 msgstr \\"\\"
 
@@ -76,7 +76,7 @@ msgstr \\"\\"
 #: src/components/c3GraphCard/c3GraphCard.js:110
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:133
 #: src/components/graphCard/graphCardChartLegend.js:130
-#: src/components/graphCard/graphCardChartTooltip.js:34
+#: src/components/graphCard/graphCardChartTooltip.js:39
 msgid \\"curiosity-graph.thresholdLabel\\"
 msgstr \\"\\"
 
@@ -84,7 +84,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.thresholdLegendTooltip\\"
 msgstr \\"\\"
 
-#: src/components/graphCard/graphCardChartTooltip.js:49
+#: src/components/graphCard/graphCardChartTooltip.js:54
 msgid \\"curiosity-graph.tooltipSummary\\"
 msgstr \\"\\"
 
@@ -194,36 +194,36 @@ msgstr \\"\\"
 msgid \\"curiosity-toolbar.slaStandard\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:69
+#: src/components/tourView/tourView.js:72
 msgid \\"curiosity-tour.emptyStateButton\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:47
+#: src/components/tourView/tourView.js:50
 msgid \\"curiosity-tour.emptyStateDescription\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:54
+#: src/components/tourView/tourView.js:57
 msgid \\"curiosity-tour.emptyStateDescriptionExtended\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:49
+#: src/components/tourView/tourView.js:52
 msgid \\"curiosity-tour.emptyStateDescriptionTour\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:37
+#: src/components/tourView/tourView.js:40
 msgid \\"curiosity-tour.emptyStateIconAlt\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:84
+#: src/components/tourView/tourView.js:87
 msgid \\"curiosity-tour.emptyStateLinkContactUs\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:65
-#: src/components/tourView/tourView.js:80
+#: src/components/tourView/tourView.js:68
+#: src/components/tourView/tourView.js:83
 msgid \\"curiosity-tour.emptyStateLinkLearnMore\\"
 msgstr \\"\\"
 
-#: src/components/tourView/tourView.js:42
+#: src/components/tourView/tourView.js:45
 msgid \\"curiosity-tour.emptyStateTitle\\"
 msgstr \\"\\"
 
