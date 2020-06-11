@@ -296,15 +296,19 @@ describe('ChartArea Component', () => {
     expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after function');
 
     component.setProps({
-      chartTooltip: propsObj => propsObj.datum
+      chartTooltip: propsObj => <div id="custom-tooltip">{propsObj.datum}</div>
     });
     expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after node');
 
     // check renderTooltip
-    component.setProps({
-      chartTooltip: propsObj => propsObj.datum
-    });
-    expect(component.instance().renderTooltip()).toMatchSnapshot('renderTooltip: should return a custom tooltip');
+    const renderTooltip = component.instance().renderTooltip();
+    expect(renderTooltip).toMatchSnapshot('renderTooltip: should return a custom tooltip');
+
+    const componentTooltip = shallow(renderTooltip);
+    expect(componentTooltip).toMatchSnapshot('componentTooltip');
+
+    // confirm chart output
+    expect(component).toMatchSnapshot('custom tooltip, post-props chart');
   });
 
   it('should handle custom chart legends', () => {
