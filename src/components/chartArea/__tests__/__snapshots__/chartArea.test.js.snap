@@ -765,6 +765,194 @@ Object {
 }
 `;
 
+exports[`ChartArea Component should handle custom chart tooltips: componentTooltip 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "portalDeregister": [Function],
+      "portalRegister": [Function],
+      "portalUpdate": [Function],
+    }
+  }
+>
+  <div
+    className="VictoryContainer"
+    style={
+      Object {
+        "height": "auto",
+        "pointerEvents": "none",
+        "position": "relative",
+        "touchAction": "none",
+        "width": "100%",
+      }
+    }
+  >
+    <svg
+      role="img"
+      style={
+        Object {
+          "height": "auto",
+          "pointerEvents": "all",
+          "width": "100%",
+        }
+      }
+      viewBox="0 0 undefined undefined"
+    />
+    <div
+      style={
+        Object {
+          "height": "auto",
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "width": "100%",
+          "zIndex": 99,
+        }
+      }
+    >
+      <Portal
+        style={
+          Object {
+            "height": "auto",
+            "overflow": "visible",
+            "width": "100%",
+          }
+        }
+        viewBox="0 0 undefined undefined"
+      />
+    </div>
+  </div>
+</ContextProvider>
+`;
+
+exports[`ChartArea Component should handle custom chart tooltips: custom tooltip, post-props chart 1`] = `
+<div
+  className="uxui-curiosity__modal uxui-curiosity__modal--loading"
+  id="curiosity-chartarea"
+>
+  <Chart
+    animate={
+      Object {
+        "duration": 0,
+      }
+    }
+    containerComponent={
+      <VictoryVoronoiCursorContainer
+        activateData={true}
+        activateLabels={true}
+        className="VictoryContainer"
+        cursorComponent={
+          <LineSegment
+            lineComponent={<Line />}
+            role="presentation"
+            shapeRendering="auto"
+          />
+        }
+        cursorDimension="x"
+        cursorLabelComponent={
+          <VictoryLabel
+            capHeight={0.71}
+            direction="inherit"
+            lineHeight={1}
+            textComponent={<Text />}
+            tspanComponent={<TSpan />}
+          />
+        }
+        cursorLabelOffset={
+          Object {
+            "x": 5,
+            "y": -10,
+          }
+        }
+        labelComponent={<FlyoutComponent />}
+        labels={[Function]}
+        portalComponent={<Portal />}
+        portalZIndex={99}
+        responsive={true}
+        voronoiDimension="x"
+        voronoiPadding={60}
+      />
+    }
+    domain={
+      Object {
+        "y": Array [
+          0,
+          20,
+        ],
+      }
+    }
+    padding={
+      Object {
+        "bottom": 75,
+        "left": 50,
+        "right": 50,
+        "top": 50,
+      }
+    }
+    themeColor="blue"
+    width={0}
+  >
+    <ChartAxis
+      animate={false}
+      fixLabelOverlap={false}
+      tickFormat={[Function]}
+      tickValues={
+        Array [
+          1,
+        ]
+      }
+    />
+    <ChartAxis
+      animate={false}
+      dependentAxis={true}
+      showGrid={true}
+    />
+    <ChartThreshold
+      animate={false}
+      data={
+        Array [
+          Object {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 10,
+          },
+        ]
+      }
+      interpolation="step"
+      key="generatedid-"
+      name="chartArea-1-threshold"
+      style={
+        Object {
+          "data": Object {},
+        }
+      }
+    />
+    <ChartStack>
+      <ChartArea
+        animate={false}
+        data={
+          Array [
+            Object {
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 0,
+            },
+          ]
+        }
+        interpolation="natural"
+        key="generatedid-"
+        name="chartArea-0-area"
+        style={
+          Object {
+            "data": Object {},
+          }
+        }
+      />
+    </ChartStack>
+  </Chart>
+</div>
+`;
+
 exports[`ChartArea Component should handle custom chart tooltips: getTooltipData:after function 1`] = `
 Array [
   Object {
@@ -814,54 +1002,58 @@ Array [
         },
       },
     },
-    "tooltip": Object {
-      "dataSets": Array [
-        Object {
-          "data": Array [
-            Object {
-              "x": 1,
-              "xAxisLabel": "1 x axis label",
-              "y": 0,
-            },
-          ],
-          "id": "loremGraph",
-          "interpolation": "natural",
-          "isStacked": true,
-        },
-        Object {
-          "data": Array [
-            Object {
+    "tooltip": <div
+      id="custom-tooltip"
+    >
+      Object {
+        "dataSets": Array [
+          Object {
+            "data": Array [
+              Object {
+                "x": 1,
+                "xAxisLabel": "1 x axis label",
+                "y": 0,
+              },
+            ],
+            "id": "loremGraph",
+            "interpolation": "natural",
+            "isStacked": true,
+          },
+          Object {
+            "data": Array [
+              Object {
+                "x": 1,
+                "xAxisLabel": "1 x axis label",
+                "y": 10,
+              },
+            ],
+            "id": "ipsumGraph",
+            "isThreshold": true,
+          },
+        ],
+        "index": 0,
+        "itemsByKey": Object {
+          "ipsumGraph": Object {
+            "color": "",
+            "data": Object {
               "x": 1,
               "xAxisLabel": "1 x axis label",
               "y": 10,
             },
-          ],
-          "id": "ipsumGraph",
-          "isThreshold": true,
-        },
-      ],
-      "index": 0,
-      "itemsByKey": Object {
-        "ipsumGraph": Object {
-          "color": "",
-          "data": Object {
-            "x": 1,
-            "xAxisLabel": "1 x axis label",
-            "y": 10,
+          },
+          "loremGraph": Object {
+            "color": "",
+            "data": Object {
+              "x": 1,
+              "xAxisLabel": "1 x axis label",
+              "y": 0,
+            },
           },
         },
-        "loremGraph": Object {
-          "color": "",
-          "data": Object {
-            "x": 1,
-            "xAxisLabel": "1 x axis label",
-            "y": 0,
-          },
-        },
-      },
-      "x": 1,
-      "y": 0,
-    },
+        "x": 1,
+        "y": 0,
+      }
+    </div>,
     "x": 1,
     "y": null,
   },

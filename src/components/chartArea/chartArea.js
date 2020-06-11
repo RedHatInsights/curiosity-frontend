@@ -286,7 +286,16 @@ class ChartArea extends React.Component {
   }
 
   /**
-   * Return a chart/graph tooltip Victory container component to allow custom tooltips.
+   * ToDo: monitor Victory charts release version increment around Voronoi container attributes.
+   * Future updates could lead to additional unexpected behavior. Victory charts released a patch/fix
+   * around attribute behavior for Voronoi containers. The behavior was already "unexpected" in that there appears
+   * to be a need to provide the "label" attribute when using the "labelComponent" attribute, even if "label" is
+   * just a pass-through. Providing `label={() => ''}` was a work-around, that is now `label={obj => obj}`. See
+   * - https://github.com/FormidableLabs/victory/blob/master/CHANGELOG.md#3436-2020-05-18
+   * - https://github.com/FormidableLabs/victory/pull/1581
+   */
+  /**
+   * Return a chart/graph tooltip Victory container component to allow custom HTML tooltips.
    *
    * @returns {Node}
    */
@@ -351,7 +360,7 @@ class ChartArea extends React.Component {
     return (
       <VictoryVoronoiCursorContainer
         cursorDimension="x"
-        labels={() => ''}
+        labels={obj => obj}
         labelComponent={<FlyoutComponent />}
         voronoiDimension="x"
         voronoiPadding={60}
