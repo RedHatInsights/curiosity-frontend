@@ -1,5 +1,4 @@
 import moment from 'moment';
-import numbro from 'numbro';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers } from '../../common/dateHelpers';
 
@@ -107,9 +106,13 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  *
  * @param {object} params
  * @param {number|string} params.tick
+ * @param {string} params.locale
  * @returns {string}
  */
-const yAxisTickFormat = ({ tick }) => numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
+const yAxisTickFormat = ({ tick, locale }) =>
+  new Intl.NumberFormat(locale, { maximumFractionDigits: 1, notation: 'compact', compactDisplay: 'short' }).format(
+    tick
+  );
 
 const graphCardHelpers = {
   getChartXAxisLabelIncrement,
