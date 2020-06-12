@@ -102,12 +102,10 @@ describe('C3GraphCardHelpers', () => {
 
     for (let i = 0; i < 11; i++) {
       const multiplier = Math.pow(10, i);
-      const thirteenMultiplier = 13 * multiplier;
-      const fifteenMultiplier = 15 * multiplier;
-
-      ticks[multiplier] = yAxisTickFormat({ tick: multiplier });
-      ticks[thirteenMultiplier] = yAxisTickFormat({ tick: thirteenMultiplier });
-      ticks[fifteenMultiplier] = yAxisTickFormat({ tick: fifteenMultiplier });
+      for (let k = 1; k < 16; k++) {
+        const incrementMultiplier = k * multiplier;
+        ticks[incrementMultiplier] = yAxisTickFormat({ tick: incrementMultiplier });
+      }
     }
 
     expect(ticks).toMatchSnapshot('y axis tick values');
