@@ -48,7 +48,7 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.dropdownWeekly\\"
 msgstr \\"\\"
 
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:176
+#: src/components/c3GraphCard/c3GraphCardHelpers.js:179
 #: src/components/graphCard/graphCardChartTooltip.js:36
 msgid \\"curiosity-graph.infiniteThresholdLabel\\"
 msgstr \\"\\"
@@ -57,8 +57,8 @@ msgstr \\"\\"
 msgid \\"curiosity-graph.noDataErrorLabel\\"
 msgstr \\"\\"
 
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:177
 #: src/components/c3GraphCard/c3GraphCardHelpers.js:180
+#: src/components/c3GraphCard/c3GraphCardHelpers.js:183
 #: src/components/graphCard/graphCardChartTooltip.js:37
 #: src/components/graphCard/graphCardChartTooltip.js:43
 msgid \\"curiosity-graph.noDataLabel\\"
@@ -74,7 +74,7 @@ msgid \\"curiosity-graph.socketsHeading\\"
 msgstr \\"\\"
 
 #: src/components/c3GraphCard/c3GraphCard.js:110
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:133
+#: src/components/c3GraphCard/c3GraphCardHelpers.js:136
 #: src/components/graphCard/graphCardChartLegend.js:130
 #: src/components/graphCard/graphCardChartTooltip.js:39
 msgid \\"curiosity-graph.thresholdLabel\\"
