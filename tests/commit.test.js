@@ -1,6 +1,10 @@
 const { execSync } = require('child_process');
 
 /**
+ * ToDo: evaluate moving this check to Github actions
+ * And evaluate removing the `grep "+"` filter to check for rebase
+ */
+/**
  * See CONTRIBUTING.md for commit messaging guidelines
  *
  * TypeScope is required and should be in the form of "<type>([scope]):" or "<type>:"
@@ -24,7 +28,7 @@ describe('Commit Message', () => {
     let stdout = '';
 
     try {
-      stdout = execSync(`git cherry -v master`);
+      stdout = execSync(`git cherry -v master | grep "+"`);
     } catch (e) {
       console.log(`Skipping commit check... ${e.message}`);
     }
