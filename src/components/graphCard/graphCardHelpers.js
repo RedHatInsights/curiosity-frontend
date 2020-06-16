@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
-import { dateHelpers } from '../../common/dateHelpers';
+import { dateHelpers, helpers } from '../../common';
 
 /**
  * Returns x axis ticks/intervals array for the xAxisTickInterval
@@ -109,7 +109,7 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  * @param {string} params.locale
  * @returns {string}
  */
-const yAxisTickFormat = ({ tick, locale }) =>
+const yAxisTickFormat = ({ tick, locale = helpers.UI_LOCALE_DEFAULT }) =>
   new Intl.NumberFormat(locale, { maximumFractionDigits: 1, notation: 'compact', compactDisplay: 'short' }).format(
     tick
   );
