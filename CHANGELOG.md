@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.16...v0.1.17) (2020-06-16)
+
+
+### Features
+
+* **c3Chart:** issues/283 add base c3 component ([958a93b](https://github.com/RedHatInsights/curiosity-frontend/commit/958a93bef4bfdf4a238f3ad3cca28ac8397e7686))
+* **c3GraphCard:** issues/283 add card, display data ([1826918](https://github.com/RedHatInsights/curiosity-frontend/commit/1826918a6eaa4e3d3544b2089561ee02d469bbf2))
+* **chartArea:** issues/283 victory html tooltips ([#295](https://github.com/RedHatInsights/curiosity-frontend/issues/295)) ([c9df378](https://github.com/RedHatInsights/curiosity-frontend/commit/c9df378c85b50167914d1704c748285705b3716c))
+* **chartArea,graphCard:** issues/283 custom legends ([#298](https://github.com/RedHatInsights/curiosity-frontend/issues/298)) ([066bce8](https://github.com/RedHatInsights/curiosity-frontend/commit/066bce841ca1eb2f65cd9f4a6903727cfc1aa45a))
+* **chartArea,graphCard:** issues/283 interactive legend ([#299](https://github.com/RedHatInsights/curiosity-frontend/issues/299)) ([4c862ce](https://github.com/RedHatInsights/curiosity-frontend/commit/4c862ce63bf91573234bee4735d7adf8534b90b0))
+* **rhelView,openshiftView:** issues/283 activate c3 ([#285](https://github.com/RedHatInsights/curiosity-frontend/issues/285)) ([78ee5fd](https://github.com/RedHatInsights/curiosity-frontend/commit/78ee5fd51e553e6bf44f90a5f4a6ffad426b846f))
+* **router,routerHelpers:** issues/283 location.search ([#294](https://github.com/RedHatInsights/curiosity-frontend/issues/294)) ([6fdd332](https://github.com/RedHatInsights/curiosity-frontend/commit/6fdd332a053ac10a0933f963abe577f13a3510f2))
+* **userSelectors:** issues/300 rbac user permissions ([#306](https://github.com/RedHatInsights/curiosity-frontend/issues/306)) ([a8f8a0a](https://github.com/RedHatInsights/curiosity-frontend/commit/a8f8a0aa32ff3a78bd9c6fa33adb072280f106d4))
+
+
+### Bug Fixes
+
+* **graphCard:** issues/283 expand unit tests ([ca46b09](https://github.com/RedHatInsights/curiosity-frontend/commit/ca46b0912aeb71cf4c4c2f143239eb1e34731017))
+* **graphCardChartLegend:** issues/158 disable tooltips ([#311](https://github.com/RedHatInsights/curiosity-frontend/issues/311)) ([ae7fd7c](https://github.com/RedHatInsights/curiosity-frontend/commit/ae7fd7c91326e1f84c16f4339af8e58b2fa481bb))
+* **userSelectors:** issues/307 missing error check ([#308](https://github.com/RedHatInsights/curiosity-frontend/issues/308)) ([a799987](https://github.com/RedHatInsights/curiosity-frontend/commit/a799987d1c21d6a3cdb617e9496d5164833816d7))
+
 ### [0.1.16](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.15...v0.1.16) (2020-05-20)
 
 
