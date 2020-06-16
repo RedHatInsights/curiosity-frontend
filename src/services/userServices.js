@@ -55,8 +55,8 @@ const getLocaleFromCookie = () => {
  */
 const getLocale = () => {
   const defaultLocale = {
-    value: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG,
-    key: process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG_DESC
+    value: helpers.UI_LOCALE_DEFAULT,
+    key: helpers.UI_LOCALE_DEFAULT_DESC
   };
 
   return new Promise(resolve =>
