@@ -139,6 +139,20 @@ const UI_DISPLAY_CONFIG_NAME = process.env.REACT_APP_UI_DISPLAY_CONFIG_NAME;
 const UI_DISPLAY_START_NAME = process.env.REACT_APP_UI_DISPLAY_START_NAME;
 
 /**
+ * UI locale default.
+ *
+ * @type {string}
+ */
+const UI_LOCALE_DEFAULT = process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG;
+
+/**
+ * UI locale default description.
+ *
+ * @type {string}
+ */
+const UI_LOCALE_DEFAULT_DESC = process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFAULT_LNG_DESC;
+
+/**
  * UI state logging name/id.
  * See dotenv config files for updating.
  *
@@ -212,6 +226,8 @@ const helpers = {
   UI_DISPLAY_NAME,
   UI_DISPLAY_CONFIG_NAME,
   UI_DISPLAY_START_NAME,
+  UI_LOCALE_DEFAULT,
+  UI_LOCALE_DEFAULT_DESC,
   UI_LOGGER_ID,
   UI_NAME,
   UI_PATH,
