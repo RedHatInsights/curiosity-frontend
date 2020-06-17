@@ -4,7 +4,8 @@ import {
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat
+  yAxisTickFormat,
+  yAxisTickFormatFallback
 } from '../graphCardHelpers';
 import { dateHelpers } from '../../../common';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhsmApiTypes';
@@ -83,16 +84,19 @@ describe('GraphCardHelpers', () => {
   });
 
   it('yAxisTickFormat should produce consistent y axis tick values', () => {
-    const ticks = {};
-
-    for (let i = 0; i < 11; i++) {
-      const multiplier = Math.pow(10, i);
-      for (let k = 1; k < 16; k++) {
-        const incrementMultiplier = k * multiplier;
-        ticks[incrementMultiplier] = yAxisTickFormat({ tick: incrementMultiplier });
+    const generateTicks = (method = yAxisTickFormat) => {
+      const ticks = {};
+      for (let i = 0; i < 13; i++) {
+        const multiplier = Math.pow(10, i);
+        for (let k = 1; k < 16; k++) {
+          const incrementMultiplier = k * multiplier;
+          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+        }
       }
-    }
+      return ticks;
+    };
 
-    expect(ticks).toMatchSnapshot('y axis tick values');
+    expect(generateTicks()).toMatchSnapshot('y axis tick values');
+    expect(generateTicks(yAxisTickFormatFallback)).toMatchSnapshot('y axis tick values, yAxisTickFormatFallback');
   });
 });

@@ -102,6 +102,43 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
 };
 
 /**
+ * ToDo: Remove yAxisTickFormatFallback.
+ * Appears Linux combined with Firefox has an issue using `Intl.NumberFormat` method.
+ * We've applied shim code from NumeralJS and Numbro as a fallback. Up-to-date
+ * browsers still have the optimal version with locale. If the original package used
+ * corrects its rounding behavior we may consider re-implementing it.
+ */
+/**
+ * Fallback method for Linux and Firefox.
+ *
+ * @param {object} params
+ * @param {number|string} params.tick
+ * @returns {string}
+ */
+const yAxisTickFormatFallback = ({ tick }) => {
+  const abs = Math.abs(tick);
+  let updatedTick = tick;
+  let updatedAbbr = '';
+
+  if (abs >= Math.pow(10, 12)) {
+    updatedAbbr = 'T';
+    updatedTick = tick / Math.pow(10, 12);
+  } else if (abs < Math.pow(10, 12) && abs >= Math.pow(10, 9)) {
+    updatedAbbr = 'B';
+    updatedTick = tick / Math.pow(10, 9);
+  } else if (abs < Math.pow(10, 9) && abs >= Math.pow(10, 6)) {
+    updatedAbbr = 'M';
+    updatedTick = tick / Math.pow(10, 6);
+  } else if (abs < Math.pow(10, 6) && abs >= Math.pow(10, 3)) {
+    updatedAbbr = 'K';
+    updatedTick = tick / Math.pow(10, 3);
+  }
+
+  return `${updatedTick}${updatedAbbr}`;
+};
+
+// ToDo: remove yAxisTickFormatFallback check.
+/**
  * Format y axis ticks.
  *
  * @param {object} params
@@ -109,16 +146,26 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  * @param {string} params.locale
  * @returns {string}
  */
-const yAxisTickFormat = ({ tick, locale = helpers.UI_LOCALE_DEFAULT }) =>
-  new Intl.NumberFormat(locale, { maximumFractionDigits: 1, notation: 'compact', compactDisplay: 'short' }).format(
-    tick
-  );
+const yAxisTickFormat = ({ tick, locale = helpers.UI_LOCALE_DEFAULT }) => {
+  let updatedTick = `${new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 1,
+    notation: 'compact',
+    compactDisplay: 'short'
+  }).format(tick)}`;
+
+  if (updatedTick.length > 3 && updatedTick.length >= `${tick}`.length) {
+    updatedTick = yAxisTickFormatFallback({ tick });
+  }
+
+  return updatedTick;
+};
 
 const graphCardHelpers = {
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat
+  yAxisTickFormat,
+  yAxisTickFormatFallback
 };
 
 export {
@@ -127,5 +174,6 @@ export {
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat
+  yAxisTickFormat,
+  yAxisTickFormatFallback
 };
