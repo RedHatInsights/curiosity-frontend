@@ -295,6 +295,11 @@ class ChartArea extends React.Component {
    * - https://github.com/FormidableLabs/victory/pull/1581
    */
   /**
+   * FixMe: Victory charts voronoi containers throw inaccurate coordinates on large graph widths
+   * Issue is "patched" by removing the "x" dimension attribute for voronoi.
+   * - https://github.com/RedHatInsights/curiosity-frontend/issues/318
+   */
+  /**
    * Return a chart/graph tooltip Victory container component to allow custom HTML tooltips.
    *
    * @returns {Node}
@@ -345,7 +350,7 @@ class ChartArea extends React.Component {
       if (htmlContent) {
         return (
           <g>
-            <foreignObject x={xCoordinate} y={obj.y / 2} width="100%" height="100%">
+            <foreignObject x={xCoordinate} y={obj.y / 2.2} width="100%" height="100%">
               <div ref={this.tooltipRef} style={{ display: 'inline-block' }} xmlns="http://www.w3.org/1999/xhtml">
                 {htmlContent}
               </div>
@@ -362,7 +367,6 @@ class ChartArea extends React.Component {
         cursorDimension="x"
         labels={obj => obj}
         labelComponent={<FlyoutComponent />}
-        voronoiDimension="x"
         voronoiPadding={60}
       />
     );
