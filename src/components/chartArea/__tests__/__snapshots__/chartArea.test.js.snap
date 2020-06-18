@@ -869,7 +869,6 @@ exports[`ChartArea Component should handle custom chart tooltips: custom tooltip
         portalComponent={<Portal />}
         portalZIndex={99}
         responsive={true}
-        voronoiDimension="x"
         voronoiPadding={60}
       />
     }
@@ -1095,7 +1094,6 @@ exports[`ChartArea Component should handle custom chart tooltips: renderTooltip:
   portalComponent={<Portal />}
   portalZIndex={99}
   responsive={true}
-  voronoiDimension="x"
   voronoiPadding={60}
 />
 `;
