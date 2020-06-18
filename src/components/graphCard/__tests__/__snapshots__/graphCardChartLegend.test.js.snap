@@ -23,7 +23,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   tabIndex={0}
   variant="link"
 >
-  t(curiosity-graph.loremIpsumLabel, [object Object])
+  t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
 </Component>
 `;
 
@@ -50,7 +50,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   tabIndex={0}
   variant="link"
 >
-  t(curiosity-graph.loremIpsumLabel, [object Object])
+  t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
 </Component>
 `;
 
@@ -73,7 +73,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   tabIndex={0}
   variant="link"
 >
-  t(curiosity-graph.loremIpsumLabel, [object Object])
+  t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
 </Component>
 `;
 
@@ -189,126 +189,311 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
 
 exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
 <Fragment>
-  <Component
-    className="victory-legend-item"
-    component="a"
-    icon={
-      <div
-        aria-hidden={true}
-        className="legend-icon"
-        style={
-          Object {
-            "backgroundColor": "#000000",
-            "visibility": "visible",
-          }
-        }
-      />
+  <Tooltip
+    appendTo={[Function]}
+    aria="describedby"
+    boundary="window"
+    className=""
+    content={
+      <p>
+        t(curiosity-graph.loremIpsumLegendTooltip, [object Object])
+      </p>
     }
-    isDisabled={false}
-    key="curiosity-button-loremIpsum"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-    variant="link"
+    distance={-10}
+    enableFlip={true}
+    entryDelay={100}
+    exitDelay={0}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
+    }
+    id=""
+    isAppLauncher={false}
+    isContentLeftAligned={false}
+    isVisible={false}
+    key="curiosity-tooltip-loremIpsum"
+    maxWidth="18.75rem"
+    position="top"
+    tippyProps={Object {}}
+    trigger="mouseenter focus"
+    zIndex={9999}
   >
-    t(curiosity-graph.loremIpsumLabel, [object Object])
-  </Component>
+    <Component
+      className="victory-legend-item"
+      component="a"
+      icon={
+        <div
+          aria-hidden={true}
+          className="legend-icon"
+          style={
+            Object {
+              "backgroundColor": "#000000",
+              "visibility": "visible",
+            }
+          }
+        />
+      }
+      isDisabled={false}
+      key="curiosity-button-loremIpsum"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
+    </Component>
+  </Tooltip>
 </Fragment>
 `;
 
 exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
 <Fragment>
-  <Component
-    className="victory-legend-item"
-    component="a"
-    icon={
-      <div
-        aria-hidden={true}
-        className="legend-icon"
-        style={
-          Object {
-            "backgroundColor": "#000000",
-            "visibility": "visible",
+  <Tooltip
+    appendTo={[Function]}
+    aria="describedby"
+    boundary="window"
+    className=""
+    content={
+      <p>
+        t(curiosity-graph.loremIpsumLegendTooltip, [object Object])
+      </p>
+    }
+    distance={-10}
+    enableFlip={true}
+    entryDelay={100}
+    exitDelay={0}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
+    }
+    id=""
+    isAppLauncher={false}
+    isContentLeftAligned={false}
+    isVisible={false}
+    key="curiosity-tooltip-loremIpsum"
+    maxWidth="18.75rem"
+    position="top"
+    tippyProps={Object {}}
+    trigger="mouseenter focus"
+    zIndex={9999}
+  >
+    <Component
+      className="victory-legend-item"
+      component="a"
+      icon={
+        <div
+          aria-hidden={true}
+          className="legend-icon"
+          style={
+            Object {
+              "backgroundColor": "#000000",
+              "visibility": "visible",
+            }
           }
-        }
-      />
+        />
+      }
+      isDisabled={false}
+      key="curiosity-button-loremIpsum"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
+    </Component>
+  </Tooltip>
+  <Tooltip
+    appendTo={[Function]}
+    aria="describedby"
+    boundary="window"
+    className=""
+    content={
+      <p>
+        t(curiosity-graph.ametConsecteturLegendTooltip, [object Object])
+      </p>
     }
-    isDisabled={false}
-    key="curiosity-button-loremIpsum"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-    variant="link"
-  >
-    t(curiosity-graph.loremIpsumLabel, [object Object])
-  </Component>
-  <Component
-    className="victory-legend-item"
-    component="a"
-    icon={
-      <EyeSlashIcon
-        color="currentColor"
-        noVerticalAlign={false}
-        size="sm"
-        title={null}
-      />
+    distance={-10}
+    enableFlip={true}
+    entryDelay={100}
+    exitDelay={0}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
     }
-    isDisabled={true}
-    key="curiosity-button-ametConsectetur"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-    variant="link"
+    id=""
+    isAppLauncher={false}
+    isContentLeftAligned={false}
+    isVisible={false}
+    key="curiosity-tooltip-ametConsectetur"
+    maxWidth="18.75rem"
+    position="top"
+    tippyProps={Object {}}
+    trigger="mouseenter focus"
+    zIndex={9999}
   >
-    t(curiosity-graph.ametConsecteturLabel, [object Object])
-  </Component>
-  <Component
-    className="victory-legend-item"
-    component="a"
-    icon={
-      <hr
-        aria-hidden={true}
-        className="threshold-legend-icon"
-        style={
-          Object {
-            "borderTopColor": "#ff0000",
-            "visibility": "visible",
+    <Component
+      className="victory-legend-item"
+      component="a"
+      icon={
+        <EyeSlashIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+          title={null}
+        />
+      }
+      isDisabled={true}
+      key="curiosity-button-ametConsectetur"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t(curiosity-graph.ametConsecteturLabel,curiosity-graph.noLabel, [object Object])
+    </Component>
+  </Tooltip>
+  <Tooltip
+    appendTo={[Function]}
+    aria="describedby"
+    boundary="window"
+    className=""
+    content={
+      <p>
+        t(curiosity-graph.dolorSitLegendTooltip,curiosity-graph.thresholdLegendTooltip, [object Object])
+      </p>
+    }
+    distance={-10}
+    enableFlip={true}
+    entryDelay={100}
+    exitDelay={0}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
+    }
+    id=""
+    isAppLauncher={false}
+    isContentLeftAligned={false}
+    isVisible={false}
+    key="curiosity-tooltip-dolorSit"
+    maxWidth="18.75rem"
+    position="top"
+    tippyProps={Object {}}
+    trigger="mouseenter focus"
+    zIndex={9999}
+  >
+    <Component
+      className="victory-legend-item"
+      component="a"
+      icon={
+        <hr
+          aria-hidden={true}
+          className="threshold-legend-icon"
+          style={
+            Object {
+              "borderTopColor": "#ff0000",
+              "visibility": "visible",
+            }
           }
-        }
-      />
+        />
+      }
+      isDisabled={false}
+      key="curiosity-button-dolorSit"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t(curiosity-graph.dolorSitLabel,curiosity-graph.thresholdLabel, [object Object])
+    </Component>
+  </Tooltip>
+  <Tooltip
+    appendTo={[Function]}
+    aria="describedby"
+    boundary="window"
+    className=""
+    content={
+      <p>
+        t(curiosity-graph.nonCursusLegendTooltip,curiosity-graph.thresholdLegendTooltip, [object Object])
+      </p>
     }
-    isDisabled={false}
-    key="curiosity-button-dolorSit"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-    variant="link"
+    distance={-10}
+    enableFlip={true}
+    entryDelay={100}
+    exitDelay={0}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
+    }
+    id=""
+    isAppLauncher={false}
+    isContentLeftAligned={false}
+    isVisible={false}
+    key="curiosity-tooltip-nonCursus"
+    maxWidth="18.75rem"
+    position="top"
+    tippyProps={Object {}}
+    trigger="mouseenter focus"
+    zIndex={9999}
   >
-    t(curiosity-graph.thresholdLabel)
-  </Component>
-  <Component
-    className="victory-legend-item"
-    component="a"
-    icon={
-      <hr
-        aria-hidden={true}
-        className="threshold-legend-icon"
-        style={
-          Object {
-            "borderTopColor": "#ff0000",
-            "visibility": "visible",
+    <Component
+      className="victory-legend-item"
+      component="a"
+      icon={
+        <hr
+          aria-hidden={true}
+          className="threshold-legend-icon"
+          style={
+            Object {
+              "borderTopColor": "#ff0000",
+              "visibility": "visible",
+            }
           }
-        }
-      />
-    }
-    isDisabled={false}
-    key="curiosity-button-nonCursus"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-    variant="link"
-  >
-    t(curiosity-graph.thresholdLabel)
-  </Component>
+        />
+      }
+      isDisabled={false}
+      key="curiosity-button-nonCursus"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t(curiosity-graph.nonCursusLabel,curiosity-graph.thresholdLabel, [object Object])
+    </Component>
+  </Tooltip>
 </Fragment>
 `;

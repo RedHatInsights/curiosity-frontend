@@ -11,240 +11,384 @@ Object {
 
 exports[`I18n Component should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, [object Object], [object Object])</div>"`;
 
-exports[`I18n Component should generate a predictable pot output snapshot: pot output 1`] = `
-"msgid \\"\\"
-msgstr \\"\\"
-\\"Content-Type: text/plain; charset=UTF-8\\\\n\\"
-
-#: src/components/authentication/authentication.js:74
-msgid \\"curiosity-auth.authorizedTitle\\"
-msgstr \\"\\"
-
-#: src/components/openshiftView/openshiftView.js:105
-#: src/components/openshiftView/openshiftView.js:93
-msgid \\"curiosity-graph.cardHeading\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardTypes.js:15
-msgid \\"curiosity-graph.dropdownDaily\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardTypes.js:17
-msgid \\"curiosity-graph.dropdownMonthly\\"
-msgstr \\"\\"
-
-#: src/components/c3GraphCard/c3GraphCard.js:189
-#: src/components/c3GraphCard/c3GraphCard.js:193
-#: src/components/graphCard/graphCard.js:176
-#: src/components/graphCard/graphCard.js:180
-msgid \\"curiosity-graph.dropdownPlaceholder\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardTypes.js:18
-msgid \\"curiosity-graph.dropdownQuarterly\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardTypes.js:16
-msgid \\"curiosity-graph.dropdownWeekly\\"
-msgstr \\"\\"
-
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:179
-#: src/components/graphCard/graphCardChartTooltip.js:36
-msgid \\"curiosity-graph.infiniteThresholdLabel\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardChartTooltip.js:84
-msgid \\"curiosity-graph.noDataErrorLabel\\"
-msgstr \\"\\"
-
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:180
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:183
-#: src/components/graphCard/graphCardChartTooltip.js:37
-#: src/components/graphCard/graphCardChartTooltip.js:43
-msgid \\"curiosity-graph.noDataLabel\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardChartLegend.js:132
-msgid \\"curiosity-graph.noLabel\\"
-msgstr \\"\\"
-
-#: src/components/rhelView/rhelView.js:50
-#: src/components/rhelView/rhelView.js:60
-msgid \\"curiosity-graph.socketsHeading\\"
-msgstr \\"\\"
-
-#: src/components/c3GraphCard/c3GraphCard.js:110
-#: src/components/c3GraphCard/c3GraphCardHelpers.js:136
-#: src/components/graphCard/graphCardChartLegend.js:130
-#: src/components/graphCard/graphCardChartTooltip.js:39
-msgid \\"curiosity-graph.thresholdLabel\\"
-msgstr \\"\\"
-
-#: src/components/c3GraphCard/c3GraphCard.js:93
-msgid \\"curiosity-graph.thresholdLegendTooltip\\"
-msgstr \\"\\"
-
-#: src/components/graphCard/graphCardChartTooltip.js:54
-msgid \\"curiosity-graph.tooltipSummary\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:59
-#: src/components/optinView/optinView.js:99
-msgid \\"curiosity-optin.buttonActivate\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:87
-msgid \\"curiosity-optin.buttonIsActive\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:135
-msgid \\"curiosity-optin.buttonTour\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:165
-msgid \\"curiosity-optin.cardDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:187
-msgid \\"curiosity-optin.cardFilterDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:184
-msgid \\"curiosity-optin.cardFilterTitle\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:90
-msgid \\"curiosity-optin.cardIsActiveDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:69
-msgid \\"curiosity-optin.cardIsErrorDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:180
-msgid \\"curiosity-optin.cardReportDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:177
-msgid \\"curiosity-optin.cardReportTitle\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:173
-msgid \\"curiosity-optin.cardSeeDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:170
-msgid \\"curiosity-optin.cardSeeTitle\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:162
-msgid \\"curiosity-optin.cardTitle\\"
-msgstr \\"\\"
-
-#: src/redux/actions/userActions.js:71
-msgid \\"curiosity-optin.notificationsErrorDescription\\"
-msgstr \\"\\"
-
-#: src/redux/actions/userActions.js:70
-msgid \\"curiosity-optin.notificationsErrorTitle\\"
-msgstr \\"\\"
-
-#: src/redux/actions/userActions.js:77
-msgid \\"curiosity-optin.notificationsSuccessDescription\\"
-msgstr \\"\\"
-
-#: src/redux/actions/userActions.js:76
-msgid \\"curiosity-optin.notificationsSuccessTitle\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:132
-msgid \\"curiosity-optin.tourDescription\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:129
-msgid \\"curiosity-optin.tourTitle\\"
-msgstr \\"\\"
-
-#: src/components/optinView/optinView.js:121
-msgid \\"curiosity-optin.tourTitleImageAlt\\"
-msgstr \\"\\"
-
-#: src/components/toolbar/toolbar.js:104
-#: src/components/toolbar/toolbar.js:107
-msgid \\"curiosity-toolbar.slaCategory\\"
-msgstr \\"\\"
-
-#: src/components/toolbar/toolbarTypes.js:28
-msgid \\"curiosity-toolbar.slaNone\\"
-msgstr \\"\\"
-
-#: src/components/toolbar/toolbar.js:110
-msgid \\"curiosity-toolbar.slaPlaceholder\\"
-msgstr \\"\\"
-
-#: src/components/toolbar/toolbarTypes.js:16
-msgid \\"curiosity-toolbar.slaPremium\\"
-msgstr \\"\\"
-
-#: src/components/toolbar/toolbarTypes.js:24
-msgid \\"curiosity-toolbar.slaSelfSupport\\"
-msgstr \\"\\"
-
-#: src/components/toolbar/toolbarTypes.js:20
-msgid \\"curiosity-toolbar.slaStandard\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:72
-msgid \\"curiosity-tour.emptyStateButton\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:50
-msgid \\"curiosity-tour.emptyStateDescription\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:57
-msgid \\"curiosity-tour.emptyStateDescriptionExtended\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:52
-msgid \\"curiosity-tour.emptyStateDescriptionTour\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:40
-msgid \\"curiosity-tour.emptyStateIconAlt\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:87
-msgid \\"curiosity-tour.emptyStateLinkContactUs\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:68
-#: src/components/tourView/tourView.js:83
-msgid \\"curiosity-tour.emptyStateLinkLearnMore\\"
-msgstr \\"\\"
-
-#: src/components/tourView/tourView.js:45
-msgid \\"curiosity-tour.emptyStateTitle\\"
-msgstr \\"\\"
-
-#: src/components/openshiftView/openshiftView.js:81
-msgid \\"curiosity-view.openshift\\"
-msgstr \\"\\"
-
-#: src/components/rhelView/rhelView.js:38
-msgid \\"curiosity-view.rhel\\"
-msgstr \\"\\"
-
-#: src/components/authentication/authentication.js:75
-msgctxt \\"...\\"
-msgid \\"curiosity-auth.authorizedCopy\\"
-msgstr \\"\\"
-
-#: src/components/authentication/authentication.js:59
-msgctxt \\"...\\"
-msgid \\"curiosity-auth.pending\\"
-msgstr \\"\\"
-"
+exports[`I18n Component should generate a predictable locale key output snapshot: key output 1`] = `
+Array [
+  Object {
+    "file": "./src/common/helpers.js",
+    "keys": Array [
+      Object {
+        "key": "",
+        "match": "t(\${key}\${(value && \`, \${value}\`)",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/authentication/authentication.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-auth.pending",
+        "match": "t('curiosity-auth.pending', '...')",
+      },
+      Object {
+        "key": "curiosity-auth.authorizedTitle",
+        "match": "t('curiosity-auth.authorizedTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-auth.authorizedCopy",
+        "match": "t('curiosity-auth.authorizedCopy', '...')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/c3GraphCard/c3GraphCard.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.thresholdLegendTooltip",
+        "match": "t(\`curiosity-graph.thresholdLegendTooltip\`)",
+      },
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-graph.\${id}LegendTooltip\`)",
+      },
+      Object {
+        "key": "curiosity-graph.thresholdLabel",
+        "match": "t(\`curiosity-graph.thresholdLabel\`)",
+      },
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-graph.\${id}Label\`, { product: productShortLabel })",
+      },
+      Object {
+        "key": "curiosity-graph.dropdownPlaceholder",
+        "match": "t('curiosity-graph.dropdownPlaceholder')",
+      },
+      Object {
+        "key": "curiosity-graph.dropdownPlaceholder",
+        "match": "t('curiosity-graph.dropdownPlaceholder')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/c3GraphCard/c3GraphCardHelpers.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.thresholdLabel",
+        "match": "translate(\`curiosity-graph.thresholdLabel\`)",
+      },
+      Object {
+        "key": "",
+        "match": "translate(\`curiosity-graph.\${value.id}Label\`, { product: productShortLabel })",
+      },
+      Object {
+        "key": "curiosity-graph.infiniteThresholdLabel",
+        "match": "translate('curiosity-graph.infiniteThresholdLabel')",
+      },
+      Object {
+        "key": "curiosity-graph.noDataLabel",
+        "match": "translate('curiosity-graph.noDataLabel')",
+      },
+      Object {
+        "key": "curiosity-graph.noDataLabel",
+        "match": "translate('curiosity-graph.noDataLabel')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCard.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.dropdownPlaceholder",
+        "match": "t('curiosity-graph.dropdownPlaceholder')",
+      },
+      Object {
+        "key": "curiosity-graph.dropdownPlaceholder",
+        "match": "t('curiosity-graph.dropdownPlaceholder')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCardChartLegend.js",
+    "keys": Array [
+      Object {
+        "key": "",
+        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.thresholdLabel\`], { product, context: product })",
+      },
+      Object {
+        "key": "",
+        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.noLabel\`], { product, context: product })",
+      },
+      Object {
+        "key": "",
+        "match": "t([\`curiosity-graph.\${id}LegendTooltip\`, \`curiosity-graph.thresholdLegendTooltip\`], { product, context: product })",
+      },
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-graph.\${id}LegendTooltip\`, { product, context: product })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCardChartTooltip.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.infiniteThresholdLabel",
+        "match": "t('curiosity-graph.infiniteThresholdLabel')",
+      },
+      Object {
+        "key": "curiosity-graph.noDataLabel",
+        "match": "t('curiosity-graph.noDataLabel')",
+      },
+      Object {
+        "key": "curiosity-graph.thresholdLabel",
+        "match": "t(\`curiosity-graph.thresholdLabel\`)",
+      },
+      Object {
+        "key": "curiosity-graph.noDataLabel",
+        "match": "t('curiosity-graph.noDataLabel')",
+      },
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-graph.\${key}Label\`, { product })",
+      },
+      Object {
+        "key": "curiosity-graph.tooltipSummary",
+        "match": "t('curiosity-graph.tooltipSummary')",
+      },
+      Object {
+        "key": "curiosity-graph.noDataErrorLabel",
+        "match": "t('curiosity-graph.noDataErrorLabel')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCardTypes.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.dropdownDaily",
+        "match": "translate('curiosity-graph.dropdownDaily')",
+      },
+      Object {
+        "key": "curiosity-graph.dropdownWeekly",
+        "match": "translate('curiosity-graph.dropdownWeekly')",
+      },
+      Object {
+        "key": "curiosity-graph.dropdownMonthly",
+        "match": "translate('curiosity-graph.dropdownMonthly')",
+      },
+      Object {
+        "key": "curiosity-graph.dropdownQuarterly",
+        "match": "translate('curiosity-graph.dropdownQuarterly')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/openshiftView/openshiftView.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-view.openshift",
+        "match": "t('curiosity-view.openshift', helpers.UI_DISPLAY_CONFIG_NAME)",
+      },
+      Object {
+        "key": "curiosity-graph.cardHeading",
+        "match": "t('curiosity-graph.cardHeading')",
+      },
+      Object {
+        "key": "curiosity-graph.cardHeading",
+        "match": "t('curiosity-graph.cardHeading')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/optinView/optinView.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-optin.buttonActivate",
+        "match": "t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.cardIsErrorDescription",
+        "match": "translate('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component=\\"a\\" variant=\\"link\\" target=\\"_blank\\" href=\\"https://access.redhat.com/account-team\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-optin.buttonIsActive",
+        "match": "t('curiosity-optin.buttonIsActive', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.cardIsActiveDescription",
+        "match": "t('curiosity-optin.cardIsActiveDescription')",
+      },
+      Object {
+        "key": "curiosity-optin.buttonActivate",
+        "match": "t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.tourTitleImageAlt",
+        "match": "t('curiosity-optin.tourTitleImageAlt')",
+      },
+      Object {
+        "key": "curiosity-optin.tourTitle",
+        "match": "t('curiosity-optin.tourTitle')",
+      },
+      Object {
+        "key": "curiosity-optin.tourDescription",
+        "match": "t('curiosity-optin.tourDescription')",
+      },
+      Object {
+        "key": "curiosity-optin.buttonTour",
+        "match": "t('curiosity-optin.buttonTour')",
+      },
+      Object {
+        "key": "curiosity-optin.cardTitle",
+        "match": "t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.cardDescription",
+        "match": "t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.cardSeeTitle",
+        "match": "t('curiosity-optin.cardSeeTitle')",
+      },
+      Object {
+        "key": "curiosity-optin.cardSeeDescription",
+        "match": "t('curiosity-optin.cardSeeDescription')",
+      },
+      Object {
+        "key": "curiosity-optin.cardReportTitle",
+        "match": "t('curiosity-optin.cardReportTitle')",
+      },
+      Object {
+        "key": "curiosity-optin.cardReportDescription",
+        "match": "t('curiosity-optin.cardReportDescription')",
+      },
+      Object {
+        "key": "curiosity-optin.cardFilterTitle",
+        "match": "t('curiosity-optin.cardFilterTitle')",
+      },
+      Object {
+        "key": "curiosity-optin.cardFilterDescription",
+        "match": "t('curiosity-optin.cardFilterDescription')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/rhelView/rhelView.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-view.rhel",
+        "match": "t('curiosity-view.rhel', helpers.UI_DISPLAY_CONFIG_NAME)",
+      },
+      Object {
+        "key": "curiosity-graph.socketsHeading",
+        "match": "t('curiosity-graph.socketsHeading')",
+      },
+      Object {
+        "key": "curiosity-graph.socketsHeading",
+        "match": "t('curiosity-graph.socketsHeading')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbar.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.slaCategory",
+        "match": "t('curiosity-toolbar.slaCategory')",
+      },
+      Object {
+        "key": "curiosity-toolbar.slaCategory",
+        "match": "t('curiosity-toolbar.slaCategory')",
+      },
+      Object {
+        "key": "curiosity-toolbar.slaPlaceholder",
+        "match": "t('curiosity-toolbar.slaPlaceholder')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarTypes.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.slaPremium",
+        "match": "translate('curiosity-toolbar.slaPremium')",
+      },
+      Object {
+        "key": "curiosity-toolbar.slaStandard",
+        "match": "translate('curiosity-toolbar.slaStandard')",
+      },
+      Object {
+        "key": "curiosity-toolbar.slaSelfSupport",
+        "match": "translate('curiosity-toolbar.slaSelfSupport')",
+      },
+      Object {
+        "key": "curiosity-toolbar.slaNone",
+        "match": "translate('curiosity-toolbar.slaNone')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/tourView/tourView.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-tour.emptyStateIconAlt",
+        "match": "t('curiosity-tour.emptyStateIconAlt', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateTitle",
+        "match": "t('curiosity-tour.emptyStateTitle', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateDescription",
+        "match": "t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateDescriptionTour",
+        "match": "t('curiosity-tour.emptyStateDescriptionTour', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateDescriptionExtended",
+        "match": "t('curiosity-tour.emptyStateDescriptionExtended', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateLinkLearnMore",
+        "match": "t('curiosity-tour.emptyStateLinkLearnMore')",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateButton",
+        "match": "t('curiosity-tour.emptyStateButton')",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateLinkLearnMore",
+        "match": "t('curiosity-tour.emptyStateLinkLearnMore')",
+      },
+      Object {
+        "key": "curiosity-tour.emptyStateLinkContactUs",
+        "match": "t('curiosity-tour.emptyStateLinkContactUs')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/redux/actions/userActions.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-optin.notificationsErrorTitle",
+        "match": "translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.notificationsErrorDescription",
+        "match": "translate('curiosity-optin.notificationsErrorDescription')",
+      },
+      Object {
+        "key": "curiosity-optin.notificationsSuccessTitle",
+        "match": "translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME })",
+      },
+      Object {
+        "key": "curiosity-optin.notificationsSuccessDescription",
+        "match": "translate('curiosity-optin.notificationsSuccessDescription')",
+      },
+    ],
+  },
+]
 `;
 
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `Array []`;
