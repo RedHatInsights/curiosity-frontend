@@ -127,21 +127,25 @@ class GraphCardChartLegend extends React.Component {
             !data.find(({ y, hasData }) => (y >= 0 && hasData === true) || (y >= 0 && isThreshold === true)) || false;
 
           const labelContent =
-            (isThreshold && t(`curiosity-graph.thresholdLabel`)) ||
-            t(`curiosity-graph.${id}Label`, { product }) ||
-            t(`curiosity-graph.noLabel`, { product });
+            (isThreshold &&
+              t([`curiosity-graph.${id}Label`, `curiosity-graph.thresholdLabel`], { product, context: product })) ||
+            t([`curiosity-graph.${id}Label`, `curiosity-graph.noLabel`], { product, context: product });
 
-          // ToDo: Disabled tooltip content, reactivate accordingly, issues/158
-          // const tooltipContent =
-          //  (isThreshold && t(`curiosity-graph.thresholdLegendTooltip`)) || t(`curiosity-graph.${id}LegendTooltip`);
+          const tooltipContent =
+            (isThreshold &&
+              t([`curiosity-graph.${id}LegendTooltip`, `curiosity-graph.thresholdLegendTooltip`], {
+                product,
+                context: product
+              })) ||
+            t(`curiosity-graph.${id}LegendTooltip`, { product, context: product });
 
           return this.renderLegendItem({
             chartId: id,
             color: stroke,
             labelContent,
             isDisabled,
-            isThreshold
-            // tooltipContent
+            isThreshold,
+            tooltipContent
           });
         })}
       </React.Fragment>

@@ -1,8 +1,9 @@
+import { readFileSync } from 'fs';
+import glob from 'glob';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { mount, shallow } from 'enzyme';
 import _get from 'lodash/get';
-import { GettextExtractor, JsExtractors } from 'gettext-extractor';
 import { I18n, translate, translateComponent } from '../i18n';
 import { helpers } from '../../../common';
 import enLocales from '../../../../public/locales/en-US';
@@ -13,28 +14,49 @@ import enLocales from '../../../../public/locales/en-US';
 jest.mock('i18next');
 
 /**
- * Help generate a POT output.
+ * Get translation keys.
  *
- * @returns {Function}
+ * @param {object} params
+ * @param {string} params.files
+ * @param {Array} params.list
+ * @returns {Array}
  */
-const textExtractor = () => {
-  const extractor = new GettextExtractor();
-  extractor
-    .createJsParser([
-      JsExtractors.callExpression(['t', '[this].t', 'translate'], {
-        arguments: {
-          text: 0,
-          context: 1
-        }
-      })
-    ])
-    .parseFilesGlob('./src/**/!(*.test|*.spec).@(js|jsx)');
+const getTranslationKeys = ({ files = './src/**/!(*.test|*.spec).@(js|jsx)', list = ['t', 'translate'] }) => {
+  const keys = [];
+  const updatedFiles = glob.sync(files);
 
-  return extractor;
+  updatedFiles.forEach(file => {
+    const fileContent = readFileSync(file, 'utf-8');
+    const generateRegExp = list.map(f => `\\b${f}\\([\\d\\D]+?\\)`).join('|');
+    const matches = fileContent.match(new RegExp(generateRegExp, 'g'));
+
+    if (matches && matches.length) {
+      const filterKeys = matches
+        .map(match => {
+          const key = match.match(/['`"]([\d\D]+?)['`"][,)]/);
+
+          if (key) {
+            return {
+              key: (!/\${/.test(key) && key[1]) || '',
+              match: match.replace(/\n/g, '').replace(/\s+/g, ' ').trim()
+            };
+          }
+
+          return null;
+        })
+        .filter(key => key !== null);
+
+      if (filterKeys.length) {
+        keys.push({ file, keys: filterKeys });
+      }
+    }
+  });
+
+  return keys;
 };
 
 describe('I18n Component', () => {
-  const getText = textExtractor();
+  const getKeys = getTranslationKeys({});
 
   it('should render a basic component', () => {
     const props = {
@@ -98,20 +120,20 @@ describe('I18n Component', () => {
     }).toMatchSnapshot('translate');
   });
 
-  it('should generate a predictable pot output snapshot', () => {
-    expect(getText.getPotString()).toMatchSnapshot('pot output');
+  it('should generate a predictable locale key output snapshot', () => {
+    expect(getKeys).toMatchSnapshot('key output');
   });
 
   it('should have locale keys that exist in the default language JSON', () => {
-    const messages = (getText.getMessages && getText.getMessages()) || [];
+    const keys = getKeys;
     const missingKeys = [];
 
-    messages.forEach(value => {
-      const keyCheck = (value && value.text) || '';
-
-      if (keyCheck && !_get(enLocales, keyCheck, null)) {
-        missingKeys.push(keyCheck);
-      }
+    keys.forEach(value => {
+      value.keys.forEach(subValue => {
+        if (subValue.key && !_get(enLocales, subValue.key, null)) {
+          missingKeys.push({ file: value.file, key: subValue.key });
+        }
+      });
     });
 
     expect(missingKeys).toMatchSnapshot('missing locale keys');
