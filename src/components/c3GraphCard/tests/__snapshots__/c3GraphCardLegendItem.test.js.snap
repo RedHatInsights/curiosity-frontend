@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`C3GraphCardLegendItem Component should be able to display both threshold and disabling icons: disabled 1`] = `
-<Component
+<Button
   component="a"
   icon={
     <EyeSlashIcon
       color="currentColor"
       noVerticalAlign={false}
       size="sm"
-      title={null}
     />
   }
   isDisabled={true}
@@ -25,7 +24,7 @@ exports[`C3GraphCardLegendItem Component should be able to display both threshol
 `;
 
 exports[`C3GraphCardLegendItem Component should be able to display both threshold and disabling icons: threshold 1`] = `
-<Component
+<Button
   component="a"
   icon={
     <hr
@@ -65,7 +64,7 @@ Object {
 `;
 
 exports[`C3GraphCardLegendItem Component should render a non-connected component: non-connected 1`] = `
-<Component
+<Button
   component="a"
   icon={
     <div
@@ -91,7 +90,7 @@ exports[`C3GraphCardLegendItem Component should render a non-connected component
   variant="link"
 >
   lorem ipsum
-</Component>
+</Button>
 `;
 
 exports[`C3GraphCardLegendItem Component should render a tooltip with button: tooltip 1`] = `
@@ -131,7 +130,7 @@ exports[`C3GraphCardLegendItem Component should render a tooltip with button: to
   trigger="mouseenter focus"
   zIndex={9999}
 >
-  <Component
+  <Button
     component="a"
     icon={
       <div
