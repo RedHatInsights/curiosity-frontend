@@ -94,8 +94,14 @@ buildChrome()
 
   printf "${YELLOW}dotenv includes ...${NOCOLOR}"
 
-  HEADER_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g, '').concat('<style>.pf-c-page__sidebar .ins-c-skeleton,.pf-c-page__sidebar .ins-c-navigation__header{display:none}</style>')")
-  BODY_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_BODY}').toString().replace(/\n/g,'').replace(/Logging in\.\.\./i, 'Development')")
+  HEADER_CONTENT_STR="require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g, '').concat('<style>"
+  HEADER_CONTENT_STR+=".pf-c-page__sidebar * {display:none !important;}"
+  HEADER_CONTENT_STR+=".pf-m-user.pf-m-user-skeleton * {display:none;}"
+  HEADER_CONTENT_STR+=".pf-m-user.pf-m-user-skeleton:before {content:\"Development\";}"
+  HEADER_CONTENT_STR+="</style>')"
+
+  HEADER_CONTENT=$(node -pe "${HEADER_CONTENT_STR}")
+  BODY_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_BODY}').toString().replace(/\n/g,'')")
 
   if [[ ! -z "$HEADER_CONTENT" ]] && [[ ! -z "$BODY_CONTENT" ]]; then
     echo "\nREACT_APP_INCLUDE_CONTENT_HEADER=${HEADER_CONTENT}\nREACT_APP_INCLUDE_CONTENT_BODY=${BODY_CONTENT}\n" > ./.env.development.local
@@ -125,9 +131,10 @@ buildChrome()
   HEAD=./public/apps/chrome/snippets/head.html
   BODY=./public/apps/chrome/snippets/body.html
 
-  while getopts u option;
+  while getopts b:u option;
     do
       case $option in
+        b ) BRANCH="$OPTARG";;
         u ) UPDATE=true;;
       esac
   done

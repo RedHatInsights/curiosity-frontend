@@ -127,7 +127,6 @@ exports[`Authentication Component should render a non-connected component error:
                   color="currentColor"
                   noVerticalAlign={false}
                   size="sm"
-                  title={null}
                 >
                   <svg
                     aria-hidden="true"
