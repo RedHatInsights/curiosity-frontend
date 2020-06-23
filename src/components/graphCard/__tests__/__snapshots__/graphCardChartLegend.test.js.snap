@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphCardChartLegend Component should handle a click event: click event post 1`] = `
-<Component
+<Button
   className="victory-legend-item"
   component="a"
   icon={
@@ -24,11 +24,11 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   variant="link"
 >
   t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
-</Component>
+</Button>
 `;
 
 exports[`GraphCardChartLegend Component should handle a click event: click event pre 1`] = `
-<Component
+<Button
   className="victory-legend-item"
   component="a"
   icon={
@@ -51,11 +51,11 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   variant="link"
 >
   t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
-</Component>
+</Button>
 `;
 
 exports[`GraphCardChartLegend Component should handle a click event: click event update 1`] = `
-<Component
+<Button
   className="victory-legend-item"
   component="a"
   icon={
@@ -63,7 +63,6 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
       color="currentColor"
       noVerticalAlign={false}
       size="sm"
-      title={null}
     />
   }
   isDisabled={false}
@@ -74,11 +73,11 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   variant="link"
 >
   t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
-</Component>
+</Button>
 `;
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, MISSING tooltip content 1`] = `
-<Unknown
+<Button
   className="victory-legend-item"
   component="a"
   icon={
@@ -100,7 +99,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
   variant="link"
 >
   lorem ispum
-</Unknown>
+</Button>
 `;
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, WITH tooltip content 1`] = `
@@ -139,7 +138,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
   trigger="mouseenter focus"
   zIndex={9999}
 >
-  <Unknown
+  <Button
     className="victory-legend-item"
     component="a"
     icon={
@@ -161,12 +160,12 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
     variant="link"
   >
     lorem ispum
-  </Unknown>
+  </Button>
 </Tooltip>
 `;
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, disabled 1`] = `
-<Unknown
+<Button
   className="victory-legend-item"
   component="a"
   icon={
@@ -174,7 +173,6 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
       color="currentColor"
       noVerticalAlign={false}
       size="sm"
-      title={null}
     />
   }
   isDisabled={true}
@@ -184,7 +182,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
   variant="link"
 >
   lorem ispum
-</Unknown>
+</Button>
 `;
 
 exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
@@ -225,7 +223,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
     trigger="mouseenter focus"
     zIndex={9999}
   >
-    <Component
+    <Button
       className="victory-legend-item"
       component="a"
       icon={
@@ -248,7 +246,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       variant="link"
     >
       t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
-    </Component>
+    </Button>
   </Tooltip>
 </Fragment>
 `;
@@ -291,7 +289,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     trigger="mouseenter focus"
     zIndex={9999}
   >
-    <Component
+    <Button
       className="victory-legend-item"
       component="a"
       icon={
@@ -314,7 +312,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       variant="link"
     >
       t(curiosity-graph.loremIpsumLabel,curiosity-graph.noLabel, [object Object])
-    </Component>
+    </Button>
   </Tooltip>
   <Tooltip
     appendTo={[Function]}
@@ -352,7 +350,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     trigger="mouseenter focus"
     zIndex={9999}
   >
-    <Component
+    <Button
       className="victory-legend-item"
       component="a"
       icon={
@@ -360,7 +358,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           color="currentColor"
           noVerticalAlign={false}
           size="sm"
-          title={null}
         />
       }
       isDisabled={true}
@@ -371,7 +368,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       variant="link"
     >
       t(curiosity-graph.ametConsecteturLabel,curiosity-graph.noLabel, [object Object])
-    </Component>
+    </Button>
   </Tooltip>
   <Tooltip
     appendTo={[Function]}
@@ -409,7 +406,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     trigger="mouseenter focus"
     zIndex={9999}
   >
-    <Component
+    <Button
       className="victory-legend-item"
       component="a"
       icon={
@@ -432,7 +429,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       variant="link"
     >
       t(curiosity-graph.dolorSitLabel,curiosity-graph.thresholdLabel, [object Object])
-    </Component>
+    </Button>
   </Tooltip>
   <Tooltip
     appendTo={[Function]}
@@ -470,7 +467,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     trigger="mouseenter focus"
     zIndex={9999}
   >
-    <Component
+    <Button
       className="victory-legend-item"
       component="a"
       icon={
@@ -493,7 +490,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       variant="link"
     >
       t(curiosity-graph.nonCursusLabel,curiosity-graph.thresholdLabel, [object Object])
-    </Component>
+    </Button>
   </Tooltip>
 </Fragment>
 `;
