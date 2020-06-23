@@ -192,6 +192,19 @@ Once you have made the dotenv file and/or changes, like the below "debug" flags,
 
 *Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
 
+
+##### Local CSS/Styling display vs Environments
+The default context for starting the local development run with 
+   ```
+   $ yarn start
+   ```
+Comes with a caveat, it uses the [Platform Chrome](https://github.com/RedHatInsights/insights-chrome) CI/master branch as its basis. What
+this means is that potential styling changes will affect it, or not depending on recent updates. If styling is looking odd/off, or you
+simply want to use the production styling update the NPM script branch parameter, line 63. Simply change `master` to something like `prod-stable`.
+   ```
+   "dev:chrome": "sh ./scripts/dev.chrome.sh -b master"
+   ```
+
 ##### Graph display
 You can apply a date override during **local development** (using `$ yarn start`) by adding the following line to your `.env.local` file.
    ```

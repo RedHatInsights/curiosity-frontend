@@ -88,12 +88,12 @@ exports[`OptinView Component should render a non-connected component: non-connec
           <CardFooter>
             <Form>
               <ActionGroup>
-                <Component
+                <Button
                   isDisabled={true}
                   variant="primary"
                 >
                   t(curiosity-optin.buttonIsActive, [object Object])
-                </Component>
+                </Button>
               </ActionGroup>
             </Form>
           </CardFooter>
@@ -139,12 +139,12 @@ exports[`OptinView Component should render a non-connected component: non-connec
                 t(curiosity-optin.tourDescription)
               </CardBody>
               <CardFooter>
-                <Component
+                <Button
                   className="uxui-curiosity__button-tour"
                   variant="secondary"
                 >
                   t(curiosity-optin.buttonTour)
-                </Component>
+                </Button>
               </CardFooter>
             </Card>
           </CardBody>
@@ -159,12 +159,12 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
         t(curiosity-optin.buttonIsActive, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
@@ -174,12 +174,12 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
         t(curiosity-optin.buttonIsActive, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
@@ -189,12 +189,12 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
         t(curiosity-optin.buttonIsActive, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
@@ -204,12 +204,12 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         onClick={[Function]}
         variant="primary"
       >
         t(curiosity-optin.buttonActivate, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
@@ -219,12 +219,12 @@ exports[`OptinView Component should render an API state driven view: 500 view 1`
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
         t(curiosity-optin.buttonIsActive, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
@@ -242,12 +242,12 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
         t(curiosity-optin.buttonIsActive, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
     <p>
       t(curiosity-optin.cardIsActiveDescription)
@@ -344,12 +344,12 @@ exports[`OptinView Component should render an API state driven view: initial vie
           <CardFooter>
             <Form>
               <ActionGroup>
-                <Component
+                <Button
                   isDisabled={true}
                   variant="primary"
                 >
                   t(curiosity-optin.buttonIsActive, [object Object])
-                </Component>
+                </Button>
               </ActionGroup>
             </Form>
           </CardFooter>
@@ -395,12 +395,12 @@ exports[`OptinView Component should render an API state driven view: initial vie
                 t(curiosity-optin.tourDescription)
               </CardBody>
               <CardFooter>
-                <Component
+                <Button
                   className="uxui-curiosity__button-tour"
                   variant="secondary"
                 >
                   t(curiosity-optin.buttonTour)
-                </Component>
+                </Button>
               </CardFooter>
             </Card>
           </CardBody>
@@ -415,12 +415,12 @@ exports[`OptinView Component should render an API state driven view: null or und
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
         t(curiosity-optin.buttonIsActive, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
@@ -430,7 +430,7 @@ exports[`OptinView Component should render an API state driven view: pending vie
 <CardFooter>
   <Form>
     <ActionGroup>
-      <Component
+      <Button
         isDisabled={true}
         variant="primary"
       >
@@ -439,7 +439,7 @@ exports[`OptinView Component should render an API state driven view: pending vie
         />
          
         t(curiosity-optin.buttonActivate, [object Object])
-      </Component>
+      </Button>
     </ActionGroup>
   </Form>
 </CardFooter>
