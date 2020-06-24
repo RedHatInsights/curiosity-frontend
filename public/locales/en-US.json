@@ -71,16 +71,6 @@
     "tourTitleImageAlt": "Ready to get started example graph.",
     "tourDescription": "We'll walk you through each step, and include insight into how Red Hat collects and uses subscription data."
   },
-  "curiosity-tour": {
-    "emptyStateIconAlt": "{{appName}} logo",
-    "emptyStateTitle": "{{appName}} is an early access beta",
-    "emptyStateDescription": "{{appName}} helps you understand your total subscription usage and capacity over time.",
-    "emptyStateDescriptionTour": "Take a quick tour to learn more.",
-    "emptyStateDescriptionExtended": "If you are interested in trying {{appName}}, your Red Hat account team can help.",
-    "emptyStateButton": "Take a tour",
-    "emptyStateLinkLearnMore": "Learn more",
-    "emptyStateLinkContactUs": "Contact us"
-  },
   "curiosity-view": {
     "openshift": "Red Hat OpenShift",
     "rhel": "Red Hat Enterprise Linux"

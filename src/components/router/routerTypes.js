@@ -3,7 +3,6 @@ import { helpers } from '../../common/helpers';
 import OpenshiftView from '../openshiftView/openshiftView';
 import OptinView from '../optinView/optinView';
 import RhelView from '../rhelView/rhelView';
-import TourView from '../tourView/tourView';
 import { RHSM_API_PATH_ID_TYPES } from '../../types/rhsmApiTypes';
 
 /**
@@ -53,14 +52,6 @@ const routes = [
     id: 'openshift-sw',
     to: '/openshift-sw',
     component: OpenshiftView,
-    exact: true,
-    render: true,
-    disabled: helpers.UI_DISABLED
-  },
-  {
-    id: 'soon',
-    to: '/soon',
-    component: TourView,
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED

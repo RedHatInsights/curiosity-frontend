@@ -26,6 +26,5 @@ Array [
   "./build/static/media/pfbg_768*jpg",
   "./build/static/media/pfbg_768@2x*jpg",
   "./build/static/media/pfbg_992@2x*jpg",
-  "./build/static/media/subscriptions*svg",
 ]
 `;
