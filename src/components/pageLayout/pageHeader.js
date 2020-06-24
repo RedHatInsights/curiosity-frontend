@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Title } from '@patternfly/react-core';
-import { PageHeader as RcsPageHeader } from '@redhat-cloud-services/frontend-components/components/PageHeader';
+import {
+  PageHeader as RcsPageHeader,
+  PageHeaderTitle
+} from '@redhat-cloud-services/frontend-components/components/cjs/PageHeader';
 
 /**
  * Render a platform page header.
@@ -12,7 +14,7 @@ import { PageHeader as RcsPageHeader } from '@redhat-cloud-services/frontend-com
  */
 const PageHeader = ({ children }) => (
   <RcsPageHeader>
-    <Title headingLevel="h1">{children}</Title>
+    <PageHeaderTitle title={children} />
   </RcsPageHeader>
 );
 
@@ -22,14 +24,12 @@ const PageHeader = ({ children }) => (
  * @type {{children: Node}}
  */
 PageHeader.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.node.isRequired
 };
 
 /**
  * Default props.
  */
-PageHeader.defaultProps = {
-  children: null
-};
+PageHeader.defaultProps = {};
 
 export { PageHeader as default, PageHeader };
