@@ -93,20 +93,6 @@ Array [
     "to": "/openshift-sw",
   },
   Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "WrappedComponent": [Function],
-      "compare": null,
-      "displayName": "Connect(TourView)",
-      "type": [Function],
-    },
-    "disabled": false,
-    "exact": true,
-    "id": "soon",
-    "render": true,
-    "to": "/soon",
-  },
-  Object {
     "activateOnError": true,
     "component": Object {
       "$$typeof": Symbol(react.memo),

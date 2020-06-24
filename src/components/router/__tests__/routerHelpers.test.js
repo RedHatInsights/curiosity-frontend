@@ -83,9 +83,9 @@ describe('RouterHelpers', () => {
 
   it('should return navigation and route details that align to location', () => {
     expect({
-      nav: getNavigationDetail({ id: 'soon' }),
-      route: getRouteDetail({ id: 'soon' }),
-      navRoute: getNavRouteDetail({ id: 'soon' })
+      nav: getNavigationDetail({ id: 'optin' }),
+      route: getRouteDetail({ id: 'optin' }),
+      navRoute: getNavRouteDetail({ id: 'optin' })
     }).toMatchSnapshot('detail: specific route ID');
 
     expect({
