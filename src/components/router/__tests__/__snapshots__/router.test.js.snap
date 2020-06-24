@@ -72,12 +72,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
   />
   <Route
     exact={true}
-    key="/soon"
-    path="/soon"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
     key="/optin"
     path="/optin"
     render={[Function]}
