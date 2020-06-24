@@ -327,47 +327,6 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/tourView/tourView.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-tour.emptyStateIconAlt",
-        "match": "t('curiosity-tour.emptyStateIconAlt', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateTitle",
-        "match": "t('curiosity-tour.emptyStateTitle', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateDescription",
-        "match": "t('curiosity-tour.emptyStateDescription', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateDescriptionTour",
-        "match": "t('curiosity-tour.emptyStateDescriptionTour', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateDescriptionExtended",
-        "match": "t('curiosity-tour.emptyStateDescriptionExtended', { appName: helpers.UI_DISPLAY_CONFIG_NAME })",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateLinkLearnMore",
-        "match": "t('curiosity-tour.emptyStateLinkLearnMore')",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateButton",
-        "match": "t('curiosity-tour.emptyStateButton')",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateLinkLearnMore",
-        "match": "t('curiosity-tour.emptyStateLinkLearnMore')",
-      },
-      Object {
-        "key": "curiosity-tour.emptyStateLinkContactUs",
-        "match": "t('curiosity-tour.emptyStateLinkContactUs')",
-      },
-    ],
-  },
-  Object {
     "file": "./src/redux/actions/userActions.js",
     "keys": Array [
       Object {
