@@ -73,15 +73,25 @@ exports[`Authentication Component should render a non-connected component error:
             className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
             widget-type="InsightsPageHeader"
           >
-            <Title
-              headingLevel="h1"
+            <PageHeaderTitle
+              title="Subscription Watch"
             >
-              <h1
-                className="pf-c-title pf-m-2xl"
+              <Title
+                className=""
+                headingLevel="h1"
+                size="2xl"
+                widget-type="InsightsPageHeaderTitle"
               >
-                Subscription Watch
-              </h1>
-            </Title>
+                <h1
+                  className="pf-c-title pf-m-2xl"
+                  widget-type="InsightsPageHeaderTitle"
+                >
+                   
+                  Subscription Watch
+                   
+                </h1>
+              </Title>
+            </PageHeaderTitle>
           </section>
         </PageHeader>
       </PageHeader>

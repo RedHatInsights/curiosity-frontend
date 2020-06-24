@@ -27,31 +27,19 @@ class ChartArea extends React.Component {
 
   dataSetsToggle = {};
 
+  resizeObserver = helpers.noop;
+
   containerRef = React.createRef();
 
   tooltipRef = React.createRef();
 
   componentDidMount() {
-    this.onResizeContainer();
-    window.addEventListener('resize', this.onResizeContainer);
+    this.setResizeObserve();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onResizeContainer);
+    this.resizeObserver();
   }
-
-  /**
-   * On window resize adjust graph display.
-   *
-   * @event onResizeContainer
-   */
-  onResizeContainer = () => {
-    const containerElement = this.containerRef.current;
-
-    if (containerElement && containerElement.clientWidth) {
-      this.setState({ chartWidth: containerElement.clientWidth });
-    }
-  };
 
   /**
    * Consumer exposed, hides chart layer.
@@ -90,6 +78,20 @@ class ChartArea extends React.Component {
   };
 
   /**
+   * On resize adjust graph display.
+   *
+   * @event onResizeContainer
+   */
+  onResizeContainer = () => {
+    const { chartWidth } = this.state;
+    const { clientWidth = 0 } = this.containerRef.current || {};
+
+    if (clientWidth !== chartWidth) {
+      this.setState({ chartWidth: clientWidth });
+    }
+  };
+
+  /**
    * Consumer exposed, determine if chart layer on/off.
    * Note: Using "setState" as related to this exposed check gives the appearance of a race condition.
    * Using a class property with forceUpdate to bypass.
@@ -98,6 +100,24 @@ class ChartArea extends React.Component {
    * @returns {boolean}
    */
   getIsToggled = id => this.dataSetsToggle[id] || false;
+
+  /**
+   * Set ResizeObserver for scenarios where the window.resize event doesn't fire.
+   */
+  setResizeObserve() {
+    const containerElement = this.containerRef.current;
+    const { ResizeObserver } = window;
+
+    if (containerElement && ResizeObserver) {
+      const resizeObserver = new ResizeObserver(this.onResizeContainer);
+      resizeObserver.observe(containerElement);
+      this.resizeObserver = () => resizeObserver.unobserve(containerElement);
+    } else {
+      this.onResizeContainer();
+      window.addEventListener('resize', this.onResizeContainer);
+      this.resizeObserver = () => window.removeEventListener('resize', this.onResizeContainer);
+    }
+  }
 
   /**
    * Apply props, set x and y axis chart increments/ticks formatting.
