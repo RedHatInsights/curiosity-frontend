@@ -113,7 +113,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
       dolor sit
     </p>
   }
-  distance={-10}
+  distance={0}
   enableFlip={true}
   entryDelay={100}
   exitDelay={0}
@@ -197,7 +197,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
         t(curiosity-graph.loremIpsumLegendTooltip, [object Object])
       </p>
     }
-    distance={-10}
+    distance={0}
     enableFlip={true}
     entryDelay={100}
     exitDelay={0}
@@ -263,7 +263,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.loremIpsumLegendTooltip, [object Object])
       </p>
     }
-    distance={-10}
+    distance={0}
     enableFlip={true}
     entryDelay={100}
     exitDelay={0}
@@ -324,7 +324,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.ametConsecteturLegendTooltip, [object Object])
       </p>
     }
-    distance={-10}
+    distance={0}
     enableFlip={true}
     entryDelay={100}
     exitDelay={0}
@@ -380,7 +380,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.dolorSitLegendTooltip,curiosity-graph.thresholdLegendTooltip, [object Object])
       </p>
     }
-    distance={-10}
+    distance={0}
     enableFlip={true}
     entryDelay={100}
     exitDelay={0}
@@ -441,7 +441,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.nonCursusLegendTooltip,curiosity-graph.thresholdLegendTooltip, [object Object])
       </p>
     }
-    distance={-10}
+    distance={0}
     enableFlip={true}
     entryDelay={100}
     exitDelay={0}

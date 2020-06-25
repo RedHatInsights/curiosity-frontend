@@ -193,7 +193,7 @@ class Select extends React.Component {
         onToggle={this.onToggle}
         onSelect={this.onSelect}
         selections={selected}
-        isExpanded={isExpanded}
+        isOpen={isExpanded}
         placeholderText={placeholder}
         {...pfSelectOptions}
       >

@@ -85,4 +85,16 @@ describe('Select Component', () => {
 
     component.instance().onSelect({}, 'world');
   });
+
+  it('should render a expanded select', () => {
+    const props = {
+      id: 'test',
+      options: ['lorem', 'ipsum', 'hello', 'world']
+    };
+
+    const component = mount(<Select {...props} />);
+    component.find('button').simulate('click');
+
+    expect(component).toMatchSnapshot('expanded');
+  });
 });

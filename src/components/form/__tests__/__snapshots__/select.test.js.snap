@@ -3,6 +3,9 @@
 exports[`Select Component should allow a alternate array and object options: key value object 1`] = `
 <div
   class="pf-c-select curiosity-select "
+  data-ouia-component-id="11"
+  data-ouia-component-type="PF4/Select"
+  data-ouia-safe="true"
 >
   <button
     aria-expanded="false"
@@ -21,21 +24,24 @@ exports[`Select Component should allow a alternate array and object options: key
         lorem
       </span>
     </div>
-    <svg
-      aria-hidden="true"
+    <span
       class="pf-c-select__toggle-arrow"
-      fill="currentColor"
-      height="1em"
-      role="img"
-      style="vertical-align: -0.125em;"
-      viewBox="0 0 320 512"
-      width="1em"
     >
-      <path
-        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        transform=""
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        style="vertical-align: -0.125em;"
+        viewBox="0 0 320 512"
+        width="1em"
+      >
+        <path
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          transform=""
+        />
+      </svg>
+    </span>
   </button>
 </div>
 `;
@@ -43,6 +49,9 @@ exports[`Select Component should allow a alternate array and object options: key
 exports[`Select Component should allow a alternate array and object options: string array 1`] = `
 <div
   class="pf-c-select curiosity-select "
+  data-ouia-component-id="8"
+  data-ouia-component-type="PF4/Select"
+  data-ouia-safe="true"
 >
   <button
     aria-expanded="false"
@@ -61,21 +70,24 @@ exports[`Select Component should allow a alternate array and object options: str
         ipsum
       </span>
     </div>
-    <svg
-      aria-hidden="true"
+    <span
       class="pf-c-select__toggle-arrow"
-      fill="currentColor"
-      height="1em"
-      role="img"
-      style="vertical-align: -0.125em;"
-      viewBox="0 0 320 512"
-      width="1em"
     >
-      <path
-        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        transform=""
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        style="vertical-align: -0.125em;"
+        viewBox="0 0 320 512"
+        width="1em"
+      >
+        <path
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          transform=""
+        />
+      </svg>
+    </span>
   </button>
 </div>
 `;
@@ -83,6 +95,9 @@ exports[`Select Component should allow a alternate array and object options: str
 exports[`Select Component should allow selected options to match value or title: value or title match 1`] = `
 <div
   class="pf-c-select curiosity-select "
+  data-ouia-component-id="14"
+  data-ouia-component-type="PF4/Select"
+  data-ouia-safe="true"
 >
   <button
     aria-expanded="false"
@@ -109,21 +124,24 @@ exports[`Select Component should allow selected options to match value or title:
         </span>
       </div>
     </div>
-    <svg
-      aria-hidden="true"
+    <span
       class="pf-c-select__toggle-arrow"
-      fill="currentColor"
-      height="1em"
-      role="img"
-      style="vertical-align: -0.125em;"
-      viewBox="0 0 320 512"
-      width="1em"
     >
-      <path
-        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        transform=""
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        style="vertical-align: -0.125em;"
+        viewBox="0 0 320 512"
+        width="1em"
+      >
+        <path
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          transform=""
+        />
+      </svg>
+    </span>
   </button>
 </div>
 `;
@@ -131,6 +149,9 @@ exports[`Select Component should allow selected options to match value or title:
 exports[`Select Component should render a basic component: basic dropdown 1`] = `
 <div
   class="pf-c-select curiosity-select "
+  data-ouia-component-id="2"
+  data-ouia-component-type="PF4/Select"
+  data-ouia-safe="true"
 >
   <button
     aria-expanded="false"
@@ -149,21 +170,24 @@ exports[`Select Component should render a basic component: basic dropdown 1`] = 
         hello
       </span>
     </div>
-    <svg
-      aria-hidden="true"
+    <span
       class="pf-c-select__toggle-arrow"
-      fill="currentColor"
-      height="1em"
-      role="img"
-      style="vertical-align: -0.125em;"
-      viewBox="0 0 320 512"
-      width="1em"
     >
-      <path
-        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        transform=""
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        style="vertical-align: -0.125em;"
+        viewBox="0 0 320 512"
+        width="1em"
+      >
+        <path
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          transform=""
+        />
+      </svg>
+    </span>
   </button>
 </div>
 `;
@@ -171,6 +195,9 @@ exports[`Select Component should render a basic component: basic dropdown 1`] = 
 exports[`Select Component should render a checkbox select: checkbox select 1`] = `
 <div
   class="pf-c-select curiosity-select "
+  data-ouia-component-id="5"
+  data-ouia-component-type="PF4/Select"
+  data-ouia-safe="true"
 >
   <button
     aria-expanded="false"
@@ -197,23 +224,579 @@ exports[`Select Component should render a checkbox select: checkbox select 1`] =
         </span>
       </div>
     </div>
-    <svg
-      aria-hidden="true"
+    <span
       class="pf-c-select__toggle-arrow"
-      fill="currentColor"
-      height="1em"
-      role="img"
-      style="vertical-align: -0.125em;"
-      viewBox="0 0 320 512"
-      width="1em"
     >
-      <path
-        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        transform=""
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        style="vertical-align: -0.125em;"
+        viewBox="0 0 320 512"
+        width="1em"
+      >
+        <path
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          transform=""
+        />
+      </svg>
+    </span>
   </button>
 </div>
+`;
+
+exports[`Select Component should render a expanded select: expanded 1`] = `
+<Select
+  ariaLabel="Select option"
+  className=""
+  id="test"
+  isDisabled={false}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      "lorem",
+      "ipsum",
+      "hello",
+      "world",
+    ]
+  }
+  placeholder="Select option"
+  selectedOptions={null}
+  variant="single"
+>
+  <Select
+    aria-label="Select option"
+    aria-labelledby=""
+    className="curiosity-select "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="down"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
+    isDisabled={false}
+    isGrouped={false}
+    isOpen={true}
+    isPlain={false}
+    menuAppendTo="inline"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={null}
+    toggleId={null}
+    typeAheadAriaLabel=""
+    variant="single"
+    width=""
+  >
+    <GenerateId
+      prefix="pf-random-id-"
+    >
+      <div
+        className="pf-c-select pf-m-expanded curiosity-select "
+        data-ouia-component-id={29}
+        data-ouia-component-type="PF4/Select"
+        data-ouia-safe={true}
+      >
+        <SelectToggle
+          aria-label="Options menu"
+          aria-labelledby=" pf-toggle-id-29"
+          className=""
+          handleTypeaheadKeys={[Function]}
+          hasClearButton={false}
+          id="pf-toggle-id-29"
+          isActive={false}
+          isDisabled={false}
+          isOpen={true}
+          isPlain={false}
+          menuRef={
+            Object {
+              "current": <ul
+                class="pf-c-select__menu"
+                role="listbox"
+              >
+                <li
+                  role="presentation"
+                >
+                  <button
+                    class="pf-c-select__menu-item"
+                    data-title="lorem"
+                    data-value="lorem"
+                    id="pf-random-id-5-0"
+                    role="option"
+                    type="button"
+                  >
+                    lorem
+                  </button>
+                </li>
+                <li
+                  role="presentation"
+                >
+                  <button
+                    class="pf-c-select__menu-item"
+                    data-title="ipsum"
+                    data-value="ipsum"
+                    id="pf-random-id-5-1"
+                    role="option"
+                    type="button"
+                  >
+                    ipsum
+                  </button>
+                </li>
+                <li
+                  role="presentation"
+                >
+                  <button
+                    class="pf-c-select__menu-item"
+                    data-title="hello"
+                    data-value="hello"
+                    id="pf-random-id-5-2"
+                    role="option"
+                    type="button"
+                  >
+                    hello
+                  </button>
+                </li>
+                <li
+                  role="presentation"
+                >
+                  <button
+                    class="pf-c-select__menu-item"
+                    data-title="world"
+                    data-value="world"
+                    id="pf-random-id-5-3"
+                    role="option"
+                    type="button"
+                  >
+                    world
+                  </button>
+                </li>
+              </ul>,
+            }
+          }
+          onClose={[Function]}
+          onEnter={[Function]}
+          onToggle={[Function]}
+          parentRef={
+            Object {
+              "current": <div
+                class="pf-c-select pf-m-expanded curiosity-select "
+                data-ouia-component-id="29"
+                data-ouia-component-type="PF4/Select"
+                data-ouia-safe="true"
+              >
+                <button
+                  aria-expanded="true"
+                  aria-haspopup="listbox"
+                  aria-labelledby=" pf-toggle-id-29"
+                  class="pf-c-select__toggle"
+                  id="pf-toggle-id-29"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-select__toggle-wrapper"
+                  >
+                    <span
+                      class="pf-c-select__toggle-text"
+                    >
+                      Select option
+                    </span>
+                  </div>
+                  <span
+                    class="pf-c-select__toggle-arrow"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        transform=""
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  class="pf-c-select__menu"
+                  role="listbox"
+                >
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="lorem"
+                      data-value="lorem"
+                      id="pf-random-id-5-0"
+                      role="option"
+                      type="button"
+                    >
+                      lorem
+                    </button>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="ipsum"
+                      data-value="ipsum"
+                      id="pf-random-id-5-1"
+                      role="option"
+                      type="button"
+                    >
+                      ipsum
+                    </button>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="hello"
+                      data-value="hello"
+                      id="pf-random-id-5-2"
+                      role="option"
+                      type="button"
+                    >
+                      hello
+                    </button>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="world"
+                      data-value="world"
+                      id="pf-random-id-5-3"
+                      role="option"
+                      type="button"
+                    >
+                      world
+                    </button>
+                  </li>
+                </ul>
+              </div>,
+            }
+          }
+          type="button"
+          variant="single"
+        >
+          <button
+            aria-expanded={true}
+            aria-haspopup="listbox"
+            aria-labelledby=" pf-toggle-id-29"
+            className="pf-c-select__toggle"
+            disabled={false}
+            id="pf-toggle-id-29"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            type="button"
+          >
+            <div
+              className="pf-c-select__toggle-wrapper"
+            >
+              <span
+                className="pf-c-select__toggle-text"
+              >
+                Select option
+              </span>
+            </div>
+            <span
+              className="pf-c-select__toggle-arrow"
+            >
+              <CaretDownIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              >
+                <svg
+                  aria-hidden={true}
+                  aria-labelledby={null}
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  style={
+                    Object {
+                      "verticalAlign": "-0.125em",
+                    }
+                  }
+                  viewBox="0 0 320 512"
+                  width="1em"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                    transform=""
+                  />
+                </svg>
+              </CaretDownIcon>
+            </span>
+          </button>
+        </SelectToggle>
+        <ForwardRef
+          aria-label="Select option"
+          aria-labelledby=""
+          isGrouped={false}
+          keyHandler={[Function]}
+          openedOnEnter={false}
+          sendRef={[Function]}
+        >
+          <SelectMenu
+            aria-label="Select option"
+            aria-labelledby=""
+            className=""
+            hasInlineFilter={false}
+            innerRef={
+              Object {
+                "current": <ul
+                  class="pf-c-select__menu"
+                  role="listbox"
+                >
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="lorem"
+                      data-value="lorem"
+                      id="pf-random-id-5-0"
+                      role="option"
+                      type="button"
+                    >
+                      lorem
+                    </button>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="ipsum"
+                      data-value="ipsum"
+                      id="pf-random-id-5-1"
+                      role="option"
+                      type="button"
+                    >
+                      ipsum
+                    </button>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="hello"
+                      data-value="hello"
+                      id="pf-random-id-5-2"
+                      role="option"
+                      type="button"
+                    >
+                      hello
+                    </button>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <button
+                      class="pf-c-select__menu-item"
+                      data-title="world"
+                      data-value="world"
+                      id="pf-random-id-5-3"
+                      role="option"
+                      type="button"
+                    >
+                      world
+                    </button>
+                  </li>
+                </ul>,
+              }
+            }
+            isCustomContent={false}
+            isExpanded={false}
+            isGrouped={false}
+            keyHandler={[Function]}
+            maxHeight=""
+            openedOnEnter={false}
+            selected=""
+            sendRef={[Function]}
+          >
+            <ul
+              className="pf-c-select__menu"
+              role="listbox"
+            >
+              <SelectOption
+                className=""
+                component="button"
+                data-title="lorem"
+                data-value="lorem"
+                id="pf-random-id-5-0"
+                index={0}
+                inputId="pf-random-id-5-0"
+                isChecked={false}
+                isDisabled={false}
+                isNoResultsOption={false}
+                isPlaceholder={false}
+                isSelected={false}
+                key=".$bG9yZW0=0"
+                keyHandler={[Function]}
+                onClick={[Function]}
+                sendRef={[Function]}
+                value="lorem"
+              >
+                <li
+                  role="presentation"
+                >
+                  <button
+                    aria-selected={null}
+                    className="pf-c-select__menu-item"
+                    data-title="lorem"
+                    data-value="lorem"
+                    id="pf-random-id-5-0"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="option"
+                    type="button"
+                  >
+                    lorem
+                  </button>
+                </li>
+              </SelectOption>
+              <SelectOption
+                className=""
+                component="button"
+                data-title="ipsum"
+                data-value="ipsum"
+                id="pf-random-id-5-1"
+                index={1}
+                inputId="pf-random-id-5-1"
+                isChecked={false}
+                isDisabled={false}
+                isNoResultsOption={false}
+                isPlaceholder={false}
+                isSelected={false}
+                key=".$aXBzdW0=0"
+                keyHandler={[Function]}
+                onClick={[Function]}
+                sendRef={[Function]}
+                value="ipsum"
+              >
+                <li
+                  role="presentation"
+                >
+                  <button
+                    aria-selected={null}
+                    className="pf-c-select__menu-item"
+                    data-title="ipsum"
+                    data-value="ipsum"
+                    id="pf-random-id-5-1"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="option"
+                    type="button"
+                  >
+                    ipsum
+                  </button>
+                </li>
+              </SelectOption>
+              <SelectOption
+                className=""
+                component="button"
+                data-title="hello"
+                data-value="hello"
+                id="pf-random-id-5-2"
+                index={2}
+                inputId="pf-random-id-5-2"
+                isChecked={false}
+                isDisabled={false}
+                isNoResultsOption={false}
+                isPlaceholder={false}
+                isSelected={false}
+                key=".$aGVsbG8=0"
+                keyHandler={[Function]}
+                onClick={[Function]}
+                sendRef={[Function]}
+                value="hello"
+              >
+                <li
+                  role="presentation"
+                >
+                  <button
+                    aria-selected={null}
+                    className="pf-c-select__menu-item"
+                    data-title="hello"
+                    data-value="hello"
+                    id="pf-random-id-5-2"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="option"
+                    type="button"
+                  >
+                    hello
+                  </button>
+                </li>
+              </SelectOption>
+              <SelectOption
+                className=""
+                component="button"
+                data-title="world"
+                data-value="world"
+                id="pf-random-id-5-3"
+                index={3}
+                inputId="pf-random-id-5-3"
+                isChecked={false}
+                isDisabled={false}
+                isNoResultsOption={false}
+                isPlaceholder={false}
+                isSelected={false}
+                key=".$d29ybGQ=0"
+                keyHandler={[Function]}
+                onClick={[Function]}
+                sendRef={[Function]}
+                value="world"
+              >
+                <li
+                  role="presentation"
+                >
+                  <button
+                    aria-selected={null}
+                    className="pf-c-select__menu-item"
+                    data-title="world"
+                    data-value="world"
+                    id="pf-random-id-5-3"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="option"
+                    type="button"
+                  >
+                    world
+                  </button>
+                </li>
+              </SelectOption>
+            </ul>
+          </SelectMenu>
+        </ForwardRef>
+      </div>
+    </GenerateId>
+  </Select>
+</Select>
 `;
 
 exports[`Select Component should return an emulated onchange event: emulated event 1`] = `
