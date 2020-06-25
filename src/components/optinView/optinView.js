@@ -4,15 +4,13 @@ import {
   Brand,
   Button,
   Card,
-  CardHead,
-  CardHeadMain,
+  CardHeaderMain,
   CardHeader,
   CardBody,
   CardFooter,
+  CardTitle,
   Flex,
   FlexItem,
-  FlexBreakpoints,
-  FlexModifiers,
   Form,
   ActionGroup,
   Spinner,
@@ -113,8 +111,8 @@ class OptinView extends React.Component {
 
     return (
       <Card className="curiosity-optin-tour">
-        <CardHead>
-          <CardHeadMain>
+        <CardHeader>
+          <CardHeaderMain>
             <Brand
               srcSet={`${graphPng4x} 1064w, ${graphPng2x} 600w`}
               src={graphPng4x}
@@ -122,13 +120,13 @@ class OptinView extends React.Component {
               aria-hidden
               className="curiosity-optin-image"
             />
-          </CardHeadMain>
-        </CardHead>
-        <CardHeader>
+          </CardHeaderMain>
+        </CardHeader>
+        <CardTitle>
           <Title headingLevel="h3" size="2xl">
             {t('curiosity-optin.tourTitle')}
           </Title>
-        </CardHeader>
+        </CardTitle>
         <CardBody>{t('curiosity-optin.tourDescription')}</CardBody>
         <CardFooter>
           <Button variant="secondary" className="uxui-curiosity__button-tour">
@@ -150,48 +148,43 @@ class OptinView extends React.Component {
     return (
       <PageLayout>
         <Card>
-          <Flex
-            breakpointMods={[
-              { modifier: FlexModifiers.column },
-              { modifier: FlexModifiers.row, breakpoint: FlexBreakpoints.md }
-            ]}
-          >
-            <Flex breakpointMods={[{ modifier: FlexModifiers['flex-2'] }]}>
+          <Flex>
+            <Flex flex={{ default: 'flex_2' }}>
               <FlexItem>
-                <CardHeader key="heading1Title">
-                  <Title size="2xl">{t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}</Title>
-                </CardHeader>
+                <CardTitle key="heading1Title">
+                  <Title headingLevel="h1" size="2xl">
+                    {t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}
+                  </Title>
+                </CardTitle>
                 <CardBody key="heading1Desc">
                   {t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })}
                 </CardBody>
 
-                <CardHeader key="heading2Title">
+                <CardTitle key="heading2Title">
                   <Title headingLevel="h2" size="xl">
                     {t('curiosity-optin.cardSeeTitle')}
                   </Title>
-                </CardHeader>
+                </CardTitle>
                 <CardBody key="heading2Desc">{t('curiosity-optin.cardSeeDescription')}</CardBody>
 
-                <CardHeader key="heading3Title">
+                <CardTitle key="heading3Title">
                   <Title headingLevel="h2" size="xl">
                     {t('curiosity-optin.cardReportTitle')}
                   </Title>
-                </CardHeader>
+                </CardTitle>
                 <CardBody key="heading3Desc">{t('curiosity-optin.cardReportDescription')}</CardBody>
 
-                <CardHeader key="heading4Title">
+                <CardTitle key="heading4Title">
                   <Title headingLevel="h2" size="xl">
                     {t('curiosity-optin.cardFilterTitle')}
                   </Title>
-                </CardHeader>
+                </CardTitle>
                 <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
 
                 <CardFooter>{this.renderOptinForm()}</CardFooter>
               </FlexItem>
             </Flex>
-            <Flex
-              breakpointMods={[{ modifier: FlexModifiers['flex-1'] }, { modifier: FlexModifiers['align-self-center'] }]}
-            >
+            <Flex flex={{ default: 'flex_1' }} alignSelf={{ default: 'alignSelfCenter' }}>
               <FlexItem>
                 <CardBody>{this.renderTour()}</CardBody>
               </FlexItem>

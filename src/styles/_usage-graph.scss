@@ -1,7 +1,12 @@
 .curiosity {
   .curiosity-usage-graph {
-    .pf-c-card__head {
+    .pf-c-card__header {
       border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+      padding-bottom: 1em;
+    }
+
+    .pf-c-card__title {
+      padding: 0;
     }
   }
 

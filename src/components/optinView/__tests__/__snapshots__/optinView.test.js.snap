@@ -3,44 +3,31 @@
 exports[`OptinView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <Card>
-    <Flex
-      breakpointMods={
-        Array [
-          Object {
-            "modifier": "column",
-          },
-          Object {
-            "breakpoint": "md",
-            "modifier": "row",
-          },
-        ]
-      }
-    >
+    <Flex>
       <Flex
-        breakpointMods={
-          Array [
-            Object {
-              "modifier": "flex-2",
-            },
-          ]
+        flex={
+          Object {
+            "default": "flex_2",
+          }
         }
       >
         <FlexItem>
-          <CardHeader
+          <CardTitle
             key="heading1Title"
           >
             <Title
+              headingLevel="h1"
               size="2xl"
             >
               t(curiosity-optin.cardTitle, [object Object])
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading1Desc"
           >
             t(curiosity-optin.cardDescription, [object Object])
           </CardBody>
-          <CardHeader
+          <CardTitle
             key="heading2Title"
           >
             <Title
@@ -49,13 +36,13 @@ exports[`OptinView Component should render a non-connected component: non-connec
             >
               t(curiosity-optin.cardSeeTitle)
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading2Desc"
           >
             t(curiosity-optin.cardSeeDescription)
           </CardBody>
-          <CardHeader
+          <CardTitle
             key="heading3Title"
           >
             <Title
@@ -64,13 +51,13 @@ exports[`OptinView Component should render a non-connected component: non-connec
             >
               t(curiosity-optin.cardReportTitle)
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading3Desc"
           >
             t(curiosity-optin.cardReportDescription)
           </CardBody>
-          <CardHeader
+          <CardTitle
             key="heading4Title"
           >
             <Title
@@ -79,7 +66,7 @@ exports[`OptinView Component should render a non-connected component: non-connec
             >
               t(curiosity-optin.cardFilterTitle)
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading4Desc"
           >
@@ -100,15 +87,15 @@ exports[`OptinView Component should render a non-connected component: non-connec
         </FlexItem>
       </Flex>
       <Flex
-        breakpointMods={
-          Array [
-            Object {
-              "modifier": "flex-1",
-            },
-            Object {
-              "modifier": "align-self-center",
-            },
-          ]
+        alignSelf={
+          Object {
+            "default": "alignSelfCenter",
+          }
+        }
+        flex={
+          Object {
+            "default": "flex_1",
+          }
         }
       >
         <FlexItem>
@@ -116,8 +103,8 @@ exports[`OptinView Component should render a non-connected component: non-connec
             <Card
               className="curiosity-optin-tour"
             >
-              <CardHead>
-                <CardHeadMain>
+              <CardHeader>
+                <CardHeaderMain>
                   <Brand
                     alt="t(curiosity-optin.tourTitleImageAlt)"
                     aria-hidden={true}
@@ -125,16 +112,16 @@ exports[`OptinView Component should render a non-connected component: non-connec
                     src="graph4x.png"
                     srcSet="graph4x.png 1064w, graph2x.png 600w"
                   />
-                </CardHeadMain>
-              </CardHead>
-              <CardHeader>
+                </CardHeaderMain>
+              </CardHeader>
+              <CardTitle>
                 <Title
                   headingLevel="h3"
                   size="2xl"
                 >
                   t(curiosity-optin.tourTitle)
                 </Title>
-              </CardHeader>
+              </CardTitle>
               <CardBody>
                 t(curiosity-optin.tourDescription)
               </CardBody>
@@ -259,44 +246,31 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 exports[`OptinView Component should render an API state driven view: initial view 1`] = `
 <PageLayout>
   <Card>
-    <Flex
-      breakpointMods={
-        Array [
-          Object {
-            "modifier": "column",
-          },
-          Object {
-            "breakpoint": "md",
-            "modifier": "row",
-          },
-        ]
-      }
-    >
+    <Flex>
       <Flex
-        breakpointMods={
-          Array [
-            Object {
-              "modifier": "flex-2",
-            },
-          ]
+        flex={
+          Object {
+            "default": "flex_2",
+          }
         }
       >
         <FlexItem>
-          <CardHeader
+          <CardTitle
             key="heading1Title"
           >
             <Title
+              headingLevel="h1"
               size="2xl"
             >
               t(curiosity-optin.cardTitle, [object Object])
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading1Desc"
           >
             t(curiosity-optin.cardDescription, [object Object])
           </CardBody>
-          <CardHeader
+          <CardTitle
             key="heading2Title"
           >
             <Title
@@ -305,13 +279,13 @@ exports[`OptinView Component should render an API state driven view: initial vie
             >
               t(curiosity-optin.cardSeeTitle)
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading2Desc"
           >
             t(curiosity-optin.cardSeeDescription)
           </CardBody>
-          <CardHeader
+          <CardTitle
             key="heading3Title"
           >
             <Title
@@ -320,13 +294,13 @@ exports[`OptinView Component should render an API state driven view: initial vie
             >
               t(curiosity-optin.cardReportTitle)
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading3Desc"
           >
             t(curiosity-optin.cardReportDescription)
           </CardBody>
-          <CardHeader
+          <CardTitle
             key="heading4Title"
           >
             <Title
@@ -335,7 +309,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
             >
               t(curiosity-optin.cardFilterTitle)
             </Title>
-          </CardHeader>
+          </CardTitle>
           <CardBody
             key="heading4Desc"
           >
@@ -356,15 +330,15 @@ exports[`OptinView Component should render an API state driven view: initial vie
         </FlexItem>
       </Flex>
       <Flex
-        breakpointMods={
-          Array [
-            Object {
-              "modifier": "flex-1",
-            },
-            Object {
-              "modifier": "align-self-center",
-            },
-          ]
+        alignSelf={
+          Object {
+            "default": "alignSelfCenter",
+          }
+        }
+        flex={
+          Object {
+            "default": "flex_1",
+          }
         }
       >
         <FlexItem>
@@ -372,8 +346,8 @@ exports[`OptinView Component should render an API state driven view: initial vie
             <Card
               className="curiosity-optin-tour"
             >
-              <CardHead>
-                <CardHeadMain>
+              <CardHeader>
+                <CardHeaderMain>
                   <Brand
                     alt="t(curiosity-optin.tourTitleImageAlt)"
                     aria-hidden={true}
@@ -381,16 +355,16 @@ exports[`OptinView Component should render an API state driven view: initial vie
                     src="graph4x.png"
                     srcSet="graph4x.png 1064w, graph2x.png 600w"
                   />
-                </CardHeadMain>
-              </CardHead>
-              <CardHeader>
+                </CardHeaderMain>
+              </CardHeader>
+              <CardTitle>
                 <Title
                   headingLevel="h3"
                   size="2xl"
                 >
                   t(curiosity-optin.tourTitle)
                 </Title>
-              </CardHeader>
+              </CardTitle>
               <CardBody>
                 t(curiosity-optin.tourDescription)
               </CardBody>
