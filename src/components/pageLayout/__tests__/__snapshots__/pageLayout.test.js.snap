@@ -29,24 +29,15 @@ exports[`PageLayout Component should render header and section children: multipl
         className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
         widget-type="InsightsPageHeader"
       >
-        <PageHeaderTitle
-          title="lorem"
+        <Title
+          headingLevel="h1"
         >
-          <Title
-            className=""
-            size="2xl"
-            widget-type="InsightsPageHeaderTitle"
+          <h1
+            className="pf-c-title pf-m-2xl"
           >
-            <h1
-              className="pf-c-title pf-m-2xl"
-              widget-type="InsightsPageHeaderTitle"
-            >
-               
-              lorem
-               
-            </h1>
-          </Title>
-        </PageHeaderTitle>
+            lorem
+          </h1>
+        </Title>
       </section>
     </PageHeader>
   </PageHeader>

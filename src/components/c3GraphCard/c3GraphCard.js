@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardHead, CardActions, CardBody } from '@patternfly/react-core';
+import { Card, CardTitle, CardHeader, CardActions, CardBody } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/Skeleton';
 import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
@@ -181,8 +181,8 @@ class C3GraphCard extends React.Component {
 
     return (
       <Card className="curiosity-usage-graph fadein">
-        <CardHead>
-          <h2>{cardTitle}</h2>
+        <CardHeader>
+          <CardTitle>{cardTitle}</CardTitle>
           <CardActions>
             {children}
             <Select
@@ -193,7 +193,7 @@ class C3GraphCard extends React.Component {
               placeholder={t('curiosity-graph.dropdownPlaceholder')}
             />
           </CardActions>
-        </CardHead>
+        </CardHeader>
         <CardBody>
           <div className={`curiosity-skeleton-container ${(error && 'blur') || ''}`}>
             {pending && (

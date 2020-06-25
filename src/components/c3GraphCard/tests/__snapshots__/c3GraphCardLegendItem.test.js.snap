@@ -104,7 +104,7 @@ exports[`C3GraphCardLegendItem Component should render a tooltip with button: to
       lorem ipsum
     </div>
   }
-  distance={-10}
+  distance={0}
   enableFlip={true}
   entryDelay={100}
   exitDelay={0}
