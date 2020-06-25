@@ -100,7 +100,7 @@ class GraphCardChartLegend extends React.Component {
           key={`curiosity-tooltip-${chartId}`}
           content={<p>{tooltipContent}</p>}
           position={TooltipPosition.top}
-          distance={-10}
+          distance={0}
           entryDelay={100}
           exitDelay={0}
         >

@@ -7,34 +7,19 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
       widget-type="InsightsPageHeader"
     >
-      <PageHeaderTitle
-        title={
+      <Title
+        headingLevel="h1"
+      >
+        <h1
+          className="pf-c-title pf-m-2xl"
+        >
           <span
             className="test"
           >
             lorem
           </span>
-        }
-      >
-        <Title
-          className=""
-          size="2xl"
-          widget-type="InsightsPageHeaderTitle"
-        >
-          <h1
-            className="pf-c-title pf-m-2xl"
-            widget-type="InsightsPageHeaderTitle"
-          >
-             
-            <span
-              className="test"
-            >
-              lorem
-            </span>
-             
-          </h1>
-        </Title>
-      </PageHeaderTitle>
+        </h1>
+      </Title>
     </section>
   </PageHeader>
 </PageHeader>
@@ -47,24 +32,15 @@ exports[`PageHeader Component should render string node types: string 1`] = `
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
       widget-type="InsightsPageHeader"
     >
-      <PageHeaderTitle
-        title="dolor sit"
+      <Title
+        headingLevel="h1"
       >
-        <Title
-          className=""
-          size="2xl"
-          widget-type="InsightsPageHeaderTitle"
+        <h1
+          className="pf-c-title pf-m-2xl"
         >
-          <h1
-            className="pf-c-title pf-m-2xl"
-            widget-type="InsightsPageHeaderTitle"
-          >
-             
-            dolor sit
-             
-          </h1>
-        </Title>
-      </PageHeaderTitle>
+          dolor sit
+        </h1>
+      </Title>
     </section>
   </PageHeader>
 </PageHeader>
