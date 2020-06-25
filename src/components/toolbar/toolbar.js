@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { DataToolbar, DataToolbarContent, DataToolbarFilter, DataToolbarGroup } from '@patternfly/react-core';
+import { Toolbar as PfToolbar, ToolbarContent, ToolbarFilter, ToolbarGroup } from '@patternfly/react-core';
 import { Select } from '../form/select';
 import { reduxTypes, store } from '../../redux';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
@@ -90,15 +90,15 @@ class Toolbar extends React.Component {
     const { slaOptions, slaOptionsSelected } = this.filterSla();
 
     return (
-      <DataToolbar
+      <PfToolbar
         id="curiosity-toolbar"
         className="pf-m-toggle-group-container ins-c-primary-toolbar"
         collapseListedFiltersBreakpoint="xl"
         clearAllFilters={this.onClear}
       >
-        <DataToolbarContent>
-          <DataToolbarGroup variant="filter-group">
-            <DataToolbarFilter
+        <ToolbarContent>
+          <ToolbarGroup variant="filter-group">
+            <ToolbarFilter
               chips={slaOptionsSelected}
               deleteChip={this.onClear}
               categoryName={t('curiosity-toolbar.slaCategory')}
@@ -110,10 +110,10 @@ class Toolbar extends React.Component {
                 placeholder={t('curiosity-toolbar.slaPlaceholder')}
                 options={slaOptions.options}
               />
-            </DataToolbarFilter>
-          </DataToolbarGroup>
-        </DataToolbarContent>
-      </DataToolbar>
+            </ToolbarFilter>
+          </ToolbarGroup>
+        </ToolbarContent>
+      </PfToolbar>
     );
   }
 }

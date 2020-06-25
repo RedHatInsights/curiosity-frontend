@@ -5,21 +5,20 @@ exports[`Toolbar Component should handle updating state and dispatching an sla f
 exports[`Toolbar Component should handle updating state and dispatching an sla filter: sla selected 1`] = `null`;
 
 exports[`Toolbar Component should render a non-connected component: non-connected 1`] = `
-<DataToolbar
+<Toolbar
   className="pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
   collapseListedFiltersBreakpoint="xl"
   id="curiosity-toolbar"
 >
-  <DataToolbarContent
-    breakpointMods={Array []}
+  <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}
   >
     <ForwardRef
       variant="filter-group"
     >
-      <DataToolbarFilter
+      <ToolbarFilter
         categoryName="t(curiosity-toolbar.slaCategory)"
         chips={Array []}
         deleteChip={[Function]}
@@ -57,10 +56,10 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
           selectedOptions={Array []}
           variant="single"
         />
-      </DataToolbarFilter>
+      </ToolbarFilter>
     </ForwardRef>
-  </DataToolbarContent>
-</DataToolbar>
+  </ToolbarContent>
+</Toolbar>
 `;
 
 exports[`Toolbar Component should return an empty render when disabled: disabled component 1`] = `""`;

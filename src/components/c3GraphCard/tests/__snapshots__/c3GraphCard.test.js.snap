@@ -100,8 +100,8 @@ exports[`C3GraphCard Component should render a non-connected component: non-conn
 <Card
   className="curiosity-usage-graph fadein"
 >
-  <CardHead>
-    <h2 />
+  <CardHeader>
+    <CardTitle />
     <CardActions>
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
@@ -137,7 +137,7 @@ exports[`C3GraphCard Component should render a non-connected component: non-conn
         variant="single"
       />
     </CardActions>
-  </CardHead>
+  </CardHeader>
   <CardBody>
     <div
       className="curiosity-skeleton-container "
@@ -186,8 +186,8 @@ exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
 <Card
   className="curiosity-usage-graph fadein"
 >
-  <CardHead>
-    <h2 />
+  <CardHeader>
+    <CardTitle />
     <CardActions>
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
@@ -223,7 +223,7 @@ exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
         variant="single"
       />
     </CardActions>
-  </CardHead>
+  </CardHeader>
   <CardBody>
     <div
       className="curiosity-skeleton-container "
@@ -334,8 +334,8 @@ exports[`C3GraphCard Component should render multiple states: pending 1`] = `
 <Card
   className="curiosity-usage-graph fadein"
 >
-  <CardHead>
-    <h2 />
+  <CardHeader>
+    <CardTitle />
     <CardActions>
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
@@ -371,7 +371,7 @@ exports[`C3GraphCard Component should render multiple states: pending 1`] = `
         variant="single"
       />
     </CardActions>
-  </CardHead>
+  </CardHeader>
   <CardBody>
     <div
       className="curiosity-skeleton-container "
