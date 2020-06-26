@@ -21,15 +21,15 @@ exports[`MessageView Component should render a non-connected component: non-conn
     className="fadein"
     variant="full"
   >
+    <EmptyStateIcon
+      icon={[Function]}
+    />
     <Title
       headingLevel="h2"
       size="lg"
     >
       lorem
     </Title>
-    <EmptyStateIcon
-      icon={[Function]}
-    />
     <EmptyStateBody>
       ipsum
     </EmptyStateBody>
