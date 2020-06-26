@@ -27,12 +27,12 @@ const MessageView = ({ icon, message, pageTitle, title }) => (
   <PageLayout>
     <PageHeader>{pageTitle || helpers.UI_DISPLAY_NAME}</PageHeader>
     <PfEmptyState variant={EmptyStateVariant.full} className="fadein">
+      {icon && <EmptyStateIcon icon={icon} />}
       {title && (
         <Title headingLevel="h2" size="lg">
           {title}
         </Title>
       )}
-      {icon && <EmptyStateIcon icon={icon} />}
       {message && <EmptyStateBody>{message}</EmptyStateBody>}
     </PfEmptyState>
   </PageLayout>

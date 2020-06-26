@@ -112,16 +112,6 @@ exports[`Authentication Component should render a non-connected component error:
               <div
                 className="pf-c-empty-state__content"
               >
-                <Title
-                  headingLevel="h2"
-                  size="lg"
-                >
-                  <h2
-                    className="pf-c-title pf-m-lg"
-                  >
-                    t(curiosity-auth.authorizedTitle, [object Object])
-                  </h2>
-                </Title>
                 <EmptyStateIcon
                   icon={[Function]}
                 >
@@ -154,6 +144,16 @@ exports[`Authentication Component should render a non-connected component error:
                     </svg>
                   </LockIcon>
                 </EmptyStateIcon>
+                <Title
+                  headingLevel="h2"
+                  size="lg"
+                >
+                  <h2
+                    className="pf-c-title pf-m-lg"
+                  >
+                    t(curiosity-auth.authorizedTitle, [object Object])
+                  </h2>
+                </Title>
                 <EmptyStateBody>
                   <div
                     className="pf-c-empty-state__body"
