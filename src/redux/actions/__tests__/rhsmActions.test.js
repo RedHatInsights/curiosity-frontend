@@ -56,4 +56,15 @@ describe('RhsmActions', () => {
       done();
     });
   });
+
+  it('Should return response content for getHostsInventoryGuests method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getHostsInventoryGuests();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().inventory;
+      expect(response.hostsInventoryGuests.fulfilled).toBe(true);
+      done();
+    });
+  });
 });

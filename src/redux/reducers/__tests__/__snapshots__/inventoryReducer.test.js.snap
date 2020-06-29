@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
+Object {
+  "result": Object {
+    "hostsInventory": Object {},
+    "hostsInventoryGuests": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_REJECTED",
+}
+`;
+
 exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_RHSM 1`] = `
 Object {
   "result": Object {
@@ -14,8 +34,33 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "hostsInventoryGuests": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_REJECTED",
+}
+`;
+
+exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
+Object {
+  "result": Object {
+    "hostsInventory": Object {},
+    "hostsInventoryGuests": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_FULFILLED",
 }
 `;
 
@@ -37,8 +82,28 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "hostsInventoryGuests": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_FULFILLED",
+}
+`;
+
+exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
+Object {
+  "result": Object {
+    "hostsInventory": Object {},
+    "hostsInventoryGuests": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+    },
+  },
+  "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_PENDING",
 }
 `;
 
@@ -55,6 +120,7 @@ Object {
       "metaQuery": undefined,
       "pending": true,
     },
+    "hostsInventoryGuests": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_PENDING",
 }
