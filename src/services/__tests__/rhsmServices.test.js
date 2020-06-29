@@ -17,7 +17,7 @@ describe('RhsmServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(rhsmServices)).toHaveLength(4);
+    expect(Object.keys(rhsmServices)).toHaveLength(5);
   });
 
   it('should have specific methods', () => {
@@ -25,6 +25,7 @@ describe('RhsmServices', () => {
     expect(rhsmServices.getGraphCapacity).toBeDefined();
     expect(rhsmServices.getGraphReports).toBeDefined();
     expect(rhsmServices.getHostsInventory).toBeDefined();
+    expect(rhsmServices.getHostsInventoryGuests).toBeDefined();
   });
 
   /**
