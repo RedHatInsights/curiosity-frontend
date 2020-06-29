@@ -960,15 +960,14 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 6,
  *           "hardware_type": "physical",
- *           "number_of_guests": 2,
  *           "last_seen": "2020-07-01T00:00:00Z"
  *         }
  *       ],
  *       "links": {
- *         "first": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?offset=0&limit=5",
- *         "last": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?offset=5&limit=5",
+ *         "first": "/api/rhsm-subscriptions/v1/hosts/RHEL?granularity=DAILY&sla=Premium&usage=Production&offset=0&limit=5",
+ *         "last": "/api/rhsm-subscriptions/v1/hosts/RHEL?granularity=DAILY&sla=Premium&usage=Production&offset=5&limit=5",
  *         "previous": null,
- *         "next": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?offset=5&limit=5"
+ *         "next": "/api/rhsm-subscriptions/v1/hosts/RHEL?granularity=DAILY&sla=Premium&usage=Production&offset=5&limit=5"
  *       },
  *       "meta": {
  *         "count": 2
@@ -1003,11 +1002,81 @@ const getHostsInventory = (id, params = {}) =>
     cancel: true
   });
 
-const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory };
+/**
+ * @api {get} /api/rhsm-subscriptions/v1/hosts/:hypervisor_uuid/guests Get RHSM hosts/systems table/inventory guests data
+ * @apiDescription Retrieve hosts/systems table/inventory guests data.
+ *
+ * Reference [RHSM for hosts/system table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data" : [
+ *         {
+ *           "insights_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
+ *           "display_name": "guest01.example.com",
+ *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
+ *           "last_seen": "2020-04-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-dcef6e970852",
+ *           "display_name": "guest02.example.com",
+ *           "subscription_manager_id": "b101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         }
+ *       ],
+ *       "links": {
+ *         "first": "/api/rhsm-subscriptions/v1/hosts/a283ffb6-e0f3-4dbe-9732-ccfdb297ba07/guests?offset=0&limit=5",
+ *         "last": "/api/rhsm-subscriptions/v1/hosts/a283ffb6-e0f3-4dbe-9732-ccfdb297ba07/guests?offset=5&limit=5",
+ *         "previous": null,
+ *         "next": "/api/rhsm-subscriptions/v1/hosts/a283ffb6-e0f3-4dbe-9732-ccfdb297ba07/guests?offset=5&limit=5"
+ *       },
+ *       "meta": {
+ *         "count": 2
+ *       }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Get RHSM API hosts table/inventory guests data.
+ *
+ * @param {string} id Subscription Manager ID
+ * @param {object} params Query/search params
+ * @returns {Promise<*>}
+ */
+const getHostsInventoryGuests = (id, params = {}) =>
+  serviceCall({
+    url: process.env.REACT_APP_SERVICES_RHSM_INVENTORY_GUESTS.replace('{0}', id),
+    params,
+    cancel: true
+  });
+
+const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory, getHostsInventoryGuests };
 
 /**
  * Expose services to the browser's developer console.
  */
 helpers.browserExpose({ rhsmServices });
 
-export { rhsmServices as default, rhsmServices, getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory };
+export {
+  rhsmServices as default,
+  rhsmServices,
+  getApiVersion,
+  getGraphCapacity,
+  getGraphReports,
+  getHostsInventory,
+  getHostsInventoryGuests
+};
