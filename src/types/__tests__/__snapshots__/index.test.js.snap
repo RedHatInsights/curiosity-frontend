@@ -54,6 +54,13 @@ Object {
         "STANDARD": "standard",
       },
       "RHSM_API_QUERY_START_DATE": "beginning",
+      "RHSM_API_QUERY_USAGE": "usage",
+      "RHSM_API_QUERY_USAGE_TYPES": Object {
+        "DEVELOPMENT": "Development/Test",
+        "DISASTER": "Disaster Recovery",
+        "PRODUCTION": "Production",
+        "UNSPECIFIED": "",
+      },
       "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
       "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
         "CLOUD_CORES": "cloud_cores",
@@ -68,10 +75,6 @@ Object {
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
       },
-      "RHSM_API_RESPONSE_CAPACITY_META": "meta",
-      "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
-        "COUNT": "count",
-      },
       "RHSM_API_RESPONSE_ERROR_DATA": "errors",
       "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
         "GENERIC": "SUBSCRIPTIONS1003",
@@ -84,14 +87,29 @@ Object {
       "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
       "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
         "CORES": "cores",
+        "GUESTS": "number_of_guests",
         "HARDWARE": "hardware_type",
         "ID": "insights_id",
         "LAST_SEEN": "last_seen",
         "NAME": "display_name",
         "SOCKETS": "sockets",
+        "SUBSCRIPTION_ID": "subscription_manager_id",
       },
-      "RHSM_API_RESPONSE_INVENTORY_META": "meta",
-      "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+      "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+        "ID": "insights_id",
+        "LAST_SEEN": "last_seen",
+        "NAME": "display_name",
+        "SUBSCRIPTION_ID": "subscription_manager_id",
+      },
+      "RHSM_API_RESPONSE_LINKS": "links",
+      "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+        "FIRST": "first",
+        "LAST": "last",
+        "NEXT": "next",
+        "PREVIOUS": "previous",
+      },
+      "RHSM_API_RESPONSE_META": "meta",
+      "RHSM_API_RESPONSE_META_TYPES": Object {
         "COUNT": "count",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
@@ -107,10 +125,6 @@ Object {
         "PHYSICAL_CORES": "physical_cores",
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
-      },
-      "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
-      "RHSM_API_RESPONSE_PRODUCTS_META_TYPES": Object {
-        "COUNT": "count",
       },
     },
   },
@@ -166,6 +180,13 @@ Object {
         "STANDARD": "standard",
       },
       "RHSM_API_QUERY_START_DATE": "beginning",
+      "RHSM_API_QUERY_USAGE": "usage",
+      "RHSM_API_QUERY_USAGE_TYPES": Object {
+        "DEVELOPMENT": "Development/Test",
+        "DISASTER": "Disaster Recovery",
+        "PRODUCTION": "Production",
+        "UNSPECIFIED": "",
+      },
       "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
       "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
         "CLOUD_CORES": "cloud_cores",
@@ -180,10 +201,6 @@ Object {
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
       },
-      "RHSM_API_RESPONSE_CAPACITY_META": "meta",
-      "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
-        "COUNT": "count",
-      },
       "RHSM_API_RESPONSE_ERROR_DATA": "errors",
       "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
         "GENERIC": "SUBSCRIPTIONS1003",
@@ -196,14 +213,29 @@ Object {
       "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
       "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
         "CORES": "cores",
+        "GUESTS": "number_of_guests",
         "HARDWARE": "hardware_type",
         "ID": "insights_id",
         "LAST_SEEN": "last_seen",
         "NAME": "display_name",
         "SOCKETS": "sockets",
+        "SUBSCRIPTION_ID": "subscription_manager_id",
       },
-      "RHSM_API_RESPONSE_INVENTORY_META": "meta",
-      "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+      "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+        "ID": "insights_id",
+        "LAST_SEEN": "last_seen",
+        "NAME": "display_name",
+        "SUBSCRIPTION_ID": "subscription_manager_id",
+      },
+      "RHSM_API_RESPONSE_LINKS": "links",
+      "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+        "FIRST": "first",
+        "LAST": "last",
+        "NEXT": "next",
+        "PREVIOUS": "previous",
+      },
+      "RHSM_API_RESPONSE_META": "meta",
+      "RHSM_API_RESPONSE_META_TYPES": Object {
         "COUNT": "count",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
@@ -219,10 +251,6 @@ Object {
         "PHYSICAL_CORES": "physical_cores",
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
-      },
-      "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
-      "RHSM_API_RESPONSE_PRODUCTS_META_TYPES": Object {
-        "COUNT": "count",
       },
     },
   },
@@ -277,6 +305,13 @@ Object {
       "STANDARD": "standard",
     },
     "RHSM_API_QUERY_START_DATE": "beginning",
+    "RHSM_API_QUERY_USAGE": "usage",
+    "RHSM_API_QUERY_USAGE_TYPES": Object {
+      "DEVELOPMENT": "Development/Test",
+      "DISASTER": "Disaster Recovery",
+      "PRODUCTION": "Production",
+      "UNSPECIFIED": "",
+    },
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
       "CLOUD_CORES": "cloud_cores",
@@ -291,10 +326,6 @@ Object {
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
-    "RHSM_API_RESPONSE_CAPACITY_META": "meta",
-    "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
-      "COUNT": "count",
-    },
     "RHSM_API_RESPONSE_ERROR_DATA": "errors",
     "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
       "GENERIC": "SUBSCRIPTIONS1003",
@@ -307,14 +338,29 @@ Object {
     "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
     "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
       "CORES": "cores",
+      "GUESTS": "number_of_guests",
       "HARDWARE": "hardware_type",
       "ID": "insights_id",
       "LAST_SEEN": "last_seen",
       "NAME": "display_name",
       "SOCKETS": "sockets",
+      "SUBSCRIPTION_ID": "subscription_manager_id",
     },
-    "RHSM_API_RESPONSE_INVENTORY_META": "meta",
-    "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+    "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+      "ID": "insights_id",
+      "LAST_SEEN": "last_seen",
+      "NAME": "display_name",
+      "SUBSCRIPTION_ID": "subscription_manager_id",
+    },
+    "RHSM_API_RESPONSE_LINKS": "links",
+    "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+      "FIRST": "first",
+      "LAST": "last",
+      "NEXT": "next",
+      "PREVIOUS": "previous",
+    },
+    "RHSM_API_RESPONSE_META": "meta",
+    "RHSM_API_RESPONSE_META_TYPES": Object {
       "COUNT": "count",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
@@ -330,10 +376,6 @@ Object {
       "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
-    },
-    "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
-    "RHSM_API_RESPONSE_PRODUCTS_META_TYPES": Object {
-      "COUNT": "count",
     },
   },
 }
@@ -392,6 +434,13 @@ Object {
       "STANDARD": "standard",
     },
     "RHSM_API_QUERY_START_DATE": "beginning",
+    "RHSM_API_QUERY_USAGE": "usage",
+    "RHSM_API_QUERY_USAGE_TYPES": Object {
+      "DEVELOPMENT": "Development/Test",
+      "DISASTER": "Disaster Recovery",
+      "PRODUCTION": "Production",
+      "UNSPECIFIED": "",
+    },
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
     "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
       "CLOUD_CORES": "cloud_cores",
@@ -406,10 +455,6 @@ Object {
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
     },
-    "RHSM_API_RESPONSE_CAPACITY_META": "meta",
-    "RHSM_API_RESPONSE_CAPACITY_META_TYPES": Object {
-      "COUNT": "count",
-    },
     "RHSM_API_RESPONSE_ERROR_DATA": "errors",
     "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
       "GENERIC": "SUBSCRIPTIONS1003",
@@ -422,14 +467,29 @@ Object {
     "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
     "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
       "CORES": "cores",
+      "GUESTS": "number_of_guests",
       "HARDWARE": "hardware_type",
       "ID": "insights_id",
       "LAST_SEEN": "last_seen",
       "NAME": "display_name",
       "SOCKETS": "sockets",
+      "SUBSCRIPTION_ID": "subscription_manager_id",
     },
-    "RHSM_API_RESPONSE_INVENTORY_META": "meta",
-    "RHSM_API_RESPONSE_INVENTORY_META_TYPES": Object {
+    "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+      "ID": "insights_id",
+      "LAST_SEEN": "last_seen",
+      "NAME": "display_name",
+      "SUBSCRIPTION_ID": "subscription_manager_id",
+    },
+    "RHSM_API_RESPONSE_LINKS": "links",
+    "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+      "FIRST": "first",
+      "LAST": "last",
+      "NEXT": "next",
+      "PREVIOUS": "previous",
+    },
+    "RHSM_API_RESPONSE_META": "meta",
+    "RHSM_API_RESPONSE_META_TYPES": Object {
       "COUNT": "count",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
@@ -445,10 +505,6 @@ Object {
       "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
-    },
-    "RHSM_API_RESPONSE_PRODUCTS_META": "meta",
-    "RHSM_API_RESPONSE_PRODUCTS_META_TYPES": Object {
-      "COUNT": "count",
     },
   },
 }
