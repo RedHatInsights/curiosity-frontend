@@ -1,7 +1,6 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
 import _isEqual from 'lodash/isEqual';
-import _get from 'lodash/get';
 import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
@@ -12,7 +11,7 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * @private
  * @type {{dataId: {string}, data: {object}}}
  */
-const graphCardCache = { dataId: null, data: {} };
+const selectorCache = { dataId: null, data: {} };
 
 /**
  * Return a combined state, props object.
@@ -22,12 +21,12 @@ const graphCardCache = { dataId: null, data: {} };
  * @param {object} props
  * @returns {object}
  */
-const graphResponse = (state, props = {}) => ({
-  ..._get(state, ['graph', 'reportCapacity', props.productId]),
+const statePropsFilter = (state, props = {}) => ({
+  ...state.graph?.reportCapacity?.[props.productId],
   ...{
     viewId: props.viewId,
     productId: props.productId,
-    graphQuery: props.graphQuery
+    query: props.graphQuery
   }
 });
 
@@ -36,8 +35,8 @@ const graphResponse = (state, props = {}) => ({
  *
  * @type {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
  */
-const graphCardSelector = createSelector([graphResponse], response => {
-  const { viewId = null, productId = null, graphQuery = {}, metaId, metaQuery = {}, ...responseData } = response || {};
+const selector = createSelector([statePropsFilter], response => {
+  const { viewId = null, productId = null, query = {}, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
@@ -52,19 +51,19 @@ const graphCardSelector = createSelector([graphResponse], response => {
   delete responseMetaQuery[rhsmApiTypes.RHSM_API_QUERY_END_DATE];
 
   const cachedGranularity =
-    (viewId && productId && graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`]) || undefined;
+    (viewId && productId && selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`]) || undefined;
 
   Object.assign(updatedResponseData, { ...cachedGranularity });
 
-  if (viewId && graphCardCache.dataId !== viewId) {
-    graphCardCache.dataId = viewId;
-    graphCardCache.data = {};
+  if (viewId && selectorCache.dataId !== viewId) {
+    selectorCache.dataId = viewId;
+    selectorCache.data = {};
   }
 
-  if (responseData.fulfilled && productId === metaId && _isEqual(graphQuery, responseMetaQuery)) {
+  if (responseData.fulfilled && productId === metaId && _isEqual(query, responseMetaQuery)) {
     const [report, capacity] = responseData.data;
-    const reportData = _get(report, [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA], []);
-    const capacityData = _get(capacity, [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA], []);
+    const reportData = report?.[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA] || [];
+    const capacityData = capacity?.[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA] || [];
 
     /**
      * ToDo: Reevaluate this reset on graphData when working with Reselect's memoize.
@@ -147,7 +146,7 @@ const graphCardSelector = createSelector([graphResponse], response => {
 
     // Update response and cache
     updatedResponseData.fulfilled = true;
-    graphCardCache.data[`${viewId}_${productId}_${JSON.stringify(graphQuery)}`] = {
+    selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`] = {
       ...updatedResponseData
     };
   }
@@ -161,13 +160,13 @@ const graphCardSelector = createSelector([graphResponse], response => {
  * @param {object} defaultProps
  * @returns {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
  */
-const makeGraphCardSelector = defaultProps => (state, props) => ({
-  ...graphCardSelector(state, props, defaultProps)
+const makeSelector = defaultProps => (state, props) => ({
+  ...selector(state, props, defaultProps)
 });
 
 const graphCardSelectors = {
-  graphCard: graphCardSelector,
-  makeGraphCard: makeGraphCardSelector
+  graphCard: selector,
+  makeGraphCard: makeSelector
 };
 
-export { graphCardSelectors as default, graphCardSelectors, graphCardSelector, makeGraphCardSelector };
+export { graphCardSelectors as default, graphCardSelectors, selector, makeSelector };
