@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphCardSelectors should handle pending state on a product ID: graphCard: pending 1`] = `
+exports[`GraphCardSelectors should handle pending state on a product ID: pending 1`] = `
 Object {
   "error": false,
   "fulfilled": false,
@@ -10,7 +10,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should map a fulfilled product ID response to an aggregated output: graphCard: fulfilled granularity 1`] = `
+exports[`GraphCardSelectors should map a fulfilled product ID response to an aggregated output: fulfilled 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
@@ -381,7 +381,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should pass minimal data on a product ID without a product ID provided: graphCard: no product id error 1`] = `
+exports[`GraphCardSelectors should pass minimal data on a product ID without a product ID provided: no product id error 1`] = `
 Object {
   "error": false,
   "fulfilled": false,
@@ -391,7 +391,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should pass minimal data on a product ID without granularity provided: graphCard: no granularity error 1`] = `
+exports[`GraphCardSelectors should pass minimal data on a product ID without granularity provided: no granularity error 1`] = `
 Object {
   "error": false,
   "fulfilled": false,
@@ -401,7 +401,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should pass minimal data on missing a reducer response: graphCard: missing reducer error 1`] = `
+exports[`GraphCardSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
 Object {
   "error": false,
   "fulfilled": false,
@@ -411,7 +411,162 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: ERROR, no component reportCapacity mismatch 1`] = `
+exports[`GraphCardSelectors should populate data from the in memory cache: cached data: ERROR, query mismatch 1`] = `
+Object {
+  "error": false,
+  "fulfilled": true,
+  "graphData": Object {
+    "cloudCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudInstanceCount": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cloudSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "cores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "hypervisorCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasData": true,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "thresholdCloudCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudInstanceCount": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCloudSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdHypervisorCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdHypervisorSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 50,
+      },
+    ],
+    "thresholdPhysicalCores": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "thresholdPhysicalSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 50,
+      },
+    ],
+    "thresholdSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasInfinite": false,
+        "x": 0,
+        "y": 100,
+      },
+    ],
+  },
+  "pending": false,
+  "status": undefined,
+}
+`;
+
+exports[`GraphCardSelectors should populate data from the in memory cache: cached data: cache used and pending 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
@@ -566,7 +721,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: cached data 1`] = `
+exports[`GraphCardSelectors should populate data from the in memory cache: cached data: initial fulfilled 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
@@ -721,14 +876,14 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should populate data from the in memory cache: granularity cached data: component and reportCapacity match 1`] = `
+exports[`GraphCardSelectors should populate data from the in memory cache: cached data: update and fulfilled 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
   "graphData": Object {
     "cloudCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 0,
@@ -736,7 +891,7 @@ Object {
     ],
     "cloudInstanceCount": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 0,
@@ -744,7 +899,7 @@ Object {
     ],
     "cloudSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 0,
@@ -752,7 +907,7 @@ Object {
     ],
     "cores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 2,
@@ -760,7 +915,7 @@ Object {
     ],
     "hypervisorCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 1,
@@ -768,7 +923,7 @@ Object {
     ],
     "hypervisorSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 1,
@@ -776,7 +931,7 @@ Object {
     ],
     "physicalCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 1,
@@ -784,7 +939,7 @@ Object {
     ],
     "physicalSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 1,
@@ -792,7 +947,7 @@ Object {
     ],
     "sockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasData": true,
         "x": 0,
         "y": 2,
@@ -800,7 +955,7 @@ Object {
     ],
     "thresholdCloudCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
@@ -808,7 +963,7 @@ Object {
     ],
     "thresholdCloudInstanceCount": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
@@ -816,7 +971,7 @@ Object {
     ],
     "thresholdCloudSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
@@ -824,7 +979,7 @@ Object {
     ],
     "thresholdCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
@@ -832,7 +987,7 @@ Object {
     ],
     "thresholdHypervisorCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
@@ -840,7 +995,7 @@ Object {
     ],
     "thresholdHypervisorSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
@@ -848,7 +1003,7 @@ Object {
     ],
     "thresholdPhysicalCores": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
@@ -856,7 +1011,7 @@ Object {
     ],
     "thresholdPhysicalSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
@@ -864,7 +1019,7 @@ Object {
     ],
     "thresholdSockets": Array [
       Object {
-        "date": 2019-09-04T00:00:00.000Z,
+        "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 100,
@@ -876,7 +1031,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should populate data on a product ID when the api response is missing expected properties: graphCard: data populated, missing properties 1`] = `
+exports[`GraphCardSelectors should populate data on a product ID when the api response is missing expected properties: data populated, missing properties 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
@@ -1287,7 +1442,7 @@ Object {
 }
 `;
 
-exports[`GraphCardSelectors should populate data on a product ID when the api response provided mismatches index or date: graphCard: data populated on mismatch fulfilled 1`] = `
+exports[`GraphCardSelectors should populate data on a product ID when the api response provided mismatches index or date: data populated on mismatch fulfilled 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
