@@ -8,7 +8,7 @@ describe('GraphCardSelectors', () => {
 
   it('should pass minimal data on missing a reducer response', () => {
     const state = {};
-    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('graphCard: missing reducer error');
+    expect(graphCardSelectors.graphCard(state)).toMatchSnapshot('missing reducer error');
   });
 
   it('should pass minimal data on a product ID without granularity provided', () => {
@@ -30,7 +30,7 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('graphCard: no granularity error');
+    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('no granularity error');
   });
 
   it('should pass minimal data on a product ID without a product ID provided', () => {
@@ -55,14 +55,14 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('graphCard: no product id error');
+    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('no product id error');
   });
 
   it('should handle pending state on a product ID', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum ID pending state',
-      graphGranularity: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -82,7 +82,7 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('graphCard: pending');
+    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('pending');
   });
 
   it('should populate data on a product ID when the api response provided mismatches index or date', () => {
@@ -121,9 +121,7 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot(
-      'graphCard: data populated on mismatch fulfilled'
-    );
+    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('data populated on mismatch fulfilled');
   });
 
   it('should populate data on a product ID when the api response is missing expected properties', () => {
@@ -189,7 +187,7 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('graphCard: data populated, missing properties');
+    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('data populated, missing properties');
   });
 
   it('should map a fulfilled product ID response to an aggregated output', () => {
@@ -273,7 +271,7 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('graphCard: fulfilled granularity');
+    expect(graphCardSelectors.graphCard(state, props)).toMatchSnapshot('fulfilled');
   });
 
   it('should populate data from the in memory cache', () => {
@@ -282,7 +280,7 @@ describe('GraphCardSelectors', () => {
       productId: 'Lorem Ipsum ID cached',
       graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
-    const stateDailyGranularityFulfilled = {
+    const stateInitialFulfilled = {
       graph: {
         reportCapacity: {
           'Lorem Ipsum ID cached': {
@@ -323,44 +321,68 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    graphCardSelectors.graphCard(stateDailyGranularityFulfilled, props);
+    expect(graphCardSelectors.graphCard(stateInitialFulfilled, props)).toMatchSnapshot(
+      'cached data: initial fulfilled'
+    );
 
-    const stateDailyGranularityPending = {
+    const statePending = {
       graph: {
-        ...stateDailyGranularityFulfilled.graph.component,
         reportCapacity: {
           'Lorem Ipsum ID cached': {
-            ...stateDailyGranularityFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
+            ...stateInitialFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
             pending: true
           }
         }
       }
     };
 
-    expect(graphCardSelectors.graphCard(stateDailyGranularityPending, props)).toMatchSnapshot(
-      'granularity cached data: cached data'
-    );
+    expect(graphCardSelectors.graphCard(statePending, props)).toMatchSnapshot('cached data: cache used and pending');
 
-    const stateDailyComponentCapacityGranularity = {
+    const stateFulfilled = {
       graph: {
         reportCapacity: {
           'Lorem Ipsum ID cached': {
-            ...stateDailyGranularityFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
-            fulfilled: true
+            ...stateInitialFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
+            fulfilled: true,
+            data: [
+              {
+                [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [
+                  {
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.DATE]: '2018-07-04T00:00:00.000Z',
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.CORES]: 2,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.SOCKETS]: 2,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_CORES]: 1,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HYPERVISOR_SOCKETS]: 1,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_CORES]: 1,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.PHYSICAL_SOCKETS]: 1,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_DATA]: true
+                  }
+                ]
+              },
+              {
+                [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA]: [
+                  {
+                    [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.DATE]: '2018-07-04T00:00:00.000Z',
+                    [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.SOCKETS]: 100,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HYPERVISOR_SOCKETS]: 50,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.PHYSICAL_SOCKETS]: 50,
+                    [rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA_TYPES.HAS_INFINITE]: false
+                  }
+                ]
+              }
+            ]
           }
         }
       }
     };
 
-    expect(graphCardSelectors.graphCard(stateDailyComponentCapacityGranularity, props)).toMatchSnapshot(
-      'granularity cached data: component and reportCapacity match'
-    );
+    expect(graphCardSelectors.graphCard(stateFulfilled, props)).toMatchSnapshot('cached data: update and fulfilled');
 
-    const stateDailyReportCapacityGranularityMismatch = {
+    const stateFulfilledQueryMismatch = {
       graph: {
         reportCapacity: {
           'Lorem Ipsum ID cached': {
-            ...stateDailyGranularityFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
+            ...stateInitialFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
             metaQuery: {
               [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.WEEKLY
             }
@@ -369,8 +391,8 @@ describe('GraphCardSelectors', () => {
       }
     };
 
-    expect(graphCardSelectors.graphCard(stateDailyReportCapacityGranularityMismatch, props)).toMatchSnapshot(
-      'granularity cached data: ERROR, no component reportCapacity mismatch'
+    expect(graphCardSelectors.graphCard(stateFulfilledQueryMismatch, props)).toMatchSnapshot(
+      'cached data: ERROR, query mismatch'
     );
   });
 });
