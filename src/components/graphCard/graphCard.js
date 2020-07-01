@@ -254,13 +254,6 @@ GraphCard.defaultProps = {
 };
 
 /**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
-
-/**
  * Apply actions to props.
  *
  * @param {Function} dispatch
@@ -269,6 +262,13 @@ const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 const mapDispatchToProps = dispatch => ({
   getGraphReportsCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphReportsCapacity(id, query))
 });
+
+/**
+ * Create a selector from applied state, props.
+ *
+ * @type {Function}
+ */
+const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 
 const ConnectedGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(GraphCard);
 

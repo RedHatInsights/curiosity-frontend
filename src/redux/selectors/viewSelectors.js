@@ -1,5 +1,4 @@
 import { createSelectorCreator, defaultMemoize } from 'reselect';
-import _get from 'lodash/get';
 import _isEqual from 'lodash/isEqual';
 
 /**
@@ -19,10 +18,10 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
  * @param {object} defaultProps
  * @returns {object}
  */
-const viewGraphQuery = (state = {}, props, defaultProps = {}) => ({
+const statePropsFilter = (state = {}, props, defaultProps = {}) => ({
   graphQuery: {
     ...defaultProps.graphQuery,
-    ..._get(state, ['view', 'graphQuery', defaultProps.viewId])
+    ...state.view?.graphQuery?.[defaultProps.viewId]
   }
 });
 
@@ -31,7 +30,7 @@ const viewGraphQuery = (state = {}, props, defaultProps = {}) => ({
  *
  * @type {{graphQuery: object}}
  */
-const viewSelector = createDeepEqualSelector([viewGraphQuery], viewGraph => ({
+const selector = createDeepEqualSelector([statePropsFilter], viewGraph => ({
   graphQuery: { ...viewGraph.graphQuery }
 }));
 
@@ -41,13 +40,13 @@ const viewSelector = createDeepEqualSelector([viewGraphQuery], viewGraph => ({
  * @param {object} defaultProps
  * @returns {{graphQuery: object}}
  */
-const makeViewSelector = defaultProps => (state, props) => ({
-  ...viewSelector(state, props, defaultProps)
+const makeSelector = defaultProps => (state, props) => ({
+  ...selector(state, props, defaultProps)
 });
 
 const viewSelectors = {
-  view: viewSelector,
-  makeView: makeViewSelector
+  view: selector,
+  makeView: makeSelector
 };
 
-export { viewSelectors as default, viewSelectors, viewSelector, makeViewSelector };
+export { viewSelectors as default, viewSelectors, selector, makeSelector };

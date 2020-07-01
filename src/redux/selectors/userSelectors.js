@@ -10,7 +10,7 @@ import { helpers } from '../../common/helpers';
  * @param {object} state
  * @returns {object}
  */
-const userSession = state => ({
+const statePropsFilter = state => ({
   ...state.user?.session
 });
 
@@ -19,7 +19,7 @@ const userSession = state => ({
  *
  * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, admin: boolean, error: boolean}}}
  */
-const userSessionSelector = createSelector([userSession], response => {
+const selector = createSelector([statePropsFilter], response => {
   const { error = false, fulfilled = false, data = {}, ...rest } = response || {};
   const updatedSession = {
     ...rest,
@@ -80,13 +80,13 @@ const userSessionSelector = createSelector([userSession], response => {
  * @param {object} defaultProps
  * @returns {{session: {entitled: boolean, permissions: Array, authorized: boolean, admin: boolean}}}
  */
-const makeUserSessionSelector = defaultProps => (state, props) => ({
-  ...userSessionSelector(state, props, defaultProps)
+const makeSelector = defaultProps => (state, props) => ({
+  ...selector(state, props, defaultProps)
 });
 
 const userSessionSelectors = {
-  userSession: userSessionSelector,
-  makeUserSession: makeUserSessionSelector
+  userSession: selector,
+  makeUserSession: makeSelector
 };
 
-export { userSessionSelectors as default, userSessionSelectors, userSessionSelector, makeUserSessionSelector };
+export { userSessionSelectors as default, userSessionSelectors, selector, makeSelector };
