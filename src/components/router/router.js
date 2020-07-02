@@ -4,6 +4,7 @@ import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-
 import Redirect from './redirect';
 import { routerHelpers } from './routerHelpers';
 import { routerTypes } from './routerTypes';
+import { Loader } from '../loader/loader';
 
 /**
  * Load routes.
@@ -99,10 +100,12 @@ class Router extends React.Component {
     const { renderRoutes, redirectRoot } = this.renderRoutes();
 
     return (
-      <Switch>
-        {renderRoutes}
-        {redirectRoot}
-      </Switch>
+      <React.Suspense fallback={<Loader variant="title" />}>
+        <Switch>
+          {renderRoutes}
+          {redirectRoot}
+        </Switch>
+      </React.Suspense>
     );
   }
 }

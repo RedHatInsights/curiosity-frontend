@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Route } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
 import { helpers } from '../../common';
+import { Loader } from '../loader/loader';
 
 /**
  * A routing redirect.
@@ -31,7 +32,12 @@ const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
   if (isRedirect === true) {
     if (route && history) {
       const routeDetail = routerHelpers.getRouteDetail({ pathname: route });
-      return <Route path="*">{routeDetail && <routeDetail.component />}</Route>;
+
+      return (
+        <React.Suspense fallback={<Loader variant="title" />}>
+          <Route path="*">{routeDetail && <routeDetail.component />}</Route>
+        </React.Suspense>
+      );
     }
 
     const forcePath = url || (route && path.join(baseName, route));
