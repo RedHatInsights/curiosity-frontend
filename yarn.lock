@@ -1556,10 +1556,10 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.2.tgz#7c6dc4ecef16149fd7a736710baa1b811017fdca"
   integrity sha512-JlGTGRYHC2QK+DDbePyXdBdooxFq2+noLfWpRqJtkxcb/oYWzOF0kcbfvvbWrwevCC1l6hLUg1wHYT+ona5BWQ==
 
-"@redhat-cloud-services/frontend-components-notifications@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components-notifications/-/frontend-components-notifications-2.1.0.tgz#440d6da5983f92306eb504bb559a8799211e3caa"
-  integrity sha512-MNZ8edZnRLb+0S8xBhk3DmAr3vdYRXY73QcuFrQdUojY6vGSN8Q6RqwMXlzYBn5AJVCSYeIuqsKxT36WTdFo+A==
+"@redhat-cloud-services/frontend-components-notifications@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components-notifications/-/frontend-components-notifications-2.1.1.tgz#24aa6bf64fae7546becc1eefb640cfd5cdf4391a"
+  integrity sha512-iufWE31xDdt3MpSQDSqdhVyTtZm7vxjwm9wJL7mWNf86anzGmt7qvGy7Gi7n3YHQZKhSlYqNaE7mReG7qps/cQ==
   dependencies:
     "@redhat-cloud-services/frontend-components-utilities" "2.1.0-beta"
 
@@ -1596,10 +1596,10 @@
     commander ">=2.20.0"
     react-content-loader ">=3.4.1"
 
-"@redhat-cloud-services/frontend-components@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components/-/frontend-components-2.1.1.tgz#9f066e2d5163b655129c79a1e5c8a730db822e09"
-  integrity sha512-e2MTCBcmGhmLthky28gkgspUQprluFn/XI5UNnFqqEbE0HaX9O4BLxRoiH5qV2fDsl3FnA9gmeUpJjwO/hbBaw==
+"@redhat-cloud-services/frontend-components@2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components/-/frontend-components-2.1.3.tgz#7c71c6f78945d734145fef2724e61a6ec8e4ce8f"
+  integrity sha512-c9IYvcLqpq+JUS1cT9tjCQ94inUmtLnN34PXWCcmPoBERYSvpNX0ebGERC8Mw09QqTeNHPM1cV5r6JATP5YMQQ==
   dependencies:
     "@redhat-cloud-services/frontend-components-utilities" "*"
     sanitize-html "^1.25.0"
