@@ -52,11 +52,10 @@ exports[`RouterTypes should return specific properties: routes 1`] = `
 Array [
   Object {
     "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "WrappedComponent": [Function],
-      "compare": null,
-      "displayName": "Connect(RhelView)",
-      "type": [Function],
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
     },
     "disabled": false,
     "exact": true,
@@ -66,11 +65,10 @@ Array [
   },
   Object {
     "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "WrappedComponent": [Function],
-      "compare": null,
-      "displayName": "Connect(RhelView)",
-      "type": [Function],
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
     },
     "disabled": false,
     "exact": true,
@@ -80,11 +78,10 @@ Array [
   },
   Object {
     "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "WrappedComponent": [Function],
-      "compare": null,
-      "displayName": "Connect(OpenshiftView)",
-      "type": [Function],
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
     },
     "disabled": false,
     "exact": true,
@@ -95,11 +92,10 @@ Array [
   Object {
     "activateOnError": true,
     "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "WrappedComponent": [Function],
-      "compare": null,
-      "displayName": "Connect(OptinView)",
-      "type": [Function],
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
     },
     "disabled": false,
     "exact": true,
