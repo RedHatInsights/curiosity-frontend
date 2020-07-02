@@ -1,20 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Router Component should handle unique route settings: settings 1`] = `
-<Switch>
-  <Route
-    component={[Function]}
-    exact={false}
-    key="/lorem"
-    path="/lorem"
-  />
-  <Route
-    component={[Function]}
-    exact={false}
-    key="/ipsum"
-    path="/ipsum"
-  />
-</Switch>
+<Suspense
+  fallback={
+    <Loader
+      variant="title"
+    />
+  }
+>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={false}
+      key="/lorem"
+      path="/lorem"
+    />
+    <Route
+      component={[Function]}
+      exact={false}
+      key="/ipsum"
+      path="/ipsum"
+    />
+  </Switch>
+</Suspense>
 `;
 
 exports[`Router Component should pass customized props to routed components: routeDetail and location parsedSearch props 1`] = `
@@ -51,33 +59,41 @@ Object {
 `;
 
 exports[`Router Component should render a basic component: basic 1`] = `
-<Switch>
-  <Route
-    exact={true}
-    key="/rhel-sw/all"
-    path="/rhel-sw/all"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    key="/rhel-sw/:variant"
-    path="/rhel-sw/:variant"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    key="/openshift-sw"
-    path="/openshift-sw"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    key="/optin"
-    path="/optin"
-    render={[Function]}
-  />
-  <Redirect
-    to="/rhel-sw/all"
-  />
-</Switch>
+<Suspense
+  fallback={
+    <Loader
+      variant="title"
+    />
+  }
+>
+  <Switch>
+    <Route
+      exact={true}
+      key="/rhel-sw/all"
+      path="/rhel-sw/all"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/rhel-sw/:variant"
+      path="/rhel-sw/:variant"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/openshift-sw"
+      path="/openshift-sw"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/optin"
+      path="/optin"
+      render={[Function]}
+    />
+    <Redirect
+      to="/rhel-sw/all"
+    />
+  </Switch>
+</Suspense>
 `;
