@@ -42,7 +42,11 @@ gitRepo()
       rm -rf $DIR/temp
       rm -rf $DIR_REPO/.git
 
-      echo $(date -v +10d "+%s") > $DIR/expire.txt
+      if [ "$(uname)" = "Darwin" ]; then
+        echo $(date -v +10d "+%s") > $DIR/expire.txt
+      else
+        echo $(date -d "+10 days" "+%s" ) > $DIR/expire.txt
+      fi
 
       printf "${GREEN}SUCCESS${NOCOLOR}\n"
 
@@ -74,13 +78,16 @@ updateHosts()
 
   printf "${YELLOW}Confirm hosts updated ...${NOCOLOR}"
 
-  if [ $(cat /private/etc/hosts | grep -c "redhat.com") -eq 4 ]; then
+  if [ $(cat /etc/hosts | grep -c "redhat.com") -ge 4 ]; then
     printf "${GREEN}SUCCESS${NOCOLOR}\n\n"
   else
     printf "${RED}ERROR${NOCOLOR}\n"
     printf "${RED}Updating hosts... you may need to \"allow write access\"...${NOCOLOR}\n"
     sh $PROXYDIR_REPO/scripts/patch-etc-hosts.sh || sudo sh $PROXYDIR_REPO/scripts/patch-etc-hosts.sh
+
+    mkdir -p $PROXYDIR
     echo "Hosts file updated $(date)" >> $PROXYDIR/hosts.txt
+
     printf "${GREEN}Hosts file updated${NOCOLOR}\n\n"
   fi
 }
@@ -120,43 +127,83 @@ checkContainerRunning()
 #
 runProxy()
 {
-  local RUN_CONTAINER=$1
-  local RUN_NAME=$2
-  local RUN_DOMAIN=$3
-  local RUN_PORT=$4
-  local RUN_CONFIG=$5
-  local DIR=$6
+  local DIR=$1
+  local RUN_CONTAINER=$2
+  local RUN_NAME=$3
+  local RUN_DOMAIN=$4
+  local RUN_PORT=$5
+  local RUN_CONFIG=$6
+  local PROXYDIR_REPO=$7
   local CURRENT_DATE=$(date "+%s")
-  local EXPIRE=$(head -n 1 $DIR/expire-docker.txt)
+  local EXPIRE=$(head -n 1 $DIR/expireDocker.txt)
 
   docker stop -t 0 $RUN_NAME >/dev/null
 
   if [ -z "$(docker images -q $RUN_CONTAINER)" ] || [ "${EXPIRE:-0}" -lt "${CURRENT_DATE}" ]; then
     printf "${YELLOW}Setting up development Docker proxy container...${NOCOLOR}\n"
     docker pull $RUN_CONTAINER
-    echo $(date -v +10d "+%s") > $DIR/expire-docker.txt
+
+    mkdir -p $DIR
+
+    if [ "$(uname)" = "Darwin" ]; then
+      echo $(date -v +10d "+%s") > $DIR/expireDocker.txt
+    else
+      echo $(date -d "+10 days" "+%s" ) > $DIR/expireDocker.txt
+    fi
   fi
 
   if [ -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
     echo "Starting development proxy..."
 
-    if [ ! -z "$RUN_CONFIG" ]; then
-      RUN_CONFIG="-e CUSTOM_CONF=true -v ${RUN_CONFIG}:/config/spandx.config.js"
+    if [ "$(uname)" = "Darwin" ]; then
+      if [ ! -z "$RUN_CONFIG" ]; then
+        RUN_CONFIG="-e CUSTOM_CONF=true -v ${RUN_CONFIG}:/config/spandx.config.js"
+      fi
+
+      docker run -d --rm -p $RUN_PORT:$RUN_PORT $RUN_CONFIG -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT=$RUN_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
+
+      checkContainerRunning $RUN_NAME
+
+      if [ ! -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
+        printf "  ${YELLOW}Container: $(docker ps | grep $RUN_CONTAINER | cut -c 1-50)${NOCOLOR}\n"
+        echo "  Development proxy running on ${RUN_PORT}: ${RUN_DOMAIN}"
+        printf "  To stop: $ ${YELLOW}docker stop ${RUN_NAME}${NOCOLOR}\n"
+
+        open "${RUN_DOMAIN}"
+      fi
+
+      exit 0
+    else
+      printf "  ${YELLOW}This requires Python 2 to work correctly.${NOCOLOR}\n"
+      if [ "$(uname)" = "Linux" ]; then
+        xdg-open "${RUN_DOMAIN}"
+      fi
+
+      export SPANDX_PORT=$RUN_PORT
+      export SPANDX_CONFIG=$RUN_CONFIG
+      sh $PROXYDIR_REPO/scripts/run.sh
     fi
-
-    docker run -d --rm -p $RUN_PORT:$RUN_PORT $RUN_CONFIG -e PLATFORM -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT=$RUN_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
   fi
+}
+#
+#
+# Check docker permissions
+#
+sudoCheck()
+{
+  local RUN_CONTAINER=$1
+  local RUN_NAME=$2
+  local RUN_DOMAIN=$3
+  local RUN_PORT=$4
+  local RUN_CONFIG=$5
 
-  checkContainerRunning $RUN_NAME
+  CHECK=$(docker ps || 'SUDO REQUIRED::')
 
-  if [ ! -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
-    printf "  ${YELLOW}Container: $(docker ps | grep $RUN_CONTAINER | cut -c 1-50)${NOCOLOR}\n"
-    echo "  Development proxy running on ${RUN_PORT}: ${RUN_DOMAIN}"
-    printf "  To stop: $ ${YELLOW}docker stop ${RUN_NAME}${NOCOLOR}\n"
-    open "${RUN_DOMAIN}"
+  if [ ! -z "$($CHECK | grep "SUDO REQUIRED:::")" ]; then
+    printf "\n${YELLOW}Container failed to setup, sudo required.${NOCOLOR}\n"
+    printf "  ${YELLOW}Run the platform proxy script.${NOCOLOR}\n\n"
+    exit 0
   fi
-
-  exit 0
 }
 #
 #
@@ -194,6 +241,13 @@ runProxy()
       esac
   done
 
+  if [ -z "$(docker -v)" ]; then
+    printf "\n${RED}Docker missing, confirm installation and running.${NOCOLOR}\n"
+    exit 1
+  fi
+
+  sudoCheck
+
   if [ -z "$DOMAIN" ]; then
     if (( $PORT % 2 )); then
       DOMAIN="https://localhost:$PORT"
@@ -219,5 +273,5 @@ runProxy()
   printf "${YELLOW}The proxy environment requires being able to access secure resources at runtime.${NOCOLOR}\n"
 
   cleanLocalDotEnv
-  runProxy $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG $DATADIR
+  runProxy $DATADIR $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG $DATADIR_REPO
 }
