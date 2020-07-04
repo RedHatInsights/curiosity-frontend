@@ -6,6 +6,14 @@ Before developing you'll need to install:
  * [NodeJS and NPM](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
  * And [Yarn](https://yarnpkg.com)
+ 
+### OS Support
+A large percentage of front-end tooling is `Mac OSX` centered. The tooling for Curiosity is no exception, and is also `Mac OSX` focused.
+
+While some aspects of the tooling have been expanded for Linux there may still be issues. It is encouraged that OS tooling
+changes are contributed back while maintaining existing `Mac OSX` functionality.
+
+If you are unable to test additional OS support it is imperative that code reviews take place before integrating/merging build changes.
 
 ### Docker & Mac
 Setting Docker up on a Mac? Install the appropriate package and you should be good to go. To check if everything installed correctly you can try these steps.
@@ -263,7 +271,12 @@ If you're having trouble getting an accurate code coverage report, or it's faili
   ```
 
 ## Typical Development Workflow
-After setting up the repository...
+1. Confirm you've installed all recommended tooling
+1. Confirm you've installed resources through yarn
+1. Create a local dotenv file called `.env.local` and add the following contents
+    ```
+    REACT_APP_DEBUG_MIDDLEWARE=true
+    ```
 1. Confirm you have access to the network
 1. Make sure Docker is running
 1. Open a couple of instances of Terminal and run...
@@ -275,4 +288,25 @@ After setting up the repository...
     $ yarn test:dev
     ```
 1. Make sure your browser opened around the domain `https://*.foo.redhat.com/`
+1. Start developing...
+
+### Local Run Development Workflow
+1. Confirm you've installed all recommended tooling
+1. Confirm you've installed resources through yarn
+1. Create a local dotenv file called `.env.local` and add the following contents
+    ```
+    REACT_APP_DEBUG_MIDDLEWARE=true
+    REACT_APP_DEBUG_ORG_ADMIN=true
+    REACT_APP_DEBUG_PERMISSION_RESOURCE=*
+    REACT_APP_DEBUG_PERMISSION_OPERATION=*
+    ```
+1. Open a couple of instances of Terminal and run...
+   ```
+   $ yarn start
+   ```
+   and, optionally,
+   ```
+   $ yarn test:dev
+   ```
+1. Make sure your browser opened around the domain `https://localhost:3000/`
 1. Start developing...
