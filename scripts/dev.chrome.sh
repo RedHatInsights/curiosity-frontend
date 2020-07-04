@@ -42,7 +42,11 @@ gitRepo()
       rm -rf $DIR/temp
       rm -rf $DIR_REPO/.git
 
-      echo $(date -v +10d "+%s") > $DIR/expire.txt
+      if [ "$(uname)" = "Darwin" ]; then
+        echo $(date -v +10d "+%s") > $DIR/expire.txt
+      else
+        echo $(date -d "+10 days" "+%s" ) > $DIR/expire.txt
+      fi
 
       printf "${GREEN}SUCCESS${NOCOLOR}\n"
 
@@ -90,21 +94,22 @@ buildChrome()
   printf "\n${YELLOW}Setting up local chrome ...${NOCOLOR}"
 
   mkdir -p $DIR_PUBLIC
-  cp -R $DIR_REPO/build/ $DIR_PUBLIC
+  cp -R $DIR_REPO/build/* $DIR_PUBLIC
 
   printf "${YELLOW}dotenv includes ...${NOCOLOR}"
 
   HEADER_CONTENT_STR="require('fs').readFileSync('${SNIPPET_HEAD}').toString().replace(/\n/g, '').concat('<style>"
-  HEADER_CONTENT_STR+=".pf-c-page__sidebar * {display:none !important;}"
-  HEADER_CONTENT_STR+=".pf-m-user.pf-m-user-skeleton * {display:none;}"
-  HEADER_CONTENT_STR+=".pf-m-user.pf-m-user-skeleton:before {content:\"Development\";}"
-  HEADER_CONTENT_STR+="</style>')"
+  HEADER_CONTENT_STR="${HEADER_CONTENT_STR}.pf-c-page__sidebar * {display:none !important;}"
+  HEADER_CONTENT_STR="${HEADER_CONTENT_STR}.pf-m-user.pf-m-user-skeleton * {display:none;}"
+  HEADER_CONTENT_STR="${HEADER_CONTENT_STR}.pf-m-user.pf-m-user-skeleton:before {content:\"Development\";}"
+  HEADER_CONTENT_STR="${HEADER_CONTENT_STR}</style>')"
 
   HEADER_CONTENT=$(node -pe "${HEADER_CONTENT_STR}")
   BODY_CONTENT=$(node -pe "require('fs').readFileSync('${SNIPPET_BODY}').toString().replace(/\n/g,'')")
 
   if [[ ! -z "$HEADER_CONTENT" ]] && [[ ! -z "$BODY_CONTENT" ]]; then
-    echo "\nREACT_APP_INCLUDE_CONTENT_HEADER=${HEADER_CONTENT}\nREACT_APP_INCLUDE_CONTENT_BODY=${BODY_CONTENT}\n" > ./.env.development.local
+    echo "REACT_APP_INCLUDE_CONTENT_HEADER=${HEADER_CONTENT}" > ./.env.development.local
+    echo "REACT_APP_INCLUDE_CONTENT_BODY=${BODY_CONTENT}" >> ./.env.development.local
     printf "${GREEN}SUCCESS${NOCOLOR}\n\n"
   else
     printf "\n${RED}ERROR, include content doesn't exist${NOCOLOR}\n"
