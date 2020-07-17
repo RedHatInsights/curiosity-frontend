@@ -63,7 +63,7 @@ describe('RhsmActions', () => {
 
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().inventory;
-      expect(response.hostsInventoryGuests.fulfilled).toBe(true);
+      expect(response.hostsGuests.fulfilled).toBe(true);
       done();
     });
   });

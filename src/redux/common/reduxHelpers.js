@@ -274,6 +274,7 @@ const generatedPromiseActionReducer = (types = [], state = {}, action = {}) => {
     ...expandMetaTypes(action.meta)
   };
 
+  // Automatically apply data and state to a contextual ID if meta.id exists.
   const setId = data =>
     (action.meta && action.meta.id && { [action.meta.id]: { ...baseState, ...data } }) || { ...baseState, ...data };
 
