@@ -3,8 +3,7 @@
 exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
 Object {
   "result": Object {
-    "hostsInventory": Object {},
-    "hostsInventoryGuests": Object {
+    "hostsGuests": Object {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
@@ -15,6 +14,7 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "hostsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_REJECTED",
 }
@@ -23,6 +23,7 @@ Object {
 exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_RHSM 1`] = `
 Object {
   "result": Object {
+    "hostsGuests": Object {},
     "hostsInventory": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -34,7 +35,6 @@ Object {
       "pending": false,
       "status": 0,
     },
-    "hostsInventoryGuests": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_REJECTED",
 }
@@ -43,8 +43,7 @@ Object {
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
 Object {
   "result": Object {
-    "hostsInventory": Object {},
-    "hostsInventoryGuests": Object {
+    "hostsGuests": Object {
       "data": Object {
         "test": "success",
       },
@@ -59,6 +58,7 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "hostsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_FULFILLED",
 }
@@ -67,6 +67,7 @@ Object {
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_RHSM 1`] = `
 Object {
   "result": Object {
+    "hostsGuests": Object {},
     "hostsInventory": Object {
       "data": Object {
         "test": "success",
@@ -82,7 +83,6 @@ Object {
       "pending": false,
       "status": 0,
     },
-    "hostsInventoryGuests": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_FULFILLED",
 }
@@ -91,8 +91,7 @@ Object {
 exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
 Object {
   "result": Object {
-    "hostsInventory": Object {},
-    "hostsInventoryGuests": Object {
+    "hostsGuests": Object {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -102,6 +101,7 @@ Object {
       "metaQuery": undefined,
       "pending": true,
     },
+    "hostsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_PENDING",
 }
@@ -110,6 +110,7 @@ Object {
 exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_RHSM 1`] = `
 Object {
   "result": Object {
+    "hostsGuests": Object {},
     "hostsInventory": Object {
       "error": false,
       "errorMessage": "",
@@ -120,7 +121,6 @@ Object {
       "metaQuery": undefined,
       "pending": true,
     },
-    "hostsInventoryGuests": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_PENDING",
 }

@@ -9,7 +9,7 @@ import { reduxHelpers } from '../common/reduxHelpers';
  */
 const initialState = {
   hostsInventory: {},
-  hostsInventoryGuests: {}
+  hostsGuests: {}
 };
 
 /**
@@ -23,7 +23,7 @@ const inventoryReducer = (state = initialState, action) =>
   reduxHelpers.generatedPromiseActionReducer(
     [
       { ref: 'hostsInventory', type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM },
-      { ref: 'hostsInventoryGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM }
+      { ref: 'hostsGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM }
     ],
     state,
     action
