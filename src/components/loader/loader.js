@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Skeleton } from '@redhat-cloud-services/frontend-components/components/Skeleton';
+import { Skeleton } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
 import { Spinner } from '@redhat-cloud-services/frontend-components/components/cjs/Spinner';
 import { PageHeader, PageLayout } from '../pageLayout/pageLayout';
 
