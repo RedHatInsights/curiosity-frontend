@@ -8,7 +8,7 @@ Before developing you'll need to install:
  * And [Yarn](https://yarnpkg.com)
  
 ### OS Support
-A large percentage of front-end tooling is `Mac OSX` centered. The tooling for Curiosity is no exception, and is also `Mac OSX` focused.
+A large percentage of front-end tooling is `Mac OSX` centered, the tooling for Curiosity falls into this category.
 
 While some aspects of the tooling have been expanded for Linux there may still be issues. It is encouraged that OS tooling
 changes are contributed back while maintaining existing `Mac OSX` functionality.
