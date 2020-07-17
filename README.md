@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/RedHatInsights/curiosity-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/curiosity-frontend)
 [![License](https://img.shields.io/github/license/RedHatInsights/curiosity-frontend.svg)](https://github.com/RedHatInsights/curiosity-frontend/blob/master/LICENSE)
 
-A web user interface for subscription reporting, based on [Patternfly <img src="https://www.patternfly.org/assets/img/logo.svg" height="30" />](https://www.patternfly.org/)
+A web user interface for subscription reporting, based on [Patternfly](https://www.patternfly.org/)
 
 ## Requirements
 Before developing for Curiosity Frontend, the basic requirements:
