@@ -105,13 +105,13 @@ const yAxisTickFormat = ({ tick, locale }) =>
  * @param {string} options.granularity
  * @param {string} options.productShortLabel
  * @returns {{configuration: {padding: {top: number, left: number, bottom: number, right: number},
- *     data: {types: {}, names: {}, columns: [], x: string, groups: [[]], colors: {}},
- *     legend: {show: boolean}, grid: {y: {show: boolean}}, tooltip: {format: {title: (function(*): string),
- *     value: (function(*, *, *=, *): *)}, order: (function(*, *): number)}, unloadBeforeLoad: boolean,
- *     spline: {interpolation: {type: string}}, axis: {x: {padding: number,
- *     tick: {format: (function(*=): string)}, type: string}, y: {padding: {bottom: number},
- *     default: number[], min: number, tick: {show: boolean, outer: boolean,
- *     format: (function(*): string)}}}, point: {show: boolean}}, hiddenDataFacets: []}}
+ *     data: {types: {}, names: {}, columns: Array, x: string, groups: Array, colors: {}},
+ *     legend: {show: boolean}, grid: {y: {show: boolean}}, tooltip: {format: {title: Function,
+ *     value: Function}, order: Function}, unloadBeforeLoad: boolean,
+ *     spline: {interpolation: {type: string}}, axis: {x: {padding: number, tick: {format: Function},
+ *     type: string}, y: {padding: {bottom: number}, default: number, min: number,
+ *     tick: {show: boolean, outer: boolean, format: Function}}}, point: {show: boolean}},
+ *     hiddenDataFacets: Array}}
  */
 const c3Config = ({ data = [], granularity, productShortLabel }) => {
   const hiddenDataFacets = [];
