@@ -95,40 +95,17 @@ exports[`C3GraphCardLegendItem Component should render a non-connected component
 
 exports[`C3GraphCardLegendItem Component should render a tooltip with button: tooltip 1`] = `
 <Tooltip
-  appendTo={[Function]}
-  aria="describedby"
-  boundary="window"
-  className=""
   content={
     <div>
       lorem ipsum
     </div>
   }
-  distance={0}
-  enableFlip={true}
+  distance={5}
+  enableFlip={false}
   entryDelay={100}
   exitDelay={0}
-  flipBehavior={
-    Array [
-      "top",
-      "right",
-      "bottom",
-      "left",
-      "top",
-      "right",
-      "bottom",
-    ]
-  }
-  id=""
-  isAppLauncher={false}
-  isContentLeftAligned={false}
-  isVisible={false}
   key="curiosity-tooltip-lorem"
-  maxWidth="18.75rem"
   position="top"
-  tippyProps={Object {}}
-  trigger="mouseenter focus"
-  zIndex={9999}
 >
   <Button
     component="a"
