@@ -104,39 +104,16 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, WITH tooltip content 1`] = `
 <Tooltip
-  appendTo={[Function]}
-  aria="describedby"
-  boundary="window"
-  className=""
   content={
     <p>
       dolor sit
     </p>
   }
-  distance={0}
-  enableFlip={true}
+  distance={5}
+  enableFlip={false}
   entryDelay={100}
   exitDelay={0}
-  flipBehavior={
-    Array [
-      "top",
-      "right",
-      "bottom",
-      "left",
-      "top",
-      "right",
-      "bottom",
-    ]
-  }
-  id=""
-  isAppLauncher={false}
-  isContentLeftAligned={false}
-  isVisible={false}
-  maxWidth="18.75rem"
   position="top"
-  tippyProps={Object {}}
-  trigger="mouseenter focus"
-  zIndex={9999}
 >
   <Button
     className="victory-legend-item"
@@ -188,40 +165,17 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
 exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
 <Fragment>
   <Tooltip
-    appendTo={[Function]}
-    aria="describedby"
-    boundary="window"
-    className=""
     content={
       <p>
         t(curiosity-graph.loremIpsumLegendTooltip, [object Object])
       </p>
     }
-    distance={0}
-    enableFlip={true}
+    distance={5}
+    enableFlip={false}
     entryDelay={100}
     exitDelay={0}
-    flipBehavior={
-      Array [
-        "top",
-        "right",
-        "bottom",
-        "left",
-        "top",
-        "right",
-        "bottom",
-      ]
-    }
-    id=""
-    isAppLauncher={false}
-    isContentLeftAligned={false}
-    isVisible={false}
     key="curiosity-tooltip-loremIpsum"
-    maxWidth="18.75rem"
     position="top"
-    tippyProps={Object {}}
-    trigger="mouseenter focus"
-    zIndex={9999}
   >
     <Button
       className="victory-legend-item"
@@ -254,40 +208,17 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
 exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
 <Fragment>
   <Tooltip
-    appendTo={[Function]}
-    aria="describedby"
-    boundary="window"
-    className=""
     content={
       <p>
         t(curiosity-graph.loremIpsumLegendTooltip, [object Object])
       </p>
     }
-    distance={0}
-    enableFlip={true}
+    distance={5}
+    enableFlip={false}
     entryDelay={100}
     exitDelay={0}
-    flipBehavior={
-      Array [
-        "top",
-        "right",
-        "bottom",
-        "left",
-        "top",
-        "right",
-        "bottom",
-      ]
-    }
-    id=""
-    isAppLauncher={false}
-    isContentLeftAligned={false}
-    isVisible={false}
     key="curiosity-tooltip-loremIpsum"
-    maxWidth="18.75rem"
     position="top"
-    tippyProps={Object {}}
-    trigger="mouseenter focus"
-    zIndex={9999}
   >
     <Button
       className="victory-legend-item"
@@ -315,40 +246,17 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     </Button>
   </Tooltip>
   <Tooltip
-    appendTo={[Function]}
-    aria="describedby"
-    boundary="window"
-    className=""
     content={
       <p>
         t(curiosity-graph.ametConsecteturLegendTooltip, [object Object])
       </p>
     }
-    distance={0}
-    enableFlip={true}
+    distance={5}
+    enableFlip={false}
     entryDelay={100}
     exitDelay={0}
-    flipBehavior={
-      Array [
-        "top",
-        "right",
-        "bottom",
-        "left",
-        "top",
-        "right",
-        "bottom",
-      ]
-    }
-    id=""
-    isAppLauncher={false}
-    isContentLeftAligned={false}
-    isVisible={false}
     key="curiosity-tooltip-ametConsectetur"
-    maxWidth="18.75rem"
     position="top"
-    tippyProps={Object {}}
-    trigger="mouseenter focus"
-    zIndex={9999}
   >
     <Button
       className="victory-legend-item"
@@ -371,40 +279,17 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     </Button>
   </Tooltip>
   <Tooltip
-    appendTo={[Function]}
-    aria="describedby"
-    boundary="window"
-    className=""
     content={
       <p>
         t(curiosity-graph.dolorSitLegendTooltip,curiosity-graph.thresholdLegendTooltip, [object Object])
       </p>
     }
-    distance={0}
-    enableFlip={true}
+    distance={5}
+    enableFlip={false}
     entryDelay={100}
     exitDelay={0}
-    flipBehavior={
-      Array [
-        "top",
-        "right",
-        "bottom",
-        "left",
-        "top",
-        "right",
-        "bottom",
-      ]
-    }
-    id=""
-    isAppLauncher={false}
-    isContentLeftAligned={false}
-    isVisible={false}
     key="curiosity-tooltip-dolorSit"
-    maxWidth="18.75rem"
     position="top"
-    tippyProps={Object {}}
-    trigger="mouseenter focus"
-    zIndex={9999}
   >
     <Button
       className="victory-legend-item"
@@ -432,40 +317,17 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     </Button>
   </Tooltip>
   <Tooltip
-    appendTo={[Function]}
-    aria="describedby"
-    boundary="window"
-    className=""
     content={
       <p>
         t(curiosity-graph.nonCursusLegendTooltip,curiosity-graph.thresholdLegendTooltip, [object Object])
       </p>
     }
-    distance={0}
-    enableFlip={true}
+    distance={5}
+    enableFlip={false}
     entryDelay={100}
     exitDelay={0}
-    flipBehavior={
-      Array [
-        "top",
-        "right",
-        "bottom",
-        "left",
-        "top",
-        "right",
-        "bottom",
-      ]
-    }
-    id=""
-    isAppLauncher={false}
-    isContentLeftAligned={false}
-    isVisible={false}
     key="curiosity-tooltip-nonCursus"
-    maxWidth="18.75rem"
     position="top"
-    tippyProps={Object {}}
-    trigger="mouseenter focus"
-    zIndex={9999}
   >
     <Button
       className="victory-legend-item"
