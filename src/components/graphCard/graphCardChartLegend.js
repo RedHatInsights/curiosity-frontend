@@ -196,8 +196,8 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: { dataSets: [] }, product: string, t: Function, legend: {}, chart: {hide: Function,
- *     toggle: Function, isToggled: Function}}}
+ * @type {{datum: {dataSets: Array}, product: string, viewId: string, t: Function, legend: {},
+ *     chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
   chart: {
