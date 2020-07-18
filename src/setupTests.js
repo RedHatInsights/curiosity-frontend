@@ -7,10 +7,8 @@ configure({ adapter: new Adapter() });
 
 /**
  * FixMe: Use of arrow functions removes the usefulness of the "displayName" when shallow rendering
- * Adding a displayName after-the-fact gets around this issue, otherwise components would snapshot out as
- * "Component". This issue appears across the board, and includes internal and PF based components,
- * search "<Component" to find snapshot examples. This work-around potentially increases testing time
- * but provides a more useful result.
+ * PF appears to have updated components with a "displayName". Because we potentially have internal
+ * components, and other resources that are missing "displayName". We're leaving this test helper active.
  */
 /**
  * Add the displayName property to function based components. Makes sure that snapshot tests have named components
@@ -21,7 +19,7 @@ configure({ adapter: new Adapter() });
 const addDisplayName = components => {
   Object.keys(components).forEach(key => {
     const component = components[key];
-    if (typeof component === 'function') {
+    if (typeof component === 'function' && !component.displayName) {
       component.displayName = key;
     }
   });
