@@ -10,8 +10,16 @@ describe('Helpers', () => {
     expect(helpers.generateId('lorem')).toBe('lorem-');
   });
 
+  it('should determine a date', () => {
+    expect(helpers.isDate(new Date('broken'))).toBe(true);
+    expect(helpers.isDate(Date)).toBe(false);
+    expect(helpers.isDate(1)).toBe(false);
+    expect(helpers.isDate('lorem')).toBe(false);
+  });
+
   it('should determine a promise', () => {
     expect(helpers.isPromise(Promise.resolve())).toBe(true);
+    expect(helpers.isPromise(async () => {})).toBe(true);
     expect(helpers.isPromise(() => 'lorem')).toBe(false);
   });
 
