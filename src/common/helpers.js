@@ -7,14 +7,21 @@
 const generateId = prefix =>
   `${prefix || 'generatedid'}-${(process.env.REACT_APP_ENV !== 'test' && Math.ceil(1e5 * Math.random())) || ''}`;
 
-// ToDo: expand to include "async" check in scenarios where async/await are utilized.
 /**
- * Check if "is a Promise".
+ * Check if "is a Date"
+ *
+ * @param {Date|*} date
+ * @returns {boolean}
+ */
+const isDate = date => Object.prototype.toString.call(date) === '[object Date]';
+
+/**
+ * Check if "is a Promise", "Promise like".
  *
  * @param {Promise|*} obj
  * @returns {boolean}
  */
-const isPromise = obj => Object.prototype.toString.call(obj) === '[object Promise]';
+const isPromise = obj => /^\[object (Promise|Async|AsyncFunction)]/.test(Object.prototype.toString.call(obj));
 
 /**
  * An empty function.
@@ -210,6 +217,7 @@ const browserExpose = (obj = {}, options) => {
 const helpers = {
   browserExpose,
   generateId,
+  isDate,
   isPromise,
   noop,
   noopPromise,
