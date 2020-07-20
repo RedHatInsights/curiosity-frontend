@@ -1,12 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  EmptyState as PfEmptyState,
-  EmptyStateBody,
-  EmptyStateIcon,
-  EmptyStateVariant,
-  Title
-} from '@patternfly/react-core';
+import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 
@@ -26,7 +20,7 @@ import { helpers } from '../../common';
 const MessageView = ({ icon, message, pageTitle, title }) => (
   <PageLayout>
     <PageHeader>{pageTitle || helpers.UI_DISPLAY_NAME}</PageHeader>
-    <PfEmptyState variant={EmptyStateVariant.full} className="fadein">
+    <EmptyState variant={EmptyStateVariant.full} className="fadein">
       {icon && <EmptyStateIcon icon={icon} />}
       {title && (
         <Title headingLevel="h2" size="lg">
@@ -34,7 +28,7 @@ const MessageView = ({ icon, message, pageTitle, title }) => (
         </Title>
       )}
       {message && <EmptyStateBody>{message}</EmptyStateBody>}
-    </PfEmptyState>
+    </EmptyState>
   </PageLayout>
 );
 
