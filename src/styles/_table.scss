@@ -1,0 +1,29 @@
+.curiosity {
+  /**
+   * FixMe: PF CSS, appears updating resources causes an issue with an aggressive selector
+   * This is related to responsive table headers on browser widths below 800px. Remove this
+   * block once PF has a fix exposed via the platform.
+   */
+  tr.pf-c-table__expandable-row.pf-m-expanded > td:before {
+    content: '';
+  }
+
+  tr.pf-c-table__expandable-row.pf-m-expanded > td {
+    padding: 0;
+    padding-bottom: var(--pf-c-table--m-compact-th--PaddingBottom);
+  }
+
+  /**
+   * FixMe: PF CSS, appears nested tables within expandable tables can't have borders disabled?
+   * Also appears expandable tables can't have borders removed. If this is a set of bugs,
+   * remove this block once PF has a fix.
+   */
+  table.curiosity-table-no-border,
+  table.curiosity-table-no-border > thead > tr,
+  table.curiosity-table-no-border > tbody > tr,
+  table.pf-m-no-border-rows,
+  table.pf-m-no-border-rows > thead > tr,
+  table.pf-m-no-border-rows > tbody > tr {
+    border-width: 0
+  }
+}

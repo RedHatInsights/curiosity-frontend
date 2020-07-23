@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableEmpty Component should have fallback checks for certain props: fallback display 1`] = `
+<EmptyTable>
+  <EmptyState
+    variant="small"
+  >
+    <Title
+      headingLevel="h1"
+      size="lg"
+    >
+      Lorem ipsum title
+    </Title>
+    <EmptyStateBody>
+      Lorem ipsum message.
+    </EmptyStateBody>
+  </EmptyState>
+</EmptyTable>
+`;
+
+exports[`TableEmpty Component should render a non-connected component: non-connected 1`] = `
+<EmptyTable>
+  <EmptyState
+    variant="small"
+  >
+    <EmptyStateIcon
+      icon={[Function]}
+    />
+    <Title
+      headingLevel="h2"
+      size="lg"
+    >
+      Lorem ipsum title
+    </Title>
+    <EmptyStateBody>
+      Lorem ipsum message.
+    </EmptyStateBody>
+  </EmptyState>
+</EmptyTable>
+`;

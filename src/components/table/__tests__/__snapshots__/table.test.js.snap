@@ -1,0 +1,445 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component should allow expandable content: expandable content 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel)"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+            "isOpen": false,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "",
+              },
+            ],
+            "expandedContent": "dolor sit expandable content",
+            "fullWidth": true,
+            "parent": 0,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should allow expandable content: expanded row 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel)"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+            "isOpen": true,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor sit expandable content",
+              },
+            ],
+            "expandedContent": "dolor sit expandable content",
+            "fullWidth": false,
+            "parent": 0,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should allow variations in table layout: ariaLabel and summary 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="lorem ipsum aria-label"
+      borders={false}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table-no-border "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      summary="lorem ipsum summary"
+      variant={null}
+    >
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should allow variations in table layout: borders and table header removed 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel)"
+      borders={false}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table-no-border "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should allow variations in table layout: className and variant 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="lorem ipsum aria-label"
+      borders={false}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table-no-border lorem-ipsum-class"
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      summary="lorem ipsum summary"
+      variant="compact"
+    >
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should allow variations in table layout: generated rows 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel)"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should pass child components, nodes when there are no rows: children 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel)"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem ipsum",
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={Array []}
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+    Loading...
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should render a non-connected component: non-connected 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel)"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          "lorem",
+          "ipsum",
+          "dolor",
+          "sit",
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onCollapse={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={Array []}
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+    <TableEmpty
+      icon={[Function]}
+      message="t(curiosity-inventory.tableEmptyInventoryMessage)"
+      tableHeading="h2"
+      title="t(curiosity-inventory.tableEmptyInventoryTitle)"
+      variant="small"
+    />
+  </GridItem>
+</Grid>
+`;
