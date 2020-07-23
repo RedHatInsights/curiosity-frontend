@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardTitle, CardHeader, CardActions, CardBody } from '@patternfly/react-core';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
 import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
 import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
@@ -13,6 +12,7 @@ import { graphCardTypes } from './graphCardTypes';
 import GraphCardChartTooltip from './graphCardChartTooltip';
 import GraphCardChartLegend from './graphCardChartLegend';
 import { ChartArea } from '../chartArea/chartArea';
+import { Loader } from '../loader/loader';
 
 /**
  * A chart/graph card.
@@ -182,15 +182,8 @@ class GraphCard extends React.Component {
           </CardActions>
         </CardHeader>
         <CardBody>
-          <div className={`curiosity-skeleton-container ${(error && 'blur') || ''}`}>
-            {pending && (
-              <React.Fragment>
-                <Skeleton size={SkeletonSize.xs} />
-                <Skeleton size={SkeletonSize.sm} />
-                <Skeleton size={SkeletonSize.md} />
-                <Skeleton size={SkeletonSize.lg} />
-              </React.Fragment>
-            )}
+          <div className={(error && 'blur') || ''}>
+            {pending && <Loader variant="graph" />}
             {!pending && this.renderChart()}
           </div>
         </CardBody>
