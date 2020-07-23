@@ -41,6 +41,12 @@
     "thresholdSocketsLegendTooltip_OpenShift": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
     "tooltipSummary": "Your subscription data facets. With one level of column and row headers."
   },
+  "curiosity-inventory": {
+    "tableAriaLabel": "Subscription Watch systems inventory table.",
+    "tableSummary": "A generated table with one level of column headers.",
+    "tableEmptyInventoryTitle": "No results found",
+    "tableEmptyInventoryMessage": "No results match the filter criteria. Remove filters or clear all filters to show results."
+  },
   "curiosity-toolbar": {
     "slaCategory": "SLA",
     "slaNone": "No SLA",

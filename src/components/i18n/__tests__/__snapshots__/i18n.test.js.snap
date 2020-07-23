@@ -289,6 +289,27 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/table/table.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tableEmptyInventoryTitle",
+        "match": "t('curiosity-inventory.tableEmptyInventoryTitle')",
+      },
+      Object {
+        "key": "curiosity-inventory.tableEmptyInventoryMessage",
+        "match": "t('curiosity-inventory.tableEmptyInventoryMessage')",
+      },
+      Object {
+        "key": "curiosity-inventory.tableAriaLabel",
+        "match": "t('curiosity-inventory.tableAriaLabel')",
+      },
+      Object {
+        "key": "curiosity-inventory.tableSummary",
+        "match": "t('curiosity-inventory.tableSummary')",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/toolbar/toolbar.js",
     "keys": Array [
       Object {
