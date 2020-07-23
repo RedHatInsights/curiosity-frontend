@@ -4,6 +4,12 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
 <Suspense
   fallback={
     <Loader
+      skeletonProps={
+        Object {
+          "size": "sm",
+        }
+      }
+      tableProps={Object {}}
       variant="title"
     />
   }
@@ -62,6 +68,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
 <Suspense
   fallback={
     <Loader
+      skeletonProps={
+        Object {
+          "size": "sm",
+        }
+      }
+      tableProps={Object {}}
       variant="title"
     />
   }

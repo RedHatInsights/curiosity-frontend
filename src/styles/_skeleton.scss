@@ -10,4 +10,10 @@
       margin-bottom: 0;
     }
   }
+
+  .curiosity-skeleton-container-chart .ins-c-skeleton {
+    &:first-child {
+      height: 200px;
+    }
+  }
 }
