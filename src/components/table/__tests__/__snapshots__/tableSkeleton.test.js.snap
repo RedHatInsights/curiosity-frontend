@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableSkeleton Component should allow variations in table layout: borders and table header row removed 1`] = `
+<withI18nextTranslation(Table)
+  border={false}
+  className="curiosity-skeleton-table "
+  columnHeaders={
+    Array [
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+    ]
+  }
+  isHeader={false}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+    ]
+  }
+  variant={null}
+/>
+`;
+
+exports[`TableSkeleton Component should allow variations in table layout: className and variant 1`] = `
+<withI18nextTranslation(Table)
+  border={false}
+  className="curiosity-skeleton-table lorem-ipsum-class"
+  columnHeaders={
+    Array [
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+    ]
+  }
+  isHeader={false}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+    ]
+  }
+  variant="compact"
+/>
+`;
+
+exports[`TableSkeleton Component should allow variations in table layout: column and row count  1`] = `
+<withI18nextTranslation(Table)
+  border={true}
+  className="curiosity-skeleton-table "
+  columnHeaders={
+    Array [
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+    ]
+  }
+  isHeader={true}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+    ]
+  }
+  variant={null}
+/>
+`;
+
+exports[`TableSkeleton Component should render a non-connected component: non-connected 1`] = `
+<withI18nextTranslation(Table)
+  border={true}
+  className="curiosity-skeleton-table "
+  columnHeaders={
+    Array [
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+    ]
+  }
+  isHeader={true}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+      Object {
+        "cells": Array [
+          Object {
+            "cell": <Skeleton
+              isDark={false}
+              size="md"
+            />,
+          },
+        ],
+      },
+    ]
+  }
+  variant={null}
+/>
+`;
