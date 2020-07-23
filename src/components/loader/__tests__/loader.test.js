@@ -30,5 +30,25 @@ describe('Loader Component', () => {
       variant: 'title'
     });
     expect(component).toMatchSnapshot('variant: title');
+
+    component.setProps({
+      variant: 'paragraph'
+    });
+    expect(component).toMatchSnapshot('variant: paragraph');
+
+    component.setProps({
+      variant: 'chart'
+    });
+    expect(component).toMatchSnapshot('variant: chart');
+
+    component.setProps({
+      variant: 'graph'
+    });
+    expect(component).toMatchSnapshot('variant: graph');
+
+    component.setProps({
+      variant: 'table'
+    });
+    expect(component).toMatchSnapshot('variant: table');
   });
 });

@@ -108,7 +108,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container "
+      className=""
     >
       <ChartArea
         chartLegend={[Function]}
@@ -215,7 +215,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container blur"
+      className="blur"
     >
       <ChartArea
         chartLegend={[Function]}
@@ -318,7 +318,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container blur"
+      className="blur"
     >
       <ChartArea
         chartLegend={[Function]}
@@ -421,7 +421,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container "
+      className=""
     >
       <ChartArea
         chartLegend={[Function]}
@@ -524,23 +524,16 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container "
+      className=""
     >
-      <Skeleton
-        isDark={false}
-        size="xs"
-      />
-      <Skeleton
-        isDark={false}
-        size="sm"
-      />
-      <Skeleton
-        isDark={false}
-        size="md"
-      />
-      <Skeleton
-        isDark={false}
-        size="lg"
+      <Loader
+        skeletonProps={
+          Object {
+            "size": "sm",
+          }
+        }
+        tableProps={Object {}}
+        variant="graph"
       />
     </div>
   </CardBody>
