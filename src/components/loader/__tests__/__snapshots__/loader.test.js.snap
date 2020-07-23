@@ -1,35 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader Component should handle variant loader components: variant: default 1`] = `
-<Skeleton
-  isDark={false}
-  size="md"
-/>
+exports[`Loader Component should handle variant loader components: variant: chart 1`] = `
+<div
+  className="curiosity-skeleton-container curiosity-skeleton-container-chart"
+>
+  <Skeleton
+    isDark={false}
+    size="lg"
+  />
+  <Skeleton
+    isDark={false}
+    size="md"
+  />
+</div>
+`;
+
+exports[`Loader Component should handle variant loader components: variant: default 1`] = `<Spinner />`;
+
+exports[`Loader Component should handle variant loader components: variant: graph 1`] = `
+<div
+  className="curiosity-skeleton-container curiosity-skeleton-container-chart"
+>
+  <Skeleton
+    isDark={false}
+    size="lg"
+  />
+  <Skeleton
+    isDark={false}
+    size="md"
+  />
+</div>
+`;
+
+exports[`Loader Component should handle variant loader components: variant: paragraph 1`] = `
+<div
+  className="curiosity-skeleton-container"
+>
+  <Skeleton
+    isDark={false}
+    size="xs"
+  />
+  <Skeleton
+    isDark={false}
+    size="sm"
+  />
+  <Skeleton
+    isDark={false}
+    size="md"
+  />
+  <Skeleton
+    isDark={false}
+    size="lg"
+  />
+</div>
 `;
 
 exports[`Loader Component should handle variant loader components: variant: skeleton 1`] = `
 <Skeleton
   isDark={false}
-  size="md"
+  size="sm"
 />
 `;
 
 exports[`Loader Component should handle variant loader components: variant: spinner 1`] = `<Spinner />`;
+
+exports[`Loader Component should handle variant loader components: variant: table 1`] = `
+<TableSkeleton
+  borders={true}
+  className={null}
+  colCount={1}
+  isHeader={true}
+  rowCount={5}
+  variant={null}
+/>
+`;
 
 exports[`Loader Component should handle variant loader components: variant: title 1`] = `
 <PageLayout>
   <PageHeader>
     <Skeleton
       isDark={false}
-      size="md"
+      size="sm"
     />
   </PageHeader>
 </PageLayout>
 `;
 
-exports[`Loader Component should render a non-connected component: non-connected 1`] = `
-<Skeleton
-  isDark={false}
-  size="md"
-/>
-`;
+exports[`Loader Component should render a non-connected component: non-connected 1`] = `<Spinner />`;
