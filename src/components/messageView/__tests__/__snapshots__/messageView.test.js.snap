@@ -2,7 +2,9 @@
 
 exports[`MessageView Component should have fallback conditions for all props: fallback display 1`] = `
 <PageLayout>
-  <PageHeader>
+  <PageHeader
+    viewId={null}
+  >
     Subscription Watch
   </PageHeader>
   <EmptyState
@@ -14,7 +16,9 @@ exports[`MessageView Component should have fallback conditions for all props: fa
 
 exports[`MessageView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
-  <PageHeader>
+  <PageHeader
+    viewId={null}
+  >
     Subscription Watch
   </PageHeader>
   <EmptyState

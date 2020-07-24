@@ -2,8 +2,10 @@
 
 exports[`OpenshiftView Component should display an alternate graph on query-string update: alternate graph 1`] = `
 <PageLayout>
-  <PageHeader>
-    t(curiosity-view.openshift, Subscription Watch)
+  <PageHeader
+    viewId="OpenShift"
+  >
+    t(curiosity-view.OpenShiftTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
@@ -71,8 +73,10 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
 
 exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 <PageLayout>
-  <PageHeader>
-    t(curiosity-view.openshift, Subscription Watch)
+  <PageHeader
+    viewId="OpenShift"
+  >
+    t(curiosity-view.OpenShiftTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
@@ -140,8 +144,10 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 
 exports[`OpenshiftView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
-  <PageHeader>
-    t(curiosity-view.openshift, Subscription Watch)
+  <PageHeader
+    viewId="OpenShift"
+  >
+    t(curiosity-view.OpenShiftTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
     <withI18nextTranslation(Toolbar)
