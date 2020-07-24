@@ -185,8 +185,8 @@ Array [
     "file": "./src/components/openshiftView/openshiftView.js",
     "keys": Array [
       Object {
-        "key": "curiosity-view.openshift",
-        "match": "t('curiosity-view.openshift', helpers.UI_DISPLAY_CONFIG_NAME)",
+        "key": "",
+        "match": "t(\`curiosity-view.\${viewId}Title\`, helpers.UI_DISPLAY_CONFIG_NAME)",
       },
       Object {
         "key": "curiosity-graph.cardHeading",
@@ -272,11 +272,20 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/pageLayout/pageHeader.js",
+    "keys": Array [
+      Object {
+        "key": "",
+        "match": "translate(\`curiosity-view.\${viewId}Subtitle\`, {}, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkSquareAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/rhelView/rhelView.js",
     "keys": Array [
       Object {
-        "key": "curiosity-view.rhel",
-        "match": "t('curiosity-view.rhel', helpers.UI_DISPLAY_CONFIG_NAME)",
+        "key": "",
+        "match": "t(\`curiosity-view.\${viewId}Title\`, helpers.UI_DISPLAY_CONFIG_NAME)",
       },
       Object {
         "key": "curiosity-graph.socketsHeading",
