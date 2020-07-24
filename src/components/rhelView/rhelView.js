@@ -35,7 +35,7 @@ class RhelView extends React.Component {
 
     return (
       <PageLayout>
-        <PageHeader>{t('curiosity-view.rhel', helpers.UI_DISPLAY_CONFIG_NAME)}</PageHeader>
+        <PageHeader viewId={viewId}>{t(`curiosity-view.${viewId}Title`, helpers.UI_DISPLAY_CONFIG_NAME)}</PageHeader>
         <PageToolbar>
           <Toolbar graphQuery={graphQuery} viewId={viewId} />
         </PageToolbar>
