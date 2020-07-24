@@ -17,4 +17,9 @@ describe('PageHeader Component', () => {
     const component = mount(<PageHeader>dolor sit</PageHeader>);
     expect(component).toMatchSnapshot('string');
   });
+
+  it('should render the subtitle when viewId is provided', () => {
+    const component = mount(<PageHeader viewId="RHEL">lorem</PageHeader>);
+    expect(component).toMatchSnapshot('with subtitle');
+  });
 });
