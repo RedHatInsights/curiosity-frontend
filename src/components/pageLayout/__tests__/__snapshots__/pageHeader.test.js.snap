@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageHeader Component should render a basic component: basic 1`] = `
-<PageHeader>
+<PageHeader
+  viewId={null}
+>
   <PageHeader>
     <section
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
@@ -42,7 +44,9 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
 `;
 
 exports[`PageHeader Component should render string node types: string 1`] = `
-<PageHeader>
+<PageHeader
+  viewId={null}
+>
   <PageHeader>
     <section
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
@@ -67,6 +71,42 @@ exports[`PageHeader Component should render string node types: string 1`] = `
           </h1>
         </Title>
       </PageHeaderTitle>
+    </section>
+  </PageHeader>
+</PageHeader>
+`;
+
+exports[`PageHeader Component should render the subtitle when viewId is provided: with subtitle 1`] = `
+<PageHeader
+  viewId="RHEL"
+>
+  <PageHeader>
+    <section
+      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+      widget-type="InsightsPageHeader"
+    >
+      <PageHeaderTitle
+        title="lorem"
+      >
+        <Title
+          className=""
+          headingLevel="h1"
+          size="2xl"
+          widget-type="InsightsPageHeaderTitle"
+        >
+          <h1
+            className="pf-c-title pf-m-2xl"
+            widget-type="InsightsPageHeaderTitle"
+          >
+             
+            lorem
+             
+          </h1>
+        </Title>
+      </PageHeaderTitle>
+      <p>
+        t(curiosity-view.RHELSubtitle, [object Object], [object Object])
+      </p>
     </section>
   </PageHeader>
 </PageHeader>
