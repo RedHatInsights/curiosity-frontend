@@ -2,7 +2,8 @@
 
 exports[`TableSkeleton Component should allow variations in table layout: borders and table header row removed 1`] = `
 <withI18nextTranslation(Table)
-  border={false}
+  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  borders={false}
   className="curiosity-skeleton-table "
   columnHeaders={
     Array [
@@ -73,7 +74,8 @@ exports[`TableSkeleton Component should allow variations in table layout: border
 
 exports[`TableSkeleton Component should allow variations in table layout: className and variant 1`] = `
 <withI18nextTranslation(Table)
-  border={false}
+  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  borders={false}
   className="curiosity-skeleton-table lorem-ipsum-class"
   columnHeaders={
     Array [
@@ -144,7 +146,8 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
 
 exports[`TableSkeleton Component should allow variations in table layout: column and row count  1`] = `
 <withI18nextTranslation(Table)
-  border={true}
+  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
     Array [
@@ -215,7 +218,8 @@ exports[`TableSkeleton Component should allow variations in table layout: column
 
 exports[`TableSkeleton Component should render a non-connected component: non-connected 1`] = `
 <withI18nextTranslation(Table)
-  border={true}
+  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
     Array [
