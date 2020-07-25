@@ -45,7 +45,8 @@
     "tableAriaLabel": "Subscription Watch systems inventory table.",
     "tableSummary": "A generated table with one level of column headers.",
     "tableEmptyInventoryTitle": "No results found",
-    "tableEmptyInventoryMessage": "No results match the filter criteria. Remove filters or clear all filters to show results."
+    "tableEmptyInventoryMessage": "No results match the filter criteria. Remove filters or clear all filters to show results.",
+    "tableSkeletonAriaLabel": "Loading"
   },
   "curiosity-toolbar": {
     "slaCategory": "SLA",
