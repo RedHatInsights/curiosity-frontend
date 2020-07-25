@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import { TableVariant } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
+import { helpers } from '../../common/helpers';
 import Table from './table';
 
 /**
@@ -13,10 +15,11 @@ import Table from './table';
  * @param {number} props.colCount
  * @param {boolean} props.isHeader
  * @param {number} props.rowCount
+ * @param {Function} props.t
  * @param {string} props.variant
  * @returns {Node}
  */
-const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, variant }) => {
+const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, t, variant }) => {
   const updatedColumnHeaders = [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />);
 
   const updatedRows = [...new Array(rowCount)].map(() => ({
@@ -25,7 +28,8 @@ const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, varia
 
   return (
     <Table
-      border={borders}
+      ariaLabel={t('curiosity-inventory.tableSkeletonAriaLabel')}
+      borders={borders}
       className={`curiosity-skeleton-table ${className || ''}`}
       columnHeaders={updatedColumnHeaders}
       isHeader={isHeader}
@@ -46,6 +50,7 @@ TableSkeleton.propTypes = {
   colCount: PropTypes.number,
   isHeader: PropTypes.bool,
   rowCount: PropTypes.number,
+  t: PropTypes.func,
   variant: PropTypes.oneOf([...Object.values(TableVariant)])
 };
 
@@ -60,7 +65,10 @@ TableSkeleton.defaultProps = {
   colCount: 1,
   isHeader: true,
   rowCount: 5,
+  t: helpers.noopTranslate,
   variant: null
 };
 
-export { TableSkeleton as default, TableSkeleton };
+const TranslatedTableSkeleton = withTranslation()(TableSkeleton);
+
+export { TranslatedTableSkeleton as default, TranslatedTableSkeleton, TableSkeleton };

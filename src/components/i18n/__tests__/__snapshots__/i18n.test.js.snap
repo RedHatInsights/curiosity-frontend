@@ -310,6 +310,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/table/tableSkeleton.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tableSkeletonAriaLabel",
+        "match": "t('curiosity-inventory.tableSkeletonAriaLabel')",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/toolbar/toolbar.js",
     "keys": Array [
       Object {
