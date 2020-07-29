@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 import { Toolbar as PfToolbar, ToolbarContent, ToolbarFilter, ToolbarGroup } from '@patternfly/react-core';
 import { Select } from '../form/select';
 import { reduxTypes, store } from '../../redux';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { toolbarTypes } from './toolbarTypes';
 import { helpers } from '../../common';
+import { translate } from '../i18n/i18n';
 
 /**
  * Application filter toolbar.
@@ -135,15 +135,13 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: Function, isDisabled: boolean, graphQuery: {}}}
+ * @type {{viewId: string, t: translate, isDisabled: boolean, graphQuery: {}}}
  */
 Toolbar.defaultProps = {
   graphQuery: {},
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
-  t: helpers.noopTranslate,
+  t: translate,
   viewId: 'toolbar'
 };
 
-const TranslatedToolbar = withTranslation()(Toolbar);
-
-export { TranslatedToolbar as default, TranslatedToolbar, Toolbar };
+export { Toolbar as default, Toolbar };

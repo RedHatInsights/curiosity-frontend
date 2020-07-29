@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, GridItem } from '@patternfly/react-core';
-import { withTranslation } from 'react-i18next';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import { Table as PfTable, TableBody, TableHeader, TableVariant } from '@patternfly/react-table';
 import _isEqual from 'lodash/isEqual';
 import { TableEmpty } from './tableEmpty';
-import { helpers } from '../../common/helpers';
+import { translate } from '../i18n/i18n';
 
 /**
  * A table.
@@ -201,7 +200,7 @@ Table.propTypes = {
 /**
  * Default props.
  *
- * @type {{summary: null, t: Function, borders: boolean, children: null, isHeader: boolean,
+ * @type {{summary: null, t: translate, borders: boolean, children: null, isHeader: boolean,
  *     variant: null, className: null, rows: Array, ariaLabel: null}}
  */
 Table.defaultProps = {
@@ -212,10 +211,8 @@ Table.defaultProps = {
   isHeader: true,
   rows: [],
   summary: null,
-  t: helpers.noopTranslate,
+  t: translate,
   variant: null
 };
 
-const TranslatedTable = withTranslation()(Table);
-
-export { TranslatedTable as default, TranslatedTable, Table };
+export { Table as default, Table };

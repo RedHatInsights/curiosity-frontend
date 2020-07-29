@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { mount, shallow } from 'enzyme';
 import _get from 'lodash/get';
 import { I18n, translate, translateComponent } from '../i18n';
-import { helpers } from '../../../common';
 import enLocales from '../../../../public/locales/en-US';
 
 /**
@@ -101,7 +100,7 @@ describe('I18n Component', () => {
     };
 
     ExampleComponent.defaultProps = {
-      t: helpers.noopTranslate
+      t: translate
     };
 
     const TranslatedComponent = translateComponent(ExampleComponent);
