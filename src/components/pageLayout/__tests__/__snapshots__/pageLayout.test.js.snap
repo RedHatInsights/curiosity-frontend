@@ -23,6 +23,7 @@ exports[`PageLayout Component should render header and section children: multipl
 <PageLayout>
   <PageHeader
     key=".1"
+    t={[Function]}
     viewId={null}
   >
     <PageHeader>

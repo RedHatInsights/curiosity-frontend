@@ -6,12 +6,13 @@ import {
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
-import { connectTranslate, reduxSelectors } from '../../redux';
+import { connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
+import { translate } from '../i18n/i18n';
 
 /**
  * An OpenShift encompassing view.
@@ -143,7 +144,7 @@ OpenshiftView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, graphQuery: object}}
+ * @type {{initialFilters: Array, initialOption: string, viewId: string, t: translate, graphQuery: object}}
  */
 OpenshiftView.defaultProps = {
   graphQuery: {
@@ -161,7 +162,7 @@ OpenshiftView.defaultProps = {
     { id: 'thresholdSockets' },
     { id: 'thresholdCores' }
   ],
-  t: helpers.noopTranslate,
+  t: translate,
   viewId: 'OpenShift'
 };
 
@@ -172,6 +173,6 @@ OpenshiftView.defaultProps = {
  */
 const makeMapStateToProps = reduxSelectors.view.makeView(OpenshiftView.defaultProps);
 
-const ConnectedOpenshiftView = connectTranslate(makeMapStateToProps)(OpenshiftView);
+const ConnectedOpenshiftView = connect(makeMapStateToProps)(OpenshiftView);
 
 export { ConnectedOpenshiftView as default, ConnectedOpenshiftView, OpenshiftView };

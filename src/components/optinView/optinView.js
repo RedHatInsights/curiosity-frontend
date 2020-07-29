@@ -16,7 +16,7 @@ import {
   Spinner,
   Title
 } from '@patternfly/react-core';
-import { connectTranslate, reduxActions } from '../../redux';
+import { connect, reduxActions } from '../../redux';
 import { translate } from '../i18n/i18n';
 import { PageLayout } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
@@ -64,7 +64,7 @@ class OptinView extends React.Component {
     if (error) {
       return (
         <p>
-          {translate('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [
+          {t('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [
             <Button
               isInline
               component="a"
@@ -216,7 +216,7 @@ OptinView.propTypes = {
 /**
  * Default props.
  *
- * @type {{t: Function, session: {status: null}, updateAccountOptIn: Function, pending: boolean,
+ * @type {{t: translate, session: {status: null}, updateAccountOptIn: Function, pending: boolean,
  *     fulfilled: boolean, error: boolean}}
  */
 OptinView.defaultProps = {
@@ -226,7 +226,7 @@ OptinView.defaultProps = {
   session: {
     status: null
   },
-  t: helpers.noopTranslate,
+  t: translate,
   updateAccountOptIn: helpers.noop
 };
 
@@ -249,6 +249,6 @@ const mapDispatchToProps = dispatch => ({
  */
 const mapStateToProps = ({ user }) => ({ ...user.optin, session: user.session });
 
-const ConnectedOptinView = connectTranslate(mapStateToProps, mapDispatchToProps)(OptinView);
+const ConnectedOptinView = connect(mapStateToProps, mapDispatchToProps)(OptinView);
 
 export { ConnectedOptinView as default, ConnectedOptinView, OptinView };
