@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { EyeSlashIcon } from '@patternfly/react-icons';
-import { connectTranslate, store, reduxTypes } from '../../redux';
+import { connect, store, reduxTypes } from '../../redux';
 import { helpers } from '../../common';
+import { translate } from '../i18n/i18n';
 
 /**
  * A custom chart legend.
@@ -196,7 +197,7 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: Array}, product: string, viewId: string, t: Function, legend: {},
+ * @type {{datum: {dataSets: Array}, product: string, viewId: string, t: translate, legend: object,
  *     chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
@@ -210,12 +211,12 @@ GraphCardChartLegend.defaultProps = {
   },
   legend: {},
   product: '',
-  t: helpers.noopTranslate,
+  t: translate,
   viewId: 'graphCardLegend'
 };
 
 const mapStateToProps = ({ graph }) => ({ legend: graph.legend });
 
-const ConnectedGraphCardChartLegend = connectTranslate(mapStateToProps)(GraphCardChartLegend);
+const ConnectedGraphCardChartLegend = connect(mapStateToProps)(GraphCardChartLegend);
 
 export { ConnectedGraphCardChartLegend as default, ConnectedGraphCardChartLegend, GraphCardChartLegend };

@@ -14,14 +14,15 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {Node} props.children
  * @param {string} props.viewId
+ * @param {Function} props.t
  * @returns {Node}
  */
-const PageHeader = ({ children, viewId }) => (
+const PageHeader = ({ children, t, viewId }) => (
   <RcsPageHeader>
     <PageHeaderTitle title={children} className="pf-u-mb-sm" />
     {viewId && (
       <p>
-        {translate(`curiosity-view.${viewId}Subtitle`, {}, [
+        {t(`curiosity-view.${viewId}Subtitle`, {}, [
           <Button
             isInline
             component="a"
@@ -40,17 +41,21 @@ const PageHeader = ({ children, viewId }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node, viewId: string}}
+ * @type {{viewId: string, t: Function, children: Node}}
  */
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired,
+  t: PropTypes.func,
   viewId: PropTypes.string
 };
 
 /**
  * Default props.
+ *
+ * @type {{viewId: null, t: translate}}
  */
 PageHeader.defaultProps = {
+  t: translate,
   viewId: null
 };
 
