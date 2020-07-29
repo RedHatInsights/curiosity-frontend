@@ -18,7 +18,7 @@ import { translate } from '../i18n/i18n';
  */
 const PageHeader = ({ children, viewId }) => (
   <RcsPageHeader>
-    <PageHeaderTitle title={children} />
+    <PageHeaderTitle title={children} className="pf-u-mb-sm" />
     {viewId && (
       <p>
         {translate(`curiosity-view.${viewId}Subtitle`, {}, [
