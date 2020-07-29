@@ -79,6 +79,7 @@ exports[`Loader Component should handle variant loader components: variant: tabl
 exports[`Loader Component should handle variant loader components: variant: title 1`] = `
 <PageLayout>
   <PageHeader
+    t={[Function]}
     viewId={null}
   >
     <Skeleton

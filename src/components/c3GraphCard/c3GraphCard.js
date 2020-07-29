@@ -4,13 +4,14 @@ import { Card, CardTitle, CardHeader, CardActions, CardBody } from '@patternfly/
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
 import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
-import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
+import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
 import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { c3GraphCardHelpers } from './c3GraphCardHelpers';
 import { C3GraphCardLegendItem } from './c3GraphCardLegendItem';
 import { graphCardTypes } from '../graphCard/graphCardTypes';
 import { C3Chart } from '../c3Chart/c3Chart';
+import { translate } from '../i18n/i18n';
 
 /**
  * A chart/graph card.
@@ -247,7 +248,7 @@ C3GraphCard.propTypes = {
  * Default props.
  *
  * @type {{getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
- *     viewId: string, t: Function, children: null, pending: boolean, graphData: object,
+ *     viewId: string, t: translate, children: null, pending: boolean, graphData: object,
  *     isDisabled: boolean, error: boolean, cardTitle: null, filterGraphData: Array}}
  */
 C3GraphCard.defaultProps = {
@@ -260,7 +261,7 @@ C3GraphCard.defaultProps = {
   isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
   selectOptionsType: 'default',
-  t: helpers.noopTranslate,
+  t: translate,
   productShortLabel: '',
   viewId: 'graphCard'
 };
@@ -282,6 +283,6 @@ const mapDispatchToProps = dispatch => ({
   getGraphReportsCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphReportsCapacity(id, query))
 });
 
-const ConnectedGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(C3GraphCard);
+const ConnectedGraphCard = connect(makeMapStateToProps, mapDispatchToProps)(C3GraphCard);
 
 export { ConnectedGraphCard as default, ConnectedGraphCard, C3GraphCard };

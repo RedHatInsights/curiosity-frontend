@@ -67,6 +67,7 @@ exports[`Authentication Component should render a non-connected component error:
     <PageLayout>
       <PageHeader
         key=".0"
+        t={[Function]}
         viewId={null}
       >
         <PageHeader>

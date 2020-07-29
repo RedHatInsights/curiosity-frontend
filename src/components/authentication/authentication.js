@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
-import { connectRouterTranslate, reduxActions, reduxSelectors } from '../../redux';
+import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
 import { Redirect, routerHelpers, routerTypes } from '../router/router';
 import MessageView from '../messageView/messageView';
+import { translate } from '../i18n/i18n';
 
 /**
  * An authentication pass-through component.
@@ -82,9 +83,8 @@ class Authentication extends Component {
 /**
  * Prop types.
  *
- * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, navigation: Array,
- *     t: Function, children: Node, initializeChrome: Function, session: object, history: object,
- *     setNavigation: Function}}
+ * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: Function,
+ *     children: Node, initializeChrome: Function, session: object, history: object}}
  */
 Authentication.propTypes = {
   authorizeUser: PropTypes.func,
@@ -110,9 +110,9 @@ Authentication.propTypes = {
 /**
  * Default props.
  *
- * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, navigation: Array,
- *     t: Function, initializeChrome: Function, session: {authorized: boolean, pending: boolean,
- *     errorMessage: string, error: boolean, status: null}, setNavigation: Function}}
+ * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: translate,
+ *     initializeChrome: Function, session: {authorized: boolean, errorCodes: Array, pending: boolean,
+ *     errorMessage: string, error: boolean, status: null}}}
  */
 Authentication.defaultProps = {
   authorizeUser: helpers.noop,
@@ -127,7 +127,7 @@ Authentication.defaultProps = {
     pending: false,
     status: null
   },
-  t: helpers.noopTranslate
+  t: translate
 };
 
 /**
@@ -150,6 +150,6 @@ const mapDispatchToProps = dispatch => ({
  */
 const makeMapStateToProps = reduxSelectors.user.makeUserSession();
 
-const ConnectedAuthentication = connectRouterTranslate(makeMapStateToProps, mapDispatchToProps)(Authentication);
+const ConnectedAuthentication = connectRouter(makeMapStateToProps, mapDispatchToProps)(Authentication);
 
 export { ConnectedAuthentication as default, ConnectedAuthentication, Authentication };

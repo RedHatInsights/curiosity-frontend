@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
-import { initReactI18next, Trans, withTranslation } from 'react-i18next';
+import { initReactI18next, Trans } from 'react-i18next';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -27,12 +27,16 @@ const translate = (translateKey, values = null, components) => {
 };
 
 /**
- * Apply string replacements against a component.
+ * Apply string replacements against a component, HOC.
  *
- * @param {Node} component
+ * @param {Node} Component
  * @returns {Node}
  */
-const translateComponent = component => (!helpers.TEST_MODE && withTranslation()(component)) || component;
+const translateComponent = Component => {
+  const withTranslation = ({ ...props }) => <Component {...props} t={translate} i18n={i18next} />;
+  withTranslation.displayName = 'withTranslation';
+  return withTranslation;
+};
 
 /**
  * ToDo: reevaluate the "I18nextProvider" on package update.

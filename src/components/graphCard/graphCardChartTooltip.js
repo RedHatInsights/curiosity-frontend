@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 import { getTooltipDate } from './graphCardHelpers';
-import { helpers } from '../../common';
+import { translate } from '../i18n/i18n';
 
 /**
  * A custom chart tooltip.
@@ -113,14 +112,12 @@ GraphCardChartTooltip.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {}, product: string, t: Function}}
+ * @type {{datum: object, product: string, t: translate}}
  */
 GraphCardChartTooltip.defaultProps = {
   datum: {},
   product: '',
-  t: helpers.noopTranslate
+  t: translate
 };
 
-const TranslatedGraphCardChartTooltip = withTranslation()(GraphCardChartTooltip);
-
-export { TranslatedGraphCardChartTooltip as default, TranslatedGraphCardChartTooltip, GraphCardChartTooltip };
+export { GraphCardChartTooltip as default, GraphCardChartTooltip };

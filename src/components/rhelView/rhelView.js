@@ -10,11 +10,12 @@ import {
 } from '@patternfly/react-tokens';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
-import { connectTranslate, reduxSelectors } from '../../redux';
+import { connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import Toolbar from '../toolbar/toolbar';
 import { helpers } from '../../common';
+import { translate } from '../i18n/i18n';
 
 /**
  * A Red Hat Enterprise Linux encompassing view, and system architectures.
@@ -95,7 +96,7 @@ RhelView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, viewId: string, t: Function, graphQuery: object}}
+ * @type {{initialFilters: Array, viewId: string, t: translate, graphQuery: object}}
  */
 RhelView.defaultProps = {
   graphQuery: {
@@ -122,7 +123,7 @@ RhelView.defaultProps = {
     },
     { id: 'thresholdSockets' }
   ],
-  t: helpers.noopTranslate,
+  t: translate,
   viewId: 'RHEL'
 };
 
@@ -133,6 +134,6 @@ RhelView.defaultProps = {
  */
 const makeMapStateToProps = reduxSelectors.view.makeView(RhelView.defaultProps);
 
-const ConnectedRhelView = connectTranslate(makeMapStateToProps)(RhelView);
+const ConnectedRhelView = connect(makeMapStateToProps)(RhelView);
 
 export { ConnectedRhelView as default, ConnectedRhelView, RhelView };

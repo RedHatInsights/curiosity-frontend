@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 import { TableVariant } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
-import { helpers } from '../../common/helpers';
 import Table from './table';
+import { translate } from '../i18n/i18n';
 
 /**
  * Render a table with skeleton loaders.
@@ -57,7 +56,8 @@ TableSkeleton.propTypes = {
 /**
  * Default props.
  *
- * @type {{borders: boolean, isHeader: boolean, colCount: number, variant: null, className: null, rowCount: number}}
+ * @type {{t: translate, borders: boolean, isHeader: boolean, colCount: number, variant: null, className: null,
+ *     rowCount: number}}
  */
 TableSkeleton.defaultProps = {
   borders: true,
@@ -65,10 +65,8 @@ TableSkeleton.defaultProps = {
   colCount: 1,
   isHeader: true,
   rowCount: 5,
-  t: helpers.noopTranslate,
+  t: translate,
   variant: null
 };
 
-const TranslatedTableSkeleton = withTranslation()(TableSkeleton);
-
-export { TranslatedTableSkeleton as default, TranslatedTableSkeleton, TableSkeleton };
+export { TableSkeleton as default, TableSkeleton };
