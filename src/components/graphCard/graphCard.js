@@ -4,7 +4,7 @@ import { Card, CardTitle, CardHeader, CardActions, CardBody } from '@patternfly/
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
-import { connectTranslate, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
+import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
 import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { graphCardHelpers } from './graphCardHelpers';
@@ -13,6 +13,7 @@ import GraphCardChartTooltip from './graphCardChartTooltip';
 import GraphCardChartLegend from './graphCardChartLegend';
 import { ChartArea } from '../chartArea/chartArea';
 import { Loader } from '../loader/loader';
+import { translate } from '../i18n/i18n';
 
 /**
  * A chart/graph card.
@@ -228,7 +229,7 @@ GraphCard.propTypes = {
  * Default props.
  *
  * @type {{getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
- *     viewId: string, t: Function, children: null, pending: boolean, graphData: object,
+ *     viewId: string, t: translate, children: null, pending: boolean, graphData: object,
  *     isDisabled: boolean, error: boolean, cardTitle: null, filterGraphData: Array}}
  */
 GraphCard.defaultProps = {
@@ -241,7 +242,7 @@ GraphCard.defaultProps = {
   isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
   selectOptionsType: 'default',
-  t: helpers.noopTranslate,
+  t: translate,
   productShortLabel: '',
   viewId: 'graphCard'
 };
@@ -263,6 +264,6 @@ const mapDispatchToProps = dispatch => ({
  */
 const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 
-const ConnectedGraphCard = connectTranslate(makeMapStateToProps, mapDispatchToProps)(GraphCard);
+const ConnectedGraphCard = connect(makeMapStateToProps, mapDispatchToProps)(GraphCard);
 
 export { ConnectedGraphCard as default, ConnectedGraphCard, GraphCard };
