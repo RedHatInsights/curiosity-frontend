@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.17...v0.1.18) (2020-07-30)
+
+
+### Features
+
+* **loader:** issues/328 loading component ([#337](https://github.com/RedHatInsights/curiosity-frontend/issues/337)) ([40d9b87](https://github.com/RedHatInsights/curiosity-frontend/commit/40d9b8716c0af6f23380ede8c58b3649fb675654))
+* **rhsmServices,redux:** issues/10 inventory api, state ([#312](https://github.com/RedHatInsights/curiosity-frontend/issues/312)) ([da48f9b](https://github.com/RedHatInsights/curiosity-frontend/commit/da48f9b36c989292ce84065729cf04c06a59592f))
+* **table,empty,skeleton:** issues/10 add table component ([#346](https://github.com/RedHatInsights/curiosity-frontend/issues/346)) ([fc87bdf](https://github.com/RedHatInsights/curiosity-frontend/commit/fc87bdf24b1fb05593ba76d5225f4fffcda58934))
+
+
+### Bug Fixes
+
+* **build:** issues/296 npm updates for pf4 react core ([#326](https://github.com/RedHatInsights/curiosity-frontend/issues/326)) ([5d3f0ac](https://github.com/RedHatInsights/curiosity-frontend/commit/5d3f0ace2249e928c1f192f889fb65bb621d4b83))
+* **build:** issues/296 npm updates for pf4, platform ([#326](https://github.com/RedHatInsights/curiosity-frontend/issues/326)) ([5a780d0](https://github.com/RedHatInsights/curiosity-frontend/commit/5a780d0ffcfc8d7a4ec4480b6821a62c8352c979))
+* **build:** issues/296 npm updates for platform ([#326](https://github.com/RedHatInsights/curiosity-frontend/issues/326)) ([5b69c99](https://github.com/RedHatInsights/curiosity-frontend/commit/5b69c99408f45efd850b83c3a60530bd553bd043))
+* **build:** issues/321 commit lint, rebase ([#322](https://github.com/RedHatInsights/curiosity-frontend/issues/322)) ([73b57ef](https://github.com/RedHatInsights/curiosity-frontend/commit/73b57efdf3b4f918917ab48a9f557929252692ec))
+* **build:** npm lint updates ([#313](https://github.com/RedHatInsights/curiosity-frontend/issues/313)) ([7312cfd](https://github.com/RedHatInsights/curiosity-frontend/commit/7312cfd173974212c8da8a69ec27ae75d3df414e))
+* **build:** npm lint updates ([#345](https://github.com/RedHatInsights/curiosity-frontend/issues/345)) ([05d918a](https://github.com/RedHatInsights/curiosity-frontend/commit/05d918a286dd8365ed39fb715c1bb190dd9602ad))
+* **build:** npm updates for pf4 react core ([#345](https://github.com/RedHatInsights/curiosity-frontend/issues/345)) ([3632fbf](https://github.com/RedHatInsights/curiosity-frontend/commit/3632fbfc617d6f8355593a9ebf93a69b46905629))
+* **build:** npm victory updates ([#345](https://github.com/RedHatInsights/curiosity-frontend/issues/345)) ([803b12a](https://github.com/RedHatInsights/curiosity-frontend/commit/803b12a86444e092b86a93a2630dd5c65441adfd))
+* **build,chartArea:** npm update for victory charts ([#314](https://github.com/RedHatInsights/curiosity-frontend/issues/314)) ([2aea500](https://github.com/RedHatInsights/curiosity-frontend/commit/2aea5004180e2a8166cc4ba3012373bea27172b9))
+* **chartArea:** issues/318 inaccurate voronoi x coords ([#324](https://github.com/RedHatInsights/curiosity-frontend/issues/324)) ([91f30e5](https://github.com/RedHatInsights/curiosity-frontend/commit/91f30e5d4163c6ddd172d57d62cce6804a602199))
+* **graphCard,selectors:** issues/10 generic selectors ([#343](https://github.com/RedHatInsights/curiosity-frontend/issues/343)) ([c470827](https://github.com/RedHatInsights/curiosity-frontend/commit/c470827516b6f0add624bee2c64db2a10a4efc67))
+* **graphCardChartLegend:** issues/158 activate tooltips ([#325](https://github.com/RedHatInsights/curiosity-frontend/issues/325)) ([5ef4f27](https://github.com/RedHatInsights/curiosity-frontend/commit/5ef4f274eb63480efd41b1b1b4f1334940f44bb8))
+* **graphCardHelpers:** issues/317 yAxisTickFormat locale ([#319](https://github.com/RedHatInsights/curiosity-frontend/issues/319)) ([5cc5dbd](https://github.com/RedHatInsights/curiosity-frontend/commit/5cc5dbd8bb3c2c301ed753b8b1db79ddd15d1d0b))
+* **graphCardHelpers:** issues/317 yAxisTickFormatFallback ([#323](https://github.com/RedHatInsights/curiosity-frontend/issues/323)) ([5c9f805](https://github.com/RedHatInsights/curiosity-frontend/commit/5c9f8059c612a5b4912a5045d450270783178242))
+* **graphCardHelpers:** yAxisTickFormat, use NumberFormat ([#315](https://github.com/RedHatInsights/curiosity-frontend/issues/315)) ([fab0bb4](https://github.com/RedHatInsights/curiosity-frontend/commit/fab0bb43f6e7cd72c6a1939dfb7f406bf0c149fe))
+* **helpers:** add isDate check, enhance isPromise ([82d823b](https://github.com/RedHatInsights/curiosity-frontend/commit/82d823b4c5a51748d20a3dc85dbbceb496184915))
+* **inventoryListSelectors:** issues/10 selectors, state ([#343](https://github.com/RedHatInsights/curiosity-frontend/issues/343)) ([55db9a4](https://github.com/RedHatInsights/curiosity-frontend/commit/55db9a4d5fba96ea8c5f8547027ff3b299f5b1a2))
+* **loader,graphCard:** issues/10 extend loader types ([#346](https://github.com/RedHatInsights/curiosity-frontend/issues/346)) ([c2c8600](https://github.com/RedHatInsights/curiosity-frontend/commit/c2c86003faa8960ea7d96b8b6a5e604bed0d4730))
+* **messageView:** remove unnecessary emptyState alias ([2312c5d](https://github.com/RedHatInsights/curiosity-frontend/commit/2312c5d51277637fc367af5b9314d7a92b56a46a))
+* **messageView:** reposition empty state icon ([7c55554](https://github.com/RedHatInsights/curiosity-frontend/commit/7c5555456b7a034b73bfa7e313076b97939cde4a))
+* **rhsmServices,redux:** issues/10 inventory guests, state ([#330](https://github.com/RedHatInsights/curiosity-frontend/issues/330)) ([3b48997](https://github.com/RedHatInsights/curiosity-frontend/commit/3b48997c4924fa42068bed75b21d5ded2f62ebc2))
+* **routerTypes:** issues/328 lazy load routing ([#337](https://github.com/RedHatInsights/curiosity-frontend/issues/337)) ([8821359](https://github.com/RedHatInsights/curiosity-frontend/commit/8821359e0119e9c20574b13d10577bd8535b6335))
+* **tableSkeleton:** issues/10 locale, borders prop ([#350](https://github.com/RedHatInsights/curiosity-frontend/issues/350)) ([22f3821](https://github.com/RedHatInsights/curiosity-frontend/commit/22f38211cffbcdda4e79fcb4f50d38322f6c1cfd))
+* **testing:** add general code tests, lost console methods ([#351](https://github.com/RedHatInsights/curiosity-frontend/issues/351)) ([8d444ae](https://github.com/RedHatInsights/curiosity-frontend/commit/8d444aed766bbe98e870721216d70d0eeae85410))
+* **tourView:** issues/289 remove unused tourView ([#326](https://github.com/RedHatInsights/curiosity-frontend/issues/326)) ([f36c10a](https://github.com/RedHatInsights/curiosity-frontend/commit/f36c10a7526f6e6cfd825cf711fe913018afd723))
+
 ### [0.1.17](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.16...v0.1.17) (2020-06-16)
 
 
