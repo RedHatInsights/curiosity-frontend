@@ -75,16 +75,17 @@ exports[`Authentication Component should render a non-connected component error:
             widget-type="InsightsPageHeader"
           >
             <PageHeaderTitle
+              className="pf-u-mb-sm"
               title="Subscription Watch"
             >
               <Title
-                className=""
+                className="pf-u-mb-sm"
                 headingLevel="h1"
                 size="2xl"
                 widget-type="InsightsPageHeaderTitle"
               >
                 <h1
-                  className="pf-c-title pf-m-2xl"
+                  className="pf-c-title pf-m-2xl pf-u-mb-sm"
                   widget-type="InsightsPageHeaderTitle"
                 >
                    
