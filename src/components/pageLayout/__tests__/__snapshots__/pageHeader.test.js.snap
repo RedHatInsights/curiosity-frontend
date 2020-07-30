@@ -10,6 +10,7 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
       widget-type="InsightsPageHeader"
     >
       <PageHeaderTitle
+        className="pf-u-mb-sm"
         title={
           <span
             className="test"
@@ -19,13 +20,13 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
         }
       >
         <Title
-          className=""
+          className="pf-u-mb-sm"
           headingLevel="h1"
           size="2xl"
           widget-type="InsightsPageHeaderTitle"
         >
           <h1
-            className="pf-c-title pf-m-2xl"
+            className="pf-c-title pf-m-2xl pf-u-mb-sm"
             widget-type="InsightsPageHeaderTitle"
           >
              
@@ -53,16 +54,17 @@ exports[`PageHeader Component should render string node types: string 1`] = `
       widget-type="InsightsPageHeader"
     >
       <PageHeaderTitle
+        className="pf-u-mb-sm"
         title="dolor sit"
       >
         <Title
-          className=""
+          className="pf-u-mb-sm"
           headingLevel="h1"
           size="2xl"
           widget-type="InsightsPageHeaderTitle"
         >
           <h1
-            className="pf-c-title pf-m-2xl"
+            className="pf-c-title pf-m-2xl pf-u-mb-sm"
             widget-type="InsightsPageHeaderTitle"
           >
              
@@ -86,16 +88,17 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
       widget-type="InsightsPageHeader"
     >
       <PageHeaderTitle
+        className="pf-u-mb-sm"
         title="lorem"
       >
         <Title
-          className=""
+          className="pf-u-mb-sm"
           headingLevel="h1"
           size="2xl"
           widget-type="InsightsPageHeaderTitle"
         >
           <h1
-            className="pf-c-title pf-m-2xl"
+            className="pf-c-title pf-m-2xl pf-u-mb-sm"
             widget-type="InsightsPageHeaderTitle"
           >
              
