@@ -62,12 +62,12 @@ class Toolbar extends React.Component {
    * @returns {{slaOptionsSelected: Array, slaOptions: object}}
    */
   filterSla() {
-    const { graphQuery } = this.props;
+    const { query } = this.props;
 
     const slaOptions = toolbarTypes.getOptions();
     const filterSla =
-      typeof graphQuery[rhsmApiTypes.RHSM_API_QUERY_SLA] === 'string' &&
-      slaOptions.options.find(val => val.value === graphQuery[rhsmApiTypes.RHSM_API_QUERY_SLA]);
+      typeof query[rhsmApiTypes.RHSM_API_QUERY_SLA] === 'string' &&
+      slaOptions.options.find(val => val.value === query[rhsmApiTypes.RHSM_API_QUERY_SLA]);
 
     const slaOptionsSelected =
       (filterSla && filterSla.title && [filterSla.title]) || (slaOptions.selected && [slaOptions.selected]) || [];
@@ -121,10 +121,10 @@ class Toolbar extends React.Component {
 /**
  * Prop types
  *
- * @type {{viewId: string, t: Function, isDisabled: boolean, graphQuery: object}}
+ * @type {{viewId: string, t: Function, query: object, isDisabled: boolean }}
  */
 Toolbar.propTypes = {
-  graphQuery: PropTypes.shape({
+  query: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_SLA]: PropTypes.string
   }),
   isDisabled: PropTypes.bool,
@@ -135,10 +135,10 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, isDisabled: boolean, graphQuery: {}}}
+ * @type {{viewId: string, t: translate, query: {}, isDisabled: boolean}}
  */
 Toolbar.defaultProps = {
-  graphQuery: {},
+  query: {},
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: translate,
   viewId: 'toolbar'
