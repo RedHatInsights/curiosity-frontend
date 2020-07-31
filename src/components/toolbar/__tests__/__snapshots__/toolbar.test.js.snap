@@ -30,6 +30,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
           className=""
           id="generatedid-"
           isDisabled={false}
+          isToggleText={true}
           name={null}
           onSelect={[Function]}
           options={
@@ -54,6 +55,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
           }
           placeholder="t(curiosity-toolbar.slaPlaceholder)"
           selectedOptions={Array []}
+          toggleIcon={null}
           variant="single"
         />
       </ToolbarFilter>
