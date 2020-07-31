@@ -31,21 +31,21 @@ class RhelView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { graphQuery, initialFilters, location, routeDetail, t, viewId } = this.props;
+    const { query, initialFilters, location, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
       <PageLayout>
         <PageHeader viewId={viewId}>{t(`curiosity-view.${viewId}Title`, helpers.UI_DISPLAY_CONFIG_NAME)}</PageHeader>
         <PageToolbar>
-          <Toolbar graphQuery={graphQuery} viewId={viewId} />
+          <Toolbar query={query} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           {(isC3 && (
             <C3GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={initialFilters}
-              graphQuery={graphQuery}
+              query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
@@ -55,7 +55,7 @@ class RhelView extends React.Component {
             <GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={initialFilters}
-              graphQuery={graphQuery}
+              query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
@@ -71,11 +71,11 @@ class RhelView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, viewId: string, t: Function, routeDetail: object, location: object,
- *     graphQuery: object}}
+ * @type {{initialFilters: Array, viewId: string, t: Function, query: object, routeDetail: object,
+ *     location: object}}
  */
 RhelView.propTypes = {
-  graphQuery: PropTypes.shape({
+  query: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialFilters: PropTypes.array,
@@ -96,10 +96,10 @@ RhelView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, viewId: string, t: translate, graphQuery: object}}
+ * @type {{initialFilters: Array, viewId: string, t: translate, query: object}}
  */
 RhelView.defaultProps = {
-  graphQuery: {
+  query: {
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
   },
   initialFilters: [

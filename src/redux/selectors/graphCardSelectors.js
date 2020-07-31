@@ -26,7 +26,7 @@ const statePropsFilter = (state, props = {}) => ({
   ...{
     viewId: props.viewId,
     productId: props.productId,
-    query: props.graphQuery
+    query: props.query
   }
 });
 
