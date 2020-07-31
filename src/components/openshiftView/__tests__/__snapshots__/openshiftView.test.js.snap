@@ -51,6 +51,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         className=""
         id="generatedid-"
         isDisabled={false}
+        isToggleText={true}
         name={null}
         onSelect={[Function]}
         options={
@@ -67,6 +68,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         }
         placeholder="Select option"
         selectedOptions="cores"
+        toggleIcon={null}
         variant="single"
       />
     </Connect(C3GraphCard)>
@@ -125,6 +127,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         className=""
         id="generatedid-"
         isDisabled={false}
+        isToggleText={true}
         name={null}
         onSelect={[Function]}
         options={
@@ -141,6 +144,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         }
         placeholder="Select option"
         selectedOptions="cores"
+        toggleIcon={null}
         variant="single"
       />
     </Connect(GraphCard)>
@@ -199,6 +203,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         className=""
         id="generatedid-"
         isDisabled={false}
+        isToggleText={true}
         name={null}
         onSelect={[Function]}
         options={
@@ -215,6 +220,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         }
         placeholder="Select option"
         selectedOptions="cores"
+        toggleIcon={null}
         variant="single"
       />
     </Connect(GraphCard)>

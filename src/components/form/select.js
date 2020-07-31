@@ -170,7 +170,7 @@ class Select extends React.Component {
    */
   render() {
     const { options, selected, isExpanded } = this.state;
-    const { ariaLabel, className, isDisabled, placeholder, variant } = this.props;
+    const { ariaLabel, className, isDisabled, isToggleText, placeholder, toggleIcon, variant } = this.props;
 
     const pfSelectOptions = {};
 
@@ -187,13 +187,14 @@ class Select extends React.Component {
      */
     return (
       <PfSelect
-        className={`curiosity-select ${className}`}
+        className={`curiosity-select${(!isToggleText && '__no-toggle-text') || ''} ${className}`}
         variant={variant}
         aria-label={ariaLabel}
         onToggle={this.onToggle}
         onSelect={this.onSelect}
         selections={selected}
         isOpen={isExpanded}
+        toggleIcon={toggleIcon}
         placeholderText={placeholder}
         {...pfSelectOptions}
       >
@@ -215,8 +216,9 @@ class Select extends React.Component {
 /**
  * Prop types.
  *
- * @type {{name: string, options: object, selectedOptions: (number|string|Array), variant: (object|string),
- *     className: string, id: string, isDisabled: boolean, placeholder: string, ariaLabel: string,
+ * @type {{isToggleText: boolean, toggleIcon: Node|Function, name: string, options: object,
+ *     selectedOptions: (number|string|Array), variant: (object|string), className: string,
+ *     id: string, isDisabled: boolean, placeholder: string, ariaLabel: string,
  *     onSelect: Function}}
  */
 Select.propTypes = {
@@ -224,6 +226,7 @@ Select.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
+  isToggleText: PropTypes.bool,
   name: PropTypes.string,
   onSelect: PropTypes.func,
   options: PropTypes.oneOfType([
@@ -242,28 +245,31 @@ Select.propTypes = {
     }),
     PropTypes.object
   ]),
-  selectedOptions: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.array]),
   placeholder: PropTypes.string,
+  selectedOptions: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.array]),
+  toggleIcon: PropTypes.element,
   variant: PropTypes.oneOf([...Object.values(SelectVariant)])
 };
 
 /**
  * Default props.
  *
- * @type {{name: null, options: Array, selectedOptions: null, variant: SelectVariant.single,
- *     className: string, id: string, isDisabled: boolean, placeholder: string,
- *     ariaLabel: string, onSelect: Function}}
+ * @type {{isToggleText: boolean, toggleIcon: null, name: null, options: Array, selectedOptions: null,
+ *     variant: SelectVariant.single, className: string, id: string, isDisabled: boolean,
+ *     placeholder: string, ariaLabel: string, onSelect: Function}}
  */
 Select.defaultProps = {
   ariaLabel: 'Select option',
   className: '',
   id: helpers.generateId(),
   isDisabled: false,
+  isToggleText: true,
   name: null,
   onSelect: helpers.noop,
   options: [],
-  selectedOptions: null,
   placeholder: 'Select option',
+  selectedOptions: null,
+  toggleIcon: null,
   variant: SelectVariant.single
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { SelectVariant } from '@patternfly/react-core';
+import { FilterIcon } from '@patternfly/react-icons';
 import Select from '../select';
 
 describe('Select Component', () => {
@@ -96,5 +97,17 @@ describe('Select Component', () => {
     component.find('button').simulate('click');
 
     expect(component).toMatchSnapshot('expanded');
+  });
+
+  it('should disable toggle text', () => {
+    const props = {
+      id: 'test',
+      options: ['lorem', 'ipsum'],
+      toggleIcon: <FilterIcon />,
+      isToggleText: false
+    };
+
+    const component = shallow(<Select {...props} />);
+    expect(component).toMatchSnapshot('disabled text');
   });
 });
