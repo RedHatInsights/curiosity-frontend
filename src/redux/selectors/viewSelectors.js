@@ -19,26 +19,26 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
  * @returns {object}
  */
 const statePropsFilter = (state = {}, props, defaultProps = {}) => ({
-  graphQuery: {
-    ...defaultProps.graphQuery,
-    ...state.view?.graphQuery?.[defaultProps.viewId]
+  query: {
+    ...defaultProps.query,
+    ...state.view?.query?.[defaultProps.viewId]
   }
 });
 
 /**
  * Create selector, transform combined state, props into a consumable API param/query object.
  *
- * @type {{graphQuery: object}}
+ * @type {{query: object}}
  */
-const selector = createDeepEqualSelector([statePropsFilter], viewGraph => ({
-  graphQuery: { ...viewGraph.graphQuery }
+const selector = createDeepEqualSelector([statePropsFilter], view => ({
+  query: { ...view.query }
 }));
 
 /**
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{graphQuery: object}}
+ * @returns {{query: object}}
  */
 const makeSelector = defaultProps => (state, props) => ({
   ...selector(state, props, defaultProps)

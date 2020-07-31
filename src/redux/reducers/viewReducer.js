@@ -12,10 +12,10 @@ import {
  * Initial state.
  *
  * @private
- * @type {{graphQuery: {}}}
+ * @type {{query: {}}}
  */
 const initialState = {
-  graphQuery: {}
+  query: {}
 };
 
 /**
@@ -29,10 +29,10 @@ const viewReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxTypes.rhsm.SET_FILTER_GRANULARITY_RHSM:
       return reduxHelpers.setStateProp(
-        'graphQuery',
+        'query',
         {
           [action.viewId]: {
-            ...state.graphQuery[action.viewId],
+            ...state.query[action.viewId],
             [RHSM_API_QUERY_GRANULARITY]: action[RHSM_API_QUERY_GRANULARITY]
           }
         },
@@ -43,10 +43,10 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.rhsm.SET_FILTER_SLA_RHSM:
       return reduxHelpers.setStateProp(
-        'graphQuery',
+        'query',
         {
           [action.viewId]: {
-            ...state.graphQuery[action.viewId],
+            ...state.query[action.viewId],
             [RHSM_API_QUERY_SLA]: action[RHSM_API_QUERY_SLA]
           }
         },
@@ -57,10 +57,10 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.rhsm.SET_FILTER_USAGE_RHSM:
       return reduxHelpers.setStateProp(
-        'graphQuery',
+        'query',
         {
           [action.viewId]: {
-            ...state.graphQuery[action.viewId],
+            ...state.query[action.viewId],
             [RHSM_API_QUERY_USAGE]: action[RHSM_API_QUERY_USAGE]
           }
         },
@@ -71,10 +71,10 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.rhsm.SET_CLEAR_FILTERS:
       return reduxHelpers.setStateProp(
-        'graphQuery',
+        'query',
         {
           [action.viewId]: {
-            ...state.graphQuery[action.viewId],
+            ...state.query[action.viewId],
             ...action.clearFilters
           }
         },
@@ -85,10 +85,10 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.rhsm.SET_PAGE_LIMIT_RHSM:
       return reduxHelpers.setStateProp(
-        'graphQuery',
+        'query',
         {
           [action.viewId]: {
-            ...state.graphQuery[action.viewId],
+            ...state.query[action.viewId],
             [RHSM_API_QUERY_LIMIT]: action[RHSM_API_QUERY_LIMIT]
           }
         },
@@ -99,10 +99,10 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.rhsm.SET_PAGE_OFFSET_RHSM:
       return reduxHelpers.setStateProp(
-        'graphQuery',
+        'query',
         {
           [action.viewId]: {
-            ...state.graphQuery[action.viewId],
+            ...state.query[action.viewId],
             [RHSM_API_QUERY_OFFSET]: action[RHSM_API_QUERY_OFFSET]
           }
         },
