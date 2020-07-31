@@ -3,7 +3,7 @@
 exports[`ViewReducer should handle specific defined types: defined type SET_CLEAR_FILTERS 1`] = `
 Object {
   "result": Object {
-    "graphQuery": Object {
+    "query": Object {
       "test_id": Object {},
     },
   },
@@ -14,7 +14,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_GRANULARITY_RHSM 1`] = `
 Object {
   "result": Object {
-    "graphQuery": Object {
+    "query": Object {
       "test_id": Object {
         "granularity": "lorem granularity",
       },
@@ -27,7 +27,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_SLA_RHSM 1`] = `
 Object {
   "result": Object {
-    "graphQuery": Object {
+    "query": Object {
       "test_id": Object {
         "sla": "lorem sla",
       },
@@ -40,7 +40,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_USAGE_RHSM 1`] = `
 Object {
   "result": Object {
-    "graphQuery": Object {
+    "query": Object {
       "test_id": Object {
         "usage": undefined,
       },
@@ -53,7 +53,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_PAGE_LIMIT_RHSM 1`] = `
 Object {
   "result": Object {
-    "graphQuery": Object {
+    "query": Object {
       "test_id": Object {
         "limit": undefined,
       },
@@ -66,7 +66,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_PAGE_OFFSET_RHSM 1`] = `
 Object {
   "result": Object {
-    "graphQuery": Object {
+    "query": Object {
       "test_id": Object {
         "offset": undefined,
       },
