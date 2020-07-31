@@ -7,7 +7,14 @@ describe('ViewReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [types.SET_GRAPH_GRANULARITY_RHSM, types.SET_GRAPH_SLA_RHSM];
+    const specificTypes = [
+      types.SET_FILTER_GRANULARITY_RHSM,
+      types.SET_FILTER_SLA_RHSM,
+      types.SET_FILTER_USAGE_RHSM,
+      types.SET_CLEAR_FILTERS,
+      types.SET_PAGE_LIMIT_RHSM,
+      types.SET_PAGE_OFFSET_RHSM
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {

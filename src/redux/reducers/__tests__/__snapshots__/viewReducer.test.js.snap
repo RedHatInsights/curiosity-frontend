@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ViewReducer should handle specific defined types: defined type SET_GRAPH_GRANULARITY_RHSM 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_CLEAR_FILTERS 1`] = `
+Object {
+  "result": Object {
+    "graphQuery": Object {
+      "test_id": Object {},
+    },
+  },
+  "type": "SET_CLEAR_FILTERS",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_GRANULARITY_RHSM 1`] = `
 Object {
   "result": Object {
     "graphQuery": Object {
@@ -9,11 +20,11 @@ Object {
       },
     },
   },
-  "type": "SET_GRAPH_GRANULARITY_RHSM",
+  "type": "SET_FILTER_GRANULARITY_RHSM",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_GRAPH_SLA_RHSM 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_SLA_RHSM 1`] = `
 Object {
   "result": Object {
     "graphQuery": Object {
@@ -22,6 +33,45 @@ Object {
       },
     },
   },
-  "type": "SET_GRAPH_SLA_RHSM",
+  "type": "SET_FILTER_SLA_RHSM",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_USAGE_RHSM 1`] = `
+Object {
+  "result": Object {
+    "graphQuery": Object {
+      "test_id": Object {
+        "usage": undefined,
+      },
+    },
+  },
+  "type": "SET_FILTER_USAGE_RHSM",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_PAGE_LIMIT_RHSM 1`] = `
+Object {
+  "result": Object {
+    "graphQuery": Object {
+      "test_id": Object {
+        "limit": undefined,
+      },
+    },
+  },
+  "type": "SET_PAGE_LIMIT_RHSM",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_PAGE_OFFSET_RHSM 1`] = `
+Object {
+  "result": Object {
+    "graphQuery": Object {
+      "test_id": Object {
+        "offset": undefined,
+      },
+    },
+  },
+  "type": "SET_PAGE_OFFSET_RHSM",
 }
 `;
