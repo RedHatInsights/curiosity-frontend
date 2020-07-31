@@ -7,7 +7,7 @@ import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } f
 describe('GraphCard Component', () => {
   it('should render a non-connected component', () => {
     const props = {
-      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem'
     };
     const component = shallow(<GraphCard {...props} />);
@@ -17,7 +17,7 @@ describe('GraphCard Component', () => {
 
   it('should render multiple states', () => {
     const props = {
-      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem',
       graphData: {
         physicalSockets: [
@@ -88,7 +88,7 @@ describe('GraphCard Component', () => {
           id: 'thresholdLoremIpsumSockets'
         }
       ],
-      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem',
       graphData: {
         loremIpsumSockets: [
@@ -152,7 +152,7 @@ describe('GraphCard Component', () => {
 
   it('should return an empty render when disabled', () => {
     const props = {
-      graphQuery: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
       isDisabled: true,
       productId: 'lorem'
     };

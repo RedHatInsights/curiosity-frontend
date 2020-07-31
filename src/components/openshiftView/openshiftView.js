@@ -74,21 +74,21 @@ class OpenshiftView extends React.Component {
    */
   render() {
     const { filters } = this.state;
-    const { graphQuery, location, routeDetail, t, viewId } = this.props;
+    const { query, location, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
       <PageLayout>
         <PageHeader viewId={viewId}>{t(`curiosity-view.${viewId}Title`, helpers.UI_DISPLAY_CONFIG_NAME)}</PageHeader>
         <PageToolbar>
-          <Toolbar graphQuery={graphQuery} viewId={viewId} />
+          <Toolbar query={query} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           {(isC3 && (
             <C3GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={filters}
-              graphQuery={graphQuery}
+              query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.cardHeading')}
@@ -100,7 +100,7 @@ class OpenshiftView extends React.Component {
             <GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={filters}
-              graphQuery={graphQuery}
+              query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.cardHeading')}
@@ -118,11 +118,11 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, routeDetail: object,
- *     location: object, graphQuery: object}}
+ * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, query: object,
+ *     routeDetail: object, location: object}}
  */
 OpenshiftView.propTypes = {
-  graphQuery: PropTypes.shape({
+  query: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
@@ -144,10 +144,10 @@ OpenshiftView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: translate, graphQuery: object}}
+ * @type {{initialFilters: Array, initialOption: string, viewId: string, t: translate, query: object}}
  */
 OpenshiftView.defaultProps = {
-  graphQuery: {
+  query: {
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
   },
   initialOption: 'cores',
