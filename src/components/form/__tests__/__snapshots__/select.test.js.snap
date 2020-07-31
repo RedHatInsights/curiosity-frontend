@@ -146,6 +146,87 @@ exports[`Select Component should allow selected options to match value or title:
 </div>
 `;
 
+exports[`Select Component should disable toggle text: disabled text 1`] = `
+<Select
+  aria-label="Select option"
+  aria-labelledby=""
+  className="curiosity-select__no-toggle-text "
+  clearSelectionsAriaLabel="Clear all"
+  createText="Create"
+  customBadgeText={null}
+  customContent={null}
+  direction="down"
+  hasInlineFilter={false}
+  inlineFilterPlaceholderText={null}
+  inputIdPrefix=""
+  isCreatable={false}
+  isDisabled={false}
+  isGrouped={false}
+  isOpen={false}
+  isPlain={false}
+  menuAppendTo="inline"
+  noResultsFoundText="No results found"
+  onClear={[Function]}
+  onCreateOption={[Function]}
+  onFilter={null}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  ouiaSafe={true}
+  placeholderText="Select option"
+  removeSelectionAriaLabel="Remove"
+  selections={Array []}
+  toggleAriaLabel="Options menu"
+  toggleIcon={
+    <FilterIcon
+      color="currentColor"
+      noVerticalAlign={false}
+      size="sm"
+    />
+  }
+  toggleId={null}
+  typeAheadAriaLabel=""
+  variant="single"
+  width=""
+>
+  <SelectOption
+    className=""
+    component="button"
+    data-title="lorem"
+    data-value="lorem"
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="bG9yZW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="lorem"
+  />
+  <SelectOption
+    className=""
+    component="button"
+    data-title="ipsum"
+    data-value="ipsum"
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="aXBzdW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="ipsum"
+  />
+</Select>
+`;
+
 exports[`Select Component should render a basic component: basic dropdown 1`] = `
 <div
   class="pf-c-select curiosity-select "
@@ -252,6 +333,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
   className=""
   id="test"
   isDisabled={false}
+  isToggleText={true}
   name={null}
   onSelect={[Function]}
   options={
@@ -264,6 +346,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
   }
   placeholder="Select option"
   selectedOptions={null}
+  toggleIcon={null}
   variant="single"
 >
   <Select
