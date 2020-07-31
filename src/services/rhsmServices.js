@@ -951,7 +951,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 2,
  *           "hardware_type": "physical",
- *           "number_of_guests": 4,
+ *           "number_of_guests": 2,
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
  *         {
@@ -961,6 +961,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 6,
  *           "hardware_type": "physical",
+ *           "number_of_guests": 2,
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         }
  *       ],
@@ -1004,7 +1005,7 @@ const getHostsInventory = (id, params = {}) =>
   });
 
 /**
- * @apiMock {DelayResponse} 500
+ * @apiMock {DelayResponse} 2000
  * @api {get} /api/rhsm-subscriptions/v1/hosts/:hypervisor_uuid/guests Get RHSM hosts/systems table/inventory guests data
  * @apiDescription Retrieve hosts/systems table/inventory guests data.
  *
