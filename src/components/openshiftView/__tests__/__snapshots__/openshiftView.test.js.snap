@@ -9,14 +9,12 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
     t(curiosity-view.OpenShiftTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
-    <Toolbar
-      isDisabled={false}
+    <Connect(Toolbar)
       query={
         Object {
           "granularity": "daily",
         }
       }
-      t={[Function]}
       viewId="OpenShift"
     />
   </PageToolbar>
@@ -85,14 +83,12 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
     t(curiosity-view.OpenShiftTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
-    <Toolbar
-      isDisabled={false}
+    <Connect(Toolbar)
       query={
         Object {
           "granularity": "daily",
         }
       }
-      t={[Function]}
       viewId="OpenShift"
     />
   </PageToolbar>
@@ -161,14 +157,12 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
     t(curiosity-view.OpenShiftTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
-    <Toolbar
-      isDisabled={false}
+    <Connect(Toolbar)
       query={
         Object {
           "granularity": "daily",
         }
       }
-      t={[Function]}
       viewId="OpenShift"
     />
   </PageToolbar>

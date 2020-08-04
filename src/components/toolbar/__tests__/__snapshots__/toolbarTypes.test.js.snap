@@ -10,20 +10,12 @@ exports[`ToolbarTypes should return an output for options selection: getOptionsT
 Object {
   "options": Array [
     Object {
-      "title": "t(curiosity-toolbar.slaPremium)",
-      "value": "premium",
+      "title": "t(curiosity-toolbar.slaCategory)",
+      "value": "sla",
     },
     Object {
-      "title": "t(curiosity-toolbar.slaStandard)",
-      "value": "standard",
-    },
-    Object {
-      "title": "t(curiosity-toolbar.slaSelfSupport)",
-      "value": "self-support",
-    },
-    Object {
-      "title": "t(curiosity-toolbar.slaNone)",
-      "value": "",
+      "title": "t(curiosity-toolbar.usageCategory)",
+      "value": "usage",
     },
   ],
   "selected": null,
@@ -32,7 +24,17 @@ Object {
 
 exports[`ToolbarTypes should return an output for options selection: getOptionsType:null 1`] = `
 Object {
-  "options": Array [],
+  "options": Array [
+    Object {
+      "title": "t(curiosity-toolbar.slaCategory)",
+      "value": "sla",
+    },
+    Object {
+      "title": "t(curiosity-toolbar.usageCategory)",
+      "value": "usage",
+    },
+  ],
+  "selected": null,
 }
 `;
 
@@ -53,6 +55,30 @@ Object {
     },
     Object {
       "title": "t(curiosity-toolbar.slaNone)",
+      "value": "",
+    },
+  ],
+  "selected": null,
+}
+`;
+
+exports[`ToolbarTypes should return an output for options selection: getOptionsType:usage 1`] = `
+Object {
+  "options": Array [
+    Object {
+      "title": "t(curiosity-toolbar.usageDevelopment)",
+      "value": "Development/Test",
+    },
+    Object {
+      "title": "t(curiosity-toolbar.usageDisaster)",
+      "value": "Disaster Recovery",
+    },
+    Object {
+      "title": "t(curiosity-toolbar.usageProduction)",
+      "value": "Production",
+    },
+    Object {
+      "title": "t(curiosity-toolbar.usageUnspecified)",
       "value": "",
     },
   ],
