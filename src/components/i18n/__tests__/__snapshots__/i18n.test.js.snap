@@ -331,6 +331,14 @@ Array [
     "file": "./src/components/toolbar/toolbar.js",
     "keys": Array [
       Object {
+        "key": "curiosity-toolbar.category",
+        "match": "t('curiosity-toolbar.category')",
+      },
+      Object {
+        "key": "curiosity-toolbar.categoryPlaceholder",
+        "match": "t('curiosity-toolbar.categoryPlaceholder')",
+      },
+      Object {
         "key": "curiosity-toolbar.slaCategory",
         "match": "t('curiosity-toolbar.slaCategory')",
       },
@@ -341,6 +349,18 @@ Array [
       Object {
         "key": "curiosity-toolbar.slaPlaceholder",
         "match": "t('curiosity-toolbar.slaPlaceholder')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageCategory",
+        "match": "t('curiosity-toolbar.usageCategory')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageCategory",
+        "match": "t('curiosity-toolbar.usageCategory')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usagePlaceholder",
+        "match": "t('curiosity-toolbar.usagePlaceholder')",
       },
     ],
   },
@@ -362,6 +382,30 @@ Array [
       Object {
         "key": "curiosity-toolbar.slaNone",
         "match": "translate('curiosity-toolbar.slaNone')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageDevelopment",
+        "match": "translate('curiosity-toolbar.usageDevelopment')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageDisaster",
+        "match": "translate('curiosity-toolbar.usageDisaster')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageProduction",
+        "match": "translate('curiosity-toolbar.usageProduction')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageUnspecified",
+        "match": "translate('curiosity-toolbar.usageUnspecified')",
+      },
+      Object {
+        "key": "curiosity-toolbar.slaCategory",
+        "match": "translate('curiosity-toolbar.slaCategory')",
+      },
+      Object {
+        "key": "curiosity-toolbar.usageCategory",
+        "match": "translate('curiosity-toolbar.usageCategory')",
       },
     ],
   },
