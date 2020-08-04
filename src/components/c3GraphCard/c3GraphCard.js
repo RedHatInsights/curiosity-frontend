@@ -67,7 +67,7 @@ class C3GraphCard extends React.Component {
     const { viewId } = this.props;
 
     store.dispatch({
-      type: reduxTypes.rhsm.SET_FILTER_GRANULARITY_RHSM,
+      type: reduxTypes.query.SET_QUERY_GRANULARITY_RHSM,
       viewId,
       [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: value
     });

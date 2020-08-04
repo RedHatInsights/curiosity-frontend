@@ -27,49 +27,7 @@ const initialState = {
  */
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
-    case reduxTypes.rhsm.SET_FILTER_GRANULARITY_RHSM:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_GRANULARITY]: action[RHSM_API_QUERY_GRANULARITY]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.rhsm.SET_FILTER_SLA_RHSM:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_SLA]: action[RHSM_API_QUERY_SLA]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.rhsm.SET_FILTER_USAGE_RHSM:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_USAGE]: action[RHSM_API_QUERY_USAGE]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.rhsm.SET_CLEAR_FILTERS:
+    case reduxTypes.query.SET_QUERY_CLEAR:
       return reduxHelpers.setStateProp(
         'query',
         {
@@ -83,7 +41,49 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.rhsm.SET_PAGE_LIMIT_RHSM:
+    case reduxTypes.query.SET_QUERY_GRANULARITY_RHSM:
+      return reduxHelpers.setStateProp(
+        'query',
+        {
+          [action.viewId]: {
+            ...state.query[action.viewId],
+            [RHSM_API_QUERY_GRANULARITY]: action[RHSM_API_QUERY_GRANULARITY]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_SLA_RHSM:
+      return reduxHelpers.setStateProp(
+        'query',
+        {
+          [action.viewId]: {
+            ...state.query[action.viewId],
+            [RHSM_API_QUERY_SLA]: action[RHSM_API_QUERY_SLA]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_USAGE_RHSM:
+      return reduxHelpers.setStateProp(
+        'query',
+        {
+          [action.viewId]: {
+            ...state.query[action.viewId],
+            [RHSM_API_QUERY_USAGE]: action[RHSM_API_QUERY_USAGE]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_PAGE_LIMIT_RHSM:
       return reduxHelpers.setStateProp(
         'query',
         {
@@ -97,7 +97,7 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.rhsm.SET_PAGE_OFFSET_RHSM:
+    case reduxTypes.query.SET_QUERY_PAGE_OFFSET_RHSM:
       return reduxHelpers.setStateProp(
         'query',
         {
