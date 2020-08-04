@@ -1,11 +1,9 @@
-.curiosity-toolbar {
-  .curiosity-select__no-toggle-text {
-    span.pf-c-select__toggle-arrow {
-      margin-left: var(--pf-c-select__toggle-arrow--MarginRight);
-    }
+.curiosity-select__no-toggle-text {
+  span.pf-c-select__toggle-arrow {
+    margin-left: var(--pf-c-select__toggle-arrow--MarginRight);
+  }
 
-    span.pf-c-select__toggle-text {
-      display: none;
-    }
+  span.pf-c-select__toggle-text {
+    display: none;
   }
 }

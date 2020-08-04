@@ -1,0 +1,9 @@
+.curiosity-toolbar {
+  padding-left: var(--pf-c-page__main-section--PaddingLeft);
+  padding-right: var(--pf-c-page__main-section--PaddingRight);
+
+  .pf-c-toolbar__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

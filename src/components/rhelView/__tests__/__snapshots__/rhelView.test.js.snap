@@ -9,14 +9,12 @@ exports[`RhelView Component should display an alternate graph on query-string up
     t(curiosity-view.RHELTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
-    <Toolbar
-      isDisabled={false}
+    <Connect(Toolbar)
       query={
         Object {
           "granularity": "daily",
         }
       }
-      t={[Function]}
       viewId="RHEL"
     />
   </PageToolbar>
@@ -71,14 +69,12 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
     t(curiosity-view.RHELTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
-    <Toolbar
-      isDisabled={false}
+    <Connect(Toolbar)
       query={
         Object {
           "granularity": "daily",
         }
       }
-      t={[Function]}
       viewId="RHEL"
     />
   </PageToolbar>
@@ -133,14 +129,12 @@ exports[`RhelView Component should render a non-connected component: non-connect
     t(curiosity-view.RHELTitle, Subscription Watch)
   </PageHeader>
   <PageToolbar>
-    <Toolbar
-      isDisabled={false}
+    <Connect(Toolbar)
       query={
         Object {
           "granularity": "daily",
         }
       }
-      t={[Function]}
       viewId="RHEL"
     />
   </PageToolbar>

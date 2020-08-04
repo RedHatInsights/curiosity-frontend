@@ -1,65 +1,672 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toolbar Component should handle updating state and dispatching an sla filter: clear filters 1`] = `null`;
-
-exports[`Toolbar Component should handle updating state and dispatching an sla filter: sla selected 1`] = `null`;
+exports[`Toolbar Component should handle adding and clearing filters from redux state: dispatch filter 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "data": Object {
+          "currentFilter": "sla",
+        },
+        "type": "SET_FILTER_TYPE",
+      },
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "activeFilters": Set {
+              "sla",
+            },
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "sla": "premium",
+          },
+          "type": "SET_QUERY_SLA_RHSM",
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "activeFilters": Set {
+              "sla",
+            },
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "sla": "standard",
+          },
+          "type": "SET_QUERY_SLA_RHSM",
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "currentFilter": null,
+          },
+          "type": "SET_FILTER_TYPE",
+        },
+        Object {
+          "data": Object {
+            "activeFilters": Set {},
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "clearFilters": Object {
+              "sla": null,
+            },
+          },
+          "type": "SET_QUERY_CLEAR",
+        },
+      ],
+    ],
+    Array [
+      Object {
+        "data": Object {
+          "currentFilter": "usage",
+        },
+        "type": "SET_FILTER_TYPE",
+      },
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "activeFilters": Set {
+              "usage",
+            },
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "usage": "Development/Test",
+          },
+          "type": "SET_QUERY_USAGE_RHSM",
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "activeFilters": Set {
+              "usage",
+            },
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "usage": "Disaster Recovery",
+          },
+          "type": "SET_QUERY_USAGE_RHSM",
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "currentFilter": null,
+          },
+          "type": "SET_FILTER_TYPE",
+        },
+        Object {
+          "data": Object {
+            "activeFilters": Set {},
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "clearFilters": Object {
+              "usage": null,
+            },
+          },
+          "type": "SET_QUERY_CLEAR",
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "data": Object {
+            "currentFilter": null,
+          },
+          "type": "SET_FILTER_TYPE",
+        },
+        Object {
+          "data": Object {
+            "activeFilters": Set {},
+          },
+          "type": "SET_ACTIVE_FILTERS",
+        },
+        Object {
+          "data": Object {
+            "clearFilters": Object {
+              "sla": null,
+              "usage": null,
+            },
+          },
+          "type": "SET_QUERY_CLEAR",
+        },
+      ],
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Object {
+          "data": Object {
+            "currentFilter": "sla",
+          },
+          "type": "SET_FILTER_TYPE",
+        },
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "activeFilters": Set {
+                "sla",
+              },
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "sla": "premium",
+            },
+            "type": "SET_QUERY_SLA_RHSM",
+          },
+        ],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "activeFilters": Set {
+                "sla",
+              },
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "sla": "standard",
+            },
+            "type": "SET_QUERY_SLA_RHSM",
+          },
+        ],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "currentFilter": null,
+            },
+            "type": "SET_FILTER_TYPE",
+          },
+          Object {
+            "data": Object {
+              "activeFilters": Set {},
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "clearFilters": Object {
+                "sla": null,
+              },
+            },
+            "type": "SET_QUERY_CLEAR",
+          },
+        ],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Object {
+          "data": Object {
+            "currentFilter": "usage",
+          },
+          "type": "SET_FILTER_TYPE",
+        },
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "activeFilters": Set {
+                "usage",
+              },
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "usage": "Development/Test",
+            },
+            "type": "SET_QUERY_USAGE_RHSM",
+          },
+        ],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "activeFilters": Set {
+                "usage",
+              },
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "usage": "Disaster Recovery",
+            },
+            "type": "SET_QUERY_USAGE_RHSM",
+          },
+        ],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "currentFilter": null,
+            },
+            "type": "SET_FILTER_TYPE",
+          },
+          Object {
+            "data": Object {
+              "activeFilters": Set {},
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "clearFilters": Object {
+                "usage": null,
+              },
+            },
+            "type": "SET_QUERY_CLEAR",
+          },
+        ],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Object {
+        "data": undefined,
+        "type": Array [
+          Object {
+            "data": Object {
+              "currentFilter": null,
+            },
+            "type": "SET_FILTER_TYPE",
+          },
+          Object {
+            "data": Object {
+              "activeFilters": Set {},
+            },
+            "type": "SET_ACTIVE_FILTERS",
+          },
+          Object {
+            "data": Object {
+              "clearFilters": Object {
+                "sla": null,
+                "usage": null,
+              },
+            },
+            "type": "SET_QUERY_CLEAR",
+          },
+        ],
+      },
+    },
+  ],
+}
+`;
 
 exports[`Toolbar Component should render a non-connected component: non-connected 1`] = `
 <Toolbar
-  className="pf-m-toggle-group-container ins-c-primary-toolbar"
+  className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
-  collapseListedFiltersBreakpoint="xl"
+  collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
   <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}
   >
-    <ForwardRef
-      variant="filter-group"
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
     >
-      <ToolbarFilter
-        categoryName="t(curiosity-toolbar.slaCategory)"
-        chips={Array []}
-        deleteChip={[Function]}
-        showToolbarItem={true}
+      <ForwardRef
+        variant="filter-group"
       >
-        <Select
-          aria-label="t(curiosity-toolbar.slaCategory)"
-          ariaLabel="Select option"
-          className=""
-          id="generatedid-"
-          isDisabled={false}
-          isToggleText={true}
-          name={null}
-          onSelect={[Function]}
-          options={
+        <ToolbarItem>
+          <Select
+            aria-label="t(curiosity-toolbar.category)"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.slaCategory)",
+                  "value": "sla",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageCategory)",
+                  "value": "usage",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.categoryPlaceholder)"
+            selectedOptions={Array []}
+            toggleIcon={
+              <FilterIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            variant="single"
+          />
+        </ToolbarItem>
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.slaCategory)"
+          chips={Array []}
+          deleteChip={[Function]}
+          showToolbarItem={false}
+        >
+          <Select
+            aria-label="t(curiosity-toolbar.slaCategory)"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.slaPremium)",
+                  "value": "premium",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaStandard)",
+                  "value": "standard",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaSelfSupport)",
+                  "value": "self-support",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaNone)",
+                  "value": "",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.slaPlaceholder)"
+            selectedOptions={Array []}
+            toggleIcon={null}
+            variant="single"
+          />
+        </ToolbarFilter>
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.usageCategory)"
+          chips={Array []}
+          deleteChip={[Function]}
+          showToolbarItem={false}
+        >
+          <Select
+            aria-label="t(curiosity-toolbar.usageCategory)"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.usageDevelopment)",
+                  "value": "Development/Test",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageDisaster)",
+                  "value": "Disaster Recovery",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageProduction)",
+                  "value": "Production",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageUnspecified)",
+                  "value": "",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.usagePlaceholder)"
+            selectedOptions={Array []}
+            toggleIcon={null}
+            variant="single"
+          />
+        </ToolbarFilter>
+      </ForwardRef>
+    </ToolbarToggleGroup>
+  </ToolbarContent>
+</Toolbar>
+`;
+
+exports[`Toolbar Component should render filters when props are populated: props 1`] = `
+<Toolbar
+  className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
+  clearAllFilters={[Function]}
+  collapseListedFiltersBreakpoint="sm"
+  id="curiosity-toolbar"
+>
+  <ToolbarContent
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
+    >
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarItem>
+          <Select
+            aria-label="t(curiosity-toolbar.category)"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.slaCategory)",
+                  "value": "sla",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageCategory)",
+                  "value": "usage",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.categoryPlaceholder)"
+            selectedOptions={
+              Array [
+                "t(curiosity-toolbar.slaCategory)",
+              ]
+            }
+            toggleIcon={
+              <FilterIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            variant="single"
+          />
+        </ToolbarItem>
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.slaCategory)"
+          chips={
             Array [
-              Object {
-                "title": "t(curiosity-toolbar.slaPremium)",
-                "value": "premium",
-              },
-              Object {
-                "title": "t(curiosity-toolbar.slaStandard)",
-                "value": "standard",
-              },
-              Object {
-                "title": "t(curiosity-toolbar.slaSelfSupport)",
-                "value": "self-support",
-              },
-              Object {
-                "title": "t(curiosity-toolbar.slaNone)",
-                "value": "",
-              },
+              "t(curiosity-toolbar.slaPremium)",
             ]
           }
-          placeholder="t(curiosity-toolbar.slaPlaceholder)"
-          selectedOptions={Array []}
-          toggleIcon={null}
-          variant="single"
-        />
-      </ToolbarFilter>
-    </ForwardRef>
+          deleteChip={[Function]}
+          showToolbarItem={true}
+        >
+          <Select
+            aria-label="t(curiosity-toolbar.slaCategory)"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.slaPremium)",
+                  "value": "premium",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaStandard)",
+                  "value": "standard",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaSelfSupport)",
+                  "value": "self-support",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaNone)",
+                  "value": "",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.slaPlaceholder)"
+            selectedOptions={
+              Array [
+                "t(curiosity-toolbar.slaPremium)",
+              ]
+            }
+            toggleIcon={null}
+            variant="single"
+          />
+        </ToolbarFilter>
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.usageCategory)"
+          chips={Array []}
+          deleteChip={[Function]}
+          showToolbarItem={false}
+        >
+          <Select
+            aria-label="t(curiosity-toolbar.usageCategory)"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.usageDevelopment)",
+                  "value": "Development/Test",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageDisaster)",
+                  "value": "Disaster Recovery",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageProduction)",
+                  "value": "Production",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.usageUnspecified)",
+                  "value": "",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.usagePlaceholder)"
+            selectedOptions={Array []}
+            toggleIcon={null}
+            variant="single"
+          />
+        </ToolbarFilter>
+      </ForwardRef>
+    </ToolbarToggleGroup>
   </ToolbarContent>
 </Toolbar>
 `;
