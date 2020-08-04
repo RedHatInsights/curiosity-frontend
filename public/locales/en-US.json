@@ -49,12 +49,20 @@
     "tableSkeletonAriaLabel": "Loading"
   },
   "curiosity-toolbar": {
+    "category": "Filter by",
+    "categoryPlaceholder": "Filter by",
     "slaCategory": "SLA",
     "slaNone": "No SLA",
     "slaPlaceholder": "Filter by SLA",
     "slaPremium": "Premium",
     "slaSelfSupport": "Self-Support",
-    "slaStandard": "Standard"
+    "slaStandard": "Standard",
+    "usageCategory": "Usage",
+    "usagePlaceholder": "Filter by usage",
+    "usageDevelopment": "Development/Test",
+    "usageDisaster": "Disaster Recovery",
+    "usageProduction": "Production",
+    "usageUnspecified": "Unspecified"
   },
   "curiosity-optin": {
     "buttonActivate": "Activate {{appName}}",

@@ -2,6 +2,7 @@ import { createLogger } from 'redux-logger';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunkMiddleware from 'redux-thunk';
 import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications/cjs';
+import { multiActionMiddleware } from './multiActionMiddleware';
 import { statusMiddleware } from './statusMiddleware';
 import { reduxHelpers } from '../common/reduxHelpers';
 
@@ -31,6 +32,7 @@ const notificationsOptions = {
 const reduxMiddleware = [
   thunkMiddleware,
   statusMiddleware(),
+  multiActionMiddleware,
   promiseMiddleware,
   notificationsMiddleware(notificationsOptions)
 ];
