@@ -22,7 +22,7 @@ class Toolbar extends React.Component {
    * @event onClear
    */
   onClear = () => {
-    this.dispatchFilter(reduxTypes.rhsm.SET_FILTER_SLA_RHSM, { [rhsmApiTypes.RHSM_API_QUERY_SLA]: null });
+    this.dispatchFilter(reduxTypes.query.SET_QUERY_SLA_RHSM, { [rhsmApiTypes.RHSM_API_QUERY_SLA]: null });
   };
 
   /**
@@ -34,7 +34,7 @@ class Toolbar extends React.Component {
   onSlaSelect = event => {
     const { value } = event;
 
-    this.dispatchFilter(reduxTypes.rhsm.SET_FILTER_SLA_RHSM, { [rhsmApiTypes.RHSM_API_QUERY_SLA]: value });
+    this.dispatchFilter(reduxTypes.query.SET_QUERY_SLA_RHSM, { [rhsmApiTypes.RHSM_API_QUERY_SLA]: value });
   };
 
   /**

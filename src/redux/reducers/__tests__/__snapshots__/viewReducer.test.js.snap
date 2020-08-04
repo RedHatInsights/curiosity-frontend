@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ViewReducer should handle specific defined types: defined type SET_CLEAR_FILTERS 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR 1`] = `
 Object {
   "result": Object {
     "query": Object {
       "test_id": Object {},
     },
   },
-  "type": "SET_CLEAR_FILTERS",
+  "type": "SET_QUERY_CLEAR",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_GRANULARITY_RHSM 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_GRANULARITY_RHSM 1`] = `
 Object {
   "result": Object {
     "query": Object {
@@ -20,11 +20,37 @@ Object {
       },
     },
   },
-  "type": "SET_FILTER_GRANULARITY_RHSM",
+  "type": "SET_QUERY_GRANULARITY_RHSM",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_SLA_RHSM 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_PAGE_LIMIT_RHSM 1`] = `
+Object {
+  "result": Object {
+    "query": Object {
+      "test_id": Object {
+        "limit": 10,
+      },
+    },
+  },
+  "type": "SET_QUERY_PAGE_LIMIT_RHSM",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_PAGE_OFFSET_RHSM 1`] = `
+Object {
+  "result": Object {
+    "query": Object {
+      "test_id": Object {
+        "offset": 10,
+      },
+    },
+  },
+  "type": "SET_QUERY_PAGE_OFFSET_RHSM",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_SLA_RHSM 1`] = `
 Object {
   "result": Object {
     "query": Object {
@@ -33,45 +59,19 @@ Object {
       },
     },
   },
-  "type": "SET_FILTER_SLA_RHSM",
+  "type": "SET_QUERY_SLA_RHSM",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_FILTER_USAGE_RHSM 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_USAGE_RHSM 1`] = `
 Object {
   "result": Object {
     "query": Object {
       "test_id": Object {
-        "usage": undefined,
+        "usage": "ipsum usage",
       },
     },
   },
-  "type": "SET_FILTER_USAGE_RHSM",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_PAGE_LIMIT_RHSM 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "limit": undefined,
-      },
-    },
-  },
-  "type": "SET_PAGE_LIMIT_RHSM",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_PAGE_OFFSET_RHSM 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "offset": undefined,
-      },
-    },
-  },
-  "type": "SET_PAGE_OFFSET_RHSM",
+  "type": "SET_QUERY_USAGE_RHSM",
 }
 `;
