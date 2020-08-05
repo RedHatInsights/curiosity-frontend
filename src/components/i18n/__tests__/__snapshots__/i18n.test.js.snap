@@ -276,7 +276,7 @@ Array [
     "keys": Array [
       Object {
         "key": "",
-        "match": "t(\`curiosity-view.\${viewId}Subtitle\`, {}, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkSquareAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
+        "match": "t(\`curiosity-view.\${viewId}Subtitle\`, {}, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
       },
     ],
   },
