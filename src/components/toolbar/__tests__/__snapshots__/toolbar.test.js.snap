@@ -1,370 +1,460 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar Component should handle adding and clearing filters from redux state: dispatch filter 1`] = `
-[MockFunction] {
-  "calls": Array [
+Array [
+  Array [
+    Object {
+      "data": Object {
+        "currentFilter": "sla",
+      },
+      "type": "SET_FILTER_TYPE",
+    },
+  ],
+  Array [
     Array [
       Object {
         "data": Object {
-          "currentFilter": "sla",
+          "activeFilters": Set {
+            "sla",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "sla": "premium",
+        },
+        "type": "SET_QUERY_SLA_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "sla",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "sla": "standard",
+        },
+        "type": "SET_QUERY_SLA_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "sla": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+    ],
+  ],
+  Array [
+    Object {
+      "data": Object {
+        "currentFilter": "usage",
+      },
+      "type": "SET_FILTER_TYPE",
+    },
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "usage",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "usage": "Development/Test",
+        },
+        "type": "SET_QUERY_USAGE_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "usage",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "usage": "Disaster Recovery",
+        },
+        "type": "SET_QUERY_USAGE_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "usage": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "sla": null,
+            "usage": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Toolbar Component should handle adding and clearing filters from redux state: dispatch filter, hard reset 1`] = `
+Array [
+  Array [
+    Object {
+      "data": Object {
+        "currentFilter": "sla",
+      },
+      "type": "SET_FILTER_TYPE",
+    },
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "sla",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "sla": "premium",
+        },
+        "type": "SET_QUERY_SLA_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "sla",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "sla": "standard",
+        },
+        "type": "SET_QUERY_SLA_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "sla": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+    ],
+  ],
+  Array [
+    Object {
+      "data": Object {
+        "currentFilter": "usage",
+      },
+      "type": "SET_FILTER_TYPE",
+    },
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "usage",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "usage": "Development/Test",
+        },
+        "type": "SET_QUERY_USAGE_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "usage",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "usage": "Disaster Recovery",
+        },
+        "type": "SET_QUERY_USAGE_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "usage": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "sla": null,
+            "usage": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+    ],
+  ],
+  Array [
+    Object {
+      "data": Object {
+        "currentFilter": "sla",
+      },
+      "type": "SET_FILTER_TYPE",
+    },
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "sla",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "sla": "premium",
+        },
+        "type": "SET_QUERY_SLA_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "sla",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "sla": "standard",
+        },
+        "type": "SET_QUERY_SLA_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "sla": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+      Object {
+        "data": Object {
+          "currentFilter": null,
         },
         "type": "SET_FILTER_TYPE",
       },
     ],
-    Array [
-      Array [
-        Object {
-          "data": Object {
-            "activeFilters": Set {
-              "sla",
-            },
-          },
-          "type": "SET_ACTIVE_FILTERS",
-        },
-        Object {
-          "data": Object {
-            "sla": "premium",
-          },
-          "type": "SET_QUERY_SLA_RHSM",
-        },
-      ],
-    ],
-    Array [
-      Array [
-        Object {
-          "data": Object {
-            "activeFilters": Set {
-              "sla",
-            },
-          },
-          "type": "SET_ACTIVE_FILTERS",
-        },
-        Object {
-          "data": Object {
-            "sla": "standard",
-          },
-          "type": "SET_QUERY_SLA_RHSM",
-        },
-      ],
-    ],
-    Array [
-      Array [
-        Object {
-          "data": Object {
-            "currentFilter": null,
-          },
-          "type": "SET_FILTER_TYPE",
-        },
-        Object {
-          "data": Object {
-            "activeFilters": Set {},
-          },
-          "type": "SET_ACTIVE_FILTERS",
-        },
-        Object {
-          "data": Object {
-            "clearFilters": Object {
-              "sla": null,
-            },
-          },
-          "type": "SET_QUERY_CLEAR",
-        },
-      ],
-    ],
+  ],
+  Array [
+    Object {
+      "data": Object {
+        "currentFilter": "usage",
+      },
+      "type": "SET_FILTER_TYPE",
+    },
+  ],
+  Array [
     Array [
       Object {
         "data": Object {
-          "currentFilter": "usage",
+          "activeFilters": Set {
+            "usage",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "usage": "Development/Test",
+        },
+        "type": "SET_QUERY_USAGE_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {
+            "usage",
+          },
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "usage": "Disaster Recovery",
+        },
+        "type": "SET_QUERY_USAGE_RHSM",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
+        },
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "usage": null,
+          },
+        },
+        "type": "SET_QUERY_CLEAR",
+      },
+      Object {
+        "data": Object {
+          "currentFilter": null,
         },
         "type": "SET_FILTER_TYPE",
       },
     ],
+  ],
+  Array [
     Array [
-      Array [
-        Object {
-          "data": Object {
-            "activeFilters": Set {
-              "usage",
-            },
-          },
-          "type": "SET_ACTIVE_FILTERS",
+      Object {
+        "data": Object {
+          "activeFilters": Set {},
         },
-        Object {
-          "data": Object {
-            "usage": "Development/Test",
+        "type": "SET_ACTIVE_FILTERS",
+      },
+      Object {
+        "data": Object {
+          "clearFilters": Object {
+            "sla": null,
+            "usage": null,
           },
-          "type": "SET_QUERY_USAGE_RHSM",
         },
-      ],
-    ],
-    Array [
-      Array [
-        Object {
-          "data": Object {
-            "activeFilters": Set {
-              "usage",
-            },
-          },
-          "type": "SET_ACTIVE_FILTERS",
+        "type": "SET_QUERY_CLEAR",
+      },
+      Object {
+        "data": Object {
+          "currentFilter": null,
         },
-        Object {
-          "data": Object {
-            "usage": "Disaster Recovery",
-          },
-          "type": "SET_QUERY_USAGE_RHSM",
-        },
-      ],
-    ],
-    Array [
-      Array [
-        Object {
-          "data": Object {
-            "currentFilter": null,
-          },
-          "type": "SET_FILTER_TYPE",
-        },
-        Object {
-          "data": Object {
-            "activeFilters": Set {},
-          },
-          "type": "SET_ACTIVE_FILTERS",
-        },
-        Object {
-          "data": Object {
-            "clearFilters": Object {
-              "usage": null,
-            },
-          },
-          "type": "SET_QUERY_CLEAR",
-        },
-      ],
-    ],
-    Array [
-      Array [
-        Object {
-          "data": Object {
-            "currentFilter": null,
-          },
-          "type": "SET_FILTER_TYPE",
-        },
-        Object {
-          "data": Object {
-            "activeFilters": Set {},
-          },
-          "type": "SET_ACTIVE_FILTERS",
-        },
-        Object {
-          "data": Object {
-            "clearFilters": Object {
-              "sla": null,
-              "usage": null,
-            },
-          },
-          "type": "SET_QUERY_CLEAR",
-        },
-      ],
+        "type": "SET_FILTER_TYPE",
+      },
     ],
   ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Object {
-          "data": Object {
-            "currentFilter": "sla",
-          },
-          "type": "SET_FILTER_TYPE",
-        },
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "activeFilters": Set {
-                "sla",
-              },
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "sla": "premium",
-            },
-            "type": "SET_QUERY_SLA_RHSM",
-          },
-        ],
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "activeFilters": Set {
-                "sla",
-              },
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "sla": "standard",
-            },
-            "type": "SET_QUERY_SLA_RHSM",
-          },
-        ],
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "currentFilter": null,
-            },
-            "type": "SET_FILTER_TYPE",
-          },
-          Object {
-            "data": Object {
-              "activeFilters": Set {},
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "clearFilters": Object {
-                "sla": null,
-              },
-            },
-            "type": "SET_QUERY_CLEAR",
-          },
-        ],
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Object {
-          "data": Object {
-            "currentFilter": "usage",
-          },
-          "type": "SET_FILTER_TYPE",
-        },
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "activeFilters": Set {
-                "usage",
-              },
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "usage": "Development/Test",
-            },
-            "type": "SET_QUERY_USAGE_RHSM",
-          },
-        ],
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "activeFilters": Set {
-                "usage",
-              },
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "usage": "Disaster Recovery",
-            },
-            "type": "SET_QUERY_USAGE_RHSM",
-          },
-        ],
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "currentFilter": null,
-            },
-            "type": "SET_FILTER_TYPE",
-          },
-          Object {
-            "data": Object {
-              "activeFilters": Set {},
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "clearFilters": Object {
-                "usage": null,
-              },
-            },
-            "type": "SET_QUERY_CLEAR",
-          },
-        ],
-      },
-    },
-    Object {
-      "type": "return",
-      "value": Object {
-        "data": undefined,
-        "type": Array [
-          Object {
-            "data": Object {
-              "currentFilter": null,
-            },
-            "type": "SET_FILTER_TYPE",
-          },
-          Object {
-            "data": Object {
-              "activeFilters": Set {},
-            },
-            "type": "SET_ACTIVE_FILTERS",
-          },
-          Object {
-            "data": Object {
-              "clearFilters": Object {
-                "sla": null,
-                "usage": null,
-              },
-            },
-            "type": "SET_QUERY_CLEAR",
-          },
-        ],
-      },
-    },
-  ],
-}
+]
 `;
 
 exports[`Toolbar Component should render a non-connected component: non-connected 1`] = `
@@ -414,7 +504,11 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
               ]
             }
             placeholder="t(curiosity-toolbar.categoryPlaceholder)"
-            selectedOptions={Array []}
+            selectedOptions={
+              Array [
+                "t(curiosity-toolbar.usageCategory)",
+              ]
+            }
             toggleIcon={
               <FilterIcon
                 color="currentColor"
@@ -470,7 +564,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
           categoryName="t(curiosity-toolbar.usageCategory)"
           chips={Array []}
           deleteChip={[Function]}
-          showToolbarItem={false}
+          showToolbarItem={true}
         >
           <Select
             aria-label="t(curiosity-toolbar.usageCategory)"
