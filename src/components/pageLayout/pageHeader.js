@@ -5,7 +5,7 @@ import {
   PageHeaderTitle
 } from '@redhat-cloud-services/frontend-components/components/cjs/PageHeader';
 import { Button } from '@patternfly/react-core';
-import { ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
+import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -27,7 +27,7 @@ const PageHeader = ({ children, t, viewId }) => (
             isInline
             component="a"
             variant="link"
-            icon={<ExternalLinkSquareAltIcon />}
+            icon={<ExternalLinkAltIcon />}
             iconPosition="right"
             target="_blank"
             href="https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/"
