@@ -33,8 +33,8 @@ class Toolbar extends React.Component {
    * @event onClear
    */
   onClear = () => {
-    this.setDispatch([
-      { type: reduxTypes.toolbar.SET_FILTER_TYPE, data: { currentFilter: null } },
+    const { hardFilterReset } = this.props;
+    const dispatchActions = [
       { type: reduxTypes.toolbar.SET_ACTIVE_FILTERS, data: { activeFilters: new Set() } },
       {
         type: reduxTypes.query.SET_QUERY_CLEAR,
@@ -45,7 +45,13 @@ class Toolbar extends React.Component {
           }
         }
       }
-    ]);
+    ];
+
+    if (hardFilterReset) {
+      dispatchActions.push({ type: reduxTypes.toolbar.SET_FILTER_TYPE, data: { currentFilter: null } });
+    }
+
+    this.setDispatch(dispatchActions);
   };
 
   /**
@@ -55,7 +61,7 @@ class Toolbar extends React.Component {
    * @param {string} categoryTitle
    */
   onClearFilter = categoryTitle => {
-    const { activeFilters, currentFilter } = this.props;
+    const { activeFilters, currentFilter, hardFilterReset } = this.props;
 
     const categoryOptions = toolbarTypes.getOptions();
     const { value: categoryValue } = categoryOptions.options.find(({ title }) => title === categoryTitle) || {};
@@ -67,10 +73,7 @@ class Toolbar extends React.Component {
     const updatedActiveFilters = new Set(activeFilters);
     updatedActiveFilters.delete(categoryValue);
 
-    const updatedCurrentFilter = (updatedActiveFilters.size > 0 && currentFilter) || null;
-
-    this.setDispatch([
-      { type: reduxTypes.toolbar.SET_FILTER_TYPE, data: { currentFilter: updatedCurrentFilter } },
+    const dispatchActions = [
       { type: reduxTypes.toolbar.SET_ACTIVE_FILTERS, data: { activeFilters: updatedActiveFilters } },
       {
         type: reduxTypes.query.SET_QUERY_CLEAR,
@@ -80,7 +83,14 @@ class Toolbar extends React.Component {
           }
         }
       }
-    ]);
+    ];
+
+    if (hardFilterReset) {
+      const updatedCurrentFilter = (updatedActiveFilters.size > 0 && currentFilter) || null;
+      dispatchActions.push({ type: reduxTypes.toolbar.SET_FILTER_TYPE, data: { currentFilter: updatedCurrentFilter } });
+    }
+
+    this.setDispatch(dispatchActions);
   };
 
   /**
@@ -259,7 +269,8 @@ class Toolbar extends React.Component {
 /**
  * Prop types
  *
- * @type {{viewId: string, t: Function, activeFilters, query, currentFilter: string, isDisabled: boolean}}
+ * @type {{viewId: string, t: Function, activeFilters, hardFilterReset: boolean, query, currentFilter: string,
+ *     isDisabled: boolean}}
  */
 Toolbar.propTypes = {
   query: PropTypes.shape({
@@ -268,6 +279,7 @@ Toolbar.propTypes = {
   }),
   activeFilters: PropTypes.instanceOf(Set),
   currentFilter: PropTypes.oneOf([rhsmApiTypes.RHSM_API_QUERY_SLA, rhsmApiTypes.RHSM_API_QUERY_USAGE]),
+  hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
   t: PropTypes.func,
   viewId: PropTypes.string
@@ -276,12 +288,14 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, activeFilters: Set, query: {}, currentFilter: null, isDisabled: boolean}}
+ * @type {{viewId: string, t: translate, activeFilters: Set, hardFilterReset: boolean, query: {},
+ *     currentFilter: null, isDisabled: boolean}}
  */
 Toolbar.defaultProps = {
   query: {},
   activeFilters: new Set(),
-  currentFilter: null,
+  currentFilter: rhsmApiTypes.RHSM_API_QUERY_USAGE,
+  hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: translate,
   viewId: 'toolbar'

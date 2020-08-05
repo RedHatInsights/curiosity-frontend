@@ -49,25 +49,34 @@ describe('Toolbar Component', () => {
   it('should handle adding and clearing filters from redux state', () => {
     const props = {};
     const component = mount(<Toolbar {...props} />);
-    const componentInstance = component.instance();
 
-    const filters = [
-      { category: RHSM_API_QUERY_SLA, method: 'onSlaSelect' },
-      { category: RHSM_API_QUERY_USAGE, method: 'onUsageSelect' }
-    ];
+    const filterMethods = () => {
+      const componentInstance = component.instance();
 
-    filters.forEach(({ category, method }) => {
-      componentInstance.onCategorySelect({ value: category });
+      const filters = [
+        { category: RHSM_API_QUERY_SLA, method: 'onSlaSelect' },
+        { category: RHSM_API_QUERY_USAGE, method: 'onUsageSelect' }
+      ];
 
-      const [optionOne, optionTwo] = toolbarTypes.getOptions(category).options;
-      componentInstance[method]({ value: optionOne.value });
-      componentInstance[method]({ value: optionTwo.value });
+      filters.forEach(({ category, method }) => {
+        componentInstance.onCategorySelect({ value: category });
 
-      const { title: categoryTitle } = toolbarTypes.getOptions().options.find(({ value }) => value === category);
-      componentInstance.onClearFilter(categoryTitle);
-    });
+        const [optionOne, optionTwo] = toolbarTypes.getOptions(category).options;
+        componentInstance[method]({ value: optionOne.value });
+        componentInstance[method]({ value: optionTwo.value });
 
-    componentInstance.onClear();
-    expect(mockDispatch).toMatchSnapshot('dispatch filter');
+        const { title: categoryTitle } = toolbarTypes.getOptions().options.find(({ value }) => value === category);
+        componentInstance.onClearFilter(categoryTitle);
+      });
+
+      componentInstance.onClear();
+    };
+
+    filterMethods();
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter');
+
+    component.setProps({ currentFilter: null, hardFilterReset: true });
+    filterMethods();
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter, hard reset');
   });
 });
