@@ -6,6 +6,7 @@ import {
 } from '@redhat-cloud-services/frontend-components/components/cjs/PageHeader';
 import { Button } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
+import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -22,7 +23,7 @@ const PageHeader = ({ children, t, viewId }) => (
     <PageHeaderTitle title={children} className="pf-u-mb-sm" />
     {viewId && (
       <p>
-        {t(`curiosity-view.${viewId}Subtitle`, {}, [
+        {t(`curiosity-view.subtitle`, { appName: helpers.UI_DISPLAY_NAME, context: viewId }, [
           <Button
             isInline
             component="a"

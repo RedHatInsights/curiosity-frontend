@@ -6,7 +6,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
     t={[Function]}
     viewId="OpenShift"
   >
-    t(curiosity-view.OpenShiftTitle, Subscription Watch)
+    t(curiosity-view.title, [object Object])
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
@@ -80,7 +80,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
     t={[Function]}
     viewId="OpenShift"
   >
-    t(curiosity-view.OpenShiftTitle, Subscription Watch)
+    t(curiosity-view.title, [object Object])
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
@@ -154,7 +154,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
     t={[Function]}
     viewId="OpenShift"
   >
-    t(curiosity-view.OpenShiftTitle, Subscription Watch)
+    t(curiosity-view.title, [object Object])
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
