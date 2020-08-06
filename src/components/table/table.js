@@ -5,6 +5,7 @@ import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import { Table as PfTable, TableBody, TableHeader, TableVariant } from '@patternfly/react-table';
 import _isEqual from 'lodash/isEqual';
 import { TableEmpty } from './tableEmpty';
+import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -129,7 +130,7 @@ class Table extends React.Component {
         <PfTable
           className={`curiosity-table${(!borders && '-no-border') || ''} ${className || ''}`}
           borders={borders}
-          aria-label={ariaLabel || t('curiosity-inventory.tableAriaLabel')}
+          aria-label={ariaLabel || t('curiosity-inventory.tableAriaLabel', { appName: helpers.UI_DISPLAY_NAME })}
           summary={summary || t('curiosity-inventory.tableSummary')}
           variant={variant}
           onCollapse={(event, index, isOpen, data) => this.onCollapse({ event, index, isOpen, data })}

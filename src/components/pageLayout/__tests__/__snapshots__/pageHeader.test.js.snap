@@ -111,7 +111,7 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
         </Title>
       </PageHeaderTitle>
       <p>
-        t(curiosity-view.RHELSubtitle, [object Object], [object Object])
+        t(curiosity-view.subtitle, [object Object], [object Object])
       </p>
     </section>
   </PageHeader>

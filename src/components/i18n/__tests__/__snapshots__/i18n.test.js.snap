@@ -185,8 +185,8 @@ Array [
     "file": "./src/components/openshiftView/openshiftView.js",
     "keys": Array [
       Object {
-        "key": "",
-        "match": "t(\`curiosity-view.\${viewId}Title\`, helpers.UI_DISPLAY_CONFIG_NAME)",
+        "key": "curiosity-view.title",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })",
       },
       Object {
         "key": "curiosity-graph.cardHeading",
@@ -275,8 +275,8 @@ Array [
     "file": "./src/components/pageLayout/pageHeader.js",
     "keys": Array [
       Object {
-        "key": "",
-        "match": "t(\`curiosity-view.\${viewId}Subtitle\`, {}, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
+        "key": "curiosity-view.subtitle",
+        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: viewId }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
       },
     ],
   },
@@ -284,8 +284,8 @@ Array [
     "file": "./src/components/rhelView/rhelView.js",
     "keys": Array [
       Object {
-        "key": "",
-        "match": "t(\`curiosity-view.\${viewId}Title\`, helpers.UI_DISPLAY_CONFIG_NAME)",
+        "key": "curiosity-view.title",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })",
       },
       Object {
         "key": "curiosity-graph.socketsHeading",
@@ -310,7 +310,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.tableAriaLabel",
-        "match": "t('curiosity-inventory.tableAriaLabel')",
+        "match": "t('curiosity-inventory.tableAriaLabel', { appName: helpers.UI_DISPLAY_NAME })",
       },
       Object {
         "key": "curiosity-inventory.tableSummary",
