@@ -1,10 +1,17 @@
-import { createSelector } from 'reselect';
+import { createSelectorCreator, defaultMemoize } from 'reselect';
 import moment from 'moment';
 import _isEqual from 'lodash/isEqual';
-import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { getCurrentDate } from '../../common/dateHelpers';
+
+/**
+ * Create a custom "are objects equal" selector.
+ *
+ * @private
+ * @type {Function}}
+ */
+const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
 
 /**
  * Selector cache.
@@ -27,7 +34,7 @@ const statePropsFilter = (state, props = {}) => ({
   ...{
     viewId: props.viewId,
     productId: props.productId,
-    query: props.listQuery
+    query: props.query
   }
 });
 
@@ -36,7 +43,7 @@ const statePropsFilter = (state, props = {}) => ({
  *
  * @type {{pending: boolean, fulfilled: boolean, listData: object, error: boolean, status: (*|number)}}
  */
-const selector = createSelector([statePropsFilter], response => {
+const selector = createDeepEqualSelector([statePropsFilter], response => {
   const { viewId = null, productId = null, query = {}, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
@@ -44,6 +51,7 @@ const selector = createSelector([statePropsFilter], response => {
     fulfilled: false,
     pending: responseData.pending || responseData.cancelled || false,
     listData: [],
+    itemCount: 0,
     status: responseData.status
   };
 
@@ -54,23 +62,25 @@ const selector = createSelector([statePropsFilter], response => {
 
   Object.assign(updatedResponseData, { ...cache });
 
+  // Reset cache on viewId update
   if (viewId && selectorCache.dataId !== viewId) {
     selectorCache.dataId = viewId;
     selectorCache.data = {};
   }
 
   if (responseData.fulfilled && productId === metaId && _isEqual(query, responseMetaQuery)) {
-    const inventory = responseData.data;
-    const listData = inventory?.[rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA] || [];
+    const {
+      [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: listData = [],
+      [rhsmApiTypes.RHSM_API_RESPONSE_META]: listMeta = {}
+    } = responseData.data || {};
 
     updatedResponseData.listData.length = 0;
-
-    // Populate expected API response values with undefined
-    const [hostsSchema = {}] = reduxHelpers.setResponseSchemas([rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES]);
 
     // Apply "display logic" then return a custom value for entries
     const customInventoryValue = ({ key, value }) => {
       switch (key) {
+        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE:
+          return value?.toLowerCase() || null;
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN:
           return moment.utc(value).startOf('day').from(getCurrentDate()) || null;
         default:
@@ -78,28 +88,24 @@ const selector = createSelector([statePropsFilter], response => {
       }
     };
 
-    // Generate reflected properties
-    listData.forEach(value => {
-      const generateReflectedData = ({ dataObj, keyPrefix = '', customValue = null }) => {
-        const updatedDataObj = {};
+    // Generate normalized properties
+    const [updatedListData, updatedListMeta] = reduxHelpers.setNormalizedResponse(
+      {
+        schema: rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES,
+        data: listData,
+        customResponseValue: customInventoryValue
+      },
+      {
+        schema: rhsmApiTypes.RHSM_API_RESPONSE_META_TYPES,
+        data: listMeta
+      }
+    );
 
-        Object.keys(dataObj).forEach(dataObjKey => {
-          const casedDataObjKey = _camelCase(`${keyPrefix} ${dataObjKey}`).trim();
-
-          if (typeof customValue === 'function') {
-            updatedDataObj[casedDataObjKey] = customValue({ data: dataObj, key: dataObjKey, value: value[dataObjKey] });
-          } else {
-            updatedDataObj[casedDataObjKey] = value[dataObjKey];
-          }
-        });
-
-        updatedResponseData.listData.push(updatedDataObj);
-      };
-
-      generateReflectedData({ dataObj: { ...hostsSchema, ...value }, customValue: customInventoryValue });
-    });
+    const [meta = {}] = updatedListMeta || [];
 
     // Update response and cache
+    updatedResponseData.itemCount = meta[rhsmApiTypes.RHSM_API_RESPONSE_META_TYPES.COUNT] ?? 0;
+    updatedResponseData.listData = updatedListData;
     updatedResponseData.fulfilled = true;
     selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`] = {
       ...updatedResponseData

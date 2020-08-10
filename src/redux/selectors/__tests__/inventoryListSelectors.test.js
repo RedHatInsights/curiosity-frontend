@@ -15,7 +15,7 @@ describe('InventoryListSelectors', () => {
     const props = {
       viewId: 'test',
       productId: undefined,
-      listQuery: {}
+      query: {}
     };
     const state = {
       inventory: {
@@ -56,7 +56,7 @@ describe('InventoryListSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum missing expected properties',
-      listQuery: {
+      query: {
         [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
       }
     };
@@ -96,7 +96,7 @@ describe('InventoryListSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum fulfilled aggregated output',
-      listQuery: {
+      query: {
         [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
       }
     };
@@ -141,7 +141,7 @@ describe('InventoryListSelectors', () => {
     const props = {
       viewId: 'cache-test',
       productId: 'Lorem Ipsum ID cached',
-      listQuery: {
+      query: {
         [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
       }
     };
