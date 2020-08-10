@@ -34,36 +34,26 @@ exports[`TableSkeleton Component should allow variations in table layout: border
     Array [
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
     ]
@@ -108,36 +98,26 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
     Array [
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
     ]
@@ -182,36 +162,26 @@ exports[`TableSkeleton Component should allow variations in table layout: column
     Array [
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
     ]
@@ -240,52 +210,42 @@ exports[`TableSkeleton Component should render a non-connected component: non-co
     Array [
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
       Object {
         "cells": Array [
-          Object {
-            "cell": <Skeleton
-              isDark={false}
-              size="md"
-            />,
-          },
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
         ],
       },
     ]
