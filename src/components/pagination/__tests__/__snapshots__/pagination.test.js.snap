@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Component should handle per-page limit, and page offset updates: page, offset 1`] = `
+Object {
+  "pageOffset": 0,
+  "pagePage": 2,
+  "pagePerPage": 20,
+}
+`;
+
+exports[`Pagination Component should handle per-page limit, and page offset updates: per-page, limit 1`] = `
+Object {
+  "perPageOffset": 0,
+  "perPagePage": 1,
+  "perPagePerPage": 20,
+}
+`;
+
+exports[`Pagination Component should handle updating paging for redux state: dispatch filter 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "offset": 10,
+        "type": "SET_QUERY_PAGE_OFFSET_RHSM",
+        "viewId": "pagination",
+      },
+      Object {
+        "offset": 10,
+        "type": "SET_QUERY_PAGE_OFFSET_RHSM",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 10,
+        "type": "SET_QUERY_PAGE_LIMIT_RHSM",
+        "viewId": "pagination",
+      },
+      Object {
+        "limit": 10,
+        "type": "SET_QUERY_PAGE_LIMIT_RHSM",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "limit": 20,
+        "type": "SET_QUERY_PAGE_LIMIT_RHSM",
+        "viewId": "pagination",
+      },
+      Object {
+        "limit": 20,
+        "type": "SET_QUERY_PAGE_LIMIT_RHSM",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Pagination Component should render a non-connected component: non-connected 1`] = `
+<Pagination
+  className="hidden"
+  defaultToFullPage={false}
+  dropDirection="down"
+  firstPage={1}
+  isCompact={false}
+  isDisabled={true}
+  itemCount={0}
+  itemsEnd={null}
+  itemsStart={null}
+  offset={0}
+  onFirstClick={[Function]}
+  onLastClick={[Function]}
+  onNextClick={[Function]}
+  onPageInput={[Function]}
+  onPerPageSelect={[Function]}
+  onPreviousClick={[Function]}
+  onSetPage={[Function]}
+  ouiaSafe={true}
+  page={1}
+  perPage={10}
+  perPageOptions={
+    Array [
+      Object {
+        "title": "10",
+        "value": 10,
+      },
+      Object {
+        "title": "20",
+        "value": 20,
+      },
+      Object {
+        "title": "50",
+        "value": 50,
+      },
+      Object {
+        "title": "100",
+        "value": 100,
+      },
+    ]
+  }
+  titles={
+    Object {
+      "currPage": "Current page",
+      "items": "",
+      "itemsPerPage": "Items per page",
+      "optionsToggle": "Items per page",
+      "page": "",
+      "paginationTitle": "Pagination",
+      "perPageSuffix": "per page",
+      "toFirstPage": "Go to first page",
+      "toLastPage": "Go to last page",
+      "toNextPage": "Go to next page",
+      "toPreviousPage": "Go to previous page",
+    }
+  }
+  toggleTemplate={[Function]}
+  variant={null}
+  widgetId="pagination-options-menu"
+/>
+`;

@@ -1,0 +1,37 @@
+.curiosity {
+  &.pf-c-page__main-section {
+    box-shadow: var(--pf-global--BoxShadow--sm);
+
+    .pf-c-card {
+      box-shadow: none;
+    }
+  }
+
+  .curiosity-inventory-card {
+    .pf-c-card__header {
+      border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+      padding-top: 0;
+      padding-bottom: 1em;
+    }
+
+    .pf-c-card__title {
+      padding: 0;
+    }
+
+    .pf-c-card__body {
+      padding-left: 0;
+      padding-right: 0;
+      min-height: 300px;
+    }
+  }
+
+  .curiosity-inventory-list {
+    .pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
+      padding-left: var(--pf-c-table--m-compact--cell--first-last-child--PaddingLeft);;
+    }
+  }
+
+  .curiosity-inventory-guestlist {
+    border-top-width: 0;
+  }
+}
