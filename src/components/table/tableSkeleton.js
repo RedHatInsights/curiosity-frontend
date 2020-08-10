@@ -22,7 +22,7 @@ const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, t, va
   const updatedColumnHeaders = [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />);
 
   const updatedRows = [...new Array(rowCount)].map(() => ({
-    cells: [...new Array(colCount)].map(() => ({ cell: <Skeleton size={SkeletonSize.md} /> }))
+    cells: [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />)
   }));
 
   return (
