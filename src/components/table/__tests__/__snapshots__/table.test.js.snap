@@ -14,7 +14,9 @@ exports[`Table Component should allow expandable content: expandable content 1`]
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table "
@@ -81,7 +83,9 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table "
@@ -148,7 +152,9 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table-no-border "
@@ -158,7 +164,6 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
       isStickyHeader={false}
-      onCollapse={[Function]}
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
@@ -203,7 +208,9 @@ exports[`Table Component should allow variations in table layout: borders and ta
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table-no-border "
@@ -213,7 +220,6 @@ exports[`Table Component should allow variations in table layout: borders and ta
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
       isStickyHeader={false}
-      onCollapse={[Function]}
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
@@ -258,7 +264,9 @@ exports[`Table Component should allow variations in table layout: className and 
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table-no-border lorem-ipsum-class"
@@ -268,7 +276,6 @@ exports[`Table Component should allow variations in table layout: className and 
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
       isStickyHeader={false}
-      onCollapse={[Function]}
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
@@ -313,7 +320,9 @@ exports[`Table Component should allow variations in table layout: generated rows
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table "
@@ -323,7 +332,6 @@ exports[`Table Component should allow variations in table layout: generated rows
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
       isStickyHeader={false}
-      onCollapse={[Function]}
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
@@ -369,7 +377,9 @@ exports[`Table Component should pass child components, nodes when there are no r
       canSelectAll={true}
       cells={
         Array [
-          "lorem ipsum",
+          Object {
+            "title": "lorem ipsum",
+          },
         ]
       }
       className="curiosity-table "
@@ -379,7 +389,6 @@ exports[`Table Component should pass child components, nodes when there are no r
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
       isStickyHeader={false}
-      onCollapse={[Function]}
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
@@ -409,10 +418,18 @@ exports[`Table Component should render a non-connected component: non-connected 
       canSelectAll={true}
       cells={
         Array [
-          "lorem",
-          "ipsum",
-          "dolor",
-          "sit",
+          Object {
+            "title": "lorem",
+          },
+          Object {
+            "title": "ipsum",
+          },
+          Object {
+            "title": "dolor",
+          },
+          Object {
+            "title": "sit",
+          },
         ]
       }
       className="curiosity-table "
@@ -422,7 +439,6 @@ exports[`Table Component should render a non-connected component: non-connected 
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
       isStickyHeader={false}
-      onCollapse={[Function]}
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
