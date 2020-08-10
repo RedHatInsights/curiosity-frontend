@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: basic cell data 1`] = `
+Object {
+  "cells": Array [
+    "ipsum",
+    "sit",
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom callback data 1`] = `
+Object {
+  "cells": Array [
+    "ipsum/sit",
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])/t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell data 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "props": Object {
+        "textCenter": true,
+      },
+      "title": "object, cell, lorem",
+    },
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom header data 1`] = `
+Object {
+  "cells": Array [
+    "ipsum",
+  ],
+  "columnHeaders": Array [
+    Object {
+      "props": Object {
+        "textCenter": true,
+      },
+      "title": "object, header, lorem",
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: filtered data 1`] = `
+Object {
+  "cells": Array [
+    "ipsum",
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers should have specific functions: inventoryListHelpers 1`] = `
+Object {
+  "parseRowCellsListData": [Function],
+}
+`;
