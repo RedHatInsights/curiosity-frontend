@@ -101,6 +101,57 @@ Object {
 }
 `;
 
+exports[`ReduxHelpers should generate a normalized API response using a schema: array response 1`] = `
+Array [
+  Array [
+    Object {
+      "ipsum": 1,
+      "sit": undefined,
+    },
+    Object {
+      "ipsum": undefined,
+      "sit": "hello world",
+    },
+  ],
+]
+`;
+
+exports[`ReduxHelpers should generate a normalized API response using a schema: object response 1`] = `
+Array [
+  Array [
+    Object {
+      "ipsum": 1,
+      "sit": undefined,
+    },
+  ],
+]
+`;
+
+exports[`ReduxHelpers should generate a normalized API response using a schema: parameters 1`] = `
+Array [
+  Array [
+    Object {
+      "ipsum": 1,
+      "sit": undefined,
+    },
+    Object {
+      "ipsum": undefined,
+      "sit": "hello world",
+    },
+  ],
+  Array [
+    Object {
+      "ipsum": "custom value = 1",
+      "sit": "custom value = undefined",
+    },
+    Object {
+      "ipsum": "custom value = undefined",
+      "sit": "custom value = hello world",
+    },
+  ],
+]
+`;
+
 exports[`ReduxHelpers should generate an expected API response with an existing schema: array 1`] = `
 Array [
   Object {
@@ -210,6 +261,7 @@ Object {
   "getMessageFromResults": [Function],
   "getSingleResponseFromResultArray": [Function],
   "getStatusFromResults": [Function],
+  "setNormalizedResponse": [Function],
   "setResponseSchemas": [Function],
   "setStateProp": [Function],
   "singlePromiseDataResponseFromArray": [Function],
