@@ -22,6 +22,39 @@ describe('ReduxHelpers', () => {
     ).toMatchSnapshot('array');
   });
 
+  it('should generate a normalized API response using a schema', () => {
+    const setNormalizedResponseParams = {
+      schema: {
+        LOREM: 'ipsum',
+        DOLOR: 'sit'
+      },
+      data: [
+        {
+          ipsum: 1
+        },
+        { sit: 'hello world' }
+      ]
+    };
+
+    expect(
+      reduxHelpers.setNormalizedResponse(setNormalizedResponseParams, {
+        ...setNormalizedResponseParams,
+        customResponseValue: ({ value }) => `custom value = ${value}`
+      })
+    ).toMatchSnapshot('parameters');
+
+    expect(reduxHelpers.setNormalizedResponse(setNormalizedResponseParams)).toMatchSnapshot('array response');
+
+    expect(
+      reduxHelpers.setNormalizedResponse({
+        ...setNormalizedResponseParams,
+        data: {
+          ipsum: 1
+        }
+      })
+    ).toMatchSnapshot('object response');
+  });
+
   it('should get a message from a service call response', () => {
     expect(
       reduxHelpers.getMessageFromResults({
