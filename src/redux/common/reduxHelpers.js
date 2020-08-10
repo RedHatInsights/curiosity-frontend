@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import _isPlainObject from 'lodash/isPlainObject';
+import _camelCase from 'lodash/camelCase';
 import { helpers } from '../../common';
 
 /**
@@ -34,6 +35,7 @@ const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
  */
 const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
+// ToDo: research applying a maintained schema map/normalizer such as, normalizr
 /**
  * Apply a set of schemas using either an array of objects in the
  * form of [{ madeUpKey: 'some_api_key' }], or an array of arrays
@@ -54,6 +56,62 @@ const setResponseSchemas = (schemas = [], initialValue) =>
 
     return generated;
   });
+
+/**
+ * Normalize an API response.
+ *
+ * @param {*} responses
+ * @param {object} responses.response
+ * @param {object} responses.response.schema
+ * @param {Array|object} responses.response.data
+ * @param {Function} responses.response.customResponseValue
+ * @param {string} responses.response.keyPrefix
+ * @returns {Array}
+ */
+const setNormalizedResponse = (...responses) => {
+  const parsedResponses = [];
+
+  responses.forEach(({ schema = {}, data, customResponseValue, keyPrefix: prefix }) => {
+    const isArray = Array.isArray(data);
+    const updatedData = (isArray && data) || (data && [data]) || [];
+    const [generatedSchema = {}] = setResponseSchemas([schema]);
+    const parsedResponse = [];
+
+    updatedData.forEach((value, index) => {
+      const generateReflectedData = ({ dataObj, keyPrefix = '', customValue = null, update = helpers.noop }) => {
+        const updatedDataObj = {};
+
+        Object.entries(dataObj).forEach(([dataObjKey, dataObjValue]) => {
+          const casedDataObjKey = _camelCase(`${keyPrefix} ${dataObjKey}`).trim();
+          let val = dataObjValue;
+
+          if (typeof val === 'number') {
+            val = (Number.isInteger(val) && Number.parseInt(val, 10)) || Number.parseFloat(val) || val;
+          }
+
+          if (typeof customValue === 'function') {
+            updatedDataObj[casedDataObjKey] = customValue({ data: dataObj, key: dataObjKey, value: val, index });
+          } else {
+            updatedDataObj[casedDataObjKey] = val;
+          }
+        });
+
+        update(updatedDataObj);
+      };
+
+      generateReflectedData({
+        keyPrefix: prefix,
+        dataObj: { ...generatedSchema, ...value },
+        customValue: customResponseValue,
+        update: generatedData => parsedResponse.push(generatedData)
+      });
+    });
+
+    parsedResponses.push(parsedResponse);
+  });
+
+  return parsedResponses;
+};
 
 /**
  * Create a single response from an array of service call responses.
@@ -163,11 +221,11 @@ const setStateProp = (prop, data, options) => {
   const { state = {}, initialState = {}, reset = true } = options;
   let obj = { ...state };
 
-  if (process.env.REACT_APP_ENV === 'development' && prop && !state[prop]) {
+  if (helpers.DEV_MODE && prop && !state[prop]) {
     console.error(`Error: Property ${prop} does not exist within the passed state.`, state);
   }
 
-  if (process.env.REACT_APP_ENV === 'development' && reset && prop && !initialState[prop]) {
+  if (helpers.DEV_MODE && reset && prop && !initialState[prop]) {
     console.warn(`Warning: Property ${prop} does not exist within the passed initialState.`, initialState);
   }
 
@@ -335,6 +393,7 @@ const reduxHelpers = {
   REJECTED_ACTION,
   HTTP_STATUS_RANGE,
   setResponseSchemas,
+  setNormalizedResponse,
   generatedPromiseActionReducer,
   getDataFromResults,
   getDateFromResults,

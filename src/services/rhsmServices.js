@@ -946,6 +946,7 @@ const getGraphCapacity = (id, params = {}) =>
  *       "data" : [
  *         {
  *           "insights_id": "498cff02-8b4b-46f8-a655-56043XXX0d2f",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-56043XXX0d2f",
  *           "display_name": "ipsum.example.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-2e65ad8e7d3e",
  *           "cores": 4,
@@ -956,12 +957,12 @@ const getGraphCapacity = (id, params = {}) =>
  *         },
  *         {
  *           "insights_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
- *           "display_name": "lorem.example.com",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-2e25aa8e7d3e",
  *           "cores": 4,
  *           "sockets": 6,
  *           "hardware_type": "physical",
- *           "number_of_guests": 2,
+ *           "number_of_guests": 0,
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         }
  *       ],

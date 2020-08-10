@@ -105,14 +105,15 @@ const RHSM_API_RESPONSE_INVENTORY_DATA = 'data';
  * @type {{CORES: string, HARDWARE: string, SOCKETS: string, ID: string, NAME: string, LAST_SEEN: string}}
  */
 const RHSM_API_RESPONSE_INVENTORY_DATA_TYPES = {
-  ID: 'insights_id',
-  NAME: 'display_name',
-  SUBSCRIPTION_ID: 'subscription_manager_id',
   CORES: 'cores',
-  SOCKETS: 'sockets',
-  HARDWARE: 'hardware_type',
   GUESTS: 'number_of_guests',
-  LAST_SEEN: 'last_seen'
+  HARDWARE: 'hardware_type',
+  ID: 'insights_id',
+  INVENTORY_ID: 'inventory_id',
+  LAST_SEEN: 'last_seen',
+  NAME: 'display_name',
+  SOCKETS: 'sockets',
+  SUBSCRIPTION_ID: 'subscription_manager_id'
 };
 
 /**

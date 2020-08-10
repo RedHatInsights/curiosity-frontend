@@ -2,8 +2,8 @@
 
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 Array [
-  "redux/common/reduxHelpers.js:167:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
-  "redux/common/reduxHelpers.js:171:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
+  "redux/common/reduxHelpers.js:225:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
+  "redux/common/reduxHelpers.js:229:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
   "setupTests.js:70:  console.error = (message, ...args) => {",
 ]
 `;
