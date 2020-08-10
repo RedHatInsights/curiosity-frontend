@@ -8,12 +8,14 @@ import {
   chart_color_purple_100 as chartColorPurpleLight,
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
+import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import Toolbar from '../toolbar/toolbar';
+import InventoryList from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -31,7 +33,7 @@ class RhelView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { query, initialFilters, location, routeDetail, t, viewId } = this.props;
+    const { query, initialGraphFilters, initialInventoryFilters, location, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
@@ -46,7 +48,7 @@ class RhelView extends React.Component {
           {(isC3 && (
             <C3GraphCard
               key={routeDetail.pathParameter}
-              filterGraphData={initialFilters}
+              filterGraphData={initialGraphFilters}
               query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
@@ -56,7 +58,7 @@ class RhelView extends React.Component {
           )) || (
             <GraphCard
               key={routeDetail.pathParameter}
-              filterGraphData={initialFilters}
+              filterGraphData={initialGraphFilters}
               query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
@@ -64,6 +66,16 @@ class RhelView extends React.Component {
               productShortLabel={viewId}
             />
           )}
+        </PageSection>
+        <PageSection>
+          <InventoryList
+            key={routeDetail.pathParameter}
+            filterInventoryData={initialInventoryFilters}
+            query={query}
+            productId={routeDetail.pathParameter}
+            viewId={viewId}
+            cardTitle={t('curiosity-inventory.cardHeading')}
+          />
         </PageSection>
       </PageLayout>
     );
@@ -73,14 +85,15 @@ class RhelView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, viewId: string, t: Function, query: object, routeDetail: object,
- *     location: object}}
+ * @type {{viewId: string, t: Function, query: object, initialGraphFilters: Array, routeDetail: object,
+ *     initialInventoryFilters: Array}}
  */
 RhelView.propTypes = {
   query: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
-  initialFilters: PropTypes.array,
+  initialGraphFilters: PropTypes.array,
+  initialInventoryFilters: PropTypes.array,
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
@@ -98,13 +111,15 @@ RhelView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, viewId: string, t: translate, query: object}}
+ * @type {{viewId: string, t: translate, query: object, initialGraphFilters: Array, initialInventoryFilters: Array}}
  */
 RhelView.defaultProps = {
   query: {
-    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
+    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY,
+    [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
+    [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
   },
-  initialFilters: [
+  initialGraphFilters: [
     {
       id: 'physicalSockets',
       fill: chartColorBlueLight.value,
@@ -124,6 +139,48 @@ RhelView.defaultProps = {
       color: chartColorPurpleDark.value
     },
     { id: 'thresholdSockets' }
+  ],
+  initialInventoryFilters: [
+    {
+      id: 'displayName',
+      cell: obj => {
+        const { displayName, inventoryId } = obj;
+
+        if (!inventoryId.value) {
+          return displayName.value;
+        }
+
+        return (
+          <Button
+            isInline
+            component="a"
+            variant="link"
+            target="_blank"
+            href={`/insights/inventory/${inventoryId.value}/`}
+          >
+            {displayName.value || inventoryId.value}
+          </Button>
+        );
+      }
+    },
+    {
+      id: 'hardwareType',
+      cell: obj => {
+        const { hardwareType, numberOfGuests } = obj;
+        return (
+          <React.Fragment>
+            {translate('curiosity-inventory.hardwareType', { context: hardwareType.value })}{' '}
+            {(numberOfGuests.value && <Badge isRead>{numberOfGuests.value}</Badge>) || ''}
+          </React.Fragment>
+        );
+      }
+    },
+    {
+      id: 'sockets'
+    },
+    {
+      id: 'lastSeen'
+    }
   ],
   t: translate,
   viewId: 'RHEL'

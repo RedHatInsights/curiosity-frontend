@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { OpenshiftView } from '../openshiftView';
+import { parseRowCellsListData } from '../../inventoryList/inventoryListHelpers';
 
 describe('OpenshiftView Component', () => {
   it('should render a non-connected component', () => {
@@ -45,5 +46,25 @@ describe('OpenshiftView Component', () => {
 
     const component = shallow(<OpenshiftView {...props} />);
     expect(component).toMatchSnapshot('alternate graph');
+  });
+
+  it('should have default props that set product configuration', () => {
+    const { initialGraphFilters, initialInventoryFilters, query } = OpenshiftView.defaultProps;
+    expect({ initialGraphFilters, initialInventoryFilters, query }).toMatchSnapshot('initial configuration');
+
+    const filteredInventoryData = parseRowCellsListData({
+      filters: initialInventoryFilters,
+      cellData: {
+        displayName: 'lorem',
+        inventoryId: 'lorem inventory id',
+        hardwareType: 'ipsum',
+        numberOfGuests: 3,
+        sockets: 10,
+        cores: 12,
+        lastSeen: 'lorem month ago'
+      }
+    });
+
+    expect(filteredInventoryData).toMatchSnapshot('filter results');
   });
 });

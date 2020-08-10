@@ -22,4 +22,13 @@
   }
 
   @keyframes fadeout { 0%{opacity:1} 100%{opacity:0} }
+
+  .hidden {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
 }

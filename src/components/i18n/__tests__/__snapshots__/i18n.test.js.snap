@@ -182,6 +182,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/inventoryList/inventoryListHelpers.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: key })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/openshiftView/openshiftView.js",
     "keys": Array [
       Object {
@@ -195,6 +204,14 @@ Array [
       Object {
         "key": "curiosity-graph.cardHeading",
         "match": "t('curiosity-graph.cardHeading')",
+      },
+      Object {
+        "key": "curiosity-inventory.cardHeading",
+        "match": "t('curiosity-inventory.cardHeading')",
+      },
+      Object {
+        "key": "curiosity-inventory.hardwareType",
+        "match": "translate('curiosity-inventory.hardwareType', { context: hardwareType.value })",
       },
     ],
   },
@@ -294,6 +311,14 @@ Array [
       Object {
         "key": "curiosity-graph.socketsHeading",
         "match": "t('curiosity-graph.socketsHeading')",
+      },
+      Object {
+        "key": "curiosity-inventory.cardHeading",
+        "match": "t('curiosity-inventory.cardHeading')",
+      },
+      Object {
+        "key": "curiosity-inventory.hardwareType",
+        "match": "translate('curiosity-inventory.hardwareType', { context: hardwareType.value })",
       },
     ],
   },
@@ -433,7 +458,18 @@ Array [
 ]
 `;
 
-exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `Array []`;
+exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
+Array [
+  Object {
+    "file": "./src/components/openshiftView/openshiftView.js",
+    "key": "curiosity-inventory.hardwareType",
+  },
+  Object {
+    "file": "./src/components/rhelView/rhelView.js",
+    "key": "curiosity-inventory.hardwareType",
+  },
+]
+`;
 
 exports[`I18n Component should pass children: children 1`] = `"lorem ipsum"`;
 

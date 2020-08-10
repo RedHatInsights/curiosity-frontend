@@ -4,6 +4,7 @@ import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
+import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { connect, reduxSelectors } from '../../redux';
@@ -11,6 +12,7 @@ import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
+import InventoryList from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -23,7 +25,8 @@ import { translate } from '../i18n/i18n';
 class OpenshiftView extends React.Component {
   state = {
     option: null,
-    filters: []
+    graphFilters: [],
+    inventoryFilters: []
   };
 
   componentDidMount() {
@@ -39,14 +42,24 @@ class OpenshiftView extends React.Component {
    */
   onSelect = (event = {}) => {
     const { option } = this.state;
-    const { initialFilters } = this.props;
+    const { initialGraphFilters, initialInventoryFilters } = this.props;
     const { value } = event;
 
     if (value !== option) {
-      const filters = initialFilters.filter(val => new RegExp(value, 'i').test(val.id));
+      const filter = ({ id, optional }) => {
+        if (!optional) {
+          return true;
+        }
+        return new RegExp(value, 'i').test(id);
+      };
+
+      const graphFilters = initialGraphFilters.filter(filter);
+      const inventoryFilters = initialInventoryFilters.filter(filter);
+
       this.setState({
         option,
-        filters
+        graphFilters,
+        inventoryFilters
       });
     }
   };
@@ -73,7 +86,7 @@ class OpenshiftView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { filters } = this.state;
+    const { graphFilters, inventoryFilters } = this.state;
     const { query, location, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
 
@@ -89,7 +102,7 @@ class OpenshiftView extends React.Component {
           {(isC3 && (
             <C3GraphCard
               key={routeDetail.pathParameter}
-              filterGraphData={filters}
+              filterGraphData={graphFilters}
               query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
@@ -101,7 +114,7 @@ class OpenshiftView extends React.Component {
           )) || (
             <GraphCard
               key={routeDetail.pathParameter}
-              filterGraphData={filters}
+              filterGraphData={graphFilters}
               query={query}
               productId={routeDetail.pathParameter}
               viewId={viewId}
@@ -112,6 +125,16 @@ class OpenshiftView extends React.Component {
             </GraphCard>
           )}
         </PageSection>
+        <PageSection>
+          <InventoryList
+            key={routeDetail.pathParameter}
+            filterInventoryData={inventoryFilters}
+            query={query}
+            productId={routeDetail.pathParameter}
+            viewId={viewId}
+            cardTitle={t('curiosity-inventory.cardHeading')}
+          />
+        </PageSection>
       </PageLayout>
     );
   }
@@ -120,15 +143,16 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, query: object,
- *     routeDetail: object, location: object}}
+ * @type {{initialGraphFilters: Array, initialInventoryFilters: Array, initialOption: string, viewId: string,
+ *     t: Function, query: object, routeDetail: object, location: object}}
  */
 OpenshiftView.propTypes = {
   query: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
-  initialFilters: PropTypes.array,
+  initialGraphFilters: PropTypes.array,
+  initialInventoryFilters: PropTypes.array,
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
@@ -146,23 +170,80 @@ OpenshiftView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: translate, query: object}}
+ * @type {{initialGraphFilters: Array, initialInventoryFilters: Array, initialOption: string, viewId: string,
+ *     t: translate, query: object}}
  */
 OpenshiftView.defaultProps = {
   query: {
-    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY
+    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY,
+    [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
+    [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
   },
   initialOption: 'cores',
-  initialFilters: [
-    { id: 'cores', fill: chartColorBlueLight.value, stroke: chartColorBlueDark.value, color: chartColorBlueDark.value },
+  initialGraphFilters: [
     {
-      id: 'sockets',
+      id: 'cores',
+      optional: true,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     },
-    { id: 'thresholdSockets' },
-    { id: 'thresholdCores' }
+    {
+      id: 'sockets',
+      optional: true,
+      fill: chartColorBlueLight.value,
+      stroke: chartColorBlueDark.value,
+      color: chartColorBlueDark.value
+    },
+    { id: 'thresholdSockets', optional: true },
+    { id: 'thresholdCores', optional: true }
+  ],
+  initialInventoryFilters: [
+    {
+      id: 'displayName',
+      cell: obj => {
+        const { displayName, inventoryId } = obj;
+
+        if (!inventoryId.value) {
+          return displayName.value;
+        }
+
+        return (
+          <Button
+            isInline
+            component="a"
+            variant="link"
+            target="_blank"
+            href={`/insights/inventory/${inventoryId.value}/`}
+          >
+            {displayName.value || inventoryId.value}
+          </Button>
+        );
+      }
+    },
+    {
+      id: 'hardwareType',
+      cell: obj => {
+        const { hardwareType, numberOfGuests } = obj;
+        return (
+          <React.Fragment>
+            {translate('curiosity-inventory.hardwareType', { context: hardwareType.value })}{' '}
+            {(numberOfGuests.value && <Badge isRead>{numberOfGuests.value}</Badge>) || ''}
+          </React.Fragment>
+        );
+      }
+    },
+    {
+      id: 'sockets',
+      optional: true
+    },
+    {
+      id: 'cores',
+      optional: true
+    },
+    {
+      id: 'lastSeen'
+    }
   ],
   t: translate,
   viewId: 'OpenShift'

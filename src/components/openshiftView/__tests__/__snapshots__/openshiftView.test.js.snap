@@ -13,6 +13,8 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       query={
         Object {
           "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
         }
       }
       viewId="OpenShift"
@@ -27,10 +29,12 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
             "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
+            "optional": true,
             "stroke": "#06c",
           },
           Object {
             "id": "thresholdCores",
+            "optional": true,
           },
         ]
       }
@@ -40,6 +44,8 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       query={
         Object {
           "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
         }
       }
       viewId="OpenShift"
@@ -71,6 +77,40 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       />
     </Connect(C3GraphCard)>
   </PageSection>
+  <PageSection>
+    <Connect(InventoryList)
+      cardTitle="t(curiosity-inventory.cardHeading)"
+      filterInventoryData={
+        Array [
+          Object {
+            "cell": [Function],
+            "id": "displayName",
+          },
+          Object {
+            "cell": [Function],
+            "id": "hardwareType",
+          },
+          Object {
+            "id": "cores",
+            "optional": true,
+          },
+          Object {
+            "id": "lastSeen",
+          },
+        ]
+      }
+      key="lorem ipsum"
+      productId="lorem ipsum"
+      query={
+        Object {
+          "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
+        }
+      }
+      viewId="OpenShift"
+    />
+  </PageSection>
 </PageLayout>
 `;
 
@@ -87,6 +127,8 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       query={
         Object {
           "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
         }
       }
       viewId="OpenShift"
@@ -101,10 +143,12 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
             "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
+            "optional": true,
             "stroke": "#06c",
           },
           Object {
             "id": "thresholdCores",
+            "optional": true,
           },
         ]
       }
@@ -114,6 +158,8 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       query={
         Object {
           "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
         }
       }
       viewId="OpenShift"
@@ -145,7 +191,161 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       />
     </Connect(GraphCard)>
   </PageSection>
+  <PageSection>
+    <Connect(InventoryList)
+      cardTitle="t(curiosity-inventory.cardHeading)"
+      filterInventoryData={
+        Array [
+          Object {
+            "cell": [Function],
+            "id": "displayName",
+          },
+          Object {
+            "cell": [Function],
+            "id": "hardwareType",
+          },
+          Object {
+            "id": "cores",
+            "optional": true,
+          },
+          Object {
+            "id": "lastSeen",
+          },
+        ]
+      }
+      key="lorem ipsum"
+      productId="lorem ipsum"
+      query={
+        Object {
+          "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
+        }
+      }
+      viewId="OpenShift"
+    />
+  </PageSection>
 </PageLayout>
+`;
+
+exports[`OpenshiftView Component should have default props that set product configuration: filter results 1`] = `
+Object {
+  "cells": Array [
+    <Button
+      component="a"
+      href="/insights/inventory/lorem inventory id/"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      lorem
+    </Button>,
+    <React.Fragment>
+      t(curiosity-inventory.hardwareType, [object Object])
+       
+      <Badge
+        isRead={true}
+      >
+        3
+      </Badge>
+    </React.Fragment>,
+    10,
+    12,
+    "lorem month ago",
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "cores": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": 12,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem",
+    },
+    "hardwareType": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem month ago",
+    },
+    "numberOfGuests": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": 3,
+    },
+    "sockets": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": 10,
+    },
+  },
+}
+`;
+
+exports[`OpenshiftView Component should have default props that set product configuration: initial configuration 1`] = `
+Object {
+  "initialGraphFilters": Array [
+    Object {
+      "color": "#06c",
+      "fill": "#8bc1f7",
+      "id": "cores",
+      "optional": true,
+      "stroke": "#06c",
+    },
+    Object {
+      "color": "#06c",
+      "fill": "#8bc1f7",
+      "id": "sockets",
+      "optional": true,
+      "stroke": "#06c",
+    },
+    Object {
+      "id": "thresholdSockets",
+      "optional": true,
+    },
+    Object {
+      "id": "thresholdCores",
+      "optional": true,
+    },
+  ],
+  "initialInventoryFilters": Array [
+    Object {
+      "cell": [Function],
+      "id": "displayName",
+    },
+    Object {
+      "cell": [Function],
+      "id": "hardwareType",
+    },
+    Object {
+      "id": "sockets",
+      "optional": true,
+    },
+    Object {
+      "id": "cores",
+      "optional": true,
+    },
+    Object {
+      "id": "lastSeen",
+    },
+  ],
+  "query": Object {
+    "granularity": "daily",
+    "limit": 10,
+    "offset": 0,
+  },
+}
 `;
 
 exports[`OpenshiftView Component should render a non-connected component: non-connected 1`] = `
@@ -161,6 +361,8 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       query={
         Object {
           "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
         }
       }
       viewId="OpenShift"
@@ -175,10 +377,12 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
             "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
+            "optional": true,
             "stroke": "#06c",
           },
           Object {
             "id": "thresholdCores",
+            "optional": true,
           },
         ]
       }
@@ -188,6 +392,8 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       query={
         Object {
           "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
         }
       }
       viewId="OpenShift"
@@ -218,6 +424,40 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         variant="single"
       />
     </Connect(GraphCard)>
+  </PageSection>
+  <PageSection>
+    <Connect(InventoryList)
+      cardTitle="t(curiosity-inventory.cardHeading)"
+      filterInventoryData={
+        Array [
+          Object {
+            "cell": [Function],
+            "id": "displayName",
+          },
+          Object {
+            "cell": [Function],
+            "id": "hardwareType",
+          },
+          Object {
+            "id": "cores",
+            "optional": true,
+          },
+          Object {
+            "id": "lastSeen",
+          },
+        ]
+      }
+      key="lorem ipsum"
+      productId="lorem ipsum"
+      query={
+        Object {
+          "granularity": "daily",
+          "limit": 10,
+          "offset": 0,
+        }
+      }
+      viewId="OpenShift"
+    />
   </PageSection>
 </PageLayout>
 `;
