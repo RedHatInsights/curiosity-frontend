@@ -98,11 +98,18 @@ Array [
 
 exports[`C3GraphCard Component should render a non-connected component: non-connected 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className=""
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -142,7 +149,7 @@ exports[`C3GraphCard Component should render a non-connected component: non-conn
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container "
+      className="fadein"
     />
   </CardBody>
 </Card>
@@ -184,13 +191,20 @@ Object {
 }
 `;
 
-exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
+exports[`C3GraphCard Component should render multiple states: error with 403 status 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className="blur"
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -230,7 +244,321 @@ exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container "
+      className="blur"
+    >
+      <C3Chart
+        className={null}
+        config={
+          Object {
+            "axis": Object {
+              "x": Object {
+                "padding": 0,
+                "tick": Object {
+                  "format": [Function],
+                },
+                "type": "timeseries",
+              },
+              "y": Object {
+                "default": Array [
+                  0,
+                  50,
+                ],
+                "min": 0,
+                "padding": Object {
+                  "bottom": 0,
+                },
+                "tick": Object {
+                  "format": [Function],
+                  "outer": false,
+                  "show": false,
+                },
+              },
+            },
+            "data": Object {
+              "colors": Object {
+                "physicalSockets": undefined,
+              },
+              "columns": Array [
+                Array [
+                  "x",
+                  "2019-06-01",
+                  "2019-06-08",
+                  "2019-06-25",
+                ],
+                Array [
+                  "physicalSockets",
+                  10,
+                  12,
+                  3,
+                ],
+              ],
+              "groups": Array [
+                Array [
+                  "physicalSockets",
+                ],
+              ],
+              "names": Object {
+                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+              },
+              "types": Object {
+                "physicalSockets": "area-spline",
+              },
+              "x": "x",
+            },
+            "grid": Object {
+              "y": Object {
+                "show": true,
+              },
+            },
+            "legend": Object {
+              "show": false,
+            },
+            "padding": Object {
+              "bottom": 10,
+              "left": 40,
+              "right": 40,
+              "top": 10,
+            },
+            "point": Object {
+              "show": false,
+            },
+            "spline": Object {
+              "interpolation": Object {
+                "type": "monotone",
+              },
+            },
+            "tooltip": Object {
+              "format": Object {
+                "title": [Function],
+                "value": [Function],
+              },
+              "order": [Function],
+            },
+            "unloadBeforeLoad": true,
+          }
+        }
+        key="chart-lorem-daily"
+        onComplete={[Function]}
+        style={Object {}}
+      >
+        <Component />
+      </C3Chart>
+    </div>
+  </CardBody>
+</Card>
+`;
+
+exports[`C3GraphCard Component should render multiple states: error with 500 status 1`] = `
+<Card
+  className="curiosity-usage-graph"
+>
+  <CardHeader>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className="blur"
+    >
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        isToggleText={true}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "selected": true,
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        toggleIcon={null}
+        variant="single"
+      />
+    </CardActions>
+  </CardHeader>
+  <CardBody>
+    <div
+      className="blur"
+    >
+      <C3Chart
+        className={null}
+        config={
+          Object {
+            "axis": Object {
+              "x": Object {
+                "padding": 0,
+                "tick": Object {
+                  "format": [Function],
+                },
+                "type": "timeseries",
+              },
+              "y": Object {
+                "default": Array [
+                  0,
+                  50,
+                ],
+                "min": 0,
+                "padding": Object {
+                  "bottom": 0,
+                },
+                "tick": Object {
+                  "format": [Function],
+                  "outer": false,
+                  "show": false,
+                },
+              },
+            },
+            "data": Object {
+              "colors": Object {
+                "physicalSockets": undefined,
+              },
+              "columns": Array [
+                Array [
+                  "x",
+                  "2019-06-01",
+                  "2019-06-08",
+                  "2019-06-25",
+                ],
+                Array [
+                  "physicalSockets",
+                  10,
+                  12,
+                  3,
+                ],
+              ],
+              "groups": Array [
+                Array [
+                  "physicalSockets",
+                ],
+              ],
+              "names": Object {
+                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+              },
+              "types": Object {
+                "physicalSockets": "area-spline",
+              },
+              "x": "x",
+            },
+            "grid": Object {
+              "y": Object {
+                "show": true,
+              },
+            },
+            "legend": Object {
+              "show": false,
+            },
+            "padding": Object {
+              "bottom": 10,
+              "left": 40,
+              "right": 40,
+              "top": 10,
+            },
+            "point": Object {
+              "show": false,
+            },
+            "spline": Object {
+              "interpolation": Object {
+                "type": "monotone",
+              },
+            },
+            "tooltip": Object {
+              "format": Object {
+                "title": [Function],
+                "value": [Function],
+              },
+              "order": [Function],
+            },
+            "unloadBeforeLoad": true,
+          }
+        }
+        key="chart-lorem-daily"
+        onComplete={[Function]}
+        style={Object {}}
+      >
+        <Component />
+      </C3Chart>
+    </div>
+  </CardBody>
+</Card>
+`;
+
+exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
+<Card
+  className="curiosity-usage-graph"
+>
+  <CardHeader>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className=""
+    >
+      <Select
+        aria-label="t(curiosity-graph.dropdownPlaceholder)"
+        ariaLabel="Select option"
+        className=""
+        id="generatedid-"
+        isDisabled={false}
+        isToggleText={true}
+        name={null}
+        onSelect={[Function]}
+        options={
+          Array [
+            Object {
+              "selected": true,
+              "title": "t(curiosity-graph.dropdownDaily)",
+              "value": "daily",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownWeekly)",
+              "value": "weekly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownMonthly)",
+              "value": "monthly",
+            },
+            Object {
+              "title": "t(curiosity-graph.dropdownQuarterly)",
+              "value": "quarterly",
+            },
+          ]
+        }
+        placeholder="t(curiosity-graph.dropdownPlaceholder)"
+        selectedOptions="daily"
+        toggleIcon={null}
+        variant="single"
+      />
+    </CardActions>
+  </CardHeader>
+  <CardBody>
+    <div
+      className="fadein"
     >
       <C3Chart
         className={null}
@@ -336,11 +664,18 @@ exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
 
 exports[`C3GraphCard Component should render multiple states: pending 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className=""
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -380,23 +715,16 @@ exports[`C3GraphCard Component should render multiple states: pending 1`] = `
   </CardHeader>
   <CardBody>
     <div
-      className="curiosity-skeleton-container "
+      className="fadein"
     >
-      <Skeleton
-        isDark={false}
-        size="xs"
-      />
-      <Skeleton
-        isDark={false}
-        size="sm"
-      />
-      <Skeleton
-        isDark={false}
-        size="md"
-      />
-      <Skeleton
-        isDark={false}
-        size="lg"
+      <Loader
+        skeletonProps={
+          Object {
+            "size": "sm",
+          }
+        }
+        tableProps={Object {}}
+        variant="graph"
       />
     </div>
   </CardBody>
