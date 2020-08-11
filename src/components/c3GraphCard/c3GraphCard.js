@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardTitle, CardHeader, CardActions, CardBody } from '@patternfly/react-core';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
+import { Card, CardTitle, CardHeader, CardActions, CardBody, Title } from '@patternfly/react-core';
 import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
 import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
@@ -11,6 +10,7 @@ import { c3GraphCardHelpers } from './c3GraphCardHelpers';
 import { C3GraphCardLegendItem } from './c3GraphCardLegendItem';
 import { graphCardTypes } from '../graphCard/graphCardTypes';
 import { C3Chart } from '../c3Chart/c3Chart';
+import { Loader } from '../loader/loader';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -41,8 +41,8 @@ class C3GraphCard extends React.Component {
    * @event onUpdateGraphData
    */
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, query, isDisabled, productId } = this.props;
-    const graphGranularity = query && query[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const { getGraphReportsCapacity, isDisabled, productId, query } = this.props;
+    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
     if (!isDisabled && graphGranularity && productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
@@ -121,9 +121,8 @@ class C3GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, query, selectOptionsType, productId, productShortLabel } = this.props;
-
-    const graphGranularity = query && query[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const { filterGraphData, graphData, productId, productShortLabel, query, selectOptionsType } = this.props;
+    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
 
@@ -171,20 +170,24 @@ class C3GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, query, isDisabled, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, children, error, isDisabled, pending, query, selectOptionsType, t } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
     const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
-    const graphGranularity = query && query[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
     return (
-      <Card className="curiosity-usage-graph fadein">
+      <Card className="curiosity-usage-graph">
         <CardHeader>
-          <CardTitle>{cardTitle}</CardTitle>
-          <CardActions>
+          <CardTitle>
+            <Title headingLevel="h2" size="lg">
+              {cardTitle}
+            </Title>
+          </CardTitle>
+          <CardActions className={(error && 'blur') || ''}>
             {children}
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
@@ -196,15 +199,8 @@ class C3GraphCard extends React.Component {
           </CardActions>
         </CardHeader>
         <CardBody>
-          <div className={`curiosity-skeleton-container ${(error && 'blur') || ''}`}>
-            {pending && (
-              <React.Fragment>
-                <Skeleton size={SkeletonSize.xs} />
-                <Skeleton size={SkeletonSize.sm} />
-                <Skeleton size={SkeletonSize.md} />
-                <Skeleton size={SkeletonSize.lg} />
-              </React.Fragment>
-            )}
+          <div className={(error && 'blur') || 'fadein'}>
+            {pending && <Loader variant="graph" />}
             {!pending && this.renderChart()}
           </div>
         </CardBody>
@@ -267,13 +263,6 @@ C3GraphCard.defaultProps = {
 };
 
 /**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
-
-/**
  * Apply actions to props.
  *
  * @param {Function} dispatch
@@ -282,6 +271,13 @@ const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 const mapDispatchToProps = dispatch => ({
   getGraphReportsCapacity: (id, query) => dispatch(reduxActions.rhsm.getGraphReportsCapacity(id, query))
 });
+
+/**
+ * Create a selector from applied state, props.
+ *
+ * @type {Function}
+ */
+const makeMapStateToProps = reduxSelectors.graphCard.makeGraphCard();
 
 const ConnectedGraphCard = connect(makeMapStateToProps, mapDispatchToProps)(C3GraphCard);
 

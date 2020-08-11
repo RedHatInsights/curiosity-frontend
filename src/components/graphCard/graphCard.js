@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardTitle, CardHeader, CardActions, CardBody } from '@patternfly/react-core';
+import { Card, CardTitle, CardHeader, CardActions, CardBody, Title } from '@patternfly/react-core';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
@@ -28,7 +28,7 @@ class GraphCard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { query, productId } = this.props;
+    const { productId, query } = this.props;
 
     if (productId !== prevProps.productId || !_isEqual(query, prevProps.query)) {
       this.onUpdateGraphData();
@@ -41,8 +41,8 @@ class GraphCard extends React.Component {
    * @event onUpdateGraphData
    */
   onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, query, isDisabled, productId } = this.props;
-    const graphGranularity = query && query[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const { getGraphReportsCapacity, isDisabled, productId, query } = this.props;
+    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
     if (!isDisabled && graphGranularity && productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
@@ -84,8 +84,8 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, query, selectOptionsType, productShortLabel, viewId } = this.props;
-    const graphGranularity = query && query[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const { filterGraphData, graphData, selectOptionsType, productShortLabel, query, viewId } = this.props;
+    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
 
@@ -158,20 +158,24 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, query, isDisabled, selectOptionsType, pending, t } = this.props;
+    const { cardTitle, children, error, isDisabled, pending, query, selectOptionsType, t } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
     const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
-    const graphGranularity = query && query[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
 
     return (
-      <Card className="curiosity-usage-graph fadein">
+      <Card className="curiosity-usage-graph">
         <CardHeader>
-          <CardTitle>{cardTitle}</CardTitle>
-          <CardActions>
+          <CardTitle>
+            <Title headingLevel="h2" size="lg">
+              {cardTitle}
+            </Title>
+          </CardTitle>
+          <CardActions className={(error && 'blur') || ''}>
             {children}
             <Select
               aria-label={t('curiosity-graph.dropdownPlaceholder')}
@@ -183,7 +187,7 @@ class GraphCard extends React.Component {
           </CardActions>
         </CardHeader>
         <CardBody>
-          <div className={(error && 'blur') || ''}>
+          <div className={(error && 'blur') || 'fadein'}>
             {pending && <Loader variant="graph" />}
             {!pending && this.renderChart()}
           </div>

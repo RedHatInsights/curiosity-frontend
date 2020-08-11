@@ -54,13 +54,13 @@ describe('C3GraphCard Component', () => {
       status: 403
     });
 
-    expect(component.find('.curiosity-skeleton-container').hasClass('blur')).toBe(true);
+    expect(component).toMatchSnapshot('error with 403 status');
 
     component.setProps({
       status: 500
     });
 
-    expect(component.find('.curiosity-skeleton-container').hasClass('blur')).toBe(true);
+    expect(component).toMatchSnapshot('error with 500 status');
 
     component.setProps({
       error: false,
