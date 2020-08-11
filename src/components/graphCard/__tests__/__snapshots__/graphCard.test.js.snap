@@ -66,11 +66,18 @@ Array [
 
 exports[`GraphCard Component should render a non-connected component: non-connected 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className=""
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -110,7 +117,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   </CardHeader>
   <CardBody>
     <div
-      className=""
+      className="fadein"
     >
       <ChartArea
         chartLegend={[Function]}
@@ -175,11 +182,18 @@ Object {
 
 exports[`GraphCard Component should render multiple states: error with 403 status 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className="blur"
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -280,11 +294,18 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
 
 exports[`GraphCard Component should render multiple states: error with 500 status 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className="blur"
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -385,11 +406,18 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
 
 exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className=""
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -429,7 +457,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   </CardHeader>
   <CardBody>
     <div
-      className=""
+      className="fadein"
     >
       <ChartArea
         chartLegend={[Function]}
@@ -490,11 +518,18 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
 
 exports[`GraphCard Component should render multiple states: pending 1`] = `
 <Card
-  className="curiosity-usage-graph fadein"
+  className="curiosity-usage-graph"
 >
   <CardHeader>
-    <CardTitle />
-    <CardActions>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      />
+    </CardTitle>
+    <CardActions
+      className=""
+    >
       <Select
         aria-label="t(curiosity-graph.dropdownPlaceholder)"
         ariaLabel="Select option"
@@ -534,7 +569,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   </CardHeader>
   <CardBody>
     <div
-      className=""
+      className="fadein"
     >
       <Loader
         skeletonProps={
