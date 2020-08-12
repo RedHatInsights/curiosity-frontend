@@ -945,25 +945,47 @@ const getGraphCapacity = (id, params = {}) =>
  *     {
  *       "data" : [
  *         {
- *           "insights_id": "498cff02-8b4b-46f8-a655-56043XXX0d2f",
- *           "inventory_id": "498cff02-8b4b-46f8-a655-56043XXX0d2f",
+ *           "insights_id": "498cff02-8b4b-46f8-a655-123456789012",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-123456789012",
  *           "display_name": "ipsum.example.com",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-2e65ad8e7d3e",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-123456789012",
  *           "cores": 4,
  *           "sockets": 2,
- *           "hardware_type": "physical",
- *           "number_of_guests": 2,
+ *           "hardware_type": "VIRTUAL",
+ *           "number_of_guests": 70,
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
  *         {
  *           "insights_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
  *           "inventory_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-2e25aa8e7d3e",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-56043FFF0d2e",
  *           "cores": 4,
  *           "sockets": 6,
- *           "hardware_type": "physical",
+ *           "hardware_type": "PHYSICAL",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-20T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "498cff02-8b4b-46f8-a655-abcdefghijklm",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-abcdefghijklm",
+ *           "display_name": "dolor.example.com",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-abcdefghijklm",
+ *           "cores": 4,
+ *           "sockets": 2,
+ *           "hardware_type": "VIRTUAL",
+ *           "number_of_guests": 10,
+ *           "last_seen": "2020-04-02T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "498cff02-8b4b-46f8-a655-nopqrstuvxyzab",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-nopqrstuvxyzab",
+ *           "display_name": "dolor.again.com",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-nopqrstuvxyzab",
+ *           "cores": 4,
+ *           "sockets": 2,
+ *           "hardware_type": "VIRTUAL",
+ *           "number_of_guests": 1,
+ *           "last_seen": "2020-04-02T00:00:00Z"
  *         }
  *       ],
  *       "links": {
@@ -973,7 +995,7 @@ const getGraphCapacity = (id, params = {}) =>
  *         "next": "/api/rhsm-subscriptions/v1/hosts/RHEL?granularity=DAILY&sla=Premium&usage=Production&offset=5&limit=5"
  *       },
  *       "meta": {
- *         "count": 2
+ *         "count": 3
  *       }
  *     }
  *
@@ -1018,14 +1040,72 @@ const getHostsInventory = (id, params = {}) =>
  *       "data" : [
  *         {
  *           "insights_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
+ *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
  *           "display_name": "guest01.example.com",
  *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
  *         {
  *           "insights_id": "9358e312-1c9f-42f4-8910-dcef6e970852",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-dcef6e970852",
  *           "display_name": "guest02.example.com",
  *           "subscription_manager_id": "b101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest03.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "498cff02-8b4b-46f8-a655-XLef312123456",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-XLef312123456",
+ *           "display_name": "guest04.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest05.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest06.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest07.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest08.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest09.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
+ *           "last_seen": "2020-07-01T00:00:00Z"
+ *         },
+ *         {
+ *           "insights_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "inventory_id": "9358e312-1c9f-42f4-8910-XLef312123456",
+ *           "display_name": "guest10.example.com",
+ *           "subscription_manager_id": "c101a72f-1859-4489-acb8-d6d31c2578c4",
  *           "last_seen": "2020-07-01T00:00:00Z"
  *         }
  *       ],
@@ -1036,7 +1116,7 @@ const getHostsInventory = (id, params = {}) =>
  *         "next": "/api/rhsm-subscriptions/v1/hosts/a283ffb6-e0f3-4dbe-9732-ccfdb297ba07/guests?offset=5&limit=5"
  *       },
  *       "meta": {
- *         "count": 2
+ *         "count": 70
  *       }
  *     }
  *
@@ -1064,8 +1144,7 @@ const getHostsInventory = (id, params = {}) =>
 const getHostsInventoryGuests = (id, params = {}) =>
   serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_INVENTORY_GUESTS.replace('{0}', id),
-    params,
-    cancel: true
+    params
   });
 
 const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory, getHostsInventoryGuests };

@@ -1,18 +1,8 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
-import _isEqual from 'lodash/isEqual';
-import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { getCurrentDate } from '../../common/dateHelpers';
-
-/**
- * Selector cache.
- *
- * @private
- * @type {{dataId: {string}, data: {object}}}
- */
-const selectorCache = { dataId: null, data: {} };
 
 /**
  * Return a combined state, props object.
@@ -23,21 +13,16 @@ const selectorCache = { dataId: null, data: {} };
  * @returns {object}
  */
 const statePropsFilter = (state, props = {}) => ({
-  ...state.inventory?.hostsGuests?.[props.productId],
-  ...{
-    viewId: props.viewId,
-    productId: props.productId,
-    query: props.listQuery
-  }
+  ...state.inventory?.hostsGuests?.[props.id]
 });
 
 /**
  * Create selector, transform combined state, props into a consumable object.
  *
- * @type {{pending: boolean, fulfilled: boolean, listData: object, error: boolean, status: (*|number)}}
+ * @type {{listData: Array, pending: boolean, fulfilled: boolean, error: boolean, status: (*|number)}}
  */
 const selector = createSelector([statePropsFilter], response => {
-  const { viewId = null, productId = null, query = {}, metaId, metaQuery = {}, ...responseData } = response || {};
+  const { metaId, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
@@ -47,28 +32,8 @@ const selector = createSelector([statePropsFilter], response => {
     status: responseData.status
   };
 
-  const responseMetaQuery = { ...metaQuery };
-
-  const cache =
-    (viewId && productId && selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`]) || undefined;
-
-  Object.assign(updatedResponseData, { ...cache });
-
-  if (viewId && selectorCache.dataId !== viewId) {
-    selectorCache.dataId = viewId;
-    selectorCache.data = {};
-  }
-
-  if (responseData.fulfilled && productId === metaId && _isEqual(query, responseMetaQuery)) {
-    const inventory = responseData.data;
-    const listData = inventory?.[rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA] || [];
-
-    updatedResponseData.listData.length = 0;
-
-    // Populate expected API response values with undefined
-    const [hostsSchema = {}] = reduxHelpers.setResponseSchemas([
-      rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES
-    ]);
+  if (responseData.fulfilled) {
+    const { [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: listData = [] } = responseData.data || {};
 
     // Apply "display logic" then return a custom value for entries
     const customInventoryValue = ({ key, value }) => {
@@ -80,32 +45,16 @@ const selector = createSelector([statePropsFilter], response => {
       }
     };
 
-    // Generate reflected properties
-    listData.forEach(value => {
-      const generateReflectedData = ({ dataObj, keyPrefix = '', customValue = null }) => {
-        const updatedDataObj = {};
-
-        Object.keys(dataObj).forEach(dataObjKey => {
-          const casedDataObjKey = _camelCase(`${keyPrefix} ${dataObjKey}`).trim();
-
-          if (typeof customValue === 'function') {
-            updatedDataObj[casedDataObjKey] = customValue({ data: dataObj, key: dataObjKey, value: value[dataObjKey] });
-          } else {
-            updatedDataObj[casedDataObjKey] = value[dataObjKey];
-          }
-        });
-
-        updatedResponseData.listData.push(updatedDataObj);
-      };
-
-      generateReflectedData({ dataObj: { ...hostsSchema, ...value }, customValue: customInventoryValue });
+    // Generate normalized properties
+    const [updatedListData] = reduxHelpers.setNormalizedResponse({
+      schema: rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES,
+      data: listData,
+      customResponseValue: customInventoryValue
     });
 
     // Update response and cache
     updatedResponseData.fulfilled = true;
-    selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`] = {
-      ...updatedResponseData
-    };
+    updatedResponseData.listData = updatedListData;
   }
 
   return updatedResponseData;
@@ -115,11 +64,9 @@ const selector = createSelector([statePropsFilter], response => {
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
+ * @returns {{listData: Array, pending: boolean, fulfilled: boolean, error: boolean, status: (*|number)}}
  */
-const makeSelector = defaultProps => (state, props) => ({
-  ...selector(state, props, defaultProps)
-});
+const makeSelector = defaultProps => (...args) => ({ ...selector(...args, defaultProps) });
 
 const guestsListSelectors = {
   guestsList: selector,

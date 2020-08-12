@@ -87,7 +87,7 @@ class OpenshiftView extends React.Component {
    */
   render() {
     const { graphFilters, inventoryFilters } = this.state;
-    const { query, initialToolbarFilters, location, routeDetail, t, viewId } = this.props;
+    const { initialGuestsFilters, initialToolbarFilters, location, query, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
     const { graphQuery, inventoryQuery, toolbarQuery } = apiQueries.parseRhsmQuery(query);
 
@@ -129,6 +129,7 @@ class OpenshiftView extends React.Component {
         <PageSection>
           <InventoryList
             key={routeDetail.pathParameter}
+            filterGuestsData={initialGuestsFilters}
             filterInventoryData={inventoryFilters}
             query={inventoryQuery}
             productId={routeDetail.pathParameter}
@@ -145,7 +146,8 @@ class OpenshiftView extends React.Component {
  * Prop types.
  *
  * @type {{initialOption: string, initialToolbarFilters: Array, viewId: string, t: Function, query: object,
- *     initialGraphFilters: Array, routeDetail: object, location: object, initialInventoryFilters: Array}}
+ *     initialGraphFilters: Array, routeDetail: object, location: object, initialGuestsFilters: Array,
+ *     initialInventoryFilters: Array}}
  */
 OpenshiftView.propTypes = {
   query: PropTypes.shape({
@@ -153,6 +155,7 @@ OpenshiftView.propTypes = {
   }),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
   initialGraphFilters: PropTypes.array,
+  initialGuestsFilters: PropTypes.array,
   initialInventoryFilters: PropTypes.array,
   initialToolbarFilters: PropTypes.array,
   location: PropTypes.shape({
@@ -173,7 +176,7 @@ OpenshiftView.propTypes = {
  * Default props.
  *
  * @type {{initialOption: string, initialToolbarFilters: Array, viewId: string, t: translate, query: object,
- *     initialGraphFilters: Array, initialInventoryFilters: Array}}
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array}}
  */
 OpenshiftView.defaultProps = {
   query: {
@@ -200,14 +203,44 @@ OpenshiftView.defaultProps = {
     { id: 'thresholdSockets', optional: true },
     { id: 'thresholdCores', optional: true }
   ],
+  initialGuestsFilters: [
+    {
+      id: 'displayName',
+      cell: obj => {
+        const { displayName, inventoryId } = obj;
+
+        if (!inventoryId?.value) {
+          return displayName?.value;
+        }
+
+        return (
+          <Button
+            isInline
+            component="a"
+            variant="link"
+            target="_blank"
+            href={`/insights/inventory/${inventoryId.value}/`}
+          >
+            {displayName.value || inventoryId.value}
+          </Button>
+        );
+      }
+    },
+    {
+      id: 'inventoryId'
+    },
+    {
+      id: 'lastSeen'
+    }
+  ],
   initialInventoryFilters: [
     {
       id: 'displayName',
       cell: obj => {
         const { displayName, inventoryId } = obj;
 
-        if (!inventoryId.value) {
-          return displayName.value;
+        if (!inventoryId?.value) {
+          return displayName?.value;
         }
 
         return (
