@@ -85,6 +85,20 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
   <PageSection>
     <Connect(InventoryList)
       cardTitle="t(curiosity-inventory.cardHeading)"
+      filterGuestsData={
+        Array [
+          Object {
+            "cell": [Function],
+            "id": "displayName",
+          },
+          Object {
+            "id": "inventoryId",
+          },
+          Object {
+            "id": "lastSeen",
+          },
+        ]
+      }
       filterInventoryData={
         Array [
           Object {
@@ -203,6 +217,20 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   <PageSection>
     <Connect(InventoryList)
       cardTitle="t(curiosity-inventory.cardHeading)"
+      filterGuestsData={
+        Array [
+          Object {
+            "cell": [Function],
+            "id": "displayName",
+          },
+          Object {
+            "id": "inventoryId",
+          },
+          Object {
+            "id": "lastSeen",
+          },
+        ]
+      }
       filterInventoryData={
         Array [
           Object {
@@ -236,7 +264,52 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 </PageLayout>
 `;
 
-exports[`OpenshiftView Component should have default props that set product configuration: filter results 1`] = `
+exports[`OpenshiftView Component should have default props that set product configuration: filteredGuestsData results 1`] = `
+Object {
+  "cells": Array [
+    <Button
+      component="a"
+      href="/insights/inventory/lorem inventory id/"
+      isInline={true}
+      target="_blank"
+      variant="link"
+    >
+      lorem
+    </Button>,
+    "lorem inventory id",
+    "lorem month ago",
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem month ago",
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "hello world",
+    },
+    "subscriptionManagerId": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
+exports[`OpenshiftView Component should have default props that set product configuration: filteredInventoryData results 1`] = `
 Object {
   "cells": Array [
     <Button
@@ -289,6 +362,10 @@ Object {
       "title": "t(curiosity-inventory.header, [object Object])",
       "value": "lorem month ago",
     },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "hello world",
+    },
     "numberOfGuests": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
       "value": 3,
@@ -325,6 +402,18 @@ Object {
     Object {
       "id": "thresholdCores",
       "optional": true,
+    },
+  ],
+  "initialGuestsFilters": Array [
+    Object {
+      "cell": [Function],
+      "id": "displayName",
+    },
+    Object {
+      "id": "inventoryId",
+    },
+    Object {
+      "id": "lastSeen",
     },
   ],
   "initialInventoryFilters": Array [
@@ -441,6 +530,20 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   <PageSection>
     <Connect(InventoryList)
       cardTitle="t(curiosity-inventory.cardHeading)"
+      filterGuestsData={
+        Array [
+          Object {
+            "cell": [Function],
+            "id": "displayName",
+          },
+          Object {
+            "id": "inventoryId",
+          },
+          Object {
+            "id": "lastSeen",
+          },
+        ]
+      }
       filterInventoryData={
         Array [
           Object {
