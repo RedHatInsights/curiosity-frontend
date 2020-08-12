@@ -34,11 +34,12 @@ class RhelView extends React.Component {
    */
   render() {
     const {
-      query,
       initialGraphFilters,
+      initialGuestsFilters,
       initialInventoryFilters,
       initialToolbarFilters,
       location,
+      query,
       routeDetail,
       t,
       viewId
@@ -80,6 +81,7 @@ class RhelView extends React.Component {
         <PageSection>
           <InventoryList
             key={routeDetail.pathParameter}
+            filterGuestsData={initialGuestsFilters}
             filterInventoryData={initialInventoryFilters}
             query={inventoryQuery}
             productId={routeDetail.pathParameter}
@@ -96,13 +98,14 @@ class RhelView extends React.Component {
  * Prop types.
  *
  * @type {{initialToolbarFilters: Array, viewId: string, t: Function, query: object, initialGraphFilters: Array,
- *     routeDetail: object, location: object, initialInventoryFilters: Array}}
+ *     routeDetail: object, location: object, initialGuestsFilters: Array, initialInventoryFilters: Array}}
  */
 RhelView.propTypes = {
   query: PropTypes.shape({
     [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialGraphFilters: PropTypes.array,
+  initialGuestsFilters: PropTypes.array,
   initialInventoryFilters: PropTypes.array,
   initialToolbarFilters: PropTypes.array,
   location: PropTypes.shape({
@@ -123,7 +126,7 @@ RhelView.propTypes = {
  * Default props.
  *
  * @type {{initialToolbarFilters: Array, viewId: string, t: translate, query: object,
- *     initialGraphFilters: Array, initialInventoryFilters: Array}}
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array}}
  */
 RhelView.defaultProps = {
   query: {
@@ -152,14 +155,44 @@ RhelView.defaultProps = {
     },
     { id: 'thresholdSockets' }
   ],
+  initialGuestsFilters: [
+    {
+      id: 'displayName',
+      cell: obj => {
+        const { displayName, inventoryId } = obj;
+
+        if (!inventoryId?.value) {
+          return displayName?.value;
+        }
+
+        return (
+          <Button
+            isInline
+            component="a"
+            variant="link"
+            target="_blank"
+            href={`/insights/inventory/${inventoryId.value}/`}
+          >
+            {displayName.value || inventoryId.value}
+          </Button>
+        );
+      }
+    },
+    {
+      id: 'inventoryId'
+    },
+    {
+      id: 'lastSeen'
+    }
+  ],
   initialInventoryFilters: [
     {
       id: 'displayName',
       cell: obj => {
         const { displayName, inventoryId } = obj;
 
-        if (!inventoryId.value) {
-          return displayName.value;
+        if (!inventoryId?.value) {
+          return displayName?.value;
         }
 
         return (
