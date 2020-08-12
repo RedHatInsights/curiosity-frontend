@@ -26,4 +26,41 @@
   table.pf-m-no-border-rows > tbody > tr {
     border-width: 0
   }
+
+  .curiosity-table-scroll {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .curiosity-table-scroll-loader__custom,
+  .curiosity-table-scroll-loader__spinner {
+    background: var(--pf-global--BackgroundColor--100);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: calc(100% - 40px);
+    z-index: 2;
+  }
+
+  .curiosity-table-scroll-loader__spinner {
+    display: inline-block;
+    border-radius: 25%;
+    left: inherit;
+    right: 40px;
+    padding: 2px;
+    width: auto;
+  }
+
+  .curiosity-table-scroll-list,
+  .curiosity-table-scroll-list__no-scroll {
+    overflow-y: auto;
+    min-height: calc(100% / 2);
+    max-height: calc(100%);
+    padding-bottom: 20px;
+  }
+
+  .curiosity-table-scroll-list__no-scroll {
+    overflow-y: hidden;
+    padding-bottom: inherit;
+  }
 }
