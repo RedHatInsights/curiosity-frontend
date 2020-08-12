@@ -11,6 +11,10 @@ Object {
   "graphQuery": Object {
     "granularity": "daily",
   },
+  "guestsQuery": Object {
+    "limit": 10,
+    "offset": 0,
+  },
   "inventoryQuery": Object {
     "limit": 10,
     "offset": 0,
