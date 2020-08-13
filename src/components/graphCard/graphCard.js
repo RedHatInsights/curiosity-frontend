@@ -67,7 +67,7 @@ class GraphCard extends React.Component {
     const { viewId } = this.props;
 
     store.dispatch({
-      type: reduxTypes.query.SET_QUERY_GRANULARITY_RHSM,
+      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY],
       viewId,
       [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: value
     });

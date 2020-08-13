@@ -31,6 +31,20 @@ describe('Toolbar Component', () => {
     expect(component).toMatchSnapshot('disabled component');
   });
 
+  it('should render specific filters when the filterOptions prop is used', () => {
+    const props = {
+      filterOptions: [
+        {
+          id: RHSM_API_QUERY_SLA
+        }
+      ],
+      query: {}
+    };
+    const component = shallow(<Toolbar {...props} />);
+
+    expect(component).toMatchSnapshot('filterOptions');
+  });
+
   it('should render filters when props are populated', () => {
     const [optionOne] = toolbarTypes.getOptions(RHSM_API_QUERY_SLA).options;
 
@@ -54,16 +68,16 @@ describe('Toolbar Component', () => {
       const componentInstance = component.instance();
 
       const filters = [
-        { category: RHSM_API_QUERY_SLA, method: 'onSlaSelect' },
-        { category: RHSM_API_QUERY_USAGE, method: 'onUsageSelect' }
+        { category: RHSM_API_QUERY_SLA, method: 'onSelect' },
+        { category: RHSM_API_QUERY_USAGE, method: 'onSelect' }
       ];
 
       filters.forEach(({ category, method }) => {
         componentInstance.onCategorySelect({ value: category });
 
         const [optionOne, optionTwo] = toolbarTypes.getOptions(category).options;
-        componentInstance[method]({ value: optionOne.value });
-        componentInstance[method]({ value: optionTwo.value });
+        componentInstance[method]({ event: { value: optionOne.value }, field: category });
+        componentInstance[method]({ event: { value: optionTwo.value }, field: category });
 
         const { title: categoryTitle } = toolbarTypes.getOptions().options.find(({ value }) => value === category);
         componentInstance.onClearFilter(categoryTitle);

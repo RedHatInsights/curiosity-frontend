@@ -15,9 +15,7 @@ describe('ViewReducer', () => {
 
   it('should handle specific defined types', () => {
     const specificTypes = [
-      types.SET_QUERY_GRANULARITY_RHSM,
-      types.SET_QUERY_SLA_RHSM,
-      types.SET_QUERY_USAGE_RHSM,
+      ...Object.values(types.SET_QUERY_RHSM_TYPES),
       types.SET_QUERY_CLEAR,
       types.SET_QUERY_PAGE_LIMIT_RHSM,
       types.SET_QUERY_PAGE_OFFSET_RHSM
