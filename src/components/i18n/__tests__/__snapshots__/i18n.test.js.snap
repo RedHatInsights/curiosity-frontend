@@ -332,35 +332,23 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-toolbar.category",
+        "match": "t('curiosity-toolbar.category', { context: field })",
+      },
+      Object {
+        "key": "curiosity-toolbar.category",
+        "match": "t('curiosity-toolbar.category', { context: field })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: field })",
+      },
+      Object {
+        "key": "curiosity-toolbar.category",
         "match": "t('curiosity-toolbar.category')",
       },
       Object {
-        "key": "curiosity-toolbar.categoryPlaceholder",
-        "match": "t('curiosity-toolbar.categoryPlaceholder')",
-      },
-      Object {
-        "key": "curiosity-toolbar.slaCategory",
-        "match": "t('curiosity-toolbar.slaCategory')",
-      },
-      Object {
-        "key": "curiosity-toolbar.slaCategory",
-        "match": "t('curiosity-toolbar.slaCategory')",
-      },
-      Object {
-        "key": "curiosity-toolbar.slaPlaceholder",
-        "match": "t('curiosity-toolbar.slaPlaceholder')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usageCategory",
-        "match": "t('curiosity-toolbar.usageCategory')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usageCategory",
-        "match": "t('curiosity-toolbar.usageCategory')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usagePlaceholder",
-        "match": "t('curiosity-toolbar.usagePlaceholder')",
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder')",
       },
     ],
   },
@@ -400,12 +388,12 @@ Array [
         "match": "translate('curiosity-toolbar.usageUnspecified')",
       },
       Object {
-        "key": "curiosity-toolbar.slaCategory",
-        "match": "translate('curiosity-toolbar.slaCategory')",
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SLA })",
       },
       Object {
-        "key": "curiosity-toolbar.usageCategory",
-        "match": "translate('curiosity-toolbar.usageCategory')",
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_USAGE })",
       },
     ],
   },

@@ -10,6 +10,13 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
+      filterOptions={
+        Array [
+          Object {
+            "id": "sla",
+          },
+        ]
+      }
       query={
         Object {
           "granularity": "daily",
@@ -84,6 +91,13 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
+      filterOptions={
+        Array [
+          Object {
+            "id": "sla",
+          },
+        ]
+      }
       query={
         Object {
           "granularity": "daily",
@@ -158,6 +172,13 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
+      filterOptions={
+        Array [
+          Object {
+            "id": "sla",
+          },
+        ]
+      }
       query={
         Object {
           "granularity": "daily",

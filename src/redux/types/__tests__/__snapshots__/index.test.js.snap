@@ -25,11 +25,15 @@ Object {
     },
     "query": Object {
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-      "SET_QUERY_GRANULARITY_RHSM": "SET_QUERY_GRANULARITY_RHSM",
       "SET_QUERY_PAGE_LIMIT_RHSM": "SET_QUERY_PAGE_LIMIT_RHSM",
       "SET_QUERY_PAGE_OFFSET_RHSM": "SET_QUERY_PAGE_OFFSET_RHSM",
-      "SET_QUERY_SLA_RHSM": "SET_QUERY_SLA_RHSM",
-      "SET_QUERY_USAGE_RHSM": "SET_QUERY_USAGE_RHSM",
+      "SET_QUERY_RHSM_TYPES": Object {
+        "granularity": "SET_QUERY_RHSM_granularity",
+        "limit": "SET_QUERY_RHSM_limit",
+        "offset": "SET_QUERY_RHSM_offset",
+        "sla": "SET_QUERY_RHSM_sla",
+        "usage": "SET_QUERY_RHSM_usage",
+      },
     },
     "rhsm": Object {
       "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
@@ -65,11 +69,15 @@ Object {
   },
   "queryTypes": Object {
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-    "SET_QUERY_GRANULARITY_RHSM": "SET_QUERY_GRANULARITY_RHSM",
     "SET_QUERY_PAGE_LIMIT_RHSM": "SET_QUERY_PAGE_LIMIT_RHSM",
     "SET_QUERY_PAGE_OFFSET_RHSM": "SET_QUERY_PAGE_OFFSET_RHSM",
-    "SET_QUERY_SLA_RHSM": "SET_QUERY_SLA_RHSM",
-    "SET_QUERY_USAGE_RHSM": "SET_QUERY_USAGE_RHSM",
+    "SET_QUERY_RHSM_TYPES": Object {
+      "granularity": "SET_QUERY_RHSM_granularity",
+      "limit": "SET_QUERY_RHSM_limit",
+      "offset": "SET_QUERY_RHSM_offset",
+      "sla": "SET_QUERY_RHSM_sla",
+      "usage": "SET_QUERY_RHSM_usage",
+    },
   },
   "reduxTypes": Object {
     "app": Object {
@@ -90,11 +98,15 @@ Object {
     },
     "query": Object {
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-      "SET_QUERY_GRANULARITY_RHSM": "SET_QUERY_GRANULARITY_RHSM",
       "SET_QUERY_PAGE_LIMIT_RHSM": "SET_QUERY_PAGE_LIMIT_RHSM",
       "SET_QUERY_PAGE_OFFSET_RHSM": "SET_QUERY_PAGE_OFFSET_RHSM",
-      "SET_QUERY_SLA_RHSM": "SET_QUERY_SLA_RHSM",
-      "SET_QUERY_USAGE_RHSM": "SET_QUERY_USAGE_RHSM",
+      "SET_QUERY_RHSM_TYPES": Object {
+        "granularity": "SET_QUERY_RHSM_granularity",
+        "limit": "SET_QUERY_RHSM_limit",
+        "offset": "SET_QUERY_RHSM_offset",
+        "sla": "SET_QUERY_RHSM_sla",
+        "usage": "SET_QUERY_RHSM_usage",
+      },
     },
     "rhsm": Object {
       "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
@@ -158,11 +170,15 @@ Object {
   },
   "query": Object {
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-    "SET_QUERY_GRANULARITY_RHSM": "SET_QUERY_GRANULARITY_RHSM",
     "SET_QUERY_PAGE_LIMIT_RHSM": "SET_QUERY_PAGE_LIMIT_RHSM",
     "SET_QUERY_PAGE_OFFSET_RHSM": "SET_QUERY_PAGE_OFFSET_RHSM",
-    "SET_QUERY_SLA_RHSM": "SET_QUERY_SLA_RHSM",
-    "SET_QUERY_USAGE_RHSM": "SET_QUERY_USAGE_RHSM",
+    "SET_QUERY_RHSM_TYPES": Object {
+      "granularity": "SET_QUERY_RHSM_granularity",
+      "limit": "SET_QUERY_RHSM_limit",
+      "offset": "SET_QUERY_RHSM_offset",
+      "sla": "SET_QUERY_RHSM_sla",
+      "usage": "SET_QUERY_RHSM_usage",
+    },
   },
   "rhsm": Object {
     "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
