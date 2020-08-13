@@ -63,11 +63,11 @@ const getOptionsType = optionsType => {
         selected: null,
         options: [
           {
-            title: translate('curiosity-toolbar.slaCategory'),
+            title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SLA }),
             value: RHSM_API_QUERY_SLA
           },
           {
-            title: translate('curiosity-toolbar.usageCategory'),
+            title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_USAGE }),
             value: RHSM_API_QUERY_USAGE
           }
         ]

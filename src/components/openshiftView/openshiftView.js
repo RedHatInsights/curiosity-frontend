@@ -74,7 +74,7 @@ class OpenshiftView extends React.Component {
    */
   render() {
     const { filters } = this.state;
-    const { query, location, routeDetail, t, viewId } = this.props;
+    const { query, initialToolbarFilters, location, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
@@ -83,7 +83,7 @@ class OpenshiftView extends React.Component {
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })}
         </PageHeader>
         <PageToolbar>
-          <Toolbar query={query} viewId={viewId} />
+          <Toolbar filterOptions={initialToolbarFilters} query={query} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           {(isC3 && (
@@ -120,8 +120,8 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: Function, query: object,
- *     routeDetail: object, location: object}}
+ * @type {{initialFilters: Array, initialOption: string, initialToolbarFilters: Array, viewId: string,
+ *     t: Function, query: object, routeDetail: object, location: object}}
  */
 OpenshiftView.propTypes = {
   query: PropTypes.shape({
@@ -129,6 +129,7 @@ OpenshiftView.propTypes = {
   }),
   initialOption: PropTypes.oneOf(['cores', 'sockets']),
   initialFilters: PropTypes.array,
+  initialToolbarFilters: PropTypes.array,
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
@@ -146,7 +147,8 @@ OpenshiftView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, initialOption: string, viewId: string, t: translate, query: object}}
+ * @type {{initialFilters: Array, initialOption: string, initialToolbarFilters: Array, viewId: string,
+ *     t: translate, query: object}}
  */
 OpenshiftView.defaultProps = {
   query: {
@@ -163,6 +165,11 @@ OpenshiftView.defaultProps = {
     },
     { id: 'thresholdSockets' },
     { id: 'thresholdCores' }
+  ],
+  initialToolbarFilters: [
+    {
+      id: rhsmApiTypes.RHSM_API_QUERY_SLA
+    }
   ],
   t: translate,
   viewId: 'OpenShift'
