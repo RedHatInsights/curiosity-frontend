@@ -31,7 +31,7 @@ class RhelView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { query, initialFilters, location, routeDetail, t, viewId } = this.props;
+    const { query, initialFilters, initialToolbarFilters, location, routeDetail, t, viewId } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
 
     return (
@@ -40,7 +40,7 @@ class RhelView extends React.Component {
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })}
         </PageHeader>
         <PageToolbar>
-          <Toolbar query={query} viewId={viewId} />
+          <Toolbar filterOptions={initialToolbarFilters} query={query} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           {(isC3 && (
@@ -73,14 +73,15 @@ class RhelView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialFilters: Array, viewId: string, t: Function, query: object, routeDetail: object,
- *     location: object}}
+ * @type {{initialFilters: Array, initialToolbarFilters: Array, viewId: string, t: Function, query: object,
+ *     routeDetail: object, location: object}}
  */
 RhelView.propTypes = {
   query: PropTypes.shape({
     [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialFilters: PropTypes.array,
+  initialToolbarFilters: PropTypes.array,
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
@@ -98,7 +99,7 @@ RhelView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialFilters: Array, viewId: string, t: translate, query: object}}
+ * @type {{initialFilters: Array, initialToolbarFilters: Array, viewId: string, t: translate, query: object}}
  */
 RhelView.defaultProps = {
   query: {
@@ -124,6 +125,15 @@ RhelView.defaultProps = {
       color: chartColorPurpleDark.value
     },
     { id: 'thresholdSockets' }
+  ],
+  initialToolbarFilters: [
+    {
+      id: rhsmApiTypes.RHSM_API_QUERY_SLA
+    },
+    {
+      id: rhsmApiTypes.RHSM_API_QUERY_USAGE,
+      selected: true
+    }
   ],
   t: translate,
   viewId: 'RHEL'

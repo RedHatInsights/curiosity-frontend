@@ -24,7 +24,7 @@ Array [
         "data": Object {
           "sla": "premium",
         },
-        "type": "SET_QUERY_SLA_RHSM",
+        "type": "SET_QUERY_RHSM_sla",
       },
     ],
   ],
@@ -42,7 +42,7 @@ Array [
         "data": Object {
           "sla": "standard",
         },
-        "type": "SET_QUERY_SLA_RHSM",
+        "type": "SET_QUERY_RHSM_sla",
       },
     ],
   ],
@@ -86,7 +86,7 @@ Array [
         "data": Object {
           "usage": "Development/Test",
         },
-        "type": "SET_QUERY_USAGE_RHSM",
+        "type": "SET_QUERY_RHSM_usage",
       },
     ],
   ],
@@ -104,7 +104,7 @@ Array [
         "data": Object {
           "usage": "Disaster Recovery",
         },
-        "type": "SET_QUERY_USAGE_RHSM",
+        "type": "SET_QUERY_RHSM_usage",
       },
     ],
   ],
@@ -119,7 +119,7 @@ Array [
       Object {
         "data": Object {
           "clearFilters": Object {
-            "usage": null,
+            "sla": null,
           },
         },
         "type": "SET_QUERY_CLEAR",
@@ -172,7 +172,7 @@ Array [
         "data": Object {
           "sla": "premium",
         },
-        "type": "SET_QUERY_SLA_RHSM",
+        "type": "SET_QUERY_RHSM_sla",
       },
     ],
   ],
@@ -190,7 +190,7 @@ Array [
         "data": Object {
           "sla": "standard",
         },
-        "type": "SET_QUERY_SLA_RHSM",
+        "type": "SET_QUERY_RHSM_sla",
       },
     ],
   ],
@@ -234,7 +234,7 @@ Array [
         "data": Object {
           "usage": "Development/Test",
         },
-        "type": "SET_QUERY_USAGE_RHSM",
+        "type": "SET_QUERY_RHSM_usage",
       },
     ],
   ],
@@ -252,7 +252,7 @@ Array [
         "data": Object {
           "usage": "Disaster Recovery",
         },
-        "type": "SET_QUERY_USAGE_RHSM",
+        "type": "SET_QUERY_RHSM_usage",
       },
     ],
   ],
@@ -267,7 +267,7 @@ Array [
       Object {
         "data": Object {
           "clearFilters": Object {
-            "usage": null,
+            "sla": null,
           },
         },
         "type": "SET_QUERY_CLEAR",
@@ -315,7 +315,7 @@ Array [
         "data": Object {
           "sla": "premium",
         },
-        "type": "SET_QUERY_SLA_RHSM",
+        "type": "SET_QUERY_RHSM_sla",
       },
     ],
   ],
@@ -333,7 +333,7 @@ Array [
         "data": Object {
           "sla": "standard",
         },
-        "type": "SET_QUERY_SLA_RHSM",
+        "type": "SET_QUERY_RHSM_sla",
       },
     ],
   ],
@@ -383,7 +383,7 @@ Array [
         "data": Object {
           "usage": "Development/Test",
         },
-        "type": "SET_QUERY_USAGE_RHSM",
+        "type": "SET_QUERY_RHSM_usage",
       },
     ],
   ],
@@ -401,7 +401,7 @@ Array [
         "data": Object {
           "usage": "Disaster Recovery",
         },
-        "type": "SET_QUERY_USAGE_RHSM",
+        "type": "SET_QUERY_RHSM_usage",
       },
     ],
   ],
@@ -416,7 +416,7 @@ Array [
       Object {
         "data": Object {
           "clearFilters": Object {
-            "usage": null,
+            "sla": null,
           },
         },
         "type": "SET_QUERY_CLEAR",
@@ -494,19 +494,19 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             options={
               Array [
                 Object {
-                  "title": "t(curiosity-toolbar.slaCategory)",
+                  "title": "t(curiosity-toolbar.category, [object Object])",
                   "value": "sla",
                 },
                 Object {
-                  "title": "t(curiosity-toolbar.usageCategory)",
+                  "title": "t(curiosity-toolbar.category, [object Object])",
                   "value": "usage",
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.categoryPlaceholder)"
+            placeholder="t(curiosity-toolbar.placeholder)"
             selectedOptions={
               Array [
-                "t(curiosity-toolbar.usageCategory)",
+                "t(curiosity-toolbar.category, [object Object])",
               ]
             }
             toggleIcon={
@@ -520,13 +520,14 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
           />
         </ToolbarItem>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.slaCategory)"
+          categoryName="t(curiosity-toolbar.category, [object Object])"
           chips={Array []}
           deleteChip={[Function]}
+          key="sla"
           showToolbarItem={false}
         >
           <Select
-            aria-label="t(curiosity-toolbar.slaCategory)"
+            aria-label="t(curiosity-toolbar.category, [object Object])"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -554,20 +555,21 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.slaPlaceholder)"
+            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
           />
         </ToolbarFilter>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.usageCategory)"
+          categoryName="t(curiosity-toolbar.category, [object Object])"
           chips={Array []}
           deleteChip={[Function]}
+          key="usage"
           showToolbarItem={true}
         >
           <Select
-            aria-label="t(curiosity-toolbar.usageCategory)"
+            aria-label="t(curiosity-toolbar.category, [object Object])"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -595,7 +597,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.usagePlaceholder)"
+            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
@@ -644,19 +646,19 @@ exports[`Toolbar Component should render filters when props are populated: props
             options={
               Array [
                 Object {
-                  "title": "t(curiosity-toolbar.slaCategory)",
+                  "title": "t(curiosity-toolbar.category, [object Object])",
                   "value": "sla",
                 },
                 Object {
-                  "title": "t(curiosity-toolbar.usageCategory)",
+                  "title": "t(curiosity-toolbar.category, [object Object])",
                   "value": "usage",
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.categoryPlaceholder)"
+            placeholder="t(curiosity-toolbar.placeholder)"
             selectedOptions={
               Array [
-                "t(curiosity-toolbar.slaCategory)",
+                "t(curiosity-toolbar.category, [object Object])",
               ]
             }
             toggleIcon={
@@ -670,17 +672,18 @@ exports[`Toolbar Component should render filters when props are populated: props
           />
         </ToolbarItem>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.slaCategory)"
+          categoryName="t(curiosity-toolbar.category, [object Object])"
           chips={
             Array [
               "t(curiosity-toolbar.slaPremium)",
             ]
           }
           deleteChip={[Function]}
+          key="sla"
           showToolbarItem={true}
         >
           <Select
-            aria-label="t(curiosity-toolbar.slaCategory)"
+            aria-label="t(curiosity-toolbar.category, [object Object])"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -708,7 +711,7 @@ exports[`Toolbar Component should render filters when props are populated: props
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.slaPlaceholder)"
+            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
             selectedOptions={
               Array [
                 "t(curiosity-toolbar.slaPremium)",
@@ -719,13 +722,14 @@ exports[`Toolbar Component should render filters when props are populated: props
           />
         </ToolbarFilter>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.usageCategory)"
+          categoryName="t(curiosity-toolbar.category, [object Object])"
           chips={Array []}
           deleteChip={[Function]}
+          key="usage"
           showToolbarItem={false}
         >
           <Select
-            aria-label="t(curiosity-toolbar.usageCategory)"
+            aria-label="t(curiosity-toolbar.category, [object Object])"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -753,7 +757,79 @@ exports[`Toolbar Component should render filters when props are populated: props
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.usagePlaceholder)"
+            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
+            selectedOptions={Array []}
+            toggleIcon={null}
+            variant="single"
+          />
+        </ToolbarFilter>
+      </ForwardRef>
+    </ToolbarToggleGroup>
+  </ToolbarContent>
+</Toolbar>
+`;
+
+exports[`Toolbar Component should render specific filters when the filterOptions prop is used: filterOptions 1`] = `
+<Toolbar
+  className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
+  clearAllFilters={[Function]}
+  collapseListedFiltersBreakpoint="sm"
+  id="curiosity-toolbar"
+>
+  <ToolbarContent
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
+    >
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.category, [object Object])"
+          chips={Array []}
+          deleteChip={[Function]}
+          key="sla"
+          showToolbarItem={true}
+        >
+          <Select
+            aria-label="t(curiosity-toolbar.category, [object Object])"
+            ariaLabel="Select option"
+            className=""
+            id="generatedid-"
+            isDisabled={false}
+            isToggleText={true}
+            name={null}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "t(curiosity-toolbar.slaPremium)",
+                  "value": "premium",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaStandard)",
+                  "value": "standard",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaSelfSupport)",
+                  "value": "self-support",
+                },
+                Object {
+                  "title": "t(curiosity-toolbar.slaNone)",
+                  "value": "",
+                },
+              ]
+            }
+            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"

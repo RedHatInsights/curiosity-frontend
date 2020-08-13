@@ -10,6 +10,17 @@ exports[`RhelView Component should display an alternate graph on query-string up
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
+      filterOptions={
+        Array [
+          Object {
+            "id": "sla",
+          },
+          Object {
+            "id": "usage",
+            "selected": true,
+          },
+        ]
+      }
       query={
         Object {
           "granularity": "daily",
@@ -70,6 +81,17 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
+      filterOptions={
+        Array [
+          Object {
+            "id": "sla",
+          },
+          Object {
+            "id": "usage",
+            "selected": true,
+          },
+        ]
+      }
       query={
         Object {
           "granularity": "daily",
@@ -130,6 +152,17 @@ exports[`RhelView Component should render a non-connected component: non-connect
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
+      filterOptions={
+        Array [
+          Object {
+            "id": "sla",
+          },
+          Object {
+            "id": "usage",
+            "selected": true,
+          },
+        ]
+      }
       query={
         Object {
           "granularity": "daily",

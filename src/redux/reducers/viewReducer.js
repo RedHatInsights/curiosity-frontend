@@ -41,7 +41,7 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_GRANULARITY_RHSM:
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_GRANULARITY]:
       return reduxHelpers.setStateProp(
         'query',
         {
@@ -55,7 +55,7 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_SLA_RHSM:
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SLA]:
       return reduxHelpers.setStateProp(
         'query',
         {
@@ -69,7 +69,7 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_USAGE_RHSM:
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_USAGE]:
       return reduxHelpers.setStateProp(
         'query',
         {

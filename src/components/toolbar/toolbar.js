@@ -23,8 +23,7 @@ import { translate } from '../i18n/i18n';
  * @fires onClear
  * @fires onClearFilter
  * @fires onCategorySelect
- * @fires onSlaSelect
- * @fires onUsageSelect
+ * @fires onSelect
  */
 class Toolbar extends React.Component {
   /**
@@ -105,15 +104,16 @@ class Toolbar extends React.Component {
   };
 
   /**
-   * Set SLA filter selection.
+   * Set select filter selection for dispatch.
    *
-   * @event onSlaSelect
-   * @param {object} event
+   * @param {object} params
+   * @param {object} params.event
+   * @param {string} params.field
    */
-  onSlaSelect = event => {
+  onSelect = ({ event, field }) => {
     const { activeFilters } = this.props;
     const { value } = event;
-    const updatedActiveFilters = new Set(activeFilters).add(rhsmApiTypes.RHSM_API_QUERY_SLA);
+    const updatedActiveFilters = new Set(activeFilters).add(field);
 
     this.setDispatch([
       {
@@ -121,31 +121,8 @@ class Toolbar extends React.Component {
         data: { activeFilters: updatedActiveFilters }
       },
       {
-        type: reduxTypes.query.SET_QUERY_SLA_RHSM,
-        data: { [rhsmApiTypes.RHSM_API_QUERY_SLA]: value }
-      }
-    ]);
-  };
-
-  /**
-   * Set Usage filter selection.
-   *
-   * @event onUsageSelect
-   * @param {object} event
-   */
-  onUsageSelect = event => {
-    const { activeFilters } = this.props;
-    const { value } = event;
-    const updatedActiveFilters = new Set(activeFilters).add(rhsmApiTypes.RHSM_API_QUERY_USAGE);
-
-    this.setDispatch([
-      {
-        type: reduxTypes.toolbar.SET_ACTIVE_FILTERS,
-        data: { activeFilters: updatedActiveFilters }
-      },
-      {
-        type: reduxTypes.query.SET_QUERY_USAGE_RHSM,
-        data: { [rhsmApiTypes.RHSM_API_QUERY_USAGE]: value }
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[field],
+        data: { [field]: value }
       }
     ]);
   };
@@ -167,19 +144,19 @@ class Toolbar extends React.Component {
   }
 
   /**
-   * Available, and selected filter options.
+   * Available, and selected select filter options.
    *
-   * @param {string} filterType
+   * @param {string} field
    * @returns {{optionsSelected: Array, options: Array }}
    */
-  setFilter(filterType) {
-    const { currentFilter, query } = this.props;
-    const options = toolbarTypes.getOptions(filterType);
+  setSelectFilter(field) {
+    const { query } = this.props;
+    const options = toolbarTypes.getOptions(field);
+    const currentFilter = this.getCurrentFilter();
     let filter;
 
-    if (filterType) {
-      filter =
-        typeof query?.[filterType] === 'string' && options.options.find(({ value }) => value === query?.[filterType]);
+    if (field) {
+      filter = typeof query?.[field] === 'string' && options.options.find(({ value }) => value === query?.[field]);
     } else {
       filter = options.options.find(({ value }) => value === currentFilter);
     }
@@ -190,25 +167,64 @@ class Toolbar extends React.Component {
   }
 
   /**
+   * Return the currentFilter, fallback to selected
+   *
+   * @returns {string|undefined}
+   */
+  getCurrentFilter() {
+    const { currentFilter, filterOptions } = this.props;
+
+    return (
+      currentFilter ||
+      filterOptions.find(({ selected }) => selected === true)?.id ||
+      (filterOptions.length === 1 && filterOptions[0]?.id)
+    );
+  }
+
+  /**
+   * A select filter node.
+   *
+   * @param {object} params
+   * @param {string} params.id
+   * @returns {object}
+   */
+  renderSelectFilter({ id: field }) {
+    const { t } = this.props;
+    const { options, optionsSelected } = this.setSelectFilter(field);
+    const currentFilter = this.getCurrentFilter();
+
+    return (
+      <ToolbarFilter
+        key={field}
+        chips={optionsSelected}
+        deleteChip={this.onClearFilter}
+        categoryName={t('curiosity-toolbar.category', { context: field })}
+        showToolbarItem={currentFilter === field}
+      >
+        <Select
+          aria-label={t('curiosity-toolbar.category', { context: field })}
+          onSelect={event => this.onSelect({ event, field })}
+          selectedOptions={optionsSelected}
+          placeholder={t('curiosity-toolbar.placeholder', { context: field })}
+          options={options.options}
+        />
+      </ToolbarFilter>
+    );
+  }
+
+  /**
    * Render a filter toolbar.
    *
    * @returns {Node}
    */
   render() {
-    const { currentFilter, isDisabled, t } = this.props;
+    const { filterOptions, isDisabled, t } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
-    const { options: categoryOptions, optionsSelected: categoryOptionsSelected } = this.setFilter();
-
-    const { options: slaOptions, optionsSelected: slaOptionsSelected } = this.setFilter(
-      rhsmApiTypes.RHSM_API_QUERY_SLA
-    );
-    const { options: usageOptions, optionsSelected: usageOptionsSelected } = this.setFilter(
-      rhsmApiTypes.RHSM_API_QUERY_USAGE
-    );
+    const { options: categoryOptions, optionsSelected: categoryOptionsSelected } = this.setSelectFilter();
 
     return (
       <PfToolbar
@@ -220,44 +236,19 @@ class Toolbar extends React.Component {
         <ToolbarContent>
           <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
             <ToolbarGroup variant="filter-group">
-              <ToolbarItem>
-                <Select
-                  aria-label={t('curiosity-toolbar.category')}
-                  onSelect={this.onCategorySelect}
-                  selectedOptions={categoryOptionsSelected}
-                  placeholder={t('curiosity-toolbar.categoryPlaceholder')}
-                  options={categoryOptions.options}
-                  toggleIcon={<FilterIcon />}
-                />
-              </ToolbarItem>
-              <ToolbarFilter
-                chips={slaOptionsSelected}
-                deleteChip={this.onClearFilter}
-                categoryName={t('curiosity-toolbar.slaCategory')}
-                showToolbarItem={currentFilter === rhsmApiTypes.RHSM_API_QUERY_SLA}
-              >
-                <Select
-                  aria-label={t('curiosity-toolbar.slaCategory')}
-                  onSelect={this.onSlaSelect}
-                  selectedOptions={slaOptionsSelected}
-                  placeholder={t('curiosity-toolbar.slaPlaceholder')}
-                  options={slaOptions.options}
-                />
-              </ToolbarFilter>
-              <ToolbarFilter
-                chips={usageOptionsSelected}
-                deleteChip={this.onClearFilter}
-                categoryName={t('curiosity-toolbar.usageCategory')}
-                showToolbarItem={currentFilter === rhsmApiTypes.RHSM_API_QUERY_USAGE}
-              >
-                <Select
-                  aria-label={t('curiosity-toolbar.usageCategory')}
-                  onSelect={this.onUsageSelect}
-                  selectedOptions={usageOptionsSelected}
-                  placeholder={t('curiosity-toolbar.usagePlaceholder')}
-                  options={usageOptions.options}
-                />
-              </ToolbarFilter>
+              {filterOptions.length !== 1 && (
+                <ToolbarItem>
+                  <Select
+                    aria-label={t('curiosity-toolbar.category')}
+                    onSelect={this.onCategorySelect}
+                    selectedOptions={categoryOptionsSelected}
+                    placeholder={t('curiosity-toolbar.placeholder')}
+                    options={categoryOptions.options}
+                    toggleIcon={<FilterIcon />}
+                  />
+                </ToolbarItem>
+              )}
+              {filterOptions.map(({ id, selected }) => this.renderSelectFilter({ id, selected }))}
             </ToolbarGroup>
           </ToolbarToggleGroup>
         </ToolbarContent>
@@ -270,7 +261,7 @@ class Toolbar extends React.Component {
  * Prop types
  *
  * @type {{viewId: string, t: Function, activeFilters, hardFilterReset: boolean, query, currentFilter: string,
- *     isDisabled: boolean}}
+ *     isDisabled: boolean, filterOptions: Array}}
  */
 Toolbar.propTypes = {
   query: PropTypes.shape({
@@ -279,6 +270,13 @@ Toolbar.propTypes = {
   }),
   activeFilters: PropTypes.instanceOf(Set),
   currentFilter: PropTypes.oneOf([rhsmApiTypes.RHSM_API_QUERY_SLA, rhsmApiTypes.RHSM_API_QUERY_USAGE]),
+  filterOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      filterType: PropTypes.oneOf(['select']),
+      id: PropTypes.oneOf([rhsmApiTypes.RHSM_API_QUERY_SLA, rhsmApiTypes.RHSM_API_QUERY_USAGE]),
+      selected: PropTypes.bool
+    })
+  ),
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
   t: PropTypes.func,
@@ -288,13 +286,24 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, activeFilters: Set, hardFilterReset: boolean, query: {},
- *     currentFilter: null, isDisabled: boolean}}
+ * @type {{viewId: string, t: translate, activeFilters: Set, hardFilterReset: boolean, query: object,
+ *     currentFilter: string, isDisabled: boolean, filterOptions: Array}}
  */
 Toolbar.defaultProps = {
   query: {},
   activeFilters: new Set(),
-  currentFilter: rhsmApiTypes.RHSM_API_QUERY_USAGE,
+  currentFilter: null,
+  filterOptions: [
+    {
+      id: rhsmApiTypes.RHSM_API_QUERY_SLA,
+      filterType: 'select'
+    },
+    {
+      id: rhsmApiTypes.RHSM_API_QUERY_USAGE,
+      filterType: 'select',
+      selected: true
+    }
+  ],
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: translate,
