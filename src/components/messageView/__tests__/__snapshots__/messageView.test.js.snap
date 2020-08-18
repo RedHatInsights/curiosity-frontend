@@ -8,10 +8,12 @@ exports[`MessageView Component should have fallback conditions for all props: fa
   >
     Subscription Watch
   </PageHeader>
-  <EmptyState
-    className="fadein"
-    variant="full"
-  />
+  <PageSection>
+    <EmptyState
+      className="fadein"
+      variant="full"
+    />
+  </PageSection>
 </PageLayout>
 `;
 
@@ -23,22 +25,38 @@ exports[`MessageView Component should render a non-connected component: non-conn
   >
     Subscription Watch
   </PageHeader>
-  <EmptyState
-    className="fadein"
-    variant="full"
-  >
-    <EmptyStateIcon
-      icon={[Function]}
-    />
-    <Title
-      headingLevel="h2"
-      size="lg"
+  <PageSection>
+    <EmptyState
+      className="fadein"
+      variant="full"
     >
-      lorem
-    </Title>
-    <EmptyStateBody>
-      ipsum
-    </EmptyStateBody>
-  </EmptyState>
+      <EmptyStateIcon
+        icon={[Function]}
+      />
+      <Title
+        headingLevel="h2"
+        size="lg"
+      >
+        lorem
+      </Title>
+      <EmptyStateBody>
+        ipsum
+      </EmptyStateBody>
+    </EmptyState>
+  </PageSection>
+</PageLayout>
+`;
+
+exports[`MessageView Component should render children when provided: children display 1`] = `
+<PageLayout>
+  <PageHeader
+    t={[Function]}
+    viewId={null}
+  >
+    Subscription Watch
+  </PageHeader>
+  <PageSection>
+    child content
+  </PageSection>
 </PageLayout>
 `;
