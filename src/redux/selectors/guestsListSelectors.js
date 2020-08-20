@@ -74,7 +74,7 @@ const selector = createSelector([statePropsFilter], response => {
     const customInventoryValue = ({ key, value }) => {
       switch (key) {
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN:
-          return moment.utc(value).startOf('day').from(getCurrentDate()) || null;
+          return moment.utc(value).from(getCurrentDate()) || null;
         default:
           return value ?? null;
       }
