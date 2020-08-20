@@ -11,7 +11,7 @@ import {
 import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
-import { connect, reduxSelectors } from '../../redux';
+import { apiQueries, connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import Toolbar from '../toolbar/toolbar';
@@ -44,6 +44,7 @@ class RhelView extends React.Component {
       viewId
     } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
+    const { graphQuery, toolbarQuery, inventoryQuery } = apiQueries.parseRhsmQuery(query);
 
     return (
       <PageLayout>
@@ -51,14 +52,14 @@ class RhelView extends React.Component {
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })}
         </PageHeader>
         <PageToolbar>
-          <Toolbar filterOptions={initialToolbarFilters} query={query} viewId={viewId} />
+          <Toolbar filterOptions={initialToolbarFilters} query={toolbarQuery} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           {(isC3 && (
             <C3GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={initialGraphFilters}
-              query={query}
+              query={graphQuery}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
@@ -68,7 +69,7 @@ class RhelView extends React.Component {
             <GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={initialGraphFilters}
-              query={query}
+              query={graphQuery}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
@@ -80,7 +81,7 @@ class RhelView extends React.Component {
           <InventoryList
             key={routeDetail.pathParameter}
             filterInventoryData={initialInventoryFilters}
-            query={query}
+            query={inventoryQuery}
             productId={routeDetail.pathParameter}
             viewId={viewId}
             cardTitle={t('curiosity-inventory.cardHeading')}
