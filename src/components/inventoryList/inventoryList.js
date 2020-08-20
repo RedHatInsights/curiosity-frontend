@@ -9,7 +9,7 @@ import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { inventoryListHelpers } from './inventoryListHelpers';
 import Pagination from '../pagination/pagination';
-import { rhsmApiTypes } from '../../types';
+import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
 class InventoryList extends React.Component {
   componentDidMount() {
@@ -79,7 +79,7 @@ class InventoryList extends React.Component {
       return null;
     }
 
-    const updatedPerPage = query?.[rhsmApiTypes.RHSM_API_QUERY_LIMIT] || perPageDefault;
+    const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
     const loaderPerPage = updatedPerPage / 2;
 
     return (

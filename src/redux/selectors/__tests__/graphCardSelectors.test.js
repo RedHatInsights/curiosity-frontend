@@ -1,5 +1,9 @@
 import graphCardSelectors from '../graphCardSelectors';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_TYPES,
+  rhsmApiTypes
+} from '../../../types/rhsmApiTypes';
 
 describe('GraphCardSelectors', () => {
   it('should return specific selectors', () => {
@@ -37,7 +41,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: undefined,
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -45,7 +49,7 @@ describe('GraphCardSelectors', () => {
           fulfilled: true,
           metaId: undefined,
           metaQuery: {
-            [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+            [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
           },
           data: [
             { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] },
@@ -62,7 +66,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum ID pending state',
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -71,7 +75,7 @@ describe('GraphCardSelectors', () => {
             pending: true,
             metaId: 'Lorem Ipsum ID pending state',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+              [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             },
             data: [
               { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: [] },
@@ -89,7 +93,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum mismatched index or date',
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -98,7 +102,7 @@ describe('GraphCardSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum mismatched index or date',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+              [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             },
             data: [
               {
@@ -128,7 +132,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum missing expected properties',
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -137,7 +141,7 @@ describe('GraphCardSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum missing expected properties',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+              [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             },
             data: [
               {
@@ -194,7 +198,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'test',
       productId: 'Lorem Ipsum fulfilled aggregated output',
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const state = {
       graph: {
@@ -203,7 +207,7 @@ describe('GraphCardSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum fulfilled aggregated output',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+              [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             },
             data: [
               {
@@ -278,7 +282,7 @@ describe('GraphCardSelectors', () => {
     const props = {
       viewId: 'cache-test',
       productId: 'Lorem Ipsum ID cached',
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY }
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY }
     };
     const stateInitialFulfilled = {
       graph: {
@@ -287,7 +291,7 @@ describe('GraphCardSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum ID cached',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
+              [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.DAILY
             },
             data: [
               {
@@ -384,7 +388,7 @@ describe('GraphCardSelectors', () => {
           'Lorem Ipsum ID cached': {
             ...stateInitialFulfilled.graph.reportCapacity['Lorem Ipsum ID cached'],
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.WEEKLY
+              [RHSM_API_QUERY_TYPES.GRANULARITY]: rhsmApiTypes.RHSM_API_QUERY_GRANULARITY_TYPES.WEEKLY
             }
           }
         }

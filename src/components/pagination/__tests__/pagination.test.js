@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Pagination } from '../pagination';
 import { store } from '../../../redux';
-import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('Pagination Component', () => {
   let mockDispatch;
@@ -29,7 +29,7 @@ describe('Pagination Component', () => {
       productId: 'lorem',
       itemCount: 39,
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 20
+        [RHSM_API_QUERY_TYPES.LIMIT]: 20
       }
     };
 
@@ -44,7 +44,7 @@ describe('Pagination Component', () => {
     component.setProps({
       query: {
         ...props.query,
-        [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 20
+        [RHSM_API_QUERY_TYPES.OFFSET]: 20
       }
     });
 
@@ -61,8 +61,8 @@ describe('Pagination Component', () => {
       productId: 'lorem',
       itemCount: 39,
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
-        [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
+        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 0
       }
     };
     const component = mount(<Pagination {...props} />);

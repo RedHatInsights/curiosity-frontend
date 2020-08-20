@@ -414,11 +414,11 @@ Array [
       },
       Object {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SLA })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA })",
       },
       Object {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_USAGE })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE })",
       },
     ],
   },

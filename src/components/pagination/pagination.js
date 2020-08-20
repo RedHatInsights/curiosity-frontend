@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Pagination as PfPagination } from '@patternfly/react-core';
 import { connect, reduxTypes, store } from '../../redux';
-import { rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
 // ToDo: Apply locale/translation to the PF Pagination "titles" prop.
 /**
@@ -23,29 +23,29 @@ class Pagination extends React.Component {
    */
   onPage = ({ page }) => {
     const { query, perPageDefault, productId, viewId } = this.props;
-    const updatedPerPage = query?.[rhsmApiTypes.RHSM_API_QUERY_LIMIT] || perPageDefault;
+    const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
     const offset = updatedPerPage * (page - 1) || 0;
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_PAGE_OFFSET_RHSM,
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId,
-        [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: offset
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
       },
       {
-        type: reduxTypes.query.SET_QUERY_PAGE_OFFSET_RHSM,
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId: productId,
-        [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: offset
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
       },
       {
-        type: reduxTypes.query.SET_QUERY_PAGE_LIMIT_RHSM,
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId,
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: updatedPerPage
+        [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
       },
       {
-        type: reduxTypes.query.SET_QUERY_PAGE_LIMIT_RHSM,
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId: productId,
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: updatedPerPage
+        [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
       }
     ]);
   };
@@ -62,14 +62,14 @@ class Pagination extends React.Component {
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_PAGE_LIMIT_RHSM,
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId,
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: perPage
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       },
       {
-        type: reduxTypes.query.SET_QUERY_PAGE_LIMIT_RHSM,
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId: productId,
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: perPage
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       }
     ]);
   };
@@ -82,8 +82,8 @@ class Pagination extends React.Component {
    */
   render() {
     const { query, dropDirection, isCompact, isDisabled, itemCount, perPageDefault, variant } = this.props;
-    const updatedPage = query[rhsmApiTypes.RHSM_API_QUERY_OFFSET] / query[rhsmApiTypes.RHSM_API_QUERY_LIMIT] + 1 || 1;
-    const updatedPerPage = query[rhsmApiTypes.RHSM_API_QUERY_LIMIT] || perPageDefault;
+    const updatedPage = query[RHSM_API_QUERY_TYPES.OFFSET] / query[RHSM_API_QUERY_TYPES.LIMIT] + 1 || 1;
+    const updatedPerPage = query[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
 
     return (
       <PfPagination
@@ -109,8 +109,8 @@ class Pagination extends React.Component {
  */
 Pagination.propTypes = {
   query: PropTypes.shape({
-    [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: PropTypes.number,
-    [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: PropTypes.number
+    [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
+    [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number
   }),
   dropDirection: PropTypes.oneOf(['up', 'down']),
   isCompact: PropTypes.bool,
