@@ -10,6 +10,18 @@ import _isEqual from 'lodash/isEqual';
 const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
 
 /**
+ * ToDo: as part of future potential upgrades consider moving reduxHelpers.setApiQuery into statePropsFilter
+ * The side effect is multiple queries being dumped into the views, meaning more "configuration to handle".
+ * Leaving it as a single query passed from this selector and handling the "setApiQuery" in "redux/common/apiQueries"
+ * is a first step.
+ * i.e.
+ * queries: {
+ *    query: ...,
+ *    graph: reduxHelpers.setApiQuery(..., RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES),
+ *    inventory: reduxHelpers.setApiQuery(..., RHSM_API_QUERY_SET_INVENTORY_TYPES)
+ * }
+ */
+/**
  * Return a combined state, props object.
  *
  * @private

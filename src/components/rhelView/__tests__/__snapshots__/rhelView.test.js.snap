@@ -65,8 +65,6 @@ exports[`RhelView Component should display an alternate graph on query-string up
       query={
         Object {
           "granularity": "daily",
-          "limit": 10,
-          "offset": 0,
         }
       }
       viewId="RHEL"
@@ -97,7 +95,6 @@ exports[`RhelView Component should display an alternate graph on query-string up
       productId="lorem ipsum"
       query={
         Object {
-          "granularity": "daily",
           "limit": 10,
           "offset": 0,
         }
@@ -173,8 +170,6 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       query={
         Object {
           "granularity": "daily",
-          "limit": 10,
-          "offset": 0,
         }
       }
       viewId="RHEL"
@@ -205,7 +200,6 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
-          "granularity": "daily",
           "limit": 10,
           "offset": 0,
         }
@@ -393,8 +387,6 @@ exports[`RhelView Component should render a non-connected component: non-connect
       query={
         Object {
           "granularity": "daily",
-          "limit": 10,
-          "offset": 0,
         }
       }
       viewId="RHEL"
@@ -425,7 +417,6 @@ exports[`RhelView Component should render a non-connected component: non-connect
       productId="lorem ipsum"
       query={
         Object {
-          "granularity": "daily",
           "limit": 10,
           "offset": 0,
         }
