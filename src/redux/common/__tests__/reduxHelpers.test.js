@@ -1,4 +1,9 @@
 import { reduxHelpers } from '../reduxHelpers';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_TYPES,
+  RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES
+} from '../../../types/rhsmApiTypes';
 
 describe('ReduxHelpers', () => {
   it('should have specific functions', () => {
@@ -10,6 +15,15 @@ describe('ReduxHelpers', () => {
     expect(reduxHelpers.PENDING_ACTION('lorem')).toBe('lorem_PENDING');
     expect(reduxHelpers.REJECTED_ACTION('lorem')).toBe('lorem_REJECTED');
     expect(reduxHelpers.HTTP_STATUS_RANGE('lorem')).toBe('lorem_STATUS_RANGE');
+  });
+
+  it('should generate an expected API query with an existing schema', () => {
+    const rhsmQuery = {
+      [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+      [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+      [RHSM_API_QUERY_TYPES.OFFSET]: 0
+    };
+    expect(reduxHelpers.setApiQuery(rhsmQuery, RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES)).toMatchSnapshot('rhsm query');
   });
 
   it('should generate an expected API response with an existing schema', () => {

@@ -33,11 +33,12 @@
       "!src/index.js",
       "!src/setupTests.js",
       "!src/components/app.js",
-      "!src/helpers/index.js",
+      "!src/common/index.js",
       "!src/redux/index.js",
       "!src/redux/store.js",
       "!src/redux/middleware/**",
       "!src/redux/actions/index.js",
+      "!src/redux/common/index.js",
       "!src/redux/reducers/index.js",
       "!src/redux/selectors/index.js"
     ],
