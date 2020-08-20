@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { InventoryList } from '../inventoryList';
-import { rhsmApiTypes } from '../../../types';
+import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('InventoryList Component', () => {
   it('should render a non-connected component', () => {
     const props = {
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
-        [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
+        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 0
       },
       productId: 'lorem'
     };
@@ -20,8 +20,8 @@ describe('InventoryList Component', () => {
   it('should handle variations in data', () => {
     const props = {
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
-        [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
+        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 0
       },
       productId: 'lorem',
       listData: [

@@ -2,12 +2,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { C3Chart } from '../../c3Chart/c3Chart';
 import { C3GraphCard } from '../c3GraphCard';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../../types/rhsmApiTypes';
 
 describe('C3GraphCard Component', () => {
   it('should render a non-connected component', () => {
     const props = {
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem'
     };
     const component = shallow(<C3GraphCard {...props} />);
@@ -17,7 +20,7 @@ describe('C3GraphCard Component', () => {
 
   it('should render multiple states', () => {
     const props = {
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem',
       graphData: {
         physicalSockets: [
@@ -88,7 +91,7 @@ describe('C3GraphCard Component', () => {
           id: 'thresholdLoremIpsumSockets'
         }
       ],
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem',
       graphData: {
         loremIpsumSockets: [
@@ -151,7 +154,7 @@ describe('C3GraphCard Component', () => {
 
   it('should render a custom legend', () => {
     const props = {
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
       productId: 'lorem'
     };
 
@@ -171,7 +174,7 @@ describe('C3GraphCard Component', () => {
 
   it('should return an empty render when disabled', () => {
     const props = {
-      query: { [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
       isDisabled: true,
       productId: 'lorem'
     };
