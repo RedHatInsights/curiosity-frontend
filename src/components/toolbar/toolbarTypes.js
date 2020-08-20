@@ -1,8 +1,7 @@
 import { translate } from '../i18n/i18n';
 import {
-  RHSM_API_QUERY_SLA,
+  RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_SLA_TYPES as SLA_TYPES,
-  RHSM_API_QUERY_USAGE,
   RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES
 } from '../../types/rhsmApiTypes';
 
@@ -14,7 +13,7 @@ import {
  */
 const getOptionsType = optionsType => {
   switch (optionsType) {
-    case RHSM_API_QUERY_SLA:
+    case RHSM_API_QUERY_TYPES.SLA:
       return {
         selected: null,
         options: [
@@ -36,7 +35,7 @@ const getOptionsType = optionsType => {
           }
         ]
       };
-    case RHSM_API_QUERY_USAGE:
+    case RHSM_API_QUERY_TYPES.USAGE:
       return {
         selected: null,
         options: [
@@ -63,12 +62,12 @@ const getOptionsType = optionsType => {
         selected: null,
         options: [
           {
-            title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SLA }),
-            value: RHSM_API_QUERY_SLA
+            title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA }),
+            value: RHSM_API_QUERY_TYPES.SLA
           },
           {
-            title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_USAGE }),
-            value: RHSM_API_QUERY_USAGE
+            title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE }),
+            value: RHSM_API_QUERY_TYPES.USAGE
           }
         ]
       };

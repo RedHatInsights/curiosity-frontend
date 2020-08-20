@@ -1,12 +1,6 @@
 import viewReducer from '../viewReducer';
 import { queryTypes as types } from '../../types';
-import {
-  RHSM_API_QUERY_GRANULARITY,
-  RHSM_API_QUERY_LIMIT,
-  RHSM_API_QUERY_OFFSET,
-  RHSM_API_QUERY_SLA,
-  RHSM_API_QUERY_USAGE
-} from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('ViewReducer', () => {
   it('should return the initial state', () => {
@@ -14,21 +8,16 @@ describe('ViewReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [
-      ...Object.values(types.SET_QUERY_RHSM_TYPES),
-      types.SET_QUERY_CLEAR,
-      types.SET_QUERY_PAGE_LIMIT_RHSM,
-      types.SET_QUERY_PAGE_OFFSET_RHSM
-    ];
+    const specificTypes = [...Object.values(types.SET_QUERY_RHSM_TYPES), types.SET_QUERY_CLEAR];
 
     specificTypes.forEach(value => {
       const dispatched = {
         type: value,
-        [RHSM_API_QUERY_GRANULARITY]: 'lorem granularity',
-        [RHSM_API_QUERY_SLA]: 'lorem sla',
-        [RHSM_API_QUERY_USAGE]: 'ipsum usage',
-        [RHSM_API_QUERY_LIMIT]: 10,
-        [RHSM_API_QUERY_OFFSET]: 10,
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
+        [RHSM_API_QUERY_TYPES.SLA]: 'lorem sla',
+        [RHSM_API_QUERY_TYPES.USAGE]: 'ipsum usage',
+        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 10,
         viewId: 'test_id'
       };
 

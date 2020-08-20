@@ -11,32 +11,6 @@ Object {
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_PAGE_LIMIT_RHSM 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "limit": 10,
-      },
-    },
-  },
-  "type": "SET_QUERY_PAGE_LIMIT_RHSM",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_PAGE_OFFSET_RHSM 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "offset": 10,
-      },
-    },
-  },
-  "type": "SET_QUERY_PAGE_OFFSET_RHSM",
-}
-`;
-
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_granularity 1`] = `
 Object {
   "result": Object {
@@ -53,7 +27,11 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_limit 1`] = `
 Object {
   "result": Object {
-    "query": Object {},
+    "query": Object {
+      "test_id": Object {
+        "limit": 10,
+      },
+    },
   },
   "type": "SET_QUERY_RHSM_limit",
 }
@@ -62,7 +40,11 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_offset 1`] = `
 Object {
   "result": Object {
-    "query": Object {},
+    "query": Object {
+      "test_id": Object {
+        "offset": 10,
+      },
+    },
   },
   "type": "SET_QUERY_RHSM_offset",
 }

@@ -10,7 +10,7 @@ import {
 } from '@patternfly/react-tokens';
 import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
@@ -99,7 +99,7 @@ class RhelView extends React.Component {
  */
 RhelView.propTypes = {
   query: PropTypes.shape({
-    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
+    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
   initialGraphFilters: PropTypes.array,
   initialInventoryFilters: PropTypes.array,
@@ -126,9 +126,9 @@ RhelView.propTypes = {
  */
 RhelView.defaultProps = {
   query: {
-    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: GRANULARITY_TYPES.DAILY,
-    [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
-    [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
+    [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+    [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+    [RHSM_API_QUERY_TYPES.OFFSET]: 0
   },
   initialGraphFilters: [
     {
@@ -195,10 +195,10 @@ RhelView.defaultProps = {
   ],
   initialToolbarFilters: [
     {
-      id: rhsmApiTypes.RHSM_API_QUERY_SLA
+      id: RHSM_API_QUERY_TYPES.SLA
     },
     {
-      id: rhsmApiTypes.RHSM_API_QUERY_USAGE,
+      id: RHSM_API_QUERY_TYPES.USAGE,
       selected: true
     }
   ],

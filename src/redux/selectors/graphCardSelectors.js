@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import moment from 'moment';
 import _isEqual from 'lodash/isEqual';
 import _camelCase from 'lodash/camelCase';
-import { rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { rhsmApiTypes, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
@@ -47,8 +47,8 @@ const selector = createSelector([statePropsFilter], response => {
   };
 
   const responseMetaQuery = { ...metaQuery };
-  delete responseMetaQuery[rhsmApiTypes.RHSM_API_QUERY_START_DATE];
-  delete responseMetaQuery[rhsmApiTypes.RHSM_API_QUERY_END_DATE];
+  delete responseMetaQuery[RHSM_API_QUERY_TYPES.START_DATE];
+  delete responseMetaQuery[RHSM_API_QUERY_TYPES.END_DATE];
 
   const cachedGranularity =
     (viewId && productId && selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`]) || undefined;
