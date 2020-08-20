@@ -5,7 +5,7 @@ import _isEqual from 'lodash/isEqual';
 import { Select } from '../form/select';
 import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
-import { rhsmApiTypes, RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { c3GraphCardHelpers } from './c3GraphCardHelpers';
 import { C3GraphCardLegendItem } from './c3GraphCardLegendItem';
 import { graphCardTypes } from '../graphCard/graphCardTypes';
@@ -42,13 +42,13 @@ class C3GraphCard extends React.Component {
    */
   onUpdateGraphData = () => {
     const { getGraphReportsCapacity, isDisabled, productId, query } = this.props;
-    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const graphGranularity = this.getQueryGranularity();
 
     if (!isDisabled && graphGranularity && productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
       const graphQuery = {
-        [rhsmApiTypes.RHSM_API_QUERY_START_DATE]: startDate.toISOString(),
-        [rhsmApiTypes.RHSM_API_QUERY_END_DATE]: endDate.toISOString(),
+        [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString(),
+        [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString(),
         ...query
       };
 
@@ -67,11 +67,16 @@ class C3GraphCard extends React.Component {
     const { viewId } = this.props;
 
     store.dispatch({
-      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY],
+      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
       viewId,
-      [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: value
+      [RHSM_API_QUERY_TYPES.GRANULARITY]: value
     });
   };
+
+  getQueryGranularity() {
+    const { query } = this.props;
+    return query?.[RHSM_API_QUERY_TYPES.GRANULARITY];
+  }
 
   /**
    * Apply a custom legend.
@@ -121,8 +126,8 @@ class C3GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, productId, productShortLabel, query, selectOptionsType } = this.props;
-    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const { filterGraphData, graphData, productId, productShortLabel, selectOptionsType } = this.props;
+    const graphGranularity = this.getQueryGranularity();
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
 
@@ -170,14 +175,14 @@ class C3GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, isDisabled, pending, query, selectOptionsType, t } = this.props;
+    const { cardTitle, children, error, isDisabled, pending, selectOptionsType, t } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
     const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
-    const graphGranularity = query?.[rhsmApiTypes.RHSM_API_QUERY_GRANULARITY];
+    const graphGranularity = this.getQueryGranularity();
 
     return (
       <Card className="curiosity-usage-graph">
@@ -229,7 +234,7 @@ C3GraphCard.propTypes = {
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
   query: PropTypes.shape({
-    [rhsmApiTypes.RHSM_API_QUERY_GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired
+    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired
   }).isRequired,
   isDisabled: PropTypes.bool,
   pending: PropTypes.bool,

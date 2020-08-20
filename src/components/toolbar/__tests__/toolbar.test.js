@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Toolbar } from '../toolbar';
 import { toolbarTypes } from '../toolbarTypes';
-import { RHSM_API_QUERY_SLA, RHSM_API_QUERY_USAGE } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('Toolbar Component', () => {
   let mockDispatch;
@@ -35,7 +35,7 @@ describe('Toolbar Component', () => {
     const props = {
       filterOptions: [
         {
-          id: RHSM_API_QUERY_SLA
+          id: RHSM_API_QUERY_TYPES.SLA
         }
       ],
       query: {}
@@ -46,13 +46,13 @@ describe('Toolbar Component', () => {
   });
 
   it('should render filters when props are populated', () => {
-    const [optionOne] = toolbarTypes.getOptions(RHSM_API_QUERY_SLA).options;
+    const [optionOne] = toolbarTypes.getOptions(RHSM_API_QUERY_TYPES.SLA).options;
 
     const props = {
-      activeFilters: new Set([RHSM_API_QUERY_SLA]),
-      currentFilter: RHSM_API_QUERY_SLA,
+      activeFilters: new Set([RHSM_API_QUERY_TYPES.SLA]),
+      currentFilter: RHSM_API_QUERY_TYPES.SLA,
       query: {
-        [RHSM_API_QUERY_SLA]: optionOne.value
+        [RHSM_API_QUERY_TYPES.SLA]: optionOne.value
       }
     };
     const component = shallow(<Toolbar {...props} />);
@@ -68,8 +68,8 @@ describe('Toolbar Component', () => {
       const componentInstance = component.instance();
 
       const filters = [
-        { category: RHSM_API_QUERY_SLA, method: 'onSelect' },
-        { category: RHSM_API_QUERY_USAGE, method: 'onSelect' }
+        { category: RHSM_API_QUERY_TYPES.SLA, method: 'onSelect' },
+        { category: RHSM_API_QUERY_TYPES.USAGE, method: 'onSelect' }
       ];
 
       filters.forEach(({ category, method }) => {

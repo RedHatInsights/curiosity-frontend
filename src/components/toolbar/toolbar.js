@@ -11,7 +11,7 @@ import {
 import { FilterIcon } from '@patternfly/react-icons';
 import { Select } from '../form/select';
 import { connect, reduxTypes, store } from '../../redux';
-import { rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { toolbarTypes } from './toolbarTypes';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -39,8 +39,8 @@ class Toolbar extends React.Component {
         type: reduxTypes.query.SET_QUERY_CLEAR,
         data: {
           clearFilters: {
-            [rhsmApiTypes.RHSM_API_QUERY_SLA]: null,
-            [rhsmApiTypes.RHSM_API_QUERY_USAGE]: null
+            [RHSM_API_QUERY_TYPES.SLA]: null,
+            [RHSM_API_QUERY_TYPES.USAGE]: null
           }
         }
       }
@@ -265,15 +265,15 @@ class Toolbar extends React.Component {
  */
 Toolbar.propTypes = {
   query: PropTypes.shape({
-    [rhsmApiTypes.RHSM_API_QUERY_SLA]: PropTypes.string,
-    [rhsmApiTypes.RHSM_API_QUERY_USAGE]: PropTypes.string
+    [RHSM_API_QUERY_TYPES.SLA]: PropTypes.string,
+    [RHSM_API_QUERY_TYPES.USAGE]: PropTypes.string
   }),
   activeFilters: PropTypes.instanceOf(Set),
-  currentFilter: PropTypes.oneOf([rhsmApiTypes.RHSM_API_QUERY_SLA, rhsmApiTypes.RHSM_API_QUERY_USAGE]),
+  currentFilter: PropTypes.oneOf([RHSM_API_QUERY_TYPES.SLA, RHSM_API_QUERY_TYPES.USAGE]),
   filterOptions: PropTypes.arrayOf(
     PropTypes.shape({
       filterType: PropTypes.oneOf(['select']),
-      id: PropTypes.oneOf([rhsmApiTypes.RHSM_API_QUERY_SLA, rhsmApiTypes.RHSM_API_QUERY_USAGE]),
+      id: PropTypes.oneOf([RHSM_API_QUERY_TYPES.SLA, RHSM_API_QUERY_TYPES.USAGE]),
       selected: PropTypes.bool
     })
   ),
@@ -295,11 +295,11 @@ Toolbar.defaultProps = {
   currentFilter: null,
   filterOptions: [
     {
-      id: rhsmApiTypes.RHSM_API_QUERY_SLA,
+      id: RHSM_API_QUERY_TYPES.SLA,
       filterType: 'select'
     },
     {
-      id: rhsmApiTypes.RHSM_API_QUERY_USAGE,
+      id: RHSM_API_QUERY_TYPES.USAGE,
       filterType: 'select',
       selected: true
     }
