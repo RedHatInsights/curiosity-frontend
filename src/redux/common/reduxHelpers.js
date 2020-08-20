@@ -35,6 +35,31 @@ const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
  */
 const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
+/**
+ * Set an API query based on specific API "acceptable values" schema.
+ *
+ * @param {object} values
+ * @param {object} schema
+ * @param {*} [initialValue]
+ * @returns {object}
+ */
+const setApiQuery = (values, schema, initialValue) => {
+  const generated = {};
+  const schemaArr = (schema && Object.values(schema)) || [];
+
+  schemaArr.forEach(value => {
+    if (initialValue === undefined) {
+      if (value in values) {
+        generated[value] = values?.[value];
+      }
+    } else {
+      generated[value] = values?.[value] || initialValue;
+    }
+  });
+
+  return generated;
+};
+
 // ToDo: research applying a maintained schema map/normalizer such as, normalizr
 /**
  * Apply a set of schemas using either an array of objects in the
@@ -42,7 +67,7 @@ const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
  * in the form of [['some_api_key','another_api_key']]
  *
  * @param {Array} schemas
- * @param {*} initialValue
+ * @param {*} [initialValue]
  * @returns {Array}
  */
 const setResponseSchemas = (schemas = [], initialValue) =>
@@ -392,6 +417,7 @@ const reduxHelpers = {
   PENDING_ACTION,
   REJECTED_ACTION,
   HTTP_STATUS_RANGE,
+  setApiQuery,
   setResponseSchemas,
   setNormalizedResponse,
   generatedPromiseActionReducer,

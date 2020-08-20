@@ -152,6 +152,12 @@ Array [
 ]
 `;
 
+exports[`ReduxHelpers should generate an expected API query with an existing schema: rhsm query 1`] = `
+Object {
+  "granularity": "daily",
+}
+`;
+
 exports[`ReduxHelpers should generate an expected API response with an existing schema: array 1`] = `
 Array [
   Object {
@@ -261,6 +267,7 @@ Object {
   "getMessageFromResults": [Function],
   "getSingleResponseFromResultArray": [Function],
   "getStatusFromResults": [Function],
+  "setApiQuery": [Function],
   "setNormalizedResponse": [Function],
   "setResponseSchemas": [Function],
   "setStateProp": [Function],
