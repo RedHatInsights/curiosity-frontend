@@ -89,7 +89,7 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, selectOptionsType, productShortLabel, viewId } = this.props;
+    const { filterGraphData, graphData, selectOptionsType, productShortLabel, query, viewId } = this.props;
     const graphGranularity = this.getQueryGranularity();
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
@@ -144,7 +144,7 @@ class GraphCard extends React.Component {
 
     return (
       <ChartArea
-        key={helpers.generateId()}
+        key={`chart_${JSON.stringify(query)}`}
         {...chartAreaProps}
         dataSets={filteredGraphData(graphData)}
         chartLegend={({ chart, datum }) => (
