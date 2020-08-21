@@ -61,14 +61,18 @@ exports[`InventoryList Component should handle variations in data: filtered data
   <CardFooter
     className=""
   >
-    <Connect(Pagination)
-      dropDirection="up"
-      isDisabled={false}
-      itemCount={0}
-      perPageDefault={10}
-      productId="lorem"
-      viewId="inventoryList"
-    />
+    <TableToolbar
+      isFooter={true}
+    >
+      <Connect(Pagination)
+        dropDirection="up"
+        isDisabled={false}
+        itemCount={0}
+        perPageDefault={10}
+        productId="lorem"
+        viewId="inventoryList"
+      />
+    </TableToolbar>
   </CardFooter>
 </Card>
 `;
@@ -137,14 +141,18 @@ exports[`InventoryList Component should handle variations in data: variable data
   <CardFooter
     className=""
   >
-    <Connect(Pagination)
-      dropDirection="up"
-      isDisabled={false}
-      itemCount={0}
-      perPageDefault={10}
-      productId="lorem"
-      viewId="inventoryList"
-    />
+    <TableToolbar
+      isFooter={true}
+    >
+      <Connect(Pagination)
+        dropDirection="up"
+        isDisabled={false}
+        itemCount={0}
+        perPageDefault={10}
+        productId="lorem"
+        viewId="inventoryList"
+      />
+    </TableToolbar>
   </CardFooter>
 </Card>
 `;
@@ -193,14 +201,18 @@ exports[`InventoryList Component should render a non-connected component: non-co
   <CardFooter
     className=""
   >
-    <Connect(Pagination)
-      dropDirection="up"
-      isDisabled={false}
-      itemCount={0}
-      perPageDefault={10}
-      productId="lorem"
-      viewId="inventoryList"
-    />
+    <TableToolbar
+      isFooter={true}
+    >
+      <Connect(Pagination)
+        dropDirection="up"
+        isDisabled={false}
+        itemCount={0}
+        perPageDefault={10}
+        productId="lorem"
+        viewId="inventoryList"
+      />
+    </TableToolbar>
   </CardFooter>
 </Card>
 `;

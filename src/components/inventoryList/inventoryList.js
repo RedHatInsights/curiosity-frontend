@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _isEqual from 'lodash/isEqual';
 import { TableVariant } from '@patternfly/react-table';
 import { Card, CardActions, CardBody, CardFooter, CardHeader, CardTitle, Title } from '@patternfly/react-core';
+import { TableToolbar } from '@redhat-cloud-services/frontend-components/components/cjs/TableToolbar';
 import { helpers } from '../../common';
 import { connect, reduxActions, reduxSelectors } from '../../redux';
 import Table from '../table/table';
@@ -11,6 +12,11 @@ import { inventoryListHelpers } from './inventoryListHelpers';
 import Pagination from '../pagination/pagination';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
+/**
+ * A system inventory component.
+ *
+ * @augments React.Component
+ */
 class InventoryList extends React.Component {
   componentDidMount() {
     this.onUpdateInventoryData();
@@ -32,6 +38,11 @@ class InventoryList extends React.Component {
     }
   };
 
+  /**
+   * Render an inventory table.
+   *
+   * @returns {Node}
+   */
   renderTable() {
     const { filterInventoryData, listData } = this.props;
     let updatedColumnHeaders = [];
@@ -60,6 +71,11 @@ class InventoryList extends React.Component {
     );
   }
 
+  /**
+   * Render an inventory card.
+   *
+   * @returns {Node}
+   */
   render() {
     const {
       cardTitle,
@@ -118,20 +134,29 @@ class InventoryList extends React.Component {
           </div>
         </CardBody>
         <CardFooter className={(error && 'blur') || ''}>
-          <Pagination
-            isDisabled={pending || error}
-            itemCount={itemCount}
-            productId={productId}
-            viewId={viewId}
-            perPageDefault={updatedPerPage}
-            dropDirection="up"
-          />
+          <TableToolbar isFooter>
+            <Pagination
+              isDisabled={pending || error}
+              itemCount={itemCount}
+              productId={productId}
+              viewId={viewId}
+              perPageDefault={updatedPerPage}
+              dropDirection="up"
+            />
+          </TableToolbar>
         </CardFooter>
       </Card>
     );
   }
 }
 
+/**
+ * Prop types.
+ *
+ * @type {{viewId: string, productId: string, filterInventoryData: Array, listData: Array, pending: boolean, query: object,
+ *     getHostsInventory: Function, perPageDefault: number, isDisabled: boolean, error: boolean, cardTitle: string,
+ *     itemCount: number}}
+ */
 InventoryList.propTypes = {
   error: PropTypes.bool,
   cardTitle: PropTypes.string,
@@ -163,6 +188,12 @@ InventoryList.propTypes = {
   viewId: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{viewId: string, filterInventoryData: Array, listData: Array, pending: boolean, getHostsInventory: Function,
+ *     perPageDefault: number, isDisabled: boolean, error: boolean, cardTitle: null, itemCount: number}}
+ */
 InventoryList.defaultProps = {
   error: false,
   cardTitle: null,
