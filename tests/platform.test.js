@@ -1,7 +1,7 @@
 const { execSync } = require('child_process');
 const packageJson = require('../package');
 
-describe('Platform Configuration', () => {
+describe('Platform Configuration, Build', () => {
   it('should have a name reference that matches configuration', () => {
     const envFile = './.env';
     const { appname } = packageJson.insights;
@@ -29,5 +29,20 @@ describe('Platform Configuration', () => {
         .split('\n')
         .map(value => value.trim())
     ).toMatchSnapshot('proxy references');
+  });
+
+  it('should use direct imports for platform components, with exceptions', () => {
+    const srcDir = 'src';
+    const output = execSync(
+      `echo "$(cd ./${srcDir} && git grep -n -E "(@redhat-cloud-services/frontend-components/components/)")"`
+    );
+
+    expect(
+      output
+        .toString()
+        .trim()
+        .split(/[\n\r]/g)
+        .filter(str => !/\/(cjs|esm)\//.test(str))
+    ).toMatchSnapshot('direct import exceptions');
   });
 });
