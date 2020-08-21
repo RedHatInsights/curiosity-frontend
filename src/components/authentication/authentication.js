@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
-import { Maintenance } from '@redhat-cloud-services/frontend-components/components/Maintenance';
+import { Maintenance } from '@redhat-cloud-services/frontend-components/components/cjs/Maintenance';
 import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
