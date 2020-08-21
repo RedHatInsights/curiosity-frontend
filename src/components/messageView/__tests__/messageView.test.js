@@ -21,4 +21,11 @@ describe('MessageView Component', () => {
     const component = shallow(<MessageView {...props} />);
     expect(component).toMatchSnapshot('fallback display');
   });
+
+  it('should render children when provided', () => {
+    const props = { children: 'child content' };
+
+    const component = shallow(<MessageView {...props} />);
+    expect(component).toMatchSnapshot('children display');
+  });
 });
