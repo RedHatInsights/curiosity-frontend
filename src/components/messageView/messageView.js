@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
-import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
+import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 
 /**
@@ -11,33 +11,39 @@ import { helpers } from '../../common';
  * Render a message view.
  *
  * @param {object} props
+ * @param {Node} props.children
  * @param {Node|Function} props.icon
  * @param {string} props.message
  * @param {string} props.pageTitle
  * @param {string} props.title
  * @returns {Node}
  */
-const MessageView = ({ icon, message, pageTitle, title }) => (
+const MessageView = ({ children, icon, message, pageTitle, title }) => (
   <PageLayout>
     <PageHeader>{pageTitle || helpers.UI_DISPLAY_NAME}</PageHeader>
-    <EmptyState variant={EmptyStateVariant.full} className="fadein">
-      {icon && <EmptyStateIcon icon={icon} />}
-      {title && (
-        <Title headingLevel="h2" size="lg">
-          {title}
-        </Title>
+    <PageSection>
+      {children ?? (
+        <EmptyState variant={EmptyStateVariant.full} className="fadein">
+          {icon && <EmptyStateIcon icon={icon} />}
+          {title && (
+            <Title headingLevel="h2" size="lg">
+              {title}
+            </Title>
+          )}
+          {message && <EmptyStateBody>{message}</EmptyStateBody>}
+        </EmptyState>
       )}
-      {message && <EmptyStateBody>{message}</EmptyStateBody>}
-    </EmptyState>
+    </PageSection>
   </PageLayout>
 );
 
 /**
  * Prop types.
  *
- * @type {{icon: Node|Function, message: string, title: string}}
+ * @type {{children: Node, icon: Node|Function, message: string, pageTitle: string, title: string}}
  */
 MessageView.propTypes = {
+  children: PropTypes.node,
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   message: PropTypes.string,
   pageTitle: PropTypes.string,
@@ -47,9 +53,10 @@ MessageView.propTypes = {
 /**
  * Default props.
  *
- * @type {{icon: null, message: null, title: null}}
+ * @type {{children: null, icon: null, message: null, pageTitle: null, title: null}}
  */
 MessageView.defaultProps = {
+  children: null,
   icon: null,
   message: null,
   pageTitle: null,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
+import { Maintenance } from '@redhat-cloud-services/frontend-components/components/Maintenance';
 import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
@@ -51,6 +52,14 @@ class Authentication extends Component {
    */
   render() {
     const { children, session, t } = this.props;
+
+    if (helpers.UI_DISABLED) {
+      return (
+        <MessageView>
+          <Maintenance description={t('curiosity-auth.maintenanceCopy', '...')} />
+        </MessageView>
+      );
+    }
 
     if (session.authorized) {
       return <React.Fragment>{children}</React.Fragment>;
