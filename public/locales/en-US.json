@@ -2,7 +2,8 @@
   "curiosity-auth": {
     "pending": "Authenticating...",
     "authorizedTitle": "You do not have access to {{appName}}.",
-    "authorizedCopy": "Contact your organization administrator for more information."
+    "authorizedCopy": "Contact your organization administrator for more information.",
+    "maintenanceCopy": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
   "curiosity-graph": {
     "cardHeading": "CPU usage",
