@@ -26,6 +26,10 @@ Array [
     "file": "./src/components/authentication/authentication.js",
     "keys": Array [
       Object {
+        "key": "curiosity-auth.maintenanceCopy",
+        "match": "t('curiosity-auth.maintenanceCopy', '...')",
+      },
+      Object {
         "key": "curiosity-auth.pending",
         "match": "t('curiosity-auth.pending', '...')",
       },
