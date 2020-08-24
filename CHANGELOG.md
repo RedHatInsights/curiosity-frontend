@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.18...v0.1.19) (2020-08-24)
+
+
+### Features
+
+* **rhelView, openshiftView:** issues/305 add sub heading ([#348](https://github.com/RedHatInsights/curiosity-frontend/issues/348)) ([9875a19](https://github.com/RedHatInsights/curiosity-frontend/commit/9875a1914e2eab5ea0bc2abb2ea00aac6ebaa9c5))
+* **toolbar:** issues/10 add usage filter ([#361](https://github.com/RedHatInsights/curiosity-frontend/issues/361)) ([9ad7dcb](https://github.com/RedHatInsights/curiosity-frontend/commit/9ad7dcb43cf5128938468eb3d9fb6a27e322a67b))
+
+
+### Bug Fixes
+
+* **graphCard,rhelView,openshiftView:** issues/10 query prop ([#360](https://github.com/RedHatInsights/curiosity-frontend/issues/360)) ([2b6019d](https://github.com/RedHatInsights/curiosity-frontend/commit/2b6019d79d51d2180099e659513aed93fe6c2093))
+* **i18n,translate:** issues/354 remove withTranslation ([#355](https://github.com/RedHatInsights/curiosity-frontend/issues/355)) ([63334eb](https://github.com/RedHatInsights/curiosity-frontend/commit/63334ebf5cff944b27f7f50e4ba236eb25afc419))
+* **pageHeader:** issues/305 add bottom margin to h1 ([#357](https://github.com/RedHatInsights/curiosity-frontend/issues/357)) ([2b3b404](https://github.com/RedHatInsights/curiosity-frontend/commit/2b3b4042f958b07cf8e7145189c8b44d3887a3f3))
+* **pageHeader:** issues/305 apply locale product context ([#371](https://github.com/RedHatInsights/curiosity-frontend/issues/371)) ([f6fc39f](https://github.com/RedHatInsights/curiosity-frontend/commit/f6fc39fcbc5c763095a46e268bf3a1f5eba1273a))
+* **pageHeader:** issues/367 subheading external link icon ([#369](https://github.com/RedHatInsights/curiosity-frontend/issues/369)) ([bb97d4e](https://github.com/RedHatInsights/curiosity-frontend/commit/bb97d4e4ef6c03f81f0e453f09de49352cb8e9da))
+* **queryTypes:** issues/10 rhsm to query type ([#361](https://github.com/RedHatInsights/curiosity-frontend/issues/361)) ([1070ac2](https://github.com/RedHatInsights/curiosity-frontend/commit/1070ac29c076e4d39b43dbd9c0a4825642d24832))
+* **redux:** issues/10 expand rhsmTypes for filtering ([#360](https://github.com/RedHatInsights/curiosity-frontend/issues/360)) ([34d9b0c](https://github.com/RedHatInsights/curiosity-frontend/commit/34d9b0c4976ec5712d87da7a8d6292b9dae068a8))
+* **select:** issues/10 pf toggleIcon prop, toggleText ([#360](https://github.com/RedHatInsights/curiosity-frontend/issues/360)) ([c225f01](https://github.com/RedHatInsights/curiosity-frontend/commit/c225f018159bae6ed4a3712618c20890ecd6261f))
+* **testing:** commit message length ([#366](https://github.com/RedHatInsights/curiosity-frontend/issues/366)) ([ce4dbe8](https://github.com/RedHatInsights/curiosity-frontend/commit/ce4dbe8cbef90e0aeeb791d559695699f69b71f8))
+* **toolbar:** issues/10 default usage filter category ([#368](https://github.com/RedHatInsights/curiosity-frontend/issues/368)) ([00900d2](https://github.com/RedHatInsights/curiosity-frontend/commit/00900d2759852a52d8272144ac0c35863520efcb))
+* **toolbar:** issues/377 openshiftView, remove usage filter ([#378](https://github.com/RedHatInsights/curiosity-frontend/issues/378)) ([1a12310](https://github.com/RedHatInsights/curiosity-frontend/commit/1a12310ef5358f3ad7890c5e412c8dc43d8b8e97))
+* **tourView:** issues/359 remove vestigial tour stylesheet ([#370](https://github.com/RedHatInsights/curiosity-frontend/issues/370)) ([d6c73c7](https://github.com/RedHatInsights/curiosity-frontend/commit/d6c73c77ec0782655ea8d0dbe2dfe13b2219a91a))
+
 ### [0.1.18](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.17...v0.1.18) (2020-07-30)
 
 
