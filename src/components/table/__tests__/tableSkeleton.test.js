@@ -31,5 +31,15 @@ describe('TableSkeleton Component', () => {
       variant: TableVariant.compact
     });
     expect(component).toMatchSnapshot('className and variant');
+
+    component.setProps({
+      rowCount: 0
+    });
+    expect(component).toMatchSnapshot('no table header and zero rows');
+
+    component.setProps({
+      isHeader: true
+    });
+    expect(component).toMatchSnapshot('table header and zero rows');
   });
 });
