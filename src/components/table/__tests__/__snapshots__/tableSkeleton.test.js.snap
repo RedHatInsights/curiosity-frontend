@@ -192,6 +192,134 @@ exports[`TableSkeleton Component should allow variations in table layout: column
 />
 `;
 
+exports[`TableSkeleton Component should allow variations in table layout: no table header and zero rows 1`] = `
+<Table
+  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  borders={false}
+  className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows lorem-ipsum-class"
+  columnHeaders={
+    Array [
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+    ]
+  }
+  isHeader={false}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+        ],
+      },
+    ]
+  }
+  summary={null}
+  t={[Function]}
+  variant="compact"
+/>
+`;
+
+exports[`TableSkeleton Component should allow variations in table layout: table header and zero rows 1`] = `
+<Table
+  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  borders={false}
+  className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows lorem-ipsum-class"
+  columnHeaders={
+    Array [
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+      <Skeleton
+        isDark={false}
+        size="md"
+      />,
+    ]
+  }
+  isHeader={true}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+          <Skeleton
+            isDark={false}
+            size="md"
+          />,
+        ],
+      },
+    ]
+  }
+  summary={null}
+  t={[Function]}
+  variant="compact"
+/>
+`;
+
 exports[`TableSkeleton Component should render a non-connected component: non-connected 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"

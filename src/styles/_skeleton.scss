@@ -16,4 +16,12 @@
       height: 200px;
     }
   }
+
+  .curiosity-skeleton-table {
+    &.curiosity-skeleton-table__hidden-rows {
+      tbody {
+        display: none
+      }
+    }
+  }
 }
