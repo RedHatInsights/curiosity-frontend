@@ -118,6 +118,7 @@ class GraphCard extends React.Component {
             duration: 250,
             onLoad: { duration: 250 }
           },
+          strokeWidth: 2,
           isStacked: !/^threshold/.test(key),
           isThreshold: /^threshold/.test(key)
         };
@@ -129,7 +130,7 @@ class GraphCard extends React.Component {
           };
           tempFiltered.stroke = chartColorGreenDark.value;
           tempFiltered.strokeDasharray = '4,3';
-          tempFiltered.strokeWidth = 2.5;
+          tempFiltered.strokeWidth = 3;
         }
 
         return tempFiltered;

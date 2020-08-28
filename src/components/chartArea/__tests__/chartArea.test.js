@@ -29,7 +29,8 @@ describe('ChartArea Component', () => {
           id: 'loremGraph',
           isStacked: true,
           fill: '#ipsum',
-          stroke: '#lorem'
+          stroke: '#lorem',
+          strokeWidth: 2
         },
         {
           data: [
@@ -49,7 +50,7 @@ describe('ChartArea Component', () => {
           fill: '#ipsum',
           stroke: '#lorem',
           strokeDasharray: '4,3',
-          strokeWidth: 2.5
+          strokeWidth: 3
         }
       ]
     };

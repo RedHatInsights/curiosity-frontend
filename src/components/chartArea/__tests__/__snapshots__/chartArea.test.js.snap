@@ -1495,7 +1495,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
             "fill": "#ipsum",
             "stroke": "#lorem",
             "strokeDasharray": "4,3",
-            "strokeWidth": 2.5,
+            "strokeWidth": 3,
           },
         }
       }
@@ -1525,6 +1525,7 @@ exports[`ChartArea Component should render basic data: data 1`] = `
             "data": Object {
               "fill": "#ipsum",
               "stroke": "#lorem",
+              "strokeWidth": 2,
             },
           }
         }
