@@ -477,6 +477,10 @@ class ChartArea extends React.Component {
         dataColorStroke.data.stroke = dataSet.stroke;
       }
 
+      if (dataSet.strokeWidth) {
+        dataColorStroke.data.strokeWidth = dataSet.strokeWidth;
+      }
+
       return (
         <PfChartArea
           animate={dataSet.animate || false}
