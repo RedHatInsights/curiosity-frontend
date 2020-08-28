@@ -29,6 +29,7 @@ Array [
     "id": "loremIpsumSockets",
     "isStacked": true,
     "isThreshold": false,
+    "strokeWidth": 2,
   },
   Object {
     "animate": Object {
@@ -59,7 +60,7 @@ Array [
     "isThreshold": true,
     "stroke": "#4cb140",
     "strokeDasharray": "4,3",
-    "strokeWidth": 2.5,
+    "strokeWidth": 3,
   },
 ]
 `;
@@ -175,6 +176,7 @@ Object {
       "id": "physicalSockets",
       "isStacked": true,
       "isThreshold": false,
+      "strokeWidth": 2,
     },
   ],
 }
@@ -267,6 +269,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
               "id": "physicalSockets",
               "isStacked": true,
               "isThreshold": false,
+              "strokeWidth": 2,
             },
           ]
         }
@@ -379,6 +382,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
               "id": "physicalSockets",
               "isStacked": true,
               "isThreshold": false,
+              "strokeWidth": 2,
             },
           ]
         }
@@ -491,6 +495,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
               "id": "physicalSockets",
               "isStacked": true,
               "isThreshold": false,
+              "strokeWidth": 2,
             },
           ]
         }
