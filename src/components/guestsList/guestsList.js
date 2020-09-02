@@ -23,7 +23,7 @@ import { Table } from '../table/table';
  * @fires onScroll
  */
 class GuestsList extends React.Component {
-  state = { currentPage: 0, limit: 10, previousData: [] };
+  state = { currentPage: 0, limit: 100, previousData: [] };
 
   componentDidMount() {
     this.onUpdateGuestsData();
