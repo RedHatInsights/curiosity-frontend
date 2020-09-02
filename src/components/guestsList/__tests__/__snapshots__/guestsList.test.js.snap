@@ -114,12 +114,12 @@ exports[`GuestsList Component should handle updating paging state: state 1`] = `
 Object {
   "initialState": Object {
     "currentPage": 0,
-    "limit": 10,
+    "limit": 100,
     "previousData": Array [],
   },
   "scrollComplete": Object {
     "currentPage": 1,
-    "limit": 10,
+    "limit": 100,
     "previousData": Array [
       Object {
         "dolor": "sit",
@@ -129,7 +129,7 @@ Object {
   },
   "scrollProgress": Object {
     "currentPage": 0,
-    "limit": 10,
+    "limit": 100,
     "previousData": Array [],
   },
 }
