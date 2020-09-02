@@ -20,8 +20,9 @@ import { translate } from '../i18n/i18n';
  */
 const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, t, variant }) => {
   const updatedColumnHeaders = [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />);
+  const updatedRowCount = rowCount || 1;
 
-  const updatedRows = [...new Array(rowCount)].map(() => ({
+  const updatedRows = [...new Array(updatedRowCount)].map(() => ({
     cells: [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />)
   }));
 
@@ -29,7 +30,9 @@ const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, t, va
     <Table
       ariaLabel={t('curiosity-inventory.tableSkeletonAriaLabel')}
       borders={borders}
-      className={`curiosity-skeleton-table ${className || ''}`}
+      className={`curiosity-skeleton-table${(!rowCount && ' curiosity-skeleton-table__hidden-rows') || ''} ${
+        className || ''
+      }`}
       columnHeaders={updatedColumnHeaders}
       isHeader={isHeader}
       rows={updatedRows}

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuestsListSelectors should handle pending state on an ID: pending 1`] = `
+Object {
+  "error": false,
+  "fulfilled": false,
+  "listData": Array [],
+  "pending": true,
+  "status": undefined,
+}
+`;
+
+exports[`GuestsListSelectors should map a fulfilled ID response to an aggregated output: fulfilled 1`] = `
+Object {
+  "error": false,
+  "fulfilled": true,
+  "listData": Array [
+    Object {
+      "displayName": "db.lorem.com",
+      "insightsId": "d6214a0b-b344-4778-831c-d53dcacb2da3",
+      "lastSeen": "17 days ago",
+      "subscriptionManagerId": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
+    },
+    Object {
+      "displayName": "db.ipsum.com",
+      "insightsId": "9358e312-1c9f-42f4-8910-dcef6e970852",
+      "lastSeen": "in a month",
+      "subscriptionManagerId": "b101a72f-1859-4489-acb8-d6d31c2578c4",
+    },
+  ],
+  "pending": false,
+  "status": undefined,
+}
+`;
+
+exports[`GuestsListSelectors should pass minimal data on an ID without an ID provided: no id error 1`] = `
+Object {
+  "error": false,
+  "fulfilled": false,
+  "listData": Array [],
+  "pending": false,
+  "status": undefined,
+}
+`;
+
+exports[`GuestsListSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
+Object {
+  "error": false,
+  "fulfilled": false,
+  "listData": Array [],
+  "pending": false,
+  "status": undefined,
+}
+`;
+
+exports[`GuestsListSelectors should populate data on an ID when the api response is missing expected properties: data populated, missing properties 1`] = `
+Object {
+  "error": false,
+  "fulfilled": true,
+  "listData": Array [
+    Object {
+      "displayName": null,
+      "insightsId": "d6214a0b-b344-4778-831c-d53dcacb2da3",
+      "lastSeen": "in a year",
+      "subscriptionManagerId": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
+    },
+    Object {
+      "displayName": "db.example.com",
+      "insightsId": "9358e312-1c9f-42f4-8910-dcef6e970852",
+      "lastSeen": "in a month",
+      "subscriptionManagerId": null,
+    },
+  ],
+  "pending": false,
+  "status": undefined,
+}
+`;
+
+exports[`GuestsListSelectors should return specific selectors: selectors 1`] = `
+Object {
+  "guestsList": [Function],
+  "makeGuestsList": [Function],
+}
+`;

@@ -8,6 +8,7 @@ import { helpers } from '../../common';
 import { connect, reduxActions, reduxSelectors } from '../../redux';
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
+import GuestsList from '../guestsList/guestsList';
 import { inventoryListHelpers } from './inventoryListHelpers';
 import Pagination from '../pagination/pagination';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
@@ -16,6 +17,7 @@ import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
  * A system inventory component.
  *
  * @augments React.Component
+ * @fires onUpdateInventoryData
  */
 class InventoryList extends React.Component {
   componentDidMount() {
@@ -30,6 +32,11 @@ class InventoryList extends React.Component {
     }
   }
 
+  /**
+   * Call the RHSM APIs, apply filters.
+   *
+   * @event onUpdateInventoryData
+   */
   onUpdateInventoryData = () => {
     const { getHostsInventory, isDisabled, productId, query } = this.props;
 
@@ -44,7 +51,7 @@ class InventoryList extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { filterInventoryData, listData } = this.props;
+    const { filterGuestsData, filterInventoryData, listData, query } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
@@ -53,10 +60,21 @@ class InventoryList extends React.Component {
         cellData
       });
 
+      const hasGuests = cellData?.numberOfGuests > 0;
+      const guestsId = cellData?.subscriptionManagerId;
       updatedColumnHeaders = columnHeaders;
 
       return {
-        cells
+        cells,
+        expandedContent: hasGuests && guestsId && (
+          <GuestsList
+            key={guestsId}
+            filterGuestsData={filterGuestsData}
+            numberOfGuests={cellData?.numberOfGuests}
+            id={guestsId}
+            query={query}
+          />
+        )
       };
     });
 
@@ -160,6 +178,7 @@ class InventoryList extends React.Component {
 InventoryList.propTypes = {
   error: PropTypes.bool,
   cardTitle: PropTypes.string,
+  filterGuestsData: PropTypes.array,
   filterInventoryData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -197,6 +216,7 @@ InventoryList.propTypes = {
 InventoryList.defaultProps = {
   error: false,
   cardTitle: null,
+  filterGuestsData: [],
   filterInventoryData: [],
   getHostsInventory: helpers.noop,
   isDisabled: helpers.UI_DISABLED_TABLE,

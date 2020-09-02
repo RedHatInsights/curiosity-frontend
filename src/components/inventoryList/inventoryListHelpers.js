@@ -5,7 +5,7 @@ import { translate } from '../i18n/i18n';
  *
  * @param {object} params
  * @param {Array} params.filters
- * @param {object}params.cellData
+ * @param {object} params.cellData
  * @returns {{columnHeaders: Array, cells: Array, data: object}}
  */
 const parseRowCellsListData = ({ filters = [], cellData = {} }) => {
