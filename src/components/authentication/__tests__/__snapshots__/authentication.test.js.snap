@@ -100,9 +100,14 @@ exports[`Authentication Component should render a non-connected component error:
       </PageHeader>
       <PageSection
         className="curiosity"
+        padding={
+          Object {
+            "default": "noPadding",
+          }
+        }
       >
         <section
-          className="pf-c-page__main-section curiosity"
+          className="pf-c-page__main-section pf-m-no-padding curiosity"
         >
           <PageSection
             key=".1"

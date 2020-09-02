@@ -4,9 +4,14 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
 <PageLayout>
   <PageSection
     className="curiosity"
+    padding={
+      Object {
+        "default": "noPadding",
+      }
+    }
   >
     <section
-      className="pf-c-page__main-section curiosity"
+      className="pf-c-page__main-section pf-m-no-padding curiosity"
     >
       <span
         className="test"
@@ -56,9 +61,14 @@ exports[`PageLayout Component should render header and section children: multipl
   </PageHeader>
   <PageSection
     className="curiosity"
+    padding={
+      Object {
+        "default": "noPadding",
+      }
+    }
   >
     <section
-      className="pf-c-page__main-section curiosity"
+      className="pf-c-page__main-section pf-m-no-padding curiosity"
     >
       <PageSection
         key=".0"

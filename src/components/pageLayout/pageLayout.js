@@ -20,7 +20,7 @@ const PageLayout = ({ children }) => (
   <React.Fragment>
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageHeader)}
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageToolbar)}
-    <Main className="curiosity">
+    <Main padding={{ default: 'noPadding' }} className="curiosity">
       {React.Children.toArray(children).filter(child => child.type !== PageHeader && child.type !== PageToolbar)}
     </Main>
   </React.Fragment>
