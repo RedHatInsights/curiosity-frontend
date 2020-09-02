@@ -63,7 +63,7 @@ describe('GuestsList Component', () => {
   it('should handle updating paging state', () => {
     const props = {
       id: 'lorem',
-      numberOfGuests: 11,
+      numberOfGuests: 111,
       listData: [{ lorem: 'ipsum', dolor: 'sit' }]
     };
 
