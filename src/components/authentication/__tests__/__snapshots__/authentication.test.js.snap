@@ -59,10 +59,10 @@ exports[`Authentication Component should render a non-connected component error:
   t={[Function]}
 >
   <MessageView
-    icon={[Function]}
-    message="t(curiosity-auth.authorizedCopy, ...)"
+    icon={null}
+    message={null}
     pageTitle={null}
-    title="t(curiosity-auth.authorizedTitle, [object Object])"
+    title={null}
   >
     <PageLayout>
       <PageHeader
@@ -112,68 +112,92 @@ exports[`Authentication Component should render a non-connected component error:
                 className=""
               >
                  
-                <EmptyState
-                  className="fadein"
-                  variant="full"
+                <NotAuthorized
+                  serviceName="Subscription Watch"
                 >
-                  <div
-                    className="pf-c-empty-state fadein"
+                  <EmptyState
+                    className="ins-c-not-authorized"
+                    variant="full"
                   >
                     <div
-                      className="pf-c-empty-state__content"
+                      className="pf-c-empty-state ins-c-not-authorized"
                     >
-                      <EmptyStateIcon
-                        icon={[Function]}
+                      <div
+                        className="pf-c-empty-state__content"
                       >
-                        <LockIcon
-                          aria-hidden="true"
-                          className="pf-c-empty-state__icon"
-                          color="currentColor"
-                          noVerticalAlign={false}
-                          size="sm"
+                        <EmptyStateIcon
+                          icon={[Function]}
                         >
-                          <svg
+                          <LockIcon
                             aria-hidden="true"
-                            aria-labelledby={null}
                             className="pf-c-empty-state__icon"
-                            fill="currentColor"
-                            height="1em"
-                            role="img"
-                            style={
-                              Object {
-                                "verticalAlign": "-0.125em",
-                              }
-                            }
-                            viewBox="0 0 448 512"
-                            width="1em"
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
                           >
-                            <path
-                              d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-                              transform=""
-                            />
-                          </svg>
-                        </LockIcon>
-                      </EmptyStateIcon>
-                      <Title
-                        headingLevel="h2"
-                        size="lg"
-                      >
-                        <h2
-                          className="pf-c-title pf-m-lg"
+                            <svg
+                              aria-hidden="true"
+                              aria-labelledby={null}
+                              className="pf-c-empty-state__icon"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 448 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                                transform=""
+                              />
+                            </svg>
+                          </LockIcon>
+                        </EmptyStateIcon>
+                        <Title
+                          headingLevel="h5"
+                          size="lg"
                         >
-                          t(curiosity-auth.authorizedTitle, [object Object])
-                        </h2>
-                      </Title>
-                      <EmptyStateBody>
-                        <div
-                          className="pf-c-empty-state__body"
+                          <h5
+                            className="pf-c-title pf-m-lg"
+                          >
+                             You do not have access to 
+                            Subscription Watch
+                          </h5>
+                        </Title>
+                        <EmptyStateBody>
+                          <div
+                            className="pf-c-empty-state__body"
+                          >
+                            Contact your organization administrator(s) for more information.
+                          </div>
+                        </EmptyStateBody>
+                        <Button
+                          component="a"
+                          href="."
+                          variant="primary"
                         >
-                          t(curiosity-auth.authorizedCopy, ...)
-                        </div>
-                      </EmptyStateBody>
+                          <a
+                            aria-disabled={false}
+                            aria-label={null}
+                            className="pf-c-button pf-m-primary"
+                            data-ouia-component-id={0}
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe={true}
+                            disabled={null}
+                            href="."
+                            type={null}
+                          >
+                            Go to landing page
+                          </a>
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                </EmptyState>
+                  </EmptyState>
+                </NotAuthorized>
                  
               </section>
             </Section>
@@ -196,22 +220,30 @@ exports[`Authentication Component should render a non-connected component pendin
 
 exports[`Authentication Component should return a message on 401 error: 401 error 1`] = `
 <MessageView
-  icon={[Function]}
-  message="t(curiosity-auth.authorizedCopy, ...)"
+  icon={null}
+  message={null}
   pageTitle={null}
-  title="t(curiosity-auth.authorizedTitle, [object Object])"
-/>
+  title={null}
+>
+  <NotAuthorized
+    serviceName="Subscription Watch"
+  />
+</MessageView>
 `;
 
 exports[`Authentication Component should return a redirect on 418 error: 418 error 1`] = `"418 redirect"`;
 
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 error 1`] = `
 <MessageView
-  icon={[Function]}
-  message="t(curiosity-auth.authorizedCopy, ...)"
+  icon={null}
+  message={null}
   pageTitle={null}
-  title="t(curiosity-auth.authorizedTitle, [object Object])"
-/>
+  title={null}
+>
+  <NotAuthorized
+    serviceName="Subscription Watch"
+  />
+</MessageView>
 `;
 
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `"403 redirect"`;
