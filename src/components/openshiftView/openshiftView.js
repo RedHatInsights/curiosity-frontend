@@ -6,8 +6,12 @@ import {
 } from '@patternfly/react-tokens';
 import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
-import { apiQueries, connect, reduxSelectors } from '../../redux';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_TYPES,
+  RHSM_API_QUERY_UMO_TYPES
+} from '../../types/rhsmApiTypes';
+import { apiQueries, connect, reduxSelectors, reduxTypes, store } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
@@ -42,7 +46,7 @@ class OpenshiftView extends React.Component {
    */
   onSelect = (event = {}) => {
     const { option } = this.state;
-    const { initialGraphFilters, initialInventoryFilters } = this.props;
+    const { initialGraphFilters, initialInventoryFilters, viewId } = this.props;
     const { value } = event;
 
     if (value !== option) {
@@ -56,11 +60,20 @@ class OpenshiftView extends React.Component {
       const graphFilters = initialGraphFilters.filter(filter);
       const inventoryFilters = initialInventoryFilters.filter(filter);
 
-      this.setState({
-        option,
-        graphFilters,
-        inventoryFilters
-      });
+      this.setState(
+        {
+          option,
+          graphFilters,
+          inventoryFilters
+        },
+        () => {
+          store.dispatch({
+            type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UMO],
+            viewId,
+            [RHSM_API_QUERY_TYPES.UMO]: value
+          });
+        }
+      );
     }
   };
 
@@ -71,10 +84,16 @@ class OpenshiftView extends React.Component {
    */
   renderSelect() {
     const { option } = this.state;
-    const { initialOption } = this.props;
+    const { initialOption, t } = this.props;
     const options = [
-      { title: 'Cores', value: 'cores' },
-      { title: 'Sockets', value: 'sockets' }
+      {
+        title: t('curiosity-toolbar.umo', { context: RHSM_API_QUERY_UMO_TYPES.CORES }),
+        value: RHSM_API_QUERY_UMO_TYPES.CORES
+      },
+      {
+        title: t('curiosity-toolbar.umo', { context: RHSM_API_QUERY_UMO_TYPES.SOCKETS }),
+        value: RHSM_API_QUERY_UMO_TYPES.SOCKETS
+      }
     ];
 
     return <Select onSelect={this.onSelect} options={options} selectedOptions={option || initialOption} />;
@@ -184,7 +203,7 @@ OpenshiftView.defaultProps = {
     [RHSM_API_QUERY_TYPES.LIMIT]: 10,
     [RHSM_API_QUERY_TYPES.OFFSET]: 0
   },
-  initialOption: 'cores',
+  initialOption: RHSM_API_QUERY_UMO_TYPES.CORES,
   initialGraphFilters: [
     {
       id: 'cores',
