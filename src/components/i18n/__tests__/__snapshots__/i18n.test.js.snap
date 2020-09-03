@@ -33,14 +33,6 @@ Array [
         "key": "curiosity-auth.pending",
         "match": "t('curiosity-auth.pending', '...')",
       },
-      Object {
-        "key": "curiosity-auth.authorizedTitle",
-        "match": "t('curiosity-auth.authorizedTitle', { appName: helpers.UI_DISPLAY_NAME })",
-      },
-      Object {
-        "key": "curiosity-auth.authorizedCopy",
-        "match": "t('curiosity-auth.authorizedCopy', '...')",
-      },
     ],
   },
   Object {
