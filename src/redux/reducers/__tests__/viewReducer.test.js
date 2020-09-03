@@ -14,10 +14,11 @@ describe('ViewReducer', () => {
       const dispatched = {
         type: value,
         [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
-        [RHSM_API_QUERY_TYPES.SLA]: 'lorem sla',
-        [RHSM_API_QUERY_TYPES.USAGE]: 'ipsum usage',
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 10,
+        [RHSM_API_QUERY_TYPES.SLA]: 'lorem sla',
+        [RHSM_API_QUERY_TYPES.UOM]: 'lorem uom',
+        [RHSM_API_QUERY_TYPES.USAGE]: 'ipsum usage',
         viewId: 'test_id'
       };
 

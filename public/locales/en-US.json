@@ -69,6 +69,8 @@
     "slaPremium": "Premium",
     "slaSelfSupport": "Self-Support",
     "slaStandard": "Standard",
+    "uom_cores": "Cores",
+    "uom_sockets": "Sockets",
     "usageDevelopment": "Development/Test",
     "usageDisaster": "Disaster Recovery",
     "usageProduction": "Production",
