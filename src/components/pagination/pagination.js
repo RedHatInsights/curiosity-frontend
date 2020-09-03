@@ -22,9 +22,9 @@ class Pagination extends React.Component {
    * @param {number} params.page
    */
   onPage = ({ page }) => {
-    const { query, perPageDefault, productId, viewId } = this.props;
+    const { offsetDefault, perPageDefault, productId, query, viewId } = this.props;
     const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
-    const offset = updatedPerPage * (page - 1) || 0;
+    const offset = updatedPerPage * (page - 1) || offsetDefault;
 
     store.dispatch([
       {
@@ -58,9 +58,19 @@ class Pagination extends React.Component {
    * @param {number} params.perPage
    */
   onPerPage = ({ perPage }) => {
-    const { productId, viewId } = this.props;
+    const { offsetDefault, productId, viewId } = this.props;
 
     store.dispatch([
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
+      },
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
+      },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId,
@@ -81,7 +91,7 @@ class Pagination extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { query, dropDirection, isCompact, isDisabled, itemCount, perPageDefault, variant } = this.props;
+    const { dropDirection, isCompact, isDisabled, itemCount, perPageDefault, query, variant } = this.props;
     const updatedPage = query[RHSM_API_QUERY_TYPES.OFFSET] / query[RHSM_API_QUERY_TYPES.LIMIT] + 1 || 1;
     const updatedPerPage = query[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
 
@@ -105,7 +115,9 @@ class Pagination extends React.Component {
 /**
  * Prop types
  *
- * @type {{}}
+ * @type {{isCompact: boolean, viewId: string, productId: string, query: object,
+ *     dropDirection: string, offsetDefault: number, variant: string, perPageDefault: number,
+ *     isDisabled: boolean, itemCount: number}}
  */
 Pagination.propTypes = {
   query: PropTypes.shape({
@@ -116,6 +128,7 @@ Pagination.propTypes = {
   isCompact: PropTypes.bool,
   isDisabled: PropTypes.bool,
   itemCount: PropTypes.number,
+  offsetDefault: PropTypes.number,
   perPageDefault: PropTypes.number,
   productId: PropTypes.string.isRequired,
   variant: PropTypes.string,
@@ -125,7 +138,9 @@ Pagination.propTypes = {
 /**
  * Default props.
  *
- * @type {{}}
+ * @type {{isCompact: boolean, viewId: string, query: object, dropDirection: string,
+ *     offsetDefault: number, variant: null, perPageDefault: number, isDisabled: boolean,
+ *     itemCount: number}}
  */
 Pagination.defaultProps = {
   query: {},
@@ -133,6 +148,7 @@ Pagination.defaultProps = {
   isCompact: false,
   isDisabled: false,
   itemCount: 0,
+  offsetDefault: 0,
   perPageDefault: 10,
   variant: null,
   viewId: 'pagination'
