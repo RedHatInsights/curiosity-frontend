@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BinocularsIcon, LockIcon } from '@patternfly/react-icons';
+import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/components/cjs/Maintenance';
+import { NotAuthorized } from '@redhat-cloud-services/frontend-components/components/cjs/NotAuthorized';
 import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
@@ -80,11 +81,9 @@ class Authentication extends Component {
     }
 
     return (
-      <MessageView
-        title={t('curiosity-auth.authorizedTitle', { appName: helpers.UI_DISPLAY_NAME })}
-        message={t('curiosity-auth.authorizedCopy', '...')}
-        icon={LockIcon}
-      />
+      <MessageView>
+        <NotAuthorized serviceName={helpers.UI_DISPLAY_NAME} />
+      </MessageView>
     );
   }
 }
