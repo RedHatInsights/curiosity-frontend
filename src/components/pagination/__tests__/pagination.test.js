@@ -24,7 +24,7 @@ describe('Pagination Component', () => {
     expect(component).toMatchSnapshot('non-connected');
   });
 
-  it('should handle per-page limit, and page offset updates', () => {
+  it('should handle per-page limit, and page offset updates through props', () => {
     const props = {
       productId: 'lorem',
       itemCount: 39,
@@ -54,6 +54,23 @@ describe('Pagination Component', () => {
       pagePage,
       pagePerPage
     }).toMatchSnapshot('page, offset');
+  });
+
+  it('should reset offset/pages when per-page limit is adjusted through redux state', () => {
+    const props = {
+      productId: 'lorem',
+      itemCount: 11,
+      query: {
+        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 10
+      }
+    };
+
+    const component = mount(<Pagination {...props} />);
+    const componentInstance = component.instance();
+    componentInstance.onPerPage({ perPage: 100 });
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch per-page');
   });
 
   it('should handle updating paging for redux state', () => {
