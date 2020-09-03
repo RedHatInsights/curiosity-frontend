@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination Component should handle per-page limit, and page offset updates: page, offset 1`] = `
+exports[`Pagination Component should handle per-page limit, and page offset updates through props: page, offset 1`] = `
 Object {
   "pageOffset": 0,
   "pagePage": 2,
@@ -8,7 +8,7 @@ Object {
 }
 `;
 
-exports[`Pagination Component should handle per-page limit, and page offset updates: per-page, limit 1`] = `
+exports[`Pagination Component should handle per-page limit, and page offset updates through props: per-page, limit 1`] = `
 Object {
   "perPageOffset": 0,
   "perPagePage": 1,
@@ -44,6 +44,16 @@ Array [
   ],
   Array [
     Array [
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_offset",
+        "viewId": "pagination",
+      },
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_offset",
+        "viewId": "lorem",
+      },
       Object {
         "limit": 20,
         "type": "SET_QUERY_RHSM_limit",
@@ -120,4 +130,33 @@ exports[`Pagination Component should render a non-connected component: non-conne
   variant={null}
   widgetId="pagination-options-menu"
 />
+`;
+
+exports[`Pagination Component should reset offset/pages when per-page limit is adjusted through redux state: dispatch per-page 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_offset",
+        "viewId": "pagination",
+      },
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 100,
+        "type": "SET_QUERY_RHSM_limit",
+        "viewId": "pagination",
+      },
+      Object {
+        "limit": 100,
+        "type": "SET_QUERY_RHSM_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
 `;
