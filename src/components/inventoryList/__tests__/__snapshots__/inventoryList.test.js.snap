@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventoryList Component should handle expandable guests data: number of guests 1`] = `
+<Table
+  ariaLabel={null}
+  borders={true}
+  className="curiosity-inventory-list"
+  columnHeaders={
+    Array [
+      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, [object Object])",
+    ]
+  }
+  isHeader={true}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          "sit",
+          "amet",
+          1,
+        ],
+        "expandedContent": undefined,
+      },
+    ]
+  }
+  summary={null}
+  t={[Function]}
+  variant="compact"
+/>
+`;
+
+exports[`InventoryList Component should handle expandable guests data: number of guests, and id 1`] = `
+<Table
+  ariaLabel={null}
+  borders={true}
+  className="curiosity-inventory-list"
+  columnHeaders={
+    Array [
+      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, [object Object])",
+    ]
+  }
+  isHeader={true}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          "sit",
+          "amet",
+          1,
+          "loremipsum",
+        ],
+        "expandedContent": <UNDEFINED
+          filterGuestsData={Array []}
+          id="loremipsum"
+          numberOfGuests={1}
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+        />,
+      },
+    ]
+  }
+  summary={null}
+  t={[Function]}
+  variant="compact"
+/>
+`;
+
 exports[`InventoryList Component should handle variations in data: filtered data 1`] = `
 <Card
   className="curiosity-inventory-card"
@@ -44,11 +118,13 @@ exports[`InventoryList Component should handle variations in data: filtered data
               "cells": Array [
                 "ipsum",
               ],
+              "expandedContent": false,
             },
             Object {
               "cells": Array [
                 "sit",
               ],
+              "expandedContent": false,
             },
           ]
         }
@@ -123,12 +199,14 @@ exports[`InventoryList Component should handle variations in data: variable data
                 "ipsum",
                 "sit",
               ],
+              "expandedContent": false,
             },
             Object {
               "cells": Array [
                 "sit",
                 "amet",
               ],
+              "expandedContent": false,
             },
           ]
         }

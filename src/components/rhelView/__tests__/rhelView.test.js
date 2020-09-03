@@ -49,8 +49,10 @@ describe('RhelView Component', () => {
   });
 
   it('should have default props that set product configuration', () => {
-    const { initialGraphFilters, initialInventoryFilters, query } = RhelView.defaultProps;
-    expect({ initialGraphFilters, initialInventoryFilters, query }).toMatchSnapshot('initial configuration');
+    const { initialGraphFilters, initialGuestsFilters, initialInventoryFilters, query } = RhelView.defaultProps;
+    expect({ initialGraphFilters, initialGuestsFilters, initialInventoryFilters, query }).toMatchSnapshot(
+      'initial configuration'
+    );
 
     const filteredInventoryData = parseRowCellsListData({
       filters: initialInventoryFilters,
@@ -61,10 +63,24 @@ describe('RhelView Component', () => {
         numberOfGuests: 3,
         sockets: 10,
         cores: 12,
-        lastSeen: 'lorem month ago'
+        lastSeen: 'lorem month ago',
+        loremIpsum: 'hello world'
       }
     });
 
-    expect(filteredInventoryData).toMatchSnapshot('filter results');
+    expect(filteredInventoryData).toMatchSnapshot('filteredInventoryData results');
+
+    const filteredGuestsData = parseRowCellsListData({
+      filters: initialGuestsFilters,
+      cellData: {
+        displayName: 'lorem',
+        inventoryId: 'lorem inventory id',
+        subscriptionManagerId: 'lorem subscription id',
+        lastSeen: 'lorem month ago',
+        loremIpsum: 'hello world'
+      }
+    });
+
+    expect(filteredGuestsData).toMatchSnapshot('filteredGuestsData results');
   });
 });
