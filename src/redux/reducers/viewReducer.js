@@ -91,13 +91,13 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UMO]:
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM]:
       return reduxHelpers.setStateProp(
         'query',
         {
           [action.viewId]: {
             ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.UMO]: action[RHSM_API_QUERY_TYPES.UMO]
+            [RHSM_API_QUERY_TYPES.UOM]: action[RHSM_API_QUERY_TYPES.UOM]
           }
         },
         {

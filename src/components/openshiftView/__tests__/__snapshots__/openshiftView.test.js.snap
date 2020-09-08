@@ -66,11 +66,11 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         options={
           Array [
             Object {
-              "title": "t(curiosity-toolbar.umo, [object Object])",
+              "title": "t(curiosity-toolbar.uom, [object Object])",
               "value": "cores",
             },
             Object {
-              "title": "t(curiosity-toolbar.umo, [object Object])",
+              "title": "t(curiosity-toolbar.uom, [object Object])",
               "value": "sockets",
             },
           ]
@@ -198,11 +198,11 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         options={
           Array [
             Object {
-              "title": "t(curiosity-toolbar.umo, [object Object])",
+              "title": "t(curiosity-toolbar.uom, [object Object])",
               "value": "cores",
             },
             Object {
-              "title": "t(curiosity-toolbar.umo, [object Object])",
+              "title": "t(curiosity-toolbar.uom, [object Object])",
               "value": "sockets",
             },
           ]
@@ -511,11 +511,11 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         options={
           Array [
             Object {
-              "title": "t(curiosity-toolbar.umo, [object Object])",
+              "title": "t(curiosity-toolbar.uom, [object Object])",
               "value": "cores",
             },
             Object {
-              "title": "t(curiosity-toolbar.umo, [object Object])",
+              "title": "t(curiosity-toolbar.uom, [object Object])",
               "value": "sockets",
             },
           ]

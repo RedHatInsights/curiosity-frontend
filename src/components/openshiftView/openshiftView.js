@@ -9,7 +9,7 @@ import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_TYPES,
-  RHSM_API_QUERY_UMO_TYPES
+  RHSM_API_QUERY_UOM_TYPES
 } from '../../types/rhsmApiTypes';
 import { apiQueries, connect, reduxSelectors, reduxTypes, store } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
@@ -68,9 +68,9 @@ class OpenshiftView extends React.Component {
         },
         () => {
           store.dispatch({
-            type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UMO],
+            type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
             viewId,
-            [RHSM_API_QUERY_TYPES.UMO]: value
+            [RHSM_API_QUERY_TYPES.UOM]: value
           });
         }
       );
@@ -87,12 +87,12 @@ class OpenshiftView extends React.Component {
     const { initialOption, t } = this.props;
     const options = [
       {
-        title: t('curiosity-toolbar.umo', { context: RHSM_API_QUERY_UMO_TYPES.CORES }),
-        value: RHSM_API_QUERY_UMO_TYPES.CORES
+        title: t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.CORES }),
+        value: RHSM_API_QUERY_UOM_TYPES.CORES
       },
       {
-        title: t('curiosity-toolbar.umo', { context: RHSM_API_QUERY_UMO_TYPES.SOCKETS }),
-        value: RHSM_API_QUERY_UMO_TYPES.SOCKETS
+        title: t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.SOCKETS }),
+        value: RHSM_API_QUERY_UOM_TYPES.SOCKETS
       }
     ];
 
@@ -203,7 +203,7 @@ OpenshiftView.defaultProps = {
     [RHSM_API_QUERY_TYPES.LIMIT]: 10,
     [RHSM_API_QUERY_TYPES.OFFSET]: 0
   },
-  initialOption: RHSM_API_QUERY_UMO_TYPES.CORES,
+  initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
     {
       id: 'cores',
