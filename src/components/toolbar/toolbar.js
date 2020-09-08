@@ -151,7 +151,7 @@ class Toolbar extends React.Component {
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
       });
 
-      if (productId) {
+      if (productId && productId !== viewId) {
         updatedActions.push({
           type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
           viewId: productId,
