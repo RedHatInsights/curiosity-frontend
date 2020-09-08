@@ -25,29 +25,34 @@ class Pagination extends React.Component {
     const { offsetDefault, perPageDefault, productId, query, viewId } = this.props;
     const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
     const offset = updatedPerPage * (page - 1) || offsetDefault;
-
-    store.dispatch([
+    const updatedActions = [
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId,
         [RHSM_API_QUERY_TYPES.OFFSET]: offset
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
-        viewId: productId,
-        [RHSM_API_QUERY_TYPES.OFFSET]: offset
-      },
-      {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId,
-        [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
-      },
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
-        viewId: productId,
         [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
       }
-    ]);
+    ];
+
+    if (productId && productId !== viewId) {
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
+      });
+
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
+      });
+    }
+
+    store.dispatch(updatedActions);
   };
 
   /**
@@ -59,29 +64,33 @@ class Pagination extends React.Component {
    */
   onPerPage = ({ perPage }) => {
     const { offsetDefault, productId, viewId } = this.props;
-
-    store.dispatch([
+    const updatedActions = [
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId,
         [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
-        viewId: productId,
-        [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
-      },
-      {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId,
-        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
-      },
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
-        viewId: productId,
         [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       }
-    ]);
+    ];
+
+    if (productId && productId !== viewId) {
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
+      });
+
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
+      });
+    }
+    store.dispatch(updatedActions);
   };
 
   // ToDo: Consider using the PfPagination "offset" prop
