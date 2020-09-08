@@ -1,5 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Toolbar Component should dispatch filters towards redux state with paging resets: NO paging state 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "lorem": "ipsum",
+        "type": "lorem ipsum",
+        "viewId": "toolbar",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Toolbar Component should dispatch filters towards redux state with paging resets: WITH paging state, NO product id 1`] = `
+Array [
+  Array [
+    Object {
+      "lorem": "ipsum",
+      "type": "lorem ipsum",
+      "viewId": "toolbar",
+    },
+    Object {
+      "offset": 0,
+      "type": "SET_QUERY_RHSM_offset",
+      "viewId": "toolbar",
+    },
+  ],
+]
+`;
+
+exports[`Toolbar Component should dispatch filters towards redux state with paging resets: WITH paging state, WITH product id 1`] = `
+Array [
+  Array [
+    Object {
+      "lorem": "ipsum",
+      "type": "lorem ipsum",
+      "viewId": "toolbar",
+    },
+    Object {
+      "offset": 0,
+      "type": "SET_QUERY_RHSM_offset",
+      "viewId": "toolbar",
+    },
+    Object {
+      "offset": 0,
+      "type": "SET_QUERY_RHSM_offset",
+      "viewId": "lorem",
+    },
+  ],
+]
+`;
+
 exports[`Toolbar Component should handle adding and clearing filters from redux state: dispatch filter 1`] = `
 Array [
   Array [
@@ -27,6 +80,7 @@ Array [
         "type": "SET_QUERY_RHSM_sla",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -45,6 +99,7 @@ Array [
         "type": "SET_QUERY_RHSM_sla",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -63,6 +118,7 @@ Array [
         "type": "SET_QUERY_CLEAR",
       },
     ],
+    true,
   ],
   Array [
     Object {
@@ -89,6 +145,7 @@ Array [
         "type": "SET_QUERY_RHSM_usage",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -107,6 +164,7 @@ Array [
         "type": "SET_QUERY_RHSM_usage",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -125,6 +183,7 @@ Array [
         "type": "SET_QUERY_CLEAR",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -144,6 +203,7 @@ Array [
         "type": "SET_QUERY_CLEAR",
       },
     ],
+    true,
   ],
 ]
 `;
@@ -175,6 +235,7 @@ Array [
         "type": "SET_QUERY_RHSM_sla",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -193,6 +254,7 @@ Array [
         "type": "SET_QUERY_RHSM_sla",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -211,6 +273,7 @@ Array [
         "type": "SET_QUERY_CLEAR",
       },
     ],
+    true,
   ],
   Array [
     Object {
@@ -237,6 +300,7 @@ Array [
         "type": "SET_QUERY_RHSM_usage",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -255,6 +319,7 @@ Array [
         "type": "SET_QUERY_RHSM_usage",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -273,6 +338,7 @@ Array [
         "type": "SET_QUERY_CLEAR",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -292,6 +358,7 @@ Array [
         "type": "SET_QUERY_CLEAR",
       },
     ],
+    true,
   ],
   Array [
     Object {
@@ -318,6 +385,7 @@ Array [
         "type": "SET_QUERY_RHSM_sla",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -336,6 +404,7 @@ Array [
         "type": "SET_QUERY_RHSM_sla",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -360,6 +429,7 @@ Array [
         "type": "SET_FILTER_TYPE",
       },
     ],
+    true,
   ],
   Array [
     Object {
@@ -386,6 +456,7 @@ Array [
         "type": "SET_QUERY_RHSM_usage",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -404,6 +475,7 @@ Array [
         "type": "SET_QUERY_RHSM_usage",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -428,6 +500,7 @@ Array [
         "type": "SET_FILTER_TYPE",
       },
     ],
+    true,
   ],
   Array [
     Array [
@@ -453,6 +526,7 @@ Array [
         "type": "SET_FILTER_TYPE",
       },
     ],
+    true,
   ],
 ]
 `;

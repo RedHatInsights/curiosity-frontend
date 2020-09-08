@@ -50,7 +50,7 @@ class Toolbar extends React.Component {
       dispatchActions.push({ type: reduxTypes.toolbar.SET_FILTER_TYPE, data: { currentFilter: null } });
     }
 
-    this.setDispatch(dispatchActions);
+    this.setDispatch(dispatchActions, true);
   };
 
   /**
@@ -89,7 +89,7 @@ class Toolbar extends React.Component {
       dispatchActions.push({ type: reduxTypes.toolbar.SET_FILTER_TYPE, data: { currentFilter: updatedCurrentFilter } });
     }
 
-    this.setDispatch(dispatchActions);
+    this.setDispatch(dispatchActions, true);
   };
 
   /**
@@ -115,30 +115,50 @@ class Toolbar extends React.Component {
     const { value } = event;
     const updatedActiveFilters = new Set(activeFilters).add(field);
 
-    this.setDispatch([
-      {
-        type: reduxTypes.toolbar.SET_ACTIVE_FILTERS,
-        data: { activeFilters: updatedActiveFilters }
-      },
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[field],
-        data: { [field]: value }
-      }
-    ]);
+    this.setDispatch(
+      [
+        {
+          type: reduxTypes.toolbar.SET_ACTIVE_FILTERS,
+          data: { activeFilters: updatedActiveFilters }
+        },
+        {
+          type: reduxTypes.query.SET_QUERY_RHSM_TYPES[field],
+          data: { [field]: value }
+        }
+      ],
+      true
+    );
   };
 
   /**
    * Dispatch a Redux store type.
    *
    * @param {Array|object} actions
+   * @param {boolean} resetPaging
    */
-  setDispatch(actions) {
-    const { viewId } = this.props;
+  setDispatch(actions, resetPaging = false) {
+    const { productId, viewId } = this.props;
     const updatedActions = ((Array.isArray(actions) && actions) || [actions]).map(({ type, data }) => ({
       type,
       viewId,
       ...data
     }));
+
+    if (resetPaging) {
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 0
+      });
+
+      if (productId) {
+        updatedActions.push({
+          type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+          viewId: productId,
+          [RHSM_API_QUERY_TYPES.OFFSET]: 0
+        });
+      }
+    }
 
     store.dispatch(updatedActions);
   }
@@ -279,6 +299,7 @@ Toolbar.propTypes = {
   ),
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
+  productId: PropTypes.string,
   t: PropTypes.func,
   viewId: PropTypes.string
 };
@@ -306,6 +327,7 @@ Toolbar.defaultProps = {
   ],
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
+  productId: null,
   t: translate,
   viewId: 'toolbar'
 };
