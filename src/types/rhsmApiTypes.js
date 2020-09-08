@@ -203,11 +203,11 @@ const RHSM_API_QUERY_SLA_TYPES = {
 };
 
 /**
- * RHSM API query/search parameter UMO type values.
+ * RHSM API query/search parameter UOM type values.
  *
  * @type {{CORES: string, SOCKETS: string}}
  */
-const RHSM_API_QUERY_UMO_TYPES = {
+const RHSM_API_QUERY_UOM_TYPES = {
   CORES: 'cores',
   SOCKETS: 'sockets'
 };
@@ -251,13 +251,13 @@ const RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES = {
 /**
  * RHSM API query/search parameter INVENTORY type values.
  *
- * @type {{USAGE: string, UMO: string, OFFSET: string, SLA: string, LIMIT: string}}
+ * @type {{USAGE: string, UOM: string, OFFSET: string, SLA: string, LIMIT: string}}
  */
 const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
   LIMIT: 'limit',
   OFFSET: 'offset',
   SLA: 'sla',
-  UMO: 'umo',
+  UOM: 'uom',
   USAGE: 'usage'
 };
 
@@ -275,7 +275,7 @@ const RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES = {
  * RHSM API query/search parameter values.
  *
  * @type {{GRANULARITY: string, TALLY_SYNC: string, TALLY_REPORT: string, USAGE: string,
- *     UMO: string, END_DATE: string, SLA: string, OFFSET: string, START_DATE: string,
+ *     UOM: string, END_DATE: string, SLA: string, OFFSET: string, START_DATE: string,
  *     LIMIT: string, CONDUIT_SYNC: string}}
  */
 const RHSM_API_QUERY_TYPES = {
@@ -298,7 +298,7 @@ const RHSM_API_QUERY_TYPES = {
  *     RHSM_API_QUERY_SET_OPTIN_TYPES: {TALLY_SYNC: string, TALLY_REPORT: string, CONDUIT_SYNC: string},
  *     RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT: string,
  *     PRODUCTION: string}, RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string,
- *     STANDARD: string}, RHSM_API_QUERY_SET_INVENTORY_TYPES: {USAGE: string, UMO: string,
+ *     STANDARD: string}, RHSM_API_QUERY_SET_INVENTORY_TYPES: {USAGE: string, UOM: string,
  *     OFFSET: string, SLA: string, LIMIT: string},
  *     RHSM_API_RESPONSE_CAPACITY_DATA_TYPES: {HYPERVISOR_SOCKETS: string, CORES: string, DATE: string,
  *     SOCKETS: string, PHYSICAL_SOCKETS: string, HYPERVISOR_CORES: string, HAS_INFINITE: string,
@@ -311,10 +311,10 @@ const RHSM_API_QUERY_TYPES = {
  *     DAILY: string, MONTHLY: string}, RHSM_API_RESPONSE_ERROR_DATA: string,
  *     RHSM_API_RESPONSE_META: string, RHSM_API_RESPONSE_PRODUCTS_DATA: string,
  *     RHSM_API_QUERY_TYPES: {GRANULARITY: string, TALLY_SYNC: string, TALLY_REPORT: string,
- *     USAGE: string, UMO: string, END_DATE: string, SLA: string, OFFSET: string, START_DATE: string,
+ *     USAGE: string, UOM: string, END_DATE: string, SLA: string, OFFSET: string, START_DATE: string,
  *     LIMIT: string, CONDUIT_SYNC: string}, RHSM_API_RESPONSE_INVENTORY_DATA_TYPES: {CORES: string,
  *     HARDWARE: string, SOCKETS: string, ID: string, NAME: string, LAST_SEEN: string},
- *     RHSM_API_QUERY_UMO_TYPES: {CORES: string, SOCKETS: string},
+ *     RHSM_API_QUERY_UOM_TYPES: {CORES: string, SOCKETS: string},
  *     RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES: {GRANULARITY: string, USAGE: string, END_DATE: string,
  *     SLA: string, START_DATE: string}, RHSM_API_RESPONSE_LINKS: string}}
  */
@@ -336,7 +336,7 @@ const rhsmApiTypes = {
   RHSM_API_PATH_ID_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_SLA_TYPES,
-  RHSM_API_QUERY_UMO_TYPES,
+  RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_QUERY_USAGE_TYPES,
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_SET_OPTIN_TYPES,
@@ -365,7 +365,7 @@ export {
   RHSM_API_PATH_ID_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_SLA_TYPES,
-  RHSM_API_QUERY_UMO_TYPES,
+  RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_QUERY_USAGE_TYPES,
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_SET_OPTIN_TYPES,

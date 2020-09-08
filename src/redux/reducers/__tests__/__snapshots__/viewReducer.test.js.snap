@@ -63,16 +63,16 @@ Object {
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_umo 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_uom 1`] = `
 Object {
   "result": Object {
     "query": Object {
       "test_id": Object {
-        "umo": "lorem umo",
+        "uom": "lorem uom",
       },
     },
   },
-  "type": "SET_QUERY_RHSM_umo",
+  "type": "SET_QUERY_RHSM_uom",
 }
 `;
 

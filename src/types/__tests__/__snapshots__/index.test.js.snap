@@ -47,7 +47,7 @@ Object {
         "LIMIT": "limit",
         "OFFSET": "offset",
         "SLA": "sla",
-        "UMO": "umo",
+        "UOM": "uom",
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
@@ -78,10 +78,10 @@ Object {
         "START_DATE": "beginning",
         "TALLY_REPORT": "enable_tally_reporting",
         "TALLY_SYNC": "enable_tally_sync",
-        "UMO": "umo",
+        "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_UMO_TYPES": Object {
+      "RHSM_API_QUERY_UOM_TYPES": Object {
         "CORES": "cores",
         "SOCKETS": "sockets",
       },
@@ -204,7 +204,7 @@ Object {
         "LIMIT": "limit",
         "OFFSET": "offset",
         "SLA": "sla",
-        "UMO": "umo",
+        "UOM": "uom",
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
@@ -235,10 +235,10 @@ Object {
         "START_DATE": "beginning",
         "TALLY_REPORT": "enable_tally_reporting",
         "TALLY_SYNC": "enable_tally_sync",
-        "UMO": "umo",
+        "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_UMO_TYPES": Object {
+      "RHSM_API_QUERY_UOM_TYPES": Object {
         "CORES": "cores",
         "SOCKETS": "sockets",
       },
@@ -360,7 +360,7 @@ Object {
       "LIMIT": "limit",
       "OFFSET": "offset",
       "SLA": "sla",
-      "UMO": "umo",
+      "UOM": "uom",
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
@@ -391,10 +391,10 @@ Object {
       "START_DATE": "beginning",
       "TALLY_REPORT": "enable_tally_reporting",
       "TALLY_SYNC": "enable_tally_sync",
-      "UMO": "umo",
+      "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_UMO_TYPES": Object {
+    "RHSM_API_QUERY_UOM_TYPES": Object {
       "CORES": "cores",
       "SOCKETS": "sockets",
     },
@@ -520,7 +520,7 @@ Object {
       "LIMIT": "limit",
       "OFFSET": "offset",
       "SLA": "sla",
-      "UMO": "umo",
+      "UOM": "uom",
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
@@ -551,10 +551,10 @@ Object {
       "START_DATE": "beginning",
       "TALLY_REPORT": "enable_tally_reporting",
       "TALLY_SYNC": "enable_tally_sync",
-      "UMO": "umo",
+      "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_UMO_TYPES": Object {
+    "RHSM_API_QUERY_UOM_TYPES": Object {
       "CORES": "cores",
       "SOCKETS": "sockets",
     },

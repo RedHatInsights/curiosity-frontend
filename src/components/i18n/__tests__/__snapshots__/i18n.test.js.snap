@@ -190,12 +190,12 @@ Array [
     "file": "./src/components/openshiftView/openshiftView.js",
     "keys": Array [
       Object {
-        "key": "curiosity-toolbar.umo",
-        "match": "t('curiosity-toolbar.umo', { context: RHSM_API_QUERY_UMO_TYPES.CORES })",
+        "key": "curiosity-toolbar.uom",
+        "match": "t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.CORES })",
       },
       Object {
-        "key": "curiosity-toolbar.umo",
-        "match": "t('curiosity-toolbar.umo', { context: RHSM_API_QUERY_UMO_TYPES.SOCKETS })",
+        "key": "curiosity-toolbar.uom",
+        "match": "t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.SOCKETS })",
       },
       Object {
         "key": "curiosity-view.title",
@@ -454,11 +454,11 @@ exports[`I18n Component should have locale keys that exist in the default langua
 Array [
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
-    "key": "curiosity-toolbar.umo",
+    "key": "curiosity-toolbar.uom",
   },
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
-    "key": "curiosity-toolbar.umo",
+    "key": "curiosity-toolbar.uom",
   },
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
