@@ -4,7 +4,14 @@ import { Pagination as PfPagination } from '@patternfly/react-core';
 import { connect, reduxTypes, store } from '../../redux';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
-// ToDo: Apply locale/translation to the PF Pagination "titles" prop.
+/**
+ * ToDo: Apply locale/translation to the PF Pagination "titles" prop.
+ */
+/**
+ * ToDo: Review removing pagination state updates to both the productId and global viewId
+ * Applying paging to the global id of viewId is an extra, it's unnecessary and
+ * was meant to originally help facilitate a refresh across components.
+ */
 /**
  * Contained pagination.
  *
@@ -25,29 +32,34 @@ class Pagination extends React.Component {
     const { offsetDefault, perPageDefault, productId, query, viewId } = this.props;
     const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
     const offset = updatedPerPage * (page - 1) || offsetDefault;
-
-    store.dispatch([
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
-        viewId,
-        [RHSM_API_QUERY_TYPES.OFFSET]: offset
-      },
+    const updatedActions = [
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.OFFSET]: offset
-      },
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
-        viewId,
-        [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
       }
-    ]);
+    ];
+
+    if (viewId && productId !== viewId) {
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
+      });
+
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+        viewId,
+        [RHSM_API_QUERY_TYPES.LIMIT]: updatedPerPage
+      });
+    }
+
+    store.dispatch(updatedActions);
   };
 
   /**
@@ -59,29 +71,34 @@ class Pagination extends React.Component {
    */
   onPerPage = ({ perPage }) => {
     const { offsetDefault, productId, viewId } = this.props;
-
-    store.dispatch([
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
-        viewId,
-        [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
-      },
+    const updatedActions = [
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
-      },
-      {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
-        viewId,
-        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       }
-    ]);
+    ];
+
+    if (viewId && productId !== viewId) {
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offsetDefault
+      });
+
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+        viewId,
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
+      });
+    }
+
+    store.dispatch(updatedActions);
   };
 
   // ToDo: Consider using the PfPagination "offset" prop
