@@ -1,14 +1,16 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
+import { store } from '../../../redux';
 import { Toolbar } from '../toolbar';
 import { toolbarTypes } from '../toolbarTypes';
 import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { paginationHelpers } from '../../pagination/paginationHelpers';
 
 describe('Toolbar Component', () => {
-  let mockDispatch;
+  let mockSetDispatch;
 
   beforeEach(() => {
-    mockDispatch = jest.spyOn(Toolbar.prototype, 'setDispatch').mockImplementation((type, data) => ({ type, data }));
+    mockSetDispatch = jest.spyOn(Toolbar.prototype, 'setDispatch').mockImplementation((type, data) => ({ type, data }));
   });
 
   afterEach(() => {
@@ -87,10 +89,56 @@ describe('Toolbar Component', () => {
     };
 
     filterMethods();
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter');
+    expect(mockSetDispatch.mock.calls).toMatchSnapshot('dispatch filter');
 
     component.setProps({ currentFilter: null, hardFilterReset: true });
     filterMethods();
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter, hard reset');
+    expect(mockSetDispatch.mock.calls).toMatchSnapshot('dispatch filter, hard reset');
+  });
+
+  it('should dispatch filters towards redux state with paging resets', () => {
+    // Restore the original setDispatch functionality for testing
+    mockSetDispatch.mockRestore();
+    const mockStoreDispatch = jest.spyOn(store, 'dispatch').mockImplementation((type, data) => ({ type, data }));
+    const mockResetPage = jest
+      .spyOn(paginationHelpers, 'resetPage')
+      .mockImplementation((type, data) => ({ type, data }));
+
+    const props = {};
+    const component = shallow(<Toolbar {...props} />);
+    const componentInstance = component.instance();
+
+    componentInstance.setDispatch({
+      type: 'lorem ipsum',
+      data: { lorem: 'ipsum' }
+    });
+    expect({ store: mockStoreDispatch.mock.calls }).toMatchSnapshot('NO paging state');
+
+    componentInstance.setDispatch(
+      {
+        type: 'lorem ipsum',
+        data: { lorem: 'ipsum' }
+      },
+      true
+    );
+    expect({
+      store: mockStoreDispatch.mock.calls[mockStoreDispatch.mock.calls.length - 1],
+      resetPage: mockResetPage.mock.calls[mockResetPage.mock.calls.length - 1]
+    }).toMatchSnapshot('WITH paging state, NO product id');
+
+    component.setProps({
+      productId: 'lorem'
+    });
+    componentInstance.setDispatch(
+      {
+        type: 'lorem ipsum',
+        data: { lorem: 'ipsum' }
+      },
+      true
+    );
+    expect({
+      store: mockStoreDispatch.mock.calls[mockStoreDispatch.mock.calls.length - 1],
+      resetPage: mockResetPage.mock.calls[mockResetPage.mock.calls.length - 1]
+    }).toMatchSnapshot('WITH paging state, WITH product id');
   });
 });
