@@ -172,7 +172,7 @@ OpenshiftView.propTypes = {
   query: PropTypes.shape({
     [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
   }),
-  initialOption: PropTypes.oneOf(['cores', 'sockets']),
+  initialOption: PropTypes.oneOf(Object.values(RHSM_API_QUERY_UOM_TYPES)),
   initialGraphFilters: PropTypes.array,
   initialGuestsFilters: PropTypes.array,
   initialInventoryFilters: PropTypes.array,
@@ -201,7 +201,8 @@ OpenshiftView.defaultProps = {
   query: {
     [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
     [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-    [RHSM_API_QUERY_TYPES.OFFSET]: 0
+    [RHSM_API_QUERY_TYPES.OFFSET]: 0,
+    [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES
   },
   initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
