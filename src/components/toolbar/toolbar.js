@@ -13,6 +13,7 @@ import { Select } from '../form/select';
 import { connect, reduxTypes, store } from '../../redux';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { toolbarTypes } from './toolbarTypes';
+import { paginationHelpers } from '../pagination/paginationHelpers';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -134,9 +135,9 @@ class Toolbar extends React.Component {
    * Dispatch a Redux store type.
    *
    * @param {Array|object} actions
-   * @param {boolean} resetPaging
+   * @param {boolean} resetPage
    */
-  setDispatch(actions, resetPaging = false) {
+  setDispatch(actions, resetPage = false) {
     const { productId, viewId } = this.props;
     const updatedActions = ((Array.isArray(actions) && actions) || [actions]).map(({ type, data }) => ({
       type,
@@ -144,20 +145,8 @@ class Toolbar extends React.Component {
       ...data
     }));
 
-    if (resetPaging) {
-      updatedActions.push({
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
-        viewId,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
-      });
-
-      if (productId && productId !== viewId) {
-        updatedActions.push({
-          type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
-          viewId: productId,
-          [RHSM_API_QUERY_TYPES.OFFSET]: 0
-        });
-      }
+    if (resetPage) {
+      paginationHelpers.resetPage({ productId, viewId });
     }
 
     store.dispatch(updatedActions);
