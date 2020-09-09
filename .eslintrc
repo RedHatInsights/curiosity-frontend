@@ -14,6 +14,21 @@
     "prettier",
     "react"
   ],
+  "settings": {
+    "jsdoc": {
+      "preferredTypes": {
+        "delete": "delete",
+        "get": "get",
+        "post": "post",
+        "put": "put",
+        "json": "json",
+        "text": "text",
+        "delayResponse": "DelayResponse",
+        "forceStatus": "ForceStatus",
+        "randomSuccess": "RandomSuccess"
+      }
+    }
+  },
   "extends": [
     "react-app",
     "airbnb",
@@ -46,7 +61,7 @@
     ],
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
-    "jest/no-test-callback": 0,
+    "jest/no-done-callback": 0,
     "jest/prefer-to-have-length": 0,
     "jsdoc/check-tag-names": [
       2,
