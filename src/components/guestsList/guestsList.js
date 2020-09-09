@@ -134,7 +134,7 @@ class GuestsList extends React.Component {
 
     // Include the table header
     let updatedHeight = (numberOfGuests + 1) * 42;
-    updatedHeight = (updatedHeight < 275 && updatedHeight) ?? 275;
+    updatedHeight = (updatedHeight < 275 && updatedHeight) || 275;
 
     return (
       <div className="curiosity-table-scroll" style={{ height: `${updatedHeight}px` }}>
