@@ -33,16 +33,40 @@ describe('Platform Configuration, Build', () => {
 
   it('should use direct imports for platform components, with exceptions', () => {
     const srcDir = 'src';
-    const output = execSync(
+    const componentsOutput = execSync(
       `echo "$(cd ./${srcDir} && git grep -n -E "(@redhat-cloud-services/frontend-components/components/)")"`
     );
 
     expect(
-      output
+      componentsOutput
         .toString()
         .trim()
         .split(/[\n\r]/g)
         .filter(str => !/\/(cjs|esm)\//.test(str))
-    ).toMatchSnapshot('direct import exceptions');
+    ).toMatchSnapshot('direct import exceptions, components');
+
+    const notificationsOutput = execSync(
+      `echo "$(cd ./${srcDir} && git grep -n -E "(@redhat-cloud-services/frontend-components-notifications)")"`
+    );
+
+    expect(
+      notificationsOutput
+        .toString()
+        .trim()
+        .split(/[\n\r]/g)
+        .filter(str => !/\/(cjs|esm)/.test(str))
+    ).toMatchSnapshot('import exceptions, notifications');
+
+    const utilitiesOutput = execSync(
+      `echo "$(cd ./${srcDir} && git grep -n -E "(@redhat-cloud-services/frontend-components-utilities)")"`
+    );
+
+    expect(
+      utilitiesOutput
+        .toString()
+        .trim()
+        .split(/[\n\r]/g)
+        .filter(str => !/\/(cjs|esm)/.test(str))
+    ).toMatchSnapshot('import exceptions, utilities');
   });
 });

@@ -313,12 +313,12 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
       </g>
       <g>
         <g
-          clip-path="url(#victory-clip-2)"
+          clip-path="url(#victory-clip-4)"
           style="height:100%;width:100%;user-select:none"
         >
           <defs>
             <clipPath
-              id="victory-clip-2"
+              id="victory-clip-4"
             >
               <rect
                 height="175"
@@ -665,12 +665,12 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       </g>
       <g>
         <g
-          clip-path="url(#victory-clip-1)"
+          clip-path="url(#victory-clip-2)"
           style="height:100%;width:100%;user-select:none"
         >
           <defs>
             <clipPath
-              id="victory-clip-1"
+              id="victory-clip-2"
             >
               <rect
                 height="175"

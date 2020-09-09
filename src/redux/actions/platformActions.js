@@ -2,7 +2,7 @@ import {
   addNotification as RcsAddNotification,
   removeNotification as RcsRemoveNotification,
   clearNotifications as RcsClearNotifications
-} from '@redhat-cloud-services/frontend-components-notifications';
+} from '@redhat-cloud-services/frontend-components-notifications/cjs';
 import { platformTypes } from '../types';
 import { platformServices } from '../../services/platformServices';
 
