@@ -20,7 +20,6 @@ import { helpers } from '../../common';
  * @fires onHide
  * @fires onRevert
  * @fires onToggle
- * @param id
  */
 class ChartArea extends React.Component {
   state = { chartWidth: 0 };
