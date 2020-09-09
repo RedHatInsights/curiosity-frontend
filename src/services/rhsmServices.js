@@ -53,10 +53,10 @@ const getApiVersion = () =>
  *
  * Reference [RHSM for report params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
  *
- * @apiParam {Enum} product_id The ID for the product we wish to query.
+ * @apiParam {string} product_id The ID for the product we wish to query.
  * - RHEL
  *
- * @apiParam (Query string) {Enum} granularity The level of granularity to return.
+ * @apiParam (Query string) {string} granularity The level of granularity to return.
  * - DAILY
  * - WEEKLY
  * - MONTHLY
@@ -68,17 +68,17 @@ const getApiVersion = () =>
  * @apiParam (Query string) {Number} [offset] The number of items to skip before starting to collect the result set.
  *
  * @apiSuccess {Array} data
- * @apiSuccess {Object} links
- * @apiSuccess {Object} meta
- * @apiSuccess {Enum} meta.granularity
+ * @apiSuccess {object} links
+ * @apiSuccess {object} meta
+ * @apiSuccess {string} meta.granularity
  * - DAILY
  * - WEEKLY
  * - MONTHLY
  * - QUARTERLY
  * - YEARLY
- * @apiSuccess {Enum} meta.product
+ * @apiSuccess {string} meta.product
  * - RHEL
- * @apiSuccess {Number} meta.resultSetSize
+ * @apiSuccess {number} meta.resultSetSize
  *
  * @apiSuccessExample {json} DAILY, Success-Response:
  *     HTTP/1.1 200 OK
