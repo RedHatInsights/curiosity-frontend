@@ -49,7 +49,18 @@
   "standard-version": {
     "skip": {
       "tag": true
-    }
+    },
+    "types": [{
+      "type": "feat", "section": "Features"
+    },{
+      "type": "fix", "section": "Bug Fixes"
+    },{
+      "type": "refactor", "section": "Code Refactoring"
+    },{
+      "type": "perf", "section": "Performance Improvements"
+    },{
+      "type": "style", "section": "Styles"
+    }]
   },
   "scripts": {
     "api:dev": "mock -p 5000 -w ./src/services",
