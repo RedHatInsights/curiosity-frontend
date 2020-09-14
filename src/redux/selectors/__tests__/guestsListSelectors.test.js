@@ -60,8 +60,8 @@ describe('GuestsListSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum missing expected properties',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
-              [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.LIMIT]: 10,
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.OFFSET]: 0
             },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
@@ -98,8 +98,8 @@ describe('GuestsListSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum fulfilled aggregated output',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_LIMIT]: 10,
-              [rhsmApiTypes.RHSM_API_QUERY_OFFSET]: 0
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.LIMIT]: 10,
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.OFFSET]: 0
             },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
