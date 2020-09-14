@@ -21,6 +21,24 @@ const initialState = {
  */
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
+    case reduxTypes.query.SET_QUERY_CLEAR_ALL_OFFSET:
+      const updatedQuery = {};
+      Object.entries(state.query).forEach(([key, value]) => {
+        if (typeof value[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
+          updatedQuery[key] = { ...value, [RHSM_API_QUERY_TYPES.OFFSET]: 0 };
+        }
+      });
+
+      return reduxHelpers.setStateProp(
+        'query',
+        {
+          ...updatedQuery
+        },
+        {
+          state,
+          reset: false
+        }
+      );
     case reduxTypes.query.SET_QUERY_CLEAR:
       return reduxHelpers.setStateProp(
         'query',

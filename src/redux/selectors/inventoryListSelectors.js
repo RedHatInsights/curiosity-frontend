@@ -4,6 +4,7 @@ import _isEqual from 'lodash/isEqual';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { getCurrentDate } from '../../common/dateHelpers';
+import { apiQueries } from '../common';
 
 /**
  * Create a custom "are objects equal" selector.
@@ -33,18 +34,37 @@ const statePropsFilter = (state, props = {}) => ({
   ...state.inventory?.hostsInventory?.[props.productId],
   ...{
     viewId: props.viewId,
-    productId: props.productId,
-    query: props.query
+    productId: props.productId
   }
 });
+
+/**
+ * ToDo: Apply "queryFilter" functionality across selectors for consistency
+ */
+/**
+ * Return a combined query object.
+ *
+ * @param {object} state
+ * @param {object} props
+ * @returns {object}
+ */
+const queryFilter = (state, props = {}) => {
+  const { inventoryQuery: query } = apiQueries.parseRhsmQuery({
+    ...props.query,
+    ...state.view?.query?.[props.productId],
+    ...state.view?.query?.[props.viewId]
+  });
+
+  return query;
+};
 
 /**
  * Create selector, transform combined state, props into a consumable object.
  *
  * @type {{pending: boolean, fulfilled: boolean, listData: object, error: boolean, status: (*|number)}}
  */
-const selector = createDeepEqualSelector([statePropsFilter], response => {
-  const { viewId = null, productId = null, query = {}, metaId, metaQuery = {}, ...responseData } = response || {};
+const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (response, query = {}) => {
+  const { viewId = null, productId = null, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
@@ -52,6 +72,7 @@ const selector = createDeepEqualSelector([statePropsFilter], response => {
     pending: responseData.pending || responseData.cancelled || false,
     listData: [],
     itemCount: 0,
+    query,
     status: responseData.status
   };
 

@@ -25,6 +25,7 @@ Object {
     },
     "query": Object {
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
+      "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
       "SET_QUERY_RHSM_TYPES": Object {
         "granularity": "SET_QUERY_RHSM_granularity",
         "limit": "SET_QUERY_RHSM_limit",
@@ -68,6 +69,7 @@ Object {
   },
   "queryTypes": Object {
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
+    "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
     "SET_QUERY_RHSM_TYPES": Object {
       "granularity": "SET_QUERY_RHSM_granularity",
       "limit": "SET_QUERY_RHSM_limit",
@@ -96,6 +98,7 @@ Object {
     },
     "query": Object {
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
+      "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
       "SET_QUERY_RHSM_TYPES": Object {
         "granularity": "SET_QUERY_RHSM_granularity",
         "limit": "SET_QUERY_RHSM_limit",
@@ -167,6 +170,7 @@ Object {
   },
   "query": Object {
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
+    "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
     "SET_QUERY_RHSM_TYPES": Object {
       "granularity": "SET_QUERY_RHSM_granularity",
       "limit": "SET_QUERY_RHSM_limit",

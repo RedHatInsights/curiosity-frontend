@@ -57,7 +57,7 @@ describe('InventoryListSelectors', () => {
       viewId: 'test',
       productId: 'Lorem Ipsum missing expected properties',
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+        [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
       }
     };
     const state = {
@@ -67,7 +67,7 @@ describe('InventoryListSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum missing expected properties',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
             },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
@@ -97,7 +97,7 @@ describe('InventoryListSelectors', () => {
       viewId: 'test',
       productId: 'Lorem Ipsum fulfilled aggregated output',
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+        [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
       }
     };
     const state = {
@@ -107,7 +107,7 @@ describe('InventoryListSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum fulfilled aggregated output',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
             },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
@@ -142,7 +142,7 @@ describe('InventoryListSelectors', () => {
       viewId: 'cache-test',
       productId: 'Lorem Ipsum ID cached',
       query: {
-        [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+        [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
       }
     };
     const stateInitialFulfilled = {
@@ -152,7 +152,7 @@ describe('InventoryListSelectors', () => {
             fulfilled: true,
             metaId: 'Lorem Ipsum ID cached',
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
             },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
@@ -223,7 +223,7 @@ describe('InventoryListSelectors', () => {
           'Lorem Ipsum ID cached': {
             ...stateInitialFulfilled.inventory.hostsInventory['Lorem Ipsum ID cached'],
             metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
+              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
             }
           }
         }

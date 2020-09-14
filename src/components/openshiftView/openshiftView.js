@@ -17,7 +17,6 @@ import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
-import { paginationHelpers } from '../pagination/paginationHelpers';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -47,7 +46,7 @@ class OpenshiftView extends React.Component {
    */
   onSelect = (event = {}) => {
     const { option } = this.state;
-    const { initialGraphFilters, initialInventoryFilters, routeDetail, viewId } = this.props;
+    const { initialGraphFilters, initialInventoryFilters, viewId } = this.props;
     const { value } = event;
 
     if (value !== option) {
@@ -68,13 +67,16 @@ class OpenshiftView extends React.Component {
           inventoryFilters
         },
         () => {
-          paginationHelpers.resetPage({ productId: routeDetail.pathParameter, viewId });
-
-          store.dispatch({
-            type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
-            viewId,
-            [RHSM_API_QUERY_TYPES.UOM]: value
-          });
+          store.dispatch([
+            {
+              type: reduxTypes.query.SET_QUERY_CLEAR_ALL_OFFSET
+            },
+            {
+              type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
+              viewId,
+              [RHSM_API_QUERY_TYPES.UOM]: value
+            }
+          ]);
         }
       );
     }
@@ -120,7 +122,7 @@ class OpenshiftView extends React.Component {
       viewId
     } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
-    const { graphQuery, inventoryQuery, toolbarQuery } = apiQueries.parseRhsmQuery(query);
+    const { graphQuery, inventoryQuery: initialInventoryQuery, toolbarQuery } = apiQueries.parseRhsmQuery(query);
 
     return (
       <PageLayout>
@@ -167,7 +169,7 @@ class OpenshiftView extends React.Component {
             key={routeDetail.pathParameter}
             filterGuestsData={initialGuestsFilters}
             filterInventoryData={inventoryFilters}
-            query={inventoryQuery}
+            query={initialInventoryQuery}
             productId={routeDetail.pathParameter}
             viewId={viewId}
             cardTitle={t('curiosity-inventory.cardHeading')}

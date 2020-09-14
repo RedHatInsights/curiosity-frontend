@@ -16,14 +16,8 @@ Object {
 }
 `;
 
-exports[`Toolbar Component should dispatch filters towards redux state with paging resets: WITH paging state, NO product id 1`] = `
+exports[`Toolbar Component should dispatch filters towards redux state with paging resets: WITH paging state 1`] = `
 Object {
-  "resetPage": Array [
-    Object {
-      "productId": null,
-      "viewId": "toolbar",
-    },
-  ],
   "store": Array [
     Array [
       Object {
@@ -31,25 +25,8 @@ Object {
         "type": "lorem ipsum",
         "viewId": "toolbar",
       },
-    ],
-  ],
-}
-`;
-
-exports[`Toolbar Component should dispatch filters towards redux state with paging resets: WITH paging state, WITH product id 1`] = `
-Object {
-  "resetPage": Array [
-    Object {
-      "productId": "lorem",
-      "viewId": "toolbar",
-    },
-  ],
-  "store": Array [
-    Array [
       Object {
-        "lorem": "ipsum",
-        "type": "lorem ipsum",
-        "viewId": "toolbar",
+        "type": "SET_QUERY_CLEAR_ALL_OFFSET",
       },
     ],
   ],

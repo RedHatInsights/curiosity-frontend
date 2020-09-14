@@ -1,6 +1,7 @@
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
 const SET_QUERY_CLEAR = 'SET_QUERY_CLEAR';
+const SET_QUERY_CLEAR_ALL_OFFSET = 'SET_QUERY_CLEAR_ALL_OFFSET';
 
 const SET_QUERY_RHSM_TYPES = {
   [RHSM_API_QUERY_TYPES.GRANULARITY]: `SET_QUERY_RHSM_${RHSM_API_QUERY_TYPES.GRANULARITY}`,
@@ -14,11 +15,12 @@ const SET_QUERY_RHSM_TYPES = {
 /**
  * Query/filter reducer types.
  *
- * @type {{SET_QUERY_RHSM_TYPES: object, SET_QUERY_CLEAR: string}}
+ * @type {{SET_QUERY_RHSM_TYPES: object, SET_QUERY_CLEAR: string, SET_QUERY_CLEAR_ALL_OFFSET: string}}
  */
 const queryTypes = {
   SET_QUERY_CLEAR,
+  SET_QUERY_CLEAR_ALL_OFFSET,
   SET_QUERY_RHSM_TYPES
 };
 
-export { queryTypes as default, queryTypes, SET_QUERY_CLEAR, SET_QUERY_RHSM_TYPES };
+export { queryTypes as default, queryTypes, SET_QUERY_CLEAR, SET_QUERY_CLEAR_ALL_OFFSET, SET_QUERY_RHSM_TYPES };
