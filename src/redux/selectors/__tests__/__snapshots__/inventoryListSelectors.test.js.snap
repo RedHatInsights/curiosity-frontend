@@ -7,6 +7,7 @@ Object {
   "itemCount": 0,
   "listData": Array [],
   "pending": true,
+  "query": Object {},
   "status": undefined,
 }
 `;
@@ -41,6 +42,9 @@ Object {
     },
   ],
   "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
   "status": undefined,
 }
 `;
@@ -52,6 +56,7 @@ Object {
   "itemCount": 0,
   "listData": Array [],
   "pending": false,
+  "query": Object {},
   "status": undefined,
 }
 `;
@@ -63,6 +68,7 @@ Object {
   "itemCount": 0,
   "listData": Array [],
   "pending": false,
+  "query": Object {},
   "status": undefined,
 }
 `;
@@ -86,6 +92,9 @@ Object {
     },
   ],
   "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
   "status": undefined,
 }
 `;
@@ -109,6 +118,9 @@ Object {
     },
   ],
   "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
   "status": undefined,
 }
 `;
@@ -132,6 +144,9 @@ Object {
     },
   ],
   "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
   "status": undefined,
 }
 `;
@@ -155,6 +170,9 @@ Object {
     },
   ],
   "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
   "status": undefined,
 }
 `;
@@ -189,6 +207,9 @@ Object {
     },
   ],
   "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
   "status": undefined,
 }
 `;

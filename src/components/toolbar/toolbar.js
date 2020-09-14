@@ -13,7 +13,6 @@ import { Select } from '../form/select';
 import { connect, reduxTypes, store } from '../../redux';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { toolbarTypes } from './toolbarTypes';
-import { paginationHelpers } from '../pagination/paginationHelpers';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -138,7 +137,7 @@ class Toolbar extends React.Component {
    * @param {boolean} resetPage
    */
   setDispatch(actions, resetPage = false) {
-    const { productId, viewId } = this.props;
+    const { viewId } = this.props;
     const updatedActions = ((Array.isArray(actions) && actions) || [actions]).map(({ type, data }) => ({
       type,
       viewId,
@@ -146,7 +145,9 @@ class Toolbar extends React.Component {
     }));
 
     if (resetPage) {
-      paginationHelpers.resetPage({ productId, viewId });
+      updatedActions.push({
+        type: reduxTypes.query.SET_QUERY_CLEAR_ALL_OFFSET
+      });
     }
 
     store.dispatch(updatedActions);
@@ -269,8 +270,8 @@ class Toolbar extends React.Component {
 /**
  * Prop types
  *
- * @type {{viewId: string, t: Function, activeFilters, hardFilterReset: boolean, query, currentFilter: string,
- *     isDisabled: boolean, filterOptions: Array}}
+ * @type {{viewId: string, t: Function, activeFilters: Set, hardFilterReset: boolean, query: object,
+ *     currentFilter: string, isDisabled: boolean, Array}}
  */
 Toolbar.propTypes = {
   query: PropTypes.shape({
@@ -288,7 +289,6 @@ Toolbar.propTypes = {
   ),
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  productId: PropTypes.string,
   t: PropTypes.func,
   viewId: PropTypes.string
 };
@@ -316,7 +316,6 @@ Toolbar.defaultProps = {
   ],
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
-  productId: null,
   t: translate,
   viewId: 'toolbar'
 };

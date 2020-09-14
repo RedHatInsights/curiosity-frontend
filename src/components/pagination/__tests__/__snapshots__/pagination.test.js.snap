@@ -25,20 +25,14 @@ Array [
         "type": "SET_QUERY_RHSM_offset",
         "viewId": "lorem",
       },
+    ],
+  ],
+  Array [
+    Array [
       Object {
         "limit": 10,
         "type": "SET_QUERY_RHSM_limit",
         "viewId": "lorem",
-      },
-      Object {
-        "offset": 10,
-        "type": "SET_QUERY_RHSM_offset",
-        "viewId": "pagination",
-      },
-      Object {
-        "limit": 10,
-        "type": "SET_QUERY_RHSM_limit",
-        "viewId": "pagination",
       },
     ],
   ],
@@ -49,20 +43,14 @@ Array [
         "type": "SET_QUERY_RHSM_offset",
         "viewId": "lorem",
       },
+    ],
+  ],
+  Array [
+    Array [
       Object {
         "limit": 20,
         "type": "SET_QUERY_RHSM_limit",
         "viewId": "lorem",
-      },
-      Object {
-        "offset": 0,
-        "type": "SET_QUERY_RHSM_offset",
-        "viewId": "pagination",
-      },
-      Object {
-        "limit": 20,
-        "type": "SET_QUERY_RHSM_limit",
-        "viewId": "pagination",
       },
     ],
   ],
@@ -141,20 +129,14 @@ Array [
         "type": "SET_QUERY_RHSM_offset",
         "viewId": "lorem",
       },
+    ],
+  ],
+  Array [
+    Array [
       Object {
         "limit": 100,
         "type": "SET_QUERY_RHSM_limit",
         "viewId": "lorem",
-      },
-      Object {
-        "offset": 0,
-        "type": "SET_QUERY_RHSM_offset",
-        "viewId": "pagination",
-      },
-      Object {
-        "limit": 100,
-        "type": "SET_QUERY_RHSM_limit",
-        "viewId": "pagination",
       },
     ],
   ],
