@@ -131,7 +131,7 @@ class InventoryList extends React.Component {
               itemCount={itemCount}
               productId={productId}
               viewId={viewId}
-              itemsPerPageDefault={updatedPerPage}
+              perPageDefault={updatedPerPage}
             />
           </CardActions>
         </CardHeader>
