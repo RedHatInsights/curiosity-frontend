@@ -92,7 +92,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
         isCompact={true}
         isDisabled={false}
         itemCount={0}
-        itemsPerPageDefault={10}
+        perPageDefault={10}
         productId="lorem"
         viewId="inventoryList"
       />
@@ -171,7 +171,7 @@ exports[`InventoryList Component should handle variations in data: variable data
         isCompact={true}
         isDisabled={false}
         itemCount={0}
-        itemsPerPageDefault={10}
+        perPageDefault={10}
         productId="lorem"
         viewId="inventoryList"
       />
@@ -253,7 +253,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
         isCompact={true}
         isDisabled={false}
         itemCount={0}
-        itemsPerPageDefault={10}
+        perPageDefault={10}
         productId="lorem"
         viewId="inventoryList"
       />
