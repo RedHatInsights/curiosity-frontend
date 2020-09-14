@@ -11,6 +11,15 @@ Object {
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_ALL_OFFSET 1`] = `
+Object {
+  "result": Object {
+    "query": Object {},
+  },
+  "type": "SET_QUERY_CLEAR_ALL_OFFSET",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_granularity 1`] = `
 Object {
   "result": Object {

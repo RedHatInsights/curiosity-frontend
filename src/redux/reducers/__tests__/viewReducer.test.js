@@ -8,7 +8,11 @@ describe('ViewReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [...Object.values(types.SET_QUERY_RHSM_TYPES), types.SET_QUERY_CLEAR];
+    const specificTypes = [
+      ...Object.values(types.SET_QUERY_RHSM_TYPES),
+      types.SET_QUERY_CLEAR,
+      types.SET_QUERY_CLEAR_ALL_OFFSET
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {
