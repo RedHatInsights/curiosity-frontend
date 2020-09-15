@@ -9,11 +9,11 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {object} props.datum
  * @param {string} props.granularity
- * @param {string} props.product
+ * @param {string} props.productLabel
  * @param {Function} props.t
  * @returns {Node}
  */
-const GraphCardChartTooltip = ({ datum, granularity, product, t }) => {
+const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
   let header = null;
   const data = [];
   const { itemsByKey = {} } = datum || {};
@@ -41,7 +41,7 @@ const GraphCardChartTooltip = ({ datum, granularity, product, t }) => {
       const dataFactsValue =
         (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.noDataLabel')) || itemsByKey[key]?.data.y || 0;
 
-      tempDataFacet.label = t(`curiosity-graph.${key}Label`, { product });
+      tempDataFacet.label = t(`curiosity-graph.${key}Label`, { product: productLabel });
       tempDataFacet.value = dataFactsValue;
     }
 
@@ -88,7 +88,7 @@ const GraphCardChartTooltip = ({ datum, granularity, product, t }) => {
 /**
  * Prop types.
  *
- * @type {{datum, product: string, t: Function, granularity: string}}
+ * @type {{datum, productLabel: string, t: Function, granularity: string}}
  */
 GraphCardChartTooltip.propTypes = {
   datum: PropTypes.shape({
@@ -105,18 +105,18 @@ GraphCardChartTooltip.propTypes = {
     )
   }),
   granularity: PropTypes.string.isRequired,
-  product: PropTypes.string,
+  productLabel: PropTypes.string,
   t: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{datum: object, product: string, t: translate}}
+ * @type {{datum: object, productLabel: string, t: translate}}
  */
 GraphCardChartTooltip.defaultProps = {
   datum: {},
-  product: '',
+  productLabel: '',
   t: translate
 };
 

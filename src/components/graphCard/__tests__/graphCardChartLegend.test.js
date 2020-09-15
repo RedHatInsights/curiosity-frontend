@@ -51,7 +51,7 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
-      product: 'test'
+      productLabel: 'test'
     };
 
     const component = shallow(<GraphCardChartLegend {...props} />);
@@ -79,7 +79,7 @@ describe('GraphCardChartLegend Component', () => {
       legend: {
         'test-dolorSit': true
       },
-      product: 'test',
+      productLabel: 'test',
       viewId: 'test'
     };
 
@@ -119,7 +119,7 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
-      product: 'test'
+      productLabel: 'test'
     };
 
     const component = shallow(<GraphCardChartLegend {...props} />);

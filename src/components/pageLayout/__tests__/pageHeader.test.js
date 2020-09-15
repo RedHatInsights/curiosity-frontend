@@ -19,7 +19,7 @@ describe('PageHeader Component', () => {
   });
 
   it('should render the subtitle when viewId is provided', () => {
-    const component = mount(<PageHeader viewId="RHEL">lorem</PageHeader>);
+    const component = mount(<PageHeader productLabel="RHEL">lorem</PageHeader>);
     expect(component).toMatchSnapshot('with subtitle');
   });
 });

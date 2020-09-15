@@ -28,8 +28,8 @@ exports[`PageLayout Component should render header and section children: multipl
 <PageLayout>
   <PageHeader
     key=".1"
+    productLabel={null}
     t={[Function]}
-    viewId={null}
   >
     <PageHeader>
       <section

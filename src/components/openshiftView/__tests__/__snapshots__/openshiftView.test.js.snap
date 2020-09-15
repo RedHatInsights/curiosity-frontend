@@ -3,8 +3,8 @@
 exports[`OpenshiftView Component should display an alternate graph on query-string update: alternate graph 1`] = `
 <PageLayout>
   <PageHeader
+    productLabel="OpenShift"
     t={[Function]}
-    viewId="OpenShift"
   >
     t(curiosity-view.title, [object Object])
   </PageHeader>
@@ -26,7 +26,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           "uom": "cores",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     />
   </PageToolbar>
   <PageSection>
@@ -55,7 +55,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           "granularity": "daily",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     >
       <Select
         ariaLabel="Select option"
@@ -129,7 +129,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           "uom": "cores",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     />
   </PageSection>
 </PageLayout>
@@ -138,8 +138,8 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
 exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader
+    productLabel="OpenShift"
     t={[Function]}
-    viewId="OpenShift"
   >
     t(curiosity-view.title, [object Object])
   </PageHeader>
@@ -161,7 +161,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           "uom": "cores",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     />
   </PageToolbar>
   <PageSection>
@@ -184,13 +184,13 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       }
       key="lorem ipsum"
       productId="lorem ipsum"
-      productShortLabel="OpenShift"
+      productLabel="OpenShift"
       query={
         Object {
           "granularity": "daily",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     >
       <Select
         ariaLabel="Select option"
@@ -264,7 +264,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           "uom": "cores",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     />
   </PageSection>
 </PageLayout>
@@ -455,8 +455,8 @@ Object {
 exports[`OpenshiftView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader
+    productLabel="OpenShift"
     t={[Function]}
-    viewId="OpenShift"
   >
     t(curiosity-view.title, [object Object])
   </PageHeader>
@@ -478,7 +478,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           "uom": "cores",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     />
   </PageToolbar>
   <PageSection>
@@ -501,13 +501,13 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       }
       key="lorem ipsum"
       productId="lorem ipsum"
-      productShortLabel="OpenShift"
+      productLabel="OpenShift"
       query={
         Object {
           "granularity": "daily",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     >
       <Select
         ariaLabel="Select option"
@@ -581,7 +581,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           "uom": "cores",
         }
       }
-      viewId="OpenShift"
+      viewId="viewOpenShift"
     />
   </PageSection>
 </PageLayout>

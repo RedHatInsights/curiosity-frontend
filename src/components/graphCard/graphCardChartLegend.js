@@ -133,7 +133,7 @@ class GraphCardChartLegend extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { datum, product, t } = this.props;
+    const { datum, productLabel, t } = this.props;
 
     return (
       <React.Fragment>
@@ -143,16 +143,22 @@ class GraphCardChartLegend extends React.Component {
 
           const labelContent =
             (isThreshold &&
-              t([`curiosity-graph.${id}Label`, `curiosity-graph.thresholdLabel`], { product, context: product })) ||
-            t([`curiosity-graph.${id}Label`, `curiosity-graph.noLabel`], { product, context: product });
+              t([`curiosity-graph.${id}Label`, `curiosity-graph.thresholdLabel`], {
+                product: productLabel,
+                context: productLabel
+              })) ||
+            t([`curiosity-graph.${id}Label`, `curiosity-graph.noLabel`], {
+              product: productLabel,
+              context: productLabel
+            });
 
           const tooltipContent =
             (isThreshold &&
               t([`curiosity-graph.${id}LegendTooltip`, `curiosity-graph.thresholdLegendTooltip`], {
-                product,
-                context: product
+                product: productLabel,
+                context: productLabel
               })) ||
-            t(`curiosity-graph.${id}LegendTooltip`, { product, context: product });
+            t(`curiosity-graph.${id}LegendTooltip`, { product: productLabel, context: productLabel });
 
           return this.renderLegendItem({
             chartId: id,
@@ -171,7 +177,7 @@ class GraphCardChartLegend extends React.Component {
 /**
  * Prop types.
  *
- * @type {{datum, product: string, t: Function, legend, chart}}
+ * @type {{datum, productLabel: string, t: Function, legend: object, chart: object}}
  */
 GraphCardChartLegend.propTypes = {
   chart: PropTypes.shape({
@@ -189,7 +195,7 @@ GraphCardChartLegend.propTypes = {
     )
   }),
   legend: PropTypes.objectOf(PropTypes.bool),
-  product: PropTypes.string,
+  productLabel: PropTypes.string,
   t: PropTypes.func,
   viewId: PropTypes.string
 };
@@ -197,7 +203,7 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: Array}, product: string, viewId: string, t: translate, legend: object,
+ * @type {{datum: {dataSets: Array}, productLabel: string, viewId: string, t: translate, legend: object,
  *     chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
@@ -210,7 +216,7 @@ GraphCardChartLegend.defaultProps = {
     dataSets: []
   },
   legend: {},
-  product: '',
+  productLabel: '',
   t: translate,
   viewId: 'graphCardLegend'
 };

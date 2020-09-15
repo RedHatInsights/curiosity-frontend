@@ -14,16 +14,16 @@ import { translate } from '../i18n/i18n';
  *
  * @param {object} props
  * @param {Node} props.children
- * @param {string} props.viewId
+ * @param {string} props.productLabel
  * @param {Function} props.t
  * @returns {Node}
  */
-const PageHeader = ({ children, t, viewId }) => (
+const PageHeader = ({ children, t, productLabel }) => (
   <RcsPageHeader>
     <PageHeaderTitle title={children} className="pf-u-mb-sm" />
-    {viewId && (
+    {productLabel && (
       <p>
-        {t(`curiosity-view.subtitle`, { appName: helpers.UI_DISPLAY_NAME, context: viewId }, [
+        {t(`curiosity-view.subtitle`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [
           <Button
             isInline
             component="a"
@@ -42,22 +42,22 @@ const PageHeader = ({ children, t, viewId }) => (
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, children: Node}}
+ * @type {{productLabel: string, t: Function, children: Node}}
  */
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired,
-  t: PropTypes.func,
-  viewId: PropTypes.string
+  productLabel: PropTypes.string,
+  t: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: null, t: translate}}
+ * @type {{productLabel: null, t: translate}}
  */
 PageHeader.defaultProps = {
-  t: translate,
-  viewId: null
+  productLabel: null,
+  t: translate
 };
 
 export { PageHeader as default, PageHeader };

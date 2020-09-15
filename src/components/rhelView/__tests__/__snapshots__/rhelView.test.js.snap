@@ -3,8 +3,8 @@
 exports[`RhelView Component should display an alternate graph on query-string update: alternate graph 1`] = `
 <PageLayout>
   <PageHeader
+    productLabel="RHEL"
     t={[Function]}
-    viewId="RHEL"
   >
     t(curiosity-view.title, [object Object])
   </PageHeader>
@@ -29,7 +29,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
           "offset": 0,
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageToolbar>
   <PageSection>
@@ -68,7 +68,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
           "granularity": "daily",
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageSection>
   <PageSection>
@@ -114,7 +114,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
           "offset": 0,
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageSection>
 </PageLayout>
@@ -123,8 +123,8 @@ exports[`RhelView Component should display an alternate graph on query-string up
 exports[`RhelView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader
+    productLabel="RHEL"
     t={[Function]}
-    viewId="RHEL"
   >
     t(curiosity-view.title, [object Object])
   </PageHeader>
@@ -149,7 +149,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
           "offset": 0,
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageToolbar>
   <PageSection>
@@ -182,13 +182,13 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       }
       key="lorem ipsum"
       productId="lorem ipsum"
-      productShortLabel="RHEL"
+      productLabel="RHEL"
       query={
         Object {
           "granularity": "daily",
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageSection>
   <PageSection>
@@ -234,7 +234,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
           "offset": 0,
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageSection>
 </PageLayout>
@@ -416,8 +416,8 @@ Object {
 exports[`RhelView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader
+    productLabel="RHEL"
     t={[Function]}
-    viewId="RHEL"
   >
     t(curiosity-view.title, [object Object])
   </PageHeader>
@@ -442,7 +442,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
           "offset": 0,
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageToolbar>
   <PageSection>
@@ -475,13 +475,13 @@ exports[`RhelView Component should render a non-connected component: non-connect
       }
       key="lorem ipsum"
       productId="lorem ipsum"
-      productShortLabel="RHEL"
+      productLabel="RHEL"
       query={
         Object {
           "granularity": "daily",
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageSection>
   <PageSection>
@@ -527,7 +527,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
           "offset": 0,
         }
       }
-      viewId="RHEL"
+      viewId="viewRHEL"
     />
   </PageSection>
 </PageLayout>

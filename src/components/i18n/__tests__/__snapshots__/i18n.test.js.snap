@@ -107,19 +107,19 @@ Array [
     "keys": Array [
       Object {
         "key": "",
-        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.thresholdLabel\`], { product, context: product })",
+        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.thresholdLabel\`], { product: productLabel, context: productLabel })",
       },
       Object {
         "key": "",
-        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.noLabel\`], { product, context: product })",
+        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.noLabel\`], { product: productLabel, context: productLabel })",
       },
       Object {
         "key": "",
-        "match": "t([\`curiosity-graph.\${id}LegendTooltip\`, \`curiosity-graph.thresholdLegendTooltip\`], { product, context: product })",
+        "match": "t([\`curiosity-graph.\${id}LegendTooltip\`, \`curiosity-graph.thresholdLegendTooltip\`], { product: productLabel, context: productLabel })",
       },
       Object {
         "key": "",
-        "match": "t(\`curiosity-graph.\${id}LegendTooltip\`, { product, context: product })",
+        "match": "t(\`curiosity-graph.\${id}LegendTooltip\`, { product: productLabel, context: productLabel })",
       },
     ],
   },
@@ -144,7 +144,7 @@ Array [
       },
       Object {
         "key": "",
-        "match": "t(\`curiosity-graph.\${key}Label\`, { product })",
+        "match": "t(\`curiosity-graph.\${key}Label\`, { product: productLabel })",
       },
       Object {
         "key": "curiosity-graph.tooltipSummary",
@@ -199,7 +199,7 @@ Array [
       },
       Object {
         "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
       Object {
         "key": "curiosity-graph.cardHeading",
@@ -297,7 +297,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-view.subtitle",
-        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: viewId }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
+        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
       },
     ],
   },
@@ -306,7 +306,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
       Object {
         "key": "curiosity-graph.socketsHeading",
