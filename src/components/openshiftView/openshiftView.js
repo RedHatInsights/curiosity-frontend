@@ -109,14 +109,23 @@ class OpenshiftView extends React.Component {
    */
   render() {
     const { graphFilters, inventoryFilters } = this.state;
-    const { initialGuestsFilters, initialToolbarFilters, location, query, routeDetail, t, viewId } = this.props;
+    const {
+      initialGuestsFilters,
+      initialToolbarFilters,
+      location,
+      productLabel,
+      query,
+      routeDetail,
+      t,
+      viewId
+    } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
     const { graphQuery, inventoryQuery, toolbarQuery } = apiQueries.parseRhsmQuery(query);
 
     return (
       <PageLayout>
-        <PageHeader viewId={viewId}>
-          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })}
+        <PageHeader productLabel={productLabel}>
+          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
         </PageHeader>
         <PageToolbar>
           <Toolbar
@@ -135,7 +144,7 @@ class OpenshiftView extends React.Component {
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.cardHeading')}
-              productShortLabel={viewId}
+              productShortLabel={productLabel}
             >
               {this.renderSelect()}
             </C3GraphCard>
@@ -147,7 +156,7 @@ class OpenshiftView extends React.Component {
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.cardHeading')}
-              productShortLabel={viewId}
+              productLabel={productLabel}
             >
               {this.renderSelect()}
             </GraphCard>
@@ -172,9 +181,9 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialOption: string, initialToolbarFilters: Array, viewId: string, t: Function, query: object,
- *     initialGraphFilters: Array, routeDetail: object, location: object, initialGuestsFilters: Array,
- *     initialInventoryFilters: Array}}
+ * @type {{productLabel: string, initialOption: string, initialToolbarFilters: Array, viewId: string,
+ *     t: Function, query: object, initialGraphFilters: Array, routeDetail: object, location: object,
+ *     initialGuestsFilters: Array, initialInventoryFilters: Array}}
  */
 OpenshiftView.propTypes = {
   query: PropTypes.shape({
@@ -188,6 +197,7 @@ OpenshiftView.propTypes = {
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
+  productLabel: PropTypes.string,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     pathId: PropTypes.string.isRequired,
@@ -202,8 +212,9 @@ OpenshiftView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialOption: string, initialToolbarFilters: Array, viewId: string, t: translate, query: object,
- *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, initialOption: string, initialToolbarFilters: Array, viewId: string,
+ *     t: translate, query: object, initialGraphFilters: Array, initialGuestsFilters: Array,
+ *     initialInventoryFilters: Array}}
  */
 OpenshiftView.defaultProps = {
   query: {
@@ -313,8 +324,9 @@ OpenshiftView.defaultProps = {
       id: RHSM_API_QUERY_TYPES.SLA
     }
   ],
+  productLabel: 'OpenShift',
   t: translate,
-  viewId: 'OpenShift'
+  viewId: 'viewOpenShift'
 };
 
 /**
