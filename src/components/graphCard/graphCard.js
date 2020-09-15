@@ -89,7 +89,7 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, selectOptionsType, productShortLabel, query, viewId } = this.props;
+    const { filterGraphData, graphData, selectOptionsType, productLabel, query, viewId } = this.props;
     const graphGranularity = this.getQueryGranularity();
     const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const updatedGranularity = graphGranularity || selected;
@@ -149,10 +149,10 @@ class GraphCard extends React.Component {
         {...chartAreaProps}
         dataSets={filteredGraphData(graphData)}
         chartLegend={({ chart, datum }) => (
-          <GraphCardChartLegend chart={chart} datum={datum} product={productShortLabel} viewId={viewId} />
+          <GraphCardChartLegend chart={chart} datum={datum} productLabel={productLabel} viewId={viewId} />
         )}
         chartTooltip={({ datum }) => (
-          <GraphCardChartTooltip datum={datum} granularity={updatedGranularity} product={productShortLabel} />
+          <GraphCardChartTooltip datum={datum} granularity={updatedGranularity} productLabel={productLabel} />
         )}
       />
     );
@@ -206,9 +206,10 @@ class GraphCard extends React.Component {
 /**
  * Prop types.
  *
- * @type {{productId: string, pending: boolean, error: boolean, query: object, cardTitle: string,
- *     filterGraphData: Array, getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
- *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
+ * @type {{productLabel: string, productId: string, pending: boolean, error: boolean, query: object,
+ *     cardTitle: string, filterGraphData: Array, getGraphReportsCapacity: Function,
+ *     selectOptionsType: string, viewId: string, t: Function, children: Node, graphData: object,
+ *     isDisabled: boolean}}
  */
 GraphCard.propTypes = {
   cardTitle: PropTypes.string,
@@ -229,16 +230,16 @@ GraphCard.propTypes = {
   isDisabled: PropTypes.bool,
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
+  productLabel: PropTypes.string,
   selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
-  productShortLabel: PropTypes.string,
   viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
+ * @type {{getGraphReportsCapacity: Function, productLabel: string, selectOptionsType: string,
  *     viewId: string, t: translate, children: null, pending: boolean, graphData: object,
  *     isDisabled: boolean, error: boolean, cardTitle: null, filterGraphData: Array}}
  */
@@ -251,9 +252,9 @@ GraphCard.defaultProps = {
   graphData: {},
   isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
+  productLabel: '',
   selectOptionsType: 'default',
   t: translate,
-  productShortLabel: '',
   viewId: 'graphCard'
 };
 
