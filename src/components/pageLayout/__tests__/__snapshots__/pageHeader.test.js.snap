@@ -2,8 +2,8 @@
 
 exports[`PageHeader Component should render a basic component: basic 1`] = `
 <PageHeader
+  productLabel={null}
   t={[Function]}
-  viewId={null}
 >
   <PageHeader>
     <section
@@ -47,8 +47,8 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
 
 exports[`PageHeader Component should render string node types: string 1`] = `
 <PageHeader
+  productLabel={null}
   t={[Function]}
-  viewId={null}
 >
   <PageHeader>
     <section
@@ -82,8 +82,8 @@ exports[`PageHeader Component should render string node types: string 1`] = `
 
 exports[`PageHeader Component should render the subtitle when viewId is provided: with subtitle 1`] = `
 <PageHeader
+  productLabel="RHEL"
   t={[Function]}
-  viewId="RHEL"
 >
   <PageHeader>
     <section

@@ -39,6 +39,7 @@ class RhelView extends React.Component {
       initialInventoryFilters,
       initialToolbarFilters,
       location,
+      productLabel,
       query,
       routeDetail,
       t,
@@ -49,8 +50,8 @@ class RhelView extends React.Component {
 
     return (
       <PageLayout>
-        <PageHeader viewId={viewId}>
-          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: viewId })}
+        <PageHeader productLabel={productLabel}>
+          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
         </PageHeader>
         <PageToolbar>
           <Toolbar
@@ -69,7 +70,7 @@ class RhelView extends React.Component {
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
-              productShortLabel={viewId}
+              productShortLabel={productLabel}
             />
           )) || (
             <GraphCard
@@ -79,7 +80,7 @@ class RhelView extends React.Component {
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
-              productShortLabel={viewId}
+              productLabel={productLabel}
             />
           )}
         </PageSection>
@@ -102,8 +103,9 @@ class RhelView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{initialToolbarFilters: Array, viewId: string, t: Function, query: object, initialGraphFilters: Array,
- *     routeDetail: object, location: object, initialGuestsFilters: Array, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, initialToolbarFilters: Array, viewId: string, t: Function, query: object,
+ *     initialGraphFilters: Array, routeDetail: object, location: object, initialGuestsFilters: Array,
+ *     initialInventoryFilters: Array}}
  */
 RhelView.propTypes = {
   query: PropTypes.shape({
@@ -116,6 +118,7 @@ RhelView.propTypes = {
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
   }).isRequired,
+  productLabel: PropTypes.string,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
     pathId: PropTypes.string.isRequired,
@@ -130,7 +133,7 @@ RhelView.propTypes = {
 /**
  * Default props.
  *
- * @type {{initialToolbarFilters: Array, viewId: string, t: translate, query: object,
+ * @type {{productLabel: string, initialToolbarFilters: Array, viewId: string, t: translate, query: object,
  *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array}}
  */
 RhelView.defaultProps = {
@@ -241,8 +244,9 @@ RhelView.defaultProps = {
       selected: true
     }
   ],
+  productLabel: 'RHEL',
   t: translate,
-  viewId: 'RHEL'
+  viewId: 'viewRHEL'
 };
 
 /**

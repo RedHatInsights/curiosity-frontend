@@ -14,6 +14,10 @@ import { Loader } from '../loader/loader';
 import { translate } from '../i18n/i18n';
 
 /**
+ * ToDo: Convert "productShortLabel" prop to "productLabel" for consistency
+ * This is dependent on ALL c3 components being removed as part of future updates.
+ */
+/**
  * A chart/graph card.
  *
  * @augments React.Component
