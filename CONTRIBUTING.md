@@ -164,6 +164,16 @@ This project makes use of reserved DOM attributes used by the QE team.
 1. Attribute `data-test`
    
    DOM attributes with `data-test=""` are used by QE as a means to identify specific DOM elements.
+   
+### Reserved Files
+#### Spandx Config
+The configuration file(s) within this directory are utilized primarily during the `$ yarn start:proxy` local development run.
+
+This file(s) has multiple team and build dependencies. **Before relocating/moving this file(s) the appropriate teams should be informed.**
+- Development team
+- QE team
+
+There is a related integration test snapshot(s), `./tests/platform.test.js` that will need to be updated if this file(s) is updated.
 
 ## Testing
 To test content you'll need to have Node and Yarn installed.
