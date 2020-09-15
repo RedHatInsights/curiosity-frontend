@@ -4,6 +4,13 @@
 
 <!-- ### Notes -->
 <!-- Any issues that aren't resolved by this merge request, or things of note? -->
+<!--
+When moving between environments notify a specific party
+1. local > CI, Dev, Design should be assigned when relative
+1. CI > QA, QE, CCS/docs should be notified
+1. QA > Stage, QE and CCS/docs should be notified, AND applied as PR reviewers
+1. Stage > Prod, QE and CCS/docs should be notified, AND applied as PR reviewers
+-->
 
 ## How to test
 <!-- Are there directions to test/review? -->
