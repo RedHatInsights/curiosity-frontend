@@ -37,7 +37,7 @@ releaseProd()
     release "prod-beta"
   fi
 
-  if [[ "${TRAVIS_BRANCH}" = "prod-stable" || "${TRAVIS_BRANCH}" = "master" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]];  then
+  if [[ "${TRAVIS_BRANCH}" = "prod-stable" || "${TRAVIS_BRANCH}" = "prod" || "${TRAVIS_BRANCH}" = "main" || "${TRAVIS_BRANCH}" = "master" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]];  then
     release "prod-stable"
   fi
 }
