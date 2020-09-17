@@ -1,0 +1,38 @@
+name: Pull request
+on:
+  pull_request:
+    branches: [ master, main, prod, stage, test**, qa**, dev**, ci** ]
+env:
+  BRANCH: ${{ github.base_ref }}
+
+jobs:
+  Integration-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Node.js packages
+        run: yarn install
+      - name: Lint and test
+        run: yarn test
+      - name: Code coverage
+        if: ${{ success() }}
+        uses: codecov/codecov-action@v1
+      - name: Setup beta integration
+        if: ${{ success() }}
+        run: echo ::set-env name=BUILD_STAGE::Beta
+      - name: Confirm beta integration
+        if: ${{ success() }}
+        run: yarn build
+      - name: Setup stable integration
+        if: ${{ success() }}
+        run: echo ::set-env name=BUILD_STAGE::Stable
+      - name: Confirm stable integration
+        if: ${{ success() }}
+        run: yarn build
