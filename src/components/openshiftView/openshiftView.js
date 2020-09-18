@@ -8,6 +8,8 @@ import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_SORT_TYPES as SORT_TYPES,
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_UOM_TYPES
 } from '../../types/rhsmApiTypes';
@@ -50,8 +52,8 @@ class OpenshiftView extends React.Component {
     const { value } = event;
 
     if (value !== option) {
-      const filter = ({ id, optional }) => {
-        if (!optional) {
+      const filter = ({ id, isOptional }) => {
+        if (!isOptional) {
           return true;
         }
         return new RegExp(value, 'i').test(id);
@@ -69,7 +71,7 @@ class OpenshiftView extends React.Component {
         () => {
           store.dispatch([
             {
-              type: reduxTypes.query.SET_QUERY_CLEAR_ALL_OFFSET
+              type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
             },
             {
               type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
@@ -224,29 +226,31 @@ OpenshiftView.propTypes = {
  */
 OpenshiftView.defaultProps = {
   query: {
+    [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.ASCENDING,
     [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
     [RHSM_API_QUERY_TYPES.LIMIT]: 10,
     [RHSM_API_QUERY_TYPES.OFFSET]: 0,
-    [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES
+    [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES,
+    [RHSM_API_QUERY_TYPES.SORT]: SORT_TYPES.DATE
   },
   initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
     {
       id: 'cores',
-      optional: true,
+      isOptional: true,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     },
     {
       id: 'sockets',
-      optional: true,
+      isOptional: true,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     },
-    { id: 'thresholdSockets', optional: true },
-    { id: 'thresholdCores', optional: true }
+    { id: 'thresholdSockets', isOptional: true },
+    { id: 'thresholdCores', isOptional: true }
   ],
   initialGuestsFilters: [
     {
@@ -299,7 +303,8 @@ OpenshiftView.defaultProps = {
             {displayName.value || inventoryId.value}
           </Button>
         );
-      }
+      },
+      isSortable: true
     },
     {
       id: 'hardwareType',
@@ -311,18 +316,22 @@ OpenshiftView.defaultProps = {
             {(numberOfGuests.value && <Badge isRead>{numberOfGuests.value}</Badge>) || ''}
           </React.Fragment>
         );
-      }
+      },
+      isSortable: true
     },
     {
       id: 'sockets',
-      optional: true
+      isOptional: true,
+      isSortable: true
     },
     {
       id: 'cores',
-      optional: true
+      isOptional: true,
+      isSortable: true
     },
     {
-      id: 'lastSeen'
+      id: 'lastSeen',
+      isSortable: true
     }
   ],
   initialToolbarFilters: [
