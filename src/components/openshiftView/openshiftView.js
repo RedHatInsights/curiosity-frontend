@@ -122,7 +122,11 @@ class OpenshiftView extends React.Component {
       viewId
     } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
-    const { graphQuery, inventoryQuery: initialInventoryQuery, toolbarQuery } = apiQueries.parseRhsmQuery(query);
+    const {
+      graphQuery: initialGraphQuery,
+      inventoryQuery: initialInventoryQuery,
+      toolbarQuery
+    } = apiQueries.parseRhsmQuery(query);
 
     return (
       <PageLayout>
@@ -142,7 +146,7 @@ class OpenshiftView extends React.Component {
             <C3GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={graphFilters}
-              query={graphQuery}
+              query={initialGraphQuery}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.cardHeading')}
@@ -154,7 +158,7 @@ class OpenshiftView extends React.Component {
             <GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={graphFilters}
-              query={graphQuery}
+              query={initialGraphQuery}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.cardHeading')}
