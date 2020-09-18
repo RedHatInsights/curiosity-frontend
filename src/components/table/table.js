@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, GridItem } from '@patternfly/react-core';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
-import { Table as PfTable, TableBody, TableHeader, TableVariant } from '@patternfly/react-table';
+import {
+  Table as PfTable,
+  TableBody,
+  TableHeader,
+  TableVariant,
+  sortable,
+  SortByDirection
+} from '@patternfly/react-table';
 import _isEqual from 'lodash/isEqual';
 import { TableEmpty } from './tableEmpty';
 import { helpers } from '../../common';
@@ -44,10 +51,13 @@ import { translate } from '../i18n/i18n';
  *
  * @augments React.Component
  * @fires onCollapse
+ * @fires onSort
  */
 class Table extends React.Component {
   state = {
     isCollapsible: false,
+    isSortable: false,
+    sortBy: {},
     updatedColumnHeaders: null,
     updatedRows: null
   };
@@ -93,22 +103,57 @@ class Table extends React.Component {
   };
 
   /**
+   * FixMe: PF table sort callback doesn't use a zero based index when expandable?
+   * Educated guess there's a cell count happening instead of "[you have this many data/entry cells]"
+   * This is really confusing to implement in a consuming application, especially on first
+   * implementation. Special "collapsible index" logic had to be implemented to compensate for this
+   * odd behavior.
+   */
+  /**
+   * On column sort
+   *
+   * @event onSort
+   * @param {object} params
+   * @param {number} params.index
+   * @param {string} params.direction
+   * @param {object} params.data
+   */
+  onSort = ({ index, direction, data = {} }) => {
+    const { isCollapsible, updatedColumnHeaders, updatedRows } = this.state;
+    const updatedIndex = isCollapsible ? index - 1 : index;
+
+    updatedRows.forEach(async ({ isOpen }, i) => {
+      if (isOpen === true) {
+        await this.onCollapse({ index: i, isOpen: false });
+      }
+    });
+
+    this.setState(
+      {
+        sortBy: {
+          index,
+          direction
+        }
+      },
+      () =>
+        updatedColumnHeaders[updatedIndex].onSort({
+          direction,
+          index: updatedIndex,
+          label: data?.column?.header?.label
+        })
+    );
+  };
+
+  /**
    * Convert row objects into the required PF Table format.
    */
   setRowData() {
     const { columnHeaders, rows } = this.props;
     const updatedColumnHeaders = [];
     const updatedRows = [];
+    const updatedSort = {};
     let isCollapsible = false;
-
-    columnHeaders.forEach(columnHeader => {
-      if (columnHeader?.title) {
-        const { title, ...settings } = columnHeader;
-        updatedColumnHeaders.push({ title, ...settings });
-      } else {
-        updatedColumnHeaders.push({ title: columnHeader });
-      }
-    });
+    let isSortable = false;
 
     rows.forEach(({ expandedContent, cells, isExpanded }) => {
       const rowObj = {
@@ -138,10 +183,43 @@ class Table extends React.Component {
       });
     });
 
+    columnHeaders.forEach((columnHeader, index) => {
+      if (columnHeader?.title) {
+        const { onSort, sortActive, sortDirection, title, ...settings } = columnHeader;
+        const tempColumnHeader = {
+          title,
+          ...settings
+        };
+
+        if (onSort) {
+          isSortable = true;
+          tempColumnHeader.transforms = [...(tempColumnHeader?.transforms || []), sortable];
+          tempColumnHeader.onSort = onSort;
+
+          if (sortActive) {
+            updatedSort.sortBy = { index: isCollapsible ? index + 1 : index };
+            updatedSort.sortBy.direction = SortByDirection.asc;
+          }
+
+          if (sortDirection) {
+            updatedSort.sortBy = { ...updatedSort.sortBy, direction: sortDirection };
+          }
+        } else if (tempColumnHeader.transforms) {
+          tempColumnHeader.transforms = tempColumnHeader.transforms.filter(v => v !== sortable);
+        }
+
+        updatedColumnHeaders.push(tempColumnHeader);
+      } else {
+        updatedColumnHeaders.push({ title: columnHeader });
+      }
+    });
+
     this.setState({
       isCollapsible,
+      isSortable,
       updatedColumnHeaders,
-      updatedRows
+      updatedRows,
+      ...updatedSort
     });
   }
 
@@ -157,7 +235,7 @@ class Table extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { isCollapsible, updatedColumnHeaders, updatedRows } = this.state;
+    const { isCollapsible, isSortable, sortBy, updatedColumnHeaders, updatedRows } = this.state;
     const { ariaLabel, borders, children, className, isHeader, summary, t, variant } = this.props;
     const pfTableProps = {};
     let emptyTable = null;
@@ -174,6 +252,11 @@ class Table extends React.Component {
 
     if (isCollapsible) {
       pfTableProps.onCollapse = (event, index, isOpen, data) => this.onCollapse({ event, index, isOpen, data });
+    }
+
+    if (isSortable) {
+      pfTableProps.sortBy = sortBy;
+      pfTableProps.onSort = (event, index, direction, data) => this.onSort({ event, index, direction, data });
     }
 
     return (
@@ -214,7 +297,7 @@ class Table extends React.Component {
  * Prop types.
  *
  * @type {{summary: string, columnHeaders: Array, t: Function, borders: boolean, children: Node,
- *     isHeader: boolean, variant: string, className: string, rows, ariaLabel: string}}
+ *     isHeader: boolean, variant: string, className: string, rows: Array, ariaLabel: string}}
  */
 Table.propTypes = {
   ariaLabel: PropTypes.string,
@@ -225,6 +308,9 @@ Table.propTypes = {
     PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.shape({
+        onSort: PropTypes.func,
+        sortActive: PropTypes.bool,
+        sortDirection: PropTypes.oneOf([...Object.values(SortByDirection)]),
         title: PropTypes.node
       })
     ])
