@@ -4,6 +4,7 @@ import _isEqual from 'lodash/isEqual';
 import _camelCase from 'lodash/camelCase';
 import { rhsmApiTypes, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
+import { apiQueries } from '../common';
 
 /**
  * Selector cache.
@@ -25,24 +26,41 @@ const statePropsFilter = (state, props = {}) => ({
   ...state.graph?.reportCapacity?.[props.productId],
   ...{
     viewId: props.viewId,
-    productId: props.productId,
-    query: props.query
+    productId: props.productId
   }
 });
+
+/**
+ * Return a combined query object.
+ *
+ * @param {object} state
+ * @param {object} props
+ * @returns {object}
+ */
+const queryFilter = (state, props = {}) => {
+  const { graphQuery: query } = apiQueries.parseRhsmQuery({
+    ...props.query,
+    ...state.view?.query?.[props.productId],
+    ...state.view?.query?.[props.viewId]
+  });
+
+  return query;
+};
 
 /**
  * Create selector, transform combined state, props into a consumable graph/charting object.
  *
  * @type {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
  */
-const selector = createSelector([statePropsFilter], response => {
-  const { viewId = null, productId = null, query = {}, metaId, metaQuery = {}, ...responseData } = response || {};
+const selector = createSelector([statePropsFilter, queryFilter], (response, query = {}) => {
+  const { viewId = null, productId = null, metaId, metaQuery = {}, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
     fulfilled: false,
     pending: responseData.pending || responseData.cancelled || false,
     graphData: {},
+    query,
     status: responseData.status
   };
 
