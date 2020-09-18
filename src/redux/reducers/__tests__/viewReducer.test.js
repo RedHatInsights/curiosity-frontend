@@ -11,15 +11,17 @@ describe('ViewReducer', () => {
     const specificTypes = [
       ...Object.values(types.SET_QUERY_RHSM_TYPES),
       types.SET_QUERY_CLEAR,
-      types.SET_QUERY_CLEAR_ALL_OFFSET
+      types.SET_QUERY_CLEAR_INVENTORY_LIST
     ];
 
     specificTypes.forEach(value => {
       const dispatched = {
         type: value,
+        [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem direction',
         [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 10,
+        [RHSM_API_QUERY_TYPES.SORT]: 'lorem sort',
         [RHSM_API_QUERY_TYPES.SLA]: 'lorem sla',
         [RHSM_API_QUERY_TYPES.UOM]: 'lorem uom',
         [RHSM_API_QUERY_TYPES.USAGE]: 'ipsum usage',

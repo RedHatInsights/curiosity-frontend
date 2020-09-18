@@ -138,6 +138,153 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
 </Grid>
 `;
 
+exports[`Table Component should allow sortable content: sortable content 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          Object {
+            "onSort": [MockFunction],
+            "title": "lorem ipsum",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onSort={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      sortBy={Object {}}
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
+exports[`Table Component should allow sortable content: sorted column callback 1`] = `
+<Grid
+  className="ins-inventory-list"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Table
+      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      borders={true}
+      canSelectAll={true}
+      cells={
+        Array [
+          Object {
+            "onSort": [MockFunction] {
+              "calls": Array [
+                Array [
+                  Object {
+                    "direction": "asc",
+                    "index": 0,
+                    "label": undefined,
+                  },
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            },
+            "title": "lorem ipsum",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        ]
+      }
+      className="curiosity-table "
+      contentId="expanded-content"
+      dropdownDirection="down"
+      dropdownPosition="right"
+      expandId="expandable-toggle"
+      gridBreakPoint="grid-md"
+      isStickyHeader={false}
+      onSort={[Function]}
+      ouiaSafe={true}
+      role="grid"
+      rowLabeledBy="simple-node"
+      rows={
+        Array [
+          Object {
+            "cells": Array [
+              Object {
+                "title": "dolor",
+              },
+            ],
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "sit",
+              },
+            ],
+          },
+        ]
+      }
+      sortBy={
+        Object {
+          "direction": "asc",
+          "index": 0,
+        }
+      }
+      summary="t(curiosity-inventory.tableSummary)"
+      variant={null}
+    >
+      <TableHeader />
+      <Component />
+    </Table>
+  </GridItem>
+</Grid>
+`;
+
 exports[`Table Component should allow variations in table layout: ariaLabel and summary 1`] = `
 <Grid
   className="ins-inventory-list"
