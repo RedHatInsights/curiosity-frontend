@@ -11,12 +11,25 @@ Object {
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_ALL_OFFSET 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_LIST 1`] = `
 Object {
   "result": Object {
     "query": Object {},
   },
-  "type": "SET_QUERY_CLEAR_ALL_OFFSET",
+  "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_dir 1`] = `
+Object {
+  "result": Object {
+    "query": Object {
+      "test_id": Object {
+        "dir": "lorem direction",
+      },
+    },
+  },
+  "type": "SET_QUERY_RHSM_dir",
 }
 `;
 
@@ -69,6 +82,19 @@ Object {
     },
   },
   "type": "SET_QUERY_RHSM_sla",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_sort 1`] = `
+Object {
+  "result": Object {
+    "query": Object {
+      "test_id": Object {
+        "sort": "lorem sort",
+      },
+    },
+  },
+  "type": "SET_QUERY_RHSM_sort",
 }
 `;
 

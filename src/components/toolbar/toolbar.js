@@ -146,7 +146,7 @@ class Toolbar extends React.Component {
 
     if (resetPage) {
       updatedActions.push({
-        type: reduxTypes.query.SET_QUERY_CLEAR_ALL_OFFSET
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
       });
     }
 

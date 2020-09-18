@@ -1,5 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: NOT sortable 1`] = `
+Object {
+  "id": "lorem",
+  "isSortable": false,
+}
+`;
+
+exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable 1`] = `
+Object {
+  "id": "lorem",
+  "isSortable": true,
+  "onSort": [Function],
+}
+`;
+
+exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable, active column 1`] = `
+Object {
+  "id": "lorem",
+  "isSortable": true,
+  "onSort": [Function],
+  "sortActive": true,
+  "sortDirection": "asc",
+}
+`;
+
+exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable, direction 1`] = `
+Object {
+  "ascending": Object {
+    "id": "lorem",
+    "isSortable": true,
+    "onSort": [Function],
+    "sortDirection": "asc",
+  },
+  "descending": Object {
+    "id": "lorem",
+    "isSortable": true,
+    "onSort": [Function],
+    "sortDirection": "desc",
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseInventoryFilters should parse and return updated filters for table cells: NOT sortable 1`] = `
+Array [
+  Object {
+    "id": "lorem",
+    "isSortable": false,
+  },
+]
+`;
+
+exports[`InventoryListHelpers parseInventoryFilters should parse and return updated filters for table cells: sortable 1`] = `
+Array [
+  Object {
+    "id": "lorem",
+    "isSortable": true,
+    "onSort": [Function],
+  },
+]
+`;
+
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: basic cell data 1`] = `
 Object {
   "cells": Array [
@@ -119,6 +180,8 @@ Object {
 
 exports[`InventoryListHelpers should have specific functions: inventoryListHelpers 1`] = `
 Object {
+  "applySortFilters": [Function],
+  "parseInventoryFilters": [Function],
   "parseRowCellsListData": [Function],
 }
 `;

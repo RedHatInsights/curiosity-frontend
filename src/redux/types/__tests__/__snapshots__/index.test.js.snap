@@ -25,12 +25,14 @@ Object {
     },
     "query": Object {
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-      "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
+      "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
       "SET_QUERY_RHSM_TYPES": Object {
+        "dir": "SET_QUERY_RHSM_dir",
         "granularity": "SET_QUERY_RHSM_granularity",
         "limit": "SET_QUERY_RHSM_limit",
         "offset": "SET_QUERY_RHSM_offset",
         "sla": "SET_QUERY_RHSM_sla",
+        "sort": "SET_QUERY_RHSM_sort",
         "uom": "SET_QUERY_RHSM_uom",
         "usage": "SET_QUERY_RHSM_usage",
       },
@@ -69,12 +71,14 @@ Object {
   },
   "queryTypes": Object {
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-    "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
+    "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
     "SET_QUERY_RHSM_TYPES": Object {
+      "dir": "SET_QUERY_RHSM_dir",
       "granularity": "SET_QUERY_RHSM_granularity",
       "limit": "SET_QUERY_RHSM_limit",
       "offset": "SET_QUERY_RHSM_offset",
       "sla": "SET_QUERY_RHSM_sla",
+      "sort": "SET_QUERY_RHSM_sort",
       "uom": "SET_QUERY_RHSM_uom",
       "usage": "SET_QUERY_RHSM_usage",
     },
@@ -98,12 +102,14 @@ Object {
     },
     "query": Object {
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-      "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
+      "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
       "SET_QUERY_RHSM_TYPES": Object {
+        "dir": "SET_QUERY_RHSM_dir",
         "granularity": "SET_QUERY_RHSM_granularity",
         "limit": "SET_QUERY_RHSM_limit",
         "offset": "SET_QUERY_RHSM_offset",
         "sla": "SET_QUERY_RHSM_sla",
+        "sort": "SET_QUERY_RHSM_sort",
         "uom": "SET_QUERY_RHSM_uom",
         "usage": "SET_QUERY_RHSM_usage",
       },
@@ -170,12 +176,14 @@ Object {
   },
   "query": Object {
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
-    "SET_QUERY_CLEAR_ALL_OFFSET": "SET_QUERY_CLEAR_ALL_OFFSET",
+    "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
     "SET_QUERY_RHSM_TYPES": Object {
+      "dir": "SET_QUERY_RHSM_dir",
       "granularity": "SET_QUERY_RHSM_granularity",
       "limit": "SET_QUERY_RHSM_limit",
       "offset": "SET_QUERY_RHSM_offset",
       "sla": "SET_QUERY_RHSM_sla",
+      "sort": "SET_QUERY_RHSM_sort",
       "uom": "SET_QUERY_RHSM_uom",
       "usage": "SET_QUERY_RHSM_usage",
     },

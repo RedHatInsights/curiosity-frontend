@@ -74,6 +74,53 @@ exports[`InventoryList Component should handle expandable guests data: number of
 />
 `;
 
+exports[`InventoryList Component should handle updating sorting through redux state: dispatch filter 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "dir": "asc",
+        "type": "SET_QUERY_RHSM_dir",
+        "viewId": "lorem",
+      },
+      Object {
+        "sort": "sockets",
+        "type": "SET_QUERY_RHSM_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "dir": "desc",
+        "type": "SET_QUERY_RHSM_dir",
+        "viewId": "lorem",
+      },
+      Object {
+        "sort": "sockets",
+        "type": "SET_QUERY_RHSM_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "dir": "asc",
+        "type": "SET_QUERY_RHSM_dir",
+        "viewId": "lorem",
+      },
+      Object {
+        "sort": "sockets",
+        "type": "SET_QUERY_RHSM_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`InventoryList Component should handle variations in data: filtered data 1`] = `
 <Card
   className="curiosity-inventory-card"
@@ -294,3 +341,5 @@ exports[`InventoryList Component should render a non-connected component: non-co
   </CardFooter>
 </Card>
 `;
+
+exports[`InventoryList Component should return an empty render when disabled: disabled component 1`] = `""`;
