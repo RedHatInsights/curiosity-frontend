@@ -20,9 +20,11 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productId="lorem ipsum"
       query={
         Object {
+          "dir": "asc",
           "granularity": "daily",
           "limit": 10,
           "offset": 0,
+          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -38,12 +40,12 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
             "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
-            "optional": true,
+            "isOptional": true,
             "stroke": "#06c",
           },
           Object {
             "id": "thresholdCores",
-            "optional": true,
+            "isOptional": true,
           },
         ]
       }
@@ -106,17 +108,21 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           Object {
             "cell": [Function],
             "id": "displayName",
+            "isSortable": true,
           },
           Object {
             "cell": [Function],
             "id": "hardwareType",
+            "isSortable": true,
           },
           Object {
             "id": "cores",
-            "optional": true,
+            "isOptional": true,
+            "isSortable": true,
           },
           Object {
             "id": "lastSeen",
+            "isSortable": true,
           },
         ]
       }
@@ -124,8 +130,10 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productId="lorem ipsum"
       query={
         Object {
+          "dir": "asc",
           "limit": 10,
           "offset": 0,
+          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -155,9 +163,11 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
+          "dir": "asc",
           "granularity": "daily",
           "limit": 10,
           "offset": 0,
+          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -173,12 +183,12 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
             "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
-            "optional": true,
+            "isOptional": true,
             "stroke": "#06c",
           },
           Object {
             "id": "thresholdCores",
-            "optional": true,
+            "isOptional": true,
           },
         ]
       }
@@ -241,17 +251,21 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           Object {
             "cell": [Function],
             "id": "displayName",
+            "isSortable": true,
           },
           Object {
             "cell": [Function],
             "id": "hardwareType",
+            "isSortable": true,
           },
           Object {
             "id": "cores",
-            "optional": true,
+            "isOptional": true,
+            "isSortable": true,
           },
           Object {
             "id": "lastSeen",
+            "isSortable": true,
           },
         ]
       }
@@ -259,8 +273,10 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
+          "dir": "asc",
           "limit": 10,
           "offset": 0,
+          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -391,23 +407,23 @@ Object {
       "color": "#06c",
       "fill": "#8bc1f7",
       "id": "cores",
-      "optional": true,
+      "isOptional": true,
       "stroke": "#06c",
     },
     Object {
       "color": "#06c",
       "fill": "#8bc1f7",
       "id": "sockets",
-      "optional": true,
+      "isOptional": true,
       "stroke": "#06c",
     },
     Object {
       "id": "thresholdSockets",
-      "optional": true,
+      "isOptional": true,
     },
     Object {
       "id": "thresholdCores",
-      "optional": true,
+      "isOptional": true,
     },
   ],
   "initialGuestsFilters": Array [
@@ -426,27 +442,34 @@ Object {
     Object {
       "cell": [Function],
       "id": "displayName",
+      "isSortable": true,
     },
     Object {
       "cell": [Function],
       "id": "hardwareType",
+      "isSortable": true,
     },
     Object {
       "id": "sockets",
-      "optional": true,
+      "isOptional": true,
+      "isSortable": true,
     },
     Object {
       "id": "cores",
-      "optional": true,
+      "isOptional": true,
+      "isSortable": true,
     },
     Object {
       "id": "lastSeen",
+      "isSortable": true,
     },
   ],
   "query": Object {
+    "dir": "asc",
     "granularity": "daily",
     "limit": 10,
     "offset": 0,
+    "sort": "last_seen",
     "uom": "cores",
   },
 }
@@ -472,9 +495,11 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       query={
         Object {
+          "dir": "asc",
           "granularity": "daily",
           "limit": 10,
           "offset": 0,
+          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -490,12 +515,12 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
             "color": "#06c",
             "fill": "#8bc1f7",
             "id": "cores",
-            "optional": true,
+            "isOptional": true,
             "stroke": "#06c",
           },
           Object {
             "id": "thresholdCores",
-            "optional": true,
+            "isOptional": true,
           },
         ]
       }
@@ -558,17 +583,21 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           Object {
             "cell": [Function],
             "id": "displayName",
+            "isSortable": true,
           },
           Object {
             "cell": [Function],
             "id": "hardwareType",
+            "isSortable": true,
           },
           Object {
             "id": "cores",
-            "optional": true,
+            "isOptional": true,
+            "isSortable": true,
           },
           Object {
             "id": "lastSeen",
+            "isSortable": true,
           },
         ]
       }
@@ -576,8 +605,10 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       query={
         Object {
+          "dir": "asc",
           "limit": 10,
           "offset": 0,
+          "sort": "last_seen",
           "uom": "cores",
         }
       }

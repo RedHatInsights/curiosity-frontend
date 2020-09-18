@@ -10,7 +10,12 @@ import {
 } from '@patternfly/react-tokens';
 import { Badge, Button } from '@patternfly/react-core';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_SORT_TYPES as SORT_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../types/rhsmApiTypes';
 import { apiQueries, connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import C3GraphCard from '../c3GraphCard/c3GraphCard';
@@ -142,9 +147,11 @@ RhelView.propTypes = {
  */
 RhelView.defaultProps = {
   query: {
+    [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.ASCENDING,
     [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
     [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-    [RHSM_API_QUERY_TYPES.OFFSET]: 0
+    [RHSM_API_QUERY_TYPES.OFFSET]: 0,
+    [RHSM_API_QUERY_TYPES.SORT]: SORT_TYPES.DATE
   },
   initialGraphFilters: [
     {
@@ -218,7 +225,8 @@ RhelView.defaultProps = {
             {displayName.value || inventoryId.value}
           </Button>
         );
-      }
+      },
+      isSortable: true
     },
     {
       id: 'hardwareType',
@@ -230,13 +238,16 @@ RhelView.defaultProps = {
             {(numberOfGuests.value && <Badge isRead>{numberOfGuests.value}</Badge>) || ''}
           </React.Fragment>
         );
-      }
+      },
+      isSortable: true
     },
     {
-      id: 'sockets'
+      id: 'sockets',
+      isSortable: true
     },
     {
-      id: 'lastSeen'
+      id: 'lastSeen',
+      isSortable: true
     }
   ],
   initialToolbarFilters: [
