@@ -39,9 +39,6 @@ const statePropsFilter = (state, props = {}) => ({
 });
 
 /**
- * ToDo: Apply "queryFilter" functionality across selectors for consistency
- */
-/**
  * Return a combined query object.
  *
  * @param {object} state

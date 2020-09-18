@@ -6,6 +6,9 @@ Object {
   "fulfilled": false,
   "graphData": Object {},
   "pending": true,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -377,6 +380,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -387,6 +393,9 @@ Object {
   "fulfilled": false,
   "graphData": Object {},
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -397,6 +406,7 @@ Object {
   "fulfilled": false,
   "graphData": Object {},
   "pending": false,
+  "query": Object {},
   "status": undefined,
 }
 `;
@@ -407,6 +417,7 @@ Object {
   "fulfilled": false,
   "graphData": Object {},
   "pending": false,
+  "query": Object {},
   "status": undefined,
 }
 `;
@@ -562,6 +573,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -717,6 +731,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -872,6 +889,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -1027,6 +1047,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -1438,6 +1461,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;
@@ -1617,6 +1643,9 @@ Object {
     ],
   },
   "pending": false,
+  "query": Object {
+    "granularity": "daily",
+  },
   "status": undefined,
 }
 `;

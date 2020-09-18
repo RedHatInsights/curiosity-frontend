@@ -46,7 +46,11 @@ class RhelView extends React.Component {
       viewId
     } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
-    const { graphQuery, inventoryQuery: initialInventoryQuery, toolbarQuery } = apiQueries.parseRhsmQuery(query);
+    const {
+      graphQuery: initialGraphQuery,
+      inventoryQuery: initialInventoryQuery,
+      toolbarQuery
+    } = apiQueries.parseRhsmQuery(query);
 
     return (
       <PageLayout>
@@ -66,7 +70,7 @@ class RhelView extends React.Component {
             <C3GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={initialGraphFilters}
-              query={graphQuery}
+              query={initialGraphQuery}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
@@ -76,7 +80,7 @@ class RhelView extends React.Component {
             <GraphCard
               key={routeDetail.pathParameter}
               filterGraphData={initialGraphFilters}
-              query={graphQuery}
+              query={initialGraphQuery}
               productId={routeDetail.pathParameter}
               viewId={viewId}
               cardTitle={t('curiosity-graph.socketsHeading')}
