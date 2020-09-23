@@ -70,8 +70,9 @@ describe('Commit Message', () => {
       const { trimmedMessage = null, typeScope = null, issueNumber = null, description = null } = message;
 
       const issueNumberException =
-        /(^chore\([\d\D]+\))|(^fix\([\d\D]+\))|(^[\d\D]+\(build\))/.test(typeScope) ||
-        /\(#[\d\D]+\)$/.test(description);
+        /(^chore\([\d\D]+\))|(^fix\([\d\D]+\))|(^perf\([\d\D]+\))|(^build\([\d\D]+\))|(^[\d\D]+\(build\))/.test(
+          typeScope
+        ) || /\(#[\d\D]+\)$/.test(description);
 
       const typeScopeValid =
         (/(^[\d\D]+\([\d\D]+\):$)|(^[\d\D]+:$)/.test(typeScope) && 'valid') || 'INVALID: type scope';
