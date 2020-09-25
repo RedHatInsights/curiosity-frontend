@@ -228,7 +228,7 @@ Array [
       },
       Object {
         "key": "curiosity-optin.cardIsErrorDescription",
-        "match": "t('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component=\\"a\\" variant=\\"link\\" target=\\"_blank\\" href=\\"https://access.redhat.com/account-team\\" /> ])",
+        "match": "t('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component=\\"a\\" variant=\\"link\\" target=\\"_blank\\" href={helpers.UI_LINK_CONTACT_US} /> ])",
       },
       Object {
         "key": "curiosity-optin.buttonIsActive",
@@ -297,7 +297,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-view.subtitle",
-        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href=\\"https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/\\" /> ])",
+        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href={helpers.UI_LINK_LEARN_MORE} /> ])",
       },
     ],
   },
