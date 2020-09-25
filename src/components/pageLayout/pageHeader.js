@@ -31,7 +31,7 @@ const PageHeader = ({ children, t, productLabel }) => (
             icon={<ExternalLinkAltIcon />}
             iconPosition="right"
             target="_blank"
-            href="https://access.redhat.com/documentation/en-us/subscription_central/2020-04/html/getting_started_with_subscription_watch/con-how-does-subscriptionwatch-show-data_assembly-opening-subscriptionwatch-ctxt/"
+            href={helpers.UI_LINK_LEARN_MORE}
           />
         ])}
       </p>

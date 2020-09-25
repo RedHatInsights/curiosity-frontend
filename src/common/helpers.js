@@ -146,6 +146,20 @@ const UI_DISPLAY_CONFIG_NAME = process.env.REACT_APP_UI_DISPLAY_CONFIG_NAME;
 const UI_DISPLAY_START_NAME = process.env.REACT_APP_UI_DISPLAY_START_NAME;
 
 /**
+ * A url, or uri, for "contact us".
+ *
+ * @type {string}
+ */
+const UI_LINK_CONTACT_US = process.env.REACT_APP_UI_LINK_CONTACT_US;
+
+/**
+ * A url, or uri, for "learn more".
+ *
+ * @type {string}
+ */
+const UI_LINK_LEARN_MORE = process.env.REACT_APP_UI_LINK_LEARN_MORE;
+
+/**
  * UI locale default.
  *
  * @type {string}
@@ -234,6 +248,8 @@ const helpers = {
   UI_DISPLAY_NAME,
   UI_DISPLAY_CONFIG_NAME,
   UI_DISPLAY_START_NAME,
+  UI_LINK_CONTACT_US,
+  UI_LINK_LEARN_MORE,
   UI_LOCALE_DEFAULT,
   UI_LOCALE_DEFAULT_DESC,
   UI_LOGGER_ID,
