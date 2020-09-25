@@ -17,20 +17,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Set Node.js packages cache directory
-        id: yarn-cache-dir
-        run: echo ::set-output name=CACHE_DIR::$(yarn cache dir)
       - name: Node.js packages cache
         uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir.outputs.CACHE_DIR }}
+          path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-yarn
             ${{ runner.os }}-${{ matrix.node-version }}-
             ${{ runner.os }}-
       - name: Install Node.js packages
+        if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
         run: yarn install
       - name: Lint and test
         uses: actions/github-script@v2
