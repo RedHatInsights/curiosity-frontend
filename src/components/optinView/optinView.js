@@ -65,13 +65,7 @@ class OptinView extends React.Component {
       return (
         <p>
           {t('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [
-            <Button
-              isInline
-              component="a"
-              variant="link"
-              target="_blank"
-              href="https://access.redhat.com/account-team"
-            />
+            <Button isInline component="a" variant="link" target="_blank" href={helpers.UI_LINK_CONTACT_US} />
           ])}
         </p>
       );
