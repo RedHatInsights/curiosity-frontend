@@ -20,19 +20,41 @@ jobs:
       - name: Install Node.js packages
         run: yarn install
       - name: Lint and test
-        run: yarn test
+        uses: actions/github-script@v2
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            try {
+              console.log(`${execSync('yarn test', { stdio: 'pipe' })}`);
+            } catch ({ stdout, stderr }) {
+              core.setFailed(`${stdout}\n${stderr}`);
+            }
       - name: Code coverage
         if: ${{ success() }}
         uses: codecov/codecov-action@v1
-      - name: Setup beta integration
-        if: ${{ success() }}
-        run: echo ::set-env name=BUILD_STAGE::Beta
       - name: Confirm beta integration
         if: ${{ success() }}
-        run: yarn build
-      - name: Setup stable integration
-        if: ${{ success() }}
-        run: echo ::set-env name=BUILD_STAGE::Stable
+        uses: actions/github-script@v2
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            try {
+              console.log(`${execSync('yarn build', { stdio: 'pipe' })}`);
+            } catch ({ stdout, stderr }) {
+              core.setFailed(`${stdout}\n${stderr}`);
+            }
+        env:
+          BUILD_STAGE: Beta
       - name: Confirm stable integration
         if: ${{ success() }}
-        run: yarn build
+        uses: actions/github-script@v2
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            try {
+              console.log(`${execSync('yarn build', { stdio: 'pipe' })}`);
+            } catch ({ stdout, stderr }) {
+              core.setFailed(`${stdout}\n${stderr}`);
+            }
+        env:
+          BUILD_STAGE: Stable
