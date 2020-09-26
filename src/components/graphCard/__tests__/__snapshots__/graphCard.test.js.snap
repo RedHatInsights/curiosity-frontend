@@ -69,80 +69,90 @@ exports[`GraphCard Component should render a non-connected component: non-connec
 <Card
   className="curiosity-usage-graph"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
-      className=""
-    >
-      <Select
-        aria-label="t(curiosity-graph.dropdownPlaceholder)"
-        ariaLabel="Select option"
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
         className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
-        options={
-          Array [
-            Object {
-              "selected": true,
-              "title": "t(curiosity-graph.dropdownDaily)",
-              "value": "daily",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownWeekly)",
-              "value": "weekly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownMonthly)",
-              "value": "monthly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownQuarterly)",
-              "value": "quarterly",
-            },
-          ]
-        }
-        placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
-        toggleIcon={null}
-        variant="single"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="fadein"
-    >
-      <ChartArea
-        chartLegend={[Function]}
-        chartTooltip={[Function]}
-        dataSets={Array []}
-        domain={Object {}}
-        height={275}
-        key="chart_{\\"granularity\\":\\"daily\\"}"
-        padding={
-          Object {
-            "bottom": 75,
-            "left": 50,
-            "right": 50,
-            "top": 50,
+      >
+        <Select
+          aria-label="t(curiosity-graph.dropdownPlaceholder)"
+          ariaLabel="Select option"
+          className=""
+          id="generatedid-"
+          isDisabled={false}
+          isToggleText={true}
+          name={null}
+          onSelect={[Function]}
+          options={
+            Array [
+              Object {
+                "selected": true,
+                "title": "t(curiosity-graph.dropdownDaily)",
+                "value": "daily",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownWeekly)",
+                "value": "weekly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownMonthly)",
+                "value": "monthly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "value": "quarterly",
+              },
+            ]
           }
-        }
-        themeColor="blue"
-        xAxisFixLabelOverlap={true}
-        xAxisLabelIncrement={5}
-        xAxisTickFormat={[Function]}
-        yAxisTickFormat={[Function]}
-      />
-    </div>
-  </CardBody>
+          placeholder="t(curiosity-graph.dropdownPlaceholder)"
+          selectedOptions="daily"
+          toggleIcon={null}
+          variant="single"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <ChartArea
+          chartLegend={[Function]}
+          chartTooltip={[Function]}
+          dataSets={Array []}
+          domain={Object {}}
+          height={275}
+          key="chart_{\\"granularity\\":\\"daily\\"}"
+          padding={
+            Object {
+              "bottom": 75,
+              "left": 50,
+              "right": 50,
+              "top": 50,
+            }
+          }
+          themeColor="blue"
+          xAxisFixLabelOverlap={true}
+          xAxisLabelIncrement={5}
+          xAxisTickFormat={[Function]}
+          yAxisTickFormat={[Function]}
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
 </Card>
 `;
 
@@ -186,112 +196,122 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
 <Card
   className="curiosity-usage-graph"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
-      className="blur"
-    >
-      <Select
-        aria-label="t(curiosity-graph.dropdownPlaceholder)"
-        ariaLabel="Select option"
-        className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
-        options={
-          Array [
-            Object {
-              "selected": true,
-              "title": "t(curiosity-graph.dropdownDaily)",
-              "value": "daily",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownWeekly)",
-              "value": "weekly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownMonthly)",
-              "value": "monthly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownQuarterly)",
-              "value": "quarterly",
-            },
-          ]
-        }
-        placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
-        toggleIcon={null}
-        variant="single"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="blur"
-    >
-      <ChartArea
-        chartLegend={[Function]}
-        chartTooltip={[Function]}
-        dataSets={
-          Array [
-            Object {
-              "animate": Object {
-                "duration": 250,
-                "onLoad": Object {
-                  "duration": 250,
-                },
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
+        className="blur"
+      >
+        <Select
+          aria-label="t(curiosity-graph.dropdownPlaceholder)"
+          ariaLabel="Select option"
+          className=""
+          id="generatedid-"
+          isDisabled={false}
+          isToggleText={true}
+          name={null}
+          onSelect={[Function]}
+          options={
+            Array [
+              Object {
+                "selected": true,
+                "title": "t(curiosity-graph.dropdownDaily)",
+                "value": "daily",
               },
-              "data": Array [
-                Object {
-                  "date": 2019-06-01T00:00:00.000Z,
-                  "x": 0,
-                  "y": 10,
-                },
-                Object {
-                  "date": 2019-06-08T00:00:00.000Z,
-                  "x": 1,
-                  "y": 12,
-                },
-                Object {
-                  "date": 2019-06-25T00:00:00.000Z,
-                  "x": 2,
-                  "y": 3,
-                },
-              ],
-              "id": "physicalSockets",
-              "isStacked": true,
-              "isThreshold": false,
-              "strokeWidth": 2,
-            },
-          ]
-        }
-        domain={Object {}}
-        height={275}
-        key="chart_{\\"granularity\\":\\"daily\\"}"
-        padding={
-          Object {
-            "bottom": 75,
-            "left": 50,
-            "right": 50,
-            "top": 50,
+              Object {
+                "title": "t(curiosity-graph.dropdownWeekly)",
+                "value": "weekly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownMonthly)",
+                "value": "monthly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "value": "quarterly",
+              },
+            ]
           }
-        }
-        themeColor="blue"
-        xAxisFixLabelOverlap={true}
-        xAxisLabelIncrement={5}
-        xAxisTickFormat={[Function]}
-        yAxisTickFormat={[Function]}
-      />
-    </div>
-  </CardBody>
+          placeholder="t(curiosity-graph.dropdownPlaceholder)"
+          selectedOptions="daily"
+          toggleIcon={null}
+          variant="single"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="blur"
+      >
+        <ChartArea
+          chartLegend={[Function]}
+          chartTooltip={[Function]}
+          dataSets={
+            Array [
+              Object {
+                "animate": Object {
+                  "duration": 250,
+                  "onLoad": Object {
+                    "duration": 250,
+                  },
+                },
+                "data": Array [
+                  Object {
+                    "date": 2019-06-01T00:00:00.000Z,
+                    "x": 0,
+                    "y": 10,
+                  },
+                  Object {
+                    "date": 2019-06-08T00:00:00.000Z,
+                    "x": 1,
+                    "y": 12,
+                  },
+                  Object {
+                    "date": 2019-06-25T00:00:00.000Z,
+                    "x": 2,
+                    "y": 3,
+                  },
+                ],
+                "id": "physicalSockets",
+                "isStacked": true,
+                "isThreshold": false,
+                "strokeWidth": 2,
+              },
+            ]
+          }
+          domain={Object {}}
+          height={275}
+          key="chart_{\\"granularity\\":\\"daily\\"}"
+          padding={
+            Object {
+              "bottom": 75,
+              "left": 50,
+              "right": 50,
+              "top": 50,
+            }
+          }
+          themeColor="blue"
+          xAxisFixLabelOverlap={true}
+          xAxisLabelIncrement={5}
+          xAxisTickFormat={[Function]}
+          yAxisTickFormat={[Function]}
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
 </Card>
 `;
 
@@ -299,112 +319,122 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
 <Card
   className="curiosity-usage-graph"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
-      className="blur"
-    >
-      <Select
-        aria-label="t(curiosity-graph.dropdownPlaceholder)"
-        ariaLabel="Select option"
-        className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
-        options={
-          Array [
-            Object {
-              "selected": true,
-              "title": "t(curiosity-graph.dropdownDaily)",
-              "value": "daily",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownWeekly)",
-              "value": "weekly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownMonthly)",
-              "value": "monthly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownQuarterly)",
-              "value": "quarterly",
-            },
-          ]
-        }
-        placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
-        toggleIcon={null}
-        variant="single"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="blur"
-    >
-      <ChartArea
-        chartLegend={[Function]}
-        chartTooltip={[Function]}
-        dataSets={
-          Array [
-            Object {
-              "animate": Object {
-                "duration": 250,
-                "onLoad": Object {
-                  "duration": 250,
-                },
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
+        className="blur"
+      >
+        <Select
+          aria-label="t(curiosity-graph.dropdownPlaceholder)"
+          ariaLabel="Select option"
+          className=""
+          id="generatedid-"
+          isDisabled={false}
+          isToggleText={true}
+          name={null}
+          onSelect={[Function]}
+          options={
+            Array [
+              Object {
+                "selected": true,
+                "title": "t(curiosity-graph.dropdownDaily)",
+                "value": "daily",
               },
-              "data": Array [
-                Object {
-                  "date": 2019-06-01T00:00:00.000Z,
-                  "x": 0,
-                  "y": 10,
-                },
-                Object {
-                  "date": 2019-06-08T00:00:00.000Z,
-                  "x": 1,
-                  "y": 12,
-                },
-                Object {
-                  "date": 2019-06-25T00:00:00.000Z,
-                  "x": 2,
-                  "y": 3,
-                },
-              ],
-              "id": "physicalSockets",
-              "isStacked": true,
-              "isThreshold": false,
-              "strokeWidth": 2,
-            },
-          ]
-        }
-        domain={Object {}}
-        height={275}
-        key="chart_{\\"granularity\\":\\"daily\\"}"
-        padding={
-          Object {
-            "bottom": 75,
-            "left": 50,
-            "right": 50,
-            "top": 50,
+              Object {
+                "title": "t(curiosity-graph.dropdownWeekly)",
+                "value": "weekly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownMonthly)",
+                "value": "monthly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "value": "quarterly",
+              },
+            ]
           }
-        }
-        themeColor="blue"
-        xAxisFixLabelOverlap={true}
-        xAxisLabelIncrement={5}
-        xAxisTickFormat={[Function]}
-        yAxisTickFormat={[Function]}
-      />
-    </div>
-  </CardBody>
+          placeholder="t(curiosity-graph.dropdownPlaceholder)"
+          selectedOptions="daily"
+          toggleIcon={null}
+          variant="single"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="blur"
+      >
+        <ChartArea
+          chartLegend={[Function]}
+          chartTooltip={[Function]}
+          dataSets={
+            Array [
+              Object {
+                "animate": Object {
+                  "duration": 250,
+                  "onLoad": Object {
+                    "duration": 250,
+                  },
+                },
+                "data": Array [
+                  Object {
+                    "date": 2019-06-01T00:00:00.000Z,
+                    "x": 0,
+                    "y": 10,
+                  },
+                  Object {
+                    "date": 2019-06-08T00:00:00.000Z,
+                    "x": 1,
+                    "y": 12,
+                  },
+                  Object {
+                    "date": 2019-06-25T00:00:00.000Z,
+                    "x": 2,
+                    "y": 3,
+                  },
+                ],
+                "id": "physicalSockets",
+                "isStacked": true,
+                "isThreshold": false,
+                "strokeWidth": 2,
+              },
+            ]
+          }
+          domain={Object {}}
+          height={275}
+          key="chart_{\\"granularity\\":\\"daily\\"}"
+          padding={
+            Object {
+              "bottom": 75,
+              "left": 50,
+              "right": 50,
+              "top": 50,
+            }
+          }
+          themeColor="blue"
+          xAxisFixLabelOverlap={true}
+          xAxisLabelIncrement={5}
+          xAxisTickFormat={[Function]}
+          yAxisTickFormat={[Function]}
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
 </Card>
 `;
 
@@ -412,112 +442,122 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
 <Card
   className="curiosity-usage-graph"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
-      className=""
-    >
-      <Select
-        aria-label="t(curiosity-graph.dropdownPlaceholder)"
-        ariaLabel="Select option"
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
         className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
-        options={
-          Array [
-            Object {
-              "selected": true,
-              "title": "t(curiosity-graph.dropdownDaily)",
-              "value": "daily",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownWeekly)",
-              "value": "weekly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownMonthly)",
-              "value": "monthly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownQuarterly)",
-              "value": "quarterly",
-            },
-          ]
-        }
-        placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
-        toggleIcon={null}
-        variant="single"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="fadein"
-    >
-      <ChartArea
-        chartLegend={[Function]}
-        chartTooltip={[Function]}
-        dataSets={
-          Array [
-            Object {
-              "animate": Object {
-                "duration": 250,
-                "onLoad": Object {
-                  "duration": 250,
-                },
+      >
+        <Select
+          aria-label="t(curiosity-graph.dropdownPlaceholder)"
+          ariaLabel="Select option"
+          className=""
+          id="generatedid-"
+          isDisabled={false}
+          isToggleText={true}
+          name={null}
+          onSelect={[Function]}
+          options={
+            Array [
+              Object {
+                "selected": true,
+                "title": "t(curiosity-graph.dropdownDaily)",
+                "value": "daily",
               },
-              "data": Array [
-                Object {
-                  "date": 2019-06-01T00:00:00.000Z,
-                  "x": 0,
-                  "y": 10,
-                },
-                Object {
-                  "date": 2019-06-08T00:00:00.000Z,
-                  "x": 1,
-                  "y": 12,
-                },
-                Object {
-                  "date": 2019-06-25T00:00:00.000Z,
-                  "x": 2,
-                  "y": 3,
-                },
-              ],
-              "id": "physicalSockets",
-              "isStacked": true,
-              "isThreshold": false,
-              "strokeWidth": 2,
-            },
-          ]
-        }
-        domain={Object {}}
-        height={275}
-        key="chart_{\\"granularity\\":\\"daily\\"}"
-        padding={
-          Object {
-            "bottom": 75,
-            "left": 50,
-            "right": 50,
-            "top": 50,
+              Object {
+                "title": "t(curiosity-graph.dropdownWeekly)",
+                "value": "weekly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownMonthly)",
+                "value": "monthly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "value": "quarterly",
+              },
+            ]
           }
-        }
-        themeColor="blue"
-        xAxisFixLabelOverlap={true}
-        xAxisLabelIncrement={5}
-        xAxisTickFormat={[Function]}
-        yAxisTickFormat={[Function]}
-      />
-    </div>
-  </CardBody>
+          placeholder="t(curiosity-graph.dropdownPlaceholder)"
+          selectedOptions="daily"
+          toggleIcon={null}
+          variant="single"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <ChartArea
+          chartLegend={[Function]}
+          chartTooltip={[Function]}
+          dataSets={
+            Array [
+              Object {
+                "animate": Object {
+                  "duration": 250,
+                  "onLoad": Object {
+                    "duration": 250,
+                  },
+                },
+                "data": Array [
+                  Object {
+                    "date": 2019-06-01T00:00:00.000Z,
+                    "x": 0,
+                    "y": 10,
+                  },
+                  Object {
+                    "date": 2019-06-08T00:00:00.000Z,
+                    "x": 1,
+                    "y": 12,
+                  },
+                  Object {
+                    "date": 2019-06-25T00:00:00.000Z,
+                    "x": 2,
+                    "y": 3,
+                  },
+                ],
+                "id": "physicalSockets",
+                "isStacked": true,
+                "isThreshold": false,
+                "strokeWidth": 2,
+              },
+            ]
+          }
+          domain={Object {}}
+          height={275}
+          key="chart_{\\"granularity\\":\\"daily\\"}"
+          padding={
+            Object {
+              "bottom": 75,
+              "left": 50,
+              "right": 50,
+              "top": 50,
+            }
+          }
+          themeColor="blue"
+          xAxisFixLabelOverlap={true}
+          xAxisLabelIncrement={5}
+          xAxisTickFormat={[Function]}
+          yAxisTickFormat={[Function]}
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
 </Card>
 `;
 
@@ -525,68 +565,78 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
 <Card
   className="curiosity-usage-graph"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
-      className=""
-    >
-      <Select
-        aria-label="t(curiosity-graph.dropdownPlaceholder)"
-        ariaLabel="Select option"
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
         className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
-        options={
-          Array [
-            Object {
-              "selected": true,
-              "title": "t(curiosity-graph.dropdownDaily)",
-              "value": "daily",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownWeekly)",
-              "value": "weekly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownMonthly)",
-              "value": "monthly",
-            },
-            Object {
-              "title": "t(curiosity-graph.dropdownQuarterly)",
-              "value": "quarterly",
-            },
-          ]
-        }
-        placeholder="t(curiosity-graph.dropdownPlaceholder)"
-        selectedOptions="daily"
-        toggleIcon={null}
-        variant="single"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="fadein"
-    >
-      <Loader
-        skeletonProps={
-          Object {
-            "size": "sm",
+      >
+        <Select
+          aria-label="t(curiosity-graph.dropdownPlaceholder)"
+          ariaLabel="Select option"
+          className=""
+          id="generatedid-"
+          isDisabled={false}
+          isToggleText={true}
+          name={null}
+          onSelect={[Function]}
+          options={
+            Array [
+              Object {
+                "selected": true,
+                "title": "t(curiosity-graph.dropdownDaily)",
+                "value": "daily",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownWeekly)",
+                "value": "weekly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownMonthly)",
+                "value": "monthly",
+              },
+              Object {
+                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "value": "quarterly",
+              },
+            ]
           }
-        }
-        tableProps={Object {}}
-        variant="graph"
-      />
-    </div>
-  </CardBody>
+          placeholder="t(curiosity-graph.dropdownPlaceholder)"
+          selectedOptions="daily"
+          toggleIcon={null}
+          variant="single"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={false}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <Loader
+          skeletonProps={
+            Object {
+              "size": "sm",
+            }
+          }
+          tableProps={Object {}}
+          variant="graph"
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
 </Card>
 `;
 

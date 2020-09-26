@@ -13,6 +13,7 @@ import GraphCardChartTooltip from './graphCardChartTooltip';
 import GraphCardChartLegend from './graphCardChartLegend';
 import { ChartArea } from '../chartArea/chartArea';
 import { Loader } from '../loader/loader';
+import { MinHeight } from '../minHeight/minHeight';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -159,6 +160,11 @@ class GraphCard extends React.Component {
   }
 
   /**
+   * ToDo: Evaluate applying a minHeight attr to the MinHeight component graphCard setup
+   * Appears there may be a minor page shift when compared to the prior hard-set min-height
+   * of 410px
+   */
+  /**
    * Render a chart/graph card with chart/graph.
    *
    * @returns {Node}
@@ -175,29 +181,33 @@ class GraphCard extends React.Component {
 
     return (
       <Card className="curiosity-usage-graph">
-        <CardHeader>
-          <CardTitle>
-            <Title headingLevel="h2" size="lg">
-              {cardTitle}
-            </Title>
-          </CardTitle>
-          <CardActions className={(error && 'blur') || ''}>
-            {children}
-            <Select
-              aria-label={t('curiosity-graph.dropdownPlaceholder')}
-              onSelect={this.onGranularitySelect}
-              options={options}
-              selectedOptions={graphGranularity}
-              placeholder={t('curiosity-graph.dropdownPlaceholder')}
-            />
-          </CardActions>
-        </CardHeader>
-        <CardBody>
-          <div className={(error && 'blur') || 'fadein'}>
-            {pending && <Loader variant="graph" />}
-            {!pending && this.renderChart()}
-          </div>
-        </CardBody>
+        <MinHeight autoUpdate={false}>
+          <CardHeader>
+            <CardTitle>
+              <Title headingLevel="h2" size="lg">
+                {cardTitle}
+              </Title>
+            </CardTitle>
+            <CardActions className={(error && 'blur') || ''}>
+              {children}
+              <Select
+                aria-label={t('curiosity-graph.dropdownPlaceholder')}
+                onSelect={this.onGranularitySelect}
+                options={options}
+                selectedOptions={graphGranularity}
+                placeholder={t('curiosity-graph.dropdownPlaceholder')}
+              />
+            </CardActions>
+          </CardHeader>
+        </MinHeight>
+        <MinHeight autoUpdate={false}>
+          <CardBody>
+            <div className={(error && 'blur') || 'fadein'}>
+              {pending && <Loader variant="graph" />}
+              {!pending && this.renderChart()}
+            </div>
+          </CardBody>
+        </MinHeight>
       </Card>
     );
   }
