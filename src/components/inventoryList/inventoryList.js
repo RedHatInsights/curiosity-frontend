@@ -9,6 +9,7 @@ import { helpers } from '../../common';
 import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
+import { MinHeight } from '../minHeight/minHeight';
 import GuestsList from '../guestsList/guestsList';
 import { inventoryListHelpers } from './inventoryListHelpers';
 import Pagination from '../pagination/pagination';
@@ -164,51 +165,57 @@ class InventoryList extends React.Component {
 
     return (
       <Card className="curiosity-inventory-card">
-        <CardHeader>
-          <CardTitle>
-            <Title headingLevel="h2" size="lg">
-              {cardTitle}
-            </Title>
-          </CardTitle>
-          <CardActions className={(error && 'blur') || ''}>
-            <Pagination
-              isCompact
-              isDisabled={pending || error}
-              itemCount={itemCount}
-              productId={productId}
-              viewId={viewId}
-              perPageDefault={updatedPerPage}
-            />
-          </CardActions>
-        </CardHeader>
-        <CardBody>
-          <div className={(error && 'blur') || 'fadein'}>
-            {pending && (
-              <Loader
-                variant="table"
-                tableProps={{
-                  className: 'curiosity-inventory-list',
-                  colCount: filterInventoryData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
-                  rowCount: listData?.length || updatedPerPage,
-                  variant: TableVariant.compact
-                }}
+        <MinHeight>
+          <CardHeader>
+            <CardTitle>
+              <Title headingLevel="h2" size="lg">
+                {cardTitle}
+              </Title>
+            </CardTitle>
+            <CardActions className={(error && 'blur') || ''}>
+              <Pagination
+                isCompact
+                isDisabled={pending || error}
+                itemCount={itemCount}
+                productId={productId}
+                viewId={viewId}
+                perPageDefault={updatedPerPage}
               />
-            )}
-            {!pending && this.renderTable()}
-          </div>
-        </CardBody>
-        <CardFooter className={(error && 'blur') || ''}>
-          <TableToolbar isFooter>
-            <Pagination
-              isDisabled={pending || error}
-              itemCount={itemCount}
-              productId={productId}
-              viewId={viewId}
-              perPageDefault={updatedPerPage}
-              dropDirection="up"
-            />
-          </TableToolbar>
-        </CardFooter>
+            </CardActions>
+          </CardHeader>
+        </MinHeight>
+        <MinHeight>
+          <CardBody>
+            <div className={(error && 'blur') || 'fadein'}>
+              {pending && (
+                <Loader
+                  variant="table"
+                  tableProps={{
+                    className: 'curiosity-inventory-list',
+                    colCount: filterInventoryData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
+                    rowCount: listData?.length || updatedPerPage,
+                    variant: TableVariant.compact
+                  }}
+                />
+              )}
+              {!pending && this.renderTable()}
+            </div>
+          </CardBody>
+        </MinHeight>
+        <MinHeight>
+          <CardFooter className={(error && 'blur') || ''}>
+            <TableToolbar isFooter>
+              <Pagination
+                isDisabled={pending || error}
+                itemCount={itemCount}
+                productId={productId}
+                viewId={viewId}
+                perPageDefault={updatedPerPage}
+                dropDirection="up"
+              />
+            </TableToolbar>
+          </CardFooter>
+        </MinHeight>
       </Card>
     );
   }

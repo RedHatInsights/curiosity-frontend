@@ -125,78 +125,93 @@ exports[`InventoryList Component should handle variations in data: filtered data
 <Card
   className="curiosity-inventory-card"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
+        className=""
+      >
+        <Connect(Pagination)
+          isCompact={true}
+          isDisabled={false}
+          itemCount={0}
+          perPageDefault={10}
+          productId="lorem"
+          viewId="inventoryList"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <Table
+          ariaLabel={null}
+          borders={true}
+          className="curiosity-inventory-list"
+          columnHeaders={
+            Array [
+              "t(curiosity-inventory.header, [object Object])",
+            ]
+          }
+          isHeader={true}
+          rows={
+            Array [
+              Object {
+                "cells": Array [
+                  "ipsum",
+                ],
+                "expandedContent": false,
+              },
+              Object {
+                "cells": Array [
+                  "sit",
+                ],
+                "expandedContent": false,
+              },
+            ]
+          }
+          summary={null}
+          t={[Function]}
+          variant="compact"
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardFooter
       className=""
     >
-      <Connect(Pagination)
-        isCompact={true}
-        isDisabled={false}
-        itemCount={0}
-        perPageDefault={10}
-        productId="lorem"
-        viewId="inventoryList"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="fadein"
-    >
-      <Table
-        ariaLabel={null}
-        borders={true}
-        className="curiosity-inventory-list"
-        columnHeaders={
-          Array [
-            "t(curiosity-inventory.header, [object Object])",
-          ]
-        }
-        isHeader={true}
-        rows={
-          Array [
-            Object {
-              "cells": Array [
-                "ipsum",
-              ],
-              "expandedContent": false,
-            },
-            Object {
-              "cells": Array [
-                "sit",
-              ],
-              "expandedContent": false,
-            },
-          ]
-        }
-        summary={null}
-        t={[Function]}
-        variant="compact"
-      />
-    </div>
-  </CardBody>
-  <CardFooter
-    className=""
-  >
-    <TableToolbar
-      isFooter={true}
-    >
-      <Connect(Pagination)
-        dropDirection="up"
-        isDisabled={false}
-        itemCount={0}
-        perPageDefault={10}
-        productId="lorem"
-        viewId="inventoryList"
-      />
-    </TableToolbar>
-  </CardFooter>
+      <TableToolbar
+        isFooter={true}
+      >
+        <Connect(Pagination)
+          dropDirection="up"
+          isDisabled={false}
+          itemCount={0}
+          perPageDefault={10}
+          productId="lorem"
+          viewId="inventoryList"
+        />
+      </TableToolbar>
+    </CardFooter>
+  </MinHeight>
 </Card>
 `;
 
@@ -204,81 +219,96 @@ exports[`InventoryList Component should handle variations in data: variable data
 <Card
   className="curiosity-inventory-card"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
+        className=""
+      >
+        <Connect(Pagination)
+          isCompact={true}
+          isDisabled={false}
+          itemCount={0}
+          perPageDefault={10}
+          productId="lorem"
+          viewId="inventoryList"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <Table
+          ariaLabel={null}
+          borders={true}
+          className="curiosity-inventory-list"
+          columnHeaders={
+            Array [
+              "t(curiosity-inventory.header, [object Object])",
+              "t(curiosity-inventory.header, [object Object])",
+            ]
+          }
+          isHeader={true}
+          rows={
+            Array [
+              Object {
+                "cells": Array [
+                  "ipsum",
+                  "sit",
+                ],
+                "expandedContent": false,
+              },
+              Object {
+                "cells": Array [
+                  "sit",
+                  "amet",
+                ],
+                "expandedContent": false,
+              },
+            ]
+          }
+          summary={null}
+          t={[Function]}
+          variant="compact"
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardFooter
       className=""
     >
-      <Connect(Pagination)
-        isCompact={true}
-        isDisabled={false}
-        itemCount={0}
-        perPageDefault={10}
-        productId="lorem"
-        viewId="inventoryList"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="fadein"
-    >
-      <Table
-        ariaLabel={null}
-        borders={true}
-        className="curiosity-inventory-list"
-        columnHeaders={
-          Array [
-            "t(curiosity-inventory.header, [object Object])",
-            "t(curiosity-inventory.header, [object Object])",
-          ]
-        }
-        isHeader={true}
-        rows={
-          Array [
-            Object {
-              "cells": Array [
-                "ipsum",
-                "sit",
-              ],
-              "expandedContent": false,
-            },
-            Object {
-              "cells": Array [
-                "sit",
-                "amet",
-              ],
-              "expandedContent": false,
-            },
-          ]
-        }
-        summary={null}
-        t={[Function]}
-        variant="compact"
-      />
-    </div>
-  </CardBody>
-  <CardFooter
-    className=""
-  >
-    <TableToolbar
-      isFooter={true}
-    >
-      <Connect(Pagination)
-        dropDirection="up"
-        isDisabled={false}
-        itemCount={0}
-        perPageDefault={10}
-        productId="lorem"
-        viewId="inventoryList"
-      />
-    </TableToolbar>
-  </CardFooter>
+      <TableToolbar
+        isFooter={true}
+      >
+        <Connect(Pagination)
+          dropDirection="up"
+          isDisabled={false}
+          itemCount={0}
+          perPageDefault={10}
+          productId="lorem"
+          viewId="inventoryList"
+        />
+      </TableToolbar>
+    </CardFooter>
+  </MinHeight>
 </Card>
 `;
 
@@ -286,59 +316,74 @@ exports[`InventoryList Component should render a non-connected component: non-co
 <Card
   className="curiosity-inventory-card"
 >
-  <CardHeader>
-    <CardTitle>
-      <Title
-        headingLevel="h2"
-        size="lg"
-      />
-    </CardTitle>
-    <CardActions
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        />
+      </CardTitle>
+      <CardActions
+        className=""
+      >
+        <Connect(Pagination)
+          isCompact={true}
+          isDisabled={false}
+          itemCount={0}
+          perPageDefault={10}
+          productId="lorem"
+          viewId="inventoryList"
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <Table
+          ariaLabel={null}
+          borders={true}
+          className="curiosity-inventory-list"
+          columnHeaders={Array []}
+          isHeader={true}
+          rows={Array []}
+          summary={null}
+          t={[Function]}
+          variant="compact"
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+  <MinHeight
+    autoUpdate={true}
+    minHeight={0}
+  >
+    <CardFooter
       className=""
     >
-      <Connect(Pagination)
-        isCompact={true}
-        isDisabled={false}
-        itemCount={0}
-        perPageDefault={10}
-        productId="lorem"
-        viewId="inventoryList"
-      />
-    </CardActions>
-  </CardHeader>
-  <CardBody>
-    <div
-      className="fadein"
-    >
-      <Table
-        ariaLabel={null}
-        borders={true}
-        className="curiosity-inventory-list"
-        columnHeaders={Array []}
-        isHeader={true}
-        rows={Array []}
-        summary={null}
-        t={[Function]}
-        variant="compact"
-      />
-    </div>
-  </CardBody>
-  <CardFooter
-    className=""
-  >
-    <TableToolbar
-      isFooter={true}
-    >
-      <Connect(Pagination)
-        dropDirection="up"
-        isDisabled={false}
-        itemCount={0}
-        perPageDefault={10}
-        productId="lorem"
-        viewId="inventoryList"
-      />
-    </TableToolbar>
-  </CardFooter>
+      <TableToolbar
+        isFooter={true}
+      >
+        <Connect(Pagination)
+          dropDirection="up"
+          isDisabled={false}
+          itemCount={0}
+          perPageDefault={10}
+          productId="lorem"
+          viewId="inventoryList"
+        />
+      </TableToolbar>
+    </CardFooter>
+  </MinHeight>
 </Card>
 `;
 
