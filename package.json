@@ -1,6 +1,6 @@
 {
   "name": "curiosity-frontend",
-  "version": "0.1.19",
+  "version": "1.0.0",
   "description": "A subscription reporting frontend.",
   "author": "Red Hat",
   "license": "Apache-2.0",
@@ -50,17 +50,28 @@
     "skip": {
       "tag": true
     },
-    "types": [{
-      "type": "feat", "section": "Features"
-    },{
-      "type": "fix", "section": "Bug Fixes"
-    },{
-      "type": "refactor", "section": "Code Refactoring"
-    },{
-      "type": "perf", "section": "Performance Improvements"
-    },{
-      "type": "style", "section": "Styles"
-    }]
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "refactor",
+        "section": "Code Refactoring"
+      },
+      {
+        "type": "perf",
+        "section": "Performance Improvements"
+      },
+      {
+        "type": "style",
+        "section": "Styles"
+      }
+    ]
   },
   "scripts": {
     "api:dev": "mock -p 5000 -w ./src/services",

@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.19...v1.0.0) (2020-09-29)
+
+
+### Features
+
+* **authentication:** issues/373 use platform not authorized ([#402](https://github.com/RedHatInsights/curiosity-frontend/issues/402)) ([dd0dbf2](https://github.com/RedHatInsights/curiosity-frontend/commit/dd0dbf24edf907ce84d388b0b7914cd29ebe8e8c))
+* **guestsList:** issues/10 display infinite table listing ([#390](https://github.com/RedHatInsights/curiosity-frontend/issues/390)) ([98ffe05](https://github.com/RedHatInsights/curiosity-frontend/commit/98ffe057f54a531b42130ab268b8eae903cc69f4))
+* **inventoryList,views:** issues/10 display inventory list ([#372](https://github.com/RedHatInsights/curiosity-frontend/issues/372)) ([0109e0b](https://github.com/RedHatInsights/curiosity-frontend/commit/0109e0b20bd58ddf3bfaaa15f9f6071d672d5f69))
+* **messageView:** issues/320 app-level maintenance mode ([#379](https://github.com/RedHatInsights/curiosity-frontend/issues/379)) ([5798e1f](https://github.com/RedHatInsights/curiosity-frontend/commit/5798e1ff5e54dabbed4db59d1bee93300dd5cd96))
+
+
+### Bug Fixes
+
+* **apiQueries,reduxHelpers:** issues/380 query schema ([#381](https://github.com/RedHatInsights/curiosity-frontend/issues/381)) ([d37641e](https://github.com/RedHatInsights/curiosity-frontend/commit/d37641e6648aa4d91a8b53a00f83b8113023fee8))
+* **docs:** issues/437 update dotenv learn more link ([#438](https://github.com/RedHatInsights/curiosity-frontend/issues/438)) ([8a22ef9](https://github.com/RedHatInsights/curiosity-frontend/commit/8a22ef9479db9b6036c7cfb7d052069910ba306a))
+* **graphCard:** issues/380 graph refresh on query ([#384](https://github.com/RedHatInsights/curiosity-frontend/issues/384)) ([f150ef8](https://github.com/RedHatInsights/curiosity-frontend/commit/f150ef8aa08f00702b42c671091d23228a33d31b))
+* **graphCard,c3GraphCard:** issues/10 align card component ([#372](https://github.com/RedHatInsights/curiosity-frontend/issues/372)) ([cb8f925](https://github.com/RedHatInsights/curiosity-frontend/commit/cb8f925060a22a0601946e29095b95b4c8649c90))
+* **graphCard,chartArea:** issues/365 increase stroke width ([#392](https://github.com/RedHatInsights/curiosity-frontend/issues/392)) ([9080259](https://github.com/RedHatInsights/curiosity-frontend/commit/9080259de23ba8d70e3ff69324f8f175331a0974))
+* **guestsList:**  avoid boolean, remove nullish coalescing op ([#413](https://github.com/RedHatInsights/curiosity-frontend/issues/413)) ([cd0985c](https://github.com/RedHatInsights/curiosity-frontend/commit/cd0985cd864b724b70a4a90c1cfa56185c5c3e47))
+* **guestsList:** issues/10 increase paging limit ([#390](https://github.com/RedHatInsights/curiosity-frontend/issues/390)) ([eca2a39](https://github.com/RedHatInsights/curiosity-frontend/commit/eca2a3955b5863f7ef3a9a42e1b3cf09dc8d01df))
+* **helpers:** issues/416 move links to dotenv ([#438](https://github.com/RedHatInsights/curiosity-frontend/issues/438)) ([d399bf3](https://github.com/RedHatInsights/curiosity-frontend/commit/d399bf3ef3623c6806d6239210a7b16e7c3dd8c7))
+* **inventoryList:** issues/10 missing platform component ([#385](https://github.com/RedHatInsights/curiosity-frontend/issues/385)) ([189ff58](https://github.com/RedHatInsights/curiosity-frontend/commit/189ff581cfb6722594fd5cd1875e0b692238e926))
+* **inventoryList:** issues/421 correct prop attr ([#423](https://github.com/RedHatInsights/curiosity-frontend/issues/423)) ([e29212b](https://github.com/RedHatInsights/curiosity-frontend/commit/e29212b8b39d779d292467f81a6cedc5c2292da7))
+* **inventoryListSelectors:** issues/10 itemCount, deep equals ([#372](https://github.com/RedHatInsights/curiosity-frontend/issues/372)) ([bfed7e8](https://github.com/RedHatInsights/curiosity-frontend/commit/bfed7e86cb749fcc3d42bc5714b4da14723e54ea))
+* **inventoryListSelectors:** issues/10 last seen date context ([#382](https://github.com/RedHatInsights/curiosity-frontend/issues/382)) ([62141ec](https://github.com/RedHatInsights/curiosity-frontend/commit/62141ec63e0ccad9552389839e9c99225e5a9228))
+* **inventoryListSelectors:** issues/421 combine query ([#423](https://github.com/RedHatInsights/curiosity-frontend/issues/423)) ([447aaf2](https://github.com/RedHatInsights/curiosity-frontend/commit/447aaf20d78b0aa086073259c6904c066f5c790e))
+* **openshiftView:** issues/383 apply uom query filter ([#408](https://github.com/RedHatInsights/curiosity-frontend/issues/408)) ([f5f5657](https://github.com/RedHatInsights/curiosity-frontend/commit/f5f5657a99fe35708cb14370ed6e1b581c346a38))
+* **openshiftView,rhelView:** issues/421 viewId to productLabel ([#423](https://github.com/RedHatInsights/curiosity-frontend/issues/423)) ([d073813](https://github.com/RedHatInsights/curiosity-frontend/commit/d073813f4aa7153a9ac66183088d2afc67d7105a))
+* **pagination:** issues/400 page reset on limit update ([#405](https://github.com/RedHatInsights/curiosity-frontend/issues/405)) ([b016181](https://github.com/RedHatInsights/curiosity-frontend/commit/b016181aad6fdd21b2cef6dc90f780f88343d4c7))
+* **pagination,toolbar:** issues/400 page reset filter update ([#412](https://github.com/RedHatInsights/curiosity-frontend/issues/412)) ([5e1a938](https://github.com/RedHatInsights/curiosity-frontend/commit/5e1a938ec1cf2a9476002dda6b4abdc1de09eed8))
+* **rhsmApiTypes:** issues/380 api query types ([#381](https://github.com/RedHatInsights/curiosity-frontend/issues/381)) ([4828327](https://github.com/RedHatInsights/curiosity-frontend/commit/4828327de5f2c78d08bb7364e0aa8038efca1586))
+* **table,tableSkeleton:** issues/10 align content prop to pf ([#372](https://github.com/RedHatInsights/curiosity-frontend/issues/372)) ([88e1140](https://github.com/RedHatInsights/curiosity-frontend/commit/88e1140e3e4332744dc50f8f89e0c70763def56c))
+* **tableSkeleton:** allow table with zero rows ([#390](https://github.com/RedHatInsights/curiosity-frontend/issues/390)) ([1120bda](https://github.com/RedHatInsights/curiosity-frontend/commit/1120bda8c30317fa9f2bcc3c5ba4c54824d55432))
+* **testing:** platform component import exceptions ([#386](https://github.com/RedHatInsights/curiosity-frontend/issues/386)) ([e4df25f](https://github.com/RedHatInsights/curiosity-frontend/commit/e4df25f229aca962f11ddb79c91f94139c27051e))
+
+
+### Styles
+
+* **pageLayout:** issues/391 remove gray padding ([#401](https://github.com/RedHatInsights/curiosity-frontend/issues/401)) ([12bba02](https://github.com/RedHatInsights/curiosity-frontend/commit/12bba022ec22581364432207139b8a33ab6856df))
+
 ### [0.1.19](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.18...v0.1.19) (2020-08-24)
 
 
