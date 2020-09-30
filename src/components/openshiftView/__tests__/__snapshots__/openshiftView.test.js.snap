@@ -20,7 +20,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "asc",
+          "dir": "desc",
           "granularity": "daily",
           "limit": 10,
           "offset": 0,
@@ -130,7 +130,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "asc",
+          "dir": "desc",
           "limit": 10,
           "offset": 0,
           "sort": "last_seen",
@@ -163,7 +163,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "asc",
+          "dir": "desc",
           "granularity": "daily",
           "limit": 10,
           "offset": 0,
@@ -273,7 +273,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "asc",
+          "dir": "desc",
           "limit": 10,
           "offset": 0,
           "sort": "last_seen",
@@ -465,7 +465,7 @@ Object {
     },
   ],
   "query": Object {
-    "dir": "asc",
+    "dir": "desc",
     "granularity": "daily",
     "limit": 10,
     "offset": 0,
@@ -495,7 +495,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "asc",
+          "dir": "desc",
           "granularity": "daily",
           "limit": 10,
           "offset": 0,
@@ -605,7 +605,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "asc",
+          "dir": "desc",
           "limit": 10,
           "offset": 0,
           "sort": "last_seen",
