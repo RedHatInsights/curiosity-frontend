@@ -63,7 +63,7 @@ describe('OpenshiftView Component', () => {
         numberOfGuests: 3,
         sockets: 10,
         cores: 12,
-        lastSeen: 'lorem month ago',
+        lastSeen: 'lorem date obj',
         loremIpsum: 'hello world'
       }
     });
@@ -76,7 +76,7 @@ describe('OpenshiftView Component', () => {
         displayName: 'lorem',
         inventoryId: 'lorem inventory id',
         subscriptionManagerId: 'lorem subscription id',
-        lastSeen: 'lorem month ago',
+        lastSeen: 'lorem date obj',
         loremIpsum: 'hello world'
       }
     });

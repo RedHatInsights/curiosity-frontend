@@ -5,6 +5,7 @@ import {
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { Badge, Button } from '@patternfly/react-core';
+import { DateFormat } from '@redhat-cloud-services/frontend-components/components/cjs/DateFormat';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
@@ -279,7 +280,8 @@ OpenshiftView.defaultProps = {
       id: 'inventoryId'
     },
     {
-      id: 'lastSeen'
+      id: 'lastSeen',
+      cell: obj => (obj?.lastSeen?.value && <DateFormat date={obj?.lastSeen?.value} />) || ''
     }
   ],
   initialInventoryFilters: [
@@ -331,6 +333,7 @@ OpenshiftView.defaultProps = {
     },
     {
       id: 'lastSeen',
+      cell: obj => (obj?.lastSeen?.value && <DateFormat date={obj?.lastSeen?.value} />) || '',
       isSortable: true
     }
   ],
