@@ -1,9 +1,7 @@
 import { createSelectorCreator, defaultMemoize } from 'reselect';
-import moment from 'moment';
 import _isEqual from 'lodash/isEqual';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
-import { getCurrentDate } from '../../common/dateHelpers';
 import { apiQueries } from '../common';
 
 /**
@@ -100,7 +98,7 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE:
           return value?.toLowerCase() || null;
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN:
-          return moment.utc(value).from(getCurrentDate()) || null;
+          return (value && new Date(value)) || null;
         default:
           return value ?? null;
       }
