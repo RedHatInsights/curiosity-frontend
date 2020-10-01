@@ -86,6 +86,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
             "id": "inventoryId",
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
           },
         ]
@@ -107,6 +108,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
             "isSortable": true,
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
             "isSortable": true,
           },
@@ -214,6 +216,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
             "id": "inventoryId",
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
           },
         ]
@@ -235,6 +238,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
             "isSortable": true,
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
             "isSortable": true,
           },
@@ -269,7 +273,9 @@ Object {
       lorem
     </Button>,
     "lorem inventory id",
-    "lorem month ago",
+    <DateFormat
+      date="lorem date obj"
+    />,
   ],
   "columnHeaders": Array [
     "t(curiosity-inventory.header, [object Object])",
@@ -287,7 +293,7 @@ Object {
     },
     "lastSeen": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
-      "value": "lorem month ago",
+      "value": "lorem date obj",
     },
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
@@ -323,7 +329,9 @@ Object {
       </Badge>
     </React.Fragment>,
     10,
-    "lorem month ago",
+    <DateFormat
+      date="lorem date obj"
+    />,
   ],
   "columnHeaders": Array [
     "t(curiosity-inventory.header, [object Object])",
@@ -350,7 +358,7 @@ Object {
     },
     "lastSeen": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
-      "value": "lorem month ago",
+      "value": "lorem date obj",
     },
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
@@ -402,6 +410,7 @@ Object {
       "id": "inventoryId",
     },
     Object {
+      "cell": [Function],
       "id": "lastSeen",
     },
   ],
@@ -421,6 +430,7 @@ Object {
       "isSortable": true,
     },
     Object {
+      "cell": [Function],
       "id": "lastSeen",
       "isSortable": true,
     },
@@ -521,6 +531,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
             "id": "inventoryId",
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
           },
         ]
@@ -542,6 +553,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
             "isSortable": true,
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
             "isSortable": true,
           },

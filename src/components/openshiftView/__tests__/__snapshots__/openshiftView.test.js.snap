@@ -99,6 +99,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
             "id": "inventoryId",
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
           },
         ]
@@ -121,6 +122,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
             "isSortable": true,
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
             "isSortable": true,
           },
@@ -242,6 +244,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
             "id": "inventoryId",
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
           },
         ]
@@ -264,6 +267,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
             "isSortable": true,
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
             "isSortable": true,
           },
@@ -299,7 +303,9 @@ Object {
       lorem
     </Button>,
     "lorem inventory id",
-    "lorem month ago",
+    <DateFormat
+      date="lorem date obj"
+    />,
   ],
   "columnHeaders": Array [
     "t(curiosity-inventory.header, [object Object])",
@@ -317,7 +323,7 @@ Object {
     },
     "lastSeen": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
-      "value": "lorem month ago",
+      "value": "lorem date obj",
     },
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
@@ -354,7 +360,9 @@ Object {
     </React.Fragment>,
     10,
     12,
-    "lorem month ago",
+    <DateFormat
+      date="lorem date obj"
+    />,
   ],
   "columnHeaders": Array [
     "t(curiosity-inventory.header, [object Object])",
@@ -382,7 +390,7 @@ Object {
     },
     "lastSeen": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
-      "value": "lorem month ago",
+      "value": "lorem date obj",
     },
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, [object Object])",
@@ -435,6 +443,7 @@ Object {
       "id": "inventoryId",
     },
     Object {
+      "cell": [Function],
       "id": "lastSeen",
     },
   ],
@@ -460,6 +469,7 @@ Object {
       "isSortable": true,
     },
     Object {
+      "cell": [Function],
       "id": "lastSeen",
       "isSortable": true,
     },
@@ -574,6 +584,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
             "id": "inventoryId",
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
           },
         ]
@@ -596,6 +607,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
             "isSortable": true,
           },
           Object {
+            "cell": [Function],
             "id": "lastSeen",
             "isSortable": true,
           },

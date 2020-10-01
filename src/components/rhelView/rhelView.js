@@ -9,6 +9,7 @@ import {
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
 import { Badge, Button } from '@patternfly/react-core';
+import { DateFormat } from '@redhat-cloud-services/frontend-components/components/cjs/DateFormat';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -201,7 +202,8 @@ RhelView.defaultProps = {
       id: 'inventoryId'
     },
     {
-      id: 'lastSeen'
+      id: 'lastSeen',
+      cell: obj => (obj?.lastSeen?.value && <DateFormat date={obj?.lastSeen?.value} />) || ''
     }
   ],
   initialInventoryFilters: [
@@ -247,6 +249,7 @@ RhelView.defaultProps = {
     },
     {
       id: 'lastSeen',
+      cell: obj => (obj?.lastSeen?.value && <DateFormat date={obj?.lastSeen?.value} />) || '',
       isSortable: true
     }
   ],
