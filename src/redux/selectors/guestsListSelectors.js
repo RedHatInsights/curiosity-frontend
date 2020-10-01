@@ -1,8 +1,6 @@
 import { createSelector } from 'reselect';
-import moment from 'moment';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
-import { getCurrentDate } from '../../common/dateHelpers';
 
 /**
  * Return a combined state, props object.
@@ -39,7 +37,7 @@ const selector = createSelector([statePropsFilter], response => {
     const customInventoryValue = ({ key, value }) => {
       switch (key) {
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN:
-          return moment.utc(value).from(getCurrentDate()) || null;
+          return (value && new Date(value)) || null;
         default:
           return value ?? null;
       }

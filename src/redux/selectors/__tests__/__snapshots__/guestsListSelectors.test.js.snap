@@ -18,13 +18,13 @@ Object {
     Object {
       "displayName": "db.lorem.com",
       "insightsId": "d6214a0b-b344-4778-831c-d53dcacb2da3",
-      "lastSeen": "17 days ago",
+      "lastSeen": 2019-07-03T00:00:00.000Z,
       "subscriptionManagerId": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
     },
     Object {
       "displayName": "db.ipsum.com",
       "insightsId": "9358e312-1c9f-42f4-8910-dcef6e970852",
-      "lastSeen": "in a month",
+      "lastSeen": 2019-09-04T00:00:00.000Z,
       "subscriptionManagerId": "b101a72f-1859-4489-acb8-d6d31c2578c4",
     },
   ],
@@ -61,13 +61,13 @@ Object {
     Object {
       "displayName": null,
       "insightsId": "d6214a0b-b344-4778-831c-d53dcacb2da3",
-      "lastSeen": "in a year",
+      "lastSeen": null,
       "subscriptionManagerId": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
     },
     Object {
       "displayName": "db.example.com",
       "insightsId": "9358e312-1c9f-42f4-8910-dcef6e970852",
-      "lastSeen": "in a month",
+      "lastSeen": 2019-09-04T00:00:00.000Z,
       "subscriptionManagerId": null,
     },
   ],
