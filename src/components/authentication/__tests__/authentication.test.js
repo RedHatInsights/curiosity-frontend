@@ -10,7 +10,7 @@ describe('Authentication Component', () => {
 
   it('should render a connected component', () => {
     const store = generateEmptyStore({
-      user: { session: { authorized: false, error: false, errorMessage: '', pending: false } }
+      user: { session: { authorized: {}, error: false, errorMessage: '', pending: false } }
     });
 
     const component = shallow(
@@ -30,9 +30,8 @@ describe('Authentication Component', () => {
         push: helpers.noop
       },
       session: {
-        authorized: false,
+        authorized: {},
         error: true,
-        errorMessage: 'Authentication credentials were not provided.',
         pending: false
       }
     };
@@ -52,7 +51,7 @@ describe('Authentication Component', () => {
         push: helpers.noop
       },
       session: {
-        authorized: false,
+        authorized: {},
         error: true,
         status: 418,
         errorMessage: `I'm a teapot`,
@@ -75,7 +74,7 @@ describe('Authentication Component', () => {
         push: helpers.noop
       },
       session: {
-        authorized: false,
+        authorized: {},
         error: true,
         status: 403,
         errorCodes: [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN],
@@ -108,7 +107,7 @@ describe('Authentication Component', () => {
         push: helpers.noop
       },
       session: {
-        authorized: false,
+        authorized: {},
         status: 401
       }
     };
@@ -128,7 +127,7 @@ describe('Authentication Component', () => {
         push: helpers.noop
       },
       session: {
-        authorized: false,
+        authorized: {},
         error: false,
         errorMessage: '',
         pending: true
@@ -150,9 +149,10 @@ describe('Authentication Component', () => {
         push: helpers.noop
       },
       session: {
-        authorized: true,
+        authorized: {
+          [helpers.UI_NAME]: true
+        },
         error: false,
-        errorMessage: '',
         pending: false
       }
     };

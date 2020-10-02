@@ -1,6 +1,10 @@
 import { createSelector } from 'reselect';
-import _get from 'lodash/get';
-import { platformApiTypes } from '../../types/platformApiTypes';
+import {
+  platformApiTypes,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES
+} from '../../types/platformApiTypes';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -17,58 +21,72 @@ const statePropsFilter = state => ({
 /**
  * Create selector, transform combined state, props into a consumable graph/charting object.
  *
- * @type {{session: {entitled: boolean, permissions: Array, authorized: boolean, admin: boolean, error: boolean}}}
+ * @type {{session: {entitled: boolean, permissions: object, authorized: object, admin: boolean,
+ *     error: boolean}}}
  */
 const selector = createSelector([statePropsFilter], response => {
   const { error = false, fulfilled = false, data = {}, ...rest } = response || {};
   const updatedSession = {
     ...rest,
     admin: false,
-    authorized: false,
     entitled: false,
     error,
-    permissions: []
+    authorized: {
+      [helpers.UI_NAME]: false,
+      inventory: false
+    },
+    permissions: {}
   };
 
   if (!error && fulfilled) {
-    const { user = {}, permissions = [] } = data;
+    const { user = {}, permissions: responsePermissions = [] } = data;
 
-    const admin = _get(
-      user,
-      [
-        platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY,
-        platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
-        platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
-      ],
-      false
-    );
+    updatedSession.admin =
+      user?.[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]?.[
+        platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER
+      ]?.[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN] || false;
 
-    const entitled = _get(
-      user,
-      [
-        platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
-        helpers.UI_NAME,
+    updatedSession.entitled =
+      user?.[platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS]?.[APP_TYPES.SUBSCRIPTIONS]?.[
         platformApiTypes.PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES.ENTITLED
-      ],
-      false
+      ] || false;
+
+    // All permissions breakdown
+    responsePermissions.forEach(
+      ({
+        [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: permission,
+        [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.RESOURCE_DEFS]: definitions = []
+      }) => {
+        const [app = '', resource, operation] = permission?.split(':') || [];
+
+        if (!updatedSession.permissions[app]) {
+          updatedSession.permissions[app] = {
+            all: false,
+            resources: {}
+          };
+        }
+
+        if (resource === RESOURCE_TYPES.ALL && operation === OPERATION_TYPES.ALL) {
+          updatedSession.permissions[app].all = true;
+        }
+
+        if (!updatedSession.permissions[app].resources[resource]) {
+          updatedSession.permissions[app].resources[resource] = {};
+        }
+
+        updatedSession.permissions[app].resources[resource][operation] = definitions;
+      }
     );
 
-    const subscriptionPermissions = permissions.map(value => {
-      const src = value[platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION];
-      const [app, resource, operation] = src.split(':');
-      return {
-        permission: { app, resource, operation, src },
-        definitions: value[platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.RESOURCE_DEFS]
-      };
-    });
+    // Alias specific app permissions checks
+    updatedSession.authorized[helpers.UI_NAME] = updatedSession.permissions[APP_TYPES.SUBSCRIPTIONS]?.all || false;
 
-    updatedSession.admin = admin;
-    updatedSession.entitled = entitled;
-    updatedSession.permissions = subscriptionPermissions;
-
-    if (subscriptionPermissions.find(({ permission }) => permission.resource === '*' && permission.operation === '*')) {
-      updatedSession.authorized = true;
-    }
+    updatedSession.authorized.inventory =
+      updatedSession.permissions[APP_TYPES.INVENTORY]?.all ||
+      Array.isArray(
+        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.ALL]?.[OPERATION_TYPES.READ]
+      ) ||
+      false;
   }
 
   return { session: updatedSession };
