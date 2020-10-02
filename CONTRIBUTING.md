@@ -240,8 +240,10 @@ Combining this flag with [manipulating the http status on the API/service mocks]
 ##### Permissions
 You can access different levels of user permissions during **local development** (using `$ yarn start`) by adding the following lines to your `.env.local` file.
    ```
-   REACT_APP_DEBUG_PERMISSION_RESOURCE=*
-   REACT_APP_DEBUG_PERMISSION_OPERATION=*
+   REACT_APP_DEBUG_SUBSCRIPTIONS_PERMISSION_RESOURCE=*
+   REACT_APP_DEBUG_SUBSCRIPTIONS_PERMISSION_OPERATION=*
+   REACT_APP_DEBUG_INVENTORY_PERMISSION_RESOURCE=*
+   REACT_APP_DEBUG_INVENTORY_PERMISSION_OPERATION=*
    ```
 
 As additional resource and operation checks are implemented these values can be altered accordingly.
@@ -307,8 +309,10 @@ If you're having trouble getting an accurate code coverage report, or it's faili
     ```
     REACT_APP_DEBUG_MIDDLEWARE=true
     REACT_APP_DEBUG_ORG_ADMIN=true
-    REACT_APP_DEBUG_PERMISSION_RESOURCE=*
-    REACT_APP_DEBUG_PERMISSION_OPERATION=*
+    REACT_APP_DEBUG_SUBSCRIPTIONS_PERMISSION_RESOURCE=*
+    REACT_APP_DEBUG_SUBSCRIPTIONS_PERMISSION_OPERATION=*
+    REACT_APP_DEBUG_INVENTORY_PERMISSION_RESOURCE=*
+    REACT_APP_DEBUG_INVENTORY_PERMISSION_OPERATION=*
     ```
 1. Open a couple of instances of Terminal and run...
    ```
