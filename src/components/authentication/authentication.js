@@ -21,9 +21,10 @@ class Authentication extends Component {
   removeListeners = helpers.noop;
 
   async componentDidMount() {
-    const { authorizeUser, history, initializeChrome, onNavigation, setAppName, session } = this.props;
+    const { authorizeUser, history, initializeChrome, onNavigation, session, setAppName } = this.props;
+    const { subscriptions: authorized } = session.authorized || {};
 
-    if (!session.authorized) {
+    if (!authorized) {
       await authorizeUser();
     }
 
@@ -53,6 +54,7 @@ class Authentication extends Component {
    */
   render() {
     const { children, session, t } = this.props;
+    const { subscriptions: authorized } = session.authorized || {};
 
     if (helpers.UI_DISABLED) {
       return (
@@ -62,7 +64,7 @@ class Authentication extends Component {
       );
     }
 
-    if (session.authorized) {
+    if (authorized) {
       return <React.Fragment>{children}</React.Fragment>;
     }
 
@@ -105,10 +107,10 @@ Authentication.propTypes = {
   onNavigation: PropTypes.func,
   setAppName: PropTypes.func,
   session: PropTypes.shape({
-    authorized: PropTypes.bool,
-    error: PropTypes.bool,
+    authorized: PropTypes.shape({
+      [routerTypes.appName]: PropTypes.bool
+    }),
     errorCodes: PropTypes.arrayOf(PropTypes.string),
-    errorMessage: PropTypes.string,
     pending: PropTypes.bool,
     status: PropTypes.number
   }),
@@ -119,8 +121,8 @@ Authentication.propTypes = {
  * Default props.
  *
  * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: translate,
- *     initializeChrome: Function, session: {authorized: boolean, errorCodes: Array, pending: boolean,
- *     errorMessage: string, error: boolean, status: null}}}
+ *     initializeChrome: Function, session: {authorized: object, errorCodes: Array, pending: boolean,
+ *     status: number}}}
  */
 Authentication.defaultProps = {
   authorizeUser: helpers.noop,
@@ -128,10 +130,8 @@ Authentication.defaultProps = {
   onNavigation: helpers.noop,
   setAppName: helpers.noop,
   session: {
-    authorized: false,
-    error: false,
+    authorized: {},
     errorCodes: [],
-    errorMessage: '',
     pending: false,
     status: null
   },

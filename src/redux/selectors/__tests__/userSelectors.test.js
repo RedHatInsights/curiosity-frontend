@@ -1,5 +1,11 @@
 import userSelectors from '../userSelectors';
-import { platformApiTypes } from '../../../types';
+import {
+  platformApiTypes,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES,
+  PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES
+} from '../../../types/platformApiTypes';
 import { helpers } from '../../../common';
 
 describe('UserSelectors', () => {
@@ -89,13 +95,22 @@ describe('UserSelectors', () => {
           data: {
             permissions: [
               {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:*`
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.ALL}`
               },
               {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:read`
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
               },
               {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:write`
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:loremCustom`
+              },
+              {
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.INVENTORY}:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
+              },
+              {
+                [USER_PERMISSION_TYPES.PERMISSION]: `lorem:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
+              },
+              {
+                [USER_PERMISSION_TYPES.PERMISSION]: `ipsum:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
               }
             ]
           }
@@ -130,13 +145,19 @@ describe('UserSelectors', () => {
             },
             permissions: [
               {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:*`
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.ALL}`
               },
               {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:read`
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
               },
               {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES.PERMISSION]: `${helpers.UI_NAME}:*:write`
+                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:loremCustom`
+              },
+              {
+                [USER_PERMISSION_TYPES.PERMISSION]: `lorem:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
+              },
+              {
+                [USER_PERMISSION_TYPES.PERMISSION]: `ipsum:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
               }
             ]
           }
