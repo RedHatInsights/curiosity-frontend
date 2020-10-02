@@ -4,14 +4,17 @@ exports[`UserSelectors should not authorize a user when global errors exist: glo
 Object {
   "session": Object {
     "admin": false,
-    "authorized": false,
+    "authorized": Object {
+      "inventory": false,
+      "subscriptions": false,
+    },
     "entitled": false,
     "error": true,
     "errorCodes": Array [
       "loremIpsum",
     ],
     "errorMessage": "lorem ipsum",
-    "permissions": Array [],
+    "permissions": Object {},
     "status": 403,
   },
 }
@@ -21,10 +24,13 @@ exports[`UserSelectors should pass data with administrator checks: administrator
 Object {
   "session": Object {
     "admin": true,
-    "authorized": false,
+    "authorized": Object {
+      "inventory": false,
+      "subscriptions": false,
+    },
     "entitled": false,
     "error": false,
-    "permissions": Array [],
+    "permissions": Object {},
   },
 }
 `;
@@ -33,10 +39,13 @@ exports[`UserSelectors should pass data with entitlements checks: entitlements, 
 Object {
   "session": Object {
     "admin": false,
-    "authorized": false,
+    "authorized": Object {
+      "inventory": false,
+      "subscriptions": false,
+    },
     "entitled": true,
     "error": false,
-    "permissions": Array [],
+    "permissions": Object {},
   },
 }
 `;
@@ -45,38 +54,48 @@ exports[`UserSelectors should pass data with permissions checks: permissions, an
 Object {
   "session": Object {
     "admin": false,
-    "authorized": true,
+    "authorized": Object {
+      "inventory": true,
+      "subscriptions": true,
+    },
     "entitled": false,
     "error": false,
-    "permissions": Array [
-      Object {
-        "definitions": undefined,
-        "permission": Object {
-          "app": "subscriptions",
-          "operation": "*",
-          "resource": "*",
-          "src": "subscriptions:*:*",
+    "permissions": Object {
+      "inventory": Object {
+        "all": false,
+        "resources": Object {
+          "*": Object {
+            "read": Array [],
+          },
         },
       },
-      Object {
-        "definitions": undefined,
-        "permission": Object {
-          "app": "subscriptions",
-          "operation": "read",
-          "resource": "*",
-          "src": "subscriptions:*:read",
+      "ipsum": Object {
+        "all": false,
+        "resources": Object {
+          "*": Object {
+            "read": Array [],
+          },
         },
       },
-      Object {
-        "definitions": undefined,
-        "permission": Object {
-          "app": "subscriptions",
-          "operation": "write",
-          "resource": "*",
-          "src": "subscriptions:*:write",
+      "lorem": Object {
+        "all": false,
+        "resources": Object {
+          "*": Object {
+            "read": Array [],
+          },
         },
       },
-    ],
+      "subscriptions": Object {
+        "all": true,
+        "resources": Object {
+          "*": Object {
+            "*": Array [],
+            "loremCustom": Array [],
+            "read": Array [],
+          },
+        },
+      },
+    },
   },
 }
 `;
@@ -85,14 +104,17 @@ exports[`UserSelectors should pass error state data through response: error stat
 Object {
   "session": Object {
     "admin": false,
-    "authorized": false,
+    "authorized": Object {
+      "inventory": false,
+      "subscriptions": false,
+    },
     "entitled": false,
     "error": true,
     "errorCodes": Array [
       "loremIpsum",
     ],
     "errorMessage": "lorem ipsum",
-    "permissions": Array [],
+    "permissions": Object {},
     "status": 403,
   },
 }
@@ -102,11 +124,14 @@ exports[`UserSelectors should pass existing state data through response: existin
 Object {
   "session": Object {
     "admin": false,
-    "authorized": false,
+    "authorized": Object {
+      "inventory": false,
+      "subscriptions": false,
+    },
     "entitled": false,
     "error": false,
     "locale": "en-US",
-    "permissions": Array [],
+    "permissions": Object {},
   },
 }
 `;
@@ -115,10 +140,13 @@ exports[`UserSelectors should pass minimal data on missing a reducer response: m
 Object {
   "session": Object {
     "admin": false,
-    "authorized": false,
+    "authorized": Object {
+      "inventory": false,
+      "subscriptions": false,
+    },
     "entitled": false,
     "error": false,
-    "permissions": Array [],
+    "permissions": Object {},
   },
 }
 `;
