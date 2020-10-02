@@ -15,6 +15,17 @@ Object {
       "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
         "ORG_ADMIN": "is_org_admin",
       },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+        "INVENTORY": "inventory",
+        "SUBSCRIPTIONS": "subscriptions",
+      },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+        "ALL": "*",
+        "READ": "read",
+      },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+        "ALL": "*",
+      },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
         "PERMISSION": "permission",
         "RESOURCE_DEFS": "resourceDefinitions",
@@ -187,6 +198,17 @@ Object {
       "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
         "ORG_ADMIN": "is_org_admin",
       },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+        "INVENTORY": "inventory",
+        "SUBSCRIPTIONS": "subscriptions",
+      },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+        "ALL": "*",
+        "READ": "read",
+      },
+      "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+        "ALL": "*",
+      },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
         "PERMISSION": "permission",
         "RESOURCE_DEFS": "resourceDefinitions",
@@ -357,6 +379,17 @@ Object {
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
       "ORG_ADMIN": "is_org_admin",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+      "INVENTORY": "inventory",
+      "SUBSCRIPTIONS": "subscriptions",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+      "ALL": "*",
+      "READ": "read",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+      "ALL": "*",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
       "PERMISSION": "permission",
@@ -532,6 +565,17 @@ Object {
     },
     "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
       "ORG_ADMIN": "is_org_admin",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+      "INVENTORY": "inventory",
+      "SUBSCRIPTIONS": "subscriptions",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+      "ALL": "*",
+      "READ": "read",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+      "ALL": "*",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
       "PERMISSION": "permission",
