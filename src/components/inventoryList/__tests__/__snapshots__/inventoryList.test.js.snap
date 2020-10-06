@@ -127,6 +127,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
 >
   <MinHeight
     autoUpdate={true}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -152,6 +153,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
   </MinHeight>
   <MinHeight
     autoUpdate={true}
+    key="bodyMinHeight-10"
     minHeight={0}
   >
     <CardBody>
@@ -193,6 +195,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
   </MinHeight>
   <MinHeight
     autoUpdate={true}
+    key="footerMinHeight"
     minHeight={0}
   >
     <CardFooter
@@ -221,6 +224,7 @@ exports[`InventoryList Component should handle variations in data: variable data
 >
   <MinHeight
     autoUpdate={true}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -246,6 +250,7 @@ exports[`InventoryList Component should handle variations in data: variable data
   </MinHeight>
   <MinHeight
     autoUpdate={true}
+    key="bodyMinHeight-10"
     minHeight={0}
   >
     <CardBody>
@@ -290,6 +295,7 @@ exports[`InventoryList Component should handle variations in data: variable data
   </MinHeight>
   <MinHeight
     autoUpdate={true}
+    key="footerMinHeight"
     minHeight={0}
   >
     <CardFooter
@@ -318,6 +324,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
 >
   <MinHeight
     autoUpdate={true}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -343,6 +350,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
   </MinHeight>
   <MinHeight
     autoUpdate={true}
+    key="bodyMinHeight-10"
     minHeight={0}
   >
     <CardBody>
@@ -365,6 +373,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
   </MinHeight>
   <MinHeight
     autoUpdate={true}
+    key="footerMinHeight"
     minHeight={0}
   >
     <CardFooter
