@@ -381,6 +381,22 @@ describe('ChartArea Component', () => {
     expect(component.state().chartWidth).toEqual(1337);
   });
 
+  it('should attempt to handle a ResizeObserver', () => {
+    const observe = jest.fn();
+    const unobserve = jest.fn();
+
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe,
+      unobserve
+    }));
+
+    const component = mount(<ChartArea />);
+    expect(observe).toHaveBeenCalledTimes(1);
+
+    component.unmount();
+    expect(unobserve).toHaveBeenCalledTimes(1);
+  });
+
   it('should run componentWillUnmount method successfully', () => {
     const component = mount(<ChartArea />);
     const componentWillUnmount = jest.spyOn(component.instance(), 'componentWillUnmount');
