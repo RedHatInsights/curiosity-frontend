@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { MinHeight } from '../minHeight';
 
 describe('MinHeight Component', () => {
@@ -31,5 +31,53 @@ describe('MinHeight Component', () => {
     // disable "on update" minHeight adjustments
     component.setProps({ autoUpdate: false, minHeight: 300 });
     expect(component.instance().updatedMinHeight).toEqual(200);
+  });
+
+  it('should set minHeight on resize', () => {
+    const props = {};
+    const component = shallow(<MinHeight {...props}>lorem ipsum</MinHeight>);
+
+    expect(component.instance().onResizeContainer).toBeDefined();
+
+    // initial height and width should be zero
+    expect(component.instance().updatedMinHeight).toEqual(0);
+    expect(component.instance().updatedContainerWidth).toEqual(0);
+
+    // set the container size arbitrarily and force handleResize to fire
+    component.instance().containerRef.current = { clientHeight: 100, clientWidth: 200 };
+    global.dispatchEvent(new Event('resize'));
+    expect(component.instance().updatedMinHeight).toEqual(100);
+    expect(component.instance().updatedContainerWidth).toEqual(200);
+
+    // set the container size arbitrarily and force handleResize to fire
+    component.instance().containerRef.current = { clientHeight: 1000, clientWidth: 1337 };
+    global.dispatchEvent(new Event('resize'));
+    expect(component.instance().updatedMinHeight).toEqual(1000);
+    expect(component.instance().updatedContainerWidth).toEqual(1337);
+  });
+
+  it('should attempt to handle a ResizeObserver', () => {
+    const observe = jest.fn();
+    const unobserve = jest.fn();
+
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe,
+      unobserve
+    }));
+
+    const props = {};
+    const component = mount(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    expect(observe).toHaveBeenCalledTimes(1);
+
+    component.unmount();
+    expect(unobserve).toHaveBeenCalledTimes(1);
+  });
+
+  it('should run componentWillUnmount method successfully', () => {
+    const props = {};
+    const component = mount(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    const componentWillUnmount = jest.spyOn(component.instance(), 'componentWillUnmount');
+    component.unmount();
+    expect(componentWillUnmount).toHaveBeenCalled();
   });
 });
