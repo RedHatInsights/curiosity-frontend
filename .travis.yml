@@ -12,14 +12,15 @@ cache: yarn
 jobs:
   include:
     - stage: Test
-      script: yarn test:lint
-    - before_script: yarn global add codecov
-      script: yarn test:ci
+      before_script: yarn global add codecov
+      script: yarn test
       after_success: codecov
     - stage: Beta Deploy
+      if: branch IN (stage, dev, ci)
       script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
         | bash -s
     - stage: Stable Deploy
+      if: branch IN (master, main, prod, test, qa)
       script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
         | bash -s
 env:
