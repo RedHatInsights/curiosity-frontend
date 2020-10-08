@@ -18,8 +18,9 @@ jobs:
         run: |
           git remote add ssh-origin "https://github.com/$GITHUB_REPOSITORY"
           git fetch ssh-origin
-          COMMITS=$(git cherry -v ssh-origin/${{ env.BRANCH }} | grep "+")
-          echo ::set-env name=GIT_COMMITS::$COMMITS
+          echo 'GIT_COMMITS<<EOF' >> $GITHUB_ENV
+          git cherry -v ssh-origin/${{ env.BRANCH }} | grep "+" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
