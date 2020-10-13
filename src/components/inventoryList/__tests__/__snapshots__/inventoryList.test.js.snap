@@ -152,7 +152,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={true}
+    autoUpdate={false}
     key="bodyMinHeight-10"
     minHeight={0}
   >
@@ -249,7 +249,7 @@ exports[`InventoryList Component should handle variations in data: variable data
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={true}
+    autoUpdate={false}
     key="bodyMinHeight-10"
     minHeight={0}
   >
@@ -349,7 +349,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={true}
+    autoUpdate={false}
     key="bodyMinHeight-10"
     minHeight={0}
   >

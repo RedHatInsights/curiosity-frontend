@@ -8,6 +8,8 @@ exports[`MinHeight Component should render a non-connected component: non-connec
     }
   }
 >
-  lorem ipsum
+  <div>
+    lorem ipsum
+  </div>
 </div>
 `;
