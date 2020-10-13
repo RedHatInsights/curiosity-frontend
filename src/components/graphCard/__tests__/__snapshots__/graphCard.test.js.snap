@@ -71,6 +71,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
 >
   <MinHeight
     autoUpdate={false}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -123,6 +124,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   </MinHeight>
   <MinHeight
     autoUpdate={false}
+    key="bodyMinHeight"
     minHeight={0}
   >
     <CardBody>
@@ -198,6 +200,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
 >
   <MinHeight
     autoUpdate={false}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -250,6 +253,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
   </MinHeight>
   <MinHeight
     autoUpdate={false}
+    key="bodyMinHeight"
     minHeight={0}
   >
     <CardBody>
@@ -321,6 +325,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
 >
   <MinHeight
     autoUpdate={false}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -373,6 +378,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
   </MinHeight>
   <MinHeight
     autoUpdate={false}
+    key="bodyMinHeight"
     minHeight={0}
   >
     <CardBody>
@@ -444,6 +450,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
 >
   <MinHeight
     autoUpdate={false}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -496,6 +503,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   </MinHeight>
   <MinHeight
     autoUpdate={false}
+    key="bodyMinHeight"
     minHeight={0}
   >
     <CardBody>
@@ -567,6 +575,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
 >
   <MinHeight
     autoUpdate={false}
+    key="headerMinHeight"
     minHeight={0}
   >
     <CardHeader>
@@ -619,6 +628,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   </MinHeight>
   <MinHeight
     autoUpdate={false}
+    key="bodyMinHeight"
     minHeight={0}
   >
     <CardBody>

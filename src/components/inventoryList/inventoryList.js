@@ -165,7 +165,7 @@ class InventoryList extends React.Component {
 
     return (
       <Card className="curiosity-inventory-card">
-        <MinHeight key="headerMinHeight">
+        <MinHeight key="headerMinHeight" autoUpdate>
           <CardHeader>
             <CardTitle>
               <Title headingLevel="h2" size="lg">
@@ -202,7 +202,7 @@ class InventoryList extends React.Component {
             </div>
           </CardBody>
         </MinHeight>
-        <MinHeight key="footerMinHeight">
+        <MinHeight key="footerMinHeight" autoUpdate>
           <CardFooter className={(error && 'blur') || ''}>
             <TableToolbar isFooter>
               <Pagination
