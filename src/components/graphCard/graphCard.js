@@ -181,7 +181,7 @@ class GraphCard extends React.Component {
 
     return (
       <Card className="curiosity-usage-graph">
-        <MinHeight autoUpdate={false}>
+        <MinHeight key="headerMinHeight">
           <CardHeader>
             <CardTitle>
               <Title headingLevel="h2" size="lg">
@@ -200,7 +200,7 @@ class GraphCard extends React.Component {
             </CardActions>
           </CardHeader>
         </MinHeight>
-        <MinHeight autoUpdate={false}>
+        <MinHeight key="bodyMinHeight">
           <CardBody>
             <div className={(error && 'blur') || 'fadein'}>
               {pending && <Loader variant="graph" />}

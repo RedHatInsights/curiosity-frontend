@@ -11,7 +11,9 @@ describe('MinHeight Component', () => {
   });
 
   it('should set minHeight in relation to contents and props', () => {
-    const props = {};
+    const props = {
+      autoUpdate: true
+    };
     const component = shallow(<MinHeight {...props}>lorem ipsum</MinHeight>);
 
     expect(component.instance().setMinHeight).toBeDefined();
