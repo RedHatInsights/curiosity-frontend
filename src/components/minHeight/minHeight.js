@@ -11,6 +11,8 @@ import { helpers } from '../../common';
 class MinHeight extends React.Component {
   containerRef = React.createRef();
 
+  innerContainerRef = React.createRef();
+
   updatedMinHeight = 0;
 
   updatedContainerWidth = 0;
@@ -58,9 +60,10 @@ class MinHeight extends React.Component {
     const { updatedMinHeight } = this;
     const { minHeight: overrideMinHeight } = this.props;
     const { current: domElement = {} } = this.containerRef;
+    const { current: innerDomElement = {} } = this.innerContainerRef;
 
     if (resetMinHeight && domElement.style) {
-      domElement.style.minHeight = 0;
+      domElement.style.minHeight = innerDomElement?.clientHeight || 0;
     }
 
     const clientHeight = domElement?.clientHeight || 0;
@@ -102,7 +105,7 @@ class MinHeight extends React.Component {
 
     return (
       <div ref={this.containerRef} style={{ minHeight: updatedMinHeight }}>
-        {children}
+        <div ref={this.innerContainerRef}>{children}</div>
       </div>
     );
   }
@@ -125,7 +128,7 @@ MinHeight.propTypes = {
  * @type {{minHeight: number, autoUpdate: boolean}}
  */
 MinHeight.defaultProps = {
-  autoUpdate: true,
+  autoUpdate: false,
   minHeight: 0
 };
 
