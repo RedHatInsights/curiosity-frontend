@@ -116,13 +116,14 @@ class GuestsList extends React.Component {
    */
   renderTable() {
     const { previousData } = this.state;
-    const { filterGuestsData, listData, numberOfGuests } = this.props;
+    const { filterGuestsData, listData, numberOfGuests, session } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = [...previousData, ...(listData || [])].map(({ ...cellData }) => {
       const { columnHeaders, cells } = inventoryListHelpers.parseRowCellsListData({
         filters: filterGuestsData,
-        cellData
+        cellData,
+        session
       });
 
       updatedColumnHeaders = columnHeaders;
@@ -189,9 +190,9 @@ class GuestsList extends React.Component {
 /**
  * Prop types.
  *
- * @type {{listData: Array, getHostsInventoryGuests: Function, filterGuestsData: object,
- *     pending: boolean, query: object, numberOfGuests: number, perPageDefault: number,
- *     id: string, error: boolean}}
+ * @type {{listData: Array, getHostsInventoryGuests: Function, session: object, filterGuestsData: object,
+ *     pending: boolean, query: object, numberOfGuests: number, perPageDefault: number, id: string,
+ *     error: boolean}}
  */
 GuestsList.propTypes = {
   error: PropTypes.bool,
@@ -213,18 +214,19 @@ GuestsList.propTypes = {
     }).isRequired
   ),
   getHostsInventoryGuests: PropTypes.func,
-  numberOfGuests: PropTypes.number.isRequired,
   listData: PropTypes.array,
+  id: PropTypes.string.isRequired,
+  numberOfGuests: PropTypes.number.isRequired,
   pending: PropTypes.bool,
   perPageDefault: PropTypes.number,
   query: PropTypes.object,
-  id: PropTypes.string.isRequired
+  session: PropTypes.object
 };
 
 /**
  * Default props.
  *
- * @type {{listData: Array, getHostsInventoryGuests: Function, filterGuestsData: Array,
+ * @type {{listData: Array, getHostsInventoryGuests: Function, session: object, filterGuestsData: Array,
  *     pending: boolean, query: object, perPageDefault: number, error: boolean}}
  */
 GuestsList.defaultProps = {
@@ -234,7 +236,8 @@ GuestsList.defaultProps = {
   listData: [],
   pending: false,
   perPageDefault: 5,
-  query: {}
+  query: {},
+  session: {}
 };
 
 /**

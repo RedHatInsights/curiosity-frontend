@@ -95,7 +95,7 @@ class InventoryList extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { filterGuestsData, filterInventoryData, listData, query } = this.props;
+    const { filterGuestsData, filterInventoryData, listData, query, session } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
@@ -105,7 +105,8 @@ class InventoryList extends React.Component {
           onSort: this.onColumnSort,
           query
         }),
-        cellData
+        cellData,
+        session
       });
 
       const hasGuests = cellData?.numberOfGuests > 0;
@@ -224,9 +225,9 @@ class InventoryList extends React.Component {
 /**
  * Prop types.
  *
- * @type {{viewId: string, productId: string, filterInventoryData: Array, listData: Array, pending: boolean, query: object,
- *     getHostsInventory: Function, perPageDefault: number, isDisabled: boolean, error: boolean, cardTitle: string,
- *     itemCount: number}}
+ * @type {{productId: string, listData: Array, session: object, pending: boolean, query: object,
+ *     getHostsInventory: Function, error: boolean, cardTitle: string, itemCount: number, viewId: string,
+ *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.propTypes = {
   error: PropTypes.bool,
@@ -257,14 +258,16 @@ InventoryList.propTypes = {
   productId: PropTypes.string.isRequired,
   perPageDefault: PropTypes.number,
   query: PropTypes.object.isRequired,
+  session: PropTypes.object,
   viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: string, filterInventoryData: Array, listData: Array, pending: boolean, getHostsInventory: Function,
- *     perPageDefault: number, isDisabled: boolean, error: boolean, cardTitle: null, itemCount: number}}
+ * @type {{viewId: string, filterInventoryData: Array, listData: Array, session: object, filterGuestsData: Array,
+ *     pending: boolean, getHostsInventory: Function, perPageDefault: number, isDisabled: boolean, error: boolean,
+ *     cardTitle: null, itemCount: number}}
  */
 InventoryList.defaultProps = {
   error: false,
@@ -277,6 +280,7 @@ InventoryList.defaultProps = {
   listData: [],
   pending: false,
   perPageDefault: 10,
+  session: {},
   viewId: 'inventoryList'
 };
 
