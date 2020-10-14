@@ -256,11 +256,16 @@ OpenshiftView.defaultProps = {
   initialGuestsFilters: [
     {
       id: 'displayName',
-      cell: obj => {
-        const { displayName, inventoryId } = obj;
+      cell: (data, session) => {
+        const { displayName, inventoryId } = data;
+        const { inventory: authorized } = session?.authorized || {};
 
         if (!inventoryId?.value) {
           return displayName?.value;
+        }
+
+        if (!authorized) {
+          return displayName?.value || inventoryId?.value;
         }
 
         return (
@@ -287,11 +292,16 @@ OpenshiftView.defaultProps = {
   initialInventoryFilters: [
     {
       id: 'displayName',
-      cell: obj => {
-        const { displayName, inventoryId } = obj;
+      cell: (data, session) => {
+        const { displayName, inventoryId } = data;
+        const { inventory: authorized } = session?.authorized || {};
 
         if (!inventoryId?.value) {
           return displayName?.value;
+        }
+
+        if (!authorized) {
+          return displayName?.value || inventoryId?.value;
         }
 
         return (

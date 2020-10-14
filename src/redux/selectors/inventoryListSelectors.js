@@ -3,6 +3,7 @@ import _isEqual from 'lodash/isEqual';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { apiQueries } from '../common';
+import { selector as userSession } from './userSelectors';
 
 /**
  * Create a custom "are objects equal" selector.
@@ -135,9 +136,11 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, status: (*|number)}}
+ * @returns {{pending: boolean, fulfilled: boolean, graphData: object, error: boolean, session: object,
+ *     status: (*|number)}}
  */
 const makeSelector = defaultProps => (state, props) => ({
+  ...userSession(state, props, defaultProps),
   ...selector(state, props, defaultProps)
 });
 
