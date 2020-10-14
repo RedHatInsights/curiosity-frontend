@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
+import { selector as userSession } from './userSelectors';
 
 /**
  * Return a combined state, props object.
@@ -62,9 +63,13 @@ const selector = createSelector([statePropsFilter], response => {
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{listData: Array, pending: boolean, fulfilled: boolean, error: boolean, status: (*|number)}}
+ * @returns {{listData: Array, pending: boolean, fulfilled: boolean, error: boolean, session: object,
+ *     status: (*|number)}}
  */
-const makeSelector = defaultProps => (...args) => ({ ...selector(...args, defaultProps) });
+const makeSelector = defaultProps => (state, props) => ({
+  ...userSession(state, props, defaultProps),
+  ...selector(state, props, defaultProps)
+});
 
 const guestsListSelectors = {
   guestsList: selector,

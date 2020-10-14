@@ -1,4 +1,5 @@
-import { createSelector } from 'reselect';
+import { createSelectorCreator, defaultMemoize } from 'reselect';
+import _isEqual from 'lodash/isEqual';
 import {
   platformApiTypes,
   PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,
@@ -6,6 +7,14 @@ import {
   PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES
 } from '../../types/platformApiTypes';
 import { helpers } from '../../common/helpers';
+
+/**
+ * Create a custom "are objects equal" selector.
+ *
+ * @private
+ * @type {Function}}
+ */
+const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
 
 /**
  * Return a combined state, props object.
@@ -24,7 +33,7 @@ const statePropsFilter = state => ({
  * @type {{session: {entitled: boolean, permissions: object, authorized: object, admin: boolean,
  *     error: boolean}}}
  */
-const selector = createSelector([statePropsFilter], response => {
+const selector = createDeepEqualSelector([statePropsFilter], response => {
   const { error = false, fulfilled = false, data = {}, ...rest } = response || {};
   const updatedSession = {
     ...rest,

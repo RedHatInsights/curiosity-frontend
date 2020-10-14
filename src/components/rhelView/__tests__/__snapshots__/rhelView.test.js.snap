@@ -263,6 +263,45 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
 exports[`RhelView Component should have default props that set product configuration: filteredGuestsData results 1`] = `
 Object {
   "cells": Array [
+    "lorem",
+    "lorem inventory id",
+    <DateFormat
+      date="lorem date obj"
+    />,
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem date obj",
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "hello world",
+    },
+    "subscriptionManagerId": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
+exports[`RhelView Component should have default props that set product configuration: filteredGuestsData results, authorized 1`] = `
+Object {
+  "cells": Array [
     <Button
       component="a"
       href="/insights/inventory/lorem inventory id/"
@@ -308,6 +347,67 @@ Object {
 `;
 
 exports[`RhelView Component should have default props that set product configuration: filteredInventoryData results 1`] = `
+Object {
+  "cells": Array [
+    "lorem",
+    <React.Fragment>
+      t(curiosity-inventory.hardwareType, [object Object])
+       
+      <Badge
+        isRead={true}
+      >
+        3
+      </Badge>
+    </React.Fragment>,
+    10,
+    <DateFormat
+      date="lorem date obj"
+    />,
+  ],
+  "columnHeaders": Array [
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, [object Object])",
+  ],
+  "data": Object {
+    "cores": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": 12,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem",
+    },
+    "hardwareType": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "ipsum",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "lorem date obj",
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": "hello world",
+    },
+    "numberOfGuests": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": 3,
+    },
+    "sockets": Object {
+      "title": "t(curiosity-inventory.header, [object Object])",
+      "value": 10,
+    },
+  },
+}
+`;
+
+exports[`RhelView Component should have default props that set product configuration: filteredInventoryData results, authorized 1`] = `
 Object {
   "cells": Array [
     <Button
