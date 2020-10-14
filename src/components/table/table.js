@@ -10,7 +10,7 @@ import {
   sortable,
   SortByDirection
 } from '@patternfly/react-table';
-import _isEqual from 'lodash/isEqual';
+import _isEqualWith from 'lodash/isEqualWith';
 import { TableEmpty } from './tableEmpty';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -72,8 +72,18 @@ class Table extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { columnHeaders, rows } = this.props;
+    const customizer = (valueA, valueB) => {
+      if (typeof valueA === 'function' && typeof valueB === 'function') {
+        return valueA.toString() === valueB.toString();
+      }
 
-    if (!_isEqual(prevProps.rows, rows) || !_isEqual(prevProps.columnHeaders, columnHeaders)) {
+      return undefined;
+    };
+
+    if (
+      !_isEqualWith(prevProps.rows, rows, customizer) ||
+      !_isEqualWith(prevProps.columnHeaders, columnHeaders, customizer)
+    ) {
       this.setRowData();
     }
   }
