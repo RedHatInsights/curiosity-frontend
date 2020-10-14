@@ -75,9 +75,10 @@ const parseInventoryFilters = ({ filters = [], onSort, query = {} }) =>
  * @param {object} params
  * @param {Array} params.filters
  * @param {object} params.cellData
+ * @param {object} params.session
  * @returns {{columnHeaders: Array, cells: Array, data: object}}
  */
-const parseRowCellsListData = ({ filters = [], cellData = {} }) => {
+const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) => {
   const updatedColumnHeaders = [];
   const updatedCells = [];
   const allCells = {};
@@ -122,7 +123,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {} }) => {
       }
 
       if (cell) {
-        cellUpdated = (typeof cell === 'function' && cell({ ...allCells })) || cell;
+        cellUpdated = (typeof cell === 'function' && cell({ ...allCells }, { ...session })) || cell;
       }
 
       updatedColumnHeaders.push(headerUpdated);
