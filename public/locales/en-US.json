@@ -49,7 +49,7 @@
     "tableSkeletonAriaLabel": "Loading",
     "hardwareType_hypervisor": "Hypervisor",
     "hardwareType_physical": "Physical",
-    "hardwareType_virtual": "Virtual",
+    "hardwareType_virtualized": "Virtual",
     "header": "{{context}}",
     "header_cores": "Cores",
     "header_displayName": "Name",
