@@ -196,7 +196,7 @@ RhelView.defaultProps = {
             component="a"
             variant="link"
             target="_blank"
-            href={`/insights/inventory/${inventoryId.value}/`}
+            href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
           >
             {displayName.value || inventoryId.value}
           </Button>
@@ -232,7 +232,7 @@ RhelView.defaultProps = {
             component="a"
             variant="link"
             target="_blank"
-            href={`/insights/inventory/${inventoryId.value}/`}
+            href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
           >
             {displayName.value || inventoryId.value}
           </Button>
