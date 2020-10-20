@@ -349,15 +349,15 @@ Object {
 exports[`RhelView Component should have default props that set product configuration: filteredInventoryData results 1`] = `
 Object {
   "cells": Array [
-    "lorem",
+    <React.Fragment>
+      lorem
+       
+      t(curiosity-inventory.label, [object Object], [object Object])
+    </React.Fragment>,
     <React.Fragment>
       t(curiosity-inventory.hardwareType, [object Object])
        
-      <Badge
-        isRead={true}
-      >
-        3
-      </Badge>
+      
     </React.Fragment>,
     10,
     <DateFormat
@@ -418,15 +418,13 @@ Object {
       variant="link"
     >
       lorem
+       
+      t(curiosity-inventory.label, [object Object], [object Object])
     </Button>,
     <React.Fragment>
       t(curiosity-inventory.hardwareType, [object Object])
        
-      <Badge
-        isRead={true}
-      >
-        3
-      </Badge>
+      
     </React.Fragment>,
     10,
     <DateFormat
