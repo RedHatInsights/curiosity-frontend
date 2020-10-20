@@ -214,8 +214,20 @@ Array [
         "match": "t('curiosity-inventory.cardHeading')",
       },
       Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
         "key": "curiosity-inventory.hardwareType",
         "match": "translate('curiosity-inventory.hardwareType', { context: hardwareType.value })",
+      },
+      Object {
+        "key": "curiosity-inventory.cloudProvider",
+        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
       },
     ],
   },
@@ -321,8 +333,20 @@ Array [
         "match": "t('curiosity-inventory.cardHeading')",
       },
       Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
         "key": "curiosity-inventory.hardwareType",
         "match": "translate('curiosity-inventory.hardwareType', { context: hardwareType.value })",
+      },
+      Object {
+        "key": "curiosity-inventory.cloudProvider",
+        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
       },
     ],
   },
@@ -462,11 +486,19 @@ Array [
   },
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
-    "key": "curiosity-inventory.hardwareType",
+    "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/components/openshiftView/openshiftView.js",
+    "key": "curiosity-inventory.label",
   },
   Object {
     "file": "./src/components/rhelView/rhelView.js",
-    "key": "curiosity-inventory.hardwareType",
+    "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/components/rhelView/rhelView.js",
+    "key": "curiosity-inventory.label",
   },
 ]
 `;
