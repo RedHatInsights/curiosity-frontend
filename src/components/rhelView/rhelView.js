@@ -8,7 +8,7 @@ import {
   chart_color_purple_100 as chartColorPurpleLight,
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
-import { Badge, Button } from '@patternfly/react-core';
+import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/cjs/DateFormat';
 import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
@@ -208,14 +208,14 @@ RhelView.defaultProps = {
     },
     {
       id: 'lastSeen',
-      cell: obj => (obj?.lastSeen?.value && <DateFormat date={obj?.lastSeen?.value} />) || ''
+      cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || ''
     }
   ],
   initialInventoryFilters: [
     {
       id: 'displayName',
       cell: (data, session) => {
-        const { displayName, inventoryId } = data;
+        const { displayName, inventoryId, numberOfGuests } = data;
         const { inventory: authorized } = session?.authorized || {};
 
         if (!inventoryId?.value) {
@@ -223,7 +223,16 @@ RhelView.defaultProps = {
         }
 
         if (!authorized) {
-          return displayName?.value || inventoryId?.value;
+          return (
+            <React.Fragment>
+              {displayName?.value || inventoryId?.value}{' '}
+              {(numberOfGuests.value &&
+                translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [
+                  <PfLabel color="blue" />
+                ])) ||
+                ''}
+            </React.Fragment>
+          );
         }
 
         return (
@@ -234,7 +243,12 @@ RhelView.defaultProps = {
             target="_blank"
             href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
           >
-            {displayName.value || inventoryId.value}
+            {displayName.value || inventoryId.value}{' '}
+            {(numberOfGuests.value &&
+              translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [
+                <PfLabel color="blue" />
+              ])) ||
+              ''}
           </Button>
         );
       },
@@ -242,12 +256,17 @@ RhelView.defaultProps = {
     },
     {
       id: 'hardwareType',
-      cell: obj => {
-        const { hardwareType, numberOfGuests } = obj;
+      cell: data => {
+        const { cloudProvider, hardwareType } = data;
         return (
           <React.Fragment>
             {translate('curiosity-inventory.hardwareType', { context: hardwareType.value })}{' '}
-            {(numberOfGuests.value && <Badge isRead>{numberOfGuests.value}</Badge>) || ''}
+            {(cloudProvider?.value && (
+              <PfLabel color="purple">
+                {translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })}
+              </PfLabel>
+            )) ||
+              ''}
           </React.Fragment>
         );
       },
@@ -259,7 +278,7 @@ RhelView.defaultProps = {
     },
     {
       id: 'lastSeen',
-      cell: obj => (obj?.lastSeen?.value && <DateFormat date={obj?.lastSeen?.value} />) || '',
+      cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
       isSortable: true
     }
   ],
