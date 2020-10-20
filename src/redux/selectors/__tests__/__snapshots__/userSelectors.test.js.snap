@@ -64,7 +64,7 @@ Object {
       "inventory": Object {
         "all": false,
         "resources": Object {
-          "*": Object {
+          "hosts": Object {
             "read": Array [],
           },
         },

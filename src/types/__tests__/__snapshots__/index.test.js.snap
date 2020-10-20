@@ -22,9 +22,11 @@ Object {
       "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
         "ALL": "*",
         "READ": "read",
+        "WRITE": "write",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
         "ALL": "*",
+        "HOSTS": "hosts",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
         "PERMISSION": "permission",
@@ -205,9 +207,11 @@ Object {
       "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
         "ALL": "*",
         "READ": "read",
+        "WRITE": "write",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
         "ALL": "*",
+        "HOSTS": "hosts",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
         "PERMISSION": "permission",
@@ -387,9 +391,11 @@ Object {
     "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
       "ALL": "*",
       "READ": "read",
+      "WRITE": "write",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
       "ALL": "*",
+      "HOSTS": "hosts",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
       "PERMISSION": "permission",
@@ -573,9 +579,11 @@ Object {
     "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
       "ALL": "*",
       "READ": "read",
+      "WRITE": "write",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
       "ALL": "*",
+      "HOSTS": "hosts",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
       "PERMISSION": "permission",
