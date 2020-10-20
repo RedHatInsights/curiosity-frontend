@@ -951,7 +951,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-123456789012",
  *           "cores": 4,
  *           "sockets": 2,
- *           "hardware_type": "VIRTUAL",
+ *           "hardware_type": "VIRTUALIZED",
  *           "number_of_guests": 70,
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
@@ -959,9 +959,10 @@ const getGraphCapacity = (id, params = {}) =>
  *           "insights_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
  *           "inventory_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-56043FFF0d2e",
+ *           "cloud_provider": "AZURE",
  *           "cores": 4,
  *           "sockets": 6,
- *           "hardware_type": "PHYSICAL",
+ *           "hardware_type": "CLOUD",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
@@ -972,7 +973,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-abcdefghijklm",
  *           "cores": 4,
  *           "sockets": 2,
- *           "hardware_type": "VIRTUAL",
+ *           "hardware_type": "VIRTUALIZED",
  *           "number_of_guests": 10,
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
@@ -983,7 +984,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-nopqrstuvxyzab",
  *           "cores": 4,
  *           "sockets": 2,
- *           "hardware_type": "VIRTUAL",
+ *           "hardware_type": "VIRTUALIZED",
  *           "number_of_guests": 1,
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
