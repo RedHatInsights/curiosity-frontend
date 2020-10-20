@@ -19,6 +19,7 @@ Object {
   "itemCount": 0,
   "listData": Array [
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": "db.lorem.com",
       "hardwareType": "physical",
@@ -30,6 +31,7 @@ Object {
       "subscriptionManagerId": null,
     },
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": "db.ipsum.com",
       "hardwareType": "physical",
@@ -80,6 +82,7 @@ Object {
   "itemCount": 0,
   "listData": Array [
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": "db.ipsum.com",
       "hardwareType": "physical",
@@ -106,6 +109,7 @@ Object {
   "itemCount": 0,
   "listData": Array [
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": "db.lorem.com",
       "hardwareType": "physical",
@@ -132,6 +136,7 @@ Object {
   "itemCount": 0,
   "listData": Array [
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": "db.lorem.com",
       "hardwareType": "physical",
@@ -158,6 +163,7 @@ Object {
   "itemCount": 0,
   "listData": Array [
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": "db.ipsum.com",
       "hardwareType": "physical",
@@ -184,6 +190,7 @@ Object {
   "itemCount": 0,
   "listData": Array [
     Object {
+      "cloudProvider": null,
       "cores": 2,
       "displayName": null,
       "hardwareType": null,
@@ -195,6 +202,7 @@ Object {
       "subscriptionManagerId": null,
     },
     Object {
+      "cloudProvider": null,
       "cores": null,
       "displayName": "db.example.com",
       "hardwareType": "physical",
