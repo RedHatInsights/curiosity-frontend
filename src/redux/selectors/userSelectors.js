@@ -93,7 +93,13 @@ const selector = createDeepEqualSelector([statePropsFilter], response => {
     updatedSession.authorized.inventory =
       updatedSession.permissions[APP_TYPES.INVENTORY]?.all ||
       Array.isArray(
-        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.ALL]?.[OPERATION_TYPES.READ]
+        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.HOSTS]?.[OPERATION_TYPES.ALL]
+      ) ||
+      Array.isArray(
+        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.HOSTS]?.[OPERATION_TYPES.READ]
+      ) ||
+      Array.isArray(
+        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.HOSTS]?.[OPERATION_TYPES.WRITE]
       ) ||
       false;
   }
