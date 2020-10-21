@@ -32,7 +32,7 @@ Object {
     ],
   ],
   "names": Object {
-    "loremIpsumSockets": "t(curiosity-graph.loremIpsumSocketsLabel, [object Object])",
+    "loremIpsumSockets": "t(curiosity-graph.loremIpsumSocketsLabel, {\\"product\\":\\"\\"})",
     "thresholdLoremIpsumSockets": "t(curiosity-graph.thresholdLabel)",
   },
   "types": Object {
@@ -68,7 +68,7 @@ Array [
       </p>
     }
   >
-    t(curiosity-graph.loremLabel, [object Object])
+    t(curiosity-graph.loremLabel, {"product":""})
   </C3GraphCardLegendItem>,
   <C3GraphCardLegendItem
     chart={
@@ -181,7 +181,7 @@ Object {
       ],
     ],
     "names": Object {
-      "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+      "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, {\\"product\\":\\"\\"})",
     },
     "types": Object {
       "physicalSockets": "area-spline",
@@ -298,7 +298,7 @@ exports[`C3GraphCard Component should render multiple states: error with 403 sta
                 ],
               ],
               "names": Object {
-                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, {\\"product\\":\\"\\"})",
               },
               "types": Object {
                 "physicalSockets": "area-spline",
@@ -455,7 +455,7 @@ exports[`C3GraphCard Component should render multiple states: error with 500 sta
                 ],
               ],
               "names": Object {
-                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, {\\"product\\":\\"\\"})",
               },
               "types": Object {
                 "physicalSockets": "area-spline",
@@ -612,7 +612,7 @@ exports[`C3GraphCard Component should render multiple states: fulfilled 1`] = `
                 ],
               ],
               "names": Object {
-                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, [object Object])",
+                "physicalSockets": "t(curiosity-graph.physicalSocketsLabel, {\\"product\\":\\"\\"})",
               },
               "types": Object {
                 "physicalSockets": "area-spline",
