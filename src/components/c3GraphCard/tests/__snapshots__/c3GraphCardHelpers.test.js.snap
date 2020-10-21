@@ -66,10 +66,10 @@ Object {
           ],
         ],
         "names": Object {
-          "dolor": "t(curiosity-graph.dolorLabel, [object Object])",
-          "ipsum": "t(curiosity-graph.ipsumLabel, [object Object])",
-          "lorem": "t(curiosity-graph.loremLabel, [object Object])",
-          "sit": "t(curiosity-graph.sitLabel, [object Object])",
+          "dolor": "t(curiosity-graph.dolorLabel, {\\"product\\":\\"lorem\\"})",
+          "ipsum": "t(curiosity-graph.ipsumLabel, {\\"product\\":\\"lorem\\"})",
+          "lorem": "t(curiosity-graph.loremLabel, {\\"product\\":\\"lorem\\"})",
+          "sit": "t(curiosity-graph.sitLabel, {\\"product\\":\\"lorem\\"})",
         },
         "types": Object {
           "dolor": "area-spline",
