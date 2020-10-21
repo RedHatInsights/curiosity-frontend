@@ -22,8 +22,8 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
         className="curiosity-inventory-list"
         columnHeaders={
           Array [
-            "t(curiosity-inventory.header, [object Object])",
-            "t(curiosity-inventory.header, [object Object])",
+            "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+            "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
           ]
         }
         isHeader={true}
@@ -157,7 +157,7 @@ exports[`GuestsList Component should handle variations in data: filtered data 1`
         className="curiosity-inventory-list"
         columnHeaders={
           Array [
-            "t(curiosity-inventory.header, [object Object])",
+            "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
           ]
         }
         isHeader={true}
@@ -206,8 +206,8 @@ exports[`GuestsList Component should handle variations in data: variable data 1`
         className="curiosity-inventory-list"
         columnHeaders={
           Array [
-            "t(curiosity-inventory.header, [object Object])",
-            "t(curiosity-inventory.header, [object Object])",
+            "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+            "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
           ]
         }
         isHeader={true}
