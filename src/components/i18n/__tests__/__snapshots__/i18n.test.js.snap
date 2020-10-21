@@ -9,19 +9,10 @@ Object {
 }
 `;
 
-exports[`I18n Component should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, [object Object], [object Object])</div>"`;
+exports[`I18n Component should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, {&quot;hello&quot;:&quot;world&quot;}, [object Object])</div>"`;
 
 exports[`I18n Component should generate a predictable locale key output snapshot: key output 1`] = `
 Array [
-  Object {
-    "file": "./src/common/helpers.js",
-    "keys": Array [
-      Object {
-        "key": "",
-        "match": "t(\${key}\${(value && \`, \${value}\`)",
-      },
-    ],
-  },
   Object {
     "file": "./src/components/authentication/authentication.js",
     "keys": Array [

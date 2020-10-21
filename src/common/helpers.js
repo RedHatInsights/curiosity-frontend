@@ -47,7 +47,9 @@ const noopPromise = Promise.resolve({});
  * @returns {string}
  */
 const noopTranslate = (key, value, components) =>
-  `t(${key}${(value && `, ${value}`) || ''}${(components && `, ${components}`) || ''})`;
+  `t(${key}${(value && `, ${(typeof value === 'string' && value) || (value && JSON.stringify(value))}`) || ''}${
+    (components && `, ${components}`) || ''
+  })`;
 
 /**
  * Is dev mode active.

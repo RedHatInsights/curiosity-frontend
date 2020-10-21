@@ -6,7 +6,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
     productLabel="OpenShift"
     t={[Function]}
   >
-    t(curiosity-view.title, [object Object])
+    t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
@@ -70,11 +70,11 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         options={
           Array [
             Object {
-              "title": "t(curiosity-toolbar.uom, [object Object])",
+              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
               "value": "cores",
             },
             Object {
-              "title": "t(curiosity-toolbar.uom, [object Object])",
+              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
               "value": "sockets",
             },
           ]
@@ -151,7 +151,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
     productLabel="OpenShift"
     t={[Function]}
   >
-    t(curiosity-view.title, [object Object])
+    t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
@@ -215,11 +215,11 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         options={
           Array [
             Object {
-              "title": "t(curiosity-toolbar.uom, [object Object])",
+              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
               "value": "cores",
             },
             Object {
-              "title": "t(curiosity-toolbar.uom, [object Object])",
+              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
               "value": "sockets",
             },
           ]
@@ -300,29 +300,29 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
   ],
   "data": Object {
     "displayName": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
     },
     "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
       "value": "lorem inventory id",
     },
     "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
       "value": "lorem date obj",
     },
     "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
       "value": "hello world",
     },
     "subscriptionManagerId": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
       "value": "lorem subscription id",
     },
   },
@@ -347,29 +347,29 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
   ],
   "data": Object {
     "displayName": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
     },
     "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
       "value": "lorem inventory id",
     },
     "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
       "value": "lorem date obj",
     },
     "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
       "value": "hello world",
     },
     "subscriptionManagerId": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
       "value": "lorem subscription id",
     },
   },
@@ -382,10 +382,10 @@ Object {
     <React.Fragment>
       lorem
        
-      t(curiosity-inventory.label, [object Object], [object Object])
+      t(curiosity-inventory.label, {"context":"numberOfGuests","value":3}, [object Object])
     </React.Fragment>,
     <React.Fragment>
-      t(curiosity-inventory.hardwareType, [object Object])
+      t(curiosity-inventory.hardwareType, {"context":"ipsum"})
        
       
     </React.Fragment>,
@@ -396,43 +396,43 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
   ],
   "data": Object {
     "cores": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
       "value": 12,
     },
     "displayName": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
     },
     "hardwareType": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
       "value": "ipsum",
     },
     "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
       "value": "lorem inventory id",
     },
     "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
       "value": "lorem date obj",
     },
     "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
       "value": "hello world",
     },
     "numberOfGuests": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
       "value": 3,
     },
     "sockets": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
       "value": 10,
     },
   },
@@ -451,10 +451,10 @@ Object {
     >
       lorem
        
-      t(curiosity-inventory.label, [object Object], [object Object])
+      t(curiosity-inventory.label, {"context":"numberOfGuests","value":3}, [object Object])
     </Button>,
     <React.Fragment>
-      t(curiosity-inventory.hardwareType, [object Object])
+      t(curiosity-inventory.hardwareType, {"context":"ipsum"})
        
       
     </React.Fragment>,
@@ -465,43 +465,43 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
   ],
   "data": Object {
     "cores": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
       "value": 12,
     },
     "displayName": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
     },
     "hardwareType": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
       "value": "ipsum",
     },
     "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
       "value": "lorem inventory id",
     },
     "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
       "value": "lorem date obj",
     },
     "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
       "value": "hello world",
     },
     "numberOfGuests": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
       "value": 3,
     },
     "sockets": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
       "value": 10,
     },
   },
@@ -591,7 +591,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
     productLabel="OpenShift"
     t={[Function]}
   >
-    t(curiosity-view.title, [object Object])
+    t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
   </PageHeader>
   <PageToolbar>
     <Connect(Toolbar)
@@ -655,11 +655,11 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         options={
           Array [
             Object {
-              "title": "t(curiosity-toolbar.uom, [object Object])",
+              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
               "value": "cores",
             },
             Object {
-              "title": "t(curiosity-toolbar.uom, [object Object])",
+              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
               "value": "sockets",
             },
           ]

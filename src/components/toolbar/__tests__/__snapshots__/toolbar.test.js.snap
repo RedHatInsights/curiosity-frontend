@@ -157,7 +157,7 @@ Array [
       Object {
         "data": Object {
           "clearFilters": Object {
-            "sla": null,
+            "usage": null,
           },
         },
         "type": "SET_QUERY_CLEAR",
@@ -312,7 +312,7 @@ Array [
       Object {
         "data": Object {
           "clearFilters": Object {
-            "sla": null,
+            "usage": null,
           },
         },
         "type": "SET_QUERY_CLEAR",
@@ -468,7 +468,7 @@ Array [
       Object {
         "data": Object {
           "clearFilters": Object {
-            "sla": null,
+            "usage": null,
           },
         },
         "type": "SET_QUERY_CLEAR",
@@ -548,11 +548,11 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             options={
               Array [
                 Object {
-                  "title": "t(curiosity-toolbar.category, [object Object])",
+                  "title": "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
                   "value": "sla",
                 },
                 Object {
-                  "title": "t(curiosity-toolbar.category, [object Object])",
+                  "title": "t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})",
                   "value": "usage",
                 },
               ]
@@ -560,7 +560,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             placeholder="t(curiosity-toolbar.placeholder)"
             selectedOptions={
               Array [
-                "t(curiosity-toolbar.category, [object Object])",
+                "t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})",
               ]
             }
             toggleIcon={
@@ -574,14 +574,14 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
           />
         </ToolbarItem>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, [object Object])"
+          categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
           chips={Array []}
           deleteChip={[Function]}
           key="sla"
           showToolbarItem={false}
         >
           <Select
-            aria-label="t(curiosity-toolbar.category, [object Object])"
+            aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -609,21 +609,21 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
+            placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
           />
         </ToolbarFilter>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, [object Object])"
+          categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})"
           chips={Array []}
           deleteChip={[Function]}
           key="usage"
           showToolbarItem={true}
         >
           <Select
-            aria-label="t(curiosity-toolbar.category, [object Object])"
+            aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -651,7 +651,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
+            placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"usage\\"})"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
@@ -700,11 +700,11 @@ exports[`Toolbar Component should render filters when props are populated: props
             options={
               Array [
                 Object {
-                  "title": "t(curiosity-toolbar.category, [object Object])",
+                  "title": "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
                   "value": "sla",
                 },
                 Object {
-                  "title": "t(curiosity-toolbar.category, [object Object])",
+                  "title": "t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})",
                   "value": "usage",
                 },
               ]
@@ -712,7 +712,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             placeholder="t(curiosity-toolbar.placeholder)"
             selectedOptions={
               Array [
-                "t(curiosity-toolbar.category, [object Object])",
+                "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
               ]
             }
             toggleIcon={
@@ -726,7 +726,7 @@ exports[`Toolbar Component should render filters when props are populated: props
           />
         </ToolbarItem>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, [object Object])"
+          categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
           chips={
             Array [
               "t(curiosity-toolbar.slaPremium)",
@@ -737,7 +737,7 @@ exports[`Toolbar Component should render filters when props are populated: props
           showToolbarItem={true}
         >
           <Select
-            aria-label="t(curiosity-toolbar.category, [object Object])"
+            aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -765,7 +765,7 @@ exports[`Toolbar Component should render filters when props are populated: props
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
+            placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
             selectedOptions={
               Array [
                 "t(curiosity-toolbar.slaPremium)",
@@ -776,14 +776,14 @@ exports[`Toolbar Component should render filters when props are populated: props
           />
         </ToolbarFilter>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, [object Object])"
+          categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})"
           chips={Array []}
           deleteChip={[Function]}
           key="usage"
           showToolbarItem={false}
         >
           <Select
-            aria-label="t(curiosity-toolbar.category, [object Object])"
+            aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -811,7 +811,7 @@ exports[`Toolbar Component should render filters when props are populated: props
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
+            placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"usage\\"})"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
@@ -848,14 +848,14 @@ exports[`Toolbar Component should render specific filters when the filterOptions
         variant="filter-group"
       >
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, [object Object])"
+          categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
           chips={Array []}
           deleteChip={[Function]}
           key="sla"
           showToolbarItem={true}
         >
           <Select
-            aria-label="t(curiosity-toolbar.category, [object Object])"
+            aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
             ariaLabel="Select option"
             className=""
             id="generatedid-"
@@ -883,7 +883,7 @@ exports[`Toolbar Component should render specific filters when the filterOptions
                 },
               ]
             }
-            placeholder="t(curiosity-toolbar.placeholder, [object Object])"
+            placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"

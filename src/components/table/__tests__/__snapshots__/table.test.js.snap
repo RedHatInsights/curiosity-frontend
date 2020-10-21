@@ -9,7 +9,7 @@ exports[`Table Component should allow expandable content: expandable content 1`]
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={
@@ -78,7 +78,7 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={
@@ -147,7 +147,7 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={
@@ -210,7 +210,7 @@ exports[`Table Component should allow sortable content: sorted column callback 1
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={
@@ -350,7 +350,7 @@ exports[`Table Component should allow variations in table layout: borders and ta
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={false}
       canSelectAll={true}
       cells={
@@ -462,7 +462,7 @@ exports[`Table Component should allow variations in table layout: generated rows
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={
@@ -519,7 +519,7 @@ exports[`Table Component should pass child components, nodes when there are no r
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={
@@ -560,7 +560,7 @@ exports[`Table Component should render a non-connected component: non-connected 
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, [object Object])"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscription Watch\\"})"
       borders={true}
       canSelectAll={true}
       cells={

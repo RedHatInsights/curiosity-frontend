@@ -7,9 +7,9 @@ exports[`InventoryList Component should handle expandable guests data: number of
   className="curiosity-inventory-list"
   columnHeaders={
     Array [
-      "t(curiosity-inventory.header, [object Object])",
-      "t(curiosity-inventory.header, [object Object])",
-      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
     ]
   }
   isHeader={true}
@@ -38,10 +38,10 @@ exports[`InventoryList Component should handle expandable guests data: number of
   className="curiosity-inventory-list"
   columnHeaders={
     Array [
-      "t(curiosity-inventory.header, [object Object])",
-      "t(curiosity-inventory.header, [object Object])",
-      "t(curiosity-inventory.header, [object Object])",
-      "t(curiosity-inventory.header, [object Object])",
+      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
     ]
   }
   isHeader={true}
@@ -166,7 +166,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
           className="curiosity-inventory-list"
           columnHeaders={
             Array [
-              "t(curiosity-inventory.header, [object Object])",
+              "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
             ]
           }
           isHeader={true}
@@ -263,8 +263,8 @@ exports[`InventoryList Component should handle variations in data: variable data
           className="curiosity-inventory-list"
           columnHeaders={
             Array [
-              "t(curiosity-inventory.header, [object Object])",
-              "t(curiosity-inventory.header, [object Object])",
+              "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+              "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
             ]
           }
           isHeader={true}
