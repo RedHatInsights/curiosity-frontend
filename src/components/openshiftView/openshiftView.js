@@ -256,6 +256,7 @@ OpenshiftView.defaultProps = {
   initialGuestsFilters: [
     {
       id: 'displayName',
+      header: translate('curiosity-inventory.header', { context: 'guestsDisplayName' }),
       cell: (data, session) => {
         const { displayName, inventoryId } = data;
         const { inventory: authorized } = session?.authorized || {};
