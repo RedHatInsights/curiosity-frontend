@@ -29,7 +29,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
     </thead>
     <tbody>
       <tr
-        key="tooltip-t(curiosity-graph.loremIpsumLabel, [object Object])"
+        key="tooltip-t(curiosity-graph.loremIpsumLabel, {\\"product\\":\\"\\"})"
       >
         <th>
           <div
@@ -41,14 +41,14 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
               }
             }
           />
-          t(curiosity-graph.loremIpsumLabel, [object Object])
+          t(curiosity-graph.loremIpsumLabel, {"product":""})
         </th>
         <td>
           0
         </td>
       </tr>
       <tr
-        key="tooltip-t(curiosity-graph.dolorSitLabel, [object Object])"
+        key="tooltip-t(curiosity-graph.dolorSitLabel, {\\"product\\":\\"\\"})"
       >
         <th>
           <div
@@ -60,7 +60,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
               }
             }
           />
-          t(curiosity-graph.dolorSitLabel, [object Object])
+          t(curiosity-graph.dolorSitLabel, {"product":""})
         </th>
         <td>
           1
