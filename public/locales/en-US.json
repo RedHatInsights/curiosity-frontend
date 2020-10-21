@@ -61,7 +61,8 @@
     "header": "{{context}}",
     "header_cores": "Cores",
     "header_displayName": "Name",
-    "header_hardwareType": "Infrastructure",
+    "header_guestsDisplayName": "VM name",
+    "header_hardwareType": "Type",
     "header_inventoryId": "UUID",
     "header_sockets": "Sockets",
     "header_lastSeen": "Last seen"
