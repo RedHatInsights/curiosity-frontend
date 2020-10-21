@@ -93,6 +93,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         Array [
           Object {
             "cell": [Function],
+            "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
             "id": "displayName",
           },
           Object {
@@ -238,6 +239,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         Array [
           Object {
             "cell": [Function],
+            "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
             "id": "displayName",
           },
           Object {
@@ -300,7 +302,7 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
   ],
@@ -347,7 +349,7 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
   ],
@@ -537,6 +539,7 @@ Object {
   "initialGuestsFilters": Array [
     Object {
       "cell": [Function],
+      "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
       "id": "displayName",
     },
     Object {
@@ -678,6 +681,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         Array [
           Object {
             "cell": [Function],
+            "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
             "id": "displayName",
           },
           Object {
