@@ -10,11 +10,11 @@ exports[`ToolbarTypes should return an output for options selection: getOptionsT
 Object {
   "options": Array [
     Object {
-      "title": "t(curiosity-toolbar.category, [object Object])",
+      "title": "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
       "value": "sla",
     },
     Object {
-      "title": "t(curiosity-toolbar.category, [object Object])",
+      "title": "t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})",
       "value": "usage",
     },
   ],
@@ -26,11 +26,11 @@ exports[`ToolbarTypes should return an output for options selection: getOptionsT
 Object {
   "options": Array [
     Object {
-      "title": "t(curiosity-toolbar.category, [object Object])",
+      "title": "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
       "value": "sla",
     },
     Object {
-      "title": "t(curiosity-toolbar.category, [object Object])",
+      "title": "t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})",
       "value": "usage",
     },
   ],

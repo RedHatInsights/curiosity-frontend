@@ -68,16 +68,16 @@ Object {
     "sit",
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
   ],
   "data": Object {
     "dolor": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
       "value": "sit",
     },
     "lorem": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
       "value": "ipsum",
     },
   },
@@ -90,15 +90,15 @@ Object {
     "ipsum/sit",
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])/t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})/t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
   ],
   "data": Object {
     "dolor": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
       "value": "sit",
     },
     "lorem": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
       "value": "ipsum",
     },
   },
@@ -116,15 +116,15 @@ Object {
     },
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
   ],
   "data": Object {
     "dolor": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
       "value": "sit",
     },
     "lorem": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
       "value": "ipsum",
     },
   },
@@ -146,11 +146,11 @@ Object {
   ],
   "data": Object {
     "dolor": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
       "value": "sit",
     },
     "lorem": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
       "value": "ipsum",
     },
   },
@@ -163,15 +163,15 @@ Object {
     "ipsum",
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, [object Object])",
+    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
   ],
   "data": Object {
     "dolor": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
       "value": "sit",
     },
     "lorem": Object {
-      "title": "t(curiosity-inventory.header, [object Object])",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
       "value": "ipsum",
     },
   },
