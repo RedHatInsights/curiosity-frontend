@@ -2,12 +2,13 @@ import platformServices from '../platformServices';
 
 describe('PlatformServices', () => {
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(platformServices)).toHaveLength(6);
+    expect(Object.keys(platformServices)).toHaveLength(7);
   });
 
   it('should have specific methods', () => {
     expect(platformServices.getUser).toBeDefined();
     expect(platformServices.getUserPermissions).toBeDefined();
+    expect(platformServices.hideGlobalFilter).toBeDefined();
     expect(platformServices.initializeChrome).toBeDefined();
     expect(platformServices.onNavigation).toBeDefined();
     expect(platformServices.setAppName).toBeDefined();
@@ -58,6 +59,15 @@ describe('PlatformServices', () => {
     expect(platformServices.getUserPermissions).toThrowError(
       '{ getUserPermissions } = insights.chrome, insights.chrome.getUserPermissions is not a function'
     );
+  });
+
+  it('should return a failed hideGlobalFilter', done => {
+    window.insights.chrome.hideGlobalFilter = undefined;
+
+    platformServices.hideGlobalFilter().catch(error => {
+      expect(error).toMatchSnapshot('failed hideGlobalFilter');
+      done();
+    });
   });
 
   it('should return a failed initializeChrome', done => {

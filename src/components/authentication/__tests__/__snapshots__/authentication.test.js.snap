@@ -9,6 +9,7 @@ exports[`Authentication Component should render a connected component: connected
 exports[`Authentication Component should render a non-connected component authorized: non-connected authorized 1`] = `
 <Authentication
   authorizeUser={[Function]}
+  hideGlobalFilter={[Function]}
   history={
     Object {
       "listen": [Function],
@@ -40,6 +41,7 @@ exports[`Authentication Component should render a non-connected component author
 exports[`Authentication Component should render a non-connected component error: non-connected error 1`] = `
 <Authentication
   authorizeUser={[Function]}
+  hideGlobalFilter={[Function]}
   history={
     Object {
       "listen": [Function],
