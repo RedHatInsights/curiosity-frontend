@@ -30,6 +30,17 @@ const removeNotification = id => RcsRemoveNotification(id);
 const clearNotifications = () => RcsClearNotifications();
 
 /**
+ * Hide platform global filter.
+ *
+ * @param {boolean} isHidden
+ * @returns {{Function}}
+ */
+const hideGlobalFilter = isHidden => ({
+  type: platformTypes.PLATFORM_GLOBAL_FILTER_HIDE,
+  payload: platformServices.hideGlobalFilter(isHidden)
+});
+
+/**
  * Apply platform method for initializing chrome, i.e. header, left-nav.
  *
  * @returns {{payload: Promise<void>, type: string}}
@@ -83,6 +94,7 @@ const platformActions = {
   addNotification,
   removeNotification,
   clearNotifications,
+  hideGlobalFilter,
   initializeChrome,
   onNavigation,
   setAppName,
@@ -95,6 +107,7 @@ export {
   addNotification,
   removeNotification,
   clearNotifications,
+  hideGlobalFilter,
   initializeChrome,
   onNavigation,
   setAppName,

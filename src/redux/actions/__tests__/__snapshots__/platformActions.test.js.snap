@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PlatformActions Should return a dispatch object for the hideGlobalFilter method: dispatch object 1`] = `
+Object {
+  "payload": Promise {},
+  "type": "PLATFORM_GLOBAL_FILTER_HIDE",
+}
+`;
+
 exports[`PlatformActions Should return a dispatch object for the initializeChrome method: dispatch object 1`] = `
 Object {
   "payload": Promise {},
