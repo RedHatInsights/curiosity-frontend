@@ -21,16 +21,25 @@ class Authentication extends Component {
   removeListeners = helpers.noop;
 
   async componentDidMount() {
-    const { authorizeUser, history, initializeChrome, onNavigation, session, setAppName } = this.props;
+    const {
+      authorizeUser,
+      hideGlobalFilter,
+      history,
+      initializeChrome,
+      onNavigation,
+      session,
+      setAppName
+    } = this.props;
     const { subscriptions: authorized } = session.authorized || {};
 
     if (!authorized) {
       await authorizeUser();
     }
 
-    if (helpers.PROD_MODE || helpers.REVIEW_MODE) {
+    if (!helpers.DEV_MODE) {
       initializeChrome();
       setAppName(this.appName);
+      hideGlobalFilter();
 
       const appNav = onNavigation(event => {
         const { routeHref } = routerHelpers.getNavRouteDetail({ id: event.navId, returnDefault: true });
@@ -94,11 +103,13 @@ class Authentication extends Component {
  * Prop types.
  *
  * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: Function,
- *     children: Node, initializeChrome: Function, session: object, history: object}}
+ *     children: Node, initializeChrome: Function, session: object, history: object,
+ *     hideGlobalFilter: Function}}
  */
 Authentication.propTypes = {
   authorizeUser: PropTypes.func,
   children: PropTypes.node.isRequired,
+  hideGlobalFilter: PropTypes.func,
   history: PropTypes.shape({
     listen: PropTypes.func.isRequired,
     push: PropTypes.func.isRequired
@@ -122,10 +133,11 @@ Authentication.propTypes = {
  *
  * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: translate,
  *     initializeChrome: Function, session: {authorized: object, errorCodes: Array, pending: boolean,
- *     status: number}}}
+ *     status: number}, hideGlobalFilter: Function}}
  */
 Authentication.defaultProps = {
   authorizeUser: helpers.noop,
+  hideGlobalFilter: helpers.noop,
   initializeChrome: helpers.noop,
   onNavigation: helpers.noop,
   setAppName: helpers.noop,
@@ -146,6 +158,7 @@ Authentication.defaultProps = {
  */
 const mapDispatchToProps = dispatch => ({
   authorizeUser: () => dispatch(reduxActions.user.authorizeUser()),
+  hideGlobalFilter: isHidden => dispatch(reduxActions.platform.hideGlobalFilter(isHidden)),
   initializeChrome: () => dispatch(reduxActions.platform.initializeChrome()),
   onNavigation: callback => dispatch(reduxActions.platform.onNavigation(callback)),
   setAppName: name => dispatch(reduxActions.platform.setAppName(name))

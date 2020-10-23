@@ -1,6 +1,10 @@
 import { platformActions } from '../platformActions';
 
 describe('PlatformActions', () => {
+  it('Should return a dispatch object for the hideGlobalFilter method', () => {
+    expect(platformActions.hideGlobalFilter()).toMatchSnapshot('dispatch object');
+  });
+
   it('Should return a dispatch object for the initializeChrome method', () => {
     expect(platformActions.initializeChrome()).toMatchSnapshot('dispatch object');
   });
