@@ -62,6 +62,21 @@ const getUserPermissions = () => {
 };
 
 /**
+ * Disables the Platform's global filter display.
+ *
+ * @param {boolean} isHidden
+ * @returns {Promise<*>}
+ */
+const hideGlobalFilter = async (isHidden = true) => {
+  const { insights } = window;
+  try {
+    await insights.chrome.hideGlobalFilter(isHidden);
+  } catch (e) {
+    throw new Error(`{ on } = insights.chrome, ${e.message}`);
+  }
+};
+
+/**
  * Help initialize global platform methods.
  *
  * @returns {Promise<void>}
@@ -128,13 +143,22 @@ const setNavigation = (data = []) => {
   }
 };
 
-const platformServices = { getUser, getUserPermissions, initializeChrome, onNavigation, setAppName, setNavigation };
+const platformServices = {
+  getUser,
+  getUserPermissions,
+  hideGlobalFilter,
+  initializeChrome,
+  onNavigation,
+  setAppName,
+  setNavigation
+};
 
 export {
   platformServices as default,
   platformServices,
   getUser,
   getUserPermissions,
+  hideGlobalFilter,
   initializeChrome,
   onNavigation,
   setAppName,
