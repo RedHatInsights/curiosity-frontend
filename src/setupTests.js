@@ -56,6 +56,7 @@ global.window.insights = {
     hideGlobalFilter: Function.prototype,
     identifyApp: Function.prototype,
     init: Function.prototype,
+    isBeta: Function.prototype,
     navigation: Function.prototype,
     on: Function.prototype
   }
