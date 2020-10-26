@@ -59,6 +59,7 @@ exports[`Table Component should allow expandable content: expandable content 1`]
           },
         ]
       }
+      selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
@@ -128,6 +129,7 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
           },
         ]
       }
+      selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
@@ -190,6 +192,7 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
           },
         ]
       }
+      selectVariant="checkbox"
       sortBy={Object {}}
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
@@ -269,6 +272,7 @@ exports[`Table Component should allow sortable content: sorted column callback 1
           },
         ]
       }
+      selectVariant="checkbox"
       sortBy={
         Object {
           "direction": "asc",
@@ -332,6 +336,7 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
           },
         ]
       }
+      selectVariant="checkbox"
       summary="lorem ipsum summary"
       variant={null}
     >
@@ -388,6 +393,7 @@ exports[`Table Component should allow variations in table layout: borders and ta
           },
         ]
       }
+      selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
@@ -444,6 +450,7 @@ exports[`Table Component should allow variations in table layout: className and 
           },
         ]
       }
+      selectVariant="checkbox"
       summary="lorem ipsum summary"
       variant="compact"
     >
@@ -500,6 +507,7 @@ exports[`Table Component should allow variations in table layout: generated rows
           },
         ]
       }
+      selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
@@ -540,6 +548,7 @@ exports[`Table Component should pass child components, nodes when there are no r
       role="grid"
       rowLabeledBy="simple-node"
       rows={Array []}
+      selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
@@ -590,6 +599,7 @@ exports[`Table Component should render a non-connected component: non-connected 
       role="grid"
       rowLabeledBy="simple-node"
       rows={Array []}
+      selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
