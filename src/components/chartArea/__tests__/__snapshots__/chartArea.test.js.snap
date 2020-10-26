@@ -12,7 +12,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
     <svg
       height="300"
       role="img"
-      style="pointer-events:all;width:100%;height:auto"
+      style="pointer-events:all;width:100%;height:100%"
       viewBox="0 0 0 300"
       width="0"
     >
@@ -339,11 +339,11 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
       </g>
     </svg>
     <div
-      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
+      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:100%"
     >
       <svg
         height="300"
-        style="overflow:visible;width:100%;height:auto"
+        style="overflow:visible;width:100%;height:100%"
         viewBox="0 0 0 300"
         width="0"
       />
@@ -364,7 +364,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
     <svg
       height="300"
       role="img"
-      style="pointer-events:all;width:100%;height:auto"
+      style="pointer-events:all;width:100%;height:100%"
       viewBox="0 0 0 300"
       width="0"
     >
@@ -691,11 +691,11 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
       </g>
     </svg>
     <div
-      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:auto"
+      style="z-index:99;position:absolute;top:0;left:0;width:100%;height:100%"
     >
       <svg
         height="300"
-        style="overflow:visible;width:100%;height:auto"
+        style="overflow:visible;width:100%;height:100%"
         viewBox="0 0 0 300"
         width="0"
       />
@@ -779,7 +779,7 @@ exports[`ChartArea Component should handle custom chart tooltips: componentToolt
     className="VictoryContainer"
     style={
       Object {
-        "height": "auto",
+        "height": "100%",
         "pointerEvents": "none",
         "position": "relative",
         "touchAction": "none",
@@ -791,7 +791,7 @@ exports[`ChartArea Component should handle custom chart tooltips: componentToolt
       role="img"
       style={
         Object {
-          "height": "auto",
+          "height": "100%",
           "pointerEvents": "all",
           "width": "100%",
         }
@@ -801,7 +801,7 @@ exports[`ChartArea Component should handle custom chart tooltips: componentToolt
     <div
       style={
         Object {
-          "height": "auto",
+          "height": "100%",
           "left": 0,
           "position": "absolute",
           "top": 0,
@@ -813,7 +813,7 @@ exports[`ChartArea Component should handle custom chart tooltips: componentToolt
       <Portal
         style={
           Object {
-            "height": "auto",
+            "height": "100%",
             "overflow": "visible",
             "width": "100%",
           }

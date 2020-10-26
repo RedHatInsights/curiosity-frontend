@@ -7,6 +7,17 @@ import _isPlainObject from 'lodash/isPlainObject';
 import { helpers } from '../../common/helpers';
 
 /**
+ * FixMe: Patternfly React select generates a random ID for select options.
+ * On the surface this seems like a legitimate update until you remember unit tests.
+ * Quite a few apps use test snapshots causing certain rendered select snapshots to
+ * fail consistently. Appears this may have been part of the "favorites" update.
+ * The solution centers around updating the  "GenerateId helper" and detecting a
+ * test, dev, or prod environment instead of generating a random string every time.
+ *
+ * This issue also has the side-effect of making the attribute inadvertently
+ * "required" anywhere it's used in an effort to squash it.
+ */
+/**
  * A wrapper for Patternfly Select. Provides additional event data for onSelect callback.
  *
  * @augments React.Component
@@ -201,7 +212,8 @@ class Select extends React.Component {
         {(options &&
           options.map(option => (
             <PfSelectOption
-              key={window.btoa(option.title)}
+              key={window.btoa(`${option.title}-${option.value}`)}
+              id={window.btoa(`${option.title}-${option.value}`)}
               value={option.title}
               data-value={option.value}
               data-title={option.title}
