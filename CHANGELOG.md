@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.0.0...v1.1.0) (2020-10-26)
+
+
+### Features
+
+* **inventoryList:** issues/410 activate column sorting ([#433](https://github.com/RedHatInsights/curiosity-frontend/issues/433)) ([9d44c59](https://github.com/RedHatInsights/curiosity-frontend/commit/9d44c59e200b8313971bd76c623d0fe2352d0a9d))
+* **inventoryList:** issues/414 RBAC for inventory links ([#446](https://github.com/RedHatInsights/curiosity-frontend/issues/446)) ([d2f2bfb](https://github.com/RedHatInsights/curiosity-frontend/commit/d2f2bfbbed4d84765a7df16a8f716a68d6bf94eb))
+* **inventoryList:** issues/442 activate last seen tooltip ([#445](https://github.com/RedHatInsights/curiosity-frontend/issues/445)) ([2576854](https://github.com/RedHatInsights/curiosity-frontend/commit/2576854ef907a440e62757690324c7a3ee91a5a0))
+* **minHeight:** issues/403 set min-height, avoid page jumps ([#439](https://github.com/RedHatInsights/curiosity-frontend/issues/439)) ([ba0e81f](https://github.com/RedHatInsights/curiosity-frontend/commit/ba0e81fa3707eb9a6bb01a7a8f9fc330159d2d34))
+
+
+### Bug Fixes
+
+* **build:** npm updates ([#420](https://github.com/RedHatInsights/curiosity-frontend/issues/420)) ([fdb15a3](https://github.com/RedHatInsights/curiosity-frontend/commit/fdb15a3fd833be42856fc839e46b1061e303b668))
+* **chartArea:** resize observer test addition ([#447](https://github.com/RedHatInsights/curiosity-frontend/issues/447)) ([78683cc](https://github.com/RedHatInsights/curiosity-frontend/commit/78683ccde15bef43cc7e0de6c021a54e02464613))
+* **inventoryList:** activate paging for smaller screen sizes ([#447](https://github.com/RedHatInsights/curiosity-frontend/issues/447)) ([2887696](https://github.com/RedHatInsights/curiosity-frontend/commit/28876961044a052454f1cb3519607b488f9f4a48))
+* **inventoryList:** issues/403 adjust for expanded guestsList ([#460](https://github.com/RedHatInsights/curiosity-frontend/issues/460)) ([1c58435](https://github.com/RedHatInsights/curiosity-frontend/commit/1c5843542ca95c6501acd62bf76e62054311688e))
+* **inventoryList:** issues/403 minHeight update on perpage ([#447](https://github.com/RedHatInsights/curiosity-frontend/issues/447)) ([4194200](https://github.com/RedHatInsights/curiosity-frontend/commit/4194200f4d3ad20b102fc928424cec9b637f7821))
+* **inventoryList,graphCard:** issues/403 set minheight on update ([#439](https://github.com/RedHatInsights/curiosity-frontend/issues/439)) ([d839e51](https://github.com/RedHatInsights/curiosity-frontend/commit/d839e51f3954c14376084ebf74a222398facaf6b))
+* **minHeight:** issues/403 resize events reset height ([#447](https://github.com/RedHatInsights/curiosity-frontend/issues/447)) ([74f0e7f](https://github.com/RedHatInsights/curiosity-frontend/commit/74f0e7fae7f7d1f7b1c7c2d3814b76e4a3d9a38e))
+* **openshiftView,rhelView:** issues/410 update sort default ([#444](https://github.com/RedHatInsights/curiosity-frontend/issues/444)) ([fb11a05](https://github.com/RedHatInsights/curiosity-frontend/commit/fb11a052571c31a361f94a88909cfbd7b13d3f4d))
+* **openshiftView,rhelView:** issues/414 inventory link prefix ([#463](https://github.com/RedHatInsights/curiosity-frontend/issues/463)) ([fc491bc](https://github.com/RedHatInsights/curiosity-frontend/commit/fc491bc2a6e9f3eb1ac46f67ce49404a6e3e374e))
+* **platformServices:** issues/473 apply hideGlobalFilter ([#474](https://github.com/RedHatInsights/curiosity-frontend/issues/474)) ([94d879c](https://github.com/RedHatInsights/curiosity-frontend/commit/94d879c12cb0bb123480a4951c6340f20bf27ad7))
+* **testing:** activate GitHub workflow for commits ([#432](https://github.com/RedHatInsights/curiosity-frontend/issues/432)) ([37dd445](https://github.com/RedHatInsights/curiosity-frontend/commit/37dd445cd42f777674c0671bd7d6154ab71663fc))
+* **userSelectors:** issues/414 RBAC perms for inventory links ([#465](https://github.com/RedHatInsights/curiosity-frontend/issues/465)) ([5416f65](https://github.com/RedHatInsights/curiosity-frontend/commit/5416f658fab955811150c310c386d460ed13476e))
+
+
+### Performance Improvements
+
+* **authentication:** issues/414 restructure permissions ([#446](https://github.com/RedHatInsights/curiosity-frontend/issues/446)) ([846c743](https://github.com/RedHatInsights/curiosity-frontend/commit/846c74320dd69a8404ca53b40f55dd93362977f3))
+* **graphCardSelectors:** expand query filters for graph ([#433](https://github.com/RedHatInsights/curiosity-frontend/issues/433)) ([48e01ea](https://github.com/RedHatInsights/curiosity-frontend/commit/48e01eac84db2a96e0322bc96eb6c5db472d0230))
+
 ## [1.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v0.1.19...v1.0.0) (2020-09-29)
 
 
