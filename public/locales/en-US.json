@@ -49,6 +49,7 @@
     "tableSkeletonAriaLabel": "Loading",
     "label_numberOfGuests": "<0>{{value}} VMs</0>",
     "cloudProvider": "{{context}}",
+    "cloudProvider_alibaba": "Alibaba",
     "cloudProvider_aws": "AWS",
     "cloudProvider_azure": "Azure",
     "cloudProvider_google": "Google",
