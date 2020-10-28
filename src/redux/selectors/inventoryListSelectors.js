@@ -98,6 +98,7 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
       switch (key) {
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CLOUD_PROVIDER:
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE:
+        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.MEASUREMENT:
           return value?.toLowerCase() || null;
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN:
           return (value && new Date(value)) || null;
