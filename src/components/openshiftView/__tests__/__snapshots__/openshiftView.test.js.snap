@@ -114,8 +114,8 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           },
           Object {
             "cell": [Function],
-            "id": "hardwareType",
-            "isSortable": true,
+            "id": "measurementType",
+            "isSortable": false,
           },
           Object {
             "id": "cores",
@@ -260,8 +260,8 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           },
           Object {
             "cell": [Function],
-            "id": "hardwareType",
-            "isSortable": true,
+            "id": "measurementType",
+            "isSortable": false,
           },
           Object {
             "id": "cores",
@@ -384,10 +384,10 @@ Object {
     <React.Fragment>
       lorem
        
-      t(curiosity-inventory.label, {"context":"numberOfGuests","value":3}, [object Object])
+      t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
     </React.Fragment>,
     <React.Fragment>
-      t(curiosity-inventory.hardwareType, {"context":"ipsum"})
+      t(curiosity-inventory.measurementType, {"context":null})
        
       
     </React.Fragment>,
@@ -399,7 +399,7 @@ Object {
   ],
   "columnHeaders": Array [
     "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
@@ -428,6 +428,10 @@ Object {
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
       "value": "hello world",
+    },
+    "measurementType": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+      "value": null,
     },
     "numberOfGuests": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
@@ -453,10 +457,10 @@ Object {
     >
       lorem
        
-      t(curiosity-inventory.label, {"context":"numberOfGuests","value":3}, [object Object])
+      t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
     </Button>,
     <React.Fragment>
-      t(curiosity-inventory.hardwareType, {"context":"ipsum"})
+      t(curiosity-inventory.measurementType, {"context":null})
        
       
     </React.Fragment>,
@@ -468,7 +472,7 @@ Object {
   ],
   "columnHeaders": Array [
     "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+    "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
     "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
@@ -497,6 +501,10 @@ Object {
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
       "value": "hello world",
+    },
+    "measurementType": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+      "value": null,
     },
     "numberOfGuests": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
@@ -558,8 +566,8 @@ Object {
     },
     Object {
       "cell": [Function],
-      "id": "hardwareType",
-      "isSortable": true,
+      "id": "measurementType",
+      "isSortable": false,
     },
     Object {
       "id": "sockets",
@@ -702,8 +710,8 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           },
           Object {
             "cell": [Function],
-            "id": "hardwareType",
-            "isSortable": true,
+            "id": "measurementType",
+            "isSortable": false,
           },
           Object {
             "id": "cores",

@@ -952,6 +952,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
+ *           "measurement_type": "VIRTUAL",
  *           "number_of_guests": 70,
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
@@ -963,6 +964,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 6,
  *           "hardware_type": "CLOUD",
+ *           "measurement_type": "CLOUD",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
@@ -974,6 +976,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
+ *           "measurement_type": "VIRTUAL",
  *           "number_of_guests": 10,
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
@@ -985,6 +988,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
+ *           "measurement_type": "VIRTUAL",
  *           "number_of_guests": 1,
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
@@ -996,6 +1000,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 4,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "HYPERVISOR",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
@@ -1007,6 +1012,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "PHYSICAL",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
@@ -1018,6 +1024,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "PHYSICAL",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-21T00:00:00Z"
  *         },
@@ -1028,6 +1035,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "PHYSICAL",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-22T00:00:00Z"
  *         },
@@ -1038,6 +1046,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 3,
  *           "sockets": 1,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "HYPERVISOR",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-23T00:00:00Z"
  *         },
@@ -1048,6 +1057,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 3,
  *           "sockets": 1,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "HYPERVISOR",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-24T00:00:00Z"
  *         },
@@ -1058,6 +1068,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 3,
  *           "sockets": 0,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "HYPERVISOR",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-26T00:00:00Z"
  *         },
@@ -1068,6 +1079,7 @@ const getGraphCapacity = (id, params = {}) =>
  *           "cores": 3,
  *           "sockets": 0,
  *           "hardware_type": "PHYSICAL",
+ *           "measurement_type": "HYPERVISOR",
  *           "number_of_guests": 0,
  *           "last_seen": "2020-06-29T00:00:00Z"
  *         }

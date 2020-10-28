@@ -216,19 +216,19 @@ RhelView.defaultProps = {
     {
       id: 'displayName',
       cell: (data, session) => {
-        const { displayName, inventoryId, numberOfGuests } = data;
+        const { displayName = {}, inventoryId = {}, numberOfGuests = {} } = data;
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!inventoryId?.value) {
-          return displayName?.value;
+        if (!inventoryId.value) {
+          return displayName.value;
         }
 
         if (!authorized) {
           return (
             <React.Fragment>
-              {displayName?.value || inventoryId?.value}{' '}
+              {displayName.value || inventoryId.value}{' '}
               {(numberOfGuests.value &&
-                translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [
+                translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
                   <PfLabel color="blue" />
                 ])) ||
                 ''}
@@ -246,7 +246,7 @@ RhelView.defaultProps = {
           >
             {displayName.value || inventoryId.value}{' '}
             {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [
+              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
                 <PfLabel color="blue" />
               ])) ||
               ''}
@@ -256,13 +256,13 @@ RhelView.defaultProps = {
       isSortable: true
     },
     {
-      id: 'hardwareType',
+      id: 'measurementType',
       cell: data => {
-        const { cloudProvider, hardwareType } = data;
+        const { cloudProvider = {}, measurementType = {} } = data;
         return (
           <React.Fragment>
-            {translate('curiosity-inventory.hardwareType', { context: hardwareType.value })}{' '}
-            {(cloudProvider?.value && (
+            {translate('curiosity-inventory.measurementType', { context: measurementType.value })}{' '}
+            {(cloudProvider.value && (
               <PfLabel color="purple">
                 {translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })}
               </PfLabel>
@@ -271,7 +271,7 @@ RhelView.defaultProps = {
           </React.Fragment>
         );
       },
-      isSortable: true
+      isSortable: false
     },
     {
       id: 'sockets',
