@@ -30,6 +30,7 @@
     },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!src/**/.*/**",
       "!src/index.js",
       "!src/setupTests.js",
       "!src/components/app.js",
@@ -120,13 +121,13 @@
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-i18next": "^11.7.3",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
@@ -141,6 +142,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
+    "eslint": "^7.12.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-import": "^2.22.1",
@@ -160,8 +162,5 @@
     "standard-version": "^9.0.0",
     "swagger-ui-express": "^4.1.4",
     "yamljs": "^0.3.0"
-  },
-  "resolutions": {
-    "**/eslint": "6.8.0"
   }
 }

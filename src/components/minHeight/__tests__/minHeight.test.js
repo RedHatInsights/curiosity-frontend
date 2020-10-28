@@ -76,6 +76,11 @@ describe('MinHeight Component', () => {
   });
 
   it('should run componentWillUnmount method successfully', () => {
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn()
+    }));
+
     const props = {};
     const component = mount(<MinHeight {...props}>lorem ipsum</MinHeight>);
     const componentWillUnmount = jest.spyOn(component.instance(), 'componentWillUnmount');
