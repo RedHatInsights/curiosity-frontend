@@ -210,15 +210,15 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
       Object {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
       Object {
-        "key": "curiosity-inventory.hardwareType",
-        "match": "translate('curiosity-inventory.hardwareType', { context: hardwareType.value })",
+        "key": "curiosity-inventory.measurementType",
+        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
       },
       Object {
         "key": "curiosity-inventory.cloudProvider",
@@ -333,15 +333,15 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
       Object {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', value: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
       Object {
-        "key": "curiosity-inventory.hardwareType",
-        "match": "translate('curiosity-inventory.hardwareType', { context: hardwareType.value })",
+        "key": "curiosity-inventory.measurementType",
+        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
       },
       Object {
         "key": "curiosity-inventory.cloudProvider",
