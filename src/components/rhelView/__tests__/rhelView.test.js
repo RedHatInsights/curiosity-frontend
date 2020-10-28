@@ -58,6 +58,7 @@ describe('RhelView Component', () => {
       displayName: 'lorem',
       inventoryId: 'lorem inventory id',
       hardwareType: 'ipsum',
+      measurementType: null,
       numberOfGuests: 3,
       sockets: 10,
       cores: 12,

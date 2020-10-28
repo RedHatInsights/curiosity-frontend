@@ -203,13 +203,15 @@ GuestsList.propTypes = {
         PropTypes.shape({
           title: PropTypes.string
         }),
-        PropTypes.func
+        PropTypes.func,
+        PropTypes.string
       ]),
       cell: PropTypes.oneOfType([
         PropTypes.shape({
           title: PropTypes.string
         }),
-        PropTypes.func
+        PropTypes.func,
+        PropTypes.string
       ])
     }).isRequired
   ),
