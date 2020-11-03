@@ -197,11 +197,12 @@ const RHSM_API_QUERY_GRANULARITY_TYPES = {
 /**
  * RHSM API query/search parameter SORT type values.
  *
- * @type {{CORES: string, DATE: string, HARDWARE: string, SOCKETS: string, NAME: string}}
+ * @type {{CORES: string, DATE: string, HARDWARE: string, SOCKETS: string, MEASUREMENT: string, NAME: string}}
  */
 const RHSM_API_QUERY_SORT_TYPES = {
   CORES: 'cores',
   HARDWARE: 'hardware_type',
+  MEASUREMENT: 'measurement_type',
   DATE: 'last_seen',
   NAME: 'display_name',
   SOCKETS: 'sockets'
@@ -329,17 +330,16 @@ const RHSM_API_QUERY_TYPES = {
  *     RHSM_API_RESPONSE_PRODUCTS_DATA: string, RHSM_API_QUERY_TYPES: {GRANULARITY: string, TALLY_SYNC: string,
  *     DIRECTION: string, END_DATE: string, SLA: string, START_DATE: string, LIMIT: string, UOM: string,
  *     TALLY_REPORT: string, USAGE: string, SORT: string, OFFSET: string, CONDUIT_SYNC: string},
- *     RHSM_API_RESPONSE_LINKS: string, RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES: {OFFSET: string,
- *     LIMIT: string}, RHSM_API_PATH_ID_TYPES: {RHEL_ARM: string, RHEL_WORKSTATION: string,
- *     RHEL_DESKTOP: string, RHEL: string, RHEL_SERVER: string, RHEL_IBM_Z: string,
- *     RHEL_COMPUTE_NODE: string, RHEL_IBM_POWER: string, RHEL_X86: string, OPENSHIFT: string},
- *     RHSM_API_QUERY_SET_OPTIN_TYPES: {TALLY_SYNC: string, TALLY_REPORT: string, CONDUIT_SYNC: string},
- *     RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT: string,
- *     PRODUCTION: string}, RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string,
- *     STANDARD: string}, RHSM_API_QUERY_SET_INVENTORY_TYPES: {UOM: string, USAGE: string,
+ *     RHSM_API_RESPONSE_LINKS: string, RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES: {OFFSET: string, LIMIT: string},
+ *     RHSM_API_PATH_ID_TYPES: {RHEL_ARM: string, RHEL_WORKSTATION: string, RHEL_DESKTOP: string, RHEL: string,
+ *     RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_COMPUTE_NODE: string, RHEL_IBM_POWER: string, RHEL_X86: string
+ *     OPENSHIFT: string}, RHSM_API_QUERY_SET_OPTIN_TYPES: {TALLY_SYNC: string, TALLY_REPORT: string,
+ *     CONDUIT_SYNC: string}, RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string,
+ *     DEVELOPMENT: string, PRODUCTION: string}, RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string,
+ *     NONE: string, STANDARD: string}, RHSM_API_QUERY_SET_INVENTORY_TYPES: {UOM: string, USAGE: string,
  *     DIRECTION: string, SORT: string, OFFSET: string, SLA: string, LIMIT: string},
  *     RHSM_API_QUERY_SORT_TYPES: {CORES: string, DATE: string, HARDWARE: string, SOCKETS: string,
- *     NAME: string}, RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES: {HYPERVISOR_SOCKETS: string,
+ *     MEASUREMENT: string, NAME: string}, RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES: {HYPERVISOR_SOCKETS: string,
  *     CORES: string, DATE: string, SOCKETS: string, HAS_DATA: string, PHYSICAL_SOCKETS: string,
  *     HYPERVISOR_CORES: string, PHYSICAL_CORES: string}, RHSM_API_QUERY_UOM_TYPES: {CORES: string,
  *     SOCKETS: string}, RHSM_API_RESPONSE_LINKS_TYPES: string,

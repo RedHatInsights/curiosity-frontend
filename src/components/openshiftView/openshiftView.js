@@ -349,7 +349,7 @@ OpenshiftView.defaultProps = {
           </React.Fragment>
         );
       },
-      isSortable: false
+      isSortable: true
     },
     {
       id: 'sockets',
