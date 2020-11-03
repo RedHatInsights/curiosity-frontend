@@ -53,6 +53,10 @@ class InventoryList extends React.Component {
     const updatedSortColumn = Object.values(SORT_TYPES).find(value => _camelCase(value) === id);
     let updatedDirection;
 
+    if (!updatedSortColumn) {
+      return;
+    }
+
     switch (direction) {
       case SortByDirection.desc:
         updatedDirection = SORT_DIRECTION_TYPES.DESCENDING;

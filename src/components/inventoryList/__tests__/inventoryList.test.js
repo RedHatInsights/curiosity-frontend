@@ -110,6 +110,7 @@ describe('InventoryList Component', () => {
 
     componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'sockets' });
     componentInstance.onColumnSort({}, { direction: SortByDirection.desc, id: 'sockets' });
+    componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'loremIpsumBrokenOnPurpose' });
     componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'sockets' });
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter');
