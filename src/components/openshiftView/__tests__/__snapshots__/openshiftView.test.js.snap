@@ -115,7 +115,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           Object {
             "cell": [Function],
             "id": "measurementType",
-            "isSortable": false,
+            "isSortable": true,
           },
           Object {
             "id": "cores",
@@ -261,7 +261,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           Object {
             "cell": [Function],
             "id": "measurementType",
-            "isSortable": false,
+            "isSortable": true,
           },
           Object {
             "id": "cores",
@@ -567,7 +567,7 @@ Object {
     Object {
       "cell": [Function],
       "id": "measurementType",
-      "isSortable": false,
+      "isSortable": true,
     },
     Object {
       "id": "sockets",
@@ -711,7 +711,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           Object {
             "cell": [Function],
             "id": "measurementType",
-            "isSortable": false,
+            "isSortable": true,
           },
           Object {
             "id": "cores",
