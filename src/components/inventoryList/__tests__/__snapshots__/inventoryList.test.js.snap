@@ -166,7 +166,10 @@ exports[`InventoryList Component should handle variations in data: filtered data
           className="curiosity-inventory-list"
           columnHeaders={
             Array [
-              "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+              Object {
+                "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+                "transforms": Array [],
+              },
             ]
           }
           isHeader={true}
@@ -174,13 +177,17 @@ exports[`InventoryList Component should handle variations in data: filtered data
             Array [
               Object {
                 "cells": Array [
-                  "ipsum",
+                  Object {
+                    "title": "ipsum",
+                  },
                 ],
                 "expandedContent": false,
               },
               Object {
                 "cells": Array [
-                  "sit",
+                  Object {
+                    "title": "sit",
+                  },
                 ],
                 "expandedContent": false,
               },

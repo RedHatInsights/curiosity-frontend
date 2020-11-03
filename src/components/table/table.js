@@ -188,7 +188,9 @@ class Table extends React.Component {
           const { title, ...settings } = cell;
           rowObj.cells.push({ title, ...settings });
         } else {
-          rowObj.cells.push({ title: cell });
+          rowObj.cells.push({
+            title: (React.isValidElement(cell) && cell) || (typeof cell === 'object' && `${cell}`) || cell
+          });
         }
       });
     });
@@ -220,7 +222,12 @@ class Table extends React.Component {
 
         updatedColumnHeaders.push(tempColumnHeader);
       } else {
-        updatedColumnHeaders.push({ title: columnHeader });
+        updatedColumnHeaders.push({
+          title:
+            (React.isValidElement(columnHeader) && columnHeader) ||
+            (typeof columnHeader === 'object' && `${columnHeader}`) ||
+            columnHeader
+        });
       }
     });
 
@@ -321,7 +328,7 @@ Table.propTypes = {
         onSort: PropTypes.func,
         sortActive: PropTypes.bool,
         sortDirection: PropTypes.oneOf([...Object.values(SortByDirection)]),
-        title: PropTypes.node
+        title: PropTypes.node.isRequired
       })
     ])
   ).isRequired,
@@ -333,7 +340,7 @@ Table.propTypes = {
         PropTypes.oneOfType([
           PropTypes.node,
           PropTypes.shape({
-            title: PropTypes.node
+            title: PropTypes.node.isRequired
           })
         ])
       ),
