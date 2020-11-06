@@ -205,11 +205,13 @@ RhelView.defaultProps = {
       }
     },
     {
-      id: 'inventoryId'
+      id: 'inventoryId',
+      cellWidth: 40
     },
     {
       id: 'lastSeen',
-      cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || ''
+      cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
+      cellWidth: 15
     }
   ],
   initialInventoryFilters: [
@@ -271,16 +273,19 @@ RhelView.defaultProps = {
           </React.Fragment>
         );
       },
-      isSortable: true
+      isSortable: true,
+      cellWidth: 20
     },
     {
       id: 'sockets',
-      isSortable: true
+      isSortable: true,
+      cellWidth: 15
     },
     {
       id: 'lastSeen',
       cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
-      isSortable: true
+      isSortable: true,
+      cellWidth: 15
     }
   ],
   initialToolbarFilters: [

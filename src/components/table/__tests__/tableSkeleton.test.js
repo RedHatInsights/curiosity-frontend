@@ -21,6 +21,11 @@ describe('TableSkeleton Component', () => {
     expect(component).toMatchSnapshot('column and row count ');
 
     component.setProps({
+      colWidth: [null, undefined, 30, 15, 15]
+    });
+    expect(component).toMatchSnapshot('table column widths');
+
+    component.setProps({
       borders: false,
       isHeader: false
     });

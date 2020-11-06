@@ -44,8 +44,24 @@
 
   // ToDo: reevaluate this fix, originally for non-expandable table rows to aid in alignment with heading
   .curiosity-inventory-list {
-    .pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
-      padding-left: var(--pf-c-table--m-compact--cell--first-last-child--PaddingLeft);;
+    &.pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
+      padding-left: var(--pf-c-table--m-compact--cell--first-last-child--PaddingLeft);
+    }
+  }
+
+  .curiosity-guests-list {
+    &.pf-c-table.pf-m-compact tr > *:last-child {
+      padding-right: var(--pf-c-table--m-compact--cell--first-last-child--PaddingRight);
+    }
+
+    @media (max-width: $pf-global--breakpoint--md) {
+      &.pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
+        padding-left: 0;
+      }
+
+      &.pf-c-table.pf-m-compact > tbody > tr {
+        padding-top: 0;
+      }
     }
   }
 }
