@@ -65,6 +65,7 @@ Loader.propTypes = {
     borders: PropTypes.bool,
     className: PropTypes.string,
     colCount: PropTypes.number,
+    colWidth: PropTypes.array,
     rowCount: PropTypes.number,
     variant: PropTypes.oneOf([...Object.values(TableVariant)])
   }),
