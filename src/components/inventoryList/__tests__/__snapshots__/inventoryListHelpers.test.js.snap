@@ -87,10 +87,15 @@ Object {
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom callback data 1`] = `
 Object {
   "cells": Array [
-    "ipsum/sit",
+    Object {
+      "title": "ipsum/sit",
+    },
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})/t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})/t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "transforms": Array [],
+    },
   ],
   "data": Object {
     "dolor": Object {
@@ -116,7 +121,10 @@ Object {
     },
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "transforms": Array [],
+    },
   ],
   "data": Object {
     "dolor": Object {
@@ -134,7 +142,9 @@ Object {
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom header data 1`] = `
 Object {
   "cells": Array [
-    "ipsum",
+    Object {
+      "title": "ipsum",
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -142,6 +152,7 @@ Object {
         "textCenter": true,
       },
       "title": "object, header, lorem",
+      "transforms": Array [],
     },
   ],
   "data": Object {
@@ -160,10 +171,15 @@ Object {
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: filtered data 1`] = `
 Object {
   "cells": Array [
-    "ipsum",
+    Object {
+      "title": "ipsum",
+    },
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "transforms": Array [],
+    },
   ],
   "data": Object {
     "dolor": Object {

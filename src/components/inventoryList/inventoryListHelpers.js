@@ -1,4 +1,4 @@
-import { SortByDirection } from '@patternfly/react-table';
+import { cellWidth as PfCellWidth, SortByDirection } from '@patternfly/react-table';
 import _camelCase from 'lodash/camelCase';
 import { translate } from '../i18n/i18n';
 import {
@@ -70,7 +70,7 @@ const parseInventoryFilters = ({ filters = [], onSort, query = {} }) =>
   });
 
 /**
- * Parse and return formatted/filtered table cells.
+ * Parse and return formatted/filtered table cells, and apply table filters.
  *
  * @param {object} params
  * @param {Array} params.filters
@@ -83,7 +83,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
   const updatedCells = [];
   const allCells = {};
 
-  // Apply translation and value, "pre" filters/callbacks
+  // Apply basic translation and value
   Object.entries(cellData).forEach(([key, value]) => {
     allCells[key] = {
       title: translate('curiosity-inventory.header', { context: key }),
@@ -94,36 +94,59 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
     updatedCells.push(value);
   });
 
-  // Apply header and cell values, apply filters/callbacks
+  // Apply filters to header and cell values
   if (filters?.length) {
     updatedColumnHeaders.length = 0;
     updatedCells.length = 0;
 
-    filters.forEach(({ id, cell, header, onSort, sortActive, sortDirection }) => {
+    filters.forEach(({ id, cell, cellWidth, header, onSort, sortActive, sortDirection, transforms }) => {
       let headerUpdated;
       let cellUpdated;
 
       if (allCells[id]) {
-        headerUpdated = allCells[id].title;
-        cellUpdated = allCells[id].value;
+        headerUpdated = allCells[id]?.title ?? id;
+        cellUpdated = allCells[id]?.value ?? '';
       }
 
+      // set table header cell filter params
       if (header) {
         headerUpdated = (typeof header === 'function' && header({ ...allCells })) || header;
       }
 
-      if (typeof onSort === 'function') {
+      if (typeof headerUpdated === 'string') {
         headerUpdated = {
-          ...(typeof headerUpdated !== 'string' && headerUpdated),
-          onSort: obj => onSort({ ...allCells }, { ...obj, id }),
-          sortActive,
-          sortDirection,
-          title: allCells[id].title
+          title: headerUpdated
         };
       }
 
+      headerUpdated.transforms = [];
+
+      if (Array.isArray(transforms)) {
+        headerUpdated.transforms = headerUpdated.transforms.concat([...transforms]);
+      }
+
+      if (typeof cellWidth === 'number') {
+        headerUpdated.transforms.push(PfCellWidth(cellWidth));
+      }
+
+      if (typeof onSort === 'function') {
+        headerUpdated = {
+          ...headerUpdated,
+          onSort: obj => onSort({ ...allCells }, { ...obj, id }),
+          sortActive,
+          sortDirection
+        };
+      }
+
+      // set table row cell filter params
       if (cell) {
         cellUpdated = (typeof cell === 'function' && cell({ ...allCells }, { ...session })) || cell;
+      }
+
+      if (typeof cellUpdated === 'string') {
+        cellUpdated = {
+          title: cellUpdated
+        };
       }
 
       updatedColumnHeaders.push(headerUpdated);

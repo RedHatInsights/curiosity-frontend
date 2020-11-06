@@ -62,5 +62,9 @@
   .curiosity-table-scroll-list__no-scroll {
     overflow-y: hidden;
     padding-bottom: inherit;
+
+    @media (max-width: $pf-global--breakpoint--md) {
+      overflow-y: auto;
+    }
   }
 }
