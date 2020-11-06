@@ -7,7 +7,7 @@ const YAML = require('yamljs');
 const openApiSpecs = [
   {
     file:
-      'https://raw.githubusercontent.com/RedHatInsights/rhsm-subscriptions/master/api/rhsm-subscriptions-api-spec.yaml',
+      'https://raw.githubusercontent.com/RedHatInsights/rhsm-subscriptions/main/api/rhsm-subscriptions-api-spec.yaml',
     outputDir: `${process.cwd()}/.openapi`,
     outputFileName: 'rhsm.yaml',
     port: 5050
@@ -39,7 +39,7 @@ const setColor = (str, color = 'reset') => {
 /**
  * Express serve local files
  *
- * @param {array} files
+ * @param {Array} files
  */
 const serveDocs = (files = []) => {
   files.forEach(yamlFile => {
