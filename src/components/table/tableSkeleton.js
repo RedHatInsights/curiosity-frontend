@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TableVariant } from '@patternfly/react-table';
+import { cellWidth, TableVariant } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
 import Table from './table';
 import { translate } from '../i18n/i18n';
@@ -12,14 +12,24 @@ import { translate } from '../i18n/i18n';
  * @param {string} props.className
  * @param {boolean} props.borders
  * @param {number} props.colCount
+ * @param {Array} props.colWidth
  * @param {boolean} props.isHeader
  * @param {number} props.rowCount
  * @param {Function} props.t
  * @param {string} props.variant
  * @returns {Node}
  */
-const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, t, variant }) => {
-  const updatedColumnHeaders = [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />);
+const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCount, t, variant }) => {
+  const updatedColumnHeaders = [...new Array(colCount)].map((value, index) => {
+    const updatedHeader = { title: <Skeleton size={SkeletonSize.md} /> };
+
+    if (typeof colWidth[index] === 'number') {
+      updatedHeader.transforms = [cellWidth(colWidth[index])];
+    }
+
+    return updatedHeader;
+  });
+
   const updatedRowCount = rowCount || 1;
 
   const updatedRows = [...new Array(updatedRowCount)].map(() => ({
@@ -44,12 +54,14 @@ const TableSkeleton = ({ className, borders, colCount, isHeader, rowCount, t, va
 /**
  * Prop types.
  *
- * @type {{borders: boolean, isHeader: boolean, colCount: number, variant: string, className: string, rowCount: number}}
+ * @type {{borders: boolean, isHeader: boolean, colCount: number, colWidth: Array, variant: string,
+ *     className: string, rowCount: number}}
  */
 TableSkeleton.propTypes = {
   borders: PropTypes.bool,
   className: PropTypes.string,
   colCount: PropTypes.number,
+  colWidth: PropTypes.arrayOf(PropTypes.number),
   isHeader: PropTypes.bool,
   rowCount: PropTypes.number,
   t: PropTypes.func,
@@ -59,13 +71,14 @@ TableSkeleton.propTypes = {
 /**
  * Default props.
  *
- * @type {{t: translate, borders: boolean, isHeader: boolean, colCount: number, variant: null, className: null,
- *     rowCount: number}}
+ * @type {{t: translate, borders: boolean, isHeader: boolean, colCount: number, colWidth: Array, variant: null,
+ *     className: null, rowCount: number}}
  */
 TableSkeleton.defaultProps = {
   borders: true,
   className: null,
   colCount: 1,
+  colWidth: [],
   isHeader: true,
   rowCount: 5,
   t: translate,

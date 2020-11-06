@@ -84,10 +84,12 @@ exports[`RhelView Component should display an alternate graph on query-string up
             "id": "displayName",
           },
           Object {
+            "cellWidth": 40,
             "id": "inventoryId",
           },
           Object {
             "cell": [Function],
+            "cellWidth": 15,
             "id": "lastSeen",
           },
         ]
@@ -101,15 +103,18 @@ exports[`RhelView Component should display an alternate graph on query-string up
           },
           Object {
             "cell": [Function],
+            "cellWidth": 20,
             "id": "measurementType",
             "isSortable": true,
           },
           Object {
+            "cellWidth": 15,
             "id": "sockets",
             "isSortable": true,
           },
           Object {
             "cell": [Function],
+            "cellWidth": 15,
             "id": "lastSeen",
             "isSortable": true,
           },
@@ -215,10 +220,12 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
             "id": "displayName",
           },
           Object {
+            "cellWidth": 40,
             "id": "inventoryId",
           },
           Object {
             "cell": [Function],
+            "cellWidth": 15,
             "id": "lastSeen",
           },
         ]
@@ -232,15 +239,18 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
           },
           Object {
             "cell": [Function],
+            "cellWidth": 20,
             "id": "measurementType",
             "isSortable": true,
           },
           Object {
+            "cellWidth": 15,
             "id": "sockets",
             "isSortable": true,
           },
           Object {
             "cell": [Function],
+            "cellWidth": 15,
             "id": "lastSeen",
             "isSortable": true,
           },
@@ -265,16 +275,33 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
 exports[`RhelView Component should have default props that set product configuration: filteredGuestsData results 1`] = `
 Object {
   "cells": Array [
-    "lorem",
-    "lorem inventory id",
+    Object {
+      "title": "lorem",
+    },
+    Object {
+      "title": "lorem inventory id",
+    },
     <DateFormat
       date="lorem date obj"
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
   ],
   "data": Object {
     "displayName": Object {
@@ -313,15 +340,30 @@ Object {
     >
       lorem
     </Button>,
-    "lorem inventory id",
+    Object {
+      "title": "lorem inventory id",
+    },
     <DateFormat
       date="lorem date obj"
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
   ],
   "data": Object {
     "displayName": Object {
@@ -367,10 +409,28 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
   ],
   "data": Object {
     "cores": Object {
@@ -438,10 +498,28 @@ Object {
     />,
   ],
   "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
   ],
   "data": Object {
     "cores": Object {
@@ -516,10 +594,12 @@ Object {
       "id": "displayName",
     },
     Object {
+      "cellWidth": 40,
       "id": "inventoryId",
     },
     Object {
       "cell": [Function],
+      "cellWidth": 15,
       "id": "lastSeen",
     },
   ],
@@ -531,15 +611,18 @@ Object {
     },
     Object {
       "cell": [Function],
+      "cellWidth": 20,
       "id": "measurementType",
       "isSortable": true,
     },
     Object {
+      "cellWidth": 15,
       "id": "sockets",
       "isSortable": true,
     },
     Object {
       "cell": [Function],
+      "cellWidth": 15,
       "id": "lastSeen",
       "isSortable": true,
     },
@@ -638,10 +721,12 @@ exports[`RhelView Component should render a non-connected component: non-connect
             "id": "displayName",
           },
           Object {
+            "cellWidth": 40,
             "id": "inventoryId",
           },
           Object {
             "cell": [Function],
+            "cellWidth": 15,
             "id": "lastSeen",
           },
         ]
@@ -655,15 +740,18 @@ exports[`RhelView Component should render a non-connected component: non-connect
           },
           Object {
             "cell": [Function],
+            "cellWidth": 20,
             "id": "measurementType",
             "isSortable": true,
           },
           Object {
+            "cellWidth": 15,
             "id": "sockets",
             "isSortable": true,
           },
           Object {
             "cell": [Function],
+            "cellWidth": 15,
             "id": "lastSeen",
             "isSortable": true,
           },

@@ -148,7 +148,7 @@ class GuestsList extends React.Component {
             <Table
               borders={false}
               variant={TableVariant.compact}
-              className="curiosity-inventory-list"
+              className="curiosity-guests-list"
               columnHeaders={updatedColumnHeaders}
               rows={updatedRows}
             />
@@ -176,6 +176,7 @@ class GuestsList extends React.Component {
             tableProps={{
               borders: false,
               colCount: filterGuestsData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
+              colWidth: (filterGuestsData?.length && filterGuestsData.map(({ cellWidth }) => cellWidth)) || [],
               rowCount: numberOfGuests < perPageDefault ? numberOfGuests : perPageDefault,
               variant: TableVariant.compact
             }}
@@ -201,17 +202,17 @@ GuestsList.propTypes = {
       id: PropTypes.string,
       header: PropTypes.oneOfType([
         PropTypes.shape({
-          title: PropTypes.string
+          title: PropTypes.node.isRequired
         }),
         PropTypes.func,
-        PropTypes.string
+        PropTypes.node
       ]),
       cell: PropTypes.oneOfType([
         PropTypes.shape({
-          title: PropTypes.string
+          title: PropTypes.node.isRequired
         }),
         PropTypes.func,
-        PropTypes.string
+        PropTypes.node
       ])
     }).isRequired
   ),

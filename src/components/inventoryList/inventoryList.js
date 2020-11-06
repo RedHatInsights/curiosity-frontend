@@ -198,6 +198,8 @@ class InventoryList extends React.Component {
                   tableProps={{
                     className: 'curiosity-inventory-list',
                     colCount: filterInventoryData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
+                    colWidth:
+                      (filterInventoryData?.length && filterInventoryData.map(({ cellWidth }) => cellWidth)) || [],
                     rowCount: listData?.length || updatedPerPage,
                     variant: TableVariant.compact
                   }}
@@ -242,17 +244,17 @@ InventoryList.propTypes = {
       id: PropTypes.string,
       header: PropTypes.oneOfType([
         PropTypes.shape({
-          title: PropTypes.string
+          title: PropTypes.node.isRequired
         }),
         PropTypes.func,
-        PropTypes.string
+        PropTypes.node
       ]),
       cell: PropTypes.oneOfType([
         PropTypes.shape({
-          title: PropTypes.string
+          title: PropTypes.node.isRequired
         }),
         PropTypes.func,
-        PropTypes.string
+        PropTypes.node
       ])
     }).isRequired
   ),
