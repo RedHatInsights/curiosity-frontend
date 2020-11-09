@@ -32,7 +32,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         Object {
           "dir": "desc",
           "granularity": "daily",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
           "uom": "cores",
@@ -151,7 +151,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       query={
         Object {
           "dir": "desc",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
           "uom": "cores",
@@ -195,7 +195,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         Object {
           "dir": "desc",
           "granularity": "daily",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
           "uom": "cores",
@@ -314,7 +314,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       query={
         Object {
           "dir": "desc",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
           "uom": "cores",
@@ -735,7 +735,7 @@ Object {
   "query": Object {
     "dir": "desc",
     "granularity": "daily",
-    "limit": 10,
+    "limit": 100,
     "offset": 0,
     "sort": "last_seen",
     "uom": "cores",
@@ -775,7 +775,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         Object {
           "dir": "desc",
           "granularity": "daily",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
           "uom": "cores",
@@ -894,7 +894,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       query={
         Object {
           "dir": "desc",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
           "uom": "cores",
