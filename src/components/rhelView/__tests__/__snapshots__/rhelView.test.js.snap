@@ -36,7 +36,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
         Object {
           "dir": "desc",
           "granularity": "daily",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
         }
@@ -137,7 +137,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
       query={
         Object {
           "dir": "desc",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
         }
@@ -184,7 +184,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
         Object {
           "dir": "desc",
           "granularity": "daily",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
         }
@@ -285,7 +285,7 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       query={
         Object {
           "dir": "desc",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
         }
@@ -678,7 +678,7 @@ Object {
   "query": Object {
     "dir": "desc",
     "granularity": "daily",
-    "limit": 10,
+    "limit": 100,
     "offset": 0,
     "sort": "last_seen",
   },
@@ -721,7 +721,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
         Object {
           "dir": "desc",
           "granularity": "daily",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
         }
@@ -822,7 +822,7 @@ exports[`RhelView Component should render a non-connected component: non-connect
       query={
         Object {
           "dir": "desc",
-          "limit": 10,
+          "limit": 100,
           "offset": 0,
           "sort": "last_seen",
         }
