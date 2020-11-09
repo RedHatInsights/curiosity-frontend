@@ -111,12 +111,14 @@ exports[`RhelView Component should display an alternate graph on query-string up
             "cellWidth": 15,
             "id": "sockets",
             "isSortable": true,
+            "isWrappable": true,
           },
           Object {
             "cell": [Function],
             "cellWidth": 15,
             "id": "lastSeen",
             "isSortable": true,
+            "isWrappable": true,
           },
         ]
       }
@@ -247,12 +249,14 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
             "cellWidth": 15,
             "id": "sockets",
             "isSortable": true,
+            "isWrappable": true,
           },
           Object {
             "cell": [Function],
             "cellWidth": 15,
             "id": "lastSeen",
             "isSortable": true,
+            "isWrappable": true,
           },
         ]
       }
@@ -281,9 +285,11 @@ Object {
     Object {
       "title": "lorem inventory id",
     },
-    <DateFormat
-      date="lorem date obj"
-    />,
+    Object {
+      "title": <DateFormat
+        date="lorem date obj"
+      />,
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -331,21 +337,25 @@ Object {
 exports[`RhelView Component should have default props that set product configuration: filteredGuestsData results, authorized 1`] = `
 Object {
   "cells": Array [
-    <Button
-      component="a"
-      href="/insights/inventory/lorem inventory id/"
-      isInline={true}
-      target="_blank"
-      variant="link"
-    >
-      lorem
-    </Button>,
+    Object {
+      "title": <Button
+        component="a"
+        href="/insights/inventory/lorem inventory id/"
+        isInline={true}
+        target="_blank"
+        variant="link"
+      >
+        lorem
+      </Button>,
+    },
     Object {
       "title": "lorem inventory id",
     },
-    <DateFormat
-      date="lorem date obj"
-    />,
+    Object {
+      "title": <DateFormat
+        date="lorem date obj"
+      />,
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -393,20 +403,28 @@ Object {
 exports[`RhelView Component should have default props that set product configuration: filteredInventoryData results 1`] = `
 Object {
   "cells": Array [
-    <React.Fragment>
-      lorem
-       
-      t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-    </React.Fragment>,
-    <React.Fragment>
-      t(curiosity-inventory.measurementType, {"context":null})
-       
-      
-    </React.Fragment>,
-    10,
-    <DateFormat
-      date="lorem date obj"
-    />,
+    Object {
+      "title": <React.Fragment>
+        lorem
+         
+        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
+      </React.Fragment>,
+    },
+    Object {
+      "title": <React.Fragment>
+        t(curiosity-inventory.measurementType, {"context":null})
+         
+        
+      </React.Fragment>,
+    },
+    Object {
+      "title": 10,
+    },
+    Object {
+      "title": <DateFormat
+        date="lorem date obj"
+      />,
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -476,26 +494,34 @@ Object {
 exports[`RhelView Component should have default props that set product configuration: filteredInventoryData results, authorized 1`] = `
 Object {
   "cells": Array [
-    <Button
-      component="a"
-      href="/insights/inventory/lorem inventory id/"
-      isInline={true}
-      target="_blank"
-      variant="link"
-    >
-      lorem
-       
-      t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-    </Button>,
-    <React.Fragment>
-      t(curiosity-inventory.measurementType, {"context":null})
-       
-      
-    </React.Fragment>,
-    10,
-    <DateFormat
-      date="lorem date obj"
-    />,
+    Object {
+      "title": <Button
+        component="a"
+        href="/insights/inventory/lorem inventory id/"
+        isInline={true}
+        target="_blank"
+        variant="link"
+      >
+        lorem
+         
+        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
+      </Button>,
+    },
+    Object {
+      "title": <React.Fragment>
+        t(curiosity-inventory.measurementType, {"context":null})
+         
+        
+      </React.Fragment>,
+    },
+    Object {
+      "title": 10,
+    },
+    Object {
+      "title": <DateFormat
+        date="lorem date obj"
+      />,
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -619,12 +645,14 @@ Object {
       "cellWidth": 15,
       "id": "sockets",
       "isSortable": true,
+      "isWrappable": true,
     },
     Object {
       "cell": [Function],
       "cellWidth": 15,
       "id": "lastSeen",
       "isSortable": true,
+      "isWrappable": true,
     },
   ],
   "query": Object {
@@ -748,12 +776,14 @@ exports[`RhelView Component should render a non-connected component: non-connect
             "cellWidth": 15,
             "id": "sockets",
             "isSortable": true,
+            "isWrappable": true,
           },
           Object {
             "cell": [Function],
             "cellWidth": 15,
             "id": "lastSeen",
             "isSortable": true,
+            "isWrappable": true,
           },
         ]
       }
