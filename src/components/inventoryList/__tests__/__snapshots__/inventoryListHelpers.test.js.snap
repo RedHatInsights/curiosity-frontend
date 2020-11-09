@@ -42,6 +42,48 @@ Object {
 }
 `;
 
+exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: NOT wrappable header 1`] = `
+Array [
+  Object {
+    "id": "lorem",
+    "isWrappable": false,
+  },
+]
+`;
+
+exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: append/push a wrappable transform 1`] = `
+Object {
+  "id": "lorem",
+  "isWrappable": true,
+  "transforms": Array [
+    "lorem",
+    [Function],
+  ],
+}
+`;
+
+exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: apply default wrappable transform 1`] = `
+Object {
+  "id": "lorem",
+  "isWrappable": true,
+  "transforms": Array [
+    [Function],
+  ],
+}
+`;
+
+exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: wrappable header 1`] = `
+Array [
+  Object {
+    "id": "lorem",
+    "isWrappable": true,
+    "transforms": Array [
+      [Function],
+    ],
+  },
+]
+`;
+
 exports[`InventoryListHelpers parseInventoryFilters should parse and return updated filters for table cells: NOT sortable 1`] = `
 Array [
   Object {
@@ -197,6 +239,7 @@ Object {
 exports[`InventoryListHelpers should have specific functions: inventoryListHelpers 1`] = `
 Object {
   "applySortFilters": [Function],
+  "applyWrappableFilters": [Function],
   "parseInventoryFilters": [Function],
   "parseRowCellsListData": [Function],
 }
