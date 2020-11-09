@@ -279,12 +279,14 @@ RhelView.defaultProps = {
     {
       id: 'sockets',
       isSortable: true,
+      isWrappable: true,
       cellWidth: 15
     },
     {
       id: 'lastSeen',
       cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
       isSortable: true,
+      isWrappable: true,
       cellWidth: 15
     }
   ],
