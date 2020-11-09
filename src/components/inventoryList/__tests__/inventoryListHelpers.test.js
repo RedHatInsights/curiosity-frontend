@@ -1,6 +1,7 @@
 import {
   inventoryListHelpers,
   applySortFilters,
+  applyWrappableFilters,
   parseInventoryFilters,
   parseRowCellsListData
 } from '../inventoryListHelpers';
@@ -105,5 +106,23 @@ describe('InventoryListHelpers', () => {
         }
       })
     ).toMatchSnapshot('sortable, active column');
+  });
+
+  it('applyWrappableFilters should apply and return updated filters for table header wrapping', () => {
+    const filter = {
+      id: 'lorem',
+      isWrappable: false
+    };
+
+    expect(parseInventoryFilters({ filters: [filter] })).toMatchSnapshot('NOT wrappable header');
+
+    filter.isWrappable = true;
+    expect(parseInventoryFilters({ filters: [filter] })).toMatchSnapshot('wrappable header');
+
+    filter.transforms = undefined;
+    expect(applyWrappableFilters({ filter })).toMatchSnapshot('apply default wrappable transform');
+
+    filter.transforms = ['lorem'];
+    expect(applyWrappableFilters({ filter })).toMatchSnapshot('append/push a wrappable transform');
   });
 });

@@ -1,4 +1,5 @@
-import { cellWidth as PfCellWidth, SortByDirection } from '@patternfly/react-table';
+import React from 'react';
+import { cellWidth as PfCellWidth, SortByDirection, wrappable } from '@patternfly/react-table';
 import _camelCase from 'lodash/camelCase';
 import { translate } from '../i18n/i18n';
 import {
@@ -49,6 +50,18 @@ const applySortFilters = ({ filter = {}, onSort, query = {} }) => {
   return updatedFilter;
 };
 
+const applyWrappableFilters = ({ filter = {} }) => {
+  const updatedFilter = { ...filter };
+
+  if (Array.isArray(updatedFilter.transforms)) {
+    updatedFilter.transforms.push(wrappable);
+  } else {
+    updatedFilter.transforms = [wrappable];
+  }
+
+  return updatedFilter;
+};
+
 /**
  * Apply additional properties to filters.
  *
@@ -64,6 +77,10 @@ const parseInventoryFilters = ({ filters = [], onSort, query = {} }) =>
 
     if (updatedFilter.isSortable) {
       Object.assign(updatedFilter, applySortFilters({ filter: updatedFilter, onSort, query }));
+    }
+
+    if (updatedFilter.isWrappable) {
+      Object.assign(updatedFilter, applyWrappableFilters({ filter: updatedFilter }));
     }
 
     return updatedFilter;
@@ -113,7 +130,11 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
         headerUpdated = (typeof header === 'function' && header({ ...allCells })) || header;
       }
 
-      if (typeof headerUpdated === 'string') {
+      if (
+        typeof headerUpdated === 'string' ||
+        typeof headerUpdated === 'number' ||
+        React.isValidElement(headerUpdated)
+      ) {
         headerUpdated = {
           title: headerUpdated
         };
@@ -143,7 +164,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
         cellUpdated = (typeof cell === 'function' && cell({ ...allCells }, { ...session })) || cell;
       }
 
-      if (typeof cellUpdated === 'string') {
+      if (typeof cellUpdated === 'string' || typeof cellUpdated === 'number' || React.isValidElement(cellUpdated)) {
         cellUpdated = {
           title: cellUpdated
         };
@@ -163,6 +184,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
 
 const inventoryListHelpers = {
   applySortFilters,
+  applyWrappableFilters,
   parseInventoryFilters,
   parseRowCellsListData
 };
@@ -171,6 +193,7 @@ export {
   inventoryListHelpers as default,
   inventoryListHelpers,
   applySortFilters,
+  applyWrappableFilters,
   parseInventoryFilters,
   parseRowCellsListData
 };
