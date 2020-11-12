@@ -10,8 +10,8 @@ import { Section } from '@redhat-cloud-services/frontend-components/components/c
  * @param {string} props.className
  * @returns {Node}
  */
-const PageToolbar = ({ children, className, ...props }) => (
-  <Section className={`curiosity-page-toolbar ${className}`} {...props}>
+const PageMessages = ({ children, className, ...props }) => (
+  <Section className={`curiosity-page-messages ${className}`} {...props}>
     {children}
   </Section>
 );
@@ -21,7 +21,7 @@ const PageToolbar = ({ children, className, ...props }) => (
  *
  * @type {{children: Node, className: string}}
  */
-PageToolbar.propTypes = {
+PageMessages.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string
 };
@@ -31,8 +31,8 @@ PageToolbar.propTypes = {
  *
  * @type {{className: string}}
  */
-PageToolbar.defaultProps = {
+PageMessages.defaultProps = {
   className: ''
 };
 
-export { PageToolbar as default, PageToolbar };
+export { PageMessages as default, PageMessages };
