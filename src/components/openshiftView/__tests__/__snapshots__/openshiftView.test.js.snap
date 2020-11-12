@@ -8,7 +8,9 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
   >
     t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
   </PageHeader>
-  <PageToolbar>
+  <PageToolbar
+    className=""
+  >
     <Connect(Toolbar)
       filterOptions={
         Array [
@@ -161,7 +163,9 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   >
     t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
   </PageHeader>
-  <PageToolbar>
+  <PageToolbar
+    className=""
+  >
     <Connect(Toolbar)
       filterOptions={
         Array [
@@ -731,7 +735,9 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   >
     t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
   </PageHeader>
-  <PageToolbar>
+  <PageToolbar
+    className=""
+  >
     <Connect(Toolbar)
       filterOptions={
         Array [
