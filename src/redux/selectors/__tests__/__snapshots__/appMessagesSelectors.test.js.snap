@@ -1,14 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppMessagesSelectors should map a fulfilled product ID response to an aggregated output: fulfilled 1`] = `
+Object {
+  "appMessages": Object {
+    "cloudigradeMismatch": true,
+  },
+}
+`;
+
 exports[`AppMessagesSelectors should pass minimal data on a product ID without a product ID provided: no product id error 1`] = `
 Object {
-  "appMessages": Object {},
+  "appMessages": Object {
+    "cloudigradeMismatch": false,
+  },
 }
 `;
 
 exports[`AppMessagesSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
 Object {
-  "appMessages": Object {},
+  "appMessages": Object {
+    "cloudigradeMismatch": false,
+  },
+}
+`;
+
+exports[`AppMessagesSelectors should populate data from the in memory cache: cached data: cache used and pending 1`] = `
+Object {
+  "appMessages": Object {
+    "cloudigradeMismatch": true,
+  },
+}
+`;
+
+exports[`AppMessagesSelectors should populate data from the in memory cache: cached data: initial fulfilled 1`] = `
+Object {
+  "appMessages": Object {
+    "cloudigradeMismatch": true,
+  },
+}
+`;
+
+exports[`AppMessagesSelectors should populate data from the in memory cache: cached data: update and fulfilled 1`] = `
+Object {
+  "appMessages": Object {
+    "cloudigradeMismatch": true,
+  },
+}
+`;
+
+exports[`AppMessagesSelectors should populate data on a product ID when the api response is missing expected properties: data populated, missing properties 1`] = `
+Object {
+  "appMessages": Object {
+    "cloudigradeMismatch": false,
+  },
 }
 `;
 

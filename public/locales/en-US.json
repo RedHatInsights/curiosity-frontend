@@ -3,6 +3,11 @@
     "pending": "Authenticating...",
     "maintenanceCopy": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
+  "curiosity-banner": {
+    "dataMismatchTitle": "Improve reporting accuracy",
+    "dataMismatchMessage": "Action required in order to improve {{appName}} reporting.",
+    "dataMismatchMessage_cloudigradeMismatch": "<0>View recommmend actions</0> to take in order to improve {{appName}} reporting."
+  },
   "curiosity-graph": {
     "cardHeading": "CPU usage",
     "coresHeading": "CPU core usage",

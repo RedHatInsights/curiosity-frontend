@@ -27,6 +27,19 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/bannerMessages/bannerMessages.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-banner.dataMismatchTitle",
+        "match": "translate('curiosity-banner.dataMismatchTitle')",
+      },
+      Object {
+        "key": "curiosity-banner.dataMismatchMessage",
+        "match": "translate( 'curiosity-banner.dataMismatchMessage', { context: helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS !== '' && 'cloudigradeMismatch', appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href={helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS} /> ] )",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/c3GraphCard/c3GraphCard.js",
     "keys": Array [
       Object {
