@@ -101,7 +101,9 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
     // Apply "display logic" then return a custom value for Reporting graph entries
     const customReportValue = (data, key, presetData) => ({
       ...presetData,
-      hasData: data[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_DATA]
+      hasData: data[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_DATA],
+      hasCloudigradeData: data[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_CLOUDIGRADE_DATA],
+      hasCloudigradeMismatch: data[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_CLOUDIGRADE_MISMATCH]
     });
 
     // Apply "display logic" then return a custom value for Capacity graph entries
