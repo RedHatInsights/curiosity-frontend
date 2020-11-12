@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerMessages Component should handle closing messages from state: state messages, OFF 1`] = `""`;
+
+exports[`BannerMessages Component should handle closing messages from state: state messages, ON 1`] = `
+<div
+  className="curiosity-banner-messages"
+>
+  <Alert
+    actionClose={
+      <AlertActionCloseButton
+        onClose={[Function]}
+      />
+    }
+    key="loremIpsum"
+    title="Lorem ipsum title"
+    variant="info"
+  >
+    Lorem ipsum message
+  </Alert>
+</div>
+`;
+
+exports[`BannerMessages Component should render a non-connected component: non-connected 1`] = `
+<div
+  className="curiosity-banner-messages"
+>
+  <Alert
+    actionClose={
+      <AlertActionCloseButton
+        onClose={[Function]}
+      />
+    }
+    key="loremIpsum"
+    title="Lorem ipsum title"
+    variant="info"
+  >
+    Lorem ipsum message
+  </Alert>
+</div>
+`;
+
+exports[`BannerMessages Component should render specific messages when the appMessages prop is used: specific messages, OFF 1`] = `""`;
+
+exports[`BannerMessages Component should render specific messages when the appMessages prop is used: specific messages, ON 1`] = `
+<div
+  className="curiosity-banner-messages"
+>
+  <Alert
+    actionClose={
+      <AlertActionCloseButton
+        onClose={[Function]}
+      />
+    }
+    key="loremIpsum"
+    title="Lorem ipsum title"
+    variant="info"
+  >
+    Lorem ipsum message
+  </Alert>
+</div>
+`;
