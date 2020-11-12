@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PageSection as Main } from '@patternfly/react-core';
 import { PageHeader } from './pageHeader';
+import { PageMessages } from './pageMessages';
 import { PageSection } from './pageSection';
 import { PageToolbar } from './pageToolbar';
 
@@ -19,9 +20,12 @@ import { PageToolbar } from './pageToolbar';
 const PageLayout = ({ children }) => (
   <React.Fragment>
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageHeader)}
+    {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageMessages)}
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageToolbar)}
     <Main padding={{ default: 'noPadding' }} className="curiosity">
-      {React.Children.toArray(children).filter(child => child.type !== PageHeader && child.type !== PageToolbar)}
+      {React.Children.toArray(children).filter(
+        child => child.type !== PageHeader && child.type !== PageMessages && child.type !== PageToolbar
+      )}
     </Main>
   </React.Fragment>
 );
@@ -40,4 +44,4 @@ PageLayout.propTypes = {
  */
 PageLayout.defaultProps = {};
 
-export { PageLayout as default, PageLayout, PageHeader, PageSection, PageToolbar };
+export { PageLayout as default, PageLayout, PageHeader, PageMessages, PageSection, PageToolbar };
