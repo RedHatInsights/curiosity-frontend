@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageToolbar Component should render a basic component: basic 1`] = `
-<PageToolbar
+exports[`PageMessages Component should render a basic component: basic 1`] = `
+<PageMessages
   className="lorem"
 >
   <Section
-    className="curiosity-page-toolbar lorem"
+    className="curiosity-page-messages lorem"
   >
     <section
-      className="curiosity-page-toolbar lorem"
+      className="curiosity-page-messages lorem"
     >
        
       <span
@@ -19,5 +19,5 @@ exports[`PageToolbar Component should render a basic component: basic 1`] = `
        
     </section>
   </Section>
-</PageToolbar>
+</PageMessages>
 `;
