@@ -6,7 +6,7 @@ import {
 } from '@patternfly/react-tokens';
 import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/cjs/DateFormat';
-import { PageLayout, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
+import { PageLayout, PageHeader, PageMessages, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -20,6 +20,7 @@ import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
+import BannerMessages from '../bannerMessages/bannerMessages';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -136,6 +137,9 @@ class OpenshiftView extends React.Component {
         <PageHeader productLabel={productLabel}>
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
         </PageHeader>
+        <PageMessages>
+          <BannerMessages productId={routeDetail.pathParameter} viewId={viewId} />
+        </PageMessages>
         <PageToolbar>
           <Toolbar
             filterOptions={initialToolbarFilters}

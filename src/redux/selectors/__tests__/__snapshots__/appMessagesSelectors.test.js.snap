@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppMessagesSelectors should pass minimal data on a product ID without a product ID provided: no product id error 1`] = `
+Object {
+  "appMessages": Object {},
+}
+`;
+
+exports[`AppMessagesSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
+Object {
+  "appMessages": Object {},
+}
+`;
+
+exports[`AppMessagesSelectors should return specific selectors: selectors 1`] = `
+Object {
+  "appMessages": [Function],
+  "makeAppMessages": [Function],
+}
+`;
