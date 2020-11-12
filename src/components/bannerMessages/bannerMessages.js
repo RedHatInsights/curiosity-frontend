@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, AlertActionCloseButton, AlertVariant } from '@patternfly/react-core';
+import { Alert, AlertActionCloseButton, AlertVariant, Button } from '@patternfly/react-core';
+import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import { connect, reduxSelectors } from '../../redux';
+import { translate } from '../i18n/i18n';
+import { helpers } from '../../common';
 
 /**
  * Render banner messages.
@@ -86,7 +89,30 @@ BannerMessages.propTypes = {
  * @type {{messages: Array}}
  */
 BannerMessages.defaultProps = {
-  messages: []
+  messages: [
+    {
+      id: 'cloudigradeMismatch',
+      title: translate('curiosity-banner.dataMismatchTitle'),
+      message: translate(
+        'curiosity-banner.dataMismatchMessage',
+        {
+          context: helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS !== '' && 'cloudigradeMismatch',
+          appName: helpers.UI_DISPLAY_NAME
+        },
+        [
+          <Button
+            isInline
+            component="a"
+            variant="link"
+            icon={<ExternalLinkAltIcon />}
+            iconPosition="right"
+            target="_blank"
+            href={helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS}
+          />
+        ]
+      )
+    }
+  ]
 };
 
 /**

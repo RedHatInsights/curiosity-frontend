@@ -162,6 +162,13 @@ const UI_LINK_CONTACT_US = process.env.REACT_APP_UI_LINK_CONTACT_US;
 const UI_LINK_LEARN_MORE = process.env.REACT_APP_UI_LINK_LEARN_MORE;
 
 /**
+ * A url, or uri, for "recommend actions"
+ *
+ * @type {string}
+ */
+const UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS = process.env.REACT_APP_UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS;
+
+/**
  * UI locale default.
  *
  * @type {string}
@@ -252,6 +259,7 @@ const helpers = {
   UI_DISPLAY_START_NAME,
   UI_LINK_CONTACT_US,
   UI_LINK_LEARN_MORE,
+  UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS,
   UI_LOCALE_DEFAULT,
   UI_LOCALE_DEFAULT_DESC,
   UI_LOGGER_ID,
