@@ -90,6 +90,8 @@ const getApiVersion = () =>
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
+ *           "has_cloudigrade_data": true,
+ *           "has_cloudigrade_mismatch": true,
  *           "cloud_sockets": 80
  *         },
  *         {
