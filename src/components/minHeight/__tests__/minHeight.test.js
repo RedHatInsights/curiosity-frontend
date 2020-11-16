@@ -3,6 +3,14 @@ import { mount, shallow } from 'enzyme';
 import { MinHeight } from '../minHeight';
 
 describe('MinHeight Component', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.runAllTimers();
+  });
+
   it('should render a non-connected component', () => {
     const props = {};
 
@@ -12,67 +20,75 @@ describe('MinHeight Component', () => {
 
   it('should set minHeight in relation to contents and props', () => {
     const props = {
-      autoUpdate: true
+      updateOnContent: true
     };
-    const component = shallow(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    const component = mount(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    const componentInstance = component.instance();
 
-    expect(component.instance().setMinHeight).toBeDefined();
-
-    // initial height should be zero
-    expect(component.instance().updatedMinHeight).toEqual(0);
+    // initial minHeight should be undefined
+    componentInstance.containerRef.current = { style: {} };
+    expect(componentInstance.containerRef.current.style.minHeight).toBe(undefined);
 
     // set the container size arbitrarily
-    component.instance().containerRef.current = { clientHeight: 100 };
-    component.instance().componentDidUpdate();
-    expect(component.instance().updatedMinHeight).toEqual(100);
+    componentInstance.containerRef.current = { clientHeight: 75, style: {} };
+    componentInstance.innerContainerRef.current = { clientHeight: 75 };
+    jest.runAllTimers();
+    expect(componentInstance.containerRef.current.style.minHeight).toBe('75px');
 
     // set a minimum minHeight
     component.setProps({ minHeight: 200 });
-    expect(component.instance().updatedMinHeight).toEqual(200);
+    jest.runAllTimers();
+    expect(componentInstance.containerRef.current.style.minHeight).toBe('200px');
 
     // disable "on update" minHeight adjustments
-    component.setProps({ autoUpdate: false, minHeight: 300 });
-    expect(component.instance().updatedMinHeight).toEqual(200);
+    component.setProps({ updateOnContent: false, minHeight: 300 });
+    jest.runAllTimers();
+    expect(componentInstance.containerRef.current.style.minHeight).toBe('200px');
   });
 
   it('should set minHeight on resize', () => {
     const props = {};
     const component = shallow(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    const componentInstance = component.instance();
 
-    expect(component.instance().onResizeContainer).toBeDefined();
+    expect(componentInstance.onResizeContainer).toBeDefined();
 
     // initial height and width should be zero
-    expect(component.instance().updatedMinHeight).toEqual(0);
-    expect(component.instance().updatedContainerWidth).toEqual(0);
+    componentInstance.containerRef.current = {};
+    expect(componentInstance.updatedContainerWidth).toBe(0);
 
     // set the container size arbitrarily and force handleResize to fire
-    component.instance().containerRef.current = { clientHeight: 100, clientWidth: 200 };
+    componentInstance.containerRef.current = { clientHeight: 100, clientWidth: 200, style: {} };
+    componentInstance.innerContainerRef.current = { clientHeight: 100, clientWidth: 200 };
     global.dispatchEvent(new Event('resize'));
-    expect(component.instance().updatedMinHeight).toEqual(100);
-    expect(component.instance().updatedContainerWidth).toEqual(200);
+    expect(componentInstance.containerRef.current.style.minHeight).toBe('100px');
+    expect(componentInstance.updatedContainerWidth).toBe(200);
 
     // set the container size arbitrarily and force handleResize to fire
-    component.instance().containerRef.current = { clientHeight: 1000, clientWidth: 1337 };
+    componentInstance.containerRef.current = { clientHeight: 1000, clientWidth: 1337, style: {} };
+    componentInstance.innerContainerRef.current = { clientHeight: 1000, clientWidth: 1337 };
     global.dispatchEvent(new Event('resize'));
-    expect(component.instance().updatedMinHeight).toEqual(1000);
-    expect(component.instance().updatedContainerWidth).toEqual(1337);
+    expect(componentInstance.containerRef.current.style.minHeight).toBe('1000px');
+    expect(componentInstance.updatedContainerWidth).toBe(1337);
+
+    componentInstance.containerRef.current = { clientHeight: 600, clientWidth: 600, style: { minHeight: '1000px' } };
+    componentInstance.innerContainerRef.current = { clientHeight: 600, clientWidth: 600 };
+    component.setProps({ updateOnResize: false });
+    global.dispatchEvent(new Event('resize'));
+    expect(componentInstance.containerRef.current.style.minHeight).toBe('1000px');
+    expect(componentInstance.updatedContainerWidth).toBe(1337);
   });
 
   it('should attempt to handle a ResizeObserver', () => {
-    const observe = jest.fn();
-    const unobserve = jest.fn();
-
-    window.ResizeObserver = jest.fn().mockImplementation(() => ({
-      observe,
-      unobserve
-    }));
-
     const props = {};
-    const component = mount(<MinHeight {...props}>lorem ipsum</MinHeight>);
-    expect(observe).toHaveBeenCalledTimes(1);
+    const setResizeObserver = jest.spyOn(MinHeight.prototype, 'setResizeObserver');
 
+    const component = mount(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    expect(setResizeObserver).toHaveBeenCalledTimes(1);
+
+    const resizeObserver = jest.spyOn(component.instance(), 'resizeObserver');
     component.unmount();
-    expect(unobserve).toHaveBeenCalledTimes(1);
+    expect(resizeObserver).toHaveBeenCalledTimes(1);
   });
 
   it('should run componentWillUnmount method successfully', () => {

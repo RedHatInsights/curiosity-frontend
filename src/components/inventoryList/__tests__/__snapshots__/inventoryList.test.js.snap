@@ -129,6 +129,8 @@ exports[`InventoryList Component should handle variations in data: filtered data
     autoUpdate={true}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -152,9 +154,10 @@ exports[`InventoryList Component should handle variations in data: filtered data
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight-10"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -204,6 +207,8 @@ exports[`InventoryList Component should handle variations in data: filtered data
     autoUpdate={true}
     key="footerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardFooter
       className=""
@@ -233,6 +238,8 @@ exports[`InventoryList Component should handle variations in data: variable data
     autoUpdate={true}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -256,9 +263,10 @@ exports[`InventoryList Component should handle variations in data: variable data
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight-10"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -304,6 +312,8 @@ exports[`InventoryList Component should handle variations in data: variable data
     autoUpdate={true}
     key="footerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardFooter
       className=""
@@ -333,6 +343,8 @@ exports[`InventoryList Component should render a non-connected component: non-co
     autoUpdate={true}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -356,9 +368,10 @@ exports[`InventoryList Component should render a non-connected component: non-co
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight-10"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -382,6 +395,8 @@ exports[`InventoryList Component should render a non-connected component: non-co
     autoUpdate={true}
     key="footerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardFooter
       className=""

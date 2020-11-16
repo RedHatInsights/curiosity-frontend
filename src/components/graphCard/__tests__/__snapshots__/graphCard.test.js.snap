@@ -70,9 +70,10 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   className="curiosity-usage-graph"
 >
   <MinHeight
-    autoUpdate={false}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -123,9 +124,10 @@ exports[`GraphCard Component should render a non-connected component: non-connec
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -199,9 +201,10 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
   className="curiosity-usage-graph"
 >
   <MinHeight
-    autoUpdate={false}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -252,9 +255,10 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -324,9 +328,10 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
   className="curiosity-usage-graph"
 >
   <MinHeight
-    autoUpdate={false}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -377,9 +382,10 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -449,9 +455,10 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   className="curiosity-usage-graph"
 >
   <MinHeight
-    autoUpdate={false}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -502,9 +509,10 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
@@ -574,9 +582,10 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
   className="curiosity-usage-graph"
 >
   <MinHeight
-    autoUpdate={false}
     key="headerMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardHeader>
       <CardTitle>
@@ -627,9 +636,10 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
     </CardHeader>
   </MinHeight>
   <MinHeight
-    autoUpdate={false}
     key="bodyMinHeight"
     minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
   >
     <CardBody>
       <div
