@@ -229,34 +229,31 @@ RhelView.defaultProps = {
           return displayName.value;
         }
 
-        if (!authorized) {
-          return (
-            <React.Fragment>
-              {displayName.value || inventoryId.value}{' '}
-              {(numberOfGuests.value &&
-                translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
-                  <PfLabel color="blue" />
-                ])) ||
-                ''}
-            </React.Fragment>
+        let updatedDisplayName = displayName.value || inventoryId.value;
+
+        if (authorized) {
+          updatedDisplayName = (
+            <Button
+              isInline
+              component="a"
+              variant="link"
+              target="_blank"
+              href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
+            >
+              {displayName.value || inventoryId.value}
+            </Button>
           );
         }
 
         return (
-          <Button
-            isInline
-            component="a"
-            variant="link"
-            target="_blank"
-            href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
-          >
-            {displayName.value || inventoryId.value}{' '}
+          <React.Fragment>
+            {updatedDisplayName}{' '}
             {(numberOfGuests.value &&
               translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
                 <PfLabel color="blue" />
               ])) ||
               ''}
-          </Button>
+          </React.Fragment>
         );
       },
       isSortable: true
