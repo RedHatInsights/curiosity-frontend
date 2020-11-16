@@ -159,7 +159,8 @@ class InventoryList extends React.Component {
       perPageDefault,
       productId,
       query,
-      viewId
+      viewId,
+      fulfilled
     } = this.props;
 
     if (isDisabled) {
@@ -167,10 +168,18 @@ class InventoryList extends React.Component {
     }
 
     const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
+    const updatedPage = query[RHSM_API_QUERY_TYPES.OFFSET] / query[RHSM_API_QUERY_TYPES.LIMIT] + 1 || 1;
+    const isLastPage = updatedPage === Math.ceil(itemCount / updatedPerPage);
+
+    // Set an updated key to force refresh minHeight
+    const minHeightContentRefreshKey =
+      (fulfilled === true && itemCount < updatedPerPage && `bodyMinHeight-${updatedPerPage}-resize`) ||
+      (fulfilled === true && isLastPage && `bodyMinHeight-${updatedPerPage}-resize`) ||
+      `bodyMinHeight-${updatedPerPage}`;
 
     return (
       <Card className="curiosity-inventory-card">
-        <MinHeight key="headerMinHeight" autoUpdate>
+        <MinHeight key="headerMinHeight" updateOnContent>
           <CardHeader>
             <CardTitle>
               <Title headingLevel="h2" size="lg">
@@ -189,7 +198,7 @@ class InventoryList extends React.Component {
             </CardActions>
           </CardHeader>
         </MinHeight>
-        <MinHeight key={`bodyMinHeight-${updatedPerPage}`}>
+        <MinHeight key={minHeightContentRefreshKey} updateOnContent>
           <CardBody>
             <div className={(error && 'blur') || 'fadein'}>
               {pending && (
@@ -209,7 +218,7 @@ class InventoryList extends React.Component {
             </div>
           </CardBody>
         </MinHeight>
-        <MinHeight key="footerMinHeight" autoUpdate>
+        <MinHeight key="footerMinHeight" updateOnContent>
           <CardFooter className={(error && 'blur') || ''}>
             <TableToolbar isFooter>
               <Pagination
@@ -232,12 +241,14 @@ class InventoryList extends React.Component {
  * Prop types.
  *
  * @type {{productId: string, listData: Array, session: object, pending: boolean, query: object,
- *     getHostsInventory: Function, error: boolean, cardTitle: string, itemCount: number, viewId: string,
- *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
+ *     fulfilled: boolean, getHostsInventory: Function, error: boolean, cardTitle: string, itemCount: number,
+ *     viewId: string, filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number,
+ *     isDisabled: boolean}}
  */
 InventoryList.propTypes = {
-  error: PropTypes.bool,
   cardTitle: PropTypes.string,
+  error: PropTypes.bool,
+  fulfilled: PropTypes.bool,
   filterGuestsData: PropTypes.array,
   filterInventoryData: PropTypes.arrayOf(
     PropTypes.shape({
@@ -273,13 +284,14 @@ InventoryList.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, filterInventoryData: Array, listData: Array, session: object, filterGuestsData: Array,
- *     pending: boolean, getHostsInventory: Function, perPageDefault: number, isDisabled: boolean, error: boolean,
- *     cardTitle: null, itemCount: number}}
+ * @type {{listData: Array, session: object, pending: boolean, fulfilled: boolean, getHostsInventory: Function,
+ *     error: boolean, cardTitle: null, itemCount: number, viewId: string, filterInventoryData: Array,
+ *     filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.defaultProps = {
-  error: false,
   cardTitle: null,
+  error: false,
+  fulfilled: false,
   filterGuestsData: [],
   filterInventoryData: [],
   getHostsInventory: helpers.noop,
