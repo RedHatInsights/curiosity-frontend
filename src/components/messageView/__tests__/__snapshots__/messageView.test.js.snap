@@ -3,6 +3,7 @@
 exports[`MessageView Component should have fallback conditions for all props: fallback display 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
@@ -20,6 +21,7 @@ exports[`MessageView Component should have fallback conditions for all props: fa
 exports[`MessageView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
@@ -50,6 +52,7 @@ exports[`MessageView Component should render a non-connected component: non-conn
 exports[`MessageView Component should render children when provided: children display 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
