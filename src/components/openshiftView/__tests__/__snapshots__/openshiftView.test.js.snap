@@ -168,6 +168,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
           "uom": "cores",
         }
       }
+      settings={Object {}}
       viewId="viewOpenShift"
     />
   </PageSection>
@@ -342,6 +343,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           "uom": "cores",
         }
       }
+      settings={Object {}}
       viewId="viewOpenShift"
     />
   </PageSection>
@@ -935,6 +937,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           "uom": "cores",
         }
       }
+      settings={Object {}}
       viewId="viewOpenShift"
     />
   </PageSection>
