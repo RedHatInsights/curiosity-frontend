@@ -99,7 +99,7 @@ class InventoryList extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { filterGuestsData, filterInventoryData, listData, query, session } = this.props;
+    const { filterGuestsData, filterInventoryData, listData, query, session, settings } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
@@ -113,21 +113,29 @@ class InventoryList extends React.Component {
         session
       });
 
-      const hasGuests = cellData?.numberOfGuests > 0;
-      const guestsId = cellData?.subscriptionManagerId;
       updatedColumnHeaders = columnHeaders;
+
+      const guestsId = cellData?.subscriptionManagerId;
+      let hasGuests = cellData?.numberOfGuests > 0 && guestsId;
+
+      // Apply hasGuests callback, return boolean
+      if (typeof settings?.hasGuests === 'function') {
+        hasGuests = settings.hasGuests({ ...cellData }, { ...session });
+      }
 
       return {
         cells,
-        expandedContent: hasGuests && guestsId && (
-          <GuestsList
-            key={guestsId}
-            filterGuestsData={filterGuestsData}
-            numberOfGuests={cellData?.numberOfGuests}
-            id={guestsId}
-            query={query}
-          />
-        )
+        expandedContent:
+          (hasGuests && (
+            <GuestsList
+              key={guestsId}
+              filterGuestsData={filterGuestsData}
+              numberOfGuests={cellData?.numberOfGuests}
+              id={guestsId}
+              query={query}
+            />
+          )) ||
+          undefined
       };
     });
 
@@ -240,7 +248,7 @@ class InventoryList extends React.Component {
 /**
  * Prop types.
  *
- * @type {{productId: string, listData: Array, session: object, pending: boolean, query: object,
+ * @type {{settings: object, productId: string, listData: Array, session: object, pending: boolean, query: object,
  *     fulfilled: boolean, getHostsInventory: Function, error: boolean, cardTitle: string, itemCount: number,
  *     viewId: string, filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number,
  *     isDisabled: boolean}}
@@ -278,15 +286,18 @@ InventoryList.propTypes = {
   perPageDefault: PropTypes.number,
   query: PropTypes.object.isRequired,
   session: PropTypes.object,
+  settings: PropTypes.shape({
+    hasGuests: PropTypes.func
+  }),
   viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{listData: Array, session: object, pending: boolean, fulfilled: boolean, getHostsInventory: Function,
- *     error: boolean, cardTitle: null, itemCount: number, viewId: string, filterInventoryData: Array,
- *     filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
+ * @type {{settings: object, listData: Array, session: object, pending: boolean, fulfilled: boolean,
+ *     getHostsInventory: Function, error: boolean, cardTitle: null, itemCount: number, viewId: string,
+ *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.defaultProps = {
   cardTitle: null,
@@ -301,6 +312,7 @@ InventoryList.defaultProps = {
   pending: false,
   perPageDefault: 10,
   session: {},
+  settings: {},
   viewId: 'inventoryList'
 };
 
