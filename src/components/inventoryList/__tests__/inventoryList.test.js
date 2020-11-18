@@ -90,6 +90,19 @@ describe('InventoryList Component', () => {
     });
 
     expect(component.find(Table)).toMatchSnapshot('number of guests, and id');
+
+    component.setProps({
+      ...props,
+      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 2, subscriptionManagerId: 'loremipsum' }],
+      settings: {
+        hasGuests: data => {
+          const { numberOfGuests = 0, subscriptionManagerId = null } = data;
+          return numberOfGuests > 2 && subscriptionManagerId;
+        }
+      }
+    });
+
+    expect(component.find(Table)).toMatchSnapshot('number of guests, id, and NO expandable guests display');
   });
 
   it('should handle updating sorting through redux state', () => {
