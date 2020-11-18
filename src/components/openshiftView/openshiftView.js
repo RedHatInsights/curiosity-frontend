@@ -134,7 +134,7 @@ class OpenshiftView extends React.Component {
 
     return (
       <PageLayout>
-        <PageHeader productLabel={productLabel}>
+        <PageHeader productLabel={productLabel} includeTour>
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
         </PageHeader>
         <PageMessages>

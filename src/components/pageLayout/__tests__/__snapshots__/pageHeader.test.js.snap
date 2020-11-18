@@ -2,6 +2,7 @@
 
 exports[`PageHeader Component should render a basic component: basic 1`] = `
 <PageHeader
+  includeTour={false}
   productLabel={null}
   t={[Function]}
 >
@@ -10,36 +11,59 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
       widget-type="InsightsPageHeader"
     >
-      <PageHeaderTitle
-        className="pf-u-mb-sm"
-        title={
-          <span
-            className="test"
-          >
-            lorem
-          </span>
+      <Flex
+        justifyContent={
+          Object {
+            "sm": "justifyContentSpaceBetween",
+          }
         }
       >
-        <Title
-          className="pf-u-mb-sm"
-          headingLevel="h1"
-          size="2xl"
-          widget-type="InsightsPageHeaderTitle"
+        <div
+          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
         >
-          <h1
-            className="pf-c-title pf-m-2xl pf-u-mb-sm"
-            widget-type="InsightsPageHeaderTitle"
-          >
-             
-            <span
-              className="test"
+          <FlexItem>
+            <div
+              className=""
             >
-              lorem
-            </span>
-             
-          </h1>
-        </Title>
-      </PageHeaderTitle>
+              <PageHeaderTitle
+                className="pf-u-mb-sm"
+                title={
+                  <span
+                    className="test"
+                  >
+                    lorem
+                  </span>
+                }
+              >
+                <Title
+                  className="pf-u-mb-sm"
+                  headingLevel="h1"
+                  size="2xl"
+                  widget-type="InsightsPageHeaderTitle"
+                >
+                  <h1
+                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                     
+                    <span
+                      className="test"
+                    >
+                      lorem
+                    </span>
+                     
+                  </h1>
+                </Title>
+              </PageHeaderTitle>
+            </div>
+          </FlexItem>
+          <FlexItem>
+            <div
+              className=""
+            />
+          </FlexItem>
+        </div>
+      </Flex>
     </section>
   </PageHeader>
 </PageHeader>
@@ -47,6 +71,7 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
 
 exports[`PageHeader Component should render string node types: string 1`] = `
 <PageHeader
+  includeTour={false}
   productLabel={null}
   t={[Function]}
 >
@@ -55,26 +80,49 @@ exports[`PageHeader Component should render string node types: string 1`] = `
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
       widget-type="InsightsPageHeader"
     >
-      <PageHeaderTitle
-        className="pf-u-mb-sm"
-        title="dolor sit"
+      <Flex
+        justifyContent={
+          Object {
+            "sm": "justifyContentSpaceBetween",
+          }
+        }
       >
-        <Title
-          className="pf-u-mb-sm"
-          headingLevel="h1"
-          size="2xl"
-          widget-type="InsightsPageHeaderTitle"
+        <div
+          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
         >
-          <h1
-            className="pf-c-title pf-m-2xl pf-u-mb-sm"
-            widget-type="InsightsPageHeaderTitle"
-          >
-             
-            dolor sit
-             
-          </h1>
-        </Title>
-      </PageHeaderTitle>
+          <FlexItem>
+            <div
+              className=""
+            >
+              <PageHeaderTitle
+                className="pf-u-mb-sm"
+                title="dolor sit"
+              >
+                <Title
+                  className="pf-u-mb-sm"
+                  headingLevel="h1"
+                  size="2xl"
+                  widget-type="InsightsPageHeaderTitle"
+                >
+                  <h1
+                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                     
+                    dolor sit
+                     
+                  </h1>
+                </Title>
+              </PageHeaderTitle>
+            </div>
+          </FlexItem>
+          <FlexItem>
+            <div
+              className=""
+            />
+          </FlexItem>
+        </div>
+      </Flex>
     </section>
   </PageHeader>
 </PageHeader>
@@ -82,6 +130,7 @@ exports[`PageHeader Component should render string node types: string 1`] = `
 
 exports[`PageHeader Component should render the subtitle when viewId is provided: with subtitle 1`] = `
 <PageHeader
+  includeTour={false}
   productLabel="RHEL"
   t={[Function]}
 >
@@ -90,29 +139,143 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
       className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
       widget-type="InsightsPageHeader"
     >
-      <PageHeaderTitle
-        className="pf-u-mb-sm"
-        title="lorem"
+      <Flex
+        justifyContent={
+          Object {
+            "sm": "justifyContentSpaceBetween",
+          }
+        }
       >
-        <Title
-          className="pf-u-mb-sm"
-          headingLevel="h1"
-          size="2xl"
-          widget-type="InsightsPageHeaderTitle"
+        <div
+          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
         >
-          <h1
-            className="pf-c-title pf-m-2xl pf-u-mb-sm"
-            widget-type="InsightsPageHeaderTitle"
-          >
-             
-            lorem
-             
-          </h1>
-        </Title>
-      </PageHeaderTitle>
+          <FlexItem>
+            <div
+              className=""
+            >
+              <PageHeaderTitle
+                className="pf-u-mb-sm"
+                title="lorem"
+              >
+                <Title
+                  className="pf-u-mb-sm"
+                  headingLevel="h1"
+                  size="2xl"
+                  widget-type="InsightsPageHeaderTitle"
+                >
+                  <h1
+                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                     
+                    lorem
+                     
+                  </h1>
+                </Title>
+              </PageHeaderTitle>
+            </div>
+          </FlexItem>
+          <FlexItem>
+            <div
+              className=""
+            />
+          </FlexItem>
+        </div>
+      </Flex>
       <p>
         t(curiosity-view.subtitle, {"appName":"Subscription Watch","context":"RHEL"}, [object Object])
       </p>
+    </section>
+  </PageHeader>
+</PageHeader>
+`;
+
+exports[`PageHeader Component should render the tour button when includeTour is provided: with tour button 1`] = `
+<PageHeader
+  includeTour={true}
+  productLabel={null}
+  t={[Function]}
+>
+  <PageHeader>
+    <section
+      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+      widget-type="InsightsPageHeader"
+    >
+      <Flex
+        justifyContent={
+          Object {
+            "sm": "justifyContentSpaceBetween",
+          }
+        }
+      >
+        <div
+          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
+        >
+          <FlexItem>
+            <div
+              className=""
+            >
+              <PageHeaderTitle
+                className="pf-u-mb-sm"
+                title="lorem"
+              >
+                <Title
+                  className="pf-u-mb-sm"
+                  headingLevel="h1"
+                  size="2xl"
+                  widget-type="InsightsPageHeaderTitle"
+                >
+                  <h1
+                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                     
+                    lorem
+                     
+                  </h1>
+                </Title>
+              </PageHeaderTitle>
+            </div>
+          </FlexItem>
+          <FlexItem>
+            <div
+              className=""
+            >
+              <Button
+                className="uxui-curiosity__button-tour"
+                isInline={true}
+                variant="link"
+              >
+                <button
+                  aria-disabled={false}
+                  aria-label={null}
+                  className="pf-c-button pf-m-link pf-m-inline uxui-curiosity__button-tour"
+                  data-ouia-component-id="OUIA-Generated-Button-link-1"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe={true}
+                  disabled={false}
+                  role={null}
+                  type="button"
+                >
+                  <Label
+                    color="blue"
+                  >
+                    <span
+                      className="pf-c-label pf-m-blue"
+                    >
+                      <span
+                        className="pf-c-label__content"
+                      >
+                        t(curiosity-optin.buttonTour)
+                      </span>
+                    </span>
+                  </Label>
+                </button>
+              </Button>
+            </div>
+          </FlexItem>
+        </div>
+      </Flex>
     </section>
   </PageHeader>
 </PageHeader>

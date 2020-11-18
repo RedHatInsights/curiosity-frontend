@@ -3,6 +3,7 @@
 exports[`OpenshiftView Component should display an alternate graph on query-string update: alternate graph 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={true}
     productLabel="OpenShift"
     t={[Function]}
   >
@@ -176,6 +177,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
 exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={true}
     productLabel="OpenShift"
     t={[Function]}
   >
@@ -768,6 +770,7 @@ Object {
 exports[`OpenshiftView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={true}
     productLabel="OpenShift"
     t={[Function]}
   >
