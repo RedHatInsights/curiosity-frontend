@@ -27,6 +27,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
 exports[`PageLayout Component should render header and section children: multiple children 1`] = `
 <PageLayout>
   <PageHeader
+    includeTour={false}
     key=".1"
     productLabel={null}
     t={[Function]}
@@ -36,26 +37,49 @@ exports[`PageLayout Component should render header and section children: multipl
         className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
         widget-type="InsightsPageHeader"
       >
-        <PageHeaderTitle
-          className="pf-u-mb-sm"
-          title="lorem"
+        <Flex
+          justifyContent={
+            Object {
+              "sm": "justifyContentSpaceBetween",
+            }
+          }
         >
-          <Title
-            className="pf-u-mb-sm"
-            headingLevel="h1"
-            size="2xl"
-            widget-type="InsightsPageHeaderTitle"
+          <div
+            className="pf-l-flex pf-m-justify-content-space-between-on-sm"
           >
-            <h1
-              className="pf-c-title pf-m-2xl pf-u-mb-sm"
-              widget-type="InsightsPageHeaderTitle"
-            >
-               
-              lorem
-               
-            </h1>
-          </Title>
-        </PageHeaderTitle>
+            <FlexItem>
+              <div
+                className=""
+              >
+                <PageHeaderTitle
+                  className="pf-u-mb-sm"
+                  title="lorem"
+                >
+                  <Title
+                    className="pf-u-mb-sm"
+                    headingLevel="h1"
+                    size="2xl"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                    <h1
+                      className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                      widget-type="InsightsPageHeaderTitle"
+                    >
+                       
+                      lorem
+                       
+                    </h1>
+                  </Title>
+                </PageHeaderTitle>
+              </div>
+            </FlexItem>
+            <FlexItem>
+              <div
+                className=""
+              />
+            </FlexItem>
+          </div>
+        </Flex>
       </section>
     </PageHeader>
   </PageHeader>
