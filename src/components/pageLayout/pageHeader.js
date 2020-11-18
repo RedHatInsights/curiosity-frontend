@@ -4,7 +4,7 @@ import {
   PageHeader as RcsPageHeader,
   PageHeaderTitle
 } from '@redhat-cloud-services/frontend-components/components/cjs/PageHeader';
-import { Button } from '@patternfly/react-core';
+import { Button, Flex, FlexItem, Label as PfLabel } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -14,13 +14,25 @@ import { translate } from '../i18n/i18n';
  *
  * @param {object} props
  * @param {Node} props.children
+ * @param {boolean} props.includeTour
  * @param {string} props.productLabel
  * @param {Function} props.t
  * @returns {Node}
  */
-const PageHeader = ({ children, t, productLabel }) => (
+const PageHeader = ({ children, includeTour, productLabel, t }) => (
   <RcsPageHeader>
-    <PageHeaderTitle title={children} className="pf-u-mb-sm" />
+    <Flex justifyContent={{ sm: 'justifyContentSpaceBetween' }}>
+      <FlexItem>
+        <PageHeaderTitle title={children} className="pf-u-mb-sm" />
+      </FlexItem>
+      <FlexItem>
+        {includeTour && (
+          <Button variant="link" className="uxui-curiosity__button-tour" isInline>
+            <PfLabel color="blue">{t('curiosity-optin.buttonTour')}</PfLabel>
+          </Button>
+        )}
+      </FlexItem>
+    </Flex>
     {productLabel && (
       <p>
         {t(`curiosity-view.subtitle`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [
@@ -42,10 +54,11 @@ const PageHeader = ({ children, t, productLabel }) => (
 /**
  * Prop types.
  *
- * @type {{productLabel: string, t: Function, children: Node}}
+ * @type {{children: Node, includeTour: boolean, productLabel: string, t: Function}}
  */
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired,
+  includeTour: PropTypes.bool,
   productLabel: PropTypes.string,
   t: PropTypes.func
 };
@@ -53,9 +66,10 @@ PageHeader.propTypes = {
 /**
  * Default props.
  *
- * @type {{productLabel: null, t: translate}}
+ * @type {{includeTour: boolean, productLabel: null, t: translate}}
  */
 PageHeader.defaultProps = {
+  includeTour: false,
   productLabel: null,
   t: translate
 };
