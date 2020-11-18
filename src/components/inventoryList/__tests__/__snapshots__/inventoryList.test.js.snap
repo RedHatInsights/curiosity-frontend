@@ -74,6 +74,39 @@ exports[`InventoryList Component should handle expandable guests data: number of
 />
 `;
 
+exports[`InventoryList Component should handle expandable guests data: number of guests, id, and NO expandable guests display 1`] = `
+<Table
+  ariaLabel={null}
+  borders={true}
+  className="curiosity-inventory-list"
+  columnHeaders={
+    Array [
+      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    ]
+  }
+  isHeader={true}
+  rows={
+    Array [
+      Object {
+        "cells": Array [
+          "sit",
+          "amet",
+          2,
+          "loremipsum",
+        ],
+        "expandedContent": undefined,
+      },
+    ]
+  }
+  summary={null}
+  t={[Function]}
+  variant="compact"
+/>
+`;
+
 exports[`InventoryList Component should handle updating sorting through redux state: dispatch filter 1`] = `
 Array [
   Array [
@@ -183,7 +216,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
                     "title": "ipsum",
                   },
                 ],
-                "expandedContent": false,
+                "expandedContent": undefined,
               },
               Object {
                 "cells": Array [
@@ -191,7 +224,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
                     "title": "sit",
                   },
                 ],
-                "expandedContent": false,
+                "expandedContent": undefined,
               },
             ]
           }
@@ -287,14 +320,14 @@ exports[`InventoryList Component should handle variations in data: variable data
                   "ipsum",
                   "sit",
                 ],
-                "expandedContent": false,
+                "expandedContent": undefined,
               },
               Object {
                 "cells": Array [
                   "sit",
                   "amet",
                 ],
-                "expandedContent": false,
+                "expandedContent": undefined,
               },
             ]
           }
