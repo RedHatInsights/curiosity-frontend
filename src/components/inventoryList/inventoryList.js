@@ -119,7 +119,7 @@ class InventoryList extends React.Component {
       let hasGuests = cellData?.numberOfGuests > 0 && guestsId;
 
       // Apply hasGuests callback, return boolean
-      if (typeof settings.hasGuests === 'function') {
+      if (typeof settings?.hasGuests === 'function') {
         hasGuests = settings.hasGuests({ ...cellData }, { ...session });
       }
 
