@@ -312,6 +312,10 @@ Array [
     "file": "./src/components/pageLayout/pageHeader.js",
     "keys": Array [
       Object {
+        "key": "curiosity-optin.buttonTour",
+        "match": "t('curiosity-optin.buttonTour')",
+      },
+      Object {
         "key": "curiosity-view.subtitle",
         "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href={helpers.UI_LINK_LEARN_MORE} /> ])",
       },

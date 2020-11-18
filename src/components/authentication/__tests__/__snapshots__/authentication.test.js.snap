@@ -68,6 +68,7 @@ exports[`Authentication Component should render a non-connected component error:
   >
     <PageLayout>
       <PageHeader
+        includeTour={false}
         key=".0"
         productLabel={null}
         t={[Function]}
@@ -77,26 +78,49 @@ exports[`Authentication Component should render a non-connected component error:
             className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
             widget-type="InsightsPageHeader"
           >
-            <PageHeaderTitle
-              className="pf-u-mb-sm"
-              title="Subscription Watch"
+            <Flex
+              justifyContent={
+                Object {
+                  "sm": "justifyContentSpaceBetween",
+                }
+              }
             >
-              <Title
-                className="pf-u-mb-sm"
-                headingLevel="h1"
-                size="2xl"
-                widget-type="InsightsPageHeaderTitle"
+              <div
+                className="pf-l-flex pf-m-justify-content-space-between-on-sm"
               >
-                <h1
-                  className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                  widget-type="InsightsPageHeaderTitle"
-                >
-                   
-                  Subscription Watch
-                   
-                </h1>
-              </Title>
-            </PageHeaderTitle>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <PageHeaderTitle
+                      className="pf-u-mb-sm"
+                      title="Subscription Watch"
+                    >
+                      <Title
+                        className="pf-u-mb-sm"
+                        headingLevel="h1"
+                        size="2xl"
+                        widget-type="InsightsPageHeaderTitle"
+                      >
+                        <h1
+                          className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                          widget-type="InsightsPageHeaderTitle"
+                        >
+                           
+                          Subscription Watch
+                           
+                        </h1>
+                      </Title>
+                    </PageHeaderTitle>
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  />
+                </FlexItem>
+              </div>
+            </Flex>
           </section>
         </PageHeader>
       </PageHeader>
