@@ -44,6 +44,7 @@ class RhelView extends React.Component {
       initialGraphFilters,
       initialGuestsFilters,
       initialInventoryFilters,
+      initialInventorySettings,
       initialToolbarFilters,
       location,
       productLabel,
@@ -103,6 +104,7 @@ class RhelView extends React.Component {
             key={routeDetail.pathParameter}
             filterGuestsData={initialGuestsFilters}
             filterInventoryData={initialInventoryFilters}
+            settings={initialInventorySettings}
             query={initialInventoryQuery}
             productId={routeDetail.pathParameter}
             viewId={viewId}
@@ -119,7 +121,7 @@ class RhelView extends React.Component {
  *
  * @type {{productLabel: string, initialToolbarFilters: Array, viewId: string, t: Function, query: object,
  *     initialGraphFilters: Array, routeDetail: object, location: object, initialGuestsFilters: Array,
- *     initialInventoryFilters: Array}}
+ *     initialInventorySettings: object, initialInventoryFilters: Array}}
  */
 RhelView.propTypes = {
   query: PropTypes.shape({
@@ -128,6 +130,9 @@ RhelView.propTypes = {
   initialGraphFilters: PropTypes.array,
   initialGuestsFilters: PropTypes.array,
   initialInventoryFilters: PropTypes.array,
+  initialInventorySettings: PropTypes.shape({
+    hasGuests: PropTypes.func
+  }),
   initialToolbarFilters: PropTypes.array,
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
@@ -148,7 +153,8 @@ RhelView.propTypes = {
  * Default props.
  *
  * @type {{productLabel: string, initialToolbarFilters: Array, viewId: string, t: translate, query: object,
- *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array}}
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventorySettings: object,
+ *     initialInventoryFilters: Array}}
  */
 RhelView.defaultProps = {
   query: {
@@ -291,6 +297,7 @@ RhelView.defaultProps = {
       cellWidth: 15
     }
   ],
+  initialInventorySettings: {},
   initialToolbarFilters: [
     {
       id: RHSM_API_QUERY_TYPES.SLA
