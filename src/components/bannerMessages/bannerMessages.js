@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, AlertActionCloseButton, AlertVariant, Button } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
-import { connect, reduxSelectors } from '../../redux';
+import { connect, reduxActions, reduxSelectors } from '../../redux';
 import { translate } from '../i18n/i18n';
-import { helpers } from '../../common';
+import { dateHelpers, helpers } from '../../common';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
 /**
  * Render banner messages.
@@ -13,6 +14,38 @@ import { helpers } from '../../common';
  */
 class BannerMessages extends React.Component {
   state = {};
+
+  componentDidMount() {
+    this.onUpdateData();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { productId } = this.props;
+
+    if (productId !== prevProps.productId) {
+      this.onUpdateData();
+    }
+  }
+
+  /**
+   * Call the RHSM APIs, apply filters.
+   *
+   * @event onUpdateGraphData
+   */
+  onUpdateData = () => {
+    const { getMessageReports, productId } = this.props;
+
+    if (productId) {
+      const { startDate, endDate } = dateHelpers.getRangedDateTime('CURRENT');
+      const query = {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString(),
+        [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString()
+      };
+
+      getMessageReports(productId, query, { cancel: false });
+    }
+  };
 
   /**
    * Apply messages' configuration to alerts.
@@ -69,10 +102,11 @@ class BannerMessages extends React.Component {
 /**
  * Prop types.
  *
- * @type {{appMessages: object, messages: Array}}
+ * @type {{appMessages: object, productId: string, messages: Array, getMessageReports: Function}}
  */
 BannerMessages.propTypes = {
   appMessages: PropTypes.object.isRequired,
+  getMessageReports: PropTypes.func,
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -80,15 +114,17 @@ BannerMessages.propTypes = {
       message: PropTypes.node.isRequired,
       variant: PropTypes.oneOf([...Object.values(AlertVariant)])
     })
-  )
+  ),
+  productId: PropTypes.string.isRequired
 };
 
 /**
  * Default props.
  *
- * @type {{messages: Array}}
+ * @type {{messages: Array, getMessageReports: Function}}
  */
 BannerMessages.defaultProps = {
+  getMessageReports: helpers.noop,
   messages: [
     {
       id: 'cloudigradeMismatch',
@@ -116,12 +152,22 @@ BannerMessages.defaultProps = {
 };
 
 /**
+ * Apply actions to props.
+ *
+ * @param {Function} dispatch
+ * @returns {object}
+ */
+const mapDispatchToProps = dispatch => ({
+  getMessageReports: (id, query) => dispatch(reduxActions.rhsm.getMessageReports(id, query))
+});
+
+/**
  * Create a selector from applied state, props.
  *
  * @type {Function}
  */
 const makeMapStateToProps = reduxSelectors.appMessages.makeAppMessages();
 
-const ConnectedBannerMessages = connect(makeMapStateToProps)(BannerMessages);
+const ConnectedBannerMessages = connect(makeMapStateToProps, mapDispatchToProps)(BannerMessages);
 
 export { ConnectedBannerMessages as default, ConnectedBannerMessages, BannerMessages };

@@ -17,7 +17,7 @@ const selectorCache = { data: {} };
  * @returns {object}
  */
 const statePropsFilter = (state, props = {}) => ({
-  reportCapacity: state.graph?.reportCapacity?.[props.productId],
+  report: state.messages?.report?.[props.productId],
   viewId: props.viewId,
   productId: props.productId
 });
@@ -28,7 +28,7 @@ const statePropsFilter = (state, props = {}) => ({
  * @type {{appMessages: {cloudigradeMismatch: boolean}}}
  */
 const selector = createSelector([statePropsFilter], data => {
-  const { viewId = null, productId = null, reportCapacity = {} } = data || {};
+  const { viewId = null, productId = null, report = {} } = data || {};
   const appMessages = {
     cloudigradeMismatch: false
   };
@@ -38,12 +38,15 @@ const selector = createSelector([statePropsFilter], data => {
   Object.assign(appMessages, { ...cache });
 
   // Scan Tally response for Cloud Meter flags
-  if (reportCapacity.fulfilled && appMessages.cloudigradeMismatch !== true) {
-    const [{ [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: reportData = [] }] = reportCapacity.data || {};
+  if (report.fulfilled && appMessages.cloudigradeMismatch !== true) {
+    const { [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: reportData = [] } = report.data || {};
 
-    const cloudigradeMismatch = reportData.find(
-      ({ [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_CLOUDIGRADE_MISMATCH]: mismatch }) => mismatch === true
-    );
+    const cloudigradeMismatch = reportData
+      .reverse()
+      .find(
+        ({ [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES.HAS_CLOUDIGRADE_MISMATCH]: mismatch }) =>
+          mismatch === true
+      );
 
     appMessages.cloudigradeMismatch = cloudigradeMismatch !== undefined;
 
