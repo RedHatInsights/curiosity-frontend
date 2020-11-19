@@ -6,18 +6,26 @@ import { rhsmServices } from '../../services/rhsmServices';
  *
  * @param {string} id
  * @param {object} query
+ * @param {object} options
+ * @param {string} options.cancelId
  * @returns {Function}
  */
-const getGraphReportsCapacity = (id = null, query = {}) => dispatch =>
-  dispatch({
+const getGraphReportsCapacity = (id = null, query = {}, options = {}) => dispatch => {
+  const { cancelId = 'graphReportsCapacity' } = options;
+
+  return dispatch({
     type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM,
-    payload: Promise.all([rhsmServices.getGraphReports(id, query), rhsmServices.getGraphCapacity(id, query)]),
+    payload: Promise.all([
+      rhsmServices.getGraphReports(id, query, { cancelId }),
+      rhsmServices.getGraphCapacity(id, query, { cancelId })
+    ]),
     meta: {
       id,
       query,
       notifications: {}
     }
   });
+};
 
 /**
  * Get a hosts response listing from RHSM subscriptions.
@@ -55,6 +63,31 @@ const getHostsInventoryGuests = (id = null, query = {}) => dispatch =>
     }
   });
 
-const rhsmActions = { getGraphReportsCapacity, getHostsInventory, getHostsInventoryGuests };
+/**
+ * Get a RHSM response from message reporting.
+ *
+ * @param {string} id
+ * @param {object} query
+ * @returns {Function}
+ */
+const getMessageReports = (id = null, query = {}) => dispatch =>
+  dispatch({
+    type: rhsmTypes.GET_MESSAGE_REPORTS_RHSM,
+    payload: rhsmServices.getGraphReports(id, query, { cancelId: 'messageReport' }),
+    meta: {
+      id,
+      query,
+      notifications: {}
+    }
+  });
 
-export { rhsmActions as default, rhsmActions, getGraphReportsCapacity, getHostsInventory, getHostsInventoryGuests };
+const rhsmActions = { getGraphReportsCapacity, getHostsInventory, getHostsInventoryGuests, getMessageReports };
+
+export {
+  rhsmActions as default,
+  rhsmActions,
+  getGraphReportsCapacity,
+  getHostsInventory,
+  getHostsInventoryGuests,
+  getMessageReports
+};

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessagesReducer should handle all defined error types: rejected types GET_MESSAGE_REPORTS_RHSM 1`] = `
+Object {
+  "result": Object {
+    "report": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "GET_MESSAGE_REPORTS_RHSM_REJECTED",
+}
+`;
+
+exports[`MessagesReducer should handle all defined fulfilled types: fulfilled types GET_MESSAGE_REPORTS_RHSM 1`] = `
+Object {
+  "result": Object {
+    "report": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "GET_MESSAGE_REPORTS_RHSM_FULFILLED",
+}
+`;
+
+exports[`MessagesReducer should handle all defined pending types: pending types GET_MESSAGE_REPORTS_RHSM 1`] = `
+Object {
+  "result": Object {
+    "report": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+    },
+  },
+  "type": "GET_MESSAGE_REPORTS_RHSM_PENDING",
+}
+`;
