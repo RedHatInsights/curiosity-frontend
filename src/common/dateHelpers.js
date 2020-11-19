@@ -24,6 +24,7 @@ const setRangedDateTime = ({ date, subtract, measurement }) => ({
   endDate: moment.utc(date).startOf(measurement).endOf('days').toDate()
 });
 
+const currentDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 1, measurement: 'days' });
 const defaultDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 30, measurement: 'days' });
 const weeklyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12, measurement: 'weeks' });
 const monthlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12, measurement: 'months' });
@@ -37,6 +38,8 @@ const quarterlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 
  */
 const getRangedDateTime = granularity => {
   switch (granularity) {
+    case 'CURRENT':
+      return { ...currentDateTime };
     case GRANULARITY_TYPES.WEEKLY:
       return { ...weeklyDateTime };
     case GRANULARITY_TYPES.MONTHLY:
@@ -86,6 +89,7 @@ const dateHelpers = {
   getCurrentDate,
   getRangedDateTime,
   setRangedDateTime,
+  currentDateTime,
   defaultDateTime,
   monthlyDateTime,
   quarterlyDateTime,
@@ -100,6 +104,7 @@ export {
   getCurrentDate,
   getRangedDateTime,
   setRangedDateTime,
+  currentDateTime,
   dateHelpers,
   defaultDateTime,
   monthlyDateTime,
