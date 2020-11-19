@@ -198,13 +198,19 @@ const deleteAccountOptIn = () =>
 /**
  * Get a RHSM account opt-in config.
  *
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
  * @returns {Promise<*>}
  */
-const getAccountOptIn = () =>
-  serviceCall({
+const getAccountOptIn = (options = {}) => {
+  const { cancel = true, cancelId } = options;
+  return serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_OPTIN,
-    cancel: true
+    cancel,
+    cancelId
   });
+};
 
 /**
  * @apiMock {DelayResponse} 1000
