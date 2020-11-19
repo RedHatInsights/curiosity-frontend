@@ -14,11 +14,32 @@ describe('BannerMessages Component', () => {
           title: 'Lorem ipsum title',
           message: 'Lorem ipsum message'
         }
-      ]
+      ],
+      productId: 'lorem'
     };
     const component = shallow(<BannerMessages {...props} />);
 
     expect(component).toMatchSnapshot('non-connected');
+  });
+
+  it('should attempt to check reports on product update', () => {
+    const props = {
+      appMessages: {
+        loremIpsum: true
+      },
+      messages: [
+        {
+          id: 'loremIpsum',
+          title: 'Lorem ipsum title',
+          message: 'Lorem ipsum message'
+        }
+      ],
+      productId: 'lorem',
+      getMessageReports: jest.fn()
+    };
+    const component = shallow(<BannerMessages {...props} />);
+    component.setProps({ productId: 'dolor' });
+    expect(props.getMessageReports).toHaveBeenCalledTimes(2);
   });
 
   it('should render specific messages when the appMessages prop is used', () => {
@@ -38,7 +59,8 @@ describe('BannerMessages Component', () => {
           title: 'Dolor sit title',
           message: 'Dolor sit message'
         }
-      ]
+      ],
+      productId: 'lorem'
     };
     const component = shallow(<BannerMessages {...props} />);
 
@@ -65,7 +87,8 @@ describe('BannerMessages Component', () => {
           title: 'Lorem ipsum title',
           message: 'Lorem ipsum message'
         }
-      ]
+      ],
+      productId: 'lorem'
     };
     const component = shallow(<BannerMessages {...props} />);
     expect(component).toMatchSnapshot('state messages, ON');

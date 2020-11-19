@@ -2,6 +2,10 @@
 
 exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
 Object {
+  "currentDateTime": Object {
+    "endDate": 2019-07-20T23:59:59.999Z,
+    "startDate": 2019-07-19T00:00:00.000Z,
+  },
   "defaultDateTime": Object {
     "endDate": 2019-07-20T23:59:59.999Z,
     "startDate": 2019-06-20T00:00:00.000Z,
