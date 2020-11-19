@@ -31,7 +31,7 @@ const serviceCall = async config => {
   await platformServices.getUser();
 
   const updatedConfig = { ...config };
-  const cancelTokensId = updatedConfig.url;
+  const cancelTokensId = `${updatedConfig.cancelId || ''}-${updatedConfig.url}`;
 
   if (updatedConfig.cancel === true) {
     if (cancelTokens[cancelTokensId]) {
