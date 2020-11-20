@@ -42,6 +42,14 @@
     }
   }
 
+  .curiosity-tabs-container {
+    .curiosity-inventory-card {
+      .pf-c-card__body {
+        padding-top: 0;
+      }
+    }
+  }
+
   // ToDo: reevaluate this fix, originally for non-expandable table rows to aid in alignment with heading
   .curiosity-inventory-list {
     &.pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
