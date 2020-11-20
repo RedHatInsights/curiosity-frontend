@@ -6,6 +6,12 @@ import { apiQueries } from '../common';
 import { selector as userSession } from './userSelectors';
 
 /**
+ * ToDo: Consider consolidating inventory selectors, and/or create API specific selectors, i.e. RHSM, etc
+ * Breaking out the inventory selectors is a temporary solution until the API is finalized. Aspects
+ * of the caching and applying the API schemas is now consistent enough to allow for grouping/refinement.
+ */
+
+/**
  * Create a custom "are objects equal" selector.
  *
  * @private
@@ -30,7 +36,7 @@ const selectorCache = { dataId: null, data: {} };
  * @returns {object}
  */
 const statePropsFilter = (state, props = {}) => ({
-  ...state.inventory?.hostsInventory?.[props.productId],
+  ...state.inventory?.subscriptionsInventory?.[props.productId],
   ...{
     viewId: props.viewId,
     productId: props.productId
@@ -54,13 +60,6 @@ const queryFilter = (state, props = {}) => {
   return query;
 };
 
-/**
- * Note: We use an in-memory cache to provide the user a pleasant UX experience. To
- * aid in that UX we need "pending" to fire in scenarios that are not loaded in-memory. Because
- * we load the cache first there are scenarios where the previous XHR call is still in state
- * when a subsequent fulfilled XHR call comes through. Without the _isEqual(query, metaQuery) check
- * the overlap of the prior fulfilled call interferes with the pending of the subsequent call.
- */
 /**
  * Create selector, transform combined state, props into a consumable object.
  *
@@ -101,11 +100,7 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
     // Apply "display logic" then return a custom value for entries
     const customInventoryValue = ({ key, value }) => {
       switch (key) {
-        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CLOUD_PROVIDER:
-        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE:
-        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.MEASUREMENT:
-          return value?.toLowerCase() || null;
-        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN:
+        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.UPCOMING_EVENT_DATE:
           return (value && new Date(value)) || null;
         default:
           return value ?? null;
@@ -115,7 +110,7 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
     // Generate normalized properties
     const [updatedListData, updatedListMeta] = reduxHelpers.setNormalizedResponse(
       {
-        schema: rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES,
+        schema: rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES,
         data: listData,
         customResponseValue: customInventoryValue
       },
@@ -151,9 +146,9 @@ const makeSelector = defaultProps => (state, props) => ({
   ...selector(state, props, defaultProps)
 });
 
-const inventoryListSelectors = {
-  inventoryList: selector,
-  makeInventoryList: makeSelector
+const subscriptionsListSelectors = {
+  subscriptionsList: selector,
+  makeSubscriptionsList: makeSelector
 };
 
-export { inventoryListSelectors as default, inventoryListSelectors, selector, makeSelector };
+export { subscriptionsListSelectors as default, subscriptionsListSelectors, selector, makeSelector };
