@@ -1,14 +1,14 @@
-import inventoryListSelectors from '../inventoryListSelectors';
+import subscriptionsListSelectors from '../subscriptionsListSelectors';
 import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
 
-describe('InventoryListSelectors', () => {
+describe('SubscriptionsListSelectors', () => {
   it('should return specific selectors', () => {
-    expect(inventoryListSelectors).toMatchSnapshot('selectors');
+    expect(subscriptionsListSelectors).toMatchSnapshot('selectors');
   });
 
   it('should pass minimal data on missing a reducer response', () => {
     const state = {};
-    expect(inventoryListSelectors.inventoryList(state)).toMatchSnapshot('missing reducer error');
+    expect(subscriptionsListSelectors.subscriptionsList(state)).toMatchSnapshot('missing reducer error');
   });
 
   it('should pass minimal data on a product ID without a product ID provided', () => {
@@ -19,7 +19,7 @@ describe('InventoryListSelectors', () => {
     };
     const state = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           fulfilled: true,
           metaId: undefined,
           metaQuery: {},
@@ -28,7 +28,7 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(state, props)).toMatchSnapshot('no product id error');
+    expect(subscriptionsListSelectors.subscriptionsList(state, props)).toMatchSnapshot('no product id error');
   });
 
   it('should handle pending state on a product ID', () => {
@@ -38,7 +38,7 @@ describe('InventoryListSelectors', () => {
     };
     const state = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum ID pending state': {
             pending: true,
             metaId: 'Lorem Ipsum ID pending state',
@@ -49,7 +49,7 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(state, props)).toMatchSnapshot('pending');
+    expect(subscriptionsListSelectors.subscriptionsList(state, props)).toMatchSnapshot('pending');
   });
 
   it('should populate data on a product ID when the api response is missing expected properties', () => {
@@ -62,7 +62,7 @@ describe('InventoryListSelectors', () => {
     };
     const state = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum missing expected properties': {
             fulfilled: true,
             metaId: 'Lorem Ipsum missing expected properties',
@@ -72,15 +72,14 @@ describe('InventoryListSelectors', () => {
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: 'd6214a0b-b344-4778-831c-d53dcacb2da3',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CORES]: 2,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.SOCKETS]: 1
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 3
                 },
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: '9358e312-1c9f-42f4-8910-dcef6e970852',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.NAME]: 'db.example.com',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE]: 'physical',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN]: '2019-09-04T00:00:00.000Z'
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 3
                 }
               ]
             }
@@ -89,7 +88,9 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(state, props)).toMatchSnapshot('data populated, missing properties');
+    expect(subscriptionsListSelectors.subscriptionsList(state, props)).toMatchSnapshot(
+      'data populated, missing properties'
+    );
   });
 
   it('should map a fulfilled product ID response to an aggregated output', () => {
@@ -102,7 +103,7 @@ describe('InventoryListSelectors', () => {
     };
     const state = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum fulfilled aggregated output': {
             fulfilled: true,
             metaId: 'Lorem Ipsum fulfilled aggregated output',
@@ -112,20 +113,14 @@ describe('InventoryListSelectors', () => {
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: 'd6214a0b-b344-4778-831c-d53dcacb2da3',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.NAME]: 'db.lorem.com',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CORES]: 2,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.SOCKETS]: 1,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE]: 'physical',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN]: '2019-07-03T00:00:00.000Z'
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 3
                 },
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: '9358e312-1c9f-42f4-8910-dcef6e970852',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.NAME]: 'db.ipsum.com',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CORES]: 2,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.SOCKETS]: 1,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE]: 'physical',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN]: '2019-09-04T00:00:00.000Z'
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 3
                 }
               ]
             }
@@ -134,7 +129,7 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(state, props)).toMatchSnapshot('fulfilled');
+    expect(subscriptionsListSelectors.subscriptionsList(state, props)).toMatchSnapshot('fulfilled');
   });
 
   it('should populate data from the in memory cache', () => {
@@ -147,7 +142,7 @@ describe('InventoryListSelectors', () => {
     };
     const stateInitialFulfilled = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum ID cached': {
             fulfilled: true,
             metaId: 'Lorem Ipsum ID cached',
@@ -157,12 +152,9 @@ describe('InventoryListSelectors', () => {
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: 'd6214a0b-b344-4778-831c-d53dcacb2da3',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.NAME]: 'db.lorem.com',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CORES]: 2,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.SOCKETS]: 1,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE]: 'physical',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN]: '2019-07-03T00:00:00.000Z'
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 1,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 3
                 }
               ]
             }
@@ -171,40 +163,37 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(stateInitialFulfilled, props)).toMatchSnapshot(
+    expect(subscriptionsListSelectors.subscriptionsList(stateInitialFulfilled, props)).toMatchSnapshot(
       'cached data: initial fulfilled'
     );
 
     const statePending = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum ID cached': {
-            ...stateInitialFulfilled.inventory.hostsInventory['Lorem Ipsum ID cached'],
+            ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
             pending: true
           }
         }
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(statePending, props)).toMatchSnapshot(
+    expect(subscriptionsListSelectors.subscriptionsList(statePending, props)).toMatchSnapshot(
       'cached data: cache used and pending'
     );
 
     const stateFulfilled = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum ID cached': {
-            ...stateInitialFulfilled.inventory.hostsInventory['Lorem Ipsum ID cached'],
+            ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
             fulfilled: true,
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: '9358e312-1c9f-42f4-8910-dcef6e970852',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.NAME]: 'db.ipsum.com',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CORES]: 2,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.SOCKETS]: 1,
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE]: 'physical',
-                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN]: '2019-09-04T00:00:00.000Z'
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 3,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 3,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 6
                 }
               ]
             }
@@ -213,15 +202,15 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(stateFulfilled, props)).toMatchSnapshot(
+    expect(subscriptionsListSelectors.subscriptionsList(stateFulfilled, props)).toMatchSnapshot(
       'cached data: updated and fulfilled'
     );
 
     const stateFulfilledQueryMismatch = {
       inventory: {
-        hostsInventory: {
+        subscriptionsInventory: {
           'Lorem Ipsum ID cached': {
-            ...stateInitialFulfilled.inventory.hostsInventory['Lorem Ipsum ID cached'],
+            ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
             metaQuery: {
               [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
             }
@@ -230,7 +219,7 @@ describe('InventoryListSelectors', () => {
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(stateFulfilledQueryMismatch, props)).toMatchSnapshot(
+    expect(subscriptionsListSelectors.subscriptionsList(stateFulfilledQueryMismatch, props)).toMatchSnapshot(
       'cached data: ERROR, query mismatch'
     );
   });

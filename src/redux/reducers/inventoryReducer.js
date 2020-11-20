@@ -5,15 +5,17 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * Initial state.
  *
  * @private
- * @type {{hostsInventoryGuests: {}, hostsInventory: {}}}
+ * @type {{subscriptionsInventory: {}, hostsInventory: {}, hostsGuests: {}}}
  */
 const initialState = {
   hostsInventory: {},
-  hostsGuests: {}
+  hostsGuests: {},
+  subscriptionsInventory: {}
 };
 
 /**
- * Apply generated inventory observer/reducer for hosts/system inventory to state, against actions.
+ * Apply generated inventory observer/reducer for hosts/system and subscriptions inventory to state,
+ * against actions.
  *
  * @param {object} state
  * @param {object} action
@@ -23,7 +25,8 @@ const inventoryReducer = (state = initialState, action) =>
   reduxHelpers.generatedPromiseActionReducer(
     [
       { ref: 'hostsInventory', type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM },
-      { ref: 'hostsGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM }
+      { ref: 'hostsGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM },
+      { ref: 'subscriptionsInventory', type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM }
     ],
     state,
     action
