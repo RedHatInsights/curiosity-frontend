@@ -1,0 +1,11 @@
+.curiosity {
+  .curiosity-tabs-container {
+    min-height: 775px;
+  }
+
+  .curiosity-tabs__no-scroll {
+    > .pf-c-tabs__scroll-button {
+      display: none;
+    }
+  }
+}

@@ -16,6 +16,7 @@ Object {
     },
     "hostsInventory": Object {},
     "subscriptionsInventory": Object {},
+    "tabs": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_REJECTED",
 }
@@ -37,6 +38,7 @@ Object {
       "status": 0,
     },
     "subscriptionsInventory": Object {},
+    "tabs": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_REJECTED",
 }
@@ -58,6 +60,7 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "tabs": Object {},
   },
   "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_REJECTED",
 }
@@ -83,6 +86,7 @@ Object {
     },
     "hostsInventory": Object {},
     "subscriptionsInventory": Object {},
+    "tabs": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_FULFILLED",
 }
@@ -108,6 +112,7 @@ Object {
       "status": 0,
     },
     "subscriptionsInventory": Object {},
+    "tabs": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_FULFILLED",
 }
@@ -133,6 +138,7 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "tabs": Object {},
   },
   "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_FULFILLED",
 }
@@ -153,6 +159,7 @@ Object {
     },
     "hostsInventory": Object {},
     "subscriptionsInventory": Object {},
+    "tabs": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_PENDING",
 }
@@ -173,6 +180,7 @@ Object {
       "pending": true,
     },
     "subscriptionsInventory": Object {},
+    "tabs": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_PENDING",
 }
@@ -193,7 +201,22 @@ Object {
       "metaQuery": undefined,
       "pending": true,
     },
+    "tabs": Object {},
   },
   "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_PENDING",
+}
+`;
+
+exports[`InventoryReducer should handle specific defined types: defined type SET_INVENTORY_TAB 1`] = `
+Object {
+  "result": Object {
+    "hostsGuests": Object {},
+    "hostsInventory": Object {},
+    "subscriptionsInventory": Object {},
+    "tabs": Object {
+      "lorem": 1,
+    },
+  },
+  "type": "SET_INVENTORY_TAB",
 }
 `;

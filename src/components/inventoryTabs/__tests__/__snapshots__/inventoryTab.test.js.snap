@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InventoryTab Component should have accessible props: component props 1`] = `
+Array [
+  Object {
+    "active": true,
+    "children": <div>
+      lorem ipsum
+    </div>,
+    "title": "lorem ipsum",
+  },
+]
+`;
+
+exports[`InventoryTab Component should output a non-connected component: non-connected 1`] = `
+<Fragment>
+  <div>
+    lorem ipsum
+  </div>
+</Fragment>
+`;

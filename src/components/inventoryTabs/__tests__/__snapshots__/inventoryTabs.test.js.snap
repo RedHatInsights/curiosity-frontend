@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InventoryTabs Component should handle updating tabs for redux state: dispatch filter 1`] = `
+Array [
+  Array [
+    Object {
+      "tabs": Object {
+        "lorem": 1,
+      },
+      "type": "SET_INVENTORY_TAB",
+    },
+  ],
+]
+`;
+
+exports[`InventoryTabs Component should render a non-connected component: non-connected 1`] = `
+<Fragment>
+  <Title
+    className="sr-only"
+    headingLevel="h2"
+  >
+    t(curiosity-inventory.tabHeading)
+  </Title>
+  <Tabs
+    activeTab={0}
+    className=""
+    defaultActiveTab={0}
+    hasOverflowScroll={false}
+    onTab={[Function]}
+    tabs={
+      Array [
+        Object {
+          "active": false,
+          "content": "ipsum",
+          "title": "lorem",
+        },
+        Object {
+          "active": false,
+          "content": "amet",
+          "title": "sit",
+        },
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`InventoryTabs Component should return an empty render when disabled: disabled component 1`] = `""`;

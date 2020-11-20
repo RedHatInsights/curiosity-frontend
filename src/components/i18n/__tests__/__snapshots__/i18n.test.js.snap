@@ -191,6 +191,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/inventoryTabs/inventoryTabs.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tabHeading",
+        "match": "t('curiosity-inventory.tabHeading')",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/openshiftView/openshiftView.js",
     "keys": Array [
       Object {

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs Component should handle no tabs: no tabs 1`] = `
+<Grid
+  className="curiosity-tabs-container"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Tabs
+      activeKey={0}
+      className="curiosity-tabs__no-scroll "
+      component="div"
+      inset={
+        Object {
+          "default": "insetNone",
+          "md": "insetLg",
+        }
+      }
+      isBox={false}
+      isFilled={false}
+      isSecondary={false}
+      isVertical={false}
+      leftScrollAriaLabel="Scroll left"
+      mountOnEnter={true}
+      onSelect={[Function]}
+      ouiaSafe={true}
+      rightScrollAriaLabel="Scroll right"
+      unmountOnExit={true}
+      variant="default"
+    />
+  </GridItem>
+</Grid>
+`;
+
+exports[`Tabs Component should render a non-connected component: non-connected 1`] = `
+<Grid
+  className="curiosity-tabs-container"
+  guttter="sm"
+>
+  <GridItem
+    span={12}
+  >
+    <Tabs
+      activeKey={0}
+      className="curiosity-tabs__no-scroll "
+      component="div"
+      inset={
+        Object {
+          "default": "insetNone",
+          "md": "insetLg",
+        }
+      }
+      isBox={false}
+      isFilled={false}
+      isSecondary={false}
+      isVertical={false}
+      leftScrollAriaLabel="Scroll left"
+      mountOnEnter={true}
+      onSelect={[Function]}
+      ouiaSafe={true}
+      rightScrollAriaLabel="Scroll right"
+      unmountOnExit={true}
+      variant="default"
+    >
+      <Tab
+        eventKey={0}
+        key="lorem"
+        title={
+          <TabTitleText>
+            lorem
+          </TabTitleText>
+        }
+      >
+        ipsum
+      </Tab>
+      <Tab
+        eventKey={1}
+        key="dolor"
+        title={
+          <TabTitleText>
+            dolor
+          </TabTitleText>
+        }
+      >
+        sit
+      </Tab>
+    </Tabs>
+  </GridItem>
+</Grid>
+`;
