@@ -14,7 +14,7 @@ describe('Platform Configuration, Build', () => {
     const envFile = './.env';
     const { appname } = packageJson.insights;
 
-    const output = execSync(`grep "\\/${appname}\\/" ${envFile}`);
+    const output = execSync(`grep "\\/apps\\/${appname}\\/" ${envFile}`);
     expect(output.toString().split('\n')).toMatchSnapshot('path references');
   });
 
