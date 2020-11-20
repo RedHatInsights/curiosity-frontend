@@ -81,7 +81,31 @@ const getMessageReports = (id = null, query = {}) => dispatch =>
     }
   });
 
-const rhsmActions = { getGraphReportsCapacity, getHostsInventory, getHostsInventoryGuests, getMessageReports };
+/**
+ * Get a subscriptions response from RHSM subscriptions.
+ *
+ * @param {string} id
+ * @param {object} query
+ * @returns {Function}
+ */
+const getSubscriptionsInventory = (id = null, query = {}) => dispatch =>
+  dispatch({
+    type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM,
+    payload: rhsmServices.getSubscriptionsInventory(id, query),
+    meta: {
+      id,
+      query,
+      notifications: {}
+    }
+  });
+
+const rhsmActions = {
+  getGraphReportsCapacity,
+  getHostsInventory,
+  getHostsInventoryGuests,
+  getMessageReports,
+  getSubscriptionsInventory
+};
 
 export {
   rhsmActions as default,
@@ -89,5 +113,6 @@ export {
   getGraphReportsCapacity,
   getHostsInventory,
   getHostsInventoryGuests,
-  getMessageReports
+  getMessageReports,
+  getSubscriptionsInventory
 };

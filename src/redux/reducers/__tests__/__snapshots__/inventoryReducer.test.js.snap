@@ -15,6 +15,7 @@ Object {
       "status": 0,
     },
     "hostsInventory": Object {},
+    "subscriptionsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_REJECTED",
 }
@@ -35,8 +36,30 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "subscriptionsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_REJECTED",
+}
+`;
+
+exports[`InventoryReducer should handle all defined error types: rejected types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "hostsGuests": Object {},
+    "hostsInventory": Object {},
+    "subscriptionsInventory": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_REJECTED",
 }
 `;
 
@@ -59,6 +82,7 @@ Object {
       "status": 0,
     },
     "hostsInventory": Object {},
+    "subscriptionsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_FULFILLED",
 }
@@ -83,8 +107,34 @@ Object {
       "pending": false,
       "status": 0,
     },
+    "subscriptionsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_FULFILLED",
+}
+`;
+
+exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "hostsGuests": Object {},
+    "hostsInventory": Object {},
+    "subscriptionsInventory": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_FULFILLED",
 }
 `;
 
@@ -102,6 +152,7 @@ Object {
       "pending": true,
     },
     "hostsInventory": Object {},
+    "subscriptionsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_PENDING",
 }
@@ -121,7 +172,28 @@ Object {
       "metaQuery": undefined,
       "pending": true,
     },
+    "subscriptionsInventory": Object {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_PENDING",
+}
+`;
+
+exports[`InventoryReducer should handle all defined pending types: pending types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "hostsGuests": Object {},
+    "hostsInventory": Object {},
+    "subscriptionsInventory": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "metaData": undefined,
+      "metaId": undefined,
+      "metaQuery": undefined,
+      "pending": true,
+    },
+  },
+  "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_PENDING",
 }
 `;
