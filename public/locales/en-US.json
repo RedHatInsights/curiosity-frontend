@@ -47,6 +47,8 @@
   },
   "curiosity-inventory": {
     "cardHeading": "Current systems",
+    "tabHeading": "Inventory listing",
+    "tabHeading_plural": "Inventory listings",
     "tableAriaLabel": "{{appName}} systems inventory table.",
     "tableSummary": "A generated table with one level of column headers.",
     "tableEmptyInventoryTitle": "No results found",
