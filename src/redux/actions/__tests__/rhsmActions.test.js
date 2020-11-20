@@ -21,7 +21,7 @@ describe('RhsmActions', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(tally|capacity|hosts|version).*?/, {
+    moxios.stubRequest(/\/(tally|capacity|hosts|subscriptions|version).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1,
@@ -76,6 +76,17 @@ describe('RhsmActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().messages;
       expect(response.report.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getSubscriptionsInventory method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getSubscriptionsInventory();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().inventory;
+      expect(response.subscriptionsInventory.fulfilled).toBe(true);
       done();
     });
   });
