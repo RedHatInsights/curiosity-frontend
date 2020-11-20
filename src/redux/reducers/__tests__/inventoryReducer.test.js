@@ -1,10 +1,27 @@
 import inventoryReducer from '../inventoryReducer';
-import { rhsmTypes as types } from '../../types';
+import { rhsmTypes as types, inventoryTypes } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
 describe('InventoryReducer', () => {
   it('should return the initial state', () => {
     expect(inventoryReducer.initialState).toBeDefined();
+  });
+
+  it('should handle specific defined types', () => {
+    const specificTypes = [inventoryTypes.SET_INVENTORY_TAB];
+
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: value,
+        tabs: {
+          lorem: 1
+        }
+      };
+
+      const resultState = inventoryReducer(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
   });
 
   it('should handle all defined error types', () => {
