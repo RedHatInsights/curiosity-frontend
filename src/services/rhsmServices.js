@@ -1276,7 +1276,105 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
   });
 };
 
-const rhsmServices = { getApiVersion, getGraphCapacity, getGraphReports, getHostsInventory, getHostsInventoryGuests };
+/**
+ * @apiMock {DelayResponse} 1000
+ * @api {get} /api/rhsm-subscriptions/v1/subscriptions/products/:product_id Get RHSM subscriptions table/inventory data
+ * @apiDescription Retrieve subscriptions table/inventory data.
+ *
+ * Reference [RHSM for subscriptions table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/master/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data" : [
+ *         {
+ *           "sku": "RH00011",
+ *           "product_name": "Red Hat Enterprise Linux Server, Premium (Physical and 4 Virtual Nodes)(L3 Only)",
+ *           "service_level": "Premium",
+ *           "usage": "Production",
+ *           "subscription_numbers": ["1234567890", "1234567890", "1234567890"],
+ *           "upcoming_event_date": "2020-04-01T00:00:00Z",
+ *           "upcoming_event_type": "Subscription Begin",
+ *           "physical_capacity": 1,
+ *           "virtual_capacity": 1,
+ *           "total_capacity": 2,
+ *           "uom": "Sockets"
+ *         },
+ *         {
+ *           "sku": "RH00010",
+ *           "product_name": "Red Hat Enterprise Linux Server",
+ *           "service_level": "Self-Support",
+ *           "usage": "Production",
+ *           "subscription_numbers": ["1234567890", "1234567890", "1234567890"],
+ *           "upcoming_event_date": "2020-04-02T00:00:00Z",
+ *           "upcoming_event_type": "Subscription Begin",
+ *           "physical_capacity": 1,
+ *           "virtual_capacity": 1,
+ *           "total_capacity": 2,
+ *           "uom": "Sockets"
+ *         },
+ *         {
+ *           "sku": "RH00009",
+ *           "product_name": "Red Hat Enterprise Linux Server, Premium",
+ *           "service_level": "Premium",
+ *           "usage": "Production",
+ *           "subscription_numbers": ["1234567890", "1234567890", "1234567890"],
+ *           "upcoming_event_date": "2020-04-01T00:00:00Z",
+ *           "upcoming_event_type": "Subscription End",
+ *           "physical_capacity": 2,
+ *           "virtual_capacity": 2,
+ *           "total_capacity": 4,
+ *           "uom": "Cores"
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "count": 3
+ *       }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Get RHSM API subscriptions data.
+ *
+ * @param {string} id Product ID
+ * @param {object} params Query/search params
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @returns {Promise<*>}
+ */
+const getSubscriptionsInventory = (id, params = {}, options = {}) => {
+  const { cancel = true, cancelId } = options;
+  return serviceCall({
+    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_SUBSCRIPTIONS}${id}`,
+    params,
+    cancel,
+    cancelId
+  });
+};
+
+const rhsmServices = {
+  getApiVersion,
+  getGraphCapacity,
+  getGraphReports,
+  getHostsInventory,
+  getHostsInventoryGuests,
+  getSubscriptionsInventory
+};
 
 /**
  * Expose services to the browser's developer console.
@@ -1290,5 +1388,6 @@ export {
   getGraphCapacity,
   getGraphReports,
   getHostsInventory,
-  getHostsInventoryGuests
+  getHostsInventoryGuests,
+  getSubscriptionsInventory
 };
