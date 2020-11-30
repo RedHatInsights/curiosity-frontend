@@ -13,6 +13,16 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
   >
     <Connect(BannerMessages)
       productId="lorem ipsum"
+      query={
+        Object {
+          "dir": "desc",
+          "granularity": "daily",
+          "limit": 100,
+          "offset": 0,
+          "sort": "last_seen",
+          "uom": "cores",
+        }
+      }
       viewId="viewOpenShift"
     />
   </PageMessages>
@@ -176,6 +186,16 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
   >
     <Connect(BannerMessages)
       productId="lorem ipsum"
+      query={
+        Object {
+          "dir": "desc",
+          "granularity": "daily",
+          "limit": 100,
+          "offset": 0,
+          "sort": "last_seen",
+          "uom": "cores",
+        }
+      }
       viewId="viewOpenShift"
     />
   </PageMessages>
@@ -758,6 +778,16 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
   >
     <Connect(BannerMessages)
       productId="lorem ipsum"
+      query={
+        Object {
+          "dir": "desc",
+          "granularity": "daily",
+          "limit": 100,
+          "offset": 0,
+          "sort": "last_seen",
+          "uom": "cores",
+        }
+      }
       viewId="viewOpenShift"
     />
   </PageMessages>
