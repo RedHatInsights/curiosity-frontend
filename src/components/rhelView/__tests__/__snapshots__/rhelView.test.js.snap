@@ -13,6 +13,15 @@ exports[`RhelView Component should display an alternate graph on query-string up
   >
     <Connect(BannerMessages)
       productId="lorem ipsum"
+      query={
+        Object {
+          "dir": "desc",
+          "granularity": "daily",
+          "limit": 100,
+          "offset": 0,
+          "sort": "last_seen",
+        }
+      }
       viewId="viewRHEL"
     />
   </PageMessages>
@@ -161,6 +170,15 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
   >
     <Connect(BannerMessages)
       productId="lorem ipsum"
+      query={
+        Object {
+          "dir": "desc",
+          "granularity": "daily",
+          "limit": 100,
+          "offset": 0,
+          "sort": "last_seen",
+        }
+      }
       viewId="viewRHEL"
     />
   </PageMessages>
@@ -700,6 +718,15 @@ exports[`RhelView Component should render a non-connected component: non-connect
   >
     <Connect(BannerMessages)
       productId="lorem ipsum"
+      query={
+        Object {
+          "dir": "desc",
+          "granularity": "daily",
+          "limit": 100,
+          "offset": 0,
+          "sort": "last_seen",
+        }
+      }
       viewId="viewRHEL"
     />
   </PageMessages>
