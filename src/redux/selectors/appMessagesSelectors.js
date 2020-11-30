@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { rhsmApiTypes } from '../../types';
+
 /**
  * Selector cache.
  *
@@ -23,14 +24,28 @@ const statePropsFilter = (state, props = {}) => ({
 });
 
 /**
+ * Return a combined query object.
+ *
+ * @param {object} state
+ * @param {object} props
+ * @returns {object}
+ */
+const queryFilter = (state, props = {}) => ({
+  ...props.query,
+  ...state.view?.query?.[props.productId],
+  ...state.view?.query?.[props.viewId]
+});
+
+/**
  * Create selector, transform combined state, props into a consumable object.
  *
  * @type {{appMessages: {cloudigradeMismatch: boolean}}}
  */
-const selector = createSelector([statePropsFilter], data => {
+const selector = createSelector([statePropsFilter, queryFilter], (data, query = {}) => {
   const { viewId = null, productId = null, report = {} } = data || {};
   const appMessages = {
-    cloudigradeMismatch: false
+    cloudigradeMismatch: false,
+    query
   };
 
   const cache = (viewId && productId && selectorCache.data[`${viewId}_${productId}`]) || undefined;

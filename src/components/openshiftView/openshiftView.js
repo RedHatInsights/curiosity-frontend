@@ -138,7 +138,7 @@ class OpenshiftView extends React.Component {
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
         </PageHeader>
         <PageMessages>
-          <BannerMessages productId={routeDetail.pathParameter} viewId={viewId} />
+          <BannerMessages productId={routeDetail.pathParameter} viewId={viewId} query={query} />
         </PageMessages>
         <PageToolbar>
           <Toolbar
