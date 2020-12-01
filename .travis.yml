@@ -7,7 +7,7 @@ notifications:
     - rooms:
       - secure: cB1tOG48V5iia0O2dJ9+1gusBSCaohu5TR8PeWbqug/Yho+ZCQ3rp7Tfd7fRyYsf9ztWdu6G+VrHwOboR08Aef7cttZ743j/aXwo5m50Q9Ne3fkNzEUjL8IGeM4MtlRtwruD54RQmPzjmHjEapfx0dX2AHkB/8Zrnjs36YzPST1kT/YYrub9Kv5wUXB0TlzWmrRGj+pPGqBmJVksxQFxvbvafRcKI3kj91maJQhBHQe+19GboJbFOnwzPTPAL7Lf7j70ZmbPlQVG3G3VjN/QUALqaiwjlgH0owLHjBbDrMt8cpPoTq8Uw6ANBWYzENBMzHeiBwz0jqTY/BBP06WCxJSJCgOgd90L93/LAbJYiTyvpfAt8dOdWk7RhKy0L3kIalj5Mff8/3zDyLDOvd9Xtn7topHJv/5SBV6ZZVUvEJTxgEQq9337YEOka2omPvwt7UfHNcT/PH4flV70cy/OdR6J4x1UIKIUgX0iWYMZUj7QZqUhLybXv5BRS0vQTg4V8C7uvQ4aE8hzkv+pjXZ5aL5POtJhrgNPiO9iIHXtV/EUoGrT9iibijyQbWPusloJBwmPWkZ2j3UbaCY5bPTgnHnaPllnE3WKuTwxQA4bIL1Ma2C3yv2RSgfVvwM+pekeNsaVmpOD5xlcNYPPuW5bLE/jqhLmeKJaKQWujoC0glU=
 node_js:
-  - 12
+  - 14
 cache: yarn
 jobs:
   include:
