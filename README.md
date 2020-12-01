@@ -7,9 +7,9 @@ A web user interface for subscription reporting, based on [Patternfly](https://w
 
 ## Requirements
 Before developing for Curiosity Frontend, the basic requirements:
- * Your system needs to be running [NodeJS version 12+ and NPM](https://nodejs.org/)
+ * Your system needs to be running [NodeJS version 14+ and NPM](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
- * And [Yarn 1.20+](https://yarnpkg.com) for dependency and script management.
+ * And [Yarn 1.22+](https://yarnpkg.com) for dependency and script management.
  
 For in-depth tooling install guidance see the [contribution guidelines](./CONTRIBUTING.md#Install)
 
