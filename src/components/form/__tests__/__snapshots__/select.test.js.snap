@@ -147,6 +147,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
 <Select
   aria-label="Select option"
   aria-labelledby=""
+  chipGroupComponent={null}
   className="curiosity-select__no-toggle-text "
   clearSelectionsAriaLabel="Clear all"
   createText="Create"
@@ -353,6 +354,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
   <Select
     aria-label="Select option"
     aria-labelledby=""
+    chipGroupComponent={null}
     className="curiosity-select "
     clearSelectionsAriaLabel="Clear all"
     createText="Create"
