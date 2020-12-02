@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.1.0...v1.2.0) (2020-12-02)
+
+
+### Features
+
+* **bannerMessages:** issues/502 app messages ([#503](https://github.com/RedHatInsights/curiosity-frontend/issues/503)) ([d7cee6f](https://github.com/RedHatInsights/curiosity-frontend/commit/d7cee6f4a3b59b40ce7f82b8267e332105bf02e7))
+* **bannerMessages:** issues/502 cloud meter messaging ([#503](https://github.com/RedHatInsights/curiosity-frontend/issues/503)) ([2f9c328](https://github.com/RedHatInsights/curiosity-frontend/commit/2f9c328d790e55d0e7c33aec7c6c8ca3c56770a5))
+* **inventoryList,guestsList:** issues/494 fixed column widths ([#472](https://github.com/RedHatInsights/curiosity-frontend/issues/472)) ([4807a03](https://github.com/RedHatInsights/curiosity-frontend/commit/4807a03533109178431b97cf95565cffadb33964))
+* **pageMessages:** issues/502 section for messaging ([#503](https://github.com/RedHatInsights/curiosity-frontend/issues/503)) ([b95e571](https://github.com/RedHatInsights/curiosity-frontend/commit/b95e5717df7af0fda41226ed31d55ee368db1f82))
+
+
+### Bug Fixes
+
+* **bannerMessages:** issues/511 apply query filter ([#518](https://github.com/RedHatInsights/curiosity-frontend/issues/518)) ([69aa582](https://github.com/RedHatInsights/curiosity-frontend/commit/69aa582327cf85daa9d4d81331dd174f576402e9))
+* **bannerMessages:** issues/511 copy update ([#518](https://github.com/RedHatInsights/curiosity-frontend/issues/518)) ([4c966c9](https://github.com/RedHatInsights/curiosity-frontend/commit/4c966c9a2d8a78778559bad3a36955ab5a07cbd3))
+* **bannerMessages:** issues/511 limit activation to current date ([#513](https://github.com/RedHatInsights/curiosity-frontend/issues/513)) ([5a0e6c0](https://github.com/RedHatInsights/curiosity-frontend/commit/5a0e6c0d422faba27c8e8621e6617fb671e9e7ad))
+* **build:** npm updates ([#484](https://github.com/RedHatInsights/curiosity-frontend/issues/484)) ([3d86f75](https://github.com/RedHatInsights/curiosity-frontend/commit/3d86f75e817361ac078d7bd463f2b8e69c4b2ea3))
+* **helpers,testing:** noopTranslate, helpful test snapshots ([#469](https://github.com/RedHatInsights/curiosity-frontend/issues/469)) ([7cfb996](https://github.com/RedHatInsights/curiosity-frontend/commit/7cfb99635942cb178f7c49ad1978e5f340a2350f))
+* **inventoryList:** issues/389 display cloud providers ([#467](https://github.com/RedHatInsights/curiosity-frontend/issues/467)) ([f91cc99](https://github.com/RedHatInsights/curiosity-frontend/commit/f91cc99db8d9dc909226d841f0e230d569d0814f))
+* **inventoryList:** issues/468 display measurementType ([#485](https://github.com/RedHatInsights/curiosity-frontend/issues/485)) ([3029ad8](https://github.com/RedHatInsights/curiosity-frontend/commit/3029ad80d945a5b2e09814eb06a75d6c02fcb157))
+* **inventoryList:** issues/483 column header subscribed copy ([#497](https://github.com/RedHatInsights/curiosity-frontend/issues/497)) ([5a05119](https://github.com/RedHatInsights/curiosity-frontend/commit/5a05119669b003f30e22b384205349c1bb652d4d))
+* **inventoryList:** issues/492 set minHeight on first, last page ([#507](https://github.com/RedHatInsights/curiosity-frontend/issues/507)) ([0ff6683](https://github.com/RedHatInsights/curiosity-frontend/commit/0ff6683022373f65b278632ceaa1fbdff5116a5d))
+* **locale:** issues/389 virtual to virtualized string ([#463](https://github.com/RedHatInsights/curiosity-frontend/issues/463)) ([4d762be](https://github.com/RedHatInsights/curiosity-frontend/commit/4d762bebc0a9f6d2ecd5688a307aa68ba3375822))
+* **locale:** issues/481 add cloud provider string ([#482](https://github.com/RedHatInsights/curiosity-frontend/issues/482)) ([1ad4c85](https://github.com/RedHatInsights/curiosity-frontend/commit/1ad4c85deb6ba79769cc49c45c96ffa0f1378c57))
+* **minHeight:** issues/501 restructure resize event ([#507](https://github.com/RedHatInsights/curiosity-frontend/issues/507)) ([3f8e5f8](https://github.com/RedHatInsights/curiosity-frontend/commit/3f8e5f80719cb739d5b020a0edcef7b82532c970))
+* **openshiftView,rhelView:** issues/468 header names ([#469](https://github.com/RedHatInsights/curiosity-frontend/issues/469)) ([3bedb5a](https://github.com/RedHatInsights/curiosity-frontend/commit/3bedb5a98a7a0b6abce54c991b1dc7278586c0d5))
+* **openshiftView,rhelView:** issues/468 sort measurementType ([#487](https://github.com/RedHatInsights/curiosity-frontend/issues/487)) ([fd757e0](https://github.com/RedHatInsights/curiosity-frontend/commit/fd757e09d925ce465d562ce8891c40aaafd2cef0))
+* **openshiftView,rhelView:** issues/492 increase per-page results ([#507](https://github.com/RedHatInsights/curiosity-frontend/issues/507)) ([3e9c8f7](https://github.com/RedHatInsights/curiosity-frontend/commit/3e9c8f7ba22a598db6917f42b57e9346e087d537))
+* **table:** issues/494 check title prop is defined ([#496](https://github.com/RedHatInsights/curiosity-frontend/issues/496)) ([d25a544](https://github.com/RedHatInsights/curiosity-frontend/commit/d25a544dc3fa6bd833708972104cd928f4eaf5c5))
+
+
+### Performance Improvements
+
+* **openshiftView,rhelView:** simplify displayName callback ([#507](https://github.com/RedHatInsights/curiosity-frontend/issues/507)) ([f8e1161](https://github.com/RedHatInsights/curiosity-frontend/commit/f8e1161c81e3ef1ee6c5b39916826791a94d8798))
+* **rhsmServices,userServices:** expose cancel options ([#513](https://github.com/RedHatInsights/curiosity-frontend/issues/513)) ([877f40e](https://github.com/RedHatInsights/curiosity-frontend/commit/877f40e7d9b1fecc271e800c55c2ac7d9e3b1bb9))
+
 ## [1.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.0.0...v1.1.0) (2020-10-26)
 
 
