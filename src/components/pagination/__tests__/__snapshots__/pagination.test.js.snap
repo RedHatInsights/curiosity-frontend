@@ -65,6 +65,7 @@ exports[`Pagination Component should render a non-connected component: non-conne
   firstPage={1}
   isCompact={false}
   isDisabled={true}
+  isSticky={false}
   itemCount={0}
   itemsEnd={null}
   itemsStart={null}
