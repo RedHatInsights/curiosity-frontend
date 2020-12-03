@@ -10,6 +10,8 @@ describe('ViewReducer', () => {
   it('should handle specific defined types', () => {
     const specificTypes = [
       ...Object.values(types.SET_QUERY_RHSM_TYPES),
+      ...Object.values(types.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES),
+      ...Object.values(types.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES),
       types.SET_QUERY_CLEAR,
       types.SET_QUERY_CLEAR_INVENTORY_LIST
     ];

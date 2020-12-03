@@ -77,7 +77,7 @@ Object {
 }
 `;
 
-exports[`InventoryListSelectors should populate data from the in memory cache: cached data: ERROR, query mismatch 1`] = `
+exports[`InventoryListSelectors should populate data from the in memory cache: cached data: ERROR, cancelled API call, maintain prior response 1`] = `
 Object {
   "error": false,
   "fulfilled": true,
@@ -150,6 +150,34 @@ Object {
       "measurementType": null,
       "numberOfGuests": null,
       "sockets": 1,
+      "subscriptionManagerId": null,
+    },
+  ],
+  "pending": false,
+  "query": Object {
+    "sla": "premium",
+  },
+  "status": undefined,
+}
+`;
+
+exports[`InventoryListSelectors should populate data from the in memory cache: cached data: query updated and fulfilled 1`] = `
+Object {
+  "error": false,
+  "fulfilled": true,
+  "itemCount": 0,
+  "listData": Array [
+    Object {
+      "cloudProvider": null,
+      "cores": 3,
+      "displayName": "db.ipsum-lorem.com",
+      "hardwareType": "virtual",
+      "insightsId": "XXXXXXXXX-1c9f-42f4-8910-dcef6e970852",
+      "inventoryId": null,
+      "lastSeen": 2019-09-05T00:00:00.000Z,
+      "measurementType": null,
+      "numberOfGuests": null,
+      "sockets": 2,
       "subscriptionManagerId": null,
     },
   ],

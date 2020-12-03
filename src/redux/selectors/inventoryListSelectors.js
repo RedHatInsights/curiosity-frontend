@@ -47,6 +47,7 @@ const statePropsFilter = (state, props = {}) => ({
 const queryFilter = (state, props = {}) => {
   const { inventoryQuery: query } = apiQueries.parseRhsmQuery({
     ...props.query,
+    ...state.view?.hostsQuery?.[props.productId],
     ...state.view?.query?.[props.productId],
     ...state.view?.query?.[props.viewId]
   });
@@ -60,7 +61,7 @@ const queryFilter = (state, props = {}) => {
  * @type {{pending: boolean, fulfilled: boolean, listData: object, error: boolean, status: (*|number)}}
  */
 const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (response, query = {}) => {
-  const { viewId = null, productId = null, metaId, metaQuery = {}, ...responseData } = response || {};
+  const { viewId = null, productId = null, metaId, ...responseData } = response || {};
 
   const updatedResponseData = {
     error: responseData.error || false,
@@ -71,8 +72,6 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
     query,
     status: responseData.status
   };
-
-  const responseMetaQuery = { ...metaQuery };
 
   const cache =
     (viewId && productId && selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`]) || undefined;
@@ -85,7 +84,12 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
     selectorCache.data = {};
   }
 
-  if (responseData.fulfilled && productId === metaId && _isEqual(query, responseMetaQuery)) {
+  /**
+   * ToDo: evaluate removing id check
+   * This logic is left over. We started cancelling subsequent promise calls making additional
+   * checks superfluous, fulfilled should be the only check necessary now.
+   */
+  if (responseData.fulfilled && productId === metaId) {
     const {
       [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: listData = [],
       [rhsmApiTypes.RHSM_API_RESPONSE_META]: listMeta = {}

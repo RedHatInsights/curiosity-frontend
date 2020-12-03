@@ -6,11 +6,11 @@ import {
 } from '@patternfly/react-tokens';
 import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/cjs/DateFormat';
+import moment from 'moment';
 import { PageLayout, PageHeader, PageMessages, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_SORT_TYPES as SORT_TYPES,
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_UOM_TYPES
 } from '../../types/rhsmApiTypes';
@@ -20,6 +20,8 @@ import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
+import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
+import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -34,7 +36,8 @@ class OpenshiftView extends React.Component {
   state = {
     option: null,
     graphFilters: [],
-    inventoryFilters: []
+    inventoryFilters: [],
+    subscriptionsInventoryFilters: []
   };
 
   componentDidMount() {
@@ -50,7 +53,7 @@ class OpenshiftView extends React.Component {
    */
   onSelect = (event = {}) => {
     const { option } = this.state;
-    const { initialGraphFilters, initialInventoryFilters, viewId } = this.props;
+    const { initialGraphFilters, initialInventoryFilters, initialSubscriptionsInventoryFilters, viewId } = this.props;
     const { value } = event;
 
     if (value !== option) {
@@ -63,12 +66,14 @@ class OpenshiftView extends React.Component {
 
       const graphFilters = initialGraphFilters.filter(filter);
       const inventoryFilters = initialInventoryFilters.filter(filter);
+      const subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters.filter(filter);
 
       this.setState(
         {
           option,
           graphFilters,
-          inventoryFilters
+          inventoryFilters,
+          subscriptionsInventoryFilters
         },
         () => {
           store.dispatch([
@@ -114,7 +119,7 @@ class OpenshiftView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { graphFilters, inventoryFilters } = this.state;
+    const { graphFilters, inventoryFilters, subscriptionsInventoryFilters } = this.state;
     const {
       initialGuestsFilters,
       initialToolbarFilters,
@@ -177,16 +182,28 @@ class OpenshiftView extends React.Component {
           )}
         </PageSection>
         <PageSection>
-          <InventoryList
-            key={routeDetail.pathParameter}
-            filterGuestsData={initialGuestsFilters}
-            filterInventoryData={inventoryFilters}
-            settings={initialInventorySettings}
-            query={initialInventoryQuery}
-            productId={routeDetail.pathParameter}
-            viewId={viewId}
-            cardTitle={t('curiosity-inventory.cardHeading')}
-          />
+          <InventoryTabs productId={routeDetail.pathParameter}>
+            <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'systems' })}>
+              <InventoryList
+                key={routeDetail.pathParameter}
+                filterGuestsData={initialGuestsFilters}
+                filterInventoryData={inventoryFilters}
+                productId={routeDetail.pathParameter}
+                settings={initialInventorySettings}
+                query={initialInventoryQuery}
+                viewId={viewId}
+              />
+            </InventoryTab>
+            <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
+              <InventorySubscriptions
+                key={routeDetail.pathParameter}
+                filterInventoryData={subscriptionsInventoryFilters}
+                productId={routeDetail.pathParameter}
+                query={initialInventoryQuery}
+                viewId={viewId}
+              />
+            </InventoryTab>
+          </InventoryTabs>
         </PageSection>
       </PageLayout>
     );
@@ -211,6 +228,7 @@ OpenshiftView.propTypes = {
   initialInventorySettings: PropTypes.shape({
     hasGuests: PropTypes.func
   }),
+  initialSubscriptionsInventoryFilters: PropTypes.array,
   initialToolbarFilters: PropTypes.array,
   location: PropTypes.shape({
     parsedSearch: PropTypes.objectOf(PropTypes.string)
@@ -236,12 +254,10 @@ OpenshiftView.propTypes = {
  */
 OpenshiftView.defaultProps = {
   query: {
-    [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
     [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
     [RHSM_API_QUERY_TYPES.LIMIT]: 100,
     [RHSM_API_QUERY_TYPES.OFFSET]: 0,
-    [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES,
-    [RHSM_API_QUERY_TYPES.SORT]: SORT_TYPES.DATE
+    [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES
   },
   initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
@@ -378,11 +394,35 @@ OpenshiftView.defaultProps = {
       id: 'lastSeen',
       cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
       isSortable: true,
+      isSortDefault: true,
       isWrappable: true,
+      sortDefaultInitialDirection: SORT_DIRECTION_TYPES.ASCENDING,
       cellWidth: 15
     }
   ],
   initialInventorySettings: {},
+  initialSubscriptionsInventoryFilters: [
+    {
+      id: 'productName',
+      isSortable: true
+    },
+    {
+      id: 'serviceLevel',
+      isSortable: true,
+      isWrappable: true,
+      cellWidth: 15
+    },
+    {
+      id: 'upcomingEventDate',
+      cell: data =>
+        (data?.upcomingEventDate?.value && moment.utc(data?.upcomingEventDate?.value).format('YYYY-DD-MM')) || '',
+      isSortable: true,
+      isSortDefault: true,
+      isWrappable: true,
+      sortDefaultInitialDirection: SORT_DIRECTION_TYPES.ASCENDING,
+      cellWidth: 15
+    }
+  ],
   initialToolbarFilters: [
     {
       id: RHSM_API_QUERY_TYPES.SLA

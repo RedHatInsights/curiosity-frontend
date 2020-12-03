@@ -1,124 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryList Component should handle expandable guests data: number of guests 1`] = `
-<Table
-  ariaLabel={null}
-  borders={true}
-  className="curiosity-inventory-list"
-  columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-    ]
-  }
-  isHeader={true}
-  rows={
-    Array [
-      Object {
-        "cells": Array [
-          "sit",
-          "amet",
-          1,
-        ],
-        "expandedContent": undefined,
-      },
-    ]
-  }
-  summary={null}
-  t={[Function]}
-  variant="compact"
-/>
-`;
-
-exports[`InventoryList Component should handle expandable guests data: number of guests, and id 1`] = `
-<Table
-  ariaLabel={null}
-  borders={true}
-  className="curiosity-inventory-list"
-  columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
-    ]
-  }
-  isHeader={true}
-  rows={
-    Array [
-      Object {
-        "cells": Array [
-          "sit",
-          "amet",
-          1,
-          "loremipsum",
-        ],
-        "expandedContent": <UNDEFINED
-          filterGuestsData={Array []}
-          id="loremipsum"
-          numberOfGuests={1}
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
-        />,
-      },
-    ]
-  }
-  summary={null}
-  t={[Function]}
-  variant="compact"
-/>
-`;
-
-exports[`InventoryList Component should handle expandable guests data: number of guests, id, and NO expandable guests display 1`] = `
-<Table
-  ariaLabel={null}
-  borders={true}
-  className="curiosity-inventory-list"
-  columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
-    ]
-  }
-  isHeader={true}
-  rows={
-    Array [
-      Object {
-        "cells": Array [
-          "sit",
-          "amet",
-          2,
-          "loremipsum",
-        ],
-        "expandedContent": undefined,
-      },
-    ]
-  }
-  summary={null}
-  t={[Function]}
-  variant="compact"
-/>
-`;
-
-exports[`InventoryList Component should handle updating sorting through redux state: dispatch filter 1`] = `
+exports[`InventorySubscriptions Component should handle updating sorting through redux state: dispatch filter 1`] = `
 Array [
   Array [
     Array [
       Object {
         "dir": "asc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
         "viewId": "lorem",
       },
       Object {
-        "sort": "sockets",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "sort": "product_name",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },
     ],
@@ -127,12 +20,12 @@ Array [
     Array [
       Object {
         "dir": "desc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
         "viewId": "lorem",
       },
       Object {
-        "sort": "sockets",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "sort": "product_name",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },
     ],
@@ -141,12 +34,12 @@ Array [
     Array [
       Object {
         "dir": "asc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
         "viewId": "lorem",
       },
       Object {
-        "sort": "sockets",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "sort": "product_name",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },
     ],
@@ -154,7 +47,7 @@ Array [
 ]
 `;
 
-exports[`InventoryList Component should handle variations in data: filtered data 1`] = `
+exports[`InventorySubscriptions Component should handle variations in data: filtered data 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -172,11 +65,11 @@ exports[`InventoryList Component should handle variations in data: filtered data
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
+          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
-          viewId="inventoryList"
+          viewId="subscriptionsList"
         />
       </CardActions>
     </CardHeader>
@@ -212,7 +105,6 @@ exports[`InventoryList Component should handle variations in data: filtered data
                     "title": "ipsum",
                   },
                 ],
-                "expandedContent": undefined,
               },
               Object {
                 "cells": Array [
@@ -220,7 +112,6 @@ exports[`InventoryList Component should handle variations in data: filtered data
                     "title": "sit",
                   },
                 ],
-                "expandedContent": undefined,
               },
             ]
           }
@@ -247,11 +138,11 @@ exports[`InventoryList Component should handle variations in data: filtered data
           dropDirection="up"
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
+          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
-          viewId="inventoryList"
+          viewId="subscriptionsList"
         />
       </TableToolbar>
     </CardFooter>
@@ -259,7 +150,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
 </Card>
 `;
 
-exports[`InventoryList Component should handle variations in data: variable data 1`] = `
+exports[`InventorySubscriptions Component should handle variations in data: variable data 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -277,11 +168,11 @@ exports[`InventoryList Component should handle variations in data: variable data
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
+          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
-          viewId="inventoryList"
+          viewId="subscriptionsList"
         />
       </CardActions>
     </CardHeader>
@@ -314,14 +205,12 @@ exports[`InventoryList Component should handle variations in data: variable data
                   "ipsum",
                   "sit",
                 ],
-                "expandedContent": undefined,
               },
               Object {
                 "cells": Array [
                   "sit",
                   "amet",
                 ],
-                "expandedContent": undefined,
               },
             ]
           }
@@ -348,11 +237,11 @@ exports[`InventoryList Component should handle variations in data: variable data
           dropDirection="up"
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
+          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
-          viewId="inventoryList"
+          viewId="subscriptionsList"
         />
       </TableToolbar>
     </CardFooter>
@@ -360,7 +249,7 @@ exports[`InventoryList Component should handle variations in data: variable data
 </Card>
 `;
 
-exports[`InventoryList Component should render a non-connected component: non-connected 1`] = `
+exports[`InventorySubscriptions Component should render a non-connected component: non-connected 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -378,11 +267,11 @@ exports[`InventoryList Component should render a non-connected component: non-co
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
+          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
-          viewId="inventoryList"
+          viewId="subscriptionsList"
         />
       </CardActions>
     </CardHeader>
@@ -427,11 +316,11 @@ exports[`InventoryList Component should render a non-connected component: non-co
           dropDirection="up"
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
+          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
-          viewId="inventoryList"
+          viewId="subscriptionsList"
         />
       </TableToolbar>
     </CardFooter>
@@ -439,4 +328,4 @@ exports[`InventoryList Component should render a non-connected component: non-co
 </Card>
 `;
 
-exports[`InventoryList Component should return an empty render when disabled: disabled component 1`] = `""`;
+exports[`InventorySubscriptions Component should return an empty render when disabled: disabled component 1`] = `""`;

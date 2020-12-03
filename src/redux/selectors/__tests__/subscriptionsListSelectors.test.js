@@ -22,7 +22,6 @@ describe('SubscriptionsListSelectors', () => {
         subscriptionsInventory: {
           fulfilled: true,
           metaId: undefined,
-          metaQuery: {},
           data: { [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [] }
         }
       }
@@ -42,7 +41,6 @@ describe('SubscriptionsListSelectors', () => {
           'Lorem Ipsum ID pending state': {
             pending: true,
             metaId: 'Lorem Ipsum ID pending state',
-            metaQuery: {},
             data: { [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [] }
           }
         }
@@ -66,9 +64,6 @@ describe('SubscriptionsListSelectors', () => {
           'Lorem Ipsum missing expected properties': {
             fulfilled: true,
             metaId: 'Lorem Ipsum missing expected properties',
-            metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
-            },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
@@ -107,9 +102,6 @@ describe('SubscriptionsListSelectors', () => {
           'Lorem Ipsum fulfilled aggregated output': {
             fulfilled: true,
             metaId: 'Lorem Ipsum fulfilled aggregated output',
-            metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
-            },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
@@ -146,9 +138,6 @@ describe('SubscriptionsListSelectors', () => {
           'Lorem Ipsum ID cached': {
             fulfilled: true,
             metaId: 'Lorem Ipsum ID cached',
-            metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
-            },
             data: {
               [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
                 {
@@ -206,21 +195,47 @@ describe('SubscriptionsListSelectors', () => {
       'cached data: updated and fulfilled'
     );
 
-    const stateFulfilledQueryMismatch = {
+    const stateCancelled = {
       inventory: {
         subscriptionsInventory: {
           'Lorem Ipsum ID cached': {
             ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
-            metaQuery: {
-              [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
-            }
+            cancelled: true,
+            fulfilled: false
           }
         }
       }
     };
 
-    expect(subscriptionsListSelectors.subscriptionsList(stateFulfilledQueryMismatch, props)).toMatchSnapshot(
-      'cached data: ERROR, query mismatch'
+    expect(subscriptionsListSelectors.subscriptionsList(stateCancelled, props)).toMatchSnapshot(
+      'cached data: ERROR, cancelled API call, maintain prior response'
+    );
+
+    const stateFulfilledQueryUpdated = {
+      inventory: {
+        subscriptionsInventory: {
+          'Lorem Ipsum ID cached': {
+            ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
+            fulfilled: true,
+            data: {
+              [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 5,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 5,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 10
+                }
+              ]
+            }
+          }
+        }
+      },
+      view: {
+        [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.PREMIUM
+      }
+    };
+
+    expect(subscriptionsListSelectors.subscriptionsList(stateFulfilledQueryUpdated, props)).toMatchSnapshot(
+      'cached data: query updated and fulfilled'
     );
   });
 });

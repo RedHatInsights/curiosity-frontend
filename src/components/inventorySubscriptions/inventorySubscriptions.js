@@ -10,23 +10,22 @@ import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import GuestsList from '../guestsList/guestsList';
-import { inventoryListHelpers } from './inventoryListHelpers';
+import { inventoryListHelpers } from '../inventoryList/inventoryListHelpers';
 import Pagination from '../pagination/pagination';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_SORT_TYPES as SORT_TYPES,
+  RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES as SORT_TYPES,
   RHSM_API_QUERY_TYPES
 } from '../../types/rhsmApiTypes';
 
 /**
- * A hosts system inventory component.
+ * A subscriptions system inventory component.
  *
  * @augments React.Component
  * @fires onColumnSort
  * @fires onUpdateInventoryData
  */
-class InventoryList extends React.Component {
+class InventorySubscriptions extends React.Component {
   componentDidMount() {
     this.onUpdateInventoryData();
   }
@@ -68,12 +67,12 @@ class InventoryList extends React.Component {
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DIRECTION],
+        type: reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DIRECTION],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.DIRECTION]: updatedDirection
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT],
+        type: reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.SORT]: updatedSortColumn
       }
@@ -86,7 +85,7 @@ class InventoryList extends React.Component {
    * @event onUpdateInventoryData
    */
   onUpdateInventoryData = () => {
-    const { filterInventoryData, getHostsInventory, isDisabled, productId, query } = this.props;
+    const { filterInventoryData, getSubscriptionsInventory, isDisabled, productId, query } = this.props;
 
     if (!isDisabled && productId) {
       const updatedQuery = { ...query };
@@ -106,7 +105,7 @@ class InventoryList extends React.Component {
         }
       }
 
-      getHostsInventory(productId, updatedQuery);
+      getSubscriptionsInventory(productId, updatedQuery);
     }
   };
 
@@ -116,7 +115,7 @@ class InventoryList extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { filterGuestsData, filterInventoryData, listData, query, session, settings } = this.props;
+    const { filterInventoryData, listData, query, session } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
@@ -132,27 +131,8 @@ class InventoryList extends React.Component {
 
       updatedColumnHeaders = columnHeaders;
 
-      const guestsId = cellData?.subscriptionManagerId;
-      let hasGuests = cellData?.numberOfGuests > 0 && guestsId;
-
-      // Apply hasGuests callback, return boolean
-      if (typeof settings?.hasGuests === 'function') {
-        hasGuests = settings.hasGuests({ ...cellData }, { ...session });
-      }
-
       return {
-        cells,
-        expandedContent:
-          (hasGuests && (
-            <GuestsList
-              key={guestsId}
-              filterGuestsData={filterGuestsData}
-              numberOfGuests={cellData?.numberOfGuests}
-              id={guestsId}
-              query={query}
-            />
-          )) ||
-          undefined
+        cells
       };
     });
 
@@ -213,8 +193,8 @@ class InventoryList extends React.Component {
                 productId={productId}
                 viewId={viewId}
                 perPageDefault={updatedPerPage}
-                offsetType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
-                limitType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
+                offsetType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
+                limitType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
               />
             </CardActions>
           </CardHeader>
@@ -249,8 +229,8 @@ class InventoryList extends React.Component {
                 viewId={viewId}
                 perPageDefault={updatedPerPage}
                 dropDirection="up"
-                offsetType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
-                limitType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
+                offsetType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
+                limitType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
               />
             </TableToolbar>
           </CardFooter>
@@ -263,15 +243,13 @@ class InventoryList extends React.Component {
 /**
  * Prop types.
  *
- * @type {{settings: object, productId: string, listData: Array, session: object, pending: boolean, query: object,
- *     fulfilled: boolean, getHostsInventory: Function, error: boolean, itemCount: number,
- *     viewId: string, filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number,
- *     isDisabled: boolean}}
+ * @type {{productId: string, listData: Array, session: object, pending: boolean, query: object,
+ *     fulfilled: boolean, error: boolean, getSubscriptionsInventory: Function, itemCount: number,
+ *     viewId: string, filterInventoryData: Array, perPageDefault: number, isDisabled: boolean}}
  */
-InventoryList.propTypes = {
+InventorySubscriptions.propTypes = {
   error: PropTypes.bool,
   fulfilled: PropTypes.bool,
-  filterGuestsData: PropTypes.array,
   filterInventoryData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -291,7 +269,7 @@ InventoryList.propTypes = {
       ])
     }).isRequired
   ),
-  getHostsInventory: PropTypes.func,
+  getSubscriptionsInventory: PropTypes.func,
   isDisabled: PropTypes.bool,
   itemCount: PropTypes.number,
   listData: PropTypes.array,
@@ -300,33 +278,28 @@ InventoryList.propTypes = {
   perPageDefault: PropTypes.number,
   query: PropTypes.object.isRequired,
   session: PropTypes.object,
-  settings: PropTypes.shape({
-    hasGuests: PropTypes.func
-  }),
   viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{settings: object, listData: Array, session: object, pending: boolean, fulfilled: boolean,
- *     getHostsInventory: Function, error: boolean, itemCount: number, viewId: string,
- *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
+ * @type {{viewId: string, filterInventoryData: Array, listData: Array, session: object, pending: boolean,
+ *     fulfilled: boolean, perPageDefault: number, isDisabled: boolean, error: boolean,
+ *     getSubscriptionsInventory: Function, itemCount: number}}
  */
-InventoryList.defaultProps = {
+InventorySubscriptions.defaultProps = {
   error: false,
   fulfilled: false,
-  filterGuestsData: [],
   filterInventoryData: [],
-  getHostsInventory: helpers.noop,
+  getSubscriptionsInventory: helpers.noop,
   isDisabled: helpers.UI_DISABLED_TABLE,
   itemCount: 0,
   listData: [],
   pending: false,
   perPageDefault: 10,
   session: {},
-  settings: {},
-  viewId: 'inventoryList'
+  viewId: 'subscriptionsList'
 };
 
 /**
@@ -336,7 +309,7 @@ InventoryList.defaultProps = {
  * @returns {object}
  */
 const mapDispatchToProps = dispatch => ({
-  getHostsInventory: (id, query) => dispatch(reduxActions.rhsm.getHostsInventory(id, query))
+  getSubscriptionsInventory: (id, query) => dispatch(reduxActions.rhsm.getSubscriptionsInventory(id, query))
 });
 
 /**
@@ -344,8 +317,8 @@ const mapDispatchToProps = dispatch => ({
  *
  * @type {Function}
  */
-const makeMapStateToProps = reduxSelectors.inventoryList.makeInventoryList();
+const makeMapStateToProps = reduxSelectors.subscriptionsList.makeSubscriptionsList();
 
-const ConnectedInventoryList = connect(makeMapStateToProps, mapDispatchToProps)(InventoryList);
+const ConnectedInventorySubscriptions = connect(makeMapStateToProps, mapDispatchToProps)(InventorySubscriptions);
 
-export { ConnectedInventoryList as default, ConnectedInventoryList, InventoryList };
+export { ConnectedInventorySubscriptions as default, ConnectedInventorySubscriptions, InventorySubscriptions };

@@ -223,8 +223,12 @@ Array [
         "match": "t('curiosity-graph.cardHeading')",
       },
       Object {
-        "key": "curiosity-inventory.cardHeading",
-        "match": "t('curiosity-inventory.cardHeading')",
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'systems' })",
+      },
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
       },
       Object {
         "key": "curiosity-inventory.header",
@@ -346,8 +350,12 @@ Array [
         "match": "t('curiosity-graph.socketsHeading')",
       },
       Object {
-        "key": "curiosity-inventory.cardHeading",
-        "match": "t('curiosity-inventory.cardHeading')",
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'systems' })",
+      },
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
       },
       Object {
         "key": "curiosity-inventory.header",
@@ -503,7 +511,23 @@ Array [
   },
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/openshiftView/openshiftView.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/openshiftView/openshiftView.js",
     "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/components/rhelView/rhelView.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/rhelView/rhelView.js",
+    "key": "curiosity-inventory.tab",
   },
   Object {
     "file": "./src/components/rhelView/rhelView.js",

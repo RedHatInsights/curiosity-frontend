@@ -16,11 +16,9 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "desc",
           "granularity": "daily",
           "limit": 100,
           "offset": 0,
-          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -41,11 +39,9 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "desc",
           "granularity": "daily",
           "limit": 100,
           "offset": 0,
-          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -108,69 +104,119 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
     </Connect(C3GraphCard)>
   </PageSection>
   <PageSection>
-    <Connect(InventoryList)
-      cardTitle="t(curiosity-inventory.cardHeading)"
-      filterGuestsData={
-        Array [
-          Object {
-            "cell": [Function],
-            "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-            "id": "displayName",
-          },
-          Object {
-            "cellWidth": 40,
-            "id": "inventoryId",
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 15,
-            "id": "lastSeen",
-          },
-        ]
-      }
-      filterInventoryData={
-        Array [
-          Object {
-            "cell": [Function],
-            "id": "displayName",
-            "isSortable": true,
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 20,
-            "id": "measurementType",
-            "isSortable": true,
-          },
-          Object {
-            "cellWidth": 15,
-            "id": "cores",
-            "isOptional": true,
-            "isSortable": true,
-            "isWrappable": true,
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 15,
-            "id": "lastSeen",
-            "isSortable": true,
-            "isWrappable": true,
-          },
-        ]
-      }
-      key="lorem ipsum"
+    <Connect(InventoryTabs)
       productId="lorem ipsum"
-      query={
-        Object {
-          "dir": "desc",
-          "limit": 100,
-          "offset": 0,
-          "sort": "last_seen",
-          "uom": "cores",
-        }
-      }
-      settings={Object {}}
-      viewId="viewOpenShift"
-    />
+    >
+      <InventoryTab
+        active={false}
+        key="hostsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"systems\\"})"
+      >
+        <Connect(InventoryList)
+          filterGuestsData={
+            Array [
+              Object {
+                "cell": [Function],
+                "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+                "id": "displayName",
+              },
+              Object {
+                "cellWidth": 40,
+                "id": "inventoryId",
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "lastSeen",
+              },
+            ]
+          }
+          filterInventoryData={
+            Array [
+              Object {
+                "cell": [Function],
+                "id": "displayName",
+                "isSortable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 20,
+                "id": "measurementType",
+                "isSortable": true,
+              },
+              Object {
+                "cellWidth": 15,
+                "id": "cores",
+                "isOptional": true,
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "lastSeen",
+                "isSortDefault": true,
+                "isSortable": true,
+                "isWrappable": true,
+                "sortDefaultInitialDirection": "asc",
+              },
+            ]
+          }
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={
+            Object {
+              "limit": 100,
+              "offset": 0,
+              "uom": "cores",
+            }
+          }
+          settings={Object {}}
+          viewId="viewOpenShift"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="subscriptionsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          filterInventoryData={
+            Array [
+              Object {
+                "id": "productName",
+                "isSortable": true,
+              },
+              Object {
+                "cellWidth": 15,
+                "id": "serviceLevel",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "upcomingEventDate",
+                "isSortDefault": true,
+                "isSortable": true,
+                "isWrappable": true,
+                "sortDefaultInitialDirection": "asc",
+              },
+            ]
+          }
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={
+            Object {
+              "limit": 100,
+              "offset": 0,
+              "uom": "cores",
+            }
+          }
+          viewId="viewOpenShift"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
   </PageSection>
 </PageLayout>
 `;
@@ -191,11 +237,9 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "desc",
           "granularity": "daily",
           "limit": 100,
           "offset": 0,
-          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -216,11 +260,9 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "desc",
           "granularity": "daily",
           "limit": 100,
           "offset": 0,
-          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -283,69 +325,119 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
     </Connect(GraphCard)>
   </PageSection>
   <PageSection>
-    <Connect(InventoryList)
-      cardTitle="t(curiosity-inventory.cardHeading)"
-      filterGuestsData={
-        Array [
-          Object {
-            "cell": [Function],
-            "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-            "id": "displayName",
-          },
-          Object {
-            "cellWidth": 40,
-            "id": "inventoryId",
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 15,
-            "id": "lastSeen",
-          },
-        ]
-      }
-      filterInventoryData={
-        Array [
-          Object {
-            "cell": [Function],
-            "id": "displayName",
-            "isSortable": true,
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 20,
-            "id": "measurementType",
-            "isSortable": true,
-          },
-          Object {
-            "cellWidth": 15,
-            "id": "cores",
-            "isOptional": true,
-            "isSortable": true,
-            "isWrappable": true,
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 15,
-            "id": "lastSeen",
-            "isSortable": true,
-            "isWrappable": true,
-          },
-        ]
-      }
-      key="lorem ipsum"
+    <Connect(InventoryTabs)
       productId="lorem ipsum"
-      query={
-        Object {
-          "dir": "desc",
-          "limit": 100,
-          "offset": 0,
-          "sort": "last_seen",
-          "uom": "cores",
-        }
-      }
-      settings={Object {}}
-      viewId="viewOpenShift"
-    />
+    >
+      <InventoryTab
+        active={false}
+        key="hostsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"systems\\"})"
+      >
+        <Connect(InventoryList)
+          filterGuestsData={
+            Array [
+              Object {
+                "cell": [Function],
+                "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+                "id": "displayName",
+              },
+              Object {
+                "cellWidth": 40,
+                "id": "inventoryId",
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "lastSeen",
+              },
+            ]
+          }
+          filterInventoryData={
+            Array [
+              Object {
+                "cell": [Function],
+                "id": "displayName",
+                "isSortable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 20,
+                "id": "measurementType",
+                "isSortable": true,
+              },
+              Object {
+                "cellWidth": 15,
+                "id": "cores",
+                "isOptional": true,
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "lastSeen",
+                "isSortDefault": true,
+                "isSortable": true,
+                "isWrappable": true,
+                "sortDefaultInitialDirection": "asc",
+              },
+            ]
+          }
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={
+            Object {
+              "limit": 100,
+              "offset": 0,
+              "uom": "cores",
+            }
+          }
+          settings={Object {}}
+          viewId="viewOpenShift"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="subscriptionsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          filterInventoryData={
+            Array [
+              Object {
+                "id": "productName",
+                "isSortable": true,
+              },
+              Object {
+                "cellWidth": 15,
+                "id": "serviceLevel",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "upcomingEventDate",
+                "isSortDefault": true,
+                "isSortable": true,
+                "isWrappable": true,
+                "sortDefaultInitialDirection": "asc",
+              },
+            ]
+          }
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={
+            Object {
+              "limit": 100,
+              "offset": 0,
+              "uom": "cores",
+            }
+          }
+          viewId="viewOpenShift"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
   </PageSection>
 </PageLayout>
 `;
@@ -754,16 +846,16 @@ Object {
       "cell": [Function],
       "cellWidth": 15,
       "id": "lastSeen",
+      "isSortDefault": true,
       "isSortable": true,
       "isWrappable": true,
+      "sortDefaultInitialDirection": "asc",
     },
   ],
   "query": Object {
-    "dir": "desc",
     "granularity": "daily",
     "limit": 100,
     "offset": 0,
-    "sort": "last_seen",
     "uom": "cores",
   },
 }
@@ -785,11 +877,9 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "desc",
           "granularity": "daily",
           "limit": 100,
           "offset": 0,
-          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -810,11 +900,9 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productId="lorem ipsum"
       query={
         Object {
-          "dir": "desc",
           "granularity": "daily",
           "limit": 100,
           "offset": 0,
-          "sort": "last_seen",
           "uom": "cores",
         }
       }
@@ -877,69 +965,119 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
     </Connect(GraphCard)>
   </PageSection>
   <PageSection>
-    <Connect(InventoryList)
-      cardTitle="t(curiosity-inventory.cardHeading)"
-      filterGuestsData={
-        Array [
-          Object {
-            "cell": [Function],
-            "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-            "id": "displayName",
-          },
-          Object {
-            "cellWidth": 40,
-            "id": "inventoryId",
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 15,
-            "id": "lastSeen",
-          },
-        ]
-      }
-      filterInventoryData={
-        Array [
-          Object {
-            "cell": [Function],
-            "id": "displayName",
-            "isSortable": true,
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 20,
-            "id": "measurementType",
-            "isSortable": true,
-          },
-          Object {
-            "cellWidth": 15,
-            "id": "cores",
-            "isOptional": true,
-            "isSortable": true,
-            "isWrappable": true,
-          },
-          Object {
-            "cell": [Function],
-            "cellWidth": 15,
-            "id": "lastSeen",
-            "isSortable": true,
-            "isWrappable": true,
-          },
-        ]
-      }
-      key="lorem ipsum"
+    <Connect(InventoryTabs)
       productId="lorem ipsum"
-      query={
-        Object {
-          "dir": "desc",
-          "limit": 100,
-          "offset": 0,
-          "sort": "last_seen",
-          "uom": "cores",
-        }
-      }
-      settings={Object {}}
-      viewId="viewOpenShift"
-    />
+    >
+      <InventoryTab
+        active={false}
+        key="hostsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"systems\\"})"
+      >
+        <Connect(InventoryList)
+          filterGuestsData={
+            Array [
+              Object {
+                "cell": [Function],
+                "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+                "id": "displayName",
+              },
+              Object {
+                "cellWidth": 40,
+                "id": "inventoryId",
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "lastSeen",
+              },
+            ]
+          }
+          filterInventoryData={
+            Array [
+              Object {
+                "cell": [Function],
+                "id": "displayName",
+                "isSortable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 20,
+                "id": "measurementType",
+                "isSortable": true,
+              },
+              Object {
+                "cellWidth": 15,
+                "id": "cores",
+                "isOptional": true,
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "lastSeen",
+                "isSortDefault": true,
+                "isSortable": true,
+                "isWrappable": true,
+                "sortDefaultInitialDirection": "asc",
+              },
+            ]
+          }
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={
+            Object {
+              "limit": 100,
+              "offset": 0,
+              "uom": "cores",
+            }
+          }
+          settings={Object {}}
+          viewId="viewOpenShift"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="subscriptionsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          filterInventoryData={
+            Array [
+              Object {
+                "id": "productName",
+                "isSortable": true,
+              },
+              Object {
+                "cellWidth": 15,
+                "id": "serviceLevel",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "upcomingEventDate",
+                "isSortDefault": true,
+                "isSortable": true,
+                "isWrappable": true,
+                "sortDefaultInitialDirection": "asc",
+              },
+            ]
+          }
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={
+            Object {
+              "limit": 100,
+              "offset": 0,
+              "uom": "cores",
+            }
+          }
+          viewId="viewOpenShift"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
   </PageSection>
 </PageLayout>
 `;

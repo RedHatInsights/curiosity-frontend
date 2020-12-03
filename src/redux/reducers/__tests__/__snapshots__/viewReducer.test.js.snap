@@ -3,9 +3,11 @@
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR 1`] = `
 Object {
   "result": Object {
+    "hostsQuery": Object {},
     "query": Object {
       "test_id": Object {},
     },
+    "subscriptionsQuery": Object {},
   },
   "type": "SET_QUERY_CLEAR",
 }
@@ -14,98 +16,174 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_LIST 1`] = `
 Object {
   "result": Object {
+    "hostsQuery": Object {},
     "query": Object {},
+    "subscriptionsQuery": Object {},
   },
   "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_dir 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_dir 1`] = `
 Object {
   "result": Object {
-    "query": Object {
+    "hostsQuery": Object {
+      "test_id": Object {
+        "dir": "lorem direction",
+      },
+    },
+    "query": Object {},
+    "subscriptionsQuery": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_limit 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {
+      "test_id": Object {
+        "limit": 10,
+      },
+    },
+    "query": Object {},
+    "subscriptionsQuery": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_offset 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {
+      "test_id": Object {
+        "offset": 10,
+      },
+    },
+    "query": Object {},
+    "subscriptionsQuery": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_sort 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {
+      "test_id": Object {
+        "sort": "lorem sort",
+      },
+    },
+    "query": Object {},
+    "subscriptionsQuery": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {},
+    "query": Object {},
+    "subscriptionsQuery": Object {
       "test_id": Object {
         "dir": "lorem direction",
       },
     },
   },
-  "type": "SET_QUERY_RHSM_dir",
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {},
+    "query": Object {},
+    "subscriptionsQuery": Object {
+      "test_id": Object {
+        "limit": 10,
+      },
+    },
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {},
+    "query": Object {},
+    "subscriptionsQuery": Object {
+      "test_id": Object {
+        "offset": 10,
+      },
+    },
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort 1`] = `
+Object {
+  "result": Object {
+    "hostsQuery": Object {},
+    "query": Object {},
+    "subscriptionsQuery": Object {
+      "test_id": Object {
+        "sort": "lorem sort",
+      },
+    },
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
 }
 `;
 
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_granularity 1`] = `
 Object {
   "result": Object {
+    "hostsQuery": Object {},
     "query": Object {
       "test_id": Object {
         "granularity": "lorem granularity",
       },
     },
+    "subscriptionsQuery": Object {},
   },
   "type": "SET_QUERY_RHSM_granularity",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_limit 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "limit": 10,
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_limit",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_offset 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "offset": 10,
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_offset",
 }
 `;
 
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_sla 1`] = `
 Object {
   "result": Object {
+    "hostsQuery": Object {},
     "query": Object {
       "test_id": Object {
         "sla": "lorem sla",
       },
     },
+    "subscriptionsQuery": Object {},
   },
   "type": "SET_QUERY_RHSM_sla",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_sort 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "sort": "lorem sort",
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_sort",
 }
 `;
 
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_uom 1`] = `
 Object {
   "result": Object {
+    "hostsQuery": Object {},
     "query": Object {
       "test_id": Object {
         "uom": "lorem uom",
       },
     },
+    "subscriptionsQuery": Object {},
   },
   "type": "SET_QUERY_RHSM_uom",
 }
@@ -114,11 +192,13 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_usage 1`] = `
 Object {
   "result": Object {
+    "hostsQuery": Object {},
     "query": Object {
       "test_id": Object {
         "usage": "ipsum usage",
       },
     },
+    "subscriptionsQuery": Object {},
   },
   "type": "SET_QUERY_RHSM_usage",
 }
