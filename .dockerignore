@@ -1,0 +1,8 @@
+.*
+!.env
+!.env.produdtion
+build
+coverage
+Dockerfile
+node_modules
+tests
