@@ -206,21 +206,54 @@ describe('SubscriptionsListSelectors', () => {
       'cached data: updated and fulfilled'
     );
 
-    const stateFulfilledQueryMismatch = {
+    const stateCancelled = {
+      inventory: {
+        subscriptionsInventory: {
+          'Lorem Ipsum ID cached': {
+            ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
+            cancelled: true,
+            fulfilled: false
+          }
+        }
+      }
+    };
+
+    expect(subscriptionsListSelectors.subscriptionsList(stateCancelled, props)).toMatchSnapshot(
+      'cached data: ERROR, cancelled API call, maintain prior response'
+    );
+
+    const stateFulfilledQueryUpdated = {
       inventory: {
         subscriptionsInventory: {
           'Lorem Ipsum ID cached': {
             ...stateInitialFulfilled.inventory.subscriptionsInventory['Lorem Ipsum ID cached'],
             metaQuery: {
               [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
+            },
+            fulfilled: true,
+            data: {
+              [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.PHYSICAL_CAPACITY]: 5,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.VIRTUAL_CAPACITY]: 5,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: 10
+                }
+              ]
             }
+          }
+        }
+      },
+      view: {
+        query: {
+          'Lorem Ipsum ID cached': {
+            [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
           }
         }
       }
     };
 
-    expect(subscriptionsListSelectors.subscriptionsList(stateFulfilledQueryMismatch, props)).toMatchSnapshot(
-      'cached data: ERROR, query mismatch'
+    expect(subscriptionsListSelectors.subscriptionsList(stateFulfilledQueryUpdated, props)).toMatchSnapshot(
+      'cached data: query updated and fulfilled'
     );
   });
 });

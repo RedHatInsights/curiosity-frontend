@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Pagination } from '../pagination';
-import { store } from '../../../redux';
+import { reduxTypes, store } from '../../../redux';
 import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('Pagination Component', () => {
@@ -17,7 +17,9 @@ describe('Pagination Component', () => {
 
   it('should render a non-connected component', () => {
     const props = {
-      productId: 'lorem'
+      productId: 'lorem',
+      limitType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+      offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]
     };
 
     const component = shallow(<Pagination {...props} />);
@@ -27,6 +29,8 @@ describe('Pagination Component', () => {
   it('should handle per-page limit, and page offset updates through props', () => {
     const props = {
       productId: 'lorem',
+      limitType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+      offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
       itemCount: 39,
       query: {
         [RHSM_API_QUERY_TYPES.LIMIT]: 20
@@ -59,6 +63,8 @@ describe('Pagination Component', () => {
   it('should reset offset/pages when per-page limit is adjusted through redux state', () => {
     const props = {
       productId: 'lorem',
+      limitType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+      offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
       itemCount: 11,
       query: {
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
@@ -76,6 +82,8 @@ describe('Pagination Component', () => {
   it('should handle updating paging for redux state', () => {
     const props = {
       productId: 'lorem',
+      limitType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+      offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
       itemCount: 39,
       query: {
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,

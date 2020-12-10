@@ -47,6 +47,19 @@ const applySortFilters = ({ filter = {}, onSort, query = {} }) => {
     }
   }
 
+  if (
+    hasSort &&
+    !updatedFilter.sortActive &&
+    !query?.[RHSM_API_QUERY_TYPES.SORT] &&
+    updatedFilter.isSortDefault === true
+  ) {
+    updatedFilter.sortActive = true;
+
+    if (updatedFilter.sortDefaultInitialDirection) {
+      updatedFilter.sortDirection = updatedFilter.sortDefaultInitialDirection;
+    }
+  }
+
   return updatedFilter;
 };
 

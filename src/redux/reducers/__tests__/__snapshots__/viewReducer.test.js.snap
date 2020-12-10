@@ -3,6 +3,22 @@
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR 1`] = `
 Object {
   "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
     "query": Object {
       "test_id": Object {},
     },
@@ -14,67 +30,274 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_LIST 1`] = `
 Object {
   "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "offset": 0,
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "offset": 0,
+      },
+    },
     "query": Object {},
   },
   "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_dir 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_dir 1`] = `
 Object {
   "result": Object {
-    "query": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
       "test_id": Object {
-        "dir": "lorem direction",
+        "dir": "lorem asc direction",
+        "offset": 30,
+        "sort": "dolor sort",
       },
     },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
   },
-  "type": "SET_QUERY_RHSM_dir",
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_limit 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "limit": 10,
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_offset 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 10,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_sort 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "lorem sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "lorem asc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "limit": 10,
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 10,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "lorem sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
 }
 `;
 
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_granularity 1`] = `
 Object {
   "result": Object {
-    "query": Object {
+    "graphTallyQuery": Object {
       "test_id": Object {
         "granularity": "lorem granularity",
       },
     },
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
   },
   "type": "SET_QUERY_RHSM_granularity",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_limit 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "limit": 10,
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_limit",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_offset 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "offset": 10,
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_offset",
 }
 `;
 
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_sla 1`] = `
 Object {
   "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
     "query": Object {
       "test_id": Object {
         "sla": "lorem sla",
@@ -85,22 +308,25 @@ Object {
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_sort 1`] = `
-Object {
-  "result": Object {
-    "query": Object {
-      "test_id": Object {
-        "sort": "lorem sort",
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_sort",
-}
-`;
-
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_uom 1`] = `
 Object {
   "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
     "query": Object {
       "test_id": Object {
         "uom": "lorem uom",
@@ -114,6 +340,22 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_usage 1`] = `
 Object {
   "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
     "query": Object {
       "test_id": Object {
         "usage": "ipsum usage",

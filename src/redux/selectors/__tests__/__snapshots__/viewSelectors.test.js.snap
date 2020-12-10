@@ -2,6 +2,10 @@
 
 exports[`ViewSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
 Object {
+  "graphTallyQuery": Object {},
+  "inventoryGuestsQuery": Object {},
+  "inventoryHostsQuery": Object {},
+  "inventorySubscriptionsQuery": Object {},
   "query": Object {},
 }
 `;
