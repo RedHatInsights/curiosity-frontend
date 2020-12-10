@@ -22,7 +22,7 @@ Array [
     Array [
       Object {
         "offset": 10,
-        "type": "SET_QUERY_RHSM_offset",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
     ],
@@ -31,7 +31,7 @@ Array [
     Array [
       Object {
         "limit": 10,
-        "type": "SET_QUERY_RHSM_limit",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
       },
     ],
@@ -40,7 +40,7 @@ Array [
     Array [
       Object {
         "offset": 0,
-        "type": "SET_QUERY_RHSM_offset",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
     ],
@@ -49,7 +49,7 @@ Array [
     Array [
       Object {
         "limit": 20,
-        "type": "SET_QUERY_RHSM_limit",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
       },
     ],
@@ -127,7 +127,7 @@ Array [
     Array [
       Object {
         "offset": 0,
-        "type": "SET_QUERY_RHSM_offset",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
     ],
@@ -136,7 +136,7 @@ Array [
     Array [
       Object {
         "limit": 100,
-        "type": "SET_QUERY_RHSM_limit",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
       },
     ],
