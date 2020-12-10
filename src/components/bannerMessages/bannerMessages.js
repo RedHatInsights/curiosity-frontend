@@ -35,12 +35,12 @@ class BannerMessages extends React.Component {
    */
   onUpdateData = () => {
     const { getMessageReports, productId, query } = this.props;
-    const { graphQuery } = apiQueries.parseRhsmQuery(query);
+    const { graphTallyQuery } = apiQueries.parseRhsmQuery(query);
 
     if (productId) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime('CURRENT');
       const updatedGraphQuery = {
-        ...graphQuery,
+        ...graphTallyQuery,
         [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
         [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString(),
         [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString()
