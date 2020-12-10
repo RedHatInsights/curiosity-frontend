@@ -98,8 +98,8 @@ Object {
       },
       "RHSM_API_QUERY_SORT_TYPES": Object {
         "CORES": "cores",
-        "DATE": "last_seen",
         "HARDWARE": "hardware_type",
+        "LAST_SEEN": "last_seen",
         "MEASUREMENT": "measurement_type",
         "NAME": "display_name",
         "SOCKETS": "sockets",
@@ -321,8 +321,8 @@ Object {
       },
       "RHSM_API_QUERY_SORT_TYPES": Object {
         "CORES": "cores",
-        "DATE": "last_seen",
         "HARDWARE": "hardware_type",
+        "LAST_SEEN": "last_seen",
         "MEASUREMENT": "measurement_type",
         "NAME": "display_name",
         "SOCKETS": "sockets",
@@ -543,8 +543,8 @@ Object {
     },
     "RHSM_API_QUERY_SORT_TYPES": Object {
       "CORES": "cores",
-      "DATE": "last_seen",
       "HARDWARE": "hardware_type",
+      "LAST_SEEN": "last_seen",
       "MEASUREMENT": "measurement_type",
       "NAME": "display_name",
       "SOCKETS": "sockets",
@@ -769,8 +769,8 @@ Object {
     },
     "RHSM_API_QUERY_SORT_TYPES": Object {
       "CORES": "cores",
-      "DATE": "last_seen",
       "HARDWARE": "hardware_type",
+      "LAST_SEEN": "last_seen",
       "MEASUREMENT": "measurement_type",
       "NAME": "display_name",
       "SOCKETS": "sockets",
