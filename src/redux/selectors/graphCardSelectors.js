@@ -38,7 +38,7 @@ const statePropsFilter = (state, props = {}) => ({
  * @returns {object}
  */
 const queryFilter = (state, props = {}) => {
-  const { graphQuery: query } = apiQueries.parseRhsmQuery({
+  const { graphTallyQuery: query } = apiQueries.parseRhsmQuery({
     ...props.query,
     ...state.view?.query?.[props.productId],
     ...state.view?.query?.[props.viewId]
