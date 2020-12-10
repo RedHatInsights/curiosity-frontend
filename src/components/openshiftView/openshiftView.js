@@ -128,8 +128,8 @@ class OpenshiftView extends React.Component {
     } = this.props;
     const isC3 = location?.parsedSearch?.c3 === '';
     const {
-      graphQuery: initialGraphQuery,
-      inventoryQuery: initialInventoryQuery,
+      graphTallyQuery: initialGraphQuery,
+      inventoryHostsQuery: initialInventoryQuery,
       toolbarQuery
     } = apiQueries.parseRhsmQuery(query);
 
