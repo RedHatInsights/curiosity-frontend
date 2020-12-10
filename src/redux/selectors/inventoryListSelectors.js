@@ -45,11 +45,16 @@ const statePropsFilter = (state, props = {}) => ({
  * @returns {object}
  */
 const queryFilter = (state, props = {}) => {
-  const { inventoryHostsQuery: query } = apiQueries.parseRhsmQuery({
-    ...props.query,
-    ...state.view?.query?.[props.productId],
-    ...state.view?.query?.[props.viewId]
-  });
+  const { inventoryHostsQuery: query } = apiQueries.parseRhsmQuery(
+    {
+      ...props.query,
+      ...state.view?.query?.[props.productId],
+      ...state.view?.query?.[props.viewId]
+    },
+    {
+      inventoryHostsQuery: { ...state.view?.inventoryHostsQuery?.[props.productId] }
+    }
+  );
 
   return query;
 };

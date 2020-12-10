@@ -217,21 +217,57 @@ describe('InventoryListSelectors', () => {
       'cached data: updated and fulfilled'
     );
 
-    const stateFulfilledQueryMismatch = {
+    const stateCancelled = {
+      inventory: {
+        hostsInventory: {
+          'Lorem Ipsum ID cached': {
+            ...stateInitialFulfilled.inventory.hostsInventory['Lorem Ipsum ID cached'],
+            cancelled: true,
+            fulfilled: false
+          }
+        }
+      }
+    };
+
+    expect(inventoryListSelectors.inventoryList(stateCancelled, props)).toMatchSnapshot(
+      'cached data: ERROR, cancelled API call, maintain prior response'
+    );
+
+    const stateFulfilledQueryUpdated = {
       inventory: {
         hostsInventory: {
           'Lorem Ipsum ID cached': {
             ...stateInitialFulfilled.inventory.hostsInventory['Lorem Ipsum ID cached'],
             metaQuery: {
               [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
+            },
+            fulfilled: true,
+            data: {
+              [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA]: [
+                {
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.ID]: 'XXXXXXXXX-1c9f-42f4-8910-dcef6e970852',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.NAME]: 'db.ipsum-lorem.com',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.CORES]: 3,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.SOCKETS]: 2,
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.HARDWARE]: 'virtual',
+                  [rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_DATA_TYPES.LAST_SEEN]: '2019-09-05T00:00:00.000Z'
+                }
+              ]
             }
+          }
+        }
+      },
+      view: {
+        query: {
+          'Lorem Ipsum ID cached': {
+            [rhsmApiTypes.RHSM_API_QUERY_TYPES.SLA]: rhsmApiTypes.RHSM_API_QUERY_SLA_TYPES.NONE
           }
         }
       }
     };
 
-    expect(inventoryListSelectors.inventoryList(stateFulfilledQueryMismatch, props)).toMatchSnapshot(
-      'cached data: ERROR, query mismatch'
+    expect(inventoryListSelectors.inventoryList(stateFulfilledQueryUpdated, props)).toMatchSnapshot(
+      'cached data: query updated and fulfilled'
     );
   });
 });

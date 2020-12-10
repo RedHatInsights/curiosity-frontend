@@ -10,14 +10,36 @@ describe('ViewReducer', () => {
   it('should handle specific defined types', () => {
     const specificTypes = [
       ...Object.values(types.SET_QUERY_RHSM_TYPES),
+      ...Object.values(types.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES),
+      ...Object.values(types.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES),
       types.SET_QUERY_CLEAR,
       types.SET_QUERY_CLEAR_INVENTORY_LIST
     ];
 
     specificTypes.forEach(value => {
+      const state = {
+        query: {},
+        graphTallyQuery: {},
+        inventoryGuestsQuery: {},
+        inventoryHostsQuery: {
+          test_id: {
+            [RHSM_API_QUERY_TYPES.DIRECTION]: 'dolor desc direction',
+            [RHSM_API_QUERY_TYPES.OFFSET]: 30,
+            [RHSM_API_QUERY_TYPES.SORT]: 'dolor sort'
+          }
+        },
+        inventorySubscriptionsQuery: {
+          test_id: {
+            [RHSM_API_QUERY_TYPES.DIRECTION]: 'ipsum desc direction',
+            [RHSM_API_QUERY_TYPES.OFFSET]: 20,
+            [RHSM_API_QUERY_TYPES.SORT]: 'ipsum sort'
+          }
+        }
+      };
+
       const dispatched = {
         type: value,
-        [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem direction',
+        [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem asc direction',
         [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 10,
@@ -28,7 +50,7 @@ describe('ViewReducer', () => {
         viewId: 'test_id'
       };
 
-      const resultState = viewReducer(undefined, dispatched);
+      const resultState = viewReducer(state, dispatched);
 
       expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
     });
