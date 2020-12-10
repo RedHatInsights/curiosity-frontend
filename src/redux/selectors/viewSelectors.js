@@ -34,23 +34,45 @@ const statePropsFilter = (state = {}, props, defaultProps = {}) => ({
   query: {
     ...defaultProps.query,
     ...state.view?.query?.[defaultProps.viewId]
+  },
+  graphTallyQuery: {
+    ...defaultProps.graphTallyQuery,
+    ...state.view?.graphTallyQuery?.[defaultProps.viewId]
+  },
+  inventoryGuestsQuery: {
+    ...defaultProps.inventoryGuestsQuery,
+    ...state.view?.inventoryGuestsQuery?.[defaultProps.viewId]
+  },
+  inventoryHostsQuery: {
+    ...defaultProps.inventoryHostsQuery,
+    ...state.view?.inventoryHostsQuery?.[defaultProps.viewId]
+  },
+  inventorySubscriptionsQuery: {
+    ...defaultProps.inventorySubscriptionsQuery,
+    ...state.view?.inventorySubscriptionsQuery?.[defaultProps.viewId]
   }
 });
 
 /**
  * Create selector, transform combined state, props into a consumable API param/query object.
  *
- * @type {{query: object}}
+ * @type {{query: object, graphTallyQuery: object, inventoryGuestsQuery: object, inventoryHostsQuery: object
+ *     inventorySubscriptionsQuery: object}}
  */
 const selector = createDeepEqualSelector([statePropsFilter], view => ({
-  query: { ...view.query }
+  query: { ...view.query },
+  graphTallyQuery: { ...view.graphTallyQuery },
+  inventoryGuestsQuery: { ...view.inventoryGuestsQuery },
+  inventoryHostsQuery: { ...view.inventoryHostsQuery },
+  inventorySubscriptionsQuery: { ...view.inventorySubscriptionsQuery }
 }));
 
 /**
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{query: object}}
+ * @returns {{query: object, graphTallyQuery: object, inventoryGuestsQuery: object, inventoryHostsQuery: object
+ *     inventorySubscriptionsQuery: object}}
  */
 const makeSelector = defaultProps => (state, props) => ({
   ...selector(state, props, defaultProps)

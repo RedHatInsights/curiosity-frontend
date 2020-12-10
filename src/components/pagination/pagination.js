@@ -50,11 +50,11 @@ class Pagination extends React.Component {
    * @param {number} offset
    */
   setOffset(offset) {
-    const { offsetDefault, productId } = this.props;
+    const { offsetDefault, offsetType, productId } = this.props;
     const updatedActions = [];
 
     updatedActions.push({
-      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+      type: offsetType,
       viewId: productId,
       [RHSM_API_QUERY_TYPES.OFFSET]: offset ?? offsetDefault
     });
@@ -68,11 +68,11 @@ class Pagination extends React.Component {
    * @param {number} limit
    */
   setLimit(limit) {
-    const { perPageDefault, productId } = this.props;
+    const { limitType, perPageDefault, productId } = this.props;
     const updatedActions = [];
 
     updatedActions.push({
-      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+      type: limitType,
       viewId: productId,
       [RHSM_API_QUERY_TYPES.LIMIT]: limit ?? perPageDefault
     });
@@ -111,9 +111,9 @@ class Pagination extends React.Component {
 /**
  * Prop types
  *
- * @type {{isCompact: boolean, productId: string, query, dropDirection: string,
- *     offsetDefault: number, variant: string, perPageDefault: number, isDisabled: boolean,
- *     itemCount: number}}
+ * @type {{isCompact: boolean, productId: string, query: object, dropDirection: string,
+ *     offsetDefault: number, variant: string, offsetType: string, perPageDefault: number,
+ *     isDisabled: boolean, limitType: string, itemCount: number}}
  */
 Pagination.propTypes = {
   query: PropTypes.shape({
@@ -124,7 +124,15 @@ Pagination.propTypes = {
   isCompact: PropTypes.bool,
   isDisabled: PropTypes.bool,
   itemCount: PropTypes.number,
+  limitType: PropTypes.oneOf([
+    reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+    reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]
+  ]).isRequired,
   offsetDefault: PropTypes.number,
+  offsetType: PropTypes.oneOf([
+    reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+    reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]
+  ]).isRequired,
   perPageDefault: PropTypes.number,
   productId: PropTypes.string.isRequired,
   variant: PropTypes.string
