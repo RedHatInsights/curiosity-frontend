@@ -51,7 +51,7 @@ const statePropsFilter = (state, props = {}) => ({
  * @returns {object}
  */
 const queryFilter = (state, props = {}) => {
-  const { inventoryQuery: query } = apiQueries.parseRhsmQuery({
+  const { inventorySubscriptionsQuery: query } = apiQueries.parseRhsmQuery({
     ...props.query,
     ...state.view?.query?.[props.productId],
     ...state.view?.query?.[props.viewId]

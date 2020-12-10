@@ -53,8 +53,8 @@ class GuestsList extends React.Component {
         [RHSM_API_QUERY_TYPES.OFFSET]: currentPage * limit || 0
       };
 
-      const { guestsQuery } = apiQueries.parseRhsmQuery(updatedQuery);
-      getHostsInventoryGuests(id, guestsQuery);
+      const { inventoryGuestsQuery } = apiQueries.parseRhsmQuery(updatedQuery);
+      getHostsInventoryGuests(id, inventoryGuestsQuery);
     }
   };
 
