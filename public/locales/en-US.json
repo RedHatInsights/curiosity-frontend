@@ -5,7 +5,7 @@
   },
   "curiosity-banner": {
     "dataMismatchTitle": "Cloud provider mismatch",
-    "dataMismatchMessage": "There may be inconsistencies between data in the graph and your inventory display. The issue is currently being resolved.",
+    "dataMismatchMessage": "There might be inconsistencies between data in the graph and your current systems table. The issue is currently being resolved.",
     "dataMismatchMessage_cloudigradeMismatch": "<0>View recommmend actions</0> to take in order to improve {{appName}} reporting."
   },
   "curiosity-graph": {
