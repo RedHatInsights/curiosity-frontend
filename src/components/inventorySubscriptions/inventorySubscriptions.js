@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _isEqual from 'lodash/isEqual';
 import { SortByDirection, TableVariant } from '@patternfly/react-table';
-import { Card, CardActions, CardBody, CardFooter, CardHeader } from '@patternfly/react-core';
+import { Bullseye, Card, CardActions, CardBody, CardFooter, CardHeader } from '@patternfly/react-core';
 import { TableToolbar } from '@redhat-cloud-services/frontend-components/components/cjs/TableToolbar';
 import _camelCase from 'lodash/camelCase';
 import { helpers } from '../../common';
@@ -17,6 +17,7 @@ import {
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES as SORT_TYPES,
   RHSM_API_QUERY_TYPES
 } from '../../types/rhsmApiTypes';
+import { translate } from '../i18n/i18n';
 
 /**
  * A subscriptions system inventory component.
@@ -139,6 +140,7 @@ class InventorySubscriptions extends React.Component {
     const {
       error,
       filterInventoryData,
+      fulfilled,
       isDisabled,
       itemCount,
       listData,
@@ -146,12 +148,18 @@ class InventorySubscriptions extends React.Component {
       perPageDefault,
       productId,
       query,
-      viewId,
-      fulfilled
+      t,
+      viewId
     } = this.props;
 
     if (isDisabled) {
-      return null;
+      return (
+        <Card className="curiosity-inventory-card__disabled">
+          <CardBody>
+            <Bullseye>{t('curiosity-inventory.tab', { context: 'disabled' })}</Bullseye>
+          </CardBody>
+        </Card>
+      );
     }
 
     const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
@@ -227,8 +235,8 @@ class InventorySubscriptions extends React.Component {
  * Prop types.
  *
  * @type {{productId: string, listData: Array, session: object, pending: boolean, query: object,
- *     fulfilled: boolean, error: boolean, getSubscriptionsInventory: Function, itemCount: number,
- *     viewId: string, filterInventoryData: Array, perPageDefault: number, isDisabled: boolean}}
+ *     fulfilled: boolean, error: boolean, getSubscriptionsInventory: Function, itemCount: number, viewId: string,
+ *     t: Function, filterInventoryData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventorySubscriptions.propTypes = {
   error: PropTypes.bool,
@@ -261,14 +269,15 @@ InventorySubscriptions.propTypes = {
   perPageDefault: PropTypes.number,
   query: PropTypes.object.isRequired,
   session: PropTypes.object,
+  t: PropTypes.func,
   viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: string, filterInventoryData: Array, listData: Array, session: object, pending: boolean,
- *     fulfilled: boolean, perPageDefault: number, isDisabled: boolean, error: boolean,
+ * @type {{viewId: string, t: translate, filterInventoryData: Array, listData: Array, session: object,
+ *     pending: boolean, fulfilled: boolean, perPageDefault: number, isDisabled: boolean, error: boolean,
  *     getSubscriptionsInventory: Function, itemCount: number}}
  */
 InventorySubscriptions.defaultProps = {
@@ -276,12 +285,13 @@ InventorySubscriptions.defaultProps = {
   fulfilled: false,
   filterInventoryData: [],
   getSubscriptionsInventory: helpers.noop,
-  isDisabled: helpers.UI_DISABLED_TABLE,
+  isDisabled: helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS,
   itemCount: 0,
   listData: [],
   pending: false,
   perPageDefault: 10,
   session: {},
+  t: translate,
   viewId: 'subscriptionsList'
 };
 
