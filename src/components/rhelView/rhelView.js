@@ -110,7 +110,7 @@ class RhelView extends React.Component {
         </PageSection>
         <PageSection>
           <InventoryTabs productId={routeDetail.pathParameter}>
-            <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'systems' })}>
+            <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'hosts' })}>
               <InventoryList
                 key={routeDetail.pathParameter}
                 filterGuestsData={initialGuestsFilters}
@@ -121,15 +121,17 @@ class RhelView extends React.Component {
                 viewId={viewId}
               />
             </InventoryTab>
-            <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
-              <InventorySubscriptions
-                key={routeDetail.pathParameter}
-                filterInventoryData={initialSubscriptionsInventoryFilters}
-                productId={routeDetail.pathParameter}
-                query={initialInventorySubscriptionsQuery}
-                viewId={viewId}
-              />
-            </InventoryTab>
+            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && (
+              <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
+                <InventorySubscriptions
+                  key={routeDetail.pathParameter}
+                  filterInventoryData={initialSubscriptionsInventoryFilters}
+                  productId={routeDetail.pathParameter}
+                  query={initialInventorySubscriptionsQuery}
+                  viewId={viewId}
+                />
+              </InventoryTab>
+            )}
           </InventoryTabs>
         </PageSection>
       </PageLayout>
