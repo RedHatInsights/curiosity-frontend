@@ -439,4 +439,14 @@ exports[`InventoryList Component should render a non-connected component: non-co
 </Card>
 `;
 
-exports[`InventoryList Component should return an empty render when disabled: disabled component 1`] = `""`;
+exports[`InventoryList Component should return an empty render when disabled: disabled component 1`] = `
+<Card
+  className="curiosity-inventory-card__disabled"
+>
+  <CardBody>
+    <Bullseye>
+      t(curiosity-inventory.tab, {"context":"disabled"})
+    </Bullseye>
+  </CardBody>
+</Card>
+`;
