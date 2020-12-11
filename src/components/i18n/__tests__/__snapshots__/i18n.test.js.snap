@@ -182,11 +182,29 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/inventoryList/inventoryList.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/inventoryList/inventoryListHelpers.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: key })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
       },
     ],
   },
@@ -224,7 +242,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'systems' })",
+        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
       },
       Object {
         "key": "curiosity-inventory.tab",
@@ -351,7 +369,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'systems' })",
+        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
       },
       Object {
         "key": "curiosity-inventory.tab",
@@ -501,6 +519,14 @@ Array [
 
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
 Array [
+  Object {
+    "file": "./src/components/inventoryList/inventoryList.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
+    "key": "curiosity-inventory.tab",
+  },
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
     "key": "curiosity-toolbar.uom",
