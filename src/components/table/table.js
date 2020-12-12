@@ -303,7 +303,7 @@ class Table extends React.Component {
    */
   render() {
     return (
-      <Grid guttter="sm" className="ins-inventory-list">
+      <Grid className="ins-inventory-list">
         <GridItem span={12}>{this.renderTable()}</GridItem>
       </Grid>
     );

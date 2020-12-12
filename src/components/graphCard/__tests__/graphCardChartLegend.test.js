@@ -130,7 +130,7 @@ describe('GraphCardChartLegend Component', () => {
         color: '#000000',
         isDisabled: false,
         isThreshold: false,
-        labelContent: 'lorem ispum',
+        labelContent: 'lorem ipsum',
         tooltipContent: 'dolor sit'
       })
     ).toMatchSnapshot('legend item, WITH tooltip content');
@@ -141,7 +141,7 @@ describe('GraphCardChartLegend Component', () => {
         color: '#000000',
         isDisabled: false,
         isThreshold: false,
-        labelContent: 'lorem ispum',
+        labelContent: 'lorem ipsum',
         tooltipContent: undefined
       })
     ).toMatchSnapshot('legend item, MISSING tooltip content');
@@ -152,7 +152,7 @@ describe('GraphCardChartLegend Component', () => {
         color: '#000000',
         isDisabled: true,
         isThreshold: false,
-        labelContent: 'lorem ispum',
+        labelContent: 'lorem ipsum',
         tooltipContent: undefined
       })
     ).toMatchSnapshot('legend item, disabled');
