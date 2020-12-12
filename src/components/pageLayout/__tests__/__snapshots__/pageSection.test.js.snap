@@ -5,10 +5,10 @@ exports[`PageSection Component should render a basic component: basic 1`] = `
   className="lorem"
 >
   <Section
-    className="lorem"
+    className="curiosity-page-section lorem"
   >
     <section
-      className="lorem"
+      className="curiosity-page-section lorem"
     >
        
       <span

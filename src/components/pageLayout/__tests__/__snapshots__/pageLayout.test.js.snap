@@ -95,11 +95,14 @@ exports[`PageLayout Component should render header and section children: multipl
       className="pf-c-page__main-section pf-m-no-padding curiosity"
     >
       <PageSection
+        className=""
         key=".0"
       >
-        <Section>
+        <Section
+          className="curiosity-page-section "
+        >
           <section
-            className=""
+            className="curiosity-page-section "
           >
              
             ipsum
