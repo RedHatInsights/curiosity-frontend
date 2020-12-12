@@ -977,9 +977,9 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-56043FFF0d2e",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-56043FFF0d2e",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6N",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6N",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6N",
  *           "cloud_provider": "AZURE",
  *           "cores": 4,
  *           "sockets": 6,
@@ -989,10 +989,10 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "498cff02-8b4b-46f8-a655-abcdefghijklm",
- *           "inventory_id": "498cff02-8b4b-46f8-a655-abcdefghijklm",
+ *           "insights_id": "498cff02-8b4b-46f8-a655-X3bXe4XXfD6M",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-X3bXe4XXfD6M",
  *           "display_name": "dolor.example.com",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-abcdefghijklm",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-X3bXe4XXfD6M",
  *           "cores": 4,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
@@ -1001,10 +1001,10 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "498cff02-8b4b-46f8-a655-nopqrstuvxyzab",
- *           "inventory_id": "498cff02-8b4b-46f8-a655-nopqrstuvxyzab",
+ *           "insights_id": "498cff02-8b4b-46f8-a655-X3bXe4XXfD6L",
+ *           "inventory_id": "498cff02-8b4b-46f8-a655-X3bXe4XXfD6L",
  *           "display_name": "dolor.again.com",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-nopqrstuvxyzab",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-X3bXe4XXfD6L",
  *           "cores": 4,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
@@ -1013,10 +1013,10 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXXX",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXXX",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YX",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YX",
  *           "display_name": "lorem.test.com",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXXX",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YX",
  *           "cores": 4,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
@@ -1025,10 +1025,10 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYZ",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYZ",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YZ",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YZ",
  *           "display_name": "lorem.again.com",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYZ",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YZ",
  *           "cores": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
@@ -1037,10 +1037,10 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-20T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYA",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYA",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YA",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YA",
  *           "display_name": "lorem.another.com",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYA",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YA",
  *           "cores": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
@@ -1049,9 +1049,9 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-21T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYB",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYB",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYB",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YB",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YB",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YB",
  *           "cores": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
@@ -1060,9 +1060,9 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-22T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYC",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYC",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYC",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YC",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YC",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YC",
  *           "cores": 3,
  *           "sockets": 1,
  *           "hardware_type": "PHYSICAL",
@@ -1071,9 +1071,9 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-23T00:00:00Z"
  *         },
  *         {
- *           "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYD",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYD",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYD",
+ *           "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YD",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YD",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YD",
  *           "cores": 3,
  *           "sockets": 1,
  *           "hardware_type": "PHYSICAL",
@@ -1082,9 +1082,9 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-24T00:00:00Z"
  *         },
  *         {
- *            "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYE",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYE",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYE",
+ *            "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YEE",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YEE",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YEE",
  *           "cores": 3,
  *           "sockets": 0,
  *           "hardware_type": "PHYSICAL",
@@ -1093,9 +1093,9 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-06-26T00:00:00Z"
  *         },
  *         {
- *            "insights_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYF",
- *           "inventory_id": "499cff02-8b4b-46f8-a6xx-XXXXXXXXXXYF",
- *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-XXXXXXXXXXYF",
+ *            "insights_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YF",
+ *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YF",
+ *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YF",
  *           "cores": 3,
  *           "sockets": 0,
  *           "hardware_type": "PHYSICAL",

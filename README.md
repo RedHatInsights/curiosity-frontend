@@ -10,7 +10,7 @@ Before developing for Curiosity Frontend, the basic requirements:
  * Your system needs to be running [NodeJS version 14+ and NPM](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
  * And [Yarn 1.22+](https://yarnpkg.com) for dependency and script management.
- 
+
 For in-depth tooling install guidance see the [contribution guidelines](./CONTRIBUTING.md#Install)
 
 ## Development, Quick Start
@@ -34,14 +34,14 @@ This is the default context for running a local UI against mock styling.
   ```
 
 For in-depth local run guidance review the [contribution guidelines](./CONTRIBUTING.md#Serving%20Content) 
-  
+
 ### Testing
 Run the tests with coverage.
 
   ```
   $ yarn test
   ```
-  
+
 For in-depth testing guidance review the [contribution guidelines](./CONTRIBUTING.md#Testing) 
 
 ## Contributing
