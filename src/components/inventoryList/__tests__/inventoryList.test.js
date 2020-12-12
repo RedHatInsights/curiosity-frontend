@@ -86,14 +86,14 @@ describe('InventoryList Component', () => {
 
     component.setProps({
       ...props,
-      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1, subscriptionManagerId: 'loremipsum' }]
+      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1, subscriptionManagerId: 'loremIpsum' }]
     });
 
     expect(component.find(Table)).toMatchSnapshot('number of guests, and id');
 
     component.setProps({
       ...props,
-      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 2, subscriptionManagerId: 'loremipsum' }],
+      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 2, subscriptionManagerId: 'loremIpsum' }],
       settings: {
         hasGuests: data => {
           const { numberOfGuests = 0, subscriptionManagerId = null } = data;

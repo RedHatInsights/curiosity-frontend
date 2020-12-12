@@ -275,7 +275,7 @@ Object {
 }
 `;
 
-exports[`ReduxHelpers should update a state object: dont reset state object 1`] = `
+exports[`ReduxHelpers should update a state object: don't reset state object 1`] = `
 Object {
   "ipsum": false,
   "lorem": true,

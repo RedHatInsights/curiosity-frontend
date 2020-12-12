@@ -6,7 +6,7 @@ Before developing you'll need to install:
  * [NodeJS and NPM](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
  * And [Yarn](https://yarnpkg.com)
- 
+
 ### OS Support
 A large percentage of front-end tooling is `Mac OSX` centered, the tooling for Curiosity falls into this category.
 
@@ -110,7 +110,7 @@ Serving content comes in 3 variations
 - `$ yarn start:standalone`, No Insights styling, just the straight GUI. 
   
   Useful for confirming issues between the Insights parent app vs Curiosity Frontend.
-  
+
 ### Proxy failing to run?
 Occasionally the proxy setup will attempt to connect, acknowledge that it's connected, but then fail to load the GUI.
 Things to try:
@@ -162,9 +162,9 @@ This project makes use of reserved DOM attributes used by the QE team.
 > Updating elements with these attributes should be done with the knowledge "you are affecting" QE's ability to test.
 
 1. Attribute `data-test`
-   
+
    DOM attributes with `data-test=""` are used by QE as a means to identify specific DOM elements.
-   
+
 ### Reserved Files
 #### Spandx Config
 The configuration file(s) within this directory are utilized primarily during the `$ yarn start:proxy` local development run.
@@ -267,7 +267,7 @@ To update snapshots from the terminal run
   ```
   $ yarn test:dev
   ```
-  
+
 From there you'll be presented with a few choices, one of them is "update", you can then hit the "u" key. Once the update script has run you should see additional changed files within Git, make sure to commit them along with your changes or testing will fail.
 
 ##### Checking code coverage
@@ -275,7 +275,7 @@ To check the coverage report from the terminal run
   ```
   $ yarn test
   ```
-  
+
 ##### Code coverage failing to update?
 If you're having trouble getting an accurate code coverage report, or it's failing to provide updated results (i.e. you renamed files) you can try running
   ```

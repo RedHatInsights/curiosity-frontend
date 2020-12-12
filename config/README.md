@@ -1,4 +1,8 @@
-# Spandx Config
-This file(s) has multiple team and build dependencies. **Before relocating/moving this file(s) the appropriate teams should be informed.**
+# Configuration
+## cspell config
+The cspell config file(s) contain spelling configuration and include project specific terms.
+
+## Spandx config
+The Spandx config file(s) has multiple team and build dependencies. **Before relocating/moving this file(s) the appropriate teams should be informed.**
 
 [See CONTRIBUTING.md for up-to-date information](../CONTRIBUTING.md#spandx-config)
