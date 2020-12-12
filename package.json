@@ -89,13 +89,15 @@
     "start:js": "react-scripts start",
     "start:proxy": "sh -ac '. ./.env.proxy; run-s api:proxy-hosts; run-p -l start:js api:proxy'",
     "start:standalone": "rm ./.env.development.local; run-p -l api:dev start:js",
-    "test": "run-s test:lint test:ci",
+    "test": "run-s test:spell* test:lint test:ci",
     "test:ci": "export CI=true; react-scripts test --env=jsdom --roots=./src --coverage",
     "test:clearCache": "react-scripts test --clearCache",
-    "test:dev": "run-s test:lint test:local",
+    "test:dev": "run-s test:spell test:lint test:local",
     "test:integration": "jest --roots=./tests",
     "test:integration-dev": "jest ./tests/* --watchAll",
     "test:lint": "eslint --ext=json --ext=js --ext=jsx src",
+    "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
+    "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
     "test:local": "react-scripts test --env=jsdom --roots=./src"
   },
   "dependencies": {
@@ -136,6 +138,7 @@
   },
   "devDependencies": {
     "apidoc-mock": "^3.0.3",
+    "cspell": "^4.2.5",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",

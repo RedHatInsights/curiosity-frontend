@@ -52,11 +52,11 @@ exports[`InventoryList Component should handle expandable guests data: number of
           "sit",
           "amet",
           1,
-          "loremipsum",
+          "loremIpsum",
         ],
         "expandedContent": <UNDEFINED
           filterGuestsData={Array []}
-          id="loremipsum"
+          id="loremIpsum"
           numberOfGuests={1}
           query={
             Object {
@@ -95,7 +95,7 @@ exports[`InventoryList Component should handle expandable guests data: number of
           "sit",
           "amet",
           2,
-          "loremipsum",
+          "loremIpsum",
         ],
         "expandedContent": undefined,
       },
