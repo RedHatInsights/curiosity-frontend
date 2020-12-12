@@ -160,7 +160,7 @@ const deleteAccountOptIn = () =>
  *        "data": {
  *          "opt_in_complete": true,
  *          "account": {
- *            "account_numner": 12345,
+ *            "account_number": 12345,
  *            "tally_sync_enabled": true,
  *            "tally_reporting_enabled": true,
  *            "opt_in_type": "API",
@@ -227,7 +227,7 @@ const getAccountOptIn = (options = {}) => {
  *        "data": {
  *          "opt_in_complete": true,
  *          "account": {
- *            "account_numner": 12345,
+ *            "account_number": 12345,
  *            "tally_sync_enabled": true,
  *            "tally_reporting_enabled": true,
  *            "opt_in_type": "API",
