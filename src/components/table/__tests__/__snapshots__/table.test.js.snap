@@ -3,7 +3,6 @@
 exports[`Table Component should allow expandable content: expandable content 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -73,7 +72,6 @@ exports[`Table Component should allow expandable content: expandable content 1`]
 exports[`Table Component should allow expandable content: expanded row 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -143,7 +141,6 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
 exports[`Table Component should allow sortable content: sortable content 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -207,7 +204,6 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
 exports[`Table Component should allow sortable content: sorted column callback 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -292,7 +288,6 @@ exports[`Table Component should allow sortable content: sorted column callback 1
 exports[`Table Component should allow variations in table layout: ariaLabel and summary 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -349,7 +344,6 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
 exports[`Table Component should allow variations in table layout: borders and table header removed 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -406,7 +400,6 @@ exports[`Table Component should allow variations in table layout: borders and ta
 exports[`Table Component should allow variations in table layout: className and variant 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -463,7 +456,6 @@ exports[`Table Component should allow variations in table layout: className and 
 exports[`Table Component should allow variations in table layout: generated rows 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -521,7 +513,6 @@ exports[`Table Component should allow variations in table layout: generated rows
 exports[`Table Component should pass child components, nodes when there are no rows: children 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}
@@ -563,7 +554,6 @@ exports[`Table Component should pass child components, nodes when there are no r
 exports[`Table Component should render a non-connected component: non-connected 1`] = `
 <Grid
   className="ins-inventory-list"
-  guttter="sm"
 >
   <GridItem
     span={12}

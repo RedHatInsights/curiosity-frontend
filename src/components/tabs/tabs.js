@@ -133,7 +133,7 @@ class Tabs extends React.Component {
    */
   render() {
     return (
-      <Grid className="curiosity-tabs-container" guttter="sm">
+      <Grid className="curiosity-tabs-container">
         <GridItem span={12}>{this.renderTabs()}</GridItem>
       </Grid>
     );
