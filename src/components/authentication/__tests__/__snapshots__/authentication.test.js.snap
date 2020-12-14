@@ -136,11 +136,14 @@ exports[`Authentication Component should render a non-connected component error:
           className="pf-c-page__main-section pf-m-no-padding curiosity"
         >
           <PageSection
+            className=""
             key=".1"
           >
-            <Section>
+            <Section
+              className="curiosity-page-section "
+            >
               <section
-                className=""
+                className="curiosity-page-section "
               >
                  
                 <NotAuthorized
