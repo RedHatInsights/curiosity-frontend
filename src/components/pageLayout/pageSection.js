@@ -7,22 +7,32 @@ import { Section } from '@redhat-cloud-services/frontend-components/components/c
  *
  * @param {object} props
  * @param {Node} props.children
+ * @param {string} props.className
  * @returns {Node}
  */
-const PageSection = ({ children, ...props }) => <Section {...props}>{children}</Section>;
+const PageSection = ({ children, className, ...props }) => (
+  <Section className={`curiosity-page-section ${className}`} {...props}>
+    {children}
+  </Section>
+);
 
 /**
  * Prop types.
  *
- * @type {{children: Node}}
+ * @type {{children: Node, className: string}}
  */
 PageSection.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
 };
 
 /**
  * Default props.
+ *
+ * @type {{className: string}}
  */
-PageSection.defaultProps = {};
+PageSection.defaultProps = {
+  className: ''
+};
 
 export { PageSection as default, PageSection };

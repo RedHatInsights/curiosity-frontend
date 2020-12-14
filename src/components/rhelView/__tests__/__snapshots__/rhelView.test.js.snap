@@ -38,7 +38,9 @@ exports[`RhelView Component should display an alternate graph on query-string up
       viewId="viewRHEL"
     />
   </PageToolbar>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(C3GraphCard)
       cardTitle="t(curiosity-graph.socketsHeading)"
       filterGraphData={
@@ -77,7 +79,9 @@ exports[`RhelView Component should display an alternate graph on query-string up
       viewId="viewRHEL"
     />
   </PageSection>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(InventoryTabs)
       productId="lorem ipsum"
     >
@@ -230,7 +234,9 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       viewId="viewRHEL"
     />
   </PageToolbar>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.socketsHeading)"
       filterGraphData={
@@ -269,7 +275,9 @@ exports[`RhelView Component should have a fallback title: title 1`] = `
       viewId="viewRHEL"
     />
   </PageSection>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(InventoryTabs)
       productId="lorem ipsum"
     >
@@ -807,7 +815,9 @@ exports[`RhelView Component should render a non-connected component: non-connect
       viewId="viewRHEL"
     />
   </PageToolbar>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.socketsHeading)"
       filterGraphData={
@@ -846,7 +856,9 @@ exports[`RhelView Component should render a non-connected component: non-connect
       viewId="viewRHEL"
     />
   </PageSection>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(InventoryTabs)
       productId="lorem ipsum"
     >

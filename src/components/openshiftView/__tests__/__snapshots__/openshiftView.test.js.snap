@@ -42,7 +42,9 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       viewId="viewOpenShift"
     />
   </PageToolbar>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(C3GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
       filterGraphData={
@@ -97,7 +99,9 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       />
     </Connect(C3GraphCard)>
   </PageSection>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(InventoryTabs)
       productId="lorem ipsum"
     >
@@ -257,7 +261,9 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       viewId="viewOpenShift"
     />
   </PageToolbar>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
       filterGraphData={
@@ -312,7 +318,9 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       />
     </Connect(GraphCard)>
   </PageSection>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(InventoryTabs)
       productId="lorem ipsum"
     >
@@ -886,7 +894,9 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       viewId="viewOpenShift"
     />
   </PageToolbar>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
       filterGraphData={
@@ -941,7 +951,9 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       />
     </Connect(GraphCard)>
   </PageSection>
-  <PageSection>
+  <PageSection
+    className=""
+  >
     <Connect(InventoryTabs)
       productId="lorem ipsum"
     >
