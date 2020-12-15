@@ -63,7 +63,7 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
     toolbarQuery
   } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
-  const { pathParameter: productId, productParameter: viewId } = routeDetail;
+  const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
 
   if (!productId || !viewId) {
     return null;
@@ -71,8 +71,8 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
 
   return (
     <PageLayout>
-      <PageHeader productLabel={productId} includeTour>
-        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productId })}
+      <PageHeader productLabel={productLabel} includeTour>
+        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
       </PageHeader>
       <PageMessages>
         <BannerMessages productId={productId} viewId={viewId} query={query} />
@@ -93,7 +93,7 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
           productId={productId}
           viewId={viewId}
           cardTitle={t('curiosity-graph.socketsHeading')}
-          productLabel={productId}
+          productLabel={productLabel}
         />
       </PageSection>
       <PageSection>
@@ -158,7 +158,8 @@ ProductView.propTypes = {
   }).isRequired,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string,
-    productParameter: PropTypes.string
+    productParameter: PropTypes.string,
+    viewParameter: PropTypes.string
   }).isRequired,
   t: PropTypes.func
 };
