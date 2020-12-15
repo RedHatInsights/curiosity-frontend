@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { store } from '../../../redux';
 import { Toolbar } from '../toolbar';
-import { toolbarTypes } from '../toolbarTypes';
+import { toolbarHelpers } from '../toolbarHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('Toolbar Component', () => {
@@ -47,7 +47,7 @@ describe('Toolbar Component', () => {
   });
 
   it('should render filters when props are populated', () => {
-    const [optionOne] = toolbarTypes.getOptions(RHSM_API_QUERY_TYPES.SLA).options;
+    const [optionOne] = toolbarHelpers.getOptions(RHSM_API_QUERY_TYPES.SLA).options;
 
     const props = {
       activeFilters: new Set([RHSM_API_QUERY_TYPES.SLA]),
@@ -76,11 +76,11 @@ describe('Toolbar Component', () => {
       filters.forEach(({ category, method }) => {
         componentInstance.onCategorySelect({ value: category });
 
-        const [optionOne, optionTwo] = toolbarTypes.getOptions(category).options;
+        const [optionOne, optionTwo] = toolbarHelpers.getOptions(category).options;
         componentInstance[method]({ event: { value: optionOne.value }, field: category });
         componentInstance[method]({ event: { value: optionTwo.value }, field: category });
 
-        const { title: categoryTitle } = toolbarTypes.getOptions().options.find(({ value }) => value === category);
+        const { title: categoryTitle } = toolbarHelpers.getOptions().options.find(({ value }) => value === category);
         componentInstance.onClearFilter(categoryTitle);
       });
 

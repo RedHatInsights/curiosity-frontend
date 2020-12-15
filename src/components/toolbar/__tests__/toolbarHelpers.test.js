@@ -1,8 +1,8 @@
-import { toolbarTypes, getOptionsType } from '../toolbarTypes';
+import { toolbarHelpers, getOptionsType } from '../toolbarHelpers';
 
-describe('ToolbarTypes', () => {
-  it('should have specific types', () => {
-    expect(toolbarTypes).toMatchSnapshot('toolbarTypes');
+describe('ToolbarHelpers', () => {
+  it('should have specific helpers', () => {
+    expect(toolbarHelpers).toMatchSnapshot('toolbarHelpers');
   });
 
   it('should return an output for options selection', () => {

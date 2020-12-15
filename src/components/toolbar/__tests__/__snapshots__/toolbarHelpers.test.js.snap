@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToolbarTypes should have specific types: toolbarTypes 1`] = `
+exports[`ToolbarHelpers should have specific helpers: toolbarHelpers 1`] = `
 Object {
   "getOptions": [Function],
 }
 `;
 
-exports[`ToolbarTypes should return an output for options selection: getOptionsType 1`] = `
+exports[`ToolbarHelpers should return an output for options selection: getOptionsType 1`] = `
 Object {
   "options": Array [
     Object {
@@ -22,7 +22,7 @@ Object {
 }
 `;
 
-exports[`ToolbarTypes should return an output for options selection: getOptionsType:null 1`] = `
+exports[`ToolbarHelpers should return an output for options selection: getOptionsType:null 1`] = `
 Object {
   "options": Array [
     Object {
@@ -38,7 +38,7 @@ Object {
 }
 `;
 
-exports[`ToolbarTypes should return an output for options selection: getOptionsType:sla 1`] = `
+exports[`ToolbarHelpers should return an output for options selection: getOptionsType:sla 1`] = `
 Object {
   "options": Array [
     Object {
@@ -62,7 +62,7 @@ Object {
 }
 `;
 
-exports[`ToolbarTypes should return an output for options selection: getOptionsType:usage 1`] = `
+exports[`ToolbarHelpers should return an output for options selection: getOptionsType:usage 1`] = `
 Object {
   "options": Array [
     Object {
