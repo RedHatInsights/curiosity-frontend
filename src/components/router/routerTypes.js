@@ -92,7 +92,8 @@ const navigation = [
     path: '/rhel-sw/all',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.RHEL}`,
+    productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`,
     default: true
   },
   {
@@ -100,49 +101,56 @@ const navigation = [
     path: '/rhel-sw/arm',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_ARM,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.RHEL}`
+    productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
     id: 'ibmpower',
     path: '/rhel-sw/ibmpower',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.RHEL}`
+    productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
     id: 'ibmz',
     path: '/rhel-sw/ibmz',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.RHEL}`
+    productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
     id: 'x86',
     path: '/rhel-sw/x86',
     pathId: 'rhel-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_X86,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.RHEL}`
+    productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
     id: 'openshift-sw',
     path: '/openshift-sw',
     pathId: 'openshift-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
+    productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
   },
   {
     id: 'satellite-sw',
     path: '/satellite-sw/all',
     pathId: 'satellite-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.SATELLITE}`
+    productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
   },
   {
     id: 'capsule',
     path: '/satellite-sw/capsule',
     pathId: 'satellite-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE,
-    productParameter: `product${RHSM_API_PATH_ID_TYPES.SATELLITE}`
+    productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
   }
 ];
 

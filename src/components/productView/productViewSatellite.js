@@ -43,7 +43,8 @@ ProductViewSatellite.propTypes = {
   productConfig: ProductView.propTypes.productConfig,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string,
-    productParameter: PropTypes.string
+    productParameter: PropTypes.string,
+    viewParameter: PropTypes.string
   }).isRequired
 };
 
