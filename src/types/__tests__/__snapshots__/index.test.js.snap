@@ -45,6 +45,8 @@ Object {
         "RHEL_SERVER": "RHEL Server",
         "RHEL_WORKSTATION": "RHEL Workstation",
         "RHEL_X86": "RHEL for x86",
+        "SATELLITE": "Satellite 6",
+        "SATELLITE_CAPSULE": "Satellite 6 Capsule",
       },
       "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
         "DAILY": "daily",
@@ -268,6 +270,8 @@ Object {
         "RHEL_SERVER": "RHEL Server",
         "RHEL_WORKSTATION": "RHEL Workstation",
         "RHEL_X86": "RHEL for x86",
+        "SATELLITE": "Satellite 6",
+        "SATELLITE_CAPSULE": "Satellite 6 Capsule",
       },
       "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
         "DAILY": "daily",
@@ -490,6 +494,8 @@ Object {
       "RHEL_SERVER": "RHEL Server",
       "RHEL_WORKSTATION": "RHEL Workstation",
       "RHEL_X86": "RHEL for x86",
+      "SATELLITE": "Satellite 6",
+      "SATELLITE_CAPSULE": "Satellite 6 Capsule",
     },
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
       "DAILY": "daily",
@@ -716,6 +722,8 @@ Object {
       "RHEL_SERVER": "RHEL Server",
       "RHEL_WORKSTATION": "RHEL Workstation",
       "RHEL_X86": "RHEL for x86",
+      "SATELLITE": "Satellite 6",
+      "SATELLITE_CAPSULE": "Satellite 6 Capsule",
     },
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
       "DAILY": "daily",

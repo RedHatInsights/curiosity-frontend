@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductView Component should render a non-connected component: non-connected 1`] = `
+<PageLayout>
+  <PageHeader
+    includeTour={true}
+    productLabel="lorem ipsum"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscription Watch","context":"lorem ipsum"})
+  </PageHeader>
+  <PageMessages
+    className=""
+  >
+    <Connect(BannerMessages)
+      productId="lorem ipsum"
+      viewId="dolor sit"
+    />
+  </PageMessages>
+  <PageToolbar
+    className=""
+  >
+    <Connect(Toolbar)
+      productId="lorem ipsum"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageToolbar>
+  <PageSection
+    className=""
+  >
+    <Connect(GraphCard)
+      cardTitle="t(curiosity-graph.socketsHeading)"
+      key="lorem ipsum"
+      productId="lorem ipsum"
+      productLabel="lorem ipsum"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageSection>
+  <PageSection
+    className=""
+  >
+    <Connect(InventoryTabs)
+      productId="lorem ipsum"
+    >
+      <InventoryTab
+        active={false}
+        key="hostsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
+      >
+        <Connect(InventoryList)
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="subscriptionsTab"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
+  </PageSection>
+</PageLayout>
+`;
+
+exports[`ProductView Component should render nothing if path and product parameters are empty: empty 1`] = `""`;
