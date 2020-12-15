@@ -63,6 +63,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "productParameter": "productRHEL",
     "routeHref": "/rhel-sw/all",
   },
   "navRoute": Object {
@@ -79,6 +80,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "productParameter": "productRHEL",
     "redirect": true,
     "render": true,
     "routeHref": "/rhel-sw/all",
@@ -108,6 +110,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "productParameter": "productRHEL",
     "routeHref": "/rhel-sw/all",
   },
   "navRoute": Object {
@@ -124,6 +127,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "productParameter": "productRHEL",
     "redirect": true,
     "render": true,
     "routeHref": "/rhel-sw/all",
@@ -161,6 +165,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "productParameter": "productRHEL",
     "routeHref": "/rhel-sw/all",
   },
   "navRoute": Object {
@@ -177,6 +182,7 @@ Object {
     "path": "/rhel-sw/all",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL",
+    "productParameter": "productRHEL",
     "redirect": true,
     "render": true,
     "routeHref": "/rhel-sw/all",
@@ -201,6 +207,7 @@ Object {
     "path": "/rhel-sw/arm",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
+    "productParameter": "productRHEL",
     "routeHref": "/rhel-sw/arm",
   },
   "navRoute": Object {
@@ -216,6 +223,7 @@ Object {
     "path": "/rhel-sw/arm",
     "pathId": "rhel-sw",
     "pathParameter": "RHEL for ARM",
+    "productParameter": "productRHEL",
     "render": true,
     "routeHref": "/rhel-sw/arm",
     "to": "/rhel-sw/:variant",

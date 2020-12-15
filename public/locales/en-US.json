@@ -139,6 +139,7 @@
     "title_OpenShift": "Red Hat OpenShift",
     "subtitle_OpenShift": "Monitor your Red Hat OpenShift usage by socket or core usage, based on your subscription terms. <0>Learn more about {{appName}} reporting</0>",
     "title_RHEL": "Red Hat Enterprise Linux",
-    "subtitle_RHEL": "Monitor your Red Hat Enterprise Linux usage by physical, virtual, and public cloud sockets. <0>Learn more about {{appName}} reporting</0>"
+    "subtitle_RHEL": "Monitor your Red Hat Enterprise Linux usage by physical, virtual, and public cloud sockets. <0>Learn more about {{appName}} reporting</0>",
+    "title_Satellite 6": "Red Hat Satellite 6"
   }
 }
