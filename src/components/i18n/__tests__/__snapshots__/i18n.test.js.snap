@@ -491,7 +491,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/toolbar/toolbarTypes.js",
+    "file": "./src/components/toolbar/toolbarHelpers.js",
     "keys": Array [
       Object {
         "key": "curiosity-toolbar.slaPremium",

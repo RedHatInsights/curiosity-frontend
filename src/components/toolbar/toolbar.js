@@ -12,7 +12,7 @@ import { FilterIcon } from '@patternfly/react-icons';
 import { Select } from '../form/select';
 import { connect, reduxTypes, store } from '../../redux';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
-import { toolbarTypes } from './toolbarTypes';
+import { toolbarHelpers } from './toolbarHelpers';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -62,7 +62,7 @@ class Toolbar extends React.Component {
   onClearFilter = categoryTitle => {
     const { activeFilters, currentFilter, hardFilterReset } = this.props;
 
-    const categoryOptions = toolbarTypes.getOptions();
+    const categoryOptions = toolbarHelpers.getOptions();
     const { value: categoryValue } = categoryOptions.options.find(({ title }) => title === categoryTitle) || {};
 
     if (!categoryValue) {
@@ -161,7 +161,7 @@ class Toolbar extends React.Component {
    */
   setSelectFilter(field) {
     const { query } = this.props;
-    const options = toolbarTypes.getOptions(field);
+    const options = toolbarHelpers.getOptions(field);
     const currentFilter = this.getCurrentFilter();
     let filter;
 
