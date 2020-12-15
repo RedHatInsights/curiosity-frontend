@@ -357,7 +357,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productId })",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
       Object {
         "key": "curiosity-graph.socketsHeading",
