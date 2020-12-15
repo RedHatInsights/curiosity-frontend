@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.2.0...v1.3.0) (2020-12-15)
+
+
+### Features
+
+* **inventoryList:** issues/493 product disable guests setting ([#510](https://github.com/RedHatInsights/curiosity-frontend/issues/510)) ([9a30631](https://github.com/RedHatInsights/curiosity-frontend/commit/9a30631a9d1201ca3ceb25382f0ebc4553249d25))
+* **openshiftView,rhelView:** issues/490 add tour button ([#506](https://github.com/RedHatInsights/curiosity-frontend/issues/506)) ([3017860](https://github.com/RedHatInsights/curiosity-frontend/commit/3017860c884f28dc5fbc709c976feaea09f887ae))
+
+
+### Bug Fixes
+
+* **build:** issues/502 add recommendations link ([#508](https://github.com/RedHatInsights/curiosity-frontend/issues/508)) ([9f60a1b](https://github.com/RedHatInsights/curiosity-frontend/commit/9f60a1bdf6c893c19d2dcc49fd5a8fcde1056d09))
+* **build:** issues/502 banner message spelling ([#533](https://github.com/RedHatInsights/curiosity-frontend/issues/533)) ([030c9ad](https://github.com/RedHatInsights/curiosity-frontend/commit/030c9ade7b9900eff371f549173565bcc6497f25))
+* **build:** npm updates ([#520](https://github.com/RedHatInsights/curiosity-frontend/issues/520)) ([e54618d](https://github.com/RedHatInsights/curiosity-frontend/commit/e54618d99235f2769aedc80e2b793737874931ff))
+
 ## [1.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.1.0...v1.2.0) (2020-12-02)
 
 
