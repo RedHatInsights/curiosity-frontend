@@ -74,8 +74,8 @@ const getOptionsType = optionsType => {
   }
 };
 
-const toolbarTypes = {
+const toolbarHelpers = {
   getOptions: getOptionsType
 };
 
-export { toolbarTypes as default, toolbarTypes, getOptionsType };
+export { toolbarHelpers as default, toolbarHelpers, getOptionsType };
