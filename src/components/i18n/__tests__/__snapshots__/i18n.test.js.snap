@@ -58,14 +58,6 @@ Array [
         "key": "",
         "match": "t(\`curiosity-graph.\${id}Label\`, { product: productShortLabel })",
       },
-      Object {
-        "key": "curiosity-graph.dropdownPlaceholder",
-        "match": "t('curiosity-graph.dropdownPlaceholder')",
-      },
-      Object {
-        "key": "curiosity-graph.dropdownPlaceholder",
-        "match": "t('curiosity-graph.dropdownPlaceholder')",
-      },
     ],
   },
   Object {
@@ -90,19 +82,6 @@ Array [
       Object {
         "key": "curiosity-graph.noDataLabel",
         "match": "translate('curiosity-graph.noDataLabel')",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/graphCard/graphCard.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-graph.dropdownPlaceholder",
-        "match": "t('curiosity-graph.dropdownPlaceholder')",
-      },
-      Object {
-        "key": "curiosity-graph.dropdownPlaceholder",
-        "match": "t('curiosity-graph.dropdownPlaceholder')",
       },
     ],
   },
@@ -157,27 +136,6 @@ Array [
       Object {
         "key": "curiosity-graph.noDataErrorLabel",
         "match": "t('curiosity-graph.noDataErrorLabel')",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/graphCard/graphCardTypes.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-graph.dropdownDaily",
-        "match": "translate('curiosity-graph.dropdownDaily')",
-      },
-      Object {
-        "key": "curiosity-graph.dropdownWeekly",
-        "match": "translate('curiosity-graph.dropdownWeekly')",
-      },
-      Object {
-        "key": "curiosity-graph.dropdownMonthly",
-        "match": "translate('curiosity-graph.dropdownMonthly')",
-      },
-      Object {
-        "key": "curiosity-graph.dropdownQuarterly",
-        "match": "translate('curiosity-graph.dropdownQuarterly')",
       },
     ],
   },
