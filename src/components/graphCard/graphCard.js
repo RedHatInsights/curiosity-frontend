@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 import { Card, CardTitle, CardHeader, CardActions, CardBody, Title } from '@patternfly/react-core';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import _isEqual from 'lodash/isEqual';
-import { Select } from '../form/select';
-import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
+import { connect, reduxActions, reduxSelectors } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { graphCardHelpers } from './graphCardHelpers';
-import { graphCardTypes } from './graphCardTypes';
 import GraphCardChartTooltip from './graphCardChartTooltip';
 import GraphCardChartLegend from './graphCardChartLegend';
 import { ChartArea } from '../chartArea/chartArea';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
+import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -21,7 +20,6 @@ import { translate } from '../i18n/i18n';
  *
  * @augments React.Component
  * @fires onUpdateGraphData
- * @fires onGranularitySelect
  */
 class GraphCard extends React.Component {
   componentDidMount() {
@@ -57,23 +55,6 @@ class GraphCard extends React.Component {
     }
   };
 
-  /**
-   * On granularity select, dispatch granularity type.
-   *
-   * @event onGranularitySelect
-   * @param {object} event
-   */
-  onGranularitySelect = (event = {}) => {
-    const { value } = event;
-    const { viewId } = this.props;
-
-    store.dispatch({
-      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
-      viewId,
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: value
-    });
-  };
-
   getQueryGranularity() {
     const { query } = this.props;
     return query?.[RHSM_API_QUERY_TYPES.GRANULARITY];
@@ -90,22 +71,20 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, selectOptionsType, productLabel, query, viewId } = this.props;
+    const { filterGraphData, graphData, productLabel, query, viewId } = this.props;
     const graphGranularity = this.getQueryGranularity();
-    const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
-    const updatedGranularity = graphGranularity || selected;
 
     const xAxisTickFormat = ({ item, previousItem, tick }) =>
       graphCardHelpers.xAxisTickFormat({
         tick,
         date: item.date,
         previousDate: previousItem.date,
-        granularity: updatedGranularity
+        granularity: graphGranularity
       });
 
     const chartAreaProps = {
       xAxisFixLabelOverlap: true,
-      xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(updatedGranularity),
+      xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(graphGranularity),
       xAxisTickFormat,
       yAxisTickFormat: graphCardHelpers.yAxisTickFormat
     };
@@ -153,7 +132,7 @@ class GraphCard extends React.Component {
           <GraphCardChartLegend chart={chart} datum={datum} productLabel={productLabel} viewId={viewId} />
         )}
         chartTooltip={({ datum }) => (
-          <GraphCardChartTooltip datum={datum} granularity={updatedGranularity} productLabel={productLabel} />
+          <GraphCardChartTooltip datum={datum} granularity={graphGranularity} productLabel={productLabel} />
         )}
       />
     );
@@ -170,13 +149,12 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, isDisabled, pending, selectOptionsType, t } = this.props;
+    const { cardTitle, children, error, isDisabled, pending, viewId } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
-    const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const graphGranularity = this.getQueryGranularity();
 
     return (
@@ -190,13 +168,7 @@ class GraphCard extends React.Component {
             </CardTitle>
             <CardActions className={(error && 'blur') || ''}>
               {children}
-              <Select
-                aria-label={t('curiosity-graph.dropdownPlaceholder')}
-                onSelect={this.onGranularitySelect}
-                options={options}
-                selectedOptions={graphGranularity}
-                placeholder={t('curiosity-graph.dropdownPlaceholder')}
-              />
+              <ToolbarFieldGranularity viewId={viewId} value={graphGranularity} />
             </CardActions>
           </CardHeader>
         </MinHeight>
@@ -218,8 +190,7 @@ class GraphCard extends React.Component {
  *
  * @type {{productLabel: string, productId: string, pending: boolean, error: boolean, query: object,
  *     cardTitle: string, filterGraphData: Array, getGraphReportsCapacity: Function,
- *     selectOptionsType: string, viewId: string, t: Function, children: Node, graphData: object,
- *     isDisabled: boolean}}
+ *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
  */
 GraphCard.propTypes = {
   cardTitle: PropTypes.string,
@@ -241,7 +212,6 @@ GraphCard.propTypes = {
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
   productLabel: PropTypes.string,
-  selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
   viewId: PropTypes.string
 };
@@ -249,9 +219,9 @@ GraphCard.propTypes = {
 /**
  * Default props.
  *
- * @type {{getGraphReportsCapacity: Function, productLabel: string, selectOptionsType: string,
- *     viewId: string, t: translate, children: null, pending: boolean, graphData: object,
- *     isDisabled: boolean, error: boolean, cardTitle: null, filterGraphData: Array}}
+ * @type {{getGraphReportsCapacity: Function, productLabel: string, viewId: string, t: translate,
+ *     children: Node, pending: boolean, graphData: object, isDisabled: boolean, error: boolean,
+ *     cardTitle: string, filterGraphData: Array}}
  */
 GraphCard.defaultProps = {
   cardTitle: null,
@@ -263,7 +233,6 @@ GraphCard.defaultProps = {
   isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
   productLabel: '',
-  selectOptionsType: 'default',
   t: translate,
   viewId: 'graphCard'
 };
