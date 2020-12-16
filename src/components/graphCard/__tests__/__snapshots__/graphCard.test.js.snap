@@ -85,40 +85,34 @@ exports[`GraphCard Component should render a non-connected component: non-connec
       <CardActions
         className=""
       >
-        <Select
-          aria-label="t(curiosity-graph.dropdownPlaceholder)"
-          ariaLabel="Select option"
-          className=""
-          id="generatedid-"
-          isDisabled={false}
-          isToggleText={true}
-          name={null}
-          onSelect={[Function]}
+        <ToolbarFieldGranularity
           options={
             Array [
               Object {
-                "selected": true,
-                "title": "t(curiosity-graph.dropdownDaily)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
                 "value": "daily",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownWeekly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
                 "value": "weekly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownMonthly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
                 "value": "monthly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
                 "value": "quarterly",
               },
             ]
           }
-          placeholder="t(curiosity-graph.dropdownPlaceholder)"
-          selectedOptions="daily"
-          toggleIcon={null}
-          variant="single"
+          t={[Function]}
+          value="daily"
+          viewId="graphCard"
         />
       </CardActions>
     </CardHeader>
@@ -216,40 +210,34 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
       <CardActions
         className="blur"
       >
-        <Select
-          aria-label="t(curiosity-graph.dropdownPlaceholder)"
-          ariaLabel="Select option"
-          className=""
-          id="generatedid-"
-          isDisabled={false}
-          isToggleText={true}
-          name={null}
-          onSelect={[Function]}
+        <ToolbarFieldGranularity
           options={
             Array [
               Object {
-                "selected": true,
-                "title": "t(curiosity-graph.dropdownDaily)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
                 "value": "daily",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownWeekly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
                 "value": "weekly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownMonthly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
                 "value": "monthly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
                 "value": "quarterly",
               },
             ]
           }
-          placeholder="t(curiosity-graph.dropdownPlaceholder)"
-          selectedOptions="daily"
-          toggleIcon={null}
-          variant="single"
+          t={[Function]}
+          value="daily"
+          viewId="graphCard"
         />
       </CardActions>
     </CardHeader>
@@ -343,40 +331,34 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
       <CardActions
         className="blur"
       >
-        <Select
-          aria-label="t(curiosity-graph.dropdownPlaceholder)"
-          ariaLabel="Select option"
-          className=""
-          id="generatedid-"
-          isDisabled={false}
-          isToggleText={true}
-          name={null}
-          onSelect={[Function]}
+        <ToolbarFieldGranularity
           options={
             Array [
               Object {
-                "selected": true,
-                "title": "t(curiosity-graph.dropdownDaily)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
                 "value": "daily",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownWeekly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
                 "value": "weekly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownMonthly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
                 "value": "monthly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
                 "value": "quarterly",
               },
             ]
           }
-          placeholder="t(curiosity-graph.dropdownPlaceholder)"
-          selectedOptions="daily"
-          toggleIcon={null}
-          variant="single"
+          t={[Function]}
+          value="daily"
+          viewId="graphCard"
         />
       </CardActions>
     </CardHeader>
@@ -470,40 +452,34 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
       <CardActions
         className=""
       >
-        <Select
-          aria-label="t(curiosity-graph.dropdownPlaceholder)"
-          ariaLabel="Select option"
-          className=""
-          id="generatedid-"
-          isDisabled={false}
-          isToggleText={true}
-          name={null}
-          onSelect={[Function]}
+        <ToolbarFieldGranularity
           options={
             Array [
               Object {
-                "selected": true,
-                "title": "t(curiosity-graph.dropdownDaily)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
                 "value": "daily",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownWeekly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
                 "value": "weekly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownMonthly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
                 "value": "monthly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
                 "value": "quarterly",
               },
             ]
           }
-          placeholder="t(curiosity-graph.dropdownPlaceholder)"
-          selectedOptions="daily"
-          toggleIcon={null}
-          variant="single"
+          t={[Function]}
+          value="daily"
+          viewId="graphCard"
         />
       </CardActions>
     </CardHeader>
@@ -597,40 +573,34 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
       <CardActions
         className=""
       >
-        <Select
-          aria-label="t(curiosity-graph.dropdownPlaceholder)"
-          ariaLabel="Select option"
-          className=""
-          id="generatedid-"
-          isDisabled={false}
-          isToggleText={true}
-          name={null}
-          onSelect={[Function]}
+        <ToolbarFieldGranularity
           options={
             Array [
               Object {
-                "selected": true,
-                "title": "t(curiosity-graph.dropdownDaily)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
                 "value": "daily",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownWeekly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
                 "value": "weekly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownMonthly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
                 "value": "monthly",
               },
               Object {
-                "title": "t(curiosity-graph.dropdownQuarterly)",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
                 "value": "quarterly",
               },
             ]
           }
-          placeholder="t(curiosity-graph.dropdownPlaceholder)"
-          selectedOptions="daily"
-          toggleIcon={null}
-          variant="single"
+          t={[Function]}
+          value="daily"
+          viewId="graphCard"
         />
       </CardActions>
     </CardHeader>

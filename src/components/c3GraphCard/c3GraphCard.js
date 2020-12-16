@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardTitle, CardHeader, CardActions, CardBody, Title } from '@patternfly/react-core';
 import _isEqual from 'lodash/isEqual';
-import { Select } from '../form/select';
-import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
+import { connect, reduxActions, reduxSelectors } from '../../redux';
 import { helpers, dateHelpers } from '../../common';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { c3GraphCardHelpers } from './c3GraphCardHelpers';
 import { C3GraphCardLegendItem } from './c3GraphCardLegendItem';
-import { graphCardTypes } from '../graphCard/graphCardTypes';
 import { C3Chart } from '../c3Chart/c3Chart';
 import { Loader } from '../loader/loader';
+import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -22,7 +21,6 @@ import { translate } from '../i18n/i18n';
  *
  * @augments React.Component
  * @fires onUpdateGraphData
- * @fires onGranularitySelect
  */
 class C3GraphCard extends React.Component {
   state = {};
@@ -58,23 +56,6 @@ class C3GraphCard extends React.Component {
 
       getGraphReportsCapacity(productId, graphQuery);
     }
-  };
-
-  /**
-   * On granularity select, dispatch granularity type.
-   *
-   * @event onGranularitySelect
-   * @param {object} event
-   */
-  onGranularitySelect = (event = {}) => {
-    const { value } = event;
-    const { viewId } = this.props;
-
-    store.dispatch({
-      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
-      viewId,
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: value
-    });
   };
 
   getQueryGranularity() {
@@ -130,10 +111,8 @@ class C3GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, productId, productShortLabel, selectOptionsType } = this.props;
+    const { filterGraphData, graphData, productId, productShortLabel } = this.props;
     const graphGranularity = this.getQueryGranularity();
-    const { selected } = graphCardTypes.getGranularityOptions(selectOptionsType);
-    const updatedGranularity = graphGranularity || selected;
 
     if (!graphData || !Object.values(graphData).length) {
       return null;
@@ -155,17 +134,17 @@ class C3GraphCard extends React.Component {
 
     const { configuration = {}, hiddenDataFacets = [] } = c3GraphCardHelpers.c3Config({
       data: filtered,
-      granularity: updatedGranularity,
+      granularity: graphGranularity,
       productShortLabel
     });
 
     return (
-      <C3Chart key={`chart-${productId}-${updatedGranularity}`} config={configuration}>
+      <C3Chart key={`chart-${productId}-${graphGranularity}`} config={configuration}>
         {({ chart }) =>
           this.renderLegend({
             chart,
             filteredData: filtered,
-            granularity: updatedGranularity,
+            granularity: graphGranularity,
             hiddenDataFacets
           })
         }
@@ -179,13 +158,12 @@ class C3GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, isDisabled, pending, selectOptionsType, t } = this.props;
+    const { cardTitle, children, error, isDisabled, pending, viewId } = this.props;
 
     if (isDisabled) {
       return null;
     }
 
-    const { options } = graphCardTypes.getGranularityOptions(selectOptionsType);
     const graphGranularity = this.getQueryGranularity();
 
     return (
@@ -198,13 +176,7 @@ class C3GraphCard extends React.Component {
           </CardTitle>
           <CardActions className={(error && 'blur') || ''}>
             {children}
-            <Select
-              aria-label={t('curiosity-graph.dropdownPlaceholder')}
-              onSelect={this.onGranularitySelect}
-              options={options}
-              selectedOptions={graphGranularity}
-              placeholder={t('curiosity-graph.dropdownPlaceholder')}
-            />
+            <ToolbarFieldGranularity viewId={viewId} value={graphGranularity} />
           </CardActions>
         </CardHeader>
         <CardBody>
@@ -222,7 +194,7 @@ class C3GraphCard extends React.Component {
  * Prop types.
  *
  * @type {{productId: string, pending: boolean, error: boolean, query: object, cardTitle: string,
- *     filterGraphData: Array, getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
+ *     filterGraphData: Array, getGraphReportsCapacity: Function, productShortLabel: string,
  *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
  */
 C3GraphCard.propTypes = {
@@ -243,7 +215,6 @@ C3GraphCard.propTypes = {
   isDisabled: PropTypes.bool,
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
-  selectOptionsType: PropTypes.oneOf(['default']),
   t: PropTypes.func,
   productShortLabel: PropTypes.string,
   viewId: PropTypes.string
@@ -252,7 +223,7 @@ C3GraphCard.propTypes = {
 /**
  * Default props.
  *
- * @type {{getGraphReportsCapacity: Function, productShortLabel: string, selectOptionsType: string,
+ * @type {{getGraphReportsCapacity: Function, productShortLabel: string,
  *     viewId: string, t: translate, children: null, pending: boolean, graphData: object,
  *     isDisabled: boolean, error: boolean, cardTitle: null, filterGraphData: Array}}
  */
@@ -265,7 +236,6 @@ C3GraphCard.defaultProps = {
   graphData: {},
   isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
-  selectOptionsType: 'default',
   t: translate,
   productShortLabel: '',
   viewId: 'graphCard'
