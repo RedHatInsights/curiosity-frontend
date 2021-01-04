@@ -43,9 +43,10 @@ import { helpers } from '../common';
  * @returns {Promise<*>}
  */
 const getApiVersion = (options = {}) => {
-  const { cancel = true, cancelId } = options;
+  const { cache = false, cancel = true, cancelId } = options;
   return serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_VERSION,
+    cache,
     cancel,
     cancelId
   });
@@ -636,10 +637,11 @@ const getApiVersion = (options = {}) => {
  * @returns {Promise<*>}
  */
 const getGraphReports = (id, params = {}, options = {}) => {
-  const { cancel = true, cancelId } = options;
+  const { cache = true, cancel = true, cancelId } = options;
   return serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_REPORT}${id}`,
     params,
+    cache,
     cancel,
     cancelId
   });
@@ -944,10 +946,11 @@ const getGraphReports = (id, params = {}, options = {}) => {
  * @returns {Promise<*>}
  */
 const getGraphCapacity = (id, params = {}, options = {}) => {
-  const { cancel = true, cancelId } = options;
+  const { cache = true, cancel = true, cancelId } = options;
   return serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
     params,
+    cache,
     cancel,
     cancelId
   });
@@ -1140,10 +1143,11 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  * @returns {Promise<*>}
  */
 const getHostsInventory = (id, params = {}, options = {}) => {
-  const { cancel = true, cancelId } = options;
+  const { cache = true, cancel = true, cancelId } = options;
   return serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY}${id}`,
     params,
+    cache,
     cancel,
     cancelId
   });
@@ -1267,10 +1271,11 @@ const getHostsInventory = (id, params = {}, options = {}) => {
  * @returns {Promise<*>}
  */
 const getHostsInventoryGuests = (id, params = {}, options = {}) => {
-  const { cancel = false, cancelId } = options;
+  const { cache = true, cancel = false, cancelId } = options;
   return serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_INVENTORY_GUESTS.replace('{0}', id),
     params,
+    cache,
     cancel,
     cancelId
   });
@@ -1358,10 +1363,11 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  * @returns {Promise<*>}
  */
 const getSubscriptionsInventory = (id, params = {}, options = {}) => {
-  const { cancel = true, cancelId } = options;
+  const { cache = true, cancel = true, cancelId } = options;
   return serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_SUBSCRIPTIONS}${id}`,
     params,
+    cache,
     cancel,
     cancelId
   });
