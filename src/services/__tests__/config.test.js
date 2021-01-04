@@ -53,4 +53,30 @@ describe('ServiceConfig', () => {
       done();
     });
   });
+
+  it('should handle caching service calls', async () => {
+    const responses = [];
+
+    // First, call an endpoint with set params
+    const responseOne = await service.serviceCall({
+      cache: true,
+      url: '/test/',
+      params: { lorem: 'ipsum', dolor: 'sit' }
+    });
+    responses.push(responseOne.status);
+
+    // Second, call the same endpoint with same params, expect a cached response, emulated 304
+    const responseTwo = await service.serviceCall({
+      cache: true,
+      url: '/test/',
+      params: { lorem: 'ipsum', dolor: 'sit' }
+    });
+    responses.push(responseTwo.status);
+
+    // Third, updating params creates a new cache
+    const responseThree = await service.serviceCall({ cache: true, url: '/test/', params: { lorem: 'ipsum' } });
+    responses.push(responseThree.status);
+
+    expect(responses).toMatchSnapshot('cached responses, emulated 304');
+  });
 });
