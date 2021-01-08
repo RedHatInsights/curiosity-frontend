@@ -20,7 +20,6 @@ class Router extends React.Component {
   renderRoutes() {
     const { routes } = this.props;
     const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
-
     let redirectRoot = null;
 
     return {
@@ -29,14 +28,14 @@ class Router extends React.Component {
           return null;
         }
 
-        if (item.redirect === true) {
-          redirectRoot = <ReactRouterDomRedirect to={item.to} />;
+        if (item.redirect) {
+          redirectRoot = <ReactRouterDomRedirect to={item.redirect} />;
         }
 
         if (item.render === true) {
           return (
             <Route
-              exact={item.hasParameters || item.exact}
+              exact={item.exact}
               key={item.to}
               path={item.to}
               strict={item.strict}
@@ -83,9 +82,7 @@ class Router extends React.Component {
           );
         }
 
-        return (
-          <Route exact={item.hasParameters || item.exact} key={item.to} path={item.to} component={item.component} />
-        );
+        return <Route exact={item.exact} key={item.to} path={item.to} component={item.component} />;
       }),
       redirectRoot
     };
@@ -122,8 +119,7 @@ Router.propTypes = {
       component: PropTypes.any.isRequired,
       disabled: PropTypes.boolean,
       exact: PropTypes.boolean,
-      hasParameters: PropTypes.boolean,
-      redirect: PropTypes.boolean,
+      redirect: PropTypes.string,
       render: PropTypes.boolean,
       strict: PropTypes.boolean,
       to: PropTypes.string.isRequired

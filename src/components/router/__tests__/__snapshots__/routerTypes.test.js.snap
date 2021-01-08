@@ -87,22 +87,10 @@ Array [
     },
     "disabled": false,
     "exact": true,
-    "redirect": true,
-    "render": true,
-    "to": "/rhel-sw/all",
-  },
-  Object {
-    "component": Object {
-      "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
-    },
-    "disabled": false,
-    "exact": true,
     "id": "rhel-sw",
+    "redirect": "/rhel-sw/all",
     "render": true,
-    "to": "/rhel-sw/:variant",
+    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
   },
   Object {
     "component": Object {
@@ -128,20 +116,7 @@ Array [
     "exact": true,
     "id": "satellite-sw",
     "render": true,
-    "to": "/satellite-sw/all",
-  },
-  Object {
-    "component": Object {
-      "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
-    },
-    "disabled": false,
-    "exact": true,
-    "id": "satellite-sw",
-    "render": true,
-    "to": "/satellite-sw/:variant",
+    "to": "/satellite-sw/:variant(all|capsule)",
   },
   Object {
     "activateOnError": true,

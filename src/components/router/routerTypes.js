@@ -31,16 +31,9 @@ const platformModalRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_en
  */
 const routes = [
   {
-    to: '/rhel-sw/all',
-    redirect: true,
-    component: React.lazy(() => import('../rhelView/rhelView')),
-    exact: true,
-    render: true,
-    disabled: helpers.UI_DISABLED
-  },
-  {
     id: 'rhel-sw',
-    to: '/rhel-sw/:variant',
+    to: '/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)',
+    redirect: '/rhel-sw/all',
     component: React.lazy(() => import('../rhelView/rhelView')),
     exact: true,
     render: true,
@@ -56,15 +49,7 @@ const routes = [
   },
   {
     id: 'satellite-sw',
-    to: '/satellite-sw/all',
-    component: React.lazy(() => import('../productView/productViewSatellite')),
-    exact: true,
-    render: true,
-    disabled: helpers.UI_DISABLED
-  },
-  {
-    id: 'satellite-sw',
-    to: '/satellite-sw/:variant',
+    to: '/satellite-sw/:variant(all|capsule)',
     component: React.lazy(() => import('../productView/productViewSatellite')),
     exact: true,
     render: true,
