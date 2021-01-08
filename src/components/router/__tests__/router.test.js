@@ -22,7 +22,7 @@ describe('Router Component', () => {
         {
           title: 'Lorem',
           to: '/lorem',
-          redirect: false,
+          redirect: '/loremIpsum',
           component: () => <div>Lorem</div>,
           exact: false,
           render: false,
@@ -31,7 +31,6 @@ describe('Router Component', () => {
         {
           title: 'Ipsum',
           to: '/ipsum',
-          redirect: false,
           component: () => <div>Ipsum</div>,
           activateOnError: true,
           exact: false,
@@ -51,7 +50,7 @@ describe('Router Component', () => {
         {
           title: 'Lorem',
           to: '/lorem',
-          redirect: false,
+          redirect: '/loremIpsum',
           component: () => <div>Lorem</div>,
           exact: false,
           render: true,

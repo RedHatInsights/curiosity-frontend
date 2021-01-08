@@ -22,6 +22,6 @@ describe('RouterTypes', () => {
       }
     });
 
-    expect(lazyLoadComponents.length).toBe(6);
+    expect(lazyLoadComponents.length).toBe(4);
   });
 });
