@@ -6,7 +6,7 @@ import { NotAuthorized } from '@redhat-cloud-services/frontend-components/compon
 import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
-import { Redirect, routerHelpers, routerTypes } from '../router/router';
+import { Redirect, routerHelpers, routerConfig } from '../router/router';
 import MessageView from '../messageView/messageView';
 import { translate } from '../i18n/i18n';
 
@@ -16,7 +16,7 @@ import { translate } from '../i18n/i18n';
  * @augments React.Component
  */
 class Authentication extends Component {
-  appName = routerTypes.appName;
+  appName = routerConfig.appName;
 
   removeListeners = helpers.noop;
 
@@ -119,7 +119,7 @@ Authentication.propTypes = {
   setAppName: PropTypes.func,
   session: PropTypes.shape({
     authorized: PropTypes.shape({
-      [routerTypes.appName]: PropTypes.bool
+      [routerConfig.appName]: PropTypes.bool
     }),
     errorCodes: PropTypes.arrayOf(PropTypes.string),
     pending: PropTypes.bool,
