@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-dom';
 import Redirect from './redirect';
 import { routerHelpers } from './routerHelpers';
-import { routerTypes } from './routerTypes';
+import { routerConfig } from './routerConfig';
 import { Loader } from '../loader/loader';
 
 /**
@@ -133,7 +133,7 @@ Router.propTypes = {
  * @type {{routes: Array}}
  */
 Router.defaultProps = {
-  routes: routerTypes.routes
+  routes: routerConfig.routes
 };
 
-export { Router as default, Router, Redirect, routerHelpers, routerTypes };
+export { Router as default, Router, Redirect, routerHelpers, routerConfig };
