@@ -1,4 +1,4 @@
-import { appName, navigation, platformLandingRedirect, platformModalRedirect, routes } from '../routerTypes';
+import { appName, navigation, platformLandingRedirect, platformModalRedirect, routes } from '../routerConfig';
 
 describe('RouterTypes', () => {
   it('should return specific properties', () => {

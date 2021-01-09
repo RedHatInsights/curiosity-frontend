@@ -1,5 +1,5 @@
 import { helpers } from '../../common/helpers';
-import { routes, navigation } from './routerTypes';
+import { routes, navigation } from './routerConfig';
 
 /**
  * Return an assumed dynamic route baseName directory

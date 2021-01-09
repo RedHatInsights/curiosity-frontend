@@ -1,14 +1,14 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import { Router, Redirect, routerHelpers, routerTypes } from '../router';
+import { Router, Redirect, routerHelpers, routerConfig } from '../router';
 
 describe('Router Component', () => {
   it('should export specific properties', () => {
     expect(Router).toBeDefined();
     expect(Redirect).toBeDefined();
     expect(routerHelpers).toBeDefined();
-    expect(routerTypes).toBeDefined();
+    expect(routerConfig).toBeDefined();
   });
 
   it('should render a basic component', () => {
