@@ -139,7 +139,7 @@ const navigation = [
   }
 ];
 
-const routerTypes = {
+const routerConfig = {
   appName,
   navigation,
   platformLandingRedirect,
@@ -148,8 +148,8 @@ const routerTypes = {
 };
 
 export {
-  routerTypes as default,
-  routerTypes,
+  routerConfig as default,
+  routerConfig,
   appName,
   navigation,
   platformLandingRedirect,
