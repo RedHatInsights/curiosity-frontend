@@ -19,7 +19,11 @@ describe('Pagination Component', () => {
     const props = {
       productId: 'lorem',
       limitType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
-      offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]
+      offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+      query: {
+        [RHSM_API_QUERY_TYPES.LIMIT]: 20,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 0
+      }
     };
 
     const component = shallow(<Pagination {...props} />);
@@ -33,7 +37,8 @@ describe('Pagination Component', () => {
       offsetType: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
       itemCount: 39,
       query: {
-        [RHSM_API_QUERY_TYPES.LIMIT]: 20
+        [RHSM_API_QUERY_TYPES.LIMIT]: 20,
+        [RHSM_API_QUERY_TYPES.OFFSET]: 0
       }
     };
 

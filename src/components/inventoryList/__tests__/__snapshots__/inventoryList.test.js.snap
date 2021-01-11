@@ -168,14 +168,23 @@ exports[`InventoryList Component should handle variations in data: filtered data
       <CardActions
         className=""
       >
-        <Connect(Pagination)
+        <Pagination
+          dropDirection="down"
           isCompact={true}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="inventoryList"
         />
       </CardActions>
@@ -243,14 +252,23 @@ exports[`InventoryList Component should handle variations in data: filtered data
       <TableToolbar
         isFooter={true}
       >
-        <Connect(Pagination)
+        <Pagination
           dropDirection="up"
+          isCompact={false}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="inventoryList"
         />
       </TableToolbar>
@@ -273,14 +291,23 @@ exports[`InventoryList Component should handle variations in data: variable data
       <CardActions
         className=""
       >
-        <Connect(Pagination)
+        <Pagination
+          dropDirection="down"
           isCompact={true}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="inventoryList"
         />
       </CardActions>
@@ -344,14 +371,23 @@ exports[`InventoryList Component should handle variations in data: variable data
       <TableToolbar
         isFooter={true}
       >
-        <Connect(Pagination)
+        <Pagination
           dropDirection="up"
+          isCompact={false}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="inventoryList"
         />
       </TableToolbar>
@@ -374,14 +410,23 @@ exports[`InventoryList Component should render a non-connected component: non-co
       <CardActions
         className=""
       >
-        <Connect(Pagination)
+        <Pagination
+          dropDirection="down"
           isCompact={true}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="inventoryList"
         />
       </CardActions>
@@ -423,14 +468,23 @@ exports[`InventoryList Component should render a non-connected component: non-co
       <TableToolbar
         isFooter={true}
       >
-        <Connect(Pagination)
+        <Pagination
           dropDirection="up"
+          isCompact={false}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="inventoryList"
         />
       </TableToolbar>

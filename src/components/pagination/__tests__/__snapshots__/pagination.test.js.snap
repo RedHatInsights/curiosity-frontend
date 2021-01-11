@@ -79,7 +79,7 @@ exports[`Pagination Component should render a non-connected component: non-conne
   onSetPage={[Function]}
   ouiaSafe={true}
   page={1}
-  perPage={10}
+  perPage={20}
   perPageOptions={
     Array [
       Object {
