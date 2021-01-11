@@ -186,6 +186,7 @@ class InventorySubscriptions extends React.Component {
                 perPageDefault={updatedPerPage}
                 offsetType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
                 limitType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
+                query={query}
               />
             </CardActions>
           </CardHeader>
@@ -222,6 +223,7 @@ class InventorySubscriptions extends React.Component {
                 dropDirection="up"
                 offsetType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
                 limitType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
+                query={query}
               />
             </TableToolbar>
           </CardFooter>
