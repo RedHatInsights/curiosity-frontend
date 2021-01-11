@@ -61,14 +61,23 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
       <CardActions
         className=""
       >
-        <Connect(Pagination)
+        <Pagination
+          dropDirection="down"
           isCompact={true}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="subscriptionsList"
         />
       </CardActions>
@@ -134,14 +143,23 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
       <TableToolbar
         isFooter={true}
       >
-        <Connect(Pagination)
+        <Pagination
           dropDirection="up"
+          isCompact={false}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="subscriptionsList"
         />
       </TableToolbar>
@@ -164,14 +182,23 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
       <CardActions
         className=""
       >
-        <Connect(Pagination)
+        <Pagination
+          dropDirection="down"
           isCompact={true}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="subscriptionsList"
         />
       </CardActions>
@@ -233,14 +260,23 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
       <TableToolbar
         isFooter={true}
       >
-        <Connect(Pagination)
+        <Pagination
           dropDirection="up"
+          isCompact={false}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="subscriptionsList"
         />
       </TableToolbar>
@@ -263,14 +299,23 @@ exports[`InventorySubscriptions Component should render a non-connected componen
       <CardActions
         className=""
       >
-        <Connect(Pagination)
+        <Pagination
+          dropDirection="down"
           isCompact={true}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="subscriptionsList"
         />
       </CardActions>
@@ -312,14 +357,23 @@ exports[`InventorySubscriptions Component should render a non-connected componen
       <TableToolbar
         isFooter={true}
       >
-        <Connect(Pagination)
+        <Pagination
           dropDirection="up"
+          isCompact={false}
           isDisabled={false}
           itemCount={0}
           limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
+          offsetDefault={0}
           offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
           perPageDefault={10}
           productId="lorem"
+          query={
+            Object {
+              "limit": 10,
+              "offset": 0,
+            }
+          }
+          variant={null}
           viewId="subscriptionsList"
         />
       </TableToolbar>
