@@ -12,6 +12,7 @@ import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
 import { inventoryListHelpers } from '../inventoryList/inventoryListHelpers';
 import Pagination from '../pagination/pagination';
+import { paginationHelpers } from '../pagination/paginationHelpers';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES as SORT_TYPES,
@@ -24,6 +25,7 @@ import { translate } from '../i18n/i18n';
  *
  * @augments React.Component
  * @fires onColumnSort
+ * @fires onPage
  * @fires onUpdateInventoryData
  */
 class InventorySubscriptions extends React.Component {
@@ -76,6 +78,31 @@ class InventorySubscriptions extends React.Component {
         type: reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.SORT]: updatedSortColumn
+      }
+    ]);
+  };
+
+  /**
+   * On paging and on perPage events.
+   *
+   * @event onPage
+   * @param {object} params
+   * @param {number} params.offset
+   * @param {number} params.perPage
+   */
+  onPage = ({ offset, perPage }) => {
+    const { productId } = this.props;
+
+    store.dispatch([
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
+      },
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       }
     ]);
   };
@@ -146,10 +173,8 @@ class InventorySubscriptions extends React.Component {
       listData,
       pending,
       perPageDefault,
-      productId,
       query,
-      t,
-      viewId
+      t
     } = this.props;
 
     if (isDisabled) {
@@ -162,9 +187,9 @@ class InventorySubscriptions extends React.Component {
       );
     }
 
-    const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
-    const updatedPage = query[RHSM_API_QUERY_TYPES.OFFSET] / query[RHSM_API_QUERY_TYPES.LIMIT] + 1 || 1;
-    const isLastPage = updatedPage === Math.ceil(itemCount / updatedPerPage);
+    const updatedPerPage = query[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
+    const updatedOffset = query[RHSM_API_QUERY_TYPES.OFFSET];
+    const isLastPage = paginationHelpers.isLastPage(updatedOffset, updatedPerPage, itemCount);
 
     // Set an updated key to force refresh minHeight
     const minHeightContentRefreshKey =
@@ -181,12 +206,10 @@ class InventorySubscriptions extends React.Component {
                 isCompact
                 isDisabled={pending || error}
                 itemCount={itemCount}
-                productId={productId}
-                viewId={viewId}
-                perPageDefault={updatedPerPage}
-                offsetType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
-                limitType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
-                query={query}
+                offset={updatedOffset}
+                onPage={this.onPage}
+                onPerPage={this.onPage}
+                perPage={updatedPerPage}
               />
             </CardActions>
           </CardHeader>
@@ -215,15 +238,13 @@ class InventorySubscriptions extends React.Component {
           <CardFooter className={(error && 'blur') || ''}>
             <TableToolbar isFooter>
               <Pagination
+                dropDirection="up"
                 isDisabled={pending || error}
                 itemCount={itemCount}
-                productId={productId}
-                viewId={viewId}
-                perPageDefault={updatedPerPage}
-                dropDirection="up"
-                offsetType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
-                limitType={reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
-                query={query}
+                offset={updatedOffset}
+                onPage={this.onPage}
+                onPerPage={this.onPage}
+                perPage={updatedPerPage}
               />
             </TableToolbar>
           </CardFooter>
@@ -237,7 +258,7 @@ class InventorySubscriptions extends React.Component {
  * Prop types.
  *
  * @type {{productId: string, listData: Array, session: object, pending: boolean, query: object,
- *     fulfilled: boolean, error: boolean, getSubscriptionsInventory: Function, itemCount: number, viewId: string,
+ *     fulfilled: boolean, error: boolean, getSubscriptionsInventory: Function, itemCount: number,
  *     t: Function, filterInventoryData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventorySubscriptions.propTypes = {
@@ -271,15 +292,14 @@ InventorySubscriptions.propTypes = {
   perPageDefault: PropTypes.number,
   query: PropTypes.object.isRequired,
   session: PropTypes.object,
-  t: PropTypes.func,
-  viewId: PropTypes.string
+  t: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, filterInventoryData: Array, listData: Array, session: object,
- *     pending: boolean, fulfilled: boolean, perPageDefault: number, isDisabled: boolean, error: boolean,
+ * @type {{t: translate, filterInventoryData: Array, listData: Array, session: object, pending: boolean,
+ *     fulfilled: boolean, perPageDefault: number, isDisabled: boolean, error: boolean,
  *     getSubscriptionsInventory: Function, itemCount: number}}
  */
 InventorySubscriptions.defaultProps = {
@@ -293,8 +313,7 @@ InventorySubscriptions.defaultProps = {
   pending: false,
   perPageDefault: 10,
   session: {},
-  t: translate,
-  viewId: 'subscriptionsList'
+  t: translate
 };
 
 /**

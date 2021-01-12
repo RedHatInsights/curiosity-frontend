@@ -16,47 +16,6 @@ Object {
 }
 `;
 
-exports[`Pagination Component should handle updating paging for redux state: dispatch filter 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
-        "offset": 10,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "limit": 10,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "offset": 0,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "limit": 20,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-]
-`;
-
 exports[`Pagination Component should render a non-connected component: non-connected 1`] = `
 <Pagination
   className="hidden"
@@ -119,27 +78,4 @@ exports[`Pagination Component should render a non-connected component: non-conne
   variant={null}
   widgetId="pagination-options-menu"
 />
-`;
-
-exports[`Pagination Component should reset offset/pages when per-page limit is adjusted through redux state: dispatch per-page 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
-        "offset": 0,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "limit": 100,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-]
 `;
