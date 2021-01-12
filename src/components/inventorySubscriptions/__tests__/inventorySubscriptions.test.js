@@ -93,4 +93,21 @@ describe('InventorySubscriptions Component', () => {
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter');
   });
+
+  it('should handle updating paging through redux state', () => {
+    const props = {
+      query: {},
+      productId: 'lorem'
+    };
+
+    const component = shallow(<InventorySubscriptions {...props} />);
+    const componentInstance = component.instance();
+
+    componentInstance.onPage({ offset: 10, perPage: 10 });
+    componentInstance.onPage({ offset: 20, perPage: 10 });
+    componentInstance.onPage({ offset: 0, perPage: 20 });
+    componentInstance.onPage({ offset: 0, perPage: 50 });
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch onPage');
+  });
 });

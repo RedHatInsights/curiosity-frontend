@@ -1,5 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventorySubscriptions Component should handle updating paging through redux state: dispatch onPage 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "offset": 10,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 10,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "offset": 20,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 10,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 20,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 50,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`InventorySubscriptions Component should handle updating sorting through redux state: dispatch filter 1`] = `
 Array [
   Array [
@@ -66,19 +127,11 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="subscriptionsList"
         />
       </CardActions>
     </CardHeader>
@@ -148,19 +201,11 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
           isCompact={false}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="subscriptionsList"
         />
       </TableToolbar>
     </CardFooter>
@@ -187,19 +232,11 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="subscriptionsList"
         />
       </CardActions>
     </CardHeader>
@@ -265,19 +302,11 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
           isCompact={false}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="subscriptionsList"
         />
       </TableToolbar>
     </CardFooter>
@@ -304,19 +333,11 @@ exports[`InventorySubscriptions Component should render a non-connected componen
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="subscriptionsList"
         />
       </CardActions>
     </CardHeader>
@@ -362,19 +383,11 @@ exports[`InventorySubscriptions Component should render a non-connected componen
           isCompact={false}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="subscriptionsList"
         />
       </TableToolbar>
     </CardFooter>
