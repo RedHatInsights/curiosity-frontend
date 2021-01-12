@@ -13,6 +13,7 @@ import { MinHeight } from '../minHeight/minHeight';
 import GuestsList from '../guestsList/guestsList';
 import { inventoryListHelpers } from './inventoryListHelpers';
 import Pagination from '../pagination/pagination';
+import { paginationHelpers } from '../pagination/paginationHelpers';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SORT_TYPES as SORT_TYPES,
@@ -25,6 +26,7 @@ import { translate } from '../i18n/i18n';
  *
  * @augments React.Component
  * @fires onColumnSort
+ * @fires onPage
  * @fires onUpdateInventoryData
  */
 class InventoryList extends React.Component {
@@ -77,6 +79,31 @@ class InventoryList extends React.Component {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT],
         viewId: productId,
         [RHSM_API_QUERY_TYPES.SORT]: updatedSortColumn
+      }
+    ]);
+  };
+
+  /**
+   * On paging and on perPage events.
+   *
+   * @event onPage
+   * @param {object} params
+   * @param {number} params.offset
+   * @param {number} params.perPage
+   */
+  onPage = ({ offset, perPage }) => {
+    const { productId } = this.props;
+
+    store.dispatch([
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
+      },
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
+        viewId: productId,
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       }
     ]);
   };
@@ -166,10 +193,8 @@ class InventoryList extends React.Component {
       listData,
       pending,
       perPageDefault,
-      productId,
       query,
-      t,
-      viewId
+      t
     } = this.props;
 
     if (isDisabled) {
@@ -182,9 +207,9 @@ class InventoryList extends React.Component {
       );
     }
 
-    const updatedPerPage = query?.[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
-    const updatedPage = query[RHSM_API_QUERY_TYPES.OFFSET] / query[RHSM_API_QUERY_TYPES.LIMIT] + 1 || 1;
-    const isLastPage = updatedPage === Math.ceil(itemCount / updatedPerPage);
+    const updatedPerPage = query[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
+    const updatedOffset = query[RHSM_API_QUERY_TYPES.OFFSET];
+    const isLastPage = paginationHelpers.isLastPage(updatedOffset, updatedPerPage, itemCount);
 
     // Set an updated key to force refresh minHeight
     const minHeightContentRefreshKey =
@@ -201,12 +226,10 @@ class InventoryList extends React.Component {
                 isCompact
                 isDisabled={pending || error}
                 itemCount={itemCount}
-                productId={productId}
-                viewId={viewId}
-                perPageDefault={updatedPerPage}
-                offsetType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
-                limitType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
-                query={query}
+                offset={updatedOffset}
+                onPage={this.onPage}
+                onPerPage={this.onPage}
+                perPage={updatedPerPage}
               />
             </CardActions>
           </CardHeader>
@@ -235,15 +258,13 @@ class InventoryList extends React.Component {
           <CardFooter className={(error && 'blur') || ''}>
             <TableToolbar isFooter>
               <Pagination
+                dropDirection="up"
                 isDisabled={pending || error}
                 itemCount={itemCount}
-                productId={productId}
-                viewId={viewId}
-                perPageDefault={updatedPerPage}
-                dropDirection="up"
-                offsetType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]}
-                limitType={reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]}
-                query={query}
+                offset={updatedOffset}
+                onPage={this.onPage}
+                onPerPage={this.onPage}
+                perPage={updatedPerPage}
               />
             </TableToolbar>
           </CardFooter>
@@ -256,10 +277,10 @@ class InventoryList extends React.Component {
 /**
  * Prop types.
  *
- * @type {{settings: object, productId: string, listData: Array, session: object, pending: boolean, query: object,
- *     fulfilled: boolean, getHostsInventory: Function, error: boolean, itemCount: number, viewId: string,
- *     t: Function, filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number,
- *     isDisabled: boolean}}
+ * @type {{settings:object, productId: string, listData: Array, session: object, pending: boolean,
+ *     query: object, fulfilled: boolean, getHostsInventory: Function, error: boolean,
+ *     itemCount: number, t: Function, filterInventoryData: Array, filterGuestsData: Array,
+ *     perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.propTypes = {
   error: PropTypes.bool,
@@ -296,15 +317,14 @@ InventoryList.propTypes = {
   settings: PropTypes.shape({
     hasGuests: PropTypes.func
   }),
-  t: PropTypes.func,
-  viewId: PropTypes.string
+  t: PropTypes.func
 };
 
 /**
  * Default props.
  *
  * @type {{settings: object, listData: Array, session: object, pending: boolean, fulfilled: boolean,
- *     getHostsInventory: Function, error: boolean, itemCount: number, viewId: string, t: translate,
+ *     getHostsInventory: Function, error: boolean, itemCount: number, t: translate,
  *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.defaultProps = {
@@ -320,8 +340,7 @@ InventoryList.defaultProps = {
   perPageDefault: 10,
   session: {},
   settings: {},
-  t: translate,
-  viewId: 'inventoryList'
+  t: translate
 };
 
 /**
