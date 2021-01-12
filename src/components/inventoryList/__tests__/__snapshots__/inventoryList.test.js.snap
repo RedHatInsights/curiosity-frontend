@@ -107,6 +107,67 @@ exports[`InventoryList Component should handle expandable guests data: number of
 />
 `;
 
+exports[`InventoryList Component should handle updating paging through redux state: dispatch onPage 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "offset": 10,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 10,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "offset": 20,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 10,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 20,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "offset": 0,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 50,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`InventoryList Component should handle updating sorting through redux state: dispatch filter 1`] = `
 Array [
   Array [
@@ -173,19 +234,11 @@ exports[`InventoryList Component should handle variations in data: filtered data
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="inventoryList"
         />
       </CardActions>
     </CardHeader>
@@ -257,19 +310,11 @@ exports[`InventoryList Component should handle variations in data: filtered data
           isCompact={false}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="inventoryList"
         />
       </TableToolbar>
     </CardFooter>
@@ -296,19 +341,11 @@ exports[`InventoryList Component should handle variations in data: variable data
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="inventoryList"
         />
       </CardActions>
     </CardHeader>
@@ -376,19 +413,11 @@ exports[`InventoryList Component should handle variations in data: variable data
           isCompact={false}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="inventoryList"
         />
       </TableToolbar>
     </CardFooter>
@@ -415,19 +444,11 @@ exports[`InventoryList Component should render a non-connected component: non-co
           isCompact={true}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="inventoryList"
         />
       </CardActions>
     </CardHeader>
@@ -473,19 +494,11 @@ exports[`InventoryList Component should render a non-connected component: non-co
           isCompact={false}
           isDisabled={false}
           itemCount={0}
-          limitType="SET_QUERY_RHSM_HOSTS_INVENTORY_limit"
-          offsetDefault={0}
-          offsetType="SET_QUERY_RHSM_HOSTS_INVENTORY_offset"
-          perPageDefault={10}
-          productId="lorem"
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
           variant={null}
-          viewId="inventoryList"
         />
       </TableToolbar>
     </CardFooter>
