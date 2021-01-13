@@ -491,6 +491,23 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/toolbar/toolbarFieldGranularity.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.granularity",
+        "match": "translate('curiosity-toolbar.granularity', { context: type })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/toolbar/toolbarHelpers.js",
     "keys": Array [
       Object {
@@ -612,6 +629,10 @@ Array [
   Object {
     "file": "./src/components/rhelView/rhelView.js",
     "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldGranularity.js",
+    "key": "curiosity-toolbar.granularity",
   },
 ]
 `;
