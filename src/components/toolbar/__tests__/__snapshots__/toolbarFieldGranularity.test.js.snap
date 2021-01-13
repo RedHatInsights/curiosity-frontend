@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldGranularity Component should export select options: toolbarFieldOptions 1`] = `
+Array [
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+    "value": "daily",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+    "value": "weekly",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+    "value": "monthly",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+    "value": "quarterly",
+  },
+]
+`;
+
+exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state: dispatch granularity 1`] = `
+Array [
+  Array [
+    Object {
+      "granularity": "daily",
+      "type": "SET_QUERY_RHSM_granularity",
+      "viewId": "toolbarFieldGranularity",
+    },
+  ],
+]
+`;
+
+exports[`ToolbarFieldGranularity Component should render a non-connected component: non-connected 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  ariaLabel="Select option"
+  className=""
+  id="generatedid-"
+  isDisabled={false}
+  isToggleText={true}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+        "value": "daily",
+      },
+      Object {
+        "selected": true,
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+        "value": "weekly",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+        "value": "monthly",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+        "value": "quarterly",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  selectedOptions="weekly"
+  toggleIcon={null}
+  variant="single"
+/>
+`;
