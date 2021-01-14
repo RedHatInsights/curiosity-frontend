@@ -508,6 +508,23 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/toolbar/toolbarFieldUom.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.uom",
+        "match": "translate('curiosity-toolbar.uom', { context: type })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'uom' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'uom' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/toolbar/toolbarHelpers.js",
     "keys": Array [
       Object {
@@ -633,6 +650,10 @@ Array [
   Object {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
     "key": "curiosity-toolbar.granularity",
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldUom.js",
+    "key": "curiosity-toolbar.uom",
   },
 ]
 `;

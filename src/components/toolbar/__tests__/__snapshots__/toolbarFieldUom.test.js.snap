@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldUom Component should export select options: toolbarFieldOptions 1`] = `
+Array [
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
+    "value": "cores",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
+    "value": "sockets",
+  },
+]
+`;
+
+exports[`ToolbarFieldUom Component should handle updating uom through redux state: dispatch uom 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+      },
+      Object {
+        "type": "SET_QUERY_RHSM_uom",
+        "uom": "cores",
+        "viewId": "toolbarFieldUom",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldUom Component should render a non-connected component: non-connected 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
+  ariaLabel="Select option"
+  className=""
+  id="generatedid-"
+  isDisabled={false}
+  isToggleText={true}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
+        "value": "cores",
+      },
+      Object {
+        "selected": true,
+        "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
+        "value": "sockets",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
+  selectedOptions="sockets"
+  toggleIcon={null}
+  variant="single"
+/>
+`;
