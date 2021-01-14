@@ -28,17 +28,6 @@ const addDisplayName = components => {
 addDisplayName(pfReactCoreComponents);
 addDisplayName(pfReactChartComponents);
 
-jest.mock('c3', () => ({
-  generate: () => ({
-    destroy: jest.fn(),
-    focus: jest.fn(),
-    hide: jest.fn(),
-    load: ({ done }) => done && done(),
-    revert: jest.fn(),
-    toggle: jest.fn()
-  })
-}));
-
 global.window.insights = {
   chrome: {
     auth: {

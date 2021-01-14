@@ -45,7 +45,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
   <PageSection
     className=""
   >
-    <Connect(C3GraphCard)
+    <Connect(GraphCard)
       cardTitle="t(curiosity-graph.cardHeading)"
       filterGraphData={
         Array [
@@ -64,7 +64,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       }
       key="lorem ipsum"
       productId="lorem ipsum"
-      productShortLabel="OpenShift"
+      productLabel="OpenShift"
       query={
         Object {
           "granularity": "daily",
@@ -97,7 +97,7 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
         toggleIcon={null}
         variant="single"
       />
-    </Connect(C3GraphCard)>
+    </Connect(GraphCard)>
   </PageSection>
   <PageSection
     className=""
