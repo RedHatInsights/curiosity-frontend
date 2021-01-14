@@ -72,30 +72,24 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       }
       viewId="viewOpenShift"
     >
-      <Select
-        ariaLabel="Select option"
-        className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
+      <ToolbarFieldUom
         options={
           Array [
             Object {
+              "selected": false,
               "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
               "value": "cores",
             },
             Object {
+              "selected": false,
               "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
               "value": "sockets",
             },
           ]
         }
-        placeholder="Select option"
-        selectedOptions="cores"
-        toggleIcon={null}
-        variant="single"
+        t={[Function]}
+        value="cores"
+        viewId="viewOpenShift"
       />
     </Connect(GraphCard)>
   </PageSection>
@@ -291,30 +285,24 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       }
       viewId="viewOpenShift"
     >
-      <Select
-        ariaLabel="Select option"
-        className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
+      <ToolbarFieldUom
         options={
           Array [
             Object {
+              "selected": false,
               "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
               "value": "cores",
             },
             Object {
+              "selected": false,
               "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
               "value": "sockets",
             },
           ]
         }
-        placeholder="Select option"
-        selectedOptions="cores"
-        toggleIcon={null}
-        variant="single"
+        t={[Function]}
+        value="cores"
+        viewId="viewOpenShift"
       />
     </Connect(GraphCard)>
   </PageSection>
@@ -924,30 +912,24 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       }
       viewId="viewOpenShift"
     >
-      <Select
-        ariaLabel="Select option"
-        className=""
-        id="generatedid-"
-        isDisabled={false}
-        isToggleText={true}
-        name={null}
-        onSelect={[Function]}
+      <ToolbarFieldUom
         options={
           Array [
             Object {
+              "selected": false,
               "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
               "value": "cores",
             },
             Object {
+              "selected": false,
               "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
               "value": "sockets",
             },
           ]
         }
-        placeholder="Select option"
-        selectedOptions="cores"
-        toggleIcon={null}
-        variant="single"
+        t={[Function]}
+        value="cores"
+        viewId="viewOpenShift"
       />
     </Connect(GraphCard)>
   </PageSection>
