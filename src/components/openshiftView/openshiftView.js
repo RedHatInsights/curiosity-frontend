@@ -18,7 +18,6 @@ import {
 } from '../../types/rhsmApiTypes';
 import { apiQueries, connect, reduxSelectors, reduxTypes, store } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
-import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import { Select } from '../form/select';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
@@ -126,7 +125,6 @@ class OpenshiftView extends React.Component {
       initialGuestsFilters,
       initialToolbarFilters,
       initialInventorySettings,
-      location,
       productLabel,
       query,
       graphTallyQuery,
@@ -136,7 +134,6 @@ class OpenshiftView extends React.Component {
       t,
       viewId
     } = this.props;
-    const isC3 = location?.parsedSearch?.c3 === '';
     const {
       graphTallyQuery: initialGraphTallyQuery,
       inventoryHostsQuery: initialInventoryHostsQuery,
@@ -161,31 +158,17 @@ class OpenshiftView extends React.Component {
           />
         </PageToolbar>
         <PageSection>
-          {(isC3 && (
-            <C3GraphCard
-              key={routeDetail.pathParameter}
-              filterGraphData={graphFilters}
-              query={initialGraphTallyQuery}
-              productId={routeDetail.pathParameter}
-              viewId={viewId}
-              cardTitle={t('curiosity-graph.cardHeading')}
-              productShortLabel={productLabel}
-            >
-              {this.renderSelect()}
-            </C3GraphCard>
-          )) || (
-            <GraphCard
-              key={routeDetail.pathParameter}
-              filterGraphData={graphFilters}
-              query={initialGraphTallyQuery}
-              productId={routeDetail.pathParameter}
-              viewId={viewId}
-              cardTitle={t('curiosity-graph.cardHeading')}
-              productLabel={productLabel}
-            >
-              {this.renderSelect()}
-            </GraphCard>
-          )}
+          <GraphCard
+            key={routeDetail.pathParameter}
+            filterGraphData={graphFilters}
+            query={initialGraphTallyQuery}
+            productId={routeDetail.pathParameter}
+            viewId={viewId}
+            cardTitle={t('curiosity-graph.cardHeading')}
+            productLabel={productLabel}
+          >
+            {this.renderSelect()}
+          </GraphCard>
         </PageSection>
         <PageSection>
           <InventoryTabs productId={routeDetail.pathParameter}>
@@ -224,7 +207,7 @@ class OpenshiftView extends React.Component {
  * @type {{productLabel: string, initialOption: string, inventorySubscriptionsQuery: object, query: object,
  *     initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, initialToolbarFilters: Array,
  *     viewId: string, t: Function, graphTallyQuery: object, inventoryHostsQuery: object, initialGraphFilters: Array,
- *     routeDetail: object, location: object, initialGuestsFilters: Array, initialInventoryFilters: Array}}
+ *     routeDetail: object, initialGuestsFilters: Array, initialInventoryFilters: Array}}
  */
 OpenshiftView.propTypes = {
   query: PropTypes.object,
@@ -252,9 +235,6 @@ OpenshiftView.propTypes = {
   }),
   initialSubscriptionsInventoryFilters: PropTypes.array,
   initialToolbarFilters: PropTypes.array,
-  location: PropTypes.shape({
-    parsedSearch: PropTypes.objectOf(PropTypes.string)
-  }).isRequired,
   productLabel: PropTypes.string,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,

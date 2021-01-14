@@ -40,52 +40,6 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/c3GraphCard/c3GraphCard.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-graph.thresholdLegendTooltip",
-        "match": "t(\`curiosity-graph.thresholdLegendTooltip\`)",
-      },
-      Object {
-        "key": "",
-        "match": "t(\`curiosity-graph.\${id}LegendTooltip\`)",
-      },
-      Object {
-        "key": "curiosity-graph.thresholdLabel",
-        "match": "t(\`curiosity-graph.thresholdLabel\`)",
-      },
-      Object {
-        "key": "",
-        "match": "t(\`curiosity-graph.\${id}Label\`, { product: productShortLabel })",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/c3GraphCard/c3GraphCardHelpers.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-graph.thresholdLabel",
-        "match": "translate(\`curiosity-graph.thresholdLabel\`)",
-      },
-      Object {
-        "key": "",
-        "match": "translate(\`curiosity-graph.\${value.id}Label\`, { product: productShortLabel })",
-      },
-      Object {
-        "key": "curiosity-graph.infiniteThresholdLabel",
-        "match": "translate('curiosity-graph.infiniteThresholdLabel')",
-      },
-      Object {
-        "key": "curiosity-graph.noDataLabel",
-        "match": "translate('curiosity-graph.noDataLabel')",
-      },
-      Object {
-        "key": "curiosity-graph.noDataLabel",
-        "match": "translate('curiosity-graph.noDataLabel')",
-      },
-    ],
-  },
-  Object {
     "file": "./src/components/graphCard/graphCardChartLegend.js",
     "keys": Array [
       Object {
@@ -189,10 +143,6 @@ Array [
       Object {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
-      },
-      Object {
-        "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading')",
       },
       Object {
         "key": "curiosity-graph.cardHeading",
@@ -358,10 +308,6 @@ Array [
       Object {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
-      },
-      Object {
-        "key": "curiosity-graph.socketsHeading",
-        "match": "t('curiosity-graph.socketsHeading')",
       },
       Object {
         "key": "curiosity-graph.socketsHeading",
