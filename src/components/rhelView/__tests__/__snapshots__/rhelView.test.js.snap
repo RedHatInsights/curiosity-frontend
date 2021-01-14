@@ -41,7 +41,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
   <PageSection
     className=""
   >
-    <Connect(C3GraphCard)
+    <Connect(GraphCard)
       cardTitle="t(curiosity-graph.socketsHeading)"
       filterGraphData={
         Array [
@@ -70,7 +70,7 @@ exports[`RhelView Component should display an alternate graph on query-string up
       }
       key="lorem ipsum"
       productId="lorem ipsum"
-      productShortLabel="RHEL"
+      productLabel="RHEL"
       query={
         Object {
           "granularity": "daily",

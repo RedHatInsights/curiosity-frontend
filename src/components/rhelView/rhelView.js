@@ -21,7 +21,6 @@ import {
 } from '../../types/rhsmApiTypes';
 import { apiQueries, connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
-import C3GraphCard from '../c3GraphCard/c3GraphCard';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
@@ -51,7 +50,6 @@ class RhelView extends React.Component {
       initialInventorySettings,
       initialSubscriptionsInventoryFilters,
       initialToolbarFilters,
-      location,
       productLabel,
       query,
       graphTallyQuery,
@@ -61,7 +59,6 @@ class RhelView extends React.Component {
       t,
       viewId
     } = this.props;
-    const isC3 = location?.parsedSearch?.c3 === '';
     const {
       graphTallyQuery: initialGraphTallyQuery,
       inventoryHostsQuery: initialInventoryHostsQuery,
@@ -86,27 +83,15 @@ class RhelView extends React.Component {
           />
         </PageToolbar>
         <PageSection>
-          {(isC3 && (
-            <C3GraphCard
-              key={routeDetail.pathParameter}
-              filterGraphData={initialGraphFilters}
-              query={initialGraphTallyQuery}
-              productId={routeDetail.pathParameter}
-              viewId={viewId}
-              cardTitle={t('curiosity-graph.socketsHeading')}
-              productShortLabel={productLabel}
-            />
-          )) || (
-            <GraphCard
-              key={routeDetail.pathParameter}
-              filterGraphData={initialGraphFilters}
-              query={initialGraphTallyQuery}
-              productId={routeDetail.pathParameter}
-              viewId={viewId}
-              cardTitle={t('curiosity-graph.socketsHeading')}
-              productLabel={productLabel}
-            />
-          )}
+          <GraphCard
+            key={routeDetail.pathParameter}
+            filterGraphData={initialGraphFilters}
+            query={initialGraphTallyQuery}
+            productId={routeDetail.pathParameter}
+            viewId={viewId}
+            cardTitle={t('curiosity-graph.socketsHeading')}
+            productLabel={productLabel}
+          />
         </PageSection>
         <PageSection>
           <InventoryTabs productId={routeDetail.pathParameter}>
@@ -145,7 +130,7 @@ class RhelView extends React.Component {
  * @type {{productLabel: string, inventorySubscriptionsQuery: object, query: object,
  *     initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, initialToolbarFilters: Array,
  *     viewId: string, t: Function, graphTallyQuery: object, inventoryHostsQuery: object,
- *     initialGraphFilters: Array, routeDetail: object, location: object, initialGuestsFilters: Array,
+ *     initialGraphFilters: Array, routeDetail: object, initialGuestsFilters: Array,
  *     initialInventoryFilters: Array}}
  */
 RhelView.propTypes = {
@@ -173,9 +158,6 @@ RhelView.propTypes = {
   }),
   initialSubscriptionsInventoryFilters: PropTypes.array,
   initialToolbarFilters: PropTypes.array,
-  location: PropTypes.shape({
-    parsedSearch: PropTypes.objectOf(PropTypes.string)
-  }).isRequired,
   productLabel: PropTypes.string,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
