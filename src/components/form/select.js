@@ -18,11 +18,11 @@ import { helpers } from '../../common/helpers';
  * "required" anywhere it's used in an effort to squash it.
  */
 /**
- * A wrapper for Patternfly Select. Provides additional event data for onSelect callback.
+ * A wrapper for Patternfly Select. Provides restructured event data for onSelect callback.
  *
  * @augments React.Component
  * @fires onSelect
- * @param expanded
+ * @fires onToggle
  */
 class Select extends React.Component {
   state = { isExpanded: false, options: null, selected: null };
@@ -116,6 +116,7 @@ class Select extends React.Component {
   /**
    * Patternfly Select's open/closed state.
    *
+   * @event onToggle
    * @param {boolean} expanded
    */
   onToggle = expanded => {
@@ -228,7 +229,7 @@ class Select extends React.Component {
 /**
  * Prop types.
  *
- * @type {{isToggleText: boolean, toggleIcon: Node|Function, name: string, options: object,
+ * @type {{isToggleText: boolean, toggleIcon: (Node|Function), name: string, options: (Array|object),
  *     selectedOptions: (number|string|Array), variant: (object|string), className: string,
  *     id: string, isDisabled: boolean, placeholder: string, ariaLabel: string,
  *     onSelect: Function}}
@@ -266,9 +267,10 @@ Select.propTypes = {
 /**
  * Default props.
  *
- * @type {{isToggleText: boolean, toggleIcon: null, name: null, options: Array, selectedOptions: null,
- *     variant: SelectVariant.single, className: string, id: string, isDisabled: boolean,
- *     placeholder: string, ariaLabel: string, onSelect: Function}}
+ * @type {{isToggleText: boolean, toggleIcon: (Node|Function), name: string, options: (Array|object),
+ *     selectedOptions: (number|string|Array), variant: (object|string), className: string,
+ *     id: string, isDisabled: boolean, placeholder: string, ariaLabel: string,
+ *     onSelect: Function}}
  */
 Select.defaultProps = {
   ariaLabel: 'Select option',

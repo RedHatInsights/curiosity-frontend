@@ -4,49 +4,72 @@ import { Checkbox as PfCheckbox } from '@patternfly/react-core/dist/js/component
 import { helpers } from '../../common';
 
 /**
- * Render a checkbox form element.
+ * Render a checkbox form element. Provides restructured event data.
  *
+ * @fires onCheckboxChange
  * @param {object} props
  * @param {string} props.ariaLabel
- * @param {*} props.checked
  * @param {Node} props.children
+ * @param {*} props.isChecked
  * @param {boolean} props.isDisabled
+ * @param {boolean} props.isReadOnly
  * @param {Node} props.label
  * @param {string} props.name
  * @param {Function} props.onChange
- * @param {boolean} props.readOnly
  * @param {*} props.value
  * @returns {Node}
  */
-const Checkbox = ({ ariaLabel, checked, children, isDisabled, label, name, onChange, readOnly, value, ...props }) => {
+const Checkbox = ({
+  ariaLabel,
+  children,
+  isChecked,
+  isDisabled,
+  isReadOnly,
+  label,
+  name,
+  onChange,
+  value,
+  ...props
+}) => {
+  const [check, setCheck] = React.useState();
+  const updatedChecked = check ?? isChecked ?? false;
   const nameId = name || helpers.generateId();
 
-  const onCheckboxChange = (isChecked, event) => {
+  /**
+   * onChange event, provide restructured event.
+   *
+   * @event onCheckboxChange
+   * @param {boolean} checked
+   * @param {object} event
+   */
+  const onCheckboxChange = (checked, event) => {
     const { currentTarget, target } = event;
     const mockEvent = {
       id: nameId,
       name: nameId,
       value,
-      checked: isChecked,
+      checked,
       target,
       currentTarget,
       persist: helpers.noop
     };
+
+    setCheck(checked);
     onChange(mockEvent);
   };
 
   return (
     <PfCheckbox
       aria-label={ariaLabel || children || label}
-      checked={checked}
+      checked={updatedChecked}
       id={nameId}
-      isChecked={checked}
-      isDisabled={isDisabled || readOnly || false}
+      isChecked={updatedChecked}
+      isDisabled={isDisabled || false}
       label={children || label}
       name={nameId}
       onChange={onCheckboxChange}
       value={value}
-      readOnly={readOnly || false}
+      readOnly={isReadOnly || false}
       {...props}
     />
   );
@@ -55,36 +78,36 @@ const Checkbox = ({ ariaLabel, checked, children, isDisabled, label, name, onCha
 /**
  * Prop types.
  *
- * @type {{onChange: Function, children: Node, name: string, checked: boolean, readOnly: boolean,
- *     label: string, value: *, ariaLabel: string}}
+ * @type {{onChange: Function, children: Node, name: string, isChecked: *, isDisabled: boolean,
+ *     isReadOnly: boolean, label: string, value: *, ariaLabel: string}}
  */
 Checkbox.propTypes = {
   ariaLabel: PropTypes.string,
-  checked: PropTypes.any,
   children: PropTypes.node,
+  isChecked: PropTypes.any,
   isDisabled: PropTypes.bool,
+  isReadOnly: PropTypes.bool,
   label: PropTypes.node,
   name: PropTypes.string,
   onChange: PropTypes.func,
-  readOnly: PropTypes.bool,
   value: PropTypes.any
 };
 
 /**
  * Default props.
  *
- * @type {{onChange: Function, children: null, name: null, checked: undefined, readOnly: undefined,
- *     label: string, value: undefined, ariaLabel: null}}
+ * @type {{onChange: Function, children: Node, name: string, isChecked: *, isDisabled: boolean,
+ *     isReadOnly: boolean, label: string, value: *, ariaLabel: string}}
  */
 Checkbox.defaultProps = {
   ariaLabel: null,
-  checked: undefined,
   children: null,
+  isChecked: false,
   isDisabled: false,
+  isReadOnly: false,
   label: '',
   name: null,
   onChange: helpers.noop,
-  readOnly: false,
   value: undefined
 };
 
