@@ -16,9 +16,9 @@ import {
   RHSM_API_QUERY_SORT_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES
 } from '../../types/rhsmApiTypes';
-import { apiQueries, connect, reduxSelectors, reduxTypes, store } from '../../redux';
+import { apiQueries, connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
-import { Select } from '../form/select';
+import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
@@ -34,85 +34,7 @@ import { translate } from '../i18n/i18n';
  * @fires onSelect
  */
 class OpenshiftView extends React.Component {
-  state = {
-    option: null,
-    graphFilters: [],
-    inventoryFilters: [],
-    subscriptionsInventoryFilters: []
-  };
-
-  componentDidMount() {
-    const { initialOption } = this.props;
-    this.onSelect({ value: initialOption });
-  }
-
-  /**
-   * Apply a selected filtered value.
-   *
-   * @event onSelect
-   * @param {object} event
-   */
-  onSelect = (event = {}) => {
-    const { option } = this.state;
-    const { initialGraphFilters, initialInventoryFilters, initialSubscriptionsInventoryFilters, viewId } = this.props;
-    const { value } = event;
-
-    if (value !== option) {
-      const filter = ({ id, isOptional }) => {
-        if (!isOptional) {
-          return true;
-        }
-        return new RegExp(value, 'i').test(id);
-      };
-
-      const graphFilters = initialGraphFilters.filter(filter);
-      const inventoryFilters = initialInventoryFilters.filter(filter);
-      const subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters.filter(filter);
-
-      this.setState(
-        {
-          option,
-          graphFilters,
-          inventoryFilters,
-          subscriptionsInventoryFilters
-        },
-        () => {
-          store.dispatch([
-            {
-              type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
-            },
-            {
-              type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
-              viewId,
-              [RHSM_API_QUERY_TYPES.UOM]: value
-            }
-          ]);
-        }
-      );
-    }
-  };
-
-  /**
-   * Render a select/dropdown list.
-   *
-   * @returns {Node}
-   */
-  renderSelect() {
-    const { option } = this.state;
-    const { initialOption, t } = this.props;
-    const options = [
-      {
-        title: t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.CORES }),
-        value: RHSM_API_QUERY_UOM_TYPES.CORES
-      },
-      {
-        title: t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.SOCKETS }),
-        value: RHSM_API_QUERY_UOM_TYPES.SOCKETS
-      }
-    ];
-
-    return <Select onSelect={this.onSelect} options={options} selectedOptions={option || initialOption} />;
-  }
+  componentDidMount() {}
 
   /**
    * Render an OpenShift view.
@@ -120,11 +42,14 @@ class OpenshiftView extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { graphFilters, inventoryFilters, subscriptionsInventoryFilters } = this.state;
     const {
       initialGuestsFilters,
       initialToolbarFilters,
       initialInventorySettings,
+      initialGraphFilters,
+      initialInventoryFilters,
+      initialSubscriptionsInventoryFilters,
+      initialOption,
       productLabel,
       query,
       graphTallyQuery,
@@ -140,6 +65,17 @@ class OpenshiftView extends React.Component {
       inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
       toolbarQuery
     } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
+
+    const filter = ({ id, isOptional }) => {
+      if (!isOptional) {
+        return true;
+      }
+      return new RegExp(query[RHSM_API_QUERY_TYPES.UOM] || initialOption, 'i').test(id);
+    };
+
+    const graphFilters = initialGraphFilters.filter(filter);
+    const inventoryFilters = initialInventoryFilters.filter(filter);
+    const subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters.filter(filter);
 
     return (
       <PageLayout>
@@ -167,7 +103,7 @@ class OpenshiftView extends React.Component {
             cardTitle={t('curiosity-graph.cardHeading')}
             productLabel={productLabel}
           >
-            {this.renderSelect()}
+            <ToolbarFieldUom value={initialOption} viewId={viewId} />
           </GraphCard>
         </PageSection>
         <PageSection>
