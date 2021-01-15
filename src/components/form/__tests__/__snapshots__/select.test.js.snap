@@ -90,6 +90,210 @@ exports[`Select Component should allow a alternate array and object options: str
 </div>
 `;
 
+exports[`Select Component should allow being disabled with missing options: no options 1`] = `
+<Select
+  aria-label="Select option"
+  aria-labelledby=""
+  chipGroupComponent={null}
+  className="curiosity-select "
+  clearSelectionsAriaLabel="Clear all"
+  createText="Create"
+  customBadgeText={null}
+  customContent={null}
+  direction="down"
+  favorites={Array []}
+  favoritesLabel="Favorites"
+  hasInlineFilter={false}
+  inlineFilterPlaceholderText={null}
+  inputIdPrefix=""
+  isCreatable={false}
+  isDisabled={true}
+  isGrouped={false}
+  isOpen={false}
+  isPlain={false}
+  menuAppendTo="inline"
+  noResultsFoundText="No results found"
+  onClear={[Function]}
+  onCreateOption={[Function]}
+  onFilter={null}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  ouiaSafe={true}
+  placeholderText="Select option"
+  removeSelectionAriaLabel="Remove"
+  selections={Array []}
+  toggleAriaLabel="Options menu"
+  toggleIcon={null}
+  toggleId={null}
+  typeAheadAriaLabel=""
+  variant="single"
+  width=""
+/>
+`;
+
+exports[`Select Component should allow being disabled with missing options: options, but disabled 1`] = `
+<Select
+  aria-label="Select option"
+  aria-labelledby=""
+  chipGroupComponent={null}
+  className="curiosity-select "
+  clearSelectionsAriaLabel="Clear all"
+  createText="Create"
+  customBadgeText={null}
+  customContent={null}
+  direction="down"
+  favorites={Array []}
+  favoritesLabel="Favorites"
+  hasInlineFilter={false}
+  inlineFilterPlaceholderText={null}
+  inputIdPrefix=""
+  isCreatable={false}
+  isDisabled={true}
+  isGrouped={false}
+  isOpen={false}
+  isPlain={false}
+  menuAppendTo="inline"
+  noResultsFoundText="No results found"
+  onClear={[Function]}
+  onCreateOption={[Function]}
+  onFilter={null}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  ouiaSafe={true}
+  placeholderText="Select option"
+  removeSelectionAriaLabel="Remove"
+  selections={Array []}
+  toggleAriaLabel="Options menu"
+  toggleIcon={null}
+  toggleId={null}
+  typeAheadAriaLabel=""
+  variant="single"
+  width=""
+>
+  <SelectOption
+    className=""
+    component="button"
+    data-title="lorem"
+    data-value="lorem"
+    id="bG9yZW0tbG9yZW0="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="bG9yZW0tbG9yZW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="lorem"
+  />
+  <SelectOption
+    className=""
+    component="button"
+    data-title="ipsum"
+    data-value="ipsum"
+    id="aXBzdW0taXBzdW0="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="aXBzdW0taXBzdW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="ipsum"
+  />
+  <SelectOption
+    className=""
+    component="button"
+    data-title="hello"
+    data-value="hello"
+    id="aGVsbG8taGVsbG8="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="aGVsbG8taGVsbG8="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="hello"
+  />
+  <SelectOption
+    className=""
+    component="button"
+    data-title="world"
+    data-value="world"
+    id="d29ybGQtd29ybGQ="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="d29ybGQtd29ybGQ="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="world"
+  />
+</Select>
+`;
+
+exports[`Select Component should allow being disabled with missing options: options, but no content 1`] = `
+<Select
+  aria-label="Select option"
+  aria-labelledby=""
+  chipGroupComponent={null}
+  className="curiosity-select "
+  clearSelectionsAriaLabel="Clear all"
+  createText="Create"
+  customBadgeText={null}
+  customContent={null}
+  direction="down"
+  favorites={Array []}
+  favoritesLabel="Favorites"
+  hasInlineFilter={false}
+  inlineFilterPlaceholderText={null}
+  inputIdPrefix=""
+  isCreatable={false}
+  isDisabled={true}
+  isGrouped={false}
+  isOpen={false}
+  isPlain={false}
+  menuAppendTo="inline"
+  noResultsFoundText="No results found"
+  onClear={[Function]}
+  onCreateOption={[Function]}
+  onFilter={null}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  ouiaSafe={true}
+  placeholderText="Select option"
+  removeSelectionAriaLabel="Remove"
+  selections={Array []}
+  toggleAriaLabel="Options menu"
+  toggleIcon={null}
+  toggleId={null}
+  typeAheadAriaLabel=""
+  variant="single"
+  width=""
+/>
+`;
+
 exports[`Select Component should allow selected options to match value or title: value or title match 1`] = `
 <div
   class="pf-c-select curiosity-select "
@@ -231,7 +435,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
 </Select>
 `;
 
-exports[`Select Component should render a basic component: basic dropdown 1`] = `
+exports[`Select Component should render a basic component: basic component 1`] = `
 <div
   class="pf-c-select curiosity-select "
   data-ouia-component-id="OUIA-Generated-Select-single-1"
