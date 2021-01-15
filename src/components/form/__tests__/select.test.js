@@ -15,7 +15,7 @@ describe('Select Component', () => {
     };
 
     const component = mount(<Select {...props} />);
-    expect(component.render()).toMatchSnapshot('basic dropdown');
+    expect(component.render()).toMatchSnapshot('basic component');
   });
 
   it('should render a checkbox select', () => {
@@ -109,5 +109,29 @@ describe('Select Component', () => {
 
     const component = shallow(<Select {...props} />);
     expect(component).toMatchSnapshot('disabled text');
+  });
+
+  it('should allow being disabled with missing options', () => {
+    const props = {
+      id: 'test',
+      options: undefined
+    };
+
+    const component = shallow(<Select {...props} />);
+    expect(component).toMatchSnapshot('no options');
+
+    component.setProps({
+      options: [],
+      isDisabled: false
+    });
+
+    expect(component).toMatchSnapshot('options, but no content');
+
+    component.setProps({
+      options: ['lorem', 'ipsum', 'hello', 'world'],
+      isDisabled: true
+    });
+
+    expect(component).toMatchSnapshot('options, but disabled');
   });
 });
