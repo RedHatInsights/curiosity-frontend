@@ -133,14 +133,6 @@ Array [
     "file": "./src/components/openshiftView/openshiftView.js",
     "keys": Array [
       Object {
-        "key": "curiosity-toolbar.uom",
-        "match": "t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.CORES })",
-      },
-      Object {
-        "key": "curiosity-toolbar.uom",
-        "match": "t('curiosity-toolbar.uom', { context: RHSM_API_QUERY_UOM_TYPES.SOCKETS })",
-      },
-      Object {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
@@ -506,14 +498,6 @@ Array [
   Object {
     "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
     "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/openshiftView/openshiftView.js",
-    "key": "curiosity-toolbar.uom",
-  },
-  Object {
-    "file": "./src/components/openshiftView/openshiftView.js",
-    "key": "curiosity-toolbar.uom",
   },
   Object {
     "file": "./src/components/openshiftView/openshiftView.js",
