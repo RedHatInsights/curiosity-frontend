@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput Component should handle readOnly, disabled: active 1`] = `
+<input
+  aria-invalid="false"
+  class="pf-c-form-control curiosity-text-input "
+  id="generatedid-"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`TextInput Component should handle readOnly, disabled: disabled 1`] = `
+<input
+  aria-invalid="false"
+  class="pf-c-form-control curiosity-text-input "
+  disabled=""
+  id="generatedid-"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`TextInput Component should handle readOnly, disabled: readOnly 1`] = `
+<input
+  aria-invalid="false"
+  class="pf-c-form-control curiosity-text-input "
+  id="generatedid-"
+  readonly=""
+  type="text"
+  value=""
+/>
+`;
+
+exports[`TextInput Component should render a basic component: basic component 1`] = `
+<input
+  aria-invalid="false"
+  class="pf-c-form-control curiosity-text-input "
+  id="generatedid-"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`TextInput Component should return an emulated onChange event: emulated event, change 1`] = `
+Object {
+  "currentTarget": Object {
+    "value": "dolor sit",
+  },
+  "id": undefined,
+  "name": undefined,
+  "persist": [Function],
+  "target": undefined,
+  "value": "dolor sit",
+}
+`;
+
+exports[`TextInput Component should return an emulated onClear event on escape: emulated event, esc 1`] = `
+Object {
+  "currentTarget": Object {
+    "value": "",
+  },
+  "id": undefined,
+  "name": undefined,
+  "persist": [Function],
+  "target": undefined,
+  "value": "",
+}
+`;
+
+exports[`TextInput Component should return an emulated onClear event on search clear: emulated event, clear 1`] = `
+Object {
+  "currentTarget": Object {
+    "value": "",
+  },
+  "id": undefined,
+  "name": undefined,
+  "persist": [Function],
+  "target": undefined,
+  "value": "",
+}
+`;
