@@ -60,6 +60,7 @@ Object {
       },
       "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
         "DIRECTION": "dir",
+        "DISPLAY_NAME": "display_name_contains",
         "LIMIT": "limit",
         "OFFSET": "offset",
         "SLA": "sla",
@@ -69,6 +70,7 @@ Object {
       },
       "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
         "DIRECTION": "dir",
+        "DISPLAY_NAME": "display_name_contains",
         "LIMIT": "limit",
         "OFFSET": "offset",
         "SLA": "sla",
@@ -120,6 +122,7 @@ Object {
       "RHSM_API_QUERY_TYPES": Object {
         "CONDUIT_SYNC": "enable_conduit_sync",
         "DIRECTION": "dir",
+        "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
         "LIMIT": "limit",
@@ -285,6 +288,7 @@ Object {
       },
       "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
         "DIRECTION": "dir",
+        "DISPLAY_NAME": "display_name_contains",
         "LIMIT": "limit",
         "OFFSET": "offset",
         "SLA": "sla",
@@ -294,6 +298,7 @@ Object {
       },
       "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
         "DIRECTION": "dir",
+        "DISPLAY_NAME": "display_name_contains",
         "LIMIT": "limit",
         "OFFSET": "offset",
         "SLA": "sla",
@@ -345,6 +350,7 @@ Object {
       "RHSM_API_QUERY_TYPES": Object {
         "CONDUIT_SYNC": "enable_conduit_sync",
         "DIRECTION": "dir",
+        "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
         "LIMIT": "limit",
@@ -509,6 +515,7 @@ Object {
     },
     "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
       "DIRECTION": "dir",
+      "DISPLAY_NAME": "display_name_contains",
       "LIMIT": "limit",
       "OFFSET": "offset",
       "SLA": "sla",
@@ -518,6 +525,7 @@ Object {
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
       "DIRECTION": "dir",
+      "DISPLAY_NAME": "display_name_contains",
       "LIMIT": "limit",
       "OFFSET": "offset",
       "SLA": "sla",
@@ -569,6 +577,7 @@ Object {
     "RHSM_API_QUERY_TYPES": Object {
       "CONDUIT_SYNC": "enable_conduit_sync",
       "DIRECTION": "dir",
+      "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "LIMIT": "limit",
@@ -737,6 +746,7 @@ Object {
     },
     "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
       "DIRECTION": "dir",
+      "DISPLAY_NAME": "display_name_contains",
       "LIMIT": "limit",
       "OFFSET": "offset",
       "SLA": "sla",
@@ -746,6 +756,7 @@ Object {
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
       "DIRECTION": "dir",
+      "DISPLAY_NAME": "display_name_contains",
       "LIMIT": "limit",
       "OFFSET": "offset",
       "SLA": "sla",
@@ -797,6 +808,7 @@ Object {
     "RHSM_API_QUERY_TYPES": Object {
       "CONDUIT_SYNC": "enable_conduit_sync",
       "DIRECTION": "dir",
+      "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "LIMIT": "limit",
