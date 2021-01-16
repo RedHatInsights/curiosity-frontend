@@ -26,8 +26,8 @@ const initialState = {
  */
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
-    case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST:
-      const updateQueries = query => {
+    case reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST:
+      const updateResetQueries = query => {
         const tempQuery = {};
 
         Object.entries(query).forEach(([key, value]) => {
@@ -44,15 +44,39 @@ const viewReducer = (state = initialState, action) => {
         return tempQuery;
       };
 
-      const updatedInventoryHostsQuery = updateQueries(state.inventoryHostsQuery);
-      const updatedInventorySubscriptionsQuery = updateQueries(state.inventorySubscriptionsQuery);
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          ...state,
+          inventoryHostsQuery: updateResetQueries(state.inventoryHostsQuery),
+          inventorySubscriptionsQuery: updateResetQueries(state.inventorySubscriptionsQuery)
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST:
+      const updateClearQueries = query => {
+        const tempQuery = {};
+
+        Object.entries(query).forEach(([key, value]) => {
+          tempQuery[key] = { ...value };
+
+          if (typeof value[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
+            tempQuery[key][RHSM_API_QUERY_TYPES.OFFSET] = 0;
+          }
+        });
+
+        return tempQuery;
+      };
 
       return reduxHelpers.setStateProp(
         null,
         {
           ...state,
-          inventoryHostsQuery: updatedInventoryHostsQuery,
-          inventorySubscriptionsQuery: updatedInventorySubscriptionsQuery
+          inventoryHostsQuery: updateClearQueries(state.inventoryHostsQuery),
+          inventorySubscriptionsQuery: updateClearQueries(state.inventorySubscriptionsQuery)
         },
         {
           state,
@@ -122,6 +146,20 @@ const viewReducer = (state = initialState, action) => {
           [action.viewId]: {
             ...state.query[action.viewId],
             [RHSM_API_QUERY_TYPES.USAGE]: action[RHSM_API_QUERY_TYPES.USAGE]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME]:
+      return reduxHelpers.setStateProp(
+        'inventoryHostsQuery',
+        {
+          [action.viewId]: {
+            ...state.inventoryHostsQuery[action.viewId],
+            [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: action[RHSM_API_QUERY_TYPES.DISPLAY_NAME]
           }
         },
         {
