@@ -13,7 +13,8 @@ describe('ViewReducer', () => {
       ...Object.values(types.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES),
       ...Object.values(types.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES),
       types.SET_QUERY_CLEAR,
-      types.SET_QUERY_CLEAR_INVENTORY_LIST
+      types.SET_QUERY_CLEAR_INVENTORY_LIST,
+      types.SET_QUERY_RESET_INVENTORY_LIST
     ];
 
     specificTypes.forEach(value => {
@@ -40,6 +41,7 @@ describe('ViewReducer', () => {
       const dispatched = {
         type: value,
         [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem asc direction',
+        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem name',
         [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 10,

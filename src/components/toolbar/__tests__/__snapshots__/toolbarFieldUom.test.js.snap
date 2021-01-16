@@ -20,7 +20,7 @@ Array [
   Array [
     Array [
       Object {
-        "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
       },
       Object {
         "type": "SET_QUERY_RHSM_uom",
