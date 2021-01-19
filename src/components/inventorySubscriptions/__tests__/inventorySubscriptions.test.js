@@ -40,6 +40,7 @@ describe('InventorySubscriptions Component', () => {
         { lorem: 'ipsum', dolor: 'sit' },
         { lorem: 'sit', dolor: 'amet' }
       ],
+      itemCount: 2,
       isDisabled: true
     };
     const component = shallow(<InventorySubscriptions {...props} />);
@@ -57,7 +58,8 @@ describe('InventorySubscriptions Component', () => {
       listData: [
         { lorem: 'ipsum', dolor: 'sit' },
         { lorem: 'sit', dolor: 'amet' }
-      ]
+      ],
+      itemCount: 2
     };
 
     const component = shallow(<InventorySubscriptions {...props} />);
@@ -80,7 +82,8 @@ describe('InventorySubscriptions Component', () => {
       listData: [
         { lorem: 'ipsum', dolor: 'sit' },
         { lorem: 'sit', dolor: 'amet' }
-      ]
+      ],
+      itemCount: 2
     };
 
     const component = shallow(<InventorySubscriptions {...props} />);
