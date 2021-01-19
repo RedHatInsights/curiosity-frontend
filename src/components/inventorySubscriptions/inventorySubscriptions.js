@@ -200,8 +200,11 @@ class InventorySubscriptions extends React.Component {
     return (
       <Card className="curiosity-inventory-card">
         <MinHeight key="headerMinHeight" updateOnContent>
-          <CardHeader>
-            <CardActions className={(error && 'blur') || ''}>
+          <CardHeader
+            className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
+            aria-hidden={error || !itemCount || false}
+          >
+            <CardActions>
               <Pagination
                 isCompact
                 isDisabled={pending || error}
@@ -235,7 +238,10 @@ class InventorySubscriptions extends React.Component {
           </CardBody>
         </MinHeight>
         <MinHeight key="footerMinHeight" updateOnContent>
-          <CardFooter className={(error && 'blur') || ''}>
+          <CardFooter
+            className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
+            aria-hidden={error || !itemCount || false}
+          >
             <TableToolbar isFooter>
               <Pagination
                 dropDirection="up"

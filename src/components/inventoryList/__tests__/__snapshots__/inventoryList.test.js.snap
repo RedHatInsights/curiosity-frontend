@@ -226,7 +226,8 @@ exports[`InventoryList Component should handle variations in data: filtered data
     updateOnResize={true}
   >
     <CardHeader
-      className="transparent"
+      aria-hidden={false}
+      className=""
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
@@ -240,7 +241,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
           dropDirection="down"
           isCompact={true}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -307,6 +308,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
     updateOnResize={true}
   >
     <CardFooter
+      aria-hidden={false}
       className=""
     >
       <TableToolbar
@@ -316,7 +318,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
           dropDirection="up"
           isCompact={false}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -340,7 +342,8 @@ exports[`InventoryList Component should handle variations in data: variable data
     updateOnResize={true}
   >
     <CardHeader
-      className="transparent"
+      aria-hidden={false}
+      className=""
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
@@ -354,7 +357,7 @@ exports[`InventoryList Component should handle variations in data: variable data
           dropDirection="down"
           isCompact={true}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -417,6 +420,7 @@ exports[`InventoryList Component should handle variations in data: variable data
     updateOnResize={true}
   >
     <CardFooter
+      aria-hidden={false}
       className=""
     >
       <TableToolbar
@@ -426,7 +430,7 @@ exports[`InventoryList Component should handle variations in data: variable data
           dropDirection="up"
           isCompact={false}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -450,6 +454,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
     updateOnResize={true}
   >
     <CardHeader
+      aria-hidden={true}
       className="transparent"
     >
       <CardHeaderMain>
@@ -505,7 +510,8 @@ exports[`InventoryList Component should render a non-connected component: non-co
     updateOnResize={true}
   >
     <CardFooter
-      className=""
+      aria-hidden={true}
+      className="transparent"
     >
       <TableToolbar
         isFooter={true}

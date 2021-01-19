@@ -41,7 +41,6 @@ const Pagination = ({
   variant
 }) => (
   <PfPagination
-    className={(!itemCount && 'hidden') || ''}
     dropDirection={dropDirection}
     isCompact={isCompact}
     isDisabled={isDisabled || !itemCount}
