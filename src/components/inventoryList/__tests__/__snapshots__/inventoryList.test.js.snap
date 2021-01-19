@@ -226,7 +226,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
     updateOnResize={true}
   >
     <CardHeader
-      className=""
+      className="transparent"
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
@@ -340,7 +340,7 @@ exports[`InventoryList Component should handle variations in data: variable data
     updateOnResize={true}
   >
     <CardHeader
-      className=""
+      className="transparent"
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
@@ -450,7 +450,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
     updateOnResize={true}
   >
     <CardHeader
-      className=""
+      className="transparent"
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
