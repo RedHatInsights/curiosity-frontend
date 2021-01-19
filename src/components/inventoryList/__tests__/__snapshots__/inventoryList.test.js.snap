@@ -225,10 +225,17 @@ exports[`InventoryList Component should handle variations in data: filtered data
     updateOnContent={true}
     updateOnResize={true}
   >
-    <CardHeader>
-      <CardActions
-        className=""
-      >
+    <CardHeader
+      className=""
+    >
+      <CardHeaderMain>
+        <ToolbarFieldDisplayName
+          t={[Function]}
+          value={null}
+          viewId="inventoryList"
+        />
+      </CardHeaderMain>
+      <CardActions>
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -332,10 +339,17 @@ exports[`InventoryList Component should handle variations in data: variable data
     updateOnContent={true}
     updateOnResize={true}
   >
-    <CardHeader>
-      <CardActions
-        className=""
-      >
+    <CardHeader
+      className=""
+    >
+      <CardHeaderMain>
+        <ToolbarFieldDisplayName
+          t={[Function]}
+          value={null}
+          viewId="inventoryList"
+        />
+      </CardHeaderMain>
+      <CardActions>
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -435,10 +449,17 @@ exports[`InventoryList Component should render a non-connected component: non-co
     updateOnContent={true}
     updateOnResize={true}
   >
-    <CardHeader>
-      <CardActions
-        className=""
-      >
+    <CardHeader
+      className=""
+    >
+      <CardHeaderMain>
+        <ToolbarFieldDisplayName
+          t={[Function]}
+          value={null}
+          viewId="inventoryList"
+        />
+      </CardHeaderMain>
+      <CardActions>
         <Pagination
           dropDirection="down"
           isCompact={true}

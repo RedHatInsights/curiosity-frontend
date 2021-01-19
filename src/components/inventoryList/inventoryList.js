@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _isEqual from 'lodash/isEqual';
 import { SortByDirection, TableVariant } from '@patternfly/react-table';
-import { Bullseye, Card, CardActions, CardBody, CardFooter, CardHeader } from '@patternfly/react-core';
+import { Bullseye, Card, CardActions, CardBody, CardFooter, CardHeader, CardHeaderMain } from '@patternfly/react-core';
 import { TableToolbar } from '@redhat-cloud-services/frontend-components/components/cjs/TableToolbar';
 import _camelCase from 'lodash/camelCase';
 import { helpers } from '../../common';
@@ -13,6 +13,7 @@ import { MinHeight } from '../minHeight/minHeight';
 import GuestsList from '../guestsList/guestsList';
 import { inventoryListHelpers } from './inventoryListHelpers';
 import Pagination from '../pagination/pagination';
+import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';
 import { paginationHelpers } from '../pagination/paginationHelpers';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -194,7 +195,8 @@ class InventoryList extends React.Component {
       pending,
       perPageDefault,
       query,
-      t
+      t,
+      viewId
     } = this.props;
 
     if (isDisabled) {
@@ -220,8 +222,11 @@ class InventoryList extends React.Component {
     return (
       <Card className="curiosity-inventory-card">
         <MinHeight key="headerMinHeight" updateOnContent>
-          <CardHeader>
-            <CardActions className={(error && 'blur') || ''}>
+          <CardHeader className={(error && 'hidden') || ''}>
+            <CardHeaderMain>
+              <ToolbarFieldDisplayName viewId={viewId} />
+            </CardHeaderMain>
+            <CardActions>
               <Pagination
                 isCompact
                 isDisabled={pending || error}
@@ -279,7 +284,7 @@ class InventoryList extends React.Component {
  *
  * @type {{settings:object, productId: string, listData: Array, session: object, pending: boolean,
  *     query: object, fulfilled: boolean, getHostsInventory: Function, error: boolean,
- *     itemCount: number, t: Function, filterInventoryData: Array, filterGuestsData: Array,
+ *     itemCount: number, viewId: string, t: Function, filterInventoryData: Array, filterGuestsData: Array,
  *     perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.propTypes = {
@@ -317,14 +322,15 @@ InventoryList.propTypes = {
   settings: PropTypes.shape({
     hasGuests: PropTypes.func
   }),
-  t: PropTypes.func
+  t: PropTypes.func,
+  viewId: PropTypes.string
 };
 
 /**
  * Default props.
  *
  * @type {{settings: object, listData: Array, session: object, pending: boolean, fulfilled: boolean,
- *     getHostsInventory: Function, error: boolean, itemCount: number, t: translate,
+ *     getHostsInventory: Function, error: boolean, itemCount: number, viewId: string, t: translate,
  *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.defaultProps = {
@@ -340,7 +346,8 @@ InventoryList.defaultProps = {
   perPageDefault: 10,
   session: {},
   settings: {},
-  t: translate
+  t: translate,
+  viewId: 'inventoryList'
 };
 
 /**
