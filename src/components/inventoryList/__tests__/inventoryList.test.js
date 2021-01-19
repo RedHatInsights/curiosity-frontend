@@ -41,6 +41,7 @@ describe('InventoryList Component', () => {
         { lorem: 'ipsum', dolor: 'sit' },
         { lorem: 'sit', dolor: 'amet' }
       ],
+      itemCount: 2,
       isDisabled: true
     };
     const component = shallow(<InventoryList {...props} />);
@@ -58,7 +59,8 @@ describe('InventoryList Component', () => {
       listData: [
         { lorem: 'ipsum', dolor: 'sit' },
         { lorem: 'sit', dolor: 'amet' }
-      ]
+      ],
+      itemCount: 2
     };
 
     const component = shallow(<InventoryList {...props} />);
@@ -78,7 +80,8 @@ describe('InventoryList Component', () => {
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
       },
       productId: 'lorem',
-      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1 }]
+      listData: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1 }],
+      itemCount: 1
     };
 
     const component = shallow(<InventoryList {...props} />);
@@ -115,7 +118,8 @@ describe('InventoryList Component', () => {
       listData: [
         { lorem: 'ipsum', dolor: 'sit' },
         { lorem: 'sit', dolor: 'amet' }
-      ]
+      ],
+      itemCount: 2
     };
 
     const component = shallow(<InventoryList {...props} />);

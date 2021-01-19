@@ -118,15 +118,16 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
     updateOnContent={true}
     updateOnResize={true}
   >
-    <CardHeader>
-      <CardActions
-        className=""
-      >
+    <CardHeader
+      aria-hidden={false}
+      className=""
+    >
+      <CardActions>
         <Pagination
           dropDirection="down"
           isCompact={true}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -191,6 +192,7 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
     updateOnResize={true}
   >
     <CardFooter
+      aria-hidden={false}
       className=""
     >
       <TableToolbar
@@ -200,7 +202,7 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
           dropDirection="up"
           isCompact={false}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -223,15 +225,16 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
     updateOnContent={true}
     updateOnResize={true}
   >
-    <CardHeader>
-      <CardActions
-        className=""
-      >
+    <CardHeader
+      aria-hidden={false}
+      className=""
+    >
+      <CardActions>
         <Pagination
           dropDirection="down"
           isCompact={true}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -292,6 +295,7 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
     updateOnResize={true}
   >
     <CardFooter
+      aria-hidden={false}
       className=""
     >
       <TableToolbar
@@ -301,7 +305,7 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
           dropDirection="up"
           isCompact={false}
           isDisabled={false}
-          itemCount={0}
+          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -324,10 +328,11 @@ exports[`InventorySubscriptions Component should render a non-connected componen
     updateOnContent={true}
     updateOnResize={true}
   >
-    <CardHeader>
-      <CardActions
-        className=""
-      >
+    <CardHeader
+      aria-hidden={true}
+      className="transparent"
+    >
+      <CardActions>
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -373,7 +378,8 @@ exports[`InventorySubscriptions Component should render a non-connected componen
     updateOnResize={true}
   >
     <CardFooter
-      className=""
+      aria-hidden={true}
+      className="transparent"
     >
       <TableToolbar
         isFooter={true}
