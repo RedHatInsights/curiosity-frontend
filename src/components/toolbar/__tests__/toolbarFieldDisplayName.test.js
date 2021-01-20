@@ -36,6 +36,18 @@ describe('ToolbarFieldDisplayName Component', () => {
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch display name');
   });
 
+  it('should handle updating display name using the enter key', () => {
+    const props = {
+      value: 'lorem ipsum'
+    };
+
+    const component = mount(<ToolbarFieldDisplayName {...props} />);
+    const mockEvent = { keyCode: 13, currentTarget: { value: 'dolor sit' }, persist: helpers.noop };
+    component.find(TextInput).instance().onKeyUp(mockEvent);
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('enter display name');
+  });
+
   it('should handle clearing display name through redux state', () => {
     const props = {
       value: 'lorem ipsum'

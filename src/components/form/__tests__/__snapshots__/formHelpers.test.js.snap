@@ -2,6 +2,7 @@
 
 exports[`FormHelpers should have specific helpers: helpers 1`] = `
 Object {
+  "createMockEvent": [Function],
   "doesNotHaveMinimumCharacters": [Function],
 }
 `;
@@ -23,3 +24,16 @@ exports[`FormHelpers should return a boolean for not having the correct number o
 exports[`FormHelpers should return a boolean for not having the correct number of characters: string, 5 chars expect 5 1`] = `false`;
 
 exports[`FormHelpers should return a boolean for not having the correct number of characters: undefined 1`] = `true`;
+
+exports[`FormHelpers should return a mocked event object: mock event 1`] = `
+Object {
+  "checked": undefined,
+  "currentTarget": Object {},
+  "id": undefined,
+  "keyCode": undefined,
+  "name": undefined,
+  "persist": [Function],
+  "target": Object {},
+  "value": undefined,
+}
+`;
