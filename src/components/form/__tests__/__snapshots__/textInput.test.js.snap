@@ -44,39 +44,45 @@ exports[`TextInput Component should render a basic component: basic component 1`
 
 exports[`TextInput Component should return an emulated onChange event: emulated event, change 1`] = `
 Object {
+  "checked": undefined,
   "currentTarget": Object {
     "value": "dolor sit",
   },
   "id": undefined,
+  "keyCode": undefined,
   "name": undefined,
   "persist": [Function],
-  "target": undefined,
+  "target": Object {},
   "value": "dolor sit",
 }
 `;
 
 exports[`TextInput Component should return an emulated onClear event on escape: emulated event, esc 1`] = `
 Object {
+  "checked": undefined,
   "currentTarget": Object {
     "value": "",
   },
   "id": undefined,
+  "keyCode": 27,
   "name": undefined,
   "persist": [Function],
-  "target": undefined,
+  "target": Object {},
   "value": "",
 }
 `;
 
 exports[`TextInput Component should return an emulated onClear event on search clear: emulated event, clear 1`] = `
 Object {
+  "checked": undefined,
   "currentTarget": Object {
     "value": "",
   },
   "id": undefined,
+  "keyCode": undefined,
   "name": undefined,
   "persist": [Function],
-  "target": undefined,
+  "target": Object {},
   "value": "",
 }
 `;
