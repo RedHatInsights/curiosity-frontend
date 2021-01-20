@@ -34,6 +34,23 @@ Array [
 ]
 `;
 
+exports[`ToolbarFieldDisplayName Component should handle updating display name using the enter key: enter display name 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+      },
+      Object {
+        "display_name_contains": "dolor sit",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
+        "viewId": "toolbarFieldDisplayName",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`ToolbarFieldDisplayName Component should render a non-connected component: non-connected 1`] = `
 <InputGroup>
   <TextInput
@@ -44,6 +61,7 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
     name={null}
     onChange={[Function]}
     onClear={[Function]}
+    onKeyDown={[Function]}
     onKeyUp={[Function]}
     onMouseUp={[Function]}
     placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"

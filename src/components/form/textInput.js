@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput as PfTextInput } from '@patternfly/react-core';
+import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
 /**
@@ -25,24 +26,12 @@ class TextInput extends React.Component {
    */
   onKeyUp = event => {
     const { onClear, onKeyUp } = this.props;
-    const { currentTarget, keyCode, target } = { ...event };
+    const { currentTarget, keyCode } = event;
 
-    event.persist();
-    onKeyUp(event);
+    onKeyUp(createMockEvent(event, true));
 
-    if (keyCode === 27) {
-      if (currentTarget.value === '') {
-        const mockEvent = {
-          id: currentTarget.name,
-          name: currentTarget.name,
-          value: currentTarget.value,
-          target,
-          currentTarget,
-          persist: helpers.noop
-        };
-
-        onClear(mockEvent);
-      }
+    if (keyCode === 27 && currentTarget.value === '') {
+      onClear(createMockEvent(event));
     }
   };
 
@@ -54,10 +43,10 @@ class TextInput extends React.Component {
    */
   onMouseUp = event => {
     const { onClear, onMouseUp } = this.props;
-    const { currentTarget, target } = { ...event };
+    const { currentTarget } = event;
+    const clonedEvent = { ...event };
 
-    event.persist();
-    onMouseUp(event);
+    onMouseUp(createMockEvent(event, true));
 
     if (currentTarget.value === '') {
       return;
@@ -65,16 +54,7 @@ class TextInput extends React.Component {
 
     setTimeout(() => {
       if (currentTarget.value === '') {
-        const mockEvent = {
-          id: currentTarget.name,
-          name: currentTarget.name,
-          value: currentTarget.value,
-          target,
-          currentTarget,
-          persist: helpers.noop
-        };
-
-        onClear(mockEvent);
+        onClear(createMockEvent(clonedEvent));
       }
     });
   };
@@ -87,19 +67,10 @@ class TextInput extends React.Component {
    */
   onChange = (value, event) => {
     const { onChange } = this.props;
-    const { currentTarget, target } = event;
+    const clonedEvent = { ...event };
 
     this.setState({ updatedValue: value }, () => {
-      const mockEvent = {
-        id: currentTarget.name,
-        name: currentTarget.name,
-        value,
-        target,
-        currentTarget,
-        persist: helpers.noop
-      };
-
-      onChange(mockEvent);
+      onChange(createMockEvent(clonedEvent));
     });
   };
 
@@ -157,6 +128,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func,
   onClear: PropTypes.func,
   onKeyUp: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onMouseUp: PropTypes.func,
   type: PropTypes.string,
   value: PropTypes.string
@@ -177,6 +149,7 @@ TextInput.defaultProps = {
   onChange: helpers.noop,
   onClear: helpers.noop,
   onKeyUp: helpers.noop,
+  onKeyDown: helpers.noop,
   onMouseUp: helpers.noop,
   type: 'text',
   value: ''

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox as PfCheckbox } from '@patternfly/react-core/dist/js/components/Checkbox';
+import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
 /**
@@ -43,15 +44,12 @@ const Checkbox = ({
    * @param {object} event
    */
   const onCheckboxChange = (checked, event) => {
-    const { currentTarget, target } = event;
     const mockEvent = {
+      ...createMockEvent(event),
       id: nameId,
       name: nameId,
       value,
-      checked,
-      target,
-      currentTarget,
-      persist: helpers.noop
+      checked
     };
 
     setCheck(checked);
