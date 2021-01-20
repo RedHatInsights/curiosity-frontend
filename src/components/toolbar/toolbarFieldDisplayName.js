@@ -14,6 +14,7 @@ import { translate } from '../i18n/i18n';
  * @fires onSubmit
  * @fires onClear
  * @fires onChange
+ * @fires onKeyUp
  * @param {object} props
  * @param {string} props.value
  * @param {Function} props.t
@@ -84,12 +85,28 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
     updatedValue = event.value;
   };
 
+  /**
+   * On enter, submit value. We nest the conditions to allow enter to submit onChange value updates.
+   *
+   * @event onKeyUp
+   * @param {object} event
+   */
+  const onKeyUp = event => {
+    if (event.keyCode === 13) {
+      if (event.value?.length) {
+        updatedValue = event.value;
+      }
+      onSubmit();
+    }
+  };
+
   return (
     <InputGroup>
       <TextInput
         aria-label={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
         onChange={onChange}
         onClear={onClear}
+        onKeyUp={onKeyUp}
         value={updatedValue}
         placeholder={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
         type="search"
