@@ -236,7 +236,10 @@ exports[`InventoryList Component should handle variations in data: filtered data
           viewId="inventoryList"
         />
       </CardHeaderMain>
-      <CardActions>
+      <CardActions
+        aria-hidden={false}
+        className=""
+      >
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -352,7 +355,10 @@ exports[`InventoryList Component should handle variations in data: variable data
           viewId="inventoryList"
         />
       </CardHeaderMain>
-      <CardActions>
+      <CardActions
+        aria-hidden={false}
+        className=""
+      >
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -454,8 +460,8 @@ exports[`InventoryList Component should render a non-connected component: non-co
     updateOnResize={true}
   >
     <CardHeader
-      aria-hidden={true}
-      className="transparent"
+      aria-hidden={false}
+      className=""
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
@@ -464,7 +470,10 @@ exports[`InventoryList Component should render a non-connected component: non-co
           viewId="inventoryList"
         />
       </CardHeaderMain>
-      <CardActions>
+      <CardActions
+        aria-hidden={true}
+        className="transparent"
+      >
         <Pagination
           dropDirection="down"
           isCompact={true}

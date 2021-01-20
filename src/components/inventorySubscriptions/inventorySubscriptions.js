@@ -200,11 +200,8 @@ class InventorySubscriptions extends React.Component {
     return (
       <Card className="curiosity-inventory-card">
         <MinHeight key="headerMinHeight" updateOnContent>
-          <CardHeader
-            className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
-            aria-hidden={error || !itemCount || false}
-          >
-            <CardActions>
+          <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
+            <CardActions className={(!itemCount && 'transparent') || ''} aria-hidden={!itemCount || false}>
               <Pagination
                 isCompact
                 isDisabled={pending || error}
