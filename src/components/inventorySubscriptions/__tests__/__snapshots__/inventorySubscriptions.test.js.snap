@@ -122,7 +122,10 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
       aria-hidden={false}
       className=""
     >
-      <CardActions>
+      <CardActions
+        aria-hidden={false}
+        className=""
+      >
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -229,7 +232,10 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
       aria-hidden={false}
       className=""
     >
-      <CardActions>
+      <CardActions
+        aria-hidden={false}
+        className=""
+      >
         <Pagination
           dropDirection="down"
           isCompact={true}
@@ -329,10 +335,13 @@ exports[`InventorySubscriptions Component should render a non-connected componen
     updateOnResize={true}
   >
     <CardHeader
-      aria-hidden={true}
-      className="transparent"
+      aria-hidden={false}
+      className=""
     >
-      <CardActions>
+      <CardActions
+        aria-hidden={true}
+        className="transparent"
+      >
         <Pagination
           dropDirection="down"
           isCompact={true}

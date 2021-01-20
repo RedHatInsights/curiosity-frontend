@@ -222,14 +222,11 @@ class InventoryList extends React.Component {
     return (
       <Card className="curiosity-inventory-card">
         <MinHeight key="headerMinHeight" updateOnContent>
-          <CardHeader
-            className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
-            aria-hidden={error || !itemCount || false}
-          >
+          <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
             <CardHeaderMain>
               <ToolbarFieldDisplayName viewId={viewId} />
             </CardHeaderMain>
-            <CardActions>
+            <CardActions className={(!itemCount && 'transparent') || ''} aria-hidden={!itemCount || false}>
               <Pagination
                 isCompact
                 isDisabled={pending || error}
