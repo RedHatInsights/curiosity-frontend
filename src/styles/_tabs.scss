@@ -1,6 +1,10 @@
 .curiosity {
   .curiosity-tabs-container {
     min-height: 775px;
+
+    section.pf-c-tab-content:focus {
+      outline: none;
+    }
   }
 
   .curiosity-tabs__no-scroll {
