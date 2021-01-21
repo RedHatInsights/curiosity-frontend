@@ -94,7 +94,7 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
   const onKeyUp = event => {
     if (event.keyCode === 13) {
       if (event.value?.length) {
-        updatedValue = event?.value;
+        updatedValue = event.value;
       }
       onSubmit();
     }

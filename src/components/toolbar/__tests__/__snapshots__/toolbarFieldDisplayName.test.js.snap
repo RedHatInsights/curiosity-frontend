@@ -61,7 +61,6 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
     name={null}
     onChange={[Function]}
     onClear={[Function]}
-    onKeyDown={[Function]}
     onKeyUp={[Function]}
     onMouseUp={[Function]}
     placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"

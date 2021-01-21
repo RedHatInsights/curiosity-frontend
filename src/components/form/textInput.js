@@ -42,13 +42,13 @@ class TextInput extends React.Component {
    * @param {object} event
    */
   onMouseUp = event => {
-    const { onClear, onMouseUp } = this.props;
+    const { onClear, onMouseUp, type } = this.props;
     const { currentTarget } = event;
     const clonedEvent = { ...event };
 
     onMouseUp(createMockEvent(event, true));
 
-    if (currentTarget.value === '') {
+    if (type !== 'search' || currentTarget.value === '') {
       return;
     }
 
@@ -128,7 +128,6 @@ TextInput.propTypes = {
   onChange: PropTypes.func,
   onClear: PropTypes.func,
   onKeyUp: PropTypes.func,
-  onKeyDown: PropTypes.func,
   onMouseUp: PropTypes.func,
   type: PropTypes.string,
   value: PropTypes.string
@@ -149,7 +148,6 @@ TextInput.defaultProps = {
   onChange: helpers.noop,
   onClear: helpers.noop,
   onKeyUp: helpers.noop,
-  onKeyDown: helpers.noop,
   onMouseUp: helpers.noop,
   type: 'text',
   value: ''
