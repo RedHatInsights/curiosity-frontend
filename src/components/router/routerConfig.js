@@ -49,7 +49,7 @@ const routes = [
   },
   {
     id: 'satellite-sw',
-    to: '/satellite-sw/:variant(all|capsule)',
+    to: '/satellite-sw/:variant(all|satellite-capsule|satellite-server)',
     component: React.lazy(() => import('../productView/productViewSatellite')),
     exact: true,
     render: true,
@@ -130,10 +130,18 @@ const navigation = [
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
   },
   {
-    id: 'capsule',
-    path: '/satellite-sw/capsule',
+    id: 'satellite-capsule',
+    path: '/satellite-sw/satellite-capsule',
     pathId: 'satellite-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE,
+    productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
+  },
+  {
+    id: 'satellite-server',
+    path: '/satellite-sw/satellite-server',
+    pathId: 'satellite-sw',
+    pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER,
     productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
   }
