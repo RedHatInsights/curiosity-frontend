@@ -4,7 +4,6 @@ import { Button, ButtonVariant, InputGroup } from '@patternfly/react-core';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import { reduxTypes, store, useSelector } from '../../redux';
 import { TextInput } from '../form/textInput';
-import { formHelpers } from '../form/formHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
@@ -35,11 +34,7 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
    * @event onSubmit
    * @returns {void}
    */
-  const onSubmit = () => {
-    if (formHelpers.doesNotHaveMinimumCharacters(updatedValue)) {
-      return;
-    }
-
+  const onSubmit = () =>
     store.dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
@@ -50,7 +45,6 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
         [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: updatedValue
       }
     ]);
-  };
 
   /**
    * On clear, dispatch type.
