@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DownloadHelpers should attempt to download data: data download 1`] = `
+Object {
+  "data": "",
+  "fileName": "download.txt",
+}
+`;
+
+exports[`DownloadHelpers should have specific functions: helpers 1`] = `
+Object {
+  "debugLog": [Function],
+  "downloadData": [Function],
+}
+`;
+
+exports[`DownloadHelpers should throw an error attempting to access a log: access error 1`] = `[Error: debuglog error, URL.createObjectURL is not a function]`;
+
+exports[`DownloadHelpers should throw an error attempting to download data: download error 1`] = `[TypeError: URL.createObjectURL is not a function]`;

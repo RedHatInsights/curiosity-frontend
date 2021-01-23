@@ -4,6 +4,7 @@ import thunkMiddleware from 'redux-thunk';
 import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications/cjs';
 import { multiActionMiddleware } from './multiActionMiddleware';
 import { statusMiddleware } from './statusMiddleware';
+import { actionRecordMiddleware } from './actionRecordMiddleware';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
@@ -34,6 +35,10 @@ const reduxMiddleware = [
   statusMiddleware(),
   multiActionMiddleware,
   promiseMiddleware,
+  actionRecordMiddleware({
+    id: process.env.REACT_APP_UI_LOGGER_ID,
+    app: { version: process.env.REACT_APP_UI_VERSION }
+  }),
   notificationsMiddleware(notificationsOptions)
 ];
 
