@@ -15,6 +15,7 @@
     "fadein",
     "flyout",
     "generatedid",
+    "HHmmss",
     "ibmpower",
     "ibmz",
     "ipsum",
@@ -45,6 +46,7 @@
     "uxui",
     "voronoi",
     "woot",
-    "wrappable"
+    "wrappable",
+    "YYYYMMDD"
   ]
 }
