@@ -207,6 +207,13 @@ const UI_LOCALE_DEFAULT_DESC = process.env.REACT_APP_CONFIG_SERVICE_LOCALES_DEFA
 const UI_LOGGER_ID = process.env.REACT_APP_UI_LOGGER_ID || 'GUI';
 
 /**
+ * UI state logging file name.
+ *
+ * @type {string}
+ */
+const UI_LOGGER_FILE = process.env.REACT_APP_UI_LOGGER_FILE || 'debug_log_{0}.json';
+
+/**
  * UI packaged application name.
  * See dotenv config files for updating.
  *
@@ -281,6 +288,7 @@ const helpers = {
   UI_LOCALE_DEFAULT,
   UI_LOCALE_DEFAULT_DESC,
   UI_LOGGER_ID,
+  UI_LOGGER_FILE,
   UI_NAME,
   UI_PATH,
   UI_VERSION,
