@@ -80,10 +80,12 @@ class TextInput extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { name, updatedValue } = this.state;
+    const { updatedValue } = this.state;
     const {
       className,
+      id,
       isDisabled,
+      name,
       onChange,
       onClear,
       onKeyUp,
@@ -93,12 +95,13 @@ class TextInput extends React.Component {
       value,
       ...props
     } = this.props;
-    const nameId = name || helpers.generateId();
+    const updatedName = name || helpers.generateId();
+    const updatedId = id || updatedName;
 
     return (
       <PfTextInput
-        id={nameId}
-        name={nameId}
+        id={updatedId}
+        name={updatedName}
         className={`curiosity-text-input ${className}`}
         isDisabled={isDisabled || false}
         onChange={this.onChange}
@@ -117,11 +120,12 @@ class TextInput extends React.Component {
  * Prop types.
  *
  * @type {{onKeyUp: Function, isReadOnly: boolean, onChange: Function, onClear: Function,
- *     name: string, className: string, isDisabled: boolean, onMouseUp: Function, type: string,
- *     value: string}}
+ *     name: string, className: string, id: string, isDisabled: boolean, onMouseUp: Function,
+ *     type: string, value: string}}
  */
 TextInput.propTypes = {
   className: PropTypes.string,
+  id: PropTypes.string,
   isDisabled: PropTypes.bool,
   isReadOnly: PropTypes.bool,
   name: PropTypes.string,
@@ -137,11 +141,12 @@ TextInput.propTypes = {
  * Default props.
  *
  * @type {{onKeyUp: Function, isReadOnly: boolean, onChange: Function, onClear: Function,
- *     name: string, className: string, isDisabled: boolean, onMouseUp: Function, type: string,
- *     value: string}}
+ *     name: string, className: string, id: string, isDisabled: boolean, onMouseUp: Function,
+ *     type: string, value: string}}
  */
 TextInput.defaultProps = {
   className: '',
+  id: null,
   isDisabled: false,
   isReadOnly: false,
   name: null,
