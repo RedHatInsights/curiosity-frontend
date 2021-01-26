@@ -195,6 +195,7 @@ class InventorySubscriptions extends React.Component {
     const minHeightContentRefreshKey =
       (fulfilled === true && itemCount < updatedPerPage && `bodyMinHeight-${updatedPerPage}-resize`) ||
       (fulfilled === true && isLastPage && `bodyMinHeight-${updatedPerPage}-resize`) ||
+      (error === true && `bodyMinHeight-${updatedPerPage}-resize`) ||
       `bodyMinHeight-${updatedPerPage}`;
 
     return (
