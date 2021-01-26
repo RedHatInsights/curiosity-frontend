@@ -64,7 +64,7 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
         viewId,
-        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: ''
+        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: null
       }
     ]);
   };
