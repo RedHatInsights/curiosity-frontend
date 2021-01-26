@@ -8,7 +8,7 @@ Array [
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
       },
       Object {
-        "display_name_contains": "",
+        "display_name_contains": null,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
         "viewId": "toolbarFieldDisplayName",
       },
