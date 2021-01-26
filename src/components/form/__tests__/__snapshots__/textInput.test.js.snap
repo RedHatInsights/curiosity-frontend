@@ -5,6 +5,7 @@ exports[`TextInput Component should handle readOnly, disabled: active 1`] = `
   aria-invalid="false"
   class="pf-c-form-control curiosity-text-input "
   id="generatedid-"
+  name="generatedid-"
   type="text"
   value=""
 />
@@ -16,6 +17,7 @@ exports[`TextInput Component should handle readOnly, disabled: disabled 1`] = `
   class="pf-c-form-control curiosity-text-input "
   disabled=""
   id="generatedid-"
+  name="generatedid-"
   type="text"
   value=""
 />
@@ -26,6 +28,7 @@ exports[`TextInput Component should handle readOnly, disabled: readOnly 1`] = `
   aria-invalid="false"
   class="pf-c-form-control curiosity-text-input "
   id="generatedid-"
+  name="generatedid-"
   readonly=""
   type="text"
   value=""
@@ -37,6 +40,7 @@ exports[`TextInput Component should render a basic component: basic component 1`
   aria-invalid="false"
   class="pf-c-form-control curiosity-text-input "
   id="generatedid-"
+  name="generatedid-"
   type="text"
   value=""
 />
