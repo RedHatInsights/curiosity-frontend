@@ -11,6 +11,7 @@ import { helpers } from '../../common';
  * @param {object} props
  * @param {string} props.ariaLabel
  * @param {Node} props.children
+ * @param {string} props.id
  * @param {*} props.isChecked
  * @param {boolean} props.isDisabled
  * @param {boolean} props.isReadOnly
@@ -23,6 +24,7 @@ import { helpers } from '../../common';
 const Checkbox = ({
   ariaLabel,
   children,
+  id,
   isChecked,
   isDisabled,
   isReadOnly,
@@ -34,7 +36,8 @@ const Checkbox = ({
 }) => {
   const [check, setCheck] = React.useState();
   const updatedChecked = check ?? isChecked ?? false;
-  const nameId = name || helpers.generateId();
+  const updatedName = name || helpers.generateId();
+  const updatedId = id || updatedName;
 
   /**
    * onChange event, provide restructured event.
@@ -46,8 +49,8 @@ const Checkbox = ({
   const onCheckboxChange = (checked, event) => {
     const mockEvent = {
       ...createMockEvent(event),
-      id: nameId,
-      name: nameId,
+      id: updatedId,
+      name: updatedName,
       value,
       checked
     };
@@ -60,11 +63,11 @@ const Checkbox = ({
     <PfCheckbox
       aria-label={ariaLabel || children || label}
       checked={updatedChecked}
-      id={nameId}
+      id={updatedId}
       isChecked={updatedChecked}
       isDisabled={isDisabled || false}
       label={children || label}
-      name={nameId}
+      name={updatedName}
       onChange={onCheckboxChange}
       value={value}
       readOnly={isReadOnly || false}
@@ -76,12 +79,13 @@ const Checkbox = ({
 /**
  * Prop types.
  *
- * @type {{onChange: Function, children: Node, name: string, isChecked: *, isDisabled: boolean,
- *     isReadOnly: boolean, label: string, value: *, ariaLabel: string}}
+ * @type {{isReadOnly: boolean, onChange: Function, children: Node, name: string, id: string,
+ *     isDisabled: boolean, label: string, isChecked: boolean, value: *, ariaLabel: string}}
  */
 Checkbox.propTypes = {
   ariaLabel: PropTypes.string,
   children: PropTypes.node,
+  id: PropTypes.string,
   isChecked: PropTypes.any,
   isDisabled: PropTypes.bool,
   isReadOnly: PropTypes.bool,
@@ -94,12 +98,13 @@ Checkbox.propTypes = {
 /**
  * Default props.
  *
- * @type {{onChange: Function, children: Node, name: string, isChecked: *, isDisabled: boolean,
- *     isReadOnly: boolean, label: string, value: *, ariaLabel: string}}
+ * @type {{isReadOnly: boolean, onChange: Function, children: Node, name: string, id: string,
+ *     isDisabled: boolean, label: string, isChecked: boolean, value: *, ariaLabel: string}}
  */
 Checkbox.defaultProps = {
   ariaLabel: null,
   children: null,
+  id: null,
   isChecked: false,
   isDisabled: false,
   isReadOnly: false,
