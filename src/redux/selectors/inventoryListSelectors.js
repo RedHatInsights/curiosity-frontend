@@ -52,7 +52,10 @@ const queryFilter = (state, props = {}) => {
       ...state.view?.query?.[props.viewId]
     },
     {
-      inventoryHostsQuery: { ...state.view?.inventoryHostsQuery?.[props.productId] }
+      inventoryHostsQuery: {
+        ...state.view?.inventoryHostsQuery?.[props.productId],
+        ...state.view?.inventoryHostsQuery?.[props.viewId]
+      }
     }
   );
 
