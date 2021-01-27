@@ -51,6 +51,16 @@ It's required that commit messaging follow the format
    <type>[optional scope]: <issue number><description>
 ```
 
+For Jira issues that looks like
+```
+   <type>[optional scope]: ent-123 <description>
+```
+
+For Github issues that looks like
+```
+   <type>[optional scope]: issues/123 <description>
+```
+
 Settings for [Standard Version](https://github.com/conventional-changelog/standard-version#readme) can be found in [package.json](./package.json)
 
 ### Branching, Pull Requests, and Releases
