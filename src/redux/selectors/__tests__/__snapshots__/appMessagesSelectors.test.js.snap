@@ -4,8 +4,8 @@ exports[`AppMessagesSelectors should map a fulfilled product ID response to an a
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": true,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 
@@ -13,8 +13,8 @@ exports[`AppMessagesSelectors should pass minimal data on a product ID without a
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": false,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 
@@ -22,8 +22,8 @@ exports[`AppMessagesSelectors should pass minimal data on missing a reducer resp
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": false,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 
@@ -31,8 +31,8 @@ exports[`AppMessagesSelectors should populate data from the in memory cache: cac
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": true,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 
@@ -40,8 +40,8 @@ exports[`AppMessagesSelectors should populate data from the in memory cache: cac
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": true,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 
@@ -49,8 +49,8 @@ exports[`AppMessagesSelectors should populate data from the in memory cache: cac
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": true,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 
@@ -58,8 +58,8 @@ exports[`AppMessagesSelectors should populate data on a product ID when the api 
 Object {
   "appMessages": Object {
     "cloudigradeMismatch": false,
-    "query": Object {},
   },
+  "query": Object {},
 }
 `;
 

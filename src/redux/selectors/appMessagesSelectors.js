@@ -44,8 +44,7 @@ const queryFilter = (state, props = {}) => ({
 const selector = createSelector([statePropsFilter, queryFilter], (data, query = {}) => {
   const { viewId = null, productId = null, report = {} } = data || {};
   const appMessages = {
-    cloudigradeMismatch: false,
-    query
+    cloudigradeMismatch: false
   };
 
   const cache = (viewId && productId && selectorCache.data[`${viewId}_${productId}`]) || undefined;
@@ -70,7 +69,7 @@ const selector = createSelector([statePropsFilter, queryFilter], (data, query = 
     };
   }
 
-  return { appMessages };
+  return { appMessages, query };
 });
 
 /**
