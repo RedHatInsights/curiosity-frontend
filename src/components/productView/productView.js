@@ -57,10 +57,11 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
   } = productConfig;
 
   const {
+    query: initialQuery,
     graphTallyQuery: initialGraphTallyQuery,
     inventoryHostsQuery: initialInventoryHostsQuery,
     inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
-    toolbarQuery
+    toolbarQuery: initialToolbarQuery
   } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
   const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
@@ -75,13 +76,13 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
         {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
       </PageHeader>
       <PageMessages>
-        <BannerMessages productId={productId} viewId={viewId} query={query} />
+        <BannerMessages productId={productId} viewId={viewId} query={initialQuery} />
       </PageMessages>
       <PageToolbar>
         <ConnectedToolbar
           filterOptions={initialToolbarFilters}
           productId={productId}
-          query={toolbarQuery}
+          query={initialToolbarQuery}
           viewId={viewId}
         />
       </PageToolbar>
