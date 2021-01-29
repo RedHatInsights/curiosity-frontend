@@ -192,7 +192,7 @@ const getMessageFromResults = results => {
     return `${formattedStatus}${dataResponse}`.trim();
   }
 
-  if (status >= 300 && _isPlainObject(dataResponse)) {
+  if (status >= 400 && _isPlainObject(dataResponse)) {
     return `${formattedStatus}${JSON.stringify(dataResponse)}`;
   }
 
