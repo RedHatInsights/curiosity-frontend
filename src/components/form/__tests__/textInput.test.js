@@ -51,12 +51,27 @@ describe('TextInput Component', () => {
 
   it('should return an emulated onClear event on escape', done => {
     const props = {
+      value: 'lorem ipsum'
+    };
+
+    props.onClear = event => {
+      expect(event).toMatchSnapshot('emulated event, esc');
+      done();
+    };
+
+    const component = shallow(<TextInput {...props} />);
+    const mockEvent = { keyCode: 27, currentTarget: { value: '' }, persist: helpers.noop };
+    component.instance().onKeyUp(mockEvent);
+  });
+
+  it('should return an emulated onClear event on escape with type search', done => {
+    const props = {
       value: 'lorem ipsum',
       type: 'search'
     };
 
     props.onClear = event => {
-      expect(event).toMatchSnapshot('emulated event, esc');
+      expect(event).toMatchSnapshot('emulated event, esc, type search');
       done();
     };
 

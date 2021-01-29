@@ -53,7 +53,7 @@ const getApiVersion = (options = {}) => {
 };
 
 /**
- * @apiMock {DelayResponse} 2000
+ * @apiMock {DelayResponse} 250
  * @apiMock {RandomSuccess}
  * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id Get RHSM graph data
  * @apiDescription Retrieve graph data.
@@ -957,7 +957,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
 };
 
 /**
- * @apiMock {DelayResponse} 1000
+ * @apiMock {DelayResponse} 500
  * @api {get} /api/rhsm-subscriptions/v1/hosts/products/:product_id Get RHSM hosts/systems table/inventory data
  * @apiDescription Retrieve hosts/systems table/inventory data.
  *
@@ -1154,7 +1154,7 @@ const getHostsInventory = (id, params = {}, options = {}) => {
 };
 
 /**
- * @apiMock {DelayResponse} 2000
+ * @apiMock {DelayResponse} 250
  * @api {get} /api/rhsm-subscriptions/v1/hosts/:hypervisor_uuid/guests Get RHSM hosts/systems table/inventory guests data
  * @apiDescription Retrieve hosts/systems table/inventory guests data.
  *
@@ -1282,7 +1282,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
 };
 
 /**
- * @apiMock {DelayResponse} 1000
+ * @apiMock {DelayResponse} 250
  * @api {get} /api/rhsm-subscriptions/v1/subscriptions/products/:product_id Get RHSM subscriptions table/inventory data
  * @apiDescription Retrieve subscriptions table/inventory data.
  *
