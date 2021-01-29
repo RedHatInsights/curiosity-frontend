@@ -397,10 +397,6 @@ Array [
         "key": "curiosity-toolbar.placeholder",
         "match": "t('curiosity-toolbar.placeholder', { context: 'displayName' })",
       },
-      Object {
-        "key": "curiosity-toolbar.button",
-        "match": "t('curiosity-toolbar.button', { context: 'displayName' })",
-      },
     ],
   },
   Object {
@@ -551,10 +547,6 @@ Array [
   Object {
     "file": "./src/components/rhelView/rhelView.js",
     "key": "curiosity-inventory.label",
-  },
-  Object {
-    "file": "./src/components/toolbar/toolbarFieldDisplayName.js",
-    "key": "curiosity-toolbar.button",
   },
   Object {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",

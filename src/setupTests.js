@@ -6,6 +6,11 @@ import * as pfReactChartComponents from '@patternfly/react-charts';
 configure({ adapter: new Adapter() });
 
 /**
+ * Emulate for component checks
+ */
+jest.mock('lodash/debounce', () => jest.fn);
+
+/**
  * FixMe: Use of arrow functions removes the usefulness of the "displayName" when shallow rendering
  * PF appears to have updated components with a "displayName". Because we potentially have internal
  * components, and other resources that are missing "displayName". We're leaving this test helper active.

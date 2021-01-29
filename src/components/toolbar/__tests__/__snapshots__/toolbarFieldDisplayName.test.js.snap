@@ -55,7 +55,8 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
 <InputGroup>
   <TextInput
     aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"
-    className=""
+    className="curiosity-input__display-name"
+    iconVariant="search"
     id={null}
     isDisabled={false}
     isReadOnly={false}
@@ -66,19 +67,8 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
     onKeyUp={[Function]}
     onMouseUp={[Function]}
     placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"
-    type="search"
+    type="text"
     value={null}
   />
-  <Button
-    aria-label="t(curiosity-toolbar.button, {\\"context\\":\\"displayName\\"})"
-    onClick={[Function]}
-    variant="control"
-  >
-    <SearchIcon
-      color="currentColor"
-      noVerticalAlign={false}
-      size="sm"
-    />
-  </Button>
 </InputGroup>
 `;
