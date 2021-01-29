@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, ButtonVariant, InputGroup } from '@patternfly/react-core';
-import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
+import { InputGroup } from '@patternfly/react-core';
+import _debounce from 'lodash/debounce';
 import { reduxTypes, store, useSelector } from '../../redux';
 import { TextInput } from '../form/textInput';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
+/**
+ * ToDo: evaluate the debounce milliseconds, currently based off platforms default 800 ms
+ */
 /**
  * Display a display name input field for search.
  *
@@ -42,7 +45,7 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
         viewId,
-        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: updatedValue
+        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: updatedValue || null
       }
     ]);
 
@@ -80,17 +83,29 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
   };
 
   /**
+   * Set up submit debounce event to allow for bypass.
+   */
+  const debounced = _debounce(onSubmit, 800);
+
+  /**
    * On enter, submit value. We nest the conditions to allow enter to submit onChange value updates.
    *
    * @event onKeyUp
    * @param {object} event
    */
   const onKeyUp = event => {
-    if (event.keyCode === 13) {
-      if (event.value?.length) {
-        updatedValue = event.value;
-      }
-      onSubmit();
+    switch (event.keyCode) {
+      case 13:
+        if (event.value?.length) {
+          updatedValue = event.value;
+        }
+        onSubmit();
+        break;
+      case 27:
+        break;
+      default:
+        debounced();
+        break;
     }
   };
 
@@ -98,21 +113,15 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
     <InputGroup>
       <TextInput
         aria-label={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
+        className="curiosity-input__display-name"
+        iconVariant="search"
         maxLength={255}
         onChange={onChange}
         onClear={onClear}
         onKeyUp={onKeyUp}
         value={updatedValue}
         placeholder={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
-        type="search"
       />
-      <Button
-        onClick={onSubmit}
-        variant={ButtonVariant.control}
-        aria-label={t('curiosity-toolbar.button', { context: 'displayName' })}
-      >
-        <SearchIcon />
-      </Button>
     </InputGroup>
   );
 };
