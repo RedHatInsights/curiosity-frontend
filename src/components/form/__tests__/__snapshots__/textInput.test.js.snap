@@ -61,6 +61,21 @@ Object {
 }
 `;
 
+exports[`TextInput Component should return an emulated onClear event on escape with type search: emulated event, esc, type search 1`] = `
+Object {
+  "checked": undefined,
+  "currentTarget": Object {
+    "value": "",
+  },
+  "id": undefined,
+  "keyCode": 27,
+  "name": undefined,
+  "persist": [Function],
+  "target": Object {},
+  "value": "",
+}
+`;
+
 exports[`TextInput Component should return an emulated onClear event on escape: emulated event, esc 1`] = `
 Object {
   "checked": undefined,
