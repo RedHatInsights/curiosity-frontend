@@ -148,6 +148,16 @@ describe('ReduxHelpers', () => {
     expect(
       reduxHelpers.getMessageFromResults({
         response: {
+          data: { lorem: 'ipsum', dolor: 'sit' },
+          status: 304,
+          statusText: 'Not modified'
+        }
+      })
+    ).toMatchSnapshot('3XX, 304 fallback message');
+
+    expect(
+      reduxHelpers.getMessageFromResults({
+        response: {
           status: 400,
           statusText: 'Bad Request'
         }
