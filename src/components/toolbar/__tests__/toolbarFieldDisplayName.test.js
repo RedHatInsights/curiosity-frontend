@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { Button } from '@patternfly/react-core';
 import { ToolbarFieldDisplayName } from '../toolbarFieldDisplayName';
 import { store } from '../../../redux/store';
 import { TextInput } from '../../form/textInput';
@@ -31,7 +30,7 @@ describe('ToolbarFieldDisplayName Component', () => {
 
     const component = shallow(<ToolbarFieldDisplayName {...props} />);
     component.find(TextInput).simulate('change', { value: 'dolor sit' });
-    component.find(Button).simulate('click');
+    component.find(TextInput).simulate('keyUp', {});
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch display name');
   });

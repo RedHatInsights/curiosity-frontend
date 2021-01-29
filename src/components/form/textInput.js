@@ -25,13 +25,22 @@ class TextInput extends React.Component {
    * @param {object} event
    */
   onKeyUp = event => {
-    const { onClear, onKeyUp } = this.props;
+    const { onClear, onKeyUp, type } = this.props;
     const { currentTarget, keyCode } = event;
+    const clonedEvent = { ...event };
 
     onKeyUp(createMockEvent(event, true));
 
-    if (keyCode === 27 && currentTarget.value === '') {
-      onClear(createMockEvent(event));
+    if (keyCode === 27) {
+      if (type === 'search' && currentTarget.value === '') {
+        onClear(createMockEvent(clonedEvent));
+      } else {
+        this.setState({ updatedValue: '' }, () => {
+          onClear(
+            createMockEvent({ ...clonedEvent, ...{ currentTarget: { ...clonedEvent.currentTarget, value: '' } } })
+          );
+        });
+      }
     }
   };
 
