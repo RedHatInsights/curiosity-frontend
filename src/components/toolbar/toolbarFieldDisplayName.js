@@ -98,6 +98,7 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
     <InputGroup>
       <TextInput
         aria-label={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
+        maxLength={255}
         onChange={onChange}
         onClear={onClear}
         onKeyUp={onKeyUp}
