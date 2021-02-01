@@ -59,6 +59,7 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
     id={null}
     isDisabled={false}
     isReadOnly={false}
+    maxLength={255}
     name={null}
     onChange={[Function]}
     onClear={[Function]}
