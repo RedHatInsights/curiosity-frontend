@@ -30,6 +30,7 @@
     },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!src/**/.*/**",
       "!src/index.js",
       "!src/setupTests.js",
       "!src/components/app.js",
@@ -111,9 +112,9 @@
     "@redhat-cloud-services/frontend-components": "2.5.0",
     "@redhat-cloud-services/frontend-components-notifications": "2.2.3",
     "@redhat-cloud-services/frontend-components-utilities": "2.2.7",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
-    "i18next": "^19.8.4",
+    "i18next": "^19.8.7",
     "i18next-xhr-backend": "^3.2.2",
     "js-cookie": "^2.2.1",
     "locale-code": "^2.0.2",
@@ -124,11 +125,11 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.7.3",
+    "react-i18next": "^11.8.5",
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
@@ -163,6 +164,6 @@
     "yamljs": "^0.3.0"
   },
   "resolutions": {
-    "**/eslint": "6.8.0"
+    "**/eslint": "7.19.0"
   }
 }
