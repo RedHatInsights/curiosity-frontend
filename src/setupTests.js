@@ -8,6 +8,7 @@ configure({ adapter: new Adapter() });
 /**
  * Emulate for component checks
  */
+jest.mock('i18next');
 jest.mock('lodash/debounce', () => jest.fn);
 
 /**
