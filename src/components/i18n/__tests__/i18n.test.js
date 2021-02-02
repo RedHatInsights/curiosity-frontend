@@ -8,11 +8,6 @@ import { I18n, translate, translateComponent } from '../i18n';
 import enLocales from '../../../../public/locales/en-US';
 
 /**
- * Emulate for component render checks
- */
-jest.mock('i18next');
-
-/**
  * Get translation keys.
  *
  * @param {object} params
