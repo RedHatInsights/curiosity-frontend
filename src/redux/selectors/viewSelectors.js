@@ -56,7 +56,7 @@ const statePropsFilter = (state = {}, props, defaultProps = {}) => ({
 /**
  * Create selector, transform combined state, props into a consumable API param/query object.
  *
- * @type {{query: object, graphTallyQuery: object, inventoryGuestsQuery: object, inventoryHostsQuery: object
+ * @type {{query: object, graphTallyQuery: object, inventoryGuestsQuery: object, inventoryHostsQuery: object,
  *     inventorySubscriptionsQuery: object}}
  */
 const selector = createDeepEqualSelector([statePropsFilter], view => ({
@@ -71,7 +71,7 @@ const selector = createDeepEqualSelector([statePropsFilter], view => ({
  * Expose selector instance. For scenarios where a selector is reused across component instances.
  *
  * @param {object} defaultProps
- * @returns {{query: object, graphTallyQuery: object, inventoryGuestsQuery: object, inventoryHostsQuery: object
+ * @returns {{query: object, graphTallyQuery: object, inventoryGuestsQuery: object, inventoryHostsQuery: object,
  *     inventorySubscriptionsQuery: object}}
  */
 const makeSelector = defaultProps => (state, props) => ({
