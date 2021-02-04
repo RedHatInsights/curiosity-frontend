@@ -112,16 +112,14 @@ const recordAction = (action, { id, limit, ...config }) => {
  * @param {object} config
  * @returns {Function}
  */
-const actionRecordMiddleware = (config = {}) => {
-  return () => next => action => {
-    recordAction(action, {
-      id: 'actionRecordMiddleware/v1',
-      limit: 100,
-      ...config
-    });
+const actionRecordMiddleware = (config = {}) => () => next => action => {
+  recordAction(action, {
+    id: 'actionRecordMiddleware/v1',
+    limit: 100,
+    ...config
+  });
 
-    return next(action);
-  };
+  return next(action);
 };
 
 export { actionRecordMiddleware as default, actionRecordMiddleware };
