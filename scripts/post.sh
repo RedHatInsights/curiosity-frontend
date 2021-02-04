@@ -7,6 +7,6 @@
   echo "Cleaning up build resources..."
 
   # clean up build
-  rm ./build/*manifest*.js*
-  rm ./build/service-worker.js
+  rm -f ./build/*manifest*.js*
+  rm -f ./build/service-worker.js
 }

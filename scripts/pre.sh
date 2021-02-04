@@ -38,7 +38,7 @@ clean()
   echo "Cleaning build directories, files..."
   rm -rf -- ./build
   rm -rf -- ./public/apps
-  rm ./.env.production.local
+  rm -f ./.env.production.local
 }
 #
 #

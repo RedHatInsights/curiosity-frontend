@@ -3,6 +3,7 @@
 .vscode/
 
 # dependencies
+*.eslintcache
 node_modules
 .pnp*
 
