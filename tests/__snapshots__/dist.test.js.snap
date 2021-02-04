@@ -30,6 +30,8 @@ Array [
   "./build/static/js/7*chunk.js",
   "./build/static/js/8*chunk*map",
   "./build/static/js/8*chunk.js",
+  "./build/static/js/9*chunk*map",
+  "./build/static/js/9*chunk.js",
   "./build/static/js/main*chunk*map",
   "./build/static/js/main*chunk.js",
   "./build/static/js/runtime-main*js",
