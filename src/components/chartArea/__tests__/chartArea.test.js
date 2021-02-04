@@ -398,6 +398,11 @@ describe('ChartArea Component', () => {
   });
 
   it('should run componentWillUnmount method successfully', () => {
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn()
+    }));
+
     const component = mount(<ChartArea />);
     const componentWillUnmount = jest.spyOn(component.instance(), 'componentWillUnmount');
     component.unmount();
