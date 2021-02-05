@@ -17,12 +17,15 @@ release()
 #
 releaseDev()
 {
-  if [[ "${TRAVIS_BRANCH}" = "ci-beta" || "${TRAVIS_BRANCH}" = "dev" || "${TRAVIS_BRANCH}" = "ci" ]] && [[ $TRAVIS_BUILD_STAGE_NAME == *"Beta"* ]]; then
+  local CI_BRANCH=$1
+  local CI_BUILD_STAGE=$2
+
+  if [[ "${CI_BRANCH}" = "ci-beta" || "${CI_BRANCH}" = "dev" || "${CI_BRANCH}" = "ci" ]] && [[ $CI_BUILD_STAGE == *"Beta"* ]]; then
     release "ci-beta"
     release "qa-beta"
   fi
 
-  if [[ "${TRAVIS_BRANCH}" = "ci-stable" || "${TRAVIS_BRANCH}" = "test" || "${TRAVIS_BRANCH}" = "qa" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]];  then
+  if [[ "${CI_BRANCH}" = "ci-stable" || "${CI_BRANCH}" = "test" || "${CI_BRANCH}" = "qa" ]] && [[ $CI_BUILD_STAGE != *"Beta"* ]];  then
     release "ci-stable"
     release "qa-stable"
   fi
@@ -33,12 +36,16 @@ releaseDev()
 #
 releaseProd()
 {
-  if [[ "${TRAVIS_BRANCH}" = "prod-beta" || "${TRAVIS_BRANCH}" = "stage" ]] && [[ $TRAVIS_BUILD_STAGE_NAME == *"Beta"* ]]; then
+  local CI_BRANCH=$1
+  local CI_BUILD_STAGE=$2
+  local CI_COMMIT_MESSAGE=$3
+
+  if [[ "${CI_BRANCH}" = "prod-beta" || "${CI_BRANCH}" = "stage" ]] && [[ $CI_BUILD_STAGE == *"Beta"* ]]; then
     release "prod-beta"
   fi
 
-  if [[ "${TRAVIS_BRANCH}" = "prod-stable" || "${TRAVIS_BRANCH}" = "prod" || "${TRAVIS_BRANCH}" = "main" || "${TRAVIS_BRANCH}" = "master" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]];  then
-    if [[ "${TRAVIS_COMMIT_MESSAGE}" = *"chore(release):"* ]]; then
+  if [[ "${CI_BRANCH}" = "prod-stable" || "${CI_BRANCH}" = "prod" || "${CI_BRANCH}" = "main" || "${CI_BRANCH}" = "master" ]] && [[ $CI_BUILD_STAGE != *"Beta"* ]];  then
+    if [[ "${CI_COMMIT_MESSAGE}" = *"chore(release):"* ]]; then
       release "prod-stable"
     fi
   fi
@@ -57,6 +64,6 @@ releaseProd()
   YELLOW="\e[33m"
   NOCOLOR="\e[39m"
 
-  releaseDev
-  releaseProd
+  releaseDev $BRANCH $BUILD_STAGE
+  releaseProd $BRANCH $BUILD_STAGE $TRAVIS_COMMIT_MESSAGE
 }

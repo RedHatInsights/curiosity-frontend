@@ -1,0 +1,43 @@
+name: Push request testing as pr
+on:
+  pull_request:
+    branches: [ master, main, prod, stage, test**, qa**, dev**, ci** ]
+    paths: [ '!**.md' ]
+env:
+  APP_BUILD_DIR: "build"
+  BRANCH: ${{ github.ref }}
+  COMMIT_MESSAGE: $(git show -s --format='%s')
+  REPO: "git@github.com:RedHatInsights/curiosity-frontend-build"
+  REPO_DIR: "curiosity-frontend-build"
+  TRAVIS_BRANCH: "${BRANCH}"
+  TRAVIS_BUILD_NUMBER: "n/a"
+  TRAVIS_BUILD_WEB_URL: "https://github.com/RedHatInsights/curiosity-frontend/actions?query=branch%3A${BRANCH}"
+  TRAVIS_COMMIT_MESSAGE: "${COMMIT_MESSAGE}"
+  TRAVIS_EVENT_TYPE: ${{ github.event_name }}
+  TRAVIS_PULL_REQUEST: "false"
+  TRAVIS_TAG: "n/a"
+
+jobs:
+  Environment-push-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: List environment settings
+        run: |
+          echo "//-------------->"
+          echo "APP_BUILD_DIR=$APP_BUILD_DIR"
+          echo "BRANCH=$BRANCH"
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE"
+          echo "REPO=$REPO"
+          echo "REPO_DIR=$REPO_DIR"
+          echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
+          echo "TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER"
+          echo "TRAVIS_BUILD_WEB_URL=$TRAVIS_BUILD_WEB_URL"
+          echo "TRAVIS_COMMIT_MESSAGE=$TRAVIS_COMMIT_MESSAGE"
+          echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
+          echo "TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST"
+          echo "TRAVIS_TAG=$TRAVIS_TAG"
+          echo "//-------------->"
