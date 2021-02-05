@@ -15,7 +15,6 @@ import { translate } from '../i18n/i18n';
  *
  * @fires onSubmit
  * @fires onClear
- * @fires onChange
  * @fires onKeyUp
  * @param {object} props
  * @param {string} props.value
@@ -29,15 +28,14 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
     value
   );
 
-  let updatedValue = currentValue;
-
   /**
    * On submit, dispatch type.
    *
    * @event onSubmit
+   * @param {string} submitValue
    * @returns {void}
    */
-  const onSubmit = () =>
+  const onSubmit = submitValue =>
     store.dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
@@ -45,7 +43,7 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
         viewId,
-        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: updatedValue || null
+        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: submitValue?.trim() || null
       }
     ]);
 
@@ -73,22 +71,12 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
   };
 
   /**
-   * On change, update value.
-   *
-   * @event onChange
-   * @param {object} event
-   */
-  const onChange = event => {
-    updatedValue = event.value;
-  };
-
-  /**
    * Set up submit debounce event to allow for bypass.
    */
-  const debounced = _debounce(onSubmit, 800);
+  const debounced = _debounce(onSubmit, 700);
 
   /**
-   * On enter, submit value. We nest the conditions to allow enter to submit onChange value updates.
+   * On enter submit value, on type submit value, and on esc ignore (clear value at component level).
    *
    * @event onKeyUp
    * @param {object} event
@@ -96,15 +84,12 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
   const onKeyUp = event => {
     switch (event.keyCode) {
       case 13:
-        if (event.value?.length) {
-          updatedValue = event.value;
-        }
-        onSubmit();
+        onSubmit(event.value);
         break;
       case 27:
         break;
       default:
-        debounced();
+        debounced(event.value);
         break;
     }
   };
@@ -116,10 +101,9 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
         className="curiosity-input__display-name"
         iconVariant="search"
         maxLength={255}
-        onChange={onChange}
         onClear={onClear}
         onKeyUp={onKeyUp}
-        value={updatedValue}
+        value={currentValue}
         placeholder={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
       />
     </InputGroup>
