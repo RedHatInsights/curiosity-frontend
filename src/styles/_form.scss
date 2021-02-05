@@ -7,10 +7,3 @@
     display: none;
   }
 }
-
-.curiosity-input__display-name {
-  &.pf-c-form-control.pf-m-search {
-    padding-left: var(--pf-global--spacer--sm);
-    background-position: var(--pf-c-form-control--m-icon--BackgroundPositionX) var(--pf-c-form-control--m-icon--BackgroundPositionY);
-  }
-}
