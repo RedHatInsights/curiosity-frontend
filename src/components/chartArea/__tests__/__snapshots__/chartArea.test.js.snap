@@ -52,7 +52,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="middle"
               x="50"
             >
@@ -83,7 +83,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="middle"
               x="-50"
             >
@@ -138,7 +138,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -179,7 +179,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -220,7 +220,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -261,7 +261,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -302,7 +302,7 @@ exports[`ChartArea Component should allow tick formatting: x tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -404,7 +404,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="middle"
               x="50"
             >
@@ -435,7 +435,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="middle"
               x="-50"
             >
@@ -490,7 +490,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -531,7 +531,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -572,7 +572,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -613,7 +613,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
@@ -654,7 +654,7 @@ exports[`ChartArea Component should allow tick formatting: y tick format 1`] = `
             <tspan
               dx="0"
               dy="0"
-              style="font-family:var(--pf-chart-global--FontFamily);font-size:14px;letter-spacing:var(--pf-chart-global--letter-spacing);padding:10px;stroke:transparent;fill:#4f5255"
+              style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
               text-anchor="end"
               x="35"
             >
