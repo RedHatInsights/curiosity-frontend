@@ -29,8 +29,8 @@ describe('ToolbarFieldDisplayName Component', () => {
     };
 
     const component = shallow(<ToolbarFieldDisplayName {...props} />);
-    component.find(TextInput).simulate('change', { value: 'dolor sit' });
-    component.find(TextInput).simulate('keyUp', {});
+    component.find(TextInput).simulate('change', { value: '' });
+    component.find(TextInput).simulate('keyUp', { value: 'dolor sit' });
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch display name');
   });
