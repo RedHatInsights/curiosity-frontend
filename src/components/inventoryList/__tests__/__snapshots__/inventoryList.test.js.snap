@@ -54,7 +54,7 @@ exports[`InventoryList Component should handle expandable guests data: number of
           1,
           "loremIpsum",
         ],
-        "expandedContent": <UNDEFINED
+        "expandedContent": <Memo(Connect(GuestsList))
           filterGuestsData={Array []}
           id="loremIpsum"
           numberOfGuests={1}
