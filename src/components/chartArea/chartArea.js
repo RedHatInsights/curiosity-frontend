@@ -13,12 +13,10 @@ import _cloneDeep from 'lodash/cloneDeep';
 import { helpers } from '../../common';
 
 /**
- * ToDo: Evaluate Victory Charts combined with PF react-charts, updating adds 100+-kb to the output bundle
- * This appears to be related to Victory Charts itself, upgrading to versions after 35.3.1 of
- * the Victory Charts components also expands the bundle at a similar rate. Breaking out the imports
- * into individual direct imports from PF react-charts increases the build even more, by our estimates 200+-kb.
- * If Victory Charts combined with PF react-charts continues to balloon in size we may need to review pulling
- * the Victory components directly instead of through PF react-charts.
+ * FixMe: chart redraw issues, possibly related by...
+ * - resize setup,
+ * - internal caching of the graph, and
+ * - restructuring how the query props are passed through product view
  */
 /**
  * A wrapper for Patternfly and Victory charts/graphs.
