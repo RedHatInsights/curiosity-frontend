@@ -377,6 +377,10 @@ Array [
         "match": "t('curiosity-toolbar.placeholder', { context: field })",
       },
       Object {
+        "key": "curiosity-toolbar.clearFilters",
+        "match": "t('curiosity-toolbar.clearFilters')",
+      },
+      Object {
         "key": "curiosity-toolbar.category",
         "match": "t('curiosity-toolbar.category')",
       },
