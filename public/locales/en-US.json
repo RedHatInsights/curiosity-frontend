@@ -92,6 +92,7 @@
     "category": "Filter by",
     "category_sla": "SLA",
     "category_usage": "Usage",
+    "clearFilters": "Reset filters",
     "button_displayName": "Search button for name",
     "placeholder": "Filter by",
     "placeholder_displayName": "Filter by name",
