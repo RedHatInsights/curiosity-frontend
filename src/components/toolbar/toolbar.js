@@ -242,6 +242,7 @@ class Toolbar extends React.Component {
         className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
         collapseListedFiltersBreakpoint="sm"
         clearAllFilters={this.onClear}
+        clearFiltersButtonText={t('curiosity-toolbar.clearFilters')}
       >
         <ToolbarContent>
           <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
