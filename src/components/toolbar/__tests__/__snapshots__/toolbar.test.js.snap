@@ -515,6 +515,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
@@ -667,6 +668,7 @@ exports[`Toolbar Component should render filters when props are populated: props
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
@@ -827,6 +829,7 @@ exports[`Toolbar Component should render specific filters when the filterOptions
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
