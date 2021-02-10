@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageColumns Component should render a basic component: basic 1`] = `
+<PageColumns
+  className="lorem"
+>
+  <Flex
+    className="curiosity-page-columns lorem"
+    spaceItems={
+      Object {
+        "sm": "spaceItemsNone",
+      }
+    }
+  >
+    <div
+      className="pf-l-flex pf-m-space-items-none-on-sm curiosity-page-columns lorem"
+    >
+      <FlexItem
+        className="curiosity-page-columns-column"
+        grow={
+          Object {
+            "sm": "grow",
+          }
+        }
+        key="generatedid-"
+        style={
+          Object {
+            "flexBasis": 0,
+          }
+        }
+      >
+        <div
+          className="pf-m-grow-on-sm curiosity-page-columns-column"
+          style={
+            Object {
+              "flexBasis": 0,
+            }
+          }
+        >
+          <span
+            className="dolor"
+            key=".0"
+          >
+            lorem
+          </span>
+        </div>
+      </FlexItem>
+      <FlexItem
+        className="curiosity-page-columns-column"
+        grow={
+          Object {
+            "sm": "grow",
+          }
+        }
+        key="generatedid-"
+        style={
+          Object {
+            "flexBasis": 0,
+          }
+        }
+      >
+        <div
+          className="pf-m-grow-on-sm curiosity-page-columns-column"
+          style={
+            Object {
+              "flexBasis": 0,
+            }
+          }
+        >
+          <span
+            className="sit"
+            key=".1"
+          >
+            ipsum
+          </span>
+        </div>
+      </FlexItem>
+    </div>
+  </Flex>
+</PageColumns>
+`;
