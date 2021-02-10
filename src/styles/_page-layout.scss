@@ -1,4 +1,16 @@
-.curiosity, .curiosity-page-messages, .curiosity-page-toolbar, .curiosity-page-section {
+.curiosity,
+.curiosity-page-messages,
+.curiosity-page-toolbar,
+.curiosity-page-section,
+.curiosity-page-columns,
+.curiosity-page-columns-column {
   background-color: var(--pf-global--BackgroundColor--100);
   min-width: 320px;
+}
+
+.curiosity-page-columns-column {
+  margin-left: var(--pf-global--spacer--sm);
+  margin-right: var(--pf-global--spacer--sm);
+  padding-left: var(--pf-global--spacer--sm);
+  padding-right: var(--pf-global--spacer--sm)
 }
