@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cellWidth, TableVariant } from '@patternfly/react-table';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/cjs/Skeleton';
+import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/Skeleton';
 import Table from './table';
 import { translate } from '../i18n/i18n';
 

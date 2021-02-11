@@ -30,14 +30,6 @@ Array [
 
 exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: direct import exceptions, components 1`] = `Array []`;
 
-exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, notifications 1`] = `
-Array [
-  "index.js:9:import '@redhat-cloud-services/frontend-components-notifications/index.css';",
-]
-`;
+exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, notifications 1`] = `Array []`;
 
-exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, utilities 1`] = `
-Array [
-  "styles/index.scss:2:@import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all';",
-]
-`;
+exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, utilities 1`] = `Array []`;
