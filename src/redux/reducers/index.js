@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { notifications } from '@redhat-cloud-services/frontend-components-notifications/cjs';
+import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
 import graphReducer from './graphReducer';
 import inventoryReducer from './inventoryReducer';
 import messagesReducer from './messagesReducer';
