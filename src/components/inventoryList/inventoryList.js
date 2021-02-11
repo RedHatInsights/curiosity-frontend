@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _isEqual from 'lodash/isEqual';
 import { SortByDirection, TableVariant } from '@patternfly/react-table';
 import { Bullseye, Card, CardActions, CardBody, CardFooter, CardHeader, CardHeaderMain } from '@patternfly/react-core';
-import { TableToolbar } from '@redhat-cloud-services/frontend-components/components/cjs/TableToolbar';
+import { TableToolbar } from '@redhat-cloud-services/frontend-components/components/TableToolbar';
 import _camelCase from 'lodash/camelCase';
 import { helpers } from '../../common';
 import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';

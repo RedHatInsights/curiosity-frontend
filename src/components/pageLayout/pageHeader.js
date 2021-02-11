@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   PageHeader as RcsPageHeader,
   PageHeaderTitle
-} from '@redhat-cloud-services/frontend-components/components/cjs/PageHeader';
+} from '@redhat-cloud-services/frontend-components/components/PageHeader';
 import { Button, Flex, FlexItem, Label as PfLabel } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import { helpers } from '../../common';
