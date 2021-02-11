@@ -9,7 +9,7 @@ import {
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
 import { Button, Label as PfLabel } from '@patternfly/react-core';
-import { DateFormat } from '@redhat-cloud-services/frontend-components/components/cjs/DateFormat';
+import { DateFormat } from '@redhat-cloud-services/frontend-components/components/DateFormat';
 import moment from 'moment';
 import { PageLayout, PageHeader, PageMessages, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {

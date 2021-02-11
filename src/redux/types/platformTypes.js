@@ -2,7 +2,7 @@ import {
   ADD_NOTIFICATION,
   REMOVE_NOTIFICATION,
   CLEAR_NOTIFICATIONS
-} from '@redhat-cloud-services/frontend-components-notifications/cjs';
+} from '@redhat-cloud-services/frontend-components-notifications';
 
 const PLATFORM_ADD_NOTIFICATION = ADD_NOTIFICATION;
 const PLATFORM_REMOVE_NOTIFICATION = REMOVE_NOTIFICATION;
