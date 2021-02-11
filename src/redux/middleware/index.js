@@ -1,7 +1,7 @@
 import { createLogger } from 'redux-logger';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunkMiddleware from 'redux-thunk';
-import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications/cjs';
+import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications';
 import { multiActionMiddleware } from './multiActionMiddleware';
 import { statusMiddleware } from './statusMiddleware';
 import { actionRecordMiddleware } from './actionRecordMiddleware';
