@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Section } from '@redhat-cloud-services/frontend-components/components/cjs/Section';
+import { Section } from '@redhat-cloud-services/frontend-components/components/Section';
 
 /**
  * Render a platform page section.
