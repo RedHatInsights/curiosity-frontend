@@ -93,6 +93,7 @@ class GuestsList extends React.Component {
           tableProps={{
             borders: false,
             colCount: filterGuestsData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
+            colWidth: (filterGuestsData?.length && filterGuestsData.map(({ cellWidth }) => cellWidth)) || [],
             rowCount: 0,
             variant: TableVariant.compact
           }}

@@ -99,6 +99,7 @@ exports[`GuestsList Component should handle multiple display states: paged pendi
             Object {
               "borders": false,
               "colCount": 1,
+              "colWidth": Array [],
               "rowCount": 0,
               "variant": "compact",
             }
