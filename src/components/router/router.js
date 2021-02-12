@@ -5,6 +5,7 @@ import Redirect from './redirect';
 import { routerHelpers } from './routerHelpers';
 import { routerConfig } from './routerConfig';
 import { Loader } from '../loader/loader';
+import { RouterContext, useHistory, useLocation, useParams, useRouteDetail, useRouteMatch } from './routerContext';
 
 /**
  * Load routes.
@@ -65,17 +66,30 @@ class Router extends React.Component {
                 };
 
                 return (
-                  <item.component
-                    routeDetail={{
-                      baseName: routerHelpers.baseName,
-                      errorRoute: activateOnErrorRoute,
-                      routes,
-                      routeItem: { ...item },
-                      ...navDetail
+                  <RouterContext.Provider
+                    value={{
+                      routeDetail: {
+                        baseName: routerHelpers.baseName,
+                        errorRoute: activateOnErrorRoute,
+                        routes,
+                        routeItem: { ...item },
+                        ...navDetail
+                      },
+                      location: updatedLocation
                     }}
-                    location={updatedLocation}
-                    {...routeProps}
-                  />
+                  >
+                    <item.component
+                      routeDetail={{
+                        baseName: routerHelpers.baseName,
+                        errorRoute: activateOnErrorRoute,
+                        routes,
+                        routeItem: { ...item },
+                        ...navDetail
+                      }}
+                      location={updatedLocation}
+                      {...routeProps}
+                    />
+                  </RouterContext.Provider>
                 );
               }}
             />
@@ -136,4 +150,16 @@ Router.defaultProps = {
   routes: routerConfig.routes
 };
 
-export { Router as default, Router, Redirect, routerHelpers, routerConfig };
+export {
+  Router as default,
+  Router,
+  Redirect,
+  routerHelpers,
+  routerConfig,
+  RouterContext,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteDetail,
+  useRouteMatch
+};

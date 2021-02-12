@@ -20,10 +20,7 @@ describe('ProductView Component', () => {
   it('should render nothing if path and product parameters are empty', () => {
     const props = {
       productConfig: {},
-      routeDetail: {
-        pathParameter: null,
-        viewParameter: null
-      }
+      routeDetail: {}
     };
 
     const component = shallow(<ProductView {...props} />);

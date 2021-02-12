@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark,
@@ -27,25 +26,17 @@ import { helpers } from '../../common';
  *
  * @param {object} props
  * @param {object} props.productConfig
- * @param {object} props.routeDetail
  * @returns {Node}
  */
-const ProductViewSatellite = ({ productConfig, routeDetail }) => (
-  <ConnectedProductView routeDetail={routeDetail} productConfig={productConfig} />
-);
+const ProductViewSatellite = ({ productConfig }) => <ConnectedProductView productConfig={productConfig} />;
 
 /**
  * Prop types.
  *
- * @type {{routeDetail: object, productConfig:object}}
+ * @type {{productConfig:object}}
  */
 ProductViewSatellite.propTypes = {
-  productConfig: ProductView.propTypes.productConfig,
-  routeDetail: PropTypes.shape({
-    pathParameter: PropTypes.string,
-    productParameter: PropTypes.string,
-    viewParameter: PropTypes.string
-  }).isRequired
+  productConfig: ProductView.propTypes.productConfig
 };
 
 /**

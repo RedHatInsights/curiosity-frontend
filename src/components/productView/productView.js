@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages } from '../pageLayout/pageLayout';
+import { useRouteDetail } from '../router/router';
 import { apiQueries, connect, reduxSelectors } from '../../redux';
 import { ConnectedGraphCard, GraphCard } from '../graphCard/graphCard';
 import { ConnectedToolbar, Toolbar } from '../toolbar/toolbar';
@@ -21,6 +22,7 @@ import {
 } from '../../types/rhsmApiTypes';
 import { GuestsList } from '../guestsList/guestsList';
 import { translate } from '../i18n/i18n';
+import { ProductContext } from './productContext';
 
 /**
  * ToDo: base for default product layouts, add additional props for various toolbars
@@ -64,66 +66,70 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
     toolbarQuery: initialToolbarQuery
   } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
-  const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
+  const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = useRouteDetail(
+    routeDetail
+  );
 
   if (!productId || !viewId) {
     return null;
   }
 
   return (
-    <PageLayout>
-      <PageHeader productLabel={productLabel} includeTour>
-        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
-      </PageHeader>
-      <PageMessages>
-        <BannerMessages productId={productId} viewId={viewId} query={initialQuery} />
-      </PageMessages>
-      <PageToolbar>
-        <ConnectedToolbar
-          filterOptions={initialToolbarFilters}
-          productId={productId}
-          query={initialToolbarQuery}
-          viewId={viewId}
-        />
-      </PageToolbar>
-      <PageSection>
-        <ConnectedGraphCard
-          key={productId}
-          filterGraphData={initialGraphFilters}
-          query={initialGraphTallyQuery}
-          productId={productId}
-          viewId={viewId}
-          cardTitle={t('curiosity-graph.socketsHeading')}
-          productLabel={productLabel}
-        />
-      </PageSection>
-      <PageSection>
-        <InventoryTabs productId={productId}>
-          <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'hosts' })}>
-            <ConnectedInventoryList
-              key={productId}
-              filterGuestsData={initialGuestsFilters}
-              filterInventoryData={initialInventoryFilters}
-              productId={productId}
-              settings={initialInventorySettings}
-              query={initialInventoryHostsQuery}
-              viewId={viewId}
-            />
-          </InventoryTab>
-          {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && (
-            <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
-              <ConnectedInventorySubscriptions
-                key={productId}
-                filterInventoryData={initialSubscriptionsInventoryFilters}
+    <ProductContext.Provider value={productConfig}>
+      <PageLayout>
+        <PageHeader productLabel={productLabel} includeTour>
+          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
+        </PageHeader>
+        <PageMessages>
+          <BannerMessages productId={productId} viewId={viewId} query={initialQuery} />
+        </PageMessages>
+        <PageToolbar>
+          <ConnectedToolbar
+            filterOptions={initialToolbarFilters}
+            productId={productId}
+            query={initialToolbarQuery}
+            viewId={viewId}
+          />
+        </PageToolbar>
+        <PageSection>
+          <ConnectedGraphCard
+            key={`graph-card-${productId}`}
+            filterGraphData={initialGraphFilters}
+            query={initialGraphTallyQuery}
+            productId={productId}
+            viewId={viewId}
+            cardTitle={t('curiosity-graph.socketsHeading')}
+            productLabel={productLabel}
+          />
+        </PageSection>
+        <PageSection>
+          <InventoryTabs productId={productId}>
+            <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'hosts' })}>
+              <ConnectedInventoryList
+                key={`inv-list-${productId}`}
+                filterGuestsData={initialGuestsFilters}
+                filterInventoryData={initialInventoryFilters}
                 productId={productId}
-                query={initialInventorySubscriptionsQuery}
+                settings={initialInventorySettings}
+                query={initialInventoryHostsQuery}
                 viewId={viewId}
               />
             </InventoryTab>
-          )}
-        </InventoryTabs>
-      </PageSection>
-    </PageLayout>
+            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && (
+              <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
+                <ConnectedInventorySubscriptions
+                  key={`inv-subs-${productId}`}
+                  filterInventoryData={initialSubscriptionsInventoryFilters}
+                  productId={productId}
+                  query={initialInventorySubscriptionsQuery}
+                  viewId={viewId}
+                />
+              </InventoryTab>
+            )}
+          </InventoryTabs>
+        </PageSection>
+      </PageLayout>
+    </ProductContext.Provider>
   );
 };
 
@@ -161,16 +167,17 @@ ProductView.propTypes = {
     pathParameter: PropTypes.string,
     productParameter: PropTypes.string,
     viewParameter: PropTypes.string
-  }).isRequired,
+  }),
   t: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate}}
+ * @type {{t: Function, routeDetail: object}}
  */
 ProductView.defaultProps = {
+  routeDetail: {},
   t: translate
 };
 

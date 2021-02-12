@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouterContext should apply a hook for useProductContext: useProductContext 1`] = `
+<Fragment>
+  [
+  {
+    "lorem": "ipsum"
+  },
+  {
+    "dolor": "sit"
+  }
+]
+</Fragment>
+`;

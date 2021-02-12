@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouterContext should apply a hook for useLocation: useLocation 1`] = `
+<Fragment>
+  {
+  "dolor": "sit"
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply a hook for useRouteContext: useRouteContext 1`] = `
+<Fragment>
+  {
+  "routeDetail": {
+    "lorem": "ipsum"
+  },
+  "location": {
+    "dolor": "sit"
+  }
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply a hook for useRouteDetail: useRouteDetail 1`] = `
+<Fragment>
+  {
+  "lorem": "ipsum"
+}
+</Fragment>
+`;
