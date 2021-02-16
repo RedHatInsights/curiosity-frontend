@@ -23,6 +23,7 @@ import {
 import { GuestsList } from '../guestsList/guestsList';
 import { translate } from '../i18n/i18n';
 import { ProductContext } from './productContext';
+import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 
 /**
  * ToDo: base for default product layouts, add additional props for various toolbars
@@ -100,7 +101,9 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
             viewId={viewId}
             cardTitle={t('curiosity-graph.socketsHeading')}
             productLabel={productLabel}
-          />
+          >
+            <ToolbarFieldGranularity viewId={viewId} value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} />
+          </ConnectedGraphCard>
         </PageSection>
         <PageSection>
           <InventoryTabs productId={productId}>
