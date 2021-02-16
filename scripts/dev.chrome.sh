@@ -91,6 +91,13 @@ buildChrome()
     printf "\n${GREEN}Build SUCCESS${NOCOLOR}"
   fi
 
+  if [ ! -d $DIR_REPO/build ]; then
+    printf "\n${YELLOW}Build output failed, confirm recent chroming updates didn't alter the output directory.${NOCOLOR}\n"
+    exit 0
+  else
+    printf "\n${GREEN}Build SUCCESS${NOCOLOR}"
+  fi
+
   printf "\n${YELLOW}Setting up local chrome ...${NOCOLOR}"
 
   mkdir -p $DIR_PUBLIC
