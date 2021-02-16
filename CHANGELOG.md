@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.3.0...v1.4.0) (2021-02-16)
+
+
+### Features
+
+* **actionRecordMiddleware:** issues/52 limited action log ([#561](https://github.com/RedHatInsights/curiosity-frontend/issues/561)) ([cf460f3](https://github.com/RedHatInsights/curiosity-frontend/commit/cf460f39ebd535ba7187bdcfd2aae6ca9c042c8f))
+* **build:** issues/532 spelling checks ([#534](https://github.com/RedHatInsights/curiosity-frontend/issues/534)) ([5152188](https://github.com/RedHatInsights/curiosity-frontend/commit/51521883218f42067d457e3f47baa54deb7252ca))
+* **inventoryList:** issues/476 activate display name search ([#554](https://github.com/RedHatInsights/curiosity-frontend/issues/554)) ([6a47860](https://github.com/RedHatInsights/curiosity-frontend/commit/6a47860b503ae3bee9a66fe2099db58f7442ccd1))
+* **inventorySubscriptions:** issues/491 basic inventory ([#522](https://github.com/RedHatInsights/curiosity-frontend/issues/522)) ([7265108](https://github.com/RedHatInsights/curiosity-frontend/commit/7265108b57ab99f35c23b362aec1a37dc3b1c9cf))
+* **productView:** issues/524 display satellite ([#538](https://github.com/RedHatInsights/curiosity-frontend/issues/538)) ([266d3e0](https://github.com/RedHatInsights/curiosity-frontend/commit/266d3e038f6a476ec3b8ddd69c613728ecd541cb))
+* **rhsmServices,redux:** issues/491 initial api, state setup ([#517](https://github.com/RedHatInsights/curiosity-frontend/issues/517)) ([ffecb3f](https://github.com/RedHatInsights/curiosity-frontend/commit/ffecb3f3ace5823da3ba6a191357688e4db1097e))
+* **tabs,inventoryTabs:** issues/491 pf tab wrapper ([#517](https://github.com/RedHatInsights/curiosity-frontend/issues/517)) ([00d2b95](https://github.com/RedHatInsights/curiosity-frontend/commit/00d2b95e157de445e94568c8c2184ee834444a64))
+* **toolbarFieldDisplayName:** issues/476 search component ([#552](https://github.com/RedHatInsights/curiosity-frontend/issues/552)) ([684ccf0](https://github.com/RedHatInsights/curiosity-frontend/commit/684ccf0dc67ceca8956806b0d585322121424777))
+
+
+### Bug Fixes
+
+* **actionRecordMiddleware:** issues/52 limit and data adjustment ([#562](https://github.com/RedHatInsights/curiosity-frontend/issues/562)) ([e1cfeaf](https://github.com/RedHatInsights/curiosity-frontend/commit/e1cfeafdf22d8e272654365593ec3907fbe86a25))
+* **apiQueries:** issues/491 query breakout, rename ([#517](https://github.com/RedHatInsights/curiosity-frontend/issues/517)) ([2dfef58](https://github.com/RedHatInsights/curiosity-frontend/commit/2dfef5850ac01079ca8549a98e7e2a11c83255b2))
+* **bannerMessages:** issues/541 state updates for filters ([#565](https://github.com/RedHatInsights/curiosity-frontend/issues/565)) ([87080ad](https://github.com/RedHatInsights/curiosity-frontend/commit/87080ade03a334ed334b37e11e516128ac48786c))
+* **c3Chart:** remove c3 and related components ([#549](https://github.com/RedHatInsights/curiosity-frontend/issues/549)) ([d2bef6e](https://github.com/RedHatInsights/curiosity-frontend/commit/d2bef6ec5f2fd9dd9c6c6a2b11d617fe3579f8c9))
+* **checkbox,select:** normalize props, update annotations ([#552](https://github.com/RedHatInsights/curiosity-frontend/issues/552)) ([ffbe1dc](https://github.com/RedHatInsights/curiosity-frontend/commit/ffbe1dc27e44cfeea940f6ed540e6c520b2ac35d))
+* **checkbox,textInput:** consistent name, id attributes ([#564](https://github.com/RedHatInsights/curiosity-frontend/issues/564)) ([db5491a](https://github.com/RedHatInsights/curiosity-frontend/commit/db5491a8fdcbd4a0c33e4d0682c1b8dcbb149fe1))
+* **inventoryList:** consistent hide, aria-hidden attributes ([#555](https://github.com/RedHatInsights/curiosity-frontend/issues/555)) ([adb9d33](https://github.com/RedHatInsights/curiosity-frontend/commit/adb9d3382440d9a0f0a7d638b0d8c1e2420801e5))
+* **inventoryList:** issues/403 minHeight update on error ([#563](https://github.com/RedHatInsights/curiosity-frontend/issues/563)) ([bbee4f6](https://github.com/RedHatInsights/curiosity-frontend/commit/bbee4f6c32e94eba48443c7acd57e1a02eb17cff))
+* **inventoryList:** issues/476 hide field on zero results ([#555](https://github.com/RedHatInsights/curiosity-frontend/issues/555)) ([a0f7047](https://github.com/RedHatInsights/curiosity-frontend/commit/a0f7047122da0d625c3393061ce6b21e193edcc5))
+* **inventoryList:** issues/476 show field on zero results ([#556](https://github.com/RedHatInsights/curiosity-frontend/issues/556)) ([ea9b42f](https://github.com/RedHatInsights/curiosity-frontend/commit/ea9b42f6184b6df75e766ba4e76c1fd71daff1f3))
+* **inventorySubscriptions:** issues/491 dotenv disable ([#522](https://github.com/RedHatInsights/curiosity-frontend/issues/522)) ([55d6078](https://github.com/RedHatInsights/curiosity-frontend/commit/55d607806774bafc8f282f8f27bf5b70a585bddf))
+* **pagination:** issues/491 missing limit, offset query ([#547](https://github.com/RedHatInsights/curiosity-frontend/issues/547)) ([a1685d7](https://github.com/RedHatInsights/curiosity-frontend/commit/a1685d7d29600e7bea069a563c867c6c9383c4c0))
+* **productView:** issues/539 product label string ([#540](https://github.com/RedHatInsights/curiosity-frontend/issues/540)) ([c6f99eb](https://github.com/RedHatInsights/curiosity-frontend/commit/c6f99eb27680c821ac70b2ff10f70e2d469e6bfa))
+* **reduxHelpers:** response message status range ([#570](https://github.com/RedHatInsights/curiosity-frontend/issues/570)) ([9427794](https://github.com/RedHatInsights/curiosity-frontend/commit/9427794b15880d6671299991a569aa80dc4419b3))
+* **rhsmApiTypes:** issues/553 update satellite product ids ([#558](https://github.com/RedHatInsights/curiosity-frontend/issues/558)) ([db43d10](https://github.com/RedHatInsights/curiosity-frontend/commit/db43d1001708c026378bbbf066e248564d9defbe))
+* **rhsmApiTypes:** query date to last_seen type ([#517](https://github.com/RedHatInsights/curiosity-frontend/issues/517)) ([8c4191c](https://github.com/RedHatInsights/curiosity-frontend/commit/8c4191cc92911942af16b540574f6ee8a986da42))
+* **router,routerTypes:** issues/476 remove competing routes ([#545](https://github.com/RedHatInsights/curiosity-frontend/issues/545)) ([ef5ebcc](https://github.com/RedHatInsights/curiosity-frontend/commit/ef5ebcc85fc547b5233fb4bea098cb8f1f604b1a))
+* **routerConfig:** rename from routerTypes ([#545](https://github.com/RedHatInsights/curiosity-frontend/issues/545)) ([29f3725](https://github.com/RedHatInsights/curiosity-frontend/commit/29f3725f07b10ab6019aa7f9b7114185d06999f8))
+* **style:** issues/476 remove focus style on tab content ([#557](https://github.com/RedHatInsights/curiosity-frontend/issues/557)) ([71644b0](https://github.com/RedHatInsights/curiosity-frontend/commit/71644b04d9c6e978466770a60b342d8b786c0d05))
+* **tabs:** issues/491 apply tabs background color ([#535](https://github.com/RedHatInsights/curiosity-frontend/issues/535)) ([cc993b3](https://github.com/RedHatInsights/curiosity-frontend/commit/cc993b34184b1103ca79d839f8c7e07289eda939))
+* **toolbar:** issues/541 state updates for filters ([#564](https://github.com/RedHatInsights/curiosity-frontend/issues/564)) ([389f786](https://github.com/RedHatInsights/curiosity-frontend/commit/389f7862e39eed1d67ad12cf714917a2c4c439cd))
+* **toolbarFieldDisplayName:** issues/476 allow enter submit ([#556](https://github.com/RedHatInsights/curiosity-frontend/issues/556)) ([5f83bc3](https://github.com/RedHatInsights/curiosity-frontend/commit/5f83bc30807c9c29e5f984d6ec8f5ffbf34f5c2a))
+* **toolbarFieldDisplayName:** issues/559 remove min char check ([#560](https://github.com/RedHatInsights/curiosity-frontend/issues/560)) ([7208660](https://github.com/RedHatInsights/curiosity-frontend/commit/7208660b87e9ab0263a74ec94efebf84868dbbbf))
+* **toolbarFieldDisplayName:** issues/569 maxlength char limit ([#570](https://github.com/RedHatInsights/curiosity-frontend/issues/570)) ([b3d5e4f](https://github.com/RedHatInsights/curiosity-frontend/commit/b3d5e4fcd237d04df7e1c606b1619ae47bc29976))
+* **toolbarHelpers:** rename from toolbarTypes ([#545](https://github.com/RedHatInsights/curiosity-frontend/issues/545)) ([f358041](https://github.com/RedHatInsights/curiosity-frontend/commit/f358041c4aa45f6f46bd7875aaffadb144557bd8))
+
+
+### Performance Improvements
+
+* **graphCard:** issues/407 update granularity field  ([#548](https://github.com/RedHatInsights/curiosity-frontend/issues/548)) ([a473c73](https://github.com/RedHatInsights/curiosity-frontend/commit/a473c730fe6d4a7bd7b04a60d197708fe3a2bb79))
+* **openshiftView:** issues/407 update uom field ([#551](https://github.com/RedHatInsights/curiosity-frontend/issues/551)) ([efcdf03](https://github.com/RedHatInsights/curiosity-frontend/commit/efcdf03bd8b6f27693657f41d2adb5c5f38b042f))
+* **pagination:** move redux on page into inventory ([#547](https://github.com/RedHatInsights/curiosity-frontend/issues/547)) ([cf248dc](https://github.com/RedHatInsights/curiosity-frontend/commit/cf248dcee4f6c8b5dfe5243c98c0296aa5058338))
+* **redux:** useSelector, useDispatch redux hooks ([#548](https://github.com/RedHatInsights/curiosity-frontend/issues/548)) ([7bc64fd](https://github.com/RedHatInsights/curiosity-frontend/commit/7bc64fdf15e62c2d96424da07161ac9ee1e81e65))
+* **rhsmServices:** apply service layer cache ([#544](https://github.com/RedHatInsights/curiosity-frontend/issues/544)) ([903e0ae](https://github.com/RedHatInsights/curiosity-frontend/commit/903e0ae99a305919a7bde18f8b5e38cacaa953a1))
+* **toolbarFieldGranularity:** issues/407 toolbar components ([#548](https://github.com/RedHatInsights/curiosity-frontend/issues/548)) ([e8a0efc](https://github.com/RedHatInsights/curiosity-frontend/commit/e8a0efc320a62495070e1a0b643f2343b495f6c8))
+* **toolbarFieldUom:** issues/407 toolbar components ([#548](https://github.com/RedHatInsights/curiosity-frontend/issues/548)) ([a2a242d](https://github.com/RedHatInsights/curiosity-frontend/commit/a2a242dbb846566b5b3170ad6a90fffd8a3dbebd))
+
 ## [1.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.2.0...v1.3.0) (2020-12-15)
 
 
