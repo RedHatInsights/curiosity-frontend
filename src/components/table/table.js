@@ -184,7 +184,7 @@ class Table extends React.Component {
       }
 
       cells.forEach(cell => {
-        if (cell.title !== undefined) {
+        if (cell?.title !== undefined) {
           const { title, ...settings } = cell;
           rowObj.cells.push({ title, ...settings });
         } else {
@@ -196,7 +196,7 @@ class Table extends React.Component {
     });
 
     columnHeaders.forEach((columnHeader, index) => {
-      if (columnHeader.title !== undefined) {
+      if (columnHeader?.title !== undefined) {
         const { onSort, sortActive, sortDirection, title, ...settings } = columnHeader;
         const tempColumnHeader = {
           title,
@@ -339,8 +339,9 @@ Table.propTypes = {
       cells: PropTypes.arrayOf(
         PropTypes.oneOfType([
           PropTypes.node,
+          PropTypes.instanceOf(Date),
           PropTypes.shape({
-            title: PropTypes.node.isRequired
+            title: PropTypes.oneOfType([PropTypes.node, PropTypes.instanceOf(Date)]).isRequired
           })
         ])
       ),
