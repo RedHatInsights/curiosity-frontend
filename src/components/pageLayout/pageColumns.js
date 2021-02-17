@@ -17,7 +17,7 @@ const PageColumns = ({ children, className }) => (
       .filter(child => React.isValidElement(child))
       .map(child => (
         <FlexItem
-          key={helpers.generateId()}
+          key={(child.key && `page-column-${child.key}`) || helpers.generateId()}
           style={{ flexBasis: 0 }}
           grow={{ sm: 'grow' }}
           className="curiosity-page-columns-column"
