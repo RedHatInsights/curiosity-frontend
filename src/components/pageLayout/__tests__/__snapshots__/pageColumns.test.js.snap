@@ -22,7 +22,7 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
             "sm": "grow",
           }
         }
-        key="generatedid-"
+        key="page-column-.0"
         style={
           Object {
             "flexBasis": 0,
@@ -52,7 +52,7 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
             "sm": "grow",
           }
         }
-        key="generatedid-"
+        key="page-column-.$hello-world"
         style={
           Object {
             "flexBasis": 0,
@@ -69,7 +69,7 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
         >
           <span
             className="sit"
-            key=".1"
+            key=".$hello-world"
           >
             ipsum
           </span>
