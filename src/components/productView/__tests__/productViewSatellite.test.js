@@ -5,13 +5,7 @@ import { parseRowCellsListData } from '../../inventoryList/inventoryListHelpers'
 
 describe('ProductViewSatellite Component', () => {
   it('should render a non-connected component', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productParameter: 'dolor sit'
-      }
-    };
-
+    const props = {};
     const component = shallow(<ProductViewSatellite {...props} />);
     expect(component).toMatchSnapshot('non-connected');
   });
