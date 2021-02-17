@@ -32,7 +32,7 @@ const platformModalRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_en
 const routes = [
   {
     to: '/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)',
-    component: React.lazy(() => import('../rhelView/rhelView')),
+    component: React.lazy(() => import('../productView/productViewRhel')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED

@@ -274,7 +274,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/productView/productViewSatellite.js",
+    "file": "./src/components/productView/productViewRhel.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.header",
@@ -295,24 +295,8 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/rhelView/rhelView.js",
+    "file": "./src/components/productView/productViewSatellite.js",
     "keys": Array [
-      Object {
-        "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
-      },
-      Object {
-        "key": "curiosity-graph.socketsHeading",
-        "match": "t('curiosity-graph.socketsHeading')",
-      },
-      Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
-      },
-      Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
-      },
       Object {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
@@ -537,19 +521,11 @@ Array [
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/productView/productViewSatellite.js",
+    "file": "./src/components/productView/productViewRhel.js",
     "key": "curiosity-inventory.label",
   },
   Object {
-    "file": "./src/components/rhelView/rhelView.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/rhelView/rhelView.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/rhelView/rhelView.js",
+    "file": "./src/components/productView/productViewSatellite.js",
     "key": "curiosity-inventory.label",
   },
   Object {
