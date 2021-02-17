@@ -10,7 +10,9 @@ describe('PageColumns Component', () => {
     const component = mount(
       <PageColumns {...props}>
         <span className="dolor">lorem</span>
-        <span className="sit">ipsum</span>
+        <span key="hello-world" className="sit">
+          ipsum
+        </span>
       </PageColumns>
     );
 
