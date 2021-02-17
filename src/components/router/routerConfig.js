@@ -34,7 +34,7 @@ const routes = [
     id: 'rhel-sw',
     to: '/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)',
     redirect: '/rhel-sw/all',
-    component: React.lazy(() => import('../rhelView/rhelView')),
+    component: React.lazy(() => import('../productView/productViewRhel')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED
