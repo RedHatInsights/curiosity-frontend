@@ -143,7 +143,7 @@ const ProductView = ({ graphCardToolbar, productConfig, routeDetail, t }) => {
   );
 };
 
-/**s
+/**
  * Prop types.
  *
  * @type {{graphCardToolbar: Node, t: Function, routeDetail: object, productConfig: object}}
