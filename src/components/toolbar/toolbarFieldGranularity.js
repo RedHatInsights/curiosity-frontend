@@ -29,7 +29,7 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  */
 const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
   const updatedValue = useSelector(
-    ({ view }) => view.graphTallyQuery?.[RHSM_API_QUERY_TYPES.GRANULARITY]?.[viewId],
+    ({ view }) => view.graphTallyQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.GRANULARITY],
     value
   );
 
