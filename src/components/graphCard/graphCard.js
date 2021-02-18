@@ -1,126 +1,98 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardTitle, CardHeader, CardActions, CardBody, Title } from '@patternfly/react-core';
-import _isEqual from 'lodash/isEqual';
 import { connect, reduxActions, reduxSelectors } from '../../redux';
-import { helpers, dateHelpers } from '../../common';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { helpers, dateHelpers, contextHelpers } from '../../common';
+import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
 import { GraphCardChart } from './graphCardChart';
+import { useRouteDetail } from '../router/routerContext';
+import { useGraphTallyQuery } from '../productView/productContext';
 
 /**
  * A chart/graph card.
  *
- * @augments React.Component
- * @fires onUpdateGraphData
+ * @param {object} props
+ * @param {string} props.cardTitle
+ * @param {Node} props.children
+ * @param {boolean} props.error
+ * @param {Function} props.getGraphReportsCapacity
+ * @param {object} props.graphData
+ * @param {boolean} props.isDisabled
+ * @param {boolean} props.pending
+ * @returns {Node}
  */
-class GraphCard extends React.Component {
-  componentDidMount() {
-    this.onUpdateGraphData();
-  }
-
-  componentDidUpdate(prevProps) {
-    const { productId, query } = this.props;
-
-    if (productId !== prevProps.productId || !_isEqual(query, prevProps.query)) {
-      this.onUpdateGraphData();
-    }
-  }
+const GraphCard = ({ cardTitle, children, error, getGraphReportsCapacity, graphData, isDisabled, pending } = {}) => {
+  const { pathParameter: productId } = useRouteDetail();
+  const updatedQuery = useGraphTallyQuery();
+  const granularity = updatedQuery?.[RHSM_API_QUERY_TYPES.GRANULARITY];
 
   /**
-   * Call the RHSM APIs, apply filters.
-   *
-   * @event onUpdateGraphData
+   * Call the API, apply query.
    */
-  onUpdateGraphData = () => {
-    const { getGraphReportsCapacity, isDisabled, productId, query } = this.props;
-    const graphGranularity = this.getQueryGranularity();
-
-    if (!isDisabled && graphGranularity && productId) {
-      const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
+  contextHelpers.useDeepCompareEffect(() => {
+    if (!isDisabled && granularity && productId) {
+      const { startDate, endDate } = dateHelpers.getRangedDateTime(granularity);
       const graphQuery = {
         [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString(),
         [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString(),
-        ...query
+        ...updatedQuery
       };
 
       getGraphReportsCapacity(productId, graphQuery);
     }
-  };
+  }, [getGraphReportsCapacity, isDisabled, granularity, productId, updatedQuery]);
 
-  getQueryGranularity() {
-    const { query } = this.props;
-    return query?.[RHSM_API_QUERY_TYPES.GRANULARITY];
+  if (isDisabled) {
+    return null;
   }
 
-  /**
-   * Render a chart/graph card with chart/graph.
-   *
-   * @returns {Node}
-   */
-  render() {
-    const { cardTitle, children, error, graphData, isDisabled, pending } = this.props;
-
-    if (isDisabled) {
-      return null;
-    }
-
-    const graphGranularity = this.getQueryGranularity();
-
-    return (
-      <Card className="curiosity-usage-graph">
-        <MinHeight key="headerMinHeight">
-          <CardHeader>
-            <CardTitle>
-              <Title headingLevel="h2" size="lg">
-                {cardTitle}
-              </Title>
-            </CardTitle>
-            <CardActions className={(error && 'blur') || ''}>{children}</CardActions>
-          </CardHeader>
-        </MinHeight>
-        <MinHeight key="bodyMinHeight">
-          <CardBody>
-            <div className={(error && 'blur') || 'fadein'}>
-              {pending && <Loader variant="graph" />}
-              {!pending && <GraphCardChart granularity={graphGranularity} graphData={graphData} />}
-            </div>
-          </CardBody>
-        </MinHeight>
-      </Card>
-    );
-  }
-}
+  return (
+    <Card className="curiosity-usage-graph">
+      <MinHeight key="headerMinHeight">
+        <CardHeader>
+          <CardTitle>
+            <Title headingLevel="h2" size="lg">
+              {cardTitle}
+            </Title>
+          </CardTitle>
+          <CardActions className={(error && 'blur') || ''}>{children}</CardActions>
+        </CardHeader>
+      </MinHeight>
+      <MinHeight key="bodyMinHeight">
+        <CardBody>
+          <div className={(error && 'blur') || 'fadein'}>
+            {pending && <Loader variant="graph" />}
+            {!pending && <GraphCardChart granularity={granularity} graphData={graphData} />}
+          </div>
+        </CardBody>
+      </MinHeight>
+    </Card>
+  );
+};
 
 /**
  * Prop types.
  *
- * @type {{productLabel: string, productId: string, pending: boolean, error: boolean, query: object,
- *     cardTitle: string, filterGraphData: Array, getGraphReportsCapacity: Function,
- *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
+ * @type {{getGraphReportsCapacity: Function, children: Node, pending: boolean, graphData: object,
+ *     isDisabled: boolean, error: boolean, cardTitle: Node}}
  */
 GraphCard.propTypes = {
-  cardTitle: PropTypes.string,
+  cardTitle: PropTypes.node,
   children: PropTypes.node,
   error: PropTypes.bool,
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
-  query: PropTypes.shape({
-    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired
-  }).isRequired,
   isDisabled: PropTypes.bool,
-  pending: PropTypes.bool,
-  productId: PropTypes.string.isRequired,
-  viewId: PropTypes.string
+  pending: PropTypes.bool
 };
 
 /**
  * Default props.
  *
- * @type {{getGraphReportsCapacity: Function, productLabel: string, viewId: string, t: translate,
- *     children: Node, pending: boolean, graphData: object, isDisabled: boolean, error: boolean,
- *     cardTitle: string, filterGraphData: Array}}
+ * @type {{getGraphReportsCapacity: Function, children: Node, pending: boolean, graphData: object,
+ *     isDisabled: boolean, error: boolean, cardTitle: Node}}
  */
 GraphCard.defaultProps = {
   cardTitle: null,
@@ -129,8 +101,7 @@ GraphCard.defaultProps = {
   getGraphReportsCapacity: helpers.noop,
   graphData: {},
   isDisabled: helpers.UI_DISABLED_GRAPH,
-  pending: false,
-  viewId: 'graphCard'
+  pending: false
 };
 
 /**

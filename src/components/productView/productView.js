@@ -40,19 +40,19 @@ import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
  * Display a product.
  *
  * @param {object} props
+ * @param {Node} props.graphCardToolbar
  * @param {object} props.productConfig
  * @param {object} props.routeDetail
  * @param {Function} props.t
  * @returns {Node}
  */
-const ProductView = ({ productConfig, routeDetail, t }) => {
+const ProductView = ({ graphCardToolbar, productConfig, routeDetail, t }) => {
   const {
     graphTallyQuery,
     inventoryHostsQuery,
     inventorySubscriptionsQuery,
     query,
     initialToolbarFilters,
-    initialGraphFilters,
     initialGuestsFilters,
     initialInventoryFilters,
     initialInventorySettings,
@@ -75,6 +75,14 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
     return null;
   }
 
+  /**
+   * ToDo: clean up all props, specifically props for viewId, productId, and query once api normalizing is active
+   * The api normalizing should allow removing conditions and some transformations from the selectors. However,
+   * the existing selectors make use of passed props to perform checks, which is why we're temporarily leaving
+   * them in place even though they're not directly consumed in the component. The current components use hooks
+   * and will need to be updated:
+   * - graphCard
+   */
   return (
     <ProductContext.Provider value={productConfig}>
       <PageLayout>
@@ -95,13 +103,12 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
         <PageSection>
           <ConnectedGraphCard
             key={`graph-card-${productId}`}
-            filterGraphData={initialGraphFilters}
             query={initialGraphTallyQuery}
             productId={productId}
             viewId={viewId}
             cardTitle={t('curiosity-graph.socketsHeading')}
-            productLabel={productLabel}
           >
+            {graphCardToolbar}
             <ToolbarFieldGranularity viewId={viewId} value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} />
           </ConnectedGraphCard>
         </PageSection>
@@ -136,12 +143,13 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
   );
 };
 
-/**
+/**s
  * Prop types.
  *
- * @type {{t: Function, routeDetail: object, productConfig: object}}
+ * @type {{graphCardToolbar: Node, t: Function, routeDetail: object, productConfig: object}}
  */
 ProductView.propTypes = {
+  graphCardToolbar: PropTypes.node,
   productConfig: PropTypes.shape({
     graphTallyQuery: PropTypes.shape({
       [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
@@ -177,9 +185,10 @@ ProductView.propTypes = {
 /**
  * Default props.
  *
- * @type {{t: Function, routeDetail: object}}
+ * @type {{graphCardToolbar: Node, t: Function, routeDetail: object}}
  */
 ProductView.defaultProps = {
+  graphCardToolbar: null,
   routeDetail: {},
   t: translate
 };
