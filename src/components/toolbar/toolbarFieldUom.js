@@ -28,7 +28,7 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  * @returns {Node}
  */
 const ToolbarFieldUom = ({ options, t, value, viewId }) => {
-  const updatedValue = useSelector(({ view }) => view.query?.[RHSM_API_QUERY_TYPES.UOM]?.[viewId], value);
+  const updatedValue = useSelector(({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.UOM], value);
 
   const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
 
