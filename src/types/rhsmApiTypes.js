@@ -203,6 +203,8 @@ const RHSM_API_PATH_ID_TYPES = {
   RHEL_IBM_Z: 'RHEL for IBM z',
   RHEL_X86: 'RHEL for x86',
   OPENSHIFT: 'OpenShift Container Platform',
+  OPENSHIFT_CONTAINER_PLATFORM: 'OpenShift Container Platform',
+  OPENSHIFT_DEDICATED: 'OpenShift Dedicated',
   SATELLITE: 'Satellite',
   SATELLITE_CAPSULE: 'Satellite Capsule',
   SATELLITE_SERVER: 'Satellite Server'
