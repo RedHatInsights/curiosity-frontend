@@ -18,7 +18,8 @@ import {
   RHSM_API_QUERY_SORT_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES
 } from '../../types/rhsmApiTypes';
-import { ConnectedProductView, ProductView } from './productView';
+import { ProductContext } from './productContext';
+import { ProductView } from './productView';
 import { translate } from '../i18n/i18n';
 import { helpers } from '../../common';
 
@@ -30,9 +31,21 @@ import { helpers } from '../../common';
  * @param {object} props.routeDetail
  * @returns {Node}
  */
-const ProductViewRhel = ({ productConfig, routeDetail }) => (
-  <ConnectedProductView routeDetail={routeDetail} productConfig={productConfig} />
-);
+const ProductViewRhel = ({ productConfig, routeDetail }) => {
+  const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
+  const updatedProductConfig = {
+    ...productConfig,
+    productId,
+    productLabel,
+    viewId
+  };
+
+  return (
+    <ProductContext.Provider value={updatedProductConfig}>
+      <ProductView />
+    </ProductContext.Provider>
+  );
+};
 
 /**
  * Prop types.

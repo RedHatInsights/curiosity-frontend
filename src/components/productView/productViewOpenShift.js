@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark,
-  chart_color_cyan_100 as chartColorCyanLight,
-  chart_color_cyan_300 as chartColorCyanDark,
-  chart_color_purple_100 as chartColorPurpleLight,
-  chart_color_purple_300 as chartColorPurpleDark
+  chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/DateFormat';
@@ -16,25 +12,28 @@ import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES
+  RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES,
+  RHSM_API_QUERY_UOM_TYPES
 } from '../../types/rhsmApiTypes';
 import { ProductContext } from './productContext';
 import { ProductView } from './productView';
+import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { translate } from '../i18n/i18n';
 import { helpers } from '../../common';
 
 /**
- * A Red Hat Satellite configured view, and related system architectures.
+ * An OpenShift configured view, and related system variations.
  *
  * @param {object} props
  * @param {object} props.productConfig
  * @param {object} props.routeDetail
  * @returns {Node}
  */
-const ProductViewSatellite = ({ productConfig, routeDetail }) => {
+const ProductViewOpenShift = ({ productConfig, routeDetail }) => {
   const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
   const updatedProductConfig = {
     ...productConfig,
+    productContextFilterUom: true,
     productId,
     productLabel,
     viewId
@@ -42,7 +41,11 @@ const ProductViewSatellite = ({ productConfig, routeDetail }) => {
 
   return (
     <ProductContext.Provider value={updatedProductConfig}>
-      <ProductView />
+      <ProductView
+        graphCardToolbar={
+          <ToolbarFieldUom value={updatedProductConfig.query[RHSM_API_QUERY_TYPES.UOM]} viewId={viewId} />
+        }
+      />
     </ProductContext.Provider>
   );
 };
@@ -50,9 +53,9 @@ const ProductViewSatellite = ({ productConfig, routeDetail }) => {
 /**
  * Prop types.
  *
- * @type {{routeDetail: object, productConfig:object}}
+ * @type {{routeDetail:object, productConfig:object}}
  */
-ProductViewSatellite.propTypes = {
+ProductViewOpenShift.propTypes = {
   productConfig: ProductView.propTypes.productConfig,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string,
@@ -64,11 +67,13 @@ ProductViewSatellite.propTypes = {
 /**
  * Default props.
  *
- * @type {{ productConfig: object }}
+ * @type {{routeDetail:object, productConfig:object}}
  */
-ProductViewSatellite.defaultProps = {
+ProductViewOpenShift.defaultProps = {
   productConfig: {
-    query: {},
+    query: {
+      [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES
+    },
     graphTallyQuery: {
       [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
     },
@@ -86,24 +91,21 @@ ProductViewSatellite.defaultProps = {
     },
     initialGraphFilters: [
       {
-        id: 'physicalSockets',
+        id: 'cores',
+        isOptional: true,
         fill: chartColorBlueLight.value,
         stroke: chartColorBlueDark.value,
         color: chartColorBlueDark.value
       },
       {
-        id: 'hypervisorSockets',
-        fill: chartColorCyanLight.value,
-        stroke: chartColorCyanDark.value,
-        color: chartColorCyanDark.value
+        id: 'sockets',
+        isOptional: true,
+        fill: chartColorBlueLight.value,
+        stroke: chartColorBlueDark.value,
+        color: chartColorBlueDark.value
       },
-      {
-        id: 'cloudSockets',
-        fill: chartColorPurpleLight.value,
-        stroke: chartColorPurpleDark.value,
-        color: chartColorPurpleDark.value
-      },
-      { id: 'thresholdSockets' }
+      { id: 'thresholdSockets', isOptional: true },
+      { id: 'thresholdCores', isOptional: true }
     ],
     initialGuestsFilters: [
       {
@@ -205,6 +207,14 @@ ProductViewSatellite.defaultProps = {
       },
       {
         id: 'sockets',
+        isOptional: true,
+        isSortable: true,
+        isWrappable: true,
+        cellWidth: 15
+      },
+      {
+        id: 'cores',
+        isOptional: true,
         isSortable: true,
         isWrappable: true,
         cellWidth: 15
@@ -241,13 +251,9 @@ ProductViewSatellite.defaultProps = {
     initialToolbarFilters: [
       {
         id: RHSM_API_QUERY_TYPES.SLA
-      },
-      {
-        id: RHSM_API_QUERY_TYPES.USAGE,
-        selected: true
       }
     ]
   }
 };
 
-export { ProductViewSatellite as default, ProductViewSatellite };
+export { ProductViewOpenShift as default, ProductViewOpenShift };

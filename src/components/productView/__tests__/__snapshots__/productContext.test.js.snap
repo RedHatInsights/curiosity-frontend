@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouterContext should apply a hook for useProductContext: useProductContext 1`] = `
+<Fragment>
+  {
+  "lorem": "ipsum",
+  "productContextFilterUom": true,
+  "query": {
+    "uom": "cores"
+  },
+  "initialGraphFilters": [
+    {
+      "id": "cores",
+      "isOptional": true,
+      "value": "hello"
+    },
+    {
+      "id": "test id",
+      "value": "test value"
+    }
+  ],
+  "initialInventoryFilters": [],
+  "initialSubscriptionsInventoryFilters": []
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply a hook for useProductContext: useProductContext with uom filter, cores 1`] = `
+<Fragment>
+  {
+  "lorem": "ipsum",
+  "productContextFilterUom": true,
+  "query": {
+    "uom": "cores"
+  },
+  "initialGraphFilters": [
+    {
+      "id": "cores",
+      "isOptional": true,
+      "value": "hello"
+    },
+    {
+      "id": "test id",
+      "value": "test value"
+    }
+  ],
+  "initialInventoryFilters": [],
+  "initialSubscriptionsInventoryFilters": []
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply a hook for useProductContext: useProductContext with uom filter, sockets 1`] = `
+<Fragment>
+  {
+  "lorem": "ipsum",
+  "productContextFilterUom": true,
+  "query": {
+    "uom": "sockets"
+  },
+  "initialGraphFilters": [
+    {
+      "id": "sockets",
+      "isOptional": true,
+      "value": "world"
+    },
+    {
+      "id": "test id",
+      "value": "test value"
+    }
+  ],
+  "initialInventoryFilters": [],
+  "initialSubscriptionsInventoryFilters": []
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply hooks for querying specific api endpoints: useGraphTallyQuery 1`] = `
+<Fragment>
+  {
+  "dolor": "sit",
+  "lorem": "ipsum"
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply hooks for querying specific api endpoints: useInventoryHostsQuery 1`] = `
+<Fragment>
+  {
+  "dolor": "sit",
+  "sit": "amet"
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply hooks for querying specific api endpoints: useInventorySubscriptionsQuery 1`] = `
+<Fragment>
+  {
+  "dolor": "sit",
+  "et": "elementum"
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply hooks for querying specific api endpoints: useQuery 1`] = `
+<Fragment>
+  {
+  "dolor": "sit"
+}
+</Fragment>
+`;
+
+exports[`RouterContext should apply hooks for querying specific api endpoints: useQueryContext 1`] = `
+<Fragment>
+  {
+  "dolor": "sit"
+}
+</Fragment>
+`;
+
+exports[`RouterContext should return specific properties: specific properties 1`] = `
+Object {
+  "ProductContext": Object {
+    "$$typeof": Symbol(react.context),
+    "Consumer": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": [Circular],
+    },
+    "Provider": Object {
+      "$$typeof": Symbol(react.provider),
+      "_context": [Circular],
+    },
+    "_calculateChangedBits": null,
+    "_currentRenderer": null,
+    "_currentRenderer2": null,
+    "_currentValue": Object {},
+    "_currentValue2": Object {},
+    "_threadCount": 0,
+  },
+  "default": Object {
+    "$$typeof": Symbol(react.context),
+    "Consumer": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": [Circular],
+    },
+    "Provider": Object {
+      "$$typeof": Symbol(react.provider),
+      "_context": [Circular],
+    },
+    "_calculateChangedBits": null,
+    "_currentRenderer": null,
+    "_currentRenderer2": null,
+    "_currentValue": Object {},
+    "_currentValue2": Object {},
+    "_threadCount": 0,
+  },
+  "useGraphTallyQuery": [Function],
+  "useInventoryHostsQuery": [Function],
+  "useInventorySubscriptionsQuery": [Function],
+  "useProductContext": [Function],
+  "useQuery": [Function],
+  "useQueryContext": [Function],
+}
+`;

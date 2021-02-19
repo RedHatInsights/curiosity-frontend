@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages } from '../pageLayout/pageLayout';
-import { apiQueries, connect, reduxSelectors } from '../../redux';
+import {
+  useQuery,
+  useGraphTallyQuery,
+  useInventoryHostsQuery,
+  useInventorySubscriptionsQuery,
+  useProductContext
+} from './productContext';
 import { ConnectedGraphCard, GraphCard } from '../graphCard/graphCard';
 import { ConnectedToolbar, Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList, InventoryList } from '../inventoryList/inventoryList';
@@ -23,48 +29,29 @@ import { GuestsList } from '../guestsList/guestsList';
 import { translate } from '../i18n/i18n';
 
 /**
- * ToDo: base for default product layouts, add additional props for various toolbars
- * Next steps include...
- * Consider being able to pass customized toolbars for GraphCard and the
- * various Inventory displays. Have to evaluate how to handle the global toolbar, one
- * consideration is creating optional widgets with self-contained state update ability
- * based off of context/props/etc.
- *
- * Moving existing products to this layout, or maintaining them "as is", then renaming and
- * relocating them to this directory if they've been customized beyond a basic layout.
- */
-/**
  * Display a product.
  *
  * @param {object} props
- * @param {object} props.productConfig
- * @param {object} props.routeDetail
+ * @param {Node} props.graphCardToolbar
  * @param {Function} props.t
  * @returns {Node}
  */
-const ProductView = ({ productConfig, routeDetail, t }) => {
+const ProductView = ({ graphCardToolbar, t }) => {
   const {
-    graphTallyQuery,
-    inventoryHostsQuery,
-    inventorySubscriptionsQuery,
-    query,
     initialToolbarFilters,
     initialGraphFilters,
     initialGuestsFilters,
     initialInventoryFilters,
     initialInventorySettings,
-    initialSubscriptionsInventoryFilters
-  } = productConfig;
-
-  const {
-    query: initialQuery,
-    graphTallyQuery: initialGraphTallyQuery,
-    inventoryHostsQuery: initialInventoryHostsQuery,
-    inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
-    toolbarQuery: initialToolbarQuery
-  } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
-
-  const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
+    initialSubscriptionsInventoryFilters,
+    productId,
+    productLabel,
+    viewId
+  } = useProductContext();
+  const initialQuery = useQuery();
+  const initialGraphTallyQuery = useGraphTallyQuery();
+  const initialInventoryHostsQuery = useInventoryHostsQuery();
+  const initialInventorySubscriptionsQuery = useInventorySubscriptionsQuery();
 
   if (!productId || !viewId) {
     return null;
@@ -82,7 +69,7 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
         <ConnectedToolbar
           filterOptions={initialToolbarFilters}
           productId={productId}
-          query={initialToolbarQuery}
+          query={initialQuery}
           viewId={viewId}
         />
       </PageToolbar>
@@ -95,7 +82,9 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
           viewId={viewId}
           cardTitle={t('curiosity-graph.socketsHeading')}
           productLabel={productLabel}
-        />
+        >
+          {graphCardToolbar}
+        </ConnectedGraphCard>
       </PageSection>
       <PageSection>
         <InventoryTabs productId={productId}>
@@ -130,9 +119,10 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
 /**
  * Prop types.
  *
- * @type {{t: Function, routeDetail: object, productConfig: object}}
+ * @type {{graphCardToolbar: Node, t: Function, routeDetail: object, productConfig: object}}
  */
 ProductView.propTypes = {
+  graphCardToolbar: PropTypes.node,
   productConfig: PropTypes.shape({
     graphTallyQuery: PropTypes.shape({
       [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
@@ -155,32 +145,23 @@ ProductView.propTypes = {
     initialGuestsFilters: GuestsList.propTypes.filterGuestsData,
     initialInventoryFilters: InventoryList.propTypes.filterInventoryData,
     initialInventorySettings: InventoryList.propTypes.settings,
-    initialSubscriptionsInventoryFilters: InventorySubscriptions.propTypes.filterInventoryData
-  }).isRequired,
-  routeDetail: PropTypes.shape({
-    pathParameter: PropTypes.string,
-    productParameter: PropTypes.string,
-    viewParameter: PropTypes.string
-  }).isRequired,
+    initialSubscriptionsInventoryFilters: InventorySubscriptions.propTypes.filterInventoryData,
+    productId: PropTypes.string,
+    productLabel: PropTypes.string,
+    viewId: PropTypes.string
+  }),
   t: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate}}
+ * @type {{graphCardToolbar: Node, t: translate}}
  */
 ProductView.defaultProps = {
+  productConfig: {},
+  graphCardToolbar: null,
   t: translate
 };
 
-/**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.view.makeView(ProductView.defaultProps);
-
-const ConnectedProductView = connect(makeMapStateToProps)(ProductView);
-
-export { ConnectedProductView as default, ConnectedProductView, ProductView };
+export { ProductView as default, ProductView };
