@@ -148,7 +148,7 @@ exports[`InventorySubscriptions Component should handle variations in data: filt
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <Table
           ariaLabel={null}
@@ -258,7 +258,7 @@ exports[`InventorySubscriptions Component should handle variations in data: vari
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <Table
           ariaLabel={null}
@@ -364,7 +364,7 @@ exports[`InventorySubscriptions Component should render a non-connected componen
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <Table
           ariaLabel={null}
