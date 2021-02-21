@@ -262,7 +262,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <Table
           ariaLabel={null}
@@ -381,7 +381,7 @@ exports[`InventoryList Component should handle variations in data: variable data
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <Table
           ariaLabel={null}
@@ -496,7 +496,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <Table
           ariaLabel={null}
