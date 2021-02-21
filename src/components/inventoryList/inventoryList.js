@@ -242,7 +242,7 @@ class InventoryList extends React.Component {
         </MinHeight>
         <MinHeight key={minHeightContentRefreshKey} updateOnContent>
           <CardBody>
-            <div className={(error && 'blur') || 'fadein'}>
+            <div className={(error && 'blur') || (pending && 'fadein') || ''}>
               {pending && (
                 <Loader
                   variant="table"
