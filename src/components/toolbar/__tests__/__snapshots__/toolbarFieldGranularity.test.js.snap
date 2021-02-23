@@ -57,6 +57,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
   id="generatedid-"
   isDisabled={false}
   isToggleText={true}
+  maxHeight={null}
   name={null}
   onSelect={[Function]}
   options={

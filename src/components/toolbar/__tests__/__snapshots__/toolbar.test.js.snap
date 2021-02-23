@@ -544,6 +544,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
@@ -588,6 +589,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
@@ -630,6 +632,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
@@ -697,6 +700,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
@@ -745,6 +749,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
@@ -791,6 +796,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
@@ -864,6 +870,7 @@ exports[`Toolbar Component should render specific filters when the filterOptions
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
+            maxHeight={null}
             name={null}
             onSelect={[Function]}
             options={
