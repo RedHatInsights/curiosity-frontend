@@ -103,6 +103,8 @@
     "granularity_weekly": "Weekly",
     "granularity_monthly": "Monthly",
     "granularity_quarterly": "Quarterly",
+    "granularityRange": "{{context}}",
+    "granularityRange_current": "This month",
     "slaNone": "No SLA",
     "slaPremium": "Premium",
     "slaSelfSupport": "Self-Support",
