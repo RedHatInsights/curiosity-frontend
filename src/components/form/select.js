@@ -182,9 +182,11 @@ class Select extends React.Component {
    */
   render() {
     const { options, selected, isExpanded } = this.state;
-    const { ariaLabel, className, isDisabled, isToggleText, placeholder, toggleIcon, variant } = this.props;
+    const { ariaLabel, className, isDisabled, isToggleText, maxHeight, placeholder, toggleIcon, variant } = this.props;
 
-    const pfSelectOptions = {};
+    const pfSelectOptions = {
+      maxHeight
+    };
 
     // FixMe: investigate "isDisabled", PFReact quirks?
     if (!options || !options.length || isDisabled) {
@@ -240,6 +242,7 @@ Select.propTypes = {
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
   isToggleText: PropTypes.bool,
+  maxHeight: PropTypes.number,
   name: PropTypes.string,
   onSelect: PropTypes.func,
   options: PropTypes.oneOfType([
@@ -278,6 +281,7 @@ Select.defaultProps = {
   id: helpers.generateId(),
   isDisabled: false,
   isToggleText: true,
+  maxHeight: null,
   name: null,
   onSelect: helpers.noop,
   options: [],

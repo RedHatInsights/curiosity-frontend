@@ -40,6 +40,7 @@ exports[`ToolbarFieldUom Component should render a non-connected component: non-
   id="generatedid-"
   isDisabled={false}
   isToggleText={true}
+  maxHeight={null}
   name={null}
   onSelect={[Function]}
   options={
