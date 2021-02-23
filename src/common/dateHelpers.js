@@ -1,6 +1,7 @@
 import moment from 'moment/moment';
 import { helpers } from './helpers';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../types/rhsmApiTypes';
+import { translate } from '../components/i18n/i18n';
 
 /**
  * Return a date.
@@ -17,11 +18,12 @@ const getCurrentDate = () =>
  * @param {Date} params.date Start date, typically the current date.
  * @param {number} params.subtract Number of granularity type to subtract from the current date.
  * @param {string} params.measurement Granularity type.
+ * @param {string} params.endOfMeasurement Granularity type.
  * @returns {{endDate: Date, startDate: Date}}
  */
-const setRangedDateTime = ({ date, subtract, measurement }) => ({
+const setRangedDateTime = ({ date, subtract, measurement, endOfMeasurement = 'days' }) => ({
   startDate: moment.utc(date).startOf(measurement).subtract(subtract, measurement).toDate(),
-  endDate: moment.utc(date).startOf(measurement).endOf('days').toDate()
+  endDate: moment.utc(date).startOf(measurement).endOf(endOfMeasurement).toDate()
 });
 
 const currentDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 1, measurement: 'days' });
@@ -29,6 +31,12 @@ const defaultDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 30
 const weeklyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12, measurement: 'weeks' });
 const monthlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12, measurement: 'months' });
 const quarterlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 36, measurement: 'months' });
+const rangedYearDateTime = setRangedDateTime({
+  date: getCurrentDate(),
+  subtract: 11,
+  measurement: 'months',
+  endOfMeasurement: 'months'
+});
 
 /**
  * Return a range of time based on known granularity types.
@@ -50,6 +58,61 @@ const getRangedDateTime = granularity => {
     default:
       return { ...defaultDateTime };
   }
+};
+
+/**
+ * Generate a list of months for use in a select list.
+ *
+ * @param {string} month
+ * @returns {{keyDateTimeRanges: {}, listDateTimeRanges: *[]}|*}
+ */
+const getRangedMonthDateTime = month => {
+  const currentYear = Number.parseInt(moment.utc(getCurrentDate()).year(), 10);
+  const { startDate, endDate } = { ...rangedYearDateTime };
+  const keyDateTimeRanges = {};
+  let listDateTimeRanges = [];
+
+  const startDateUpdated = moment.utc(startDate);
+  const endDateUpdated = moment.utc(endDate);
+
+  while (endDateUpdated > startDateUpdated || startDateUpdated.format('M') === endDateUpdated.format('M')) {
+    const dateTime = {
+      value: {
+        startDate: startDateUpdated.toDate()
+      }
+    };
+
+    const titleYear = startDateUpdated.format('MMMM YYYY');
+    const title = startDateUpdated.format('MMMM');
+    const titleIndex = startDateUpdated.format('M');
+    const isNextYear = currentYear !== Number.parseInt(startDateUpdated.year(), 10);
+
+    dateTime.title = (isNextYear && titleYear) || title;
+    dateTime._title = title.toLowerCase();
+    dateTime.value.endDate = moment.utc(startDateUpdated).endOf('month').toDate();
+
+    startDateUpdated.add(1, 'month');
+
+    dateTime.title = translate('curiosity-toolbar.granularityRange', { context: dateTime.title });
+    keyDateTimeRanges[title.toLowerCase()] = { ...dateTime };
+    keyDateTimeRanges[titleIndex] = { ...dateTime };
+    listDateTimeRanges.push(dateTime);
+  }
+
+  listDateTimeRanges = listDateTimeRanges.reverse();
+  listDateTimeRanges[0] = {
+    ...listDateTimeRanges[0],
+    _title: 'current',
+    title: translate('curiosity-toolbar.granularityRange', { context: 'current' })
+  };
+
+  keyDateTimeRanges.current = { ...listDateTimeRanges[0] };
+
+  if (month) {
+    return keyDateTimeRanges?.[month] || undefined;
+  }
+
+  return { keyDateTimeRanges, listDateTimeRanges };
 };
 
 /**
@@ -87,6 +150,7 @@ const timestampQuarterFormats = {
 
 const dateHelpers = {
   getCurrentDate,
+  getRangedMonthDateTime,
   getRangedDateTime,
   setRangedDateTime,
   currentDateTime,
@@ -94,6 +158,7 @@ const dateHelpers = {
   monthlyDateTime,
   quarterlyDateTime,
   weeklyDateTime,
+  rangedYearDateTime,
   timestampDayFormats,
   timestampMonthFormats,
   timestampQuarterFormats
@@ -102,6 +167,7 @@ const dateHelpers = {
 export {
   dateHelpers as default,
   getCurrentDate,
+  getRangedMonthDateTime,
   getRangedDateTime,
   setRangedDateTime,
   currentDateTime,
@@ -110,6 +176,7 @@ export {
   monthlyDateTime,
   quarterlyDateTime,
   weeklyDateTime,
+  rangedYearDateTime,
   timestampDayFormats,
   timestampMonthFormats,
   timestampQuarterFormats

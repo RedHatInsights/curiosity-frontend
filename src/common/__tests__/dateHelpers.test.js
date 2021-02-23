@@ -1,4 +1,10 @@
-import { dateHelpers, getCurrentDate, setRangedDateTime, getRangedDateTime } from '../dateHelpers';
+import {
+  dateHelpers,
+  getCurrentDate,
+  setRangedDateTime,
+  getRangedDateTime,
+  getRangedMonthDateTime
+} from '../dateHelpers';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 
 describe('DateHelpers', () => {
@@ -18,6 +24,9 @@ describe('DateHelpers', () => {
 
     expect(dateHelpers.quarterlyDateTime.startDate.constructor).toBe(Date);
     expect(dateHelpers.quarterlyDateTime.endDate.constructor).toBe(Date);
+
+    expect(dateHelpers.rangedYearDateTime.startDate.constructor).toBe(Date);
+    expect(dateHelpers.rangedYearDateTime.endDate.constructor).toBe(Date);
   });
 
   it('should return a predictable range of time', () => {
@@ -37,5 +46,11 @@ describe('DateHelpers', () => {
     }));
 
     expect(rangesOfDatesTimes).toMatchSnapshot('granularity range of time');
+  });
+
+  it('should return a predictable object and list of months based on a year range', () => {
+    expect(getRangedMonthDateTime()).toMatchSnapshot('getRangedYearDateTime');
+    expect(getRangedMonthDateTime('april')).toMatchSnapshot('get a specific month by name');
+    expect(getRangedMonthDateTime(3)).toMatchSnapshot('get a specific month by number');
   });
 });
