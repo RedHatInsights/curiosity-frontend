@@ -14,6 +14,19 @@ exports[`I18n Component should attempt to perform translate with a node: transla
 exports[`I18n Component should generate a predictable locale key output snapshot: key output 1`] = `
 Array [
   Object {
+    "file": "./src/common/dateHelpers.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.granularityRange",
+        "match": "translate('curiosity-toolbar.granularityRange', { context: dateTime.title })",
+      },
+      Object {
+        "key": "curiosity-toolbar.granularityRange",
+        "match": "translate('curiosity-toolbar.granularityRange', { context: 'current' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/authentication/authentication.js",
     "keys": Array [
       Object {
@@ -401,6 +414,23 @@ Array [
       Object {
         "key": "curiosity-toolbar.placeholder",
         "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldRangedMonthly.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.granularityRange",
+        "match": "translate('curiosity-toolbar.granularityRange', { context: 'current' })",
       },
     ],
   },
