@@ -5,6 +5,8 @@ exports[`ProductViewRhel Component should render a non-connected component: non-
   productConfig={
     Object {
       "graphTallyQuery": Object {
+        "beginning": "2019-06-20T00:00:00.000Z",
+        "ending": "2019-07-20T23:59:59.999Z",
         "granularity": "daily",
       },
       "initialGraphFilters": Array [

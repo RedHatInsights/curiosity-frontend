@@ -10,7 +10,11 @@ import {
 describe('GraphCard Component', () => {
   it('should render a non-connected component', () => {
     const props = {
-      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.END_DATE]: '2021-02-24T23:59:59.999Z',
+        [RHSM_API_QUERY_TYPES.START_DATE]: '2021-01-25T00:00:00.000Z'
+      },
       productId: 'lorem'
     };
     const component = shallow(<GraphCard {...props} />);
@@ -20,7 +24,11 @@ describe('GraphCard Component', () => {
 
   it('should render multiple states', () => {
     const props = {
-      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.END_DATE]: '2019-06-26T23:59:59.999Z',
+        [RHSM_API_QUERY_TYPES.START_DATE]: '2019-05-25T00:00:00.000Z'
+      },
       productId: 'lorem',
       graphData: {
         physicalSockets: [
@@ -91,7 +99,11 @@ describe('GraphCard Component', () => {
           id: 'thresholdLoremIpsumSockets'
         }
       ],
-      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.END_DATE]: '2019-06-26T23:59:59.999Z',
+        [RHSM_API_QUERY_TYPES.START_DATE]: '2019-05-25T00:00:00.000Z'
+      },
       productId: 'lorem',
       graphData: {
         loremIpsumSockets: [
@@ -155,7 +167,11 @@ describe('GraphCard Component', () => {
 
   it('should return an empty render when disabled', () => {
     const props = {
-      query: { [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY },
+      query: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.END_DATE]: '2021-02-24T23:59:59.999Z',
+        [RHSM_API_QUERY_TYPES.START_DATE]: '2021-01-25T00:00:00.000Z'
+      },
       isDisabled: true,
       productId: 'lorem'
     };
