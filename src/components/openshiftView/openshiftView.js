@@ -24,7 +24,7 @@ import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import BannerMessages from '../bannerMessages/bannerMessages';
-import { helpers } from '../../common';
+import { helpers, dateHelpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -148,7 +148,9 @@ class OpenshiftView extends React.Component {
 OpenshiftView.propTypes = {
   query: PropTypes.object,
   graphTallyQuery: PropTypes.shape({
-    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
+    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
+    [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
+    [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
   }),
   inventoryHostsQuery: PropTypes.shape({
     [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
@@ -196,7 +198,9 @@ OpenshiftView.defaultProps = {
     [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES
   },
   graphTallyQuery: {
-    [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
+    [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+    [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).startDate.toISOString(),
+    [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).endDate.toISOString()
   },
   inventoryHostsQuery: {
     [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,

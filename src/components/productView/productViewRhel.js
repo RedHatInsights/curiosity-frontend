@@ -20,7 +20,7 @@ import {
 } from '../../types/rhsmApiTypes';
 import { ConnectedProductView, ProductView } from './productView';
 import { translate } from '../i18n/i18n';
-import { helpers } from '../../common';
+import { dateHelpers, helpers } from '../../common';
 
 /**
  * A Red Hat Enterprise Linux configured view, and related system architectures.
@@ -57,7 +57,9 @@ ProductViewRhel.defaultProps = {
   productConfig: {
     query: {},
     graphTallyQuery: {
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
+      [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+      [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).startDate.toISOString(),
+      [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).endDate.toISOString()
     },
     inventoryHostsQuery: {
       [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,
