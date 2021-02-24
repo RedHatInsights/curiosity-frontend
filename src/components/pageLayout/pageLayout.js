@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PageSection as Main } from '@patternfly/react-core';
 import { PageHeader } from './pageHeader';
+import { PageColumns } from './pageColumns';
 import { PageMessages } from './pageMessages';
 import { PageSection } from './pageSection';
 import { PageToolbar } from './pageToolbar';
@@ -44,4 +45,4 @@ PageLayout.propTypes = {
  */
 PageLayout.defaultProps = {};
 
-export { PageLayout as default, PageLayout, PageHeader, PageMessages, PageSection, PageToolbar };
+export { PageLayout as default, PageLayout, PageColumns, PageHeader, PageMessages, PageSection, PageToolbar };
