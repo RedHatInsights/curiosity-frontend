@@ -133,7 +133,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
           dataSets={Array []}
           domain={Object {}}
           height={275}
-          key="chart_{\\"granularity\\":\\"daily\\"}"
+          key="chart_{\\"granularity\\":\\"daily\\",\\"ending\\":\\"2021-02-24T23:59:59.999Z\\",\\"beginning\\":\\"2021-01-25T00:00:00.000Z\\"}"
           padding={
             Object {
               "bottom": 75,
@@ -290,7 +290,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
           }
           domain={Object {}}
           height={275}
-          key="chart_{\\"granularity\\":\\"daily\\"}"
+          key="chart_{\\"granularity\\":\\"daily\\",\\"ending\\":\\"2019-06-26T23:59:59.999Z\\",\\"beginning\\":\\"2019-05-25T00:00:00.000Z\\"}"
           padding={
             Object {
               "bottom": 75,
@@ -411,7 +411,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
           }
           domain={Object {}}
           height={275}
-          key="chart_{\\"granularity\\":\\"daily\\"}"
+          key="chart_{\\"granularity\\":\\"daily\\",\\"ending\\":\\"2019-06-26T23:59:59.999Z\\",\\"beginning\\":\\"2019-05-25T00:00:00.000Z\\"}"
           padding={
             Object {
               "bottom": 75,
@@ -532,7 +532,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
           }
           domain={Object {}}
           height={275}
-          key="chart_{\\"granularity\\":\\"daily\\"}"
+          key="chart_{\\"granularity\\":\\"daily\\",\\"ending\\":\\"2019-06-26T23:59:59.999Z\\",\\"beginning\\":\\"2019-05-25T00:00:00.000Z\\"}"
           padding={
             Object {
               "bottom": 75,

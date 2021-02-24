@@ -67,6 +67,8 @@ exports[`OpenshiftView Component should display an alternate graph on query-stri
       productLabel="OpenShift"
       query={
         Object {
+          "beginning": "2019-06-20T00:00:00.000Z",
+          "ending": "2019-07-20T23:59:59.999Z",
           "granularity": "daily",
         }
       }
@@ -280,6 +282,8 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       productLabel="OpenShift"
       query={
         Object {
+          "beginning": "2019-06-20T00:00:00.000Z",
+          "ending": "2019-07-20T23:59:59.999Z",
           "granularity": "daily",
         }
       }
@@ -907,6 +911,8 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       productLabel="OpenShift"
       query={
         Object {
+          "beginning": "2019-06-20T00:00:00.000Z",
+          "ending": "2019-07-20T23:59:59.999Z",
           "granularity": "daily",
         }
       }

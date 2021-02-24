@@ -135,7 +135,9 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
 ProductView.propTypes = {
   productConfig: PropTypes.shape({
     graphTallyQuery: PropTypes.shape({
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
+      [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
+      [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
+      [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
     }),
     inventoryHostsQuery: PropTypes.shape({
       [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,

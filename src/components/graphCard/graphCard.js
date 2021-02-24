@@ -4,7 +4,7 @@ import { Card, CardTitle, CardHeader, CardActions, CardBody, Title } from '@patt
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import _isEqual from 'lodash/isEqual';
 import { connect, reduxActions, reduxSelectors } from '../../redux';
-import { helpers, dateHelpers } from '../../common';
+import { helpers } from '../../common';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { graphCardHelpers } from './graphCardHelpers';
 import GraphCardChartTooltip from './graphCardChartTooltip';
@@ -42,16 +42,10 @@ class GraphCard extends React.Component {
   onUpdateGraphData = () => {
     const { getGraphReportsCapacity, isDisabled, productId, query } = this.props;
     const graphGranularity = this.getQueryGranularity();
+    const { [RHSM_API_QUERY_TYPES.START_DATE]: startDate, [RHSM_API_QUERY_TYPES.END_DATE]: endDate } = query;
 
-    if (!isDisabled && graphGranularity && productId) {
-      const { startDate, endDate } = dateHelpers.getRangedDateTime(graphGranularity);
-      const graphQuery = {
-        [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString(),
-        [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString(),
-        ...query
-      };
-
-      getGraphReportsCapacity(productId, graphQuery);
+    if (!isDisabled && graphGranularity && startDate && endDate && productId) {
+      getGraphReportsCapacity(productId, query);
     }
   };
 
@@ -206,7 +200,9 @@ GraphCard.propTypes = {
   getGraphReportsCapacity: PropTypes.func,
   graphData: PropTypes.object,
   query: PropTypes.shape({
-    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired
+    [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]).isRequired,
+    [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string.isRequired,
+    [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string.isRequired
   }).isRequired,
   isDisabled: PropTypes.bool,
   pending: PropTypes.bool,
