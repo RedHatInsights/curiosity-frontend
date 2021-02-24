@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxTypes, store, useSelector } from '../../redux';
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { dateHelpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -42,12 +43,26 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
    * @param {object} event
    * @returns {void}
    */
-  const onSelect = event =>
-    store.dispatch({
-      type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
-      viewId,
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: event.value
-    });
+  const onSelect = event => {
+    const { startDate, endDate } = dateHelpers.getRangedDateTime(event.value);
+    store.dispatch([
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
+        viewId,
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: event.value
+      },
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.START_DATE],
+        viewId,
+        [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString()
+      },
+      {
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.END_DATE],
+        viewId,
+        [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString()
+      }
+    ]);
+  };
 
   return (
     <Select

@@ -28,11 +28,23 @@ Array [
 exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state: dispatch granularity 1`] = `
 Array [
   Array [
-    Object {
-      "granularity": "daily",
-      "type": "SET_QUERY_RHSM_granularity",
-      "viewId": "toolbarFieldGranularity",
-    },
+    Array [
+      Object {
+        "granularity": "daily",
+        "type": "SET_QUERY_RHSM_granularity",
+        "viewId": "toolbarFieldGranularity",
+      },
+      Object {
+        "beginning": "2019-06-20T00:00:00.000Z",
+        "type": "SET_QUERY_RHSM_beginning",
+        "viewId": "toolbarFieldGranularity",
+      },
+      Object {
+        "ending": "2019-07-20T23:59:59.999Z",
+        "type": "SET_QUERY_RHSM_ending",
+        "viewId": "toolbarFieldGranularity",
+      },
+    ],
   ],
 ]
 `;
