@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select Component should allow a alternate array and object options: key value object 1`] = `
+exports[`Select Component should allow alternate array and object options: key value object 1`] = `
 <div
   class="pf-c-select curiosity-select "
   data-ouia-component-id="OUIA-Generated-Select-single-2"
@@ -45,7 +45,7 @@ exports[`Select Component should allow a alternate array and object options: key
 </div>
 `;
 
-exports[`Select Component should allow a alternate array and object options: string array 1`] = `
+exports[`Select Component should allow alternate array and object options: string array 1`] = `
 <div
   class="pf-c-select curiosity-select "
   data-ouia-component-id="OUIA-Generated-Select-single-2"
@@ -297,6 +297,51 @@ exports[`Select Component should allow being disabled with missing options: opti
 />
 `;
 
+exports[`Select Component should allow plain objects as values, and be able to select options based on values within the object: select when option values are objects 1`] = `
+<div
+  class="pf-c-select curiosity-select "
+  data-ouia-component-id="OUIA-Generated-Select-single-3"
+  data-ouia-component-type="PF4/Select"
+  data-ouia-safe="true"
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby=" pf-select-toggle-id-14"
+    class="pf-c-select__toggle"
+    id="pf-select-toggle-id-14"
+    type="button"
+  >
+    <div
+      class="pf-c-select__toggle-wrapper"
+    >
+      <span
+        class="pf-c-select__toggle-text"
+      >
+        hello
+      </span>
+    </div>
+    <span
+      class="pf-c-select__toggle-arrow"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        style="vertical-align: -0.125em;"
+        viewBox="0 0 320 512"
+        width="1em"
+      >
+        <path
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Select Component should allow selected options to match value or title: value or title match 1`] = `
 <div
   class="pf-c-select curiosity-select "
@@ -306,9 +351,9 @@ exports[`Select Component should allow selected options to match value or title:
 >
   <button
     aria-expanded="false"
-    aria-labelledby=" pf-select-toggle-id-14"
+    aria-labelledby=" pf-select-toggle-id-17"
     class="pf-c-select__toggle"
-    id="pf-select-toggle-id-14"
+    id="pf-select-toggle-id-17"
     type="button"
   >
     <div
@@ -604,17 +649,17 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
     >
       <div
         className="pf-c-select pf-m-expanded curiosity-select "
-        data-ouia-component-id="OUIA-Generated-Select-single-4"
+        data-ouia-component-id="OUIA-Generated-Select-single-5"
         data-ouia-component-type="PF4/Select"
         data-ouia-safe={true}
       >
         <SelectToggle
           aria-label="Options menu"
-          aria-labelledby=" pf-select-toggle-id-29"
+          aria-labelledby=" pf-select-toggle-id-32"
           className=""
           handleTypeaheadKeys={[Function]}
           hasClearButton={false}
-          id="pf-select-toggle-id-29"
+          id="pf-select-toggle-id-32"
           isActive={false}
           isDisabled={false}
           isOpen={true}
@@ -697,16 +742,16 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
             Object {
               "current": <div
                 class="pf-c-select pf-m-expanded curiosity-select "
-                data-ouia-component-id="OUIA-Generated-Select-single-4"
+                data-ouia-component-id="OUIA-Generated-Select-single-5"
                 data-ouia-component-type="PF4/Select"
                 data-ouia-safe="true"
               >
                 <button
                   aria-expanded="true"
                   aria-haspopup="listbox"
-                  aria-labelledby=" pf-select-toggle-id-29"
+                  aria-labelledby=" pf-select-toggle-id-32"
                   class="pf-c-select__toggle"
-                  id="pf-select-toggle-id-29"
+                  id="pf-select-toggle-id-32"
                   type="button"
                 >
                   <div
@@ -811,10 +856,10 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
           <button
             aria-expanded={true}
             aria-haspopup="listbox"
-            aria-labelledby=" pf-select-toggle-id-29"
+            aria-labelledby=" pf-select-toggle-id-32"
             className="pf-c-select__toggle"
             disabled={false}
-            id="pf-select-toggle-id-29"
+            id="pf-select-toggle-id-32"
             onClick={[Function]}
             onKeyDown={[Function]}
             type="button"
@@ -964,7 +1009,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 data-value="lorem"
                 id="bG9yZW0tbG9yZW0="
                 index={0}
-                inputId="pf-random-id-5-0"
+                inputId="pf-random-id-6-0"
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
@@ -1003,7 +1048,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 data-value="ipsum"
                 id="aXBzdW0taXBzdW0="
                 index={1}
-                inputId="pf-random-id-5-1"
+                inputId="pf-random-id-6-1"
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
@@ -1042,7 +1087,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 data-value="hello"
                 id="aGVsbG8taGVsbG8="
                 index={2}
-                inputId="pf-random-id-5-2"
+                inputId="pf-random-id-6-2"
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
@@ -1081,7 +1126,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 data-value="world"
                 id="d29ybGQtd29ybGQ="
                 index={3}
-                inputId="pf-random-id-5-3"
+                inputId="pf-random-id-6-3"
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
