@@ -111,6 +111,34 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.START_DATE]:
+      return reduxHelpers.setStateProp(
+        'graphTallyQuery',
+        {
+          [action.viewId]: {
+            ...state.graphTallyQuery[action.viewId],
+            [RHSM_API_QUERY_TYPES.START_DATE]: action[RHSM_API_QUERY_TYPES.START_DATE]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.END_DATE]:
+      return reduxHelpers.setStateProp(
+        'graphTallyQuery',
+        {
+          [action.viewId]: {
+            ...state.graphTallyQuery[action.viewId],
+            [RHSM_API_QUERY_TYPES.END_DATE]: action[RHSM_API_QUERY_TYPES.END_DATE]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
     case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.SLA]:
       return reduxHelpers.setStateProp(
         'query',
