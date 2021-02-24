@@ -301,6 +301,64 @@ Object {
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_beginning 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {
+      "test_id": Object {
+        "beginning": "2018-02-01T00:00:00.000Z",
+      },
+    },
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_beginning",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_ending 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {
+      "test_id": Object {
+        "ending": "2021-02-01T23:59:59.999Z",
+      },
+    },
+    "inventoryGuestsQuery": Object {},
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_ending",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_granularity 1`] = `
 Object {
   "result": Object {
