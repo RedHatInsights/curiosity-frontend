@@ -34,7 +34,7 @@ describe('Select Component', () => {
     expect(component.render()).toMatchSnapshot('checkbox select');
   });
 
-  it('should allow a alternate array and object options', () => {
+  it('should allow alternate array and object options', () => {
     const props = {
       id: 'test',
       options: ['lorem', 'ipsum', 'hello', 'world'],
@@ -51,6 +51,21 @@ describe('Select Component', () => {
     });
 
     expect(component.render()).toMatchSnapshot('key value object');
+  });
+
+  it('should allow plain objects as values, and be able to select options based on values within the object', () => {
+    const props = {
+      id: 'test',
+      options: [
+        { title: 'lorem', value: { dolor: 'sit' } },
+        { title: 'dolor', value: { lorem: 'ipsum' } },
+        { title: 'hello', value: { hello: 'world' } }
+      ],
+      selectedOptions: ['world']
+    };
+
+    const component = mount(<Select {...props} />);
+    expect(component.render()).toMatchSnapshot('select when option values are objects');
   });
 
   it('should allow selected options to match value or title', () => {
