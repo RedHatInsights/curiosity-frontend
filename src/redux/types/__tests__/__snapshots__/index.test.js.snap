@@ -45,6 +45,8 @@ Object {
         "sort": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
       },
       "SET_QUERY_RHSM_TYPES": Object {
+        "beginning": "SET_QUERY_RHSM_beginning",
+        "ending": "SET_QUERY_RHSM_ending",
         "granularity": "SET_QUERY_RHSM_granularity",
         "sla": "SET_QUERY_RHSM_sla",
         "uom": "SET_QUERY_RHSM_uom",
@@ -105,6 +107,8 @@ Object {
       "sort": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
     },
     "SET_QUERY_RHSM_TYPES": Object {
+      "beginning": "SET_QUERY_RHSM_beginning",
+      "ending": "SET_QUERY_RHSM_ending",
       "granularity": "SET_QUERY_RHSM_granularity",
       "sla": "SET_QUERY_RHSM_sla",
       "uom": "SET_QUERY_RHSM_uom",
@@ -150,6 +154,8 @@ Object {
         "sort": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
       },
       "SET_QUERY_RHSM_TYPES": Object {
+        "beginning": "SET_QUERY_RHSM_beginning",
+        "ending": "SET_QUERY_RHSM_ending",
         "granularity": "SET_QUERY_RHSM_granularity",
         "sla": "SET_QUERY_RHSM_sla",
         "uom": "SET_QUERY_RHSM_uom",
@@ -238,6 +244,8 @@ Object {
       "sort": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
     },
     "SET_QUERY_RHSM_TYPES": Object {
+      "beginning": "SET_QUERY_RHSM_beginning",
+      "ending": "SET_QUERY_RHSM_ending",
       "granularity": "SET_QUERY_RHSM_granularity",
       "sla": "SET_QUERY_RHSM_sla",
       "uom": "SET_QUERY_RHSM_uom",

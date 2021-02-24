@@ -43,6 +43,8 @@ describe('ViewReducer', () => {
         [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem asc direction',
         [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem name',
         [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
+        [RHSM_API_QUERY_TYPES.END_DATE]: '2021-02-01T23:59:59.999Z',
+        [RHSM_API_QUERY_TYPES.START_DATE]: '2018-02-01T00:00:00.000Z',
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 10,
         [RHSM_API_QUERY_TYPES.SORT]: 'lorem sort',
