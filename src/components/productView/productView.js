@@ -99,7 +99,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
           query={initialGraphTallyQuery}
           productId={productId}
           viewId={viewId}
-          cardTitle={t('curiosity-graph.cardHeading', { context: 'sockets' })}
+          cardTitle={t('curiosity-graph.cardHeading', { context: productLabel })}
           productLabel={productLabel}
         >
           {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
