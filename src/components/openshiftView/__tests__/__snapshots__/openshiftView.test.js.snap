@@ -1,228 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OpenshiftView Component should display an alternate graph on query-string update: alternate graph 1`] = `
-<PageLayout>
-  <PageHeader
-    includeTour={true}
-    productLabel="OpenShift"
-    t={[Function]}
-  >
-    t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
-  </PageHeader>
-  <PageMessages
-    className=""
-  >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={
-        Object {
-          "uom": "cores",
-        }
-      }
-      viewId="viewOpenShift"
-    />
-  </PageMessages>
-  <PageToolbar
-    className=""
-  >
-    <Connect(Toolbar)
-      filterOptions={
-        Array [
-          Object {
-            "id": "sla",
-          },
-        ]
-      }
-      productId="lorem ipsum"
-      query={
-        Object {
-          "uom": "cores",
-        }
-      }
-      viewId="viewOpenShift"
-    />
-  </PageToolbar>
-  <PageSection
-    className=""
-  >
-    <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.cardHeading)"
-      filterGraphData={
-        Array [
-          Object {
-            "color": "#06c",
-            "fill": "#8bc1f7",
-            "id": "cores",
-            "isOptional": true,
-            "stroke": "#06c",
-          },
-          Object {
-            "id": "thresholdCores",
-            "isOptional": true,
-          },
-        ]
-      }
-      key="lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="OpenShift"
-      query={
-        Object {
-          "beginning": "2019-06-20T00:00:00.000Z",
-          "ending": "2019-07-20T23:59:59.999Z",
-          "granularity": "daily",
-        }
-      }
-      viewId="viewOpenShift"
-    >
-      <ToolbarFieldUom
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
-              "value": "cores",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
-              "value": "sockets",
-            },
-          ]
-        }
-        t={[Function]}
-        value="cores"
-        viewId="viewOpenShift"
-      />
-    </Connect(GraphCard)>
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      productId="lorem ipsum"
-    >
-      <InventoryTab
-        active={false}
-        key="hostsTab"
-        title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
-      >
-        <Connect(InventoryList)
-          filterGuestsData={
-            Array [
-              Object {
-                "cell": [Function],
-                "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-                "id": "displayName",
-              },
-              Object {
-                "cellWidth": 40,
-                "id": "inventoryId",
-              },
-              Object {
-                "cell": [Function],
-                "cellWidth": 15,
-                "id": "lastSeen",
-              },
-            ]
-          }
-          filterInventoryData={
-            Array [
-              Object {
-                "cell": [Function],
-                "id": "displayName",
-                "isSortable": true,
-              },
-              Object {
-                "cell": [Function],
-                "cellWidth": 20,
-                "id": "measurementType",
-                "isSortable": true,
-              },
-              Object {
-                "cellWidth": 15,
-                "id": "cores",
-                "isOptional": true,
-                "isSortable": true,
-                "isWrappable": true,
-              },
-              Object {
-                "cell": [Function],
-                "cellWidth": 15,
-                "id": "lastSeen",
-                "isSortable": true,
-                "isWrappable": true,
-              },
-            ]
-          }
-          key="lorem ipsum"
-          productId="lorem ipsum"
-          query={
-            Object {
-              "dir": "asc",
-              "limit": 100,
-              "offset": 0,
-              "sort": "last_seen",
-              "uom": "cores",
-            }
-          }
-          settings={Object {}}
-          viewId="viewOpenShift"
-        />
-      </InventoryTab>
-      <InventoryTab
-        active={false}
-        key="subscriptionsTab"
-        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
-      >
-        <Connect(InventorySubscriptions)
-          filterInventoryData={
-            Array [
-              Object {
-                "id": "productName",
-                "isSortable": true,
-              },
-              Object {
-                "cellWidth": 15,
-                "id": "serviceLevel",
-                "isSortable": true,
-                "isWrappable": true,
-              },
-              Object {
-                "cell": [Function],
-                "cellWidth": 15,
-                "id": "upcomingEventDate",
-                "isSortable": true,
-                "isWrappable": true,
-              },
-            ]
-          }
-          key="lorem ipsum"
-          productId="lorem ipsum"
-          query={
-            Object {
-              "dir": "asc",
-              "limit": 100,
-              "offset": 0,
-              "sort": "upcoming_event_date",
-              "uom": "cores",
-            }
-          }
-          viewId="viewOpenShift"
-        />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
-</PageLayout>
-`;
-
 exports[`OpenshiftView Component should have a fallback title: title 1`] = `
 <PageLayout>
   <PageHeader
     includeTour={true}
-    productLabel="OpenShift"
+    productLabel="test label"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
+    t(curiosity-view.title, {"appName":"Subscription Watch","context":"test label"})
   </PageHeader>
   <PageMessages
     className=""
@@ -261,7 +46,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
     className=""
   >
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.cardHeading)"
+      cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"cores\\"})"
       filterGraphData={
         Array [
           Object {
@@ -277,9 +62,9 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
           },
         ]
       }
-      key="lorem ipsum"
+      key="graph_lorem ipsum"
       productId="lorem ipsum"
-      productLabel="OpenShift"
+      productLabel="test label"
       query={
         Object {
           "beginning": "2019-06-20T00:00:00.000Z",
@@ -308,17 +93,47 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
         value="cores"
         viewId="viewOpenShift"
       />
+      <ToolbarFieldGranularity
+        options={
+          Array [
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+              "value": "daily",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+              "value": "weekly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+              "value": "monthly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+              "value": "quarterly",
+            },
+          ]
+        }
+        t={[Function]}
+        value="daily"
+        viewId="viewOpenShift"
+      />
     </Connect(GraphCard)>
   </PageSection>
   <PageSection
     className=""
   >
     <Connect(InventoryTabs)
+      key="inventory_lorem ipsum"
       productId="lorem ipsum"
     >
       <InventoryTab
         active={false}
-        key="hostsTab"
+        key="inventory_hosts_lorem ipsum"
         title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
       >
         <Connect(InventoryList)
@@ -386,7 +201,7 @@ exports[`OpenshiftView Component should have a fallback title: title 1`] = `
       </InventoryTab>
       <InventoryTab
         active={false}
-        key="subscriptionsTab"
+        key="inventory_subs_lorem ipsum"
         title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
       >
         <Connect(InventorySubscriptions)
@@ -848,10 +663,10 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
 <PageLayout>
   <PageHeader
     includeTour={true}
-    productLabel="OpenShift"
+    productLabel="test label"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscription Watch","context":"OpenShift"})
+    t(curiosity-view.title, {"appName":"Subscription Watch","context":"test label"})
   </PageHeader>
   <PageMessages
     className=""
@@ -890,7 +705,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
     className=""
   >
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.cardHeading)"
+      cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"cores\\"})"
       filterGraphData={
         Array [
           Object {
@@ -906,9 +721,9 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
           },
         ]
       }
-      key="lorem ipsum"
+      key="graph_lorem ipsum"
       productId="lorem ipsum"
-      productLabel="OpenShift"
+      productLabel="test label"
       query={
         Object {
           "beginning": "2019-06-20T00:00:00.000Z",
@@ -937,17 +752,47 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
         value="cores"
         viewId="viewOpenShift"
       />
+      <ToolbarFieldGranularity
+        options={
+          Array [
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+              "value": "daily",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+              "value": "weekly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+              "value": "monthly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+              "value": "quarterly",
+            },
+          ]
+        }
+        t={[Function]}
+        value="daily"
+        viewId="viewOpenShift"
+      />
     </Connect(GraphCard)>
   </PageSection>
   <PageSection
     className=""
   >
     <Connect(InventoryTabs)
+      key="inventory_lorem ipsum"
       productId="lorem ipsum"
     >
       <InventoryTab
         active={false}
-        key="hostsTab"
+        key="inventory_hosts_lorem ipsum"
         title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
       >
         <Connect(InventoryList)
@@ -1015,7 +860,7 @@ exports[`OpenshiftView Component should render a non-connected component: non-co
       </InventoryTab>
       <InventoryTab
         active={false}
-        key="subscriptionsTab"
+        key="inventory_subs_lorem ipsum"
         title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
       >
         <Connect(InventorySubscriptions)

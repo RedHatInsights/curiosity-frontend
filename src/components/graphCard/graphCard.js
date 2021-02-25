@@ -12,7 +12,6 @@ import GraphCardChartLegend from './graphCardChartLegend';
 import { ChartArea } from '../chartArea/chartArea';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -143,13 +142,11 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, isDisabled, pending, viewId } = this.props;
+    const { cardTitle, children, error, isDisabled, pending } = this.props;
 
     if (isDisabled) {
       return null;
     }
-
-    const graphGranularity = this.getQueryGranularity();
 
     return (
       <Card className="curiosity-usage-graph">
@@ -160,10 +157,7 @@ class GraphCard extends React.Component {
                 {cardTitle}
               </Title>
             </CardTitle>
-            <CardActions className={(error && 'blur') || ''}>
-              {children}
-              <ToolbarFieldGranularity viewId={viewId} value={graphGranularity} />
-            </CardActions>
+            <CardActions className={(error && 'blur') || ''}>{children}</CardActions>
           </CardHeader>
         </MinHeight>
         <MinHeight key="bodyMinHeight">
