@@ -7,6 +7,7 @@ import { ConnectedToolbar, Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList, InventoryList } from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
+import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import {
   ConnectedInventorySubscriptions,
@@ -40,9 +41,11 @@ import { translate } from '../i18n/i18n';
  * @param {object} props.productConfig
  * @param {object} props.routeDetail
  * @param {Function} props.t
+ * @param {Node|boolean} props.toolbarGraph
+ * @param {Node|boolean} props.toolbarProduct
  * @returns {Node}
  */
-const ProductView = ({ productConfig, routeDetail, t }) => {
+const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProduct }) => {
   const {
     graphTallyQuery,
     inventoryHostsQuery,
@@ -79,27 +82,38 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
         <BannerMessages productId={productId} viewId={viewId} query={initialQuery} />
       </PageMessages>
       <PageToolbar>
-        <ConnectedToolbar
-          filterOptions={initialToolbarFilters}
-          productId={productId}
-          query={initialToolbarQuery}
-          viewId={viewId}
-        />
+        {(React.isValidElement(toolbarProduct) && toolbarProduct) ||
+          (toolbarProduct !== false && (
+            <ConnectedToolbar
+              filterOptions={initialToolbarFilters}
+              productId={productId}
+              query={initialToolbarQuery}
+              viewId={viewId}
+            />
+          ))}
       </PageToolbar>
       <PageSection>
         <ConnectedGraphCard
-          key={productId}
+          key={`graph_${productId}`}
           filterGraphData={initialGraphFilters}
           query={initialGraphTallyQuery}
           productId={productId}
           viewId={viewId}
-          cardTitle={t('curiosity-graph.socketsHeading')}
+          cardTitle={t('curiosity-graph.cardHeading', { context: 'sockets' })}
           productLabel={productLabel}
-        />
+        >
+          {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
+            (toolbarGraph !== false && (
+              <ToolbarFieldGranularity
+                viewId={viewId}
+                value={initialGraphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]}
+              />
+            ))}
+        </ConnectedGraphCard>
       </PageSection>
       <PageSection>
-        <InventoryTabs productId={productId}>
-          <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'hosts' })}>
+        <InventoryTabs key={`inventory_${productId}`} productId={productId}>
+          <InventoryTab key={`inventory_hosts_${productId}`} title={t('curiosity-inventory.tab', { context: 'hosts' })}>
             <ConnectedInventoryList
               key={productId}
               filterGuestsData={initialGuestsFilters}
@@ -111,7 +125,10 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
             />
           </InventoryTab>
           {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && (
-            <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
+            <InventoryTab
+              key={`inventory_subs_${productId}`}
+              title={t('curiosity-inventory.tab', { context: 'subscriptions' })}
+            >
               <ConnectedInventorySubscriptions
                 key={productId}
                 filterInventoryData={initialSubscriptionsInventoryFilters}
@@ -130,7 +147,8 @@ const ProductView = ({ productConfig, routeDetail, t }) => {
 /**
  * Prop types.
  *
- * @type {{t: Function, routeDetail: object, productConfig: object}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), routeDetail: object, productConfig: object,
+ *     toolbarProduct: (Node|boolean)}}
  */
 ProductView.propTypes = {
   productConfig: PropTypes.shape({
@@ -164,16 +182,20 @@ ProductView.propTypes = {
     productParameter: PropTypes.string,
     viewParameter: PropTypes.string
   }).isRequired,
-  t: PropTypes.func
+  t: PropTypes.func,
+  toolbarGraph: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+  toolbarProduct: PropTypes.oneOfType([PropTypes.node, PropTypes.bool])
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarProduct: (Node|boolean)}}
  */
 ProductView.defaultProps = {
-  t: translate
+  t: translate,
+  toolbarGraph: null,
+  toolbarProduct: null
 };
 
 /**

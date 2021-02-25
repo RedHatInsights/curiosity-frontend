@@ -151,7 +151,7 @@ Array [
       },
       Object {
         "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading')",
+        "match": "t('curiosity-graph.cardHeading', { context: uomFilter })",
       },
       Object {
         "key": "curiosity-inventory.tab",
@@ -273,8 +273,8 @@ Array [
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
       Object {
-        "key": "curiosity-graph.socketsHeading",
-        "match": "t('curiosity-graph.socketsHeading')",
+        "key": "curiosity-graph.cardHeading",
+        "match": "t('curiosity-graph.cardHeading', { context: 'sockets' })",
       },
       Object {
         "key": "curiosity-inventory.tab",
