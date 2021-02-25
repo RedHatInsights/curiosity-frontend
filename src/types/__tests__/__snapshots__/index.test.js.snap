@@ -36,6 +36,8 @@ Object {
     "rhsmApi": Object {
       "RHSM_API_PATH_ID_TYPES": Object {
         "OPENSHIFT": "OpenShift Container Platform",
+        "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
+        "OPENSHIFT_METRICS": "OpenShift-metrics",
         "RHEL": "RHEL",
         "RHEL_ARM": "RHEL for ARM",
         "RHEL_COMPUTE_NODE": "RHEL Compute Node",
@@ -103,6 +105,7 @@ Object {
       },
       "RHSM_API_QUERY_SORT_TYPES": Object {
         "CORES": "cores",
+        "CORE_HOURS": "core_hours",
         "HARDWARE": "hardware_type",
         "LAST_SEEN": "last_seen",
         "MEASUREMENT": "measurement_type",
@@ -173,6 +176,7 @@ Object {
       "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
         "CLOUD_PROVIDER": "cloud_provider",
         "CORES": "cores",
+        "CORE_HOURS": "core_hours",
         "GUESTS": "number_of_guests",
         "HARDWARE": "hardware_type",
         "ID": "insights_id",
@@ -265,6 +269,8 @@ Object {
     "rhsmApi": Object {
       "RHSM_API_PATH_ID_TYPES": Object {
         "OPENSHIFT": "OpenShift Container Platform",
+        "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
+        "OPENSHIFT_METRICS": "OpenShift-metrics",
         "RHEL": "RHEL",
         "RHEL_ARM": "RHEL for ARM",
         "RHEL_COMPUTE_NODE": "RHEL Compute Node",
@@ -332,6 +338,7 @@ Object {
       },
       "RHSM_API_QUERY_SORT_TYPES": Object {
         "CORES": "cores",
+        "CORE_HOURS": "core_hours",
         "HARDWARE": "hardware_type",
         "LAST_SEEN": "last_seen",
         "MEASUREMENT": "measurement_type",
@@ -402,6 +409,7 @@ Object {
       "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
         "CLOUD_PROVIDER": "cloud_provider",
         "CORES": "cores",
+        "CORE_HOURS": "core_hours",
         "GUESTS": "number_of_guests",
         "HARDWARE": "hardware_type",
         "ID": "insights_id",
@@ -493,6 +501,8 @@ Object {
   "rhsmApiTypes": Object {
     "RHSM_API_PATH_ID_TYPES": Object {
       "OPENSHIFT": "OpenShift Container Platform",
+      "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
+      "OPENSHIFT_METRICS": "OpenShift-metrics",
       "RHEL": "RHEL",
       "RHEL_ARM": "RHEL for ARM",
       "RHEL_COMPUTE_NODE": "RHEL Compute Node",
@@ -560,6 +570,7 @@ Object {
     },
     "RHSM_API_QUERY_SORT_TYPES": Object {
       "CORES": "cores",
+      "CORE_HOURS": "core_hours",
       "HARDWARE": "hardware_type",
       "LAST_SEEN": "last_seen",
       "MEASUREMENT": "measurement_type",
@@ -630,6 +641,7 @@ Object {
     "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
       "CLOUD_PROVIDER": "cloud_provider",
       "CORES": "cores",
+      "CORE_HOURS": "core_hours",
       "GUESTS": "number_of_guests",
       "HARDWARE": "hardware_type",
       "ID": "insights_id",
@@ -725,6 +737,8 @@ Object {
   "rhsmApi": Object {
     "RHSM_API_PATH_ID_TYPES": Object {
       "OPENSHIFT": "OpenShift Container Platform",
+      "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
+      "OPENSHIFT_METRICS": "OpenShift-metrics",
       "RHEL": "RHEL",
       "RHEL_ARM": "RHEL for ARM",
       "RHEL_COMPUTE_NODE": "RHEL Compute Node",
@@ -792,6 +806,7 @@ Object {
     },
     "RHSM_API_QUERY_SORT_TYPES": Object {
       "CORES": "cores",
+      "CORE_HOURS": "core_hours",
       "HARDWARE": "hardware_type",
       "LAST_SEEN": "last_seen",
       "MEASUREMENT": "measurement_type",
@@ -862,6 +877,7 @@ Object {
     "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
       "CLOUD_PROVIDER": "cloud_provider",
       "CORES": "cores",
+      "CORE_HOURS": "core_hours",
       "GUESTS": "number_of_guests",
       "HARDWARE": "hardware_type",
       "ID": "insights_id",

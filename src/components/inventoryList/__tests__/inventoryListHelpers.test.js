@@ -106,6 +106,13 @@ describe('InventoryListHelpers', () => {
         }
       })
     ).toMatchSnapshot('sortable, active column');
+
+    expect(
+      applySortFilters({
+        filter: { ...filter, sortActive: false, sortDefaultInitialDirection: 'lorem', isSortDefault: true },
+        onSort: () => {}
+      })
+    ).toMatchSnapshot('sortable, set a default field');
   });
 
   it('applyWrappableFilters should apply and return updated filters for table header wrapping', () => {
