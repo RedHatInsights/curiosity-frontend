@@ -56,6 +56,9 @@ class InventorySubscriptions extends React.Component {
     let updatedDirection;
 
     if (!updatedSortColumn) {
+      if (helpers.DEV_MODE || helpers.REVIEW_MODE) {
+        console.warn(`Sorting can only be performed on select fields, confirm field ${id} is allowed.`);
+      }
       return;
     }
 

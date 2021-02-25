@@ -2,6 +2,8 @@
 
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 Array [
+  "components/inventoryList/inventoryList.js:62:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/inventorySubscriptions/inventorySubscriptions.js:60:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "redux/common/reduxHelpers.js:250:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:254:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
   "setupTests.js:67:  console.error = (message, ...args) => {",

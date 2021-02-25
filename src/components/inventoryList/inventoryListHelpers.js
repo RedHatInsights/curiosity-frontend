@@ -11,7 +11,8 @@ import {
  * Apply sort filter to filters.
  *
  * @param {object} params
- * @param {object} params.filter
+ * @param {{ onSort: Function, sortActive: boolean, sortDirection: string, isSortDefault: boolean,
+ *     sortDefaultInitialDirection: string }} params.filter
  * @param {Function} params.onSort
  * @param {object} params.query
  * @returns {object}
@@ -136,6 +137,9 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
       if (allCells[id]) {
         headerUpdated = allCells[id]?.title ?? id;
         cellUpdated = allCells[id]?.value ?? '';
+      } else if (id) {
+        headerUpdated = translate('curiosity-inventory.header', { context: id });
+        cellUpdated = '';
       }
 
       // set table header cell filter params
@@ -153,14 +157,16 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
         };
       }
 
-      headerUpdated.transforms = [];
+      if (headerUpdated) {
+        headerUpdated.transforms = [];
 
-      if (Array.isArray(transforms)) {
-        headerUpdated.transforms = headerUpdated.transforms.concat([...transforms]);
-      }
+        if (Array.isArray(transforms)) {
+          headerUpdated.transforms = headerUpdated.transforms.concat([...transforms]);
+        }
 
-      if (typeof cellWidth === 'number') {
-        headerUpdated.transforms.push(PfCellWidth(cellWidth));
+        if (typeof cellWidth === 'number') {
+          headerUpdated.transforms.push(PfCellWidth(cellWidth));
+        }
       }
 
       if (typeof onSort === 'function') {

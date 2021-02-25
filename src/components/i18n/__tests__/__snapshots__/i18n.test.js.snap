@@ -122,6 +122,10 @@ Array [
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: key })",
       },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: id })",
+      },
     ],
   },
   Object {
@@ -274,7 +278,7 @@ Array [
       },
       Object {
         "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading', { context: 'sockets' })",
+        "match": "t('curiosity-graph.cardHeading', { context: productLabel })",
       },
       Object {
         "key": "curiosity-inventory.tab",
@@ -283,6 +287,19 @@ Array [
       Object {
         "key": "curiosity-inventory.tab",
         "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/productView/productViewOpenShiftDedicated.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'lastSeen_OpenShift-dedicated-metrics' })",
       },
     ],
   },
@@ -549,6 +566,10 @@ Array [
   Object {
     "file": "./src/components/productView/productView.js",
     "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/productView/productViewOpenShiftDedicated.js",
+    "key": "curiosity-inventory.label",
   },
   Object {
     "file": "./src/components/productView/productViewRhel.js",
