@@ -116,6 +116,18 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "disabled": false,
         "exact": true,
         "render": true,
+        "to": "/openshift-dedicated",
+      },
+      Object {
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        },
+        "disabled": false,
+        "exact": true,
+        "render": true,
         "to": "/:variant(satellite|satellite-capsule|satellite-server)",
       },
       Object {
@@ -145,6 +157,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
       exact={true}
       key="/openshift-container"
       path="/openshift-container"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/openshift-dedicated"
+      path="/openshift-dedicated"
       render={[Function]}
     />
     <Route

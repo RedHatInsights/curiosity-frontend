@@ -102,13 +102,14 @@ const RHSM_API_RESPONSE_INVENTORY_DATA = 'data';
  * RHSM response inventory DATA types.
  * Schema/map of expected inventory DATA response properties.
  *
- * @type {{CORES: string, HARDWARE: string, SOCKETS: string, SUBSCRIPTION_ID: string, INVENTORY_ID: string,
- *     MEASUREMENT: string, ID: string, GUESTS: string, CLOUD_PROVIDER: string, LAST_SEEN: string,
- *     NAME: string}}
+ * @type {{CORES: string, CORE_HOURS: string, HARDWARE: string, SOCKETS: string, SUBSCRIPTION_ID: string,
+ *     INVENTORY_ID: string, MEASUREMENT: string, ID: string, GUESTS: string, CLOUD_PROVIDER: string,
+ *     LAST_SEEN: string, NAME: string}}
  */
 const RHSM_API_RESPONSE_INVENTORY_DATA_TYPES = {
   CLOUD_PROVIDER: 'cloud_provider',
   CORES: 'cores',
+  CORE_HOURS: 'core_hours',
   GUESTS: 'number_of_guests',
   HARDWARE: 'hardware_type',
   ID: 'insights_id',
@@ -188,9 +189,10 @@ const RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES = {
 /**
  * RHSM product id type values.
  *
- * @type {{RHEL_ARM: string, SATELLITE: string, RHEL_WORKSTATION: string, RHEL_DESKTOP: string, RHEL: string,
- *     SATELLITE_CAPSULE: string, RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_COMPUTE_NODE: string,
- *     RHEL_IBM_POWER: string, RHEL_X86: string, OPENSHIFT: string}}
+ * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string,
+ *     RHEL_COMPUTE_NODE: string, RHEL_X86: string, OPENSHIFT: string, SATELLITE_SERVER: string,
+ *     OPENSHIFT_DEDICATED_METRICS: string, RHEL_DESKTOP: string, RHEL: string, SATELLITE_CAPSULE: string,
+ *     RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string}}
  */
 const RHSM_API_PATH_ID_TYPES = {
   RHEL: 'RHEL',
@@ -203,6 +205,8 @@ const RHSM_API_PATH_ID_TYPES = {
   RHEL_IBM_Z: 'RHEL for IBM z',
   RHEL_X86: 'RHEL for x86',
   OPENSHIFT: 'OpenShift Container Platform',
+  OPENSHIFT_METRICS: 'OpenShift-metrics',
+  OPENSHIFT_DEDICATED_METRICS: 'OpenShift-dedicated-metrics',
   SATELLITE: 'Satellite',
   SATELLITE_CAPSULE: 'Satellite Capsule',
   SATELLITE_SERVER: 'Satellite Server'
@@ -224,10 +228,12 @@ const RHSM_API_QUERY_GRANULARITY_TYPES = {
 /**
  * RHSM API query/search parameter SORT type values for HOSTS.
  *
- * @type {{CORES: string, HARDWARE: string, SOCKETS: string, MEASUREMENT: string, LAST_SEEN: string, NAME: string}}
+ * @type {{CORES: string, CORE_HOURS: string, HARDWARE: string, SOCKETS: string, MEASUREMENT: string,
+ *     LAST_SEEN: string, NAME: string}}
  */
 const RHSM_API_QUERY_SORT_TYPES = {
   CORES: 'cores',
+  CORE_HOURS: 'core_hours',
   HARDWARE: 'hardware_type',
   LAST_SEEN: 'last_seen',
   MEASUREMENT: 'measurement_type',
