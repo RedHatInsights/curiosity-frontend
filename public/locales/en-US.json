@@ -10,8 +10,8 @@
   },
   "curiosity-graph": {
     "cardHeading": "CPU usage",
-    "coresHeading": "CPU core usage",
-    "socketsHeading": "CPU socket usage",
+    "cardHeading_cores": "CPU core usage",
+    "cardHeading_sockets": "CPU socket usage",
     "infiniteThresholdLabel": "unlimited",
     "noLabel": "Data",
     "noDataLabel": "no data",
@@ -36,8 +36,8 @@
     "thresholdLabel": "Subscription threshold",
     "thresholdLegendTooltip": "Maximum capacity, based on total {{product}} subscriptions in this account.",
     "thresholdLegendTooltip_RHEL": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
-    "thresholdCoresLegendTooltip_OpenShift": "Maximum capacity, as CPU cores, based on total {{product}} subscriptions in this account.",
-    "thresholdSocketsLegendTooltip_OpenShift": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
+    "thresholdCoresLegendTooltip_OpenShift Container Platform": "Maximum capacity, as CPU cores, based on total {{product}} subscriptions in this account.",
+    "thresholdSocketsLegendTooltip_OpenShift Container Platform": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
     "tooltipSummary": "Your subscription data facets. With one level of column and row headers."
   },
   "curiosity-inventory": {
@@ -141,8 +141,8 @@
   "curiosity-view": {
     "title": "{{appName}}",
     "subtitle": "Monitor your usage based on your subscription terms. <0>Learn more about {{appName}} reporting</0>",
-    "title_OpenShift": "Red Hat OpenShift",
-    "subtitle_OpenShift": "Monitor your Red Hat OpenShift usage by socket or core usage, based on your subscription terms. <0>Learn more about {{appName}} reporting</0>",
+    "title_OpenShift Container Platform": "Red Hat OpenShift",
+    "subtitle_OpenShift Container Platform": "Monitor your Red Hat OpenShift usage by socket or core usage, based on your subscription terms. <0>Learn more about {{appName}} reporting</0>",
     "title_RHEL": "Red Hat Enterprise Linux",
     "subtitle_RHEL": "Monitor your Red Hat Enterprise Linux usage by physical, virtual, and public cloud sockets. <0>Learn more about {{appName}} reporting</0>",
     "title_Satellite": "Red Hat Satellite"

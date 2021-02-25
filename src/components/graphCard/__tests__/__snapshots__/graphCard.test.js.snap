@@ -84,37 +84,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
       </CardTitle>
       <CardActions
         className=""
-      >
-        <ToolbarFieldGranularity
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                "value": "daily",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                "value": "weekly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                "value": "monthly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                "value": "quarterly",
-              },
-            ]
-          }
-          t={[Function]}
-          value="daily"
-          viewId="graphCard"
-        />
-      </CardActions>
+      />
     </CardHeader>
   </MinHeight>
   <MinHeight
@@ -209,37 +179,7 @@ exports[`GraphCard Component should render multiple states: error with 403 statu
       </CardTitle>
       <CardActions
         className="blur"
-      >
-        <ToolbarFieldGranularity
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                "value": "daily",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                "value": "weekly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                "value": "monthly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                "value": "quarterly",
-              },
-            ]
-          }
-          t={[Function]}
-          value="daily"
-          viewId="graphCard"
-        />
-      </CardActions>
+      />
     </CardHeader>
   </MinHeight>
   <MinHeight
@@ -330,37 +270,7 @@ exports[`GraphCard Component should render multiple states: error with 500 statu
       </CardTitle>
       <CardActions
         className="blur"
-      >
-        <ToolbarFieldGranularity
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                "value": "daily",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                "value": "weekly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                "value": "monthly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                "value": "quarterly",
-              },
-            ]
-          }
-          t={[Function]}
-          value="daily"
-          viewId="graphCard"
-        />
-      </CardActions>
+      />
     </CardHeader>
   </MinHeight>
   <MinHeight
@@ -451,37 +361,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
       </CardTitle>
       <CardActions
         className=""
-      >
-        <ToolbarFieldGranularity
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                "value": "daily",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                "value": "weekly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                "value": "monthly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                "value": "quarterly",
-              },
-            ]
-          }
-          t={[Function]}
-          value="daily"
-          viewId="graphCard"
-        />
-      </CardActions>
+      />
     </CardHeader>
   </MinHeight>
   <MinHeight
@@ -572,37 +452,7 @@ exports[`GraphCard Component should render multiple states: pending 1`] = `
       </CardTitle>
       <CardActions
         className=""
-      >
-        <ToolbarFieldGranularity
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                "value": "daily",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                "value": "weekly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                "value": "monthly",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                "value": "quarterly",
-              },
-            ]
-          }
-          t={[Function]}
-          value="daily"
-          viewId="graphCard"
-        />
-      </CardActions>
+      />
     </CardHeader>
   </MinHeight>
   <MinHeight
