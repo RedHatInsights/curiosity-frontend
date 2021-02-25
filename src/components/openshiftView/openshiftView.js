@@ -19,6 +19,7 @@ import {
 import { apiQueries, connect, reduxSelectors } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
+import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
@@ -50,7 +51,6 @@ class OpenshiftView extends React.Component {
       initialInventoryFilters,
       initialSubscriptionsInventoryFilters,
       initialOption,
-      productLabel,
       query,
       graphTallyQuery,
       inventoryHostsQuery,
@@ -59,6 +59,7 @@ class OpenshiftView extends React.Component {
       t,
       viewId
     } = this.props;
+    const { pathParameter: productId, productParameter: productLabel } = routeDetail;
     const {
       graphTallyQuery: initialGraphTallyQuery,
       inventoryHostsQuery: initialInventoryHostsQuery,
@@ -66,11 +67,12 @@ class OpenshiftView extends React.Component {
       toolbarQuery
     } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
+    const uomFilter = query[RHSM_API_QUERY_TYPES.UOM] || initialOption;
     const filter = ({ id, isOptional }) => {
       if (!isOptional) {
         return true;
       }
-      return new RegExp(query[RHSM_API_QUERY_TYPES.UOM] || initialOption, 'i').test(id);
+      return new RegExp(uomFilter, 'i').test(id);
     };
 
     const graphFilters = initialGraphFilters.filter(filter);
@@ -83,48 +85,50 @@ class OpenshiftView extends React.Component {
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })}
         </PageHeader>
         <PageMessages>
-          <BannerMessages productId={routeDetail.pathParameter} viewId={viewId} query={query} />
+          <BannerMessages productId={productId} viewId={viewId} query={query} />
         </PageMessages>
         <PageToolbar>
-          <Toolbar
-            filterOptions={initialToolbarFilters}
-            productId={routeDetail.pathParameter}
-            query={toolbarQuery}
-            viewId={viewId}
-          />
+          <Toolbar filterOptions={initialToolbarFilters} productId={productId} query={toolbarQuery} viewId={viewId} />
         </PageToolbar>
         <PageSection>
           <GraphCard
-            key={routeDetail.pathParameter}
+            key={`graph_${productId}`}
             filterGraphData={graphFilters}
             query={initialGraphTallyQuery}
-            productId={routeDetail.pathParameter}
+            productId={productId}
             viewId={viewId}
-            cardTitle={t('curiosity-graph.cardHeading')}
+            cardTitle={t('curiosity-graph.cardHeading', { context: uomFilter })}
             productLabel={productLabel}
           >
             <ToolbarFieldUom value={initialOption} viewId={viewId} />
+            <ToolbarFieldGranularity value={initialGraphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} viewId={viewId} />
           </GraphCard>
         </PageSection>
         <PageSection>
-          <InventoryTabs productId={routeDetail.pathParameter}>
-            <InventoryTab key="hostsTab" title={t('curiosity-inventory.tab', { context: 'hosts' })}>
+          <InventoryTabs key={`inventory_${productId}`} productId={productId}>
+            <InventoryTab
+              key={`inventory_hosts_${productId}`}
+              title={t('curiosity-inventory.tab', { context: 'hosts' })}
+            >
               <InventoryList
-                key={routeDetail.pathParameter}
+                key={productId}
                 filterGuestsData={initialGuestsFilters}
                 filterInventoryData={inventoryFilters}
-                productId={routeDetail.pathParameter}
+                productId={productId}
                 settings={initialInventorySettings}
                 query={initialInventoryHostsQuery}
                 viewId={viewId}
               />
             </InventoryTab>
             {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && (
-              <InventoryTab key="subscriptionsTab" title={t('curiosity-inventory.tab', { context: 'subscriptions' })}>
+              <InventoryTab
+                key={`inventory_subs_${productId}`}
+                title={t('curiosity-inventory.tab', { context: 'subscriptions' })}
+              >
                 <InventorySubscriptions
-                  key={routeDetail.pathParameter}
+                  key={productId}
                   filterInventoryData={subscriptionsInventoryFilters}
-                  productId={routeDetail.pathParameter}
+                  productId={productId}
                   query={initialInventorySubscriptionsQuery}
                   viewId={viewId}
                 />
@@ -140,10 +144,10 @@ class OpenshiftView extends React.Component {
 /**
  * Prop types.
  *
- * @type {{productLabel: string, initialOption: string, inventorySubscriptionsQuery: object, query: object,
+ * @type {{initialOption: string, inventorySubscriptionsQuery: object, query: object,
  *     initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, initialToolbarFilters: Array,
- *     viewId: string, t: Function, graphTallyQuery: object, inventoryHostsQuery: object, initialGraphFilters: Array,
- *     routeDetail: object, initialGuestsFilters: Array, initialInventoryFilters: Array}}
+ *     t: Function, graphTallyQuery: object, inventoryHostsQuery: object, initialGraphFilters: Array,
+ *     routeDetail: object, initialGuestsFilters: Array, initialInventoryFilters: Array, viewId: string}}
  */
 OpenshiftView.propTypes = {
   query: PropTypes.object,
@@ -173,13 +177,10 @@ OpenshiftView.propTypes = {
   }),
   initialSubscriptionsInventoryFilters: PropTypes.array,
   initialToolbarFilters: PropTypes.array,
-  productLabel: PropTypes.string,
   routeDetail: PropTypes.shape({
-    pathParameter: PropTypes.string.isRequired,
-    pathId: PropTypes.string,
-    routeItem: PropTypes.shape({
-      title: PropTypes.string
-    })
+    pathParameter: PropTypes.string,
+    productParameter: PropTypes.string,
+    viewParameter: PropTypes.string
   }).isRequired,
   t: PropTypes.func,
   viewId: PropTypes.string
@@ -188,10 +189,10 @@ OpenshiftView.propTypes = {
 /**
  * Default props.
  *
- * @type {{productLabel: string, initialOption: string, inventorySubscriptionsQuery: object, query: object,
+ * @type {{initialOption: string, inventorySubscriptionsQuery: object, query: object,
  *     initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, initialToolbarFilters: Array,
- *     viewId: string, t: translate, graphTallyQuery: object, inventoryHostsQuery: object,
- *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array}}
+ *     t: translate, graphTallyQuery: object, inventoryHostsQuery: object,
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, initialInventoryFilters: Array, viewId: string}}
  */
 OpenshiftView.defaultProps = {
   query: {
@@ -379,7 +380,6 @@ OpenshiftView.defaultProps = {
       id: RHSM_API_QUERY_TYPES.SLA
     }
   ],
-  productLabel: 'OpenShift',
   t: translate,
   viewId: 'viewOpenShift'
 };
