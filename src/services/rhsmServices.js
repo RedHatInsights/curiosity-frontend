@@ -97,7 +97,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 80
+ *           "cloud_sockets": 80,
+ *           "core_hours": 0
  *         },
  *         {
  *           "date": "2020-07-02T00:00:00Z",
@@ -105,7 +106,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 80
+ *           "cloud_sockets": 80,
+ *           "core_hours": 10
  *         },
  *         {
  *           "date": "2020-07-03T00:00:00Z",
@@ -113,7 +115,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 80
+ *           "cloud_sockets": 80,
+ *           "core_hours": 10
  *         },
  *         {
  *           "date": "2020-07-04T00:00:00Z",
@@ -121,7 +124,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 80
+ *           "cloud_sockets": 80,
+ *           "core_hours": 10
  *         },
  *         {
  *           "date": "2020-07-05T00:00:00Z",
@@ -129,7 +133,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": 10
  *         },
  *         {
  *           "date": "2020-07-06T00:00:00Z",
@@ -137,7 +142,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": 1000
  *         },
  *         {
  *           "date": "2020-07-07T00:00:00Z",
@@ -145,7 +151,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": 1000
  *         },
  *         {
  *           "date": "2020-07-08T00:00:00Z",
@@ -153,7 +160,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": 1000
  *         },
  *         {
  *           "date": "2020-07-09T00:00:00Z",
@@ -161,7 +169,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": 1000
  *         },
  *         {
  *           "date": "2020-07-10T00:00:00Z",
@@ -169,7 +178,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-11T00:00:00Z",
@@ -177,7 +187,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-12T00:00:00Z",
@@ -185,7 +196,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-13T00:00:00Z",
@@ -193,7 +205,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-14T00:00:00Z",
@@ -201,7 +214,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-15T00:00:00Z",
@@ -209,7 +223,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-16T00:00:00Z",
@@ -217,7 +232,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-17T00:00:00Z",
@@ -225,7 +241,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-18T00:00:00Z",
@@ -233,7 +250,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-19T00:00:00Z",
@@ -241,7 +259,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-20T00:00:00Z",
@@ -249,7 +268,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-21T00:00:00Z",
@@ -257,7 +277,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 24,
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
- *           "cloud_sockets": 20
+ *           "cloud_sockets": 20,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-22T00:00:00Z",
@@ -265,7 +286,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-23T00:00:00Z",
@@ -273,7 +295,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-24T00:00:00Z",
@@ -281,7 +304,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 36,
  *           "hypervisor_sockets": 40,
  *           "has_data": true,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-25T00:00:00Z",
@@ -289,7 +313,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 40,
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-26T00:00:00Z",
@@ -297,7 +322,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 44,
  *           "hypervisor_sockets": 60,
  *           "has_data": true,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-27T00:00:00Z",
@@ -305,7 +331,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 48,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-28T00:00:00Z",
@@ -313,7 +340,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 52,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-29T00:00:00Z",
@@ -321,7 +349,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-30T00:00:00Z",
@@ -329,7 +358,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 60,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 40
+ *           "cloud_sockets": 40,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-31T00:00:00Z",
@@ -338,6 +368,7 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 80,
  *           "has_data": true,
  *           "cloud_sockets": 40,
+ *           "core_hours": null,
  *           "has_cloudigrade_data": true,
  *           "has_cloudigrade_mismatch": true
  *         }
@@ -363,7 +394,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": 10.20
  *         },
  *         {
  *           "date": "2020-05-26T00:00:00Z",
@@ -371,7 +403,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": 10.15
  *         },
  *         {
  *           "date": "2020-06-02T00:00:00Z",
@@ -379,7 +412,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": 10.11
  *         },
  *         {
  *           "date": "2020-06-09T00:00:00Z",
@@ -387,7 +421,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": 2000.32
  *         },
  *         {
  *           "date": "2020-06-16T00:00:00Z",
@@ -395,7 +430,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": 2000.42
  *         },
  *         {
  *           "date": "2020-06-23T00:00:00Z",
@@ -403,7 +439,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": 999.06
  *         },
  *         {
  *           "date": "2020-06-30T00:00:00Z",
@@ -411,7 +448,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-07T00:00:00Z",
@@ -419,7 +457,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-14T00:00:00Z",
@@ -427,7 +466,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-21T00:00:00Z",
@@ -435,7 +475,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-07-28T00:00:00Z",
@@ -443,7 +484,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         },
  *         {
  *           "date": "2020-08-04T00:00:00Z",
@@ -451,7 +493,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 56,
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
- *           "cloud_sockets": 60
+ *           "cloud_sockets": 60,
+ *           "core_hours": null
  *         }
  *       ],
  *       "links": {
@@ -475,7 +518,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 25,
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
- *           "cloud_sockets": 25
+ *           "cloud_sockets": 25,
+ *           "core_hours": 20
  *         },
  *         {
  *           "date": "2019-09-01T00:00:00Z",
@@ -483,7 +527,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 25,
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
- *           "cloud_sockets": 25
+ *           "cloud_sockets": 25,
+ *           "core_hours": 20
  *         },
  *         {
  *           "date": "2019-10-01T00:00:00Z",
@@ -491,7 +536,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 25,
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
- *           "cloud_sockets": 25
+ *           "cloud_sockets": 25,
+ *           "core_hours": 20
  *         },
  *         {
  *           "date": "2019-11-01T00:00:00Z",
@@ -499,7 +545,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": null,
  *           "has_data": false,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": 0
  *         },
  *         {
  *           "date": "2019-12-01T00:00:00Z",
@@ -507,7 +554,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": null,
  *           "has_data": false,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": 0
  *         },
  *         {
  *           "date": "2020-01-01T00:00:00Z",
@@ -515,7 +563,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": null,
  *           "has_data": false,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": 0
  *         },
  *         {
  *           "date": "2020-02-01T00:00:00Z",
@@ -523,7 +572,8 @@ const getApiVersion = (options = {}) => {
  *           "physical_sockets": 0,
  *           "hypervisor_sockets": null,
  *           "has_data": false,
- *           "cloud_sockets": 0
+ *           "cloud_sockets": 0,
+ *           "core_hours": 0
  *         },
  *         {
  *           "date": "2020-03-01T00:00:00Z",
@@ -973,6 +1023,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "display_name": "ipsum.example.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-123456789012",
  *           "cores": 4,
+ *           "core_hours": 10.05,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
  *           "measurement_type": "VIRTUAL",
@@ -985,6 +1036,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6N",
  *           "cloud_provider": "AZURE",
  *           "cores": 4,
+ *           "core_hours": 10.00,
  *           "sockets": 6,
  *           "hardware_type": "CLOUD",
  *           "measurement_type": "CLOUD",
@@ -997,6 +1049,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "display_name": "dolor.example.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-X3bXe4XXfD6M",
  *           "cores": 4,
+ *           "core_hours": 1000.20,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
  *           "measurement_type": "VIRTUAL",
@@ -1009,6 +1062,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "display_name": "dolor.again.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b122-X3bXe4XXfD6L",
  *           "cores": 4,
+ *           "core_hours": 1001.60,
  *           "sockets": 2,
  *           "hardware_type": "VIRTUALIZED",
  *           "measurement_type": "VIRTUAL",
@@ -1021,6 +1075,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "display_name": "lorem.test.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YX",
  *           "cores": 4,
+ *           "core_hours": 999.60,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
  *           "measurement_type": "HYPERVISOR",
@@ -1033,6 +1088,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "display_name": "lorem.again.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YZ",
  *           "cores": 0,
+ *           "core_hours": 0,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
  *           "measurement_type": "PHYSICAL",
@@ -1045,6 +1101,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "display_name": "lorem.another.com",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YA",
  *           "cores": 0,
+ *           "core_hours": 0.01,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
  *           "measurement_type": "PHYSICAL",
@@ -1056,6 +1113,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  *           "inventory_id": "499cff02-8b4b-46f8-a6xx-X3bXe4XXfD6YB",
  *           "subscription_manager_id": "b6028fa4-cd26-449a-b123-X3bXe4XXfD6YB",
  *           "cores": 0,
+ *           "core_hours": 999.61,
  *           "sockets": 6,
  *           "hardware_type": "PHYSICAL",
  *           "measurement_type": "PHYSICAL",

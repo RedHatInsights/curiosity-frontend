@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouterTypes should return specific properties: appName 1`] = `"subscriptions"`;
+exports[`RouterConfig should return specific properties: appName 1`] = `"subscriptions"`;
 
-exports[`RouterTypes should return specific properties: navigation 1`] = `
+exports[`RouterConfig should return specific properties: navigation 1`] = `
 Array [
   Object {
     "default": true,
@@ -54,6 +54,14 @@ Array [
     "viewParameter": "viewOpenShift Container Platform",
   },
   Object {
+    "id": "openshift-dedicated-sw",
+    "path": "/openshift-sw/dedicated",
+    "pathId": "openshift-sw",
+    "pathParameter": "OpenShift-dedicated-metrics",
+    "productParameter": "OpenShift-dedicated-metrics",
+    "viewParameter": "viewOpenShift-dedicated-metrics",
+  },
+  Object {
     "id": "satellite-sw",
     "path": "/satellite-sw/all",
     "pathId": "satellite-sw",
@@ -80,11 +88,11 @@ Array [
 ]
 `;
 
-exports[`RouterTypes should return specific properties: platformLandingRedirect 1`] = `"/"`;
+exports[`RouterConfig should return specific properties: platformLandingRedirect 1`] = `"/"`;
 
-exports[`RouterTypes should return specific properties: platformModalRedirect 1`] = `"/?not_entitled=subscriptions"`;
+exports[`RouterConfig should return specific properties: platformModalRedirect 1`] = `"/?not_entitled=subscriptions"`;
 
-exports[`RouterTypes should return specific properties: routes 1`] = `
+exports[`RouterConfig should return specific properties: routes 1`] = `
 Array [
   Object {
     "component": Object {
@@ -112,6 +120,19 @@ Array [
     "id": "openshift-sw",
     "render": true,
     "to": "/openshift-sw",
+  },
+  Object {
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
+    },
+    "disabled": false,
+    "exact": true,
+    "id": "openshift-dedicated-sw",
+    "render": true,
+    "to": "/openshift-sw/dedicated",
   },
   Object {
     "component": Object {
