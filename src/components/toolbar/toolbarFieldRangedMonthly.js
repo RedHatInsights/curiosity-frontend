@@ -71,7 +71,6 @@ const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
       aria-label={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
       onSelect={onSelect}
       options={updatedOptions}
-      selectedOptions={updatedValue}
       placeholder={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
       maxHeight={250}
     />

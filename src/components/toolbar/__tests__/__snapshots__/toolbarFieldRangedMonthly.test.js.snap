@@ -237,7 +237,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
-  selectedOptions="2018-08-01T00:00:00.000Z"
+  selectedOptions={null}
   toggleIcon={null}
   variant="single"
 />
@@ -391,7 +391,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
-  selectedOptions="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
+  selectedOptions={null}
   toggleIcon={null}
   variant="single"
 />
