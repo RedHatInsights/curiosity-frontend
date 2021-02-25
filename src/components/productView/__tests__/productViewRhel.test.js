@@ -46,6 +46,20 @@ describe('ProductViewRhel Component', () => {
 
     expect(filteredInventoryData).toMatchSnapshot('filteredInventoryData results');
 
+    const fallbackInventoryData = {
+      ...inventoryData,
+      inventoryId: null,
+      lastSeen: null,
+      cloudProvider: 'dolor sit'
+    };
+
+    const fallbackFilteredInventoryData = parseRowCellsListData({
+      filters: initialInventoryFilters,
+      cellData: fallbackInventoryData
+    });
+
+    expect(fallbackFilteredInventoryData).toMatchSnapshot('filteredInventoryData results, fallback display');
+
     const filteredInventoryDataAuthorized = parseRowCellsListData({
       filters: initialInventoryFilters,
       cellData: inventoryData,
