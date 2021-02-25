@@ -1,5 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ProductView Component should allow custom toolbar components: custom toolbar, toolbarGraph 1`] = `
+<PageLayout>
+  <PageHeader
+    includeTour={true}
+    productLabel="lorem ipsum product label"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+  </PageHeader>
+  <PageMessages
+    className=""
+  >
+    <Connect(BannerMessages)
+      productId="lorem ipsum"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageMessages>
+  <PageToolbar
+    className=""
+  />
+  <PageSection
+    className=""
+  >
+    <Connect(GraphCard)
+      cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"sockets\\"})"
+      key="graph_lorem ipsum"
+      productId="lorem ipsum"
+      productLabel="lorem ipsum product label"
+      query={Object {}}
+      viewId="dolor sit"
+    >
+      lorem ipsum
+    </Connect(GraphCard)>
+  </PageSection>
+  <PageSection
+    className=""
+  >
+    <Connect(InventoryTabs)
+      key="inventory_lorem ipsum"
+      productId="lorem ipsum"
+    >
+      <InventoryTab
+        active={false}
+        key="inventory_hosts_lorem ipsum"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
+      >
+        <Connect(InventoryList)
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="inventory_subs_lorem ipsum"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
+  </PageSection>
+</PageLayout>
+`;
+
+exports[`ProductView Component should allow custom toolbar components: custom toolbar, toolbarProduct 1`] = `
+<PageLayout>
+  <PageHeader
+    includeTour={true}
+    productLabel="lorem ipsum product label"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+  </PageHeader>
+  <PageMessages
+    className=""
+  >
+    <Connect(BannerMessages)
+      productId="lorem ipsum"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageMessages>
+  <PageToolbar
+    className=""
+  >
+    dolor sit
+  </PageToolbar>
+  <PageSection
+    className=""
+  >
+    <Connect(GraphCard)
+      cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"sockets\\"})"
+      key="graph_lorem ipsum"
+      productId="lorem ipsum"
+      productLabel="lorem ipsum product label"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageSection>
+  <PageSection
+    className=""
+  >
+    <Connect(InventoryTabs)
+      key="inventory_lorem ipsum"
+      productId="lorem ipsum"
+    >
+      <InventoryTab
+        active={false}
+        key="inventory_hosts_lorem ipsum"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
+      >
+        <Connect(InventoryList)
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="inventory_subs_lorem ipsum"
+        title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          key="lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
+  </PageSection>
+</PageLayout>
+`;
+
 exports[`ProductView Component should render a non-connected component: non-connected 1`] = `
 <PageLayout>
   <PageHeader
@@ -31,23 +173,54 @@ exports[`ProductView Component should render a non-connected component: non-conn
     className=""
   >
     <Connect(GraphCard)
-      cardTitle="t(curiosity-graph.socketsHeading)"
-      key="lorem ipsum"
+      cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"sockets\\"})"
+      key="graph_lorem ipsum"
       productId="lorem ipsum"
       productLabel="lorem ipsum product label"
       query={Object {}}
       viewId="dolor sit"
-    />
+    >
+      <ToolbarFieldGranularity
+        options={
+          Array [
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+              "value": "daily",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+              "value": "weekly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+              "value": "monthly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+              "value": "quarterly",
+            },
+          ]
+        }
+        t={[Function]}
+        value="daily"
+        viewId="dolor sit"
+      />
+    </Connect(GraphCard)>
   </PageSection>
   <PageSection
     className=""
   >
     <Connect(InventoryTabs)
+      key="inventory_lorem ipsum"
       productId="lorem ipsum"
     >
       <InventoryTab
         active={false}
-        key="hostsTab"
+        key="inventory_hosts_lorem ipsum"
         title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
       >
         <Connect(InventoryList)
@@ -59,7 +232,7 @@ exports[`ProductView Component should render a non-connected component: non-conn
       </InventoryTab>
       <InventoryTab
         active={false}
-        key="subscriptionsTab"
+        key="inventory_subs_lorem ipsum"
         title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
       >
         <Connect(InventorySubscriptions)
