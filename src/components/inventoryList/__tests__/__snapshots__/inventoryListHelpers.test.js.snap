@@ -42,6 +42,18 @@ Object {
 }
 `;
 
+exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable, set a default field 1`] = `
+Object {
+  "id": "lorem",
+  "isSortDefault": true,
+  "isSortable": true,
+  "onSort": [Function],
+  "sortActive": true,
+  "sortDefaultInitialDirection": "lorem",
+  "sortDirection": "lorem",
+}
+`;
+
 exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: NOT wrappable header 1`] = `
 Array [
   Object {

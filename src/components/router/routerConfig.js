@@ -45,6 +45,13 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
+    to: '/openshift-dedicated',
+    component: React.lazy(() => import('../productView/productViewOpenShiftDedicated')),
+    exact: true,
+    render: true,
+    disabled: helpers.UI_DISABLED
+  },
+  {
     to: '/:variant(satellite|satellite-capsule|satellite-server)',
     component: React.lazy(() => import('../productView/productViewSatellite')),
     exact: true,
@@ -109,6 +116,13 @@ const navigation = [
     pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
     productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
+  },
+  {
+    id: 'openshift-dedicated',
+    path: '/openshift-dedicated',
+    pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS,
+    productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS}`
   },
   {
     id: 'satellite',
