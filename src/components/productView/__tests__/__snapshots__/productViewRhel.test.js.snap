@@ -441,6 +441,97 @@ Object {
 }
 `;
 
+exports[`ProductViewRhel Component should set product configuration: filteredInventoryData results, fallback display 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "lorem",
+    },
+    Object {
+      "title": <React.Fragment>
+        t(curiosity-inventory.measurementType, {"context":null})
+         
+        <Label
+          color="purple"
+        >
+          t(curiosity-inventory.cloudProvider, {"context":"dolor sit"})
+        </Label>
+      </React.Fragment>,
+    },
+    Object {
+      "title": 10,
+    },
+    [Function],
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "cloudProvider": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cloudProvider\\"})",
+      "value": "dolor sit",
+    },
+    "cores": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
+      "value": 12,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "value": "lorem",
+    },
+    "hardwareType": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+      "value": "ipsum",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "value": null,
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "value": null,
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+      "value": "hello world",
+    },
+    "measurementType": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+      "value": null,
+    },
+    "numberOfGuests": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+      "value": 3,
+    },
+    "sockets": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+      "value": 10,
+    },
+  },
+}
+`;
+
 exports[`ProductViewRhel Component should set product configuration: initial configuration 1`] = `
 Object {
   "initialGraphFilters": Array [
