@@ -1,6 +1,6 @@
 import { appName, navigation, platformLandingRedirect, platformModalRedirect, routes } from '../routerConfig';
 
-describe('RouterTypes', () => {
+describe('RouterConfig', () => {
   it('should return specific properties', () => {
     expect(appName).toMatchSnapshot('appName');
     expect(navigation).toMatchSnapshot('navigation');
@@ -22,6 +22,6 @@ describe('RouterTypes', () => {
       }
     });
 
-    expect(lazyLoadComponents.length).toBe(4);
+    expect(lazyLoadComponents.length).toBe(5);
   });
 });
