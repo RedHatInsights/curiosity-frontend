@@ -18,7 +18,7 @@ import { dateHelpers } from '../../common';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
 
 /**
- * A Red Hat Enterprise Linux configured view, and related system architectures.
+ * An OpenShift Dedicated configured view.
  *
  * @param {object} props
  * @param {object} props.productConfig
