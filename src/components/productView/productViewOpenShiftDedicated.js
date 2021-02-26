@@ -12,7 +12,7 @@ import {
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_SORT_TYPES
 } from '../../types/rhsmApiTypes';
-import { ConnectedProductView, ProductView } from './productView';
+import { ProductView } from './productView';
 import { translate } from '../i18n/i18n';
 import { dateHelpers } from '../../common';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
@@ -30,7 +30,7 @@ const ProductViewOpenShiftDedicated = ({ productConfig, routeDetail }) => {
   const { [RHSM_API_QUERY_TYPES.START_DATE]: startDate } = productConfig.graphTallyQuery;
 
   return (
-    <ConnectedProductView
+    <ProductView
       routeDetail={routeDetail}
       productConfig={productConfig}
       toolbarProduct={false}
