@@ -18,7 +18,7 @@ import {
   RHSM_API_QUERY_SORT_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES
 } from '../../types/rhsmApiTypes';
-import { ConnectedProductView, ProductView } from './productView';
+import { ProductView } from './productView';
 import { translate } from '../i18n/i18n';
 import { dateHelpers, helpers } from '../../common';
 
@@ -31,7 +31,7 @@ import { dateHelpers, helpers } from '../../common';
  * @returns {Node}
  */
 const ProductViewSatellite = ({ productConfig, routeDetail }) => (
-  <ConnectedProductView routeDetail={routeDetail} productConfig={productConfig} />
+  <ProductView routeDetail={routeDetail} productConfig={productConfig} />
 );
 
 /**
