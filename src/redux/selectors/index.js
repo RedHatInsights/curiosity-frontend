@@ -4,7 +4,6 @@ import graphCardSelectors from './graphCardSelectors';
 import inventoryListSelectors from './inventoryListSelectors';
 import subscriptionsListSelectors from './subscriptionsListSelectors';
 import userSelectors from './userSelectors';
-import viewSelectors from './viewSelectors';
 
 const reduxSelectors = {
   appMessages: appMessagesSelectors,
@@ -12,8 +11,7 @@ const reduxSelectors = {
   graphCard: graphCardSelectors,
   inventoryList: inventoryListSelectors,
   subscriptionsList: subscriptionsListSelectors,
-  user: userSelectors,
-  view: viewSelectors
+  user: userSelectors
 };
 
 export { reduxSelectors as default, reduxSelectors };

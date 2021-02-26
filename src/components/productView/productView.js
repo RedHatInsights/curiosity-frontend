@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages } from '../pageLayout/pageLayout';
-import { apiQueries, connect, reduxSelectors } from '../../redux';
+import { apiQueries } from '../../redux';
 import { ConnectedGraphCard, GraphCard } from '../graphCard/graphCard';
 import { ConnectedToolbar, Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList, InventoryList } from '../inventoryList/inventoryList';
@@ -115,7 +115,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
         <InventoryTabs key={`inventory_${productId}`} productId={productId}>
           <InventoryTab key={`inventory_hosts_${productId}`} title={t('curiosity-inventory.tab', { context: 'hosts' })}>
             <ConnectedInventoryList
-              key={productId}
+              key={`inv_${productId}`}
               filterGuestsData={initialGuestsFilters}
               filterInventoryData={initialInventoryFilters}
               productId={productId}
@@ -130,7 +130,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
               title={t('curiosity-inventory.tab', { context: 'subscriptions' })}
             >
               <ConnectedInventorySubscriptions
-                key={productId}
+                key={`subs_${productId}`}
                 filterInventoryData={initialSubscriptionsInventoryFilters}
                 productId={productId}
                 query={initialInventorySubscriptionsQuery}
@@ -198,13 +198,4 @@ ProductView.defaultProps = {
   toolbarProduct: null
 };
 
-/**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.view.makeView(ProductView.defaultProps);
-
-const ConnectedProductView = connect(makeMapStateToProps)(ProductView);
-
-export { ConnectedProductView as default, ConnectedProductView, ProductView };
+export { ProductView as default, ProductView };
