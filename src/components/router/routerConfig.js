@@ -42,7 +42,7 @@ const routes = [
   {
     id: 'openshift-sw',
     to: '/openshift-sw',
-    component: React.lazy(() => import('../openshiftView/openshiftView')),
+    component: React.lazy(() => import('../productView/productViewOpenShiftContainer')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED
