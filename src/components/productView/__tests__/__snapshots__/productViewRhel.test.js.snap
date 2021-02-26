@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductViewRhel Component should render a non-connected component: non-connected 1`] = `
-<Connect(ProductView)
+<ProductView
   productConfig={
     Object {
       "graphTallyQuery": Object {
@@ -124,6 +124,9 @@ exports[`ProductViewRhel Component should render a non-connected component: non-
       "productParameter": "dolor sit",
     }
   }
+  t={[Function]}
+  toolbarGraph={null}
+  toolbarProduct={null}
 />
 `;
 
