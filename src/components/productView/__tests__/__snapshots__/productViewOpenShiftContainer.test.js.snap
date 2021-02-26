@@ -1,0 +1,775 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductViewOpenShiftContainer Component should render a non-connected component: non-connected 1`] = `
+<PageLayout>
+  <PageHeader
+    includeTour={true}
+    productLabel="dolor sit"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"dolor sit"})
+  </PageHeader>
+  <PageColumns
+    className=""
+  >
+    <PageToolbar
+      className=""
+    >
+      <Connect(Toolbar)
+        filterOptions={
+          Array [
+            Object {
+              "id": "sla",
+            },
+          ]
+        }
+        productId="OpenShift Container Platform"
+        query={
+          Object {
+            "uom": "cores",
+          }
+        }
+        viewId="viewOpenShift"
+      />
+    </PageToolbar>
+    <PageSection
+      className=""
+    >
+      <Connect(GraphCard)
+        cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"OpenShift Container Platform\\"})"
+        filterGraphData={
+          Array [
+            Object {
+              "color": "#06c",
+              "fill": "#8bc1f7",
+              "id": "cores",
+              "isOptional": true,
+              "stroke": "#06c",
+            },
+            Object {
+              "id": "thresholdCores",
+              "isOptional": true,
+            },
+          ]
+        }
+        key="graph_OpenShift Container Platform"
+        productId="OpenShift Container Platform"
+        productLabel="OpenShift"
+        query={
+          Object {
+            "beginning": "2019-06-20T00:00:00.000Z",
+            "ending": "2019-07-20T23:59:59.999Z",
+            "granularity": "daily",
+          }
+        }
+        viewId="viewOpenShift"
+      >
+        <ToolbarFieldUom
+          options={
+            Array [
+              Object {
+                "selected": false,
+                "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
+                "value": "cores",
+              },
+              Object {
+                "selected": false,
+                "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
+                "value": "sockets",
+              },
+            ]
+          }
+          t={[Function]}
+          value="cores"
+          viewId="viewOpenShift"
+        />
+        <ToolbarFieldGranularity
+          options={
+            Array [
+              Object {
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+                "value": "daily",
+              },
+              Object {
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+                "value": "weekly",
+              },
+              Object {
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+                "value": "monthly",
+              },
+              Object {
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+                "value": "quarterly",
+              },
+            ]
+          }
+          t={[Function]}
+          value="daily"
+          viewId="viewOpenShift"
+        />
+      </Connect(GraphCard)>
+    </PageSection>
+    <PageSection
+      className=""
+    >
+      <Connect(InventoryTabs)
+        key="inventory_OpenShift Container Platform"
+        productId="OpenShift Container Platform"
+      >
+        <InventoryTab
+          active={false}
+          key="inventory_hosts_OpenShift Container Platform"
+          title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
+        >
+          <Connect(InventoryList)
+            filterGuestsData={
+              Array [
+                Object {
+                  "cell": [Function],
+                  "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+                  "id": "displayName",
+                },
+                Object {
+                  "cellWidth": 40,
+                  "id": "inventoryId",
+                },
+                Object {
+                  "cell": [Function],
+                  "cellWidth": 15,
+                  "id": "lastSeen",
+                },
+              ]
+            }
+            filterInventoryData={
+              Array [
+                Object {
+                  "cell": [Function],
+                  "id": "displayName",
+                  "isSortable": true,
+                },
+                Object {
+                  "cellWidth": 15,
+                  "header": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
+                  "id": "cores",
+                  "isOptional": true,
+                  "isSortable": true,
+                  "isWrappable": true,
+                },
+                Object {
+                  "cell": [Function],
+                  "cellWidth": 15,
+                  "id": "lastSeen",
+                  "isSortable": true,
+                  "isWrappable": true,
+                },
+              ]
+            }
+            key="inv_OpenShift Container Platform"
+            productId="OpenShift Container Platform"
+            query={
+              Object {
+                "dir": "asc",
+                "limit": 100,
+                "offset": 0,
+                "sort": "last_seen",
+                "uom": "cores",
+              }
+            }
+            settings={Object {}}
+            viewId="viewOpenShift"
+          />
+        </InventoryTab>
+        <InventoryTab
+          active={false}
+          key="inventory_subs_OpenShift Container Platform"
+          title="t(curiosity-inventory.tab, {\\"context\\":\\"subscriptions\\"})"
+        >
+          <Connect(InventorySubscriptions)
+            filterInventoryData={
+              Array [
+                Object {
+                  "id": "productName",
+                  "isSortable": true,
+                },
+                Object {
+                  "cellWidth": 15,
+                  "id": "serviceLevel",
+                  "isSortable": true,
+                  "isWrappable": true,
+                },
+                Object {
+                  "cell": [Function],
+                  "cellWidth": 15,
+                  "id": "upcomingEventDate",
+                  "isSortable": true,
+                  "isWrappable": true,
+                },
+              ]
+            }
+            key="subs_OpenShift Container Platform"
+            productId="OpenShift Container Platform"
+            query={
+              Object {
+                "dir": "asc",
+                "limit": 100,
+                "offset": 0,
+                "sort": "upcoming_event_date",
+                "uom": "cores",
+              }
+            }
+            viewId="viewOpenShift"
+          />
+        </InventoryTab>
+      </Connect(InventoryTabs)>
+    </PageSection>
+    <PageSection
+      className=""
+    >
+      <Connect(GraphCard)
+        cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"OpenShift-metrics\\"})"
+        filterGraphData={
+          Array [
+            Object {
+              "color": "#06c",
+              "fill": "#8bc1f7",
+              "id": "coreHours",
+              "stroke": "#06c",
+            },
+          ]
+        }
+        key="graph_OpenShift-metrics"
+        productId="OpenShift-metrics"
+        productLabel="OpenShift Metric"
+        query={
+          Object {
+            "beginning": "2019-06-20T00:00:00.000Z",
+            "ending": "2019-07-20T23:59:59.999Z",
+            "granularity": "daily",
+          }
+        }
+        viewId="viewOpenShiftMetric"
+      >
+        <ToolbarFieldRangedMonthly
+          options={
+            Array [
+              Object {
+                "_title": "current",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})",
+                "value": Object {
+                  "endDate": 2019-07-31T23:59:59.999Z,
+                  "startDate": 2019-07-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "june",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"June\\"})",
+                "value": Object {
+                  "endDate": 2019-06-30T23:59:59.999Z,
+                  "startDate": 2019-06-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "may",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"May\\"})",
+                "value": Object {
+                  "endDate": 2019-05-31T23:59:59.999Z,
+                  "startDate": 2019-05-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "april",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"April\\"})",
+                "value": Object {
+                  "endDate": 2019-04-30T23:59:59.999Z,
+                  "startDate": 2019-04-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "march",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"March\\"})",
+                "value": Object {
+                  "endDate": 2019-03-31T23:59:59.999Z,
+                  "startDate": 2019-03-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "february",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"February\\"})",
+                "value": Object {
+                  "endDate": 2019-02-28T23:59:59.999Z,
+                  "startDate": 2019-02-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "january",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"January\\"})",
+                "value": Object {
+                  "endDate": 2019-01-31T23:59:59.999Z,
+                  "startDate": 2019-01-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "december",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"December 2018\\"})",
+                "value": Object {
+                  "endDate": 2018-12-31T23:59:59.999Z,
+                  "startDate": 2018-12-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "november",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"November 2018\\"})",
+                "value": Object {
+                  "endDate": 2018-11-30T23:59:59.999Z,
+                  "startDate": 2018-11-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "october",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"October 2018\\"})",
+                "value": Object {
+                  "endDate": 2018-10-31T23:59:59.999Z,
+                  "startDate": 2018-10-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "september",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"September 2018\\"})",
+                "value": Object {
+                  "endDate": 2018-09-30T23:59:59.999Z,
+                  "startDate": 2018-09-01T00:00:00.000Z,
+                },
+              },
+              Object {
+                "_title": "august",
+                "selected": false,
+                "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"August 2018\\"})",
+                "value": Object {
+                  "endDate": 2018-08-31T23:59:59.999Z,
+                  "startDate": 2018-08-01T00:00:00.000Z,
+                },
+              },
+            ]
+          }
+          t={[Function]}
+          value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
+          viewId="viewOpenShiftMetric"
+        />
+      </Connect(GraphCard)>
+    </PageSection>
+    <PageSection
+      className=""
+    >
+      <Connect(InventoryTabs)
+        key="inventory_OpenShift-metrics"
+        productId="OpenShift-metrics"
+      >
+        <InventoryTab
+          active={false}
+          key="inventory_hosts_OpenShift-metrics"
+          title="t(curiosity-inventory.tab, {\\"context\\":\\"hosts\\"})"
+        >
+          <Connect(InventoryList)
+            filterGuestsData={Array []}
+            filterInventoryData={
+              Array [
+                Object {
+                  "cell": [Function],
+                  "id": "displayName",
+                  "isSortable": true,
+                },
+                Object {
+                  "cellWidth": 15,
+                  "id": "coreHours",
+                  "isSortable": true,
+                  "isWrappable": true,
+                },
+                Object {
+                  "cell": [Function],
+                  "cellWidth": 15,
+                  "id": "lastSeen",
+                  "isSortable": true,
+                  "isWrappable": true,
+                },
+              ]
+            }
+            key="inv_OpenShift-metrics"
+            productId="OpenShift-metrics"
+            query={
+              Object {
+                "dir": "asc",
+                "limit": 100,
+                "offset": 0,
+                "sort": "last_seen",
+              }
+            }
+            settings={Object {}}
+            viewId="viewOpenShiftMetric"
+          />
+        </InventoryTab>
+      </Connect(InventoryTabs)>
+    </PageSection>
+  </PageColumns>
+</PageLayout>
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, Product One 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": <React.Fragment>
+        lorem
+         
+        
+      </React.Fragment>,
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": <DateFormat
+        date="lorem date obj"
+      />,
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets_OpenShift Container Platform\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "coreHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "value": 12.53,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "value": "lorem",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "value": "lorem date obj",
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+      "value": "hello world",
+    },
+  },
+}
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, Product Two 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": <React.Fragment>
+        lorem
+         
+        
+      </React.Fragment>,
+    },
+    Object {
+      "title": 12.53,
+    },
+    Object {
+      "title": <DateFormat
+        date="lorem date obj"
+      />,
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "coreHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "value": 12.53,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "value": "lorem",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "value": "lorem date obj",
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+      "value": "hello world",
+    },
+  },
+}
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, fallback display, Product One 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "lorem",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+    [Function],
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets_OpenShift Container Platform\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "coreHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "value": null,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "value": "lorem",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "value": null,
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "value": null,
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+      "value": "hello world",
+    },
+  },
+}
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, fallback display, Product Two 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "lorem",
+    },
+    Object {
+      "title": "",
+    },
+    [Function],
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "coreHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "value": null,
+    },
+    "displayName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+      "value": "lorem",
+    },
+    "inventoryId": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+      "value": null,
+    },
+    "lastSeen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+      "value": null,
+    },
+    "loremIpsum": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+      "value": "hello world",
+    },
+  },
+}
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: initial configuration 1`] = `
+Array [
+  Object {
+    "initialGraphFilters": Array [
+      Object {
+        "color": "#06c",
+        "fill": "#8bc1f7",
+        "id": "cores",
+        "isOptional": true,
+        "stroke": "#06c",
+      },
+      Object {
+        "color": "#06c",
+        "fill": "#8bc1f7",
+        "id": "sockets",
+        "isOptional": true,
+        "stroke": "#06c",
+      },
+      Object {
+        "id": "thresholdSockets",
+        "isOptional": true,
+      },
+      Object {
+        "id": "thresholdCores",
+        "isOptional": true,
+      },
+    ],
+    "initialInventoryFilters": Array [
+      Object {
+        "cell": [Function],
+        "id": "displayName",
+        "isSortable": true,
+      },
+      Object {
+        "cellWidth": 15,
+        "header": "t(curiosity-inventory.header, {\\"context\\":\\"sockets_OpenShift Container Platform\\"})",
+        "id": "sockets",
+        "isOptional": true,
+        "isSortable": true,
+        "isWrappable": true,
+      },
+      Object {
+        "cellWidth": 15,
+        "header": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
+        "id": "cores",
+        "isOptional": true,
+        "isSortable": true,
+        "isWrappable": true,
+      },
+      Object {
+        "cell": [Function],
+        "cellWidth": 15,
+        "id": "lastSeen",
+        "isSortable": true,
+        "isWrappable": true,
+      },
+    ],
+    "query": Object {
+      "uom": "cores",
+    },
+  },
+  Object {
+    "initialGraphFilters": Array [
+      Object {
+        "color": "#06c",
+        "fill": "#8bc1f7",
+        "id": "coreHours",
+        "stroke": "#06c",
+      },
+    ],
+    "initialInventoryFilters": Array [
+      Object {
+        "cell": [Function],
+        "id": "displayName",
+        "isSortable": true,
+      },
+      Object {
+        "cellWidth": 15,
+        "id": "coreHours",
+        "isSortable": true,
+        "isWrappable": true,
+      },
+      Object {
+        "cell": [Function],
+        "cellWidth": 15,
+        "id": "lastSeen",
+        "isSortable": true,
+        "isWrappable": true,
+      },
+    ],
+    "query": Object {},
+  },
+]
+`;

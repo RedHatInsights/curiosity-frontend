@@ -147,43 +147,6 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/openshiftView/openshiftView.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
-      },
-      Object {
-        "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading', { context: uomFilter })",
-      },
-      Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
-      },
-      Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
-      },
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-      Object {
-        "key": "curiosity-inventory.measurementType",
-        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
-      },
-      Object {
-        "key": "curiosity-inventory.cloudProvider",
-        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
-      },
-    ],
-  },
-  Object {
     "file": "./src/components/optinView/optinView.js",
     "keys": Array [
       Object {
@@ -287,6 +250,47 @@ Array [
       Object {
         "key": "curiosity-inventory.tab",
         "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/productView/productViewOpenShiftContainer.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.cardHeading",
+        "match": "t('curiosity-graph.cardHeading', { context: productId })",
+      },
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
+      },
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
+      },
+      Object {
+        "key": "curiosity-view.title",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewProductLabel })",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'sockets_OpenShift Container Platform' })",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' })",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
     ],
   },
@@ -548,24 +552,28 @@ Array [
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/openshiftView/openshiftView.js",
+    "file": "./src/components/productView/productView.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/openshiftView/openshiftView.js",
+    "file": "./src/components/productView/productView.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/openshiftView/openshiftView.js",
+    "file": "./src/components/productView/productViewOpenShiftContainer.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/productView/productViewOpenShiftContainer.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/productView/productViewOpenShiftContainer.js",
     "key": "curiosity-inventory.label",
   },
   Object {
-    "file": "./src/components/productView/productView.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/productView/productView.js",
-    "key": "curiosity-inventory.tab",
+    "file": "./src/components/productView/productViewOpenShiftContainer.js",
+    "key": "curiosity-inventory.label",
   },
   Object {
     "file": "./src/components/productView/productViewOpenShiftDedicated.js",
