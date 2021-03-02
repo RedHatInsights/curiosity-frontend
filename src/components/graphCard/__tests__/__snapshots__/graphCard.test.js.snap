@@ -95,7 +95,7 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <ChartArea
           chartLegend={[Function]}
@@ -372,7 +372,7 @@ exports[`GraphCard Component should render multiple states: fulfilled 1`] = `
   >
     <CardBody>
       <div
-        className="fadein"
+        className=""
       >
         <ChartArea
           chartLegend={[Function]}

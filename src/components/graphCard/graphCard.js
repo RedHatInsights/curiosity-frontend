@@ -162,7 +162,7 @@ class GraphCard extends React.Component {
         </MinHeight>
         <MinHeight key="bodyMinHeight">
           <CardBody>
-            <div className={(error && 'blur') || 'fadein'}>
+            <div className={(error && 'blur') || (pending && 'fadein') || ''}>
               {pending && <Loader variant="graph" />}
               {!pending && this.renderChart()}
             </div>
