@@ -1,4 +1,5 @@
 import { createSelectorCreator, defaultMemoize } from 'reselect';
+import LruCache from 'lru-cache';
 import _isEqual from 'lodash/isEqual';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
@@ -23,9 +24,14 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
  * Selector cache.
  *
  * @private
- * @type {{dataId: {string}, data: {object}}}
+ * @type {object}
  */
-const selectorCache = { dataId: null, data: {} };
+const selectorCache = new LruCache({
+  maxAge: Number.parseInt(process.env.REACT_APP_SELECTOR_CACHE, 10),
+  max: 10,
+  stale: true,
+  updateAgeOnGet: true
+});
 
 /**
  * Return a combined state, props object.
@@ -87,15 +93,9 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
   };
 
   const cache =
-    (viewId && productId && selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`]) || undefined;
+    (viewId && productId && selectorCache.get(`${viewId}_${productId}_${JSON.stringify(query)}`)) || undefined;
 
   Object.assign(updatedResponseData, { ...cache });
-
-  // Reset cache on viewId update
-  if (viewId && selectorCache.dataId !== viewId) {
-    selectorCache.dataId = viewId;
-    selectorCache.data = {};
-  }
 
   if (responseData.fulfilled && productId === metaId && _isEqual(query, metaQuery)) {
     const {
@@ -134,9 +134,7 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
     updatedResponseData.itemCount = meta[rhsmApiTypes.RHSM_API_RESPONSE_META_TYPES.COUNT] ?? 0;
     updatedResponseData.listData = updatedListData;
     updatedResponseData.fulfilled = true;
-    selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`] = {
-      ...updatedResponseData
-    };
+    selectorCache.set(`${viewId}_${productId}_${JSON.stringify(query)}`, { ...updatedResponseData });
   }
 
   return updatedResponseData;
