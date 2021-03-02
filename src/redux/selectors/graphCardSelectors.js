@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import LruCache from 'lru-cache';
 import moment from 'moment';
 import _isEqual from 'lodash/isEqual';
 import _camelCase from 'lodash/camelCase';
@@ -10,9 +11,14 @@ import { apiQueries } from '../common';
  * Selector cache.
  *
  * @private
- * @type {{dataId: {string}, data: {object}}}
+ * @type {object}
  */
-const selectorCache = { dataId: null, data: {} };
+const selectorCache = new LruCache({
+  maxAge: Number.parseInt(process.env.REACT_APP_SELECTOR_CACHE, 10),
+  max: 10,
+  stale: true,
+  updateAgeOnGet: true
+});
 
 /**
  * Return a combined state, props object.
@@ -71,15 +77,10 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
 
   const responseMetaQuery = { ...metaQuery };
 
-  const cachedGranularity =
-    (viewId && productId && selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`]) || undefined;
+  const cache =
+    (viewId && productId && selectorCache.get(`${viewId}_${productId}_${JSON.stringify(query)}`)) || undefined;
 
-  Object.assign(updatedResponseData, { ...cachedGranularity });
-
-  if (viewId && selectorCache.dataId !== viewId) {
-    selectorCache.dataId = viewId;
-    selectorCache.data = {};
-  }
+  Object.assign(updatedResponseData, { ...cache });
 
   if (responseData.fulfilled && productId === metaId && _isEqual(query, responseMetaQuery)) {
     const [report, capacity] = responseData.data;
@@ -169,9 +170,7 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
 
     // Update response and cache
     updatedResponseData.fulfilled = true;
-    selectorCache.data[`${viewId}_${productId}_${JSON.stringify(query)}`] = {
-      ...updatedResponseData
-    };
+    selectorCache.set(`${viewId}_${productId}_${JSON.stringify(query)}`, { ...updatedResponseData });
   }
 
   return updatedResponseData;
