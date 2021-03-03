@@ -247,8 +247,8 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
         productLabel="OpenShift Metric"
         query={
           Object {
-            "beginning": "2019-06-20T00:00:00.000Z",
-            "ending": "2019-07-20T23:59:59.999Z",
+            "beginning": "2019-07-01T00:00:00.000Z",
+            "ending": "2019-07-31T23:59:59.999Z",
             "granularity": "daily",
           }
         }
