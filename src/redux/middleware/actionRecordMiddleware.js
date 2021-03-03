@@ -35,11 +35,11 @@ const sanitizeData = ({ type, payload, ...action }) => {
     const updatedPayload = {
       ...payload,
       data: {
-        ...payload.data,
+        ...payload?.data,
         user: {
-          ...payload.data.user,
+          ...payload?.data?.user,
           [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
-            ...payload.data.user[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY],
+            ...payload?.data?.user[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY],
             [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {}
           }
         }
