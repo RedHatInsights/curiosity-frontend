@@ -114,7 +114,7 @@
   },
   "dependencies": {
     "@patternfly/patternfly": "4.80.3",
-    "@patternfly/react-charts": "6.13.8",
+    "@patternfly/react-charts": "6.14.2",
     "@patternfly/react-core": "4.90.2",
     "@patternfly/react-icons": "4.8.4",
     "@patternfly/react-styles": "4.7.29",
@@ -146,7 +146,7 @@
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "victory-create-container": "^35.4.8"
+    "victory-create-container": "^35.4.10"
   },
   "devDependencies": {
     "apidoc-mock": "^3.0.3",
