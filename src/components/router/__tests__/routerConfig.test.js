@@ -22,6 +22,6 @@ describe('RouterConfig', () => {
       }
     });
 
-    expect(lazyLoadComponents.length).toBe(5);
+    expect(lazyLoadComponents.length).toBe(6);
   });
 });
