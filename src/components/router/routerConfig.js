@@ -40,7 +40,6 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
-    id: 'openshift-sw',
     to: '/openshift-sw',
     component: React.lazy(() => import('../productView/productViewOpenShiftContainer')),
     exact: true,
@@ -48,7 +47,14 @@ const routes = [
     disabled: helpers.UI_DISABLED
   },
   {
-    id: 'openshift-dedicated-sw',
+    id: 'openshift-sw',
+    to: '/openshift-sw/ocp',
+    component: React.lazy(() => import('../productView/productViewOpenShiftContainer')),
+    exact: true,
+    render: true,
+    disabled: helpers.UI_DISABLED
+  },
+  {
     to: '/openshift-sw/dedicated',
     component: React.lazy(() => import('../productView/productViewOpenShiftDedicated')),
     exact: true,
@@ -130,7 +136,15 @@ const navigation = [
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
   },
   {
-    id: 'openshift-dedicated-sw',
+    id: 'ocp',
+    path: '/openshift-sw/ocp',
+    pathId: 'openshift-sw',
+    pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
+    productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
+    viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
+  },
+  {
+    id: 'dedicated',
     path: '/openshift-sw/dedicated',
     pathId: 'openshift-sw',
     pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS,
