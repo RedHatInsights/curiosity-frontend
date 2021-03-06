@@ -105,7 +105,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
-        "id": "openshift-sw",
         "render": true,
         "to": "/openshift-sw",
       },
@@ -118,7 +117,19 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
-        "id": "openshift-dedicated-sw",
+        "id": "openshift-sw",
+        "render": true,
+        "to": "/openshift-sw/ocp",
+      },
+      Object {
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        },
+        "disabled": false,
+        "exact": true,
         "render": true,
         "to": "/openshift-sw/dedicated",
       },
@@ -163,6 +174,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
       exact={true}
       key="/openshift-sw"
       path="/openshift-sw"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/openshift-sw/ocp"
+      path="/openshift-sw/ocp"
       render={[Function]}
     />
     <Route
