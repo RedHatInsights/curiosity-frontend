@@ -5,8 +5,6 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
   productConfig={
     Object {
       "graphTallyQuery": Object {
-        "beginning": "2019-07-01T00:00:00.000Z",
-        "ending": "2019-07-31T23:59:59.999Z",
         "granularity": "daily",
       },
       "initialGraphFilters": Array [
@@ -46,7 +44,10 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
         "offset": 0,
         "sort": "last_seen",
       },
-      "query": Object {},
+      "query": Object {
+        "beginning": "2019-07-01T00:00:00.000Z",
+        "ending": "2019-07-31T23:59:59.999Z",
+      },
     }
   }
   routeDetail={
@@ -171,7 +172,7 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
         ]
       }
       t={[Function]}
-      value="2019-07-01T00:00:00.000Z"
+      value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
       viewId="toolbarFieldRangeGranularity"
     />
   }
@@ -327,6 +328,9 @@ Object {
       "isWrappable": true,
     },
   ],
-  "query": Object {},
+  "query": Object {
+    "beginning": "2019-07-01T00:00:00.000Z",
+    "ending": "2019-07-31T23:59:59.999Z",
+  },
 }
 `;
