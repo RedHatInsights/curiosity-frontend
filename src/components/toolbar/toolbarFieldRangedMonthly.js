@@ -28,10 +28,7 @@ const toolbarFieldOptions = dateHelpers.getRangedMonthDateTime().listDateTimeRan
  * @returns {Node}
  */
 const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
-  const updatedValue = useSelector(
-    ({ view }) => view.graphTallyQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.START_DATE],
-    value
-  );
+  const updatedValue = useSelector(({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.START_DATE], value);
 
   const updatedOptions = options.map(option => ({
     ...option,

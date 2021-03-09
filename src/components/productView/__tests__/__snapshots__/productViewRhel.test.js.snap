@@ -5,8 +5,6 @@ exports[`ProductViewRhel Component should render a non-connected component: non-
   productConfig={
     Object {
       "graphTallyQuery": Object {
-        "beginning": "2019-06-20T00:00:00.000Z",
-        "ending": "2019-07-20T23:59:59.999Z",
         "granularity": "daily",
       },
       "initialGraphFilters": Array [
@@ -115,7 +113,10 @@ exports[`ProductViewRhel Component should render a non-connected component: non-
         "offset": 0,
         "sort": "upcoming_event_date",
       },
-      "query": Object {},
+      "query": Object {
+        "beginning": "2019-06-20T00:00:00.000Z",
+        "ending": "2019-07-20T23:59:59.999Z",
+      },
     }
   }
   routeDetail={
@@ -602,6 +603,9 @@ Object {
       "isWrappable": true,
     },
   ],
-  "query": Object {},
+  "query": Object {
+    "beginning": "2019-06-20T00:00:00.000Z",
+    "ending": "2019-07-20T23:59:59.999Z",
+  },
 }
 `;

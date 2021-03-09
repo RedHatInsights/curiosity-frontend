@@ -304,11 +304,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_beginning 1`] = `
 Object {
   "result": Object {
-    "graphTallyQuery": Object {
-      "test_id": Object {
-        "beginning": "2018-02-01T00:00:00.000Z",
-      },
-    },
+    "graphTallyQuery": Object {},
     "inventoryGuestsQuery": Object {},
     "inventoryHostsQuery": Object {
       "test_id": Object {
@@ -324,7 +320,11 @@ Object {
         "sort": "ipsum sort",
       },
     },
-    "query": Object {},
+    "query": Object {
+      "test_id": Object {
+        "beginning": "2018-02-01T00:00:00.000Z",
+      },
+    },
   },
   "type": "SET_QUERY_RHSM_beginning",
 }
@@ -333,11 +333,7 @@ Object {
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_ending 1`] = `
 Object {
   "result": Object {
-    "graphTallyQuery": Object {
-      "test_id": Object {
-        "ending": "2021-02-01T23:59:59.999Z",
-      },
-    },
+    "graphTallyQuery": Object {},
     "inventoryGuestsQuery": Object {},
     "inventoryHostsQuery": Object {
       "test_id": Object {
@@ -353,7 +349,11 @@ Object {
         "sort": "ipsum sort",
       },
     },
-    "query": Object {},
+    "query": Object {
+      "test_id": Object {
+        "ending": "2021-02-01T23:59:59.999Z",
+      },
+    },
   },
   "type": "SET_QUERY_RHSM_ending",
 }
