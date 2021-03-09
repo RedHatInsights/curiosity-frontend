@@ -26,6 +26,8 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
         productId="OpenShift Container Platform"
         query={
           Object {
+            "beginning": "2019-06-20T00:00:00.000Z",
+            "ending": "2019-07-20T23:59:59.999Z",
             "uom": "cores",
           }
         }
@@ -173,7 +175,9 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             productId="OpenShift Container Platform"
             query={
               Object {
+                "beginning": "2019-06-20T00:00:00.000Z",
                 "dir": "asc",
+                "ending": "2019-07-20T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
                 "sort": "last_seen",
@@ -215,7 +219,9 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             productId="OpenShift Container Platform"
             query={
               Object {
+                "beginning": "2019-06-20T00:00:00.000Z",
                 "dir": "asc",
+                "ending": "2019-07-20T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
                 "sort": "upcoming_event_date",
@@ -413,7 +419,9 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             productId="OpenShift-metrics"
             query={
               Object {
+                "beginning": "2019-07-01T00:00:00.000Z",
                 "dir": "asc",
+                "ending": "2019-07-31T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
                 "sort": "last_seen",
@@ -737,6 +745,8 @@ Array [
       },
     ],
     "query": Object {
+      "beginning": "2019-06-20T00:00:00.000Z",
+      "ending": "2019-07-20T23:59:59.999Z",
       "uom": "cores",
     },
   },
@@ -769,7 +779,10 @@ Array [
         "isWrappable": true,
       },
     ],
-    "query": Object {},
+    "query": Object {
+      "beginning": "2019-07-01T00:00:00.000Z",
+      "ending": "2019-07-31T23:59:59.999Z",
+    },
   },
 ]
 `;
