@@ -172,11 +172,12 @@ ProductViewOpenShiftContainer.propTypes = {
   productConfig: PropTypes.arrayOf(
     PropTypes.shape({
       productContextFilterUom: PropTypes.bool,
-      query: PropTypes.object,
-      graphTallyQuery: PropTypes.shape({
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
+      query: PropTypes.shape({
         [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
         [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
+      }),
+      graphTallyQuery: PropTypes.shape({
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
       }),
       inventoryHostsQuery: PropTypes.shape({
         [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
@@ -222,14 +223,14 @@ ProductViewOpenShiftContainer.defaultProps = {
     {
       productContextFilterUom: true,
       query: {
-        [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES
-      },
-      graphTallyQuery: {
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES,
         [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers
           .getRangedDateTime(GRANULARITY_TYPES.DAILY)
           .startDate.toISOString(),
         [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).endDate.toISOString()
+      },
+      graphTallyQuery: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
       },
       inventoryHostsQuery: {
         [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,
@@ -396,11 +397,12 @@ ProductViewOpenShiftContainer.defaultProps = {
       viewId: 'viewOpenShift'
     },
     {
-      query: {},
-      graphTallyQuery: {
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+      query: {
         [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
         [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
+      },
+      graphTallyQuery: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
       },
       inventoryHostsQuery: {
         [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,
