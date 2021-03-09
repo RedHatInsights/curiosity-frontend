@@ -2,32 +2,24 @@ import { helpers } from '../../common/helpers';
 import { routes, navigation } from './routerConfig';
 
 /**
- * Return an assumed dynamic route baseName directory
- * based on a predictable platform directory depth of
- * /[OPTIONAL]/[environment]/[APP NAME]
+ * Return an assumed route baseName directory based on existing app name.
+ * App name is defined in dotenv and package.json/insights.appname
+ * [environment]/[OPTIONAL]/[OPTIONAL]/[APP NAME]
  *
  * @param {object} params
  * @param {string} params.pathName
- * @param {string} params.pathPrefix
+ * @param {string} params.appName
  * @returns {string}
  */
-const dynamicBaseName = ({ pathName, pathPrefix }) => {
-  const path = pathName.split('/');
-  path.shift();
-  const pathSlice = pathPrefix && new RegExp(path[0]).test(pathPrefix) ? 2 : 1;
-
-  return `/${path.slice(0, pathSlice).join('/')}`;
-};
+const dynamicBaseName = ({ pathName = window.location.pathname, appName = helpers.UI_NAME } = {}) =>
+  `${pathName.split(appName)[0]}${appName}`;
 
 /**
  * The app baseName.
  *
  * @type {string}
  */
-const baseName =
-  (helpers.TEST_MODE && '/') ||
-  (helpers.DEV_MODE && '/') ||
-  dynamicBaseName({ pathName: window.location.pathname, pathPrefix: helpers.UI_DEPLOY_PATH_PREFIX });
+const baseName = (helpers.TEST_MODE && '/') || (helpers.DEV_MODE && '/') || dynamicBaseName();
 
 /**
  * The first error route.

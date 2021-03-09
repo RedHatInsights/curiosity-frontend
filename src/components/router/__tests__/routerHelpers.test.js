@@ -29,27 +29,14 @@ describe('RouterHelpers', () => {
     expect(
       dynamicBaseName({
         pathName: '/appName',
-        pathPrefix: ''
+        appName: 'appName'
       })
     ).toMatchSnapshot('empty pathPrefix: app base name');
 
     expect(
       dynamicBaseName({
-        pathName: '/appName'
-      })
-    ).toMatchSnapshot('undefined pathPrefix: app base name');
-
-    expect(
-      dynamicBaseName({
-        pathName: '/appName',
-        pathPrefix: '/'
-      })
-    ).toMatchSnapshot('root reference pathPrefix: app base name');
-
-    expect(
-      dynamicBaseName({
         pathName: '/appName/loremRoute',
-        pathPrefix: ''
+        appName: 'appName'
       })
     ).toMatchSnapshot('app lorem route name');
   });
@@ -57,24 +44,47 @@ describe('RouterHelpers', () => {
   it('should return a generated baseName using a beta path prefix', () => {
     expect(
       dynamicBaseName({
-        pathName: '/appName',
-        pathPrefix: '/beta'
-      })
-    ).toMatchSnapshot('app base name');
-
-    expect(
-      dynamicBaseName({
         pathName: '/beta/appName',
-        pathPrefix: '/beta'
+        appName: 'appName'
       })
     ).toMatchSnapshot('beta app base name');
 
     expect(
       dynamicBaseName({
         pathName: '/beta/appName/loremRoute',
-        pathPrefix: '/beta'
+        appName: 'appName'
       })
     ).toMatchSnapshot('beta app lorem route name');
+  });
+
+  it('should return a generated baseName using an insights path prefix', () => {
+    expect(
+      dynamicBaseName({
+        pathName: '/insights/appName',
+        appName: 'appName'
+      })
+    ).toMatchSnapshot('insights, app base name');
+
+    expect(
+      dynamicBaseName({
+        pathName: '/beta/insights/appName',
+        appName: 'appName'
+      })
+    ).toMatchSnapshot('insights, beta app base name');
+
+    expect(
+      dynamicBaseName({
+        pathName: '/insights/appName/loremRoute',
+        appName: 'appName'
+      })
+    ).toMatchSnapshot('insights, app lorem route name');
+
+    expect(
+      dynamicBaseName({
+        pathName: '/beta/insights/appName/loremRoute',
+        appName: 'appName'
+      })
+    ).toMatchSnapshot('insights, beta app lorem route name');
   });
 
   it('should return an error route', () => {
