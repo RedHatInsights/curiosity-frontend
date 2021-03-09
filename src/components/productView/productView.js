@@ -153,9 +153,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
 ProductView.propTypes = {
   productConfig: PropTypes.shape({
     graphTallyQuery: PropTypes.shape({
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)]),
-      [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
-      [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
+      [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
     }),
     inventoryHostsQuery: PropTypes.shape({
       [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
@@ -169,7 +167,10 @@ ProductView.propTypes = {
       [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES)]),
       [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
     }),
-    query: PropTypes.object,
+    query: PropTypes.shape({
+      [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
+      [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
+    }),
     initialToolbarFilters: Toolbar.propTypes.filterOptions,
     initialGraphFilters: GraphCard.propTypes.filterGraphData,
     initialGuestsFilters: GuestsList.propTypes.filterGuestsData,
