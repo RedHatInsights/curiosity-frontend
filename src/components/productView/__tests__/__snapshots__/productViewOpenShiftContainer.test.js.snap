@@ -401,6 +401,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                   "isSortable": true,
                 },
                 Object {
+                  "cell": [Function],
                   "cellWidth": 15,
                   "id": "coreHours",
                   "isSortable": true,
@@ -519,7 +520,7 @@ Object {
       </React.Fragment>,
     },
     Object {
-      "title": 12.53,
+      "title": "12.53",
     },
     Object {
       "title": <DateFormat
@@ -640,7 +641,7 @@ Object {
       "title": "lorem",
     },
     Object {
-      "title": "",
+      "title": "0.00",
     },
     [Function],
   ],
@@ -766,6 +767,7 @@ Array [
         "isSortable": true,
       },
       Object {
+        "cell": [Function],
         "cellWidth": 15,
         "id": "coreHours",
         "isSortable": true,
