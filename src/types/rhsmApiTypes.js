@@ -337,10 +337,12 @@ const RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES = {
 const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
   DIRECTION: 'dir',
   DISPLAY_NAME: 'display_name_contains',
+  END_DATE: 'ending',
   LIMIT: 'limit',
   OFFSET: 'offset',
   SLA: 'sla',
   SORT: 'sort',
+  START_DATE: 'beginning',
   UOM: 'uom',
   USAGE: 'usage'
 };
