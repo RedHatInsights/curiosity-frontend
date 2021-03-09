@@ -445,6 +445,9 @@ ProductViewOpenShiftContainer.defaultProps = {
         },
         {
           id: 'coreHours',
+          cell: data =>
+            (typeof data?.coreHours?.value === 'number' && Number.parseFloat(data?.coreHours?.value).toFixed(2)) ||
+            `0.00`,
           isSortable: true,
           isWrappable: true,
           cellWidth: 15
