@@ -28,15 +28,17 @@ exports[`RouterHelpers should return a generated baseName using NO path prefix: 
 
 exports[`RouterHelpers should return a generated baseName using NO path prefix: empty pathPrefix: app base name 1`] = `"/appName"`;
 
-exports[`RouterHelpers should return a generated baseName using NO path prefix: root reference pathPrefix: app base name 1`] = `"/appName"`;
-
-exports[`RouterHelpers should return a generated baseName using NO path prefix: undefined pathPrefix: app base name 1`] = `"/appName"`;
-
-exports[`RouterHelpers should return a generated baseName using a beta path prefix: app base name 1`] = `"/appName"`;
-
 exports[`RouterHelpers should return a generated baseName using a beta path prefix: beta app base name 1`] = `"/beta/appName"`;
 
 exports[`RouterHelpers should return a generated baseName using a beta path prefix: beta app lorem route name 1`] = `"/beta/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using an insights path prefix: insights, app base name 1`] = `"/insights/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using an insights path prefix: insights, app lorem route name 1`] = `"/insights/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using an insights path prefix: insights, beta app base name 1`] = `"/beta/insights/appName"`;
+
+exports[`RouterHelpers should return a generated baseName using an insights path prefix: insights, beta app lorem route name 1`] = `"/beta/insights/appName"`;
 
 exports[`RouterHelpers should return an error route: error route 1`] = `
 Object {
