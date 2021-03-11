@@ -102,13 +102,13 @@ exports[`ProductViewSatellite Component should render a non-connected component:
         },
       ],
       "inventoryHostsQuery": Object {
-        "dir": "asc",
+        "dir": "desc",
         "limit": 100,
         "offset": 0,
         "sort": "last_seen",
       },
       "inventorySubscriptionsQuery": Object {
-        "dir": "asc",
+        "dir": "desc",
         "limit": 100,
         "offset": 0,
         "sort": "upcoming_event_date",
@@ -129,6 +129,13 @@ exports[`ProductViewSatellite Component should render a non-connected component:
   toolbarGraph={null}
   toolbarProduct={null}
 />
+`;
+
+exports[`ProductViewSatellite Component should set product configuration: default sort for inventory should descend 1`] = `
+Object {
+  "hostsInventory": true,
+  "subscriptionsInventory": true,
+}
 `;
 
 exports[`ProductViewSatellite Component should set product configuration: filteredGuestsData results 1`] = `

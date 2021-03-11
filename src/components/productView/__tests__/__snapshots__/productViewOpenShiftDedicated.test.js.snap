@@ -39,7 +39,7 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
       ],
       "initialToolbarFilters": undefined,
       "inventoryHostsQuery": Object {
-        "dir": "asc",
+        "dir": "desc",
         "limit": 100,
         "offset": 0,
         "sort": "last_seen",
@@ -178,6 +178,12 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
   }
   toolbarProduct={false}
 />
+`;
+
+exports[`ProductViewOpenShiftDedicated Component should set product configuration: default sort for inventory should descend 1`] = `
+Object {
+  "hostsInventory": true,
+}
 `;
 
 exports[`ProductViewOpenShiftDedicated Component should set product configuration: filteredInventoryData results 1`] = `
