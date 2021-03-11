@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ProductViewOpenShiftDedicated } from '../productViewOpenShiftDedicated';
 import { parseRowCellsListData } from '../../inventoryList/inventoryListHelpers';
+import {
+  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../../types/rhsmApiTypes';
 
 describe('ProductViewOpenShiftDedicated Component', () => {
   it('should render a non-connected component', () => {
@@ -52,5 +56,11 @@ describe('ProductViewOpenShiftDedicated Component', () => {
     });
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filteredInventoryData results, fallback display');
+
+    expect({
+      hostsInventory:
+        ProductViewOpenShiftDedicated.defaultProps.productConfig.inventoryHostsQuery[RHSM_API_QUERY_TYPES.DIRECTION] ===
+        SORT_DIRECTION_TYPES.DESCENDING
+    }).toMatchSnapshot('default sort for inventory should descend');
   });
 });
