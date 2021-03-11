@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ProductViewSatellite } from '../productViewSatellite';
 import { parseRowCellsListData } from '../../inventoryList/inventoryListHelpers';
+import {
+  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../../types/rhsmApiTypes';
 
 describe('ProductViewSatellite Component', () => {
   it('should render a non-connected component', () => {
@@ -90,5 +94,14 @@ describe('ProductViewSatellite Component', () => {
     });
 
     expect(filteredGuestsDataAuthorized).toMatchSnapshot('filteredGuestsData results, authorized');
+
+    expect({
+      hostsInventory:
+        ProductViewSatellite.defaultProps.productConfig.inventoryHostsQuery[RHSM_API_QUERY_TYPES.DIRECTION] ===
+        SORT_DIRECTION_TYPES.DESCENDING,
+      subscriptionsInventory:
+        ProductViewSatellite.defaultProps.productConfig.inventorySubscriptionsQuery[RHSM_API_QUERY_TYPES.DIRECTION] ===
+        SORT_DIRECTION_TYPES.DESCENDING
+    }).toMatchSnapshot('default sort for inventory should descend');
   });
 });
