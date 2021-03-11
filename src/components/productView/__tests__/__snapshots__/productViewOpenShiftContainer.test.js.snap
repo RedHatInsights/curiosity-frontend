@@ -176,7 +176,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             query={
               Object {
                 "beginning": "2019-06-20T00:00:00.000Z",
-                "dir": "asc",
+                "dir": "desc",
                 "ending": "2019-07-20T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
@@ -220,7 +220,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             query={
               Object {
                 "beginning": "2019-06-20T00:00:00.000Z",
-                "dir": "asc",
+                "dir": "desc",
                 "ending": "2019-07-20T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
@@ -421,7 +421,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             query={
               Object {
                 "beginning": "2019-07-01T00:00:00.000Z",
-                "dir": "asc",
+                "dir": "desc",
                 "ending": "2019-07-31T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
@@ -436,6 +436,14 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
     </PageSection>
   </PageColumns>
 </PageLayout>
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: default sort for inventory should descend 1`] = `
+Object {
+  "productOneHostsInventory": true,
+  "productOneSubscriptionsInventory": true,
+  "productTwoHostsInventory": true,
+}
 `;
 
 exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, Product One 1`] = `
