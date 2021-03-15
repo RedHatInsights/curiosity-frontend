@@ -58,46 +58,34 @@ const productGroups = {
  */
 const routes = [
   {
-    id: 'rhel-sw',
-    to: '/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)',
-    redirect: '/rhel-sw/all',
+    to: '/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)',
     component: React.lazy(() => import('../productView/productViewRhel')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED
   },
   {
-    to: '/openshift-sw',
+    to: '/openshift-container',
     component: React.lazy(() => import('../productView/productViewOpenShiftContainer')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED
   },
   {
-    id: 'openshift-sw',
-    to: '/openshift-sw/ocp',
-    component: React.lazy(() => import('../productView/productViewOpenShiftContainer')),
-    exact: true,
-    render: true,
-    disabled: helpers.UI_DISABLED
-  },
-  {
-    to: '/openshift-sw/dedicated',
+    to: '/openshift-dedicated',
     component: React.lazy(() => import('../productView/productViewOpenShiftDedicated')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED
   },
   {
-    id: 'satellite-sw',
-    to: '/satellite-sw/:variant(all|satellite-capsule|satellite-server)',
+    to: '/:variant(satellite|satellite-capsule|satellite-server)',
     component: React.lazy(() => import('../productView/productViewSatellite')),
     exact: true,
     render: true,
     disabled: helpers.UI_DISABLED
   },
   {
-    id: 'optin',
     to: '/optin',
     component: React.lazy(() => import('../optinView/optinView')),
     exact: true,
@@ -114,93 +102,82 @@ const routes = [
  */
 const navigation = [
   {
-    id: 'all',
-    path: '/rhel-sw/all',
-    pathId: 'rhel-sw',
+    id: 'rhel',
+    path: '/rhel',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`,
     default: true
   },
   {
-    id: 'arm',
-    path: '/rhel-sw/arm',
-    pathId: 'rhel-sw',
+    id: 'rhel-arm',
+    path: '/rhel-arm',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_ARM,
     productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
-    id: 'ibmpower',
-    path: '/rhel-sw/ibmpower',
-    pathId: 'rhel-sw',
+    id: 'rhel-ibmpower',
+    path: '/rhel-ibmpower',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER,
     productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
-    id: 'ibmz',
-    path: '/rhel-sw/ibmz',
-    pathId: 'rhel-sw',
+    id: 'rhel-ibmz',
+    path: '/rhel-ibmz',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z,
     productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
-    id: 'x86',
-    path: '/rhel-sw/x86',
-    pathId: 'rhel-sw',
+    id: 'rhel-x86',
+    path: '/rhel-x86',
     pathParameter: RHSM_API_PATH_ID_TYPES.RHEL_X86,
     productParameter: RHSM_API_PATH_ID_TYPES.RHEL,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.RHEL}`
   },
   {
-    id: 'openshift-sw',
-    path: '/openshift-sw',
-    pathId: 'openshift-sw',
+    id: 'openshift-container',
+    path: '/openshift-container',
     pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
     productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
   },
   {
-    id: 'ocp',
-    path: '/openshift-sw/ocp',
-    pathId: 'openshift-sw',
-    pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
-    productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
-    viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
-  },
-  {
-    id: 'dedicated',
-    path: '/openshift-sw/dedicated',
-    pathId: 'openshift-sw',
+    id: 'openshift-dedicated',
+    path: '/openshift-dedicated',
     pathParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS,
     productParameter: RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS}`
   },
   {
-    id: 'satellite-sw',
-    path: '/satellite-sw/all',
-    pathId: 'satellite-sw',
+    id: 'satellite',
+    path: '/satellite',
     pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
     productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
   },
   {
     id: 'satellite-capsule',
-    path: '/satellite-sw/satellite-capsule',
-    pathId: 'satellite-sw',
+    path: '/satellite-capsule',
     pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE,
     productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
   },
   {
     id: 'satellite-server',
-    path: '/satellite-sw/satellite-server',
-    pathId: 'satellite-sw',
+    path: '/satellite-server',
     pathParameter: RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER,
     productParameter: RHSM_API_PATH_ID_TYPES.SATELLITE,
     viewParameter: `view${RHSM_API_PATH_ID_TYPES.SATELLITE}`
+  },
+  {
+    id: 'optin',
+    path: '/optin',
+    pathParameter: null,
+    productParameter: null,
+    viewParameter: null
   }
 ];
 
