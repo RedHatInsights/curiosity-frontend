@@ -80,7 +80,7 @@ const getRouteDetail = ({ id = null, pathname = null }) => {
 
   if (!routeItem && pathname) {
     routeItem = routes.find(value => pathname === value.to);
-    routeItem = routeItem || routes.find(item => pathname.includes(item?.to?.split(':')[0]));
+    routeItem = routeItem || routes.find(item => item?.to?.includes(pathname.split('/').reverse()[0]));
   }
 
   return { ...(routeItem || {}) };
