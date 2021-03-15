@@ -30,6 +30,9 @@ Array [
   Array [
     Array [
       Object {
+        "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+      },
+      Object {
         "granularity": "daily",
         "type": "SET_QUERY_RHSM_granularity",
         "viewId": "toolbarFieldGranularity",
