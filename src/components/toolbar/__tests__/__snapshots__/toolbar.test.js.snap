@@ -27,6 +27,7 @@ Object {
       },
       Object {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "toolbar",
       },
     ],
   ],
