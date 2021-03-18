@@ -89,7 +89,7 @@
     "api:dev": "mock -p 5000 -w ./src/services",
     "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy-hosts": "bash ./scripts/proxy.api.sh -s",
-    "api:proxy": "bash ./scripts/proxy.api.sh -d \"https://ci.foo.redhat.com/beta/subscriptions/\" -p 443 -c \"$(pwd)/config/spandx.config.js\"",
+    "api:proxy": "bash ./scripts/proxy.api.sh -d \"https://ci.foo.redhat.com/beta/insights/subscriptions/\" -p 443 -c \"$(pwd)/config/spandx.config.js\"",
     "api:proxyClean": "bash ./scripts/proxy.api.sh -u",
     "build": "run-s -l build:pre build:js build:post test:integration",
     "build:js": "react-scripts build",
