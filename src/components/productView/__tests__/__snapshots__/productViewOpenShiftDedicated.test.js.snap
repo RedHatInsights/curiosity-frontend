@@ -171,6 +171,7 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
           },
         ]
       }
+      productId="lorem ipsum"
       t={[Function]}
       value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
       viewId="toolbarFieldRangeGranularity"

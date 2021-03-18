@@ -137,7 +137,7 @@ class Toolbar extends React.Component {
    * @param {boolean} resetPage
    */
   setDispatch(actions, resetPage = false) {
-    const { viewId } = this.props;
+    const { productId, viewId } = this.props;
     const updatedActions = ((Array.isArray(actions) && actions) || [actions]).map(({ type, data }) => ({
       type,
       viewId,
@@ -146,7 +146,8 @@ class Toolbar extends React.Component {
 
     if (resetPage) {
       updatedActions.push({
-        type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST,
+        viewId: productId
       });
     }
 
@@ -271,8 +272,8 @@ class Toolbar extends React.Component {
 /**
  * Prop types
  *
- * @type {{viewId: string, t: Function, activeFilters: Set, hardFilterReset: boolean, query: object,
- *     currentFilter: string, isDisabled: boolean, Array}}
+ * @type {{viewId: string, productId: string, t: Function, activeFilters: Set, hardFilterReset: boolean, query: object,
+ *     currentFilter: string, isDisabled: boolean, filterOptions: Array}}
  */
 Toolbar.propTypes = {
   query: PropTypes.shape({
@@ -290,6 +291,7 @@ Toolbar.propTypes = {
   ),
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
+  productId: PropTypes.string,
   t: PropTypes.func,
   viewId: PropTypes.string
 };
@@ -297,7 +299,7 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, activeFilters: Set, hardFilterReset: boolean, query: object,
+ * @type {{viewId: string, productId: string, t: translate, activeFilters: Set, hardFilterReset: boolean, query: object,
  *     currentFilter: string, isDisabled: boolean, filterOptions: Array}}
  */
 Toolbar.defaultProps = {
@@ -317,6 +319,7 @@ Toolbar.defaultProps = {
   ],
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
+  productId: 'toolbar',
   t: translate,
   viewId: 'toolbar'
 };

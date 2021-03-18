@@ -23,12 +23,13 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  * @fires onSelect
  * @param {object} props
  * @param {Array} props.options
+ * @param {string} props.productId
  * @param {Function} props.t
  * @param {string} props.value
  * @param {string} props.viewId
  * @returns {Node}
  */
-const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
+const ToolbarFieldGranularity = ({ options, productId, t, value, viewId }) => {
   const updatedValue = useSelector(
     ({ view }) => view.graphTallyQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.GRANULARITY],
     value
@@ -47,7 +48,8 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
     const { startDate, endDate } = dateHelpers.getRangedDateTime(event.value);
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
@@ -81,7 +83,7 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, options: Array, value: string}}
+ * @type {{viewId: string, productId: string, t: Function, options: Array, value: string}}
  */
 ToolbarFieldGranularity.propTypes = {
   options: PropTypes.arrayOf(
@@ -91,6 +93,7 @@ ToolbarFieldGranularity.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  productId: PropTypes.string,
   t: PropTypes.func,
   value: PropTypes.oneOf([...Object.values(FIELD_TYPES)]),
   viewId: PropTypes.string
@@ -99,10 +102,11 @@ ToolbarFieldGranularity.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, options: Array, value: string}}
+ * @type {{viewId: string, productId: string, t: translate, options: Array, value: string}}
  */
 ToolbarFieldGranularity.defaultProps = {
   options: toolbarFieldOptions,
+  productId: 'toolbarFieldGranularity',
   t: translate,
   value: FIELD_TYPES.DAILY,
   viewId: 'toolbarFieldGranularity'

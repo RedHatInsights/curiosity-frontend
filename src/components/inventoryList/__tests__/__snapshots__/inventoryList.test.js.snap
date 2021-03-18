@@ -231,6 +231,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
+          productId="lorem"
           t={[Function]}
           value={null}
           viewId="inventoryList"
@@ -350,6 +351,7 @@ exports[`InventoryList Component should handle variations in data: variable data
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
+          productId="lorem"
           t={[Function]}
           value={null}
           viewId="inventoryList"
@@ -465,6 +467,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
     >
       <CardHeaderMain>
         <ToolbarFieldDisplayName
+          productId="lorem"
           t={[Function]}
           value={null}
           viewId="inventoryList"

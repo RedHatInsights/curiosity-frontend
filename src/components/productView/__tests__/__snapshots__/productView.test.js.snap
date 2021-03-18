@@ -205,6 +205,7 @@ exports[`ProductView Component should render a non-connected component: non-conn
             },
           ]
         }
+        productId="lorem ipsum"
         t={[Function]}
         value="daily"
         viewId="dolor sit"

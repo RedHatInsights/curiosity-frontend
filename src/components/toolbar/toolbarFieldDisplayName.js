@@ -17,12 +17,13 @@ import { translate } from '../i18n/i18n';
  * @fires onClear
  * @fires onKeyUp
  * @param {object} props
- * @param {string} props.value
+ * @param {string} props.productId
  * @param {Function} props.t
+ * @param {string} props.value
  * @param {string} props.viewId
  * @returns {Node}
  */
-const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
+const ToolbarFieldDisplayName = ({ productId, t, value, viewId }) => {
   const currentValue = useSelector(
     ({ view }) => view.inventoryHostsQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
     value
@@ -38,7 +39,8 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
   const onSubmit = submitValue =>
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
@@ -60,7 +62,8 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
@@ -113,9 +116,10 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, value: string}}
+ * @type {{viewId: string, productId: string, t: Function, value: string}}
  */
 ToolbarFieldDisplayName.propTypes = {
+  productId: PropTypes.string,
   t: PropTypes.func,
   value: PropTypes.string,
   viewId: PropTypes.string
@@ -124,9 +128,10 @@ ToolbarFieldDisplayName.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, value: string}}
+ * @type {{viewId: string, productId: string, t: translate, value: string}}
  */
 ToolbarFieldDisplayName.defaultProps = {
+  productId: 'toolbarFieldDisplayName',
   t: translate,
   value: null,
   viewId: 'toolbarFieldDisplayName'

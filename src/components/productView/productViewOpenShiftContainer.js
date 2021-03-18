@@ -109,12 +109,18 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
             productLabel={productLabel}
           >
             {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (
-              <ToolbarFieldUom value={uomFilter} viewId={viewId} />
+              <ToolbarFieldUom productId={productId} value={uomFilter} viewId={viewId} />
             )}
             {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && (
-              <ToolbarFieldGranularity value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} viewId={viewId} />
+              <ToolbarFieldGranularity
+                productId={productId}
+                value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]}
+                viewId={viewId}
+              />
             )}
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && <ToolbarFieldRangedMonthly viewId={viewId} />}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && (
+              <ToolbarFieldRangedMonthly productId={productId} viewId={viewId} />
+            )}
           </GraphCard>
         </PageSection>
         <PageSection>

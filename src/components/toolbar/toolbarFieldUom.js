@@ -22,12 +22,13 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  * @fires onSelect
  * @param {object} props
  * @param {Array} props.options
+ * @param {string} props.productId
  * @param {Function} props.t
  * @param {string} props.value
  * @param {string} props.viewId
  * @returns {Node}
  */
-const ToolbarFieldUom = ({ options, t, value, viewId }) => {
+const ToolbarFieldUom = ({ options, productId, t, value, viewId }) => {
   const updatedValue = useSelector(({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.UOM], value);
 
   const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
@@ -42,7 +43,8 @@ const ToolbarFieldUom = ({ options, t, value, viewId }) => {
   const onSelect = event =>
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST,
+        viewId: productId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
@@ -65,7 +67,7 @@ const ToolbarFieldUom = ({ options, t, value, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, options: Array, value: string}}
+ * @type {{viewId: string, productId: string, t: Function, options: Array, value: string}}
  */
 ToolbarFieldUom.propTypes = {
   options: PropTypes.arrayOf(
@@ -75,6 +77,7 @@ ToolbarFieldUom.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  productId: PropTypes.string,
   t: PropTypes.func,
   value: PropTypes.oneOf([...Object.values(FIELD_TYPES)]),
   viewId: PropTypes.string
@@ -83,10 +86,11 @@ ToolbarFieldUom.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, options: Array, value: string}}
+ * @type {{viewId: string, productId: string, t: translate, options: Array, value: string}}
  */
 ToolbarFieldUom.defaultProps = {
   options: toolbarFieldOptions,
+  productId: 'toolbarFieldUom',
   t: translate,
   value: FIELD_TYPES.CORES,
   viewId: 'toolbarFieldUom'

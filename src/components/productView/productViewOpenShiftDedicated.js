@@ -26,7 +26,7 @@ import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly'
  * @returns {Node}
  */
 const ProductViewOpenShiftDedicated = ({ productConfig, routeDetail }) => {
-  const { viewParameter: viewId } = routeDetail;
+  const { pathParameter: productId, viewParameter: viewId } = routeDetail;
   const { [RHSM_API_QUERY_TYPES.START_DATE]: startDate } = productConfig.graphTallyQuery;
 
   return (
@@ -34,7 +34,7 @@ const ProductViewOpenShiftDedicated = ({ productConfig, routeDetail }) => {
       routeDetail={routeDetail}
       productConfig={productConfig}
       toolbarProduct={false}
-      toolbarGraph={<ToolbarFieldRangedMonthly value={startDate} viewId={viewId} />}
+      toolbarGraph={<ToolbarFieldRangedMonthly productId={productId} value={startDate} viewId={viewId} />}
     />
   );
 };

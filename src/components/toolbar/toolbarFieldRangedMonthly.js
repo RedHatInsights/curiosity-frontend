@@ -22,12 +22,13 @@ const toolbarFieldOptions = dateHelpers.getRangedMonthDateTime().listDateTimeRan
  * @fires onSelect
  * @param {object} props
  * @param {Array} props.options
+ * @param {string} props.productId
  * @param {Function} props.t
  * @param {string} props.value
  * @param {string} props.viewId
  * @returns {Node}
  */
-const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
+const ToolbarFieldRangedMonthly = ({ options, productId, t, value, viewId }) => {
   const updatedValue = useSelector(({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.START_DATE], value);
 
   const updatedOptions = options.map(option => ({
@@ -45,6 +46,10 @@ const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
   const onSelect = event => {
     const { startDate, endDate } = event.value;
     store.dispatch([
+      {
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId: productId
+      },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
         viewId,
@@ -77,7 +82,7 @@ const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, options: Array, value: string}}
+ * @type {{viewId: string, productId: string, t: Function, options: Array, value: string}}
  */
 ToolbarFieldRangedMonthly.propTypes = {
   options: PropTypes.arrayOf(
@@ -87,6 +92,7 @@ ToolbarFieldRangedMonthly.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  productId: PropTypes.string,
   t: PropTypes.func,
   value: PropTypes.string,
   viewId: PropTypes.string
@@ -95,10 +101,11 @@ ToolbarFieldRangedMonthly.propTypes = {
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, options: Array, value: string}}
+ * @type {{viewId: string, productId: string, t: translate, options: Array, value: string}}
  */
 ToolbarFieldRangedMonthly.defaultProps = {
   options: toolbarFieldOptions,
+  productId: 'toolbarFieldRangeGranularity',
   t: translate,
   value: translate('curiosity-toolbar.granularityRange', { context: 'current' }),
   viewId: 'toolbarFieldRangeGranularity'

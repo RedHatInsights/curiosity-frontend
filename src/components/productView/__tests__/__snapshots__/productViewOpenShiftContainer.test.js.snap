@@ -81,6 +81,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               },
             ]
           }
+          productId="OpenShift Container Platform"
           t={[Function]}
           value="cores"
           viewId="viewOpenShift"
@@ -110,6 +111,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               },
             ]
           }
+          productId="OpenShift Container Platform"
           t={[Function]}
           value="daily"
           viewId="viewOpenShift"
@@ -373,6 +375,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               },
             ]
           }
+          productId="OpenShift-metrics"
           t={[Function]}
           value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
           viewId="viewOpenShiftMetric"

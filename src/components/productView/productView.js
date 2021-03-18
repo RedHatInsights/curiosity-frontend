@@ -105,6 +105,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
           {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
             (toolbarGraph !== false && (
               <ToolbarFieldGranularity
+                productId={productId}
                 viewId={viewId}
                 value={initialGraphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]}
               />

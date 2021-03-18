@@ -197,6 +197,7 @@ class InventoryList extends React.Component {
       listData,
       pending,
       perPageDefault,
+      productId,
       query,
       t,
       viewId
@@ -228,7 +229,7 @@ class InventoryList extends React.Component {
         <MinHeight key="headerMinHeight" updateOnContent>
           <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
             <CardHeaderMain>
-              <ToolbarFieldDisplayName viewId={viewId} />
+              <ToolbarFieldDisplayName productId={productId} viewId={viewId} />
             </CardHeaderMain>
             <CardActions className={(!itemCount && 'transparent') || ''} aria-hidden={!itemCount || false}>
               <Pagination
