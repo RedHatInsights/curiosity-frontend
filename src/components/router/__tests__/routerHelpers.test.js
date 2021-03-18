@@ -8,10 +8,11 @@ import {
 } from '../routerHelpers';
 
 describe('RouterHelpers', () => {
-  const mockWindowLocationProp = async ({ prop, url, callback }) => {
+  const mockWindowLocation = async ({ url, callback }) => {
+    const updatedUrl = new URL(url);
     const { location } = window;
     delete window.location;
-    window.location = { [prop]: url };
+    window.location = { href: updatedUrl.href, search: updatedUrl.search, hash: updatedUrl.hash };
     await callback();
     window.location = location;
   };
@@ -136,8 +137,7 @@ describe('RouterHelpers', () => {
   });
 
   it('should handle location search and hash passthrough values', () => {
-    mockWindowLocationProp({
-      prop: 'href',
+    mockWindowLocation({
       url: 'https://ci.foo.redhat.com/subscriptions/rhel',
       callback: () => {
         expect({
@@ -146,8 +146,7 @@ describe('RouterHelpers', () => {
       }
     });
 
-    mockWindowLocationProp({
-      prop: 'href',
+    mockWindowLocation({
       url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit',
       callback: () => {
         expect({
@@ -156,8 +155,7 @@ describe('RouterHelpers', () => {
       }
     });
 
-    mockWindowLocationProp({
-      prop: 'href',
+    mockWindowLocation({
       url: 'https://ci.foo.redhat.com/subscriptions/rhel#lorem',
       callback: () => {
         expect({
@@ -166,8 +164,7 @@ describe('RouterHelpers', () => {
       }
     });
 
-    mockWindowLocationProp({
-      prop: 'href',
+    mockWindowLocation({
       url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit#lorem',
       callback: () => {
         expect({

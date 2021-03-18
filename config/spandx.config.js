@@ -26,6 +26,24 @@ module.exports = {
     '/beta/subscriptions': {
       host: `https://${localhost}:5001`
     },
+    '/insights/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
+    '/beta/insights/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
+    '/rhel/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
+    '/beta/rhel/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
+    '/openshift/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
+    '/beta/openshift/subscriptions': {
+      host: `https://${localhost}:5001`
+    },
     '/api/rhsm-subscriptions': {
       host: 'https://ci.cloud.redhat.com'
     }
