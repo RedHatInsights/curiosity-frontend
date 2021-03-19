@@ -21,6 +21,7 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "toolbarFieldUom",
       },
       Object {
         "type": "SET_QUERY_RHSM_uom",

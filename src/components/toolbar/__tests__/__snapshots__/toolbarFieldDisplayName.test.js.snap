@@ -6,6 +6,7 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+        "viewId": "toolbarFieldDisplayName",
       },
       Object {
         "display_name_contains": null,
@@ -23,6 +24,7 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+        "viewId": "toolbarFieldDisplayName",
       },
       Object {
         "display_name_contains": "dolor sit",
@@ -40,6 +42,7 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+        "viewId": "toolbarFieldDisplayName",
       },
       Object {
         "display_name_contains": "dolor sit",

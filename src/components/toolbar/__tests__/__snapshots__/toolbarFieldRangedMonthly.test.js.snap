@@ -248,6 +248,10 @@ Array [
   Array [
     Array [
       Object {
+        "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+        "viewId": "toolbarFieldRangeGranularity",
+      },
+      Object {
         "granularity": "daily",
         "type": "SET_QUERY_RHSM_granularity",
         "viewId": "toolbarFieldRangeGranularity",
