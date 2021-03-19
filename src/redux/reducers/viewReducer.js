@@ -1,3 +1,4 @@
+import { routerConfig } from '../../components/router/routerConfig';
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
@@ -27,29 +28,30 @@ const initialState = {
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST:
-      const updateResetQueries = query => {
-        const tempQuery = {};
+      const updateResetQueries = (query = {}, id) => {
+        const queryIds = routerConfig.productGroups[id] || (query[id] && [id]) || [];
+        const updatedQuery = { ...query };
 
-        Object.entries(query).forEach(([key, value]) => {
-          tempQuery[key] = { ...value };
+        queryIds.forEach(queryId => {
+          const productQuery = updatedQuery[queryId] || {};
 
-          if (typeof value[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
-            tempQuery[key][RHSM_API_QUERY_TYPES.OFFSET] = 0;
+          if (typeof productQuery[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
+            productQuery[RHSM_API_QUERY_TYPES.OFFSET] = 0;
           }
 
-          delete tempQuery[key][RHSM_API_QUERY_TYPES.DIRECTION];
-          delete tempQuery[key][RHSM_API_QUERY_TYPES.SORT];
+          delete productQuery[RHSM_API_QUERY_TYPES.DIRECTION];
+          delete productQuery[RHSM_API_QUERY_TYPES.SORT];
         });
 
-        return tempQuery;
+        return updatedQuery;
       };
 
       return reduxHelpers.setStateProp(
         null,
         {
           ...state,
-          inventoryHostsQuery: updateResetQueries(state.inventoryHostsQuery),
-          inventorySubscriptionsQuery: updateResetQueries(state.inventorySubscriptionsQuery)
+          inventoryHostsQuery: updateResetQueries(state.inventoryHostsQuery, action.viewId),
+          inventorySubscriptionsQuery: updateResetQueries(state.inventorySubscriptionsQuery, action.viewId)
         },
         {
           state,
@@ -57,26 +59,27 @@ const viewReducer = (state = initialState, action) => {
         }
       );
     case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST:
-      const updateClearQueries = query => {
-        const tempQuery = {};
+      const updateClearQueries = (query = {}, id) => {
+        const queryIds = routerConfig.productGroups[id] || (query[id] && [id]) || [];
+        const updatedQuery = { ...query };
 
-        Object.entries(query).forEach(([key, value]) => {
-          tempQuery[key] = { ...value };
+        queryIds.forEach(queryId => {
+          const productQuery = updatedQuery[queryId] || {};
 
-          if (typeof value[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
-            tempQuery[key][RHSM_API_QUERY_TYPES.OFFSET] = 0;
+          if (typeof productQuery[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
+            productQuery[RHSM_API_QUERY_TYPES.OFFSET] = 0;
           }
         });
 
-        return tempQuery;
+        return updatedQuery;
       };
 
       return reduxHelpers.setStateProp(
         null,
         {
           ...state,
-          inventoryHostsQuery: updateClearQueries(state.inventoryHostsQuery),
-          inventorySubscriptionsQuery: updateClearQueries(state.inventorySubscriptionsQuery)
+          inventoryHostsQuery: updateClearQueries(state.inventoryHostsQuery, action.viewId),
+          inventorySubscriptionsQuery: updateClearQueries(state.inventorySubscriptionsQuery, action.viewId)
         },
         {
           state,

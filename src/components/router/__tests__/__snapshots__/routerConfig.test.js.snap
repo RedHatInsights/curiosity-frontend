@@ -89,6 +89,32 @@ exports[`RouterConfig should return specific properties: platformLandingRedirect
 
 exports[`RouterConfig should return specific properties: platformModalRedirect 1`] = `"/?not_entitled=subscriptions"`;
 
+exports[`RouterConfig should return specific properties: productGroups 1`] = `
+Object {
+  "viewOpenShift": Array [
+    "OpenShift Container Platform",
+  ],
+  "viewOpenShift-dedicated-metrics": Array [
+    "OpenShift-dedicated-metrics",
+  ],
+  "viewOpenShiftMetric": Array [
+    "OpenShift-metrics",
+  ],
+  "viewRHEL": Array [
+    "RHEL",
+    "RHEL for ARM",
+    "RHEL for IBM Power",
+    "RHEL for IBM z",
+    "RHEL for x86",
+  ],
+  "viewSatellite": Array [
+    "Satellite",
+    "Satellite Capsule",
+    "Satellite Server",
+  ],
+}
+`;
+
 exports[`RouterConfig should return specific properties: routes 1`] = `
 Array [
   Object {
