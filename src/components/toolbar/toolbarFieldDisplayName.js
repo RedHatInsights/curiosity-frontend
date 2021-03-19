@@ -17,12 +17,12 @@ import { translate } from '../i18n/i18n';
  * @fires onClear
  * @fires onKeyUp
  * @param {object} props
- * @param {string} props.value
  * @param {Function} props.t
+ * @param {string} props.value
  * @param {string} props.viewId
  * @returns {Node}
  */
-const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
+const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
   const currentValue = useSelector(
     ({ view }) => view.inventoryHostsQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
     value
@@ -38,7 +38,8 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
   const onSubmit = submitValue =>
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
@@ -60,7 +61,8 @@ const ToolbarFieldDisplayName = ({ value, t, viewId }) => {
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
