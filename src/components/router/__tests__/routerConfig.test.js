@@ -1,4 +1,11 @@
-import { appName, navigation, platformLandingRedirect, platformModalRedirect, routes } from '../routerConfig';
+import {
+  appName,
+  navigation,
+  platformLandingRedirect,
+  platformModalRedirect,
+  productGroups,
+  routes
+} from '../routerConfig';
 
 describe('RouterConfig', () => {
   it('should return specific properties', () => {
@@ -6,6 +13,7 @@ describe('RouterConfig', () => {
     expect(navigation).toMatchSnapshot('navigation');
     expect(platformLandingRedirect).toMatchSnapshot('platformLandingRedirect');
     expect(platformModalRedirect).toMatchSnapshot('platformModalRedirect');
+    expect(productGroups).toMatchSnapshot('productGroups');
     expect(routes).toMatchSnapshot('routes');
   });
 

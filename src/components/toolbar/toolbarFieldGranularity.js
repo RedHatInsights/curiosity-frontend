@@ -47,7 +47,8 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
     const { startDate, endDate } = dateHelpers.getRangedDateTime(event.value);
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST
+        type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
+        viewId
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
