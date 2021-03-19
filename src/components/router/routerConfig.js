@@ -25,6 +25,33 @@ const platformLandingRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/');
 const platformModalRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitled=subscriptions');
 
 /**
+ * ToDo: Dynamically generate productGroups listing from navigation, possible helper
+ * In addition to the platform nav IDs, we'll need to account for viewIds that are used
+ * for both viewId and productIds, and multi-column products views. This should tie into
+ * the future blend of routing, navigation, and product configuration.
+ */
+/**
+ * Reference for products grouped by view.
+ */
+const productGroups = {
+  [`view${RHSM_API_PATH_ID_TYPES.RHEL}`]: [
+    RHSM_API_PATH_ID_TYPES.RHEL,
+    RHSM_API_PATH_ID_TYPES.RHEL_ARM,
+    RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER,
+    RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z,
+    RHSM_API_PATH_ID_TYPES.RHEL_X86
+  ],
+  viewOpenShift: [RHSM_API_PATH_ID_TYPES.OPENSHIFT],
+  viewOpenShiftMetric: [RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS],
+  [`view${RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS}`]: [RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS],
+  [`view${RHSM_API_PATH_ID_TYPES.SATELLITE}`]: [
+    RHSM_API_PATH_ID_TYPES.SATELLITE,
+    RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE,
+    RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER
+  ]
+};
+
+/**
  * Return array of objects that describes routing.
  *
  * @returns {Array}
@@ -159,6 +186,7 @@ const routerConfig = {
   navigation,
   platformLandingRedirect,
   platformModalRedirect,
+  productGroups,
   routes
 };
 
@@ -169,5 +197,6 @@ export {
   navigation,
   platformLandingRedirect,
   platformModalRedirect,
+  productGroups,
   routes
 };
