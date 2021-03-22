@@ -7,7 +7,7 @@ exports[`MessageView Component should have fallback conditions for all props: fa
     productLabel={null}
     t={[Function]}
   >
-    Subscription Watch
+    Subscriptions
   </PageHeader>
   <PageSection
     className=""
@@ -27,7 +27,7 @@ exports[`MessageView Component should render a non-connected component: non-conn
     productLabel={null}
     t={[Function]}
   >
-    Subscription Watch
+    Subscriptions
   </PageHeader>
   <PageSection
     className=""
@@ -60,7 +60,7 @@ exports[`MessageView Component should render children when provided: children di
     productLabel={null}
     t={[Function]}
   >
-    Subscription Watch
+    Subscriptions
   </PageHeader>
   <PageSection
     className=""

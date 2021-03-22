@@ -19,13 +19,13 @@ exports[`OptinView Component should render a non-connected component: non-connec
               headingLevel="h1"
               size="2xl"
             >
-              t(curiosity-optin.cardTitle, {"appName":"Subscription Watch"})
+              t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
             </Title>
           </CardTitle>
           <CardBody
             key="heading1Desc"
           >
-            t(curiosity-optin.cardDescription, {"appName":"Subscription Watch"})
+            t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
           </CardBody>
           <CardTitle
             key="heading2Title"
@@ -79,7 +79,7 @@ exports[`OptinView Component should render a non-connected component: non-connec
                   isDisabled={true}
                   variant="primary"
                 >
-                  t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+                  t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
                 </Button>
               </ActionGroup>
             </Form>
@@ -150,7 +150,7 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
         isDisabled={true}
         variant="primary"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>
@@ -165,7 +165,7 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
         isDisabled={true}
         variant="primary"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>
@@ -180,7 +180,7 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
         isDisabled={true}
         variant="primary"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>
@@ -195,7 +195,7 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
         onClick={[Function]}
         variant="primary"
       >
-        t(curiosity-optin.buttonActivate, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>
@@ -210,7 +210,7 @@ exports[`OptinView Component should render an API state driven view: 500 view 1`
         isDisabled={true}
         variant="primary"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>
@@ -220,7 +220,7 @@ exports[`OptinView Component should render an API state driven view: 500 view 1`
 exports[`OptinView Component should render an API state driven view: error view 1`] = `
 <CardFooter>
   <p>
-    t(curiosity-optin.cardIsErrorDescription, {"appName":"Subscription Watch"}, [object Object])
+    t(curiosity-optin.cardIsErrorDescription, {"appName":"Subscriptions"}, [object Object])
   </p>
 </CardFooter>
 `;
@@ -233,7 +233,7 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
         isDisabled={true}
         variant="primary"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
     <p>
@@ -262,13 +262,13 @@ exports[`OptinView Component should render an API state driven view: initial vie
               headingLevel="h1"
               size="2xl"
             >
-              t(curiosity-optin.cardTitle, {"appName":"Subscription Watch"})
+              t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
             </Title>
           </CardTitle>
           <CardBody
             key="heading1Desc"
           >
-            t(curiosity-optin.cardDescription, {"appName":"Subscription Watch"})
+            t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
           </CardBody>
           <CardTitle
             key="heading2Title"
@@ -322,7 +322,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
                   isDisabled={true}
                   variant="primary"
                 >
-                  t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+                  t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
                 </Button>
               </ActionGroup>
             </Form>
@@ -393,7 +393,7 @@ exports[`OptinView Component should render an API state driven view: null or und
         isDisabled={true}
         variant="primary"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>
@@ -412,7 +412,7 @@ exports[`OptinView Component should render an API state driven view: pending vie
           size="sm"
         />
          
-        t(curiosity-optin.buttonActivate, {"appName":"Subscription Watch"})
+        t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
       </Button>
     </ActionGroup>
   </Form>

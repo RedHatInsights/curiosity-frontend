@@ -94,7 +94,7 @@ exports[`Authentication Component should render a non-connected component error:
                   >
                     <PageHeaderTitle
                       className="pf-u-mb-sm"
-                      title="Subscription Watch"
+                      title="Subscriptions"
                     >
                       <Title
                         className="pf-u-mb-sm"
@@ -107,7 +107,7 @@ exports[`Authentication Component should render a non-connected component error:
                           widget-type="InsightsPageHeaderTitle"
                         >
                            
-                          Subscription Watch
+                          Subscriptions
                            
                         </h1>
                       </Title>
@@ -151,7 +151,7 @@ exports[`Authentication Component should render a non-connected component error:
                   description={<ContactBody />}
                   icon={[Function]}
                   prevPageButtonText="Return to previous page"
-                  serviceName="Subscription Watch"
+                  serviceName="Subscriptions"
                   showReturnButton={true}
                   toLandingPageText="Go to landing page"
                 >
@@ -203,7 +203,7 @@ exports[`Authentication Component should render a non-connected component error:
                           <h5
                             className="pf-c-title pf-m-lg"
                           >
-                            You do not have access to Subscription Watch
+                            You do not have access to Subscriptions
                           </h5>
                         </Title>
                         <EmptyStateBody>
@@ -277,7 +277,7 @@ exports[`Authentication Component should return a message on 401 error: 401 erro
     description={<ContactBody />}
     icon={[Function]}
     prevPageButtonText="Return to previous page"
-    serviceName="Subscription Watch"
+    serviceName="Subscriptions"
     showReturnButton={true}
     toLandingPageText="Go to landing page"
   />
@@ -298,7 +298,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     description={<ContactBody />}
     icon={[Function]}
     prevPageButtonText="Return to previous page"
-    serviceName="Subscription Watch"
+    serviceName="Subscriptions"
     showReturnButton={true}
     toLandingPageText="Go to landing page"
   />
