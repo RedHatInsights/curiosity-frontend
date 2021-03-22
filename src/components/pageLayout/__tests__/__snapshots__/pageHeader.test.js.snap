@@ -183,7 +183,7 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
         </div>
       </Flex>
       <p>
-        t(curiosity-view.subtitle, {"appName":"Subscription Watch","context":"RHEL"}, [object Object])
+        t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"RHEL"}, [object Object])
       </p>
     </section>
   </PageHeader>

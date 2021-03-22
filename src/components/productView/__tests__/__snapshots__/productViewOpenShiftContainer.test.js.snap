@@ -7,7 +7,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
     productLabel="dolor sit"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscription Watch","context":"dolor sit"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"dolor sit"})
   </PageHeader>
   <PageColumns
     className=""
