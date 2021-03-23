@@ -176,6 +176,7 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
       viewId="toolbarFieldRangeGranularity"
     />
   }
+  toolbarGraphDescription={true}
   toolbarProduct={false}
 />
 `;
