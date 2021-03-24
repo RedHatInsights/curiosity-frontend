@@ -42,7 +42,7 @@ class Authentication extends Component {
       hideGlobalFilter();
 
       const appNav = onNavigation(event => {
-        const { routeHref } = routerHelpers.getNavRouteDetail({ id: event.navId, returnDefault: true });
+        const { routeHref } = routerHelpers.getNavRouteDetail({ id: event.navId });
         history.push(routeHref);
       });
 

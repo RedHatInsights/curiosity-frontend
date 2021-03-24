@@ -161,7 +161,7 @@ RhelView.propTypes = {
   productLabel: PropTypes.string,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string.isRequired,
-    pathId: PropTypes.string.isRequired,
+    pathId: PropTypes.string,
     routeItem: PropTypes.shape({
       title: PropTypes.string
     })

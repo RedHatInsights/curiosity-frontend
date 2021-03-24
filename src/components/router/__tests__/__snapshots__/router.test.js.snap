@@ -91,10 +91,8 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
-        "id": "rhel-sw",
-        "redirect": "/rhel-sw/all",
         "render": true,
-        "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+        "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
       },
       Object {
         "component": Object {
@@ -105,9 +103,8 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
-        "id": "openshift-sw",
         "render": true,
-        "to": "/openshift-sw",
+        "to": "/openshift-container",
       },
       Object {
         "component": Object {
@@ -118,9 +115,8 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
-        "id": "satellite-sw",
         "render": true,
-        "to": "/satellite-sw/:variant(all|satellite-capsule|satellite-server)",
+        "to": "/:variant(satellite|satellite-capsule|satellite-server)",
       },
       Object {
         "activateOnError": true,
@@ -132,7 +128,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
-        "id": "optin",
         "render": true,
         "to": "/optin",
       },
@@ -142,20 +137,20 @@ exports[`Router Component should render a basic component: basic 1`] = `
   <Switch>
     <Route
       exact={true}
-      key="/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)"
-      path="/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)"
+      key="/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)"
+      path="/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)"
       render={[Function]}
     />
     <Route
       exact={true}
-      key="/openshift-sw"
-      path="/openshift-sw"
+      key="/openshift-container"
+      path="/openshift-container"
       render={[Function]}
     />
     <Route
       exact={true}
-      key="/satellite-sw/:variant(all|satellite-capsule|satellite-server)"
-      path="/satellite-sw/:variant(all|satellite-capsule|satellite-server)"
+      key="/:variant(satellite|satellite-capsule|satellite-server)"
+      path="/:variant(satellite|satellite-capsule|satellite-server)"
       render={[Function]}
     />
     <Route
@@ -163,9 +158,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
       key="/optin"
       path="/optin"
       render={[Function]}
-    />
-    <Redirect
-      to="/rhel-sw/all"
     />
   </Switch>
 </Router>

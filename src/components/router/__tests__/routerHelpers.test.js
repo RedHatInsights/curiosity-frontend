@@ -8,10 +8,11 @@ import {
 } from '../routerHelpers';
 
 describe('RouterHelpers', () => {
-  const mockWindowLocationProp = async ({ prop, url, callback }) => {
+  const mockWindowLocation = async ({ url, callback }) => {
+    const updatedUrl = new URL(url);
     const { location } = window;
     delete window.location;
-    window.location = { [prop]: url };
+    window.location = { href: updatedUrl.href, search: updatedUrl.search, hash: updatedUrl.hash };
     await callback();
     window.location = location;
   };
@@ -99,21 +100,21 @@ describe('RouterHelpers', () => {
     }).toMatchSnapshot('detail: specific route ID');
 
     expect({
-      nav: getNavigationDetail({ id: 'arm' }),
-      route: getRouteDetail({ id: 'arm' }),
-      navRoute: getNavRouteDetail({ id: 'arm' })
+      nav: getNavigationDetail({ id: 'rhel-arm' }),
+      route: getRouteDetail({ id: 'rhel-arm' }),
+      navRoute: getNavRouteDetail({ id: 'rhel-arm' })
     }).toMatchSnapshot('detail: specific navigation ID');
 
     expect({
-      nav: getNavigationDetail({ pathname: '/rhel-sw/all' }),
-      route: getRouteDetail({ pathname: '/rhel-sw/all' }),
-      navRoute: getNavRouteDetail({ pathname: '/rhel-sw/all' })
+      nav: getNavigationDetail({ pathname: '/rhel' }),
+      route: getRouteDetail({ pathname: '/rhel' }),
+      navRoute: getNavRouteDetail({ pathname: '/rhel' })
     }).toMatchSnapshot('detail: match specific path navigation');
 
     expect({
-      nav: getNavigationDetail({ id: 'lorem-missing', pathname: '/rhel-sw/all' }),
-      route: getRouteDetail({ id: 'lorem-missing', pathname: '/rhel-sw/all' }),
-      navRoute: getNavRouteDetail({ id: 'lorem-missing', pathname: '/rhel-sw/all' })
+      nav: getNavigationDetail({ id: 'lorem-missing', pathname: '/rhel' }),
+      route: getRouteDetail({ id: 'lorem-missing', pathname: '/rhel' }),
+      navRoute: getNavRouteDetail({ id: 'lorem-missing', pathname: '/rhel' })
     }).toMatchSnapshot('detail: missing ID, specific path');
 
     expect({
@@ -136,42 +137,38 @@ describe('RouterHelpers', () => {
   });
 
   it('should handle location search and hash passthrough values', () => {
-    mockWindowLocationProp({
-      prop: 'href',
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all',
+    mockWindowLocation({
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel',
       callback: () => {
         expect({
-          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+          routeHref: getNavigationDetail({ pathname: '/rhel' }).routeHref
         }).toMatchSnapshot('NO search and hash');
       }
     });
 
-    mockWindowLocationProp({
-      prop: 'href',
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all?dolor=sit',
+    mockWindowLocation({
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit',
       callback: () => {
         expect({
-          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+          routeHref: getNavigationDetail({ pathname: '/rhel' }).routeHref
         }).toMatchSnapshot('search');
       }
     });
 
-    mockWindowLocationProp({
-      prop: 'href',
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all#lorem',
+    mockWindowLocation({
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel#lorem',
       callback: () => {
         expect({
-          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+          routeHref: getNavigationDetail({ pathname: '/rhel' }).routeHref
         }).toMatchSnapshot('hash');
       }
     });
 
-    mockWindowLocationProp({
-      prop: 'href',
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel-sw/all?dolor=sit#lorem',
+    mockWindowLocation({
+      url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit#lorem',
       callback: () => {
         expect({
-          routeHref: getNavigationDetail({ pathname: '/rhel-sw/all' }).routeHref
+          routeHref: getNavigationDetail({ pathname: '/rhel' }).routeHref
         }).toMatchSnapshot('search and hash');
       }
     });
