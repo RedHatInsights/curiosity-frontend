@@ -15,6 +15,12 @@ Array [
   "'/beta/staging/subscriptions': {",
   "'/subscriptions': {",
   "'/beta/subscriptions': {",
+  "'/insights/subscriptions': {",
+  "'/beta/insights/subscriptions': {",
+  "'/rhel/subscriptions': {",
+  "'/beta/rhel/subscriptions': {",
+  "'/openshift/subscriptions': {",
+  "'/beta/openshift/subscriptions': {",
   "",
 ]
 `;
