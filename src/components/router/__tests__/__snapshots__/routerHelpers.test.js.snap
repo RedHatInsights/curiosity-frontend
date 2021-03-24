@@ -2,25 +2,25 @@
 
 exports[`RouterHelpers should handle location search and hash passthrough values: NO search and hash 1`] = `
 Object {
-  "routeHref": "/rhel-sw/all",
+  "routeHref": "/rhel",
 }
 `;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: hash 1`] = `
 Object {
-  "routeHref": "/rhel-sw/all#lorem",
+  "routeHref": "/rhel#lorem",
 }
 `;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: search 1`] = `
 Object {
-  "routeHref": "/rhel-sw/all?dolor=sit",
+  "routeHref": "/rhel?dolor=sit",
 }
 `;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: search and hash 1`] = `
 Object {
-  "routeHref": "/rhel-sw/all?dolor=sit#lorem",
+  "routeHref": "/rhel?dolor=sit#lorem",
 }
 `;
 
@@ -51,7 +51,6 @@ Object {
   },
   "disabled": false,
   "exact": true,
-  "id": "optin",
   "render": true,
   "to": "/optin",
 }
@@ -61,12 +60,11 @@ exports[`RouterHelpers should return navigation and route details that align to 
 Object {
   "nav": Object {
     "default": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathId": "rhel-sw",
+    "id": "rhel",
+    "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
-    "routeHref": "/rhel-sw/all",
+    "routeHref": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
@@ -79,15 +77,13 @@ Object {
     "default": true,
     "disabled": false,
     "exact": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathId": "rhel-sw",
+    "id": "rhel",
+    "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
-    "redirect": "/rhel-sw/all",
     "render": true,
-    "routeHref": "/rhel-sw/all",
-    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+    "routeHref": "/rhel",
+    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
     "viewParameter": "viewRHEL",
   },
   "route": Object {
@@ -99,10 +95,8 @@ Object {
     },
     "disabled": false,
     "exact": true,
-    "id": "rhel-sw",
-    "redirect": "/rhel-sw/all",
     "render": true,
-    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
   },
 }
 `;
@@ -111,12 +105,11 @@ exports[`RouterHelpers should return navigation and route details that align to 
 Object {
   "nav": Object {
     "default": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathId": "rhel-sw",
+    "id": "rhel",
+    "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
-    "routeHref": "/rhel-sw/all",
+    "routeHref": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
@@ -129,15 +122,13 @@ Object {
     "default": true,
     "disabled": false,
     "exact": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathId": "rhel-sw",
+    "id": "rhel",
+    "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
-    "redirect": "/rhel-sw/all",
     "render": true,
-    "routeHref": "/rhel-sw/all",
-    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+    "routeHref": "/rhel",
+    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
     "viewParameter": "viewRHEL",
   },
   "route": Object {
@@ -149,10 +140,8 @@ Object {
     },
     "disabled": false,
     "exact": true,
-    "id": "rhel-sw",
-    "redirect": "/rhel-sw/all",
     "render": true,
-    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
   },
 }
 `;
@@ -169,12 +158,11 @@ exports[`RouterHelpers should return navigation and route details that align to 
 Object {
   "nav": Object {
     "default": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathId": "rhel-sw",
+    "id": "rhel",
+    "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
-    "routeHref": "/rhel-sw/all",
+    "routeHref": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
@@ -187,15 +175,13 @@ Object {
     "default": true,
     "disabled": false,
     "exact": true,
-    "id": "all",
-    "path": "/rhel-sw/all",
-    "pathId": "rhel-sw",
+    "id": "rhel",
+    "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
-    "redirect": "/rhel-sw/all",
     "render": true,
-    "routeHref": "/rhel-sw/all",
-    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+    "routeHref": "/rhel",
+    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
     "viewParameter": "viewRHEL",
   },
   "route": Object {},
@@ -213,12 +199,11 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
 Object {
   "nav": Object {
-    "id": "arm",
-    "path": "/rhel-sw/arm",
-    "pathId": "rhel-sw",
+    "id": "rhel-arm",
+    "path": "/rhel-arm",
     "pathParameter": "RHEL for ARM",
     "productParameter": "RHEL",
-    "routeHref": "/rhel-sw/arm",
+    "routeHref": "/rhel-arm",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
@@ -230,15 +215,13 @@ Object {
     },
     "disabled": false,
     "exact": true,
-    "id": "arm",
-    "path": "/rhel-sw/arm",
-    "pathId": "rhel-sw",
+    "id": "rhel-arm",
+    "path": "/rhel-arm",
     "pathParameter": "RHEL for ARM",
     "productParameter": "RHEL",
-    "redirect": "/rhel-sw/all",
     "render": true,
-    "routeHref": "/rhel-sw/arm",
-    "to": "/rhel-sw/:variant(all|arm|ibmpower|ibmz|x86)",
+    "routeHref": "/rhel-arm",
+    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
     "viewParameter": "viewRHEL",
   },
   "route": Object {},
@@ -247,9 +230,15 @@ Object {
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
 Object {
-  "nav": Object {},
-  "navRoute": Object {},
-  "route": Object {
+  "nav": Object {
+    "id": "optin",
+    "path": "/optin",
+    "pathParameter": null,
+    "productParameter": null,
+    "routeHref": "/optin",
+    "viewParameter": null,
+  },
+  "navRoute": Object {
     "activateOnError": true,
     "component": Object {
       "$$typeof": Symbol(react.lazy),
@@ -260,8 +249,14 @@ Object {
     "disabled": false,
     "exact": true,
     "id": "optin",
+    "path": "/optin",
+    "pathParameter": null,
+    "productParameter": null,
     "render": true,
+    "routeHref": "/optin",
     "to": "/optin",
+    "viewParameter": null,
   },
+  "route": Object {},
 }
 `;

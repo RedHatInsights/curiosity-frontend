@@ -55,9 +55,17 @@ const getNavigationDetail = ({ id = null, pathname = null, returnDefault = false
     navigationItem = defaultItem;
   }
 
+  /**
+   * Note: have to account for carrying through location.search and location.hash, future updates
+   * Originally, we used a split on window.location.href.split(navigationItem.path) as an easy way
+   * to pull everything and maintain sequence, but there appears to be a race like condition
+   * happening on certain routes where window.location.href is updated first in some routing
+   * instances, and then in other instances requires being updated by the app/GUI.
+   */
   if (navigationItem) {
-    const [, routeHref] = window.location.href.split(navigationItem.path);
-    navigationItem.routeHref = `${navigationItem.path}${routeHref || ''}`;
+    const { search = '', hash = '' } = window.location;
+
+    navigationItem.routeHref = `${navigationItem.path}${search}${hash}`;
   }
 
   return { ...(navigationItem || {}) };
@@ -80,7 +88,7 @@ const getRouteDetail = ({ id = null, pathname = null }) => {
 
   if (!routeItem && pathname) {
     routeItem = routes.find(value => pathname === value.to);
-    routeItem = routeItem || routes.find(item => pathname.includes(item?.to?.split(':')[0]));
+    routeItem = routeItem || routes.find(item => item?.to?.includes(pathname.split('/').reverse()[0]));
   }
 
   return { ...(routeItem || {}) };
