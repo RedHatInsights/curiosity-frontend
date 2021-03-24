@@ -127,6 +127,7 @@ exports[`ProductViewSatellite Component should render a non-connected component:
   }
   t={[Function]}
   toolbarGraph={null}
+  toolbarGraphDescription={false}
   toolbarProduct={null}
 />
 `;

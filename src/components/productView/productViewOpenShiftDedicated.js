@@ -35,6 +35,7 @@ const ProductViewOpenShiftDedicated = ({ productConfig, routeDetail }) => {
       productConfig={productConfig}
       toolbarProduct={false}
       toolbarGraph={<ToolbarFieldRangedMonthly value={startDate} viewId={viewId} />}
+      toolbarGraphDescription
     />
   );
 };
