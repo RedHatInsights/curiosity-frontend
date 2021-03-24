@@ -4,7 +4,8 @@ import {
   chart_color_blue_100 as chartColorBlueLight,
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
-import { Button, Label as PfLabel } from '@patternfly/react-core';
+import { Button, Label as PfLabel, Tooltip, TooltipPosition } from '@patternfly/react-core';
+import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/DateFormat';
 import moment from 'moment';
 import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
@@ -91,6 +92,24 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
       subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters.filter(filter);
     }
 
+    const graphCardTitle = (
+      <React.Fragment>
+        {t('curiosity-graph.cardHeading', { context: productId })}
+        <Tooltip
+          content={<p>{t('curiosity-graph.cardHeadingDescription', { context: productId })}</p>}
+          position={TooltipPosition.top}
+          enableFlip={false}
+          distance={5}
+          entryDelay={100}
+          exitDelay={0}
+        >
+          <sup className="curiosity-icon__info">
+            <InfoCircleIcon />
+          </sup>
+        </Tooltip>
+      </React.Fragment>
+    );
+
     return (
       <React.Fragment key={`product_${productId}_${uomFilter}`}>
         {initialToolbarFilters && (
@@ -105,7 +124,7 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
             query={initialGraphTallyQuery}
             productId={productId}
             viewId={viewId}
-            cardTitle={t('curiosity-graph.cardHeading', { context: productId })}
+            cardTitle={graphCardTitle}
             productLabel={productLabel}
           >
             {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (

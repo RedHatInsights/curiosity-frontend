@@ -30,23 +30,32 @@ describe('ProductView Component', () => {
     expect(component).toMatchSnapshot('empty');
   });
 
-  it('should allow custom toolbar components', () => {
+  it('should allow custom product views', () => {
     const props = {
       productConfig: {},
+      toolbarGraphDescription: true,
       routeDetail: {
         pathParameter: 'lorem ipsum',
         productParameter: 'lorem ipsum product label',
         viewParameter: 'dolor sit'
-      },
-      toolbarGraph: <React.Fragment>lorem ipsum</React.Fragment>,
-      toolbarProduct: false
+      }
     };
 
     const component = shallow(<ProductView {...props} />);
+    expect(component).toMatchSnapshot('custom graphCard, descriptions');
+
+    component.setProps({
+      ...props,
+      toolbarGraphDescription: false,
+      toolbarGraph: <React.Fragment>lorem ipsum</React.Fragment>,
+      toolbarProduct: false
+    });
+
     expect(component).toMatchSnapshot('custom toolbar, toolbarGraph');
 
     component.setProps({
       ...props,
+      toolbarGraphDescription: false,
       toolbarGraph: false,
       toolbarProduct: <React.Fragment>dolor sit</React.Fragment>
     });

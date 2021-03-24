@@ -236,12 +236,16 @@ Array [
     "file": "./src/components/productView/productView.js",
     "keys": Array [
       Object {
-        "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
+        "key": "curiosity-graph.cardHeadingDescription",
+        "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
       },
       Object {
         "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading', { context: productLabel })",
+        "match": "t('curiosity-graph.cardHeading', { context: productId })",
+      },
+      Object {
+        "key": "curiosity-view.title",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
       Object {
         "key": "curiosity-inventory.tab",
@@ -259,6 +263,10 @@ Array [
       Object {
         "key": "curiosity-graph.cardHeading",
         "match": "t('curiosity-graph.cardHeading', { context: productId })",
+      },
+      Object {
+        "key": "curiosity-graph.cardHeadingDescription",
+        "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
       },
       Object {
         "key": "curiosity-inventory.tab",

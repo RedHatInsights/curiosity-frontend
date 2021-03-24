@@ -127,6 +127,7 @@ exports[`ProductViewRhel Component should render a non-connected component: non-
   }
   t={[Function]}
   toolbarGraph={null}
+  toolbarGraphDescription={false}
   toolbarProduct={null}
 />
 `;
