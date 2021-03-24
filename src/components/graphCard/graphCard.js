@@ -177,11 +177,11 @@ class GraphCard extends React.Component {
  * Prop types.
  *
  * @type {{productLabel: string, productId: string, pending: boolean, error: boolean, query: object,
- *     cardTitle: string, filterGraphData: Array, getGraphReportsCapacity: Function,
+ *     cardTitle: Node, filterGraphData: Array, getGraphReportsCapacity: Function,
  *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
  */
 GraphCard.propTypes = {
-  cardTitle: PropTypes.string,
+  cardTitle: PropTypes.node,
   children: PropTypes.node,
   error: PropTypes.bool,
   filterGraphData: PropTypes.arrayOf(
