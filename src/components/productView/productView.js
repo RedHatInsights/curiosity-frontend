@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tooltip, TooltipPosition } from '@patternfly/react-core';
+import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages } from '../pageLayout/pageLayout';
 import { apiQueries } from '../../redux';
 import { ConnectedGraphCard, GraphCard } from '../graphCard/graphCard';
@@ -42,10 +44,11 @@ import { translate } from '../i18n/i18n';
  * @param {object} props.routeDetail
  * @param {Function} props.t
  * @param {Node|boolean} props.toolbarGraph
+ * @param {boolean} props.toolbarGraphDescription
  * @param {Node|boolean} props.toolbarProduct
  * @returns {Node}
  */
-const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProduct }) => {
+const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraphDescription, toolbarProduct }) => {
   const {
     graphTallyQuery,
     inventoryHostsQuery,
@@ -73,6 +76,32 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
     return null;
   }
 
+  let graphCardTooltip = null;
+
+  if (toolbarGraphDescription) {
+    graphCardTooltip = (
+      <Tooltip
+        content={<p>{t('curiosity-graph.cardHeadingDescription', { context: productId })}</p>}
+        position={TooltipPosition.top}
+        enableFlip={false}
+        distance={5}
+        entryDelay={100}
+        exitDelay={0}
+      >
+        <sup className="curiosity-icon__info">
+          <InfoCircleIcon />
+        </sup>
+      </Tooltip>
+    );
+  }
+
+  const graphCardTitle = (
+    <React.Fragment>
+      {t('curiosity-graph.cardHeading', { context: productId })}
+      {graphCardTooltip}
+    </React.Fragment>
+  );
+
   return (
     <PageLayout>
       <PageHeader productLabel={productLabel} includeTour>
@@ -99,7 +128,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
           query={initialGraphTallyQuery}
           productId={productId}
           viewId={viewId}
-          cardTitle={t('curiosity-graph.cardHeading', { context: productLabel })}
+          cardTitle={graphCardTitle}
           productLabel={productLabel}
         >
           {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
@@ -147,8 +176,8 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarProdu
 /**
  * Prop types.
  *
- * @type {{t: translate, toolbarGraph: (Node|boolean), routeDetail: object, productConfig: object,
- *     toolbarProduct: (Node|boolean)}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, routeDetail: object,
+ *    productConfig: object, toolbarProduct: (Node|boolean)}}
  */
 ProductView.propTypes = {
   productConfig: PropTypes.shape({
@@ -185,17 +214,19 @@ ProductView.propTypes = {
   }).isRequired,
   t: PropTypes.func,
   toolbarGraph: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+  toolbarGraphDescription: PropTypes.bool,
   toolbarProduct: PropTypes.oneOfType([PropTypes.node, PropTypes.bool])
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarProduct: (Node|boolean)}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, toolbarProduct: (Node|boolean)}}
  */
 ProductView.defaultProps = {
   t: translate,
   toolbarGraph: null,
+  toolbarGraphDescription: false,
   toolbarProduct: null
 };
 

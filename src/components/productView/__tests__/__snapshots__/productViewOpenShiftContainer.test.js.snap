@@ -38,7 +38,33 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
       className=""
     >
       <Connect(GraphCard)
-        cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"OpenShift Container Platform\\"})"
+        cardTitle={
+          <React.Fragment>
+            t(curiosity-graph.cardHeading, {"context":"OpenShift Container Platform"})
+            <Tooltip
+              content={
+                <p>
+                  t(curiosity-graph.cardHeadingDescription, {"context":"OpenShift Container Platform"})
+                </p>
+              }
+              distance={5}
+              enableFlip={false}
+              entryDelay={100}
+              exitDelay={0}
+              position="top"
+            >
+              <sup
+                className="curiosity-icon__info"
+              >
+                <InfoCircleIcon
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
+              </sup>
+            </Tooltip>
+          </React.Fragment>
+        }
         filterGraphData={
           Array [
             Object {
@@ -237,7 +263,33 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
       className=""
     >
       <Connect(GraphCard)
-        cardTitle="t(curiosity-graph.cardHeading, {\\"context\\":\\"OpenShift-metrics\\"})"
+        cardTitle={
+          <React.Fragment>
+            t(curiosity-graph.cardHeading, {"context":"OpenShift-metrics"})
+            <Tooltip
+              content={
+                <p>
+                  t(curiosity-graph.cardHeadingDescription, {"context":"OpenShift-metrics"})
+                </p>
+              }
+              distance={5}
+              enableFlip={false}
+              entryDelay={100}
+              exitDelay={0}
+              position="top"
+            >
+              <sup
+                className="curiosity-icon__info"
+              >
+                <InfoCircleIcon
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
+              </sup>
+            </Tooltip>
+          </React.Fragment>
+        }
         filterGraphData={
           Array [
             Object {
