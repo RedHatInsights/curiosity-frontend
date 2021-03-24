@@ -83,7 +83,7 @@
     "build:js": "react-scripts build",
     "build:post": "bash ./scripts/post.sh",
     "build:pre": "bash ./scripts/pre.sh",
-    "dev:chrome": "bash ./scripts/dev.chrome.sh -b master",
+    "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
     "release": "standard-version",
     "start": "run-s dev:chrome; run-p -l api:dev start:js",
     "start:js": "react-scripts start",
