@@ -1,0 +1,10 @@
+.curiosity {
+  .curiosity-icon__info {
+    color: var(--pf-global--palette--blue-300);
+  }
+
+  sub.curiosity-icon__info, sup.curiosity-icon__info {
+    padding-left: var(--pf-global--spacer--sm);
+    padding-right: var(--pf-global--spacer--sm);
+  }
+}
