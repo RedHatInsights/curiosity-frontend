@@ -205,7 +205,6 @@ Object {
         component="a"
         href="/insights/inventory/lorem inventory id/"
         isInline={true}
-        target="_blank"
         variant="link"
       >
         lorem
@@ -363,7 +362,6 @@ Object {
           component="a"
           href="/insights/inventory/lorem inventory id/"
           isInline={true}
-          target="_blank"
           variant="link"
         >
           lorem
