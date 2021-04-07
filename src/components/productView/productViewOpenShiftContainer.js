@@ -303,7 +303,6 @@ ProductViewOpenShiftContainer.defaultProps = {
                 isInline
                 component="a"
                 variant="link"
-                target="_blank"
                 href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
               >
                 {displayName.value || inventoryId.value}
@@ -340,7 +339,6 @@ ProductViewOpenShiftContainer.defaultProps = {
                   isInline
                   component="a"
                   variant="link"
-                  target="_blank"
                   href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
                 >
                   {displayName.value || inventoryId.value}
