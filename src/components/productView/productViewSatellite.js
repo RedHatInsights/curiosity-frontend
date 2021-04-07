@@ -116,7 +116,6 @@ ProductViewSatellite.defaultProps = {
               isInline
               component="a"
               variant="link"
-              target="_blank"
               href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
             >
               {displayName.value || inventoryId.value}
@@ -153,7 +152,6 @@ ProductViewSatellite.defaultProps = {
                 isInline
                 component="a"
                 variant="link"
-                target="_blank"
                 href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
               >
                 {displayName.value || inventoryId.value}
