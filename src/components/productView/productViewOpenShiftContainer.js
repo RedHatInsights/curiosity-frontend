@@ -382,7 +382,7 @@ ProductViewOpenShiftContainer.defaultProps = {
           cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
           isSortable: true,
           isWrappable: true,
-          cellWidth: 15
+          cellWidth: 25
         }
       ],
       initialInventorySettings: {},
@@ -469,14 +469,14 @@ ProductViewOpenShiftContainer.defaultProps = {
             `0.00`,
           isSortable: true,
           isWrappable: true,
-          cellWidth: 15
+          cellWidth: 20
         },
         {
           id: 'lastSeen',
           cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
           isSortable: true,
           isWrappable: true,
-          cellWidth: 15
+          cellWidth: 25
         }
       ],
       initialToolbarFilters: undefined,
