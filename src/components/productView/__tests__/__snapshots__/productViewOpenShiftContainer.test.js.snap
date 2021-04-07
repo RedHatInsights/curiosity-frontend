@@ -190,7 +190,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 },
                 Object {
                   "cell": [Function],
-                  "cellWidth": 15,
+                  "cellWidth": 25,
                   "id": "lastSeen",
                   "isSortable": true,
                   "isWrappable": true,
@@ -454,14 +454,14 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 },
                 Object {
                   "cell": [Function],
-                  "cellWidth": 15,
+                  "cellWidth": 20,
                   "id": "coreHours",
                   "isSortable": true,
                   "isWrappable": true,
                 },
                 Object {
                   "cell": [Function],
-                  "cellWidth": 15,
+                  "cellWidth": 25,
                   "id": "lastSeen",
                   "isSortable": true,
                   "isWrappable": true,
@@ -799,7 +799,7 @@ Array [
       },
       Object {
         "cell": [Function],
-        "cellWidth": 15,
+        "cellWidth": 25,
         "id": "lastSeen",
         "isSortable": true,
         "isWrappable": true,
@@ -828,14 +828,14 @@ Array [
       },
       Object {
         "cell": [Function],
-        "cellWidth": 15,
+        "cellWidth": 20,
         "id": "coreHours",
         "isSortable": true,
         "isWrappable": true,
       },
       Object {
         "cell": [Function],
-        "cellWidth": 15,
+        "cellWidth": 25,
         "id": "lastSeen",
         "isSortable": true,
         "isWrappable": true,
