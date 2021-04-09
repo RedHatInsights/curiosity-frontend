@@ -1,11 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Select as PfSelect, SelectOption as PfSelectOption, SelectVariant } from '@patternfly/react-core';
+import {
+  DropdownDirection,
+  DropdownPosition,
+  Select as PfSelect,
+  SelectOption as PfSelectOption,
+  SelectVariant
+} from '@patternfly/react-core';
 import _cloneDeep from 'lodash/cloneDeep';
 import _isEqual from 'lodash/isEqual';
 import _findIndex from 'lodash/findIndex';
 import _isPlainObject from 'lodash/isPlainObject';
 import { helpers } from '../../common/helpers';
+
+/**
+ * Pass direction as select component variant option.
+ *
+ * @type {DropdownDirection}
+ */
+const SelectDirection = DropdownDirection;
+
+/**
+ * Pass position as select component variant option.
+ *
+ * @type {DropdownPosition}
+ */
+const SelectPosition = DropdownPosition;
 
 /**
  * A wrapper for Patternfly Select. Provides restructured event data for onSelect callback.
@@ -190,9 +210,21 @@ class Select extends React.Component {
    */
   render() {
     const { options, selected, isExpanded } = this.state;
-    const { ariaLabel, className, isDisabled, isToggleText, maxHeight, placeholder, toggleIcon, variant } = this.props;
+    const {
+      ariaLabel,
+      className,
+      direction,
+      isDisabled,
+      isToggleText,
+      maxHeight,
+      placeholder,
+      position,
+      toggleIcon,
+      variant
+    } = this.props;
 
     const pfSelectOptions = {
+      direction,
       maxHeight
     };
 
@@ -209,7 +241,9 @@ class Select extends React.Component {
      */
     return (
       <PfSelect
-        className={`curiosity-select${(!isToggleText && '__no-toggle-text') || ''} ${className}`}
+        className={`curiosity-select${(!isToggleText && '__no-toggle-text') || ''} ${
+          (position === DropdownPosition.right && 'curiosity-select__position-right') || ''
+        } ${className}`}
         variant={variant}
         aria-label={ariaLabel}
         onToggle={this.onToggle}
@@ -242,11 +276,12 @@ class Select extends React.Component {
  * @type {{toggleIcon: (Node|Function), className: string, ariaLabel: string, onSelect: Function,
  *     isToggleText: boolean, maxHeight: number, name: string, options: (Array|object),
  *     selectedOptions: (number|string|Array), variant: string, id: string, isDisabled: boolean,
- *     placeholder: string}}
+ *     placeholder: string, position: string, direction: string}}
  */
 Select.propTypes = {
   ariaLabel: PropTypes.string,
   className: PropTypes.string,
+  direction: PropTypes.oneOf(Object.values(SelectDirection)),
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
   isToggleText: PropTypes.bool,
@@ -270,6 +305,7 @@ Select.propTypes = {
     PropTypes.object
   ]),
   placeholder: PropTypes.string,
+  position: PropTypes.oneOf(Object.values(SelectPosition)),
   selectedOptions: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -282,14 +318,15 @@ Select.propTypes = {
 /**
  * Default props.
  *
- * @type {{toggleIcon: (Node|Function), className: string, ariaLabel: string, onSelect: Function,
- *     isToggleText: boolean, maxHeight: number, name: string, options: (Array|object),
- *     selectedOptions: (number|string|Array), variant: SelectVariant.single, id: string,
- *     isDisabled: boolean, placeholder: string}}
+ * @type {{toggleIcon: (Node|Function), className: string, ariaLabel: string, onSelect: Function, isToggleText: boolean,
+ *     maxHeight: number, name: string, options: (Array|object), selectedOptions: (number|string|Array),
+ *     variant: SelectVariant.single, id: string, isDisabled: boolean, placeholder: string,
+ *     position: DropdownPosition.left, direction: DropdownDirection.down}}
  */
 Select.defaultProps = {
   ariaLabel: 'Select option',
   className: '',
+  direction: SelectDirection.down,
   id: helpers.generateId(),
   isDisabled: false,
   isToggleText: true,
@@ -298,9 +335,10 @@ Select.defaultProps = {
   onSelect: helpers.noop,
   options: [],
   placeholder: 'Select option',
+  position: SelectPosition.left,
   selectedOptions: null,
   toggleIcon: null,
   variant: SelectVariant.single
 };
 
-export { Select as default, Select };
+export { Select as default, Select, SelectDirection, SelectPosition };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxTypes, store, useSelector } from '../../redux';
-import { Select } from '../form/select';
+import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -73,6 +73,7 @@ const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
       onSelect={onSelect}
       options={updatedOptions}
       placeholder={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
+      position={SelectPosition.right}
       maxHeight={250}
     />
   );

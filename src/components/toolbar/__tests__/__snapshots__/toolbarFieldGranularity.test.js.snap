@@ -58,6 +58,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
   aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
   ariaLabel="Select option"
   className=""
+  direction="down"
   id="generatedid-"
   isDisabled={false}
   isToggleText={true}
@@ -89,6 +90,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  position="left"
   selectedOptions="weekly"
   toggleIcon={null}
   variant="single"
