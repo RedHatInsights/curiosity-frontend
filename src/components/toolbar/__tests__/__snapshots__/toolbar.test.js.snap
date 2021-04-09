@@ -542,6 +542,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             aria-label="t(curiosity-toolbar.category)"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -561,6 +562,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder)"
+            position="left"
             selectedOptions={
               Array [
                 "t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})",
@@ -587,6 +589,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -614,6 +617,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+            position="left"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
@@ -630,6 +634,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
             aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -657,6 +662,7 @@ exports[`Toolbar Component should render a non-connected component: non-connecte
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"usage\\"})"
+            position="left"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
@@ -698,6 +704,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             aria-label="t(curiosity-toolbar.category)"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -717,6 +724,7 @@ exports[`Toolbar Component should render filters when props are populated: props
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder)"
+            position="left"
             selectedOptions={
               Array [
                 "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
@@ -747,6 +755,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -774,6 +783,7 @@ exports[`Toolbar Component should render filters when props are populated: props
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+            position="left"
             selectedOptions={
               Array [
                 "t(curiosity-toolbar.slaPremium)",
@@ -794,6 +804,7 @@ exports[`Toolbar Component should render filters when props are populated: props
             aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"usage\\"})"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -821,6 +832,7 @@ exports[`Toolbar Component should render filters when props are populated: props
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"usage\\"})"
+            position="left"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
@@ -868,6 +880,7 @@ exports[`Toolbar Component should render specific filters when the filterOptions
             aria-label="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
             ariaLabel="Select option"
             className=""
+            direction="down"
             id="generatedid-"
             isDisabled={false}
             isToggleText={true}
@@ -895,6 +908,7 @@ exports[`Toolbar Component should render specific filters when the filterOptions
               ]
             }
             placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+            position="left"
             selectedOptions={Array []}
             toggleIcon={null}
             variant="single"
