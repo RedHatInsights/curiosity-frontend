@@ -118,6 +118,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
   aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
   ariaLabel="Select option"
   className=""
+  direction="down"
   id="generatedid-"
   isDisabled={false}
   isToggleText={true}
@@ -237,6 +238,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  position="right"
   selectedOptions={null}
   toggleIcon={null}
   variant="single"
@@ -276,6 +278,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
   aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
   ariaLabel="Select option"
   className=""
+  direction="down"
   id="generatedid-"
   isDisabled={false}
   isToggleText={true}
@@ -395,6 +398,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  position="right"
   selectedOptions={null}
   toggleIcon={null}
   variant="single"
