@@ -2,7 +2,7 @@
 
 exports[`Select Component should allow alternate array and object options: key value object 1`] = `
 <div
-  class="pf-c-select curiosity-select "
+  class="pf-c-select curiosity-select  "
   data-ouia-component-id="OUIA-Generated-Select-single-2"
   data-ouia-component-type="PF4/Select"
   data-ouia-safe="true"
@@ -47,7 +47,7 @@ exports[`Select Component should allow alternate array and object options: key v
 
 exports[`Select Component should allow alternate array and object options: string array 1`] = `
 <div
-  class="pf-c-select curiosity-select "
+  class="pf-c-select curiosity-select  "
   data-ouia-component-id="OUIA-Generated-Select-single-2"
   data-ouia-component-type="PF4/Select"
   data-ouia-safe="true"
@@ -90,12 +90,178 @@ exports[`Select Component should allow alternate array and object options: strin
 </div>
 `;
 
+exports[`Select Component should allow alternate direction and position options: direction up 1`] = `
+<Select
+  aria-label="Select option"
+  aria-labelledby=""
+  chipGroupComponent={null}
+  className="curiosity-select  "
+  clearSelectionsAriaLabel="Clear all"
+  createText="Create"
+  customBadgeText={null}
+  customContent={null}
+  direction="up"
+  favorites={Array []}
+  favoritesLabel="Favorites"
+  hasInlineFilter={false}
+  inlineFilterPlaceholderText={null}
+  inputIdPrefix=""
+  isCreatable={false}
+  isDisabled={false}
+  isGrouped={false}
+  isOpen={false}
+  isPlain={false}
+  maxHeight={null}
+  menuAppendTo="inline"
+  noResultsFoundText="No results found"
+  onClear={[Function]}
+  onCreateOption={[Function]}
+  onFilter={null}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  ouiaSafe={true}
+  placeholderText="Select option"
+  removeSelectionAriaLabel="Remove"
+  selections={Array []}
+  toggleAriaLabel="Options menu"
+  toggleIcon={null}
+  toggleId={null}
+  typeAheadAriaLabel=""
+  variant="single"
+  width=""
+>
+  <SelectOption
+    className=""
+    component="button"
+    data-title="lorem"
+    data-value="lorem"
+    id="bG9yZW0tbG9yZW0="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="bG9yZW0tbG9yZW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="lorem"
+  />
+  <SelectOption
+    className=""
+    component="button"
+    data-title="ipsum"
+    data-value="ipsum"
+    id="aXBzdW0taXBzdW0="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="aXBzdW0taXBzdW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="ipsum"
+  />
+</Select>
+`;
+
+exports[`Select Component should allow alternate direction and position options: position right 1`] = `
+<Select
+  aria-label="Select option"
+  aria-labelledby=""
+  chipGroupComponent={null}
+  className="curiosity-select curiosity-select__position-right "
+  clearSelectionsAriaLabel="Clear all"
+  createText="Create"
+  customBadgeText={null}
+  customContent={null}
+  direction="down"
+  favorites={Array []}
+  favoritesLabel="Favorites"
+  hasInlineFilter={false}
+  inlineFilterPlaceholderText={null}
+  inputIdPrefix=""
+  isCreatable={false}
+  isDisabled={false}
+  isGrouped={false}
+  isOpen={false}
+  isPlain={false}
+  maxHeight={null}
+  menuAppendTo="inline"
+  noResultsFoundText="No results found"
+  onClear={[Function]}
+  onCreateOption={[Function]}
+  onFilter={null}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  ouiaSafe={true}
+  placeholderText="Select option"
+  removeSelectionAriaLabel="Remove"
+  selections={Array []}
+  toggleAriaLabel="Options menu"
+  toggleIcon={null}
+  toggleId={null}
+  typeAheadAriaLabel=""
+  variant="single"
+  width=""
+>
+  <SelectOption
+    className=""
+    component="button"
+    data-title="lorem"
+    data-value="lorem"
+    id="bG9yZW0tbG9yZW0="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="bG9yZW0tbG9yZW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="lorem"
+  />
+  <SelectOption
+    className=""
+    component="button"
+    data-title="ipsum"
+    data-value="ipsum"
+    id="aXBzdW0taXBzdW0="
+    index={0}
+    inputId=""
+    isChecked={false}
+    isDisabled={false}
+    isFavorite={null}
+    isNoResultsOption={false}
+    isPlaceholder={false}
+    isSelected={false}
+    key="aXBzdW0taXBzdW0="
+    keyHandler={[Function]}
+    onClick={[Function]}
+    sendRef={[Function]}
+    value="ipsum"
+  />
+</Select>
+`;
+
 exports[`Select Component should allow being disabled with missing options: no options 1`] = `
 <Select
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
-  className="curiosity-select "
+  className="curiosity-select  "
   clearSelectionsAriaLabel="Clear all"
   createText="Create"
   customBadgeText={null}
@@ -137,7 +303,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
-  className="curiosity-select "
+  className="curiosity-select  "
   clearSelectionsAriaLabel="Clear all"
   createText="Create"
   customBadgeText={null}
@@ -260,7 +426,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
-  className="curiosity-select "
+  className="curiosity-select  "
   clearSelectionsAriaLabel="Clear all"
   createText="Create"
   customBadgeText={null}
@@ -299,7 +465,7 @@ exports[`Select Component should allow being disabled with missing options: opti
 
 exports[`Select Component should allow plain objects as values, and be able to select options based on values within the object: select when option values are objects 1`] = `
 <div
-  class="pf-c-select curiosity-select "
+  class="pf-c-select curiosity-select  "
   data-ouia-component-id="OUIA-Generated-Select-single-3"
   data-ouia-component-type="PF4/Select"
   data-ouia-safe="true"
@@ -344,7 +510,7 @@ exports[`Select Component should allow plain objects as values, and be able to s
 
 exports[`Select Component should allow selected options to match value or title: value or title match 1`] = `
 <div
-  class="pf-c-select curiosity-select "
+  class="pf-c-select curiosity-select  "
   data-ouia-component-id="OUIA-Generated-Select-checkbox-2"
   data-ouia-component-type="PF4/Select"
   data-ouia-safe="true"
@@ -400,7 +566,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
-  className="curiosity-select__no-toggle-text "
+  className="curiosity-select__no-toggle-text  "
   clearSelectionsAriaLabel="Clear all"
   createText="Create"
   customBadgeText={null}
@@ -486,7 +652,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
 
 exports[`Select Component should render a basic component: basic component 1`] = `
 <div
-  class="pf-c-select curiosity-select "
+  class="pf-c-select curiosity-select  "
   data-ouia-component-id="OUIA-Generated-Select-single-1"
   data-ouia-component-type="PF4/Select"
   data-ouia-safe="true"
@@ -531,7 +697,7 @@ exports[`Select Component should render a basic component: basic component 1`] =
 
 exports[`Select Component should render a checkbox select: checkbox select 1`] = `
 <div
-  class="pf-c-select curiosity-select "
+  class="pf-c-select curiosity-select  "
   data-ouia-component-id="OUIA-Generated-Select-checkbox-1"
   data-ouia-component-type="PF4/Select"
   data-ouia-safe="true"
@@ -586,6 +752,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
 <Select
   ariaLabel="Select option"
   className=""
+  direction="down"
   id="test"
   isDisabled={false}
   isToggleText={true}
@@ -601,6 +768,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
     ]
   }
   placeholder="Select option"
+  position="left"
   selectedOptions={null}
   toggleIcon={null}
   variant="single"
@@ -609,7 +777,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
     aria-label="Select option"
     aria-labelledby=""
     chipGroupComponent={null}
-    className="curiosity-select "
+    className="curiosity-select  "
     clearSelectionsAriaLabel="Clear all"
     createText="Create"
     customBadgeText={null}
@@ -648,7 +816,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
       prefix="pf-random-id-"
     >
       <div
-        className="pf-c-select pf-m-expanded curiosity-select "
+        className="pf-c-select pf-m-expanded curiosity-select  "
         data-ouia-component-id="OUIA-Generated-Select-single-5"
         data-ouia-component-type="PF4/Select"
         data-ouia-safe={true}
@@ -741,7 +909,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
           parentRef={
             Object {
               "current": <div
-                class="pf-c-select pf-m-expanded curiosity-select "
+                class="pf-c-select pf-m-expanded curiosity-select  "
                 data-ouia-component-id="OUIA-Generated-Select-single-5"
                 data-ouia-component-type="PF4/Select"
                 data-ouia-safe="true"

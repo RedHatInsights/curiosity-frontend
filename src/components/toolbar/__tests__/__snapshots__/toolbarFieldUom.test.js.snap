@@ -38,6 +38,7 @@ exports[`ToolbarFieldUom Component should render a non-connected component: non-
   aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
   ariaLabel="Select option"
   className=""
+  direction="down"
   id="generatedid-"
   isDisabled={false}
   isToggleText={true}
@@ -59,6 +60,7 @@ exports[`ToolbarFieldUom Component should render a non-connected component: non-
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
+  position="left"
   selectedOptions="sockets"
   toggleIcon={null}
   variant="single"

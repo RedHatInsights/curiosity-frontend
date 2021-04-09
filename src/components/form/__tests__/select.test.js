@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { SelectVariant } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
-import Select from '../select';
+import { Select, SelectDirection, SelectPosition } from '../select';
 
 describe('Select Component', () => {
   it('should render a basic component', () => {
@@ -124,6 +124,20 @@ describe('Select Component', () => {
 
     const component = shallow(<Select {...props} />);
     expect(component).toMatchSnapshot('disabled text');
+  });
+
+  it('should allow alternate direction and position options', () => {
+    const props = {
+      id: 'test',
+      options: ['lorem', 'ipsum'],
+      direction: SelectDirection.up
+    };
+
+    const component = shallow(<Select {...props} />);
+    expect(component).toMatchSnapshot('direction up');
+
+    component.setProps({ direction: SelectDirection.down, position: SelectPosition.right });
+    expect(component).toMatchSnapshot('position right');
   });
 
   it('should allow being disabled with missing options', () => {

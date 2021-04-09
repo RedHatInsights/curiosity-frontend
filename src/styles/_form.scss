@@ -7,3 +7,9 @@
     display: none;
   }
 }
+
+.curiosity-select__position-right {
+  > .pf-c-select__menu {
+    right: 0
+  }
+}
