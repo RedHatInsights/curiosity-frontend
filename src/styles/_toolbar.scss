@@ -8,6 +8,15 @@
   }
 }
 
+.curiosity-page-columns-column {
+  .curiosity-page-toolbar {
+    .curiosity-toolbar {
+      padding-left: var(--pf-global--spacer--lg);
+      padding-right: var(--pf-global--spacer--lg);
+    }
+  }
+}
+
 .curiosity-input__display-name {
   &.pf-c-form-control.pf-m-search {
     /**
