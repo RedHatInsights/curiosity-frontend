@@ -5,6 +5,11 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
   className="lorem"
 >
   <Flex
+    alignItems={
+      Object {
+        "sm": "alignItemsStretch",
+      }
+    }
     className="curiosity-page-columns lorem"
     spaceItems={
       Object {
@@ -13,7 +18,7 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
     }
   >
     <div
-      className="pf-l-flex pf-m-space-items-none-on-sm curiosity-page-columns lorem"
+      className="pf-l-flex pf-m-space-items-none-on-sm pf-m-align-items-stretch-on-sm curiosity-page-columns lorem"
     >
       <FlexItem
         className="curiosity-page-columns-column"

@@ -12,7 +12,11 @@ import { helpers } from '../../common';
  * @returns {Node}
  */
 const PageColumns = ({ children, className }) => (
-  <Flex spaceItems={{ sm: 'spaceItemsNone' }} className={`curiosity-page-columns ${className}`}>
+  <Flex
+    alignItems={{ sm: 'alignItemsStretch' }}
+    spaceItems={{ sm: 'spaceItemsNone' }}
+    className={`curiosity-page-columns ${className}`}
+  >
     {React.Children.toArray(children)
       .filter(child => React.isValidElement(child))
       .map(child => (
