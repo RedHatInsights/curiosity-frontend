@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.4.0...v1.4.1) (2021-04-13)
+
+
+### Bug Fixes
+
+* **build:** ent-3654 change app display name ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([9294d11](https://github.com/RedHatInsights/curiosity-frontend/commit/9294d11d0aafbf0aa3fb4c816a96365cd63013d7))
+* **build:** local run, use prod-stable as chrome basis ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([1d0d9c1](https://github.com/RedHatInsights/curiosity-frontend/commit/1d0d9c1c03fe86c6f4ef04d514a9731b3585a1cd))
+* **routerConfig:** ent-3541 rhcloud-12690 platform nav update ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([b65267d](https://github.com/RedHatInsights/curiosity-frontend/commit/b65267dcedd7664c95894d454cd484a9c95a1f05))
+* **routerHelpers:** dynamic route, handle additional directories ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([345fca7](https://github.com/RedHatInsights/curiosity-frontend/commit/345fca7ebe1b83010f789150e6881ecb1de8569a))
+
 ## [1.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.3.0...v1.4.0) (2021-02-16)
 
 
