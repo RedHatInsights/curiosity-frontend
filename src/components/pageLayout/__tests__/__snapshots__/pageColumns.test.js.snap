@@ -28,19 +28,9 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
           }
         }
         key="page-column-.0"
-        style={
-          Object {
-            "flexBasis": 0,
-          }
-        }
       >
         <div
           className="pf-m-grow-on-sm curiosity-page-columns-column"
-          style={
-            Object {
-              "flexBasis": 0,
-            }
-          }
         >
           <span
             className="dolor"
@@ -58,19 +48,9 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
           }
         }
         key="page-column-.$hello-world"
-        style={
-          Object {
-            "flexBasis": 0,
-          }
-        }
       >
         <div
           className="pf-m-grow-on-sm curiosity-page-columns-column"
-          style={
-            Object {
-              "flexBasis": 0,
-            }
-          }
         >
           <span
             className="sit"
