@@ -1,5 +1,4 @@
 import { platformApiTypes } from '../../types';
-import { userTypes } from '../types/userTypes';
 
 /**
  * Modify actions' payload for privacy.
@@ -31,25 +30,34 @@ const sanitizeActionHeaders = ({ payload, ...action }) => {
  * @returns {object}
  */
 const sanitizeData = ({ type, payload, ...action }) => {
-  if (payload && new RegExp(userTypes.USER_AUTH).test(type)) {
-    const updatedPayload = {
-      ...payload,
-      data: {
-        ...payload?.data,
-        user: {
-          ...payload?.data?.user,
-          [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
-            ...payload?.data?.user[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY],
-            [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {}
+  const removeUserIdentity = obj => {
+    if (obj?.data?.user?.[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]) {
+      return {
+        ...obj,
+        data: {
+          ...obj.data,
+          user: {
+            ...obj.data.user,
+            [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
+              ...obj.data.user[platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY],
+              [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {}
+            }
           }
         }
-      }
-    };
+      };
+    }
 
-    return { type, payload: updatedPayload, ...action };
+    return undefined;
+  };
+
+  const updatedPayload = removeUserIdentity(payload) || payload;
+  const updatedAction = removeUserIdentity(action) || action;
+
+  if (updatedPayload) {
+    return { type, payload: updatedPayload, ...updatedAction };
   }
 
-  return { type, ...action };
+  return { type, ...updatedAction };
 };
 
 /**
