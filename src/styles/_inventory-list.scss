@@ -53,8 +53,13 @@
     }
   }
 
-  // ToDo: reevaluate this fix, originally for non-expandable table rows to aid in alignment with heading
+  // ToDo: reevaluate this fix periodically, originally for non-expandable table rows to aid in alignment with heading
   .curiosity-inventory-list {
+    // FixMe: an unknown border-top-width appears?
+    &.pf-c-table.pf-m-compact tbody {
+      border-top-width: 0;
+    }
+
     &.pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
       padding-left: var(--pf-c-table--m-compact--cell--first-last-child--PaddingLeft);
     }
