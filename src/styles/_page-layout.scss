@@ -7,15 +7,21 @@
   position: relative;
 }
 
-.curiosity-page-columns-column {
-  margin-left: var(--pf-global--spacer--sm);
-  margin-right: var(--pf-global--spacer--sm);
+.curiosity-page-columns > .curiosity-page-columns-column {
+  margin-left: 0;
+  margin-right: 0;
 
-  &:first-child {
-    margin-left: 0;
-  }
+  @media (min-width: $pf-global--breakpoint--sm) {
+    flex-basis: 0;
+    margin-left: var(--pf-global--spacer--sm);
+    margin-right: var(--pf-global--spacer--sm);
 
-  &:last-child {
-    margin-right: 0;
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
