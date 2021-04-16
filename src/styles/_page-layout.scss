@@ -10,6 +10,7 @@
 .curiosity-page-columns > .curiosity-page-columns-column {
   margin-left: 0;
   margin-right: 0;
+  width: 100%;
 
   @media (min-width: $pf-global--breakpoint--sm) {
     flex-basis: 0;
