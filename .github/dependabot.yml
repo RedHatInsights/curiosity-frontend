@@ -12,6 +12,9 @@ updates:
       - dependency-type: direct
     labels:
       - "build"
+    ignore:
+      - dependency-name: "@patternfly/*"
+      - dependency-name: "@redhat-cloud-services/frontend*"
 
   - package-ecosystem: github-actions
     directory: /
