@@ -96,6 +96,32 @@ Object {
         "y": 0,
       },
     ],
+    "coreHours": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 2,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -511,6 +537,16 @@ Object {
         "y": 0,
       },
     ],
+    "coreHours": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2018-07-04T00:00:00.000Z,
@@ -678,6 +714,16 @@ Object {
       },
     ],
     "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "coreHours": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
@@ -863,6 +909,16 @@ Object {
         "y": 0,
       },
     ],
+    "coreHours": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
     "cores": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
@@ -1030,6 +1086,16 @@ Object {
       },
     ],
     "cloudSockets": Array [
+      Object {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "coreHours": Array [
       Object {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
@@ -1238,6 +1304,32 @@ Object {
       },
     ],
     "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": undefined,
+        "hasCloudigradeMismatch": undefined,
+        "hasData": undefined,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-05T00:00:00.000Z,
+        "hasCloudigradeData": undefined,
+        "hasCloudigradeMismatch": undefined,
+        "hasData": undefined,
+        "x": 1,
+        "y": 0,
+      },
+      Object {
+        "date": 2019-09-06T00:00:00.000Z,
+        "hasCloudigradeData": undefined,
+        "hasCloudigradeMismatch": undefined,
+        "hasData": undefined,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "coreHours": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
@@ -1732,6 +1824,16 @@ Object {
       },
     ],
     "cloudSockets": Array [
+      Object {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": undefined,
+        "hasCloudigradeMismatch": undefined,
+        "hasData": undefined,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "coreHours": Array [
       Object {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
