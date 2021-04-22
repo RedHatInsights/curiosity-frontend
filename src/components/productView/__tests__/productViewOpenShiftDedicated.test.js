@@ -28,6 +28,7 @@ describe('ProductViewOpenShiftDedicated Component', () => {
     } = ProductViewOpenShiftDedicated.defaultProps.productConfig;
     expect({ initialGraphFilters, initialInventoryFilters, query }).toMatchSnapshot('initial configuration');
 
+    // filter inventory data checks
     const inventoryData = {
       displayName: 'lorem',
       inventoryId: 'lorem inventory id',
@@ -62,5 +63,43 @@ describe('ProductViewOpenShiftDedicated Component', () => {
         ProductViewOpenShiftDedicated.defaultProps.productConfig.inventoryHostsQuery[RHSM_API_QUERY_TYPES.DIRECTION] ===
         SORT_DIRECTION_TYPES.DESCENDING
     }).toMatchSnapshot('default sort for inventory should descend');
+
+    // product action display callback
+    expect({
+      productActionDisplay: ProductViewOpenShiftDedicated.defaultProps.productConfig.initialGraphSettings.actionDisplay(
+        {
+          coreHours: [
+            {
+              y: 0
+            },
+            {
+              y: 1000
+            },
+            {
+              y: 100
+            }
+          ]
+        }
+      )
+    }).toMatchSnapshot('product action display should display a total value');
+
+    expect({
+      productOneActionDisplay: undefined,
+      productTwoActionDisplay: ProductViewOpenShiftDedicated.defaultProps.productConfig.initialGraphSettings.actionDisplay(
+        {
+          loremIpsum: [
+            {
+              y: 0
+            },
+            {
+              y: 1000
+            },
+            {
+              y: 100
+            }
+          ]
+        }
+      )
+    }).toMatchSnapshot('product action display should NOT display a total value');
   });
 });

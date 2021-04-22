@@ -2,11 +2,29 @@
   .curiosity-usage-graph {
     .pf-c-card__header {
       border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+      flex-wrap: wrap;
+      justify-content: space-between;
       padding-bottom: 1em;
     }
 
     .pf-c-card__title {
       padding: 0;
+    }
+
+    .pf-c-card__actions {
+      margin: inherit;
+    }
+  }
+
+  .curiosity-usage-graph__total {
+    min-width: 175px;
+    padding-left: var(--pf-global--spacer--sm);
+    padding-right: var(--pf-global--spacer--sm);
+    text-align: right;
+    white-space: normal;
+
+    @media (min-width: $pf-global--breakpoint--sm) {
+      white-space: nowrap;
     }
   }
 

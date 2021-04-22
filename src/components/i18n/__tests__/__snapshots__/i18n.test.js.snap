@@ -297,6 +297,10 @@ Array [
         "match": "translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' })",
       },
       Object {
+        "key": "curiosity-graph.card-action-total",
+        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(total)",
+      },
+      Object {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
@@ -305,6 +309,10 @@ Array [
   Object {
     "file": "./src/components/productView/productViewOpenShiftDedicated.js",
     "keys": Array [
+      Object {
+        "key": "curiosity-graph.card-action-total",
+        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(total)",
+      },
       Object {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
