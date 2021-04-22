@@ -142,10 +142,17 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { cardTitle, children, error, isDisabled, pending } = this.props;
+    const { cardTitle, children, error, graphData, isDisabled, pending, settings } = this.props;
 
     if (isDisabled) {
       return null;
+    }
+
+    let actionDisplay = null;
+
+    // Apply actionDisplay callback, return node
+    if (typeof settings?.actionDisplay === 'function') {
+      actionDisplay = settings.actionDisplay({ ...graphData });
     }
 
     return (
@@ -157,7 +164,10 @@ class GraphCard extends React.Component {
                 {cardTitle}
               </Title>
             </CardTitle>
-            <CardActions className={(error && 'blur') || ''}>{children}</CardActions>
+            <CardActions className={(error && 'blur') || ''}>
+              <React.Fragment key="actionDisplay">{actionDisplay}</React.Fragment>
+              {children}
+            </CardActions>
           </CardHeader>
         </MinHeight>
         <MinHeight key="bodyMinHeight">
@@ -176,8 +186,8 @@ class GraphCard extends React.Component {
 /**
  * Prop types.
  *
- * @type {{productLabel: string, productId: string, pending: boolean, error: boolean, query: object,
- *     cardTitle: Node, filterGraphData: Array, getGraphReportsCapacity: Function,
+ * @type {{productLabel: string, settings: object, productId: string, query: object, pending: boolean,
+ *     error: boolean, cardTitle: Node, filterGraphData: Array, getGraphReportsCapacity: Function,
  *     viewId: string, t: Function, children: Node, graphData: object, isDisabled: boolean}}
  */
 GraphCard.propTypes = {
@@ -202,6 +212,9 @@ GraphCard.propTypes = {
   pending: PropTypes.bool,
   productId: PropTypes.string.isRequired,
   productLabel: PropTypes.string,
+  settings: PropTypes.shape({
+    actionDisplay: PropTypes.func
+  }),
   t: PropTypes.func,
   viewId: PropTypes.string
 };
@@ -209,9 +222,9 @@ GraphCard.propTypes = {
 /**
  * Default props.
  *
- * @type {{getGraphReportsCapacity: Function, productLabel: string, viewId: string, t: translate,
- *     children: Node, pending: boolean, graphData: object, isDisabled: boolean, error: boolean,
- *     cardTitle: string, filterGraphData: Array}}
+ * @type {{getGraphReportsCapacity: Function, productLabel: string, settings: object, viewId: string,
+ *     t: translate, children: Node, pending: boolean, graphData: object, isDisabled: boolean,
+ *     error: boolean, cardTitle: Node, filterGraphData: Array}}
  */
 GraphCard.defaultProps = {
   cardTitle: null,
@@ -223,6 +236,7 @@ GraphCard.defaultProps = {
   isDisabled: helpers.UI_DISABLED_GRAPH,
   pending: false,
   productLabel: '',
+  settings: {},
   t: translate,
   viewId: 'graphCard'
 };

@@ -9,6 +9,8 @@
     "dataMismatchMessage_cloudigradeMismatch": "<0>View recommended actions</0> to take in order to improve {{appName}} reporting."
   },
   "curiosity-graph": {
+    "card-action-total": "{{total}} used",
+    "card-action-total_coreHours": "{{total}} core hours used",
     "cardHeading": "CPU usage",
     "cardHeading_cores": "CPU core usage",
     "cardHeading_sockets": "CPU socket usage",
