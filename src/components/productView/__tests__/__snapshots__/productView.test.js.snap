@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductView Component should allow custom product views: custom graphCard, descriptions 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <PageHeader
     includeTour={true}
     productLabel="lorem ipsum product label"
@@ -132,7 +134,9 @@ exports[`ProductView Component should allow custom product views: custom graphCa
 `;
 
 exports[`ProductView Component should allow custom product views: custom toolbar, toolbarGraph 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <PageHeader
     includeTour={true}
     productLabel="lorem ipsum product label"
@@ -207,7 +211,9 @@ exports[`ProductView Component should allow custom product views: custom toolbar
 `;
 
 exports[`ProductView Component should allow custom product views: custom toolbar, toolbarProduct 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <PageHeader
     includeTour={true}
     productLabel="lorem ipsum product label"
@@ -282,7 +288,9 @@ exports[`ProductView Component should allow custom product views: custom toolbar
 `;
 
 exports[`ProductView Component should render a non-connected component: non-connected 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <PageHeader
     includeTour={true}
     productLabel="lorem ipsum product label"

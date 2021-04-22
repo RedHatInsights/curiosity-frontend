@@ -22,6 +22,14 @@ const dynamicBaseName = ({ pathName = window.location.pathname, appName = helper
 const baseName = (helpers.TEST_MODE && '/') || (helpers.DEV_MODE && '/') || dynamicBaseName();
 
 /**
+ * App basePath.
+ *
+ * @type {string}
+ */
+const basePath =
+  (helpers.TEST_MODE && '/') || (helpers.DEV_MODE && '/') || window.location.pathname.split(helpers.UI_NAME)[0];
+
+/**
  * The first error route.
  *
  * @type {object}
@@ -114,6 +122,7 @@ const getNavRouteDetail = ({ id = null, pathname = null, returnDefault = false }
 
 const routerHelpers = {
   baseName,
+  basePath,
   dynamicBaseName,
   getErrorRoute,
   getNavigationDetail,
@@ -125,6 +134,7 @@ export {
   routerHelpers as default,
   routerHelpers,
   baseName,
+  basePath,
   dynamicBaseName,
   getErrorRoute,
   getNavigationDetail,
