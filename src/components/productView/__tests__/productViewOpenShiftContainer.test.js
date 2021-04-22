@@ -35,6 +35,7 @@ describe('ProductViewOpenShiftContainer Component', () => {
       }
     ]).toMatchSnapshot('initial configuration');
 
+    // filter inventory data checks
     const inventoryData = {
       displayName: 'lorem',
       inventoryId: 'lorem inventory id',
@@ -90,5 +91,40 @@ describe('ProductViewOpenShiftContainer Component', () => {
       productTwoHostsInventory:
         productTwo.inventoryHostsQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING
     }).toMatchSnapshot('default sort for inventory should descend');
+
+    // product action display callback
+    expect({
+      productOneActionDisplay: undefined,
+      productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
+        coreHours: [
+          {
+            y: 0
+          },
+          {
+            y: 1000
+          },
+          {
+            y: 100
+          }
+        ]
+      })
+    }).toMatchSnapshot('product action display should display a total value');
+
+    expect({
+      productOneActionDisplay: undefined,
+      productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
+        loremIpsum: [
+          {
+            y: 0
+          },
+          {
+            y: 1000
+          },
+          {
+            y: 100
+          }
+        ]
+      })
+    }).toMatchSnapshot('product action display should NOT display a total value');
   });
 });

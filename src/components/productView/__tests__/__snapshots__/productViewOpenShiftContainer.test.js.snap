@@ -90,6 +90,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             "granularity": "daily",
           }
         }
+        settings={Object {}}
         viewId="viewOpenShift"
       >
         <ToolbarFieldUom
@@ -308,6 +309,11 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             "beginning": "2019-07-01T00:00:00.000Z",
             "ending": "2019-07-31T23:59:59.999Z",
             "granularity": "daily",
+          }
+        }
+        settings={
+          Object {
+            "actionDisplay": [Function],
           }
         }
         viewId="viewOpenShiftMetric"
@@ -847,4 +853,24 @@ Array [
     },
   },
 ]
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should NOT display a total value 1`] = `
+Object {
+  "productOneActionDisplay": undefined,
+  "productTwoActionDisplay": <div
+    className="curiosity-usage-graph__total"
+  />,
+}
+`;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should display a total value 1`] = `
+Object {
+  "productOneActionDisplay": undefined,
+  "productTwoActionDisplay": <div
+    className="curiosity-usage-graph__total"
+  >
+    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"1.1K"})
+  </div>,
+}
 `;

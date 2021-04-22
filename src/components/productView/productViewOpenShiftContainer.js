@@ -8,6 +8,7 @@ import { Button, Label as PfLabel, Tooltip, TooltipPosition } from '@patternfly/
 import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/DateFormat';
 import moment from 'moment';
+import numbro from 'numbro';
 import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import {
   RHSM_API_PATH_ID_TYPES,
@@ -51,6 +52,7 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
       inventoryHostsQuery = {},
       inventorySubscriptionsQuery = {},
       initialGraphFilters = [],
+      initialGraphSettings = {},
       initialGuestsFilters = [],
       initialInventoryFilters = [],
       initialInventorySettings = {},
@@ -121,6 +123,7 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
           <GraphCard
             key={`graph_${productId}`}
             filterGraphData={graphFilters}
+            settings={initialGraphSettings}
             query={initialGraphTallyQuery}
             productId={productId}
             viewId={viewId}
@@ -282,6 +285,7 @@ ProductViewOpenShiftContainer.defaultProps = {
         { id: 'thresholdSockets', isOptional: true },
         { id: 'thresholdCores', isOptional: true }
       ],
+      initialGraphSettings: {},
       initialGuestsFilters: [
         {
           id: 'displayName',
@@ -435,6 +439,26 @@ ProductViewOpenShiftContainer.defaultProps = {
           color: chartColorBlueDark.value
         }
       ],
+      initialGraphSettings: {
+        actionDisplay: data => {
+          let displayContent;
+
+          if (data.coreHours) {
+            let total = 0;
+
+            data.coreHours.forEach(({ y }) => {
+              total += y ?? 0;
+            });
+
+            displayContent = translate('curiosity-graph.card-action-total', {
+              context: 'coreHours',
+              total: numbro(total).format({ average: true, mantissa: 2, trimMantissa: true }).toUpperCase()
+            });
+          }
+
+          return <div className="curiosity-usage-graph__total">{displayContent || null}</div>;
+        }
+      },
       initialInventoryFilters: [
         {
           id: 'displayName',
