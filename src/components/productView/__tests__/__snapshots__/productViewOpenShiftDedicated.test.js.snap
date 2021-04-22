@@ -15,6 +15,9 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
           "stroke": "#06c",
         },
       ],
+      "initialGraphSettings": Object {
+        "actionDisplay": [Function],
+      },
       "initialInventoryFilters": Array [
         Object {
           "cell": [Function],
@@ -339,5 +342,24 @@ Object {
     "beginning": "2019-07-01T00:00:00.000Z",
     "ending": "2019-07-31T23:59:59.999Z",
   },
+}
+`;
+
+exports[`ProductViewOpenShiftDedicated Component should set product configuration: product action display should NOT display a total value 1`] = `
+Object {
+  "productOneActionDisplay": undefined,
+  "productTwoActionDisplay": <div
+    className="curiosity-usage-graph__total"
+  />,
+}
+`;
+
+exports[`ProductViewOpenShiftDedicated Component should set product configuration: product action display should display a total value 1`] = `
+Object {
+  "productActionDisplay": <div
+    className="curiosity-usage-graph__total"
+  >
+    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"1.1K"})
+  </div>,
 }
 `;

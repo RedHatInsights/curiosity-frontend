@@ -56,6 +56,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraph
     query,
     initialToolbarFilters,
     initialGraphFilters,
+    initialGraphSettings,
     initialGuestsFilters,
     initialInventoryFilters,
     initialInventorySettings,
@@ -125,6 +126,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraph
         <ConnectedGraphCard
           key={`graph_${productId}`}
           filterGraphData={initialGraphFilters}
+          settings={initialGraphSettings}
           query={initialGraphTallyQuery}
           productId={productId}
           viewId={viewId}
@@ -202,6 +204,7 @@ ProductView.propTypes = {
     }),
     initialToolbarFilters: Toolbar.propTypes.filterOptions,
     initialGraphFilters: GraphCard.propTypes.filterGraphData,
+    initialGraphSettings: GraphCard.propTypes.settings,
     initialGuestsFilters: GuestsList.propTypes.filterGuestsData,
     initialInventoryFilters: InventoryList.propTypes.filterInventoryData,
     initialInventorySettings: InventoryList.propTypes.settings,
