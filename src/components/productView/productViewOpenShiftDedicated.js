@@ -6,6 +6,7 @@ import {
 } from '@patternfly/react-tokens';
 import { Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/components/DateFormat';
+import numbro from 'numbro';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
@@ -82,6 +83,26 @@ ProductViewOpenShiftDedicated.defaultProps = {
         color: chartColorBlueDark.value
       }
     ],
+    initialGraphSettings: {
+      actionDisplay: data => {
+        let displayContent;
+
+        if (data.coreHours) {
+          let total = 0;
+
+          data.coreHours.forEach(({ y }) => {
+            total += y ?? 0;
+          });
+
+          displayContent = translate('curiosity-graph.card-action-total', {
+            context: 'coreHours',
+            total: numbro(total).format({ average: true, mantissa: 2, trimMantissa: true }).toUpperCase()
+          });
+        }
+
+        return <div className="curiosity-usage-graph__total">{displayContent || null}</div>;
+      }
+    },
     initialInventoryFilters: [
       {
         id: 'displayName',
