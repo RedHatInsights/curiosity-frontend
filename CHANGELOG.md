@@ -2,6 +2,70 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.4.0...v1.5.0) (2021-04-26)
+
+
+### Features
+
+* **graphCard:** ent-3715 display core hours monthly total ([#632](https://github.com/RedHatInsights/curiosity-frontend/issues/632)) ([11f3ca5](https://github.com/RedHatInsights/curiosity-frontend/commit/11f3ca5b22950df613510ec4b5352a6fd9ed4e73))
+* **pageColumns:** ent-3504 allow page columns ([#581](https://github.com/RedHatInsights/curiosity-frontend/issues/581)) ([ee60438](https://github.com/RedHatInsights/curiosity-frontend/commit/ee60438871f870298e18c4adc28bc66b4b89be7f))
+* **productViewOpenShiftContainer:** ent-3324 two column view ([#591](https://github.com/RedHatInsights/curiosity-frontend/issues/591)) ([2b8014c](https://github.com/RedHatInsights/curiosity-frontend/commit/2b8014c461f3f5985a9d78a916a8d1a9c61a9941))
+* **productViewOpenShiftDedicated:** ent-3324 base view ([#590](https://github.com/RedHatInsights/curiosity-frontend/issues/590)) ([9792a3a](https://github.com/RedHatInsights/curiosity-frontend/commit/9792a3a470ac9ab7d76ce57afb7003048eeeb1a0))
+* **toolbarFieldRangedMonthly:** ent-3507 select month range ([#589](https://github.com/RedHatInsights/curiosity-frontend/issues/589)) ([b615b74](https://github.com/RedHatInsights/curiosity-frontend/commit/b615b744b4f3a9740d6c2b25eb2edbd2acf0f145))
+
+
+### Bug Fixes
+
+* **actionRecordMiddleware:** expand sanitizeData ([#617](https://github.com/RedHatInsights/curiosity-frontend/issues/617)) ([b49b2aa](https://github.com/RedHatInsights/curiosity-frontend/commit/b49b2aa56dd46462ef9f1fa49ccece72b444d520))
+* **actionRecordMiddleware:** optional chaining for testing ([#594](https://github.com/RedHatInsights/curiosity-frontend/issues/594)) ([b404af9](https://github.com/RedHatInsights/curiosity-frontend/commit/b404af98b78d8f7db33eae39a8a7b5f5d04ab800))
+* **build:** ent-3654 change app display name ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([6e1d5cb](https://github.com/RedHatInsights/curiosity-frontend/commit/6e1d5cb463d82e668d1a456ec0cdd553bf5b9957))
+* **build:** local run, use prod-stable as chrome basis ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([5fbc311](https://github.com/RedHatInsights/curiosity-frontend/commit/5fbc311a368b54f648d7eeadcc78ba050990f66d))
+* **build:** npm updates ([#576](https://github.com/RedHatInsights/curiosity-frontend/issues/576)) ([f66ecbb](https://github.com/RedHatInsights/curiosity-frontend/commit/f66ecbbdb3fd134f997777ac2878c2876287537a))
+* **build:** npm updates ([#579](https://github.com/RedHatInsights/curiosity-frontend/issues/579)) ([520f42c](https://github.com/RedHatInsights/curiosity-frontend/commit/520f42c61390b5dd2def5ce2cd75076df5ccd587))
+* **build:** npm updates for platform ([#584](https://github.com/RedHatInsights/curiosity-frontend/issues/584)) ([ff72662](https://github.com/RedHatInsights/curiosity-frontend/commit/ff72662fb5b0ef97722558d06ab4a736d705cb4f))
+* **build:** pf, platform npm updates ([#576](https://github.com/RedHatInsights/curiosity-frontend/issues/576)) ([0cfa03c](https://github.com/RedHatInsights/curiosity-frontend/commit/0cfa03c5440ae68d445cfc13f9bf0cba444a2df4))
+* **chartArea:** ent-3601 tooltip hover and clipping, x-axis ([#594](https://github.com/RedHatInsights/curiosity-frontend/issues/594)) ([0375592](https://github.com/RedHatInsights/curiosity-frontend/commit/03755923ae5c3eae8afcbc64a6eced3e100bd989))
+* **graphCard:** ent-3507 expose start, end for date query ([#589](https://github.com/RedHatInsights/curiosity-frontend/issues/589)) ([b94ded6](https://github.com/RedHatInsights/curiosity-frontend/commit/b94ded649819c13b30b6553b3ba1d7769d0a55a7))
+* **graphCard:** fadein, pending only ([#592](https://github.com/RedHatInsights/curiosity-frontend/issues/592)) ([b35913e](https://github.com/RedHatInsights/curiosity-frontend/commit/b35913eefd39d00840fe85dba17862ba1c680cd9))
+* **graphCardSelectors:** ent-3809 schema check for core hours ([#628](https://github.com/RedHatInsights/curiosity-frontend/issues/628)) ([055dc11](https://github.com/RedHatInsights/curiosity-frontend/commit/055dc11738dc27e91060421ccfb7e21319a94f5a))
+* **guestsList:** column widths for loader ([#585](https://github.com/RedHatInsights/curiosity-frontend/issues/585)) ([5147a54](https://github.com/RedHatInsights/curiosity-frontend/commit/5147a546330e417d553db217904d644b30625018))
+* **i18n:** consistent mock emulation ([#572](https://github.com/RedHatInsights/curiosity-frontend/issues/572)) ([4d3ff2b](https://github.com/RedHatInsights/curiosity-frontend/commit/4d3ff2b7bc4f1a8c6186b80cec6af63b3c610ed7))
+* **inventoryList,inventorySubscriptions:** fadein, pending only ([#587](https://github.com/RedHatInsights/curiosity-frontend/issues/587)) ([b362701](https://github.com/RedHatInsights/curiosity-frontend/commit/b36270132334a45fd227d7820276d798036b0c73))
+* **locale:** ent-3712 update core hours display string ([#612](https://github.com/RedHatInsights/curiosity-frontend/issues/612)) ([d0521b3](https://github.com/RedHatInsights/curiosity-frontend/commit/d0521b34847297e73795103b610f1bb44b9dd75b))
+* **locale:** ent-3810 flexible to on-demand, fixed to annual ([#629](https://github.com/RedHatInsights/curiosity-frontend/issues/629)) ([985aa50](https://github.com/RedHatInsights/curiosity-frontend/commit/985aa503a58ea42264a9a371bd02a598630d41c0))
+* **pageColumns:** apply column spacer on multicolumn views ([#615](https://github.com/RedHatInsights/curiosity-frontend/issues/615)) ([8f39be1](https://github.com/RedHatInsights/curiosity-frontend/commit/8f39be1d830fbd0d570cd81265a122ded3d62a2d))
+* **pageColumns:** ent-3504 generated column keys ([#587](https://github.com/RedHatInsights/curiosity-frontend/issues/587)) ([cb1d85e](https://github.com/RedHatInsights/curiosity-frontend/commit/cb1d85e554ffc8eb6380af70c458aaf87ddf90f6))
+* **pageColumns:** maintain columns on granularity change ([#618](https://github.com/RedHatInsights/curiosity-frontend/issues/618)) ([cf8bf3c](https://github.com/RedHatInsights/curiosity-frontend/commit/cf8bf3cec176a6cbb42292d5f38e5607c9d98d1d))
+* **pageColumns:** smaller screen size column widths ([#617](https://github.com/RedHatInsights/curiosity-frontend/issues/617)) ([9840bb7](https://github.com/RedHatInsights/curiosity-frontend/commit/9840bb7595909ac3f8561b5b2e1500076158a51c))
+* **pageHeader:** ent-3533 check consistent html for Pendo ([#580](https://github.com/RedHatInsights/curiosity-frontend/issues/580)) ([059143e](https://github.com/RedHatInsights/curiosity-frontend/commit/059143e743f849dcc8bd8fe1d9af9ddf1803a982))
+* **pageLayout:** ent-3504 export pageColumns ([#590](https://github.com/RedHatInsights/curiosity-frontend/issues/590)) ([c29d404](https://github.com/RedHatInsights/curiosity-frontend/commit/c29d404308ccac2a910993a402f520f081bd162e))
+* **productView:** ent-3679 tooltip descriptions for graphs ([#607](https://github.com/RedHatInsights/curiosity-frontend/issues/607)) ([e36425e](https://github.com/RedHatInsights/curiosity-frontend/commit/e36425e63159fe5b9d801b07563d4c6526b191d7))
+* **productView,openshiftView:** ent-3324 align code for products ([#590](https://github.com/RedHatInsights/curiosity-frontend/issues/590)) ([e23b978](https://github.com/RedHatInsights/curiosity-frontend/commit/e23b9787ef29085509a6e7e2180d8675d3edeac6))
+* **productViewOpenShiftContainer:** ent-3509 core hours display ([#599](https://github.com/RedHatInsights/curiosity-frontend/issues/599)) ([696cb61](https://github.com/RedHatInsights/curiosity-frontend/commit/696cb61fd70d9fc0c4be84cc1bf8092196f39d2a))
+* **productViewOpenShiftContainer:** ent-3607 config date range ([#593](https://github.com/RedHatInsights/curiosity-frontend/issues/593)) ([005ca08](https://github.com/RedHatInsights/curiosity-frontend/commit/005ca087e8a3396d63f07e647f358b277e94f471))
+* **productViews:** ent-3509 remove target blank from links ([#613](https://github.com/RedHatInsights/curiosity-frontend/issues/613)) ([199df4f](https://github.com/RedHatInsights/curiosity-frontend/commit/199df4f193b6cc8fe1e59b0aaf296d4650216508))
+* **productViews:** update sort default, descending ([#601](https://github.com/RedHatInsights/curiosity-frontend/issues/601)) ([f5ca9dc](https://github.com/RedHatInsights/curiosity-frontend/commit/f5ca9dc727a207614e53b2573314665fd6557be8))
+* **routerConfig:** ent-3541 rhcloud-12690 platform nav update ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([03b78ca](https://github.com/RedHatInsights/curiosity-frontend/commit/03b78ca0da42bea38a1389b482561cc906ebe1b8))
+* **routerHelpers:** dynamic route, handle additional directories ([#609](https://github.com/RedHatInsights/curiosity-frontend/issues/609)) ([ca104ce](https://github.com/RedHatInsights/curiosity-frontend/commit/ca104cec191e841e4a738d2c9d309ed66774fbc7))
+* **select:** ent-3507 object values, match selected options ([#590](https://github.com/RedHatInsights/curiosity-frontend/issues/590)) ([2aa4b3a](https://github.com/RedHatInsights/curiosity-frontend/commit/2aa4b3a1b3d870a18f36318afe4df85070efb799))
+* **selectors:** ent-3531 component redraw, improve cache reset ([#592](https://github.com/RedHatInsights/curiosity-frontend/issues/592)) ([d61e933](https://github.com/RedHatInsights/curiosity-frontend/commit/d61e9331a7579e904509b2ab31076fd01c3bd885))
+* **style:** on error, page layout extends below left nav ([#591](https://github.com/RedHatInsights/curiosity-frontend/issues/591)) ([e2e35c4](https://github.com/RedHatInsights/curiosity-frontend/commit/e2e35c46c3bae682586f8647959c23b183eb212a))
+* **table:** additional cell content type ([#585](https://github.com/RedHatInsights/curiosity-frontend/issues/585)) ([a7c9200](https://github.com/RedHatInsights/curiosity-frontend/commit/a7c9200f5b852f58f5fe24147832f895f5eedf66))
+* **toolbar:** ent-3490 clear filters copy updated ([#582](https://github.com/RedHatInsights/curiosity-frontend/issues/582)) ([c344245](https://github.com/RedHatInsights/curiosity-frontend/commit/c344245e70ac3f4963d115aeceb3713f140d9ac8))
+* **toolbarFieldDisplayName:** issues/476 delay, style override ([#577](https://github.com/RedHatInsights/curiosity-frontend/issues/577)) ([5309933](https://github.com/RedHatInsights/curiosity-frontend/commit/5309933d87d94153618d26932b7d8075017360e8))
+* **toolbarFieldDisplayName:** issues/476 search-as-type ([#572](https://github.com/RedHatInsights/curiosity-frontend/issues/572)) ([61a5b1f](https://github.com/RedHatInsights/curiosity-frontend/commit/61a5b1f4f9bcda71c5f86f63ed1da2e2a2931e0e))
+* **toolbarFieldGranularity:** ent-3644 reset inventory offset ([#602](https://github.com/RedHatInsights/curiosity-frontend/issues/602)) ([6156e27](https://github.com/RedHatInsights/curiosity-frontend/commit/6156e27030c2d3cae33ce7877522a33eecd92092))
+* **toolbarFieldGranularity,toolbarFieldUom:** issues/407 selector ([#587](https://github.com/RedHatInsights/curiosity-frontend/issues/587)) ([d2a8aba](https://github.com/RedHatInsights/curiosity-frontend/commit/d2a8abaac15677a19c10b8aa609e0fb42e14d3f8))
+* **toolbarFieldRangedMonthly:** ent-3507 disable selected options ([#590](https://github.com/RedHatInsights/curiosity-frontend/issues/590)) ([7e2a6de](https://github.com/RedHatInsights/curiosity-frontend/commit/7e2a6de4392d0e4fefcdd60715b44eebdb209440))
+* **toolbarFieldRangedMonthly:** ent-3748 apply position right ([#614](https://github.com/RedHatInsights/curiosity-frontend/issues/614)) ([05eca36](https://github.com/RedHatInsights/curiosity-frontend/commit/05eca36f79caca5b03cfce559c52ef145a929d61))
+* **viewReducer:** ent-3509 date range for inventory ([#597](https://github.com/RedHatInsights/curiosity-frontend/issues/597)) ([126bcf0](https://github.com/RedHatInsights/curiosity-frontend/commit/126bcf041da986648dc7719b04b37f72f5b19872))
+* **viewReducer:** ent-3644 productGroups for inventory reset ([#606](https://github.com/RedHatInsights/curiosity-frontend/issues/606)) ([d87ffd4](https://github.com/RedHatInsights/curiosity-frontend/commit/d87ffd4396515ffcd37b11cea458d0bed8c0094d))
+
+
+### Performance Improvements
+
+* **productViewRhel:** rhelView to productViewRhel ([#587](https://github.com/RedHatInsights/curiosity-frontend/issues/587)) ([56a2175](https://github.com/RedHatInsights/curiosity-frontend/commit/56a2175d37c6f96e24a620a6ba36df1ca5524b19))
+
 ### [1.4.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.4.0...v1.4.1) (2021-04-13)
 
 
