@@ -1840,7 +1840,7 @@ Object {
         "hasCloudigradeMismatch": undefined,
         "hasData": undefined,
         "x": 0,
-        "y": 0,
+        "y": 1000.03,
       },
     ],
     "cores": Array [

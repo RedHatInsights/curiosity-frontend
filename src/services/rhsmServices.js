@@ -141,9 +141,9 @@ const getApiVersion = (options = {}) => {
  *           "sockets": 50,
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
- *           "has_data": false,
+ *           "has_data": true,
  *           "cloud_sockets": 20,
- *           "core_hours": 1000
+ *           "core_hours": 1000.057890
  *         },
  *         {
  *           "date": "2020-07-07T00:00:00Z",
@@ -519,7 +519,7 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 25,
- *           "core_hours": 20
+ *           "core_hours": 200
  *         },
  *         {
  *           "date": "2019-09-01T00:00:00Z",
@@ -528,7 +528,7 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 25,
- *           "core_hours": 20
+ *           "core_hours": 200
  *         },
  *         {
  *           "date": "2019-10-01T00:00:00Z",
@@ -537,7 +537,7 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 25,
- *           "core_hours": 20
+ *           "core_hours": 400
  *         },
  *         {
  *           "date": "2019-11-01T00:00:00Z",
@@ -821,13 +821,6 @@ const getGraphReports = (id, params = {}, options = {}) => {
  *         },
  *         {
  *           "date": "2020-07-17T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
- *           "has_infinite_quantity": false
- *         },
- *         {
- *           "date": "2020-07-18T00:00:00Z",
  *           "sockets": 50,
  *           "physical_sockets": 50,
  *           "hypervisor_sockets": 0,
