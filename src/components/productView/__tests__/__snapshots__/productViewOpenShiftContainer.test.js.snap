@@ -874,3 +874,14 @@ Object {
   </div>,
 }
 `;
+
+exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should display a total value below 1000 1`] = `
+Object {
+  "productOneActionDisplay": undefined,
+  "productTwoActionDisplay": <div
+    className="curiosity-usage-graph__total"
+  >
+    t(curiosity-graph.card-action-total, {"context":"coreHours","total":500})
+  </div>,
+}
+`;
