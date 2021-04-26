@@ -73,6 +73,24 @@ describe('ProductViewOpenShiftDedicated Component', () => {
               y: 0
             },
             {
+              y: 400
+            },
+            {
+              y: 100
+            }
+          ]
+        }
+      )
+    }).toMatchSnapshot('product action display should display a total value below 1000');
+
+    expect({
+      productActionDisplay: ProductViewOpenShiftDedicated.defaultProps.productConfig.initialGraphSettings.actionDisplay(
+        {
+          coreHours: [
+            {
+              y: 0
+            },
+            {
               y: 1000
             },
             {

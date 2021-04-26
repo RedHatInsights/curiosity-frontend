@@ -452,7 +452,10 @@ ProductViewOpenShiftContainer.defaultProps = {
 
             displayContent = translate('curiosity-graph.card-action-total', {
               context: 'coreHours',
-              total: numbro(total).format({ average: true, mantissa: 2, trimMantissa: true }).toUpperCase()
+              total:
+                (total >= 1000 &&
+                  numbro(total).format({ average: true, mantissa: 2, trimMantissa: true }).toUpperCase()) ||
+                total
             });
           }
 
