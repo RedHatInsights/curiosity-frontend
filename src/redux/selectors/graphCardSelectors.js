@@ -138,7 +138,10 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
             let generatedY;
 
             if (typeof graphDataObj[graphDataObjKey] === 'number') {
-              generatedY = Number.parseInt(graphDataObj[graphDataObjKey], 10);
+              generatedY =
+                (Number.isInteger(graphDataObj[graphDataObjKey]) &&
+                  Number.parseInt(graphDataObj[graphDataObjKey], 10)) ||
+                Number.parseFloat(Number.parseFloat(graphDataObj[graphDataObjKey]).toFixed(2));
             } else if (graphDataObj[graphDataObjKey] === undefined) {
               generatedY = 0;
             } else if (graphDataObj[graphDataObjKey] === null) {
