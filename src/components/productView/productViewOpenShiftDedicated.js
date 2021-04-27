@@ -96,10 +96,9 @@ ProductViewOpenShiftDedicated.defaultProps = {
 
           displayContent = translate('curiosity-graph.card-action-total', {
             context: 'coreHours',
-            total:
-              (total >= 1000 &&
-                numbro(total).format({ average: true, mantissa: 2, trimMantissa: true }).toUpperCase()) ||
-              total
+            total: numbro(total)
+              .format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
+              .toUpperCase()
           });
         }
 
