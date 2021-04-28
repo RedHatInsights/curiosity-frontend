@@ -115,7 +115,7 @@ ProductViewMissing.propTypes = {
       isSearchable: PropTypes.bool.isRequired,
       path: PropTypes.string.isRequired,
       pathParameter: PropTypes.string,
-      productParameter: PropTypes.string.isRequired
+      productParameter: PropTypes.string
     })
   ),
   t: PropTypes.func
