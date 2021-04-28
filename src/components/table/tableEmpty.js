@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { EmptyState, EmptyStateIcon, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
-import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/frontend-components/components/EmptyTable';
+import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/frontend-components/EmptyTable';
 
 /**
  * Render an empty table.

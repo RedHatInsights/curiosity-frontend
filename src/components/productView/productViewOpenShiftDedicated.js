@@ -5,7 +5,7 @@ import {
   chart_color_blue_300 as chartColorBlueDark
 } from '@patternfly/react-tokens';
 import { Label as PfLabel } from '@patternfly/react-core';
-import { DateFormat } from '@redhat-cloud-services/frontend-components/components/DateFormat';
+import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import numbro from 'numbro';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
