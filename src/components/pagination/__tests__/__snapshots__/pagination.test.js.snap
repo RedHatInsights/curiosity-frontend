@@ -64,6 +64,7 @@ exports[`Pagination Component should render a non-connected component: non-conne
       "currPage": "Current page",
       "items": "",
       "itemsPerPage": "Items per page",
+      "ofWord": "of",
       "optionsToggle": "Items per page",
       "page": "",
       "paginationTitle": "Pagination",

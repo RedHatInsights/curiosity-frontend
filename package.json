@@ -113,16 +113,16 @@
     "test:local": "react-scripts test --env=jsdom --roots=./src"
   },
   "dependencies": {
-    "@patternfly/patternfly": "4.80.3",
-    "@patternfly/react-charts": "6.14.2",
-    "@patternfly/react-core": "4.90.2",
-    "@patternfly/react-icons": "4.8.4",
-    "@patternfly/react-styles": "4.7.29",
-    "@patternfly/react-table": "4.20.15",
-    "@patternfly/react-tokens": "4.9.26",
-    "@redhat-cloud-services/frontend-components": "3.0.6",
-    "@redhat-cloud-services/frontend-components-notifications": "3.0.3",
-    "@redhat-cloud-services/frontend-components-utilities": "3.0.3",
+    "@patternfly/patternfly": "4.102.2",
+    "@patternfly/react-charts": "6.14.17",
+    "@patternfly/react-core": "4.115.2",
+    "@patternfly/react-icons": "4.10.2",
+    "@patternfly/react-styles": "4.10.2",
+    "@patternfly/react-table": "4.26.7",
+    "@patternfly/react-tokens": "4.11.3",
+    "@redhat-cloud-services/frontend-components": "3.1.10",
+    "@redhat-cloud-services/frontend-components-notifications": "3.1.0",
+    "@redhat-cloud-services/frontend-components-utilities": "3.1.2",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "i18next": "^20.2.2",
@@ -148,7 +148,7 @@
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "victory-create-container": "^35.4.11"
+    "victory-create-container": "^35.5.1"
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
