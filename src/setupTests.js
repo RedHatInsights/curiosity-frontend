@@ -8,7 +8,15 @@ configure({ adapter: new Adapter() });
 /**
  * Emulate for component checks
  */
-jest.mock('i18next');
+jest.mock('i18next', () => {
+  const Test = function () { // eslint-disable-line
+    this.use = () => this;
+    this.init = () => Promise.resolve();
+    this.changeLanguage = () => Promise.resolve();
+  };
+  return new Test();
+});
+
 jest.mock('lodash/debounce', () => jest.fn);
 
 /**
