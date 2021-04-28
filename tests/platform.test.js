@@ -34,7 +34,7 @@ describe('Platform Configuration, Build', () => {
   it('should use direct imports for platform components, with exceptions', () => {
     const srcDir = 'src';
     const componentsOutput = execSync(
-      `echo "$(cd ./${srcDir} && git grep -n -E "(@redhat-cloud-services/frontend-components/components/)")"`
+      `echo "$(cd ./${srcDir} && git grep -n -E "(@redhat-cloud-services/frontend-components)")"`
     );
 
     expect(
