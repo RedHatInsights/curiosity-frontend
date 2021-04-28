@@ -3,6 +3,19 @@ import moxios from 'moxios';
 import userServices from '../userServices';
 
 describe('UserServices', () => {
+  // Return a promise, or promise like, response for errors
+  const returnPromiseAsync = async promiseAsyncCall => {
+    let response;
+
+    try {
+      response = await promiseAsyncCall();
+    } catch (e) {
+      response = e;
+    }
+
+    return response;
+  };
+
   beforeEach(() => {
     moxios.install();
 
@@ -34,69 +47,57 @@ describe('UserServices', () => {
    *  timeout errors associated with this test sometimes stem from endpoint
    *  settings or missing globals, see "before" above, or the "setupTests" config
    */
-  it('should return promises for every method', done => {
+  it('should return promises for every method', async () => {
     const promises = Object.keys(userServices).map(value => userServices[value]());
+    const response = await Promise.all(promises);
 
-    Promise.all(promises).then(success => {
-      expect(success.length).toEqual(Object.keys(userServices).length);
-      done();
-    });
+    expect(response.length).toEqual(Object.keys(userServices).length);
   });
 
-  it('should return default locale if no locale cookie is present', done => {
-    userServices.getLocale().then(locale => {
-      expect(locale).toMatchSnapshot();
-      done();
-    });
+  it('should return default locale if no locale cookie is present', async () => {
+    const response = await userServices.getLocale();
+
+    expect(response).toMatchSnapshot();
   });
 
-  it('should return a specific locale cookie value', done => {
+  it('should return a specific locale cookie value', async () => {
     Cookies.get = jest.fn().mockImplementation(() => 'en_US');
-    userServices.getLocale().then(locale => {
-      expect(locale).toMatchSnapshot();
-      done();
-    });
+    const response = await userServices.getLocale();
+
+    expect(response).toMatchSnapshot();
   });
 
-  it('should return the default locale with an invalid ISO_639 code', done => {
+  it('should return the default locale with an invalid ISO_639 code', async () => {
     Cookies.get = jest.fn().mockImplementation(() => 'test_US');
-    userServices.getLocale().then(locale => {
-      expect(locale).toMatchSnapshot();
-      done();
-    });
+    const response = await userServices.getLocale();
+
+    expect(response).toMatchSnapshot();
   });
 
-  it('should return a successful authorized user', done => {
-    userServices.authorizeUser().then(value => {
-      expect(value).toMatchSnapshot('success authorized user');
-      done();
-    });
+  it('should return a successful authorized user', async () => {
+    const response = await userServices.authorizeUser();
+
+    expect(response).toMatchSnapshot('success authorized user');
   });
 
-  it('should return a failed authorized user', done => {
+  it('should return a failed authorized user', async () => {
     window.insights.chrome.auth.getUser = undefined;
+    const response = await returnPromiseAsync(userServices.authorizeUser);
 
-    userServices.authorizeUser().catch(error => {
-      expect(error).toMatchSnapshot('failed authorized user');
-      done();
-    });
+    expect(response).toMatchSnapshot('failed authorized user');
   });
 
-  it('should return a failed authorized user on empty response', done => {
+  it('should return a failed authorized user on empty response', async () => {
     window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => ({}));
+    const response = await returnPromiseAsync(userServices.authorizeUser);
 
-    userServices.authorizeUser().catch(error => {
-      expect(error).toMatchSnapshot('failed authorized user: empty object');
-      done();
-    });
+    expect(response).toMatchSnapshot('failed authorized user: empty object');
   });
 
-  it('should return a failed authorized user on an unexpected response', done => {
+  it('should return a failed authorized user on an unexpected response', async () => {
     window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => 'lorem ipsum');
+    const response = await returnPromiseAsync(userServices.authorizeUser);
 
-    userServices.authorizeUser().catch(error => {
-      expect(error).toMatchSnapshot('failed authorized user: unexpected');
-      done();
-    });
+    expect(response).toMatchSnapshot('failed authorized user: unexpected');
   });
 });
