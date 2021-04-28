@@ -92,6 +92,8 @@ exports[`Select Component should allow alternate array and object options: strin
 
 exports[`Select Component should allow alternate direction and position options: direction up 1`] = `
 <Select
+  aria-describedby=""
+  aria-invalid={false}
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
@@ -119,6 +121,7 @@ exports[`Select Component should allow alternate direction and position options:
   onFilter={null}
   onSelect={[Function]}
   onToggle={[Function]}
+  onTypeaheadInputChanged={null}
   ouiaSafe={true}
   placeholderText="Select option"
   removeSelectionAriaLabel="Remove"
@@ -127,6 +130,7 @@ exports[`Select Component should allow alternate direction and position options:
   toggleIcon={null}
   toggleId={null}
   typeAheadAriaLabel=""
+  validated="default"
   variant="single"
   width=""
 >
@@ -175,6 +179,8 @@ exports[`Select Component should allow alternate direction and position options:
 
 exports[`Select Component should allow alternate direction and position options: position right 1`] = `
 <Select
+  aria-describedby=""
+  aria-invalid={false}
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
@@ -202,6 +208,7 @@ exports[`Select Component should allow alternate direction and position options:
   onFilter={null}
   onSelect={[Function]}
   onToggle={[Function]}
+  onTypeaheadInputChanged={null}
   ouiaSafe={true}
   placeholderText="Select option"
   removeSelectionAriaLabel="Remove"
@@ -210,6 +217,7 @@ exports[`Select Component should allow alternate direction and position options:
   toggleIcon={null}
   toggleId={null}
   typeAheadAriaLabel=""
+  validated="default"
   variant="single"
   width=""
 >
@@ -258,6 +266,8 @@ exports[`Select Component should allow alternate direction and position options:
 
 exports[`Select Component should allow being disabled with missing options: no options 1`] = `
 <Select
+  aria-describedby=""
+  aria-invalid={false}
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
@@ -285,6 +295,7 @@ exports[`Select Component should allow being disabled with missing options: no o
   onFilter={null}
   onSelect={[Function]}
   onToggle={[Function]}
+  onTypeaheadInputChanged={null}
   ouiaSafe={true}
   placeholderText="Select option"
   removeSelectionAriaLabel="Remove"
@@ -293,6 +304,7 @@ exports[`Select Component should allow being disabled with missing options: no o
   toggleIcon={null}
   toggleId={null}
   typeAheadAriaLabel=""
+  validated="default"
   variant="single"
   width=""
 />
@@ -300,6 +312,8 @@ exports[`Select Component should allow being disabled with missing options: no o
 
 exports[`Select Component should allow being disabled with missing options: options, but disabled 1`] = `
 <Select
+  aria-describedby=""
+  aria-invalid={false}
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
@@ -327,6 +341,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   onFilter={null}
   onSelect={[Function]}
   onToggle={[Function]}
+  onTypeaheadInputChanged={null}
   ouiaSafe={true}
   placeholderText="Select option"
   removeSelectionAriaLabel="Remove"
@@ -335,6 +350,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   toggleIcon={null}
   toggleId={null}
   typeAheadAriaLabel=""
+  validated="default"
   variant="single"
   width=""
 >
@@ -423,6 +439,8 @@ exports[`Select Component should allow being disabled with missing options: opti
 
 exports[`Select Component should allow being disabled with missing options: options, but no content 1`] = `
 <Select
+  aria-describedby=""
+  aria-invalid={false}
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
@@ -450,6 +468,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   onFilter={null}
   onSelect={[Function]}
   onToggle={[Function]}
+  onTypeaheadInputChanged={null}
   ouiaSafe={true}
   placeholderText="Select option"
   removeSelectionAriaLabel="Remove"
@@ -458,6 +477,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   toggleIcon={null}
   toggleId={null}
   typeAheadAriaLabel=""
+  validated="default"
   variant="single"
   width=""
 />
@@ -563,6 +583,8 @@ exports[`Select Component should allow selected options to match value or title:
 
 exports[`Select Component should disable toggle text: disabled text 1`] = `
 <Select
+  aria-describedby=""
+  aria-invalid={false}
   aria-label="Select option"
   aria-labelledby=""
   chipGroupComponent={null}
@@ -590,6 +612,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
   onFilter={null}
   onSelect={[Function]}
   onToggle={[Function]}
+  onTypeaheadInputChanged={null}
   ouiaSafe={true}
   placeholderText="Select option"
   removeSelectionAriaLabel="Remove"
@@ -604,6 +627,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
   }
   toggleId={null}
   typeAheadAriaLabel=""
+  validated="default"
   variant="single"
   width=""
 >
@@ -774,6 +798,8 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
   variant="single"
 >
   <Select
+    aria-describedby=""
+    aria-invalid={false}
     aria-label="Select option"
     aria-labelledby=""
     chipGroupComponent={null}
@@ -801,6 +827,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
     onFilter={null}
     onSelect={[Function]}
     onToggle={[Function]}
+    onTypeaheadInputChanged={null}
     ouiaSafe={true}
     placeholderText="Select option"
     removeSelectionAriaLabel="Remove"
@@ -809,6 +836,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
     toggleIcon={null}
     toggleId={null}
     typeAheadAriaLabel=""
+    validated="default"
     variant="single"
     width=""
   >

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/components/Skeleton';
-import { Spinner } from '@redhat-cloud-services/frontend-components/components/Spinner';
+import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/Skeleton';
+import { Spinner } from '@redhat-cloud-services/frontend-components/Spinner';
 import { TableVariant } from '@patternfly/react-table';
 import { PageHeader, PageLayout } from '../pageLayout/pageLayout';
 import { TableSkeleton } from '../table/tableSkeleton';
