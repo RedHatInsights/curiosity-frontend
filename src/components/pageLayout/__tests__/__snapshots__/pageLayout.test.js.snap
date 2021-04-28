@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageLayout Component should render a basic component: basic 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <PageSection
-    className="curiosity"
+    className="curiosity "
     padding={
       Object {
         "default": "noPadding",
@@ -11,7 +13,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
     }
   >
     <section
-      className="pf-c-page__main-section pf-m-no-padding curiosity"
+      className="pf-c-page__main-section pf-m-no-padding curiosity "
     >
       <span
         className="test"
@@ -25,7 +27,9 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
 `;
 
 exports[`PageLayout Component should render header and section children: multiple children 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <PageHeader
     includeTour={false}
     key=".1"
@@ -84,7 +88,7 @@ exports[`PageLayout Component should render header and section children: multipl
     </PageHeader>
   </PageHeader>
   <PageSection
-    className="curiosity"
+    className="curiosity "
     padding={
       Object {
         "default": "noPadding",
@@ -92,7 +96,7 @@ exports[`PageLayout Component should render header and section children: multipl
     }
   >
     <section
-      className="pf-c-page__main-section pf-m-no-padding curiosity"
+      className="pf-c-page__main-section pf-m-no-padding curiosity "
     >
       <PageSection
         className=""
