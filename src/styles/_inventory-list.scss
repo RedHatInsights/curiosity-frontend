@@ -1,13 +1,9 @@
 .curiosity {
-  &.pf-c-page__main-section {
-    box-shadow: var(--pf-global--BoxShadow--sm);
-
-    .pf-c-card {
+  .curiosity-inventory-card {
+    &.pf-c-card {
       box-shadow: none;
     }
-  }
 
-  .curiosity-inventory-card {
     .pf-c-card__header {
       padding-bottom: 0;
     }

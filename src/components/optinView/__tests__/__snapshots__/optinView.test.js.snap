@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OptinView Component should render a non-connected component: non-connected 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <Card>
     <Flex>
       <Flex
@@ -244,7 +246,9 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
 `;
 
 exports[`OptinView Component should render an API state driven view: initial view 1`] = `
-<PageLayout>
+<PageLayout
+  className=""
+>
   <Card>
     <Flex>
       <Flex

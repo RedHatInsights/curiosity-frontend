@@ -16,14 +16,15 @@ import { PageToolbar } from './pageToolbar';
  *
  * @param {object} props
  * @param {Node} props.children
+ * @param {string} props.className
  * @returns {Node}
  */
-const PageLayout = ({ children }) => (
+const PageLayout = ({ children, className }) => (
   <React.Fragment>
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageHeader)}
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageMessages)}
     {React.Children.toArray(children).filter(child => React.isValidElement(child) && child.type === PageToolbar)}
-    <Main padding={{ default: 'noPadding' }} className="curiosity">
+    <Main padding={{ default: 'noPadding' }} className={`curiosity ${className}`}>
       {React.Children.toArray(children).filter(
         child => child.type !== PageHeader && child.type !== PageMessages && child.type !== PageToolbar
       )}
@@ -34,15 +35,20 @@ const PageLayout = ({ children }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node}}
+ * @type {{children: Node, className: string}}
  */
 PageLayout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
 };
 
 /**
  * Default props.
+ *
+ * @type {{className: string}}
  */
-PageLayout.defaultProps = {};
+PageLayout.defaultProps = {
+  className: ''
+};
 
 export { PageLayout as default, PageLayout, PageColumns, PageHeader, PageMessages, PageSection, PageToolbar };

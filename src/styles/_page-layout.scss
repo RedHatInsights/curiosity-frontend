@@ -1,3 +1,9 @@
+.curiosity {
+  &.pf-c-page__main-section {
+    box-shadow: var(--pf-global--BoxShadow--sm);
+  }
+}
+
 .curiosity-page-messages,
 .curiosity-page-toolbar,
 .curiosity-page-section,
