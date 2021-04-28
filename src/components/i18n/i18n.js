@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import XHR from 'i18next-xhr-backend';
 import { initReactI18next, Trans } from 'react-i18next';
+import { useMount } from 'react-use';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -20,10 +21,14 @@ const translate = (translateKey, values = null, components) => {
   }
 
   if (components) {
-    return <Trans i18nKey={translateKey} values={values} components={components} />;
+    return (
+      (i18next.store && <Trans i18nKey={translateKey} values={values} components={components} />) || (
+        <React.Fragment>t({translateKey})</React.Fragment>
+      )
+    );
   }
 
-  return i18next.t(translateKey, values);
+  return (i18next.store && i18next.t(translateKey, values)) || `t(${translateKey})`;
 };
 
 /**
@@ -33,45 +38,35 @@ const translate = (translateKey, values = null, components) => {
  * @returns {Node}
  */
 const translateComponent = Component => {
-  const withTranslation = ({ ...props }) => <Component {...props} t={translate} i18n={i18next} />;
+  const withTranslation = ({ ...props }) => (
+    <Component
+      {...props}
+      t={(i18next.store && translate) || helpers.noopTranslate}
+      i18n={(i18next.store && i18next) || helpers.noop}
+    />
+  );
+
   withTranslation.displayName = 'withTranslation';
   return withTranslation;
 };
 
 /**
- * ToDo: reevaluate the "I18nextProvider" on package update.
- * Appears to have timing issues, and subsequent firings of the
- * ajax/xhr setup. Reverting it to just a function call that populates behind
- * the scenes appears more predictable.
- */
-/**
  * Load I18n.
  *
- * @augments React.Component
+ * @param {object} props
+ * @param {Node} props.children
+ * @param {string} props.fallbackLng
+ * @param {string} props.loadPath
+ * @param {string} props.locale
+ * @returns {Node}
  */
-class I18n extends React.Component {
-  state = { isLoaded: false };
-
-  componentDidMount() {
-    this.i18nInit();
-  }
-
-  componentDidUpdate(prevProps) {
-    const { locale } = this.props;
-
-    if (locale !== prevProps.locale) {
-      this.i18nInit();
-    }
-  }
+const I18n = ({ children, fallbackLng, loadPath, locale }) => {
+  const [initialized, setInitialized] = useState(false);
 
   /**
-   * Load i18next.
-   *
-   * @returns {Promise<void>}
+   * Initialize i18next
    */
-  i18nInit = async () => {
-    const { fallbackLng, loadPath, locale } = this.props;
-
+  useMount(async () => {
     try {
       await i18next
         .use(XHR)
@@ -81,7 +76,7 @@ class I18n extends React.Component {
             loadPath
           },
           fallbackLng,
-          lng: locale,
+          lng: undefined,
           debug: !helpers.PROD_MODE,
           ns: ['default'],
           defaultNS: 'default',
@@ -90,24 +85,27 @@ class I18n extends React.Component {
           }
         });
     } catch (e) {
-      // ToDo: eval the need for an isError state ref
+      //
     }
 
-    this.setState({ isLoaded: true });
-  };
+    setInitialized(true);
+  });
 
   /**
-   * Render children after i18next loads.
-   *
-   * @returns {Node}
+   * Update locale.
    */
-  render() {
-    const { isLoaded } = this.state;
-    const { children } = this.props;
+  useEffect(() => {
+    if (initialized) {
+      try {
+        i18next.changeLanguage(locale);
+      } catch (e) {
+        //
+      }
+    }
+  }, [initialized, locale]);
 
-    return (isLoaded && <React.Fragment>{children}</React.Fragment>) || <React.Fragment />;
-  }
-}
+  return (initialized && <React.Fragment>{children}</React.Fragment>) || <React.Fragment />;
+};
 
 /**
  * Prop types.
