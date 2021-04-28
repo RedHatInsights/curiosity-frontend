@@ -24,7 +24,7 @@ exports[`Checkbox Component should handle children as a label: children label ch
 
 exports[`Checkbox Component should handle readOnly, disabled, checked: active 1`] = `
 <div
-  class="pf-c-check"
+  class="pf-c-check pf-m-standalone"
 >
   <input
     aria-invalid="false"
@@ -40,7 +40,7 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: active 1`
 
 exports[`Checkbox Component should handle readOnly, disabled, checked: checked 1`] = `
 <div
-  class="pf-c-check"
+  class="pf-c-check pf-m-standalone"
 >
   <input
     aria-invalid="false"
@@ -56,7 +56,7 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: checked 1
 
 exports[`Checkbox Component should handle readOnly, disabled, checked: disabled 1`] = `
 <div
-  class="pf-c-check"
+  class="pf-c-check pf-m-standalone"
 >
   <input
     aria-invalid="false"
@@ -73,7 +73,7 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: disabled 
 
 exports[`Checkbox Component should handle readOnly, disabled, checked: readOnly 1`] = `
 <div
-  class="pf-c-check"
+  class="pf-c-check pf-m-standalone"
 >
   <input
     aria-invalid="false"
@@ -90,7 +90,7 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: readOnly 
 
 exports[`Checkbox Component should render a basic component: basic component 1`] = `
 <div
-  class="pf-c-check"
+  class="pf-c-check pf-m-standalone"
 >
   <input
     aria-invalid="false"

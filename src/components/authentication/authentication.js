@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon } from '@patternfly/react-icons';
-import { Maintenance } from '@redhat-cloud-services/frontend-components/components/Maintenance';
-import { NotAuthorized } from '@redhat-cloud-services/frontend-components/components/NotAuthorized';
+import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
+import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
