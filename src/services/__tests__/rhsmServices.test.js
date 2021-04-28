@@ -33,12 +33,10 @@ describe('RhsmServices', () => {
    *  timeout errors associated with this test sometimes stem from endpoint
    *  settings or missing globals, see "before" above, or the "setupTests" config
    */
-  it('should return promises for every method', done => {
+  it('should return promises for every method', async () => {
     const promises = Object.keys(rhsmServices).map(value => rhsmServices[value]());
+    const response = await Promise.all(promises);
 
-    Promise.all(promises).then(success => {
-      expect(success.length).toEqual(Object.keys(rhsmServices).length);
-      done();
-    });
+    expect(response.length).toEqual(Object.keys(rhsmServices).length);
   });
 });

@@ -441,12 +441,13 @@ ProductViewOpenShiftContainer.defaultProps = {
       ],
       initialGraphSettings: {
         actionDisplay: data => {
+          const { coreHours } = data;
           let displayContent;
 
-          if (data.coreHours) {
+          if (coreHours) {
             let total = 0;
 
-            data.coreHours.forEach(({ y }) => {
+            coreHours.forEach(({ y }) => {
               total += y ?? 0;
             });
 
