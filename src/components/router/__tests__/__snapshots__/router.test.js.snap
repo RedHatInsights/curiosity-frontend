@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Router Component should handle unique route settings: settings 1`] = `
-<Router
+<Suspense
+  fallback={
+    <Loader
+      skeletonProps={
+        Object {
+          "size": "sm",
+        }
+      }
+      tableProps={Object {}}
+      variant="title"
+    />
+  }
   routes={
     Array [
       Object {
@@ -42,7 +53,7 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
       to="/loremIpsum"
     />
   </Switch>
-</Router>
+</Suspense>
 `;
 
 exports[`Router Component should pass customized props to routed components: routeDetail and location parsedSearch props 1`] = `
@@ -79,15 +90,28 @@ Object {
 `;
 
 exports[`Router Component should render a basic component: basic 1`] = `
-<Router
+<Suspense
+  fallback={
+    <Loader
+      skeletonProps={
+        Object {
+          "size": "sm",
+        }
+      }
+      tableProps={Object {}}
+      variant="title"
+    />
+  }
   routes={
     Array [
       Object {
         "component": Object {
           "$$typeof": Symbol(react.lazy),
-          "_ctor": [Function],
-          "_result": null,
-          "_status": -1,
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
         },
         "disabled": false,
         "exact": true,
@@ -97,9 +121,11 @@ exports[`Router Component should render a basic component: basic 1`] = `
       Object {
         "component": Object {
           "$$typeof": Symbol(react.lazy),
-          "_ctor": [Function],
-          "_result": null,
-          "_status": -1,
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
         },
         "disabled": false,
         "exact": true,
@@ -109,9 +135,11 @@ exports[`Router Component should render a basic component: basic 1`] = `
       Object {
         "component": Object {
           "$$typeof": Symbol(react.lazy),
-          "_ctor": [Function],
-          "_result": null,
-          "_status": -1,
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
         },
         "disabled": false,
         "exact": true,
@@ -121,9 +149,11 @@ exports[`Router Component should render a basic component: basic 1`] = `
       Object {
         "component": Object {
           "$$typeof": Symbol(react.lazy),
-          "_ctor": [Function],
-          "_result": null,
-          "_status": -1,
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
         },
         "disabled": false,
         "exact": true,
@@ -134,9 +164,11 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "activateOnError": true,
         "component": Object {
           "$$typeof": Symbol(react.lazy),
-          "_ctor": [Function],
-          "_result": null,
-          "_status": -1,
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
         },
         "disabled": false,
         "exact": true,
@@ -146,9 +178,11 @@ exports[`Router Component should render a basic component: basic 1`] = `
       Object {
         "component": Object {
           "$$typeof": Symbol(react.lazy),
-          "_ctor": [Function],
-          "_result": null,
-          "_status": -1,
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
         },
         "disabled": false,
         "exact": true,
@@ -200,5 +234,5 @@ exports[`Router Component should render a basic component: basic 1`] = `
       to="/"
     />
   </Switch>
-</Router>
+</Suspense>
 `;
