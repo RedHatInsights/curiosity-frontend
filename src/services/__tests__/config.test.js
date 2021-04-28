@@ -2,6 +2,19 @@ import moxios from 'moxios';
 import * as service from '../config';
 
 describe('ServiceConfig', () => {
+  // Return a promise, or promise like, response for errors
+  const returnPromiseAsync = async promiseAsyncCall => {
+    let response;
+
+    try {
+      response = await promiseAsyncCall();
+    } catch (e) {
+      response = e;
+    }
+
+    return response;
+  };
+
   beforeAll(() => {
     moxios.install();
 
@@ -37,21 +50,21 @@ describe('ServiceConfig', () => {
     expect(configObject.timeout).toBe(3);
   });
 
-  it('should handle a bundled authentication and service call', done => {
-    service.serviceCall({ url: '/test/' }).then(success => {
-      expect(success.data).toBe('success');
-      done();
-    });
+  it('should handle a bundled authentication and service call', async () => {
+    const response = await service.serviceCall({ url: '/test/' });
+
+    expect(response.data).toBe('success');
   });
 
-  it('should handle cancelling service calls', done => {
-    Promise.all([
-      service.serviceCall({ url: '/test/', cancel: true }),
-      service.serviceCall({ url: '/test/', cancel: true })
-    ]).catch(error => {
-      expect(error).toMatchSnapshot('cancelled request');
-      done();
-    });
+  it('should handle cancelling service calls', async () => {
+    const response = await returnPromiseAsync(() =>
+      Promise.all([
+        service.serviceCall({ url: '/test/', cancel: true }),
+        service.serviceCall({ url: '/test/', cancel: true })
+      ])
+    );
+
+    expect(response).toMatchSnapshot('cancelled request');
   });
 
   it('should handle caching service calls', async () => {

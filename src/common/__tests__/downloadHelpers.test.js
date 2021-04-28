@@ -1,10 +1,19 @@
 import { downloadHelpers } from '../downloadHelpers';
 
-/**
- * ToDo: evaluate the clearing of timers with pending and real
- * It's unclear if this is actively helping/necessary...
- */
 describe('DownloadHelpers', () => {
+  // Return a promise, or promise like, response for errors
+  const returnPromiseAsync = async promiseAsyncCall => {
+    let response;
+
+    try {
+      response = await promiseAsyncCall();
+    } catch (e) {
+      response = e;
+    }
+
+    return response;
+  };
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -18,18 +27,16 @@ describe('DownloadHelpers', () => {
     expect(downloadHelpers).toMatchSnapshot('helpers');
   });
 
-  it('should throw an error attempting to download data', done => {
-    downloadHelpers.downloadData().catch(error => {
-      expect(error).toMatchSnapshot('download error');
-      done();
-    });
+  it('should throw an error attempting to download data', async () => {
+    const response = await returnPromiseAsync(downloadHelpers.downloadData);
+
+    expect(response).toMatchSnapshot('download error');
   });
 
-  it('should throw an error attempting to access a log', done => {
-    downloadHelpers.debugLog().catch(error => {
-      expect(error).toMatchSnapshot('access error');
-      done();
-    });
+  it('should throw an error attempting to access a log', async () => {
+    const response = await returnPromiseAsync(downloadHelpers.debugLog);
+
+    expect(response).toMatchSnapshot('access error');
   });
 
   it('should attempt to download data', done => {
