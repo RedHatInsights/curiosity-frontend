@@ -297,7 +297,7 @@ describe('ChartArea Component', () => {
     expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after function');
 
     component.setProps({
-      chartTooltip: propsObj => <div id="custom-tooltip">{propsObj.datum}</div>
+      chartTooltip: ({ datum }) => <div id="custom-tooltip">{datum}</div> // eslint-disable-line react/prop-types
     });
     expect(component.instance().getTooltipData()).toMatchSnapshot('getTooltipData:after node');
 
