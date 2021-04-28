@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 import glob from 'glob';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import PropTypes from 'prop-types';
 import { mount, shallow } from 'enzyme';
 import _get from 'lodash/get';
@@ -52,25 +53,38 @@ const getTranslationKeys = ({ files = './src/**/!(*.test|*.spec).@(js|jsx)', lis
 describe('I18n Component', () => {
   const getKeys = getTranslationKeys({});
 
-  it('should render a basic component', () => {
+  const loadHookComponent = async callback => {
+    let component = null;
+    await act(async () => {
+      component = callback();
+    });
+    component?.update();
+    return component;
+  };
+
+  it('should render a basic component', async () => {
     const props = {
       locale: 'es'
     };
 
-    const component = mount(
-      <I18n {...props}>
-        <React.Fragment>lorem ipsum</React.Fragment>
-      </I18n>
+    const component = await loadHookComponent(() =>
+      mount(
+        <I18n {...props}>
+          <React.Fragment>lorem ipsum</React.Fragment>
+        </I18n>
+      )
     );
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should pass children', () => {
-    const component = shallow(
-      <I18n>
-        <React.Fragment>lorem ipsum</React.Fragment>
-      </I18n>
+  it('should pass children', async () => {
+    const component = await loadHookComponent(() =>
+      mount(
+        <I18n>
+          <React.Fragment>lorem ipsum</React.Fragment>
+        </I18n>
+      )
     );
 
     expect(component.html()).toMatchSnapshot('children');
