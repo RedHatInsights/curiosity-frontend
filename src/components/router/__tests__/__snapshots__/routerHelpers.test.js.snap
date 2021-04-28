@@ -45,9 +45,11 @@ Object {
   "activateOnError": true,
   "component": Object {
     "$$typeof": Symbol(react.lazy),
-    "_ctor": [Function],
-    "_result": null,
-    "_status": -1,
+    "_init": [Function],
+    "_payload": Object {
+      "_result": [Function],
+      "_status": -1,
+    },
   },
   "disabled": false,
   "exact": true,
@@ -70,9 +72,11 @@ Object {
   "navRoute": Object {
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "disabled": false,
     "exact": true,
@@ -89,9 +93,11 @@ Object {
   "route": Object {
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "disabled": false,
     "exact": true,
@@ -115,9 +121,11 @@ Object {
   "navRoute": Object {
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "disabled": false,
     "exact": true,
@@ -134,9 +142,11 @@ Object {
   "route": Object {
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "disabled": false,
     "exact": true,
@@ -169,9 +179,11 @@ Object {
   "navRoute": Object {
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "default": true,
     "disabled": false,
@@ -213,9 +225,11 @@ Object {
   "navRoute": Object {
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "disabled": false,
     "exact": true,
@@ -248,9 +262,11 @@ Object {
     "activateOnError": true,
     "component": Object {
       "$$typeof": Symbol(react.lazy),
-      "_ctor": [Function],
-      "_result": null,
-      "_status": -1,
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
     },
     "disabled": false,
     "exact": true,
