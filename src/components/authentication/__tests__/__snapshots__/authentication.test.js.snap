@@ -66,7 +66,9 @@ exports[`Authentication Component should render a non-connected component error:
     pageTitle={null}
     title={null}
   >
-    <PageLayout>
+    <PageLayout
+      className=""
+    >
       <PageHeader
         includeTour={false}
         key=".0"
@@ -125,7 +127,7 @@ exports[`Authentication Component should render a non-connected component error:
         </PageHeader>
       </PageHeader>
       <PageSection
-        className="curiosity"
+        className="curiosity "
         padding={
           Object {
             "default": "noPadding",
@@ -133,7 +135,7 @@ exports[`Authentication Component should render a non-connected component error:
         }
       >
         <section
-          className="pf-c-page__main-section pf-m-no-padding curiosity"
+          className="pf-c-page__main-section pf-m-no-padding curiosity "
         >
           <PageSection
             className=""

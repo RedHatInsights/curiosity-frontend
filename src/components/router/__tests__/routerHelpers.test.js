@@ -1,5 +1,6 @@
 import {
   baseName,
+  basePath,
   dynamicBaseName,
   getErrorRoute,
   getNavigationDetail,
@@ -19,6 +20,7 @@ describe('RouterHelpers', () => {
 
   it('should return specific properties', () => {
     expect(baseName).toBeDefined();
+    expect(basePath).toBeDefined();
     expect(dynamicBaseName).toBeDefined();
     expect(getErrorRoute).toBeDefined();
     expect(getNavigationDetail).toBeDefined();
