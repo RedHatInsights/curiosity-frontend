@@ -143,6 +143,19 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "render": true,
         "to": "/optin",
       },
+      Object {
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": "/",
+        "render": true,
+        "to": "/",
+      },
     ]
   }
 >
@@ -176,6 +189,15 @@ exports[`Router Component should render a basic component: basic 1`] = `
       key="/optin"
       path="/optin"
       render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/"
+      path="/"
+      render={[Function]}
+    />
+    <Redirect
+      to="/"
     />
   </Switch>
 </Router>

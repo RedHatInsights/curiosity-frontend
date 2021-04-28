@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductViewMissing Component should render a non-connected component: non-connected 1`] = `
+<PageLayout
+  className="curiosity-missing-view"
+>
+  <PageHeader
+    includeTour={true}
+    productLabel="missing"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions"})
+  </PageHeader>
+  <PageSection
+    isFilled={true}
+  >
+    <Gallery
+      hasGutter={true}
+    >
+      <Card
+        isHoverable={true}
+        key="rhel"
+        onClick={[Function]}
+      >
+        <CardTitle>
+          <Title
+            headingLevel="h2"
+            size="lg"
+          >
+            t(curiosity-view.title, {"appName":"Subscriptions","context":"RHEL"})
+          </Title>
+        </CardTitle>
+        <CardBody
+          className="curiosity-missing-view__card-description"
+        >
+          t(curiosity-view.description, {"appName":"Subscriptions","context":"RHEL"})
+        </CardBody>
+        <CardFooter>
+          <Button
+            icon={
+              <ArrowRightIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            iconPosition="right"
+            isInline={true}
+            onClick={[Function]}
+            variant="link"
+          >
+            Open
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card
+        isHoverable={true}
+        key="openshift-container"
+        onClick={[Function]}
+      >
+        <CardTitle>
+          <Title
+            headingLevel="h2"
+            size="lg"
+          >
+            t(curiosity-view.title, {"appName":"Subscriptions","context":"OpenShift Container Platform"})
+          </Title>
+        </CardTitle>
+        <CardBody
+          className="curiosity-missing-view__card-description"
+        >
+          t(curiosity-view.description, {"appName":"Subscriptions","context":"OpenShift Container Platform"})
+        </CardBody>
+        <CardFooter>
+          <Button
+            icon={
+              <ArrowRightIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            iconPosition="right"
+            isInline={true}
+            onClick={[Function]}
+            variant="link"
+          >
+            Open
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card
+        isHoverable={true}
+        key="openshift-dedicated"
+        onClick={[Function]}
+      >
+        <CardTitle>
+          <Title
+            headingLevel="h2"
+            size="lg"
+          >
+            t(curiosity-view.title, {"appName":"Subscriptions","context":"OpenShift-dedicated-metrics"})
+          </Title>
+        </CardTitle>
+        <CardBody
+          className="curiosity-missing-view__card-description"
+        >
+          t(curiosity-view.description, {"appName":"Subscriptions","context":"OpenShift-dedicated-metrics"})
+        </CardBody>
+        <CardFooter>
+          <Button
+            icon={
+              <ArrowRightIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            iconPosition="right"
+            isInline={true}
+            onClick={[Function]}
+            variant="link"
+          >
+            Open
+          </Button>
+        </CardFooter>
+      </Card>
+    </Gallery>
+  </PageSection>
+</PageLayout>
+`;
+
+exports[`ProductViewMissing Component should render a predictable set of product cards: non-connected 1`] = `
+<PageLayout
+  className="curiosity-missing-view"
+>
+  <PageHeader
+    includeTour={true}
+    productLabel="missing"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions"})
+  </PageHeader>
+  <PageSection
+    isFilled={true}
+  >
+    <Gallery
+      hasGutter={true}
+    >
+      <Card
+        isHoverable={true}
+        key="test 001"
+        onClick={[Function]}
+      >
+        <CardTitle>
+          <Title
+            headingLevel="h2"
+            size="lg"
+          >
+            t(curiosity-view.title, {"appName":"Subscriptions"})
+          </Title>
+        </CardTitle>
+        <CardBody
+          className="curiosity-missing-view__card-description"
+        >
+          t(curiosity-view.description, {"appName":"Subscriptions","context":"loremIpsum"})
+        </CardBody>
+        <CardFooter>
+          <Button
+            icon={
+              <ArrowRightIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            iconPosition="right"
+            isInline={true}
+            onClick={[Function]}
+            variant="link"
+          >
+            Open
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card
+        isHoverable={true}
+        key="test 002"
+        onClick={[Function]}
+      >
+        <CardTitle>
+          <Title
+            headingLevel="h2"
+            size="lg"
+          >
+            t(curiosity-view.title, {"appName":"Subscriptions"})
+          </Title>
+        </CardTitle>
+        <CardBody
+          className="curiosity-missing-view__card-description"
+        >
+          t(curiosity-view.description, {"appName":"Subscriptions","context":"dolorSit"})
+        </CardBody>
+        <CardFooter>
+          <Button
+            icon={
+              <ArrowRightIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            iconPosition="right"
+            isInline={true}
+            onClick={[Function]}
+            variant="link"
+          >
+            Open
+          </Button>
+        </CardFooter>
+      </Card>
+    </Gallery>
+  </PageSection>
+</PageLayout>
+`;

@@ -59,8 +59,8 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
 Object {
   "nav": Object {
-    "default": true,
     "id": "rhel",
+    "isSearchable": true,
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
@@ -74,10 +74,10 @@ Object {
       "_result": null,
       "_status": -1,
     },
-    "default": true,
     "disabled": false,
     "exact": true,
     "id": "rhel",
+    "isSearchable": true,
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
@@ -104,8 +104,8 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing ID, specific path 1`] = `
 Object {
   "nav": Object {
-    "default": true,
     "id": "rhel",
+    "isSearchable": true,
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
@@ -119,10 +119,10 @@ Object {
       "_result": null,
       "_status": -1,
     },
-    "default": true,
     "disabled": false,
     "exact": true,
     "id": "rhel",
+    "isSearchable": true,
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
@@ -158,12 +158,13 @@ exports[`RouterHelpers should return navigation and route details that align to 
 Object {
   "nav": Object {
     "default": true,
-    "id": "rhel",
-    "path": "/rhel",
-    "pathParameter": "RHEL",
-    "productParameter": "RHEL",
-    "routeHref": "/rhel",
-    "viewParameter": "viewRHEL",
+    "id": "missing",
+    "isSearchable": false,
+    "path": "/",
+    "pathParameter": null,
+    "productParameter": null,
+    "routeHref": "/",
+    "viewParameter": null,
   },
   "navRoute": Object {
     "component": Object {
@@ -175,14 +176,16 @@ Object {
     "default": true,
     "disabled": false,
     "exact": true,
-    "id": "rhel",
-    "path": "/rhel",
-    "pathParameter": "RHEL",
-    "productParameter": "RHEL",
+    "id": "missing",
+    "isSearchable": false,
+    "path": "/",
+    "pathParameter": null,
+    "productParameter": null,
+    "redirect": "/",
     "render": true,
-    "routeHref": "/rhel",
-    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
-    "viewParameter": "viewRHEL",
+    "routeHref": "/",
+    "to": "/",
+    "viewParameter": null,
   },
   "route": Object {},
 }
@@ -200,6 +203,7 @@ exports[`RouterHelpers should return navigation and route details that align to 
 Object {
   "nav": Object {
     "id": "rhel-arm",
+    "isSearchable": false,
     "path": "/rhel-arm",
     "pathParameter": "RHEL for ARM",
     "productParameter": "RHEL",
@@ -216,6 +220,7 @@ Object {
     "disabled": false,
     "exact": true,
     "id": "rhel-arm",
+    "isSearchable": false,
     "path": "/rhel-arm",
     "pathParameter": "RHEL for ARM",
     "productParameter": "RHEL",
@@ -232,6 +237,7 @@ exports[`RouterHelpers should return navigation and route details that align to 
 Object {
   "nav": Object {
     "id": "optin",
+    "isSearchable": false,
     "path": "/optin",
     "pathParameter": null,
     "productParameter": null,
@@ -249,6 +255,7 @@ Object {
     "disabled": false,
     "exact": true,
     "id": "optin",
+    "isSearchable": false,
     "path": "/optin",
     "pathParameter": null,
     "productParameter": null,
