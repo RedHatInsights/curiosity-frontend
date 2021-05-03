@@ -46,7 +46,7 @@ const PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES = {
  * Platform response of USER PERMISSION type values.
  * Schema/map of expected response identity user permission types.
  *
- * @type {{PERMISSION: string}}
+ * @type {{PERMISSION: string, RESOURCE_DEFS: string}}
  */
 const PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES = {
   PERMISSION: 'permission',
@@ -60,7 +60,8 @@ const PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES = {
 
 const PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES = {
   ALL: '*',
-  HOSTS: 'hosts'
+  HOSTS: 'hosts',
+  REPORTS: 'reports'
 };
 
 const PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES = {
