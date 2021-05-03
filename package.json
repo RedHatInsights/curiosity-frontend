@@ -137,7 +137,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.8.14",
+    "react-i18next": "^11.8.15",
     "react-redux": "^7.2.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
