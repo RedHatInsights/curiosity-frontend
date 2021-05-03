@@ -88,7 +88,12 @@ const selector = createDeepEqualSelector([statePropsFilter], response => {
     );
 
     // Alias specific app permissions checks
-    updatedSession.authorized[helpers.UI_NAME] = updatedSession.permissions[APP_TYPES.SUBSCRIPTIONS]?.all || false;
+    updatedSession.authorized[helpers.UI_NAME] =
+      updatedSession.permissions[APP_TYPES.SUBSCRIPTIONS]?.all ||
+      Array.isArray(
+        updatedSession.permissions[APP_TYPES.SUBSCRIPTIONS]?.resources?.[RESOURCE_TYPES.REPORTS]?.[OPERATION_TYPES.READ]
+      ) ||
+      false;
 
     updatedSession.authorized.inventory =
       updatedSession.permissions[APP_TYPES.INVENTORY]?.all ||
