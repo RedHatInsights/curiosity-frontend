@@ -1,12 +1,12 @@
 import { createSelectorCreator, defaultMemoize } from 'reselect';
 import _isEqual from 'lodash/isEqual';
+import permissions from '../../config/rbac';
 import {
   platformApiTypes,
   PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES
 } from '../../types/platformApiTypes';
-import { helpers } from '../../common/helpers';
 
 /**
  * Create a custom "are objects equal" selector.
@@ -40,10 +40,7 @@ const selector = createDeepEqualSelector([statePropsFilter], response => {
     admin: false,
     entitled: false,
     error,
-    authorized: {
-      [helpers.UI_NAME]: false,
-      inventory: false
-    },
+    authorized: {},
     permissions: {}
   };
 
@@ -88,25 +85,15 @@ const selector = createDeepEqualSelector([statePropsFilter], response => {
     );
 
     // Alias specific app permissions checks
-    updatedSession.authorized[helpers.UI_NAME] =
-      updatedSession.permissions[APP_TYPES.SUBSCRIPTIONS]?.all ||
-      Array.isArray(
-        updatedSession.permissions[APP_TYPES.SUBSCRIPTIONS]?.resources?.[RESOURCE_TYPES.REPORTS]?.[OPERATION_TYPES.READ]
-      ) ||
-      false;
+    Object.entries(permissions).forEach(([key, { permissions: resourcePermissions }]) => {
+      updatedSession.authorized[key] = updatedSession.permissions[key]?.all || false;
 
-    updatedSession.authorized.inventory =
-      updatedSession.permissions[APP_TYPES.INVENTORY]?.all ||
-      Array.isArray(
-        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.HOSTS]?.[OPERATION_TYPES.ALL]
-      ) ||
-      Array.isArray(
-        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.HOSTS]?.[OPERATION_TYPES.READ]
-      ) ||
-      Array.isArray(
-        updatedSession.permissions[APP_TYPES.INVENTORY]?.resources?.[RESOURCE_TYPES.HOSTS]?.[OPERATION_TYPES.WRITE]
-      ) ||
-      false;
+      resourcePermissions.forEach(({ resource: res, operation: op }) => {
+        if (updatedSession.permissions[key]?.resources?.[res]?.[op]) {
+          updatedSession.authorized[key] = true;
+        }
+      });
+    });
   }
 
   return { session: updatedSession };

@@ -2,8 +2,7 @@ import _set from 'lodash/set';
 import { helpers } from '../common';
 import {
   platformApiTypes,
-  PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES,
-  PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES
+  PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES
 } from '../types/platformApiTypes';
 
 /**
@@ -40,21 +39,22 @@ const getUser = async () => {
 /**
  * Basic user permissions.
  *
+ * @param {string} appName
  * @returns {Promise<void>}
  */
-const getUserPermissions = () => {
+const getUserPermissions = appName => {
   const { insights } = window;
   try {
     return (
       (helpers.DEV_MODE && [
         {
-          [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${process.env.REACT_APP_DEBUG_SUBSCRIPTIONS_PERMISSION_RESOURCE}:${process.env.REACT_APP_DEBUG_SUBSCRIPTIONS_PERMISSION_OPERATION}`
+          [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_ONE
         },
         {
-          [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.INVENTORY}:${process.env.REACT_APP_DEBUG_INVENTORY_PERMISSION_RESOURCE}:${process.env.REACT_APP_DEBUG_INVENTORY_PERMISSION_OPERATION}`
+          [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_TWO
         }
       ]) ||
-      insights.chrome.getUserPermissions()
+      insights.chrome.getUserPermissions(appName)
     );
   } catch (e) {
     throw new Error(`{ getUserPermissions } = insights.chrome, ${e.message}`);
