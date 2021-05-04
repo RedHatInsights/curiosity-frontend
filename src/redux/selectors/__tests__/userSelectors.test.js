@@ -104,9 +104,6 @@ describe('UserSelectors', () => {
                 [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.SUBSCRIPTIONS}:${RESOURCE_TYPES.ALL}:loremCustom`
               },
               {
-                [USER_PERMISSION_TYPES.PERMISSION]: `${APP_TYPES.INVENTORY}:${RESOURCE_TYPES.HOSTS}:${OPERATION_TYPES.READ}`
-              },
-              {
                 [USER_PERMISSION_TYPES.PERMISSION]: `lorem:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
               },
               {
