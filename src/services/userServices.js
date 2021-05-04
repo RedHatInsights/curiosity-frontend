@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
-import permissions from '../config/rbac';
+import { rbacConfig as permissions } from '../config';
 import { getUser, getUserPermissions } from './platformServices';
 import { serviceCall } from './config';
 import { helpers } from '../common';

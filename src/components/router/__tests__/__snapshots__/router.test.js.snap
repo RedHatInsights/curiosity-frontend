@@ -105,6 +105,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
   routes={
     Array [
       Object {
+        "activateOnError": false,
         "component": Object {
           "$$typeof": Symbol(react.lazy),
           "_init": [Function],
@@ -115,10 +116,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
+        "redirect": null,
         "render": true,
-        "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
+        "to": "/rhel",
       },
       Object {
+        "activateOnError": false,
         "component": Object {
           "$$typeof": Symbol(react.lazy),
           "_init": [Function],
@@ -129,10 +132,76 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
+        "redirect": null,
+        "render": true,
+        "to": "/rhel-arm",
+      },
+      Object {
+        "activateOnError": false,
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": null,
+        "render": true,
+        "to": "/rhel-ibmpower",
+      },
+      Object {
+        "activateOnError": false,
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": null,
+        "render": true,
+        "to": "/rhel-ibmz",
+      },
+      Object {
+        "activateOnError": false,
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": null,
+        "render": true,
+        "to": "/rhel-x86",
+      },
+      Object {
+        "activateOnError": false,
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": null,
         "render": true,
         "to": "/openshift-container",
       },
       Object {
+        "activateOnError": false,
         "component": Object {
           "$$typeof": Symbol(react.lazy),
           "_init": [Function],
@@ -143,10 +212,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
+        "redirect": null,
         "render": true,
         "to": "/openshift-dedicated",
       },
       Object {
+        "activateOnError": false,
         "component": Object {
           "$$typeof": Symbol(react.lazy),
           "_init": [Function],
@@ -157,8 +228,41 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
+        "redirect": null,
         "render": true,
-        "to": "/:variant(satellite|satellite-capsule|satellite-server)",
+        "to": "/satellite",
+      },
+      Object {
+        "activateOnError": false,
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": null,
+        "render": true,
+        "to": "/satellite-capsule",
+      },
+      Object {
+        "activateOnError": false,
+        "component": Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        },
+        "disabled": false,
+        "exact": true,
+        "redirect": null,
+        "render": true,
+        "to": "/satellite-server",
       },
       Object {
         "activateOnError": true,
@@ -172,10 +276,12 @@ exports[`Router Component should render a basic component: basic 1`] = `
         },
         "disabled": false,
         "exact": true,
+        "redirect": null,
         "render": true,
         "to": "/optin",
       },
       Object {
+        "activateOnError": false,
         "component": Object {
           "$$typeof": Symbol(react.lazy),
           "_init": [Function],
@@ -196,8 +302,32 @@ exports[`Router Component should render a basic component: basic 1`] = `
   <Switch>
     <Route
       exact={true}
-      key="/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)"
-      path="/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)"
+      key="/rhel"
+      path="/rhel"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/rhel-arm"
+      path="/rhel-arm"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/rhel-ibmpower"
+      path="/rhel-ibmpower"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/rhel-ibmz"
+      path="/rhel-ibmz"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/rhel-x86"
+      path="/rhel-x86"
       render={[Function]}
     />
     <Route
@@ -214,8 +344,20 @@ exports[`Router Component should render a basic component: basic 1`] = `
     />
     <Route
       exact={true}
-      key="/:variant(satellite|satellite-capsule|satellite-server)"
-      path="/:variant(satellite|satellite-capsule|satellite-server)"
+      key="/satellite"
+      path="/satellite"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/satellite-capsule"
+      path="/satellite-capsule"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      key="/satellite-server"
+      path="/satellite-server"
       render={[Function]}
     />
     <Route
