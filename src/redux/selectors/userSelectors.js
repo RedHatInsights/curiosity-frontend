@@ -1,6 +1,6 @@
 import { createSelectorCreator, defaultMemoize } from 'reselect';
 import _isEqual from 'lodash/isEqual';
-import permissions from '../../config/rbac';
+import { rbacConfig as permissions } from '../../config';
 import {
   platformApiTypes,
   PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,

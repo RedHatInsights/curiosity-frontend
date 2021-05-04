@@ -4,7 +4,7 @@ import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSect
 import { ArrowRightIcon } from '@patternfly/react-icons';
 import { useHistory } from 'react-router-dom';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
-import { routerConfig, routerHelpers } from '../router/router';
+import { routerHelpers } from '../router/router';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -48,9 +48,7 @@ const ProductViewMissing = ({ basePath, products, t }) => {
     const filteredProducts = Object.values(updatedProducts);
     return (
       (filteredProducts.length && filteredProducts) ||
-      routerConfig.navigation.filter(
-        ({ isSearchable, productParameter }) => (isSearchable && productParameter) || false
-      )
+      products.filter(({ isSearchable, productParameter }) => (isSearchable && productParameter) || false)
     );
   };
 
@@ -128,7 +126,7 @@ ProductViewMissing.propTypes = {
  */
 ProductViewMissing.defaultProps = {
   basePath: routerHelpers.basePath,
-  products: routerConfig.navigation,
+  products: routerHelpers.navigation,
   t: translate
 };
 

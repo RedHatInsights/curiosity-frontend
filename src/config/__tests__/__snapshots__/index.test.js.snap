@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Configuration should have specific config properties: config 1`] = `
+Object {
+  "rbac": Object {
+    "inventory": Object {
+      "permissions": Array [
+        Object {
+          "operation": "*",
+          "resource": "*",
+        },
+        Object {
+          "operation": "*",
+          "resource": "hosts",
+        },
+        Object {
+          "operation": "read",
+          "resource": "hosts",
+        },
+        Object {
+          "operation": "write",
+          "resource": "hosts",
+        },
+      ],
+    },
+    "subscriptions": Object {
+      "permissions": Array [
+        Object {
+          "operation": "*",
+          "resource": "*",
+        },
+        Object {
+          "operation": "*",
+          "resource": "reports",
+        },
+        Object {
+          "operation": "read",
+          "resource": "reports",
+        },
+        Object {
+          "operation": "write",
+          "resource": "reports",
+        },
+      ],
+    },
+  },
+  "routes": Array [
+    Object {
+      "activateOnError": false,
+      "aliases": Array [
+        "insights",
+      ],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "rhel",
+      "isSearchable": true,
+      "path": "/rhel",
+      "pathParameter": Array [
+        "RHEL",
+      ],
+      "productParameter": Array [
+        "RHEL",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "rhel-arm",
+      "isSearchable": false,
+      "path": "/rhel-arm",
+      "pathParameter": Array [
+        "RHEL for ARM",
+      ],
+      "productParameter": Array [
+        "RHEL",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "rhel-ibmpower",
+      "isSearchable": false,
+      "path": "/rhel-ibmpower",
+      "pathParameter": Array [
+        "RHEL for IBM Power",
+      ],
+      "productParameter": Array [
+        "RHEL",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "rhel-ibmz",
+      "isSearchable": false,
+      "path": "/rhel-ibmz",
+      "pathParameter": Array [
+        "RHEL for IBM z",
+      ],
+      "productParameter": Array [
+        "RHEL",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "rhel-x86",
+      "isSearchable": false,
+      "path": "/rhel-x86",
+      "pathParameter": Array [
+        "RHEL for x86",
+      ],
+      "productParameter": Array [
+        "RHEL",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "openshift-container",
+      "isSearchable": true,
+      "path": "/openshift-container",
+      "pathParameter": Array [
+        "OpenShift Container Platform",
+        "OpenShift-metrics",
+      ],
+      "productParameter": Array [
+        "OpenShift Container Platform",
+        "OpenShift-metrics",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "openshift-dedicated",
+      "isSearchable": true,
+      "path": "/openshift-dedicated",
+      "pathParameter": Array [
+        "OpenShift-dedicated-metrics",
+      ],
+      "productParameter": Array [
+        "OpenShift-dedicated-metrics",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "satellite",
+      "isSearchable": false,
+      "path": "/satellite",
+      "pathParameter": Array [
+        "Satellite",
+      ],
+      "productParameter": Array [
+        "Satellite",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "satellite-capsule",
+      "isSearchable": false,
+      "path": "/satellite-capsule",
+      "pathParameter": Array [
+        "Satellite Capsule",
+      ],
+      "productParameter": Array [
+        "Satellite",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "satellite-server",
+      "isSearchable": false,
+      "path": "/satellite-server",
+      "pathParameter": Array [
+        "Satellite Server",
+      ],
+      "productParameter": Array [
+        "Satellite",
+      ],
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": true,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": false,
+      "disabled": false,
+      "id": "optin",
+      "isSearchable": false,
+      "path": "/optin",
+      "pathParameter": null,
+      "productParameter": null,
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "aliases": Array [],
+      "component": Object {
+        "$$typeof": Symbol(react.lazy),
+        "_init": [Function],
+        "_payload": Object {
+          "_result": [Function],
+          "_status": -1,
+        },
+      },
+      "default": true,
+      "disabled": false,
+      "id": "missing",
+      "isSearchable": false,
+      "path": "/",
+      "pathParameter": null,
+      "productParameter": null,
+      "redirect": "/",
+    },
+  ],
+}
+`;
