@@ -120,7 +120,7 @@
     "@patternfly/react-styles": "4.10.2",
     "@patternfly/react-table": "4.26.7",
     "@patternfly/react-tokens": "4.11.3",
-    "@redhat-cloud-services/frontend-components": "3.1.10",
+    "@redhat-cloud-services/frontend-components": "3.1.11",
     "@redhat-cloud-services/frontend-components-notifications": "3.1.0",
     "@redhat-cloud-services/frontend-components-utilities": "3.1.2",
     "axios": "^0.21.1",
