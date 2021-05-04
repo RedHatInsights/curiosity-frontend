@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
+import permissions from '../config/rbac';
 import { getUser, getUserPermissions } from './platformServices';
 import { serviceCall } from './config';
 import { helpers } from '../common';
@@ -11,13 +12,23 @@ import { helpers } from '../common';
  * @returns {Promise<{data: {permissions: (void|*[]), user: void}, message: string, status: number}>}
  */
 const authorizeUser = async () => {
+  const updatedPermissions = Object.keys(permissions);
   let message = '{ auth.getUser, getUserPermissions } = insights.chrome';
   let userData;
   let userPermissions;
 
   try {
     userData = await getUser();
-    userPermissions = await getUserPermissions();
+
+    if (updatedPermissions.length) {
+      const allPermissions = await Promise.all(updatedPermissions.map(app => getUserPermissions(app)));
+
+      if (Array.isArray(allPermissions)) {
+        userPermissions = [...allPermissions.flat()];
+      }
+    } else {
+      userPermissions = await getUserPermissions();
+    }
   } catch (e) {
     message = e.message;
   }
