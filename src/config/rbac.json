@@ -1,0 +1,42 @@
+{
+  "subscriptions": {
+    "permissions": [
+      {
+        "resource": "*",
+        "operation": "*"
+      },
+      {
+        "resource": "reports",
+        "operation": "*"
+      },
+      {
+        "resource": "reports",
+        "operation": "read"
+      },
+      {
+        "resource": "reports",
+        "operation": "write"
+      }
+    ]
+  },
+  "inventory": {
+    "permissions": [
+      {
+        "resource": "*",
+        "operation": "*"
+      },
+      {
+        "resource": "hosts",
+        "operation": "*"
+      },
+      {
+        "resource": "hosts",
+        "operation": "read"
+      },
+      {
+        "resource": "hosts",
+        "operation": "write"
+      }
+    ]
+  }
+}

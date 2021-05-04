@@ -4,10 +4,7 @@ exports[`UserSelectors should not authorize a user when global errors exist: glo
 Object {
   "session": Object {
     "admin": false,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": false,
-    },
+    "authorized": Object {},
     "entitled": false,
     "error": true,
     "errorCodes": Array [
@@ -55,20 +52,12 @@ Object {
   "session": Object {
     "admin": false,
     "authorized": Object {
-      "inventory": true,
+      "inventory": false,
       "subscriptions": true,
     },
     "entitled": false,
     "error": false,
     "permissions": Object {
-      "inventory": Object {
-        "all": false,
-        "resources": Object {
-          "hosts": Object {
-            "read": Array [],
-          },
-        },
-      },
       "ipsum": Object {
         "all": false,
         "resources": Object {
@@ -104,10 +93,7 @@ exports[`UserSelectors should pass error state data through response: error stat
 Object {
   "session": Object {
     "admin": false,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": false,
-    },
+    "authorized": Object {},
     "entitled": false,
     "error": true,
     "errorCodes": Array [
@@ -124,10 +110,7 @@ exports[`UserSelectors should pass existing state data through response: existin
 Object {
   "session": Object {
     "admin": false,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": false,
-    },
+    "authorized": Object {},
     "entitled": false,
     "error": false,
     "locale": "en-US",
@@ -140,10 +123,7 @@ exports[`UserSelectors should pass minimal data on missing a reducer response: m
 Object {
   "session": Object {
     "admin": false,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": false,
-    },
+    "authorized": Object {},
     "entitled": false,
     "error": false,
     "permissions": Object {},

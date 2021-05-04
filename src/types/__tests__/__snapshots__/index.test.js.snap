@@ -16,7 +16,6 @@ Object {
         "ORG_ADMIN": "is_org_admin",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-        "INVENTORY": "inventory",
         "SUBSCRIPTIONS": "subscriptions",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
@@ -26,8 +25,6 @@ Object {
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
         "ALL": "*",
-        "HOSTS": "hosts",
-        "REPORTS": "reports",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
         "PERMISSION": "permission",
@@ -255,7 +252,6 @@ Object {
         "ORG_ADMIN": "is_org_admin",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-        "INVENTORY": "inventory",
         "SUBSCRIPTIONS": "subscriptions",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
@@ -265,8 +261,6 @@ Object {
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
         "ALL": "*",
-        "HOSTS": "hosts",
-        "REPORTS": "reports",
       },
       "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
         "PERMISSION": "permission",
@@ -493,7 +487,6 @@ Object {
       "ORG_ADMIN": "is_org_admin",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-      "INVENTORY": "inventory",
       "SUBSCRIPTIONS": "subscriptions",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
@@ -503,8 +496,6 @@ Object {
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
       "ALL": "*",
-      "HOSTS": "hosts",
-      "REPORTS": "reports",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
       "PERMISSION": "permission",
@@ -735,7 +726,6 @@ Object {
       "ORG_ADMIN": "is_org_admin",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-      "INVENTORY": "inventory",
       "SUBSCRIPTIONS": "subscriptions",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
@@ -745,8 +735,6 @@ Object {
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
       "ALL": "*",
-      "HOSTS": "hosts",
-      "REPORTS": "reports",
     },
     "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
       "PERMISSION": "permission",
