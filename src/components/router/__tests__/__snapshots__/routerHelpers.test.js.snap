@@ -53,6 +53,7 @@ Object {
   },
   "disabled": false,
   "exact": true,
+  "redirect": null,
   "render": true,
   "to": "/optin",
 }
@@ -61,15 +62,34 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
 Object {
   "nav": Object {
+    "activateOnError": false,
+    "aliases": Array [
+      "insights",
+    ],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
     "id": "rhel",
     "isSearchable": true,
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
+    "redirect": null,
     "routeHref": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
+    "activateOnError": false,
+    "aliases": Array [
+      "insights",
+    ],
     "component": Object {
       "$$typeof": Symbol(react.lazy),
       "_init": [Function],
@@ -78,6 +98,7 @@ Object {
         "_status": -1,
       },
     },
+    "default": false,
     "disabled": false,
     "exact": true,
     "id": "rhel",
@@ -85,12 +106,14 @@ Object {
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
+    "redirect": null,
     "render": true,
     "routeHref": "/rhel",
-    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
+    "to": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "route": Object {
+    "activateOnError": false,
     "component": Object {
       "$$typeof": Symbol(react.lazy),
       "_init": [Function],
@@ -101,8 +124,9 @@ Object {
     },
     "disabled": false,
     "exact": true,
+    "redirect": null,
     "render": true,
-    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
+    "to": "/rhel",
   },
 }
 `;
@@ -110,15 +134,34 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing ID, specific path 1`] = `
 Object {
   "nav": Object {
+    "activateOnError": false,
+    "aliases": Array [
+      "insights",
+    ],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
     "id": "rhel",
     "isSearchable": true,
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
+    "redirect": null,
     "routeHref": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
+    "activateOnError": false,
+    "aliases": Array [
+      "insights",
+    ],
     "component": Object {
       "$$typeof": Symbol(react.lazy),
       "_init": [Function],
@@ -127,6 +170,7 @@ Object {
         "_status": -1,
       },
     },
+    "default": false,
     "disabled": false,
     "exact": true,
     "id": "rhel",
@@ -134,12 +178,14 @@ Object {
     "path": "/rhel",
     "pathParameter": "RHEL",
     "productParameter": "RHEL",
+    "redirect": null,
     "render": true,
     "routeHref": "/rhel",
-    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
+    "to": "/rhel",
     "viewParameter": "viewRHEL",
   },
   "route": Object {
+    "activateOnError": false,
     "component": Object {
       "$$typeof": Symbol(react.lazy),
       "_init": [Function],
@@ -150,8 +196,9 @@ Object {
     },
     "disabled": false,
     "exact": true,
+    "redirect": null,
     "render": true,
-    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
+    "to": "/rhel",
   },
 }
 `;
@@ -167,16 +214,30 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathname, default 1`] = `
 Object {
   "nav": Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
     "default": true,
+    "disabled": false,
     "id": "missing",
     "isSearchable": false,
     "path": "/",
     "pathParameter": null,
     "productParameter": null,
+    "redirect": "/",
     "routeHref": "/",
     "viewParameter": null,
   },
   "navRoute": Object {
+    "activateOnError": false,
+    "aliases": Array [],
     "component": Object {
       "$$typeof": Symbol(react.lazy),
       "_init": [Function],
@@ -214,15 +275,404 @@ Object {
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
 Object {
   "nav": Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
     "id": "rhel-arm",
     "isSearchable": false,
     "path": "/rhel-arm",
     "pathParameter": "RHEL for ARM",
     "productParameter": "RHEL",
+    "redirect": null,
     "routeHref": "/rhel-arm",
     "viewParameter": "viewRHEL",
   },
   "navRoute": Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "exact": true,
+    "id": "rhel-arm",
+    "isSearchable": false,
+    "path": "/rhel-arm",
+    "pathParameter": "RHEL for ARM",
+    "productParameter": "RHEL",
+    "redirect": null,
+    "render": true,
+    "routeHref": "/rhel-arm",
+    "to": "/rhel-arm",
+    "viewParameter": "viewRHEL",
+  },
+  "route": Object {},
+}
+`;
+
+exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
+Object {
+  "nav": Object {
+    "activateOnError": true,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "optin",
+    "isSearchable": false,
+    "path": "/optin",
+    "pathParameter": null,
+    "productParameter": null,
+    "redirect": null,
+    "routeHref": "/optin",
+    "viewParameter": null,
+  },
+  "navRoute": Object {
+    "activateOnError": true,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "exact": true,
+    "id": "optin",
+    "isSearchable": false,
+    "path": "/optin",
+    "pathParameter": null,
+    "productParameter": null,
+    "redirect": null,
+    "render": true,
+    "routeHref": "/optin",
+    "to": "/optin",
+    "viewParameter": null,
+  },
+  "route": Object {},
+}
+`;
+
+exports[`RouterHelpers should return specific properties: appName 1`] = `"subscriptions"`;
+
+exports[`RouterHelpers should return specific properties: navigation 1`] = `
+Array [
+  Object {
+    "activateOnError": false,
+    "aliases": Array [
+      "insights",
+    ],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "rhel",
+    "isSearchable": true,
+    "path": "/rhel",
+    "pathParameter": "RHEL",
+    "productParameter": "RHEL",
+    "redirect": null,
+    "viewParameter": "viewRHEL",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "rhel-arm",
+    "isSearchable": false,
+    "path": "/rhel-arm",
+    "pathParameter": "RHEL for ARM",
+    "productParameter": "RHEL",
+    "redirect": null,
+    "viewParameter": "viewRHEL",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "rhel-ibmpower",
+    "isSearchable": false,
+    "path": "/rhel-ibmpower",
+    "pathParameter": "RHEL for IBM Power",
+    "productParameter": "RHEL",
+    "redirect": null,
+    "viewParameter": "viewRHEL",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "rhel-ibmz",
+    "isSearchable": false,
+    "path": "/rhel-ibmz",
+    "pathParameter": "RHEL for IBM z",
+    "productParameter": "RHEL",
+    "redirect": null,
+    "viewParameter": "viewRHEL",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "rhel-x86",
+    "isSearchable": false,
+    "path": "/rhel-x86",
+    "pathParameter": "RHEL for x86",
+    "productParameter": "RHEL",
+    "redirect": null,
+    "viewParameter": "viewRHEL",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "openshift-container",
+    "isSearchable": true,
+    "path": "/openshift-container",
+    "pathParameter": "OpenShift Container Platform",
+    "productParameter": "OpenShift Container Platform",
+    "redirect": null,
+    "viewParameter": "viewOpenShift Container Platform",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "openshift-dedicated",
+    "isSearchable": true,
+    "path": "/openshift-dedicated",
+    "pathParameter": "OpenShift-dedicated-metrics",
+    "productParameter": "OpenShift-dedicated-metrics",
+    "redirect": null,
+    "viewParameter": "viewOpenShift-dedicated-metrics",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "satellite",
+    "isSearchable": false,
+    "path": "/satellite",
+    "pathParameter": "Satellite",
+    "productParameter": "Satellite",
+    "redirect": null,
+    "viewParameter": "viewSatellite",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "satellite-capsule",
+    "isSearchable": false,
+    "path": "/satellite-capsule",
+    "pathParameter": "Satellite Capsule",
+    "productParameter": "Satellite",
+    "redirect": null,
+    "viewParameter": "viewSatellite",
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "satellite-server",
+    "isSearchable": false,
+    "path": "/satellite-server",
+    "pathParameter": "Satellite Server",
+    "productParameter": "Satellite",
+    "redirect": null,
+    "viewParameter": "viewSatellite",
+  },
+  Object {
+    "activateOnError": true,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": false,
+    "disabled": false,
+    "id": "optin",
+    "isSearchable": false,
+    "path": "/optin",
+    "pathParameter": null,
+    "productParameter": null,
+    "redirect": null,
+    "viewParameter": null,
+  },
+  Object {
+    "activateOnError": false,
+    "aliases": Array [],
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "default": true,
+    "disabled": false,
+    "id": "missing",
+    "isSearchable": false,
+    "path": "/",
+    "pathParameter": null,
+    "productParameter": null,
+    "redirect": "/",
+    "viewParameter": null,
+  },
+]
+`;
+
+exports[`RouterHelpers should return specific properties: platformLandingRedirect 1`] = `"/"`;
+
+exports[`RouterHelpers should return specific properties: platformModalRedirect 1`] = `"/?not_entitled=subscriptions"`;
+
+exports[`RouterHelpers should return specific properties: productGroups 1`] = `
+Object {
+  "viewOpenShift Container Platform": Array [
+    "OpenShift Container Platform",
+  ],
+  "viewOpenShift-dedicated-metrics": Array [
+    "OpenShift-dedicated-metrics",
+  ],
+  "viewOpenShift-metrics": Array [
+    "OpenShift-metrics",
+  ],
+  "viewRHEL": Array [
+    "RHEL",
+    "RHEL for ARM",
+    "RHEL for IBM Power",
+    "RHEL for IBM z",
+    "RHEL for x86",
+  ],
+  "viewSatellite": Array [
+    "Satellite",
+    "Satellite Capsule",
+    "Satellite Server",
+  ],
+}
+`;
+
+exports[`RouterHelpers should return specific properties: routes 1`] = `
+Array [
+  Object {
+    "activateOnError": false,
     "component": Object {
       "$$typeof": Symbol(react.lazy),
       "_init": [Function],
@@ -233,32 +683,155 @@ Object {
     },
     "disabled": false,
     "exact": true,
-    "id": "rhel-arm",
-    "isSearchable": false,
-    "path": "/rhel-arm",
-    "pathParameter": "RHEL for ARM",
-    "productParameter": "RHEL",
+    "redirect": null,
     "render": true,
-    "routeHref": "/rhel-arm",
-    "to": "/:variant(rhel|rhel-arm|rhel-ibmpower|rhel-ibmz|rhel-x86)",
-    "viewParameter": "viewRHEL",
+    "to": "/rhel",
   },
-  "route": Object {},
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
-Object {
-  "nav": Object {
-    "id": "optin",
-    "isSearchable": false,
-    "path": "/optin",
-    "pathParameter": null,
-    "productParameter": null,
-    "routeHref": "/optin",
-    "viewParameter": null,
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/rhel-arm",
   },
-  "navRoute": Object {
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/rhel-ibmpower",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/rhel-ibmz",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/rhel-x86",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/openshift-container",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/openshift-dedicated",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/satellite",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/satellite-capsule",
+  },
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": null,
+    "render": true,
+    "to": "/satellite-server",
+  },
+  Object {
     "activateOnError": true,
     "component": Object {
       "$$typeof": Symbol(react.lazy),
@@ -270,16 +843,25 @@ Object {
     },
     "disabled": false,
     "exact": true,
-    "id": "optin",
-    "isSearchable": false,
-    "path": "/optin",
-    "pathParameter": null,
-    "productParameter": null,
+    "redirect": null,
     "render": true,
-    "routeHref": "/optin",
     "to": "/optin",
-    "viewParameter": null,
   },
-  "route": Object {},
-}
+  Object {
+    "activateOnError": false,
+    "component": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_init": [Function],
+      "_payload": Object {
+        "_result": [Function],
+        "_status": -1,
+      },
+    },
+    "disabled": false,
+    "exact": true,
+    "redirect": "/",
+    "render": true,
+    "to": "/",
+  },
+]
 `;
