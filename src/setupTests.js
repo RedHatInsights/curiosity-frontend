@@ -55,7 +55,7 @@ global.window.insights = {
           })
         )
     },
-    getUserPermissions: Function.prototype,
+    getUserPermissions: () => [],
     hideGlobalFilter: Function.prototype,
     identifyApp: Function.prototype,
     init: Function.prototype,
