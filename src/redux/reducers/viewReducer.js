@@ -1,4 +1,4 @@
-import { routerConfig } from '../../components/router/routerConfig';
+import { routerHelpers } from '../../components/router/routerHelpers';
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
@@ -29,7 +29,7 @@ const viewReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST:
       const updateResetQueries = (query = {}, id) => {
-        const queryIds = routerConfig.productGroups[id] || (query[id] && [id]) || [];
+        const queryIds = routerHelpers.productGroups[id] || (query[id] && [id]) || [];
         const updatedQuery = { ...query };
 
         queryIds.forEach(queryId => {
@@ -60,7 +60,7 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST:
       const updateClearQueries = (query = {}, id) => {
-        const queryIds = routerConfig.productGroups[id] || (query[id] && [id]) || [];
+        const queryIds = routerHelpers.productGroups[id] || (query[id] && [id]) || [];
         const updatedQuery = { ...query };
 
         queryIds.forEach(queryId => {
