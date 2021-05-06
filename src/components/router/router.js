@@ -35,15 +35,11 @@ class Router extends React.Component {
           return (
             <Route
               exact={item.exact}
-              key={item.to}
-              path={item.to}
+              key={item.path}
+              path={item.path}
               strict={item.strict}
               render={({ location, ...routeProps }) => {
-                const navDetail = routerHelpers.getNavigationDetail({
-                  pathname: location && location.pathname,
-                  returnDefault: false
-                });
-
+                const routeConfig = item.id && routerHelpers.getRouteConfig({ id: item.id });
                 const { URLSearchParams, decodeURIComponent } = window;
                 const parsedSearch = {};
 
@@ -70,7 +66,7 @@ class Router extends React.Component {
                       errorRoute: activateOnErrorRoute,
                       routes,
                       routeItem: { ...item },
-                      ...navDetail
+                      ...routeConfig
                     }}
                     location={updatedLocation}
                     {...routeProps}
@@ -81,7 +77,7 @@ class Router extends React.Component {
           );
         }
 
-        return <Route exact={item.exact} key={item.to} path={item.to} component={item.component} />;
+        return <Route exact={item.exact} key={item.path} path={item.path} component={item.component} />;
       }),
       redirectRoot
     };
@@ -118,10 +114,11 @@ Router.propTypes = {
       component: PropTypes.any.isRequired,
       disabled: PropTypes.boolean,
       exact: PropTypes.boolean,
+      id: PropTypes.string,
+      path: PropTypes.string.isRequired,
       redirect: PropTypes.string,
       render: PropTypes.boolean,
-      strict: PropTypes.boolean,
-      to: PropTypes.string.isRequired
+      strict: PropTypes.boolean
     })
   )
 };
