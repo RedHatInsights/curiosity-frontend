@@ -19,8 +19,7 @@ describe('Router Component', () => {
     const props = {
       routes: [
         {
-          title: 'Lorem',
-          to: '/lorem',
+          path: '/lorem',
           redirect: '/loremIpsum',
           component: () => <div>Lorem</div>,
           exact: false,
@@ -28,8 +27,7 @@ describe('Router Component', () => {
           disabled: false
         },
         {
-          title: 'Ipsum',
-          to: '/ipsum',
+          path: '/ipsum',
           component: () => <div>Ipsum</div>,
           activateOnError: true,
           exact: false,
@@ -47,8 +45,7 @@ describe('Router Component', () => {
     const props = {
       routes: [
         {
-          title: 'Lorem',
-          to: '/lorem',
+          path: '/lorem',
           redirect: '/loremIpsum',
           component: () => <div>Lorem</div>,
           exact: false,
