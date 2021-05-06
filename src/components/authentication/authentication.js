@@ -42,7 +42,7 @@ class Authentication extends Component {
       hideGlobalFilter();
 
       const appNav = onNavigation(event => {
-        const { routeHref } = routerHelpers.getNavRouteDetail({ id: event.navId });
+        const { routeHref } = routerHelpers.getRouteConfig({ id: event.navId });
         history.push(routeHref);
       });
 
@@ -88,7 +88,7 @@ class Authentication extends Component {
       if (helpers.TEST_MODE) {
         return <React.Fragment>{session.status} redirect</React.Fragment>;
       }
-      return <Redirect isRedirect route={routerHelpers.getErrorRoute.to} />;
+      return <Redirect isRedirect route={routerHelpers.getErrorRoute.path} />;
     }
 
     return (
