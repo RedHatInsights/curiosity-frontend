@@ -32,14 +32,19 @@ const ProductViewMissing = ({ basePath, products, t }) => {
 
     basePathDirs.forEach(dir => {
       if (dir) {
-        products.forEach(({ id, productParameter, isSearchable, ...navItem }) => {
-          if (isSearchable && new RegExp(dir, 'i').test(productParameter)) {
-            updatedProducts[id] = {
-              id,
-              productParameter,
-              isSearchable,
-              ...navItem
-            };
+        products.forEach(({ id, productParameter, isSearchable, aliases, ...navItem }) => {
+          if (isSearchable) {
+            if (
+              new RegExp(dir, 'i').test(productParameter?.toString()) ||
+              new RegExp(dir, 'i').test(aliases?.toString())
+            ) {
+              updatedProducts[id] = {
+                id,
+                productParameter,
+                isSearchable,
+                ...navItem
+              };
+            }
           }
         });
       }
@@ -56,10 +61,13 @@ const ProductViewMissing = ({ basePath, products, t }) => {
    * On click, update history.
    *
    * @event onUpdateHistory
-   * @param {string} path
+   * @param {string} id
    * @returns {void}
    */
-  const onClick = path => history.push(path);
+  const onClick = id => {
+    const { routeHref } = routerHelpers.getRouteConfig({ id });
+    history.push(routeHref);
+  };
 
   return (
     <PageLayout className="curiosity-missing-view">
@@ -69,23 +77,29 @@ const ProductViewMissing = ({ basePath, products, t }) => {
       <PageSection isFilled>
         <Gallery hasGutter>
           {filterAvailableProducts().map(product => (
-            <Card key={product.id} isHoverable onClick={() => onClick(product.path)}>
+            <Card key={product.id} isHoverable onClick={() => onClick(product.id)}>
               <CardTitle>
                 <Title headingLevel="h2" size="lg">
-                  {t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: product.pathParameter })}
+                  {t('curiosity-view.title', {
+                    appName: helpers.UI_DISPLAY_NAME,
+                    context:
+                      (Array.isArray(product.pathParameter) && product.pathParameter?.[0]) || product.pathParameter
+                  })}
                 </Title>
               </CardTitle>
               <CardBody className="curiosity-missing-view__card-description">
                 {t('curiosity-view.description', {
                   appName: helpers.UI_DISPLAY_NAME,
-                  context: product.productParameter
+                  context:
+                    (Array.isArray(product.productParameter) && product.productParameter?.[0]) ||
+                    product.productParameter
                 })}
               </CardBody>
               <CardFooter>
                 <Button
                   variant="link"
                   isInline
-                  onClick={() => onClick(product.path)}
+                  onClick={() => onClick(product.id)}
                   icon={<ArrowRightIcon />}
                   iconPosition="right"
                 >
@@ -112,8 +126,8 @@ ProductViewMissing.propTypes = {
       id: PropTypes.string.isRequired,
       isSearchable: PropTypes.bool.isRequired,
       path: PropTypes.string.isRequired,
-      pathParameter: PropTypes.string,
-      productParameter: PropTypes.string
+      pathParameter: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+      productParameter: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
     })
   ),
   t: PropTypes.func
@@ -126,7 +140,7 @@ ProductViewMissing.propTypes = {
  */
 ProductViewMissing.defaultProps = {
   basePath: routerHelpers.basePath,
-  products: routerHelpers.navigation,
+  products: routerHelpers.routesConfig,
   t: translate
 };
 

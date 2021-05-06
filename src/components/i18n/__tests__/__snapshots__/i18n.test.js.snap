@@ -266,11 +266,11 @@ Array [
       },
       Object {
         "key": "curiosity-view.title",
-        "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: product.pathParameter })",
+        "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: (Array.isArray(product.pathParameter)",
       },
       Object {
         "key": "curiosity-view.description",
-        "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: product.productParameter })",
+        "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: (Array.isArray(product.productParameter)",
       },
     ],
   },

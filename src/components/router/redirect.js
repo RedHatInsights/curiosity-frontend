@@ -31,7 +31,7 @@ const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
 
   if (isRedirect === true) {
     if (route && history) {
-      const routeDetail = routerHelpers.getRouteDetail({ pathname: route });
+      const routeDetail = routerHelpers.getRouteConfigByPath({ pathName: route }).firstMatch;
 
       return (
         <React.Suspense fallback={<Loader variant="title" />}>
