@@ -13,12 +13,10 @@ import { translate } from '../i18n/i18n';
  *
  * @fires onClick
  * @param {object} props
- * @param {string} props.basePath
- * @param {Array} props.products
  * @param {Function} props.t
  * @returns {Node}
  */
-const ProductViewMissing = ({ basePath, products, t }) => {
+const ProductViewMissing = ({ t }) => {
   const history = useHistory();
 
   /**
@@ -27,34 +25,8 @@ const ProductViewMissing = ({ basePath, products, t }) => {
    * @returns {Array}
    */
   const filterAvailableProducts = () => {
-    const basePathDirs = basePath.split('/');
-    const updatedProducts = {};
-
-    basePathDirs.forEach(dir => {
-      if (dir) {
-        products.forEach(({ id, productParameter, isSearchable, aliases, ...navItem }) => {
-          if (isSearchable) {
-            if (
-              new RegExp(dir, 'i').test(productParameter?.toString()) ||
-              new RegExp(dir, 'i').test(aliases?.toString())
-            ) {
-              updatedProducts[id] = {
-                id,
-                productParameter,
-                isSearchable,
-                ...navItem
-              };
-            }
-          }
-        });
-      }
-    });
-
-    const filteredProducts = Object.values(updatedProducts);
-    return (
-      (filteredProducts.length && filteredProducts) ||
-      products.filter(({ isSearchable, productParameter }) => (isSearchable && productParameter) || false)
-    );
+    const { configs, allConfigs } = routerHelpers.getRouteConfigByPath();
+    return (configs.length && configs) || allConfigs.filter(({ isSearchable }) => isSearchable === true);
   };
 
   /**
@@ -77,7 +49,7 @@ const ProductViewMissing = ({ basePath, products, t }) => {
       <PageSection isFilled>
         <Gallery hasGutter>
           {filterAvailableProducts().map(product => (
-            <Card key={product.id} isHoverable onClick={() => onClick(product.id)}>
+            <Card key={`missingViewCard-${product.id}`} isHoverable onClick={() => onClick(product.id)}>
               <CardTitle>
                 <Title headingLevel="h2" size="lg">
                   {t('curiosity-view.title', {
@@ -120,16 +92,6 @@ const ProductViewMissing = ({ basePath, products, t }) => {
  * @type {{t: Function}}
  */
 ProductViewMissing.propTypes = {
-  basePath: PropTypes.string,
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      isSearchable: PropTypes.bool.isRequired,
-      path: PropTypes.string.isRequired,
-      pathParameter: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-      productParameter: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
-    })
-  ),
   t: PropTypes.func
 };
 
@@ -139,8 +101,6 @@ ProductViewMissing.propTypes = {
  * @type {{t: translate}}
  */
 ProductViewMissing.defaultProps = {
-  basePath: routerHelpers.basePath,
-  products: routerHelpers.routesConfig,
   t: translate
 };
 
