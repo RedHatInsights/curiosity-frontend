@@ -239,6 +239,11 @@ class Select extends React.Component {
      * In this case "null" is a fallback for scenarios where an "undefined" list is passed
      * during initial mount. Converted to an empty list/array "[]" to compensate.
      */
+    /**
+     * Note: PFReact missing select border on compile
+     * Related https://github.com/patternfly/patternfly-react/issues/5650 and
+     * https://github.com/cssnano/cssnano/issues/1051
+     */
     return (
       <PfSelect
         className={`curiosity-select${(!isToggleText && '__no-toggle-text') || ''} ${
