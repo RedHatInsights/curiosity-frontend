@@ -239,6 +239,13 @@ class Select extends React.Component {
      * In this case "null" is a fallback for scenarios where an "undefined" list is passed
      * during initial mount. Converted to an empty list/array "[]" to compensate.
      */
+    /**
+     * FixMe: PFReact isPlain vs Platform styling, removed? Attempt to set isPlain prop
+     * Confusing, possible false positive.?! The styling for select is reverting towards "isPlain"
+     * when Curiosity is viewed WITHOUT browser caching disabled in dev tools. When caching IS
+     * disabled Curiosity displays the correct select styling. This almost appears as if certain
+     * resources are being overridden, unclear why the default comes out as "isPlain".
+     */
     return (
       <PfSelect
         className={`curiosity-select${(!isToggleText && '__no-toggle-text') || ''} ${
@@ -250,6 +257,7 @@ class Select extends React.Component {
         onSelect={this.onSelect}
         selections={selected}
         isOpen={isExpanded}
+        isPlain={false}
         toggleIcon={toggleIcon}
         placeholderText={placeholder}
         {...pfSelectOptions}
