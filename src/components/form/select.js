@@ -240,11 +240,9 @@ class Select extends React.Component {
      * during initial mount. Converted to an empty list/array "[]" to compensate.
      */
     /**
-     * FixMe: PFReact isPlain vs Platform styling, removed? Attempt to set isPlain prop
-     * Confusing, possible false positive.?! The styling for select is reverting towards "isPlain"
-     * when Curiosity is viewed WITHOUT browser caching disabled in dev tools. When caching IS
-     * disabled Curiosity displays the correct select styling. This almost appears as if certain
-     * resources are being overridden, unclear why the default comes out as "isPlain".
+     * FixMe: PFReact missing select border on compile
+     * Possible related https://github.com/patternfly/patternfly-react/issues/5650 and
+     * https://github.com/cssnano/cssnano/issues/1051
      */
     return (
       <PfSelect
@@ -257,7 +255,6 @@ class Select extends React.Component {
         onSelect={this.onSelect}
         selections={selected}
         isOpen={isExpanded}
-        isPlain={false}
         toggleIcon={toggleIcon}
         placeholderText={placeholder}
         {...pfSelectOptions}

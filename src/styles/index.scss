@@ -7,6 +7,7 @@
  * Workaround is to move the CSS files to ./src/index.js
  */
 @import '~@patternfly/patternfly/sass-utilities/all';
+@import '~@patternfly/react-styles/css/components/Select/select.css';
 
 // App
 @import 'page-layout';
