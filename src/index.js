@@ -6,6 +6,7 @@ import { baseName } from './components/router/routerHelpers';
 import { store } from './redux';
 import App from './components/app';
 import './styles/index.scss';
+import '@patternfly/react-styles/css/components/Select/select.css';
 
 render(
   <Provider store={store}>
