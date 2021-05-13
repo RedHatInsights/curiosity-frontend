@@ -107,10 +107,12 @@ describe('I18n Component', () => {
   it('should attempt to perform a string replace', () => {
     const localeKey = translate('lorem.ipsum');
     const placeholder = translate('lorem.ipsum', 'hello world');
+    const multiContext = translate('lorem.ipsum', { context: ['hello', 'world'] });
 
     expect({
       localeKey,
-      placeholder
+      placeholder,
+      multiContext
     }).toMatchSnapshot('translate');
   });
 
