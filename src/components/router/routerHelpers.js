@@ -110,8 +110,7 @@ const generateRoutes = (config = routesConfig) =>
     exact: true,
     id,
     path: routePath,
-    redirect,
-    render: true
+    redirect
   }));
 
 /**

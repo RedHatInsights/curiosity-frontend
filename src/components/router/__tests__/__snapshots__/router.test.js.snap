@@ -21,7 +21,6 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
         "exact": false,
         "path": "/lorem",
         "redirect": "/loremIpsum",
-        "render": false,
       },
       Object {
         "activateOnError": true,
@@ -29,23 +28,22 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
         "disabled": false,
         "exact": false,
         "path": "/ipsum",
-        "render": false,
       },
     ]
   }
 >
   <Switch>
     <Route
-      component={[Function]}
       exact={false}
       key="/lorem"
       path="/lorem"
+      render={[Function]}
     />
     <Route
-      component={[Function]}
       exact={false}
       key="/ipsum"
       path="/ipsum"
+      render={[Function]}
     />
     <Redirect
       to="/loremIpsum"
@@ -69,7 +67,6 @@ Object {
       "exact": false,
       "path": "/lorem",
       "redirect": "/loremIpsum",
-      "render": true,
     },
     "routes": Array [
       Object {
@@ -78,7 +75,6 @@ Object {
         "exact": false,
         "path": "/lorem",
         "redirect": "/loremIpsum",
-        "render": true,
       },
     ],
   },
@@ -115,7 +111,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "rhel",
         "path": "/rhel",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -132,7 +127,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "rhel-arm",
         "path": "/rhel-arm",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -149,7 +143,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "rhel-ibmpower",
         "path": "/rhel-ibmpower",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -166,7 +159,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "rhel-ibmz",
         "path": "/rhel-ibmz",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -183,7 +175,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "rhel-x86",
         "path": "/rhel-x86",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -200,7 +191,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "openshift-container",
         "path": "/openshift-container",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -217,7 +207,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "openshift-dedicated",
         "path": "/openshift-dedicated",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -234,7 +223,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "satellite",
         "path": "/satellite",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -251,7 +239,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "satellite-capsule",
         "path": "/satellite-capsule",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -268,7 +255,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "satellite-server",
         "path": "/satellite-server",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": true,
@@ -285,7 +271,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "optin",
         "path": "/optin",
         "redirect": null,
-        "render": true,
       },
       Object {
         "activateOnError": false,
@@ -302,7 +287,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "id": "missing",
         "path": "/",
         "redirect": "/",
-        "render": true,
       },
     ]
   }
