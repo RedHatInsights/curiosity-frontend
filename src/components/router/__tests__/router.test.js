@@ -23,7 +23,6 @@ describe('Router Component', () => {
           redirect: '/loremIpsum',
           component: () => <div>Lorem</div>,
           exact: false,
-          render: false,
           disabled: false
         },
         {
@@ -31,7 +30,6 @@ describe('Router Component', () => {
           component: () => <div>Ipsum</div>,
           activateOnError: true,
           exact: false,
-          render: false,
           disabled: false
         }
       ]
@@ -49,7 +47,6 @@ describe('Router Component', () => {
           redirect: '/loremIpsum',
           component: () => <div>Lorem</div>,
           exact: false,
-          render: true,
           disabled: false
         }
       ]
