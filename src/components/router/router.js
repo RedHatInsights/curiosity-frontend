@@ -8,30 +8,22 @@ import { Loader } from '../loader/loader';
 /**
  * Load routes.
  *
- * @augments React.Component
+ * @param {object} props
+ * @param {Array} props.routes
+ * @returns {Node}
  */
-class Router extends React.Component {
-  /**
-   * Parse settings array with route options.
-   *
-   * @returns {{redirectRoot: Node, renderRoutes: Array}}
-   */
-  renderRoutes() {
-    const { routes } = this.props;
-    const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
-    let redirectRoot = null;
+const Router = ({ routes } = {}) => {
+  const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
+  const redirectRoot = routes.find(({ disabled, redirect }) => !disabled && redirect) ?? null;
 
-    return {
-      renderRoutes: routes.map(item => {
-        if (item.disabled) {
-          return null;
-        }
+  return (
+    <React.Suspense fallback={<Loader variant="title" />}>
+      <Switch>
+        {routes.map(item => {
+          if (item.disabled) {
+            return null;
+          }
 
-        if (item.redirect) {
-          redirectRoot = <ReactRouterDomRedirect to={item.redirect} />;
-        }
-
-        if (item.render === true) {
           return (
             <Route
               exact={item.exact}
@@ -75,32 +67,12 @@ class Router extends React.Component {
               }}
             />
           );
-        }
-
-        return <Route exact={item.exact} key={item.path} path={item.path} component={item.component} />;
-      }),
-      redirectRoot
-    };
-  }
-
-  /**
-   * Render router.
-   *
-   * @returns {Node}
-   */
-  render() {
-    const { renderRoutes, redirectRoot } = this.renderRoutes();
-
-    return (
-      <React.Suspense fallback={<Loader variant="title" />}>
-        <Switch>
-          {renderRoutes}
-          {redirectRoot}
-        </Switch>
-      </React.Suspense>
-    );
-  }
-}
+        })}
+        {redirectRoot && <ReactRouterDomRedirect to={redirectRoot.redirect} />}
+      </Switch>
+    </React.Suspense>
+  );
+};
 
 /**
  * Prop types.
