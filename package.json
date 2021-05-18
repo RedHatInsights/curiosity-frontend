@@ -158,7 +158,7 @@
     "enzyme-to-json": "^3.6.2",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsdoc": "^33.3.0",
     "eslint-plugin-json": "^3.0.0",
