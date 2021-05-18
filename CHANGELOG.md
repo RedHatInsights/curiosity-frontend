@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.5.0...v1.6.0) (2021-05-18)
+
+
+### Features
+
+* **config:** ent-3828 generate permissions for rbac ([#655](https://github.com/RedHatInsights/curiosity-frontend/issues/655)) ([df114c7](https://github.com/RedHatInsights/curiosity-frontend/commit/df114c78992dc58c078461deb746786453026ea6))
+* **productViewMissing:** ent-3753 missing product view ([#630](https://github.com/RedHatInsights/curiosity-frontend/issues/630)) ([fd8f9cc](https://github.com/RedHatInsights/curiosity-frontend/commit/fd8f9ccad176afeb66e6ddf7b9e75ee5dab5869e))
+
+
+### Bug Fixes
+
+* **build:** i18n npm updates ([#648](https://github.com/RedHatInsights/curiosity-frontend/issues/648)) ([11f838b](https://github.com/RedHatInsights/curiosity-frontend/commit/11f838b11adb0a10dc02682ab97e67432e2f6f74))
+* **build:** npm updates ([#648](https://github.com/RedHatInsights/curiosity-frontend/issues/648)) ([01cc3c1](https://github.com/RedHatInsights/curiosity-frontend/commit/01cc3c167ec19a8e324b98c53edd09cdcc0ad53b))
+* **build:** pf, platform npm updates ([#648](https://github.com/RedHatInsights/curiosity-frontend/issues/648)) ([3a9188a](https://github.com/RedHatInsights/curiosity-frontend/commit/3a9188a7ee18d12050611ca6fe2f17eb011f0ec6))
+* **build:** react npm updates ([#648](https://github.com/RedHatInsights/curiosity-frontend/issues/648)) ([f3087a2](https://github.com/RedHatInsights/curiosity-frontend/commit/f3087a2a95b2cc63fc217dfaa52d5a76e50e2acd))
+* **dotenv:** ent-3696 learn more link update ([#644](https://github.com/RedHatInsights/curiosity-frontend/issues/644)) ([fa5322b](https://github.com/RedHatInsights/curiosity-frontend/commit/fa5322b405cde1ed546e93d9abbf53cb3e441653))
+* **graphCardSelectors:** ent-3816 graph display floats ([#643](https://github.com/RedHatInsights/curiosity-frontend/issues/643)) ([89aa409](https://github.com/RedHatInsights/curiosity-frontend/commit/89aa4097ee5438476ab7cf68a577f1b604c4c083))
+* **locale:** ent-3819 graph titles display cpu socket usage ([#644](https://github.com/RedHatInsights/curiosity-frontend/issues/644)) ([85bcad2](https://github.com/RedHatInsights/curiosity-frontend/commit/85bcad2029aef9101023fad894db59dfafad23ee))
+* **productView:** fix display for core hours below 1000 ([#643](https://github.com/RedHatInsights/curiosity-frontend/issues/643)) ([5e1c96e](https://github.com/RedHatInsights/curiosity-frontend/commit/5e1c96e031fc419528122a9e415a6215c4bf688a))
+* **productView:** low precision display for core hours used ([#647](https://github.com/RedHatInsights/curiosity-frontend/issues/647)) ([6f8d918](https://github.com/RedHatInsights/curiosity-frontend/commit/6f8d918010981307fb4364c6c701673900f58194))
+* **productViewMissing:** relax proptypes, styling ([#649](https://github.com/RedHatInsights/curiosity-frontend/issues/649)) ([d9052e8](https://github.com/RedHatInsights/curiosity-frontend/commit/d9052e81ffe2e497e8232003738566e1b4a80363))
+* **select:** load css directly, compensate for pf variables ([#671](https://github.com/RedHatInsights/curiosity-frontend/issues/671)) ([d00e33d](https://github.com/RedHatInsights/curiosity-frontend/commit/d00e33dd6d86796769dacc3668a9f4c6ca710934))
+* **userSelectors:** ent-3825 add report read permissions ([#654](https://github.com/RedHatInsights/curiosity-frontend/issues/654)) ([3e5c5c0](https://github.com/RedHatInsights/curiosity-frontend/commit/3e5c5c0f2ac6f0a9ced2e5ad5b459f61d97bd3bc))
+
 ## [1.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.4.0...v1.5.0) (2021-04-26)
 
 
