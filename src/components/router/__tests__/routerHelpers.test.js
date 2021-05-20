@@ -9,22 +9,6 @@ import {
 } from '../routerHelpers';
 
 describe('RouterHelpers', () => {
-  const mockWindowLocation = async ({ url, callback }) => {
-    const updatedUrl = new URL(url);
-    const { location } = window;
-    delete window.location;
-    // mock
-    window.location = {
-      href: updatedUrl.href,
-      search: updatedUrl.search,
-      hash: updatedUrl.hash,
-      pathname: updatedUrl.pathname
-    };
-    await callback();
-    // restore
-    window.location = location;
-  };
-
   it('should return specific properties', () => {
     expect(routerHelpers).toMatchSnapshot('routerHelpers');
   });
@@ -156,14 +140,16 @@ describe('RouterHelpers', () => {
   });
 
   it('should return default navigation and route details', () => {
-    mockWindowLocation({
-      url: 'https://ci.foo.redhat.com/loremIpsum/dolorSit/',
-      callback: () => {
+    mockWindowLocation(
+      () => {
         expect({
           navRoute: getRouteConfigByPath()
         }).toMatchSnapshot('detail: defaults');
+      },
+      {
+        url: 'https://ci.foo.redhat.com/loremIpsum/dolorSit/'
       }
-    });
+    );
   });
 
   it('should return navigation and route details from a path', () => {
@@ -191,41 +177,49 @@ describe('RouterHelpers', () => {
   });
 
   it('should handle location search and hash passthrough values', () => {
-    mockWindowLocation({
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel',
-      callback: () => {
+    mockWindowLocation(
+      () => {
         expect({
           routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
         }).toMatchSnapshot('NO search and hash');
+      },
+      {
+        url: 'https://ci.foo.redhat.com/subscriptions/rhel'
       }
-    });
+    );
 
-    mockWindowLocation({
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit',
-      callback: () => {
+    mockWindowLocation(
+      () => {
         expect({
           routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
         }).toMatchSnapshot('search');
+      },
+      {
+        url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit'
       }
-    });
+    );
 
-    mockWindowLocation({
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel#lorem',
-      callback: () => {
+    mockWindowLocation(
+      () => {
         expect({
           routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
         }).toMatchSnapshot('hash');
+      },
+      {
+        url: 'https://ci.foo.redhat.com/subscriptions/rhel#lorem'
       }
-    });
+    );
 
-    mockWindowLocation({
-      url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit#lorem',
-      callback: () => {
+    mockWindowLocation(
+      () => {
         expect({
           routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
         }).toMatchSnapshot('search and hash');
+      },
+      {
+        url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit#lorem'
       }
-    });
+    );
   });
 
   it('should return a lazy loaded view for every route', () => {

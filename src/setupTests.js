@@ -1,5 +1,6 @@
-import { configure } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { act } from 'react-dom/test-utils';
 import * as pfReactCoreComponents from '@patternfly/react-core';
 import * as pfReactChartComponents from '@patternfly/react-charts';
 
@@ -17,6 +18,9 @@ jest.mock('i18next', () => {
   return new Test();
 });
 
+/**
+ * Emulate for component checks
+ */
 jest.mock('lodash/debounce', () => jest.fn);
 
 /**
@@ -42,6 +46,12 @@ const addDisplayName = components => {
 addDisplayName(pfReactCoreComponents);
 addDisplayName(pfReactChartComponents);
 
+/**
+ * Apply a global insights chroming object.
+ *
+ * @type {{chrome: {init: Function, navigation: Function, auth: {getUser: Function}, identifyApp: Function,
+ *     getUserPermissions: Function, isBeta: Function, hideGlobalFilter: Function, on: Function}}}
+ */
 global.window.insights = {
   chrome: {
     auth: {
@@ -63,6 +73,46 @@ global.window.insights = {
     navigation: Function.prototype,
     on: Function.prototype
   }
+};
+
+/**
+ * Enzyme for components using hooks.
+ *
+ * @param {Node} component
+ *
+ * @returns {Promise<null>}
+ */
+global.mountHookComponent = async component => {
+  let mountedComponent = null;
+  await act(async () => {
+    mountedComponent = mount(component);
+  });
+  mountedComponent?.update();
+  return mountedComponent;
+};
+
+/**
+ * Generate a mock window location object, allow async.
+ *
+ * @param {Function} callback
+ * @param {object} options
+ * @param {string} options.url
+ * @returns {Promise<void>}
+ */
+global.mockWindowLocation = async (callback, { url = 'https://ci.foo.redhat.com/subscriptions/rhel' } = {}) => {
+  const updatedUrl = new URL(url);
+  const { location } = window;
+  delete window.location;
+  // mock
+  window.location = {
+    href: updatedUrl.href,
+    search: updatedUrl.search,
+    hash: updatedUrl.hash,
+    pathname: updatedUrl.pathname
+  };
+  await callback();
+  // restore
+  window.location = location;
 };
 
 /*
