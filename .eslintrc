@@ -37,6 +37,10 @@
     "plugin:jest/recommended",
     "plugin:jsdoc/recommended"
   ],
+  "globals": {
+    "mountHookComponent": "readonly",
+    "mockWindowLocation": "readonly"
+  },
   "rules": {
     "arrow-parens": [
       "error",
