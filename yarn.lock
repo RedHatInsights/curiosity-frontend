@@ -2787,10 +2787,10 @@ anymatch@^3.0.3, anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-apidoc-core@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/apidoc-core/-/apidoc-core-0.12.0.tgz#96e5c04c17b92c288664ef3c8aa4c78cbfacccb6"
-  integrity sha512-VMhkJWz5IAyvWM0RnEbKNi1qe8se+id3/Ki3H/ePM8ih0KYTfaaSDxqo2w4uIVB1UVVKFvrTWyYUyQs7CEcoKQ==
+apidoc-core@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/apidoc-core/-/apidoc-core-0.15.0.tgz#4dfcc76cc76694bd4457ccbd8655c03a87a2e2a5"
+  integrity sha512-CJNjRs6R8nc774vUtbv9Uakos5/JbEFpBXgE6oiWUX7OpjI1s04xPuULEoQQJyQM427r5hr55GSHAm5/LRc5TQ==
   dependencies:
     fs-extra "^9.0.1"
     glob "^7.1.6"
@@ -2799,23 +2799,23 @@ apidoc-core@^0.12.0:
     lodash "^4.17.20"
     semver "~7.3.2"
 
-apidoc-mock@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/apidoc-mock/-/apidoc-mock-3.0.4.tgz#5981d6762bae3f16edfade92aabd27847c2a18b0"
-  integrity sha512-iopmRbYV4gME4wiMYkp+/Yi9sL7KOiIk7plLG4CTm6Ptag0yhEj8Z24pNih5nbXXP0txkXG0v2nSvACcjeDeVQ==
+apidoc-mock@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/apidoc-mock/-/apidoc-mock-4.0.0.tgz#952a073c28dccf4d100ec119b417bbcc3334d5d9"
+  integrity sha512-opQkVRfOKcDG7uBJ1dXMJ24+iYECGKsqpUCkKaSqhpanhFKM/FurV99IDaBfaoiKAKfbJ0ugI6sBx/EvdCWGTw==
   dependencies:
-    apidoc "^0.26.0"
+    apidoc "^0.27.1"
     express "^4.17.1"
     node-watch "^0.7.1"
     winston "^3.3.3"
-    yargs "^16.2.0"
+    yargs "^17.0.1"
 
-apidoc@^0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/apidoc/-/apidoc-0.26.0.tgz#7073ed5c92f06a22a611569985f578231c26e3a9"
-  integrity sha512-IEw/Z7HMMbjeVjK2sZvZSwAln8AqalLzf3qLDtkcedXVhdxGm6W7UgIW6fshegqNTMLzm8CFEMi4Lxbeu0xKTw==
+apidoc@^0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/apidoc/-/apidoc-0.27.1.tgz#2931dca6bb80a49154eb8375f6e49942f0d17ec8"
+  integrity sha512-CqbsmM1ew7LC2Lg2USaSWPxdtsIp7wb3dzR2DKHYvVSo+dYIY3K7oBsup5bpi6D1OkthTUxXvWvcrDyv7lPcnw==
   dependencies:
-    apidoc-core "^0.12.0"
+    apidoc-core "^0.15.0"
     commander "^2.20.0"
     fs-extra "^9.0.1"
     handlebars "^4.7.6"
@@ -15181,10 +15181,23 @@ yargs@^15.4.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^16.0.0, yargs@^16.2.0:
+yargs@^16.0.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.0"
+    y18n "^5.0.5"
+    yargs-parser "^20.2.2"
+
+yargs@^17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.0.1.tgz#6a1ced4ed5ee0b388010ba9fd67af83b9362e0bb"
+  integrity sha512-xBBulfCc8Y6gLFcrPvtqKz9hz8SO0l1Ni8GgDekvBX2ro0HRQImDGnikfc33cgzcYUSncapnNcZDjVFIH3f6KQ==
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
