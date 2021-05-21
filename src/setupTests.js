@@ -79,13 +79,14 @@ global.window.insights = {
  * Enzyme for components using hooks.
  *
  * @param {Node} component
+ * @param {object} options
  *
  * @returns {Promise<null>}
  */
-global.mountHookComponent = async component => {
+global.mountHookComponent = async (component, options = {}) => {
   let mountedComponent = null;
   await act(async () => {
-    mountedComponent = mount(component);
+    mountedComponent = mount(component, options);
   });
   mountedComponent?.update();
   return mountedComponent;
