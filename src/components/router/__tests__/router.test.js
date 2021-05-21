@@ -1,6 +1,8 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
+import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { MemoryRouter, Route } from 'react-router-dom';
+import { store } from '../../../redux';
 import { Router, Redirect, routerHelpers } from '../router';
 
 describe('Router Component', () => {
@@ -39,29 +41,18 @@ describe('Router Component', () => {
     expect(component).toMatchSnapshot('settings');
   });
 
-  it('should pass customized props to routed components', () => {
-    const props = {
-      routes: [
-        {
-          path: '/lorem',
-          redirect: '/loremIpsum',
-          component: () => <div>Lorem</div>,
-          exact: false,
-          disabled: false
-        }
-      ]
-    };
+  it('should load a specific route', async () => {
+    const props = {};
 
-    const component = mount(
-      <MemoryRouter initialEntries={['/lorem?ipsum=1%202&dolor=sit&dolor=sit&dolor']}>
-        <Router {...props} />
-      </MemoryRouter>
+    const component = await mountHookComponent(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/rhel-arm?ipsum=1%202&dolor=sit&dolor=sit&dolor']}>
+          <Router {...props} />
+        </MemoryRouter>
+      </Provider>
     );
-
-    const routedComponentProps = component.find(props.routes[0].component).props();
-    expect({
-      routeDetail: routedComponentProps.routeDetail,
-      locationParsedSearch: routedComponentProps.location.parsedSearch
-    }).toMatchSnapshot('routeDetail and location parsedSearch props');
+    const specificRoute = component.find(Route);
+    expect(specificRoute.length).toBe(1);
+    expect(specificRoute.props().path).toBe('/rhel-arm');
   });
 });
