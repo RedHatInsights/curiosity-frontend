@@ -1,4 +1,3 @@
-import React from 'react';
 import { RHSM_API_PATH_ID_TYPES } from '../types/rhsmApiTypes';
 import { helpers } from '../common';
 
@@ -14,7 +13,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewRhel'))
+    component: 'productView/productViewRhel'
   },
   {
     id: 'rhel-arm',
@@ -27,7 +26,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewRhel'))
+    component: 'productView/productViewRhel'
   },
   {
     id: 'rhel-ibmpower',
@@ -40,7 +39,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewRhel'))
+    component: 'productView/productViewRhel'
   },
   {
     id: 'rhel-ibmz',
@@ -53,7 +52,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewRhel'))
+    component: 'productView/productViewRhel'
   },
   {
     id: 'rhel-x86',
@@ -66,7 +65,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewRhel'))
+    component: 'productView/productViewRhel'
   },
   {
     id: 'openshift-container',
@@ -79,7 +78,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewOpenShiftContainer'))
+    component: 'productView/productViewOpenShiftContainer'
   },
   {
     id: 'openshift-dedicated',
@@ -92,7 +91,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewOpenShiftDedicated'))
+    component: 'productView/productViewOpenShiftDedicated'
   },
   {
     id: 'satellite',
@@ -105,7 +104,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewSatellite'))
+    component: 'productView/productViewSatellite'
   },
   {
     id: 'satellite-capsule',
@@ -118,7 +117,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewSatellite'))
+    component: 'productView/productViewSatellite'
   },
   {
     id: 'satellite-server',
@@ -131,7 +130,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/productView/productViewSatellite'))
+    component: 'productView/productViewSatellite'
   },
   {
     id: 'optin',
@@ -144,7 +143,7 @@ const routes = [
     activateOnError: true,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: React.lazy(() => import('../components/optinView/optinView'))
+    component: 'optinView/optinView'
   },
   {
     id: 'missing',
@@ -157,7 +156,7 @@ const routes = [
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: true,
-    component: React.lazy(() => import('../components/productView/productViewMissing'))
+    component: 'productView/productViewMissing'
   }
 ];
 

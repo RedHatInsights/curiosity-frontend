@@ -50,14 +50,7 @@ Object {
       "aliases": Array [
         "insights",
       ],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewRhel",
       "default": false,
       "disabled": false,
       "id": "rhel",
@@ -74,14 +67,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewRhel",
       "default": false,
       "disabled": false,
       "id": "rhel-arm",
@@ -98,14 +84,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewRhel",
       "default": false,
       "disabled": false,
       "id": "rhel-ibmpower",
@@ -122,14 +101,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewRhel",
       "default": false,
       "disabled": false,
       "id": "rhel-ibmz",
@@ -146,14 +118,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewRhel",
       "default": false,
       "disabled": false,
       "id": "rhel-x86",
@@ -170,14 +135,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewOpenShiftContainer",
       "default": false,
       "disabled": false,
       "id": "openshift-container",
@@ -196,14 +154,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewOpenShiftDedicated",
       "default": false,
       "disabled": false,
       "id": "openshift-dedicated",
@@ -220,14 +171,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewSatellite",
       "default": false,
       "disabled": false,
       "id": "satellite",
@@ -244,14 +188,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewSatellite",
       "default": false,
       "disabled": false,
       "id": "satellite-capsule",
@@ -268,14 +205,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewSatellite",
       "default": false,
       "disabled": false,
       "id": "satellite-server",
@@ -292,14 +222,7 @@ Object {
     Object {
       "activateOnError": true,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "optinView/optinView",
       "default": false,
       "disabled": false,
       "id": "optin",
@@ -312,14 +235,7 @@ Object {
     Object {
       "activateOnError": false,
       "aliases": Array [],
-      "component": Object {
-        "$$typeof": Symbol(react.lazy),
-        "_init": [Function],
-        "_payload": Object {
-          "_result": [Function],
-          "_status": -1,
-        },
-      },
+      "component": "productView/productViewMissing",
       "default": true,
       "disabled": false,
       "id": "missing",
