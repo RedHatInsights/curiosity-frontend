@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-dom';
+import { useMount } from 'react-use';
 import Redirect from './redirect';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
@@ -13,61 +14,77 @@ import { Loader } from '../loader/loader';
  * @returns {Node}
  */
 const Router = ({ routes } = {}) => {
-  const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
-  const redirectRoot = routes.find(({ disabled, redirect }) => !disabled && redirect) ?? null;
+  const [views, setViews] = useState([]);
+  const [redirectRoot, setRedirectRoot] = useState(null);
+
+  /**
+   * Initialize routes.
+   */
+  useMount(async () => {
+    const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
+
+    const results = await Promise.all(
+      routes.map(async item => {
+        if (item.disabled) {
+          return null;
+        }
+
+        const View = await item.component;
+
+        return (
+          <Route
+            exact={item.exact}
+            key={item.path}
+            path={item.path}
+            strict={item.strict}
+            render={({ location, ...routeProps }) => {
+              const routeConfig = item.id && routerHelpers.getRouteConfig({ id: item.id });
+              const { URLSearchParams, decodeURIComponent } = window;
+              const parsedSearch = {};
+
+              [
+                ...new Set(
+                  [...new URLSearchParams(decodeURIComponent(location.search))].map(
+                    ([param, value]) => `${param}~${value}`
+                  )
+                )
+              ].forEach(v => {
+                const [param, value] = v.split('~');
+                parsedSearch[param] = value;
+              });
+
+              const updatedLocation = {
+                ...location,
+                parsedSearch
+              };
+
+              return (
+                <View
+                  routeDetail={{
+                    baseName: routerHelpers.baseName,
+                    errorRoute: activateOnErrorRoute,
+                    routes,
+                    routeItem: { ...item },
+                    ...routeConfig
+                  }}
+                  location={updatedLocation}
+                  {...routeProps}
+                />
+              );
+            }}
+          />
+        );
+      })
+    );
+
+    setViews(results);
+    setRedirectRoot(routes.find(({ disabled, redirect }) => !disabled && redirect) ?? null);
+  });
 
   return (
     <React.Suspense fallback={<Loader variant="title" />}>
       <Switch>
-        {routes.map(item => {
-          if (item.disabled) {
-            return null;
-          }
-
-          return (
-            <Route
-              exact={item.exact}
-              key={item.path}
-              path={item.path}
-              strict={item.strict}
-              render={({ location, ...routeProps }) => {
-                const routeConfig = item.id && routerHelpers.getRouteConfig({ id: item.id });
-                const { URLSearchParams, decodeURIComponent } = window;
-                const parsedSearch = {};
-
-                [
-                  ...new Set(
-                    [...new URLSearchParams(decodeURIComponent(location.search))].map(
-                      ([param, value]) => `${param}~${value}`
-                    )
-                  )
-                ].forEach(v => {
-                  const [param, value] = v.split('~');
-                  parsedSearch[param] = value;
-                });
-
-                const updatedLocation = {
-                  ...location,
-                  parsedSearch
-                };
-
-                return (
-                  <item.component
-                    routeDetail={{
-                      baseName: routerHelpers.baseName,
-                      errorRoute: activateOnErrorRoute,
-                      routes,
-                      routeItem: { ...item },
-                      ...routeConfig
-                    }}
-                    location={updatedLocation}
-                    {...routeProps}
-                  />
-                );
-              }}
-            />
-          );
-        })}
+        {views}
         {redirectRoot && <ReactRouterDomRedirect to={redirectRoot.redirect} />}
       </Switch>
     </React.Suspense>

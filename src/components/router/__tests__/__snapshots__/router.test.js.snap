@@ -32,53 +32,8 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
     ]
   }
 >
-  <Switch>
-    <Route
-      exact={false}
-      key="/lorem"
-      path="/lorem"
-      render={[Function]}
-    />
-    <Route
-      exact={false}
-      key="/ipsum"
-      path="/ipsum"
-      render={[Function]}
-    />
-    <Redirect
-      to="/loremIpsum"
-    />
-  </Switch>
+  <Switch />
 </Suspense>
-`;
-
-exports[`Router Component should pass customized props to routed components: routeDetail and location parsedSearch props 1`] = `
-Object {
-  "locationParsedSearch": Object {
-    "dolor": "",
-    "ipsum": "1 2",
-  },
-  "routeDetail": Object {
-    "baseName": "/",
-    "errorRoute": undefined,
-    "routeItem": Object {
-      "component": [Function],
-      "disabled": false,
-      "exact": false,
-      "path": "/lorem",
-      "redirect": "/loremIpsum",
-    },
-    "routes": Array [
-      Object {
-        "component": [Function],
-        "disabled": false,
-        "exact": false,
-        "path": "/lorem",
-        "redirect": "/loremIpsum",
-      },
-    ],
-  },
-}
 `;
 
 exports[`Router Component should render a basic component: basic 1`] = `
@@ -291,82 +246,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
     ]
   }
 >
-  <Switch>
-    <Route
-      exact={true}
-      key="/rhel"
-      path="/rhel"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/rhel-arm"
-      path="/rhel-arm"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/rhel-ibmpower"
-      path="/rhel-ibmpower"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/rhel-ibmz"
-      path="/rhel-ibmz"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/rhel-x86"
-      path="/rhel-x86"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/openshift-container"
-      path="/openshift-container"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/openshift-dedicated"
-      path="/openshift-dedicated"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/satellite"
-      path="/satellite"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/satellite-capsule"
-      path="/satellite-capsule"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/satellite-server"
-      path="/satellite-server"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/optin"
-      path="/optin"
-      render={[Function]}
-    />
-    <Route
-      exact={true}
-      key="/"
-      path="/"
-      render={[Function]}
-    />
-    <Redirect
-      to="/"
-    />
-  </Switch>
+  <Switch />
 </Suspense>
 `;
