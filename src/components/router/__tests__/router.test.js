@@ -23,13 +23,13 @@ describe('Router Component', () => {
         {
           path: '/lorem',
           redirect: '/loremIpsum',
-          component: () => <div>Lorem</div>,
+          component: 'loremComponent',
           exact: false,
           disabled: false
         },
         {
           path: '/ipsum',
-          component: () => <div>Ipsum</div>,
+          component: 'ipsumComponent',
           activateOnError: true,
           exact: false,
           disabled: false
