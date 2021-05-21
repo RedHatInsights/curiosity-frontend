@@ -4,8 +4,7 @@ import {
   dynamicBasePath,
   getErrorRoute,
   getRouteConfig,
-  getRouteConfigByPath,
-  routes
+  getRouteConfigByPath
 } from '../routerHelpers';
 
 describe('RouterHelpers', () => {
@@ -220,21 +219,5 @@ describe('RouterHelpers', () => {
         url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit#lorem'
       }
     );
-  });
-
-  it('should return a lazy loaded view for every route', () => {
-    const lazyLoadComponents = [];
-
-    routes.forEach(({ component, to }) => {
-      const routeComponent = Object.getOwnPropertyNames(component)
-        .map(prop => (component[prop] || '').toString())
-        .find(val => /react/i.test(val));
-
-      if (/lazy/.test(routeComponent)) {
-        lazyLoadComponents.push({ routeComponentType: routeComponent, route: to });
-      }
-    });
-
-    expect(lazyLoadComponents.length === routes.length).toBe(true);
   });
 });
