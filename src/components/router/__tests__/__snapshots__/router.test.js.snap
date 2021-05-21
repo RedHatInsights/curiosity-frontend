@@ -16,7 +16,7 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
   routes={
     Array [
       Object {
-        "component": [Function],
+        "component": "loremComponent",
         "disabled": false,
         "exact": false,
         "path": "/lorem",
@@ -24,7 +24,7 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
       },
       Object {
         "activateOnError": true,
-        "component": [Function],
+        "component": "ipsumComponent",
         "disabled": false,
         "exact": false,
         "path": "/ipsum",
@@ -53,14 +53,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
     Array [
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewRhel",
         "disabled": false,
         "exact": true,
         "id": "rhel",
@@ -69,14 +62,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewRhel",
         "disabled": false,
         "exact": true,
         "id": "rhel-arm",
@@ -85,14 +71,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewRhel",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmpower",
@@ -101,14 +80,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewRhel",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmz",
@@ -117,14 +89,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewRhel",
         "disabled": false,
         "exact": true,
         "id": "rhel-x86",
@@ -133,14 +98,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewOpenShiftContainer",
         "disabled": false,
         "exact": true,
         "id": "openshift-container",
@@ -149,14 +107,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewOpenShiftDedicated",
         "disabled": false,
         "exact": true,
         "id": "openshift-dedicated",
@@ -165,14 +116,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewSatellite",
         "disabled": false,
         "exact": true,
         "id": "satellite",
@@ -181,14 +125,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewSatellite",
         "disabled": false,
         "exact": true,
         "id": "satellite-capsule",
@@ -197,14 +134,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewSatellite",
         "disabled": false,
         "exact": true,
         "id": "satellite-server",
@@ -213,14 +143,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": true,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "optinView/optinView",
         "disabled": false,
         "exact": true,
         "id": "optin",
@@ -229,14 +152,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": Object {
-          "$$typeof": Symbol(react.lazy),
-          "_init": [Function],
-          "_payload": Object {
-            "_result": [Function],
-            "_status": -1,
-          },
-        },
+        "component": "productView/productViewMissing",
         "disabled": false,
         "exact": true,
         "id": "missing",
