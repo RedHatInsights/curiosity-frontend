@@ -111,6 +111,7 @@ exports[`Select Component should allow alternate direction and position options:
   isCreatable={false}
   isDisabled={false}
   isGrouped={false}
+  isInputValuePersisted={false}
   isOpen={false}
   isPlain={false}
   maxHeight={null}
@@ -145,6 +146,8 @@ exports[`Select Component should allow alternate direction and position options:
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -165,6 +168,8 @@ exports[`Select Component should allow alternate direction and position options:
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -198,6 +203,7 @@ exports[`Select Component should allow alternate direction and position options:
   isCreatable={false}
   isDisabled={false}
   isGrouped={false}
+  isInputValuePersisted={false}
   isOpen={false}
   isPlain={false}
   maxHeight={null}
@@ -232,6 +238,8 @@ exports[`Select Component should allow alternate direction and position options:
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -252,6 +260,8 @@ exports[`Select Component should allow alternate direction and position options:
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -285,6 +295,7 @@ exports[`Select Component should allow being disabled with missing options: no o
   isCreatable={false}
   isDisabled={true}
   isGrouped={false}
+  isInputValuePersisted={false}
   isOpen={false}
   isPlain={false}
   maxHeight={null}
@@ -331,6 +342,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   isCreatable={false}
   isDisabled={true}
   isGrouped={false}
+  isInputValuePersisted={false}
   isOpen={false}
   isPlain={false}
   maxHeight={null}
@@ -365,6 +377,8 @@ exports[`Select Component should allow being disabled with missing options: opti
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -385,6 +399,8 @@ exports[`Select Component should allow being disabled with missing options: opti
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -405,6 +421,8 @@ exports[`Select Component should allow being disabled with missing options: opti
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -425,6 +443,8 @@ exports[`Select Component should allow being disabled with missing options: opti
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -458,6 +478,7 @@ exports[`Select Component should allow being disabled with missing options: opti
   isCreatable={false}
   isDisabled={true}
   isGrouped={false}
+  isInputValuePersisted={false}
   isOpen={false}
   isPlain={false}
   maxHeight={null}
@@ -602,6 +623,7 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
   isCreatable={false}
   isDisabled={false}
   isGrouped={false}
+  isInputValuePersisted={false}
   isOpen={false}
   isPlain={false}
   maxHeight={null}
@@ -642,6 +664,8 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -662,6 +686,8 @@ exports[`Select Component should disable toggle text: disabled text 1`] = `
     isChecked={false}
     isDisabled={false}
     isFavorite={null}
+    isLoad={false}
+    isLoading={false}
     isNoResultsOption={false}
     isPlaceholder={false}
     isSelected={false}
@@ -817,6 +843,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
     isCreatable={false}
     isDisabled={false}
     isGrouped={false}
+    isInputValuePersisted={false}
     isOpen={true}
     isPlain={false}
     maxHeight={null}
@@ -855,6 +882,7 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
           className=""
           handleTypeaheadKeys={[Function]}
           hasClearButton={false}
+          hasFooter={false}
           id="pf-select-toggle-id-32"
           isActive={false}
           isDisabled={false}
@@ -1102,6 +1130,11 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
         <ForwardRef
           aria-label="Select option"
           aria-labelledby=""
+          footerRef={
+            Object {
+              "current": null,
+            }
+          }
           isGrouped={false}
           keyHandler={[Function]}
           maxHeight={null}
@@ -1112,6 +1145,11 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
             aria-label="Select option"
             aria-labelledby=""
             className=""
+            footerRef={
+              Object {
+                "current": null,
+              }
+            }
             hasInlineFilter={false}
             innerRef={
               Object {
@@ -1209,6 +1247,8 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
+                isLoad={false}
+                isLoading={false}
                 isNoResultsOption={false}
                 isPlaceholder={false}
                 isSelected={false}
@@ -1248,6 +1288,8 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
+                isLoad={false}
+                isLoading={false}
                 isNoResultsOption={false}
                 isPlaceholder={false}
                 isSelected={false}
@@ -1287,6 +1329,8 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
+                isLoad={false}
+                isLoading={false}
                 isNoResultsOption={false}
                 isPlaceholder={false}
                 isSelected={false}
@@ -1326,6 +1370,8 @@ exports[`Select Component should render a expanded select: expanded 1`] = `
                 isChecked={false}
                 isDisabled={false}
                 isFavorite={null}
+                isLoad={false}
+                isLoading={false}
                 isNoResultsOption={false}
                 isPlaceholder={false}
                 isSelected={false}
