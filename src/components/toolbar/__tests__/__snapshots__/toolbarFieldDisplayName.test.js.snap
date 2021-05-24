@@ -59,6 +59,7 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
   <TextInput
     aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"
     className="curiosity-input__display-name"
+    data-test="toolbarFieldDisplayName"
     iconVariant="search"
     id={null}
     isDisabled={false}

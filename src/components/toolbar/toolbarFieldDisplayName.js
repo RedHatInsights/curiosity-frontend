@@ -107,6 +107,7 @@ const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
         onKeyUp={onKeyUp}
         value={currentValue}
         placeholder={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
+        data-test={ToolbarFieldDisplayName.defaultProps.viewId}
       />
     </InputGroup>
   );

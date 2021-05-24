@@ -504,6 +504,28 @@ exports[`Select Component should allow being disabled with missing options: opti
 />
 `;
 
+exports[`Select Component should allow data- props: data- attributes 1`] = `
+Object {
+  "ariaLabel": "Select option",
+  "className": "",
+  "data-dolor-sit": "dolor sit",
+  "data-lorem": "ipsum",
+  "direction": "down",
+  "id": "generatedid-",
+  "isDisabled": false,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "onSelect": [Function],
+  "options": Array [],
+  "placeholder": "Select option",
+  "position": "left",
+  "selectedOptions": null,
+  "toggleIcon": null,
+  "variant": "single",
+}
+`;
+
 exports[`Select Component should allow plain objects as values, and be able to select options based on values within the object: select when option values are objects 1`] = `
 <div
   class="pf-c-select curiosity-select  "
@@ -798,7 +820,7 @@ exports[`Select Component should render a checkbox select: checkbox select 1`] =
 </div>
 `;
 
-exports[`Select Component should render a expanded select: expanded 1`] = `
+exports[`Select Component should render an expanded select: expanded 1`] = `
 <Select
   ariaLabel="Select option"
   className=""

@@ -75,6 +75,7 @@ const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
       placeholder={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
       position={SelectPosition.right}
       maxHeight={250}
+      data-test={ToolbarFieldRangedMonthly.defaultProps.viewId}
     />
   );
 };
