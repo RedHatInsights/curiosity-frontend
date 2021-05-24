@@ -59,6 +59,7 @@ const ToolbarFieldUom = ({ options, t, value, viewId }) => {
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t('curiosity-toolbar.placeholder', { context: 'uom' })}
+      data-test={ToolbarFieldUom.defaultProps.viewId}
     />
   );
 };
