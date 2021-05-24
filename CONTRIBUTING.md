@@ -71,13 +71,13 @@ Curiosity makes use of the branches `master`, `stage`, `qa`, and `ci`.
 - `stage` branch is a protected representation of production environments
    - Adding commits, or a PR, into `stage` should generate a `prod-beta` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
    - The `prod-beta` branch is manually deployed through coordination with the operations team.
-- `qa` branch is a representation of `qa-stable`, and `ci-stable`.
+- `qa` branch is a representation of `ci-stable`, `qa-stable` and `stage-stable`.
    - Adding commits, or a PR, into `ci-stable` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for `https://ci.*.redhat.com`, `https://qa.*.redhat.com` and `https://*.stage.redhat.com`
    - In the future, once the API is fully deployed to QA, this will be a representation of `qa-beta` and `qa-stable`
-- `ci` branch is a representation of `ci-beta`, and `qa-beta`.
+- `ci` branch is a representation of `ci-beta`, `qa-beta` and `stage-beta`.
    - Adding commits, or a PR, into `ci-beta` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for both `https://ci.*.redhat.com` and `https://qa.*.redhat.com`
+   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for `https://ci.*.redhat.com`, `https://qa.*.redhat.com` and  `https://*.stage.redhat.com`
    - In the future, once the API is fully deployed to QA, this will be a representation of `ci-beta` and `ci-stable`
 
 #### Branching and Pull Request Workflow
