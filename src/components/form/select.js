@@ -37,6 +37,8 @@ const SelectPosition = DropdownPosition;
 class Select extends React.Component {
   state = { isExpanded: false, options: null, selected: null };
 
+  selectField = React.createRef();
+
   componentDidMount() {
     const { options } = this.state;
 
@@ -135,13 +137,16 @@ class Select extends React.Component {
     });
   };
 
+  // FixMe: attributes filtered on PF select component. allow data- attributes
   /**
    * Format options into a consumable array of objects format.
    */
   formatOptions() {
+    const { current: domElement = {} } = this.selectField;
     const { options, selectedOptions, variant } = this.props;
+    const dataAttributes = Object.entries(this.props).filter(([key]) => /^data-/i.test(key));
     const updatedOptions = _isPlainObject(options)
-      ? Object.keys(options).map(key => ({ ...options[key], title: key, value: options[key] }))
+      ? Object.entries(options).map(([key, value]) => ({ ...value, title: key, value }))
       : _cloneDeep(options);
 
     const activateOptions =
@@ -195,6 +200,10 @@ class Select extends React.Component {
       updateSelected = (updatedOptions.find(opt => opt.selected === true) || {}).title;
     } else {
       updateSelected = updatedOptions.filter(opt => opt.selected === true).map(opt => opt.title);
+    }
+
+    if (domElement?.parentRef?.current) {
+      dataAttributes.forEach(([key, value]) => domElement?.parentRef?.current.setAttribute(key, value));
     }
 
     this.setState({
@@ -257,6 +266,7 @@ class Select extends React.Component {
         isOpen={isExpanded}
         toggleIcon={toggleIcon}
         placeholderText={placeholder}
+        ref={this.selectField}
         {...pfSelectOptions}
       >
         {(options &&

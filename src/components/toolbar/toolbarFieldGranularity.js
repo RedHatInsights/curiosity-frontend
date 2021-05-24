@@ -75,6 +75,7 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
+      data-test={ToolbarFieldGranularity.defaultProps.viewId}
     />
   );
 };

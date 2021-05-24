@@ -102,7 +102,7 @@ describe('Select Component', () => {
     component.instance().onSelect({}, 'world');
   });
 
-  it('should render a expanded select', () => {
+  it('should render an expanded select', () => {
     const props = {
       id: 'test',
       options: ['lorem', 'ipsum', 'hello', 'world']
@@ -162,5 +162,15 @@ describe('Select Component', () => {
     });
 
     expect(component).toMatchSnapshot('options, but disabled');
+  });
+
+  it('should allow data- props', () => {
+    const props = {
+      'data-lorem': 'ipsum',
+      'data-dolor-sit': 'dolor sit'
+    };
+
+    const component = mount(<Select {...props} />);
+    expect(component.props()).toMatchSnapshot('data- attributes');
   });
 });
