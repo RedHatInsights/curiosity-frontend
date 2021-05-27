@@ -36,7 +36,8 @@ describe('Redirect Component', () => {
   it('should handle missing routes with and without withRouter', () => {
     const props = {
       isRedirect: true,
-      route: '/lorem-ipsum'
+      route: '/lorem-ipsum',
+      history: {}
     };
     const component = shallow(<Redirect {...props} />);
 
@@ -54,7 +55,8 @@ describe('Redirect Component', () => {
   it('should handle existing routes with and without withRouter', () => {
     const props = {
       isRedirect: true,
-      route: '/openshift-sw'
+      route: '/openshift-container',
+      history: {}
     };
     const component = shallow(<Redirect {...props} />);
 
