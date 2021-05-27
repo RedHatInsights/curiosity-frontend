@@ -5,6 +5,7 @@ Object {
   "error": false,
   "fulfilled": false,
   "graphData": Object {},
+  "meta": Object {},
   "pending": true,
   "query": Object {
     "granularity": "daily",
@@ -459,6 +460,10 @@ Object {
       },
     ],
   },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
+  },
   "pending": false,
   "query": Object {
     "granularity": "daily",
@@ -472,6 +477,7 @@ Object {
   "error": false,
   "fulfilled": false,
   "graphData": Object {},
+  "meta": Object {},
   "pending": false,
   "query": Object {
     "granularity": "daily",
@@ -485,6 +491,7 @@ Object {
   "error": false,
   "fulfilled": false,
   "graphData": Object {},
+  "meta": Object {},
   "pending": false,
   "query": Object {},
   "status": undefined,
@@ -496,6 +503,7 @@ Object {
   "error": false,
   "fulfilled": false,
   "graphData": Object {},
+  "meta": Object {},
   "pending": false,
   "query": Object {},
   "status": undefined,
@@ -679,6 +687,10 @@ Object {
         "y": 100,
       },
     ],
+  },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
   },
   "pending": false,
   "query": Object {
@@ -866,6 +878,10 @@ Object {
       },
     ],
   },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
+  },
   "pending": false,
   "query": Object {
     "granularity": "daily",
@@ -1052,6 +1068,10 @@ Object {
       },
     ],
   },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
+  },
   "pending": false,
   "query": Object {
     "granularity": "daily",
@@ -1237,6 +1257,10 @@ Object {
         "y": 100,
       },
     ],
+  },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
   },
   "pending": false,
   "query": Object {
@@ -1790,6 +1814,10 @@ Object {
       },
     ],
   },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
+  },
   "pending": false,
   "query": Object {
     "granularity": "daily",
@@ -2021,6 +2049,10 @@ Object {
         "y": 0,
       },
     ],
+  },
+  "meta": Object {
+    "count": undefined,
+    "totalCoreHours": undefined,
   },
   "pending": false,
   "query": Object {

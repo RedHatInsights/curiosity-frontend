@@ -96,68 +96,88 @@ describe('ProductViewOpenShiftContainer Component', () => {
     expect({
       productOneActionDisplay: undefined,
       productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        coreHours: [
-          {
-            y: 0
-          },
-          {
-            y: 400
-          },
-          {
-            y: 100
-          }
-        ]
+        data: {
+          coreHours: [
+            {
+              y: 0
+            },
+            {
+              y: 400
+            },
+            {
+              y: 100
+            }
+          ]
+        },
+        meta: {
+          totalCoreHours: 500
+        }
       })
     }).toMatchSnapshot('product action display should display a total value below 1000');
 
     expect({
       productOneActionDisplay: undefined,
       productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        coreHours: [
-          {
-            y: 0
-          },
-          {
-            y: 800000
-          },
-          {
-            y: 100000
-          }
-        ]
+        data: {
+          coreHours: [
+            {
+              y: 0
+            },
+            {
+              y: 800000
+            },
+            {
+              y: 100000
+            }
+          ]
+        },
+        meta: {
+          totalCoreHours: 900000
+        }
       })
     }).toMatchSnapshot('product action display should display a total value below 1000000');
 
     expect({
       productOneActionDisplay: undefined,
       productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        coreHours: [
-          {
-            y: 0
-          },
-          {
-            y: 1000
-          },
-          {
-            y: 100
-          }
-        ]
+        data: {
+          coreHours: [
+            {
+              y: 0
+            },
+            {
+              y: 1000
+            },
+            {
+              y: 100
+            }
+          ]
+        },
+        meta: {
+          totalCoreHours: 1100
+        }
       })
     }).toMatchSnapshot('product action display should display a total value');
 
     expect({
       productOneActionDisplay: undefined,
       productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        loremIpsum: [
-          {
-            y: 0
-          },
-          {
-            y: 1000
-          },
-          {
-            y: 100
-          }
-        ]
+        data: {
+          loremIpsum: [
+            {
+              y: 0
+            },
+            {
+              y: 1000
+            },
+            {
+              y: 100
+            }
+          ]
+        },
+        meta: {
+          totalCoreHours: undefined
+        }
       })
     }).toMatchSnapshot('product action display should NOT display a total value');
   });

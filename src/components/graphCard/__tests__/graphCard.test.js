@@ -179,4 +179,20 @@ describe('GraphCard Component', () => {
 
     expect(component).toMatchSnapshot('disabled component');
   });
+
+  it('should allow a custom display for card actions', () => {
+    const actionDisplay = jest.fn();
+    const props = {
+      query: {
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+        [RHSM_API_QUERY_TYPES.END_DATE]: '2021-02-24T23:59:59.999Z',
+        [RHSM_API_QUERY_TYPES.START_DATE]: '2021-01-25T00:00:00.000Z'
+      },
+      productId: 'lorem',
+      settings: { actionDisplay }
+    };
+
+    shallow(<GraphCard {...props} />);
+    expect(actionDisplay).toHaveBeenCalledTimes(1);
+  });
 });
