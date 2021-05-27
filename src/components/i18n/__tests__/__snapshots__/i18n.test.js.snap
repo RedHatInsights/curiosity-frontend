@@ -383,6 +383,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/router/redirect.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-view.redirectError",
+        "match": "t('curiosity-view.redirectError')",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/table/table.js",
     "keys": Array [
       Object {
@@ -619,6 +628,10 @@ Array [
   Object {
     "file": "./src/components/productView/productViewSatellite.js",
     "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/components/router/redirect.js",
+    "key": "curiosity-view.redirectError",
   },
   Object {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",

@@ -1,3 +1,4 @@
+import React from 'react';
 import path from 'path';
 import { helpers } from '../../common/helpers';
 import { routesConfig } from '../../config';
@@ -227,6 +228,14 @@ const getRouteConfig = ({ id = null, pathName, returnDefault = false, config = r
   return { ...(navRouteItem || {}) };
 };
 
+/**
+ * Import a route component.
+ *
+ * @param {Node} component
+ * @returns {Node}
+ */
+const importView = component => React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
+
 const routerHelpers = {
   appName,
   baseName,
@@ -238,6 +247,7 @@ const routerHelpers = {
   getErrorRoute,
   getRouteConfig,
   getRouteConfigByPath,
+  importView,
   platformLandingRedirect,
   platformModalRedirect,
   productGroups,
@@ -258,6 +268,7 @@ export {
   getErrorRoute,
   getRouteConfig,
   getRouteConfigByPath,
+  importView,
   platformLandingRedirect,
   platformModalRedirect,
   productGroups,

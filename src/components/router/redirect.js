@@ -5,6 +5,8 @@ import { withRouter, Route } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
 import { helpers } from '../../common';
 import { Loader } from '../loader/loader';
+import MessageView from '../messageView/messageView';
+import { translate } from '../i18n/i18n';
 
 /**
  * A routing redirect.
@@ -14,11 +16,12 @@ import { Loader } from '../loader/loader';
  * @param {object} props.history
  * @param {boolean} props.isRedirect
  * @param {boolean} props.isReplace
- * @param {string} props.url
  * @param {string} props.route
+ * @param {string} props.t
+ * @param {string} props.url
  * @returns {Node}
  */
-const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
+const Redirect = ({ baseName, history, isRedirect, isReplace, route, t, url }) => {
   const forceNavigation = urlRoute => {
     if (!helpers.DEV_MODE && !helpers.TEST_MODE) {
       if (isReplace) {
@@ -32,10 +35,15 @@ const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
   if (isRedirect === true) {
     if (route && history) {
       const routeDetail = routerHelpers.getRouteConfigByPath({ pathName: route }).firstMatch;
+      const View =
+        (routeDetail && routerHelpers.importView(routeDetail.component)) ||
+        (() => <MessageView message={`${t('curiosity-view.redirectError')}, ${route}`} />);
 
       return (
         <React.Suspense fallback={<Loader variant="title" />}>
-          <Route path="*">{routeDetail && <routeDetail.component />}</Route>
+          <Route path="*">
+            <View />
+          </Route>
         </React.Suspense>
       );
     }
@@ -55,28 +63,31 @@ const Redirect = ({ baseName, history, isRedirect, isReplace, url, route }) => {
 /**
  * Prop types.
  *
- * @type {{isRedirect: boolean, route: string, isReplace: boolean, history: object, baseName: string, url: string}}
+ * @type {{isRedirect: boolean, route: string, t: Function, isReplace: boolean, history: object,
+ *     baseName: string, url: string}}
  */
 Redirect.propTypes = {
+  baseName: PropTypes.string,
   history: PropTypes.object,
   isRedirect: PropTypes.bool.isRequired,
   isReplace: PropTypes.bool,
-  url: PropTypes.string,
-  baseName: PropTypes.string,
-  route: PropTypes.string
+  route: PropTypes.string,
+  t: PropTypes.func,
+  url: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{route: null, isReplace: boolean, history: null, baseName: string, url: null}}
+ * @type {{route: null, t: translate, isReplace: boolean, history: null, baseName: string, url: null}}
  */
 Redirect.defaultProps = {
+  baseName: routerHelpers.baseName,
   history: null,
   isReplace: false,
-  url: null,
-  baseName: routerHelpers.baseName,
-  route: null
+  route: null,
+  t: translate,
+  url: null
 };
 
 const RoutedRedirect = withRouter(Redirect);
