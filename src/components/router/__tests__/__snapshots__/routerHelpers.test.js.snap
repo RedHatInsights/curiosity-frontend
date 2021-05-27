@@ -690,6 +690,7 @@ Object {
   },
   "getRouteConfig": [Function],
   "getRouteConfigByPath": [Function],
+  "importView": [Function],
   "platformLandingRedirect": "/",
   "platformModalRedirect": "/?not_entitled=subscriptions",
   "productGroups": Object {
