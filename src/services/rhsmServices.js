@@ -380,7 +380,8 @@ const getApiVersion = (options = {}) => {
  *       "meta": {
  *         "count": 12,
  *         "product": "RHEL",
- *         "granularity": "daily"
+ *         "granularity": "daily",
+ *         "total_core_hours": 30500.04
  *       }
  *     }
  *
@@ -504,7 +505,8 @@ const getApiVersion = (options = {}) => {
  *       "meta": {
  *         "count": 10,
  *         "product": "RHEL",
- *         "granularity": "weekly"
+ *         "granularity": "weekly",
+ *         "total_core_hours": 200.03
  *       }
  *     }
  *
@@ -631,7 +633,8 @@ const getApiVersion = (options = {}) => {
  *       "meta": {
  *         "count": 6,
  *         "product": "RHEL",
- *         "granularity": "monthly"
+ *         "granularity": "monthly",
+ *         "total_core_hours": 2050.04
  *       }
  *     }
  *
