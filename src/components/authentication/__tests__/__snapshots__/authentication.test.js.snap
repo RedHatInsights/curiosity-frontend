@@ -286,7 +286,12 @@ exports[`Authentication Component should return a message on 401 error: 401 erro
 </MessageView>
 `;
 
-exports[`Authentication Component should return a redirect on 418 error: 418 error 1`] = `"418 redirect"`;
+exports[`Authentication Component should return a redirect on 418 error: 418 error 1`] = `
+<withRouter(Redirect)
+  isRedirect={true}
+  route="/optin"
+/>
+`;
 
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 error 1`] = `
 <MessageView
@@ -307,4 +312,9 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 </MessageView>
 `;
 
-exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `"403 redirect"`;
+exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `
+<withRouter(Redirect)
+  isRedirect={true}
+  route="/optin"
+/>
+`;
