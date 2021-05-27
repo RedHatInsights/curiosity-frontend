@@ -85,19 +85,15 @@ ProductViewOpenShiftDedicated.defaultProps = {
     ],
     initialGraphSettings: {
       actionDisplay: data => {
-        const { coreHours } = data;
+        const {
+          meta: { totalCoreHours }
+        } = data;
         let displayContent;
 
-        if (coreHours) {
-          let total = 0;
-
-          coreHours.forEach(({ y }) => {
-            total += y ?? 0;
-          });
-
+        if (totalCoreHours) {
           displayContent = translate('curiosity-graph.card-action-total', {
             context: 'coreHours',
-            total: numbro(total)
+            total: numbro(totalCoreHours)
               .format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
               .toUpperCase()
           });

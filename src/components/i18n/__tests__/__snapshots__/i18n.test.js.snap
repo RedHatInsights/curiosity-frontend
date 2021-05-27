@@ -315,7 +315,7 @@ Array [
       },
       Object {
         "key": "curiosity-graph.card-action-total",
-        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(total)",
+        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
       },
       Object {
         "key": "curiosity-inventory.label",
@@ -328,7 +328,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-graph.card-action-total",
-        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(total)",
+        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
       },
       Object {
         "key": "curiosity-inventory.label",

@@ -218,6 +218,7 @@ Object {
       "RHSM_API_RESPONSE_META": "meta",
       "RHSM_API_RESPONSE_META_TYPES": Object {
         "COUNT": "count",
+        "TOTAL_CORE_HOURS": "total_core_hours",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -454,6 +455,7 @@ Object {
       "RHSM_API_RESPONSE_META": "meta",
       "RHSM_API_RESPONSE_META_TYPES": Object {
         "COUNT": "count",
+        "TOTAL_CORE_HOURS": "total_core_hours",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -689,6 +691,7 @@ Object {
     "RHSM_API_RESPONSE_META": "meta",
     "RHSM_API_RESPONSE_META_TYPES": Object {
       "COUNT": "count",
+      "TOTAL_CORE_HOURS": "total_core_hours",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -928,6 +931,7 @@ Object {
     "RHSM_API_RESPONSE_META": "meta",
     "RHSM_API_RESPONSE_META_TYPES": Object {
       "COUNT": "count",
+      "TOTAL_CORE_HOURS": "total_core_hours",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
