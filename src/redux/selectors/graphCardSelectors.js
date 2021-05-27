@@ -71,6 +71,7 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
     fulfilled: false,
     pending: responseData.pending || responseData.cancelled || false,
     graphData: {},
+    meta: {},
     query,
     status: responseData.status
   };
@@ -85,6 +86,7 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
   if (responseData.fulfilled && productId === metaId && _isEqual(query, responseMetaQuery)) {
     const [report, capacity] = responseData.data;
     const reportData = report?.[rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA] || [];
+    const reportMeta = report?.[rhsmApiTypes.RHSM_API_RESPONSE_META] || {};
     const capacityData = capacity?.[rhsmApiTypes.RHSM_API_RESPONSE_CAPACITY_DATA] || [];
 
     /**
@@ -171,7 +173,16 @@ const selector = createSelector([statePropsFilter, queryFilter], (response, quer
       });
     });
 
+    // Generate normalized properties
+    const [updatedReportMeta] = reduxHelpers.setNormalizedResponse({
+      schema: rhsmApiTypes.RHSM_API_RESPONSE_META_TYPES,
+      data: reportMeta
+    });
+
+    const [meta = {}] = updatedReportMeta || [];
+
     // Update response and cache
+    Object.assign(updatedResponseData.meta, meta);
     updatedResponseData.fulfilled = true;
     selectorCache.set(`${viewId}_${productId}_${JSON.stringify(query)}`, { ...updatedResponseData });
   }
