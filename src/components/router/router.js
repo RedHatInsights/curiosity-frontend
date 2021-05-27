@@ -7,17 +7,6 @@ import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
 
 /**
- * ToDo: re-evaluate how exclude comments work under wp5, and regex
- */
-/**
- * Import a route component.
- *
- * @param {Node} component
- * @returns {Node}
- */
-const importView = component => React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
-
-/**
  * Load routes.
  *
  * @param {object} props
@@ -40,7 +29,7 @@ const Router = ({ routes } = {}) => {
           return null;
         }
 
-        const View = await importView(item.component);
+        const View = await routerHelpers.importView(item.component);
 
         return (
           <Route
