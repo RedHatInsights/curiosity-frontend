@@ -151,7 +151,6 @@
     "victory-create-container": "^35.8.1"
   },
   "devDependencies": {
-    "@curiosity/locales": "file:./public/locales",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "apidoc-mock": "^4.0.0",
     "cspell": "^5.4.1",
