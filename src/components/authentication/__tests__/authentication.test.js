@@ -64,7 +64,7 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component.html()).toMatchSnapshot('418 error');
+    expect(component).toMatchSnapshot('418 error');
   });
 
   it('should return a redirect on a specific 403 error and error code', () => {
@@ -88,7 +88,7 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component.html()).toMatchSnapshot('403 redirect error');
+    expect(component).toMatchSnapshot('403 redirect error');
 
     component.setProps({
       session: {
