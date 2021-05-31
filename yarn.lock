@@ -1745,10 +1745,10 @@
     commander ">=2.20.0"
     react-content-loader ">=3.4.1"
 
-"@redhat-cloud-services/frontend-components@3.1.13":
-  version "3.1.13"
-  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components/-/frontend-components-3.1.13.tgz#592bf37ddec0fdef5631f53d3b16ffe81ab5e0e9"
-  integrity sha512-wS9snVrqs1/YGDcThdqCupBHeK2FbYNerqPLh7voe/0KasB/PAkTxuASNJVb20hHW51nGulMNyuoq/hifJhf/A==
+"@redhat-cloud-services/frontend-components@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components/-/frontend-components-3.2.1.tgz#819e1caf8b5fdd0adb04a7608bf7ce4ff61f1a71"
+  integrity sha512-YLF5ya7H5a05RR4KXNxF3up2KLWU8JukNmm7NHmdPEi88WHxhnzJA269YSJxdfGc1cz3xnJrCp8GhrM5JdSwjg==
   dependencies:
     "@redhat-cloud-services/frontend-components-utilities" ">=3.0.0"
     "@scalprum/core" "^0.0.11"
