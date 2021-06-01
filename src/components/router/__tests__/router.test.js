@@ -3,13 +3,11 @@ import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Route } from 'react-router-dom';
 import { store } from '../../../redux';
-import { Router, Redirect, routerHelpers } from '../router';
+import { Router } from '../router';
 
 describe('Router Component', () => {
   it('should export specific properties', () => {
     expect(Router).toBeDefined();
-    expect(Redirect).toBeDefined();
-    expect(routerHelpers).toBeDefined();
   });
 
   it('should render a basic component', () => {

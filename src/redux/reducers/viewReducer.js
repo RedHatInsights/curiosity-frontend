@@ -1,4 +1,4 @@
-import { routerHelpers } from '../../components/router/routerHelpers';
+import { routerHelpers } from '../../components/router';
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';

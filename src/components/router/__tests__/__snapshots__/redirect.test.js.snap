@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Redirect Component should handle a forced redirect: forced route 1`] = `
+<Fragment>
+  Redirected towards 
+  /dolor
+</Fragment>
+`;
+
+exports[`Redirect Component should handle a forced redirect: forced route, replace 1`] = `
+Array [
+  Array [
+    "/dolor?dolor=sit",
+  ],
+]
+`;
+
 exports[`Redirect Component should handle a redirect with a url: redirect url 1`] = `
 <Fragment>
   Redirected towards 
@@ -7,126 +22,159 @@ exports[`Redirect Component should handle a redirect with a url: redirect url 1`
 </Fragment>
 `;
 
-exports[`Redirect Component should handle existing routes with and without withRouter: existing route: outside of withRouter 1`] = `
-<Suspense
-  baseName="/"
-  fallback={
-    <Loader
-      skeletonProps={
-        Object {
-          "size": "sm",
-        }
-      }
-      tableProps={Object {}}
-      variant="title"
-    />
-  }
-  history={Object {}}
-  isRedirect={true}
-  isReplace={false}
-  route="/openshift-container"
-  t={[Function]}
-  url={null}
->
-  <Route
-    path="*"
-  >
-    <lazy />
-  </Route>
-</Suspense>
+exports[`Redirect Component should handle existing routes: existing route 1`] = `
+Object {
+  "activateOnError": false,
+  "aliases": Array [],
+  "component": "productView/productViewOpenShiftContainer",
+  "default": false,
+  "disabled": false,
+  "id": "openshift-container",
+  "isSearchable": true,
+  "path": "*",
+  "pathParameter": "OpenShift Container Platform",
+  "productParameter": "OpenShift Container Platform",
+  "redirect": null,
+  "routeHref": "/openshift-container",
+  "viewParameter": "viewOpenShift Container Platform",
+}
 `;
 
-exports[`Redirect Component should handle existing routes with and without withRouter: existing route: routed redirect route 1`] = `
+exports[`Redirect Component should handle missing routes: missing route, component 1`] = `
+<Fragment>
+  Redirected towards 
+  /lorem-ipsum
+</Fragment>
+`;
+
+exports[`Redirect Component should render a basic component: basic 1`] = `
 <Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
+  routes={
+    Array [
+      Object {
+        "activateOnError": false,
+        "aliases": Array [],
+        "component": "productView/productViewOpenShiftDedicated",
+        "default": false,
+        "disabled": false,
+        "id": "openshift-dedicated",
+        "isSearchable": true,
+        "path": "*",
+        "pathParameter": "OpenShift-dedicated-metrics",
+        "productParameter": "OpenShift-dedicated-metrics",
+        "redirect": null,
+        "routeHref": "/openshift-dedicated",
+        "viewParameter": "viewOpenShift-dedicated-metrics",
       },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
->
-  <withRouter(Redirect)
-    history={Object {}}
-    isRedirect={true}
-    route="/openshift-container"
-  />
-</Router>
-`;
-
-exports[`Redirect Component should handle missing routes with and without withRouter: missing route: outside of withRouter 1`] = `
-<Suspense
-  baseName="/"
-  fallback={
-    <Loader
-      skeletonProps={
-        Object {
-          "size": "sm",
-        }
-      }
-      tableProps={Object {}}
-      variant="title"
-    />
-  }
-  history={Object {}}
-  isRedirect={true}
-  isReplace={false}
-  route="/lorem-ipsum"
-  t={[Function]}
-  url={null}
->
-  <Route
-    path="*"
-  >
-    <Component />
-  </Route>
-</Suspense>
-`;
-
-exports[`Redirect Component should handle missing routes with and without withRouter: missing route: routed redirect route 1`] = `
-<Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel",
+        "path": "/rhel",
+        "redirect": null,
       },
-      "push": [Function],
-      "replace": [Function],
-    }
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-arm",
+        "path": "/rhel-arm",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-ibmpower",
+        "path": "/rhel-ibmpower",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-ibmz",
+        "path": "/rhel-ibmz",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-x86",
+        "path": "/rhel-x86",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewOpenShiftContainer",
+        "disabled": false,
+        "exact": true,
+        "id": "openshift-container",
+        "path": "/openshift-container",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewOpenShiftDedicated",
+        "disabled": false,
+        "exact": true,
+        "id": "openshift-dedicated",
+        "path": "/openshift-dedicated",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite",
+        "path": "/satellite",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite-capsule",
+        "path": "/satellite-capsule",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite-server",
+        "path": "/satellite-server",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": true,
+        "component": "optinView/optinView",
+        "disabled": false,
+        "exact": true,
+        "id": "optin",
+        "path": "/optin",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewMissing",
+        "disabled": false,
+        "exact": true,
+        "id": "missing",
+        "path": "/",
+        "redirect": "/",
+      },
+    ]
   }
->
-  <withRouter(Redirect)
-    history={Object {}}
-    isRedirect={true}
-    route="/lorem-ipsum"
-  />
-</Router>
+/>
 `;
-
-exports[`Redirect Component should render a basic component: basic 1`] = `null`;
-
-exports[`Redirect Component should render a routed component: routed 1`] = `null`;
