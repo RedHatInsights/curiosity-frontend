@@ -45,6 +45,7 @@
       "!src/index.js",
       "!src/setupTests.js",
       "!src/components/app.js",
+      "!src/components/**/index.js",
       "!src/common/index.js",
       "!src/redux/index.js",
       "!src/redux/store.js",

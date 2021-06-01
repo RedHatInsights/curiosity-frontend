@@ -137,7 +137,7 @@ const getErrorRoute = routes.find(route => route.activateOnError === true) || {}
  * @returns {{configs: Array, configFirstMatch: object, configsById: object}}
  */
 const getRouteConfigByPath = ({ pathName = dynamicBasePath(), config = routesConfig } = {}) => {
-  const basePathDirs = pathName.split('/').filter(str => str.length > 0);
+  const basePathDirs = pathName?.split('/').filter(str => str.length > 0);
   const configs = [];
   const allConfigs = [];
   const configsById = {};
@@ -174,7 +174,7 @@ const getRouteConfigByPath = ({ pathName = dynamicBasePath(), config = routesCon
     });
   };
 
-  if (basePathDirs.length) {
+  if (basePathDirs?.length) {
     basePathDirs.forEach(dir => {
       if (dir) {
         const decodedDir = window.decodeURI(dir);
