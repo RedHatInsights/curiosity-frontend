@@ -98,9 +98,13 @@ global.mountHookComponent = async (component, options = {}) => {
  * @param {Function} callback
  * @param {object} options
  * @param {string} options.url
+ * @param {object} options.location
  * @returns {Promise<void>}
  */
-global.mockWindowLocation = async (callback, { url = 'https://ci.foo.redhat.com/subscriptions/rhel' } = {}) => {
+global.mockWindowLocation = async (
+  callback = Function.prototype,
+  { url = 'https://ci.foo.redhat.com/subscriptions/rhel', location: locationProps = {} } = {}
+) => {
   const updatedUrl = new URL(url);
   const { location } = window;
   delete window.location;
@@ -109,9 +113,11 @@ global.mockWindowLocation = async (callback, { url = 'https://ci.foo.redhat.com/
     href: updatedUrl.href,
     search: updatedUrl.search,
     hash: updatedUrl.hash,
-    pathname: updatedUrl.pathname
+    pathname: updatedUrl.pathname,
+    replace: Function.prototype,
+    ...locationProps
   };
-  await callback();
+  await callback(window.location);
   // restore
   window.location = location;
 };
@@ -128,6 +134,8 @@ beforeAll(() => {
       throw new Error(message);
     }
 
-    error.apply(console, [message, ...args]);
+    if (!/(Not implemented: navigation)/gi.test(message)) {
+      error.apply(console, [message, ...args]);
+    }
   };
 });
