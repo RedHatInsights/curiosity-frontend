@@ -6,7 +6,7 @@ import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAut
 import { connectRouter, reduxActions, reduxSelectors } from '../../redux';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
-import { Redirect, routerHelpers } from '../router/router';
+import { routerHelpers, Redirect } from '../router';
 import MessageView from '../messageView/messageView';
 import { translate } from '../i18n/i18n';
 
@@ -85,7 +85,7 @@ class Authentication extends Component {
       (session.errorCodes && session.errorCodes.includes(rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN)) ||
       session.status === 418
     ) {
-      return <Redirect isRedirect route={routerHelpers.getErrorRoute.path} />;
+      return <Redirect route={routerHelpers.getErrorRoute.path} />;
     }
 
     return (

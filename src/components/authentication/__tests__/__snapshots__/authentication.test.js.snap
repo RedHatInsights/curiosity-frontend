@@ -287,9 +287,123 @@ exports[`Authentication Component should return a message on 401 error: 401 erro
 `;
 
 exports[`Authentication Component should return a redirect on 418 error: 418 error 1`] = `
-<withRouter(Redirect)
-  isRedirect={true}
+<Redirect
+  baseName="/"
+  isForced={false}
   route="/optin"
+  routes={
+    Array [
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel",
+        "path": "/rhel",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-arm",
+        "path": "/rhel-arm",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-ibmpower",
+        "path": "/rhel-ibmpower",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-ibmz",
+        "path": "/rhel-ibmz",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-x86",
+        "path": "/rhel-x86",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewOpenShiftContainer",
+        "disabled": false,
+        "exact": true,
+        "id": "openshift-container",
+        "path": "/openshift-container",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewOpenShiftDedicated",
+        "disabled": false,
+        "exact": true,
+        "id": "openshift-dedicated",
+        "path": "/openshift-dedicated",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite",
+        "path": "/satellite",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite-capsule",
+        "path": "/satellite-capsule",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite-server",
+        "path": "/satellite-server",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": true,
+        "component": "optinView/optinView",
+        "disabled": false,
+        "exact": true,
+        "id": "optin",
+        "path": "/optin",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewMissing",
+        "disabled": false,
+        "exact": true,
+        "id": "missing",
+        "path": "/",
+        "redirect": "/",
+      },
+    ]
+  }
+  url={null}
 />
 `;
 
@@ -313,8 +427,122 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 `;
 
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `
-<withRouter(Redirect)
-  isRedirect={true}
+<Redirect
+  baseName="/"
+  isForced={false}
   route="/optin"
+  routes={
+    Array [
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel",
+        "path": "/rhel",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-arm",
+        "path": "/rhel-arm",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-ibmpower",
+        "path": "/rhel-ibmpower",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-ibmz",
+        "path": "/rhel-ibmz",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewRhel",
+        "disabled": false,
+        "exact": true,
+        "id": "rhel-x86",
+        "path": "/rhel-x86",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewOpenShiftContainer",
+        "disabled": false,
+        "exact": true,
+        "id": "openshift-container",
+        "path": "/openshift-container",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewOpenShiftDedicated",
+        "disabled": false,
+        "exact": true,
+        "id": "openshift-dedicated",
+        "path": "/openshift-dedicated",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite",
+        "path": "/satellite",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite-capsule",
+        "path": "/satellite-capsule",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewSatellite",
+        "disabled": false,
+        "exact": true,
+        "id": "satellite-server",
+        "path": "/satellite-server",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": true,
+        "component": "optinView/optinView",
+        "disabled": false,
+        "exact": true,
+        "id": "optin",
+        "path": "/optin",
+        "redirect": null,
+      },
+      Object {
+        "activateOnError": false,
+        "component": "productView/productViewMissing",
+        "disabled": false,
+        "exact": true,
+        "id": "missing",
+        "path": "/",
+        "redirect": "/",
+      },
+    ]
+  }
+  url={null}
 />
 `;

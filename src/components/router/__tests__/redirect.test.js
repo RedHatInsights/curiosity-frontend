@@ -1,73 +1,64 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
-import { Redirect, RoutedRedirect } from '../redirect';
+import { Redirect } from '../redirect';
+import { Router } from '../router';
 
 describe('Redirect Component', () => {
   it('should render a basic component', () => {
     const props = {
-      isRedirect: false
+      route: '/openshift-dedicated'
     };
     const component = shallow(<Redirect {...props} />);
-    expect(component.render()).toMatchSnapshot('basic');
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render a routed component', () => {
+  it('should handle a forced redirect', () => {
     const props = {
-      isRedirect: false
+      isForced: true,
+      route: '/dolor'
     };
-    const component = shallow(
-      <BrowserRouter>
-        <RoutedRedirect {...props} />
-      </BrowserRouter>
+
+    mockWindowLocation(
+      () => {
+        const mockReplace = jest.spyOn(window.location, 'replace').mockImplementation((type, data) => ({ type, data }));
+        const component = shallow(<Redirect {...props} />);
+
+        expect(mockReplace.mock.calls).toMatchSnapshot('forced route, replace');
+        expect(component).toMatchSnapshot('forced route');
+
+        mockReplace.mockClear();
+      },
+      {
+        url: 'http://lorem/ipsum?dolor=sit'
+      }
     );
-    expect(component.render()).toMatchSnapshot('routed');
   });
 
   it('should handle a redirect with a url', () => {
     const props = {
-      isRedirect: true,
       url: '//lorem/ipsum?dolor=sit'
     };
     const component = shallow(<Redirect {...props} />);
     expect(component).toMatchSnapshot('redirect url');
   });
 
-  it('should handle missing routes with and without withRouter', () => {
+  it('should handle missing routes', () => {
     const props = {
-      isRedirect: true,
-      route: '/lorem-ipsum',
-      history: {}
+      route: '/lorem-ipsum'
     };
     const component = shallow(<Redirect {...props} />);
 
-    expect(component).toMatchSnapshot('missing route: outside of withRouter');
-
-    const componentWithRouter = shallow(
-      <BrowserRouter>
-        <RoutedRedirect {...props} />
-      </BrowserRouter>
-    );
-
-    expect(componentWithRouter).toMatchSnapshot('missing route: routed redirect route');
+    expect(component).toMatchSnapshot('missing route, component');
   });
 
-  it('should handle existing routes with and without withRouter', () => {
+  it('should handle existing routes', () => {
     const props = {
-      isRedirect: true,
-      route: '/openshift-container',
-      history: {}
+      route: '/openshift-container'
     };
+
     const component = shallow(<Redirect {...props} />);
+    const { routes } = component.find(Router).props();
 
-    expect(component).toMatchSnapshot('existing route: outside of withRouter');
-
-    const componentWithRouter = shallow(
-      <BrowserRouter>
-        <RoutedRedirect {...props} />
-      </BrowserRouter>
-    );
-
-    expect(componentWithRouter).toMatchSnapshot('existing route: routed redirect route');
+    expect(routes[0]).toMatchSnapshot('existing route');
   });
 });

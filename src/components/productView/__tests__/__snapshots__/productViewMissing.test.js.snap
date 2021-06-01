@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ProductViewMissing Component should redirect when there are limited product cards: redirect 1`] = `"Redirected towards /rhel"`;
+
 exports[`ProductViewMissing Component should render a non-connected component: non-connected 1`] = `
 <PageLayout
   className="curiosity-missing-view"
@@ -147,42 +149,6 @@ exports[`ProductViewMissing Component should render a predictable set of product
     <Gallery
       hasGutter={true}
     >
-      <Card
-        isHoverable={true}
-        key="missingViewCard-rhel"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"RHEL"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"RHEL"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
       <Card
         isHoverable={true}
         key="missingViewCard-openshift-container"
