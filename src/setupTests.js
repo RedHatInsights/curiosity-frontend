@@ -1,4 +1,5 @@
-import { configure, mount } from 'enzyme';
+import React from 'react';
+import { configure, mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import * as pfReactCoreComponents from '@patternfly/react-core';
@@ -23,11 +24,6 @@ jest.mock('i18next', () => {
  */
 jest.mock('lodash/debounce', () => jest.fn);
 
-/**
- * FixMe: Use of arrow functions removes the usefulness of the "displayName" when shallow rendering
- * PF appears to have updated components with a "displayName". Because we potentially have internal
- * components, and other resources that are missing "displayName". We're leaving this test helper active.
- */
 /**
  * Add the displayName property to function based components. Makes sure that snapshot tests have named components
  * instead of displaying a generic "<Component.../>".
@@ -54,6 +50,7 @@ addDisplayName(pfReactChartComponents);
  */
 global.window.insights = {
   chrome: {
+    appNavClick: Function.prototype,
     auth: {
       getUser: () =>
         new Promise(resolve =>
@@ -70,7 +67,6 @@ global.window.insights = {
     identifyApp: Function.prototype,
     init: Function.prototype,
     isBeta: Function.prototype,
-    navigation: Function.prototype,
     on: Function.prototype
   }
 };
@@ -90,6 +86,22 @@ global.mountHookComponent = async (component, options = {}) => {
   });
   mountedComponent?.update();
   return mountedComponent;
+};
+
+/**
+ * Fire a hook, return the result.
+ *
+ * @param {Function} useHook
+ * @returns {*}
+ */
+global.mockHook = (useHook = Function.prototype) => {
+  let result;
+  const Hook = () => {
+    result = useHook();
+    return null;
+  };
+  shallow(<Hook />);
+  return result;
 };
 
 /**

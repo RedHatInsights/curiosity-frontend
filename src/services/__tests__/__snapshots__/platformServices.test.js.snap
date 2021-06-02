@@ -8,6 +8,8 @@ exports[`PlatformServices should return a failed initializeChrome: failed initia
 
 exports[`PlatformServices should return a failed setAppName: failed setAppName 1`] = `"{ identifyApp } = insights.chrome, insights.chrome.identifyApp is not a function"`;
 
+exports[`PlatformServices should return a failed setAppNav: failed setAppNav 1`] = `[Error: { appNavClick } = insights.chrome, insights.chrome.appNavClick is not a function]`;
+
 exports[`PlatformServices should return a successful getUser with a specific response: specific success for authorized user 1`] = `"lorem ipsum"`;
 
 exports[`PlatformServices should return a successful getUser: success authorized user 1`] = `
