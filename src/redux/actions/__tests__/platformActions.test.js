@@ -21,13 +21,11 @@ describe('PlatformActions', () => {
     expect(platformActions.setAppName()).toMatchSnapshot('dispatch object');
   });
 
-  it('Should return a function for the setNavigation method', () => {
-    expect(platformActions.setNavigation()).toMatchSnapshot('function');
+  it('Should return a function for the setAppNav method', () => {
+    expect(platformActions.setAppNav()).toMatchSnapshot('function');
 
     window.insights.chrome.navigation = jest.fn().mockImplementation(value => value);
     const dispatch = obj => obj;
-    expect(platformActions.setNavigation([{ id: 'lorem' }, { id: 'ipsum' }])(dispatch)).toMatchSnapshot(
-      'expected process'
-    );
+    expect(platformActions.setAppNav('lorem')(dispatch)).toMatchSnapshot('expected process');
   });
 });

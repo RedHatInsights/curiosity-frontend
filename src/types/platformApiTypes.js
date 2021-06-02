@@ -1,4 +1,13 @@
 /**
+ * Platform response for appNavClick.
+ *
+ * @type {{ACTIVE_APP: string}}
+ */
+const PLATFORM_API_RESPONSE_NAV_TYPES = {
+  ACTIVE_APP: 'activeApp'
+};
+
+/**
  * Platform response entitlements type.
  *
  * @type {string}
@@ -76,6 +85,7 @@ const PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES = {
  *     PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES: {ORG_ADMIN: string}}}
  */
 const platformApiTypes = {
+  PLATFORM_API_RESPONSE_NAV_TYPES,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES,
   PLATFORM_API_RESPONSE_USER_IDENTITY,
@@ -90,6 +100,7 @@ const platformApiTypes = {
 export {
   platformApiTypes as default,
   platformApiTypes,
+  PLATFORM_API_RESPONSE_NAV_TYPES,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES,
   PLATFORM_API_RESPONSE_USER_IDENTITY,
