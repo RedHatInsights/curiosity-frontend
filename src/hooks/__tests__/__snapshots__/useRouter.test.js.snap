@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useRouter should apply a hook for useHistory: push, config route 1`] = `
+Array [
+  Array [
+    Object {
+      "meta": Object {
+        "appName": undefined,
+        "id": "rhel",
+        "secondaryNav": undefined,
+      },
+      "payload": Promise {},
+      "type": "PLATFORM_SET_NAV",
+    },
+  ],
+]
+`;
+
+exports[`useRouter should apply a hook for useHistory: push, unique route 1`] = `
+Array [
+  Array [
+    "/lorem/ipsum",
+    undefined,
+  ],
+]
+`;
+
+exports[`useRouter should return specific properties: specific properties 1`] = `
+Object {
+  "useHistory": [Function],
+  "useLocation": [Function],
+  "useParams": [Function],
+  "useRouteMatch": [Function],
+}
+`;
