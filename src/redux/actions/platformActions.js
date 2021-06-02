@@ -78,17 +78,24 @@ const setAppName = name => ({
 });
 
 /**
- * Apply platform method for handling the left-nav navigation active item.
+ * Apply platform method for changing routes via the left-nav navigation.
  *
- * @param {object} data
+ * @param {string} id
+ * @param {object} options
+ * @param {string} options.appName
+ * @param {boolean} options.secondaryNav
  * @returns {Function}
  */
-const setNavigation = data => dispatch => {
+const setAppNav = (id, { appName, secondaryNav } = {}) => dispatch =>
   dispatch({
-    type: platformTypes.PLATFORM_SET_NAV
+    type: platformTypes.PLATFORM_SET_NAV,
+    payload: platformServices.setAppNav(id, { appName, secondaryNav }),
+    meta: {
+      id,
+      appName,
+      secondaryNav
+    }
   });
-  return platformServices.setNavigation(data);
-};
 
 const platformActions = {
   addNotification,
@@ -98,7 +105,7 @@ const platformActions = {
   initializeChrome,
   onNavigation,
   setAppName,
-  setNavigation
+  setAppNav
 };
 
 export {
@@ -111,5 +118,5 @@ export {
   initializeChrome,
   onNavigation,
   setAppName,
-  setNavigation
+  setAppNav
 };

@@ -25,7 +25,7 @@ describe('PlatformServices', () => {
     expect(platformServices.initializeChrome).toBeDefined();
     expect(platformServices.onNavigation).toBeDefined();
     expect(platformServices.setAppName).toBeDefined();
-    expect(platformServices.setNavigation).toBeDefined();
+    expect(platformServices.setAppNav).toBeDefined();
   });
 
   /**
@@ -95,10 +95,10 @@ describe('PlatformServices', () => {
     expect(response).toMatchSnapshot('failed setAppName');
   });
 
-  it('should return a failed setNavigation', () => {
-    window.insights.chrome.navigation = undefined;
-    expect(platformServices.setNavigation).toThrowError(
-      '{ navigation } = insights.chrome, insights.chrome.navigation is not a function'
-    );
+  it('should return a failed setAppNav', async () => {
+    window.insights.chrome.appNavClick = undefined;
+    const response = await returnPromiseAsync(platformServices.setAppNav);
+
+    expect(response).toMatchSnapshot('failed setAppNav');
   });
 });

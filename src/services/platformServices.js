@@ -122,24 +122,24 @@ const setAppName = async (name = null) => {
   }
 };
 
-// ToDo: Clean up, consider removing setNavigation, currently no longer used.
 /**
- * Set platform left hand navigation active item.
+ * Set app routes via the platform left-nav navigation.
  *
- * @param {Array} data
- * @returns {*}
+ * @param {string} id The navigation ID associated with internal route config, and external platform nav config
+ * @param {object} options
+ * @param {string} options.appName
+ * @param {boolean} options.secondaryNav
+ * @returns {Promise<object>}
  */
-const setNavigation = (data = []) => {
-  const { insights, location } = window;
+const setAppNav = async (id, { appName = helpers.UI_NAME, secondaryNav = true } = {}) => {
+  const { insights } = window;
   try {
-    return insights.chrome.navigation(
-      data.map(item => ({
-        ...item,
-        active: item.id === location.pathname.split('/').slice(-1)[0]
-      }))
+    return (
+      (helpers.DEV_MODE && { [platformApiTypes.PLATFORM_API_RESPONSE_NAV_TYPES.ACTIVE_APP]: id }) ||
+      (await insights.chrome.appNavClick({ id, secondaryNav, parentId: appName }))
     );
   } catch (e) {
-    throw new Error(`{ navigation } = insights.chrome, ${e.message}`);
+    throw new Error(`{ appNavClick } = insights.chrome, ${e.message}`);
   }
 };
 
@@ -150,7 +150,7 @@ const platformServices = {
   initializeChrome,
   onNavigation,
   setAppName,
-  setNavigation
+  setAppNav
 };
 
 export {
@@ -162,5 +162,5 @@ export {
   initializeChrome,
   onNavigation,
   setAppName,
-  setNavigation
+  setAppNav
 };

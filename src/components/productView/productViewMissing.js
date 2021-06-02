@@ -2,11 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSection } from '@patternfly/react-core';
 import { ArrowRightIcon } from '@patternfly/react-icons';
-import { useHistory } from 'react-router-dom';
+import { useMount } from 'react-use';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
-import { Redirect, routerHelpers } from '../router';
+import { routerHelpers } from '../router';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
+import { useHistory } from '../../hooks/useRouter';
+
+/**
+ * Return a list of available products.
+ *
+ * @returns {Array}
+ */
+const filterAvailableProducts = () => {
+  const { configs, allConfigs } = routerHelpers.getRouteConfigByPath();
+  return (configs.length && configs) || allConfigs.filter(({ isSearchable }) => isSearchable === true);
+};
 
 /**
  * Render a missing product view.
@@ -19,16 +30,13 @@ import { translate } from '../i18n/i18n';
  */
 const ProductViewMissing = ({ availableProductsRedirect, t }) => {
   const history = useHistory();
+  const availableProducts = filterAvailableProducts();
 
-  /**
-   * Return a list of available products.
-   *
-   * @returns {Array}
-   */
-  const filterAvailableProducts = () => {
-    const { configs, allConfigs } = routerHelpers.getRouteConfigByPath();
-    return (configs.length && configs) || allConfigs.filter(({ isSearchable }) => isSearchable === true);
-  };
+  useMount(() => {
+    if (availableProducts.length <= availableProductsRedirect) {
+      history.push(availableProducts[0].path);
+    }
+  });
 
   /**
    * On click, update history.
@@ -37,16 +45,7 @@ const ProductViewMissing = ({ availableProductsRedirect, t }) => {
    * @param {string} id
    * @returns {void}
    */
-  const onNavigate = id => {
-    const { routeHref } = routerHelpers.getRouteConfig({ id });
-    history.push(routeHref);
-  };
-
-  const availableProducts = filterAvailableProducts();
-
-  if (availableProducts.length <= availableProductsRedirect) {
-    return <Redirect isForced route={availableProducts[0].path} />;
-  }
+  const onNavigate = id => history.push(id);
 
   return (
     <PageLayout className="curiosity-missing-view">

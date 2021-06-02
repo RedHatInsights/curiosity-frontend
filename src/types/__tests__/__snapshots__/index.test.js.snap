@@ -4,6 +4,9 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
 Object {
   "apiTypes": Object {
     "platformApi": Object {
+      "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
+        "ACTIVE_APP": "activeApp",
+      },
       "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
       "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
         "ENTITLED": "is_entitled",
@@ -241,6 +244,9 @@ Object {
   },
   "default": Object {
     "platformApi": Object {
+      "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
+        "ACTIVE_APP": "activeApp",
+      },
       "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
       "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
         "ENTITLED": "is_entitled",
@@ -477,6 +483,9 @@ Object {
     },
   },
   "platformApiTypes": Object {
+    "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
+      "ACTIVE_APP": "activeApp",
+    },
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
       "ENTITLED": "is_entitled",
@@ -717,6 +726,9 @@ Object {
 exports[`ApiTypes should have specific API properties: specific types 1`] = `
 Object {
   "platformApi": Object {
+    "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
+      "ACTIVE_APP": "activeApp",
+    },
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
       "ENTITLED": "is_entitled",
