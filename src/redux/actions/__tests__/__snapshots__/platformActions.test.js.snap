@@ -30,17 +30,16 @@ exports[`PlatformActions Should return a function for the onNavigation method: e
 
 exports[`PlatformActions Should return a function for the onNavigation method: function 1`] = `[Function]`;
 
-exports[`PlatformActions Should return a function for the setNavigation method: expected process 1`] = `
-Array [
-  Object {
-    "active": false,
+exports[`PlatformActions Should return a function for the setAppNav method: expected process 1`] = `
+Object {
+  "meta": Object {
+    "appName": undefined,
     "id": "lorem",
+    "secondaryNav": undefined,
   },
-  Object {
-    "active": false,
-    "id": "ipsum",
-  },
-]
+  "payload": Promise {},
+  "type": "PLATFORM_SET_NAV",
+}
 `;
 
-exports[`PlatformActions Should return a function for the setNavigation method: function 1`] = `[Function]`;
+exports[`PlatformActions Should return a function for the setAppNav method: function 1`] = `[Function]`;

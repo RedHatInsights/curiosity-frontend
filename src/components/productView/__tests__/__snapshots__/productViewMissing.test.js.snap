@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductViewMissing Component should redirect when there are limited product cards: redirect 1`] = `"Redirected towards /rhel"`;
+exports[`ProductViewMissing Component should redirect when there are limited product cards: redirect action 1`] = `
+Array [
+  Array [
+    Object {
+      "meta": Object {
+        "appName": undefined,
+        "id": "rhel",
+        "secondaryNav": undefined,
+      },
+      "payload": Promise {},
+      "type": "PLATFORM_SET_NAV",
+    },
+  ],
+]
+`;
 
 exports[`ProductViewMissing Component should render a non-connected component: non-connected 1`] = `
 <PageLayout
