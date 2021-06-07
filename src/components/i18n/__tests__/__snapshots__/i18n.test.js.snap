@@ -5,6 +5,7 @@ exports[`I18n Component should attempt to perform a component translate: transla
 exports[`I18n Component should attempt to perform a string replace: translate 1`] = `
 Object {
   "localeKey": "t(lorem.ipsum)",
+  "multiContext": "t(lorem.ipsum, {\\"context\\":\\"hello_world\\"})",
   "placeholder": "t(lorem.ipsum, hello world)",
 }
 `;
