@@ -16,19 +16,25 @@ import { helpers } from '../../common/helpers';
  * @returns {string|Node}
  */
 const translate = (translateKey, values = null, components) => {
+  const updatedValues = values;
+
+  if (Array.isArray(updatedValues?.context)) {
+    updatedValues.context = updatedValues.context.join('_');
+  }
+
   if (helpers.TEST_MODE) {
-    return helpers.noopTranslate(translateKey, values, components);
+    return helpers.noopTranslate(translateKey, updatedValues, components);
   }
 
   if (components) {
     return (
-      (i18next.store && <Trans i18nKey={translateKey} values={values} components={components} />) || (
+      (i18next.store && <Trans i18nKey={translateKey} values={updatedValues} components={components} />) || (
         <React.Fragment>t({translateKey})</React.Fragment>
       )
     );
   }
 
-  return (i18next.store && i18next.t(translateKey, values)) || `t(${translateKey})`;
+  return (i18next.store && i18next.t(translateKey, updatedValues)) || `t(${translateKey})`;
 };
 
 /**
