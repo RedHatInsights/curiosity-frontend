@@ -1157,6 +1157,7 @@ exports[`Select Component should render an expanded select: expanded 1`] = `
               "current": null,
             }
           }
+          hasInlineFilter={false}
           isGrouped={false}
           keyHandler={[Function]}
           maxHeight={null}
