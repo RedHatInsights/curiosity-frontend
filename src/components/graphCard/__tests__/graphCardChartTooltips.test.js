@@ -110,49 +110,76 @@ describe('GraphCardChartTooltip Component', () => {
     delete itemsByKey.hypervisorSockets;
 
     // threshold value > 0
-    itemsByKey.threshold = { data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: undefined } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: undefined }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for > 0 and UNDEFINED hasInfinite on threshold'
     );
 
-    itemsByKey.threshold = { data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: false } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: false }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for > 0 and NOT hasInfinite on threshold'
     );
 
-    itemsByKey.threshold = { data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: true } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: true }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for > 0 and hasInfinite on threshold'
     );
 
     // threshold value = 0
-    itemsByKey.threshold = { data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: undefined } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: undefined }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for zero and UNDEFINED hasInfinite on threshold'
     );
 
-    itemsByKey.threshold = { data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: false } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: false }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for zero and NOT hasInfinite on threshold'
     );
 
-    itemsByKey.threshold = { data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: true } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: true }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for zero and hasInfinite on threshold'
     );
 
     // threshold value = null
-    itemsByKey.threshold = { data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: undefined } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: undefined }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for null and UNDEFINED hasInfinite on threshold'
     );
 
-    itemsByKey.threshold = { data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: false } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: false }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for null and NOT hasInfinite on threshold'
     );
 
-    itemsByKey.threshold = { data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: true } };
+    itemsByKey.threshold = {
+      chartType: 'threshold',
+      data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: true }
+    };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'threshold display for null and hasInfinite on threshold'
     );
