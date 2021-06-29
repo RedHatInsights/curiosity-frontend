@@ -78,12 +78,16 @@ Array [
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
     "keys": Array [
       Object {
+        "key": "curiosity-graph.noDataLabel",
+        "match": "t('curiosity-graph.noDataLabel')",
+      },
+      Object {
         "key": "curiosity-graph.infiniteThresholdLabel",
         "match": "t('curiosity-graph.infiniteThresholdLabel')",
       },
       Object {
-        "key": "curiosity-graph.noDataLabel",
-        "match": "t('curiosity-graph.noDataLabel')",
+        "key": "curiosity-graph.infiniteThresholdLabel",
+        "match": "t('curiosity-graph.infiniteThresholdLabel')",
       },
       Object {
         "key": "curiosity-graph.thresholdLabel",
