@@ -240,6 +240,7 @@ const RHSM_API_QUERY_SORT_TYPES = {
   CORES: 'cores',
   CORE_HOURS: 'core_hours',
   HARDWARE: 'hardware_type',
+  INSTANCE_HOURS: 'instance_hours',
   LAST_SEEN: 'last_seen',
   MEASUREMENT: 'measurement_type',
   NAME: 'display_name',
