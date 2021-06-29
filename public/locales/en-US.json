@@ -66,6 +66,7 @@
     "cardHeading": "Current systems",
     "tabHeading": "Inventory listing",
     "tabHeading_plural": "Inventory listings",
+    "tabSubHeading": "Tab {{count}}",
     "tabHosts": "Current systems",
     "tabHosts_noInstances_OpenShift-dedicated-metrics": "Current instances",
     "tabHosts_OpenShift-dedicated-metrics": "{{count}} instance",

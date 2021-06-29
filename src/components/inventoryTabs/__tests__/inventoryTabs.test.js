@@ -15,6 +15,12 @@ describe('InventoryTabs Component', () => {
   });
 
   it('should render a non-connected component', () => {
+    const GenericComponent = () => (
+      <div>
+        <strong>world</strong>
+      </div>
+    );
+
     const props = {
       productId: 'lorem',
       children: [
@@ -23,7 +29,8 @@ describe('InventoryTabs Component', () => {
         </InventoryTab>,
         <InventoryTab key="sit" title="sit">
           amet
-        </InventoryTab>
+        </InventoryTab>,
+        <GenericComponent key="hello" />
       ]
     };
 
