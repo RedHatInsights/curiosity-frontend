@@ -9,7 +9,7 @@ import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_T
 import { graphCardHelpers } from './graphCardHelpers';
 import GraphCardChartTooltip from './graphCardChartTooltip';
 import GraphCardChartLegend from './graphCardChartLegend';
-import { ChartArea } from '../chartArea/chartArea';
+import { Chart } from '../chart/chart';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
 import { translate } from '../i18n/i18n';
@@ -54,11 +54,6 @@ class GraphCard extends React.Component {
   }
 
   /**
-   * FixMe: custom use of dash over threshold vs updating PF Charts legend threshold symbol
-   *
-   * patternfly/react-tokens chart_threshold_stroke_dash_array and chart_threshold_stroke_Width
-   */
-  /**
    * Apply props to chart/graph.
    *
    * @returns {Node}
@@ -67,18 +62,15 @@ class GraphCard extends React.Component {
     const { filterGraphData, graphData, productLabel, query, viewId } = this.props;
     const graphGranularity = this.getQueryGranularity();
 
-    const xAxisTickFormat = ({ item, previousItem, tick }) =>
-      graphCardHelpers.xAxisTickFormat({
-        tick,
-        date: item.date,
-        previousDate: previousItem.date,
-        granularity: graphGranularity
-      });
-
     const chartAreaProps = {
-      xAxisFixLabelOverlap: true,
       xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(graphGranularity),
-      xAxisTickFormat,
+      xAxisTickFormat: ({ item, previousItem, tick }) =>
+        graphCardHelpers.xAxisTickFormat({
+          tick,
+          date: item.date,
+          previousDate: previousItem.date,
+          granularity: graphGranularity
+        }),
       yAxisTickFormat: graphCardHelpers.yAxisTickFormat
     };
 
@@ -87,20 +79,12 @@ class GraphCard extends React.Component {
         const tempFiltered = {
           data: data[key],
           id: key,
-          animate: {
-            duration: 250,
-            onLoad: { duration: 250 }
-          },
           strokeWidth: 2,
           isStacked: !/^threshold/.test(key),
           isThreshold: /^threshold/.test(key)
         };
 
         if (/^threshold/.test(key)) {
-          tempFiltered.animate = {
-            duration: 100,
-            onLoad: { duration: 100 }
-          };
           tempFiltered.stroke = chartColorGreenDark.value;
           tempFiltered.strokeDasharray = '4,3';
           tempFiltered.strokeWidth = 3;
@@ -117,7 +101,7 @@ class GraphCard extends React.Component {
     };
 
     return (
-      <ChartArea
+      <Chart
         key={`chart_${JSON.stringify(query)}`}
         {...chartAreaProps}
         dataSets={filteredGraphData(graphData)}
