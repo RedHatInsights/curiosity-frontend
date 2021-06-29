@@ -151,6 +151,16 @@ ProductViewOpenShiftDedicated.defaultProps = {
         cellWidth: 15
       },
       {
+        id: 'instanceHours',
+        cell: data =>
+          (typeof data?.instanceHours?.value === 'number' &&
+            Number.parseFloat(data?.instanceHours?.value).toFixed(2)) ||
+          `0.00`,
+        isSortable: true,
+        isWrappable: true,
+        cellWidth: 15
+      },
+      {
         id: 'lastSeen',
         header: translate('curiosity-inventory.header', { context: 'lastSeen_OpenShift-dedicated-metrics' }),
         cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
