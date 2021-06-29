@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useWindow should apply a hook for useResizeObserver: width, height 1`] = `
+Object {
+  "height": 0,
+  "width": 0,
+}
+`;
+
+exports[`useWindow should return specific properties: specific properties 1`] = `
+Object {
+  "useResizeObserver": [Function],
+}
+`;
