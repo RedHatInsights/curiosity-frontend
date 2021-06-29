@@ -100,6 +100,7 @@
     "header_displayName": "Name",
     "header_guestsDisplayName": "Guest name",
     "header_hardwareType": "Type",
+    "header_instanceHours": "Instance hours",
     "header_measurementType": "Type",
     "header_inventoryId": "UUID",
     "header_sockets": "Subscribed sockets",

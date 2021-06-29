@@ -46,6 +46,13 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
         Object {
           "cell": [Function],
           "cellWidth": 15,
+          "id": "instanceHours",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
           "header": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
           "id": "lastSeen",
           "isSortable": true,
@@ -216,6 +223,9 @@ Object {
       "title": "12.53",
     },
     Object {
+      "title": "20.25",
+    },
+    Object {
       "title": <DateFormat
         date="lorem date obj"
       />,
@@ -228,6 +238,12 @@ Object {
     },
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -247,6 +263,10 @@ Object {
     "displayName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
+    },
+    "instanceHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+      "value": 20.25,
     },
     "inventoryId": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
@@ -273,6 +293,9 @@ Object {
     Object {
       "title": "0.00",
     },
+    Object {
+      "title": "0.00",
+    },
     [Function],
   ],
   "columnHeaders": Array [
@@ -282,6 +305,12 @@ Object {
     },
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -301,6 +330,10 @@ Object {
     "displayName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
+    },
+    "instanceHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+      "value": null,
     },
     "inventoryId": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
@@ -350,6 +383,13 @@ Object {
       "cell": [Function],
       "cellWidth": 15,
       "id": "coreHours",
+      "isSortable": true,
+      "isWrappable": true,
+    },
+    Object {
+      "cell": [Function],
+      "cellWidth": 15,
+      "id": "instanceHours",
       "isSortable": true,
       "isWrappable": true,
     },
