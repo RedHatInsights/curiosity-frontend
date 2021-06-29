@@ -1,122 +1,133 @@
 .curiosity {
   .curiosity-usage-graph {
-    .pf-c-card__header {
-      border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding-bottom: 1em;
-    }
-
-    .pf-c-card__title {
-      padding: 0;
-    }
-
-    .pf-c-card__actions {
-      margin: inherit;
-    }
-  }
-
-  .curiosity-usage-graph__total {
-    min-width: 175px;
-    padding-left: var(--pf-global--spacer--sm);
-    padding-right: var(--pf-global--spacer--sm);
-    text-align: right;
-    white-space: normal;
-
-    @media (min-width: $pf-global--breakpoint--sm) {
-      white-space: nowrap;
-    }
-  }
-
-  .victory-legend {
-    position: relative;
-    margin-left: 30px;
-    margin-top: -35px;
-  }
-
-  .victory-legend-icon {
-    margin-right: 5px;
-  }
-
-  .victory-tooltip {
-    min-width: 150px;
-    font-size: 0.9em;
-    opacity: 0.95;
-    background-color: var(--pf-global--palette--black-900);
-    color: #ffffff;
-    padding: 8px;
-    text-align: center;
-
-    table {
-      th {
-        padding-right: 5px;
-        text-align: left;
+    .pf-c-card {
+      &__header {
+        border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: 1em;
       }
-      td {
-        padding-left: 5px;
-        text-align: right;
+
+      &__title {
+        padding: 0;
       }
-      tbody > tr > th {
-        font-weight: normal;
+
+      &__actions {
+        margin: inherit;
       }
     }
-  }
 
-  .c3 svg {
-    font: 1em var(--pf-chart-global--FontFamily);
-    letter-spacing: var(--pf-chart-global--letter-spacing);
-  }
+    &__total {
+      min-width: 175px;
+      padding-left: var(--pf-global--spacer--sm);
+      padding-right: var(--pf-global--spacer--sm);
+      text-align: right;
+      white-space: normal;
 
-  .c3-axis.c3-axis-x,
-  .c3-axis.c3-axis-y {
-    opacity: 0.5 !important;
-  }
+      @media (min-width: $pf-global--breakpoint--sm) {
+        white-space: nowrap;
+      }
+    }
 
-  .c3-shape.c3-line[class*="threshold"] {
-    stroke-dasharray: 5,5;
-    stroke-width: 3;
-  }
+    &__legend-item {
+      // position: relative;
+    };
 
-  .threshold-legend-icon,
-  .legend-icon {
-    vertical-align: baseline;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-  }
+    &__tooltip {
+      color: #ffffff;
+      font-size: 0.9em;
+      padding: 8px;
 
-  .threshold-legend-icon {
-    height: auto;
-    vertical-align: middle;
-    width: 25px;
-    border-width: 0;
-    border-top-width: 3px;
-    border-style: dashed;
-    margin-left: 2px;
-    margin-right: 2px;
-  }
+      table {
+        tbody {
+        }
 
-  .c3-xgrid, .c3-ygrid {
-    stroke-dasharray: none;
-    opacity: 0.5;
-  }
+        th {
+          padding-right: 5px;
+          text-align: left;
+        }
 
-  // ToDo: apply pf color variables
-  table.c3-tooltip {
-    background-color: var(--pf-global--palette--black-900);
-    color: #ffffff;
+        td {
+          padding-left: 5px;
+          text-align: right;
+        }
 
-    tr,th,td {
-      background-color: inherit;
-      color: inherit;
-      border: none;
+        tbody > tr > th {
+          font-weight: normal;
+          max-width: 200px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
     }
   }
 
-  .curiosity-c3chart {
-    .curiosity-c3chart-description {
-      padding-left: 20px;
-      padding-right: 20px;
+  .curiosity-chartarea {
+    &__legend {
+      background-color: #fff;
+      margin-left: 35px;
+      margin-top: -35px;
+      position: relative;
+    }
+
+    &__icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+
+      &-dash {
+        vertical-align: middle;
+
+        > span {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+
+          > svg {}
+        }
+      }
+
+      &-threshold {}
+    }
+
+    &__tooltip {
+      &-container {
+        margin: auto;
+        max-width: 300px;
+        min-width: 150px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      transition: width 1s ease-in-out, left 1s ease-in-out;
+      background-color: #000;
+      margin-left: 10px;
+      margin-right: 15px;
+
+      &-left:before,
+      &-right:after {
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent #000 transparent transparent;
+        content: "";
+        left: -9px;  //-10px Compensate for Firefox pixel diff, match margin-left
+        margin-left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &-right:after {
+        border-color: transparent transparent transparent #000;
+        left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
+        margin-left: 0;
+      }
+    }
+
+    > .pf-c-chart > svg > line[role="presentation"][vector-effect="non-scaling-stroke"] {
+      position: relative;
+      stroke: var(--pf-global--palette--black-900) !important;
     }
   }
 }
