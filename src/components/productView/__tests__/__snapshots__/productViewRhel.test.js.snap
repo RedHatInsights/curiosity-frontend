@@ -27,6 +27,7 @@ exports[`ProductViewRhel Component should render a non-connected component: non-
           "stroke": "#5752d1",
         },
         Object {
+          "chartType": "threshold",
           "id": "thresholdSockets",
         },
       ],
@@ -564,6 +565,7 @@ Object {
       "stroke": "#5752d1",
     },
     Object {
+      "chartType": "threshold",
       "id": "thresholdSockets",
     },
   ],

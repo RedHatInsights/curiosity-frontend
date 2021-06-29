@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tooltip, TooltipPosition } from '@patternfly/react-core';
-import { EyeSlashIcon } from '@patternfly/react-icons';
 import { connect, store, reduxTypes } from '../../redux';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
+import { ChartIcon } from '../chart/chartIcon';
 
 /**
  * A custom chart legend.
@@ -62,31 +62,18 @@ class GraphCardChartLegend extends React.Component {
       <Button
         onClick={() => this.onClick(chartId)}
         onKeyPress={() => this.onClick(chartId)}
-        className="victory-legend-item"
+        className="curiosity-usage-graph__legend-item"
         tabIndex={0}
         key={`curiosity-button-${chartId}`}
         variant="link"
         component="a"
         isDisabled={isDisabled}
         icon={
-          ((isDisabled || checkIsToggled) && <EyeSlashIcon />) ||
-          (isThreshold && (
-            <hr
-              aria-hidden
-              className="threshold-legend-icon"
-              style={{
-                visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible',
-                borderTopColor: color
-              }}
-            />
-          )) || (
-            <div
-              aria-hidden
-              className="legend-icon"
-              style={{
-                visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible',
-                backgroundColor: color
-              }}
+          ((isDisabled || checkIsToggled) && <ChartIcon symbol="eyeSlash" />) || (
+            <ChartIcon
+              symbol={(isThreshold && 'dash') || 'square'}
+              style={{ visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible' }}
+              fill={color}
             />
           )
         }
@@ -95,19 +82,6 @@ class GraphCardChartLegend extends React.Component {
       </Button>
     );
 
-    /**
-     * FixMe: PF Tooltip has breaking changes not called out in changelog.md for PF React-core?
-     * Unclear which changelog this is called out in. Had to open the PF React-core component
-     * and the associated PR to determine when breaking changes were activated. v4.30.0
-     *  - https://github.com/patternfly/patternfly-react/pull/4491/files
-     *
-     * Breaking changes:
-     * 1. enableFlip prop is more sensitive, and/or not overridden by declaring "position"
-     *    - enableFlip possibly causes unintended behavior on smaller screen sizes when "distance" prop
-     *      is set to "0"
-     * 2. unit test snapshots updated, causing CI to fail
-     * 3. removing props, deprecating them, having them "[not do anything]"
-     */
     if (tooltipContent) {
       return (
         <Tooltip
@@ -116,8 +90,6 @@ class GraphCardChartLegend extends React.Component {
           position={TooltipPosition.top}
           enableFlip={false}
           distance={5}
-          entryDelay={100}
-          exitDelay={0}
         >
           {button}
         </Tooltip>
