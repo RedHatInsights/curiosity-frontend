@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getTooltipDate } from './graphCardHelpers';
 import { translate } from '../i18n/i18n';
+import { ChartIcon } from '../chart/chartIcon';
 
 /**
  * A custom chart tooltip.
@@ -18,38 +19,49 @@ const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
   const data = [];
   const { itemsByKey = {} } = datum || {};
 
-  Object.keys(itemsByKey).forEach((key, index) => {
-    if (index === 0) {
-      header = getTooltipDate({
-        date: itemsByKey[key]?.data.date,
-        granularity
-      });
-    }
+  Object.keys(itemsByKey)
+    .reverse()
+    .forEach((key, index) => {
+      if (index === 0) {
+        header = getTooltipDate({
+          date: itemsByKey[key]?.data.date,
+          granularity
+        });
+      }
 
-    const tempDataFacet = {
-      color: itemsByKey[key]?.color
-    };
+      const tempDataFacet = {
+        color: itemsByKey[key]?.color
+      };
 
-    if (/^threshold/.test(key)) {
-      const thresholdStringValue =
-        (itemsByKey[key]?.data.hasInfinite && t('curiosity-graph.infiniteThresholdLabel')) ||
-        (itemsByKey[key]?.data.y ?? t('curiosity-graph.noDataLabel'));
+      if (itemsByKey[key]?.chartType === 'threshold') {
+        let thresholdStringValue = itemsByKey[key]?.data.y ?? t('curiosity-graph.noDataLabel');
 
-      tempDataFacet.label = t(`curiosity-graph.thresholdLabel`);
-      tempDataFacet.value = thresholdStringValue;
-    } else {
-      const dataFactsValue =
-        (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.noDataLabel')) || itemsByKey[key]?.data.y || 0;
+        if (itemsByKey[key]?.data.hasInfinite) {
+          if (tempDataFacet.color) {
+            thresholdStringValue = (
+              <ChartIcon symbol="infinity" fill="#ffffff" title={t('curiosity-graph.infiniteThresholdLabel')} />
+            );
+          } else {
+            thresholdStringValue = t('curiosity-graph.infiniteThresholdLabel');
+          }
+        }
 
-      tempDataFacet.label = t(`curiosity-graph.${key}Label`, { product: productLabel });
-      tempDataFacet.value = dataFactsValue;
-    }
+        tempDataFacet.label = t(`curiosity-graph.thresholdLabel`);
+        tempDataFacet.value = thresholdStringValue;
+      } else {
+        const dataFactsValue =
+          (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.noDataLabel')) || itemsByKey[key]?.data.y || 0;
 
-    data.push(tempDataFacet);
-  });
+        tempDataFacet.label = t(`curiosity-graph.${key}Label`, { product: productLabel });
+        tempDataFacet.value = dataFactsValue;
+      }
+
+      tempDataFacet.chartType = itemsByKey[key]?.chartType;
+      data.push(tempDataFacet);
+    });
 
   return (
-    <div className="victory-tooltip">
+    <div className="curiosity-usage-graph__tooltip">
       <table summary={t('curiosity-graph.tooltipSummary')}>
         {(data.length && header && (
           <thead>
@@ -64,13 +76,12 @@ const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
             {data.map(dataFacet => (
               <tr key={`tooltip-${dataFacet.label}`}>
                 <th>
-                  <div
-                    aria-hidden
-                    className="legend-icon victory-legend-icon"
-                    style={{
-                      backgroundColor: dataFacet.color || 'transparent'
-                    }}
-                  />
+                  {dataFacet.chartType === 'threshold' && (
+                    <ChartIcon size="sm" symbol="dash" fill={dataFacet.color || 'transparent'} />
+                  )}
+                  {dataFacet.chartType !== 'threshold' && (
+                    <ChartIcon size="sm" fill={dataFacet.color || 'transparent'} />
+                  )}{' '}
                   {dataFacet.label}
                 </th>
                 <td>{dataFacet.value}</td>
@@ -94,6 +105,7 @@ GraphCardChartTooltip.propTypes = {
   datum: PropTypes.shape({
     itemsByKey: PropTypes.objectOf(
       PropTypes.shape({
+        chartType: PropTypes.string,
         color: PropTypes.string,
         data: PropTypes.shape({
           date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChartContext should apply a hook for toggling chart layers: toggle data 1`] = `
+Object {
+  "ipsum": false,
+  "lorem": true,
+}
+`;
+
+exports[`ChartContext should return specific properties: specific properties 1`] = `
+Object {
+  "ChartContext": Object {
+    "$$typeof": Symbol(react.context),
+    "Consumer": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": [Circular],
+    },
+    "Provider": Object {
+      "$$typeof": Symbol(react.provider),
+      "_context": [Circular],
+    },
+    "_calculateChangedBits": null,
+    "_currentRenderer": null,
+    "_currentRenderer2": null,
+    "_currentValue": Array [
+      Object {
+        "chartContainerRef": [Function],
+        "chartSettings": Object {},
+        "chartTooltipRef": [Function],
+        "dataSetsToggle": Array [],
+      },
+      [Function],
+    ],
+    "_currentValue2": Array [
+      Object {
+        "chartContainerRef": [Function],
+        "chartSettings": Object {},
+        "chartTooltipRef": [Function],
+        "dataSetsToggle": Array [],
+      },
+      [Function],
+    ],
+    "_threadCount": 0,
+  },
+  "DEFAULT_CONTEXT": Array [
+    Object {
+      "chartContainerRef": [Function],
+      "chartSettings": Object {},
+      "chartTooltipRef": [Function],
+      "dataSetsToggle": Array [],
+    },
+    [Function],
+  ],
+  "useChartContext": [Function],
+  "useToggleData": [Function],
+}
+`;
