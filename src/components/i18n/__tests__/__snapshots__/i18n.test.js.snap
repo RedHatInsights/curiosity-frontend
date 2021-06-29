@@ -146,6 +146,10 @@ Array [
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "keys": Array [
       Object {
+        "key": "curiosity-inventory.tabSubHeading",
+        "match": "t('curiosity-inventory.tabSubHeading', { count: index })",
+      },
+      Object {
         "key": "curiosity-inventory.tabHeading",
         "match": "t('curiosity-inventory.tabHeading', { count: updatedChildren.length })",
       },

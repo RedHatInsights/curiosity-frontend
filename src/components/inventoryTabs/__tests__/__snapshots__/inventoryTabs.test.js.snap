@@ -19,7 +19,7 @@ exports[`InventoryTabs Component should render a non-connected component: non-co
     className="sr-only"
     headingLevel="h2"
   >
-    t(curiosity-inventory.tabHeading, {"count":2})
+    t(curiosity-inventory.tabHeading, {"count":3})
   </Title>
   <Tabs
     activeTab={0}
@@ -38,6 +38,11 @@ exports[`InventoryTabs Component should render a non-connected component: non-co
           "active": false,
           "content": "amet",
           "title": "sit",
+        },
+        Object {
+          "active": false,
+          "content": <GenericComponent />,
+          "title": "t(curiosity-inventory.tabSubHeading, {\\"count\\":2})",
         },
       ]
     }
