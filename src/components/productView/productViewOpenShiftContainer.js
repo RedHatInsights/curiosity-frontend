@@ -143,7 +143,7 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
           <InventoryTabs key={`inventory_${productId}`} productId={productId}>
             <InventoryTab
               key={`inventory_hosts_${productId}`}
-              title={t('curiosity-inventory.tabHosts', { context: productId })}
+              title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
             >
               <InventoryList
                 key={`inv_${productId}`}
