@@ -1,18 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { PageColumns, PageToolbar } from '../../pageLayout/pageLayout';
+import { ToolbarFieldUom } from '../../toolbar/toolbarFieldUom';
+import { ToolbarFieldRangedMonthly } from '../../toolbar/toolbarFieldRangedMonthly';
 import { ProductViewOpenShiftContainer } from '../productViewOpenShiftContainer';
-import { parseRowCellsListData } from '../../inventoryList/inventoryListHelpers';
-import {
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../../types/rhsmApiTypes';
+import { config as openshiftContainerConfig } from '../../../config/product.openshiftContainer';
+import { config as openshiftMetricsConfig } from '../../../config/product.openshiftMetrics';
 
 describe('ProductViewOpenShiftContainer Component', () => {
   it('should render a non-connected component', () => {
     const props = {
       routeDetail: {
         pathParameter: 'lorem ipsum',
-        productParameter: 'dolor sit'
+        productConfig: [openshiftContainerConfig, openshiftMetricsConfig],
+        productParameter: 'lorem ipsum product label'
       }
     };
 
@@ -20,165 +21,25 @@ describe('ProductViewOpenShiftContainer Component', () => {
     expect(component).toMatchSnapshot('non-connected');
   });
 
-  it('should set multiple product configurations', () => {
-    const [productOne, productTwo] = ProductViewOpenShiftContainer.defaultProps.productConfig;
-    expect([
-      {
-        initialGraphFilters: productOne.initialGraphFilters,
-        initialInventoryFilters: productOne.initialInventoryFilters,
-        query: productOne.query
-      },
-      {
-        initialGraphFilters: productTwo.initialGraphFilters,
-        initialInventoryFilters: productTwo.initialInventoryFilters,
-        query: productTwo.query
+  it('should be a custom product view', () => {
+    const props = {
+      routeDetail: {
+        pathParameter: 'lorem ipsum',
+        productConfig: [openshiftContainerConfig, openshiftMetricsConfig],
+        productParameter: 'lorem ipsum product label'
       }
-    ]).toMatchSnapshot('initial configuration');
-
-    // filter inventory data checks
-    const inventoryData = {
-      displayName: 'lorem',
-      inventoryId: 'lorem inventory id',
-      coreHours: 12.53,
-      lastSeen: 'lorem date obj',
-      loremIpsum: 'hello world'
     };
 
-    const filteredInventoryDataProductOne = parseRowCellsListData({
-      filters: productOne.initialInventoryFilters,
-      cellData: inventoryData
-    });
+    const component = shallow(<ProductViewOpenShiftContainer {...props} />);
+    const pageColumns = component.find(PageColumns);
 
-    expect(filteredInventoryDataProductOne).toMatchSnapshot('filteredInventoryData results, Product One');
+    expect(pageColumns.children().length).toBe(5);
 
-    const filteredInventoryDataProductTwo = parseRowCellsListData({
-      filters: productTwo.initialInventoryFilters,
-      cellData: inventoryData
-    });
+    // column one
+    expect(pageColumns.childAt(0).find(PageToolbar).length).toBe(1);
 
-    expect(filteredInventoryDataProductTwo).toMatchSnapshot('filteredInventoryData results, Product Two');
-
-    const fallbackInventoryData = {
-      ...inventoryData,
-      coreHours: null,
-      inventoryId: null,
-      lastSeen: null
-    };
-
-    const fallbackFilteredInventoryDataProductOne = parseRowCellsListData({
-      filters: productOne.initialInventoryFilters,
-      cellData: fallbackInventoryData
-    });
-
-    expect(fallbackFilteredInventoryDataProductOne).toMatchSnapshot(
-      'filteredInventoryData results, fallback display, Product One'
-    );
-
-    const fallbackFilteredInventoryDataProductTwo = parseRowCellsListData({
-      filters: productTwo.initialInventoryFilters,
-      cellData: fallbackInventoryData
-    });
-
-    expect(fallbackFilteredInventoryDataProductTwo).toMatchSnapshot(
-      'filteredInventoryData results, fallback display, Product Two'
-    );
-
-    expect({
-      productOneHostsInventory:
-        productOne.inventoryHostsQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING,
-      productOneSubscriptionsInventory:
-        productOne.inventorySubscriptionsQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING,
-      productTwoHostsInventory:
-        productTwo.inventoryHostsQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING
-    }).toMatchSnapshot('default sort for inventory should descend');
-
-    // product action display callback
-    expect({
-      productOneActionDisplay: undefined,
-      productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        data: {
-          coreHours: [
-            {
-              y: 0
-            },
-            {
-              y: 400
-            },
-            {
-              y: 100
-            }
-          ]
-        },
-        meta: {
-          totalCoreHours: 500
-        }
-      })
-    }).toMatchSnapshot('product action display should display a total value below 1000');
-
-    expect({
-      productOneActionDisplay: undefined,
-      productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        data: {
-          coreHours: [
-            {
-              y: 0
-            },
-            {
-              y: 800000
-            },
-            {
-              y: 100000
-            }
-          ]
-        },
-        meta: {
-          totalCoreHours: 900000
-        }
-      })
-    }).toMatchSnapshot('product action display should display a total value below 1000000');
-
-    expect({
-      productOneActionDisplay: undefined,
-      productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        data: {
-          coreHours: [
-            {
-              y: 0
-            },
-            {
-              y: 1000
-            },
-            {
-              y: 100
-            }
-          ]
-        },
-        meta: {
-          totalCoreHours: 1100
-        }
-      })
-    }).toMatchSnapshot('product action display should display a total value');
-
-    expect({
-      productOneActionDisplay: undefined,
-      productTwoActionDisplay: productTwo.initialGraphSettings.actionDisplay({
-        data: {
-          loremIpsum: [
-            {
-              y: 0
-            },
-            {
-              y: 1000
-            },
-            {
-              y: 100
-            }
-          ]
-        },
-        meta: {
-          totalCoreHours: undefined
-        }
-      })
-    }).toMatchSnapshot('product action display should NOT display a total value');
+    // column two
+    expect(pageColumns.childAt(1).find(ToolbarFieldUom).length).toBe(1);
+    expect(pageColumns.childAt(3).find(ToolbarFieldRangedMonthly).length).toBe(1);
   });
 });

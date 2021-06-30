@@ -53,7 +53,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
     Array [
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel",
@@ -62,7 +62,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-arm",
@@ -71,7 +71,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmpower",
@@ -80,7 +80,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmz",
@@ -89,7 +89,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-x86",
@@ -116,7 +116,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewSatellite",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "satellite",
@@ -125,7 +125,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewSatellite",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "satellite-capsule",
@@ -134,7 +134,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewSatellite",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "satellite-server",

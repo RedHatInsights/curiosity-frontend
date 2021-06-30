@@ -1,146 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductViewSatellite Component should render a non-connected component: non-connected 1`] = `
-<ProductView
-  productConfig={
-    Object {
-      "graphTallyQuery": Object {
-        "granularity": "daily",
-      },
-      "initialGraphFilters": Array [
-        Object {
-          "color": "#06c",
-          "fill": "#8bc1f7",
-          "id": "physicalSockets",
-          "stroke": "#06c",
-        },
-        Object {
-          "color": "#009596",
-          "fill": "#a2d9d9",
-          "id": "hypervisorSockets",
-          "stroke": "#009596",
-        },
-        Object {
-          "color": "#5752d1",
-          "fill": "#b2b0ea",
-          "id": "cloudSockets",
-          "stroke": "#5752d1",
-        },
-        Object {
-          "chartType": "threshold",
-          "id": "thresholdSockets",
-        },
-      ],
-      "initialGuestsFilters": Array [
-        Object {
-          "cell": [Function],
-          "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-          "id": "displayName",
-        },
-        Object {
-          "cellWidth": 40,
-          "id": "inventoryId",
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "lastSeen",
-        },
-      ],
-      "initialInventoryFilters": Array [
-        Object {
-          "cell": [Function],
-          "id": "displayName",
-          "isSortable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 20,
-          "id": "measurementType",
-          "isSortable": true,
-        },
-        Object {
-          "cellWidth": 15,
-          "id": "sockets",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "lastSeen",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-      ],
-      "initialInventorySettings": Object {},
-      "initialSubscriptionsInventoryFilters": Array [
-        Object {
-          "id": "productName",
-          "isSortable": true,
-        },
-        Object {
-          "cellWidth": 15,
-          "id": "serviceLevel",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "upcomingEventDate",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-      ],
-      "initialToolbarFilters": Array [
-        Object {
-          "id": "sla",
-        },
-        Object {
-          "id": "usage",
-          "selected": true,
-        },
-      ],
-      "inventoryHostsQuery": Object {
-        "dir": "desc",
-        "limit": 100,
-        "offset": 0,
-        "sort": "last_seen",
-      },
-      "inventorySubscriptionsQuery": Object {
-        "dir": "desc",
-        "limit": 100,
-        "offset": 0,
-        "sort": "upcoming_event_date",
-      },
-      "query": Object {
-        "beginning": "2019-06-20T00:00:00.000Z",
-        "ending": "2019-07-20T23:59:59.999Z",
-      },
-    }
-  }
-  routeDetail={
-    Object {
-      "pathParameter": "lorem ipsum",
-      "productParameter": "dolor sit",
-    }
-  }
-  t={[Function]}
-  toolbarGraph={null}
-  toolbarGraphDescription={false}
-  toolbarProduct={null}
-/>
-`;
-
-exports[`ProductViewSatellite Component should set product configuration: default sort for inventory should descend 1`] = `
-Object {
-  "hostsInventory": true,
-  "subscriptionsInventory": true,
-}
-`;
-
-exports[`ProductViewSatellite Component should set product configuration: filteredGuestsData results 1`] = `
+exports[`Product RHEL config should apply guest inventory configuration: filtered 1`] = `
 Object {
   "cells": Array [
     Object {
@@ -198,7 +58,7 @@ Object {
 }
 `;
 
-exports[`ProductViewSatellite Component should set product configuration: filteredGuestsData results, authorized 1`] = `
+exports[`Product RHEL config should apply guest inventory configuration: filtered, authorized 1`] = `
 Object {
   "cells": Array [
     Object {
@@ -263,7 +123,7 @@ Object {
 }
 `;
 
-exports[`ProductViewSatellite Component should set product configuration: filteredInventoryData results 1`] = `
+exports[`Product RHEL config should apply hosts inventory configuration: filtered 1`] = `
 Object {
   "cells": Array [
     Object {
@@ -354,105 +214,7 @@ Object {
 }
 `;
 
-exports[`ProductViewSatellite Component should set product configuration: filteredInventoryData results, authorized 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": <React.Fragment>
-        <Button
-          component="a"
-          href="/insights/inventory/lorem inventory id/"
-          isInline={true}
-          variant="link"
-        >
-          lorem
-        </Button>
-         
-        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-      </React.Fragment>,
-    },
-    Object {
-      "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
-         
-        
-      </React.Fragment>,
-    },
-    Object {
-      "title": 10,
-    },
-    Object {
-      "title": <DateFormat
-        date="lorem date obj"
-      />,
-    },
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "cores": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
-      "value": 12,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "hardwareType": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
-      "value": "ipsum",
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": "lorem inventory id",
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": "lorem date obj",
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-    "measurementType": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
-      "value": null,
-    },
-    "numberOfGuests": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "value": 3,
-    },
-    "sockets": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
-      "value": 10,
-    },
-  },
-}
-`;
-
-exports[`ProductViewSatellite Component should set product configuration: filteredInventoryData results, fallback display 1`] = `
+exports[`Product RHEL config should apply hosts inventory configuration: filtered, fallback display 1`] = `
 Object {
   "cells": Array [
     Object {
@@ -543,77 +305,94 @@ Object {
 }
 `;
 
-exports[`ProductViewSatellite Component should set product configuration: initial configuration 1`] = `
+exports[`Product RHEL config should apply subscriptions inventory configuration: filtered 1`] = `
 Object {
-  "initialGraphFilters": Array [
+  "cells": Array [
     Object {
-      "color": "#06c",
-      "fill": "#8bc1f7",
-      "id": "physicalSockets",
-      "stroke": "#06c",
+      "title": "lorem",
     },
     Object {
-      "color": "#009596",
-      "fill": "#a2d9d9",
-      "id": "hypervisorSockets",
-      "stroke": "#009596",
+      "title": "hello world",
+    },
+    [Function],
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "transforms": Array [],
     },
     Object {
-      "color": "#5752d1",
-      "fill": "#b2b0ea",
-      "id": "cloudSockets",
-      "stroke": "#5752d1",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
     Object {
-      "chartType": "threshold",
-      "id": "thresholdSockets",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
   ],
-  "initialGuestsFilters": Array [
+  "data": Object {
+    "productName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "value": "lorem",
+    },
+    "serviceLevel": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "value": "hello world",
+    },
+    "upcomingEventDate": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
+      "value": "lorem date obj",
+    },
+  },
+}
+`;
+
+exports[`Product RHEL config should apply subscriptions inventory configuration: filtered, fallback display 1`] = `
+Object {
+  "cells": Array [
     Object {
-      "cell": [Function],
-      "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-      "id": "displayName",
+      "title": "lorem",
     },
     Object {
-      "cellWidth": 40,
-      "id": "inventoryId",
+      "title": "",
+    },
+    [Function],
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "transforms": Array [],
     },
     Object {
-      "cell": [Function],
-      "cellWidth": 15,
-      "id": "lastSeen",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
   ],
-  "initialInventoryFilters": Array [
-    Object {
-      "cell": [Function],
-      "id": "displayName",
-      "isSortable": true,
+  "data": Object {
+    "productName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "value": "lorem",
     },
-    Object {
-      "cell": [Function],
-      "cellWidth": 20,
-      "id": "measurementType",
-      "isSortable": true,
+    "serviceLevel": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "value": null,
     },
-    Object {
-      "cellWidth": 15,
-      "id": "sockets",
-      "isSortable": true,
-      "isWrappable": true,
+    "upcomingEventDate": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
+      "value": null,
     },
-    Object {
-      "cell": [Function],
-      "cellWidth": 15,
-      "id": "lastSeen",
-      "isSortable": true,
-      "isWrappable": true,
-    },
-  ],
-  "query": Object {
-    "beginning": "2019-06-20T00:00:00.000Z",
-    "ending": "2019-07-20T23:59:59.999Z",
   },
 }
 `;

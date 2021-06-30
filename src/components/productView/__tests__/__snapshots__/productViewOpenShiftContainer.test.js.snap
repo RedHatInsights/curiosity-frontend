@@ -6,10 +6,10 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
 >
   <PageHeader
     includeTour={true}
-    productLabel="dolor sit"
+    productLabel="lorem ipsum product label"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"dolor sit"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
   </PageHeader>
   <PageColumns
     className=""
@@ -33,7 +33,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             "uom": "cores",
           }
         }
-        viewId="viewOpenShift"
+        viewId="viewOpenShift Container Platform"
       />
     </PageToolbar>
     <PageSection
@@ -94,7 +94,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
         }
         settings={Object {}}
-        viewId="viewOpenShift"
+        viewId="viewOpenShift Container Platform"
       >
         <ToolbarFieldUom
           options={
@@ -113,7 +113,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
           t={[Function]}
           value="cores"
-          viewId="viewOpenShift"
+          viewId="viewOpenShift Container Platform"
         />
         <ToolbarFieldGranularity
           options={
@@ -142,7 +142,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
           t={[Function]}
           value="daily"
-          viewId="viewOpenShift"
+          viewId="viewOpenShift Container Platform"
         />
       </Connect(GraphCard)>
     </PageSection>
@@ -163,7 +163,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               Array [
                 Object {
                   "cell": [Function],
-                  "header": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
+                  "header": [Function],
                   "id": "displayName",
                 },
                 Object {
@@ -186,7 +186,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 },
                 Object {
                   "cellWidth": 15,
-                  "header": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
+                  "header": [Function],
                   "id": "cores",
                   "isOptional": true,
                   "isSortable": true,
@@ -215,7 +215,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               }
             }
             settings={Object {}}
-            viewId="viewOpenShift"
+            viewId="viewOpenShift Container Platform"
           />
         </InventoryTab>
         <InventoryTab
@@ -258,7 +258,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 "uom": "cores",
               }
             }
-            viewId="viewOpenShift"
+            viewId="viewOpenShift Container Platform"
           />
         </InventoryTab>
       </Connect(InventoryTabs)>
@@ -319,7 +319,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             "actionDisplay": [Function],
           }
         }
-        viewId="viewOpenShiftMetric"
+        viewId="viewOpenShift-metrics"
       >
         <ToolbarFieldRangedMonthly
           options={
@@ -436,7 +436,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
           t={[Function]}
           value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
-          viewId="viewOpenShiftMetric"
+          viewId="viewOpenShift-metrics"
         />
       </Connect(GraphCard)>
     </PageSection>
@@ -490,414 +490,11 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               }
             }
             settings={Object {}}
-            viewId="viewOpenShiftMetric"
+            viewId="viewOpenShift-metrics"
           />
         </InventoryTab>
       </Connect(InventoryTabs)>
     </PageSection>
   </PageColumns>
 </PageLayout>
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: default sort for inventory should descend 1`] = `
-Object {
-  "productOneHostsInventory": true,
-  "productOneSubscriptionsInventory": true,
-  "productTwoHostsInventory": true,
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, Product One 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": <React.Fragment>
-        lorem
-         
-        
-      </React.Fragment>,
-    },
-    Object {
-      "title": "",
-    },
-    Object {
-      "title": "",
-    },
-    Object {
-      "title": <DateFormat
-        date="lorem date obj"
-      />,
-    },
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets_OpenShift Container Platform\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "value": 12.53,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": "lorem inventory id",
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": "lorem date obj",
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, Product Two 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": <React.Fragment>
-        lorem
-         
-        
-      </React.Fragment>,
-    },
-    Object {
-      "title": "12.53",
-    },
-    Object {
-      "title": <DateFormat
-        date="lorem date obj"
-      />,
-    },
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "value": 12.53,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": "lorem inventory id",
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": "lorem date obj",
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, fallback display, Product One 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": "lorem",
-    },
-    Object {
-      "title": "",
-    },
-    Object {
-      "title": "",
-    },
-    [Function],
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets_OpenShift Container Platform\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "value": null,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": null,
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": null,
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: filteredInventoryData results, fallback display, Product Two 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": "lorem",
-    },
-    Object {
-      "title": "0.00",
-    },
-    [Function],
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "value": null,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": null,
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": null,
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: initial configuration 1`] = `
-Array [
-  Object {
-    "initialGraphFilters": Array [
-      Object {
-        "color": "#06c",
-        "fill": "#8bc1f7",
-        "id": "cores",
-        "isOptional": true,
-        "stroke": "#06c",
-      },
-      Object {
-        "color": "#06c",
-        "fill": "#8bc1f7",
-        "id": "sockets",
-        "isOptional": true,
-        "stroke": "#06c",
-      },
-      Object {
-        "chartType": "threshold",
-        "id": "thresholdSockets",
-        "isOptional": true,
-      },
-      Object {
-        "chartType": "threshold",
-        "id": "thresholdCores",
-        "isOptional": true,
-      },
-    ],
-    "initialInventoryFilters": Array [
-      Object {
-        "cell": [Function],
-        "id": "displayName",
-        "isSortable": true,
-      },
-      Object {
-        "cellWidth": 15,
-        "header": "t(curiosity-inventory.header, {\\"context\\":\\"sockets_OpenShift Container Platform\\"})",
-        "id": "sockets",
-        "isOptional": true,
-        "isSortable": true,
-        "isWrappable": true,
-      },
-      Object {
-        "cellWidth": 15,
-        "header": "t(curiosity-inventory.header, {\\"context\\":\\"cores_OpenShift Container Platform\\"})",
-        "id": "cores",
-        "isOptional": true,
-        "isSortable": true,
-        "isWrappable": true,
-      },
-      Object {
-        "cell": [Function],
-        "cellWidth": 25,
-        "id": "lastSeen",
-        "isSortable": true,
-        "isWrappable": true,
-      },
-    ],
-    "query": Object {
-      "beginning": "2019-06-20T00:00:00.000Z",
-      "ending": "2019-07-20T23:59:59.999Z",
-      "uom": "cores",
-    },
-  },
-  Object {
-    "initialGraphFilters": Array [
-      Object {
-        "color": "#06c",
-        "fill": "#8bc1f7",
-        "id": "coreHours",
-        "stroke": "#06c",
-      },
-    ],
-    "initialInventoryFilters": Array [
-      Object {
-        "cell": [Function],
-        "id": "displayName",
-        "isSortable": true,
-      },
-      Object {
-        "cell": [Function],
-        "cellWidth": 20,
-        "id": "coreHours",
-        "isSortable": true,
-        "isWrappable": true,
-      },
-      Object {
-        "cell": [Function],
-        "cellWidth": 25,
-        "id": "lastSeen",
-        "isSortable": true,
-        "isWrappable": true,
-      },
-    ],
-    "query": Object {
-      "beginning": "2019-07-01T00:00:00.000Z",
-      "ending": "2019-07-31T23:59:59.999Z",
-    },
-  },
-]
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should NOT display a total value 1`] = `
-Object {
-  "productOneActionDisplay": undefined,
-  "productTwoActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  />,
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should display a total value 1`] = `
-Object {
-  "productOneActionDisplay": undefined,
-  "productTwoActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"1.1K"})
-  </div>,
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should display a total value below 1000 1`] = `
-Object {
-  "productOneActionDisplay": undefined,
-  "productTwoActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"500"})
-  </div>,
-}
-`;
-
-exports[`ProductViewOpenShiftContainer Component should set multiple product configurations: product action display should display a total value below 1000000 1`] = `
-Object {
-  "productOneActionDisplay": undefined,
-  "productTwoActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"900K"})
-  </div>,
-}
 `;
