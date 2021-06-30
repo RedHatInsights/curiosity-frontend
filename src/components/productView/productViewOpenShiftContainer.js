@@ -1,24 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark
-} from '@patternfly/react-tokens';
-import { Button, Label as PfLabel, Tooltip, TooltipPosition } from '@patternfly/react-core';
+import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
-import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
-import moment from 'moment';
-import numbro from 'numbro';
 import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
-import {
-  RHSM_API_PATH_ID_TYPES,
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
-  RHSM_API_QUERY_TYPES,
-  RHSM_API_QUERY_UOM_TYPES,
-  RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES
-} from '../../types/rhsmApiTypes';
+import { RHSM_API_PATH_ID_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { apiQueries, useSelector } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
@@ -28,21 +13,21 @@ import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
-import { helpers, dateHelpers } from '../../common';
+import { ProductView } from './productView';
 import { translate } from '../i18n/i18n';
+import { helpers } from '../../common';
 
 /**
  * An OpenShift Container Platform encompassing view.
  *
  * @param {object} props
- * @param {Array} props.productConfig
  * @param {object} props.routeDetail
  * @param {Function} props.t
  * @returns {Node}
  */
-const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
+const ProductViewOpenShiftContainer = ({ routeDetail, t }) => {
+  const { productParameter: viewProductLabel, productConfig } = routeDetail;
   const uomValue = useSelector(({ view }) => view.query?.[productConfig[0].viewId]?.[RHSM_API_QUERY_TYPES.UOM], null);
-  const { productParameter: viewProductLabel } = routeDetail;
 
   const renderProduct = (config, updatedUomValue) => {
     const {
@@ -188,324 +173,19 @@ const ProductViewOpenShiftContainer = ({ productConfig, routeDetail, t }) => {
 /**
  * Prop types.
  *
- * @type {{t: Function, routeDetail: object, productConfig: Array}}
+ * @type {{t: Function, routeDetail: object}}
  */
 ProductViewOpenShiftContainer.propTypes = {
-  productConfig: PropTypes.arrayOf(
-    PropTypes.shape({
-      productContextFilterUom: PropTypes.bool,
-      query: PropTypes.shape({
-        [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
-        [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
-      }),
-      graphTallyQuery: PropTypes.shape({
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
-      }),
-      inventoryHostsQuery: PropTypes.shape({
-        [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
-        [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
-        [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SORT_TYPES)]),
-        [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
-      }),
-      inventorySubscriptionsQuery: PropTypes.shape({
-        [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
-        [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
-        [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES)]),
-        [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
-      }),
-      initialOption: PropTypes.oneOf(Object.values(RHSM_API_QUERY_UOM_TYPES)),
-      initialGraphFilters: PropTypes.array,
-      initialGuestsFilters: PropTypes.array,
-      initialInventoryFilters: PropTypes.array,
-      initialInventorySettings: PropTypes.shape({
-        hasGuests: PropTypes.func
-      }),
-      initialSubscriptionsInventoryFilters: PropTypes.array,
-      initialToolbarFilters: PropTypes.array,
-      productLabel: PropTypes.string,
-      productId: PropTypes.string,
-      viewId: PropTypes.string
-    })
-  ),
-  routeDetail: PropTypes.shape({
-    pathParameter: PropTypes.string,
-    productParameter: PropTypes.string,
-    viewParameter: PropTypes.string
-  }).isRequired,
+  routeDetail: PropTypes.shape(ProductView.propTypes.routeDetail).isRequired,
   t: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: Function, productConfig: Array}}
+ * @type {{t: Function}}
  */
 ProductViewOpenShiftContainer.defaultProps = {
-  productConfig: [
-    {
-      productContextFilterUom: true,
-      query: {
-        [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.CORES,
-        [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers
-          .getRangedDateTime(GRANULARITY_TYPES.DAILY)
-          .startDate.toISOString(),
-        [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).endDate.toISOString()
-      },
-      graphTallyQuery: {
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
-      },
-      inventoryHostsQuery: {
-        [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,
-        [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
-        [RHSM_API_QUERY_TYPES.LIMIT]: 100,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
-      },
-      inventorySubscriptionsQuery: {
-        [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES.UPCOMING_EVENT_DATE,
-        [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
-        [RHSM_API_QUERY_TYPES.LIMIT]: 100,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
-      },
-      initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
-      initialGraphFilters: [
-        {
-          id: 'cores',
-          isOptional: true,
-          fill: chartColorBlueLight.value,
-          stroke: chartColorBlueDark.value,
-          color: chartColorBlueDark.value
-        },
-        {
-          id: 'sockets',
-          isOptional: true,
-          fill: chartColorBlueLight.value,
-          stroke: chartColorBlueDark.value,
-          color: chartColorBlueDark.value
-        },
-        { id: 'thresholdSockets', chartType: 'threshold', isOptional: true },
-        { id: 'thresholdCores', chartType: 'threshold', isOptional: true }
-      ],
-      initialGraphSettings: {},
-      initialGuestsFilters: [
-        {
-          id: 'displayName',
-          header: translate('curiosity-inventory.header', { context: 'guestsDisplayName' }),
-          cell: (data, session) => {
-            const { displayName, inventoryId } = data;
-            const { inventory: authorized } = session?.authorized || {};
-
-            if (!inventoryId?.value) {
-              return displayName?.value;
-            }
-
-            if (!authorized) {
-              return displayName?.value || inventoryId?.value;
-            }
-
-            return (
-              <Button
-                isInline
-                component="a"
-                variant="link"
-                href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
-              >
-                {displayName.value || inventoryId.value}
-              </Button>
-            );
-          }
-        },
-        {
-          id: 'inventoryId',
-          cellWidth: 40
-        },
-        {
-          id: 'lastSeen',
-          cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
-          cellWidth: 15
-        }
-      ],
-      initialInventoryFilters: [
-        {
-          id: 'displayName',
-          cell: (data, session) => {
-            const { displayName = {}, inventoryId = {}, numberOfGuests = {} } = data;
-            const { inventory: authorized } = session?.authorized || {};
-
-            if (!inventoryId.value) {
-              return displayName.value;
-            }
-
-            let updatedDisplayName = displayName.value || inventoryId.value;
-
-            if (authorized) {
-              updatedDisplayName = (
-                <Button
-                  isInline
-                  component="a"
-                  variant="link"
-                  href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
-                >
-                  {displayName.value || inventoryId.value}
-                </Button>
-              );
-            }
-
-            return (
-              <React.Fragment>
-                {updatedDisplayName}{' '}
-                {(numberOfGuests.value &&
-                  translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
-                    <PfLabel color="blue" />
-                  ])) ||
-                  ''}
-              </React.Fragment>
-            );
-          },
-          isSortable: true
-        },
-        {
-          id: 'sockets',
-          header: translate('curiosity-inventory.header', { context: 'sockets_OpenShift Container Platform' }),
-          isOptional: true,
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 15
-        },
-        {
-          id: 'cores',
-          header: translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' }),
-          isOptional: true,
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 15
-        },
-        {
-          id: 'lastSeen',
-          cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 25
-        }
-      ],
-      initialInventorySettings: {},
-      initialSubscriptionsInventoryFilters: [
-        {
-          id: 'productName',
-          isSortable: true
-        },
-        {
-          id: 'serviceLevel',
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 15
-        },
-        {
-          id: 'upcomingEventDate',
-          cell: data =>
-            (data?.upcomingEventDate?.value && moment.utc(data?.upcomingEventDate?.value).format('YYYY-DD-MM')) || '',
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 15
-        }
-      ],
-      initialToolbarFilters: [
-        {
-          id: RHSM_API_QUERY_TYPES.SLA
-        }
-      ],
-      productLabel: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
-      productId: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
-      viewId: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
-    },
-    {
-      query: {
-        [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
-        [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
-      },
-      graphTallyQuery: {
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
-      },
-      inventoryHostsQuery: {
-        [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,
-        [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
-        [RHSM_API_QUERY_TYPES.LIMIT]: 100,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
-      },
-      initialGraphFilters: [
-        {
-          id: 'coreHours',
-          fill: chartColorBlueLight.value,
-          stroke: chartColorBlueDark.value,
-          color: chartColorBlueDark.value
-        }
-      ],
-      initialGraphSettings: {
-        actionDisplay: data => {
-          const {
-            meta: { totalCoreHours }
-          } = data;
-          let displayContent;
-
-          if (totalCoreHours) {
-            displayContent = translate('curiosity-graph.card-action-total', {
-              context: 'coreHours',
-              total: numbro(totalCoreHours)
-                .format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
-                .toUpperCase()
-            });
-          }
-
-          return <div className="curiosity-usage-graph__total">{displayContent || null}</div>;
-        }
-      },
-      initialInventoryFilters: [
-        {
-          id: 'displayName',
-          cell: data => {
-            const { displayName = {}, inventoryId = {}, numberOfGuests = {} } = data;
-
-            if (!inventoryId.value) {
-              return displayName.value;
-            }
-
-            const updatedDisplayName = displayName.value || inventoryId.value;
-
-            return (
-              <React.Fragment>
-                {updatedDisplayName}{' '}
-                {(numberOfGuests.value &&
-                  translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
-                    <PfLabel color="blue" />
-                  ])) ||
-                  ''}
-              </React.Fragment>
-            );
-          },
-          isSortable: true
-        },
-        {
-          id: 'coreHours',
-          cell: data =>
-            (typeof data?.coreHours?.value === 'number' && Number.parseFloat(data?.coreHours?.value).toFixed(2)) ||
-            `0.00`,
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 20
-        },
-        {
-          id: 'lastSeen',
-          cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
-          isSortable: true,
-          isWrappable: true,
-          cellWidth: 25
-        }
-      ],
-      initialToolbarFilters: undefined,
-      productLabel: RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS,
-      productId: RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS,
-      viewId: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS}`
-    }
-  ],
   t: translate
 };
 
