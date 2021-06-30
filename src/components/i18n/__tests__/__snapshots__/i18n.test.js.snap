@@ -292,7 +292,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.tabHosts",
-        "match": "t('curiosity-inventory.tabHosts', { context: productId })",
+        "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
       },
       Object {
         "key": "curiosity-inventory.tabSubscriptions",
