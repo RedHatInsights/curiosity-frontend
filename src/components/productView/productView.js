@@ -40,7 +40,6 @@ import { translate } from '../i18n/i18n';
  * Display a product.
  *
  * @param {object} props
- * @param {object} props.productConfig
  * @param {object} props.routeDetail
  * @param {Function} props.t
  * @param {Node|boolean} props.toolbarGraph
@@ -48,7 +47,14 @@ import { translate } from '../i18n/i18n';
  * @param {Node|boolean} props.toolbarProduct
  * @returns {Node}
  */
-const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraphDescription, toolbarProduct }) => {
+const ProductView = ({ routeDetail, t, toolbarGraph, toolbarGraphDescription, toolbarProduct }) => {
+  const {
+    pathParameter: productId,
+    productConfig,
+    productParameter: productLabel,
+    viewParameter: viewId
+  } = routeDetail;
+
   const {
     graphTallyQuery,
     inventoryHostsQuery,
@@ -61,7 +67,7 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraph
     initialInventoryFilters,
     initialInventorySettings,
     initialSubscriptionsInventoryFilters
-  } = productConfig;
+  } = productConfig?.[0] || {};
 
   const {
     query: initialQuery,
@@ -70,8 +76,6 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraph
     inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
     toolbarQuery: initialToolbarQuery
   } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
-
-  const { pathParameter: productId, productParameter: productLabel, viewParameter: viewId } = routeDetail;
 
   if (!productId || !viewId) {
     return null;
@@ -185,36 +189,38 @@ const ProductView = ({ productConfig, routeDetail, t, toolbarGraph, toolbarGraph
  *    productConfig: object, toolbarProduct: (Node|boolean)}}
  */
 ProductView.propTypes = {
-  productConfig: PropTypes.shape({
-    graphTallyQuery: PropTypes.shape({
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
-    }),
-    inventoryHostsQuery: PropTypes.shape({
-      [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
-      [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
-      [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SORT_TYPES)]),
-      [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
-    }),
-    inventorySubscriptionsQuery: PropTypes.shape({
-      [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
-      [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
-      [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES)]),
-      [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
-    }),
-    query: PropTypes.shape({
-      [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
-      [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
-    }),
-    initialToolbarFilters: Toolbar.propTypes.filterOptions,
-    initialGraphFilters: GraphCard.propTypes.filterGraphData,
-    initialGraphSettings: GraphCard.propTypes.settings,
-    initialGuestsFilters: GuestsList.propTypes.filterGuestsData,
-    initialInventoryFilters: InventoryList.propTypes.filterInventoryData,
-    initialInventorySettings: InventoryList.propTypes.settings,
-    initialSubscriptionsInventoryFilters: InventorySubscriptions.propTypes.filterInventoryData
-  }).isRequired,
   routeDetail: PropTypes.shape({
     pathParameter: PropTypes.string,
+    productConfig: PropTypes.arrayOf(
+      PropTypes.shape({
+        graphTallyQuery: PropTypes.shape({
+          [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
+        }),
+        inventoryHostsQuery: PropTypes.shape({
+          [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
+          [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
+          [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SORT_TYPES)]),
+          [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
+        }),
+        inventorySubscriptionsQuery: PropTypes.shape({
+          [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
+          [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
+          [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES)]),
+          [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
+        }),
+        query: PropTypes.shape({
+          [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
+          [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
+        }),
+        initialToolbarFilters: Toolbar.propTypes.filterOptions,
+        initialGraphFilters: GraphCard.propTypes.filterGraphData,
+        initialGraphSettings: GraphCard.propTypes.settings,
+        initialGuestsFilters: GuestsList.propTypes.filterGuestsData,
+        initialInventoryFilters: InventoryList.propTypes.filterInventoryData,
+        initialInventorySettings: InventoryList.propTypes.settings,
+        initialSubscriptionsInventoryFilters: InventorySubscriptions.propTypes.filterInventoryData
+      })
+    ),
     productParameter: PropTypes.string,
     viewParameter: PropTypes.string
   }).isRequired,
