@@ -6,10 +6,13 @@ import {
   getRouteConfig,
   getRouteConfigByPath
 } from '../routerHelpers';
+import { routes } from '../../../config/routes';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
-    expect(routerHelpers).toMatchSnapshot('routerHelpers');
+    const { routesConfig, ...helpers } = routerHelpers;
+    expect(routesConfig).toBeDefined();
+    expect({ ...helpers }).toMatchSnapshot('routerHelpers');
   });
 
   it('should return a generated baseName using NO path prefix', () => {
@@ -110,40 +113,42 @@ describe('RouterHelpers', () => {
 
   it('should return navigation and route details that align to location', () => {
     expect({
-      navRoute: getRouteConfig({ id: 'optin' })
+      id: getRouteConfig({ id: 'optin' })?.id
     }).toMatchSnapshot('detail: specific route ID');
 
     expect({
-      navRoute: getRouteConfig({ id: 'rhel-arm' })
+      id: getRouteConfig({ id: 'rhel-arm' })?.id
     }).toMatchSnapshot('detail: specific navigation ID');
 
     expect({
-      navRoute: getRouteConfig({ pathName: '/rhel' })
+      id: getRouteConfig({ pathName: '/rhel' })?.id
     }).toMatchSnapshot('detail: match specific path navigation');
 
     expect({
-      navRoute: getRouteConfig({ id: 'lorem-missing', pathName: '/rhel' })
+      id: getRouteConfig({ id: 'lorem-missing', pathName: '/rhel' })?.id
     }).toMatchSnapshot('detail: missing ID, specific path');
 
     expect({
-      navRoute: getRouteConfig({ id: 'lorem', pathName: '/lorem-ipsum-missing', returnDefault: true })
+      id: getRouteConfig({ id: 'lorem', pathName: '/lorem-ipsum-missing', returnDefault: true })?.id
     }).toMatchSnapshot('detail: missing id and pathName, default');
 
     expect({
-      navRoute: getRouteConfig({ id: 'lorem', pathName: '/lorem-ipsum-missing', returnDefault: false })
+      id: getRouteConfig({ id: 'lorem', pathName: '/lorem-ipsum-missing', returnDefault: false })?.id
     }).toMatchSnapshot('detail: missing id and pathName and default');
 
     expect({
-      navRoute: getRouteConfig({})
+      id: getRouteConfig({})?.id
     }).toMatchSnapshot('detail: missing parameters');
   });
 
   it('should return default navigation and route details', () => {
     mockWindowLocation(
       () => {
-        expect({
-          navRoute: getRouteConfigByPath()
-        }).toMatchSnapshot('detail: defaults');
+        const { allConfigs, allConfigsById, ...matchingConfigs } = getRouteConfigByPath();
+
+        expect(allConfigs.length).toBe(routes.length);
+        expect(Object.entries(allConfigsById).length).toBe(routes.length);
+        expect(matchingConfigs).toMatchSnapshot('detail: defaults');
       },
       {
         url: 'https://ci.foo.redhat.com/loremIpsum/dolorSit/'
@@ -153,25 +158,25 @@ describe('RouterHelpers', () => {
 
   it('should return navigation and route details from a path', () => {
     expect({
-      navRoute: getRouteConfigByPath({ pathName: '/rhel' }).firstMatch
+      id: getRouteConfigByPath({ pathName: '/rhel' }).firstMatch?.id
     }).toMatchSnapshot('detail: match specific path');
 
     expect({
-      navRoute: getRouteConfigByPath({ pathName: '/rhel-arm' }).firstMatch
+      id: getRouteConfigByPath({ pathName: '/rhel-arm' }).firstMatch?.id
     }).toMatchSnapshot('detail: specific product path');
 
     expect({
-      navRoute: getRouteConfigByPath({ pathName: '/lorem-ipsum-missing' }).firstMatch
+      id: getRouteConfigByPath({ pathName: '/lorem-ipsum-missing' }).firstMatch?.id
     }).toMatchSnapshot('detail: missing pathName');
 
     expect({
-      navRoute: getRouteConfigByPath({}).firstMatch
+      id: getRouteConfigByPath({}).firstMatch?.id
     }).toMatchSnapshot('detail: missing parameters');
   });
 
   it('should return navigation and route details from a related name', () => {
     expect({
-      navRoute: getRouteConfigByPath({ pathName: '/lorem-ipsum/RHEL%20for%20ARM' }).firstMatch
+      id: getRouteConfigByPath({ pathName: '/lorem-ipsum/RHEL%20for%20ARM' }).firstMatch?.id
     }).toMatchSnapshot('detail: match related name');
   });
 
