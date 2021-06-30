@@ -9,10 +9,22 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
       },
       "initialGraphFilters": Array [
         Object {
+          "chartType": "line",
           "color": "#06c",
           "fill": "#8bc1f7",
           "id": "coreHours",
+          "isStacked": false,
           "stroke": "#06c",
+          "yAxisUseDataSet": true,
+        },
+        Object {
+          "chartType": "line",
+          "color": "#009596",
+          "fill": "#a2d9d9",
+          "id": "instanceHours",
+          "isStacked": false,
+          "stroke": "#009596",
+          "yAxisUseDataSet": true,
         },
       ],
       "initialGraphSettings": Object {
@@ -310,10 +322,22 @@ exports[`ProductViewOpenShiftDedicated Component should set product configuratio
 Object {
   "initialGraphFilters": Array [
     Object {
+      "chartType": "line",
       "color": "#06c",
       "fill": "#8bc1f7",
       "id": "coreHours",
+      "isStacked": false,
       "stroke": "#06c",
+      "yAxisUseDataSet": true,
+    },
+    Object {
+      "chartType": "line",
+      "color": "#009596",
+      "fill": "#a2d9d9",
+      "id": "instanceHours",
+      "isStacked": false,
+      "stroke": "#009596",
+      "yAxisUseDataSet": true,
     },
   ],
   "initialInventoryFilters": Array [
