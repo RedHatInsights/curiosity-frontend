@@ -62,611 +62,81 @@ Object {
 
 exports[`RouterHelpers should return default navigation and route details: detail: defaults 1`] = `
 Object {
-  "navRoute": Object {
-    "allConfigs": Array [
-      Object {
-        "activateOnError": false,
-        "aliases": Array [
-          "insights",
-        ],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel",
-        "isSearchable": true,
-        "path": "/rhel",
-        "pathParameter": Array [
-          "RHEL",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-arm",
-        "isSearchable": false,
-        "path": "/rhel-arm",
-        "pathParameter": "RHEL for ARM",
-        "productParameter": "RHEL",
-        "redirect": null,
-        "routeHref": "/rhel-arm",
-        "viewParameter": "viewRHEL",
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-ibmpower",
-        "isSearchable": false,
-        "path": "/rhel-ibmpower",
-        "pathParameter": Array [
-          "RHEL for IBM Power",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-ibmz",
-        "isSearchable": false,
-        "path": "/rhel-ibmz",
-        "pathParameter": Array [
-          "RHEL for IBM z",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-x86",
-        "isSearchable": false,
-        "path": "/rhel-x86",
-        "pathParameter": Array [
-          "RHEL for x86",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewOpenShiftContainer",
-        "default": false,
-        "disabled": false,
-        "id": "openshift-container",
-        "isSearchable": true,
-        "path": "/openshift-container",
-        "pathParameter": Array [
-          "OpenShift Container Platform",
-          "OpenShift-metrics",
-        ],
-        "productParameter": Array [
-          "OpenShift Container Platform",
-          "OpenShift-metrics",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewOpenShiftDedicated",
-        "default": false,
-        "disabled": false,
-        "id": "openshift-dedicated",
-        "isSearchable": true,
-        "path": "/openshift-dedicated",
-        "pathParameter": Array [
-          "OpenShift-dedicated-metrics",
-        ],
-        "productParameter": Array [
-          "OpenShift-dedicated-metrics",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewSatellite",
-        "default": false,
-        "disabled": false,
-        "id": "satellite",
-        "isSearchable": false,
-        "path": "/satellite",
-        "pathParameter": Array [
-          "Satellite",
-        ],
-        "productParameter": Array [
-          "Satellite",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewSatellite",
-        "default": false,
-        "disabled": false,
-        "id": "satellite-capsule",
-        "isSearchable": false,
-        "path": "/satellite-capsule",
-        "pathParameter": Array [
-          "Satellite Capsule",
-        ],
-        "productParameter": Array [
-          "Satellite",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewSatellite",
-        "default": false,
-        "disabled": false,
-        "id": "satellite-server",
-        "isSearchable": false,
-        "path": "/satellite-server",
-        "pathParameter": Array [
-          "Satellite Server",
-        ],
-        "productParameter": Array [
-          "Satellite",
-        ],
-        "redirect": null,
-      },
-      Object {
-        "activateOnError": true,
-        "aliases": Array [],
-        "component": "optinView/optinView",
-        "default": false,
-        "disabled": false,
-        "id": "optin",
-        "isSearchable": false,
-        "path": "/optin",
-        "pathParameter": null,
-        "productParameter": null,
-        "redirect": null,
-        "routeHref": "/optin",
-        "viewParameter": null,
-      },
-      Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewMissing",
-        "default": true,
-        "disabled": false,
-        "id": "missing",
-        "isSearchable": false,
-        "path": "/",
-        "pathParameter": null,
-        "productParameter": null,
-        "redirect": "/",
-        "routeHref": "/",
-        "viewParameter": null,
-      },
-    ],
-    "allConfigsById": Object {
-      "missing": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewMissing",
-        "default": true,
-        "disabled": false,
-        "id": "missing",
-        "isSearchable": false,
-        "path": "/",
-        "pathParameter": null,
-        "productParameter": null,
-        "redirect": "/",
-        "routeHref": "/",
-        "viewParameter": null,
-      },
-      "openshift-container": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewOpenShiftContainer",
-        "default": false,
-        "disabled": false,
-        "id": "openshift-container",
-        "isSearchable": true,
-        "path": "/openshift-container",
-        "pathParameter": Array [
-          "OpenShift Container Platform",
-          "OpenShift-metrics",
-        ],
-        "productParameter": Array [
-          "OpenShift Container Platform",
-          "OpenShift-metrics",
-        ],
-        "redirect": null,
-      },
-      "openshift-dedicated": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewOpenShiftDedicated",
-        "default": false,
-        "disabled": false,
-        "id": "openshift-dedicated",
-        "isSearchable": true,
-        "path": "/openshift-dedicated",
-        "pathParameter": Array [
-          "OpenShift-dedicated-metrics",
-        ],
-        "productParameter": Array [
-          "OpenShift-dedicated-metrics",
-        ],
-        "redirect": null,
-      },
-      "optin": Object {
-        "activateOnError": true,
-        "aliases": Array [],
-        "component": "optinView/optinView",
-        "default": false,
-        "disabled": false,
-        "id": "optin",
-        "isSearchable": false,
-        "path": "/optin",
-        "pathParameter": null,
-        "productParameter": null,
-        "redirect": null,
-        "routeHref": "/optin",
-        "viewParameter": null,
-      },
-      "rhel": Object {
-        "activateOnError": false,
-        "aliases": Array [
-          "insights",
-        ],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel",
-        "isSearchable": true,
-        "path": "/rhel",
-        "pathParameter": Array [
-          "RHEL",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      "rhel-arm": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-arm",
-        "isSearchable": false,
-        "path": "/rhel-arm",
-        "pathParameter": "RHEL for ARM",
-        "productParameter": "RHEL",
-        "redirect": null,
-        "routeHref": "/rhel-arm",
-        "viewParameter": "viewRHEL",
-      },
-      "rhel-ibmpower": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-ibmpower",
-        "isSearchable": false,
-        "path": "/rhel-ibmpower",
-        "pathParameter": Array [
-          "RHEL for IBM Power",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      "rhel-ibmz": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-ibmz",
-        "isSearchable": false,
-        "path": "/rhel-ibmz",
-        "pathParameter": Array [
-          "RHEL for IBM z",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      "rhel-x86": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewRhel",
-        "default": false,
-        "disabled": false,
-        "id": "rhel-x86",
-        "isSearchable": false,
-        "path": "/rhel-x86",
-        "pathParameter": Array [
-          "RHEL for x86",
-        ],
-        "productParameter": Array [
-          "RHEL",
-        ],
-        "redirect": null,
-      },
-      "satellite": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewSatellite",
-        "default": false,
-        "disabled": false,
-        "id": "satellite",
-        "isSearchable": false,
-        "path": "/satellite",
-        "pathParameter": Array [
-          "Satellite",
-        ],
-        "productParameter": Array [
-          "Satellite",
-        ],
-        "redirect": null,
-      },
-      "satellite-capsule": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewSatellite",
-        "default": false,
-        "disabled": false,
-        "id": "satellite-capsule",
-        "isSearchable": false,
-        "path": "/satellite-capsule",
-        "pathParameter": Array [
-          "Satellite Capsule",
-        ],
-        "productParameter": Array [
-          "Satellite",
-        ],
-        "redirect": null,
-      },
-      "satellite-server": Object {
-        "activateOnError": false,
-        "aliases": Array [],
-        "component": "productView/productViewSatellite",
-        "default": false,
-        "disabled": false,
-        "id": "satellite-server",
-        "isSearchable": false,
-        "path": "/satellite-server",
-        "pathParameter": Array [
-          "Satellite Server",
-        ],
-        "productParameter": Array [
-          "Satellite",
-        ],
-        "redirect": null,
-      },
-    },
-    "configs": Array [],
-    "configsById": Object {},
-    "firstMatch": undefined,
-  },
+  "configs": Array [],
+  "configsById": Object {},
+  "firstMatch": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: match specific path 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [
-      "insights",
-    ],
-    "component": "productView/productViewRhel",
-    "default": false,
-    "disabled": false,
-    "id": "rhel",
-    "isSearchable": true,
-    "path": "/rhel",
-    "pathParameter": Array [
-      "RHEL",
-    ],
-    "productParameter": Array [
-      "RHEL",
-    ],
-    "redirect": null,
-  },
+  "id": "rhel",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: missing parameters 1`] = `
 Object {
-  "navRoute": undefined,
+  "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: missing pathName 1`] = `
 Object {
-  "navRoute": undefined,
+  "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: specific product path 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [],
-    "component": "productView/productViewRhel",
-    "default": false,
-    "disabled": false,
-    "id": "rhel-arm",
-    "isSearchable": false,
-    "path": "/rhel-arm",
-    "pathParameter": "RHEL for ARM",
-    "productParameter": "RHEL",
-    "redirect": null,
-    "routeHref": "/rhel-arm",
-    "viewParameter": "viewRHEL",
-  },
+  "id": "rhel-arm",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a related name: detail: match related name 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [],
-    "component": "productView/productViewRhel",
-    "default": false,
-    "disabled": false,
-    "id": "rhel-arm",
-    "isSearchable": false,
-    "path": "/rhel-arm",
-    "pathParameter": "RHEL for ARM",
-    "productParameter": "RHEL",
-    "redirect": null,
-    "routeHref": "/rhel-arm",
-    "viewParameter": "viewRHEL",
-  },
+  "id": "rhel-arm",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [
-      "insights",
-    ],
-    "component": "productView/productViewRhel",
-    "default": false,
-    "disabled": false,
-    "id": "rhel",
-    "isSearchable": true,
-    "path": "/rhel",
-    "pathParameter": "RHEL",
-    "productParameter": "RHEL",
-    "redirect": null,
-    "routeHref": "/rhel",
-    "viewParameter": "viewRHEL",
-  },
+  "id": "rhel",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing ID, specific path 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [
-      "insights",
-    ],
-    "component": "productView/productViewRhel",
-    "default": false,
-    "disabled": false,
-    "id": "rhel",
-    "isSearchable": true,
-    "path": "/rhel",
-    "pathParameter": "RHEL",
-    "productParameter": "RHEL",
-    "redirect": null,
-    "routeHref": "/rhel",
-    "viewParameter": "viewRHEL",
-  },
+  "id": "rhel",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathName and default 1`] = `
 Object {
-  "navRoute": Object {},
+  "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathName, default 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [],
-    "component": "productView/productViewMissing",
-    "default": true,
-    "disabled": false,
-    "id": "missing",
-    "isSearchable": false,
-    "path": "/",
-    "pathParameter": null,
-    "productParameter": null,
-    "redirect": "/",
-    "routeHref": "/",
-    "viewParameter": null,
-  },
+  "id": "missing",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing parameters 1`] = `
 Object {
-  "navRoute": Object {},
+  "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": false,
-    "aliases": Array [],
-    "component": "productView/productViewRhel",
-    "default": false,
-    "disabled": false,
-    "id": "rhel-arm",
-    "isSearchable": false,
-    "path": "/rhel-arm",
-    "pathParameter": "RHEL for ARM",
-    "productParameter": "RHEL",
-    "redirect": null,
-    "routeHref": "/rhel-arm",
-    "viewParameter": "viewRHEL",
-  },
+  "id": "rhel-arm",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
 Object {
-  "navRoute": Object {
-    "activateOnError": true,
-    "aliases": Array [],
-    "component": "optinView/optinView",
-    "default": false,
-    "disabled": false,
-    "id": "optin",
-    "isSearchable": false,
-    "path": "/optin",
-    "pathParameter": null,
-    "productParameter": null,
-    "redirect": null,
-    "routeHref": "/optin",
-    "viewParameter": null,
-  },
+  "id": "optin",
 }
 `;
 
@@ -719,7 +189,7 @@ Object {
   "routes": Array [
     Object {
       "activateOnError": false,
-      "component": "productView/productViewRhel",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "rhel",
@@ -728,7 +198,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewRhel",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "rhel-arm",
@@ -737,7 +207,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewRhel",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "rhel-ibmpower",
@@ -746,7 +216,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewRhel",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "rhel-ibmz",
@@ -755,7 +225,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewRhel",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "rhel-x86",
@@ -782,7 +252,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewSatellite",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "satellite",
@@ -791,7 +261,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewSatellite",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "satellite-capsule",
@@ -800,7 +270,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewSatellite",
+      "component": "productView/productViewDefault",
       "disabled": false,
       "exact": true,
       "id": "satellite-server",
@@ -823,208 +293,6 @@ Object {
       "exact": true,
       "id": "missing",
       "path": "/",
-      "redirect": "/",
-    },
-  ],
-  "routesConfig": Array [
-    Object {
-      "activateOnError": false,
-      "aliases": Array [
-        "insights",
-      ],
-      "component": "productView/productViewRhel",
-      "default": false,
-      "disabled": false,
-      "id": "rhel",
-      "isSearchable": true,
-      "path": "/rhel",
-      "pathParameter": Array [
-        "RHEL",
-      ],
-      "productParameter": Array [
-        "RHEL",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewRhel",
-      "default": false,
-      "disabled": false,
-      "id": "rhel-arm",
-      "isSearchable": false,
-      "path": "/rhel-arm",
-      "pathParameter": Array [
-        "RHEL for ARM",
-      ],
-      "productParameter": Array [
-        "RHEL",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewRhel",
-      "default": false,
-      "disabled": false,
-      "id": "rhel-ibmpower",
-      "isSearchable": false,
-      "path": "/rhel-ibmpower",
-      "pathParameter": Array [
-        "RHEL for IBM Power",
-      ],
-      "productParameter": Array [
-        "RHEL",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewRhel",
-      "default": false,
-      "disabled": false,
-      "id": "rhel-ibmz",
-      "isSearchable": false,
-      "path": "/rhel-ibmz",
-      "pathParameter": Array [
-        "RHEL for IBM z",
-      ],
-      "productParameter": Array [
-        "RHEL",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewRhel",
-      "default": false,
-      "disabled": false,
-      "id": "rhel-x86",
-      "isSearchable": false,
-      "path": "/rhel-x86",
-      "pathParameter": Array [
-        "RHEL for x86",
-      ],
-      "productParameter": Array [
-        "RHEL",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewOpenShiftContainer",
-      "default": false,
-      "disabled": false,
-      "id": "openshift-container",
-      "isSearchable": true,
-      "path": "/openshift-container",
-      "pathParameter": Array [
-        "OpenShift Container Platform",
-        "OpenShift-metrics",
-      ],
-      "productParameter": Array [
-        "OpenShift Container Platform",
-        "OpenShift-metrics",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewOpenShiftDedicated",
-      "default": false,
-      "disabled": false,
-      "id": "openshift-dedicated",
-      "isSearchable": true,
-      "path": "/openshift-dedicated",
-      "pathParameter": Array [
-        "OpenShift-dedicated-metrics",
-      ],
-      "productParameter": Array [
-        "OpenShift-dedicated-metrics",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewSatellite",
-      "default": false,
-      "disabled": false,
-      "id": "satellite",
-      "isSearchable": false,
-      "path": "/satellite",
-      "pathParameter": Array [
-        "Satellite",
-      ],
-      "productParameter": Array [
-        "Satellite",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewSatellite",
-      "default": false,
-      "disabled": false,
-      "id": "satellite-capsule",
-      "isSearchable": false,
-      "path": "/satellite-capsule",
-      "pathParameter": Array [
-        "Satellite Capsule",
-      ],
-      "productParameter": Array [
-        "Satellite",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewSatellite",
-      "default": false,
-      "disabled": false,
-      "id": "satellite-server",
-      "isSearchable": false,
-      "path": "/satellite-server",
-      "pathParameter": Array [
-        "Satellite Server",
-      ],
-      "productParameter": Array [
-        "Satellite",
-      ],
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": true,
-      "aliases": Array [],
-      "component": "optinView/optinView",
-      "default": false,
-      "disabled": false,
-      "id": "optin",
-      "isSearchable": false,
-      "path": "/optin",
-      "pathParameter": null,
-      "productParameter": null,
-      "redirect": null,
-    },
-    Object {
-      "activateOnError": false,
-      "aliases": Array [],
-      "component": "productView/productViewMissing",
-      "default": true,
-      "disabled": false,
-      "id": "missing",
-      "isSearchable": false,
-      "path": "/",
-      "pathParameter": null,
-      "productParameter": null,
       "redirect": "/",
     },
   ],
