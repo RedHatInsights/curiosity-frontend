@@ -98,7 +98,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 80,
- *           "core_hours": 0
+ *           "core_hours": 0,
+ *           "instance_hours": 3
  *         },
  *         {
  *           "date": "2020-07-02T00:00:00Z",
@@ -107,7 +108,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 80,
- *           "core_hours": 10
+ *           "core_hours": 10,
+ *           "instance_hours": 2
  *         },
  *         {
  *           "date": "2020-07-03T00:00:00Z",
@@ -116,7 +118,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 80,
- *           "core_hours": 10
+ *           "core_hours": 10,
+ *           "instance_hours": 12
  *         },
  *         {
  *           "date": "2020-07-04T00:00:00Z",
@@ -125,7 +128,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 80,
- *           "core_hours": 10
+ *           "core_hours": 10,
+ *           "instance_hours": 4
  *         },
  *         {
  *           "date": "2020-07-05T00:00:00Z",
@@ -134,7 +138,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": 10
+ *           "core_hours": 10,
+ *           "instance_hours": 1
  *         },
  *         {
  *           "date": "2020-07-06T00:00:00Z",
@@ -143,7 +148,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 20,
- *           "core_hours": 1000.057890
+ *           "core_hours": 1000.057890,
+ *           "instance_hours": 2
  *         },
  *         {
  *           "date": "2020-07-07T00:00:00Z",
@@ -152,7 +158,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": 1000
+ *           "core_hours": 1000,
+ *           "instance_hours": 2
  *         },
  *         {
  *           "date": "2020-07-08T00:00:00Z",
@@ -161,7 +168,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": 1000
+ *           "core_hours": 1000,
+ *           "instance_hours": 3
  *         },
  *         {
  *           "date": "2020-07-09T00:00:00Z",
@@ -170,7 +178,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": 1000
+ *           "core_hours": 1000,
+ *           "instance_hours": 3
  *         },
  *         {
  *           "date": "2020-07-10T00:00:00Z",
@@ -179,7 +188,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 3
  *         },
  *         {
  *           "date": "2020-07-11T00:00:00Z",
@@ -197,7 +207,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-13T00:00:00Z",
@@ -206,7 +217,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-14T00:00:00Z",
@@ -215,7 +227,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-15T00:00:00Z",
@@ -224,7 +237,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-16T00:00:00Z",
@@ -233,7 +247,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-17T00:00:00Z",
@@ -242,7 +257,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-18T00:00:00Z",
@@ -251,7 +267,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-19T00:00:00Z",
@@ -260,7 +277,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-20T00:00:00Z",
@@ -269,7 +287,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-21T00:00:00Z",
@@ -278,7 +297,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": true,
  *           "cloud_sockets": 20,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-22T00:00:00Z",
@@ -287,7 +307,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-23T00:00:00Z",
@@ -296,7 +317,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 0,
  *           "has_data": false,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-24T00:00:00Z",
@@ -305,7 +327,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 40,
  *           "has_data": true,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-25T00:00:00Z",
@@ -314,7 +337,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-26T00:00:00Z",
@@ -323,7 +347,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 60,
  *           "has_data": true,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-27T00:00:00Z",
@@ -332,7 +357,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-28T00:00:00Z",
@@ -341,7 +367,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 0,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-29T00:00:00Z",
@@ -350,7 +377,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-30T00:00:00Z",
@@ -359,7 +387,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 40,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-31T00:00:00Z",
@@ -370,7 +399,8 @@ const getApiVersion = (options = {}) => {
  *           "cloud_sockets": 40,
  *           "core_hours": null,
  *           "has_cloudigrade_data": true,
- *           "has_cloudigrade_mismatch": true
+ *           "has_cloudigrade_mismatch": true,
+ *           "instance_hours": 0
  *         }
  *       ],
  *       "links": {
@@ -381,7 +411,8 @@ const getApiVersion = (options = {}) => {
  *         "count": 12,
  *         "product": "RHEL",
  *         "granularity": "daily",
- *         "total_core_hours": 30500.04
+ *         "total_core_hours": 30500.04,
+ *         "total_instance_hours": 35
  *       }
  *     }
  *
@@ -396,7 +427,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": 10.20
+ *           "core_hours": 10.20,
+ *           "instance_hours": 1
  *         },
  *         {
  *           "date": "2020-05-26T00:00:00Z",
@@ -405,7 +437,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": 10.15
+ *           "core_hours": 10.15,
+ *           "instance_hours": 1
  *         },
  *         {
  *           "date": "2020-06-02T00:00:00Z",
@@ -414,7 +447,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": 10.11
+ *           "core_hours": 10.11,
+ *           "instance_hours": 1
  *         },
  *         {
  *           "date": "2020-06-09T00:00:00Z",
@@ -423,7 +457,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": 2000.32
+ *           "core_hours": 2000.32,
+ *           "instance_hours": 23
  *         },
  *         {
  *           "date": "2020-06-16T00:00:00Z",
@@ -432,7 +467,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": 2000.42
+ *           "core_hours": 2000.42,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-06-23T00:00:00Z",
@@ -441,7 +477,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": 999.06
+ *           "core_hours": 999.06,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-06-30T00:00:00Z",
@@ -450,7 +487,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-07T00:00:00Z",
@@ -459,7 +497,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-14T00:00:00Z",
@@ -468,7 +507,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-21T00:00:00Z",
@@ -477,7 +517,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-07-28T00:00:00Z",
@@ -486,7 +527,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-08-04T00:00:00Z",
@@ -495,7 +537,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 30,
  *           "has_data": true,
  *           "cloud_sockets": 60,
- *           "core_hours": null
+ *           "core_hours": null,
+ *           "instance_hours": 0
  *         }
  *       ],
  *       "links": {
@@ -506,7 +549,8 @@ const getApiVersion = (options = {}) => {
  *         "count": 10,
  *         "product": "RHEL",
  *         "granularity": "weekly",
- *         "total_core_hours": 200.03
+ *         "total_core_hours": 200.03,
+ *         "total_instance_hours": 26
  *       }
  *     }
  *
@@ -521,7 +565,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 25,
- *           "core_hours": 200
+ *           "core_hours": 200,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2019-09-01T00:00:00Z",
@@ -530,7 +575,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 25,
- *           "core_hours": 200
+ *           "core_hours": 200,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2019-10-01T00:00:00Z",
@@ -539,7 +585,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": 50,
  *           "has_data": true,
  *           "cloud_sockets": 25,
- *           "core_hours": 400
+ *           "core_hours": 400,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2019-11-01T00:00:00Z",
@@ -548,7 +595,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": null,
  *           "has_data": false,
  *           "cloud_sockets": 0,
- *           "core_hours": 0
+ *           "core_hours": 0,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2019-12-01T00:00:00Z",
@@ -557,7 +605,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": null,
  *           "has_data": false,
  *           "cloud_sockets": 0,
- *           "core_hours": 0
+ *           "core_hours": 0,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-01-01T00:00:00Z",
@@ -566,7 +615,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": null,
  *           "has_data": false,
  *           "cloud_sockets": 0,
- *           "core_hours": 0
+ *           "core_hours": 0,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-02-01T00:00:00Z",
@@ -575,7 +625,8 @@ const getApiVersion = (options = {}) => {
  *           "hypervisor_sockets": null,
  *           "has_data": false,
  *           "cloud_sockets": 0,
- *           "core_hours": 0
+ *           "core_hours": 0,
+ *           "instance_hours": 0
  *         },
  *         {
  *           "date": "2020-03-01T00:00:00Z",
