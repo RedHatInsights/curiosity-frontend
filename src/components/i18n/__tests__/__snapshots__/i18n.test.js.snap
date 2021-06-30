@@ -306,85 +306,6 @@ Array [
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewProductLabel })",
       },
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'sockets_OpenShift Container Platform' })",
-      },
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' })",
-      },
-      Object {
-        "key": "curiosity-graph.card-action-total",
-        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/productView/productViewOpenShiftDedicated.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-graph.card-action-total",
-        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/productView/productViewRhel.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-      Object {
-        "key": "curiosity-inventory.measurementType",
-        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
-      },
-      Object {
-        "key": "curiosity-inventory.cloudProvider",
-        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/productView/productViewSatellite.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-      Object {
-        "key": "curiosity-inventory.measurementType",
-        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
-      },
-      Object {
-        "key": "curiosity-inventory.cloudProvider",
-        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
-      },
     ],
   },
   Object {
@@ -556,6 +477,95 @@ Array [
     ],
   },
   Object {
+    "file": "./src/config/product.openshiftContainer.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'sockets_OpenShift Container Platform' })",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/config/product.openshiftDedicated.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.card-action-total",
+        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/config/product.openshiftMetrics.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.card-action-total",
+        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/config/product.rhel.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.measurementType",
+        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
+      },
+      Object {
+        "key": "curiosity-inventory.cloudProvider",
+        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/config/product.satellite.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+      },
+      Object {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+      },
+      Object {
+        "key": "curiosity-inventory.measurementType",
+        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
+      },
+      Object {
+        "key": "curiosity-inventory.cloudProvider",
+        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/redux/actions/userActions.js",
     "keys": Array [
       Object {
@@ -594,32 +604,32 @@ Array [
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/productView/productViewOpenShiftContainer.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
-    "file": "./src/components/productView/productViewOpenShiftContainer.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
-    "file": "./src/components/productView/productViewOpenShiftDedicated.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
-    "file": "./src/components/productView/productViewRhel.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
-    "file": "./src/components/productView/productViewSatellite.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
     "key": "curiosity-toolbar.granularity",
   },
   Object {
     "file": "./src/components/toolbar/toolbarFieldUom.js",
     "key": "curiosity-toolbar.uom",
+  },
+  Object {
+    "file": "./src/config/product.openshiftContainer.js",
+    "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/config/product.openshiftDedicated.js",
+    "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/config/product.openshiftMetrics.js",
+    "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/config/product.rhel.js",
+    "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/config/product.satellite.js",
+    "key": "curiosity-inventory.label",
   },
 ]
 `;
