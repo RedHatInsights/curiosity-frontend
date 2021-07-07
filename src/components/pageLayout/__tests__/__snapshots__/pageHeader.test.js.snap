@@ -290,31 +290,38 @@ exports[`PageHeader Component should render the tour button when includeTour is 
                 isInline={true}
                 variant="link"
               >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="pf-c-button pf-m-link pf-m-inline uxui-curiosity__button-tour"
-                  data-ouia-component-id="OUIA-Generated-Button-link-1"
-                  data-ouia-component-type="PF4/Button"
-                  data-ouia-safe={true}
-                  disabled={false}
-                  role={null}
-                  type="button"
+                <ButtonBase
+                  className="uxui-curiosity__button-tour"
+                  innerRef={null}
+                  isInline={true}
+                  variant="link"
                 >
-                  <Label
-                    color="blue"
+                  <button
+                    aria-disabled={false}
+                    aria-label={null}
+                    className="pf-c-button pf-m-link pf-m-inline uxui-curiosity__button-tour"
+                    data-ouia-component-id="OUIA-Generated-Button-link-1"
+                    data-ouia-component-type="PF4/Button"
+                    data-ouia-safe={true}
+                    disabled={false}
+                    role={null}
+                    type="button"
                   >
-                    <span
-                      className="pf-c-label pf-m-blue"
+                    <Label
+                      color="blue"
                     >
                       <span
-                        className="pf-c-label__content"
+                        className="pf-c-label pf-m-blue"
                       >
-                        t(curiosity-optin.buttonTour)
+                        <span
+                          className="pf-c-label__content"
+                        >
+                          t(curiosity-optin.buttonTour)
+                        </span>
                       </span>
-                    </span>
-                  </Label>
-                </button>
+                    </Label>
+                  </button>
+                </ButtonBase>
               </Button>
             </div>
           </FlexItem>
