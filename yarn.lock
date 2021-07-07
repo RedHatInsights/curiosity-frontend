@@ -7289,10 +7289,10 @@ i18next-xhr-backend@^3.2.2:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
-i18next@^20.3.1:
-  version "20.3.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.3.1.tgz#b51dd281a2eec8087753edf1727e160dac8a5554"
-  integrity sha512-WTY07KreR5z2LBSzAIKs05zpR5tgUT98C4fD96e7Risbc/HZePwF6AEnb9VkjdeSeRn9PDqQBay7ZkphuXt0Xw==
+i18next@^20.3.2:
+  version "20.3.2"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.3.2.tgz#5195e76b9e0848a1c198001bf6c7fc72995a55f1"
+  integrity sha512-e8CML2R9Ng2sSQOM80wb/PrM2j8mDm84o/T4Amzn9ArVyNX5/ENWxxAXkRpZdTQNDaxKImF93Wep4mAoozFrKw==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
@@ -11395,10 +11395,10 @@ react-fast-compare@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-i18next@^11.11.0:
-  version "11.11.0"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.11.0.tgz#2f7c6cb4f81f94d1728a02d60e4bb5216709f942"
-  integrity sha512-p1jHmoyJgDFQmyubUEjrx6kCsr1izW/C8i9pOiJy+9lJqLYwNA8sElVplm0VAnop3kH68edT0/g3wB3UvAcRCQ==
+react-i18next@^11.11.1:
+  version "11.11.1"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.11.1.tgz#758edd7ef521f6703c2d6b83f3165d078f7acf35"
+  integrity sha512-MtfzPEOvx0ev2cz0HmrEcduuqkktSa5bfeN8Flp0cvN0xP3H3MRSTa8P6pxPtqstHbRe1cD9QBOr5T/FEV2gOw==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
