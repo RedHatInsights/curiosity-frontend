@@ -76,9 +76,8 @@ const Chart = ({
       const isMultiYAxis = yAxisProps.length > 1;
       const chartElementsProps = chartHelpers.generateElementsProps({
         dataSets: toggledDataSets,
-        isMultiYAxis,
         maxX,
-        maxY,
+        maxY: (isMultiYAxis && individualMaxY) || maxY,
         xValueFormat,
         yValueFormat
       });
