@@ -76,14 +76,13 @@ const generateDomains = ({ maxY } = {}) => {
  *
  * @param {object} params
  * @param {Array} params.dataSets
- * @param {boolean} params.isMultiYAxis
  * @param {number} params.maxX
  * @param {number} params.maxY
  * @param {Function} params.xValueFormat
  * @param {Function} params.yValueFormat
  * @returns {{elementsById: object, stackedElements: Array, stackedElementsById: object, elements: Array}}
  */
-const generateElementsProps = ({ dataSets = [], isMultiYAxis, maxX, maxY, xValueFormat, yValueFormat }) => {
+const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValueFormat }) => {
   const elements = [];
   const stackedElements = [];
   const elementsById = {};
@@ -148,10 +147,10 @@ const generateElementsProps = ({ dataSets = [], isMultiYAxis, maxX, maxY, xValue
             (datum =>
               yValueFormat({
                 datum,
-                isMultiAxis: isMultiYAxis,
-                maxY: (typeof maxY === 'number' && maxY) || maxY?.[dataSet.id]
+                isMultiAxis: typeof maxY !== 'number',
+                maxY: typeof maxY === 'number' ? maxY : maxY?.[dataSet.id]
               }))) ||
-          (datum => (isMultiYAxis && datum.y / maxY) || datum.y)
+          (datum => (typeof maxY === 'number' ? datum.y : datum.y / maxY?.[dataSet.id]))
       };
 
       const props = { ...chartElementProps };
