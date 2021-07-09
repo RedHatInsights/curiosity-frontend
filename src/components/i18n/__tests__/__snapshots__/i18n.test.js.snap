@@ -57,16 +57,16 @@ Array [
     "file": "./src/components/graphCard/graphCardChartLegend.js",
     "keys": Array [
       Object {
-        "key": "",
-        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.thresholdLabel\`], { product: productLabel, context: productLabel })",
+        "key": "curiosity-graph.label_threshold",
+        "match": "t('curiosity-graph.label_threshold', { product: productLabel, context: [id, productId] })",
       },
       Object {
         "key": "",
         "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.noLabel\`], { product: productLabel, context: productLabel })",
       },
       Object {
-        "key": "",
-        "match": "t([\`curiosity-graph.\${id}LegendTooltip\`, \`curiosity-graph.thresholdLegendTooltip\`], { product: productLabel, context: productLabel })",
+        "key": "curiosity-graph.legendTooltip_threshold",
+        "match": "t('curiosity-graph.legendTooltip_threshold', { product: productLabel, context: [id, productId] })",
       },
       Object {
         "key": "",
@@ -90,8 +90,8 @@ Array [
         "match": "t('curiosity-graph.infiniteThresholdLabel')",
       },
       Object {
-        "key": "curiosity-graph.thresholdLabel",
-        "match": "t(\`curiosity-graph.thresholdLabel\`)",
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: 'threshold' })",
       },
       Object {
         "key": "curiosity-graph.noDataLabel",
@@ -585,6 +585,10 @@ Array [
 
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
 Array [
+  Object {
+    "file": "./src/components/graphCard/graphCardChartTooltip.js",
+    "key": "curiosity-graph.label",
+  },
   Object {
     "file": "./src/components/inventoryList/inventoryList.js",
     "key": "curiosity-inventory.tab",
