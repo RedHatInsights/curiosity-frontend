@@ -46,7 +46,7 @@ const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
           }
         }
 
-        tempDataFacet.label = t(`curiosity-graph.thresholdLabel`);
+        tempDataFacet.label = t('curiosity-graph.label', { context: 'threshold' });
         tempDataFacet.value = thresholdStringValue;
       } else {
         const dataFactsValue =

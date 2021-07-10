@@ -85,7 +85,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
         }
         key="graph_OpenShift Container Platform"
         productId="OpenShift Container Platform"
-        productLabel="OpenShift"
+        productLabel="OpenShift Container Platform"
         query={
           Object {
             "beginning": "2019-06-20T00:00:00.000Z",
@@ -306,7 +306,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
         }
         key="graph_OpenShift-metrics"
         productId="OpenShift-metrics"
-        productLabel="OpenShift Metric"
+        productLabel="OpenShift-metrics"
         query={
           Object {
             "beginning": "2019-07-01T00:00:00.000Z",
