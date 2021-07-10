@@ -115,9 +115,9 @@ class GraphCardChartLegend extends React.Component {
 
           const labelContent =
             (isThreshold &&
-              t([`curiosity-graph.${id}Label`, `curiosity-graph.thresholdLabel`], {
+              t('curiosity-graph.label_threshold', {
                 product: productLabel,
-                context: productLabel
+                context: [id, productLabel]
               })) ||
             t([`curiosity-graph.${id}Label`, `curiosity-graph.noLabel`], {
               product: productLabel,
@@ -126,9 +126,9 @@ class GraphCardChartLegend extends React.Component {
 
           const tooltipContent =
             (isThreshold &&
-              t([`curiosity-graph.${id}LegendTooltip`, `curiosity-graph.thresholdLegendTooltip`], {
+              t('curiosity-graph.legendTooltip_threshold', {
                 product: productLabel,
-                context: productLabel
+                context: [id, productLabel]
               })) ||
             t(`curiosity-graph.${id}LegendTooltip`, { product: productLabel, context: productLabel });
 
@@ -149,7 +149,8 @@ class GraphCardChartLegend extends React.Component {
 /**
  * Prop types.
  *
- * @type {{datum, productLabel: string, t: Function, legend: object, chart: object}}
+ * @type {{datum: object, productLabel: string, viewId: string, t: Function, legend: object,
+ *     chart: object}}
  */
 GraphCardChartLegend.propTypes = {
   chart: PropTypes.shape({
@@ -175,8 +176,8 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: Array}, productLabel: string, viewId: string, t: translate, legend: object,
- *     chart: {hide: Function, toggle: Function, isToggled: Function}}}
+ * @type {{datum: object, productLabel: string, viewId: string, t: translate, legend: object,
+ *     chart: object}}
  */
 GraphCardChartLegend.defaultProps = {
   chart: {
