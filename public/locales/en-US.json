@@ -55,11 +55,11 @@
     "physicalSocketsLabel": "Physical {{product}}",
     "physicalSocketsLegendTooltip": "{{product}} CPU socket usage, per socket pair.",
     "physicalSocketsLegendTooltip_RHEL": "Physical {{product}} CPU usage, per socket pair. Each system's socket count is rounded upwards to the next even number.",
-    "thresholdLabel": "Subscription threshold",
-    "thresholdLegendTooltip": "Maximum capacity, based on total {{product}} subscriptions in this account.",
-    "thresholdLegendTooltip_RHEL": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
-    "thresholdCoresLegendTooltip_OpenShift Container Platform": "Maximum capacity, as CPU cores, based on total {{product}} subscriptions in this account.",
-    "thresholdSocketsLegendTooltip_OpenShift Container Platform": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
+    "label_threshold": "Subscription threshold",
+    "legendTooltip_threshold": "Maximum capacity, based on total {{product}} subscriptions in this account.",
+    "legendTooltip_threshold_thresholdSockets_RHEL": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
+    "legendTooltip_threshold_thresholdCores_OpenShift Container Platform": "Maximum capacity, as CPU cores, based on total {{product}} subscriptions in this account.",
+    "legendTooltip_threshold_thresholdSockets_OpenShift Container Platform": "Maximum capacity, as CPU sockets, based on total {{product}} subscriptions in this account.",
     "tooltipSummary": "Your subscription data facets. With one level of column and row headers."
   },
   "curiosity-inventory": {
