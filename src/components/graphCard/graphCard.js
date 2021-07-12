@@ -59,7 +59,7 @@ class GraphCard extends React.Component {
    * @returns {Node}
    */
   renderChart() {
-    const { filterGraphData, graphData, productId, productLabel, query, viewId } = this.props;
+    const { filterGraphData, graphData, productLabel, query, viewId } = this.props;
     const graphGranularity = this.getQueryGranularity();
 
     const chartAreaProps = {
@@ -106,13 +106,7 @@ class GraphCard extends React.Component {
         {...chartAreaProps}
         dataSets={filteredGraphData(graphData)}
         chartLegend={({ chart, datum }) => (
-          <GraphCardChartLegend
-            chart={chart}
-            datum={datum}
-            productId={productId}
-            productLabel={productLabel}
-            viewId={viewId}
-          />
+          <GraphCardChartLegend chart={chart} datum={datum} productLabel={productLabel} viewId={viewId} />
         )}
         chartTooltip={({ datum }) => (
           <GraphCardChartTooltip datum={datum} granularity={graphGranularity} productLabel={productLabel} />

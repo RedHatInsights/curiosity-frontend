@@ -58,7 +58,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-graph.label_threshold",
-        "match": "t('curiosity-graph.label_threshold', { product: productLabel, context: [id, productId] })",
+        "match": "t('curiosity-graph.label_threshold', { product: productLabel, context: [id, productLabel] })",
       },
       Object {
         "key": "",
@@ -66,7 +66,7 @@ Array [
       },
       Object {
         "key": "curiosity-graph.legendTooltip_threshold",
-        "match": "t('curiosity-graph.legendTooltip_threshold', { product: productLabel, context: [id, productId] })",
+        "match": "t('curiosity-graph.legendTooltip_threshold', { product: productLabel, context: [id, productLabel] })",
       },
       Object {
         "key": "",

@@ -105,7 +105,7 @@ class GraphCardChartLegend extends React.Component {
    * @returns {Node}
    */
   render() {
-    const { datum, productId, productLabel, t } = this.props;
+    const { datum, productLabel, t } = this.props;
 
     return (
       <React.Fragment>
@@ -117,7 +117,7 @@ class GraphCardChartLegend extends React.Component {
             (isThreshold &&
               t('curiosity-graph.label_threshold', {
                 product: productLabel,
-                context: [id, productId]
+                context: [id, productLabel]
               })) ||
             t([`curiosity-graph.${id}Label`, `curiosity-graph.noLabel`], {
               product: productLabel,
@@ -128,7 +128,7 @@ class GraphCardChartLegend extends React.Component {
             (isThreshold &&
               t('curiosity-graph.legendTooltip_threshold', {
                 product: productLabel,
-                context: [id, productId]
+                context: [id, productLabel]
               })) ||
             t(`curiosity-graph.${id}LegendTooltip`, { product: productLabel, context: productLabel });
 
@@ -149,7 +149,7 @@ class GraphCardChartLegend extends React.Component {
 /**
  * Prop types.
  *
- * @type {{datum: object, productLabel: string, viewId: string, productId: string, t: Function, legend: object,
+ * @type {{datum: object, productLabel: string, viewId: string, t: Function, legend: object,
  *     chart: object}}
  */
 GraphCardChartLegend.propTypes = {
@@ -168,7 +168,6 @@ GraphCardChartLegend.propTypes = {
     )
   }),
   legend: PropTypes.objectOf(PropTypes.bool),
-  productId: PropTypes.string,
   productLabel: PropTypes.string,
   t: PropTypes.func,
   viewId: PropTypes.string
@@ -177,7 +176,7 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: object, productLabel: string, viewId: string, productId: string, t: translate, legend: object,
+ * @type {{datum: object, productLabel: string, viewId: string, t: translate, legend: object,
  *     chart: object}}
  */
 GraphCardChartLegend.defaultProps = {
@@ -190,7 +189,6 @@ GraphCardChartLegend.defaultProps = {
     dataSets: []
   },
   legend: {},
-  productId: '',
   productLabel: '',
   t: translate,
   viewId: 'graphCardLegend'
