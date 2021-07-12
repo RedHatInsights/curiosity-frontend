@@ -33,6 +33,186 @@ Object {
   "isSearchable": true,
   "path": "*",
   "pathParameter": "OpenShift Container Platform",
+  "productConfig": Array [
+    Object {
+      "graphTallyQuery": Object {
+        "granularity": "daily",
+      },
+      "initialGraphFilters": Array [
+        Object {
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "cores",
+          "isOptional": true,
+          "stroke": "#06c",
+        },
+        Object {
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "sockets",
+          "isOptional": true,
+          "stroke": "#06c",
+        },
+        Object {
+          "chartType": "threshold",
+          "id": "thresholdSockets",
+          "isOptional": true,
+        },
+        Object {
+          "chartType": "threshold",
+          "id": "thresholdCores",
+          "isOptional": true,
+        },
+      ],
+      "initialGraphSettings": Object {},
+      "initialGuestsFilters": Array [
+        Object {
+          "cell": [Function],
+          "header": [Function],
+          "id": "displayName",
+        },
+        Object {
+          "cellWidth": 40,
+          "id": "inventoryId",
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
+          "id": "lastSeen",
+        },
+      ],
+      "initialInventoryFilters": Array [
+        Object {
+          "cell": [Function],
+          "id": "displayName",
+          "isSortable": true,
+        },
+        Object {
+          "cellWidth": 15,
+          "header": [Function],
+          "id": "sockets",
+          "isOptional": true,
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cellWidth": 15,
+          "header": [Function],
+          "id": "cores",
+          "isOptional": true,
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 25,
+          "id": "lastSeen",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+      ],
+      "initialInventorySettings": Object {},
+      "initialOption": "cores",
+      "initialSubscriptionsInventoryFilters": Array [
+        Object {
+          "id": "productName",
+          "isSortable": true,
+        },
+        Object {
+          "cellWidth": 15,
+          "id": "serviceLevel",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
+          "id": "upcomingEventDate",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+      ],
+      "initialToolbarFilters": Array [
+        Object {
+          "id": "sla",
+        },
+      ],
+      "inventoryHostsQuery": Object {
+        "dir": "desc",
+        "limit": 100,
+        "offset": 0,
+        "sort": "last_seen",
+      },
+      "inventorySubscriptionsQuery": Object {
+        "dir": "desc",
+        "limit": 100,
+        "offset": 0,
+        "sort": "upcoming_event_date",
+      },
+      "productContextFilterUom": true,
+      "productGroup": "OpenShift Container Platform",
+      "productId": "OpenShift Container Platform",
+      "productLabel": "OpenShift",
+      "query": Object {
+        "beginning": "2019-06-20T00:00:00.000Z",
+        "ending": "2019-07-20T23:59:59.999Z",
+        "uom": "cores",
+      },
+      "viewId": "viewOpenShift Container Platform",
+    },
+    Object {
+      "graphTallyQuery": Object {
+        "granularity": "daily",
+      },
+      "initialGraphFilters": Array [
+        Object {
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "coreHours",
+          "stroke": "#06c",
+        },
+      ],
+      "initialGraphSettings": Object {
+        "actionDisplay": [Function],
+      },
+      "initialInventoryFilters": Array [
+        Object {
+          "cell": [Function],
+          "id": "displayName",
+          "isSortable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 20,
+          "id": "coreHours",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 25,
+          "id": "lastSeen",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+      ],
+      "initialToolbarFilters": undefined,
+      "inventoryHostsQuery": Object {
+        "dir": "desc",
+        "limit": 100,
+        "offset": 0,
+        "sort": "last_seen",
+      },
+      "productGroup": "OpenShift-metrics",
+      "productId": "OpenShift-metrics",
+      "productLabel": "OpenShift Metric",
+      "query": Object {
+        "beginning": "2019-07-01T00:00:00.000Z",
+        "ending": "2019-07-31T23:59:59.999Z",
+      },
+      "viewId": "viewOpenShift-metrics",
+    },
+  ],
   "productParameter": "OpenShift Container Platform",
   "redirect": null,
   "routeHref": "/openshift-container",
@@ -61,6 +241,79 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "isSearchable": true,
         "path": "*",
         "pathParameter": "OpenShift-dedicated-metrics",
+        "productConfig": Array [
+          Object {
+            "graphTallyQuery": Object {
+              "granularity": "daily",
+            },
+            "initialGraphFilters": Array [
+              Object {
+                "chartType": "line",
+                "color": "#06c",
+                "fill": "#8bc1f7",
+                "id": "coreHours",
+                "isStacked": false,
+                "stroke": "#06c",
+                "yAxisUseDataSet": true,
+              },
+              Object {
+                "chartType": "line",
+                "color": "#009596",
+                "fill": "#a2d9d9",
+                "id": "instanceHours",
+                "isStacked": false,
+                "stroke": "#009596",
+                "yAxisUseDataSet": true,
+              },
+            ],
+            "initialGraphSettings": Object {
+              "actionDisplay": [Function],
+            },
+            "initialInventoryFilters": Array [
+              Object {
+                "cell": [Function],
+                "id": "displayName",
+                "isSortable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "coreHours",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "instanceHours",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              Object {
+                "cell": [Function],
+                "cellWidth": 15,
+                "header": [Function],
+                "id": "lastSeen",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+            ],
+            "initialToolbarFilters": undefined,
+            "inventoryHostsQuery": Object {
+              "dir": "desc",
+              "limit": 100,
+              "offset": 0,
+              "sort": "last_seen",
+            },
+            "productGroup": "OpenShift-dedicated-metrics",
+            "productId": "OpenShift-dedicated-metrics",
+            "query": Object {
+              "beginning": "2019-07-01T00:00:00.000Z",
+              "ending": "2019-07-31T23:59:59.999Z",
+            },
+            "viewId": "viewOpenShift-dedicated-metrics",
+          },
+        ],
         "productParameter": "OpenShift-dedicated-metrics",
         "redirect": null,
         "routeHref": "/openshift-dedicated",
@@ -68,7 +321,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel",
@@ -77,7 +330,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-arm",
@@ -86,7 +339,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmpower",
@@ -95,7 +348,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmz",
@@ -104,7 +357,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewRhel",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "rhel-x86",
@@ -131,7 +384,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewSatellite",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "satellite",
@@ -140,7 +393,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewSatellite",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "satellite-capsule",
@@ -149,7 +402,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewSatellite",
+        "component": "productView/productViewDefault",
         "disabled": false,
         "exact": true,
         "id": "satellite-server",

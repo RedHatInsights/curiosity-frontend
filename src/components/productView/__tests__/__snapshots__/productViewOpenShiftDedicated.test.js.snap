@@ -2,80 +2,84 @@
 
 exports[`ProductViewOpenShiftDedicated Component should render a non-connected component: non-connected 1`] = `
 <ProductView
-  productConfig={
-    Object {
-      "graphTallyQuery": Object {
-        "granularity": "daily",
-      },
-      "initialGraphFilters": Array [
-        Object {
-          "chartType": "line",
-          "color": "#06c",
-          "fill": "#8bc1f7",
-          "id": "coreHours",
-          "isStacked": false,
-          "stroke": "#06c",
-          "yAxisUseDataSet": true,
-        },
-        Object {
-          "chartType": "line",
-          "color": "#009596",
-          "fill": "#a2d9d9",
-          "id": "instanceHours",
-          "isStacked": false,
-          "stroke": "#009596",
-          "yAxisUseDataSet": true,
-        },
-      ],
-      "initialGraphSettings": Object {
-        "actionDisplay": [Function],
-      },
-      "initialInventoryFilters": Array [
-        Object {
-          "cell": [Function],
-          "id": "displayName",
-          "isSortable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "coreHours",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "instanceHours",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "header": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
-          "id": "lastSeen",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-      ],
-      "initialToolbarFilters": undefined,
-      "inventoryHostsQuery": Object {
-        "dir": "desc",
-        "limit": 100,
-        "offset": 0,
-        "sort": "last_seen",
-      },
-      "query": Object {
-        "beginning": "2019-07-01T00:00:00.000Z",
-        "ending": "2019-07-31T23:59:59.999Z",
-      },
-    }
-  }
   routeDetail={
     Object {
       "pathParameter": "lorem ipsum",
-      "productParameter": "dolor sit",
+      "productConfig": Array [
+        Object {
+          "graphTallyQuery": Object {
+            "granularity": "daily",
+          },
+          "initialGraphFilters": Array [
+            Object {
+              "chartType": "line",
+              "color": "#06c",
+              "fill": "#8bc1f7",
+              "id": "coreHours",
+              "isStacked": false,
+              "stroke": "#06c",
+              "yAxisUseDataSet": true,
+            },
+            Object {
+              "chartType": "line",
+              "color": "#009596",
+              "fill": "#a2d9d9",
+              "id": "instanceHours",
+              "isStacked": false,
+              "stroke": "#009596",
+              "yAxisUseDataSet": true,
+            },
+          ],
+          "initialGraphSettings": Object {
+            "actionDisplay": [Function],
+          },
+          "initialInventoryFilters": Array [
+            Object {
+              "cell": [Function],
+              "id": "displayName",
+              "isSortable": true,
+            },
+            Object {
+              "cell": [Function],
+              "cellWidth": 15,
+              "id": "coreHours",
+              "isSortable": true,
+              "isWrappable": true,
+            },
+            Object {
+              "cell": [Function],
+              "cellWidth": 15,
+              "id": "instanceHours",
+              "isSortable": true,
+              "isWrappable": true,
+            },
+            Object {
+              "cell": [Function],
+              "cellWidth": 15,
+              "header": [Function],
+              "id": "lastSeen",
+              "isSortable": true,
+              "isWrappable": true,
+            },
+          ],
+          "initialToolbarFilters": undefined,
+          "inventoryHostsQuery": Object {
+            "dir": "desc",
+            "limit": 100,
+            "offset": 0,
+            "sort": "last_seen",
+          },
+          "productGroup": "OpenShift-dedicated-metrics",
+          "productId": "OpenShift-dedicated-metrics",
+          "query": Object {
+            "beginning": "2019-07-01T00:00:00.000Z",
+            "ending": "2019-07-31T23:59:59.999Z",
+          },
+          "viewId": "viewOpenShift-dedicated-metrics",
+        },
+      ],
+      "productParameter": "lorem ipsum product label",
+      "viewParameter": "dolor sit",
     }
   }
   t={[Function]}
@@ -195,255 +199,10 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
       }
       t={[Function]}
       value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
-      viewId="toolbarFieldRangeGranularity"
+      viewId="dolor sit"
     />
   }
   toolbarGraphDescription={true}
   toolbarProduct={false}
 />
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: default sort for inventory should descend 1`] = `
-Object {
-  "hostsInventory": true,
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: filteredInventoryData results 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": <React.Fragment>
-        lorem
-         
-        
-      </React.Fragment>,
-    },
-    Object {
-      "title": "12.53",
-    },
-    Object {
-      "title": "20.25",
-    },
-    Object {
-      "title": <DateFormat
-        date="lorem date obj"
-      />,
-    },
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "value": 12.53,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "instanceHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
-      "value": 20.25,
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": "lorem inventory id",
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": "lorem date obj",
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: filteredInventoryData results, fallback display 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "title": "lorem",
-    },
-    Object {
-      "title": "0.00",
-    },
-    Object {
-      "title": "0.00",
-    },
-    [Function],
-  ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
-      "transforms": Array [
-        [Function],
-      ],
-    },
-  ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "value": null,
-    },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "value": "lorem",
-    },
-    "instanceHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
-      "value": null,
-    },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "value": null,
-    },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": null,
-    },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: initial configuration 1`] = `
-Object {
-  "initialGraphFilters": Array [
-    Object {
-      "chartType": "line",
-      "color": "#06c",
-      "fill": "#8bc1f7",
-      "id": "coreHours",
-      "isStacked": false,
-      "stroke": "#06c",
-      "yAxisUseDataSet": true,
-    },
-    Object {
-      "chartType": "line",
-      "color": "#009596",
-      "fill": "#a2d9d9",
-      "id": "instanceHours",
-      "isStacked": false,
-      "stroke": "#009596",
-      "yAxisUseDataSet": true,
-    },
-  ],
-  "initialInventoryFilters": Array [
-    Object {
-      "cell": [Function],
-      "id": "displayName",
-      "isSortable": true,
-    },
-    Object {
-      "cell": [Function],
-      "cellWidth": 15,
-      "id": "coreHours",
-      "isSortable": true,
-      "isWrappable": true,
-    },
-    Object {
-      "cell": [Function],
-      "cellWidth": 15,
-      "id": "instanceHours",
-      "isSortable": true,
-      "isWrappable": true,
-    },
-    Object {
-      "cell": [Function],
-      "cellWidth": 15,
-      "header": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
-      "id": "lastSeen",
-      "isSortable": true,
-      "isWrappable": true,
-    },
-  ],
-  "query": Object {
-    "beginning": "2019-07-01T00:00:00.000Z",
-    "ending": "2019-07-31T23:59:59.999Z",
-  },
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: product action display should NOT display a total value 1`] = `
-Object {
-  "productOneActionDisplay": undefined,
-  "productTwoActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  />,
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: product action display should display a total value 1`] = `
-Object {
-  "productActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"1.1K"})
-  </div>,
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: product action display should display a total value below 1000 1`] = `
-Object {
-  "productActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"500"})
-  </div>,
-}
-`;
-
-exports[`ProductViewOpenShiftDedicated Component should set product configuration: product action display should display a total value below 1000000 1`] = `
-Object {
-  "productActionDisplay": <div
-    className="curiosity-usage-graph__total"
-  >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"900K"})
-  </div>,
-}
 `;

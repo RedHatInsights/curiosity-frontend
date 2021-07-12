@@ -5,9 +5,9 @@ import { ProductView } from '../productView';
 describe('ProductView Component', () => {
   it('should render a non-connected component', () => {
     const props = {
-      productConfig: {},
       routeDetail: {
         pathParameter: 'lorem ipsum',
+        productConfig: [{ lorem: 'ipsum' }],
         productParameter: 'lorem ipsum product label',
         viewParameter: 'dolor sit'
       }
@@ -19,9 +19,9 @@ describe('ProductView Component', () => {
 
   it('should render nothing if path and product parameters are empty', () => {
     const props = {
-      productConfig: {},
       routeDetail: {
         pathParameter: null,
+        productConfig: null,
         viewParameter: null
       }
     };
@@ -32,10 +32,10 @@ describe('ProductView Component', () => {
 
   it('should allow custom product views', () => {
     const props = {
-      productConfig: {},
       toolbarGraphDescription: true,
       routeDetail: {
         pathParameter: 'lorem ipsum',
+        productConfig: [{ lorem: 'ipsum' }],
         productParameter: 'lorem ipsum product label',
         viewParameter: 'dolor sit'
       }
