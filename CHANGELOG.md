@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.6.0...v1.6.1) (2021-07-13)
+
+
+### Bug Fixes
+
+* **authentication:** remove test block ([#691](https://github.com/RedHatInsights/curiosity-frontend/issues/691)) ([7b34b6b](https://github.com/RedHatInsights/curiosity-frontend/commit/7b34b6b06aec6a1cd30d1ef1d7c8991b2b940c5a))
+* **build:** npm updates ([#685](https://github.com/RedHatInsights/curiosity-frontend/issues/685)) ([8dd083c](https://github.com/RedHatInsights/curiosity-frontend/commit/8dd083c2f0fc22f542869f27c34231b3ecdaa0af))
+* **i18n:** allow multi-context ([#699](https://github.com/RedHatInsights/curiosity-frontend/issues/699)) ([e2614cb](https://github.com/RedHatInsights/curiosity-frontend/commit/e2614cb6c4903e8b3b183d857551a44ef7035e6c))
+* **productView:** ent-3888 use meta to display total core hours ([#692](https://github.com/RedHatInsights/curiosity-frontend/issues/692)) ([672e07e](https://github.com/RedHatInsights/curiosity-frontend/commit/672e07ed205cc0df9d532386c58ddef9b4796a15))
+* **productViewMissing:** ent-3913 apply platform appNavClick ([#695](https://github.com/RedHatInsights/curiosity-frontend/issues/695)) ([086c71e](https://github.com/RedHatInsights/curiosity-frontend/commit/086c71ebab448ef9ae62a0785d3af004e0b2d331))
+* **redirect:** ent-3833 restructure, force a path ([#695](https://github.com/RedHatInsights/curiosity-frontend/issues/695)) ([c0927de](https://github.com/RedHatInsights/curiosity-frontend/commit/c0927de9274df23bb69bc2caee06ad7dee05ed06))
+* **redirect:** ent-3916 route config, dynamic loading ([#691](https://github.com/RedHatInsights/curiosity-frontend/issues/691)) ([896b9f8](https://github.com/RedHatInsights/curiosity-frontend/commit/896b9f84b1bd4728b7cdd65d48bf818371b4a7be))
+* **routes,router:** ent-2745 dynamic lazy load views ([#679](https://github.com/RedHatInsights/curiosity-frontend/issues/679)) ([6e62fa2](https://github.com/RedHatInsights/curiosity-frontend/commit/6e62fa2d932d06341f4fade622e3456c9ade5aee))
+* **select,toolbarFields:** ent-3879 apply test attributes ([#687](https://github.com/RedHatInsights/curiosity-frontend/issues/687)) ([4cef22c](https://github.com/RedHatInsights/curiosity-frontend/commit/4cef22cad1caaeaf1a9607546bcca7075220a553))
+* **testing:** mock window location, components with hooks ([#680](https://github.com/RedHatInsights/curiosity-frontend/issues/680)) ([2706c44](https://github.com/RedHatInsights/curiosity-frontend/commit/2706c448abbe04c162f1df17246cb407276b277e))
+* **testing:** outside src import, unit test locale ([#680](https://github.com/RedHatInsights/curiosity-frontend/issues/680)) ([67843b1](https://github.com/RedHatInsights/curiosity-frontend/commit/67843b1123975e3bc8fd88a6d3e2060c71335607))
+
+
+### Code Refactoring
+
+* **config:** ent-2745 consolidate nav, routing configs ([#656](https://github.com/RedHatInsights/curiosity-frontend/issues/656)) ([d210017](https://github.com/RedHatInsights/curiosity-frontend/commit/d210017dc21423c9543afc479b9459094f1eefaa))
+* **productViewMissing:** ent-2745 use route helper ([#656](https://github.com/RedHatInsights/curiosity-frontend/issues/656)) ([3ad0d5c](https://github.com/RedHatInsights/curiosity-frontend/commit/3ad0d5c8eaba9e0e6ac2d1b6e2f04eac990c4603))
+* **router:** ent-2745 convert class component ([#656](https://github.com/RedHatInsights/curiosity-frontend/issues/656)) ([ca7930c](https://github.com/RedHatInsights/curiosity-frontend/commit/ca7930c098d90f478f036937c2ec777db6019a82))
+* **router:** ent-2745 function, hook convert ([#684](https://github.com/RedHatInsights/curiosity-frontend/issues/684)) ([3bf1895](https://github.com/RedHatInsights/curiosity-frontend/commit/3bf1895fbfe6cb2ae2edc464572116b75efb8781))
+* **routerHelpers:** ent-2745 consolidate nav, route lookup ([#656](https://github.com/RedHatInsights/curiosity-frontend/issues/656)) ([216d8b8](https://github.com/RedHatInsights/curiosity-frontend/commit/216d8b817dc9f3fb31e378ce95b74e19a4f602c6))
+
 ## [1.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.5.0...v1.6.0) (2021-05-18)
 
 
