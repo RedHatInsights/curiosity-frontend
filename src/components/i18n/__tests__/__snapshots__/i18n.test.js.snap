@@ -343,10 +343,6 @@ Array [
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
       },
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'lastSeen_OpenShift-dedicated-metrics' })",
-      },
     ],
   },
   Object {
