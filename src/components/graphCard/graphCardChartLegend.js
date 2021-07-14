@@ -88,7 +88,7 @@ class GraphCardChartLegend extends React.Component {
           key={`curiosity-tooltip-${chartId}`}
           content={<p>{tooltipContent}</p>}
           position={TooltipPosition.top}
-          enableFlip={false}
+          enableFlip
           distance={5}
         >
           {button}
