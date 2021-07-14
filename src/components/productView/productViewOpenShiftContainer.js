@@ -415,7 +415,7 @@ ProductViewOpenShiftContainer.defaultProps = {
       ],
       productLabel: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
       productId: RHSM_API_PATH_ID_TYPES.OPENSHIFT,
-      viewId: 'viewOpenShift'
+      viewId: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT}`
     },
     {
       query: {
@@ -503,7 +503,7 @@ ProductViewOpenShiftContainer.defaultProps = {
       initialToolbarFilters: undefined,
       productLabel: RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS,
       productId: RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS,
-      viewId: 'viewOpenShiftMetric'
+      viewId: `view${RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS}`
     }
   ],
   t: translate

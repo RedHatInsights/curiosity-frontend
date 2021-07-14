@@ -33,7 +33,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             "uom": "cores",
           }
         }
-        viewId="viewOpenShift"
+        viewId="viewOpenShift Container Platform"
       />
     </PageToolbar>
     <PageSection
@@ -94,7 +94,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
         }
         settings={Object {}}
-        viewId="viewOpenShift"
+        viewId="viewOpenShift Container Platform"
       >
         <ToolbarFieldUom
           options={
@@ -113,7 +113,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
           t={[Function]}
           value="cores"
-          viewId="viewOpenShift"
+          viewId="viewOpenShift Container Platform"
         />
         <ToolbarFieldGranularity
           options={
@@ -142,7 +142,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
           t={[Function]}
           value="daily"
-          viewId="viewOpenShift"
+          viewId="viewOpenShift Container Platform"
         />
       </Connect(GraphCard)>
     </PageSection>
@@ -215,7 +215,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               }
             }
             settings={Object {}}
-            viewId="viewOpenShift"
+            viewId="viewOpenShift Container Platform"
           />
         </InventoryTab>
         <InventoryTab
@@ -258,7 +258,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 "uom": "cores",
               }
             }
-            viewId="viewOpenShift"
+            viewId="viewOpenShift Container Platform"
           />
         </InventoryTab>
       </Connect(InventoryTabs)>
@@ -319,7 +319,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
             "actionDisplay": [Function],
           }
         }
-        viewId="viewOpenShiftMetric"
+        viewId="viewOpenShift-metrics"
       >
         <ToolbarFieldRangedMonthly
           options={
@@ -436,7 +436,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
           }
           t={[Function]}
           value="t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})"
-          viewId="viewOpenShiftMetric"
+          viewId="viewOpenShift-metrics"
         />
       </Connect(GraphCard)>
     </PageSection>
@@ -490,7 +490,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               }
             }
             settings={Object {}}
-            viewId="viewOpenShiftMetric"
+            viewId="viewOpenShift-metrics"
           />
         </InventoryTab>
       </Connect(InventoryTabs)>
