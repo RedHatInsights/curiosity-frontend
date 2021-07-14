@@ -114,7 +114,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
     </p>
   }
   distance={5}
-  enableFlip={false}
+  enableFlip={true}
   position="top"
 >
   <Button
@@ -175,7 +175,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       </p>
     }
     distance={5}
-    enableFlip={false}
+    enableFlip={true}
     key="curiosity-tooltip-loremIpsum"
     position="top"
   >
@@ -217,7 +217,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </p>
     }
     distance={5}
-    enableFlip={false}
+    enableFlip={true}
     key="curiosity-tooltip-loremIpsum"
     position="top"
   >
@@ -254,7 +254,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </p>
     }
     distance={5}
-    enableFlip={false}
+    enableFlip={true}
     key="curiosity-tooltip-ametConsectetur"
     position="top"
   >
@@ -286,7 +286,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </p>
     }
     distance={5}
-    enableFlip={false}
+    enableFlip={true}
     key="curiosity-tooltip-dolorSit"
     position="top"
   >
@@ -323,7 +323,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </p>
     }
     distance={5}
-    enableFlip={false}
+    enableFlip={true}
     key="curiosity-tooltip-nonCursus"
     position="top"
   >
