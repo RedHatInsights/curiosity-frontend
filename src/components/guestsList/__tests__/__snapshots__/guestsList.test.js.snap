@@ -59,6 +59,7 @@ exports[`GuestsList Component should handle multiple display states: initial pen
     tableProps={
       Object {
         "borders": false,
+        "className": "curiosity-guests-list",
         "colCount": 1,
         "colWidth": Array [],
         "rowCount": 1,
