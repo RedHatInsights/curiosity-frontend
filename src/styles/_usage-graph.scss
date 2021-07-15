@@ -23,10 +23,7 @@
       padding-right: var(--pf-global--spacer--sm);
       text-align: right;
       white-space: normal;
-
-      @media (min-width: $pf-global--breakpoint--sm) {
-        white-space: nowrap;
-      }
+      word-break: break-word;
     }
 
     &__legend-item {
