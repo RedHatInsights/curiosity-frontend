@@ -2,506 +2,534 @@
 
 exports[`Select Component should allow alternate array and object options: key value object 1`] = `
 <div
-  class="pf-c-select curiosity-select  "
-  data-ouia-component-id="OUIA-Generated-Select-single-2"
-  data-ouia-component-type="PF4/Select"
-  data-ouia-safe="true"
+  class="curiosity-select"
 >
-  <button
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-labelledby=" pf-select-toggle-id-11"
-    class="pf-c-select__toggle"
-    id="pf-select-toggle-id-11"
-    type="button"
+  <div
+    class="pf-c-select curiosity-select-pf  "
+    data-ouia-component-id="OUIA-Generated-Select-single-2"
+    data-ouia-component-type="PF4/Select"
+    data-ouia-safe="true"
   >
-    <div
-      class="pf-c-select__toggle-wrapper"
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=" pf-select-toggle-id-11"
+      class="pf-c-select__toggle"
+      id="pf-select-toggle-id-11"
+      type="button"
     >
+      <div
+        class="pf-c-select__toggle-wrapper"
+      >
+        <span
+          class="pf-c-select__toggle-text"
+        >
+          lorem
+        </span>
+      </div>
       <span
-        class="pf-c-select__toggle-text"
+        class="pf-c-select__toggle-arrow"
       >
-        lorem
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          style="vertical-align: -0.125em;"
+          viewBox="0 0 320 512"
+          width="1em"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
       </span>
-    </div>
-    <span
-      class="pf-c-select__toggle-arrow"
-    >
-      <svg
-        aria-hidden="true"
-        fill="currentColor"
-        height="1em"
-        role="img"
-        style="vertical-align: -0.125em;"
-        viewBox="0 0 320 512"
-        width="1em"
-      >
-        <path
-          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        />
-      </svg>
-    </span>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Select Component should allow alternate array and object options: string array 1`] = `
 <div
-  class="pf-c-select curiosity-select  "
-  data-ouia-component-id="OUIA-Generated-Select-single-2"
-  data-ouia-component-type="PF4/Select"
-  data-ouia-safe="true"
+  class="curiosity-select"
 >
-  <button
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-labelledby=" pf-select-toggle-id-8"
-    class="pf-c-select__toggle"
-    id="pf-select-toggle-id-8"
-    type="button"
+  <div
+    class="pf-c-select curiosity-select-pf  "
+    data-ouia-component-id="OUIA-Generated-Select-single-2"
+    data-ouia-component-type="PF4/Select"
+    data-ouia-safe="true"
   >
-    <div
-      class="pf-c-select__toggle-wrapper"
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=" pf-select-toggle-id-8"
+      class="pf-c-select__toggle"
+      id="pf-select-toggle-id-8"
+      type="button"
     >
+      <div
+        class="pf-c-select__toggle-wrapper"
+      >
+        <span
+          class="pf-c-select__toggle-text"
+        >
+          ipsum
+        </span>
+      </div>
       <span
-        class="pf-c-select__toggle-text"
+        class="pf-c-select__toggle-arrow"
       >
-        ipsum
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          style="vertical-align: -0.125em;"
+          viewBox="0 0 320 512"
+          width="1em"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
       </span>
-    </div>
-    <span
-      class="pf-c-select__toggle-arrow"
-    >
-      <svg
-        aria-hidden="true"
-        fill="currentColor"
-        height="1em"
-        role="img"
-        style="vertical-align: -0.125em;"
-        viewBox="0 0 320 512"
-        width="1em"
-      >
-        <path
-          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        />
-      </svg>
-    </span>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Select Component should allow alternate direction and position options: direction up 1`] = `
-<Select
-  aria-describedby=""
-  aria-invalid={false}
-  aria-label="Select option"
-  aria-labelledby=""
-  chipGroupComponent={null}
-  className="curiosity-select  "
-  clearSelectionsAriaLabel="Clear all"
-  createText="Create"
-  customBadgeText={null}
-  customContent={null}
-  direction="up"
-  favorites={Array []}
-  favoritesLabel="Favorites"
-  hasInlineFilter={false}
-  inlineFilterPlaceholderText={null}
-  inputIdPrefix=""
-  isCreatable={false}
-  isDisabled={false}
-  isGrouped={false}
-  isInputValuePersisted={false}
-  isOpen={false}
-  isPlain={false}
-  maxHeight={null}
-  menuAppendTo="inline"
-  noResultsFoundText="No results found"
-  onClear={[Function]}
-  onCreateOption={[Function]}
-  onFilter={null}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onTypeaheadInputChanged={null}
-  ouiaSafe={true}
-  placeholderText="Select option"
-  removeSelectionAriaLabel="Remove"
-  selections={Array []}
-  toggleAriaLabel="Options menu"
-  toggleIcon={null}
-  toggleId={null}
-  typeAheadAriaLabel=""
-  validated="default"
-  variant="single"
-  width=""
+<div
+  className="curiosity-select"
 >
-  <SelectOption
-    className=""
-    component="button"
-    data-title="lorem"
-    data-value="lorem"
-    id="bG9yZW0tbG9yZW0="
-    index={0}
-    inputId=""
-    isChecked={false}
+  <Select
+    aria-describedby=""
+    aria-invalid={false}
+    aria-label="Select option"
+    aria-labelledby=""
+    chipGroupComponent={null}
+    className="curiosity-select-pf  "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="up"
+    favorites={Array []}
+    favoritesLabel="Favorites"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
     isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="bG9yZW0tbG9yZW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="lorem"
-  />
-  <SelectOption
-    className=""
-    component="button"
-    data-title="ipsum"
-    data-value="ipsum"
-    id="aXBzdW0taXBzdW0="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="aXBzdW0taXBzdW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="ipsum"
-  />
-</Select>
+    isGrouped={false}
+    isInputValuePersisted={false}
+    isOpen={false}
+    isPlain={false}
+    maxHeight={null}
+    menuAppendTo="parent"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    onTypeaheadInputChanged={null}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={null}
+    toggleId={null}
+    typeAheadAriaLabel=""
+    validated="default"
+    variant="single"
+    width=""
+  >
+    <SelectOption
+      className=""
+      component="button"
+      data-title="lorem"
+      data-value="lorem"
+      id="bG9yZW0tbG9yZW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="bG9yZW0tbG9yZW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="lorem"
+    />
+    <SelectOption
+      className=""
+      component="button"
+      data-title="ipsum"
+      data-value="ipsum"
+      id="aXBzdW0taXBzdW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="aXBzdW0taXBzdW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="ipsum"
+    />
+  </Select>
+</div>
 `;
 
 exports[`Select Component should allow alternate direction and position options: position right 1`] = `
-<Select
-  aria-describedby=""
-  aria-invalid={false}
-  aria-label="Select option"
-  aria-labelledby=""
-  chipGroupComponent={null}
-  className="curiosity-select curiosity-select__position-right "
-  clearSelectionsAriaLabel="Clear all"
-  createText="Create"
-  customBadgeText={null}
-  customContent={null}
-  direction="down"
-  favorites={Array []}
-  favoritesLabel="Favorites"
-  hasInlineFilter={false}
-  inlineFilterPlaceholderText={null}
-  inputIdPrefix=""
-  isCreatable={false}
-  isDisabled={false}
-  isGrouped={false}
-  isInputValuePersisted={false}
-  isOpen={false}
-  isPlain={false}
-  maxHeight={null}
-  menuAppendTo="inline"
-  noResultsFoundText="No results found"
-  onClear={[Function]}
-  onCreateOption={[Function]}
-  onFilter={null}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onTypeaheadInputChanged={null}
-  ouiaSafe={true}
-  placeholderText="Select option"
-  removeSelectionAriaLabel="Remove"
-  selections={Array []}
-  toggleAriaLabel="Options menu"
-  toggleIcon={null}
-  toggleId={null}
-  typeAheadAriaLabel=""
-  validated="default"
-  variant="single"
-  width=""
+<div
+  className="curiosity-select"
 >
-  <SelectOption
-    className=""
-    component="button"
-    data-title="lorem"
-    data-value="lorem"
-    id="bG9yZW0tbG9yZW0="
-    index={0}
-    inputId=""
-    isChecked={false}
+  <Select
+    aria-describedby=""
+    aria-invalid={false}
+    aria-label="Select option"
+    aria-labelledby=""
+    chipGroupComponent={null}
+    className="curiosity-select-pf curiosity-select-pf__position-right "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="down"
+    favorites={Array []}
+    favoritesLabel="Favorites"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
     isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="bG9yZW0tbG9yZW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="lorem"
-  />
-  <SelectOption
-    className=""
-    component="button"
-    data-title="ipsum"
-    data-value="ipsum"
-    id="aXBzdW0taXBzdW0="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="aXBzdW0taXBzdW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="ipsum"
-  />
-</Select>
+    isGrouped={false}
+    isInputValuePersisted={false}
+    isOpen={false}
+    isPlain={false}
+    maxHeight={null}
+    menuAppendTo="parent"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    onTypeaheadInputChanged={null}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={null}
+    toggleId={null}
+    typeAheadAriaLabel=""
+    validated="default"
+    variant="single"
+    width=""
+  >
+    <SelectOption
+      className=""
+      component="button"
+      data-title="lorem"
+      data-value="lorem"
+      id="bG9yZW0tbG9yZW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="bG9yZW0tbG9yZW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="lorem"
+    />
+    <SelectOption
+      className=""
+      component="button"
+      data-title="ipsum"
+      data-value="ipsum"
+      id="aXBzdW0taXBzdW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="aXBzdW0taXBzdW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="ipsum"
+    />
+  </Select>
+</div>
 `;
 
 exports[`Select Component should allow being disabled with missing options: no options 1`] = `
-<Select
-  aria-describedby=""
-  aria-invalid={false}
-  aria-label="Select option"
-  aria-labelledby=""
-  chipGroupComponent={null}
-  className="curiosity-select  "
-  clearSelectionsAriaLabel="Clear all"
-  createText="Create"
-  customBadgeText={null}
-  customContent={null}
-  direction="down"
-  favorites={Array []}
-  favoritesLabel="Favorites"
-  hasInlineFilter={false}
-  inlineFilterPlaceholderText={null}
-  inputIdPrefix=""
-  isCreatable={false}
-  isDisabled={true}
-  isGrouped={false}
-  isInputValuePersisted={false}
-  isOpen={false}
-  isPlain={false}
-  maxHeight={null}
-  menuAppendTo="inline"
-  noResultsFoundText="No results found"
-  onClear={[Function]}
-  onCreateOption={[Function]}
-  onFilter={null}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onTypeaheadInputChanged={null}
-  ouiaSafe={true}
-  placeholderText="Select option"
-  removeSelectionAriaLabel="Remove"
-  selections={Array []}
-  toggleAriaLabel="Options menu"
-  toggleIcon={null}
-  toggleId={null}
-  typeAheadAriaLabel=""
-  validated="default"
-  variant="single"
-  width=""
-/>
+<div
+  className="curiosity-select"
+>
+  <Select
+    aria-describedby=""
+    aria-invalid={false}
+    aria-label="Select option"
+    aria-labelledby=""
+    chipGroupComponent={null}
+    className="curiosity-select-pf  "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="down"
+    favorites={Array []}
+    favoritesLabel="Favorites"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
+    isDisabled={true}
+    isGrouped={false}
+    isInputValuePersisted={false}
+    isOpen={false}
+    isPlain={false}
+    maxHeight={null}
+    menuAppendTo="parent"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    onTypeaheadInputChanged={null}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={null}
+    toggleId={null}
+    typeAheadAriaLabel=""
+    validated="default"
+    variant="single"
+    width=""
+  />
+</div>
 `;
 
 exports[`Select Component should allow being disabled with missing options: options, but disabled 1`] = `
-<Select
-  aria-describedby=""
-  aria-invalid={false}
-  aria-label="Select option"
-  aria-labelledby=""
-  chipGroupComponent={null}
-  className="curiosity-select  "
-  clearSelectionsAriaLabel="Clear all"
-  createText="Create"
-  customBadgeText={null}
-  customContent={null}
-  direction="down"
-  favorites={Array []}
-  favoritesLabel="Favorites"
-  hasInlineFilter={false}
-  inlineFilterPlaceholderText={null}
-  inputIdPrefix=""
-  isCreatable={false}
-  isDisabled={true}
-  isGrouped={false}
-  isInputValuePersisted={false}
-  isOpen={false}
-  isPlain={false}
-  maxHeight={null}
-  menuAppendTo="inline"
-  noResultsFoundText="No results found"
-  onClear={[Function]}
-  onCreateOption={[Function]}
-  onFilter={null}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onTypeaheadInputChanged={null}
-  ouiaSafe={true}
-  placeholderText="Select option"
-  removeSelectionAriaLabel="Remove"
-  selections={Array []}
-  toggleAriaLabel="Options menu"
-  toggleIcon={null}
-  toggleId={null}
-  typeAheadAriaLabel=""
-  validated="default"
-  variant="single"
-  width=""
+<div
+  className="curiosity-select"
 >
-  <SelectOption
-    className=""
-    component="button"
-    data-title="lorem"
-    data-value="lorem"
-    id="bG9yZW0tbG9yZW0="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="bG9yZW0tbG9yZW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="lorem"
-  />
-  <SelectOption
-    className=""
-    component="button"
-    data-title="ipsum"
-    data-value="ipsum"
-    id="aXBzdW0taXBzdW0="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="aXBzdW0taXBzdW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="ipsum"
-  />
-  <SelectOption
-    className=""
-    component="button"
-    data-title="hello"
-    data-value="hello"
-    id="aGVsbG8taGVsbG8="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="aGVsbG8taGVsbG8="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="hello"
-  />
-  <SelectOption
-    className=""
-    component="button"
-    data-title="world"
-    data-value="world"
-    id="d29ybGQtd29ybGQ="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="d29ybGQtd29ybGQ="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="world"
-  />
-</Select>
+  <Select
+    aria-describedby=""
+    aria-invalid={false}
+    aria-label="Select option"
+    aria-labelledby=""
+    chipGroupComponent={null}
+    className="curiosity-select-pf  "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="down"
+    favorites={Array []}
+    favoritesLabel="Favorites"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
+    isDisabled={true}
+    isGrouped={false}
+    isInputValuePersisted={false}
+    isOpen={false}
+    isPlain={false}
+    maxHeight={null}
+    menuAppendTo="parent"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    onTypeaheadInputChanged={null}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={null}
+    toggleId={null}
+    typeAheadAriaLabel=""
+    validated="default"
+    variant="single"
+    width=""
+  >
+    <SelectOption
+      className=""
+      component="button"
+      data-title="lorem"
+      data-value="lorem"
+      id="bG9yZW0tbG9yZW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="bG9yZW0tbG9yZW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="lorem"
+    />
+    <SelectOption
+      className=""
+      component="button"
+      data-title="ipsum"
+      data-value="ipsum"
+      id="aXBzdW0taXBzdW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="aXBzdW0taXBzdW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="ipsum"
+    />
+    <SelectOption
+      className=""
+      component="button"
+      data-title="hello"
+      data-value="hello"
+      id="aGVsbG8taGVsbG8="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="aGVsbG8taGVsbG8="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="hello"
+    />
+    <SelectOption
+      className=""
+      component="button"
+      data-title="world"
+      data-value="world"
+      id="d29ybGQtd29ybGQ="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="d29ybGQtd29ybGQ="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="world"
+    />
+  </Select>
+</div>
 `;
 
 exports[`Select Component should allow being disabled with missing options: options, but no content 1`] = `
-<Select
-  aria-describedby=""
-  aria-invalid={false}
-  aria-label="Select option"
-  aria-labelledby=""
-  chipGroupComponent={null}
-  className="curiosity-select  "
-  clearSelectionsAriaLabel="Clear all"
-  createText="Create"
-  customBadgeText={null}
-  customContent={null}
-  direction="down"
-  favorites={Array []}
-  favoritesLabel="Favorites"
-  hasInlineFilter={false}
-  inlineFilterPlaceholderText={null}
-  inputIdPrefix=""
-  isCreatable={false}
-  isDisabled={true}
-  isGrouped={false}
-  isInputValuePersisted={false}
-  isOpen={false}
-  isPlain={false}
-  maxHeight={null}
-  menuAppendTo="inline"
-  noResultsFoundText="No results found"
-  onClear={[Function]}
-  onCreateOption={[Function]}
-  onFilter={null}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onTypeaheadInputChanged={null}
-  ouiaSafe={true}
-  placeholderText="Select option"
-  removeSelectionAriaLabel="Remove"
-  selections={Array []}
-  toggleAriaLabel="Options menu"
-  toggleIcon={null}
-  toggleId={null}
-  typeAheadAriaLabel=""
-  validated="default"
-  variant="single"
-  width=""
-/>
+<div
+  className="curiosity-select"
+>
+  <Select
+    aria-describedby=""
+    aria-invalid={false}
+    aria-label="Select option"
+    aria-labelledby=""
+    chipGroupComponent={null}
+    className="curiosity-select-pf  "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="down"
+    favorites={Array []}
+    favoritesLabel="Favorites"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
+    isDisabled={true}
+    isGrouped={false}
+    isInputValuePersisted={false}
+    isOpen={false}
+    isPlain={false}
+    maxHeight={null}
+    menuAppendTo="parent"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    onTypeaheadInputChanged={null}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={null}
+    toggleId={null}
+    typeAheadAriaLabel=""
+    validated="default"
+    variant="single"
+    width=""
+  />
+</div>
 `;
 
 exports[`Select Component should allow data- props: data- attributes 1`] = `
@@ -528,295 +556,315 @@ Object {
 
 exports[`Select Component should allow plain objects as values, and be able to select options based on values within the object: select when option values are objects 1`] = `
 <div
-  class="pf-c-select curiosity-select  "
-  data-ouia-component-id="OUIA-Generated-Select-single-3"
-  data-ouia-component-type="PF4/Select"
-  data-ouia-safe="true"
+  class="curiosity-select"
 >
-  <button
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-labelledby=" pf-select-toggle-id-14"
-    class="pf-c-select__toggle"
-    id="pf-select-toggle-id-14"
-    type="button"
+  <div
+    class="pf-c-select curiosity-select-pf  "
+    data-ouia-component-id="OUIA-Generated-Select-single-3"
+    data-ouia-component-type="PF4/Select"
+    data-ouia-safe="true"
   >
-    <div
-      class="pf-c-select__toggle-wrapper"
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=" pf-select-toggle-id-14"
+      class="pf-c-select__toggle"
+      id="pf-select-toggle-id-14"
+      type="button"
     >
+      <div
+        class="pf-c-select__toggle-wrapper"
+      >
+        <span
+          class="pf-c-select__toggle-text"
+        >
+          hello
+        </span>
+      </div>
       <span
-        class="pf-c-select__toggle-text"
+        class="pf-c-select__toggle-arrow"
       >
-        hello
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          style="vertical-align: -0.125em;"
+          viewBox="0 0 320 512"
+          width="1em"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
       </span>
-    </div>
-    <span
-      class="pf-c-select__toggle-arrow"
-    >
-      <svg
-        aria-hidden="true"
-        fill="currentColor"
-        height="1em"
-        role="img"
-        style="vertical-align: -0.125em;"
-        viewBox="0 0 320 512"
-        width="1em"
-      >
-        <path
-          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        />
-      </svg>
-    </span>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Select Component should allow selected options to match value or title: value or title match 1`] = `
 <div
-  class="pf-c-select curiosity-select  "
-  data-ouia-component-id="OUIA-Generated-Select-checkbox-2"
-  data-ouia-component-type="PF4/Select"
-  data-ouia-safe="true"
+  class="curiosity-select"
 >
-  <button
-    aria-expanded="false"
-    aria-labelledby=" pf-select-toggle-id-17"
-    class="pf-c-select__toggle"
-    id="pf-select-toggle-id-17"
-    type="button"
+  <div
+    class="pf-c-select curiosity-select-pf  "
+    data-ouia-component-id="OUIA-Generated-Select-checkbox-2"
+    data-ouia-component-type="PF4/Select"
+    data-ouia-safe="true"
   >
-    <div
-      class="pf-c-select__toggle-wrapper"
+    <button
+      aria-expanded="false"
+      aria-labelledby=" pf-select-toggle-id-17"
+      class="pf-c-select__toggle"
+      id="pf-select-toggle-id-17"
+      type="button"
     >
-      <span
-        class="pf-c-select__toggle-text"
-      >
-        Select option
-      </span>
       <div
-        class="pf-c-select__toggle-badge"
+        class="pf-c-select__toggle-wrapper"
       >
         <span
-          class="pf-c-badge pf-m-read"
+          class="pf-c-select__toggle-text"
         >
-          2
+          Select option
         </span>
+        <div
+          class="pf-c-select__toggle-badge"
+        >
+          <span
+            class="pf-c-badge pf-m-read"
+          >
+            2
+          </span>
+        </div>
       </div>
-    </div>
-    <span
-      class="pf-c-select__toggle-arrow"
-    >
-      <svg
-        aria-hidden="true"
-        fill="currentColor"
-        height="1em"
-        role="img"
-        style="vertical-align: -0.125em;"
-        viewBox="0 0 320 512"
-        width="1em"
+      <span
+        class="pf-c-select__toggle-arrow"
       >
-        <path
-          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        />
-      </svg>
-    </span>
-  </button>
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          style="vertical-align: -0.125em;"
+          viewBox="0 0 320 512"
+          width="1em"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Select Component should disable toggle text: disabled text 1`] = `
-<Select
-  aria-describedby=""
-  aria-invalid={false}
-  aria-label="Select option"
-  aria-labelledby=""
-  chipGroupComponent={null}
-  className="curiosity-select__no-toggle-text  "
-  clearSelectionsAriaLabel="Clear all"
-  createText="Create"
-  customBadgeText={null}
-  customContent={null}
-  direction="down"
-  favorites={Array []}
-  favoritesLabel="Favorites"
-  hasInlineFilter={false}
-  inlineFilterPlaceholderText={null}
-  inputIdPrefix=""
-  isCreatable={false}
-  isDisabled={false}
-  isGrouped={false}
-  isInputValuePersisted={false}
-  isOpen={false}
-  isPlain={false}
-  maxHeight={null}
-  menuAppendTo="inline"
-  noResultsFoundText="No results found"
-  onClear={[Function]}
-  onCreateOption={[Function]}
-  onFilter={null}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onTypeaheadInputChanged={null}
-  ouiaSafe={true}
-  placeholderText="Select option"
-  removeSelectionAriaLabel="Remove"
-  selections={Array []}
-  toggleAriaLabel="Options menu"
-  toggleIcon={
-    <FilterIcon
-      color="currentColor"
-      noVerticalAlign={false}
-      size="sm"
-    />
-  }
-  toggleId={null}
-  typeAheadAriaLabel=""
-  validated="default"
-  variant="single"
-  width=""
+<div
+  className="curiosity-select"
 >
-  <SelectOption
-    className=""
-    component="button"
-    data-title="lorem"
-    data-value="lorem"
-    id="bG9yZW0tbG9yZW0="
-    index={0}
-    inputId=""
-    isChecked={false}
+  <Select
+    aria-describedby=""
+    aria-invalid={false}
+    aria-label="Select option"
+    aria-labelledby=""
+    chipGroupComponent={null}
+    className="curiosity-select-pf__no-toggle-text  "
+    clearSelectionsAriaLabel="Clear all"
+    createText="Create"
+    customBadgeText={null}
+    customContent={null}
+    direction="down"
+    favorites={Array []}
+    favoritesLabel="Favorites"
+    hasInlineFilter={false}
+    inlineFilterPlaceholderText={null}
+    inputIdPrefix=""
+    isCreatable={false}
     isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="bG9yZW0tbG9yZW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="lorem"
-  />
-  <SelectOption
-    className=""
-    component="button"
-    data-title="ipsum"
-    data-value="ipsum"
-    id="aXBzdW0taXBzdW0="
-    index={0}
-    inputId=""
-    isChecked={false}
-    isDisabled={false}
-    isFavorite={null}
-    isLoad={false}
-    isLoading={false}
-    isNoResultsOption={false}
-    isPlaceholder={false}
-    isSelected={false}
-    key="aXBzdW0taXBzdW0="
-    keyHandler={[Function]}
-    onClick={[Function]}
-    sendRef={[Function]}
-    value="ipsum"
-  />
-</Select>
+    isGrouped={false}
+    isInputValuePersisted={false}
+    isOpen={false}
+    isPlain={false}
+    maxHeight={null}
+    menuAppendTo="parent"
+    noResultsFoundText="No results found"
+    onClear={[Function]}
+    onCreateOption={[Function]}
+    onFilter={null}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    onTypeaheadInputChanged={null}
+    ouiaSafe={true}
+    placeholderText="Select option"
+    removeSelectionAriaLabel="Remove"
+    selections={Array []}
+    toggleAriaLabel="Options menu"
+    toggleIcon={
+      <FilterIcon
+        color="currentColor"
+        noVerticalAlign={false}
+        size="sm"
+      />
+    }
+    toggleId={null}
+    typeAheadAriaLabel=""
+    validated="default"
+    variant="single"
+    width=""
+  >
+    <SelectOption
+      className=""
+      component="button"
+      data-title="lorem"
+      data-value="lorem"
+      id="bG9yZW0tbG9yZW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="bG9yZW0tbG9yZW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="lorem"
+    />
+    <SelectOption
+      className=""
+      component="button"
+      data-title="ipsum"
+      data-value="ipsum"
+      id="aXBzdW0taXBzdW0="
+      index={0}
+      inputId=""
+      isChecked={false}
+      isDisabled={false}
+      isFavorite={null}
+      isLoad={false}
+      isLoading={false}
+      isNoResultsOption={false}
+      isPlaceholder={false}
+      isSelected={false}
+      key="aXBzdW0taXBzdW0="
+      keyHandler={[Function]}
+      onClick={[Function]}
+      sendRef={[Function]}
+      value="ipsum"
+    />
+  </Select>
+</div>
 `;
 
 exports[`Select Component should render a basic component: basic component 1`] = `
 <div
-  class="pf-c-select curiosity-select  "
-  data-ouia-component-id="OUIA-Generated-Select-single-1"
-  data-ouia-component-type="PF4/Select"
-  data-ouia-safe="true"
+  class="curiosity-select"
 >
-  <button
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-labelledby=" pf-select-toggle-id-2"
-    class="pf-c-select__toggle"
-    id="pf-select-toggle-id-2"
-    type="button"
+  <div
+    class="pf-c-select curiosity-select-pf  "
+    data-ouia-component-id="OUIA-Generated-Select-single-1"
+    data-ouia-component-type="PF4/Select"
+    data-ouia-safe="true"
   >
-    <div
-      class="pf-c-select__toggle-wrapper"
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=" pf-select-toggle-id-2"
+      class="pf-c-select__toggle"
+      id="pf-select-toggle-id-2"
+      type="button"
     >
+      <div
+        class="pf-c-select__toggle-wrapper"
+      >
+        <span
+          class="pf-c-select__toggle-text"
+        >
+          hello
+        </span>
+      </div>
       <span
-        class="pf-c-select__toggle-text"
+        class="pf-c-select__toggle-arrow"
       >
-        hello
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          style="vertical-align: -0.125em;"
+          viewBox="0 0 320 512"
+          width="1em"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
       </span>
-    </div>
-    <span
-      class="pf-c-select__toggle-arrow"
-    >
-      <svg
-        aria-hidden="true"
-        fill="currentColor"
-        height="1em"
-        role="img"
-        style="vertical-align: -0.125em;"
-        viewBox="0 0 320 512"
-        width="1em"
-      >
-        <path
-          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        />
-      </svg>
-    </span>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Select Component should render a checkbox select: checkbox select 1`] = `
 <div
-  class="pf-c-select curiosity-select  "
-  data-ouia-component-id="OUIA-Generated-Select-checkbox-1"
-  data-ouia-component-type="PF4/Select"
-  data-ouia-safe="true"
+  class="curiosity-select"
 >
-  <button
-    aria-expanded="false"
-    aria-labelledby=" pf-select-toggle-id-5"
-    class="pf-c-select__toggle"
-    id="pf-select-toggle-id-5"
-    type="button"
+  <div
+    class="pf-c-select curiosity-select-pf  "
+    data-ouia-component-id="OUIA-Generated-Select-checkbox-1"
+    data-ouia-component-type="PF4/Select"
+    data-ouia-safe="true"
   >
-    <div
-      class="pf-c-select__toggle-wrapper"
+    <button
+      aria-expanded="false"
+      aria-labelledby=" pf-select-toggle-id-5"
+      class="pf-c-select__toggle"
+      id="pf-select-toggle-id-5"
+      type="button"
     >
-      <span
-        class="pf-c-select__toggle-text"
-      >
-        multiselect test
-      </span>
       <div
-        class="pf-c-select__toggle-badge"
+        class="pf-c-select__toggle-wrapper"
       >
         <span
-          class="pf-c-badge pf-m-read"
+          class="pf-c-select__toggle-text"
         >
-          2
+          multiselect test
         </span>
+        <div
+          class="pf-c-select__toggle-badge"
+        >
+          <span
+            class="pf-c-badge pf-m-read"
+          >
+            2
+          </span>
+        </div>
       </div>
-    </div>
-    <span
-      class="pf-c-select__toggle-arrow"
-    >
-      <svg
-        aria-hidden="true"
-        fill="currentColor"
-        height="1em"
-        role="img"
-        style="vertical-align: -0.125em;"
-        viewBox="0 0 320 512"
-        width="1em"
+      <span
+        class="pf-c-select__toggle-arrow"
       >
-        <path
-          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-        />
-      </svg>
-    </span>
-  </button>
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          style="vertical-align: -0.125em;"
+          viewBox="0 0 320 512"
+          width="1em"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -845,149 +893,63 @@ exports[`Select Component should render an expanded select: expanded 1`] = `
   toggleIcon={null}
   variant="single"
 >
-  <Select
-    aria-describedby=""
-    aria-invalid={false}
-    aria-label="Select option"
-    aria-labelledby=""
-    chipGroupComponent={null}
-    className="curiosity-select  "
-    clearSelectionsAriaLabel="Clear all"
-    createText="Create"
-    customBadgeText={null}
-    customContent={null}
-    direction="down"
-    favorites={Array []}
-    favoritesLabel="Favorites"
-    hasInlineFilter={false}
-    inlineFilterPlaceholderText={null}
-    inputIdPrefix=""
-    isCreatable={false}
-    isDisabled={false}
-    isGrouped={false}
-    isInputValuePersisted={false}
-    isOpen={true}
-    isPlain={false}
-    maxHeight={null}
-    menuAppendTo="inline"
-    noResultsFoundText="No results found"
-    onClear={[Function]}
-    onCreateOption={[Function]}
-    onFilter={null}
-    onSelect={[Function]}
-    onToggle={[Function]}
-    onTypeaheadInputChanged={null}
-    ouiaSafe={true}
-    placeholderText="Select option"
-    removeSelectionAriaLabel="Remove"
-    selections={Array []}
-    toggleAriaLabel="Options menu"
-    toggleIcon={null}
-    toggleId={null}
-    typeAheadAriaLabel=""
-    validated="default"
-    variant="single"
-    width=""
+  <div
+    className="curiosity-select"
   >
-    <GenerateId
-      prefix="pf-random-id-"
+    <Select
+      aria-describedby=""
+      aria-invalid={false}
+      aria-label="Select option"
+      aria-labelledby=""
+      chipGroupComponent={null}
+      className="curiosity-select-pf  "
+      clearSelectionsAriaLabel="Clear all"
+      createText="Create"
+      customBadgeText={null}
+      customContent={null}
+      direction="down"
+      favorites={Array []}
+      favoritesLabel="Favorites"
+      hasInlineFilter={false}
+      inlineFilterPlaceholderText={null}
+      inputIdPrefix=""
+      isCreatable={false}
+      isDisabled={false}
+      isGrouped={false}
+      isInputValuePersisted={false}
+      isOpen={true}
+      isPlain={false}
+      maxHeight={null}
+      menuAppendTo="parent"
+      noResultsFoundText="No results found"
+      onClear={[Function]}
+      onCreateOption={[Function]}
+      onFilter={null}
+      onSelect={[Function]}
+      onToggle={[Function]}
+      onTypeaheadInputChanged={null}
+      ouiaSafe={true}
+      placeholderText="Select option"
+      removeSelectionAriaLabel="Remove"
+      selections={Array []}
+      toggleAriaLabel="Options menu"
+      toggleIcon={null}
+      toggleId={null}
+      typeAheadAriaLabel=""
+      validated="default"
+      variant="single"
+      width=""
     >
-      <div
-        className="pf-c-select pf-m-expanded curiosity-select  "
-        data-ouia-component-id="OUIA-Generated-Select-single-5"
-        data-ouia-component-type="PF4/Select"
-        data-ouia-safe={true}
+      <GenerateId
+        prefix="pf-random-id-"
       >
-        <SelectToggle
-          aria-label="Options menu"
-          aria-labelledby=" pf-select-toggle-id-32"
-          className=""
-          handleTypeaheadKeys={[Function]}
-          hasClearButton={false}
-          hasFooter={false}
-          id="pf-select-toggle-id-32"
-          isActive={false}
-          isDisabled={false}
-          isOpen={true}
-          isPlain={false}
-          menuRef={
-            Object {
-              "current": <ul
-                aria-label="Select option"
-                class="pf-c-select__menu"
-                role="listbox"
-              >
-                <li
-                  class="pf-c-select__menu-wrapper"
-                  id="bG9yZW0tbG9yZW0="
-                  role="presentation"
-                >
-                  <button
-                    class="pf-c-select__menu-item"
-                    data-title="lorem"
-                    data-value="lorem"
-                    role="option"
-                    type="button"
-                  >
-                    lorem
-                  </button>
-                </li>
-                <li
-                  class="pf-c-select__menu-wrapper"
-                  id="aXBzdW0taXBzdW0="
-                  role="presentation"
-                >
-                  <button
-                    class="pf-c-select__menu-item"
-                    data-title="ipsum"
-                    data-value="ipsum"
-                    role="option"
-                    type="button"
-                  >
-                    ipsum
-                  </button>
-                </li>
-                <li
-                  class="pf-c-select__menu-wrapper"
-                  id="aGVsbG8taGVsbG8="
-                  role="presentation"
-                >
-                  <button
-                    class="pf-c-select__menu-item"
-                    data-title="hello"
-                    data-value="hello"
-                    role="option"
-                    type="button"
-                  >
-                    hello
-                  </button>
-                </li>
-                <li
-                  class="pf-c-select__menu-wrapper"
-                  id="d29ybGQtd29ybGQ="
-                  role="presentation"
-                >
-                  <button
-                    class="pf-c-select__menu-item"
-                    data-title="world"
-                    data-value="world"
-                    role="option"
-                    type="button"
-                  >
-                    world
-                  </button>
-                </li>
-              </ul>,
-            }
-          }
-          onClickTypeaheadToggleButton={[Function]}
-          onClose={[Function]}
-          onEnter={[Function]}
-          onToggle={[Function]}
-          parentRef={
-            Object {
-              "current": <div
-                class="pf-c-select pf-m-expanded curiosity-select  "
+        <Popper
+          appendTo={
+            <div
+              class="curiosity-select"
+            >
+              <div
+                class="pf-c-select pf-m-expanded curiosity-select-pf  "
                 data-ouia-component-id="OUIA-Generated-Select-single-5"
                 data-ouia-component-type="PF4/Select"
                 data-ouia-safe="true"
@@ -1027,6 +989,11 @@ exports[`Select Component should render an expanded select: expanded 1`] = `
                     </svg>
                   </span>
                 </button>
+              </div>
+              <div
+                class="pf-c-select pf-m-expanded curiosity-select-pf  "
+                style="position: absolute; left: 0px; top: 0px; z-index: 9999; width: 0px;"
+              >
                 <ul
                   aria-label="Select option"
                   class="pf-c-select__menu"
@@ -1093,342 +1060,889 @@ exports[`Select Component should render an expanded select: expanded 1`] = `
                     </button>
                   </li>
                 </ul>
-              </div>,
-            }
+              </div>
+            </div>
           }
-          type="button"
-          variant="single"
+          direction="down"
+          isVisible={true}
+          popper={
+            <div
+              className="pf-c-select pf-m-expanded curiosity-select-pf  "
+            >
+              <ForwardRef
+                aria-label="Select option"
+                aria-labelledby=""
+                footerRef={
+                  Object {
+                    "current": null,
+                  }
+                }
+                hasInlineFilter={false}
+                isGrouped={false}
+                keyHandler={[Function]}
+                maxHeight={null}
+                openedOnEnter={false}
+                sendRef={[Function]}
+              >
+                <SelectOption
+                  className=""
+                  component="button"
+                  data-title="lorem"
+                  data-value="lorem"
+                  id="bG9yZW0tbG9yZW0="
+                  index={0}
+                  inputId=""
+                  isChecked={false}
+                  isDisabled={false}
+                  isFavorite={null}
+                  isLoad={false}
+                  isLoading={false}
+                  isNoResultsOption={false}
+                  isPlaceholder={false}
+                  isSelected={false}
+                  keyHandler={[Function]}
+                  onClick={[Function]}
+                  sendRef={[Function]}
+                  value="lorem"
+                />
+                <SelectOption
+                  className=""
+                  component="button"
+                  data-title="ipsum"
+                  data-value="ipsum"
+                  id="aXBzdW0taXBzdW0="
+                  index={0}
+                  inputId=""
+                  isChecked={false}
+                  isDisabled={false}
+                  isFavorite={null}
+                  isLoad={false}
+                  isLoading={false}
+                  isNoResultsOption={false}
+                  isPlaceholder={false}
+                  isSelected={false}
+                  keyHandler={[Function]}
+                  onClick={[Function]}
+                  sendRef={[Function]}
+                  value="ipsum"
+                />
+                <SelectOption
+                  className=""
+                  component="button"
+                  data-title="hello"
+                  data-value="hello"
+                  id="aGVsbG8taGVsbG8="
+                  index={0}
+                  inputId=""
+                  isChecked={false}
+                  isDisabled={false}
+                  isFavorite={null}
+                  isLoad={false}
+                  isLoading={false}
+                  isNoResultsOption={false}
+                  isPlaceholder={false}
+                  isSelected={false}
+                  keyHandler={[Function]}
+                  onClick={[Function]}
+                  sendRef={[Function]}
+                  value="hello"
+                />
+                <SelectOption
+                  className=""
+                  component="button"
+                  data-title="world"
+                  data-value="world"
+                  id="d29ybGQtd29ybGQ="
+                  index={0}
+                  inputId=""
+                  isChecked={false}
+                  isDisabled={false}
+                  isFavorite={null}
+                  isLoad={false}
+                  isLoading={false}
+                  isNoResultsOption={false}
+                  isPlaceholder={false}
+                  isSelected={false}
+                  keyHandler={[Function]}
+                  onClick={[Function]}
+                  sendRef={[Function]}
+                  value="world"
+                />
+              </ForwardRef>
+            </div>
+          }
+          trigger={
+            <div
+              className="pf-c-select pf-m-expanded curiosity-select-pf  "
+              data-ouia-component-id="OUIA-Generated-Select-single-5"
+              data-ouia-component-type="PF4/Select"
+              data-ouia-safe={true}
+            >
+              <SelectToggle
+                aria-label="Options menu"
+                aria-labelledby=" pf-select-toggle-id-32"
+                className=""
+                handleTypeaheadKeys={[Function]}
+                hasClearButton={false}
+                hasFooter={false}
+                id="pf-select-toggle-id-32"
+                isActive={false}
+                isDisabled={false}
+                isOpen={true}
+                isPlain={false}
+                menuRef={
+                  Object {
+                    "current": <ul
+                      aria-label="Select option"
+                      class="pf-c-select__menu"
+                      role="listbox"
+                    >
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="bG9yZW0tbG9yZW0="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="lorem"
+                          data-value="lorem"
+                          role="option"
+                          type="button"
+                        >
+                          lorem
+                        </button>
+                      </li>
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="aXBzdW0taXBzdW0="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="ipsum"
+                          data-value="ipsum"
+                          role="option"
+                          type="button"
+                        >
+                          ipsum
+                        </button>
+                      </li>
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="aGVsbG8taGVsbG8="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="hello"
+                          data-value="hello"
+                          role="option"
+                          type="button"
+                        >
+                          hello
+                        </button>
+                      </li>
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="d29ybGQtd29ybGQ="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="world"
+                          data-value="world"
+                          role="option"
+                          type="button"
+                        >
+                          world
+                        </button>
+                      </li>
+                    </ul>,
+                  }
+                }
+                onClickTypeaheadToggleButton={[Function]}
+                onClose={[Function]}
+                onEnter={[Function]}
+                onToggle={[Function]}
+                parentRef={
+                  Object {
+                    "current": <div
+                      class="pf-c-select pf-m-expanded curiosity-select-pf  "
+                      data-ouia-component-id="OUIA-Generated-Select-single-5"
+                      data-ouia-component-type="PF4/Select"
+                      data-ouia-safe="true"
+                    >
+                      <button
+                        aria-expanded="true"
+                        aria-haspopup="listbox"
+                        aria-labelledby=" pf-select-toggle-id-32"
+                        class="pf-c-select__toggle"
+                        id="pf-select-toggle-id-32"
+                        type="button"
+                      >
+                        <div
+                          class="pf-c-select__toggle-wrapper"
+                        >
+                          <span
+                            class="pf-c-select__toggle-text"
+                          >
+                            Select option
+                          </span>
+                        </div>
+                        <span
+                          class="pf-c-select__toggle-arrow"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 320 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>,
+                  }
+                }
+                type="button"
+                variant="single"
+              >
+                <React.Fragment>
+                  <div
+                    className="pf-c-select__toggle-wrapper"
+                  >
+                    <span
+                      className="pf-c-select__toggle-text"
+                    >
+                      Select option
+                    </span>
+                  </div>
+                </React.Fragment>
+              </SelectToggle>
+            </div>
+          }
         >
-          <button
-            aria-expanded={true}
-            aria-haspopup="listbox"
-            aria-labelledby=" pf-select-toggle-id-32"
-            className="pf-c-select__toggle"
-            disabled={false}
-            id="pf-select-toggle-id-32"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            type="button"
+          <FindRefWrapper
+            onFoundRef={[Function]}
           >
             <div
-              className="pf-c-select__toggle-wrapper"
+              className="pf-c-select pf-m-expanded curiosity-select-pf  "
+              data-ouia-component-id="OUIA-Generated-Select-single-5"
+              data-ouia-component-type="PF4/Select"
+              data-ouia-safe={true}
             >
-              <span
-                className="pf-c-select__toggle-text"
+              <SelectToggle
+                aria-label="Options menu"
+                aria-labelledby=" pf-select-toggle-id-32"
+                className=""
+                handleTypeaheadKeys={[Function]}
+                hasClearButton={false}
+                hasFooter={false}
+                id="pf-select-toggle-id-32"
+                isActive={false}
+                isDisabled={false}
+                isOpen={true}
+                isPlain={false}
+                menuRef={
+                  Object {
+                    "current": <ul
+                      aria-label="Select option"
+                      class="pf-c-select__menu"
+                      role="listbox"
+                    >
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="bG9yZW0tbG9yZW0="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="lorem"
+                          data-value="lorem"
+                          role="option"
+                          type="button"
+                        >
+                          lorem
+                        </button>
+                      </li>
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="aXBzdW0taXBzdW0="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="ipsum"
+                          data-value="ipsum"
+                          role="option"
+                          type="button"
+                        >
+                          ipsum
+                        </button>
+                      </li>
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="aGVsbG8taGVsbG8="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="hello"
+                          data-value="hello"
+                          role="option"
+                          type="button"
+                        >
+                          hello
+                        </button>
+                      </li>
+                      <li
+                        class="pf-c-select__menu-wrapper"
+                        id="d29ybGQtd29ybGQ="
+                        role="presentation"
+                      >
+                        <button
+                          class="pf-c-select__menu-item"
+                          data-title="world"
+                          data-value="world"
+                          role="option"
+                          type="button"
+                        >
+                          world
+                        </button>
+                      </li>
+                    </ul>,
+                  }
+                }
+                onClickTypeaheadToggleButton={[Function]}
+                onClose={[Function]}
+                onEnter={[Function]}
+                onToggle={[Function]}
+                parentRef={
+                  Object {
+                    "current": <div
+                      class="pf-c-select pf-m-expanded curiosity-select-pf  "
+                      data-ouia-component-id="OUIA-Generated-Select-single-5"
+                      data-ouia-component-type="PF4/Select"
+                      data-ouia-safe="true"
+                    >
+                      <button
+                        aria-expanded="true"
+                        aria-haspopup="listbox"
+                        aria-labelledby=" pf-select-toggle-id-32"
+                        class="pf-c-select__toggle"
+                        id="pf-select-toggle-id-32"
+                        type="button"
+                      >
+                        <div
+                          class="pf-c-select__toggle-wrapper"
+                        >
+                          <span
+                            class="pf-c-select__toggle-text"
+                          >
+                            Select option
+                          </span>
+                        </div>
+                        <span
+                          class="pf-c-select__toggle-arrow"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 320 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>,
+                  }
+                }
+                type="button"
+                variant="single"
               >
-                Select option
-              </span>
+                <button
+                  aria-expanded={true}
+                  aria-haspopup="listbox"
+                  aria-labelledby=" pf-select-toggle-id-32"
+                  className="pf-c-select__toggle"
+                  disabled={false}
+                  id="pf-select-toggle-id-32"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  type="button"
+                >
+                  <div
+                    className="pf-c-select__toggle-wrapper"
+                  >
+                    <span
+                      className="pf-c-select__toggle-text"
+                    >
+                      Select option
+                    </span>
+                  </div>
+                  <span
+                    className="pf-c-select__toggle-arrow"
+                  >
+                    <CaretDownIcon
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-labelledby={null}
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 320 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        />
+                      </svg>
+                    </CaretDownIcon>
+                  </span>
+                </button>
+              </SelectToggle>
             </div>
-            <span
-              className="pf-c-select__toggle-arrow"
-            >
-              <CaretDownIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
+          </FindRefWrapper>
+          <Portal
+            containerInfo={
+              <div
+                class="curiosity-select"
               >
-                <svg
-                  aria-hidden={true}
-                  aria-labelledby={null}
-                  fill="currentColor"
-                  height="1em"
-                  role="img"
-                  style={
+                <div
+                  class="pf-c-select pf-m-expanded curiosity-select-pf  "
+                  data-ouia-component-id="OUIA-Generated-Select-single-5"
+                  data-ouia-component-type="PF4/Select"
+                  data-ouia-safe="true"
+                >
+                  <button
+                    aria-expanded="true"
+                    aria-haspopup="listbox"
+                    aria-labelledby=" pf-select-toggle-id-32"
+                    class="pf-c-select__toggle"
+                    id="pf-select-toggle-id-32"
+                    type="button"
+                  >
+                    <div
+                      class="pf-c-select__toggle-wrapper"
+                    >
+                      <span
+                        class="pf-c-select__toggle-text"
+                      >
+                        Select option
+                      </span>
+                    </div>
+                    <span
+                      class="pf-c-select__toggle-arrow"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style="vertical-align: -0.125em;"
+                        viewBox="0 0 320 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="pf-c-select pf-m-expanded curiosity-select-pf  "
+                  style="position: absolute; left: 0px; top: 0px; z-index: 9999; width: 0px;"
+                >
+                  <ul
+                    aria-label="Select option"
+                    class="pf-c-select__menu"
+                    role="listbox"
+                  >
+                    <li
+                      class="pf-c-select__menu-wrapper"
+                      id="bG9yZW0tbG9yZW0="
+                      role="presentation"
+                    >
+                      <button
+                        class="pf-c-select__menu-item"
+                        data-title="lorem"
+                        data-value="lorem"
+                        role="option"
+                        type="button"
+                      >
+                        lorem
+                      </button>
+                    </li>
+                    <li
+                      class="pf-c-select__menu-wrapper"
+                      id="aXBzdW0taXBzdW0="
+                      role="presentation"
+                    >
+                      <button
+                        class="pf-c-select__menu-item"
+                        data-title="ipsum"
+                        data-value="ipsum"
+                        role="option"
+                        type="button"
+                      >
+                        ipsum
+                      </button>
+                    </li>
+                    <li
+                      class="pf-c-select__menu-wrapper"
+                      id="aGVsbG8taGVsbG8="
+                      role="presentation"
+                    >
+                      <button
+                        class="pf-c-select__menu-item"
+                        data-title="hello"
+                        data-value="hello"
+                        role="option"
+                        type="button"
+                      >
+                        hello
+                      </button>
+                    </li>
+                    <li
+                      class="pf-c-select__menu-wrapper"
+                      id="d29ybGQtd29ybGQ="
+                      role="presentation"
+                    >
+                      <button
+                        class="pf-c-select__menu-item"
+                        data-title="world"
+                        data-value="world"
+                        role="option"
+                        type="button"
+                      >
+                        world
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            }
+          >
+            <FindRefWrapper
+              onFoundRef={[Function]}
+            >
+              <div
+                className="pf-c-select pf-m-expanded curiosity-select-pf  "
+                style={
+                  Object {
+                    "left": "0",
+                    "position": "absolute",
+                    "top": "0",
+                    "zIndex": 9999,
+                  }
+                }
+              >
+                <ForwardRef
+                  aria-label="Select option"
+                  aria-labelledby=""
+                  footerRef={
                     Object {
-                      "verticalAlign": "-0.125em",
+                      "current": null,
                     }
                   }
-                  viewBox="0 0 320 512"
-                  width="1em"
+                  hasInlineFilter={false}
+                  isGrouped={false}
+                  keyHandler={[Function]}
+                  maxHeight={null}
+                  openedOnEnter={false}
+                  sendRef={[Function]}
                 >
-                  <path
-                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                  />
-                </svg>
-              </CaretDownIcon>
-            </span>
-          </button>
-        </SelectToggle>
-        <ForwardRef
-          aria-label="Select option"
-          aria-labelledby=""
-          footerRef={
-            Object {
-              "current": null,
-            }
-          }
-          hasInlineFilter={false}
-          isGrouped={false}
-          keyHandler={[Function]}
-          maxHeight={null}
-          openedOnEnter={false}
-          sendRef={[Function]}
-        >
-          <SelectMenu
-            aria-label="Select option"
-            aria-labelledby=""
-            className=""
-            footerRef={
-              Object {
-                "current": null,
-              }
-            }
-            hasInlineFilter={false}
-            innerRef={
-              Object {
-                "current": <ul
-                  aria-label="Select option"
-                  class="pf-c-select__menu"
-                  role="listbox"
-                >
-                  <li
-                    class="pf-c-select__menu-wrapper"
-                    id="bG9yZW0tbG9yZW0="
-                    role="presentation"
+                  <SelectMenu
+                    aria-label="Select option"
+                    aria-labelledby=""
+                    className=""
+                    footerRef={
+                      Object {
+                        "current": null,
+                      }
+                    }
+                    hasInlineFilter={false}
+                    innerRef={
+                      Object {
+                        "current": <ul
+                          aria-label="Select option"
+                          class="pf-c-select__menu"
+                          role="listbox"
+                        >
+                          <li
+                            class="pf-c-select__menu-wrapper"
+                            id="bG9yZW0tbG9yZW0="
+                            role="presentation"
+                          >
+                            <button
+                              class="pf-c-select__menu-item"
+                              data-title="lorem"
+                              data-value="lorem"
+                              role="option"
+                              type="button"
+                            >
+                              lorem
+                            </button>
+                          </li>
+                          <li
+                            class="pf-c-select__menu-wrapper"
+                            id="aXBzdW0taXBzdW0="
+                            role="presentation"
+                          >
+                            <button
+                              class="pf-c-select__menu-item"
+                              data-title="ipsum"
+                              data-value="ipsum"
+                              role="option"
+                              type="button"
+                            >
+                              ipsum
+                            </button>
+                          </li>
+                          <li
+                            class="pf-c-select__menu-wrapper"
+                            id="aGVsbG8taGVsbG8="
+                            role="presentation"
+                          >
+                            <button
+                              class="pf-c-select__menu-item"
+                              data-title="hello"
+                              data-value="hello"
+                              role="option"
+                              type="button"
+                            >
+                              hello
+                            </button>
+                          </li>
+                          <li
+                            class="pf-c-select__menu-wrapper"
+                            id="d29ybGQtd29ybGQ="
+                            role="presentation"
+                          >
+                            <button
+                              class="pf-c-select__menu-item"
+                              data-title="world"
+                              data-value="world"
+                              role="option"
+                              type="button"
+                            >
+                              world
+                            </button>
+                          </li>
+                        </ul>,
+                      }
+                    }
+                    isCustomContent={false}
+                    isExpanded={false}
+                    isGrouped={false}
+                    keyHandler={[Function]}
+                    maxHeight={null}
+                    openedOnEnter={false}
+                    selected=""
+                    sendRef={[Function]}
                   >
-                    <button
-                      class="pf-c-select__menu-item"
-                      data-title="lorem"
-                      data-value="lorem"
-                      role="option"
-                      type="button"
+                    <ul
+                      aria-label="Select option"
+                      aria-labelledby={null}
+                      className="pf-c-select__menu"
+                      role="listbox"
                     >
-                      lorem
-                    </button>
-                  </li>
-                  <li
-                    class="pf-c-select__menu-wrapper"
-                    id="aXBzdW0taXBzdW0="
-                    role="presentation"
-                  >
-                    <button
-                      class="pf-c-select__menu-item"
-                      data-title="ipsum"
-                      data-value="ipsum"
-                      role="option"
-                      type="button"
-                    >
-                      ipsum
-                    </button>
-                  </li>
-                  <li
-                    class="pf-c-select__menu-wrapper"
-                    id="aGVsbG8taGVsbG8="
-                    role="presentation"
-                  >
-                    <button
-                      class="pf-c-select__menu-item"
-                      data-title="hello"
-                      data-value="hello"
-                      role="option"
-                      type="button"
-                    >
-                      hello
-                    </button>
-                  </li>
-                  <li
-                    class="pf-c-select__menu-wrapper"
-                    id="d29ybGQtd29ybGQ="
-                    role="presentation"
-                  >
-                    <button
-                      class="pf-c-select__menu-item"
-                      data-title="world"
-                      data-value="world"
-                      role="option"
-                      type="button"
-                    >
-                      world
-                    </button>
-                  </li>
-                </ul>,
-              }
-            }
-            isCustomContent={false}
-            isExpanded={false}
-            isGrouped={false}
-            keyHandler={[Function]}
-            maxHeight={null}
-            openedOnEnter={false}
-            selected=""
-            sendRef={[Function]}
-          >
-            <ul
-              aria-label="Select option"
-              aria-labelledby={null}
-              className="pf-c-select__menu"
-              role="listbox"
-            >
-              <SelectOption
-                className=""
-                component="button"
-                data-title="lorem"
-                data-value="lorem"
-                id="bG9yZW0tbG9yZW0="
-                index={0}
-                inputId="pf-random-id-6-0"
-                isChecked={false}
-                isDisabled={false}
-                isFavorite={null}
-                isLoad={false}
-                isLoading={false}
-                isNoResultsOption={false}
-                isPlaceholder={false}
-                isSelected={false}
-                key=".$bG9yZW0tbG9yZW0=0"
-                keyHandler={[Function]}
-                onClick={[Function]}
-                sendRef={[Function]}
-                value="lorem"
-              >
-                <li
-                  className="pf-c-select__menu-wrapper"
-                  id="bG9yZW0tbG9yZW0="
-                  role="presentation"
-                >
-                  <button
-                    aria-selected={null}
-                    className="pf-c-select__menu-item"
-                    data-title="lorem"
-                    data-value="lorem"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="option"
-                    type="button"
-                  >
-                    lorem
-                  </button>
-                </li>
-              </SelectOption>
-              <SelectOption
-                className=""
-                component="button"
-                data-title="ipsum"
-                data-value="ipsum"
-                id="aXBzdW0taXBzdW0="
-                index={1}
-                inputId="pf-random-id-6-1"
-                isChecked={false}
-                isDisabled={false}
-                isFavorite={null}
-                isLoad={false}
-                isLoading={false}
-                isNoResultsOption={false}
-                isPlaceholder={false}
-                isSelected={false}
-                key=".$aXBzdW0taXBzdW0=0"
-                keyHandler={[Function]}
-                onClick={[Function]}
-                sendRef={[Function]}
-                value="ipsum"
-              >
-                <li
-                  className="pf-c-select__menu-wrapper"
-                  id="aXBzdW0taXBzdW0="
-                  role="presentation"
-                >
-                  <button
-                    aria-selected={null}
-                    className="pf-c-select__menu-item"
-                    data-title="ipsum"
-                    data-value="ipsum"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="option"
-                    type="button"
-                  >
-                    ipsum
-                  </button>
-                </li>
-              </SelectOption>
-              <SelectOption
-                className=""
-                component="button"
-                data-title="hello"
-                data-value="hello"
-                id="aGVsbG8taGVsbG8="
-                index={2}
-                inputId="pf-random-id-6-2"
-                isChecked={false}
-                isDisabled={false}
-                isFavorite={null}
-                isLoad={false}
-                isLoading={false}
-                isNoResultsOption={false}
-                isPlaceholder={false}
-                isSelected={false}
-                key=".$aGVsbG8taGVsbG8=0"
-                keyHandler={[Function]}
-                onClick={[Function]}
-                sendRef={[Function]}
-                value="hello"
-              >
-                <li
-                  className="pf-c-select__menu-wrapper"
-                  id="aGVsbG8taGVsbG8="
-                  role="presentation"
-                >
-                  <button
-                    aria-selected={null}
-                    className="pf-c-select__menu-item"
-                    data-title="hello"
-                    data-value="hello"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="option"
-                    type="button"
-                  >
-                    hello
-                  </button>
-                </li>
-              </SelectOption>
-              <SelectOption
-                className=""
-                component="button"
-                data-title="world"
-                data-value="world"
-                id="d29ybGQtd29ybGQ="
-                index={3}
-                inputId="pf-random-id-6-3"
-                isChecked={false}
-                isDisabled={false}
-                isFavorite={null}
-                isLoad={false}
-                isLoading={false}
-                isNoResultsOption={false}
-                isPlaceholder={false}
-                isSelected={false}
-                key=".$d29ybGQtd29ybGQ=0"
-                keyHandler={[Function]}
-                onClick={[Function]}
-                sendRef={[Function]}
-                value="world"
-              >
-                <li
-                  className="pf-c-select__menu-wrapper"
-                  id="d29ybGQtd29ybGQ="
-                  role="presentation"
-                >
-                  <button
-                    aria-selected={null}
-                    className="pf-c-select__menu-item"
-                    data-title="world"
-                    data-value="world"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="option"
-                    type="button"
-                  >
-                    world
-                  </button>
-                </li>
-              </SelectOption>
-            </ul>
-          </SelectMenu>
-        </ForwardRef>
-      </div>
-    </GenerateId>
-  </Select>
+                      <SelectOption
+                        className=""
+                        component="button"
+                        data-title="lorem"
+                        data-value="lorem"
+                        id="bG9yZW0tbG9yZW0="
+                        index={0}
+                        inputId="pf-random-id-6-0"
+                        isChecked={false}
+                        isDisabled={false}
+                        isFavorite={null}
+                        isLoad={false}
+                        isLoading={false}
+                        isNoResultsOption={false}
+                        isPlaceholder={false}
+                        isSelected={false}
+                        key=".$bG9yZW0tbG9yZW0=0"
+                        keyHandler={[Function]}
+                        onClick={[Function]}
+                        sendRef={[Function]}
+                        value="lorem"
+                      >
+                        <li
+                          className="pf-c-select__menu-wrapper"
+                          id="bG9yZW0tbG9yZW0="
+                          role="presentation"
+                        >
+                          <button
+                            aria-selected={null}
+                            className="pf-c-select__menu-item"
+                            data-title="lorem"
+                            data-value="lorem"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="option"
+                            type="button"
+                          >
+                            lorem
+                          </button>
+                        </li>
+                      </SelectOption>
+                      <SelectOption
+                        className=""
+                        component="button"
+                        data-title="ipsum"
+                        data-value="ipsum"
+                        id="aXBzdW0taXBzdW0="
+                        index={1}
+                        inputId="pf-random-id-6-1"
+                        isChecked={false}
+                        isDisabled={false}
+                        isFavorite={null}
+                        isLoad={false}
+                        isLoading={false}
+                        isNoResultsOption={false}
+                        isPlaceholder={false}
+                        isSelected={false}
+                        key=".$aXBzdW0taXBzdW0=0"
+                        keyHandler={[Function]}
+                        onClick={[Function]}
+                        sendRef={[Function]}
+                        value="ipsum"
+                      >
+                        <li
+                          className="pf-c-select__menu-wrapper"
+                          id="aXBzdW0taXBzdW0="
+                          role="presentation"
+                        >
+                          <button
+                            aria-selected={null}
+                            className="pf-c-select__menu-item"
+                            data-title="ipsum"
+                            data-value="ipsum"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="option"
+                            type="button"
+                          >
+                            ipsum
+                          </button>
+                        </li>
+                      </SelectOption>
+                      <SelectOption
+                        className=""
+                        component="button"
+                        data-title="hello"
+                        data-value="hello"
+                        id="aGVsbG8taGVsbG8="
+                        index={2}
+                        inputId="pf-random-id-6-2"
+                        isChecked={false}
+                        isDisabled={false}
+                        isFavorite={null}
+                        isLoad={false}
+                        isLoading={false}
+                        isNoResultsOption={false}
+                        isPlaceholder={false}
+                        isSelected={false}
+                        key=".$aGVsbG8taGVsbG8=0"
+                        keyHandler={[Function]}
+                        onClick={[Function]}
+                        sendRef={[Function]}
+                        value="hello"
+                      >
+                        <li
+                          className="pf-c-select__menu-wrapper"
+                          id="aGVsbG8taGVsbG8="
+                          role="presentation"
+                        >
+                          <button
+                            aria-selected={null}
+                            className="pf-c-select__menu-item"
+                            data-title="hello"
+                            data-value="hello"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="option"
+                            type="button"
+                          >
+                            hello
+                          </button>
+                        </li>
+                      </SelectOption>
+                      <SelectOption
+                        className=""
+                        component="button"
+                        data-title="world"
+                        data-value="world"
+                        id="d29ybGQtd29ybGQ="
+                        index={3}
+                        inputId="pf-random-id-6-3"
+                        isChecked={false}
+                        isDisabled={false}
+                        isFavorite={null}
+                        isLoad={false}
+                        isLoading={false}
+                        isNoResultsOption={false}
+                        isPlaceholder={false}
+                        isSelected={false}
+                        key=".$d29ybGQtd29ybGQ=0"
+                        keyHandler={[Function]}
+                        onClick={[Function]}
+                        sendRef={[Function]}
+                        value="world"
+                      >
+                        <li
+                          className="pf-c-select__menu-wrapper"
+                          id="d29ybGQtd29ybGQ="
+                          role="presentation"
+                        >
+                          <button
+                            aria-selected={null}
+                            className="pf-c-select__menu-item"
+                            data-title="world"
+                            data-value="world"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="option"
+                            type="button"
+                          >
+                            world
+                          </button>
+                        </li>
+                      </SelectOption>
+                    </ul>
+                  </SelectMenu>
+                </ForwardRef>
+              </div>
+            </FindRefWrapper>
+          </Portal>
+        </Popper>
+      </GenerateId>
+    </Select>
+  </div>
 </Select>
 `;
 
