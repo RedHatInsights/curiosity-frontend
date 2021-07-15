@@ -254,33 +254,36 @@ class Select extends React.Component {
      * https://github.com/cssnano/cssnano/issues/1051
      */
     return (
-      <PfSelect
-        className={`curiosity-select${(!isToggleText && '__no-toggle-text') || ''} ${
-          (position === DropdownPosition.right && 'curiosity-select__position-right') || ''
-        } ${className}`}
-        variant={variant}
-        aria-label={ariaLabel}
-        onToggle={this.onToggle}
-        onSelect={this.onSelect}
-        selections={selected}
-        isOpen={isExpanded}
-        toggleIcon={toggleIcon}
-        placeholderText={placeholder}
-        ref={this.selectField}
-        {...pfSelectOptions}
-      >
-        {(options &&
-          options.map(option => (
-            <PfSelectOption
-              key={window.btoa(`${option.title}-${option.value}`)}
-              id={window.btoa(`${option.title}-${option.value}`)}
-              value={option.title}
-              data-value={(_isPlainObject(option.value) && JSON.stringify([option.value])) || option.value}
-              data-title={option.title}
-            />
-          ))) ||
-          []}
-      </PfSelect>
+      <div className="curiosity-select">
+        <PfSelect
+          menuAppendTo="parent"
+          className={`curiosity-select-pf${(!isToggleText && '__no-toggle-text') || ''} ${
+            (position === DropdownPosition.right && 'curiosity-select-pf__position-right') || ''
+          } ${className}`}
+          variant={variant}
+          aria-label={ariaLabel}
+          onToggle={this.onToggle}
+          onSelect={this.onSelect}
+          selections={selected}
+          isOpen={isExpanded}
+          toggleIcon={toggleIcon}
+          placeholderText={placeholder}
+          ref={this.selectField}
+          {...pfSelectOptions}
+        >
+          {(options &&
+            options.map(option => (
+              <PfSelectOption
+                key={window.btoa(`${option.title}-${option.value}`)}
+                id={window.btoa(`${option.title}-${option.value}`)}
+                value={option.title}
+                data-value={(_isPlainObject(option.value) && JSON.stringify([option.value])) || option.value}
+                data-title={option.title}
+              />
+            ))) ||
+            []}
+        </PfSelect>
+      </div>
     );
   }
 }
