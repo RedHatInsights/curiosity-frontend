@@ -9,16 +9,27 @@
       }
 
       &__title {
+        flex-grow: 1;
         padding: 0;
       }
 
       &__actions {
+        display: flex;
         margin: inherit;
+        margin-left: auto;
+
+        @media (max-width: $pf-global--breakpoint--sm) {
+          margin-left: inherit;
+          padding-left: 0;
+        }
+
+        & > .curiosity-select {
+          width: auto;
+        }
       }
     }
 
     &__total {
-      min-width: 175px;
       padding-left: var(--pf-global--spacer--sm);
       padding-right: var(--pf-global--spacer--sm);
       text-align: right;
