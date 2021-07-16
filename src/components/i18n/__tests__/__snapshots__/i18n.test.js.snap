@@ -57,16 +57,16 @@ Array [
     "file": "./src/components/graphCard/graphCardChartLegend.js",
     "keys": Array [
       Object {
-        "key": "",
-        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.thresholdLabel\`], { product: productLabel, context: productLabel })",
+        "key": "curiosity-graph.label_threshold",
+        "match": "t('curiosity-graph.label_threshold', { product: productLabel, context: [id, productLabel] })",
       },
       Object {
         "key": "",
         "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.noLabel\`], { product: productLabel, context: productLabel })",
       },
       Object {
-        "key": "",
-        "match": "t([\`curiosity-graph.\${id}LegendTooltip\`, \`curiosity-graph.thresholdLegendTooltip\`], { product: productLabel, context: productLabel })",
+        "key": "curiosity-graph.legendTooltip_threshold",
+        "match": "t('curiosity-graph.legendTooltip_threshold', { product: productLabel, context: [id, productLabel] })",
       },
       Object {
         "key": "",
@@ -78,16 +78,20 @@ Array [
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
     "keys": Array [
       Object {
-        "key": "curiosity-graph.infiniteThresholdLabel",
-        "match": "t('curiosity-graph.infiniteThresholdLabel')",
-      },
-      Object {
         "key": "curiosity-graph.noDataLabel",
         "match": "t('curiosity-graph.noDataLabel')",
       },
       Object {
-        "key": "curiosity-graph.thresholdLabel",
-        "match": "t(\`curiosity-graph.thresholdLabel\`)",
+        "key": "curiosity-graph.infiniteThresholdLabel",
+        "match": "t('curiosity-graph.infiniteThresholdLabel')",
+      },
+      Object {
+        "key": "curiosity-graph.infiniteThresholdLabel",
+        "match": "t('curiosity-graph.infiniteThresholdLabel')",
+      },
+      Object {
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: 'threshold' })",
       },
       Object {
         "key": "curiosity-graph.noDataLabel",
@@ -141,6 +145,10 @@ Array [
   Object {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tabSubHeading",
+        "match": "t('curiosity-inventory.tabSubHeading', { count: index })",
+      },
       Object {
         "key": "curiosity-inventory.tabHeading",
         "match": "t('curiosity-inventory.tabHeading', { count: updatedChildren.length })",
@@ -249,12 +257,12 @@ Array [
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
       },
       Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
+        "key": "curiosity-inventory.tabHosts",
+        "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
       },
       Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
+        "key": "curiosity-inventory.tabSubscriptions",
+        "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
       },
     ],
   },
@@ -287,12 +295,12 @@ Array [
         "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
       },
       Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'hosts' })",
+        "key": "curiosity-inventory.tabHosts",
+        "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
       },
       Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'subscriptions' })",
+        "key": "curiosity-inventory.tabSubscriptions",
+        "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
       },
       Object {
         "key": "curiosity-view.title",
@@ -334,10 +342,6 @@ Array [
       Object {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
-      },
-      Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'lastSeen_OpenShift-dedicated-metrics' })",
       },
     ],
   },
@@ -578,27 +582,15 @@ Array [
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
 Array [
   Object {
+    "file": "./src/components/graphCard/graphCardChartTooltip.js",
+    "key": "curiosity-graph.label",
+  },
+  Object {
     "file": "./src/components/inventoryList/inventoryList.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
     "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/productView/productView.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/productView/productView.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/productView/productViewOpenShiftContainer.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/productView/productViewOpenShiftContainer.js",
     "key": "curiosity-inventory.tab",
   },
   Object {

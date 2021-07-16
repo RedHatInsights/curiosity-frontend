@@ -2,7 +2,7 @@
 
 exports[`GraphCardChartTooltip Component should render a basic component: basic 1`] = `
 <div
-  className="victory-tooltip"
+  className="curiosity-usage-graph__tooltip"
 >
   <table
     summary="t(curiosity-graph.tooltipSummary)"
@@ -13,7 +13,7 @@ exports[`GraphCardChartTooltip Component should render a basic component: basic 
 
 exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
 <div
-  className="victory-tooltip"
+  className="curiosity-usage-graph__tooltip"
 >
   <table
     summary="t(curiosity-graph.tooltipSummary)"
@@ -29,41 +29,37 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
     </thead>
     <tbody>
       <tr
-        key="tooltip-t(curiosity-graph.loremIpsumLabel, {\\"product\\":\\"\\"})"
-      >
-        <th>
-          <div
-            aria-hidden={true}
-            className="legend-icon victory-legend-icon"
-            style={
-              Object {
-                "backgroundColor": "#ffffff",
-              }
-            }
-          />
-          t(curiosity-graph.loremIpsumLabel, {"product":""})
-        </th>
-        <td>
-          0
-        </td>
-      </tr>
-      <tr
         key="tooltip-t(curiosity-graph.dolorSitLabel, {\\"product\\":\\"\\"})"
       >
         <th>
-          <div
-            aria-hidden={true}
-            className="legend-icon victory-legend-icon"
-            style={
-              Object {
-                "backgroundColor": "transparent",
-              }
-            }
+          <ChartIcon
+            fill="transparent"
+            size="sm"
+            symbol="square"
+            title={null}
           />
+           
           t(curiosity-graph.dolorSitLabel, {"product":""})
         </th>
         <td>
           1
+        </td>
+      </tr>
+      <tr
+        key="tooltip-t(curiosity-graph.loremIpsumLabel, {\\"product\\":\\"\\"})"
+      >
+        <th>
+          <ChartIcon
+            fill="#ffffff"
+            size="sm"
+            symbol="square"
+            title={null}
+          />
+           
+          t(curiosity-graph.loremIpsumLabel, {"product":""})
+        </th>
+        <td>
+          0
         </td>
       </tr>
     </tbody>

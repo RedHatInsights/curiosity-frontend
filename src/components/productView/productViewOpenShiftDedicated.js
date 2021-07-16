@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   chart_color_blue_100 as chartColorBlueLight,
-  chart_color_blue_300 as chartColorBlueDark
+  chart_color_blue_300 as chartColorBlueDark,
+  chart_color_cyan_100 as chartColorCyanLight,
+  chart_color_cyan_300 as chartColorCyanDark
 } from '@patternfly/react-tokens';
 import { Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
@@ -80,7 +82,19 @@ ProductViewOpenShiftDedicated.defaultProps = {
         id: 'coreHours',
         fill: chartColorBlueLight.value,
         stroke: chartColorBlueDark.value,
-        color: chartColorBlueDark.value
+        color: chartColorBlueDark.value,
+        chartType: 'line',
+        isStacked: false,
+        yAxisUseDataSet: true
+      },
+      {
+        id: 'instanceHours',
+        fill: chartColorCyanLight.value,
+        stroke: chartColorCyanDark.value,
+        color: chartColorCyanDark.value,
+        chartType: 'line',
+        isStacked: false,
+        yAxisUseDataSet: true
       }
     ],
     initialGraphSettings: {
@@ -137,8 +151,17 @@ ProductViewOpenShiftDedicated.defaultProps = {
         cellWidth: 15
       },
       {
+        id: 'instanceHours',
+        cell: data =>
+          (typeof data?.instanceHours?.value === 'number' &&
+            Number.parseFloat(data?.instanceHours?.value).toFixed(2)) ||
+          `0.00`,
+        isSortable: true,
+        isWrappable: true,
+        cellWidth: 15
+      },
+      {
         id: 'lastSeen',
-        header: translate('curiosity-inventory.header', { context: 'lastSeen_OpenShift-dedicated-metrics' }),
         cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
         isSortable: true,
         isWrappable: true,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ChartArea } from '../../chartArea/chartArea';
+import { Chart } from '../../chart/chart';
 import { GraphCard } from '../graphCard';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
@@ -58,7 +58,7 @@ describe('GraphCard Component', () => {
     });
 
     expect({
-      chartBarData: component.find(ChartArea).prop('dataSets')
+      chartBarData: component.find(Chart).prop('dataSets')
     }).toMatchSnapshot('error passes values');
 
     component.setProps({
@@ -162,7 +162,7 @@ describe('GraphCard Component', () => {
 
     const component = shallow(<GraphCard {...props} />);
 
-    expect(component.find(ChartArea).prop('dataSets')).toMatchSnapshot('filtered dataSets');
+    expect(component.find(Chart).prop('dataSets')).toMatchSnapshot('filtered dataSets');
   });
 
   it('should return an empty render when disabled', () => {

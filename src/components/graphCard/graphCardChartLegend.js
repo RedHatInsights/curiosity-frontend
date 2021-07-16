@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tooltip, TooltipPosition } from '@patternfly/react-core';
-import { EyeSlashIcon } from '@patternfly/react-icons';
 import { connect, store, reduxTypes } from '../../redux';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
+import { ChartIcon } from '../chart/chartIcon';
 
 /**
  * A custom chart legend.
@@ -62,31 +62,18 @@ class GraphCardChartLegend extends React.Component {
       <Button
         onClick={() => this.onClick(chartId)}
         onKeyPress={() => this.onClick(chartId)}
-        className="victory-legend-item"
+        className="curiosity-usage-graph__legend-item"
         tabIndex={0}
         key={`curiosity-button-${chartId}`}
         variant="link"
         component="a"
         isDisabled={isDisabled}
         icon={
-          ((isDisabled || checkIsToggled) && <EyeSlashIcon />) ||
-          (isThreshold && (
-            <hr
-              aria-hidden
-              className="threshold-legend-icon"
-              style={{
-                visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible',
-                borderTopColor: color
-              }}
-            />
-          )) || (
-            <div
-              aria-hidden
-              className="legend-icon"
-              style={{
-                visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible',
-                backgroundColor: color
-              }}
+          ((isDisabled || checkIsToggled) && <ChartIcon symbol="eyeSlash" />) || (
+            <ChartIcon
+              symbol={(isThreshold && 'dash') || 'square'}
+              style={{ visibility: (isDisabled && 'hidden') || (checkIsToggled && 'hidden') || 'visible' }}
+              fill={color}
             />
           )
         }
@@ -95,29 +82,14 @@ class GraphCardChartLegend extends React.Component {
       </Button>
     );
 
-    /**
-     * FixMe: PF Tooltip has breaking changes not called out in changelog.md for PF React-core?
-     * Unclear which changelog this is called out in. Had to open the PF React-core component
-     * and the associated PR to determine when breaking changes were activated. v4.30.0
-     *  - https://github.com/patternfly/patternfly-react/pull/4491/files
-     *
-     * Breaking changes:
-     * 1. enableFlip prop is more sensitive, and/or not overridden by declaring "position"
-     *    - enableFlip possibly causes unintended behavior on smaller screen sizes when "distance" prop
-     *      is set to "0"
-     * 2. unit test snapshots updated, causing CI to fail
-     * 3. removing props, deprecating them, having them "[not do anything]"
-     */
     if (tooltipContent) {
       return (
         <Tooltip
           key={`curiosity-tooltip-${chartId}`}
           content={<p>{tooltipContent}</p>}
           position={TooltipPosition.top}
-          enableFlip={false}
+          enableFlip
           distance={5}
-          entryDelay={100}
-          exitDelay={0}
         >
           {button}
         </Tooltip>
@@ -143,9 +115,9 @@ class GraphCardChartLegend extends React.Component {
 
           const labelContent =
             (isThreshold &&
-              t([`curiosity-graph.${id}Label`, `curiosity-graph.thresholdLabel`], {
+              t('curiosity-graph.label_threshold', {
                 product: productLabel,
-                context: productLabel
+                context: [id, productLabel]
               })) ||
             t([`curiosity-graph.${id}Label`, `curiosity-graph.noLabel`], {
               product: productLabel,
@@ -154,9 +126,9 @@ class GraphCardChartLegend extends React.Component {
 
           const tooltipContent =
             (isThreshold &&
-              t([`curiosity-graph.${id}LegendTooltip`, `curiosity-graph.thresholdLegendTooltip`], {
+              t('curiosity-graph.legendTooltip_threshold', {
                 product: productLabel,
-                context: productLabel
+                context: [id, productLabel]
               })) ||
             t(`curiosity-graph.${id}LegendTooltip`, { product: productLabel, context: productLabel });
 
@@ -177,7 +149,8 @@ class GraphCardChartLegend extends React.Component {
 /**
  * Prop types.
  *
- * @type {{datum, productLabel: string, t: Function, legend: object, chart: object}}
+ * @type {{datum: object, productLabel: string, viewId: string, t: Function, legend: object,
+ *     chart: object}}
  */
 GraphCardChartLegend.propTypes = {
   chart: PropTypes.shape({
@@ -203,8 +176,8 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: Array}, productLabel: string, viewId: string, t: translate, legend: object,
- *     chart: {hide: Function, toggle: Function, isToggled: Function}}}
+ * @type {{datum: object, productLabel: string, viewId: string, t: translate, legend: object,
+ *     chart: object}}
  */
 GraphCardChartLegend.defaultProps = {
   chart: {

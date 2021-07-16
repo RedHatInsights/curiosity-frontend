@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChartIcon Component should handle basic icons, variations in settings: dash 1`] = `
+<span
+  className="curiosity-chartarea__icon curiosity-chartarea__icon-dash"
+>
+  <span
+    style={
+      Object {
+        "height": "1em",
+        "width": "2em",
+      }
+    }
+  >
+    <svg
+      aria-labelledby="lorem ipsum dash"
+      height="100%"
+      role="img"
+      viewBox="0 0 38 10"
+      width="100%"
+    >
+      <rect
+        fill={null}
+        height="10"
+        width="10"
+        y="5"
+      />
+      <rect
+        fill={null}
+        height="10"
+        width="10"
+        x="14"
+        y="5"
+      />
+      <rect
+        fill={null}
+        height="10"
+        width="10"
+        x="28"
+        y="5"
+      />
+    </svg>
+  </span>
+</span>
+`;
+
+exports[`ChartIcon Component should handle basic icons, variations in settings: eye 1`] = `
+<span
+  className="curiosity-chartarea__icon curiosity-chartarea__icon-eye"
+>
+  <EyeIcon
+    color="currentColor"
+    noVerticalAlign={false}
+    size="md"
+    title="lorem ipsum eye"
+  />
+</span>
+`;
+
+exports[`ChartIcon Component should handle basic icons, variations in settings: eyeSlash 1`] = `
+<span
+  className="curiosity-chartarea__icon curiosity-chartarea__icon-eyeSlash"
+>
+  <EyeSlashIcon
+    color="currentColor"
+    noVerticalAlign={false}
+    size="md"
+    title="lorem ipsum eyeSlash"
+  />
+</span>
+`;
+
+exports[`ChartIcon Component should handle basic icons, variations in settings: infinity 1`] = `
+<span
+  className="curiosity-chartarea__icon curiosity-chartarea__icon-infinity"
+>
+  <InfinityIcon
+    color="currentColor"
+    noVerticalAlign={false}
+    size="md"
+    title="lorem ipsum infinity"
+  />
+</span>
+`;
+
+exports[`ChartIcon Component should handle basic icons, variations in settings: threshold 1`] = `
+<span
+  className="curiosity-chartarea__icon curiosity-chartarea__icon-threshold"
+>
+  <span
+    style={
+      Object {
+        "height": "3em",
+        "width": "6em",
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      height="100%"
+      role="img"
+      viewBox="0 0 18 10"
+      width="100%"
+    >
+      <line
+        stroke="#ff0000"
+        strokeDasharray="4,3"
+        strokeWidth={3}
+        x1={0}
+        x2={144}
+        y1={24}
+        y2={24}
+      />
+    </svg>
+  </span>
+</span>
+`;
+
+exports[`ChartIcon Component should render a basic component: basic 1`] = `
+<span
+  className="curiosity-chartarea__icon curiosity-chartarea__icon-square"
+>
+  <SquareIcon
+    color="currentColor"
+    noVerticalAlign={false}
+    size="sm"
+    title={null}
+  />
+</span>
+`;

@@ -45,11 +45,15 @@ class InventoryTabs extends React.Component {
       return null;
     }
 
-    const updatedChildren = React.Children.toArray(children).map(({ props = {} }) => ({
-      active: props.active || false,
-      content: props.children,
-      title: props.title
-    }));
+    const updatedChildren = React.Children.toArray(children).map((child, index) => {
+      const { props = {} } = child;
+
+      return {
+        active: props.active || false,
+        content: props.children || child,
+        title: props.title || t('curiosity-inventory.tabSubHeading', { count: index })
+      };
+    });
 
     return (
       <React.Fragment>

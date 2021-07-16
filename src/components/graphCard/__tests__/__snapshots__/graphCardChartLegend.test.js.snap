@@ -2,18 +2,19 @@
 
 exports[`GraphCardChartLegend Component should handle a click event: click event post 1`] = `
 <Button
-  className="victory-legend-item"
+  className="curiosity-usage-graph__legend-item"
   component="a"
   icon={
-    <div
-      aria-hidden={true}
-      className="legend-icon"
+    <ChartIcon
+      fill="#000000"
+      size="sm"
       style={
         Object {
-          "backgroundColor": "#000000",
           "visibility": "visible",
         }
       }
+      symbol="square"
+      title={null}
     />
   }
   isDisabled={false}
@@ -29,18 +30,19 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
 
 exports[`GraphCardChartLegend Component should handle a click event: click event pre 1`] = `
 <Button
-  className="victory-legend-item"
+  className="curiosity-usage-graph__legend-item"
   component="a"
   icon={
-    <div
-      aria-hidden={true}
-      className="legend-icon"
+    <ChartIcon
+      fill="#000000"
+      size="sm"
       style={
         Object {
-          "backgroundColor": "#000000",
           "visibility": "visible",
         }
       }
+      symbol="square"
+      title={null}
     />
   }
   isDisabled={false}
@@ -56,13 +58,14 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
 
 exports[`GraphCardChartLegend Component should handle a click event: click event update 1`] = `
 <Button
-  className="victory-legend-item"
+  className="curiosity-usage-graph__legend-item"
   component="a"
   icon={
-    <EyeSlashIcon
-      color="currentColor"
-      noVerticalAlign={false}
+    <ChartIcon
+      fill={null}
       size="sm"
+      symbol="eyeSlash"
+      title={null}
     />
   }
   isDisabled={false}
@@ -78,18 +81,19 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, MISSING tooltip content 1`] = `
 <Button
-  className="victory-legend-item"
+  className="curiosity-usage-graph__legend-item"
   component="a"
   icon={
-    <div
-      aria-hidden={true}
-      className="legend-icon"
+    <ChartIcon
+      fill="#000000"
+      size="sm"
       style={
         Object {
-          "backgroundColor": "#000000",
           "visibility": "visible",
         }
       }
+      symbol="square"
+      title={null}
     />
   }
   isDisabled={false}
@@ -110,24 +114,23 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
     </p>
   }
   distance={5}
-  enableFlip={false}
-  entryDelay={100}
-  exitDelay={0}
+  enableFlip={true}
   position="top"
 >
   <Button
-    className="victory-legend-item"
+    className="curiosity-usage-graph__legend-item"
     component="a"
     icon={
-      <div
-        aria-hidden={true}
-        className="legend-icon"
+      <ChartIcon
+        fill="#000000"
+        size="sm"
         style={
           Object {
-            "backgroundColor": "#000000",
             "visibility": "visible",
           }
         }
+        symbol="square"
+        title={null}
       />
     }
     isDisabled={false}
@@ -143,13 +146,14 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, disabled 1`] = `
 <Button
-  className="victory-legend-item"
+  className="curiosity-usage-graph__legend-item"
   component="a"
   icon={
-    <EyeSlashIcon
-      color="currentColor"
-      noVerticalAlign={false}
+    <ChartIcon
+      fill={null}
       size="sm"
+      symbol="eyeSlash"
+      title={null}
     />
   }
   isDisabled={true}
@@ -171,25 +175,24 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       </p>
     }
     distance={5}
-    enableFlip={false}
-    entryDelay={100}
-    exitDelay={0}
+    enableFlip={true}
     key="curiosity-tooltip-loremIpsum"
     position="top"
   >
     <Button
-      className="victory-legend-item"
+      className="curiosity-usage-graph__legend-item"
       component="a"
       icon={
-        <div
-          aria-hidden={true}
-          className="legend-icon"
+        <ChartIcon
+          fill="#000000"
+          size="sm"
           style={
             Object {
-              "backgroundColor": "#000000",
               "visibility": "visible",
             }
           }
+          symbol="square"
+          title={null}
         />
       }
       isDisabled={false}
@@ -214,25 +217,24 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </p>
     }
     distance={5}
-    enableFlip={false}
-    entryDelay={100}
-    exitDelay={0}
+    enableFlip={true}
     key="curiosity-tooltip-loremIpsum"
     position="top"
   >
     <Button
-      className="victory-legend-item"
+      className="curiosity-usage-graph__legend-item"
       component="a"
       icon={
-        <div
-          aria-hidden={true}
-          className="legend-icon"
+        <ChartIcon
+          fill="#000000"
+          size="sm"
           style={
             Object {
-              "backgroundColor": "#000000",
               "visibility": "visible",
             }
           }
+          symbol="square"
+          title={null}
         />
       }
       isDisabled={false}
@@ -252,20 +254,19 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </p>
     }
     distance={5}
-    enableFlip={false}
-    entryDelay={100}
-    exitDelay={0}
+    enableFlip={true}
     key="curiosity-tooltip-ametConsectetur"
     position="top"
   >
     <Button
-      className="victory-legend-item"
+      className="curiosity-usage-graph__legend-item"
       component="a"
       icon={
-        <EyeSlashIcon
-          color="currentColor"
-          noVerticalAlign={false}
+        <ChartIcon
+          fill={null}
           size="sm"
+          symbol="eyeSlash"
+          title={null}
         />
       }
       isDisabled={true}
@@ -281,29 +282,28 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.dolorSitLegendTooltip,curiosity-graph.thresholdLegendTooltip, {"product":"test","context":"test"})
+        t(curiosity-graph.legendTooltip_threshold, {"product":"test","context":"dolorSit_test"})
       </p>
     }
     distance={5}
-    enableFlip={false}
-    entryDelay={100}
-    exitDelay={0}
+    enableFlip={true}
     key="curiosity-tooltip-dolorSit"
     position="top"
   >
     <Button
-      className="victory-legend-item"
+      className="curiosity-usage-graph__legend-item"
       component="a"
       icon={
-        <hr
-          aria-hidden={true}
-          className="threshold-legend-icon"
+        <ChartIcon
+          fill="#ff0000"
+          size="sm"
           style={
             Object {
-              "borderTopColor": "#ff0000",
               "visibility": "visible",
             }
           }
+          symbol="dash"
+          title={null}
         />
       }
       isDisabled={false}
@@ -313,35 +313,34 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.dolorSitLabel,curiosity-graph.thresholdLabel, {"product":"test","context":"test"})
+      t(curiosity-graph.label_threshold, {"product":"test","context":"dolorSit_test"})
     </Button>
   </Tooltip>
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.nonCursusLegendTooltip,curiosity-graph.thresholdLegendTooltip, {"product":"test","context":"test"})
+        t(curiosity-graph.legendTooltip_threshold, {"product":"test","context":"nonCursus_test"})
       </p>
     }
     distance={5}
-    enableFlip={false}
-    entryDelay={100}
-    exitDelay={0}
+    enableFlip={true}
     key="curiosity-tooltip-nonCursus"
     position="top"
   >
     <Button
-      className="victory-legend-item"
+      className="curiosity-usage-graph__legend-item"
       component="a"
       icon={
-        <hr
-          aria-hidden={true}
-          className="threshold-legend-icon"
+        <ChartIcon
+          fill="#ff0000"
+          size="sm"
           style={
             Object {
-              "borderTopColor": "#ff0000",
               "visibility": "visible",
             }
           }
+          symbol="dash"
+          title={null}
         />
       }
       isDisabled={false}
@@ -351,7 +350,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.nonCursusLabel,curiosity-graph.thresholdLabel, {"product":"test","context":"test"})
+      t(curiosity-graph.label_threshold, {"product":"test","context":"nonCursus_test"})
     </Button>
   </Tooltip>
 </Fragment>

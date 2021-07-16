@@ -176,6 +176,7 @@ class GuestsList extends React.Component {
             variant="table"
             tableProps={{
               borders: false,
+              className: 'curiosity-guests-list',
               colCount: filterGuestsData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
               colWidth: (filterGuestsData?.length && filterGuestsData.map(({ cellWidth }) => cellWidth)) || [],
               rowCount: numberOfGuests < perPageDefault ? numberOfGuests : perPageDefault,

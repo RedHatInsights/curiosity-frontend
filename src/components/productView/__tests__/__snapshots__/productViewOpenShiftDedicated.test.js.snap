@@ -9,10 +9,22 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
       },
       "initialGraphFilters": Array [
         Object {
+          "chartType": "line",
           "color": "#06c",
           "fill": "#8bc1f7",
           "id": "coreHours",
+          "isStacked": false,
           "stroke": "#06c",
+          "yAxisUseDataSet": true,
+        },
+        Object {
+          "chartType": "line",
+          "color": "#009596",
+          "fill": "#a2d9d9",
+          "id": "instanceHours",
+          "isStacked": false,
+          "stroke": "#009596",
+          "yAxisUseDataSet": true,
         },
       ],
       "initialGraphSettings": Object {
@@ -34,7 +46,13 @@ exports[`ProductViewOpenShiftDedicated Component should render a non-connected c
         Object {
           "cell": [Function],
           "cellWidth": 15,
-          "header": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
+          "id": "instanceHours",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
           "id": "lastSeen",
           "isSortable": true,
           "isWrappable": true,
@@ -204,6 +222,9 @@ Object {
       "title": "12.53",
     },
     Object {
+      "title": "20.25",
+    },
+    Object {
       "title": <DateFormat
         date="lorem date obj"
       />,
@@ -221,7 +242,13 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -235,6 +262,10 @@ Object {
     "displayName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
+    },
+    "instanceHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+      "value": 20.25,
     },
     "inventoryId": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
@@ -261,6 +292,9 @@ Object {
     Object {
       "title": "0.00",
     },
+    Object {
+      "title": "0.00",
+    },
     [Function],
   ],
   "columnHeaders": Array [
@@ -275,7 +309,13 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -289,6 +329,10 @@ Object {
     "displayName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
       "value": "lorem",
+    },
+    "instanceHours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+      "value": null,
     },
     "inventoryId": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
@@ -310,10 +354,22 @@ exports[`ProductViewOpenShiftDedicated Component should set product configuratio
 Object {
   "initialGraphFilters": Array [
     Object {
+      "chartType": "line",
       "color": "#06c",
       "fill": "#8bc1f7",
       "id": "coreHours",
+      "isStacked": false,
       "stroke": "#06c",
+      "yAxisUseDataSet": true,
+    },
+    Object {
+      "chartType": "line",
+      "color": "#009596",
+      "fill": "#a2d9d9",
+      "id": "instanceHours",
+      "isStacked": false,
+      "stroke": "#009596",
+      "yAxisUseDataSet": true,
     },
   ],
   "initialInventoryFilters": Array [
@@ -332,7 +388,13 @@ Object {
     Object {
       "cell": [Function],
       "cellWidth": 15,
-      "header": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen_OpenShift-dedicated-metrics\\"})",
+      "id": "instanceHours",
+      "isSortable": true,
+      "isWrappable": true,
+    },
+    Object {
+      "cell": [Function],
+      "cellWidth": 15,
       "id": "lastSeen",
       "isSortable": true,
       "isWrappable": true,

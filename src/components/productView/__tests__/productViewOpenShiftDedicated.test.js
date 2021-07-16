@@ -33,6 +33,7 @@ describe('ProductViewOpenShiftDedicated Component', () => {
       displayName: 'lorem',
       inventoryId: 'lorem inventory id',
       coreHours: 12.53,
+      instanceHours: 20.25,
       lastSeen: 'lorem date obj',
       loremIpsum: 'hello world'
     };
@@ -47,6 +48,7 @@ describe('ProductViewOpenShiftDedicated Component', () => {
     const fallbackInventoryData = {
       ...inventoryData,
       coreHours: null,
+      instanceHours: null,
       inventoryId: null,
       lastSeen: null
     };
@@ -79,10 +81,22 @@ describe('ProductViewOpenShiftDedicated Component', () => {
               {
                 y: 100
               }
+            ],
+            instanceHours: [
+              {
+                y: 0
+              },
+              {
+                y: 800
+              },
+              {
+                y: 200
+              }
             ]
           },
           meta: {
-            totalCoreHours: 500
+            totalCoreHours: 500,
+            totalInstanceHours: 1000
           }
         }
       )
@@ -102,10 +116,22 @@ describe('ProductViewOpenShiftDedicated Component', () => {
               {
                 y: 100000
               }
+            ],
+            instanceHours: [
+              {
+                y: 0
+              },
+              {
+                y: 800000
+              },
+              {
+                y: 200000
+              }
             ]
           },
           meta: {
-            totalCoreHours: 900000
+            totalCoreHours: 900000,
+            totalInstanceHours: 1000000
           }
         }
       )
@@ -125,10 +151,22 @@ describe('ProductViewOpenShiftDedicated Component', () => {
               {
                 y: 100
               }
+            ],
+            instanceHours: [
+              {
+                y: 0
+              },
+              {
+                y: 2000
+              },
+              {
+                y: 200
+              }
             ]
           },
           meta: {
-            totalCoreHours: 1100
+            totalCoreHours: 1100,
+            totalInstanceHours: 2200
           }
         }
       )
@@ -152,7 +190,8 @@ describe('ProductViewOpenShiftDedicated Component', () => {
             ]
           },
           meta: {
-            totalCoreHours: undefined
+            totalCoreHours: undefined,
+            totalInstanceHours: undefined
           }
         }
       )

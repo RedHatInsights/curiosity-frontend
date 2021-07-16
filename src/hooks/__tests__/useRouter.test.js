@@ -1,4 +1,4 @@
-import { routerHooks } from '../useRouter';
+import { routerHooks, useHistory } from '../useRouter';
 
 describe('useRouter', () => {
   it('should return specific properties', () => {
@@ -8,8 +8,8 @@ describe('useRouter', () => {
   it('should apply a hook for useHistory', () => {
     const mockDispatch = jest.fn();
     const mockHistoryPush = jest.fn();
-    const mockUseHistory = mockHook(() =>
-      routerHooks.useHistory({
+    const { result: mockUseHistory } = shallowHook(() =>
+      useHistory({
         useDispatch: () => action => action(mockDispatch),
         useHistory: () => ({ push: mockHistoryPush })
       })

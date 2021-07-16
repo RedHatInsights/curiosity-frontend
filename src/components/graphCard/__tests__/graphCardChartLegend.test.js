@@ -51,6 +51,7 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
+      productId: 'test id',
       productLabel: 'test'
     };
 
@@ -79,6 +80,7 @@ describe('GraphCardChartLegend Component', () => {
       legend: {
         'test-dolorSit': true
       },
+      productId: 'test id',
       productLabel: 'test',
       viewId: 'test'
     };
@@ -119,6 +121,7 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
+      productId: 'test id',
       productLabel: 'test'
     };
 

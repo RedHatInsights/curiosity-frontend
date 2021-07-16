@@ -112,6 +112,7 @@ Object {
         "CORES": "cores",
         "CORE_HOURS": "core_hours",
         "HARDWARE": "hardware_type",
+        "INSTANCE_HOURS": "instance_hours",
         "LAST_SEEN": "last_seen",
         "MEASUREMENT": "measurement_type",
         "NAME": "display_name",
@@ -222,6 +223,7 @@ Object {
       "RHSM_API_RESPONSE_META_TYPES": Object {
         "COUNT": "count",
         "TOTAL_CORE_HOURS": "total_core_hours",
+        "TOTAL_INSTANCE_HOURS": "total_instance_hours",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -236,6 +238,7 @@ Object {
         "HAS_DATA": "has_data",
         "HYPERVISOR_CORES": "hypervisor_cores",
         "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+        "INSTANCE_HOURS": "instance_hours",
         "PHYSICAL_CORES": "physical_cores",
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
@@ -352,6 +355,7 @@ Object {
         "CORES": "cores",
         "CORE_HOURS": "core_hours",
         "HARDWARE": "hardware_type",
+        "INSTANCE_HOURS": "instance_hours",
         "LAST_SEEN": "last_seen",
         "MEASUREMENT": "measurement_type",
         "NAME": "display_name",
@@ -462,6 +466,7 @@ Object {
       "RHSM_API_RESPONSE_META_TYPES": Object {
         "COUNT": "count",
         "TOTAL_CORE_HOURS": "total_core_hours",
+        "TOTAL_INSTANCE_HOURS": "total_instance_hours",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
       "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -476,6 +481,7 @@ Object {
         "HAS_DATA": "has_data",
         "HYPERVISOR_CORES": "hypervisor_cores",
         "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+        "INSTANCE_HOURS": "instance_hours",
         "PHYSICAL_CORES": "physical_cores",
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
@@ -591,6 +597,7 @@ Object {
       "CORES": "cores",
       "CORE_HOURS": "core_hours",
       "HARDWARE": "hardware_type",
+      "INSTANCE_HOURS": "instance_hours",
       "LAST_SEEN": "last_seen",
       "MEASUREMENT": "measurement_type",
       "NAME": "display_name",
@@ -701,6 +708,7 @@ Object {
     "RHSM_API_RESPONSE_META_TYPES": Object {
       "COUNT": "count",
       "TOTAL_CORE_HOURS": "total_core_hours",
+      "TOTAL_INSTANCE_HOURS": "total_instance_hours",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -715,6 +723,7 @@ Object {
       "HAS_DATA": "has_data",
       "HYPERVISOR_CORES": "hypervisor_cores",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "INSTANCE_HOURS": "instance_hours",
       "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",
@@ -834,6 +843,7 @@ Object {
       "CORES": "cores",
       "CORE_HOURS": "core_hours",
       "HARDWARE": "hardware_type",
+      "INSTANCE_HOURS": "instance_hours",
       "LAST_SEEN": "last_seen",
       "MEASUREMENT": "measurement_type",
       "NAME": "display_name",
@@ -944,6 +954,7 @@ Object {
     "RHSM_API_RESPONSE_META_TYPES": Object {
       "COUNT": "count",
       "TOTAL_CORE_HOURS": "total_core_hours",
+      "TOTAL_INSTANCE_HOURS": "total_instance_hours",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
     "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
@@ -958,6 +969,7 @@ Object {
       "HAS_DATA": "has_data",
       "HYPERVISOR_CORES": "hypervisor_cores",
       "HYPERVISOR_SOCKETS": "hypervisor_sockets",
+      "INSTANCE_HOURS": "instance_hours",
       "PHYSICAL_CORES": "physical_cores",
       "PHYSICAL_SOCKETS": "physical_sockets",
       "SOCKETS": "sockets",

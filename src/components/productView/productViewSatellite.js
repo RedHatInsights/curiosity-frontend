@@ -93,7 +93,7 @@ ProductViewSatellite.defaultProps = {
         stroke: chartColorPurpleDark.value,
         color: chartColorPurpleDark.value
       },
-      { id: 'thresholdSockets' }
+      { id: 'thresholdSockets', chartType: 'threshold' }
     ],
     initialGuestsFilters: [
       {
