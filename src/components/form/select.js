@@ -140,6 +140,9 @@ class Select extends React.Component {
   // FixMe: attributes filtered on PF select component. allow data- attributes
   /**
    * Format options into a consumable array of objects format.
+   * Note: It is understood that for line 151'ish around "updatedOptions" we dump all values regardless
+   * of whether they are plain objects, or not, into updatedOptions. This has been done for speed only,
+   * one less check to perform.
    */
   formatOptions() {
     const { current: domElement = {} } = this.selectField;
