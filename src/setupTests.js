@@ -106,8 +106,18 @@ global.mountHookComponent = async (component, options = {}) => {
     mountedComponent = mount(component, options);
   });
   mountedComponent?.update();
+
+  if (typeof options?.callback === 'function') {
+    await act(async () => {
+      await options?.callback({ component: mountedComponent });
+    });
+    mountedComponent?.update();
+  }
+
   return mountedComponent;
 };
+
+global.mountHookWrapper = global.mountHookComponent;
 
 /**
  * Enzyme for components using hooks.
@@ -123,8 +133,18 @@ global.shallowHookComponent = async (component, options = {}) => {
     mountedComponent = shallow(component, options);
   });
   mountedComponent?.update();
+
+  if (typeof options?.callback === 'function') {
+    await act(async () => {
+      await options?.callback({ component: mountedComponent });
+    });
+    mountedComponent?.update();
+  }
+
   return mountedComponent;
 };
+
+global.shallowHookWrapper = global.shallowHookComponent;
 
 /**
  * Fire a hook, return the result.
