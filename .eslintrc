@@ -42,9 +42,11 @@
     "mockObjectProperty": "readonly",
     "mountHook": "readonly",
     "mountHookComponent": "readonly",
+    "mountHookWrapper": "readonly",
     "mockWindowLocation": "readonly",
     "shallowHook": "readonly",
-    "shallowHookComponent": "readonly"
+    "shallowHookComponent": "readonly",
+    "shallowHookWrapper": "readonly"
   },
   "rules": {
     "arrow-parens": [
