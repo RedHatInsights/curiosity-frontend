@@ -1,5 +1,5 @@
 # Contributing
-Contributing encompasses repository specific requirements and the global [Insights guidelines](https://cloud.redhat.com/docs/storybook?path=/story/welcome--getting-started).
+Contributing encompasses repository specific requirements and the global [Insights guidelines](https://console.redhat.com/docs/storybook?path=/story/welcome--getting-started).
 
 ## Install
 Before developing you'll need to install:
