@@ -45,4 +45,4 @@ Run the tests with coverage.
 For in-depth testing guidance review the [contribution guidelines](./CONTRIBUTING.md#Testing) 
 
 ## Contributing
-Contributing encompasses [repository specific requirements](./CONTRIBUTING.md) and the global [Insights guidelines](https://cloud.redhat.com/docs/storybook?path=/story/welcome--getting-started).
+Contributing encompasses [repository specific requirements](./CONTRIBUTING.md) and the global [Insights guidelines](https://console.redhat.com/docs/storybook?path=/story/welcome--getting-started).
