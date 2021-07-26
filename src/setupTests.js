@@ -220,6 +220,7 @@ global.mockWindowLocation = async (
   window.location = location;
 };
 
+// ToDo: revisit squashing "popper" alerts
 /*
  * For applying a global Jest "beforeAll", based on
  * jest-prop-type-error, https://www.npmjs.com/package/jest-prop-type-error
@@ -232,7 +233,7 @@ beforeAll(() => {
       throw new Error(message);
     }
 
-    if (!/(Not implemented: navigation)/gi.test(message)) {
+    if (!/(Not implemented: navigation)/gi.test(message) && !/Popper/gi.test(args?.[0])) {
       error.apply(console, [message, ...args]);
     }
   };
