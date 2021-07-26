@@ -150,7 +150,7 @@
     "reselect": "^4.0.0",
     "sass": "^1.35.1",
     "victory": "^35.8.6",
-    "victory-create-container": "^35.8.5"
+    "victory-create-container": "^35.9.3"
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
