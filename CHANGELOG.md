@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.6.1...v1.7.0) (2021-07-26)
+
+
+### Features
+
+* **productViewOpenShiftDedicated:** ent-3843 instance hrs graph ([#720](https://github.com/RedHatInsights/curiosity-frontend/issues/720)) ([8bad6e8](https://github.com/RedHatInsights/curiosity-frontend/commit/8bad6e8417ca11b518de420ac757b7ecfc7dc9e4))
+* **productViewOpenShiftDedicated:** ent-3950 instance hrs inv ([#721](https://github.com/RedHatInsights/curiosity-frontend/issues/721)) ([f4822c8](https://github.com/RedHatInsights/curiosity-frontend/commit/f4822c840fcd1129e11c715b273e9c736a305dcf))
+* **useWindow:** ent-3843 useResizeObserver ([#718](https://github.com/RedHatInsights/curiosity-frontend/issues/718)) ([4fb4f2d](https://github.com/RedHatInsights/curiosity-frontend/commit/4fb4f2d33d2ab6888ed69db8aaa69d1a51bd16f9))
+
+
+### Bug Fixes
+
+* **build:** npm updates ([#724](https://github.com/RedHatInsights/curiosity-frontend/issues/724)) ([449e26e](https://github.com/RedHatInsights/curiosity-frontend/commit/449e26ed7ff47760af6b893bfa2e43401f8bb648))
+* **chart,chartHelpers:** ent-4064 correct dual axes normalize ([#727](https://github.com/RedHatInsights/curiosity-frontend/issues/727)) ([ca59ea8](https://github.com/RedHatInsights/curiosity-frontend/commit/ca59ea80f60038682124c7cd5d958c09cd5579bf))
+* **graphCardChartLegend:** ent-4109 tooltip for small screens ([#737](https://github.com/RedHatInsights/curiosity-frontend/issues/737)) ([e853393](https://github.com/RedHatInsights/curiosity-frontend/commit/e8533934825731720373bb5b995a88822c56683f))
+* **inventoryTabs:** allow any child component ([#721](https://github.com/RedHatInsights/curiosity-frontend/issues/721)) ([ae64e86](https://github.com/RedHatInsights/curiosity-frontend/commit/ae64e86f21291c5f99717774e783893e13f3cca1))
+* **locale:** ent-4045 threshold graph legend strings ([#733](https://github.com/RedHatInsights/curiosity-frontend/issues/733)) ([f5cd3a7](https://github.com/RedHatInsights/curiosity-frontend/commit/f5cd3a773513bbe5498c08cea1fc40702b1d7cce))
+* **productView:** ent-4102 OpenShift Dedicated last seen column ([#735](https://github.com/RedHatInsights/curiosity-frontend/issues/735)) ([4819198](https://github.com/RedHatInsights/curiosity-frontend/commit/4819198502bfa0411d715346ccb32a0e370d27c9))
+* **productView:** ent-4104 column views inventory reset ([#736](https://github.com/RedHatInsights/curiosity-frontend/issues/736)) ([20771f7](https://github.com/RedHatInsights/curiosity-frontend/commit/20771f7adc270e35da3762777b162134408acfd7))
+* **productView:** ent-4108 column styling for inventory overflow ([#737](https://github.com/RedHatInsights/curiosity-frontend/issues/737)) ([1889ccb](https://github.com/RedHatInsights/curiosity-frontend/commit/1889ccb391b17f34c299fa658e3990b2c85ad47f))
+* **productView:** ent-4108 guests toggle styling for inventory ([#738](https://github.com/RedHatInsights/curiosity-frontend/issues/738)) ([aa52c93](https://github.com/RedHatInsights/curiosity-frontend/commit/aa52c93f84bb46f3c1a36e8393db9f9a76c63991))
+* **useRouter:** testing, mockHook to shallowHook ([#718](https://github.com/RedHatInsights/curiosity-frontend/issues/718)) ([ddca486](https://github.com/RedHatInsights/curiosity-frontend/commit/ddca486e42929b471b3a269f8759ce663b551494))
+
+
+### Code Refactoring
+
+* **chart:** ent-3843 context, hooks for chart components ([#718](https://github.com/RedHatInsights/curiosity-frontend/issues/718)) ([d88833f](https://github.com/RedHatInsights/curiosity-frontend/commit/d88833f0672eb3c54ab464589b20d4c75832361e))
+
 ### [1.6.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.6.0...v1.6.1) (2021-07-13)
 
 
