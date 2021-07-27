@@ -4,7 +4,16 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import * as pfReactCoreComponents from '@patternfly/react-core';
 import * as pfReactChartComponents from '@patternfly/react-charts';
+import { setupDotenvFilesForEnv } from './build.dotenv';
 
+/**
+ * Set dotenv params.
+ */
+setupDotenvFilesForEnv({ env: 'test' });
+
+/**
+ * Set enzyme adapter.
+ */
 configure({ adapter: new Adapter() });
 
 /**
@@ -220,21 +229,33 @@ global.mockWindowLocation = async (
   window.location = location;
 };
 
+// FixMe: revisit squashing log and group messaging, redux leaks log messaging
 // ToDo: revisit squashing "popper" alerts
 /*
  * For applying a global Jest "beforeAll", based on
  * jest-prop-type-error, https://www.npmjs.com/package/jest-prop-type-error
  */
 beforeAll(() => {
-  const { error } = console;
+  const { error, group, log } = console;
 
-  console.error = (message, ...args) => {
+  const interceptConsoleMessaging = (method, callback) => {
+    console[method.name] = (message, ...args) => {
+      const isValid = callback(message, ...args);
+      if (isValid === true) {
+        method.apply(console, [message, ...args]);
+      }
+    };
+  };
+
+  interceptConsoleMessaging(group, () => process.env.CI !== 'true');
+
+  interceptConsoleMessaging(log, () => process.env.CI !== 'true');
+
+  interceptConsoleMessaging(error, (message, ...args) => {
     if (/(Invalid prop|Failed prop type)/gi.test(message)) {
       throw new Error(message);
     }
 
-    if (!/(Not implemented: navigation)/gi.test(message) && !/Popper/gi.test(args?.[0])) {
-      error.apply(console, [message, ...args]);
-    }
-  };
+    return !/(Not implemented: navigation)/gi.test(message) && !/Popper/gi.test(args?.[0]);
+  });
 });
