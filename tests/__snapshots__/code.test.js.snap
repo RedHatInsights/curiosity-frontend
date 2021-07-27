@@ -6,6 +6,5 @@ Array [
   "components/inventorySubscriptions/inventorySubscriptions.js:60:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "redux/common/reduxHelpers.js:250:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:254:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
-  "setupTests.js:231:  console.error = (message, ...args) => {",
 ]
 `;
