@@ -30,33 +30,9 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 90,
-        "statements": 90
-      }
-    },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/**/.*/**",
-      "!src/index.js",
-      "!src/setupTests.js",
-      "!src/components/app.js",
-      "!src/components/**/index.js",
-      "!src/common/index.js",
-      "!src/redux/index.js",
-      "!src/redux/store.js",
-      "!src/redux/middleware/**",
-      "!src/redux/actions/index.js",
-      "!src/redux/common/index.js",
-      "!src/redux/reducers/index.js",
-      "!src/redux/selectors/index.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
+  "babel": {
+    "presets": [
+      "react-app"
     ]
   },
   "standard-version": {
@@ -83,6 +59,10 @@
       {
         "type": "style",
         "section": "Styles"
+      },
+      {
+        "type": "build",
+        "section": "Build"
       }
     ]
   },
@@ -103,15 +83,15 @@
     "start:proxy": "sh -ac '. ./.env.proxy; run-s api:proxy-hosts; run-p -l start:js api:proxy'",
     "start:standalone": "rm ./.env.development.local; run-p -l api:dev start:js",
     "test": "run-s test:spell* test:lint test:ci",
-    "test:ci": "export CI=true; react-scripts test --env=jsdom --roots=./src --coverage",
-    "test:clearCache": "react-scripts test --clearCache",
+    "test:ci": "export CI=true; jest ./src --coverage",
+    "test:clearCache": "jest --clearCache",
     "test:dev": "run-s test:spell test:lint test:local",
-    "test:integration": "jest --roots=./tests",
-    "test:integration-dev": "jest ./tests/* --watchAll",
+    "test:integration": "jest ./tests",
+    "test:integration-dev": "jest --roots=./tests --watch",
     "test:lint": "eslint --ext=json --ext=js --ext=jsx src",
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
     "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
-    "test:local": "react-scripts test --env=jsdom --roots=./src"
+    "test:local": "jest --roots=./src --watch"
   },
   "dependencies": {
     "@patternfly/patternfly": "4.115.2",
@@ -153,15 +133,24 @@
     "victory-create-container": "^35.8.5"
   },
   "devDependencies": {
+    "@babel/core": "7.14.8",
+    "@babel/preset-react": "^7.14.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "apidoc-mock": "^4.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.0",
     "cspell": "^5.6.6",
+    "dotenv": "^10.0.0",
+    "dotenv-expand": "^5.1.0",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
+    "eslint": "7.31.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.8.2",
     "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jsdoc": "^35.4.5",
     "eslint-plugin-json": "^3.0.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -170,6 +159,9 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "express": "^4.17.1",
     "glob": "^7.1.7",
+    "jest": "26.6.0",
+    "jest-resolve": "26.6.0",
+    "jest-watch-typeahead": "0.6.4",
     "moxios": "^0.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
@@ -177,8 +169,5 @@
     "standard-version": "^9.3.1",
     "swagger-ui-express": "^4.1.6",
     "yamljs": "^0.3.0"
-  },
-  "resolutions": {
-    "**/eslint": "7.19.0"
   }
 }
