@@ -1,7 +1,7 @@
 const { execSync } = require('child_process');
 
 describe('Build distribution', () => {
-  const outputDir = 'build';
+  const outputDir = 'dist';
 
   it('should match a specific file output', () => {
     const output = execSync(`find ./${outputDir} -type f -print0 | xargs -0`);
@@ -20,7 +20,7 @@ describe('Build distribution', () => {
   });
 
   it('should not contain references to localhost', () => {
-    const output = execSync(`grep -roi "localhost:" ./${outputDir}/static | wc -l`).toString();
+    const output = execSync(`grep -roi "localhost:" ./${outputDir} | wc -l`).toString();
 
     expect(Number.parseInt(output.trim(), 10)).toBe(0);
   });

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
-import { connectRouter, reduxActions } from '../redux';
-import { helpers } from '../common/helpers';
-import { I18n } from './i18n/i18n';
-import { Router } from './router';
-import Authentication from './authentication/authentication';
+import { connectRouter, reduxActions } from './redux';
+import { helpers } from './common/helpers';
+import { I18n } from './components/i18n/i18n';
+import { Router } from './components/router';
+import Authentication from './components/authentication/authentication';
 
 /**
  * Application

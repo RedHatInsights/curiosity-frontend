@@ -3,7 +3,7 @@ import { config as openshiftContainer } from './product.openshiftContainer';
 import { config as openshiftMetrics } from './product.openshiftMetrics';
 import { config as openshiftDedicated } from './product.openshiftDedicated';
 import { config as satelliteProduct } from './product.satellite';
-import rbacConfig from './rbac';
+import rbacConfig from './rbac.json';
 import { routes as routesConfig } from './routes';
 
 const productsConfig = {
