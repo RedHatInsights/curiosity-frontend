@@ -60,15 +60,6 @@ gitRepo()
 }
 #
 #
-# Clean up build env
-#
-cleanLocalDotEnv()
-{
-  echo "" > ./.env.development.local
-  echo "" > ./.env.production.local
-}
-#
-#
 # Update hosts, use proxy repo script
 #
 updateHosts()
@@ -93,111 +84,11 @@ updateHosts()
 }
 #
 #
-# Quick check to see if a container is running
-#
-checkContainerRunning()
-{
-  local CHECKONE=$1
-  local COUNT=1
-  local DURATION=10
-  local DELAY=0.1
-
-  printf "${YELLOW}Check container running ...${NOCOLOR}"
-
-  while [ $COUNT -le $DURATION ]; do
-    sleep $DELAY
-    (( COUNT++ ))
-    if [ -z "$(docker ps | grep $CHECKONE)" ]; then
-      break
-    fi
-  done
-
-  if [ ! -z "$(docker ps | grep $CHECKONE)" ]; then
-    printf "${GREEN}Container SUCCESS"
-    printf "\n\n${NOCOLOR}"
-  else
-    printf "${RED}Container ERROR"
-    printf "\n\n  Error: ${RED}Check container \"${CHECKONE}\""
-    printf "${NOCOLOR}\n"
-  fi
-}
-#
-#
-# Run the proxy
-#
-runProxy()
-{
-  local DIR=$1
-  local RUN_CONTAINER=$2
-  local RUN_NAME=$3
-  local RUN_DOMAIN=$4
-  local RUN_PORT=$5
-  local RUN_CONFIG=$6
-  local PROXYDIR_REPO=$7
-  local CURRENT_DATE=$(date "+%s")
-  local EXPIRE=$(head -n 1 $DIR/expireDocker.txt)
-
-  docker stop -t 0 $RUN_NAME >/dev/null
-
-  if [ -z "$(docker images -q $RUN_CONTAINER)" ] || [ "${EXPIRE:-0}" -lt "${CURRENT_DATE}" ]; then
-    printf "${YELLOW}Setting up development Docker proxy container...${NOCOLOR}\n"
-    docker pull $RUN_CONTAINER
-
-    mkdir -p $DIR
-
-    if [ "$(uname)" = "Darwin" ]; then
-      echo $(date -v +10d "+%s") > $DIR/expireDocker.txt
-    else
-      echo $(date -d "+10 days" "+%s" ) > $DIR/expireDocker.txt
-    fi
-  fi
-
-  if [ -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
-    echo "Starting development proxy..."
-
-    if [ "$(uname)" = "Darwin" ]; then
-      if [ ! -z "$RUN_CONFIG" ]; then
-        RUN_CONFIG="-e CUSTOM_CONF=true -v ${RUN_CONFIG}:/config/spandx.config.js"
-      fi
-
-      docker run -d --rm -p $RUN_PORT:$RUN_PORT $RUN_CONFIG -e PORT -e LOCAL_API -e SPANDX_HOST -e SPANDX_PORT=$RUN_PORT --name $RUN_NAME $RUN_CONTAINER >/dev/null
-
-      checkContainerRunning $RUN_NAME
-
-      if [ ! -z "$(docker ps | grep $RUN_CONTAINER)" ]; then
-        printf "  ${YELLOW}Container: $(docker ps | grep $RUN_CONTAINER | cut -c 1-50)${NOCOLOR}\n"
-        echo "  Development proxy running on ${RUN_PORT}: ${RUN_DOMAIN}"
-        printf "  To stop: $ ${YELLOW}docker stop ${RUN_NAME}${NOCOLOR}\n"
-
-        open "${RUN_DOMAIN}"
-      fi
-
-      exit 0
-    else
-      printf "  ${YELLOW}This requires Python 2 to work correctly.${NOCOLOR}\n"
-      if [ "$(uname)" = "Linux" ]; then
-        xdg-open "${RUN_DOMAIN}"
-      fi
-
-      export SPANDX_PORT=$RUN_PORT
-      export SPANDX_CONFIG=$RUN_CONFIG
-      sh $PROXYDIR_REPO/scripts/run.sh
-    fi
-  fi
-}
-#
-#
 # Check docker permissions
 #
 sudoCheck()
 {
-  local RUN_CONTAINER=$1
-  local RUN_NAME=$2
-  local RUN_DOMAIN=$3
-  local RUN_PORT=$4
-  local RUN_CONFIG=$5
-
-  CHECK=$(docker ps || 'SUDO REQUIRED::')
+  local CHECK=$(docker ps || 'SUDO REQUIRED::')
 
   if [ ! -z "$($CHECK | grep "SUDO REQUIRED:::")" ]; then
     printf "\n${YELLOW}Container failed to setup, sudo required.${NOCOLOR}\n"
@@ -216,30 +107,10 @@ sudoCheck()
   YELLOW="\e[33m"
   NOCOLOR="\e[39m"
 
-  PORT=1337
-  DOMAIN=""
-  CONFIG=""
-  UPDATE=false
-  HOST_ONLY=false
-
-
   REPO="https://github.com/RedHatInsights/insights-proxy.git"
   DATADIR=./.proxy
   DATADIR_REPO=./.proxy/insights-proxy
   BRANCH="master"
-  CONTAINER="redhatinsights/insights-proxy"
-  CONTAINER_NAME="insightsproxy"
-
-  while getopts p:c:d:us option;
-    do
-      case $option in
-        p ) PORT="$OPTARG";;
-        c ) CONFIG="$OPTARG";;
-        d ) DOMAIN="$OPTARG";;
-        u ) UPDATE=true;;
-        s ) HOST=true;;
-      esac
-  done
 
   if [ -z "$(docker -v)" ]; then
     printf "\n${RED}Docker missing, confirm installation and running.${NOCOLOR}\n"
@@ -247,31 +118,7 @@ sudoCheck()
   fi
 
   sudoCheck
-
-  if [ -z "$DOMAIN" ]; then
-    if (( $PORT % 2 )); then
-      DOMAIN="https://localhost:$PORT"
-    else
-      DOMAIN="http://localhost:$PORT"
-    fi
-  fi
-
-  if [ "$UPDATE" = true ]; then
-    printf "${YELLOW}Updating ${CONTAINER_NAME}, Docker and data...${NOCOLOR}\n"
-    docker stop -t 0 $CONTAINER_NAME
-    docker rmi -f $CONTAINER
-    printf "${GREEN}${CONTAINER_NAME} updated...${NOCOLOR}\n"
-    exit 0
-  fi
-
-  if [ "$HOST" = true ]; then
-    gitRepo $REPO $DATADIR $DATADIR_REPO $BRANCH
-    updateHosts $DATADIR $DATADIR_REPO
-    exit 0
-  fi
-
-  printf "${YELLOW}The proxy environment requires being able to access secure resources at runtime.${NOCOLOR}\n"
-
-  cleanLocalDotEnv
-  runProxy $DATADIR $CONTAINER $CONTAINER_NAME $DOMAIN $PORT $CONFIG $DATADIR_REPO
+  gitRepo $REPO $DATADIR $DATADIR_REPO $BRANCH
+  updateHosts $DATADIR $DATADIR_REPO
+  exit 0
 }

@@ -59,7 +59,7 @@
     "import/extensions": [
       "error",
       {
-        "json": "never"
+        "json": "always"
       }
     ],
     "import/first": 0,

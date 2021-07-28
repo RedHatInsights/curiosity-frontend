@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>%REACT_APP_UI_DISPLAY_NAME%</title>
-    %REACT_APP_INCLUDE_CONTENT_HEADER%
+    <esi:include src="/@@env/chrome/snippets/head.html"/>
   </head>
   <body>
-  %REACT_APP_INCLUDE_CONTENT_BODY%
+    <esi:include src="/@@env/chrome/snippets/body.html"/>
   </body>
 </html>

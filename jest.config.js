@@ -2,9 +2,10 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/**/.*/**',
-    '!src/index.js',
-    '!src/setupTests.js',
-    '!src/components/app.js',
+    '!src/appEntry.js',
+    '!src/app.js',
+    '!src/bootstrap.js',
+    '!src/entry.js',
     '!src/components/**/index.js',
     '!src/common/index.js',
     '!src/redux/index.js',

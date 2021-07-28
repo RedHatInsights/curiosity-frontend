@@ -36,20 +36,18 @@ class Authentication extends Component {
       await authorizeUser();
     }
 
-    if (!helpers.DEV_MODE) {
-      initializeChrome();
-      setAppName(this.appName);
-      hideGlobalFilter();
+    initializeChrome();
+    setAppName(this.appName);
+    hideGlobalFilter();
 
-      const appNav = onNavigation(event => {
-        const { routeHref } = routerHelpers.getRouteConfig({ id: event.navId });
-        history.push(routeHref);
-      });
+    const appNav = onNavigation(event => {
+      const { routeHref } = routerHelpers.getRouteConfig({ id: event.navId });
+      history.push(routeHref);
+    });
 
-      this.removeListeners = () => {
-        appNav();
-      };
-    }
+    this.removeListeners = () => {
+      appNav();
+    };
   }
 
   componentWillUnmount() {
