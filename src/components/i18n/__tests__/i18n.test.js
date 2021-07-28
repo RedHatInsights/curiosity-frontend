@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 import _get from 'lodash/get';
-import enLocales from '../../../../public/locales/en-US';
+import enLocales from '../../../../public/locales/en-US.json';
 import { I18n, translate, translateComponent } from '../i18n';
 
 /**

@@ -42,7 +42,7 @@ const dynamicBaseName = ({ pathName = window.location.pathname, appName: applica
  *
  * @type {string}
  */
-const baseName = (helpers.TEST_MODE && '/') || (helpers.DEV_MODE && '/') || dynamicBaseName();
+const baseName = (helpers.TEST_MODE && '/') || dynamicBaseName();
 
 /**
  * Return a base path.
@@ -60,7 +60,7 @@ const dynamicBasePath = ({ pathName = window.location.pathname, appName: applica
  *
  * @type {string}
  */
-const basePath = (helpers.TEST_MODE && '/') || (helpers.DEV_MODE && '/') || dynamicBasePath();
+const basePath = (helpers.TEST_MODE && '/') || dynamicBasePath();
 
 /**
  * Generate product groups for applying query filter resets.

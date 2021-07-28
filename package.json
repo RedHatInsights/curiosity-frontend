@@ -18,23 +18,6 @@
   "insights": {
     "appname": "subscriptions"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "standard-version": {
     "skip": {
       "tag": true
@@ -69,19 +52,17 @@
   "scripts": {
     "api:dev": "mock -p 5000 -w ./src/services",
     "api:docs": "node ./scripts/openapi.docs.js",
-    "api:proxy-hosts": "bash ./scripts/proxy.api.sh -s",
-    "api:proxy": "bash ./scripts/proxy.api.sh -d \"https://ci.foo.redhat.com/beta/insights/subscriptions/\" -p 443 -c \"$(pwd)/config/spandx.config.js\"",
-    "api:proxyClean": "bash ./scripts/proxy.api.sh -u",
+    "api:proxy-hosts": "bash ./scripts/proxy.api.sh",
     "build": "run-s -l build:pre build:js build:post test:integration",
-    "build:js": "react-scripts build",
+    "build:js": "export NODE_ENV=production; webpack --config config/webpack.prod.config.js",
     "build:post": "bash ./scripts/post.sh",
     "build:pre": "bash ./scripts/pre.sh",
     "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
     "release": "standard-version",
-    "start": "run-s dev:chrome; run-p -l api:dev start:js",
-    "start:js": "react-scripts start",
-    "start:proxy": "sh -ac '. ./.env.proxy; run-s api:proxy-hosts; run-p -l start:js api:proxy'",
-    "start:standalone": "rm ./.env.development.local; run-p -l api:dev start:js",
+    "start": "run-p -l api:dev start:js",
+    "start:js": "export NODE_ENV=development; webpack serve --config config/webpack.dev.config.js",
+    "start:js-proxy": "export NODE_ENV=development; webpack serve --config config/webpack.proxy.config.js",
+    "start:proxy": "run-s -l api:proxy-hosts start:js-proxy",
     "test": "run-s test:spell* test:lint test:ci",
     "test:ci": "export CI=true; jest ./src --coverage",
     "test:clearCache": "jest --clearCache",
@@ -121,27 +102,28 @@
     "react-redux": "^7.2.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
     "react-use": "^17.2.4",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "sass": "^1.35.1",
     "victory": "^35.8.6",
     "victory-create-container": "^35.8.5"
   },
   "devDependencies": {
-    "@babel/core": "7.14.8",
-    "@babel/preset-react": "^7.14.5",
+    "@babel/core": "7.14.0",
+    "@redhat-cloud-services/frontend-components-config": "4.3.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "apidoc-mock": "^4.0.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.0",
+    "babel-preset-react-app": "^10.0.0",
+    "copy-webpack-plugin": "^9.0.1",
     "cspell": "^5.6.6",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
+    "dotenv-webpack": "^7.0.3",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "eslint": "7.31.0",
@@ -168,6 +150,7 @@
     "redux-mock-store": "^1.5.4",
     "standard-version": "^9.3.1",
     "swagger-ui-express": "^4.1.6",
+    "webpack-bundle-analyzer": "^4.4.2",
     "yamljs": "^0.3.0"
   }
 }

@@ -9,18 +9,7 @@ Array [
 
 exports[`Platform Configuration, Build should have a proxy configuration with path references that match configuration: proxy references 1`] = `
 Array [
-  "'/apps/subscriptions': {",
-  "'/beta/apps/subscriptions': {",
-  "'/staging/subscriptions': {",
-  "'/beta/staging/subscriptions': {",
-  "'/subscriptions': {",
-  "'/beta/subscriptions': {",
-  "'/insights/subscriptions': {",
-  "'/beta/insights/subscriptions': {",
-  "'/rhel/subscriptions': {",
-  "'/beta/rhel/subscriptions': {",
-  "'/openshift/subscriptions': {",
-  "'/beta/openshift/subscriptions': {",
+  "host: \`https://localhost:\${DEV_PORT}\${BETA_PREFIX}/apps/subscriptions\`",
   "",
 ]
 `;
