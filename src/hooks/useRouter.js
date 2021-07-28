@@ -1,7 +1,6 @@
 import { useHistory as useHistoryRRD, useLocation, useParams, useRouteMatch } from 'react-router-dom';
 import { routerHelpers } from '../components/router/routerHelpers';
 import { reduxActions, useDispatch } from '../redux';
-import { helpers } from '../common/helpers';
 
 /**
  * ToDo: reevaluate this alternative pattern of passing library hooks as options
@@ -30,7 +29,7 @@ const useHistory = ({
       const { productParameter, id, routeHref } = routerHelpers.getRouteConfig({ pathName, id: pathName });
       const { hash, search } = window.location;
 
-      if (!helpers.DEV_MODE && productParameter) {
+      if (productParameter) {
         return dispatch(reduxActions.platform.setAppNav(id));
       }
 

@@ -4,7 +4,7 @@ Contributing encompasses repository specific requirements and the global [Insigh
 ## Install
 Before developing you'll need to install:
  * [NodeJS and NPM](https://nodejs.org/)
- * [Docker](https://docs.docker.com/engine/installation/)
+ * [Docker](https://docs.docker.com/engine/install/)
  * And [Yarn](https://yarnpkg.com)
 
 ### OS Support
@@ -25,7 +25,7 @@ Setting Docker up on a Mac? Install the appropriate package and you should be go
 
 ### Docker & Linux
 Setting Docker up on a Linux machine can include an additional convenience step. If you're having to prefix "sudo" in front of your Docker commands you can try these steps.
-  * [Docker postinstall documentation](https://docs.docker.com/install/linux/linux-postinstall/)
+  * [Docker postinstall documentation](https://docs.docker.com/engine/install/linux-postinstall/)
 
 ### Yarn
 Once you've installed NodeJS you can use NPM to perform the [Yarn](https://yarnpkg.com) install
@@ -83,7 +83,7 @@ Curiosity makes use of the branches `master`, `stage`, `qa`, and `ci`.
 #### Branching and Pull Request Workflow
 It is required that all work is handled through GitHub's fork and pull workflow. 
 
-**Working directly on the master repository is highly discouraged since a form of Continuous Integration is implemented and dependent on branch structure.**
+**Working directly on the main repository is highly discouraged. Continuous Integration is dependent on branch structure.**
 
 1. General development PRs should almost always be opened against the `ci` branch.
 1. It is preferred that PRs to `qa` originate from `ci`, but testing related fixes and general PRs opened against `qa` are allowed.
@@ -111,28 +111,34 @@ It is required that all work is handled through GitHub's fork and pull workflow.
 To serve content you'll need to have Docker, Node, and Yarn installed.
 
 Serving content comes in 3 variations
-- `$ yarn start`, Styled local run, without the Insights proxy. 
-  
-  The cons to this are a lack of chroming aspects such as functional login and left navigation.
-- `$ yarn start:proxy`, Styled local run WITH the Insights proxy. 
-   
-  This requires access in order to be used, and you may be asked for your credentials during initial repository setup. The credentials are used to modify your `hosts` for local run.
-- `$ yarn start:standalone`, No Insights styling, just the straight GUI. 
-  
-  Useful for confirming issues between the Insights parent app vs Curiosity Frontend.
+- `$ yarn start`, Styled local run, without the Insights proxy, using a mock server.
+  - You'll be presented with a login, you can attempt to login with user `admin` password `admin` as the credentials.
+    However, the up-to-date credentials are maintained here, [RH Cloud Services Config standalone](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#standalone)
+  - By default `local` run uses the `prod-stable` branch of the [Insights chroming repo](https://github.com/RedHatInsights/insights-chrome) (see the repo for additional branches). You can run a branch of your choice by either running the terminal command
+     ```
+      $ export DEV_BRANCH=ci-beta; yarn start
+     ```
+    or by placing the parameter in a `.env.local` dotenv file in the root directory of the project (you can use .env.development and .env.proxy as examples)
+     ```
+      DEV_BRANCH=ci-beta
+     ```
+  - Terminal messaging should indicate the path at which the app can be opened, you may need to scroll up.
+
+- `$ yarn start:proxy`, Styled local using the Insights proxy.
+  - This requires access in order to be used. In addition, you may be asked for your credentials during initial repository setup. The credentials are used to modify your `hosts` for local run.
+  - By default `proxy` run uses the `ci-stable` branch of the [Insights chroming repo](https://github.com/RedHatInsights/insights-chrome) (see the repo for additional branches). You can run a branch of your choice by either running the terminal command
+     ```
+      $ export DEV_BRANCH=ci-beta; yarn start:proxy
+     ```
+    or by placing the parameter in a `.env.local` dotenv file in the root directory of the project (you can use .env.development and .env.proxy as examples)
+     ```
+      DEV_BRANCH=ci-beta
+     ```
+  - Terminal messaging should indicate the path at which the app can be opened, you may need to scroll up.
 
 ### Proxy failing to run?
 Occasionally the proxy setup will attempt to connect, acknowledge that it's connected, but then fail to load the GUI.
 Things to try:
-
-#### It's the Port, maybe?
-The API requires a secure origin header within its AJAX/XHR calls.
-1. Stop the build
-1. Confirm within `package.json` that the NPM scripts
-   - `$ yarn api:proxy` has a port parameter setting of `443`
-   - `$ yarn api:proxy` has the `domain` or `-d` parameter setup like `...proxy.api.sh -d "https://ci.foo.redhat.com/beta/subscriptions/"...` 
-1. Run the build again, `$ yarn start:proxy`
-1. Confirm you browser is pointed at `https://ci.foo.redhat.com/...`
 
 #### It's Docker?
 1. Stop the build
@@ -144,8 +150,14 @@ The API requires a secure origin header within its AJAX/XHR calls.
 1. Confirm you're logged in, connect if necessary
 1. Run the build again, `$ yarn start:proxy`
 
+#### You forgot to unset an exported parameter
+1. Determine if you recently ran any command that used `$ export DEV_[something]; yarn [some-command]`.
+1. Stop the build
+2. Unset that `exported` value by running `$ unset DEV_[something]`
+1. Run the build again, `$ yarn start:proxy`
+
 #### It's still failing, and now I'm frustrated!
-You can take the easy way out and just run, `$ yarn start`, it'll be styled and use mock data but you'll have enough access to continue development. 
+You can take the easy way out and just run, `$ yarn start`, it'll be styled and use mock data, but you'll have enough access to continue development. 
 
 ## Build
 ### dotenv files
@@ -177,21 +189,29 @@ This project makes use of reserved DOM attributes used by the QE team.
 
 ### Reserved Files
 #### Spandx Config
-The configuration file(s) within this directory are utilized primarily during the `$ yarn start:proxy` local development run.
+##### Current setup
+A low level Spandx config is being used within the [proxy config](./config/webpack.proxy.config.js) local run. It follows the same guidelines as the original Spandx config, but is now
+integrated with dotenv parameters.
 
-This file(s) has multiple team and build dependencies. **Before relocating/moving this file(s) the appropriate teams should be informed.**
+This proxy route file still has multiple team and build dependencies. **Before relocating/moving this file(s) the appropriate teams should be informed.**
 - Development team
 - QE team
 
-There is a related integration test snapshot(s), `./tests/platform.test.js` that will need to be updated if this file(s) is updated.
+There is a related integration test snapshot(s) of this proxy route file, `./tests/platform.test.js` that may need updating if the file is altered.
 
 ## Testing
 To test content you'll need to have Node and Yarn installed.
 
+### Analyzing build output
+You may want to confirm what exactly gets output from the build, run the build with `analyze`
+   ```
+   $ export DEV_ANALYZE=true; yarn build
+   ```
+
 ### Code Coverage Requirements
 Updates that drop coverage below the current threshold will need to have their coverage expanded accordingly before being merged. 
 
-Settings for the Jest aspect of code coverage can be found in [package.json](./package.json). Settings for the CI reporting level of code coverage
+Settings for the Jest aspect of code coverage can be found in [jest.config.js](./jest.config.js). Settings for the CI reporting level of code coverage
 can be found in [.codecov.yml](./.codecov.yml).
 
 ### Debugging and Testing
@@ -222,16 +242,12 @@ Once you have made the dotenv file and/or changes, like the below "debug" flags,
 
 
 ##### Local CSS/Styling display vs Environments
-The default context for starting the local development run with 
+The default context for starting local development runs with the command
    ```
    $ yarn start
    ```
-Comes with a caveat, it uses the [Platform Chrome](https://github.com/RedHatInsights/insights-chrome) CI/master branch as its basis. What
-this means is that potential styling changes will affect it, or not depending on recent updates. If styling is looking odd/off, or you
-simply want to use the production styling update the NPM script branch parameter, line 63. Simply change `master` to something like `prod-stable`.
-   ```
-   "dev:chrome": "sh ./scripts/dev.chrome.sh -b master"
-   ```
+
+This default comes with a caveat, it uses mock API data.
 
 ##### Graph display
 You can apply a date override during **local development** (using `$ yarn start`) by adding the following line to your `.env.local` file.
@@ -254,7 +270,7 @@ You can access different levels of user permissions during **local development**
    REACT_APP_DEBUG_PERMISSION_APP_TWO=inventory:*:*
    ```
 
-As additional resource and operation checks are implemented these values can be altered accordingly.
+As additional resource and operation checks are implemented these values should be altered accordingly.
 
 Combining these flags with [manipulating the http status on the API/service mocks](https://github.com/cdcabrera/apidoc-mock#more-examples-and-custom-responses) can be an effective emulation.
 
@@ -292,6 +308,7 @@ If you're having trouble getting an accurate code coverage report, or it's faili
 
 ## Typical Development Workflow
 1. Confirm you've installed all recommended tooling
+1. Confirm the repository name has no blank spaces in it. If it does replace that blank with a dash or underscore, Docker has issues with unescaped parameter strings.
 1. Confirm you've installed resources through yarn
 1. Create a local dotenv file called `.env.local` and add the following contents
     ```
@@ -312,6 +329,7 @@ If you're having trouble getting an accurate code coverage report, or it's faili
 
 ### Local Run Development Workflow
 1. Confirm you've installed all recommended tooling
+1. Confirm the repository name has no blank spaces in it. If it does replace that blank with a dash or underscore, Docker has issues with unescaped parameter strings.
 1. Confirm you've installed resources through yarn
 1. Create a local dotenv file called `.env.local` and add the following contents
     ```

@@ -134,10 +134,7 @@ const setAppName = async (name = null) => {
 const setAppNav = async (id, { appName = helpers.UI_NAME, secondaryNav = true } = {}) => {
   const { insights } = window;
   try {
-    return (
-      (helpers.DEV_MODE && { [platformApiTypes.PLATFORM_API_RESPONSE_NAV_TYPES.ACTIVE_APP]: id }) ||
-      (await insights.chrome.appNavClick({ id, secondaryNav, parentId: appName }))
-    );
+    return await insights.chrome.appNavClick({ id, secondaryNav, parentId: appName });
   } catch (e) {
     throw new Error(`{ appNavClick } = insights.chrome, ${e.message}`);
   }
