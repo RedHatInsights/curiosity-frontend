@@ -7,7 +7,7 @@ release()
   local DEPLOY_BRANCH=$1
 
   printf "${YELLOW}PUSHING ${DEPLOY_BRANCH}${NOCOLOR}\n"
-  rm -rf ./build/.git
+  rm -rf ./dist/.git
   .travis/release.sh "${DEPLOY_BRANCH}"
   printf "${GREEN}COMPLETED ${DEPLOY_BRANCH}${NOCOLOR}\n"
 }

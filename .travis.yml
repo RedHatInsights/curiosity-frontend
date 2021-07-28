@@ -32,4 +32,4 @@ env:
     - IS_PR=${TRAVIS_PULL_REQUEST}
     - BUILD_STAGE="${TRAVIS_BUILD_STAGE_NAME}"
     - NODE_OPTIONS="--max-old-space-size=4096 --max_old_space_size=4096"
-    - APP_BUILD_DIR="build"
+    - APP_BUILD_DIR="dist"
