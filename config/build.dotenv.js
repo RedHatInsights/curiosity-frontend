@@ -1,6 +1,48 @@
 const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
+const Dotenv = require('dotenv-webpack');
+
+/**
+ * Setup a webpack dotenv plugin config.
+ *
+ * @param {string} filePath
+ * @returns {*}
+ */
+const setupWebpackDotenvFile = filePath => {
+  const settings = {
+    systemvars: true,
+    silent: true
+  };
+
+  if (filePath) {
+    settings.path = filePath;
+  }
+
+  return new Dotenv(settings);
+};
+
+/**
+ * Setup multiple webpack dotenv file parameters.
+ *
+ * @param {object} params
+ * @param {string} params.directory
+ * @param {string} params.env
+ * @returns {Array}
+ */
+const setupWebpackDotenvFilesForEnv = ({ directory, env } = {}) => {
+  const dotenvWebpackSettings = [];
+
+  if (env) {
+    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}.local`)));
+    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}`)));
+  }
+
+  dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env.local')));
+  dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env')));
+
+  return dotenvWebpackSettings;
+};
 
 /**
  * Setup, and access, a dotenv file and the related set of parameters.
@@ -21,6 +63,7 @@ const setupDotenvFile = filePath => {
  * @param {string} params.relativePath
  * @param {string} params.dotenvNamePrefix
  * @param {boolean} params.setBuildDefaults
+ * @returns {object}
  */
 const setupDotenvFilesForEnv = ({
   env,
@@ -37,14 +80,18 @@ const setupDotenvFilesForEnv = ({
   setupDotenvFile(path.resolve(relativePath, '.env'));
 
   if (setBuildDefaults) {
-    const STATIC_DIR = process.env[`${dotenvNamePrefix}_STATIC_DIR`] || 'public';
-    const PUBLIC_PATH = process.env[`${dotenvNamePrefix}_PUBLIC_PATH`] || '/';
-    const SRC_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_SRC_DIR`] || 'src');
+    const DEV_MODE = process.env[`${dotenvNamePrefix}_DEV_MODE`] || undefined;
     const DIST_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_DIST_DIR`] || 'dist');
     const HOST = process.env[`${dotenvNamePrefix}_HOST`] || 'localhost';
-    const PORT = process.env[`${dotenvNamePrefix}_PORT`] || '3000';
-    const DEV_MODE = process.env[`${dotenvNamePrefix}_DEV_MODE`] || undefined;
     const OUTPUT_ONLY = process.env[`_${dotenvNamePrefix}_OUTPUT_ONLY`] === 'true';
+    const PORT = process.env[`${dotenvNamePrefix}_PORT`] || '3000';
+    const PUBLIC_PATH = process.env[`${dotenvNamePrefix}_PUBLIC_PATH`] || '/';
+    const SRC_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_SRC_DIR`] || 'src');
+    const STATIC_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_STATIC_DIR`] || 'public');
+
+    if (!process.env.NODE_ENV) {
+      process.env.NODE_ENV = env;
+    }
 
     process.env[`_${dotenvNamePrefix}_ENV`] = process.env.NODE_ENV;
     process.env[`_${dotenvNamePrefix}_STATIC_DIR`] = STATIC_DIR;
@@ -57,6 +104,8 @@ const setupDotenvFilesForEnv = ({
     process.env[`_${dotenvNamePrefix}_OUTPUT_ONLY`] = OUTPUT_ONLY;
     process.env[`_${dotenvNamePrefix}_DEV_MODE`] = DEV_MODE;
   }
+
+  return process.env;
 };
 
-module.exports = { setupDotenvFilesForEnv };
+module.exports = { setupDotenvFilesForEnv, setupWebpackDotenvFilesForEnv };

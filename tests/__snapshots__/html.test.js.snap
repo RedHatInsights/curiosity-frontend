@@ -9,16 +9,13 @@ exports[`Index.HTML should have a specific html output: html output 1`] = `
 <title>Subscriptions
 </title>
 <esi:include src=\\"*/apps/chrome/snippets/head.html\\"/>
-<link href=\\"*/apps/subscriptions/static/css/*.chunk.css\\" rel=\\"stylesheet\\">
-<link href=\\"*/apps/subscriptions/static/css/*.chunk.css\\" rel=\\"stylesheet\\">
+<script defer=\\"defer\\" src=\\"*/apps/subscriptions/js/App.*.js\\">
+</script>
+<script defer=\\"defer\\" src=\\"*/apps/subscriptions/subscriptions.*.js\\">
+</script>
 </head>
 <body>
 <esi:include src=\\"*/apps/chrome/snippets/body.html\\"/>
-<script>/* filtered */</script>
-<script src=\\"*/apps/subscriptions/static/js/*.chunk.js\\">
-</script>
-<script src=\\"*/apps/subscriptions/static/js/*.chunk.js\\">
-</script>
 </body>
 </html>"
 `;
