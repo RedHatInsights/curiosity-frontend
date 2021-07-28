@@ -1,5 +1,5 @@
 const { execSync } = require('child_process');
-const packageJson = require('../package');
+const packageJson = require('../package.json');
 
 describe('Platform Configuration, Build', () => {
   it('should have a name reference that matches configuration', () => {
@@ -22,7 +22,7 @@ describe('Platform Configuration, Build', () => {
     const proxyFile = './config/spandx.config.js';
     const { appname } = packageJson.insights;
 
-    const output = execSync(`grep "\\/${appname}'" ${proxyFile}`);
+    const output = execSync(`grep "\\/${appname}" ${proxyFile}`);
     expect(
       output
         .toString()
