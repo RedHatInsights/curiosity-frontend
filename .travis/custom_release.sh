@@ -1,13 +1,14 @@
 #!/bin/bash
 #
 #
-# Release a branch
+# Release a branch. APP_BUILD_DIR should be updated at the Travis configuration level.
 release()
 {
   local DEPLOY_BRANCH=$1
+  local BUILD_DIR=$APP_BUILD_DIR
 
   printf "${YELLOW}PUSHING ${DEPLOY_BRANCH}${NOCOLOR}\n"
-  rm -rf ./dist/.git
+  rm -rf "./${BUILD_DIR}/.git"
   .travis/release.sh "${DEPLOY_BRANCH}"
   printf "${GREEN}COMPLETED ${DEPLOY_BRANCH}${NOCOLOR}\n"
 }
