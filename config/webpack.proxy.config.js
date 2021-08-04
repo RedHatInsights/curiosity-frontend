@@ -21,7 +21,7 @@ const { config: webpackConfig, plugins } = config({
   port: Number.parseInt(DEV_PORT, 10),
   rootFolder: _BUILD_RELATIVE_DIRNAME,
   routes: setProxyRoutes({ DEV_PORT, BETA_PREFIX }),
-  skipChrome2: true,
+  skipChrome2: false,
   standalone: false,
   useCloud: (!/prod-(beta|stable)$/.test(DEV_BRANCH) && true) ?? false,
   useProxy: true,

@@ -102,6 +102,7 @@ It is required that all work is handled through GitHub's fork and pull workflow.
 ### Releases and Tagging
 1. Merging a PR into `master` is considered production ready.
 1. Merging a PR into `master` doesn't require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
+1. Running `$ yarn release` after commits are merged into `master` generates the release commit and [CHANGELOG.md](./CHANGELOG.md). You may need to update/pull tags prior to running this command. This commit should be pushed towards `master`. This release commit is currently used as a purposeful block and may be automated in the future. [The commit message is recognized in the release script](./.travis/custom_release.sh#L41). This commit format controls when files are pushed towards production stable, and gives development a fallback when something goes wrong.
 1. Tagging and `CHANGELOG.md` updates should be coordinated against a consistent release cycle, and can take place at an independent time.
 1. Tagging should make use of semver.
 1. Manipulating tags against commits directly should be avoided in favor of a semantic version increment, iteration.
