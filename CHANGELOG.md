@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.7.0...v1.7.1) (2021-08-09)
+
+
+### Bug Fixes
+
+* **graphCard:** ent-3813 header styling for total display ([#740](https://github.com/RedHatInsights/curiosity-frontend/issues/740)) ([e17fcd0](https://github.com/RedHatInsights/curiosity-frontend/commit/e17fcd09a8ad2265321cae9d89cd903ed227b9e1))
+* **select:** focused unit testing ([#740](https://github.com/RedHatInsights/curiosity-frontend/issues/740)) ([5d5b9db](https://github.com/RedHatInsights/curiosity-frontend/commit/5d5b9db141d17fb14d9aa826221b46edd830c258))
+* **select:** squash popper test warnings ([#689](https://github.com/RedHatInsights/curiosity-frontend/issues/689)) ([b5fdfd7](https://github.com/RedHatInsights/curiosity-frontend/commit/b5fdfd7ae8163e0effec33599a2f55c233a44ada))
+
+
+### Code Refactoring
+
+* **routes,productViews:** ent-2745 base product configs. ([#689](https://github.com/RedHatInsights/curiosity-frontend/issues/689)) ([2853b26](https://github.com/RedHatInsights/curiosity-frontend/commit/2853b2614a0f584f439d09cf75561a67d8b35f8c))
+
 ## [1.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.6.1...v1.7.0) (2021-07-26)
 
 
