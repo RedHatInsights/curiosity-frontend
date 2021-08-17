@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.7.1...v2.0.0) (2021-08-17)
+
+
+### Build
+
+* **dev,proxy:** ent-3643 activate chrome2 for local run ([#757](https://github.com/RedHatInsights/curiosity-frontend/issues/757)) ([777dcf1](https://github.com/RedHatInsights/curiosity-frontend/commit/777dcf14c7feb98d672a7f8a63a8717dd4d27ef9))
+* **dev,proxy,prod:** ent-3643 chrome local run, proxy, build ([#753](https://github.com/RedHatInsights/curiosity-frontend/issues/753)) ([a449dcc](https://github.com/RedHatInsights/curiosity-frontend/commit/a449dcc60fbf932f105ec51b870134e262dc785b))
+* **testing:** ent-3643 standalone tests ([#753](https://github.com/RedHatInsights/curiosity-frontend/issues/753)) ([83012b8](https://github.com/RedHatInsights/curiosity-frontend/commit/83012b8a2dc930ae6f5944e629ce45458e966dda))
+
 ### [1.7.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.7.0...v1.7.1) (2021-08-09)
 
 
