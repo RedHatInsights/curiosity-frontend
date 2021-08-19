@@ -67,6 +67,9 @@ exports[`PageLayout Component should render header and section children: multipl
                   >
                     <h1
                       className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                      data-ouia-component-id="OUIA-Generated-Title-1"
+                      data-ouia-component-type="PF4/Title"
+                      data-ouia-safe={true}
                       widget-type="InsightsPageHeaderTitle"
                     >
                        
