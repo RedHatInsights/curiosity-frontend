@@ -64,9 +64,9 @@ For Github issues that looks like
 Settings for [Standard Version](https://github.com/conventional-changelog/standard-version#readme) can be found in [package.json](./package.json)
 
 ### Branching, Pull Requests, and Releases
-Curiosity makes use of the branches `master`, `stage`, `qa`, and `ci`. 
-- `master` branch is a protected representation of production environments
-   - Adding commits, or a PR, into `master` should generate a `prod-stable` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
+Curiosity makes use of the branches `main`, `stage`, `qa`, and `ci`. 
+- `main` branch is a protected representation of production environments
+   - Adding commits, or a PR, into `main` should generate a `prod-stable` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
    - The `prod-stable` branch is manually deployed through coordination with the operations team.
 - `stage` branch is a protected representation of production environments
    - Adding commits, or a PR, into `stage` should generate a `prod-beta` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
@@ -90,19 +90,19 @@ It is required that all work is handled through GitHub's fork and pull workflow.
 1  PRs from `ci` to `qa` are allowed
 1. PRs from `qa` to `stage` are preferred.
 1. PRs to `stage` require a QE team members approval/sign-off.
-1. PRs to `master` are only allowed from `stage`.
-1. PRs to `master` branch are considered production ready releases.
-1. Development or testing PRs opened against master, unless a team agreed exception occurs, will be closed.
-1. All PRs to production, master branch, should have a final review, coordination, from Quality Engineering.
+1. PRs to `main` are only allowed from `stage`.
+1. PRs to `main` branch are considered production ready releases.
+1. Development or testing PRs opened against main, unless a team agreed exception occurs, will be closed.
+1. All PRs to production, main branch, should have a final review, coordination, from Quality Engineering.
 
 ```
-   PR fork -> ci <-> qa -> stage -> master
+   PR fork -> ci <-> qa -> stage -> main
 ```
 
 ### Releases and Tagging
-1. Merging a PR into `master` is considered production ready.
-1. Merging a PR into `master` doesn't require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
-1. Running `$ yarn release` after commits are merged into `master` generates the release commit and [CHANGELOG.md](./CHANGELOG.md). You may need to update/pull tags prior to running this command. This commit should be pushed towards `master`. This release commit is currently used as a purposeful block and may be automated in the future. [The commit message is recognized in the release script](./.travis/custom_release.sh#L41). This commit format controls when files are pushed towards production stable, and gives development a fallback when something goes wrong.
+1. Merging a PR into `main` is considered production ready.
+1. Merging a PR into `main` doesn't require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
+1. Running `$ yarn release` after commits are merged into `main` generates the release commit and [CHANGELOG.md](./CHANGELOG.md). You may need to update/pull tags prior to running this command. This commit should be pushed towards `main`. This release commit is currently used as a purposeful block and may be automated in the future. [The commit message is recognized in the release script](./.travis/custom_release.sh#L41). This commit format controls when files are pushed towards production stable, and gives development a fallback when something goes wrong.
 1. Tagging and `CHANGELOG.md` updates should be coordinated against a consistent release cycle, and can take place at an independent time.
 1. Tagging should make use of semver.
 1. Manipulating tags against commits directly should be avoided in favor of a semantic version increment, iteration.
