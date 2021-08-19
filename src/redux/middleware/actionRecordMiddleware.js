@@ -68,7 +68,7 @@ const sanitizeData = ({ type, payload, ...action }) => {
  * @returns {Array}
  */
 const getActions = (id, limit) => {
-  const { sessionStorage = {} } = window;
+  const { sessionStorage = {} } = window || {};
   const item = sessionStorage?.getItem(id);
   let parsedItems = (item && (JSON.parse(item) || {})?.actions) || [];
 
@@ -88,7 +88,7 @@ const getActions = (id, limit) => {
  * @param {number} config.limit
  */
 const recordAction = (action, { id, limit, ...config }) => {
-  const { navigator, sessionStorage = {} } = window;
+  const { navigator, sessionStorage = {} } = window || {};
   const items = getActions(id, limit) || [];
   const priorItem = items[items.length - 1];
   const updatedAction = sanitizeData(sanitizeActionHeaders(action));
