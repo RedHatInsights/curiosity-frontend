@@ -49,12 +49,12 @@ const downloadData = options => {
  */
 const debugLog = async () => {
   try {
-    const { sessionStorage } = window;
+    const { sessionStorage = {} } = window;
     const fileName = `${helpers.UI_LOGGER_FILE}`.replace(
       '{0}',
       moment(dateHelpers.getCurrentDate()).format('YYYYMMDD_HHmmss')
     );
-    const data = JSON.stringify(JSON.parse(sessionStorage.getItem(`${helpers.UI_LOGGER_ID}`)), null, 2);
+    const data = JSON.stringify(JSON.parse(sessionStorage?.getItem(`${helpers.UI_LOGGER_ID}`)), null, 2);
 
     await downloadData({ data, fileName, fileType: 'application/json' });
   } catch (e) {
