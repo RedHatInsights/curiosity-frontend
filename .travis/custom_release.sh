@@ -30,7 +30,7 @@ releaseDev()
 }
 #
 #
-# Prod release for "master" and "stage" branches based on deploy stage name.
+# Prod release for "main" and "stage" branches based on deploy stage name.
 #
 releaseProd()
 {
