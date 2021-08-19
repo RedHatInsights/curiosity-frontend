@@ -52,21 +52,6 @@ addDisplayName(pfReactCoreComponents);
 addDisplayName(pfReactChartComponents);
 
 /**
- * Testing local and sessionStorage.
- *
- * @type {{removeItem: jest.Mock, clear: jest.Mock, getItem: jest.Mock, setItem: jest.Mock}}
- */
-const storage = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn(),
-  clear: jest.fn()
-};
-
-global.window.localStorage = storage;
-global.window.sessionStorage = storage;
-
-/**
  * Apply a global insights chroming object.
  *
  * @type {{chrome: {init: Function, navigation: Function, auth: {getUser: Function}, identifyApp: Function,

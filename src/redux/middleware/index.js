@@ -35,12 +35,17 @@ const reduxMiddleware = [
   statusMiddleware(),
   multiActionMiddleware,
   promiseMiddleware,
-  actionRecordMiddleware({
-    id: process.env.REACT_APP_UI_LOGGER_ID,
-    app: { version: process.env.REACT_APP_UI_VERSION }
-  }),
   notificationsMiddleware(notificationsOptions)
 ];
+
+if (process.env.NODE_ENV !== 'test') {
+  reduxMiddleware.push(
+    actionRecordMiddleware({
+      id: process.env.REACT_APP_UI_LOGGER_ID,
+      app: { version: process.env.REACT_APP_UI_VERSION }
+    })
+  );
+}
 
 if (process.env.NODE_ENV !== 'production' && process.env.REACT_APP_DEBUG_MIDDLEWARE === 'true') {
   reduxMiddleware.push(createLogger());
