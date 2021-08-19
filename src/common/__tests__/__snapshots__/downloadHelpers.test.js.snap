@@ -7,6 +7,21 @@ Object {
 }
 `;
 
+exports[`DownloadHelpers should attempt to download data: download methods 1`] = `
+Object {
+  "createObjectURL": Array [
+    Array [
+      Blob {},
+    ],
+  ],
+  "revokeObjectURL": Array [
+    Array [
+      Blob {},
+    ],
+  ],
+}
+`;
+
 exports[`DownloadHelpers should have specific functions: helpers 1`] = `
 Object {
   "debugLog": [Function],

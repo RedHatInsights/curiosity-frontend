@@ -40,12 +40,19 @@ describe('DownloadHelpers', () => {
   });
 
   it('should attempt to download data', done => {
+    const createObjectURL = jest.fn();
+    const revokeObjectURL = jest.fn();
+
     window.URL = {
-      createObjectURL: jest.fn(),
-      revokeObjectURL: jest.fn()
+      createObjectURL,
+      revokeObjectURL
     };
 
     downloadHelpers.downloadData().then(value => {
+      expect({
+        createObjectURL: createObjectURL.mock.calls,
+        revokeObjectURL: revokeObjectURL.mock.calls
+      }).toMatchSnapshot('download methods');
       expect(value).toMatchSnapshot('data download');
       done();
     });

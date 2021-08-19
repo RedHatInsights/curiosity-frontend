@@ -11,37 +11,48 @@ import { dateHelpers } from './dateHelpers';
  * @param {string} options.fileType
  * @returns {Promise}
  */
-const downloadData = options => {
-  const { data = '', fileName = 'download.txt', fileType = 'text/plain' } = options || {};
-  return new Promise((resolve, reject) => {
-    try {
-      const { document = {}, navigator, URL } = window;
-      const blob = new Blob([data], { type: fileType });
+const downloadData = (options = {}) => {
+  const { data = '', fileName = 'download.txt', fileType = 'text/plain' } = options;
+  const download = () =>
+    new Promise((resolve, reject) => {
+      try {
+        const { document, navigator, URL } = window;
+        const blob = new Blob([data], { type: fileType });
 
-      if (navigator?.msSaveBlob) {
-        navigator.msSaveBlob(blob, fileName);
-        resolve({ fileName, data });
-      } else {
-        const anchorTag = document.createElement('a');
-
-        anchorTag.href = URL.createObjectURL(blob);
-        anchorTag.style.display = 'none';
-        anchorTag.download = fileName;
-
-        document?.body.appendChild(anchorTag);
-
-        anchorTag.click();
-
-        setTimeout(() => {
-          document?.body.removeChild(anchorTag);
-          URL.revokeObjectURL(blob);
+        if (navigator?.msSaveBlob) {
+          navigator.msSaveBlob(blob, fileName);
           resolve({ fileName, data });
-        }, 250);
+        } else {
+          const anchorTag = document.createElement('a');
+
+          anchorTag.href = URL.createObjectURL(blob);
+          anchorTag.style.display = 'none';
+          anchorTag.download = fileName;
+
+          document.body.appendChild(anchorTag);
+
+          anchorTag.click();
+
+          const doit = async () => {
+            await setTimeout(() => {
+              document.body.removeChild(anchorTag);
+              URL.revokeObjectURL(blob);
+              resolve({ fileName, data });
+            }, 250);
+          };
+
+          doit();
+        }
+      } catch (e) {
+        reject(e);
       }
-    } catch (error) {
-      reject(error);
-    }
-  });
+    });
+
+  try {
+    return download();
+  } catch (e) {
+    throw new Error(`download error, ${e.message}`);
+  }
 };
 
 /**
