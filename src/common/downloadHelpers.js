@@ -15,7 +15,7 @@ const downloadData = options => {
   const { data = '', fileName = 'download.txt', fileType = 'text/plain' } = options || {};
   return new Promise((resolve, reject) => {
     try {
-      const { document, navigator, URL } = window;
+      const { document = {}, navigator, URL } = window;
       const blob = new Blob([data], { type: fileType });
 
       if (navigator?.msSaveBlob) {
@@ -28,12 +28,12 @@ const downloadData = options => {
         anchorTag.style.display = 'none';
         anchorTag.download = fileName;
 
-        document.body.appendChild(anchorTag);
+        document?.body.appendChild(anchorTag);
 
         anchorTag.click();
 
         setTimeout(() => {
-          document.body.removeChild(anchorTag);
+          document?.body.removeChild(anchorTag);
           URL.revokeObjectURL(blob);
           resolve({ fileName, data });
         }, 250);
