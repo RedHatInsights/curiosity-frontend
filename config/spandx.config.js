@@ -6,7 +6,7 @@
  * @param {string} params.BETA_PREFIX
  * @returns {object}
  */
-const setProxyRoutes = ({ DEV_PORT, BETA_PREFIX }) => ({
+const setProxyRoutes = ({ DEV_PORT, BETA_PREFIX = '' }) => ({
   routes: {
     '/locales': {
       host: `https://localhost:${DEV_PORT}${BETA_PREFIX}/apps/subscriptions`
