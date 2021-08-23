@@ -7,6 +7,10 @@ import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
+ * ToDo: Review removing the "includeTour" prop and associated button code.
+ * ...instead of disabling it, ENT-4247
+ */
+/**
  * Render a platform page header.
  *
  * @param {object} props

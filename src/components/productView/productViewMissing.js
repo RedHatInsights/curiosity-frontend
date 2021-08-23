@@ -49,9 +49,7 @@ const ProductViewMissing = ({ availableProductsRedirect, t }) => {
 
   return (
     <PageLayout className="curiosity-missing-view">
-      <PageHeader productLabel="missing" includeTour>
-        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME })}
-      </PageHeader>
+      <PageHeader productLabel="missing">{t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME })}</PageHeader>
       <PageSection isFilled>
         <Gallery hasGutter>
           {availableProducts.map(product => (
