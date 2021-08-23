@@ -1,6 +1,7 @@
 const { join, resolve } = require('path');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const fedModulePlugin = require('@redhat-cloud-services/frontend-components-config/federated-modules');
 const { setupWebpackDotenvFilesForEnv } = require('./build.dotenv');
 
@@ -21,6 +22,7 @@ const setCommonPlugins = () => {
   const DIST_DIR = process.env._BUILD_DIST_DIR;
   const DOTENV_ENV = process.env.REACT_APP_ENV;
   const RELATIVE_DIRNAME = process.env._BUILD_RELATIVE_DIRNAME;
+  const SRC_DIR = process.env._BUILD_SRC_DIR;
   const STATIC_DIR = process.env._BUILD_STATIC_DIR;
 
   const plugins = [
@@ -30,6 +32,16 @@ const setCommonPlugins = () => {
     }),
     fedModulePlugin({ root: RELATIVE_DIRNAME })
   ];
+
+  // Development plugins
+  if (NODE_ENV === 'development' || NODE_ENV === 'review') {
+    plugins.push(
+      new ESLintPlugin({
+        context: SRC_DIR,
+        failOnError: false
+      })
+    );
+  }
 
   // Save 20kb of bundle size in prod
   if (NODE_ENV === 'production') {
