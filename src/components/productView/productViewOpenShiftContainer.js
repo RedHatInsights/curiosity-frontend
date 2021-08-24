@@ -162,7 +162,7 @@ const ProductViewOpenShiftContainer = ({ routeDetail, t }) => {
 
   return (
     <PageLayout>
-      <PageHeader productLabel={viewProductLabel} includeTour>
+      <PageHeader productLabel={viewProductLabel}>
         {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: viewProductLabel })}
       </PageHeader>
       <PageColumns>{productConfig.map(config => renderProduct(config, uomValue))}</PageColumns>
