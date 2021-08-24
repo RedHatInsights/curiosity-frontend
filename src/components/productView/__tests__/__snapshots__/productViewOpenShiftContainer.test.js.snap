@@ -5,7 +5,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
   className=""
 >
   <PageHeader
-    includeTour={true}
+    includeTour={false}
     productLabel="lorem ipsum product label"
     t={[Function]}
   >
