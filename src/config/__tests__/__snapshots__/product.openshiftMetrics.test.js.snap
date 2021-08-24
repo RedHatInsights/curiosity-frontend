@@ -13,7 +13,7 @@ Object {
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"1.1K"})
+    t(curiosity-graph.cardActionTotal, {"context":"coreHours","total":"1.1K"})
   </div>,
 }
 `;
@@ -23,7 +23,7 @@ Object {
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"500"})
+    t(curiosity-graph.cardActionTotal, {"context":"coreHours","total":"500"})
   </div>,
 }
 `;
@@ -33,7 +33,7 @@ Object {
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
-    t(curiosity-graph.card-action-total, {"context":"coreHours","total":"900K"})
+    t(curiosity-graph.cardActionTotal, {"context":"coreHours","total":"900K"})
   </div>,
 }
 `;

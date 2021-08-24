@@ -67,7 +67,7 @@ const config = {
       let displayContent;
 
       if (totalCoreHours) {
-        displayContent = translate('curiosity-graph.card-action-total', {
+        displayContent = translate('curiosity-graph.cardActionTotal', {
           context: 'coreHours',
           total: numbro(totalCoreHours)
             .format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
