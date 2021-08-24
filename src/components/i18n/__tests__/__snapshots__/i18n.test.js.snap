@@ -57,20 +57,12 @@ Array [
     "file": "./src/components/graphCard/graphCardChartLegend.js",
     "keys": Array [
       Object {
-        "key": "curiosity-graph.label_threshold",
-        "match": "t('curiosity-graph.label_threshold', { product: productLabel, context: [id, productLabel] })",
+        "key": "",
+        "match": "t( [\`curiosity-graph.label_\${(isThreshold && 'threshold')",
       },
       Object {
         "key": "",
-        "match": "t([\`curiosity-graph.\${id}Label\`, \`curiosity-graph.noLabel\`], { product: productLabel, context: productLabel })",
-      },
-      Object {
-        "key": "curiosity-graph.legendTooltip_threshold",
-        "match": "t('curiosity-graph.legendTooltip_threshold', { product: productLabel, context: [id, productLabel] })",
-      },
-      Object {
-        "key": "",
-        "match": "t(\`curiosity-graph.\${id}LegendTooltip\`, { product: productLabel, context: productLabel })",
+        "match": "t(\`curiosity-graph.legendTooltip\${(isThreshold && '_threshold')",
       },
     ],
   },
@@ -78,36 +70,36 @@ Array [
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
     "keys": Array [
       Object {
-        "key": "curiosity-graph.noDataLabel",
-        "match": "t('curiosity-graph.noDataLabel')",
+        "key": "curiosity-graph.label_noData",
+        "match": "t('curiosity-graph.label_noData')",
       },
       Object {
-        "key": "curiosity-graph.infiniteThresholdLabel",
-        "match": "t('curiosity-graph.infiniteThresholdLabel')",
+        "key": "curiosity-graph.label_threshold",
+        "match": "t('curiosity-graph.label_threshold', { context: 'infinite' })",
       },
       Object {
-        "key": "curiosity-graph.infiniteThresholdLabel",
-        "match": "t('curiosity-graph.infiniteThresholdLabel')",
+        "key": "curiosity-graph.label_threshold",
+        "match": "t('curiosity-graph.label_threshold', { context: 'infinite' })",
+      },
+      Object {
+        "key": "curiosity-graph.label_threshold",
+        "match": "t('curiosity-graph.label_threshold')",
+      },
+      Object {
+        "key": "curiosity-graph.label_noData",
+        "match": "t('curiosity-graph.label_noData')",
       },
       Object {
         "key": "curiosity-graph.label",
-        "match": "t('curiosity-graph.label', { context: 'threshold' })",
-      },
-      Object {
-        "key": "curiosity-graph.noDataLabel",
-        "match": "t('curiosity-graph.noDataLabel')",
-      },
-      Object {
-        "key": "",
-        "match": "t(\`curiosity-graph.\${key}Label\`, { product: productLabel })",
+        "match": "t('curiosity-graph.label', { context: key, product: productLabel })",
       },
       Object {
         "key": "curiosity-graph.tooltipSummary",
         "match": "t('curiosity-graph.tooltipSummary')",
       },
       Object {
-        "key": "curiosity-graph.noDataErrorLabel",
-        "match": "t('curiosity-graph.noDataErrorLabel')",
+        "key": "curiosity-graph.label_noData",
+        "match": "t('curiosity-graph.label_noData', { context: 'error' })",
       },
     ],
   },
@@ -489,11 +481,11 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'sockets_OpenShift Container Platform' })",
+        "match": "translate('curiosity-inventory.header', { context: ['sockets', 'OpenShift Container Platform'] })",
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' })",
+        "match": "translate('curiosity-inventory.header', { context: ['cores', 'OpenShift Container Platform'] })",
       },
     ],
   },
@@ -501,8 +493,8 @@ Array [
     "file": "./src/config/product.openshiftDedicated.js",
     "keys": Array [
       Object {
-        "key": "curiosity-graph.card-action-total",
-        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
+        "key": "curiosity-graph.cardActionTotal",
+        "match": "translate('curiosity-graph.cardActionTotal', { context: 'coreHours', total: numbro(totalCoreHours)",
       },
       Object {
         "key": "curiosity-inventory.label",
@@ -514,8 +506,8 @@ Array [
     "file": "./src/config/product.openshiftMetrics.js",
     "keys": Array [
       Object {
-        "key": "curiosity-graph.card-action-total",
-        "match": "translate('curiosity-graph.card-action-total', { context: 'coreHours', total: numbro(totalCoreHours)",
+        "key": "curiosity-graph.cardActionTotal",
+        "match": "translate('curiosity-graph.cardActionTotal', { context: 'coreHours', total: numbro(totalCoreHours)",
       },
       Object {
         "key": "curiosity-inventory.label",

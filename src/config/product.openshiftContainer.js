@@ -151,7 +151,7 @@ const config = {
     },
     {
       id: 'sockets',
-      header: () => translate('curiosity-inventory.header', { context: 'sockets_OpenShift Container Platform' }),
+      header: () => translate('curiosity-inventory.header', { context: ['sockets', 'OpenShift Container Platform'] }),
       isOptional: true,
       isSortable: true,
       isWrappable: true,
@@ -159,7 +159,7 @@ const config = {
     },
     {
       id: 'cores',
-      header: () => translate('curiosity-inventory.header', { context: 'cores_OpenShift Container Platform' }),
+      header: () => translate('curiosity-inventory.header', { context: ['cores', 'OpenShift Container Platform'] }),
       isOptional: true,
       isSortable: true,
       isWrappable: true,
