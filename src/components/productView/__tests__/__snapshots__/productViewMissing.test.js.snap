@@ -21,7 +21,7 @@ exports[`ProductViewMissing Component should render a non-connected component: n
   className="curiosity-missing-view"
 >
   <PageHeader
-    includeTour={true}
+    includeTour={false}
     productLabel="missing"
     t={[Function]}
   >
@@ -151,7 +151,7 @@ exports[`ProductViewMissing Component should render a predictable set of product
   className="curiosity-missing-view"
 >
   <PageHeader
-    includeTour={true}
+    includeTour={false}
     productLabel="missing"
     t={[Function]}
   >
