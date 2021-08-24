@@ -7,7 +7,7 @@ exports[`GraphCardChartTooltip Component should render a basic component: basic 
   <table
     summary="t(curiosity-graph.tooltipSummary)"
   />
-  t(curiosity-graph.noDataErrorLabel)
+  t(curiosity-graph.label_noData, {"context":"error"})
 </div>
 `;
 
@@ -29,7 +29,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
     </thead>
     <tbody>
       <tr
-        key="tooltip-t(curiosity-graph.dolorSitLabel, {\\"product\\":\\"\\"})"
+        key="tooltip-t(curiosity-graph.label, {\\"context\\":\\"dolorSit\\",\\"product\\":\\"\\"})"
       >
         <th>
           <ChartIcon
@@ -39,14 +39,14 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             title={null}
           />
            
-          t(curiosity-graph.dolorSitLabel, {"product":""})
+          t(curiosity-graph.label, {"context":"dolorSit","product":""})
         </th>
         <td>
           1
         </td>
       </tr>
       <tr
-        key="tooltip-t(curiosity-graph.loremIpsumLabel, {\\"product\\":\\"\\"})"
+        key="tooltip-t(curiosity-graph.label, {\\"context\\":\\"loremIpsum\\",\\"product\\":\\"\\"})"
       >
         <th>
           <ChartIcon
@@ -56,7 +56,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             title={null}
           />
            
-          t(curiosity-graph.loremIpsumLabel, {"product":""})
+          t(curiosity-graph.label, {"context":"loremIpsum","product":""})
         </th>
         <td>
           0
@@ -70,16 +70,16 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display > 0 and NOT hasData on report 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "monthly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "weekly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
 }
 `;
@@ -121,16 +121,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for null and NOT hasData on report 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "monthly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "weekly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
 }
 `;
@@ -172,16 +172,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for zero and NOT hasData on report 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "monthly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "weekly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
 }
 `;
@@ -266,16 +266,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for > 0 and hasInfinite on threshold 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
 }
 `;
@@ -283,16 +283,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and NOT hasInfinite on threshold 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "monthly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "weekly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
 }
 `;
@@ -300,16 +300,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and UNDEFINED hasInfinite on threshold 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "monthly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
   "weekly": <td>
-    t(curiosity-graph.noDataLabel)
+    t(curiosity-graph.label_noData)
   </td>,
 }
 `;
@@ -317,16 +317,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and hasInfinite on threshold 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
 }
 `;
@@ -368,16 +368,16 @@ Object {
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for zero and hasInfinite on threshold 1`] = `
 Object {
   "daily": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.infiniteThresholdLabel)
+    t(curiosity-graph.label_threshold, {"context":"infinite"})
   </td>,
 }
 `;

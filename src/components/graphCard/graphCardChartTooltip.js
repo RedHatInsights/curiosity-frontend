@@ -34,25 +34,31 @@ const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
       };
 
       if (itemsByKey[key]?.chartType === 'threshold') {
-        let thresholdStringValue = itemsByKey[key]?.data.y ?? t('curiosity-graph.noDataLabel');
+        let thresholdStringValue = itemsByKey[key]?.data.y ?? t('curiosity-graph.label_noData');
 
         if (itemsByKey[key]?.data.hasInfinite) {
           if (tempDataFacet.color) {
             thresholdStringValue = (
-              <ChartIcon symbol="infinity" fill="#ffffff" title={t('curiosity-graph.infiniteThresholdLabel')} />
+              <ChartIcon
+                symbol="infinity"
+                fill="#ffffff"
+                title={t('curiosity-graph.label_threshold', { context: 'infinite' })}
+              />
             );
           } else {
-            thresholdStringValue = t('curiosity-graph.infiniteThresholdLabel');
+            thresholdStringValue = t('curiosity-graph.label_threshold', { context: 'infinite' });
           }
         }
 
-        tempDataFacet.label = t('curiosity-graph.label', { context: 'threshold' });
+        tempDataFacet.label = t('curiosity-graph.label_threshold');
         tempDataFacet.value = thresholdStringValue;
       } else {
         const dataFactsValue =
-          (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.noDataLabel')) || itemsByKey[key]?.data.y || 0;
+          (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.label_noData')) ||
+          itemsByKey[key]?.data.y ||
+          0;
 
-        tempDataFacet.label = t(`curiosity-graph.${key}Label`, { product: productLabel });
+        tempDataFacet.label = t('curiosity-graph.label', { context: key, product: productLabel });
         tempDataFacet.value = dataFactsValue;
       }
 
@@ -91,7 +97,7 @@ const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
         )) ||
           null}
       </table>
-      {(!data.length && t('curiosity-graph.noDataErrorLabel')) || null}
+      {(!data.length && t('curiosity-graph.label_noData', { context: 'error' })) || null}
     </div>
   );
 };
