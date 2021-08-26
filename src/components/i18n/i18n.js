@@ -10,31 +10,38 @@ import { helpers } from '../../common/helpers';
  * Apply a string towards a key. Optional replacement values and component/nodes.
  * See, https://react.i18next.com/
  *
- * @param {string} translateKey
- * @param {string|Array} values A default string if the key can't be found. An array of objects (key/value) pairs used to replace string tokes. i.e. "[{ hello: 'world' }]"
+ * @param {string|Array} translateKey A key reference, or an array of a primary key with fallback keys.
+ * @param {string|object|Array} values A default string if the key can't be found. An object with i18next settings. Or an array of objects (key/value) pairs used to replace string tokes. i.e. "[{ hello: 'world' }]"
  * @param {Array} components An array of HTML/React nodes used to replace string tokens. i.e. "[<span />, <React.Fragment />]"
  * @returns {string|Node}
  */
 const translate = (translateKey, values = null, components) => {
   const updatedValues = values;
+  let updatedTranslateKey = translateKey;
+
+  if (Array.isArray(updatedTranslateKey)) {
+    updatedTranslateKey = updatedTranslateKey.filter(value => typeof value === 'string' && value.length > 0);
+  }
 
   if (Array.isArray(updatedValues?.context)) {
-    updatedValues.context = updatedValues.context.join('_');
+    updatedValues.context = updatedValues.context
+      .filter(value => typeof value === 'string' && value.length > 0)
+      .join('_');
   }
 
   if (helpers.TEST_MODE) {
-    return helpers.noopTranslate(translateKey, updatedValues, components);
+    return helpers.noopTranslate(updatedTranslateKey, updatedValues, components);
   }
 
   if (components) {
     return (
-      (i18next.store && <Trans i18nKey={translateKey} values={updatedValues} components={components} />) || (
-        <React.Fragment>t({translateKey})</React.Fragment>
+      (i18next.store && <Trans i18nKey={updatedTranslateKey} values={updatedValues} components={components} />) || (
+        <React.Fragment>t({updatedTranslateKey})</React.Fragment>
       )
     );
   }
 
-  return (i18next.store && i18next.t(translateKey, updatedValues)) || `t(${translateKey})`;
+  return (i18next.store && i18next.t(updatedTranslateKey, updatedValues)) || `t([${updatedTranslateKey}])`;
 };
 
 /**
