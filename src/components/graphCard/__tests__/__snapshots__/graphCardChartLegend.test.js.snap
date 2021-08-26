@@ -171,7 +171,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"","context":""})
+        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"","context":""}, [object Object])
       </p>
     }
     distance={5}
@@ -213,7 +213,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"test","context":"test"})
+        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"test","context":"test"}, [object Object])
       </p>
     }
     distance={5}
@@ -250,7 +250,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.legendTooltip_ametConsectetur, {"product":"test","context":"test"})
+        t(curiosity-graph.legendTooltip_ametConsectetur, {"product":"test","context":"test"}, [object Object])
       </p>
     }
     distance={5}
@@ -282,7 +282,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.legendTooltip_threshold_dolorSit, {"product":"test","context":"test"})
+        t(curiosity-graph.legendTooltip_threshold_dolorSit, {"product":"test","context":"test"}, [object Object])
       </p>
     }
     distance={5}
@@ -319,7 +319,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.legendTooltip_threshold_nonCursus, {"product":"test","context":"test"})
+        t(curiosity-graph.legendTooltip_threshold_nonCursus, {"product":"test","context":"test"}, [object Object])
       </p>
     }
     distance={5}
