@@ -62,7 +62,7 @@ Array [
       },
       Object {
         "key": "",
-        "match": "t(\`curiosity-graph.legendTooltip\${(isThreshold && '_threshold')",
+        "match": "t( \`curiosity-graph.legendTooltip\${(isThreshold && '_threshold')",
       },
     ],
   },
