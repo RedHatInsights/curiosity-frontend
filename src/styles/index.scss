@@ -1,11 +1,5 @@
 // Framework
 @import '~@redhat-cloud-services/frontend-components-utilities/index';
-/**
- * FixMe: Variables break Sass compiler
- * Sass compiler throws an error when coming across the following syntax in
- *     --BackgroundUrl:url("d...
- * Workaround is to move the CSS files to ./src/index.js
- */
 @import '~@patternfly/patternfly/sass-utilities/all';
 
 // App
