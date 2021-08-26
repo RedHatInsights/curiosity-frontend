@@ -24,7 +24,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   tabIndex={0}
   variant="link"
 >
-  t(curiosity-graph.label_loremIpsum,curiosity-graph.label_no, {"product":"test","context":"test"})
+  t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
 </Button>
 `;
 
@@ -52,7 +52,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   tabIndex={0}
   variant="link"
 >
-  t(curiosity-graph.label_loremIpsum,curiosity-graph.label_no, {"product":"test","context":"test"})
+  t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
 </Button>
 `;
 
@@ -75,7 +75,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
   tabIndex={0}
   variant="link"
 >
-  t(curiosity-graph.label_loremIpsum,curiosity-graph.label_no, {"product":"test","context":"test"})
+  t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
 </Button>
 `;
 
@@ -202,7 +202,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.label_loremIpsum,curiosity-graph.label_no, {"product":"","context":""})
+      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"","context":""})
     </Button>
   </Tooltip>
 </Fragment>
@@ -244,7 +244,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.label_loremIpsum,curiosity-graph.label_no, {"product":"test","context":"test"})
+      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
     </Button>
   </Tooltip>
   <Tooltip
@@ -276,7 +276,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.label_ametConsectetur,curiosity-graph.label_no, {"product":"test","context":"test"})
+      t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no], {"product":"test","context":"test"})
     </Button>
   </Tooltip>
   <Tooltip
@@ -313,7 +313,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.label_threshold,curiosity-graph.label_no, {"product":"test","context":"test"})
+      t([curiosity-graph.label_threshold,curiosity-graph.label_no], {"product":"test","context":"test"})
     </Button>
   </Tooltip>
   <Tooltip
@@ -350,7 +350,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       tabIndex={0}
       variant="link"
     >
-      t(curiosity-graph.label_threshold,curiosity-graph.label_no, {"product":"test","context":"test"})
+      t([curiosity-graph.label_threshold,curiosity-graph.label_no], {"product":"test","context":"test"})
     </Button>
   </Tooltip>
 </Fragment>

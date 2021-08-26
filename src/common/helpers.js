@@ -41,15 +41,24 @@ const noopPromise = Promise.resolve({});
  * A placeholder for "t", translation method.
  * Associated with the i18n package, and typically used as a default prop.
  *
- * @param {string} key
- * @param {string|object} value
+ * @param {string|Array} key
+ * @param {string|object|Array} value
  * @param {Array} components
  * @returns {string}
  */
-const noopTranslate = (key, value, components) =>
-  `t(${key}${(value && `, ${(typeof value === 'string' && value) || (value && JSON.stringify(value))}`) || ''}${
-    (components && `, ${components}`) || ''
+const noopTranslate = (key, value, components) => {
+  const updatedKey = (Array.isArray(key) && `[${key}]`) || key;
+  const updatedValue =
+    (typeof value === 'string' && value) ||
+    (Array.isArray(value) && `[${value}]`) ||
+    (Object.keys(value || '').length && JSON.stringify(value)) ||
+    '';
+  const updatedComponents = (components && `${components}`) || '';
+
+  return `t(${updatedKey}${(updatedValue && `, ${updatedValue}`) || ''}${
+    (updatedComponents && `, ${updatedComponents}`) || ''
   })`;
+};
 
 /**
  * Is dev mode active.
