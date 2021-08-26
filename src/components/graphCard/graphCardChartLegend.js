@@ -121,10 +121,14 @@ class GraphCardChartLegend extends React.Component {
             }
           );
 
-          const tooltipContent = t(`curiosity-graph.legendTooltip${(isThreshold && '_threshold') || ''}_${id}`, {
-            product: productLabel,
-            context: productLabel
-          });
+          const tooltipContent = t(
+            `curiosity-graph.legendTooltip${(isThreshold && '_threshold') || ''}_${id}`,
+            {
+              product: productLabel,
+              context: productLabel
+            },
+            [<span style={{ whiteSpace: 'nowrap' }} />]
+          );
 
           return this.renderLegendItem({
             chartId: id,
