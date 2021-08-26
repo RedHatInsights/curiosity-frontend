@@ -108,11 +108,15 @@ describe('I18n Component', () => {
     const localeKey = translate('lorem.ipsum');
     const placeholder = translate('lorem.ipsum', 'hello world');
     const multiContext = translate('lorem.ipsum', { context: ['hello', 'world'] });
+    const multiContextWithEmptyValue = translate('lorem.ipsum', { context: ['hello', undefined, null, '', 'world'] });
+    const multiKey = translate(['lorem.ipsum', undefined, null, '', 'lorem.fallback']);
 
     expect({
       localeKey,
       placeholder,
-      multiContext
+      multiContext,
+      multiContextWithEmptyValue,
+      multiKey
     }).toMatchSnapshot('translate');
   });
 
