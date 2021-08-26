@@ -6,6 +6,8 @@ exports[`I18n Component should attempt to perform a string replace: translate 1`
 Object {
   "localeKey": "t(lorem.ipsum)",
   "multiContext": "t(lorem.ipsum, {\\"context\\":\\"hello_world\\"})",
+  "multiContextWithEmptyValue": "t(lorem.ipsum, {\\"context\\":\\"hello_world\\"})",
+  "multiKey": "t([lorem.ipsum,lorem.fallback])",
   "placeholder": "t(lorem.ipsum, hello world)",
 }
 `;
@@ -24,6 +26,15 @@ Array [
       Object {
         "key": "curiosity-toolbar.granularityRange",
         "match": "translate('curiosity-toolbar.granularityRange', { context: 'current' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/common/helpers.js",
+    "keys": Array [
+      Object {
+        "key": "",
+        "match": "t(\${updatedKey}\${(updatedValue && \`, \${updatedValue}\`)",
       },
     ],
   },
