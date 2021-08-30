@@ -101,14 +101,14 @@
     "react-i18next": "^11.11.4",
     "react-redux": "^7.2.4",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.2.1",
     "react-use": "^17.2.4",
     "redux": "^4.1.1",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "victory": "35.10.1",
+    "victory": "35.11.0",
     "victory-create-container": "35.10.1"
   },
   "devDependencies": {
