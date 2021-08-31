@@ -110,6 +110,61 @@ describe('ChartHelpers', () => {
     };
 
     expect(chartHelpers.generateElementsProps(options)).toMatchSnapshot('props');
+
+    const customOptions = {
+      dataSets: [
+        {
+          id: 'lorem',
+          data: [
+            { x: 0, y: 10 },
+            { x: 1, y: 10 },
+            { x: 2, y: 10 },
+            { x: 3, y: 10 },
+            { x: 4, y: 10 },
+            { x: 5, y: 10 }
+          ]
+        }
+      ]
+    };
+
+    const { x: xValueNumber, y: yValueNumber } = chartHelpers.generateElementsProps({
+      ...customOptions,
+      xValueFormat: () => 0,
+      yValueFormat: () => 0
+    })?.elementsById.lorem.props;
+    const { x: xValueNaN, y: yValueNaN } = chartHelpers.generateElementsProps({
+      ...customOptions,
+      xValueFormat: () => Number.NaN,
+      yValueFormat: () => Number.NaN
+    })?.elementsById.lorem.props;
+    const { x: xValueUndefined, y: yValueUndefined } = chartHelpers.generateElementsProps({
+      ...customOptions,
+      xValueFormat: () => undefined,
+      yValueFormat: () => undefined
+    })?.elementsById.lorem.props;
+    const { x: xValueNull, y: yValueNull } = chartHelpers.generateElementsProps({
+      ...customOptions,
+      xValueFormat: () => null,
+      yValueFormat: () => null
+    })?.elementsById.lorem.props;
+    const { x: xValueString, y: yValueString } = chartHelpers.generateElementsProps({
+      ...customOptions,
+      xValueFormat: () => 'lorem',
+      yValueFormat: () => 'ipsum'
+    })?.elementsById.lorem.props;
+
+    expect({
+      xValueNumber: xValueNumber(),
+      yValueNumber: yValueNumber(),
+      xValueNaN: xValueNaN(),
+      yValueNaN: yValueNaN(),
+      xValueUndefined: xValueUndefined(),
+      yValueUndefined: yValueUndefined(),
+      xValueNull: xValueNull(),
+      yValueNull: yValueNull(),
+      xValueString: xValueString(),
+      yValueString: yValueString()
+    }).toMatchSnapshot('custom valueFormats');
   });
 
   it('should generate tooltip data/content', () => {
