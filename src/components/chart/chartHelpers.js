@@ -141,16 +141,28 @@ const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValue
         style: { ...(dataSet.style || {}), ...dataColorStroke },
         themeColor: dataSet.themeColor,
         themeVariant: dataSet.themeVariant,
-        x: (xValueFormat && (datum => xValueFormat({ datum, maxX }))) || undefined,
-        y:
-          (yValueFormat &&
-            (datum =>
-              yValueFormat({
-                datum,
-                isMultiAxis: typeof maxY !== 'number',
-                maxY: typeof maxY === 'number' ? maxY : maxY?.[dataSet.id]
-              }))) ||
-          (datum => (typeof maxY === 'number' ? datum.y : datum.y / maxY?.[dataSet.id]))
+        x:
+          (xValueFormat &&
+            (datum => {
+              const xValue = xValueFormat({ datum, maxX });
+              return xValue === undefined || Number.isNaN(xValue) ? 0 : xValue;
+            })) ||
+          undefined,
+        y: datum => {
+          let yValue;
+
+          if (yValueFormat) {
+            yValue = yValueFormat({
+              datum,
+              isMultiAxis: typeof maxY !== 'number',
+              maxY: typeof maxY === 'number' ? maxY : maxY?.[dataSet.id]
+            });
+          } else {
+            yValue = typeof maxY === 'number' ? datum.y : datum.y / maxY?.[dataSet.id];
+          }
+
+          return yValue === undefined || Number.isNaN(yValue) ? 0 : yValue;
+        }
       };
 
       const props = { ...chartElementProps };
