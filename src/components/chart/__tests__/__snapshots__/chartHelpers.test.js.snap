@@ -56,6 +56,21 @@ Object {
 }
 `;
 
+exports[`ChartHelpers should generate element props: custom valueFormats 1`] = `
+Object {
+  "xValueNaN": 0,
+  "xValueNull": null,
+  "xValueNumber": 0,
+  "xValueString": "lorem",
+  "xValueUndefined": 0,
+  "yValueNaN": 0,
+  "yValueNull": null,
+  "yValueNumber": 0,
+  "yValueString": "ipsum",
+  "yValueUndefined": 0,
+}
+`;
+
 exports[`ChartHelpers should generate element props: props 1`] = `
 Object {
   "elements": Array [
