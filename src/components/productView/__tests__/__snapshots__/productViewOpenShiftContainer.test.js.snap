@@ -239,7 +239,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 Object {
                   "cell": [Function],
                   "cellWidth": 15,
-                  "id": "upcomingEventDate",
+                  "id": "nextEventDate",
                   "isSortable": true,
                   "isWrappable": true,
                 },
@@ -254,7 +254,7 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                 "ending": "2019-07-20T23:59:59.999Z",
                 "limit": 100,
                 "offset": 0,
-                "sort": "upcoming_event_date",
+                "sort": "next_event_date",
                 "uom": "cores",
               }
             }
