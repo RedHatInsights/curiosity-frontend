@@ -48,7 +48,7 @@ const config = {
     [RHSM_API_QUERY_TYPES.OFFSET]: 0
   },
   inventorySubscriptionsQuery: {
-    [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES.UPCOMING_EVENT_DATE,
+    [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES.NEXT_EVENT_DATE,
     [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
     [RHSM_API_QUERY_TYPES.LIMIT]: 100,
     [RHSM_API_QUERY_TYPES.OFFSET]: 0
@@ -197,11 +197,11 @@ const config = {
       cellWidth: 15
     },
     {
-      id: 'upcomingEventDate',
+      id: 'nextEventDate',
       cell: data =>
-        (data?.upcomingEventDate?.value &&
-          helpers.isDate(data?.upcomingEventDate?.value) &&
-          moment.utc(data?.upcomingEventDate?.value).format('YYYY-DD-MM')) ||
+        (data?.nextEventDate?.value &&
+          helpers.isDate(data?.nextEventDate?.value) &&
+          moment.utc(data?.nextEventDate?.value).format('YYYY-DD-MM')) ||
         '',
       isSortable: true,
       isWrappable: true,

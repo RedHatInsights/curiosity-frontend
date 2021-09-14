@@ -328,13 +328,17 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
       "transforms": Array [
         [Function],
       ],
     },
   ],
   "data": Object {
+    "nextEventDate": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "value": "lorem date obj",
+    },
     "productName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
       "value": "lorem",
@@ -342,10 +346,6 @@ Object {
     "serviceLevel": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
       "value": "hello world",
-    },
-    "upcomingEventDate": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
-      "value": "lorem date obj",
     },
   },
 }
@@ -374,23 +374,23 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
       "transforms": Array [
         [Function],
       ],
     },
   ],
   "data": Object {
+    "nextEventDate": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "value": null,
+    },
     "productName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
       "value": "lorem",
     },
     "serviceLevel": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
-      "value": null,
-    },
-    "upcomingEventDate": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"upcomingEventDate\\"})",
       "value": null,
     },
   },
