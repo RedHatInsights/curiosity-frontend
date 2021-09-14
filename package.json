@@ -112,7 +112,7 @@
     "victory-create-container": "35.10.1"
   },
   "devDependencies": {
-    "@babel/core": "7.15.0",
+    "@babel/core": "7.15.5",
     "@redhat-cloud-services/frontend-components-config": "4.3.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "apidoc-mock": "^4.0.1",
