@@ -89,10 +89,10 @@ describe('InventorySubscriptions Component', () => {
     const component = shallow(<InventorySubscriptions {...props} />);
     const componentInstance = component.instance();
 
-    componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'productName' });
-    componentInstance.onColumnSort({}, { direction: SortByDirection.desc, id: 'productName' });
+    componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'nextEventDate' });
+    componentInstance.onColumnSort({}, { direction: SortByDirection.desc, id: 'nextEventDate' });
     componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'loremIpsumBrokenOnPurpose' });
-    componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'productName' });
+    componentInstance.onColumnSort({}, { direction: SortByDirection.asc, id: 'nextEventDate' });
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter');
   });

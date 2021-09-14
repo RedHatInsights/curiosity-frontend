@@ -127,7 +127,7 @@ Object {
         Object {
           "cell": [Function],
           "cellWidth": 15,
-          "id": "upcomingEventDate",
+          "id": "nextEventDate",
           "isSortable": true,
           "isWrappable": true,
         },
@@ -147,7 +147,7 @@ Object {
         "dir": "desc",
         "limit": 100,
         "offset": 0,
-        "sort": "upcoming_event_date",
+        "sort": "next_event_date",
       },
       "productContextFilterUom": true,
       "productGroup": "OpenShift Container Platform",

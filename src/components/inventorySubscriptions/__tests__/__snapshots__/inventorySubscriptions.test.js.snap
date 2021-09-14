@@ -71,7 +71,7 @@ Array [
         "viewId": "lorem",
       },
       Object {
-        "sort": "product_name",
+        "sort": "next_event_date",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },
@@ -85,7 +85,7 @@ Array [
         "viewId": "lorem",
       },
       Object {
-        "sort": "product_name",
+        "sort": "next_event_date",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },
@@ -99,7 +99,7 @@ Array [
         "viewId": "lorem",
       },
       Object {
-        "sort": "product_name",
+        "sort": "next_event_date",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },

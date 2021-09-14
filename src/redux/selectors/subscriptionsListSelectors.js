@@ -108,7 +108,7 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
     // Apply "display logic" then return a custom value for entries
     const customInventoryValue = ({ key, value }) => {
       switch (key) {
-        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.UPCOMING_EVENT_DATE:
+        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.NEXT_EVENT_DATE:
           return (value && new Date(value)) || null;
         default:
           return value ?? null;

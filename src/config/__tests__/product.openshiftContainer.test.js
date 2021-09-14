@@ -54,7 +54,7 @@ describe('Product OpenShift Container config', () => {
     const inventoryData = {
       productName: 'lorem',
       serviceLevel: 'hello world',
-      upcomingEventDate: 'lorem date obj'
+      nextEventDate: 'lorem date obj'
     };
 
     const filteredInventoryData = parseRowCellsListData({
@@ -67,7 +67,7 @@ describe('Product OpenShift Container config', () => {
     const fallbackInventoryData = {
       ...inventoryData,
       serviceLevel: null,
-      upcomingEventDate: null
+      nextEventDate: null
     };
 
     const fallbackFilteredInventoryData = parseRowCellsListData({
