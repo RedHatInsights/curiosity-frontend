@@ -188,7 +188,7 @@ const config = {
   initialSubscriptionsInventoryFilters: [
     {
       id: 'productName',
-      isSortable: true
+      isSortable: false
     },
     {
       id: 'serviceLevel',
@@ -204,7 +204,7 @@ const config = {
     {
       id: 'totalCapacity',
       header: data => translate('curiosity-inventory.header', { context: [data?.uom?.value || 'sockets'] }),
-      isSortable: true,
+      isSortable: false,
       cellWidth: 10
     },
     {

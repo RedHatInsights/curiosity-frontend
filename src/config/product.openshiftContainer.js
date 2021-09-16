@@ -177,7 +177,7 @@ const config = {
   initialSubscriptionsInventoryFilters: [
     {
       id: 'productName',
-      isSortable: true,
+      isSortable: false,
       isWrappable: true
     },
     {
@@ -194,7 +194,7 @@ const config = {
     {
       id: 'totalCapacity',
       header: data => translate('curiosity-inventory.header', { context: [data?.uom?.value] }),
-      isSortable: true,
+      isSortable: false,
       cellWidth: 15
     },
     {
