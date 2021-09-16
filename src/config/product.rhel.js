@@ -197,6 +197,17 @@ const config = {
       cellWidth: 15
     },
     {
+      id: 'quantity',
+      isSortable: true,
+      cellWidth: 10
+    },
+    {
+      id: 'totalCapacity',
+      header: data => translate('curiosity-inventory.header', { context: [data?.uom?.value || 'sockets'] }),
+      isSortable: true,
+      cellWidth: 10
+    },
+    {
       id: 'nextEventDate',
       cell: data =>
         (data?.nextEventDate?.value &&
