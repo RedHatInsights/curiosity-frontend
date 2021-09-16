@@ -409,15 +409,3 @@ exports[`InventorySubscriptions Component should render a non-connected componen
   </MinHeight>
 </Card>
 `;
-
-exports[`InventorySubscriptions Component should return an empty render when disabled: disabled component 1`] = `
-<Card
-  className="curiosity-inventory-card__disabled"
->
-  <CardBody>
-    <Bullseye>
-      t(curiosity-inventory.tab, {"context":"disabled"})
-    </Bullseye>
-  </CardBody>
-</Card>
-`;

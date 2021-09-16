@@ -38,24 +38,6 @@ describe('InventoryTabs Component', () => {
     expect(component).toMatchSnapshot('non-connected');
   });
 
-  it('should return an empty render when disabled', () => {
-    const props = {
-      productId: 'lorem',
-      children: [
-        <InventoryTab key="lorem" title="lorem">
-          ipsum
-        </InventoryTab>,
-        <InventoryTab key="sit" title="sit">
-          amet
-        </InventoryTab>
-      ],
-      isDisabled: true
-    };
-    const component = shallow(<InventoryTabs {...props} />);
-
-    expect(component).toMatchSnapshot('disabled component');
-  });
-
   it('should handle updating tabs for redux state', () => {
     const props = {
       productId: 'lorem',

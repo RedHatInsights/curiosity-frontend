@@ -228,13 +228,25 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
               Array [
                 Object {
                   "id": "productName",
-                  "isSortable": true,
+                  "isSortable": false,
+                  "isWrappable": true,
                 },
                 Object {
                   "cellWidth": 15,
                   "id": "serviceLevel",
                   "isSortable": true,
                   "isWrappable": true,
+                },
+                Object {
+                  "cellWidth": 20,
+                  "id": "quantity",
+                  "isSortable": true,
+                },
+                Object {
+                  "cellWidth": 15,
+                  "header": [Function],
+                  "id": "totalCapacity",
+                  "isSortable": false,
                 },
                 Object {
                   "cell": [Function],

@@ -137,15 +137,6 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
-      },
-    ],
-  },
-  Object {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "keys": Array [
       Object {
@@ -498,6 +489,10 @@ Array [
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['cores', 'OpenShift Container Platform'] })",
       },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: [data?.uom?.value] })",
+      },
     ],
   },
   Object {
@@ -544,6 +539,10 @@ Array [
       Object {
         "key": "curiosity-inventory.cloudProvider",
         "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: [data?.uom?.value || 'sockets'] })",
       },
     ],
   },
@@ -600,10 +599,6 @@ Array [
   },
   Object {
     "file": "./src/components/inventoryList/inventoryList.js",
-    "key": "curiosity-inventory.tab",
-  },
-  Object {
-    "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
     "key": "curiosity-inventory.tab",
   },
   Object {

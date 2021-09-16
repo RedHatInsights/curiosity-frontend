@@ -29,25 +29,6 @@ describe('InventorySubscriptions Component', () => {
     expect(component).toMatchSnapshot('non-connected');
   });
 
-  it('should return an empty render when disabled', () => {
-    const props = {
-      query: {
-        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
-      },
-      productId: 'lorem',
-      listData: [
-        { lorem: 'ipsum', dolor: 'sit' },
-        { lorem: 'sit', dolor: 'amet' }
-      ],
-      itemCount: 2,
-      isDisabled: true
-    };
-    const component = shallow(<InventorySubscriptions {...props} />);
-
-    expect(component).toMatchSnapshot('disabled component');
-  });
-
   it('should handle variations in data', () => {
     const props = {
       query: {
