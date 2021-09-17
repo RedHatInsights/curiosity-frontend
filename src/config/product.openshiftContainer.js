@@ -189,13 +189,15 @@ const config = {
     {
       id: 'quantity',
       isSortable: true,
-      cellWidth: 20
+      cellWidth: 20,
+      isWrappable: true
     },
     {
       id: 'totalCapacity',
-      header: data => translate('curiosity-inventory.header', { context: [data?.uom?.value] }),
+      header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
       isSortable: false,
-      cellWidth: 15
+      cellWidth: 15,
+      isWrappable: true
     },
     {
       id: 'nextEventDate',
