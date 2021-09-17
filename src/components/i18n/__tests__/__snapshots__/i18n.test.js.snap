@@ -137,6 +137,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "keys": Array [
       Object {
@@ -491,7 +500,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: [data?.uom?.value] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
       },
     ],
   },
@@ -542,7 +551,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: [data?.uom?.value || 'sockets'] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
       },
     ],
   },
@@ -599,6 +608,10 @@ Array [
   },
   Object {
     "file": "./src/components/inventoryList/inventoryList.js",
+    "key": "curiosity-inventory.tab",
+  },
+  Object {
+    "file": "./src/components/inventorySubscriptions/inventorySubscriptions.js",
     "key": "curiosity-inventory.tab",
   },
   Object {

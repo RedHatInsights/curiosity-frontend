@@ -308,7 +308,7 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -372,7 +372,7 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
       "transforms": Array [
         [Function],
       ],

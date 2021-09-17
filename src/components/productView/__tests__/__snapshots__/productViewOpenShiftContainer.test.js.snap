@@ -241,12 +241,14 @@ exports[`ProductViewOpenShiftContainer Component should render a non-connected c
                   "cellWidth": 20,
                   "id": "quantity",
                   "isSortable": true,
+                  "isWrappable": true,
                 },
                 Object {
                   "cellWidth": 15,
                   "header": [Function],
                   "id": "totalCapacity",
                   "isSortable": false,
+                  "isWrappable": true,
                 },
                 Object {
                   "cell": [Function],

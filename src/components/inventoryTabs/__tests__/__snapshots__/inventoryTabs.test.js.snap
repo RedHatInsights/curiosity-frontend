@@ -49,3 +49,5 @@ exports[`InventoryTabs Component should render a non-connected component: non-co
   />
 </Fragment>
 `;
+
+exports[`InventoryTabs Component should return an empty render when disabled: disabled component 1`] = `""`;
