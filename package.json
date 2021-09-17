@@ -120,7 +120,7 @@
     "babel-jest": "^27.1.0",
     "babel-preset-react-app": "^10.0.0",
     "copy-webpack-plugin": "^9.0.1",
-    "cspell": "^5.8.0",
+    "cspell": "^5.9.1",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
     "dotenv-webpack": "^7.0.3",
