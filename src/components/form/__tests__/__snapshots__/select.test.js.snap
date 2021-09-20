@@ -192,6 +192,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       isChecked={false}
       isDisabled={false}
       isFavorite={null}
+      isLastOptionBeforeFooter={[Function]}
       isLoad={false}
       isLoading={false}
       isNoResultsOption={false}
@@ -201,6 +202,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       keyHandler={[Function]}
       onClick={[Function]}
       sendRef={[Function]}
+      setViewMoreNextIndex={[Function]}
       value="lorem"
     />
     <SelectOption
@@ -214,6 +216,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       isChecked={false}
       isDisabled={false}
       isFavorite={null}
+      isLastOptionBeforeFooter={[Function]}
       isLoad={false}
       isLoading={false}
       isNoResultsOption={false}
@@ -223,6 +226,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       keyHandler={[Function]}
       onClick={[Function]}
       sendRef={[Function]}
+      setViewMoreNextIndex={[Function]}
       value="ipsum"
     />
     <SelectOption
@@ -236,6 +240,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       isChecked={false}
       isDisabled={false}
       isFavorite={null}
+      isLastOptionBeforeFooter={[Function]}
       isLoad={false}
       isLoading={false}
       isNoResultsOption={false}
@@ -245,6 +250,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       keyHandler={[Function]}
       onClick={[Function]}
       sendRef={[Function]}
+      setViewMoreNextIndex={[Function]}
       value="hello"
     />
     <SelectOption
@@ -258,6 +264,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       isChecked={false}
       isDisabled={false}
       isFavorite={null}
+      isLastOptionBeforeFooter={[Function]}
       isLoad={false}
       isLoading={false}
       isNoResultsOption={false}
@@ -267,6 +274,7 @@ exports[`Select Component should allow being disabled with missing options: opti
       keyHandler={[Function]}
       onClick={[Function]}
       sendRef={[Function]}
+      setViewMoreNextIndex={[Function]}
       value="world"
     />
   </Select>
@@ -438,6 +446,7 @@ exports[`Select Component should render a basic component: basic component 1`] =
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-label="Options menu"
       aria-labelledby=" pf-select-toggle-id-2"
       class="pf-c-select__toggle"
       id="pf-select-toggle-id-2"
@@ -486,6 +495,7 @@ exports[`Select Component should render a checkbox select: checkbox select 1`] =
   >
     <button
       aria-expanded="false"
+      aria-label="Options menu"
       aria-labelledby=" pf-select-toggle-id-5"
       class="pf-c-select__toggle"
       id="pf-select-toggle-id-5"
