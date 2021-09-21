@@ -162,20 +162,18 @@ const ProductView = ({ routeDetail, t, toolbarGraph, toolbarGraphDescription, to
               viewId={viewId}
             />
           </InventoryTab>
-          {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && (
-            <InventoryTab
-              key={`inventory_subs_${productId}`}
-              title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
-            >
-              <ConnectedInventorySubscriptions
-                key={`subs_${productId}`}
-                filterInventoryData={initialSubscriptionsInventoryFilters}
-                productId={productId}
-                query={initialInventorySubscriptionsQuery}
-                viewId={viewId}
-              />
-            </InventoryTab>
-          )}
+          <InventoryTab
+            key={`inventory_subs_${productId}`}
+            title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
+          >
+            <ConnectedInventorySubscriptions
+              key={`subs_${productId}`}
+              filterInventoryData={initialSubscriptionsInventoryFilters}
+              productId={productId}
+              query={initialInventorySubscriptionsQuery}
+              viewId={viewId}
+            />
+          </InventoryTab>
         </InventoryTabs>
       </PageSection>
     </PageLayout>

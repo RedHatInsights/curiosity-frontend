@@ -16,6 +16,7 @@ import {
   RHSM_API_QUERY_SORT_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_TYPES,
+  RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
 import { dateHelpers, helpers } from '../common';
@@ -35,6 +36,7 @@ const config = {
   productId,
   viewId: `view${productGroup}`,
   query: {
+    [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,
     [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).startDate.toISOString(),
     [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).endDate.toISOString()
   },
@@ -188,13 +190,27 @@ const config = {
   initialSubscriptionsInventoryFilters: [
     {
       id: 'productName',
-      isSortable: true
+      isSortable: false,
+      isWrappable: true
     },
     {
       id: 'serviceLevel',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
+    },
+    {
+      id: 'quantity',
+      isSortable: true,
+      cellWidth: 10,
+      isWrappable: true
+    },
+    {
+      id: 'totalCapacity',
+      header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
+      isSortable: false,
+      cellWidth: 10,
+      isWrappable: true
     },
     {
       id: 'nextEventDate',

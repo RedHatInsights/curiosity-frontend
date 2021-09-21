@@ -498,6 +498,10 @@ Array [
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['cores', 'OpenShift Container Platform'] })",
       },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
+      },
     ],
   },
   Object {
@@ -544,6 +548,10 @@ Array [
       Object {
         "key": "curiosity-inventory.cloudProvider",
         "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
+      },
+      Object {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
       },
     ],
   },
