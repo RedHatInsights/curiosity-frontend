@@ -110,6 +110,8 @@ const selector = createDeepEqualSelector([statePropsFilter, queryFilter], (respo
       switch (key) {
         case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.NEXT_EVENT_DATE:
           return (value && new Date(value)) || null;
+        case rhsmApiTypes.RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES.UOM:
+          return value?.toLowerCase() || null;
         default:
           return value ?? null;
       }
