@@ -282,6 +282,12 @@ Object {
     Object {
       "title": "hello world",
     },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
     [Function],
   ],
   "columnHeaders": Array [
@@ -291,6 +297,18 @@ Object {
     },
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -328,6 +346,12 @@ Object {
     Object {
       "title": "",
     },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
     [Function],
   ],
   "columnHeaders": Array [
@@ -337,6 +361,18 @@ Object {
     },
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
       "transforms": Array [
         [Function],
       ],

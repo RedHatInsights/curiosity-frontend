@@ -61,5 +61,15 @@ describe('ProductView Component', () => {
     });
 
     expect(component).toMatchSnapshot('custom toolbar, toolbarProduct');
+
+    component.setProps({
+      ...props,
+      routeDetail: {
+        ...props.routeDetail,
+        productConfig: [{ lorem: 'ipsum', initialSubscriptionsInventoryFilters: [] }]
+      }
+    });
+
+    expect(component).toMatchSnapshot('custom tabs, subscriptions table');
   });
 });
