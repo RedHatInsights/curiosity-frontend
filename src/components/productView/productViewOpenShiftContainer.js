@@ -140,7 +140,7 @@ const ProductViewOpenShiftContainer = ({ routeDetail, t }) => {
                 viewId={viewId}
               />
             </InventoryTab>
-            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
+            {initialSubscriptionsInventoryFilters && (
               <InventoryTab
                 key={`inventory_subs_${productId}`}
                 title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
