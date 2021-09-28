@@ -256,16 +256,16 @@ Array [
         "match": "t('curiosity-graph.cardHeading', { context: productId })",
       },
       Object {
-        "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel })",
-      },
-      Object {
         "key": "curiosity-inventory.tabHosts",
         "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
       },
       Object {
         "key": "curiosity-inventory.tabSubscriptions",
         "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
+      },
+      Object {
+        "key": "curiosity-view.title",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: routeProductLabel })",
       },
     ],
   },

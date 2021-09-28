@@ -13,6 +13,7 @@ module.exports = {
     '!src/redux/middleware/**',
     '!src/redux/actions/index.js',
     '!src/redux/common/index.js',
+    '!src/redux/hooks/index.js',
     '!src/redux/reducers/index.js',
     '!src/redux/selectors/index.js'
   ],

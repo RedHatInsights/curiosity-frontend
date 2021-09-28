@@ -1,68 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, AlertActionCloseButton, AlertVariant, Button } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
-import _isEqual from 'lodash/isEqual';
-import { apiQueries, connect, reduxActions, reduxSelectors } from '../../redux';
+import { useShallowCompareEffect } from 'react-use';
+import { apiQueries, storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
 import { dateHelpers, helpers } from '../../common';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { useRouteDetail } from '../../hooks/useRouter';
 
 /**
  * Render banner messages.
  *
- * @augments React.Component
+ * @param {object} props
+ * @param {Array} props.messages
+ * @param {Function} props.useRouteDetail
+ * @param {Function} props.useAppMessages
+ * @returns {Node}
  */
-class BannerMessages extends React.Component {
-  state = {};
+const BannerMessages = ({ messages, useRouteDetail: useAliasRouteDetail, useAppMessages: useAliasAppMessages }) => {
+  const [hideAlerts, setHideAlerts] = useState({});
+  const [alerts, setAlerts] = useState([]);
+  const { pathParameter: productId, productConfig } = useAliasRouteDetail() || {};
+  const isProductConfig = productConfig?.length === 1 && productConfig?.[0];
+  const { query } = apiQueries.parseRhsmQuery(productConfig?.[0]?.query || {});
+  const { appMessages } = useAliasAppMessages();
 
-  componentDidMount() {
-    this.onUpdateData();
-  }
-
-  componentDidUpdate(prevProps) {
-    const { query, productId } = this.props;
-
-    if (productId !== prevProps.productId || !_isEqual(query, prevProps.query)) {
-      this.onUpdateData();
-    }
-  }
-
-  /**
-   * Call the RHSM APIs, apply filters.
-   *
-   * @event onUpdateGraphData
-   */
-  onUpdateData = () => {
-    const { getMessageReports, productId, query } = this.props;
-    const { graphTallyQuery } = apiQueries.parseRhsmQuery(query);
-
-    if (productId) {
+  useShallowCompareEffect(() => {
+    if (productId && isProductConfig) {
       const { startDate, endDate } = dateHelpers.getRangedDateTime('CURRENT');
       const updatedGraphQuery = {
-        ...graphTallyQuery,
+        ...query,
         [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
         [RHSM_API_QUERY_TYPES.START_DATE]: startDate.toISOString(),
         [RHSM_API_QUERY_TYPES.END_DATE]: endDate.toISOString()
       };
 
-      getMessageReports(productId, updatedGraphQuery);
+      storeHooks.rhsmActions.useGetMessageReports(productId, updatedGraphQuery);
     }
-  };
+  }, [productId, isProductConfig, query]);
 
-  /**
-   * Apply messages' configuration to alerts.
-   *
-   * @returns {Node}
-   */
-  renderAlerts() {
-    const { state } = this;
-    const { appMessages, messages } = this.props;
+  useShallowCompareEffect(() => {
     const updatedMessages = [];
 
     if (messages.length) {
       Object.entries(appMessages).forEach(([key, value]) => {
-        if (state[key] !== true && value === true) {
+        if (hideAlerts[key] !== true && value === true) {
           const message = messages.find(({ id }) => id === key);
 
           if (message) {
@@ -75,42 +58,32 @@ class BannerMessages extends React.Component {
       });
     }
 
-    return updatedMessages.map(({ key, message, title, variant = AlertVariant.info }) => {
-      const actionClose = <AlertActionCloseButton onClose={() => this.setState({ [key]: true })} />;
+    setAlerts(
+      updatedMessages.map(({ key, message, title, variant = AlertVariant.info }) => {
+        const actionClose = <AlertActionCloseButton onClose={() => setHideAlerts({ ...hideAlerts, [key]: true })} />;
 
-      return (
-        <Alert actionClose={actionClose} key={key} title={title} variant={variant}>
-          {message}
-        </Alert>
-      );
-    });
+        return (
+          <Alert actionClose={actionClose} key={key} title={title} variant={variant}>
+            {message}
+          </Alert>
+        );
+      })
+    );
+  }, [appMessages, hideAlerts, messages]);
+
+  if (alerts?.length) {
+    return <div className="curiosity-banner-messages">{alerts}</div>;
   }
 
-  /**
-   * Render a banner messages container.
-   *
-   * @returns {Node}
-   */
-  render() {
-    const alerts = this.renderAlerts();
-
-    if (alerts.length) {
-      return <div className="curiosity-banner-messages">{alerts}</div>;
-    }
-
-    return null;
-  }
-}
+  return null;
+};
 
 /**
  * Prop types.
  *
- * @type {{appMessages: object, productId: string, getMessageReports: Function, query: object, messages: Array}}
+ * @type {{useAppMessages: Function, messages: Array, useRouteDetail: Function}}
  */
 BannerMessages.propTypes = {
-  appMessages: PropTypes.object.isRequired,
-  getMessageReports: PropTypes.func,
-  query: PropTypes.object,
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -119,17 +92,16 @@ BannerMessages.propTypes = {
       variant: PropTypes.oneOf([...Object.values(AlertVariant)])
     })
   ),
-  productId: PropTypes.string.isRequired
+  useAppMessages: PropTypes.func,
+  useRouteDetail: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{getMessageReports: Function, query: object, messages: Array}}
+ * @type {{useAppMessages: Function, messages: Array, useRouteDetail: Function}}
  */
 BannerMessages.defaultProps = {
-  getMessageReports: helpers.noop,
-  query: {},
   messages: [
     {
       id: 'cloudigradeMismatch',
@@ -153,26 +125,9 @@ BannerMessages.defaultProps = {
         ]
       )
     }
-  ]
+  ],
+  useAppMessages: storeHooks.rhsmSelectors.useAppMessages,
+  useRouteDetail
 };
 
-/**
- * Apply actions to props.
- *
- * @param {Function} dispatch
- * @returns {object}
- */
-const mapDispatchToProps = dispatch => ({
-  getMessageReports: (id, query) => dispatch(reduxActions.rhsm.getMessageReports(id, query))
-});
-
-/**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.appMessages.makeAppMessages();
-
-const ConnectedBannerMessages = connect(makeMapStateToProps, mapDispatchToProps)(BannerMessages);
-
-export { ConnectedBannerMessages as default, ConnectedBannerMessages, BannerMessages };
+export { BannerMessages as default, BannerMessages };

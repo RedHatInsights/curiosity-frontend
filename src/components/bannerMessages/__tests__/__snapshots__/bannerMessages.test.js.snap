@@ -1,62 +1,454 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BannerMessages Component should handle closing messages from state: state messages, OFF 1`] = `""`;
+exports[`BannerMessages Component should handle closing messages from state: state messages, OFF 1`] = `null`;
 
 exports[`BannerMessages Component should handle closing messages from state: state messages, ON 1`] = `
-<div
-  className="curiosity-banner-messages"
+<BannerMessages
+  messages={
+    Array [
+      Object {
+        "id": "loremIpsum",
+        "message": "Lorem ipsum message",
+        "title": "Lorem ipsum title",
+      },
+      Object {
+        "id": "dolorSit",
+        "message": "Dolor sit message",
+        "title": "Dolor sit title",
+      },
+    ]
+  }
+  useAppMessages={[Function]}
+  useRouteDetail={[Function]}
 >
-  <Alert
-    actionClose={
-      <AlertActionCloseButton
-        onClose={[Function]}
-      />
-    }
-    key="loremIpsum"
-    title="Lorem ipsum title"
-    variant="info"
+  <div
+    className="curiosity-banner-messages"
   >
-    Lorem ipsum message
-  </Alert>
-</div>
+    <Alert
+      actionClose={
+        <AlertActionCloseButton
+          onClose={[Function]}
+        />
+      }
+      key="dolorSit"
+      title="Dolor sit title"
+      variant="info"
+    >
+      <div
+        aria-label="Info Alert"
+        className="pf-c-alert pf-m-info"
+        data-ouia-component-id="OUIA-Generated-Alert-info-3"
+        data-ouia-component-type="PF4/Alert"
+        data-ouia-safe={true}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <AlertIcon
+          variant="info"
+        >
+          <div
+            className="pf-c-alert__icon"
+          >
+            <InfoCircleIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            >
+              <svg
+                aria-hidden={true}
+                aria-labelledby={null}
+                fill="currentColor"
+                height="1em"
+                role="img"
+                style={
+                  Object {
+                    "verticalAlign": "-0.125em",
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                />
+              </svg>
+            </InfoCircleIcon>
+          </div>
+        </AlertIcon>
+        <h4
+          className="pf-c-alert__title"
+        >
+          <span
+            className="pf-u-screen-reader"
+          >
+            Info alert:
+          </span>
+          Dolor sit title
+        </h4>
+        <div
+          className="pf-c-alert__action"
+        >
+          <AlertActionCloseButton
+            onClose={[Function]}
+          >
+            <Button
+              aria-label="Close Info alert: alert: Dolor sit title"
+              onClick={[Function]}
+              variant="plain"
+            >
+              <ButtonBase
+                aria-label="Close Info alert: alert: Dolor sit title"
+                innerRef={null}
+                onClick={[Function]}
+                variant="plain"
+              >
+                <button
+                  aria-disabled={false}
+                  aria-label="Close Info alert: alert: Dolor sit title"
+                  className="pf-c-button pf-m-plain"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-3"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe={true}
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <TimesIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-labelledby={null}
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style={
+                        Object {
+                          "verticalAlign": "-0.125em",
+                        }
+                      }
+                      viewBox="0 0 352 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                  </TimesIcon>
+                </button>
+              </ButtonBase>
+            </Button>
+          </AlertActionCloseButton>
+        </div>
+        <div
+          className="pf-c-alert__description"
+        >
+          Dolor sit message
+        </div>
+      </div>
+    </Alert>
+  </div>
+</BannerMessages>
 `;
 
 exports[`BannerMessages Component should render a non-connected component: non-connected 1`] = `
-<div
-  className="curiosity-banner-messages"
+<BannerMessages
+  messages={
+    Array [
+      Object {
+        "id": "loremIpsum",
+        "message": "Lorem ipsum message",
+        "title": "Lorem ipsum title",
+      },
+    ]
+  }
+  useAppMessages={[Function]}
+  useRouteDetail={[Function]}
 >
-  <Alert
-    actionClose={
-      <AlertActionCloseButton
-        onClose={[Function]}
-      />
-    }
-    key="loremIpsum"
-    title="Lorem ipsum title"
-    variant="info"
+  <div
+    className="curiosity-banner-messages"
   >
-    Lorem ipsum message
-  </Alert>
-</div>
+    <Alert
+      actionClose={
+        <AlertActionCloseButton
+          onClose={[Function]}
+        />
+      }
+      key="loremIpsum"
+      title="Lorem ipsum title"
+      variant="info"
+    >
+      <div
+        aria-label="Info Alert"
+        className="pf-c-alert pf-m-info"
+        data-ouia-component-id="OUIA-Generated-Alert-info-1"
+        data-ouia-component-type="PF4/Alert"
+        data-ouia-safe={true}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <AlertIcon
+          variant="info"
+        >
+          <div
+            className="pf-c-alert__icon"
+          >
+            <InfoCircleIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            >
+              <svg
+                aria-hidden={true}
+                aria-labelledby={null}
+                fill="currentColor"
+                height="1em"
+                role="img"
+                style={
+                  Object {
+                    "verticalAlign": "-0.125em",
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                />
+              </svg>
+            </InfoCircleIcon>
+          </div>
+        </AlertIcon>
+        <h4
+          className="pf-c-alert__title"
+        >
+          <span
+            className="pf-u-screen-reader"
+          >
+            Info alert:
+          </span>
+          Lorem ipsum title
+        </h4>
+        <div
+          className="pf-c-alert__action"
+        >
+          <AlertActionCloseButton
+            onClose={[Function]}
+          >
+            <Button
+              aria-label="Close Info alert: alert: Lorem ipsum title"
+              onClick={[Function]}
+              variant="plain"
+            >
+              <ButtonBase
+                aria-label="Close Info alert: alert: Lorem ipsum title"
+                innerRef={null}
+                onClick={[Function]}
+                variant="plain"
+              >
+                <button
+                  aria-disabled={false}
+                  aria-label="Close Info alert: alert: Lorem ipsum title"
+                  className="pf-c-button pf-m-plain"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe={true}
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <TimesIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-labelledby={null}
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style={
+                        Object {
+                          "verticalAlign": "-0.125em",
+                        }
+                      }
+                      viewBox="0 0 352 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                  </TimesIcon>
+                </button>
+              </ButtonBase>
+            </Button>
+          </AlertActionCloseButton>
+        </div>
+        <div
+          className="pf-c-alert__description"
+        >
+          Lorem ipsum message
+        </div>
+      </div>
+    </Alert>
+  </div>
+</BannerMessages>
 `;
 
-exports[`BannerMessages Component should render specific messages when the appMessages prop is used: specific messages, OFF 1`] = `""`;
-
-exports[`BannerMessages Component should render specific messages when the appMessages prop is used: specific messages, ON 1`] = `
-<div
-  className="curiosity-banner-messages"
+exports[`BannerMessages Component should render specific messages when the appMessages prop is used: specific messages, OFF, ON 1`] = `
+<BannerMessages
+  messages={
+    Array [
+      Object {
+        "id": "loremIpsum",
+        "message": "Lorem ipsum message",
+        "title": "Lorem ipsum title",
+      },
+      Object {
+        "id": "dolorSit",
+        "message": "Dolor sit message",
+        "title": "Dolor sit title",
+      },
+    ]
+  }
+  useAppMessages={[Function]}
+  useRouteDetail={[Function]}
 >
-  <Alert
-    actionClose={
-      <AlertActionCloseButton
-        onClose={[Function]}
-      />
-    }
-    key="loremIpsum"
-    title="Lorem ipsum title"
-    variant="info"
+  <div
+    className="curiosity-banner-messages"
   >
-    Lorem ipsum message
-  </Alert>
-</div>
+    <Alert
+      actionClose={
+        <AlertActionCloseButton
+          onClose={[Function]}
+        />
+      }
+      key="dolorSit"
+      title="Dolor sit title"
+      variant="info"
+    >
+      <div
+        aria-label="Info Alert"
+        className="pf-c-alert pf-m-info"
+        data-ouia-component-id="OUIA-Generated-Alert-info-2"
+        data-ouia-component-type="PF4/Alert"
+        data-ouia-safe={true}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <AlertIcon
+          variant="info"
+        >
+          <div
+            className="pf-c-alert__icon"
+          >
+            <InfoCircleIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            >
+              <svg
+                aria-hidden={true}
+                aria-labelledby={null}
+                fill="currentColor"
+                height="1em"
+                role="img"
+                style={
+                  Object {
+                    "verticalAlign": "-0.125em",
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                />
+              </svg>
+            </InfoCircleIcon>
+          </div>
+        </AlertIcon>
+        <h4
+          className="pf-c-alert__title"
+        >
+          <span
+            className="pf-u-screen-reader"
+          >
+            Info alert:
+          </span>
+          Dolor sit title
+        </h4>
+        <div
+          className="pf-c-alert__action"
+        >
+          <AlertActionCloseButton
+            onClose={[Function]}
+          >
+            <Button
+              aria-label="Close Info alert: alert: Dolor sit title"
+              onClick={[Function]}
+              variant="plain"
+            >
+              <ButtonBase
+                aria-label="Close Info alert: alert: Dolor sit title"
+                innerRef={null}
+                onClick={[Function]}
+                variant="plain"
+              >
+                <button
+                  aria-disabled={false}
+                  aria-label="Close Info alert: alert: Dolor sit title"
+                  className="pf-c-button pf-m-plain"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-2"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe={true}
+                  disabled={false}
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <TimesIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-labelledby={null}
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style={
+                        Object {
+                          "verticalAlign": "-0.125em",
+                        }
+                      }
+                      viewBox="0 0 352 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                  </TimesIcon>
+                </button>
+              </ButtonBase>
+            </Button>
+          </AlertActionCloseButton>
+        </div>
+        <div
+          className="pf-c-alert__description"
+        >
+          Dolor sit message
+        </div>
+      </div>
+    </Alert>
+  </div>
+</BannerMessages>
 `;

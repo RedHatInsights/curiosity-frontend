@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reduxTypes, store, useSelector } from '../../redux';
+import { reduxTypes, store, storeHooks } from '../../redux';
 import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers } from '../../common';
@@ -28,7 +28,10 @@ const toolbarFieldOptions = dateHelpers.getRangedMonthDateTime().listDateTimeRan
  * @returns {Node}
  */
 const ToolbarFieldRangedMonthly = ({ options, t, value, viewId }) => {
-  const updatedValue = useSelector(({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.START_DATE], value);
+  const updatedValue = storeHooks.reactRedux.useSelector(
+    ({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.START_DATE],
+    value
+  );
 
   const updatedOptions = options.map(option => ({
     ...option,

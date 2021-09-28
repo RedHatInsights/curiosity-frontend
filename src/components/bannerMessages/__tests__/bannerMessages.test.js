@@ -1,13 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { AlertActionCloseButton } from '@patternfly/react-core';
 import { BannerMessages } from '../bannerMessages';
 
 describe('BannerMessages Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a non-connected component', async () => {
     const props = {
-      appMessages: {
-        loremIpsum: true
-      },
       messages: [
         {
           id: 'loremIpsum',
@@ -15,18 +13,16 @@ describe('BannerMessages Component', () => {
           message: 'Lorem ipsum message'
         }
       ],
-      productId: 'lorem'
+      useAppMessages: () => ({ appMessages: { loremIpsum: true } }),
+      useRouteDetail: () => ({})
     };
-    const component = shallow(<BannerMessages {...props} />);
 
+    const component = await mountHookComponent(<BannerMessages {...props} />);
     expect(component).toMatchSnapshot('non-connected');
   });
 
   it('should attempt to check reports on product update', () => {
     const props = {
-      appMessages: {
-        loremIpsum: true
-      },
       messages: [
         {
           id: 'loremIpsum',
@@ -34,20 +30,17 @@ describe('BannerMessages Component', () => {
           message: 'Lorem ipsum message'
         }
       ],
-      productId: 'lorem',
-      getMessageReports: jest.fn()
+      useAppMessages: jest.fn(() => ({})),
+      useRouteDetail: () => ({ productConfig: [{ productId: 'lorem' }] })
     };
+
     const component = shallow(<BannerMessages {...props} />);
-    component.setProps({ productId: 'dolor' });
-    expect(props.getMessageReports).toHaveBeenCalledTimes(2);
+    component.setProps({ useRouteDetail: () => ({ productConfig: [{ productId: 'dolor' }] }) });
+    expect(props.useAppMessages).toHaveBeenCalledTimes(2);
   });
 
-  it('should render specific messages when the appMessages prop is used', () => {
+  it('should render specific messages when the appMessages prop is used', async () => {
     const props = {
-      appMessages: {
-        loremIpsum: false,
-        dolorSit: false
-      },
       messages: [
         {
           id: 'loremIpsum',
@@ -60,40 +53,37 @@ describe('BannerMessages Component', () => {
           message: 'Dolor sit message'
         }
       ],
-      productId: 'lorem'
+      useAppMessages: () => ({ appMessages: { loremIpsum: false, dolorSit: true } }),
+      useRouteDetail: () => ({})
     };
-    const component = shallow(<BannerMessages {...props} />);
 
-    expect(component).toMatchSnapshot('specific messages, OFF');
-
-    component.setProps({
-      ...props,
-      appMessages: {
-        loremIpsum: true,
-        dolorSit: false
-      }
-    });
-    expect(component).toMatchSnapshot('specific messages, ON');
+    const component = await mountHookComponent(<BannerMessages {...props} />);
+    expect(component).toMatchSnapshot('specific messages, OFF, ON');
   });
 
-  it('should handle closing messages from state', () => {
+  it('should handle closing messages from state', async () => {
     const props = {
-      appMessages: {
-        loremIpsum: true
-      },
       messages: [
         {
           id: 'loremIpsum',
           title: 'Lorem ipsum title',
           message: 'Lorem ipsum message'
+        },
+        {
+          id: 'dolorSit',
+          title: 'Dolor sit title',
+          message: 'Dolor sit message'
         }
       ],
-      productId: 'lorem'
+      useAppMessages: () => ({ appMessages: { loremIpsum: false, dolorSit: true } }),
+      useRouteDetail: () => ({})
     };
-    const component = shallow(<BannerMessages {...props} />);
+
+    const component = await mountHookComponent(<BannerMessages {...props} />);
     expect(component).toMatchSnapshot('state messages, ON');
 
-    component.setState({ loremIpsum: true });
-    expect(component).toMatchSnapshot('state messages, OFF');
+    component.find(AlertActionCloseButton).first().simulate('click');
+
+    expect(component.render()).toMatchSnapshot('state messages, OFF');
   });
 });
