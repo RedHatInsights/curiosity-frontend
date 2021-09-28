@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-dom';
 import { useMount } from 'react-use';
+import { RouterContext } from './routerContext';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
 
@@ -57,18 +58,18 @@ const Router = ({ routes } = {}) => {
                 parsedSearch
               };
 
+              const routeDetail = {
+                baseName: routerHelpers.baseName,
+                errorRoute: activateOnErrorRoute,
+                routes,
+                routeItem: { ...item },
+                ...routeConfig
+              };
+
               return (
-                <View
-                  routeDetail={{
-                    baseName: routerHelpers.baseName,
-                    errorRoute: activateOnErrorRoute,
-                    routes,
-                    routeItem: { ...item },
-                    ...routeConfig
-                  }}
-                  location={updatedLocation}
-                  {...routeProps}
-                />
+                <RouterContext.Provider value={{ routeDetail }}>
+                  <View routeDetail={routeDetail} location={updatedLocation} {...routeProps} />
+                </RouterContext.Provider>
               );
             }}
           />

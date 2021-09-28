@@ -12,70 +12,70 @@ const routes = [
     path: '/rhel',
     pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [rhelConfig],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL }],
     redirect: null,
     isSearchable: true,
     aliases: ['insights'],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'rhel-arm',
     path: '/rhel-arm',
     pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_ARM],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [rhelConfig],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_ARM }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'rhel-ibmpower',
     path: '/rhel-ibmpower',
     pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [rhelConfig],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'rhel-ibmz',
     path: '/rhel-ibmz',
     pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [rhelConfig],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'rhel-x86',
     path: '/rhel-x86',
     pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_X86],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [rhelConfig],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_X86 }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'openshift-container',
@@ -110,42 +110,42 @@ const routes = [
     path: '/satellite',
     pathParameter: [RHSM_API_PATH_ID_TYPES.SATELLITE],
     productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [satelliteProductConfig],
+    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'satellite-capsule',
     path: '/satellite-capsule',
     pathParameter: [RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE],
     productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [satelliteProductConfig],
+    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'satellite-server',
     path: '/satellite-server',
     pathParameter: [RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER],
     productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [satelliteProductConfig],
+    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER }],
     redirect: null,
     isSearchable: false,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
-    component: 'productView/productViewDefault'
+    component: 'productView/productView'
   },
   {
     id: 'optin',

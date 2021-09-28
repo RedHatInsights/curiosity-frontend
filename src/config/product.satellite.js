@@ -29,9 +29,12 @@ const productGroup = RHSM_API_PATH_ID_TYPES.SATELLITE;
 
 const productId = null;
 
+const productLabel = RHSM_API_PATH_ID_TYPES.SATELLITE;
+
 const config = {
   productGroup,
   productId,
+  productLabel,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).startDate.toISOString(),

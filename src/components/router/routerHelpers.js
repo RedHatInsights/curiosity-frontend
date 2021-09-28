@@ -234,7 +234,13 @@ const getRouteConfig = ({ id = null, pathName, returnDefault = false, config = r
  * @param {Node} component
  * @returns {Node}
  */
-const importView = component => React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
+const importView = component => {
+  if (!helpers.TEST_MODE) {
+    return React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
+  }
+
+  return p => <React.Fragment>{JSON.stringify({ ...p, component }, null, 2)}</React.Fragment>;
+};
 
 const routerHelpers = {
   appName,

@@ -1,4 +1,5 @@
 import { useHistory as useHistoryRRD, useLocation, useParams, useRouteMatch } from 'react-router-dom';
+import { useRouteDetail } from '../components/router/routerContext';
 import { routerHelpers } from '../components/router/routerHelpers';
 import { reduxActions, useDispatch } from '../redux';
 
@@ -42,7 +43,8 @@ const routerHooks = {
   useHistory,
   useLocation,
   useParams,
+  useRouteDetail,
   useRouteMatch
 };
 
-export { routerHooks as default, routerHooks, useHistory, useLocation, useParams, useRouteMatch };
+export { routerHooks as default, routerHooks, useHistory, useLocation, useParams, useRouteDetail, useRouteMatch };

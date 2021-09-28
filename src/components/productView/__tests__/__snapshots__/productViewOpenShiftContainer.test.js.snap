@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductViewOpenShiftContainer Component should render a non-connected component: non-connected 1`] = `
+exports[`ProductViewOpenShiftContainer Component should render a basic component: basic 1`] = `
 <PageLayout
   className=""
 >
