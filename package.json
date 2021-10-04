@@ -117,7 +117,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "apidoc-mock": "^4.0.1",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.2.1",
+    "babel-jest": "^27.2.4",
     "babel-preset-react-app": "^10.0.0",
     "copy-webpack-plugin": "^9.0.1",
     "cspell": "^5.10.1",
