@@ -189,7 +189,7 @@ Object {
   "routes": Array [
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "rhel",
@@ -198,7 +198,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "rhel-arm",
@@ -207,7 +207,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "rhel-ibmpower",
@@ -216,7 +216,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "rhel-ibmz",
@@ -225,7 +225,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "rhel-x86",
@@ -252,7 +252,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "satellite",
@@ -261,7 +261,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "satellite-capsule",
@@ -270,7 +270,7 @@ Object {
     },
     Object {
       "activateOnError": false,
-      "component": "productView/productViewDefault",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "satellite-server",

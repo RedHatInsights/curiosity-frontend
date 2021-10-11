@@ -320,6 +320,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
             },
             "productGroup": "OpenShift-dedicated-metrics",
             "productId": "OpenShift-dedicated-metrics",
+            "productLabel": "OpenShift-dedicated-metrics",
             "query": Object {
               "beginning": "2019-07-01T00:00:00.000Z",
               "ending": "2019-07-31T23:59:59.999Z",
@@ -334,7 +335,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel",
@@ -343,7 +344,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-arm",
@@ -352,7 +353,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmpower",
@@ -361,7 +362,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmz",
@@ -370,7 +371,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-x86",
@@ -397,7 +398,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite",
@@ -406,7 +407,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite-capsule",
@@ -415,7 +416,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite-server",
