@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
+import { useRouteDetail } from '../../hooks/useRouter';
 import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_PATH_ID_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { apiQueries, useSelector } from '../../redux';
@@ -13,7 +14,6 @@ import Toolbar from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
-import { ProductView } from './productView';
 import { translate } from '../i18n/i18n';
 import { helpers } from '../../common';
 
@@ -21,12 +21,11 @@ import { helpers } from '../../common';
  * An OpenShift Container Platform encompassing view.
  *
  * @param {object} props
- * @param {object} props.routeDetail
  * @param {Function} props.t
  * @returns {Node}
  */
-const ProductViewOpenShiftContainer = ({ routeDetail, t }) => {
-  const { productParameter: viewProductLabel, productConfig } = routeDetail;
+const ProductViewOpenShiftContainer = ({ t }) => {
+  const { productParameter: viewProductLabel, productConfig } = useRouteDetail();
   const uomValue = useSelector(({ view }) => view.query?.[productConfig[0].viewId]?.[RHSM_API_QUERY_TYPES.UOM], null);
 
   const renderProduct = (config, updatedUomValue) => {
@@ -173,10 +172,9 @@ const ProductViewOpenShiftContainer = ({ routeDetail, t }) => {
 /**
  * Prop types.
  *
- * @type {{t: Function, routeDetail: object}}
+ * @type {{t: Function}}
  */
 ProductViewOpenShiftContainer.propTypes = {
-  routeDetail: PropTypes.shape(ProductView.propTypes.routeDetail).isRequired,
   t: PropTypes.func
 };
 

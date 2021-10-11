@@ -1,51 +1,56 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ProductView } from '../productView';
+import * as routerContext from '../../router/routerContext';
 
 describe('ProductView Component', () => {
-  it('should render a non-connected component', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productConfig: [{ lorem: 'ipsum' }],
-        productParameter: 'lorem ipsum product label',
-        viewParameter: 'dolor sit'
-      }
+  it('should render a basic component', async () => {
+    const props = {};
+    const mockContextValue = {
+      pathParameter: 'lorem ipsum',
+      productConfig: [{ lorem: 'ipsum' }],
+      productParameter: 'lorem ipsum product label',
+      viewParameter: 'dolor sit'
     };
 
-    const component = shallow(<ProductView {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    const mock = jest.spyOn(routerContext, 'useRouteDetail').mockImplementation(() => mockContextValue);
+
+    const component = await shallowHookComponent(<ProductView {...props} />);
+    expect(component).toMatchSnapshot('basic');
+    mock.mockClear();
   });
 
-  it('should render nothing if path and product parameters are empty', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: null,
-        productConfig: null,
-        viewParameter: null
-      }
+  it('should render nothing if path and product parameters are empty', async () => {
+    const props = {};
+    const mockContextValue = {
+      pathParameter: null,
+      productConfig: null,
+      viewParameter: null
     };
 
-    const component = shallow(<ProductView {...props} />);
+    const mock = jest.spyOn(routerContext, 'useRouteDetail').mockImplementation(() => mockContextValue);
+
+    const component = await shallowHookComponent(<ProductView {...props} />);
     expect(component).toMatchSnapshot('empty');
+    mock.mockClear();
   });
 
-  it('should allow custom product views', () => {
+  it('should allow custom product views via props', async () => {
     const props = {
-      toolbarGraphDescription: true,
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productConfig: [{ lorem: 'ipsum' }],
-        productParameter: 'lorem ipsum product label',
-        viewParameter: 'dolor sit'
-      }
+      toolbarGraphDescription: true
+    };
+    const mockContextValue = {
+      pathParameter: 'lorem ipsum',
+      productConfig: [{ lorem: 'ipsum' }],
+      productParameter: 'lorem ipsum product label',
+      viewParameter: 'dolor sit'
     };
 
-    const component = shallow(<ProductView {...props} />);
+    const mock = jest.spyOn(routerContext, 'useRouteDetail').mockImplementation(() => mockContextValue);
+
+    const component = await shallowHookComponent(<ProductView {...props} />);
     expect(component).toMatchSnapshot('custom graphCard, descriptions');
 
     component.setProps({
-      ...props,
       toolbarGraphDescription: false,
       toolbarGraph: <React.Fragment>lorem ipsum</React.Fragment>,
       toolbarProduct: false
@@ -54,22 +59,30 @@ describe('ProductView Component', () => {
     expect(component).toMatchSnapshot('custom toolbar, toolbarGraph');
 
     component.setProps({
-      ...props,
       toolbarGraphDescription: false,
       toolbarGraph: false,
       toolbarProduct: <React.Fragment>dolor sit</React.Fragment>
     });
 
     expect(component).toMatchSnapshot('custom toolbar, toolbarProduct');
+    mock.mockClear();
+  });
 
-    component.setProps({
-      ...props,
-      routeDetail: {
-        ...props.routeDetail,
-        productConfig: [{ lorem: 'ipsum', initialSubscriptionsInventoryFilters: [] }]
-      }
-    });
+  it('should allow custom inventory displays via config', async () => {
+    const props = {
+      toolbarGraphDescription: true
+    };
+    const mockContextValue = {
+      pathParameter: 'lorem ipsum',
+      productParameter: 'lorem ipsum product label',
+      viewParameter: 'dolor sit',
+      productConfig: [{ lorem: 'ipsum', initialSubscriptionsInventoryFilters: [] }]
+    };
 
+    const mock = jest.spyOn(routerContext, 'useRouteDetail').mockImplementation(() => mockContextValue);
+
+    const component = await shallowHookComponent(<ProductView {...props} />);
     expect(component).toMatchSnapshot('custom tabs, subscriptions table');
+    mock.mockClear();
   });
 });

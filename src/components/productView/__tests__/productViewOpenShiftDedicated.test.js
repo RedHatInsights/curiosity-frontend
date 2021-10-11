@@ -1,39 +1,42 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ProductViewOpenShiftDedicated } from '../productViewOpenShiftDedicated';
 import { ToolbarFieldRangedMonthly } from '../../toolbar/toolbarFieldRangedMonthly';
 import { config } from '../../../config/product.openshiftDedicated';
+import * as routerContext from '../../router/routerContext';
 
 describe('ProductViewOpenShiftDedicated Component', () => {
-  it('should render a non-connected component', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productConfig: [config],
-        productParameter: 'lorem ipsum product label',
-        viewParameter: 'dolor sit'
-      }
+  let mock;
+
+  beforeEach(() => {
+    const mockContextValue = {
+      pathParameter: 'lorem ipsum',
+      productConfig: [config],
+      productParameter: 'lorem ipsum product label',
+      viewParameter: 'dolor sit'
     };
 
-    const component = shallow(<ProductViewOpenShiftDedicated {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    mock = jest.spyOn(routerContext, 'useRouteDetail').mockImplementation(() => mockContextValue);
   });
 
-  it('should be a custom product view', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productConfig: [config],
-        productParameter: 'lorem ipsum product label',
-        viewParameter: 'dolor sit'
-      }
-    };
+  afterEach(() => {
+    mock.mockClear();
+  });
 
-    const component = shallow(<ProductViewOpenShiftDedicated {...props} />);
+  it('should render a basic component', async () => {
+    const props = {};
+    const component = await shallowHookComponent(<ProductViewOpenShiftDedicated {...props} />);
+    expect(component).toMatchSnapshot('basic');
+    mock.mockClear();
+  });
+
+  it('should be a custom product view', async () => {
+    const props = {};
+    const component = await shallowHookComponent(<ProductViewOpenShiftDedicated {...props} />);
     const { toolbarGraph, toolbarGraphDescription, toolbarProduct } = component.props();
 
     expect(toolbarGraph.type === ToolbarFieldRangedMonthly).toBe(true);
     expect(toolbarGraphDescription).toBe(true);
     expect(toolbarProduct).toBe(false);
+    mock.mockClear();
   });
 });

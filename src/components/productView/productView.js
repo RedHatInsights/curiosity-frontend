@@ -2,27 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
+import { useRouteDetail } from '../../hooks/useRouter';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages } from '../pageLayout/pageLayout';
 import { apiQueries } from '../../redux';
-import { ConnectedGraphCard, GraphCard } from '../graphCard/graphCard';
-import { ConnectedToolbar, Toolbar } from '../toolbar/toolbar';
-import { ConnectedInventoryList, InventoryList } from '../inventoryList/inventoryList';
+import { ConnectedGraphCard } from '../graphCard/graphCard';
+import { ConnectedToolbar } from '../toolbar/toolbar';
+import { ConnectedInventoryList } from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
-import {
-  ConnectedInventorySubscriptions,
-  InventorySubscriptions
-} from '../inventorySubscriptions/inventorySubscriptions';
-import {
-  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../types/rhsmApiTypes';
-import { GuestsList } from '../guestsList/guestsList';
+import { ConnectedInventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
+import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -40,20 +31,19 @@ import { translate } from '../i18n/i18n';
  * Display a product.
  *
  * @param {object} props
- * @param {object} props.routeDetail
  * @param {Function} props.t
  * @param {Node|boolean} props.toolbarGraph
  * @param {boolean} props.toolbarGraphDescription
  * @param {Node|boolean} props.toolbarProduct
  * @returns {Node}
  */
-const ProductView = ({ routeDetail, t, toolbarGraph, toolbarGraphDescription, toolbarProduct }) => {
+const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, toolbarProduct }) => {
   const {
     pathParameter: productId,
     productConfig,
     productParameter: productLabel,
     viewParameter: viewId
-  } = routeDetail;
+  } = useRouteDetail();
 
   const {
     graphTallyQuery,
@@ -69,6 +59,10 @@ const ProductView = ({ routeDetail, t, toolbarGraph, toolbarGraphDescription, to
     initialSubscriptionsInventoryFilters
   } = productConfig?.[0] || {};
 
+  if (!productId || !viewId) {
+    return null;
+  }
+
   const {
     query: initialQuery,
     graphTallyQuery: initialGraphTallyQuery,
@@ -76,10 +70,6 @@ const ProductView = ({ routeDetail, t, toolbarGraph, toolbarGraphDescription, to
     inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
     toolbarQuery: initialToolbarQuery
   } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
-
-  if (!productId || !viewId) {
-    return null;
-  }
 
   let graphCardTooltip = null;
 
@@ -185,45 +175,10 @@ const ProductView = ({ routeDetail, t, toolbarGraph, toolbarGraphDescription, to
 /**
  * Prop types.
  *
- * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, routeDetail: object,
- *    productConfig: object, toolbarProduct: (Node|boolean)}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, productConfig: object,
+ *    toolbarProduct: (Node|boolean)}}
  */
 ProductView.propTypes = {
-  routeDetail: PropTypes.shape({
-    pathParameter: PropTypes.string,
-    productConfig: PropTypes.arrayOf(
-      PropTypes.shape({
-        graphTallyQuery: PropTypes.shape({
-          [RHSM_API_QUERY_TYPES.GRANULARITY]: PropTypes.oneOf([...Object.values(GRANULARITY_TYPES)])
-        }),
-        inventoryHostsQuery: PropTypes.shape({
-          [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
-          [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
-          [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SORT_TYPES)]),
-          [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
-        }),
-        inventorySubscriptionsQuery: PropTypes.shape({
-          [RHSM_API_QUERY_TYPES.LIMIT]: PropTypes.number,
-          [RHSM_API_QUERY_TYPES.OFFSET]: PropTypes.number,
-          [RHSM_API_QUERY_TYPES.SORT]: PropTypes.oneOf([...Object.values(RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES)]),
-          [RHSM_API_QUERY_TYPES.DIRECTION]: PropTypes.oneOf([...Object.values(SORT_DIRECTION_TYPES)])
-        }),
-        query: PropTypes.shape({
-          [RHSM_API_QUERY_TYPES.START_DATE]: PropTypes.string,
-          [RHSM_API_QUERY_TYPES.END_DATE]: PropTypes.string
-        }),
-        initialToolbarFilters: Toolbar.propTypes.filterOptions,
-        initialGraphFilters: GraphCard.propTypes.filterGraphData,
-        initialGraphSettings: GraphCard.propTypes.settings,
-        initialGuestsFilters: GuestsList.propTypes.filterGuestsData,
-        initialInventoryFilters: InventoryList.propTypes.filterInventoryData,
-        initialInventorySettings: InventoryList.propTypes.settings,
-        initialSubscriptionsInventoryFilters: InventorySubscriptions.propTypes.filterInventoryData
-      })
-    ),
-    productParameter: PropTypes.string,
-    viewParameter: PropTypes.string
-  }).isRequired,
   t: PropTypes.func,
   toolbarGraph: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
   toolbarGraphDescription: PropTypes.bool,

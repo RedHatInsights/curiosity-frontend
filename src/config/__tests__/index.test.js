@@ -15,6 +15,7 @@ describe('Configuration', () => {
       const {
         productGroup,
         productId,
+        productLabel,
         viewId,
         query,
         graphTallyQuery,
@@ -26,6 +27,7 @@ describe('Configuration', () => {
       const entryCheck = {
         productGroup: typeof productGroup === 'string' ? 'PASS' : 'FAIL',
         productId: typeof productId === 'string' || productId === null ? 'PASS' : 'FAIL',
+        productLabel: typeof productLabel === 'string' || productLabel === null ? 'PASS' : 'FAIL',
         viewId: typeof viewId === 'string' ? 'PASS' : 'FAIL',
         query: _isPlainObject(query) ? 'PASS' : 'FAIL',
         graphTallyQuery: _isPlainObject(graphTallyQuery) ? 'PASS' : 'FAIL',
