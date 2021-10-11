@@ -30,6 +30,7 @@ Object {
   "useHistory": [Function],
   "useLocation": [Function],
   "useParams": [Function],
+  "useRouteDetail": [Function],
   "useRouteMatch": [Function],
 }
 `;
