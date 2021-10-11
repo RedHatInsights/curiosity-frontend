@@ -31,9 +31,12 @@ const productGroup = RHSM_API_PATH_ID_TYPES.RHEL;
 
 const productId = null;
 
+const productLabel = RHSM_API_PATH_ID_TYPES.RHEL;
+
 const config = {
   productGroup,
   productId,
+  productLabel,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,

@@ -1,6 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductView Component should allow custom product views: custom graphCard, descriptions 1`] = `
+exports[`ProductView Component should allow custom inventory displays via config: custom tabs, subscriptions table 1`] = `
+<PageLayout
+  className=""
+>
+  <PageHeader
+    includeTour={false}
+    productLabel="lorem ipsum product label"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+  </PageHeader>
+  <PageMessages
+    className=""
+  >
+    <Connect(BannerMessages)
+      productId="lorem ipsum"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageMessages>
+  <PageToolbar
+    className=""
+  >
+    <Connect(Toolbar)
+      productId="lorem ipsum"
+      query={Object {}}
+      viewId="dolor sit"
+    />
+  </PageToolbar>
+  <PageSection
+    className=""
+  >
+    <Connect(GraphCard)
+      cardTitle={
+        <React.Fragment>
+          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
+          <Tooltip
+            content={
+              <p>
+                t(curiosity-graph.cardHeadingDescription, {"context":"lorem ipsum"})
+              </p>
+            }
+            distance={5}
+            enableFlip={false}
+            entryDelay={100}
+            exitDelay={0}
+            position="top"
+          >
+            <sup
+              className="curiosity-icon__info"
+            >
+              <InfoCircleIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </sup>
+          </Tooltip>
+        </React.Fragment>
+      }
+      key="graph_lorem ipsum"
+      productId="lorem ipsum"
+      productLabel="lorem ipsum product label"
+      query={Object {}}
+      viewId="dolor sit"
+    >
+      <ToolbarFieldGranularity
+        options={
+          Array [
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+              "value": "daily",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+              "value": "weekly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+              "value": "monthly",
+            },
+            Object {
+              "selected": false,
+              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+              "value": "quarterly",
+            },
+          ]
+        }
+        t={[Function]}
+        value="daily"
+        viewId="dolor sit"
+      />
+    </Connect(GraphCard)>
+  </PageSection>
+  <PageSection
+    className=""
+  >
+    <Connect(InventoryTabs)
+      key="inventory_lorem ipsum"
+      productId="lorem ipsum"
+    >
+      <InventoryTab
+        active={false}
+        key="inventory_hosts_lorem ipsum"
+        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
+      >
+        <Connect(InventoryList)
+          key="inv_lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+      <InventoryTab
+        active={false}
+        key="inventory_subs_lorem ipsum"
+        title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem ipsum\\"})"
+      >
+        <Connect(InventorySubscriptions)
+          filterInventoryData={Array []}
+          key="subs_lorem ipsum"
+          productId="lorem ipsum"
+          query={Object {}}
+          viewId="dolor sit"
+        />
+      </InventoryTab>
+    </Connect(InventoryTabs)>
+  </PageSection>
+</PageLayout>
+`;
+
+exports[`ProductView Component should allow custom product views via props: custom graphCard, descriptions 1`] = `
 <PageLayout
   className=""
 >
@@ -121,107 +255,7 @@ exports[`ProductView Component should allow custom product views: custom graphCa
 </PageLayout>
 `;
 
-exports[`ProductView Component should allow custom product views: custom tabs, subscriptions table 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    includeTour={false}
-    productLabel="lorem ipsum product label"
-    t={[Function]}
-  >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
-  </PageHeader>
-  <PageMessages
-    className=""
-  >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
-    />
-  </PageMessages>
-  <PageToolbar
-    className=""
-  >
-    dolor sit
-  </PageToolbar>
-  <PageSection
-    className=""
-  >
-    <Connect(GraphCard)
-      cardTitle={
-        <React.Fragment>
-          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
-          <Tooltip
-            content={
-              <p>
-                t(curiosity-graph.cardHeadingDescription, {"context":"lorem ipsum"})
-              </p>
-            }
-            distance={5}
-            enableFlip={false}
-            entryDelay={100}
-            exitDelay={0}
-            position="top"
-          >
-            <sup
-              className="curiosity-icon__info"
-            >
-              <InfoCircleIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            </sup>
-          </Tooltip>
-        </React.Fragment>
-      }
-      key="graph_lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="lorem ipsum product label"
-      query={Object {}}
-      viewId="dolor sit"
-    />
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      key="inventory_lorem ipsum"
-      productId="lorem ipsum"
-    >
-      <InventoryTab
-        active={false}
-        key="inventory_hosts_lorem ipsum"
-        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
-      >
-        <Connect(InventoryList)
-          key="inv_lorem ipsum"
-          productId="lorem ipsum"
-          query={Object {}}
-          viewId="dolor sit"
-        />
-      </InventoryTab>
-      <InventoryTab
-        active={false}
-        key="inventory_subs_lorem ipsum"
-        title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem ipsum\\"})"
-      >
-        <Connect(InventorySubscriptions)
-          filterInventoryData={Array []}
-          key="subs_lorem ipsum"
-          productId="lorem ipsum"
-          query={Object {}}
-          viewId="dolor sit"
-        />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
-</PageLayout>
-`;
-
-exports[`ProductView Component should allow custom product views: custom toolbar, toolbarGraph 1`] = `
+exports[`ProductView Component should allow custom product views via props: custom toolbar, toolbarGraph 1`] = `
 <PageLayout
   className=""
 >
@@ -286,7 +320,7 @@ exports[`ProductView Component should allow custom product views: custom toolbar
 </PageLayout>
 `;
 
-exports[`ProductView Component should allow custom product views: custom toolbar, toolbarProduct 1`] = `
+exports[`ProductView Component should allow custom product views via props: custom toolbar, toolbarProduct 1`] = `
 <PageLayout
   className=""
 >
@@ -351,7 +385,7 @@ exports[`ProductView Component should allow custom product views: custom toolbar
 </PageLayout>
 `;
 
-exports[`ProductView Component should render a non-connected component: non-connected 1`] = `
+exports[`ProductView Component should render a basic component: basic 1`] = `
 <PageLayout
   className=""
 >

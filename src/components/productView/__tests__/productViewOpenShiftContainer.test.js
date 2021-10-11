@@ -1,36 +1,38 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { PageColumns, PageToolbar } from '../../pageLayout/pageLayout';
 import { ToolbarFieldUom } from '../../toolbar/toolbarFieldUom';
 import { ToolbarFieldRangedMonthly } from '../../toolbar/toolbarFieldRangedMonthly';
 import { ProductViewOpenShiftContainer } from '../productViewOpenShiftContainer';
 import { config as openshiftContainerConfig } from '../../../config/product.openshiftContainer';
 import { config as openshiftMetricsConfig } from '../../../config/product.openshiftMetrics';
+import * as routerContext from '../../router/routerContext';
 
 describe('ProductViewOpenShiftContainer Component', () => {
-  it('should render a non-connected component', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productConfig: [openshiftContainerConfig, openshiftMetricsConfig],
-        productParameter: 'lorem ipsum product label'
-      }
+  let mock;
+
+  beforeEach(() => {
+    const mockContextValue = {
+      pathParameter: 'lorem ipsum',
+      productConfig: [openshiftContainerConfig, openshiftMetricsConfig],
+      productParameter: 'lorem ipsum product label'
     };
 
-    const component = shallow(<ProductViewOpenShiftContainer {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    mock = jest.spyOn(routerContext, 'useRouteDetail').mockImplementation(() => mockContextValue);
   });
 
-  it('should be a custom product view', () => {
-    const props = {
-      routeDetail: {
-        pathParameter: 'lorem ipsum',
-        productConfig: [openshiftContainerConfig, openshiftMetricsConfig],
-        productParameter: 'lorem ipsum product label'
-      }
-    };
+  afterEach(() => {
+    mock.mockClear();
+  });
 
-    const component = shallow(<ProductViewOpenShiftContainer {...props} />);
+  it('should render a basic component', async () => {
+    const props = {};
+    const component = await shallowHookComponent(<ProductViewOpenShiftContainer {...props} />);
+    expect(component).toMatchSnapshot('basic');
+  });
+
+  it('should be a custom product view', async () => {
+    const props = {};
+    const component = await shallowHookComponent(<ProductViewOpenShiftContainer {...props} />);
     const pageColumns = component.find(PageColumns);
 
     expect(pageColumns.children().length).toBe(5);

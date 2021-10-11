@@ -308,7 +308,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
     Array [
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel",
@@ -317,7 +317,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-arm",
@@ -326,7 +326,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmpower",
@@ -335,7 +335,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmz",
@@ -344,7 +344,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-x86",
@@ -371,7 +371,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite",
@@ -380,7 +380,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite-capsule",
@@ -389,7 +389,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite-server",
@@ -448,7 +448,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     Array [
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel",
@@ -457,7 +457,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-arm",
@@ -466,7 +466,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmpower",
@@ -475,7 +475,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-ibmz",
@@ -484,7 +484,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "rhel-x86",
@@ -511,7 +511,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite",
@@ -520,7 +520,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite-capsule",
@@ -529,7 +529,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       },
       Object {
         "activateOnError": false,
-        "component": "productView/productViewDefault",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "satellite-server",
