@@ -1,6 +1,6 @@
 import { context, useRouteDetail } from '../routerContext';
 
-describe('ChartContext', () => {
+describe('RouterContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
   });

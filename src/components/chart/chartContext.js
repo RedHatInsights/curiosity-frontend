@@ -26,8 +26,8 @@ const useChartContext = () => useContext(ChartContext);
 /**
  * Track, show, and hide chart data layers.
  *
- * @param {object} hooks
- * @param {Function} hooks.useChartContext
+ * @param {object} options
+ * @param {Function} options.useChartContext
  * @returns {{onRevert: Function, onToggle: Function, getIsToggled: Function, dataSetsToggle: object,
  *     onHide: Function}}
  */
