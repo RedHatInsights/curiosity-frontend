@@ -7,11 +7,6 @@ exports[`BannerMessages Component should handle closing messages from state: sta
   messages={
     Array [
       Object {
-        "id": "loremIpsum",
-        "message": "Lorem ipsum message",
-        "title": "Lorem ipsum title",
-      },
-      Object {
         "id": "dolorSit",
         "message": "Dolor sit message",
         "title": "Dolor sit title",
