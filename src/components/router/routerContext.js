@@ -23,8 +23,8 @@ const useRouterContext = () => useContext(RouterContext);
 /**
  * Get a route detail from router context.
  *
- * @param {object} hooks
- * @param {Function} hooks.useRouterContext
+ * @param {object} options
+ * @param {Function} options.useRouterContext
  * @returns {{routes: Array, routeItem: object, baseName: string, errorRoute: object}}
  */
 const useRouteDetail = ({ useRouterContext: useAliasRouterContext = useRouterContext } = {}) => {

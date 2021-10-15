@@ -124,5 +124,6 @@ exports[`ProductViewOpenShiftDedicated Component should render a basic component
   }
   toolbarGraphDescription={true}
   toolbarProduct={false}
+  useRouteDetail={[Function]}
 />
 `;
