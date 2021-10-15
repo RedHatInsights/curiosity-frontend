@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useReactRedux should apply a hook for useDispatch: dispatch 1`] = `
+Array [
+  Array [
+    Object {
+      "data": "ipsum",
+      "type": "lorem",
+    },
+  ],
+]
+`;
+
+exports[`useReactRedux should return specific properties: specific properties 1`] = `
+Object {
+  "shallowEqual": [Function],
+  "useDispatch": [Function],
+  "useSelector": [Function],
+}
+`;

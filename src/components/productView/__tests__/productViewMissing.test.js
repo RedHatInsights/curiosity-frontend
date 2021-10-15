@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import * as reactRedux from 'react-redux';
+import { store } from '../../../redux/store';
 import { ProductViewMissing } from '../productViewMissing';
 
 describe('ProductViewMissing Component', () => {
-  const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
+  const useDispatchMock = jest.spyOn(store, 'dispatch');
 
   afterEach(() => {
     useDispatchMock.mockClear();
@@ -38,7 +38,7 @@ describe('ProductViewMissing Component', () => {
 
   it('should redirect when there are limited product cards', async () => {
     const mockDispatch = jest.fn();
-    useDispatchMock.mockReturnValue(action => action(mockDispatch));
+    useDispatchMock.mockImplementation(action => action(mockDispatch));
 
     const props = {};
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reduxTypes, store, useSelector } from '../../redux';
+import { reduxTypes, store, storeHooks } from '../../redux';
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_UOM_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
@@ -28,7 +28,10 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
  * @returns {Node}
  */
 const ToolbarFieldUom = ({ options, t, value, viewId }) => {
-  const updatedValue = useSelector(({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.UOM], value);
+  const updatedValue = storeHooks.reactRedux.useSelector(
+    ({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.UOM],
+    value
+  );
 
   const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
 

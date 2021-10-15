@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import { useRouteDetail } from '../../hooks/useRouter';
+import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_PATH_ID_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
-import { apiQueries, useSelector } from '../../redux';
+import { apiQueries, storeHooks } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
 import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
@@ -22,11 +23,15 @@ import { helpers } from '../../common';
  *
  * @param {object} props
  * @param {Function} props.t
+ * @param {Function} props.useRouteDetail
  * @returns {Node}
  */
-const ProductViewOpenShiftContainer = ({ t }) => {
-  const { productParameter: viewProductLabel, productConfig } = useRouteDetail();
-  const uomValue = useSelector(({ view }) => view.query?.[productConfig[0].viewId]?.[RHSM_API_QUERY_TYPES.UOM], null);
+const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail }) => {
+  const { productParameter: viewProductLabel, productConfig } = useAliasRouteDetail();
+  const uomValue = storeHooks.reactRedux.useSelector(
+    ({ view }) => view.query?.[productConfig[0].viewId]?.[RHSM_API_QUERY_TYPES.UOM],
+    null
+  );
 
   const renderProduct = (config, updatedUomValue) => {
     const {
@@ -97,7 +102,7 @@ const ProductViewOpenShiftContainer = ({ t }) => {
     );
 
     return (
-      <React.Fragment key={`product_${productId}_${uomFilter}`}>
+      <ProductViewContext.Provider value={config} key={`product_${productId}_${uomFilter}`}>
         {initialToolbarFilters && (
           <PageToolbar>
             <Toolbar filterOptions={initialToolbarFilters} productId={productId} query={toolbarQuery} viewId={viewId} />
@@ -155,7 +160,7 @@ const ProductViewOpenShiftContainer = ({ t }) => {
             )}
           </InventoryTabs>
         </PageSection>
-      </React.Fragment>
+      </ProductViewContext.Provider>
     );
   };
 
@@ -172,19 +177,21 @@ const ProductViewOpenShiftContainer = ({ t }) => {
 /**
  * Prop types.
  *
- * @type {{t: Function}}
+ * @type {{t: Function, useRouteDetail: Function}}
  */
 ProductViewOpenShiftContainer.propTypes = {
-  t: PropTypes.func
+  t: PropTypes.func,
+  useRouteDetail: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: Function}}
+ * @type {{t: Function, useRouteDetail: Function}}
  */
 ProductViewOpenShiftContainer.defaultProps = {
-  t: translate
+  t: translate,
+  useRouteDetail
 };
 
 export { ProductViewOpenShiftContainer as default, ProductViewOpenShiftContainer };
