@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChartContext should apply a hook for return routeDetail: route details 1`] = `
+exports[`RouterContext should apply a hook for return routeDetail: route details 1`] = `
 Object {
   "lorem": "ipsum",
 }
 `;
 
-exports[`ChartContext should return specific properties: specific properties 1`] = `
+exports[`RouterContext should return specific properties: specific properties 1`] = `
 Object {
   "DEFAULT_CONTEXT": Array [
     Object {

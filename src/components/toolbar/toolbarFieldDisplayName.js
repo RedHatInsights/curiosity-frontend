@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup } from '@patternfly/react-core';
 import _debounce from 'lodash/debounce';
-import { reduxTypes, store, useSelector } from '../../redux';
+import { reduxTypes, store, storeHooks } from '../../redux';
 import { TextInput } from '../form/textInput';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
@@ -23,7 +23,7 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
-  const currentValue = useSelector(
+  const currentValue = storeHooks.reactRedux.useSelector(
     ({ view }) => view.inventoryHostsQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
     value
   );
