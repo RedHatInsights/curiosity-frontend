@@ -102,72 +102,65 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
     );
 
     return (
-      <React.Fragment key={`product_${productId}_${uomFilter}`}>
-        <ProductViewContext.Provider value={config}>
-          {initialToolbarFilters && (
-            <PageToolbar>
-              <Toolbar
-                filterOptions={initialToolbarFilters}
+      <ProductViewContext.Provider value={config} key={`product_${productId}_${uomFilter}`}>
+        {initialToolbarFilters && (
+          <PageToolbar>
+            <Toolbar filterOptions={initialToolbarFilters} productId={productId} query={toolbarQuery} viewId={viewId} />
+          </PageToolbar>
+        )}
+        <PageSection>
+          <GraphCard
+            key={`graph_${productId}`}
+            filterGraphData={graphFilters}
+            settings={initialGraphSettings}
+            query={initialGraphTallyQuery}
+            productId={productId}
+            viewId={viewId}
+            cardTitle={graphCardTitle}
+            productLabel={productLabel}
+          >
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (
+              <ToolbarFieldUom value={uomFilter} viewId={viewId} />
+            )}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && (
+              <ToolbarFieldGranularity value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} viewId={viewId} />
+            )}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && <ToolbarFieldRangedMonthly viewId={viewId} />}
+          </GraphCard>
+        </PageSection>
+        <PageSection>
+          <InventoryTabs key={`inventory_${productId}`} productId={productId}>
+            <InventoryTab
+              key={`inventory_hosts_${productId}`}
+              title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+            >
+              <InventoryList
+                key={`inv_${productId}`}
+                filterGuestsData={initialGuestsFilters}
+                filterInventoryData={inventoryFilters}
                 productId={productId}
-                query={toolbarQuery}
+                settings={initialInventorySettings}
+                query={initialInventoryHostsQuery}
                 viewId={viewId}
               />
-            </PageToolbar>
-          )}
-          <PageSection>
-            <GraphCard
-              key={`graph_${productId}`}
-              filterGraphData={graphFilters}
-              settings={initialGraphSettings}
-              query={initialGraphTallyQuery}
-              productId={productId}
-              viewId={viewId}
-              cardTitle={graphCardTitle}
-              productLabel={productLabel}
-            >
-              {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (
-                <ToolbarFieldUom value={uomFilter} viewId={viewId} />
-              )}
-              {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && (
-                <ToolbarFieldGranularity value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} viewId={viewId} />
-              )}
-              {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && <ToolbarFieldRangedMonthly viewId={viewId} />}
-            </GraphCard>
-          </PageSection>
-          <PageSection>
-            <InventoryTabs key={`inventory_${productId}`} productId={productId}>
+            </InventoryTab>
+            {initialSubscriptionsInventoryFilters && (
               <InventoryTab
-                key={`inventory_hosts_${productId}`}
-                title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+                key={`inventory_subs_${productId}`}
+                title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
               >
-                <InventoryList
-                  key={`inv_${productId}`}
-                  filterGuestsData={initialGuestsFilters}
-                  filterInventoryData={inventoryFilters}
+                <InventorySubscriptions
+                  key={`subs_${productId}`}
+                  filterInventoryData={subscriptionsInventoryFilters}
                   productId={productId}
-                  settings={initialInventorySettings}
-                  query={initialInventoryHostsQuery}
+                  query={initialInventorySubscriptionsQuery}
                   viewId={viewId}
                 />
               </InventoryTab>
-              {initialSubscriptionsInventoryFilters && (
-                <InventoryTab
-                  key={`inventory_subs_${productId}`}
-                  title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
-                >
-                  <InventorySubscriptions
-                    key={`subs_${productId}`}
-                    filterInventoryData={subscriptionsInventoryFilters}
-                    productId={productId}
-                    query={initialInventorySubscriptionsQuery}
-                    viewId={viewId}
-                  />
-                </InventoryTab>
-              )}
-            </InventoryTabs>
-          </PageSection>
-        </ProductViewContext.Provider>
-      </React.Fragment>
+            )}
+          </InventoryTabs>
+        </PageSection>
+      </ProductViewContext.Provider>
     );
   };
 

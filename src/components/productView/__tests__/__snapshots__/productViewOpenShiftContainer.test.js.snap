@@ -15,6 +15,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
     className=""
   >
     <ContextProvider
+      key="product_OpenShift Container Platform_cores"
       value={
         Object {
           "graphTallyQuery": Object {
@@ -423,6 +424,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
       </PageSection>
     </ContextProvider>
     <ContextProvider
+      key="product_OpenShift-metrics_undefined"
       value={
         Object {
           "graphTallyQuery": Object {
