@@ -14,123 +14,146 @@ exports[`ProductView Component should allow custom inventory displays via config
   <PageMessages
     className=""
   >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
+    <BannerMessages
+      messages={
+        Array [
+          Object {
+            "id": "cloudigradeMismatch",
+            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+            "title": "t(curiosity-banner.dataMismatchTitle)",
+          },
+        ]
+      }
+      useAppMessages={[Function]}
+      useRouteDetail={[Function]}
     />
   </PageMessages>
-  <PageToolbar
+  <PageColumns
     className=""
   >
-    <Connect(Toolbar)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
-    />
-  </PageToolbar>
-  <PageSection
-    className=""
-  >
-    <Connect(GraphCard)
-      cardTitle={
-        <React.Fragment>
-          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
-          <Tooltip
-            content={
-              <p>
-                t(curiosity-graph.cardHeadingDescription, {"context":"lorem ipsum"})
-              </p>
-            }
-            distance={5}
-            enableFlip={false}
-            entryDelay={100}
-            exitDelay={0}
-            position="top"
-          >
-            <sup
-              className="curiosity-icon__info"
-            >
-              <InfoCircleIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            </sup>
-          </Tooltip>
-        </React.Fragment>
-      }
-      key="graph_lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="lorem ipsum product label"
-      query={Object {}}
-      viewId="dolor sit"
-    >
-      <ToolbarFieldGranularity
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-              "value": "daily",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-              "value": "weekly",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-              "value": "monthly",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-              "value": "quarterly",
-            },
-          ]
+    <ContextProvider
+      key="product_lorem"
+      value={
+        Object {
+          "initialSubscriptionsInventoryFilters": Array [],
+          "lorem": "ipsum",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
         }
-        t={[Function]}
-        value="daily"
-        viewId="dolor sit"
-      />
-    </Connect(GraphCard)>
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      key="inventory_lorem ipsum"
-      productId="lorem ipsum"
+      }
     >
-      <InventoryTab
-        active={false}
-        key="inventory_hosts_lorem ipsum"
-        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
+      <PageToolbar
+        className=""
       >
-        <Connect(InventoryList)
-          key="inv_lorem ipsum"
-          productId="lorem ipsum"
+        <Connect(Toolbar)
+          productId="lorem"
           query={Object {}}
-          viewId="dolor sit"
+          viewId="viewIpsum"
         />
-      </InventoryTab>
-      <InventoryTab
-        active={false}
-        key="inventory_subs_lorem ipsum"
-        title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem ipsum\\"})"
+      </PageToolbar>
+      <PageSection
+        className=""
       >
-        <Connect(InventorySubscriptions)
-          filterInventoryData={Array []}
-          key="subs_lorem ipsum"
-          productId="lorem ipsum"
+        <Connect(GraphCard)
+          cardTitle={
+            <React.Fragment>
+              t(curiosity-graph.cardHeading, {"context":"lorem"})
+              <Tooltip
+                content={
+                  <p>
+                    t(curiosity-graph.cardHeadingDescription, {"context":"lorem"})
+                  </p>
+                }
+                distance={5}
+                enableFlip={false}
+                entryDelay={100}
+                exitDelay={0}
+                position="top"
+              >
+                <sup
+                  className="curiosity-icon__info"
+                >
+                  <InfoCircleIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />
+                </sup>
+              </Tooltip>
+            </React.Fragment>
+          }
+          key="graph_lorem"
+          productId="lorem"
           query={Object {}}
-          viewId="dolor sit"
-        />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
+          viewId="viewIpsum"
+        >
+          <ToolbarFieldGranularity
+            options={
+              Array [
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+                  "value": "daily",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+                  "value": "weekly",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+                  "value": "monthly",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+                  "value": "quarterly",
+                },
+              ]
+            }
+            t={[Function]}
+            value="daily"
+            viewId="viewIpsum"
+          />
+        </Connect(GraphCard)>
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <Connect(InventoryTabs)
+          key="inventory_lorem"
+          productId="lorem"
+        >
+          <InventoryTab
+            active={false}
+            key="inventory_hosts_lorem"
+            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
+          >
+            <Connect(InventoryList)
+              key="inv_lorem"
+              productId="lorem"
+              query={Object {}}
+              viewId="viewIpsum"
+            />
+          </InventoryTab>
+          <InventoryTab
+            active={false}
+            key="inventory_subs_lorem"
+            title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem\\"})"
+          >
+            <Connect(InventorySubscriptions)
+              filterInventoryData={Array []}
+              key="subs_lorem"
+              productId="lorem"
+              query={Object {}}
+              viewId="viewIpsum"
+            />
+          </InventoryTab>
+        </Connect(InventoryTabs)>
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
 </PageLayout>
 `;
 
@@ -148,110 +171,132 @@ exports[`ProductView Component should allow custom product views via props: cust
   <PageMessages
     className=""
   >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
+    <BannerMessages
+      messages={
+        Array [
+          Object {
+            "id": "cloudigradeMismatch",
+            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+            "title": "t(curiosity-banner.dataMismatchTitle)",
+          },
+        ]
+      }
+      useAppMessages={[Function]}
+      useRouteDetail={[Function]}
     />
   </PageMessages>
-  <PageToolbar
+  <PageColumns
     className=""
   >
-    <Connect(Toolbar)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
-    />
-  </PageToolbar>
-  <PageSection
-    className=""
-  >
-    <Connect(GraphCard)
-      cardTitle={
-        <React.Fragment>
-          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
-          <Tooltip
-            content={
-              <p>
-                t(curiosity-graph.cardHeadingDescription, {"context":"lorem ipsum"})
-              </p>
-            }
-            distance={5}
-            enableFlip={false}
-            entryDelay={100}
-            exitDelay={0}
-            position="top"
-          >
-            <sup
-              className="curiosity-icon__info"
-            >
-              <InfoCircleIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            </sup>
-          </Tooltip>
-        </React.Fragment>
-      }
-      key="graph_lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="lorem ipsum product label"
-      query={Object {}}
-      viewId="dolor sit"
-    >
-      <ToolbarFieldGranularity
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-              "value": "daily",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-              "value": "weekly",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-              "value": "monthly",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-              "value": "quarterly",
-            },
-          ]
+    <ContextProvider
+      key="product_lorem"
+      value={
+        Object {
+          "lorem": "ipsum",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
         }
-        t={[Function]}
-        value="daily"
-        viewId="dolor sit"
-      />
-    </Connect(GraphCard)>
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      key="inventory_lorem ipsum"
-      productId="lorem ipsum"
+      }
     >
-      <InventoryTab
-        active={false}
-        key="inventory_hosts_lorem ipsum"
-        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
+      <PageToolbar
+        className=""
       >
-        <Connect(InventoryList)
-          key="inv_lorem ipsum"
-          productId="lorem ipsum"
+        <Connect(Toolbar)
+          productId="lorem"
           query={Object {}}
-          viewId="dolor sit"
+          viewId="viewIpsum"
         />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
+      </PageToolbar>
+      <PageSection
+        className=""
+      >
+        <Connect(GraphCard)
+          cardTitle={
+            <React.Fragment>
+              t(curiosity-graph.cardHeading, {"context":"lorem"})
+              <Tooltip
+                content={
+                  <p>
+                    t(curiosity-graph.cardHeadingDescription, {"context":"lorem"})
+                  </p>
+                }
+                distance={5}
+                enableFlip={false}
+                entryDelay={100}
+                exitDelay={0}
+                position="top"
+              >
+                <sup
+                  className="curiosity-icon__info"
+                >
+                  <InfoCircleIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />
+                </sup>
+              </Tooltip>
+            </React.Fragment>
+          }
+          key="graph_lorem"
+          productId="lorem"
+          query={Object {}}
+          viewId="viewIpsum"
+        >
+          <ToolbarFieldGranularity
+            options={
+              Array [
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+                  "value": "daily",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+                  "value": "weekly",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+                  "value": "monthly",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+                  "value": "quarterly",
+                },
+              ]
+            }
+            t={[Function]}
+            value="daily"
+            viewId="viewIpsum"
+          />
+        </Connect(GraphCard)>
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <Connect(InventoryTabs)
+          key="inventory_lorem"
+          productId="lorem"
+        >
+          <InventoryTab
+            active={false}
+            key="inventory_hosts_lorem"
+            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
+          >
+            <Connect(InventoryList)
+              key="inv_lorem"
+              productId="lorem"
+              query={Object {}}
+              viewId="viewIpsum"
+            />
+          </InventoryTab>
+        </Connect(InventoryTabs)>
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
 </PageLayout>
 `;
 
@@ -269,54 +314,76 @@ exports[`ProductView Component should allow custom product views via props: cust
   <PageMessages
     className=""
   >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
+    <BannerMessages
+      messages={
+        Array [
+          Object {
+            "id": "cloudigradeMismatch",
+            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+            "title": "t(curiosity-banner.dataMismatchTitle)",
+          },
+        ]
+      }
+      useAppMessages={[Function]}
+      useRouteDetail={[Function]}
     />
   </PageMessages>
-  <PageToolbar
-    className=""
-  />
-  <PageSection
+  <PageColumns
     className=""
   >
-    <Connect(GraphCard)
-      cardTitle={
-        <React.Fragment>
-          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
-        </React.Fragment>
+    <ContextProvider
+      key="product_lorem"
+      value={
+        Object {
+          "lorem": "ipsum",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
+        }
       }
-      key="graph_lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="lorem ipsum product label"
-      query={Object {}}
-      viewId="dolor sit"
     >
-      lorem ipsum
-    </Connect(GraphCard)>
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      key="inventory_lorem ipsum"
-      productId="lorem ipsum"
-    >
-      <InventoryTab
-        active={false}
-        key="inventory_hosts_lorem ipsum"
-        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
+      <PageToolbar
+        className=""
+      />
+      <PageSection
+        className=""
       >
-        <Connect(InventoryList)
-          key="inv_lorem ipsum"
-          productId="lorem ipsum"
+        <Connect(GraphCard)
+          cardTitle={
+            <React.Fragment>
+              t(curiosity-graph.cardHeading, {"context":"lorem"})
+            </React.Fragment>
+          }
+          key="graph_lorem"
+          productId="lorem"
           query={Object {}}
-          viewId="dolor sit"
-        />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
+          viewId="viewIpsum"
+        >
+          lorem ipsum
+        </Connect(GraphCard)>
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <Connect(InventoryTabs)
+          key="inventory_lorem"
+          productId="lorem"
+        >
+          <InventoryTab
+            active={false}
+            key="inventory_hosts_lorem"
+            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
+          >
+            <Connect(InventoryList)
+              key="inv_lorem"
+              productId="lorem"
+              query={Object {}}
+              viewId="viewIpsum"
+            />
+          </InventoryTab>
+        </Connect(InventoryTabs)>
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
 </PageLayout>
 `;
 
@@ -334,54 +401,76 @@ exports[`ProductView Component should allow custom product views via props: cust
   <PageMessages
     className=""
   >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
+    <BannerMessages
+      messages={
+        Array [
+          Object {
+            "id": "cloudigradeMismatch",
+            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+            "title": "t(curiosity-banner.dataMismatchTitle)",
+          },
+        ]
+      }
+      useAppMessages={[Function]}
+      useRouteDetail={[Function]}
     />
   </PageMessages>
-  <PageToolbar
+  <PageColumns
     className=""
   >
-    dolor sit
-  </PageToolbar>
-  <PageSection
-    className=""
-  >
-    <Connect(GraphCard)
-      cardTitle={
-        <React.Fragment>
-          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
-        </React.Fragment>
+    <ContextProvider
+      key="product_lorem"
+      value={
+        Object {
+          "lorem": "ipsum",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
+        }
       }
-      key="graph_lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="lorem ipsum product label"
-      query={Object {}}
-      viewId="dolor sit"
-    />
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      key="inventory_lorem ipsum"
-      productId="lorem ipsum"
     >
-      <InventoryTab
-        active={false}
-        key="inventory_hosts_lorem ipsum"
-        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
+      <PageToolbar
+        className=""
       >
-        <Connect(InventoryList)
-          key="inv_lorem ipsum"
-          productId="lorem ipsum"
+        dolor sit
+      </PageToolbar>
+      <PageSection
+        className=""
+      >
+        <Connect(GraphCard)
+          cardTitle={
+            <React.Fragment>
+              t(curiosity-graph.cardHeading, {"context":"lorem"})
+            </React.Fragment>
+          }
+          key="graph_lorem"
+          productId="lorem"
           query={Object {}}
-          viewId="dolor sit"
+          viewId="viewIpsum"
         />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <Connect(InventoryTabs)
+          key="inventory_lorem"
+          productId="lorem"
+        >
+          <InventoryTab
+            active={false}
+            key="inventory_hosts_lorem"
+            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
+          >
+            <Connect(InventoryList)
+              key="inv_lorem"
+              productId="lorem"
+              query={Object {}}
+              viewId="viewIpsum"
+            />
+          </InventoryTab>
+        </Connect(InventoryTabs)>
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
 </PageLayout>
 `;
 
@@ -399,89 +488,143 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
   <PageMessages
     className=""
   >
-    <Connect(BannerMessages)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
+    <BannerMessages
+      messages={
+        Array [
+          Object {
+            "id": "cloudigradeMismatch",
+            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+            "title": "t(curiosity-banner.dataMismatchTitle)",
+          },
+        ]
+      }
+      useAppMessages={[Function]}
+      useRouteDetail={[Function]}
     />
   </PageMessages>
-  <PageToolbar
+  <PageColumns
     className=""
   >
-    <Connect(Toolbar)
-      productId="lorem ipsum"
-      query={Object {}}
-      viewId="dolor sit"
-    />
-  </PageToolbar>
-  <PageSection
-    className=""
-  >
-    <Connect(GraphCard)
-      cardTitle={
-        <React.Fragment>
-          t(curiosity-graph.cardHeading, {"context":"lorem ipsum"})
-        </React.Fragment>
-      }
-      key="graph_lorem ipsum"
-      productId="lorem ipsum"
-      productLabel="lorem ipsum product label"
-      query={Object {}}
-      viewId="dolor sit"
-    >
-      <ToolbarFieldGranularity
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-              "value": "daily",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-              "value": "weekly",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-              "value": "monthly",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-              "value": "quarterly",
-            },
-          ]
+    <ContextProvider
+      key="product_lorem"
+      value={
+        Object {
+          "lorem": "ipsum",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
         }
-        t={[Function]}
-        value="daily"
-        viewId="dolor sit"
-      />
-    </Connect(GraphCard)>
-  </PageSection>
-  <PageSection
-    className=""
-  >
-    <Connect(InventoryTabs)
-      key="inventory_lorem ipsum"
-      productId="lorem ipsum"
+      }
     >
-      <InventoryTab
-        active={false}
-        key="inventory_hosts_lorem ipsum"
-        title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem ipsum\\"})"
+      <PageToolbar
+        className=""
       >
-        <Connect(InventoryList)
-          key="inv_lorem ipsum"
-          productId="lorem ipsum"
+        <Connect(Toolbar)
+          productId="lorem"
           query={Object {}}
-          viewId="dolor sit"
+          viewId="viewIpsum"
         />
-      </InventoryTab>
-    </Connect(InventoryTabs)>
-  </PageSection>
+      </PageToolbar>
+      <PageSection
+        className=""
+      >
+        <Connect(GraphCard)
+          cardTitle={
+            <React.Fragment>
+              t(curiosity-graph.cardHeading, {"context":"lorem"})
+            </React.Fragment>
+          }
+          key="graph_lorem"
+          productId="lorem"
+          query={Object {}}
+          viewId="viewIpsum"
+        >
+          <ToolbarFieldGranularity
+            options={
+              Array [
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
+                  "value": "daily",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
+                  "value": "weekly",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
+                  "value": "monthly",
+                },
+                Object {
+                  "selected": false,
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
+                  "value": "quarterly",
+                },
+              ]
+            }
+            t={[Function]}
+            value="daily"
+            viewId="viewIpsum"
+          />
+        </Connect(GraphCard)>
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <Connect(InventoryTabs)
+          key="inventory_lorem"
+          productId="lorem"
+        >
+          <InventoryTab
+            active={false}
+            key="inventory_hosts_lorem"
+            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
+          >
+            <Connect(InventoryList)
+              key="inv_lorem"
+              productId="lorem"
+              query={Object {}}
+              viewId="viewIpsum"
+            />
+          </InventoryTab>
+        </Connect(InventoryTabs)>
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
 </PageLayout>
 `;
 
-exports[`ProductView Component should render nothing if path and product parameters are empty: empty 1`] = `""`;
+exports[`ProductView Component should render nothing if path and product parameters are empty: empty 1`] = `
+<PageLayout
+  className=""
+>
+  <PageHeader
+    includeTour={false}
+    productLabel={null}
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions"})
+  </PageHeader>
+  <PageMessages
+    className=""
+  >
+    <BannerMessages
+      messages={
+        Array [
+          Object {
+            "id": "cloudigradeMismatch",
+            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+            "title": "t(curiosity-banner.dataMismatchTitle)",
+          },
+        ]
+      }
+      useAppMessages={[Function]}
+      useRouteDetail={[Function]}
+    />
+  </PageMessages>
+  <PageColumns
+    className=""
+  />
+</PageLayout>
+`;
