@@ -1,20 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { getTooltipDate } from './graphCardHelpers';
 import { translate } from '../i18n/i18n';
 import { ChartIcon } from '../chart/chartIcon';
+import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 
 /**
  * A custom chart tooltip.
  *
  * @param {object} props
  * @param {object} props.datum
- * @param {string} props.granularity
- * @param {string} props.productLabel
  * @param {Function} props.t
+ * @param {Function} props.useProduct
  * @returns {Node}
  */
-const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
+const GraphCardChartTooltip = ({
+  datum,
+  t,
+  useProduct: useAliasProduct,
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery
+}) => {
+  const { productLabel } = useAliasProduct();
+  const { [RHSM_API_QUERY_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
+
   let header = null;
   const data = [];
   const { itemsByKey = {} } = datum || {};
@@ -105,7 +114,7 @@ const GraphCardChartTooltip = ({ datum, granularity, productLabel, t }) => {
 /**
  * Prop types.
  *
- * @type {{datum, productLabel: string, t: Function, granularity: string}}
+ * @type {{datum: object, useProduct: Function, useProductGraphTallyQuery: Function, t: Function}}
  */
 GraphCardChartTooltip.propTypes = {
   datum: PropTypes.shape({
@@ -122,20 +131,21 @@ GraphCardChartTooltip.propTypes = {
       })
     )
   }),
-  granularity: PropTypes.string.isRequired,
-  productLabel: PropTypes.string,
-  t: PropTypes.func
+  t: PropTypes.func,
+  useProduct: PropTypes.func,
+  useProductGraphTallyQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{datum: object, productLabel: string, t: translate}}
+ * @type {{datum: object, useProduct: Function, useProductGraphTallyQuery: Function, t: Function}}
  */
 GraphCardChartTooltip.defaultProps = {
   datum: {},
-  productLabel: '',
-  t: translate
+  t: translate,
+  useProduct,
+  useProductGraphTallyQuery
 };
 
 export { GraphCardChartTooltip as default, GraphCardChartTooltip };
