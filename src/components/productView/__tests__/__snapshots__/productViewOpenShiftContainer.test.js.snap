@@ -212,25 +212,8 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               </Tooltip>
             </React.Fragment>
           }
-          filterGraphData={
-            Array [
-              Object {
-                "color": "#06c",
-                "fill": "#8bc1f7",
-                "id": "cores",
-                "isOptional": true,
-                "stroke": "#06c",
-              },
-              Object {
-                "chartType": "threshold",
-                "id": "thresholdCores",
-                "isOptional": true,
-              },
-            ]
-          }
           key="graph_OpenShift Container Platform"
           productId="OpenShift Container Platform"
-          productLabel="OpenShift Container Platform"
           query={
             Object {
               "beginning": "2019-06-20T00:00:00.000Z",
@@ -238,7 +221,6 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "granularity": "daily",
             }
           }
-          settings={Object {}}
           viewId="viewOpenShift Container Platform"
         >
           <ToolbarFieldUom
@@ -511,29 +493,13 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               </Tooltip>
             </React.Fragment>
           }
-          filterGraphData={
-            Array [
-              Object {
-                "color": "#06c",
-                "fill": "#8bc1f7",
-                "id": "coreHours",
-                "stroke": "#06c",
-              },
-            ]
-          }
           key="graph_OpenShift-metrics"
           productId="OpenShift-metrics"
-          productLabel="OpenShift-metrics"
           query={
             Object {
               "beginning": "2019-07-01T00:00:00.000Z",
               "ending": "2019-07-31T23:59:59.999Z",
               "granularity": "daily",
-            }
-          }
-          settings={
-            Object {
-              "actionDisplay": [Function],
             }
           }
           viewId="viewOpenShift-metrics"
