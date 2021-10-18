@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphCardChart Component should filter result sets: filtered dataSets 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "date": 2019-06-01T00:00:00.000Z,
+        "x": 0,
+        "y": 10,
+      },
+      Object {
+        "date": 2019-06-08T00:00:00.000Z,
+        "x": 1,
+        "y": 12,
+      },
+      Object {
+        "date": 2019-06-25T00:00:00.000Z,
+        "x": 2,
+        "y": 3,
+      },
+    ],
+    "id": "loremIpsumSockets",
+    "isStacked": true,
+    "isThreshold": false,
+    "strokeWidth": 2,
+  },
+  Object {
+    "data": Array [
+      Object {
+        "date": 2019-06-01T00:00:00.000Z,
+        "x": 0,
+        "y": 10,
+      },
+      Object {
+        "date": 2019-06-08T00:00:00.000Z,
+        "x": 1,
+        "y": 12,
+      },
+      Object {
+        "date": 2019-06-25T00:00:00.000Z,
+        "x": 2,
+        "y": 3,
+      },
+    ],
+    "id": "thresholdLoremIpsumSockets",
+    "isStacked": false,
+    "isThreshold": true,
+    "stroke": "#4cb140",
+    "strokeDasharray": "4,3",
+    "strokeWidth": 3,
+  },
+]
+`;
+
+exports[`GraphCardChart Component should render a basic component: basic 1`] = `
+<Chart
+  chartLegend={[Function]}
+  chartTooltip={[Function]}
+  dataSets={Array []}
+  key="chart_{\\"granularity\\":\\"daily\\"}"
+  padding={
+    Object {
+      "bottom": 75,
+      "left": 55,
+      "right": 55,
+      "top": 50,
+    }
+  }
+  themeColor="blue"
+  xAxisFixLabelOverlap={true}
+  xAxisLabelIncrement={5}
+  xAxisTickFormat={[Function]}
+  xValueFormat={null}
+  yAxisTickFormat={[Function]}
+  yValueFormat={null}
+/>
+`;
