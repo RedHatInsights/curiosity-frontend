@@ -40,14 +40,11 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
       graphTallyQuery = {},
       inventoryHostsQuery = {},
       inventorySubscriptionsQuery = {},
-      initialGraphFilters = [],
-      initialGraphSettings = {},
       initialGuestsFilters = [],
       initialInventoryFilters = [],
       initialInventorySettings = {},
       initialSubscriptionsInventoryFilters,
       initialToolbarFilters,
-      productLabel,
       productId,
       viewId
     } = config;
@@ -63,7 +60,6 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
       toolbarQuery
     } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
-    let graphFilters = initialGraphFilters;
     let inventoryFilters = initialInventoryFilters;
     let subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters;
     let uomFilter;
@@ -78,7 +74,6 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
         return new RegExp(uomFilter, 'i').test(id);
       };
 
-      graphFilters = initialGraphFilters.filter(filter);
       inventoryFilters = initialInventoryFilters.filter(filter);
       subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters.filter(filter);
     }
@@ -111,13 +106,10 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
         <PageSection>
           <GraphCard
             key={`graph_${productId}`}
-            filterGraphData={graphFilters}
-            settings={initialGraphSettings}
             query={initialGraphTallyQuery}
             productId={productId}
             viewId={viewId}
             cardTitle={graphCardTitle}
-            productLabel={productLabel}
           >
             {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (
               <ToolbarFieldUom value={uomFilter} viewId={viewId} />

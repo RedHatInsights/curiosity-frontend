@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { Button } from '@patternfly/react-core';
 import { GraphCardChartLegend } from '../graphCardChartLegend';
 
 describe('GraphCardChartLegend Component', () => {
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       datum: {
         dataSets: [
@@ -14,14 +13,16 @@ describe('GraphCardChartLegend Component', () => {
             data: [{ y: 0, hasData: true }]
           }
         ]
-      }
+      },
+      useProduct: () => ({ productLabel: 'dolorSit' }),
+      useSelector: callback => callback({})
     };
-    const component = shallow(<GraphCardChartLegend {...props} />);
+    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render basic data', () => {
+  it('should render basic data', async () => {
     const props = {
       datum: {
         dataSets: [
@@ -51,16 +52,18 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
-      productId: 'test id',
-      productLabel: 'test'
+      useProduct: () => ({ productId: 'test id', productLabel: 'test' }),
+      useSelector: callback => callback({})
     };
 
-    const component = shallow(<GraphCardChartLegend {...props} />);
+    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
     expect(component).toMatchSnapshot('data');
   });
 
-  it('should handle a click event', () => {
+  it('should handle a click event', async () => {
+    const mockDispatch = jest.fn();
     const props = {
+      chart: { toggle: id => `mock boolean, ${id}`, isToggled: () => false },
       datum: {
         dataSets: [
           {
@@ -77,33 +80,23 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
-      legend: {
-        'test-dolorSit': true
-      },
-      productId: 'test id',
-      productLabel: 'test',
-      viewId: 'test'
+      useDispatch: () => mockDispatch,
+      useProduct: () => ({ productId: 'test id', productLabel: 'test', viewId: 'test' }),
+      useSelector: callback => callback({ legend: { 'test-dolorSit': true } })
     };
 
-    const component = shallow(<GraphCardChartLegend {...props} />);
-    expect(component.find(Button).first()).toMatchSnapshot('click event pre');
-
+    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
     component.find(Button).first().simulate('click');
-    // emulate a Redux state update.
-    component.setProps({
-      legend: { ...props.legend, ...{ 'test-loremIpsum': true } }
-    });
-    expect(component.find(Button).first()).toMatchSnapshot('click event update');
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('click event, dispatch');
+    mockDispatch.mockClear();
 
     component.find(Button).first().simulate('keyPress');
-    // emulate a Redux state update.
-    component.setProps({
-      legend: { ...props.legend, ...{ 'test-loremIpsum': false } }
-    });
-    expect(component.find(Button).first()).toMatchSnapshot('click event post');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('keyPress event, dispatch');
+    mockDispatch.mockClear();
   });
 
-  it('should handle variations in data when returning legend items', () => {
+  it('should handle variations in data when returning legend items', async () => {
     const props = {
       datum: {
         dataSets: [
@@ -121,43 +114,12 @@ describe('GraphCardChartLegend Component', () => {
           }
         ]
       },
-      productId: 'test id',
-      productLabel: 'test'
+      useDispatch: () => {},
+      useProduct: () => ({ productId: 'test id', productLabel: 'test', viewId: 'test' }),
+      useSelector: callback => callback({ legend: { 'test-dolorSit': true, 'test-loremIpsum': false } })
     };
 
-    const component = shallow(<GraphCardChartLegend {...props} />);
-
-    expect(
-      component.instance().renderLegendItem({
-        chartId: 'loremIpsum',
-        color: '#000000',
-        isDisabled: false,
-        isThreshold: false,
-        labelContent: 'lorem ipsum',
-        tooltipContent: 'dolor sit'
-      })
-    ).toMatchSnapshot('legend item, WITH tooltip content');
-
-    expect(
-      component.instance().renderLegendItem({
-        chartId: 'loremIpsum',
-        color: '#000000',
-        isDisabled: false,
-        isThreshold: false,
-        labelContent: 'lorem ipsum',
-        tooltipContent: undefined
-      })
-    ).toMatchSnapshot('legend item, MISSING tooltip content');
-
-    expect(
-      component.instance().renderLegendItem({
-        chartId: 'loremIpsum',
-        color: '#000000',
-        isDisabled: true,
-        isThreshold: false,
-        labelContent: 'lorem ipsum',
-        tooltipContent: undefined
-      })
-    ).toMatchSnapshot('legend item, disabled');
+    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
+    expect(component).toMatchSnapshot('legend items, data, threshold');
   });
 });

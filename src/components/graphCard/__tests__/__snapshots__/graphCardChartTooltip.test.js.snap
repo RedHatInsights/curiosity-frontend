@@ -29,7 +29,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
     </thead>
     <tbody>
       <tr
-        key="tooltip-t(curiosity-graph.label, {\\"context\\":\\"dolorSit\\",\\"product\\":\\"\\"})"
+        key="tooltip-t(curiosity-graph.label, {\\"context\\":\\"dolorSit\\"})"
       >
         <th>
           <ChartIcon
@@ -39,14 +39,14 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             title={null}
           />
            
-          t(curiosity-graph.label, {"context":"dolorSit","product":""})
+          t(curiosity-graph.label, {"context":"dolorSit"})
         </th>
         <td>
           1
         </td>
       </tr>
       <tr
-        key="tooltip-t(curiosity-graph.label, {\\"context\\":\\"loremIpsum\\",\\"product\\":\\"\\"})"
+        key="tooltip-t(curiosity-graph.label, {\\"context\\":\\"loremIpsum\\"})"
       >
         <th>
           <ChartIcon
@@ -56,7 +56,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             title={null}
           />
            
-          t(curiosity-graph.label, {"context":"loremIpsum","product":""})
+          t(curiosity-graph.label, {"context":"loremIpsum"})
         </th>
         <td>
           0
