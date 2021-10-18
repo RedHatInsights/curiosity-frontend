@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { GraphCardChartTooltip } from '../graphCardChartTooltip';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../../types/rhsmApiTypes';
 
 describe('GraphCardChartTooltip Component', () => {
   it('should render a basic component', () => {
     const props = {
-      granularity: GRANULARITY_TYPES.DAILY
+      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY })
     };
     const component = shallow(<GraphCardChartTooltip {...props} />);
 
@@ -36,7 +39,7 @@ describe('GraphCardChartTooltip Component', () => {
           }
         }
       },
-      granularity: GRANULARITY_TYPES.DAILY
+      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY })
     };
 
     const component = shallow(<GraphCardChartTooltip {...props} />);
@@ -47,13 +50,33 @@ describe('GraphCardChartTooltip Component', () => {
     const itemsByKey = {};
 
     const daily = () =>
-      shallow(<GraphCardChartTooltip datum={{ itemsByKey }} granularity={GRANULARITY_TYPES.DAILY} />).find('td');
+      shallow(
+        <GraphCardChartTooltip
+          datum={{ itemsByKey }}
+          useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY })}
+        />
+      ).find('td');
     const weekly = () =>
-      shallow(<GraphCardChartTooltip datum={{ itemsByKey }} granularity={GRANULARITY_TYPES.WEEKLY} />).find('td');
+      shallow(
+        <GraphCardChartTooltip
+          datum={{ itemsByKey }}
+          useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.WEEKLY })}
+        />
+      ).find('td');
     const monthly = () =>
-      shallow(<GraphCardChartTooltip datum={{ itemsByKey }} granularity={GRANULARITY_TYPES.MONTHLY} />).find('td');
+      shallow(
+        <GraphCardChartTooltip
+          datum={{ itemsByKey }}
+          useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.MONTHLY })}
+        />
+      ).find('td');
     const quarterly = () =>
-      shallow(<GraphCardChartTooltip datum={{ itemsByKey }} granularity={GRANULARITY_TYPES.QUARTERLY} />).find('td');
+      shallow(
+        <GraphCardChartTooltip
+          datum={{ itemsByKey }}
+          useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.QUARTERLY })}
+        />
+      ).find('td');
 
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
       'no data granularity data display'

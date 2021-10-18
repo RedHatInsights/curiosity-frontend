@@ -1,177 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphCardChartLegend Component should handle a click event: click event post 1`] = `
-<Button
-  className="curiosity-usage-graph__legend-item"
-  component="a"
-  icon={
-    <ChartIcon
-      fill="#000000"
-      size="sm"
-      style={
-        Object {
-          "visibility": "visible",
-        }
-      }
-      symbol="square"
-      title={null}
-    />
-  }
-  isDisabled={false}
-  key="curiosity-button-loremIpsum"
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  tabIndex={0}
-  variant="link"
->
-  t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
-</Button>
+exports[`GraphCardChartLegend Component should handle a click event: click event, dispatch 1`] = `
+Array [
+  Array [
+    Object {
+      "legend": Object {
+        "test-loremIpsum": "mock boolean, loremIpsum",
+      },
+      "type": "SET_GRAPH_LEGEND",
+    },
+  ],
+]
 `;
 
-exports[`GraphCardChartLegend Component should handle a click event: click event pre 1`] = `
-<Button
-  className="curiosity-usage-graph__legend-item"
-  component="a"
-  icon={
-    <ChartIcon
-      fill="#000000"
-      size="sm"
-      style={
-        Object {
-          "visibility": "visible",
-        }
-      }
-      symbol="square"
-      title={null}
-    />
-  }
-  isDisabled={false}
-  key="curiosity-button-loremIpsum"
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  tabIndex={0}
-  variant="link"
->
-  t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
-</Button>
+exports[`GraphCardChartLegend Component should handle a click event: keyPress event, dispatch 1`] = `
+Array [
+  Array [
+    Object {
+      "legend": Object {
+        "test-loremIpsum": "mock boolean, loremIpsum",
+      },
+      "type": "SET_GRAPH_LEGEND",
+    },
+  ],
+]
 `;
 
-exports[`GraphCardChartLegend Component should handle a click event: click event update 1`] = `
-<Button
-  className="curiosity-usage-graph__legend-item"
-  component="a"
-  icon={
-    <ChartIcon
-      fill={null}
-      size="sm"
-      symbol="eyeSlash"
-      title={null}
-    />
-  }
-  isDisabled={false}
-  key="curiosity-button-loremIpsum"
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  tabIndex={0}
-  variant="link"
->
-  t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
-</Button>
-`;
-
-exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, MISSING tooltip content 1`] = `
-<Button
-  className="curiosity-usage-graph__legend-item"
-  component="a"
-  icon={
-    <ChartIcon
-      fill="#000000"
-      size="sm"
-      style={
-        Object {
-          "visibility": "visible",
-        }
-      }
-      symbol="square"
-      title={null}
-    />
-  }
-  isDisabled={false}
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  tabIndex={0}
-  variant="link"
->
-  lorem ipsum
-</Button>
-`;
-
-exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, WITH tooltip content 1`] = `
-<Tooltip
-  content={
-    <p>
-      dolor sit
-    </p>
-  }
-  distance={5}
-  enableFlip={true}
-  position="top"
->
-  <Button
-    className="curiosity-usage-graph__legend-item"
-    component="a"
-    icon={
-      <ChartIcon
-        fill="#000000"
-        size="sm"
-        style={
-          Object {
-            "visibility": "visible",
-          }
-        }
-        symbol="square"
-        title={null}
-      />
-    }
-    isDisabled={false}
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-    variant="link"
-  >
-    lorem ipsum
-  </Button>
-</Tooltip>
-`;
-
-exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend item, disabled 1`] = `
-<Button
-  className="curiosity-usage-graph__legend-item"
-  component="a"
-  icon={
-    <ChartIcon
-      fill={null}
-      size="sm"
-      symbol="eyeSlash"
-      title={null}
-    />
-  }
-  isDisabled={true}
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  tabIndex={0}
-  variant="link"
->
-  lorem ipsum
-</Button>
-`;
-
-exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
+exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend items, data, threshold 1`] = `
 <Fragment>
   <Tooltip
     content={
       <p>
-        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"","context":""}, [object Object])
+        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"test","context":"test"}, [object Object])
       </p>
     }
     distance={5}
@@ -202,7 +62,86 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       tabIndex={0}
       variant="link"
     >
-      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"","context":""})
+      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"test","context":"test"})
+    </Button>
+  </Tooltip>
+  <Tooltip
+    content={
+      <p>
+        t(curiosity-graph.legendTooltip_threshold_dolorSit, {"product":"test","context":"test"}, [object Object])
+      </p>
+    }
+    distance={5}
+    enableFlip={true}
+    key="curiosity-tooltip-dolorSit"
+    position="top"
+  >
+    <Button
+      className="curiosity-usage-graph__legend-item"
+      component="a"
+      icon={
+        <ChartIcon
+          fill="#ff0000"
+          size="sm"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+          symbol="dash"
+          title={null}
+        />
+      }
+      isDisabled={false}
+      key="curiosity-button-dolorSit"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t([curiosity-graph.label_threshold,curiosity-graph.label_no], {"product":"test","context":"test"})
+    </Button>
+  </Tooltip>
+</Fragment>
+`;
+
+exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
+<Fragment>
+  <Tooltip
+    content={
+      <p>
+        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"dolorSit","context":"dolorSit"}, [object Object])
+      </p>
+    }
+    distance={5}
+    enableFlip={true}
+    key="curiosity-tooltip-loremIpsum"
+    position="top"
+  >
+    <Button
+      className="curiosity-usage-graph__legend-item"
+      component="a"
+      icon={
+        <ChartIcon
+          fill="#000000"
+          size="sm"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+          symbol="square"
+          title={null}
+        />
+      }
+      isDisabled={false}
+      key="curiosity-button-loremIpsum"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+      variant="link"
+    >
+      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"dolorSit","context":"dolorSit"})
     </Button>
   </Tooltip>
 </Fragment>

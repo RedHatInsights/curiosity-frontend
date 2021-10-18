@@ -55,13 +55,10 @@ const ProductView = ({
       inventorySubscriptionsQuery,
       query,
       initialToolbarFilters,
-      initialGraphFilters,
-      initialGraphSettings,
       initialGuestsFilters,
       initialInventoryFilters,
       initialInventorySettings,
       initialSubscriptionsInventoryFilters,
-      productLabel,
       productId,
       viewId
     } = config;
@@ -119,13 +116,10 @@ const ProductView = ({
         <PageSection>
           <ConnectedGraphCard
             key={`graph_${productId}`}
-            filterGraphData={initialGraphFilters}
-            settings={initialGraphSettings}
             query={initialGraphTallyQuery}
             productId={productId}
             viewId={viewId}
             cardTitle={graphCardTitle}
-            productLabel={productLabel}
           >
             {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
               (toolbarGraph !== false && (

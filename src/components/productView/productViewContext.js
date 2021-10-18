@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from 'react';
-import { reduxHelpers, storeHooks } from '../../redux';
+import { reduxHelpers } from '../../redux/common';
+import { storeHooks } from '../../redux/hooks';
 import { RHSM_API_QUERY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { helpers } from '../../common/helpers';
 
