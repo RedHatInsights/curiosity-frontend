@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useRouteDetail } from '../../components/router/routerContext';
-import { selector } from '../selectors/appMessagesSelectors';
+import { reduxSelectors } from '../selectors';
 
 /**
  * Get app messages selector results.
@@ -15,7 +15,7 @@ const useAppMessages = ({
   useSelector: useAliasSelector = useSelector
 } = {}) => {
   const { pathParameter: productId, productParameter: viewId } = useAliasRouteDetail() || {};
-  const result = useAliasSelector(state => selector(state, { productId, viewId }));
+  const result = useAliasSelector(state => reduxSelectors.appMessages.appMessages(state, { productId, viewId }));
   return {
     ...result
   };
