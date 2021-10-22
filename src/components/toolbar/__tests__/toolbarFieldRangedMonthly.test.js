@@ -1,9 +1,10 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { ToolbarFieldRangedMonthly, toolbarFieldOptions } from '../toolbarFieldRangedMonthly';
+import { shallow } from 'enzyme';
+import { ToolbarFieldRangedMonthly, toolbarFieldOptions, useOnSelect } from '../toolbarFieldRangedMonthly';
 import { store } from '../../../redux/store';
+import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
-describe('ToolbarFieldGranularity Component', () => {
+describe('ToolbarFieldRangedMonthly Component', () => {
   let mockDispatch;
 
   beforeEach(() => {
@@ -14,11 +15,15 @@ describe('ToolbarFieldGranularity Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a non-connected component', () => {
-    const props = {};
+  it('should render a basic component', () => {
+    const props = {
+      useProductGraphTallyQuery: () => ({
+        [RHSM_API_QUERY_TYPES.START_DATE]: 't(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})'
+      })
+    };
     const component = shallow(<ToolbarFieldRangedMonthly {...props} />);
 
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should export select options', () => {
@@ -27,22 +32,35 @@ describe('ToolbarFieldGranularity Component', () => {
 
   it('should handle selecting an option directly', () => {
     const props = {
-      value: '2018-08-01T00:00:00.000Z'
+      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_TYPES.START_DATE]: '2018-08-01T00:00:00.000Z' })
     };
     const component = shallow(<ToolbarFieldRangedMonthly {...props} />);
 
     expect(component).toMatchSnapshot('selected option');
   });
 
-  it('should handle updating granularity through redux state', () => {
+  it('should handle updating granularity and date through redux state with component', async () => {
     const props = {};
 
-    const component = mount(<ToolbarFieldRangedMonthly {...props} />);
+    const component = await mountHookComponent(<ToolbarFieldRangedMonthly {...props} />);
 
     component.find('button').simulate('click');
     component.update();
     component.find('button.pf-c-select__menu-item').first().simulate('click');
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch date range');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch date range, component');
+  });
+
+  it('should handle updating granularity and date through redux state with hook', () => {
+    const options = {
+      useProduct: () => ({ viewId: 'loremIpsum' })
+    };
+
+    const onSelect = useOnSelect(options);
+
+    onSelect({
+      value: { startDate: new Date('2018-08-01T00:00:00.000Z'), endDate: new Date('2018-08-31T00:00:00.000Z') }
+    });
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch date range, hook');
   });
 });

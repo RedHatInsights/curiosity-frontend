@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reduxTypes, store, storeHooks } from '../../redux';
+import { reduxTypes, storeHooks } from '../../redux';
+import { useProduct, useProductQuery } from '../productView/productViewContext';
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_UOM_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
@@ -17,33 +18,22 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
 }));
 
 /**
- * Display a unit of measure (uom) field with options.
+ * On select update uom.
  *
- * @fires onSelect
- * @param {object} props
- * @param {Array} props.options
- * @param {Function} props.t
- * @param {string} props.value
- * @param {string} props.viewId
- * @returns {Node}
+ * @param {object} options
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useProduct
+ * @returns {Function}
  */
-const ToolbarFieldUom = ({ options, t, value, viewId }) => {
-  const updatedValue = storeHooks.reactRedux.useSelector(
-    ({ view }) => view.query?.[viewId]?.[RHSM_API_QUERY_TYPES.UOM],
-    value
-  );
+const useOnSelect = ({
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct
+} = {}) => {
+  const { viewId } = useAliasProduct();
+  const dispatch = useAliasDispatch();
 
-  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
-
-  /**
-   * On select, dispatch type.
-   *
-   * @event onSelect
-   * @param {object} event
-   * @returns {void}
-   */
-  const onSelect = event =>
-    store.dispatch([
+  return ({ value = null } = {}) =>
+    dispatch([
       {
         type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST,
         viewId
@@ -51,18 +41,43 @@ const ToolbarFieldUom = ({ options, t, value, viewId }) => {
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
         viewId,
-        [RHSM_API_QUERY_TYPES.UOM]: event.value
+        [RHSM_API_QUERY_TYPES.UOM]: value
       }
     ]);
+};
+
+/**
+ * Display a unit of measure (uom) field with options.
+ *
+ * @fires onSelect
+ * @param {object} props
+ * @param {boolean} props.isFilter
+ * @param {Array} props.options
+ * @param {Function} props.t
+ * @param {Function} props.useOnSelect
+ * @param {Function} props.useProductQuery
+ * @returns {Node}
+ */
+const ToolbarFieldUom = ({
+  isFilter,
+  options,
+  t,
+  useOnSelect: useAliasOnSelect,
+  useProductQuery: useAliasProductQuery
+}) => {
+  const { [RHSM_API_QUERY_TYPES.UOM]: updatedValue } = useAliasProductQuery();
+  const onSelect = useAliasOnSelect();
+
+  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
 
   return (
     <Select
-      aria-label={t('curiosity-toolbar.placeholder', { context: 'uom' })}
+      aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'uom' })}
       onSelect={onSelect}
       options={updatedOptions}
       selectedOptions={updatedValue}
-      placeholder={t('curiosity-toolbar.placeholder', { context: 'uom' })}
-      data-test={ToolbarFieldUom.defaultProps.viewId}
+      placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'uom' })}
+      data-test="toolbarFieldUom"
     />
   );
 };
@@ -70,9 +85,10 @@ const ToolbarFieldUom = ({ options, t, value, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, options: Array, value: string}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
  */
 ToolbarFieldUom.propTypes = {
+  isFilter: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.node,
@@ -81,20 +97,21 @@ ToolbarFieldUom.propTypes = {
     })
   ),
   t: PropTypes.func,
-  value: PropTypes.oneOf([...Object.values(FIELD_TYPES)]),
-  viewId: PropTypes.string
+  useOnSelect: PropTypes.func,
+  useProductQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, options: Array, value: string}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
  */
 ToolbarFieldUom.defaultProps = {
+  isFilter: false,
   options: toolbarFieldOptions,
   t: translate,
-  value: FIELD_TYPES.CORES,
-  viewId: 'toolbarFieldUom'
+  useOnSelect,
+  useProductQuery
 };
 
-export { ToolbarFieldUom as default, ToolbarFieldUom, toolbarFieldOptions };
+export { ToolbarFieldUom as default, ToolbarFieldUom, toolbarFieldOptions, useOnSelect };

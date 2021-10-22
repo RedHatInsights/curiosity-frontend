@@ -7,14 +7,13 @@ import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
 import { apiQueries } from '../../redux';
 import { ConnectedGraphCard } from '../graphCard/graphCard';
-import { ConnectedToolbar } from '../toolbar/toolbar';
+import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList } from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { ConnectedInventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
-import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -35,17 +34,10 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.t
  * @param {Node|boolean} props.toolbarGraph
  * @param {boolean} props.toolbarGraphDescription
- * @param {Node|boolean} props.toolbarProduct
  * @param {Function} props.useRouteDetail
  * @returns {Node}
  */
-const ProductView = ({
-  t,
-  toolbarGraph,
-  toolbarGraphDescription,
-  toolbarProduct,
-  useRouteDetail: useAliasRouteDetail
-}) => {
+const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail: useAliasRouteDetail }) => {
   const { productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
 
   const renderProduct = config => {
@@ -54,7 +46,6 @@ const ProductView = ({
       inventoryHostsQuery,
       inventorySubscriptionsQuery,
       query,
-      initialToolbarFilters,
       initialGuestsFilters,
       initialInventoryFilters,
       initialInventorySettings,
@@ -70,8 +61,7 @@ const ProductView = ({
     const {
       graphTallyQuery: initialGraphTallyQuery,
       inventoryHostsQuery: initialInventoryHostsQuery,
-      inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
-      toolbarQuery: initialToolbarQuery
+      inventorySubscriptionsQuery: initialInventorySubscriptionsQuery
     } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
     let graphCardTooltip = null;
@@ -103,15 +93,7 @@ const ProductView = ({
     return (
       <ProductViewContext.Provider value={config} key={`product_${productId}`}>
         <PageToolbar>
-          {(React.isValidElement(toolbarProduct) && toolbarProduct) ||
-            (toolbarProduct !== false && (
-              <ConnectedToolbar
-                filterOptions={initialToolbarFilters}
-                productId={productId}
-                query={initialToolbarQuery}
-                viewId={viewId}
-              />
-            ))}
+          <Toolbar />
         </PageToolbar>
         <PageSection>
           <ConnectedGraphCard
@@ -122,12 +104,7 @@ const ProductView = ({
             cardTitle={graphCardTitle}
           >
             {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
-              (toolbarGraph !== false && (
-                <ToolbarFieldGranularity
-                  viewId={viewId}
-                  value={initialGraphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]}
-                />
-              ))}
+              (toolbarGraph !== false && <ToolbarFieldGranularity />)}
           </ConnectedGraphCard>
         </PageSection>
         <PageSection>
@@ -182,28 +159,24 @@ const ProductView = ({
 /**
  * Prop types.
  *
- * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, toolbarProduct: (Node|boolean),
- *    useRouteDetail: Function}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, useRouteDetail: Function}}
  */
 ProductView.propTypes = {
   t: PropTypes.func,
   toolbarGraph: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
   toolbarGraphDescription: PropTypes.bool,
-  toolbarProduct: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
   useRouteDetail: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, toolbarProduct: (Node|boolean),
- *    useRouteDetail: Function}}
+ * @type {{t: translate, toolbarGraph: (Node|boolean), toolbarGraphDescription: boolean, useRouteDetail: Function}}
  */
 ProductView.defaultProps = {
   t: translate,
   toolbarGraph: null,
   toolbarGraphDescription: false,
-  toolbarProduct: null,
   useRouteDetail
 };
 
