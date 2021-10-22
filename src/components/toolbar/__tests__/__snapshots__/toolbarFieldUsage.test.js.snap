@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldSla Component should export select options: toolbarFieldOptions 1`] = `
+Array [
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
+    "value": "Production",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
+    "value": "Development/Test",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
+    "value": "Disaster Recovery",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
+    "value": "",
+  },
+]
+`;
+
+exports[`ToolbarFieldSla Component should handle updating usage through redux state: dispatch usage 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "type": "SET_QUERY_RHSM_usage",
+        "usage": "Production",
+        "viewId": "loremIpsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"usage\\"})"
+  ariaLabel="Select option"
+  className=""
+  data-test="toolbarFieldUsage"
+  direction="down"
+  id="generatedid-"
+  isDisabled={false}
+  isToggleText={true}
+  maxHeight={null}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
+        "value": "Production",
+      },
+      Object {
+        "selected": true,
+        "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
+        "value": "Development/Test",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
+        "value": "Disaster Recovery",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
+        "value": "",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"usage\\"})"
+  position="left"
+  selectedOptions="Development/Test"
+  toggleIcon={null}
+  variant="single"
+/>
+`;

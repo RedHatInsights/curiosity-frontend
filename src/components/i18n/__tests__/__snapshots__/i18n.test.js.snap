@@ -418,6 +418,23 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/toolbar/toolbarFieldSla.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.sla",
+        "match": "translate('curiosity-toolbar.sla', { context: (type === '' && 'none')",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'sla' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'sla' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/toolbar/toolbarFieldUom.js",
     "keys": Array [
       Object {
@@ -431,6 +448,23 @@ Array [
       Object {
         "key": "curiosity-toolbar.placeholder",
         "match": "t('curiosity-toolbar.placeholder', { context: 'uom' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldUsage.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.usage",
+        "match": "translate('curiosity-toolbar.usage', { context: (type === '' && 'unspecified')",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'usage' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'usage' })",
       },
     ],
   },
@@ -619,8 +653,16 @@ Array [
     "key": "curiosity-toolbar.granularity",
   },
   Object {
+    "file": "./src/components/toolbar/toolbarFieldSla.js",
+    "key": "curiosity-toolbar.sla",
+  },
+  Object {
     "file": "./src/components/toolbar/toolbarFieldUom.js",
     "key": "curiosity-toolbar.uom",
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldUsage.js",
+    "key": "curiosity-toolbar.usage",
   },
   Object {
     "file": "./src/config/product.openshiftContainer.js",
