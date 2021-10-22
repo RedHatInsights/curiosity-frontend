@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup } from '@patternfly/react-core';
 import _debounce from 'lodash/debounce';
-import { reduxTypes, store, storeHooks } from '../../redux';
+import { reduxTypes, storeHooks } from '../../redux';
+import { useProduct, useProductInventoryHostsQuery } from '../productView/productViewContext';
 import { TextInput } from '../form/textInput';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
@@ -18,15 +19,20 @@ import { translate } from '../i18n/i18n';
  * @fires onKeyUp
  * @param {object} props
  * @param {Function} props.t
- * @param {string} props.value
- * @param {string} props.viewId
+ * @param {Function} props.useDispatch
+ * @param {Function} props.useProduct
+ * @param {Function} props.useProductInventoryHostsQuery
  * @returns {Node}
  */
-const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
-  const currentValue = storeHooks.reactRedux.useSelector(
-    ({ view }) => view.inventoryHostsQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
-    value
-  );
+const ToolbarFieldDisplayName = ({
+  t,
+  useDispatch: useAliasDispatch,
+  useProduct: useAliasProduct,
+  useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery
+}) => {
+  const { viewId } = useAliasProduct();
+  const { [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
+  const dispatch = useAliasDispatch();
 
   /**
    * On submit, dispatch type.
@@ -36,7 +42,7 @@ const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
    * @returns {void}
    */
   const onSubmit = submitValue =>
-    store.dispatch([
+    dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
         viewId
@@ -59,7 +65,7 @@ const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
       return;
     }
 
-    store.dispatch([
+    dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
         viewId
@@ -99,15 +105,15 @@ const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
   return (
     <InputGroup>
       <TextInput
-        aria-label={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
+        aria-label={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
         className="curiosity-input__display-name"
         iconVariant="search"
         maxLength={255}
         onClear={onClear}
         onKeyUp={onKeyUp}
         value={currentValue}
-        placeholder={t('curiosity-toolbar.placeholder', { context: 'displayName' })}
-        data-test={ToolbarFieldDisplayName.defaultProps.viewId}
+        placeholder={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
+        data-test="toolbarFieldDisplayName"
       />
     </InputGroup>
   );
@@ -116,23 +122,25 @@ const ToolbarFieldDisplayName = ({ t, value, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, value: string}}
+ * @type {{useProduct: Function, t: translate, useDispatch: Function, useProductInventoryHostsQuery: Function}}
  */
 ToolbarFieldDisplayName.propTypes = {
   t: PropTypes.func,
-  value: PropTypes.string,
-  viewId: PropTypes.string
+  useDispatch: PropTypes.func,
+  useProduct: PropTypes.func,
+  useProductInventoryHostsQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, value: string}}
+ * @type {{useProduct: Function, t: translate, useDispatch: Function, useProductInventoryHostsQuery: Function}}
  */
 ToolbarFieldDisplayName.defaultProps = {
   t: translate,
-  value: null,
-  viewId: 'toolbarFieldDisplayName'
+  useDispatch: storeHooks.reactRedux.useDispatch,
+  useProduct,
+  useProductInventoryHostsQuery
 };
 
 export { ToolbarFieldDisplayName as default, ToolbarFieldDisplayName };

@@ -45,19 +45,10 @@ describe('ProductView Component', () => {
 
     component.setProps({
       toolbarGraphDescription: false,
-      toolbarGraph: <React.Fragment>lorem ipsum</React.Fragment>,
-      toolbarProduct: false
+      toolbarGraph: <React.Fragment>lorem ipsum</React.Fragment>
     });
 
     expect(component).toMatchSnapshot('custom toolbar, toolbarGraph');
-
-    component.setProps({
-      toolbarGraphDescription: false,
-      toolbarGraph: false,
-      toolbarProduct: <React.Fragment>dolor sit</React.Fragment>
-    });
-
-    expect(component).toMatchSnapshot('custom toolbar, toolbarProduct');
   });
 
   it('should allow custom inventory displays via config', async () => {
