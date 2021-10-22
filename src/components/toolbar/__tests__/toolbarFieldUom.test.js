@@ -1,8 +1,8 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { ToolbarFieldUom, toolbarFieldOptions } from '../toolbarFieldUom';
+import { shallow } from 'enzyme';
+import { ToolbarFieldUom, toolbarFieldOptions, useOnSelect } from '../toolbarFieldUom';
 import { store } from '../../../redux/store';
-import { RHSM_API_QUERY_UOM_TYPES as UOM_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_UOM_TYPES as UOM_TYPES, RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
 describe('ToolbarFieldUom Component', () => {
   let mockDispatch;
@@ -15,28 +15,41 @@ describe('ToolbarFieldUom Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a non-connected component', () => {
+  it('should render a basic component', () => {
     const props = {
-      value: UOM_TYPES.SOCKETS
+      useProductQuery: () => ({ [RHSM_API_QUERY_TYPES.UOM]: UOM_TYPES.SOCKETS })
     };
     const component = shallow(<ToolbarFieldUom {...props} />);
 
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should export select options', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating uom through redux state', () => {
+  it('should handle updating uom through redux state with component', async () => {
     const props = {};
 
-    const component = mount(<ToolbarFieldUom {...props} />);
+    const component = await mountHookComponent(<ToolbarFieldUom {...props} />);
 
     component.find('button').simulate('click');
     component.update();
     component.find('button.pf-c-select__menu-item').first().simulate('click');
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch uom');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch uom, component');
+  });
+
+  it('should handle updating uom through redux state with hook', () => {
+    const options = {
+      useProduct: () => ({ viewId: 'loremIpsum' })
+    };
+
+    const onSelect = useOnSelect(options);
+
+    onSelect({
+      value: 'dolor sit'
+    });
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch uom, hook');
   });
 });

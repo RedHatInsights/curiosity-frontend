@@ -18,38 +18,21 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
 }));
 
 /**
- * Display a sla field with options.
+ * On select update sla.
  *
- * @fires onSelect
- * @param {object} props
- * @param {object} props.options
- * @param {Function} props.t
- * @param {Function} props.useDispatch
- * @param {Function} props.useProduct
- * @param {Function} props.useProductQuery
- * @returns {Node}
+ * @param {object} options
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useProduct
+ * @returns {Function}
  */
-const ToolbarFieldSla = ({
-  options,
-  t,
-  useDispatch: useAliasDispatch,
-  useProduct: useAliasProduct,
-  useProductQuery: useAliasProductQuery
-}) => {
+const useOnSelect = ({
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct
+} = {}) => {
   const { viewId } = useAliasProduct();
-  const { [RHSM_API_QUERY_TYPES.SLA]: updatedValue } = useAliasProductQuery();
   const dispatch = useAliasDispatch();
 
-  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
-
-  /**
-   * On select, dispatch type.
-   *
-   * @event onSelect
-   * @param {object} event
-   * @returns {void}
-   */
-  const onSelect = (event = {}) =>
+  return ({ value = null } = {}) => {
     dispatch([
       {
         type: reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST,
@@ -58,17 +41,43 @@ const ToolbarFieldSla = ({
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.SLA],
         viewId,
-        [RHSM_API_QUERY_TYPES.SLA]: event.value
+        [RHSM_API_QUERY_TYPES.SLA]: value
       }
     ]);
+  };
+};
+
+/**
+ * Display a sla field with options.
+ *
+ * @fires onSelect
+ * @param {object} props
+ * @param {boolean} props.isFilter
+ * @param {object} props.options
+ * @param {Function} props.t
+ * @param {Function} props.useOnSelect
+ * @param {Function} props.useProductQuery
+ * @returns {Node}
+ */
+const ToolbarFieldSla = ({
+  isFilter,
+  options,
+  t,
+  useOnSelect: useAliasOnSelect,
+  useProductQuery: useAliasProductQuery
+}) => {
+  const { [RHSM_API_QUERY_TYPES.SLA]: updatedValue } = useAliasProductQuery();
+  const onSelect = useAliasOnSelect();
+
+  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
 
   return (
     <Select
-      aria-label={t('curiosity-toolbar.placeholder', { context: 'sla' })}
+      aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'sla' })}
       onSelect={onSelect}
       options={updatedOptions}
       selectedOptions={updatedValue}
-      placeholder={t('curiosity-toolbar.placeholder', { context: 'sla' })}
+      placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'sla' })}
       data-test="toolbarFieldSla"
     />
   );
@@ -77,9 +86,10 @@ const ToolbarFieldSla = ({
 /**
  * Prop types.
  *
- * @type {{useProduct: Function, useProductQuery: Function, t: translate, useDispatch: Function, options: Array}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
  */
 ToolbarFieldSla.propTypes = {
+  isFilter: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.node,
@@ -88,22 +98,21 @@ ToolbarFieldSla.propTypes = {
     })
   ),
   t: PropTypes.func,
-  useDispatch: PropTypes.func,
-  useProduct: PropTypes.func,
+  useOnSelect: PropTypes.func,
   useProductQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useProduct: Function, useProductQuery: Function, t: translate, useDispatch: Function, options: Array}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
  */
 ToolbarFieldSla.defaultProps = {
+  isFilter: false,
   options: toolbarFieldOptions,
   t: translate,
-  useDispatch: storeHooks.reactRedux.useDispatch,
-  useProduct,
+  useOnSelect,
   useProductQuery
 };
 
-export { ToolbarFieldSla as default, ToolbarFieldSla, toolbarFieldOptions };
+export { ToolbarFieldSla as default, ToolbarFieldSla, toolbarFieldOptions, useOnSelect };

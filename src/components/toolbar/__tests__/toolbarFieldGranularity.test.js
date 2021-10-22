@@ -1,8 +1,11 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { ToolbarFieldGranularity, toolbarFieldOptions } from '../toolbarFieldGranularity';
+import { shallow } from 'enzyme';
+import { ToolbarFieldGranularity, toolbarFieldOptions, useOnSelect } from '../toolbarFieldGranularity';
 import { store } from '../../../redux/store';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../../types/rhsmApiTypes';
 
 describe('ToolbarFieldGranularity Component', () => {
   let mockDispatch;
@@ -15,28 +18,39 @@ describe('ToolbarFieldGranularity Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a non-connected component', () => {
+  it('should render a basic component', () => {
     const props = {
-      value: GRANULARITY_TYPES.WEEKLY
+      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.WEEKLY })
     };
     const component = shallow(<ToolbarFieldGranularity {...props} />);
 
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should export select options', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating granularity through redux state', () => {
+  it('should handle updating granularity through redux state with component', async () => {
     const props = {};
 
-    const component = mount(<ToolbarFieldGranularity {...props} />);
+    const component = await mountHookComponent(<ToolbarFieldGranularity {...props} />);
 
     component.find('button').simulate('click');
     component.update();
     component.find('button.pf-c-select__menu-item').first().simulate('click');
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch granularity');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch granularity, component');
+  });
+
+  it('should handle updating granularity through redux state with hook', () => {
+    const options = {
+      useProduct: () => ({ viewId: 'loremIpsum' })
+    };
+
+    const onSelect = useOnSelect(options);
+
+    onSelect({ value: 'dolor sit' });
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch granularity, hook');
   });
 });

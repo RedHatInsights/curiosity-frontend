@@ -20,12 +20,12 @@ Array [
     "file": "./src/common/dateHelpers.js",
     "keys": Array [
       Object {
-        "key": "curiosity-toolbar.granularityRange",
-        "match": "translate('curiosity-toolbar.granularityRange', { context: dateTime.title })",
+        "key": "curiosity-toolbar.granularityRangedMonthly",
+        "match": "translate('curiosity-toolbar.granularityRangedMonthly', { context: dateTime.title })",
       },
       Object {
-        "key": "curiosity-toolbar.granularityRange",
-        "match": "translate('curiosity-toolbar.granularityRange', { context: 'current' })",
+        "key": "curiosity-toolbar.granularityRangedMonthly",
+        "match": "translate('curiosity-toolbar.granularityRangedMonthly', { context: 'current' })",
       },
     ],
   },
@@ -345,28 +345,8 @@ Array [
     "file": "./src/components/toolbar/toolbar.js",
     "keys": Array [
       Object {
-        "key": "curiosity-toolbar.category",
-        "match": "t('curiosity-toolbar.category', { context: field })",
-      },
-      Object {
-        "key": "curiosity-toolbar.category",
-        "match": "t('curiosity-toolbar.category', { context: field })",
-      },
-      Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: field })",
-      },
-      Object {
         "key": "curiosity-toolbar.clearFilters",
         "match": "t('curiosity-toolbar.clearFilters')",
-      },
-      Object {
-        "key": "curiosity-toolbar.category",
-        "match": "t('curiosity-toolbar.category')",
-      },
-      Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder')",
       },
     ],
   },
@@ -374,12 +354,12 @@ Array [
     "file": "./src/components/toolbar/toolbarFieldDisplayName.js",
     "keys": Array [
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'displayName' })",
+        "key": "curiosity-toolbar.placeholder_filter",
+        "match": "t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'displayName' })",
+        "key": "curiosity-toolbar.placeholder_filter",
+        "match": "t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })",
       },
     ],
   },
@@ -391,12 +371,12 @@ Array [
         "match": "translate('curiosity-toolbar.granularity', { context: type })",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
@@ -404,16 +384,45 @@ Array [
     "file": "./src/components/toolbar/toolbarFieldRangedMonthly.js",
     "keys": Array [
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'granularity' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.GRANULARITY })",
       },
       Object {
-        "key": "curiosity-toolbar.granularityRange",
-        "match": "translate('curiosity-toolbar.granularityRange', { context: 'current' })",
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: 'rangedMonthly' })",
+      },
+      Object {
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.UOM })",
+      },
+      Object {
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA })",
+      },
+      Object {
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE })",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder_filter",
+        "match": "t('curiosity-toolbar.placeholder_filter')",
+      },
+      Object {
+        "key": "curiosity-toolbar.placeholder_filter",
+        "match": "t('curiosity-toolbar.placeholder_filter')",
       },
     ],
   },
@@ -425,12 +434,12 @@ Array [
         "match": "translate('curiosity-toolbar.sla', { context: (type === '' && 'none')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'sla' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'sla' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
@@ -442,12 +451,12 @@ Array [
         "match": "translate('curiosity-toolbar.uom', { context: type })",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'uom' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'uom' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
@@ -459,57 +468,12 @@ Array [
         "match": "translate('curiosity-toolbar.usage', { context: (type === '' && 'unspecified')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'usage' })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
       Object {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: 'usage' })",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/toolbar/toolbarHelpers.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-toolbar.slaPremium",
-        "match": "translate('curiosity-toolbar.slaPremium')",
-      },
-      Object {
-        "key": "curiosity-toolbar.slaStandard",
-        "match": "translate('curiosity-toolbar.slaStandard')",
-      },
-      Object {
-        "key": "curiosity-toolbar.slaSelfSupport",
-        "match": "translate('curiosity-toolbar.slaSelfSupport')",
-      },
-      Object {
-        "key": "curiosity-toolbar.slaNone",
-        "match": "translate('curiosity-toolbar.slaNone')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usageDevelopment",
-        "match": "translate('curiosity-toolbar.usageDevelopment')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usageDisaster",
-        "match": "translate('curiosity-toolbar.usageDisaster')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usageProduction",
-        "match": "translate('curiosity-toolbar.usageProduction')",
-      },
-      Object {
-        "key": "curiosity-toolbar.usageUnspecified",
-        "match": "translate('curiosity-toolbar.usageUnspecified')",
-      },
-      Object {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA })",
-      },
-      Object {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE })",
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },

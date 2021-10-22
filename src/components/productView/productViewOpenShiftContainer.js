@@ -11,7 +11,7 @@ import GraphCard from '../graphCard/graphCard';
 import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
-import Toolbar from '../toolbar/toolbar';
+import { Toolbar } from '../toolbar/toolbar';
 import InventoryList from '../inventoryList/inventoryList';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
@@ -44,7 +44,6 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
       initialInventoryFilters = [],
       initialInventorySettings = {},
       initialSubscriptionsInventoryFilters,
-      initialToolbarFilters,
       productId,
       viewId
     } = config;
@@ -56,8 +55,7 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
     const {
       graphTallyQuery: initialGraphTallyQuery,
       inventoryHostsQuery: initialInventoryHostsQuery,
-      inventorySubscriptionsQuery: initialInventorySubscriptionsQuery,
-      toolbarQuery
+      inventorySubscriptionsQuery: initialInventorySubscriptionsQuery
     } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
     let inventoryFilters = initialInventoryFilters;
@@ -98,11 +96,9 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
 
     return (
       <ProductViewContext.Provider value={config} key={`product_${productId}_${uomFilter}`}>
-        {initialToolbarFilters && (
-          <PageToolbar>
-            <Toolbar filterOptions={initialToolbarFilters} productId={productId} query={toolbarQuery} viewId={viewId} />
-          </PageToolbar>
-        )}
+        <PageToolbar>
+          <Toolbar />
+        </PageToolbar>
         <PageSection>
           <GraphCard
             key={`graph_${productId}`}
@@ -111,13 +107,9 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
             viewId={viewId}
             cardTitle={graphCardTitle}
           >
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (
-              <ToolbarFieldUom value={uomFilter} viewId={viewId} />
-            )}
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && (
-              <ToolbarFieldGranularity value={graphTallyQuery[RHSM_API_QUERY_TYPES.GRANULARITY]} viewId={viewId} />
-            )}
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && <ToolbarFieldRangedMonthly viewId={viewId} />}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && <ToolbarFieldUom />}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && <ToolbarFieldGranularity />}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && <ToolbarFieldRangedMonthly />}
           </GraphCard>
         </PageSection>
         <PageSection>
