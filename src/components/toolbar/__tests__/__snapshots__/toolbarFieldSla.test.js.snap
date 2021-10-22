@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldSla Component should export select options: toolbarFieldOptions 1`] = `
+Array [
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
+    "value": "premium",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
+    "value": "standard",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
+    "value": "self-support",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
+    "value": "",
+  },
+]
+`;
+
+exports[`ToolbarFieldSla Component should handle updating sla through redux state: dispatch sla 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "sla": "premium",
+        "type": "SET_QUERY_RHSM_sla",
+        "viewId": "loremIpsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+  ariaLabel="Select option"
+  className=""
+  data-test="toolbarFieldSla"
+  direction="down"
+  id="generatedid-"
+  isDisabled={false}
+  isToggleText={true}
+  maxHeight={null}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
+        "value": "premium",
+      },
+      Object {
+        "selected": true,
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
+        "value": "standard",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
+        "value": "self-support",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
+        "value": "",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+  position="left"
+  selectedOptions="standard"
+  toggleIcon={null}
+  variant="single"
+/>
+`;
