@@ -147,12 +147,20 @@
     "slaPremium": "Premium",
     "slaSelfSupport": "Self-Support",
     "slaStandard": "Standard",
+    "sla_none": "No SLA",
+    "sla_premium": "Premium",
+    "sla_self-support": "Self-Support",
+    "sla_standard": "Standard",
     "uom_cores": "Cores",
     "uom_sockets": "Sockets",
     "usageDevelopment": "Development/Test",
     "usageDisaster": "Disaster Recovery",
     "usageProduction": "Production",
-    "usageUnspecified": "Unspecified"
+    "usageUnspecified": "Unspecified",
+    "usage_Development/Test": "Development/Test",
+    "usage_Disaster Recovery": "Disaster Recovery",
+    "usage_Production": "Production",
+    "usage_unspecified": "Unspecified"
   },
   "curiosity-optin": {
     "buttonActivate": "Activate {{appName}}",
