@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reduxTypes, store, storeHooks } from '../../redux';
+import { reduxTypes, storeHooks } from '../../redux';
+import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers } from '../../common';
@@ -18,34 +19,23 @@ const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
 }));
 
 /**
- * Display a granularity field with options.
+ * On select update granularity.
  *
- * @fires onSelect
- * @param {object} props
- * @param {Array} props.options
- * @param {Function} props.t
- * @param {string} props.value
- * @param {string} props.viewId
- * @returns {Node}
+ * @param {object} options
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useProduct
+ * @returns {Function}
  */
-const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
-  const updatedValue = storeHooks.reactRedux.useSelector(
-    ({ view }) => view.graphTallyQuery?.[viewId]?.[RHSM_API_QUERY_TYPES.GRANULARITY],
-    value
-  );
+const useOnSelect = ({
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct
+} = {}) => {
+  const { viewId } = useAliasProduct();
+  const dispatch = useAliasDispatch();
 
-  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
-
-  /**
-   * On select, dispatch type.
-   *
-   * @event onSelect
-   * @param {object} event
-   * @returns {void}
-   */
-  const onSelect = event => {
-    const { startDate, endDate } = dateHelpers.getRangedDateTime(event.value);
-    store.dispatch([
+  return ({ value = null } = {}) => {
+    const { startDate, endDate } = dateHelpers.getRangedDateTime(value);
+    dispatch([
       {
         type: reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST,
         viewId
@@ -53,7 +43,7 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
         viewId,
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: event.value
+        [RHSM_API_QUERY_TYPES.GRANULARITY]: value
       },
       {
         type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.START_DATE],
@@ -67,15 +57,39 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
       }
     ]);
   };
+};
+
+/**
+ * Display a granularity field with options.
+ *
+ * @fires onSelect
+ * @param {object} props
+ * @param {boolean} props.isFilter
+ * @param {Array} props.options
+ * @param {Function} props.t
+ * @param {Function} props.useOnSelect
+ * @param {Function} props.useProductGraphTallyQuery
+ * @returns {Node}
+ */
+const ToolbarFieldGranularity = ({
+  isFilter,
+  options,
+  t,
+  useOnSelect: useAliasOnSelect,
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery
+}) => {
+  const { [RHSM_API_QUERY_TYPES.GRANULARITY]: updatedValue } = useAliasProductGraphTallyQuery();
+  const onSelect = useAliasOnSelect();
+  const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));
 
   return (
     <Select
-      aria-label={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
+      aria-label={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'granularity' })}
       onSelect={onSelect}
       options={updatedOptions}
       selectedOptions={updatedValue}
-      placeholder={t('curiosity-toolbar.placeholder', { context: 'granularity' })}
-      data-test={ToolbarFieldGranularity.defaultProps.viewId}
+      placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'granularity' })}
+      data-test="toolbarFieldGranularity"
     />
   );
 };
@@ -83,9 +97,11 @@ const ToolbarFieldGranularity = ({ options, t, value, viewId }) => {
 /**
  * Prop types.
  *
- * @type {{viewId: string, t: Function, options: Array, value: string}}
+ * @type {{useOnSelect: Function, useProductGraphTallyQuery: Function, t: Function, isFilter: boolean,
+ *     options: Array}}
  */
 ToolbarFieldGranularity.propTypes = {
+  isFilter: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.node,
@@ -94,20 +110,22 @@ ToolbarFieldGranularity.propTypes = {
     })
   ),
   t: PropTypes.func,
-  value: PropTypes.oneOf([...Object.values(FIELD_TYPES)]),
-  viewId: PropTypes.string
+  useOnSelect: PropTypes.func,
+  useProductGraphTallyQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{viewId: string, t: translate, options: Array, value: string}}
+ * @type {{useOnSelect: Function, useProductGraphTallyQuery: Function, t: Function, isFilter: boolean,
+ *     options: Array}}
  */
 ToolbarFieldGranularity.defaultProps = {
+  isFilter: false,
   options: toolbarFieldOptions,
   t: translate,
-  value: FIELD_TYPES.DAILY,
-  viewId: 'toolbarFieldGranularity'
+  useOnSelect,
+  useProductGraphTallyQuery
 };
 
-export { ToolbarFieldGranularity as default, ToolbarFieldGranularity, toolbarFieldOptions };
+export { ToolbarFieldGranularity as default, ToolbarFieldGranularity, toolbarFieldOptions, useOnSelect };

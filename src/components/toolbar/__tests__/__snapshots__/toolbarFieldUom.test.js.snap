@@ -15,25 +15,43 @@ Array [
 ]
 `;
 
-exports[`ToolbarFieldUom Component should handle updating uom through redux state: dispatch uom 1`] = `
+exports[`ToolbarFieldUom Component should handle updating uom through redux state with component: dispatch uom, component 1`] = `
 Array [
   Array [
     Array [
       Object {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": "toolbarFieldUom",
+        "viewId": undefined,
       },
       Object {
         "type": "SET_QUERY_RHSM_uom",
         "uom": "cores",
-        "viewId": "toolbarFieldUom",
+        "viewId": undefined,
       },
     ],
   ],
 ]
 `;
 
-exports[`ToolbarFieldUom Component should render a non-connected component: non-connected 1`] = `
+exports[`ToolbarFieldUom Component should handle updating uom through redux state with hook: dispatch uom, hook 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "type": "SET_QUERY_RHSM_uom",
+        "uom": "dolor sit",
+        "viewId": "loremIpsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldUom Component should render a basic component: basic 1`] = `
 <Select
   aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
   ariaLabel="Select option"

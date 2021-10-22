@@ -45,10 +45,14 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageToolbar
         className=""
       >
-        <Connect(Toolbar)
-          productId="lorem"
-          query={Object {}}
-          viewId="viewIpsum"
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFieldQueries={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -88,6 +92,7 @@ exports[`ProductView Component should allow custom inventory displays via config
           viewId="viewIpsum"
         >
           <ToolbarFieldGranularity
+            isFilter={false}
             options={
               Array [
                 Object {
@@ -113,8 +118,8 @@ exports[`ProductView Component should allow custom inventory displays via config
               ]
             }
             t={[Function]}
-            value="daily"
-            viewId="viewIpsum"
+            useOnSelect={[Function]}
+            useProductGraphTallyQuery={[Function]}
           />
         </Connect(GraphCard)>
       </PageSection>
@@ -201,10 +206,14 @@ exports[`ProductView Component should allow custom product views via props: cust
       <PageToolbar
         className=""
       >
-        <Connect(Toolbar)
-          productId="lorem"
-          query={Object {}}
-          viewId="viewIpsum"
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFieldQueries={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -244,6 +253,7 @@ exports[`ProductView Component should allow custom product views via props: cust
           viewId="viewIpsum"
         >
           <ToolbarFieldGranularity
+            isFilter={false}
             options={
               Array [
                 Object {
@@ -269,8 +279,8 @@ exports[`ProductView Component should allow custom product views via props: cust
               ]
             }
             t={[Function]}
-            value="daily"
-            viewId="viewIpsum"
+            useOnSelect={[Function]}
+            useProductGraphTallyQuery={[Function]}
           />
         </Connect(GraphCard)>
       </PageSection>
@@ -343,7 +353,17 @@ exports[`ProductView Component should allow custom product views via props: cust
     >
       <PageToolbar
         className=""
-      />
+      >
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFieldQueries={[Function]}
+        />
+      </PageToolbar>
       <PageSection
         className=""
       >
@@ -360,93 +380,6 @@ exports[`ProductView Component should allow custom product views via props: cust
         >
           lorem ipsum
         </Connect(GraphCard)>
-      </PageSection>
-      <PageSection
-        className=""
-      >
-        <Connect(InventoryTabs)
-          key="inventory_lorem"
-          productId="lorem"
-        >
-          <InventoryTab
-            active={false}
-            key="inventory_hosts_lorem"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
-          >
-            <Connect(InventoryList)
-              key="inv_lorem"
-              productId="lorem"
-              query={Object {}}
-              viewId="viewIpsum"
-            />
-          </InventoryTab>
-        </Connect(InventoryTabs)>
-      </PageSection>
-    </ContextProvider>
-  </PageColumns>
-</PageLayout>
-`;
-
-exports[`ProductView Component should allow custom product views via props: custom toolbar, toolbarProduct 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    includeTour={false}
-    productLabel="lorem ipsum product label"
-    t={[Function]}
-  >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
-  </PageHeader>
-  <PageMessages
-    className=""
-  >
-    <BannerMessages
-      messages={
-        Array [
-          Object {
-            "id": "cloudigradeMismatch",
-            "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
-            "title": "t(curiosity-banner.dataMismatchTitle)",
-          },
-        ]
-      }
-      useAppMessages={[Function]}
-      useRouteDetail={[Function]}
-    />
-  </PageMessages>
-  <PageColumns
-    className=""
-  >
-    <ContextProvider
-      key="product_lorem"
-      value={
-        Object {
-          "lorem": "ipsum",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
-      }
-    >
-      <PageToolbar
-        className=""
-      >
-        dolor sit
-      </PageToolbar>
-      <PageSection
-        className=""
-      >
-        <Connect(GraphCard)
-          cardTitle={
-            <React.Fragment>
-              t(curiosity-graph.cardHeading, {"context":"lorem"})
-            </React.Fragment>
-          }
-          key="graph_lorem"
-          productId="lorem"
-          query={Object {}}
-          viewId="viewIpsum"
-        />
       </PageSection>
       <PageSection
         className=""
@@ -518,10 +451,14 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       <PageToolbar
         className=""
       >
-        <Connect(Toolbar)
-          productId="lorem"
-          query={Object {}}
-          viewId="viewIpsum"
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFieldQueries={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -539,6 +476,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
           viewId="viewIpsum"
         >
           <ToolbarFieldGranularity
+            isFilter={false}
             options={
               Array [
                 Object {
@@ -564,8 +502,8 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
               ]
             }
             t={[Function]}
-            value="daily"
-            viewId="viewIpsum"
+            useOnSelect={[Function]}
+            useProductGraphTallyQuery={[Function]}
           />
         </Connect(GraphCard)>
       </PageSection>

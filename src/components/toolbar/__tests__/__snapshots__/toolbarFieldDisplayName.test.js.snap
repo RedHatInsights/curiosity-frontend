@@ -6,12 +6,12 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "toolbarFieldDisplayName",
+        "viewId": "loremIpsum",
       },
       Object {
         "display_name_contains": null,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
-        "viewId": "toolbarFieldDisplayName",
+        "viewId": "loremIpsum",
       },
     ],
   ],
@@ -24,12 +24,12 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "toolbarFieldDisplayName",
+        "viewId": "loremIpsum",
       },
       Object {
         "display_name_contains": "dolor sit",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
-        "viewId": "toolbarFieldDisplayName",
+        "viewId": "loremIpsum",
       },
     ],
   ],
@@ -42,22 +42,22 @@ Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "toolbarFieldDisplayName",
+        "viewId": "loremIpsum",
       },
       Object {
         "display_name_contains": "dolor sit",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
-        "viewId": "toolbarFieldDisplayName",
+        "viewId": "loremIpsum",
       },
     ],
   ],
 ]
 `;
 
-exports[`ToolbarFieldDisplayName Component should render a non-connected component: non-connected 1`] = `
+exports[`ToolbarFieldDisplayName Component should render a basic component: basic 1`] = `
 <InputGroup>
   <TextInput
-    aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"
+    aria-label="t(curiosity-toolbar.placeholder_filter, {\\"context\\":\\"displayName\\"})"
     className="curiosity-input__display-name"
     data-test="toolbarFieldDisplayName"
     iconVariant="search"
@@ -70,9 +70,9 @@ exports[`ToolbarFieldDisplayName Component should render a non-connected compone
     onClear={[Function]}
     onKeyUp={[Function]}
     onMouseUp={[Function]}
-    placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"displayName\\"})"
+    placeholder="t(curiosity-toolbar.placeholder_filter, {\\"context\\":\\"displayName\\"})"
     type="text"
-    value={null}
+    value="lorem ipsum"
   />
 </InputGroup>
 `;

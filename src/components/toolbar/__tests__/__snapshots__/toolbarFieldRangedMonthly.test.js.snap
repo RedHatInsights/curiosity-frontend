@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToolbarFieldGranularity Component should export select options: toolbarFieldOptions 1`] = `
+exports[`ToolbarFieldRangedMonthly Component should export select options: toolbarFieldOptions 1`] = `
 Array [
   Object {
     "_title": "current",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
     "value": Object {
       "endDate": 2019-07-31T23:59:59.999Z,
       "startDate": 2019-07-01T00:00:00.000Z,
@@ -14,7 +14,7 @@ Array [
   Object {
     "_title": "june",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"June\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"June\\"})",
     "value": Object {
       "endDate": 2019-06-30T23:59:59.999Z,
       "startDate": 2019-06-01T00:00:00.000Z,
@@ -23,7 +23,7 @@ Array [
   Object {
     "_title": "may",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"May\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"May\\"})",
     "value": Object {
       "endDate": 2019-05-31T23:59:59.999Z,
       "startDate": 2019-05-01T00:00:00.000Z,
@@ -32,7 +32,7 @@ Array [
   Object {
     "_title": "april",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"April\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"April\\"})",
     "value": Object {
       "endDate": 2019-04-30T23:59:59.999Z,
       "startDate": 2019-04-01T00:00:00.000Z,
@@ -41,7 +41,7 @@ Array [
   Object {
     "_title": "march",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"March\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"March\\"})",
     "value": Object {
       "endDate": 2019-03-31T23:59:59.999Z,
       "startDate": 2019-03-01T00:00:00.000Z,
@@ -50,7 +50,7 @@ Array [
   Object {
     "_title": "february",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"February\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"February\\"})",
     "value": Object {
       "endDate": 2019-02-28T23:59:59.999Z,
       "startDate": 2019-02-01T00:00:00.000Z,
@@ -59,7 +59,7 @@ Array [
   Object {
     "_title": "january",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"January\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"January\\"})",
     "value": Object {
       "endDate": 2019-01-31T23:59:59.999Z,
       "startDate": 2019-01-01T00:00:00.000Z,
@@ -68,7 +68,7 @@ Array [
   Object {
     "_title": "december",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"December 2018\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"December 2018\\"})",
     "value": Object {
       "endDate": 2018-12-31T23:59:59.999Z,
       "startDate": 2018-12-01T00:00:00.000Z,
@@ -77,7 +77,7 @@ Array [
   Object {
     "_title": "november",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"November 2018\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"November 2018\\"})",
     "value": Object {
       "endDate": 2018-11-30T23:59:59.999Z,
       "startDate": 2018-11-01T00:00:00.000Z,
@@ -86,7 +86,7 @@ Array [
   Object {
     "_title": "october",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"October 2018\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"October 2018\\"})",
     "value": Object {
       "endDate": 2018-10-31T23:59:59.999Z,
       "startDate": 2018-10-01T00:00:00.000Z,
@@ -95,7 +95,7 @@ Array [
   Object {
     "_title": "september",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"September 2018\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"September 2018\\"})",
     "value": Object {
       "endDate": 2018-09-30T23:59:59.999Z,
       "startDate": 2018-09-01T00:00:00.000Z,
@@ -104,7 +104,7 @@ Array [
   Object {
     "_title": "august",
     "selected": false,
-    "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"August 2018\\"})",
+    "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"August 2018\\"})",
     "value": Object {
       "endDate": 2018-08-31T23:59:59.999Z,
       "startDate": 2018-08-01T00:00:00.000Z,
@@ -113,9 +113,9 @@ Array [
 ]
 `;
 
-exports[`ToolbarFieldGranularity Component should handle selecting an option directly: selected option 1`] = `
+exports[`ToolbarFieldRangedMonthly Component should handle selecting an option directly: selected option 1`] = `
 <Select
-  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"rangedMonthly\\"})"
   ariaLabel="Select option"
   className=""
   data-test="toolbarFieldRangeGranularity"
@@ -131,7 +131,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "current",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
         "value": Object {
           "endDate": 2019-07-31T23:59:59.999Z,
           "startDate": 2019-07-01T00:00:00.000Z,
@@ -140,7 +140,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "june",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"June\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"June\\"})",
         "value": Object {
           "endDate": 2019-06-30T23:59:59.999Z,
           "startDate": 2019-06-01T00:00:00.000Z,
@@ -149,7 +149,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "may",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"May\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"May\\"})",
         "value": Object {
           "endDate": 2019-05-31T23:59:59.999Z,
           "startDate": 2019-05-01T00:00:00.000Z,
@@ -158,7 +158,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "april",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"April\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"April\\"})",
         "value": Object {
           "endDate": 2019-04-30T23:59:59.999Z,
           "startDate": 2019-04-01T00:00:00.000Z,
@@ -167,7 +167,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "march",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"March\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"March\\"})",
         "value": Object {
           "endDate": 2019-03-31T23:59:59.999Z,
           "startDate": 2019-03-01T00:00:00.000Z,
@@ -176,7 +176,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "february",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"February\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"February\\"})",
         "value": Object {
           "endDate": 2019-02-28T23:59:59.999Z,
           "startDate": 2019-02-01T00:00:00.000Z,
@@ -185,7 +185,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "january",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"January\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"January\\"})",
         "value": Object {
           "endDate": 2019-01-31T23:59:59.999Z,
           "startDate": 2019-01-01T00:00:00.000Z,
@@ -194,7 +194,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "december",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"December 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"December 2018\\"})",
         "value": Object {
           "endDate": 2018-12-31T23:59:59.999Z,
           "startDate": 2018-12-01T00:00:00.000Z,
@@ -203,7 +203,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "november",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"November 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"November 2018\\"})",
         "value": Object {
           "endDate": 2018-11-30T23:59:59.999Z,
           "startDate": 2018-11-01T00:00:00.000Z,
@@ -212,7 +212,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "october",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"October 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"October 2018\\"})",
         "value": Object {
           "endDate": 2018-10-31T23:59:59.999Z,
           "startDate": 2018-10-01T00:00:00.000Z,
@@ -221,7 +221,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "september",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"September 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"September 2018\\"})",
         "value": Object {
           "endDate": 2018-09-30T23:59:59.999Z,
           "startDate": 2018-09-01T00:00:00.000Z,
@@ -230,7 +230,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       Object {
         "_title": "august",
         "selected": true,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"August 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"August 2018\\"})",
         "value": Object {
           "endDate": 2018-08-31T23:59:59.999Z,
           "startDate": 2018-08-01T00:00:00.000Z,
@@ -238,7 +238,7 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
       },
     ]
   }
-  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"rangedMonthly\\"})"
   position="right"
   selectedOptions={null}
   toggleIcon={null}
@@ -246,37 +246,65 @@ exports[`ToolbarFieldGranularity Component should handle selecting an option dir
 />
 `;
 
-exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state: dispatch date range 1`] = `
+exports[`ToolbarFieldRangedMonthly Component should handle updating granularity and date through redux state with component: dispatch date range, component 1`] = `
 Array [
   Array [
     Array [
       Object {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-        "viewId": "toolbarFieldRangeGranularity",
+        "viewId": undefined,
       },
       Object {
         "granularity": "daily",
         "type": "SET_QUERY_RHSM_granularity",
-        "viewId": "toolbarFieldRangeGranularity",
+        "viewId": undefined,
       },
       Object {
         "beginning": "2019-07-01T00:00:00.000Z",
         "type": "SET_QUERY_RHSM_beginning",
-        "viewId": "toolbarFieldRangeGranularity",
+        "viewId": undefined,
       },
       Object {
         "ending": "2019-07-31T23:59:59.999Z",
         "type": "SET_QUERY_RHSM_ending",
-        "viewId": "toolbarFieldRangeGranularity",
+        "viewId": undefined,
       },
     ],
   ],
 ]
 `;
 
-exports[`ToolbarFieldGranularity Component should render a non-connected component: non-connected 1`] = `
+exports[`ToolbarFieldRangedMonthly Component should handle updating granularity and date through redux state with hook: dispatch date range, hook 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "granularity": "daily",
+        "type": "SET_QUERY_RHSM_granularity",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "beginning": "2018-08-01T00:00:00.000Z",
+        "type": "SET_QUERY_RHSM_beginning",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "ending": "2018-08-31T00:00:00.000Z",
+        "type": "SET_QUERY_RHSM_ending",
+        "viewId": "loremIpsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldRangedMonthly Component should render a basic component: basic 1`] = `
 <Select
-  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"rangedMonthly\\"})"
   ariaLabel="Select option"
   className=""
   data-test="toolbarFieldRangeGranularity"
@@ -292,7 +320,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "current",
         "selected": true,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"current\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
         "value": Object {
           "endDate": 2019-07-31T23:59:59.999Z,
           "startDate": 2019-07-01T00:00:00.000Z,
@@ -301,7 +329,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "june",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"June\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"June\\"})",
         "value": Object {
           "endDate": 2019-06-30T23:59:59.999Z,
           "startDate": 2019-06-01T00:00:00.000Z,
@@ -310,7 +338,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "may",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"May\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"May\\"})",
         "value": Object {
           "endDate": 2019-05-31T23:59:59.999Z,
           "startDate": 2019-05-01T00:00:00.000Z,
@@ -319,7 +347,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "april",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"April\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"April\\"})",
         "value": Object {
           "endDate": 2019-04-30T23:59:59.999Z,
           "startDate": 2019-04-01T00:00:00.000Z,
@@ -328,7 +356,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "march",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"March\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"March\\"})",
         "value": Object {
           "endDate": 2019-03-31T23:59:59.999Z,
           "startDate": 2019-03-01T00:00:00.000Z,
@@ -337,7 +365,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "february",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"February\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"February\\"})",
         "value": Object {
           "endDate": 2019-02-28T23:59:59.999Z,
           "startDate": 2019-02-01T00:00:00.000Z,
@@ -346,7 +374,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "january",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"January\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"January\\"})",
         "value": Object {
           "endDate": 2019-01-31T23:59:59.999Z,
           "startDate": 2019-01-01T00:00:00.000Z,
@@ -355,7 +383,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "december",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"December 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"December 2018\\"})",
         "value": Object {
           "endDate": 2018-12-31T23:59:59.999Z,
           "startDate": 2018-12-01T00:00:00.000Z,
@@ -364,7 +392,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "november",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"November 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"November 2018\\"})",
         "value": Object {
           "endDate": 2018-11-30T23:59:59.999Z,
           "startDate": 2018-11-01T00:00:00.000Z,
@@ -373,7 +401,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "october",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"October 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"October 2018\\"})",
         "value": Object {
           "endDate": 2018-10-31T23:59:59.999Z,
           "startDate": 2018-10-01T00:00:00.000Z,
@@ -382,7 +410,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "september",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"September 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"September 2018\\"})",
         "value": Object {
           "endDate": 2018-09-30T23:59:59.999Z,
           "startDate": 2018-09-01T00:00:00.000Z,
@@ -391,7 +419,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       Object {
         "_title": "august",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRange, {\\"context\\":\\"August 2018\\"})",
+        "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"August 2018\\"})",
         "value": Object {
           "endDate": 2018-08-31T23:59:59.999Z,
           "startDate": 2018-08-01T00:00:00.000Z,
@@ -399,7 +427,7 @@ exports[`ToolbarFieldGranularity Component should render a non-connected compone
       },
     ]
   }
-  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"rangedMonthly\\"})"
   position="right"
   selectedOptions={null}
   toggleIcon={null}
