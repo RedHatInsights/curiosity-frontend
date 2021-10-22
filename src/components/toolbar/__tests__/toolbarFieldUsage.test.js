@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ToolbarFieldUsage, toolbarFieldOptions } from '../toolbarFieldUsage';
+import { ToolbarFieldUsage, toolbarFieldOptions, useOnSelect } from '../toolbarFieldUsage';
 import { store } from '../../../redux/store';
 import { RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES, RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
@@ -17,7 +17,6 @@ describe('ToolbarFieldSla Component', () => {
 
   it('should render a basic component', () => {
     const props = {
-      useProduct: () => ({ viewId: 'loremIpsum' }),
       useProductQuery: () => ({ [RHSM_API_QUERY_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT })
     };
     const component = shallow(<ToolbarFieldUsage {...props} />);
@@ -29,10 +28,8 @@ describe('ToolbarFieldSla Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating usage through redux state', async () => {
-    const props = {
-      useProduct: () => ({ viewId: 'loremIpsum' })
-    };
+  it('should handle updating usage through redux state with component', async () => {
+    const props = {};
 
     const component = await mountHookComponent(<ToolbarFieldUsage {...props} />);
 
@@ -40,6 +37,19 @@ describe('ToolbarFieldSla Component', () => {
     component.update();
     component.find('button.pf-c-select__menu-item').first().simulate('click');
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch usage');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch usage, component');
+  });
+
+  it('should handle updating usage through redux state with hook', () => {
+    const options = {
+      useProduct: () => ({ viewId: 'loremIpsum' })
+    };
+
+    const onSelect = useOnSelect(options);
+
+    onSelect({
+      value: 'dolor sit'
+    });
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch usage, hook');
   });
 });
