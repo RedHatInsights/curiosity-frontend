@@ -25,7 +25,25 @@ Array [
 ]
 `;
 
-exports[`ToolbarFieldSla Component should handle updating sla through redux state: dispatch sla 1`] = `
+exports[`ToolbarFieldSla Component should handle updating sla through redux state with component: dispatch sla, component 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "sla": "premium",
+        "type": "SET_QUERY_RHSM_sla",
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldSla Component should handle updating sla through redux state with hook: dispatch sla, hook 1`] = `
 Array [
   Array [
     Array [
@@ -34,7 +52,7 @@ Array [
         "viewId": "loremIpsum",
       },
       Object {
-        "sla": "premium",
+        "sla": "dolor sit",
         "type": "SET_QUERY_RHSM_sla",
         "viewId": "loremIpsum",
       },

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarContext should apply a hook for clearing a toolbar field through redux: clear single field 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "sla": null,
+        "type": "SET_QUERY_RHSM_sla",
+        "viewId": undefined,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "type": "SET_QUERY_RHSM_usage",
+        "usage": null,
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarContext should apply a hook for clearing specific active toolbar fields through redux: clear all fields 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "sla": null,
+        "type": "SET_QUERY_RHSM_sla",
+        "viewId": undefined,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "type": "SET_QUERY_RHSM_usage",
+        "usage": null,
+        "viewId": undefined,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "sla": null,
+        "type": "SET_QUERY_RHSM_sla",
+        "viewId": undefined,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "type": "SET_QUERY_RHSM_usage",
+        "usage": null,
+        "viewId": undefined,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "currentFilter": null,
+        "type": "SET_FILTER_TYPE",
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarContext should apply a hook for retrieving api queries specific to toolbar: query 1`] = `
+Object {
+  "granularity": "testGranularity",
+  "sla": "testSla",
+  "uom": undefined,
+  "usage": undefined,
+}
+`;
+
+exports[`ToolbarContext should return specific properties: specific properties 1`] = `
+Object {
+  "useToolbarFieldClear": [Function],
+  "useToolbarFieldClearAll": [Function],
+  "useToolbarFieldQueries": [Function],
+}
+`;
