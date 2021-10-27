@@ -29,7 +29,7 @@ describe('Redirect Component', () => {
         mockReplace.mockClear();
       },
       {
-        url: 'http://lorem/ipsum?dolor=sit'
+        url: 'http://lorem/subscriptions/ipsum?dolor=sit'
       }
     );
   });
