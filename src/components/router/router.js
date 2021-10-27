@@ -59,7 +59,7 @@ const Router = ({ routes } = {}) => {
               };
 
               const routeDetail = {
-                baseName: routerHelpers.baseName,
+                baseName: routerHelpers.dynamicBaseName(),
                 errorRoute: activateOnErrorRoute,
                 routes,
                 routeItem: { ...item },
