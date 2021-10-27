@@ -9,7 +9,7 @@ import '@patternfly/react-styles/css/components/Select/select.css';
 
 const AppEntry = () => (
   <Provider store={store}>
-    <BrowserRouter basename={routerHelpers.baseName}>
+    <BrowserRouter basename={routerHelpers.dynamicBaseName()}>
       <App />
     </BrowserRouter>
   </Provider>

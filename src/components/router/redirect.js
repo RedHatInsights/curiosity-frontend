@@ -8,14 +8,15 @@ import { helpers } from '../../common';
  * A routing redirect.
  *
  * @param {object} props
- * @param {string} props.baseName
  * @param {boolean} props.isForced
  * @param {string} props.route
  * @param {string} props.routes
  * @param {string} props.url
  * @returns {Node}
  */
-const Redirect = ({ baseName, isForced, route, routes, url }) => {
+const Redirect = ({ isForced, route, routes, url }) => {
+  const baseName = routerHelpers.dynamicBaseName();
+
   /**
    * Bypass router, force the location.
    */
@@ -40,11 +41,10 @@ const Redirect = ({ baseName, isForced, route, routes, url }) => {
 /**
  * Prop types.
  *
- * @type {{isRedirect: boolean, route: string, routes: Array, isReplace: boolean, baseName: string, url: string,
+ * @type {{isRedirect: boolean, route: string, routes: Array, isReplace: boolean, url: string,
  *    isForced: boolean}}
  */
 Redirect.propTypes = {
-  baseName: PropTypes.string,
   isForced: PropTypes.bool,
   route: PropTypes.string,
   routes: PropTypes.array,
@@ -54,11 +54,10 @@ Redirect.propTypes = {
 /**
  * Default props.
  *
- * @type {{isRedirect: boolean, route: string, routes: Array, isReplace: boolean, baseName: string, url: string,
+ * @type {{isRedirect: boolean, route: string, routes: Array, isReplace: boolean, url: string,
  *    isForced: boolean}}
  */
 Redirect.defaultProps = {
-  baseName: routerHelpers.baseName,
   isForced: false,
   route: null,
   routes: routerHelpers.routes,

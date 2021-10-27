@@ -10,7 +10,7 @@ exports[`Redirect Component should handle a forced redirect: forced route 1`] = 
 exports[`Redirect Component should handle a forced redirect: forced route, replace 1`] = `
 Array [
   Array [
-    "/dolor?dolor=sit",
+    "/subscriptions/dolor?dolor=sit",
   ],
 ]
 `;
