@@ -58,7 +58,7 @@ Redirect.propTypes = {
  *    isForced: boolean}}
  */
 Redirect.defaultProps = {
-  baseName: routerHelpers.baseName,
+  baseName: routerHelpers.dynamicBaseName(),
   isForced: false,
   route: null,
   routes: routerHelpers.routes,
