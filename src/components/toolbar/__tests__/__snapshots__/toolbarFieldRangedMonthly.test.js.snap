@@ -255,7 +255,7 @@ Array [
         "viewId": undefined,
       },
       Object {
-        "granularity": "daily",
+        "granularity": "Daily",
         "type": "SET_QUERY_RHSM_granularity",
         "viewId": undefined,
       },
@@ -283,7 +283,7 @@ Array [
         "viewId": "loremIpsum",
       },
       Object {
-        "granularity": "daily",
+        "granularity": "Daily",
         "type": "SET_QUERY_RHSM_granularity",
         "viewId": "loremIpsum",
       },

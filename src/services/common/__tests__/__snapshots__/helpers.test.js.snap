@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Service Helpers should attempt to apply a Joi schema to a response: schemaResponse, camelCasing 1`] = `
+Object {
+  "loremIpsum": "dolor_sit",
+}
+`;
+
+exports[`Service Helpers should attempt to apply a Joi schema to a response: schemaResponse, parameters 1`] = `
+Array [
+  Array [
+    Object {
+      "lorem_ipsum": "dolor_sit",
+    },
+    Object {
+      "convert": true,
+    },
+  ],
+]
+`;
+
+exports[`Service Helpers should have specific functions: serviceHelpers 1`] = `
+Object {
+  "camelCase": [Function],
+  "passDataToCallback": [Function],
+  "schemaResponse": [Function],
+}
+`;
+
+exports[`Service Helpers should support applying data to a supplied callback: passDataToCallback, success 1`] = `
+Array [
+  Array [
+    Object {
+      "hello": "world",
+    },
+  ],
+]
+`;
+
+exports[`Service Helpers should support camel casing obj keys: camelCase 1`] = `
+Object {
+  "loremIpsum": Array [
+    Object {
+      "dolorSit": Array [
+        Object {
+          "helloWorld": 1,
+        },
+      ],
+    },
+  ],
+}
+`;

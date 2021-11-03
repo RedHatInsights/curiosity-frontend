@@ -4,23 +4,23 @@ exports[`ToolbarFieldGranularity Component should export select options: toolbar
 Array [
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-    "value": "daily",
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+    "value": "Daily",
   },
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-    "value": "weekly",
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+    "value": "Weekly",
   },
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-    "value": "monthly",
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+    "value": "Monthly",
   },
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-    "value": "quarterly",
+    "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+    "value": "Quarterly",
   },
 ]
 `;
@@ -34,7 +34,7 @@ Array [
         "viewId": undefined,
       },
       Object {
-        "granularity": "daily",
+        "granularity": "Daily",
         "type": "SET_QUERY_RHSM_granularity",
         "viewId": undefined,
       },
@@ -98,29 +98,29 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
     Array [
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-        "value": "daily",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+        "value": "Daily",
       },
       Object {
         "selected": true,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-        "value": "weekly",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+        "value": "Weekly",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-        "value": "monthly",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+        "value": "Monthly",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-        "value": "quarterly",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+        "value": "Quarterly",
       },
     ]
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"granularity\\"})"
   position="left"
-  selectedOptions="weekly"
+  selectedOptions="Weekly"
   toggleIcon={null}
   variant="single"
 />

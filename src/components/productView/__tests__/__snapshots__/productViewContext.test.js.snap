@@ -25,7 +25,7 @@ Object {
 exports[`ProductViewContext should apply a hook for retrieving product context: product context, uom filtering cores 1`] = `
 Object {
   "graphTallyQuery": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "initialGraphFilters": Array [
     Object {
@@ -147,7 +147,7 @@ Object {
 exports[`ProductViewContext should apply a hook for retrieving product context: product context, uom filtering sockets 1`] = `
 Object {
   "graphTallyQuery": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "initialGraphFilters": Array [
     Object {
