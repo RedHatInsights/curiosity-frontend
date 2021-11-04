@@ -18,7 +18,7 @@ import { ChartIcon } from '../chart/chartIcon';
  * @param {Function} props.t
  * @param {Function} props.useDispatch
  * @param {Function} props.useProduct
- * @param {Function} props.useSelector
+ * @param {Function} props.useSelectors
  * @returns {Node}
  */
 const GraphCardChartLegend = ({
@@ -26,16 +26,18 @@ const GraphCardChartLegend = ({
   datum,
   t,
   useDispatch: useAliasDispatch,
-  useProduct: useAliasProduct,
-  useSelector: useAliasSelector
+  useSelectors: useAliasSelectors,
+  useProduct: useAliasProduct
 }) => {
   const { productLabel, viewId } = useAliasProduct();
-  const legend = useAliasSelector(({ graph }) => graph?.legend);
   const dispatch = useAliasDispatch();
+  const legendItems = useAliasSelectors(
+    datum.dataSets.map(({ id }) => ({ graph }) => graph.legend?.[`${viewId}-${id}`])
+  );
 
   useMount(() => {
-    datum.dataSets.forEach(({ id }) => {
-      const checkIsToggled = legend?.[`${viewId}-${id}`] || chart.isToggled(id);
+    datum.dataSets.forEach(({ id }, index) => {
+      const checkIsToggled = legendItems?.[index] || chart.isToggled(id);
 
       if (checkIsToggled) {
         chart.hide(id);
@@ -54,15 +56,14 @@ const GraphCardChartLegend = ({
 
     dispatch({
       type: reduxTypes.graph.SET_GRAPH_LEGEND,
-      legend: {
-        [`${viewId}-${id}`]: updatedToggle
-      }
+      id: `${viewId}-${id}`,
+      value: updatedToggle
     });
   };
 
   return (
     <React.Fragment>
-      {datum.dataSets.map(({ id, isThreshold, stroke: color, data = [] }) => {
+      {datum.dataSets.map(({ id, isThreshold, stroke: color, data = [] }, index) => {
         const isDisabled =
           !data.find(({ y, hasData }) => (y >= 0 && hasData === true) || (y >= 0 && isThreshold === true)) || false;
 
@@ -83,7 +84,7 @@ const GraphCardChartLegend = ({
           [<span style={{ whiteSpace: 'nowrap' }} />]
         );
 
-        const checkIsToggled = legend?.[`${viewId}-${id}`] || chart.isToggled(id);
+        const checkIsToggled = legendItems?.[index] || chart.isToggled(id);
 
         const button = (
           <Button
@@ -132,7 +133,7 @@ const GraphCardChartLegend = ({
 /**
  * Prop types.
  *
- * @type {{datum: object, useProduct: Function, t: Function, useSelector: Function, useDispatch: Function, chart: object}}
+ * @type {{datum: object, useProduct: Function, t: Function, useDispatch: Function, useSelectors: Function, chart: object}}
  */
 GraphCardChartLegend.propTypes = {
   chart: PropTypes.shape({
@@ -151,14 +152,14 @@ GraphCardChartLegend.propTypes = {
   }),
   t: PropTypes.func,
   useDispatch: PropTypes.func,
-  useProduct: PropTypes.func,
-  useSelector: PropTypes.func
+  useSelectors: PropTypes.func,
+  useProduct: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{datum: object, useProduct: Function, t: Function, useSelector: Function, useDispatch: Function, chart: object}}
+ * @type {{datum: object, useProduct: Function, t: Function, useDispatch: Function, useSelectors: Function, chart: object}}
  */
 GraphCardChartLegend.defaultProps = {
   chart: {
@@ -171,8 +172,8 @@ GraphCardChartLegend.defaultProps = {
   },
   t: translate,
   useDispatch: storeHooks.reactRedux.useDispatch,
-  useProduct,
-  useSelector: storeHooks.reactRedux.useSelector
+  useSelectors: storeHooks.reactRedux.useSelectors,
+  useProduct
 };
 
 export { GraphCardChartLegend as default, GraphCardChartLegend };

@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphCardContext should aggregate metric API calls: aggregated calls, error 1`] = `
+Object {
+  "data": Object {
+    "dolor": Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+    "ipsum": Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+  },
+  "dataSets": Array [
+    Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+    Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+  ],
+  "error": true,
+  "fulfilled": false,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled 1`] = `
+Object {
+  "data": Object {
+    "dolor": Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+    "ipsum": Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+  },
+  "dataSets": Array [
+    Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+    Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+  ],
+  "error": false,
+  "fulfilled": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled error 1`] = `
+Object {
+  "data": Object {
+    "dolor": Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+    "ipsum": Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+  },
+  "dataSets": Array [
+    Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+    Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+  ],
+  "error": false,
+  "fulfilled": true,
+  "pending": false,
+}
+`;
+
+exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled pending 1`] = `
+Object {
+  "data": Object {
+    "dolor": Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+    "ipsum": Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+  },
+  "dataSets": Array [
+    Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+    Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+  ],
+  "error": false,
+  "fulfilled": false,
+  "pending": true,
+}
+`;
+
+exports[`GraphCardContext should aggregate metric API calls: aggregated calls, pending 1`] = `
+Object {
+  "data": Object {
+    "dolor": Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+    "ipsum": Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+  },
+  "dataSets": Array [
+    Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+    Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+  ],
+  "error": false,
+  "fulfilled": false,
+  "pending": true,
+}
+`;
+
+exports[`GraphCardContext should aggregate metric API calls: aggregated calls, pending error 1`] = `
+Object {
+  "data": Object {
+    "dolor": Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+    "ipsum": Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+  },
+  "dataSets": Array [
+    Object {
+      "data": Array [],
+      "id": "ipsum",
+      "meta": Object {},
+    },
+    Object {
+      "data": Array [],
+      "id": "dolor",
+      "meta": Object {},
+    },
+  ],
+  "error": false,
+  "fulfilled": false,
+  "pending": true,
+}
+`;
+
+exports[`GraphCardContext should return specific properties: specific properties 1`] = `
+Object {
+  "DEFAULT_CONTEXT": Array [
+    Object {
+      "settings": Object {
+        "isStandalone": false,
+        "metric": undefined,
+        "metrics": Array [],
+      },
+    },
+    [Function],
+  ],
+  "GraphCardContext": Object {
+    "$$typeof": Symbol(react.context),
+    "Consumer": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": [Circular],
+    },
+    "Provider": Object {
+      "$$typeof": Symbol(react.provider),
+      "_context": [Circular],
+    },
+    "_calculateChangedBits": null,
+    "_currentRenderer": null,
+    "_currentRenderer2": null,
+    "_currentValue": Array [
+      Object {
+        "settings": Object {
+          "isStandalone": false,
+          "metric": undefined,
+          "metrics": Array [],
+        },
+      },
+      [Function],
+    ],
+    "_currentValue2": Array [
+      Object {
+        "settings": Object {
+          "isStandalone": false,
+          "metric": undefined,
+          "metrics": Array [],
+        },
+      },
+      [Function],
+    ],
+    "_threadCount": 0,
+  },
+  "useGetGraphTally": [Function],
+  "useGraphCardContext": [Function],
+  "useMetricsSelector": [Function],
+}
+`;

@@ -49,17 +49,28 @@ const generateMaxXY = ({ dataSets = [] } = {}) => {
  *
  * @param {object} params
  * @param {number|object} params.maxY
- * @returns {{ domain: { y: Array } }}
+ * @param {object} params.padding
+ * @returns {{ domain: { y: Array }, padding: {object} }}
  */
-const generateDomains = ({ maxY } = {}) => {
+const generateDomains = ({ maxY, padding = {} } = {}) => {
   const updatedChartDomain = {};
+  const updatedPadding = { ...padding };
   const generatedDomain = {};
 
   if (Object.values(maxY).length) {
     generatedDomain.y = [0, 1.25];
-  } else {
+  } else if (maxY >= 0.01) {
     const floored = Math.pow(10, Math.floor(Math.log10(maxY || 10)));
     generatedDomain.y = [0, Math.ceil((maxY + 1) / floored) * floored];
+  } else if (maxY < 0.01) {
+    generatedDomain.y = [0, maxY + maxY / 4 || 10];
+  } else {
+    generatedDomain.y = [0, 10];
+  }
+
+  if (maxY < 0.01) {
+    updatedPadding.left += generatedDomain.y.toString().length;
+    updatedPadding.right += generatedDomain.y.toString().length;
   }
 
   if (Object.keys(generatedDomain).length) {
@@ -67,7 +78,8 @@ const generateDomains = ({ maxY } = {}) => {
   }
 
   return {
-    ...updatedChartDomain
+    ...updatedChartDomain,
+    padding: updatedPadding
   };
 };
 
@@ -197,7 +209,7 @@ const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValue
 const generateTooltipData = ({ content = helpers.noop, dataSets = [] } = {}) => {
   const tooltipDataSetLookUp = {};
 
-  if (content && dataSets?.[0]?.data) {
+  if (content && Array.isArray(dataSets?.[0]?.data)) {
     dataSets[0].data.forEach((dataSet, index) => {
       const itemsByKey = {};
 
@@ -246,7 +258,7 @@ const generateXAxisProps = ({
   xAxisPropDefaults = {},
   xAxisTickFormat
 } = {}) => {
-  const { data = [] } = dataSet;
+  const { data = [], xAxisChartLabel } = dataSet;
   const axisProps = {
     ...xAxisPropDefaults,
     tickValues: data.reduce(
@@ -255,6 +267,12 @@ const generateXAxisProps = ({
     ),
     tickFormat: tick => data[tick]?.xAxisLabel || tick
   };
+
+  if (typeof xAxisChartLabel === 'function') {
+    axisProps.label = xAxisChartLabel({ ...dataSet, xAxisChartLabel: undefined });
+  } else {
+    axisProps.label = xAxisChartLabel;
+  }
 
   if (typeof xAxisTickFormat === 'function') {
     axisProps.tickFormat = tick => {
@@ -284,7 +302,7 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
   const axisProps = [];
   const isMultiAxis = dataSets.length > 1;
 
-  dataSets.forEach(({ id, stroke, strokeWidth } = {}, index) => {
+  dataSets.forEach(({ yAxisChartLabel, id, stroke, strokeWidth, ...dataSet } = {}, index) => {
     const updatedAxisProps = {
       style: { axis: {}, tickLabels: {} },
       tickFormat: tick => tick
@@ -296,6 +314,12 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
 
     if (isMultiAxis && strokeWidth) {
       updatedAxisProps.style.axis.strokeWidth = strokeWidth;
+    }
+
+    if (typeof yAxisChartLabel === 'function') {
+      updatedAxisProps.label = yAxisChartLabel({ id, stroke, strokeWidth, ...dataSet });
+    } else {
+      updatedAxisProps.label = yAxisChartLabel;
     }
 
     if (typeof yAxisTickFormat === 'function') {
@@ -330,6 +354,8 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
  * @param {object} params.individualMaxY
  * @param {number} params.maxX
  * @param {number} params.maxY
+ * @param {Node|Function} params.xAxisChartLabel
+ * @param {Node|Function} params.yAxisChartLabel
  * @param {boolean} params.xAxisFixLabelOverlap
  * @param {number} params.xAxisLabelIncrement
  * @param {Function} params.xAxisTickFormat
@@ -341,6 +367,8 @@ const generateAxisProps = ({
   individualMaxY = {},
   maxX,
   maxY,
+  xAxisChartLabel,
+  yAxisChartLabel,
   xAxisFixLabelOverlap = true,
   xAxisLabelIncrement = 1,
   xAxisTickFormat,
@@ -360,21 +388,33 @@ const generateAxisProps = ({
 
   dataSets.forEach(dataSet => {
     if (dataSet.yAxisUseDataSet) {
-      yAxisDataSets.push(dataSet);
+      yAxisDataSets.push({
+        yAxisChartLabel,
+        ...dataSet
+      });
     }
     if (dataSet.xAxisUseDataSet) {
-      xAxisDataSet = dataSet;
+      xAxisDataSet = {
+        xAxisChartLabel,
+        ...dataSet
+      };
     }
   });
 
   if (!yAxisDataSets.length) {
-    yAxisDataSets.push(dataSets?.[0]);
+    yAxisDataSets.push({
+      yAxisChartLabel,
+      ...dataSets?.[0]
+    });
   } else {
     yAxisDataSets = yAxisDataSets.slice(0, 2);
   }
 
   if (!xAxisDataSet) {
-    xAxisDataSet = dataSets?.[0] || [];
+    xAxisDataSet = {
+      xAxisChartLabel,
+      ...dataSets?.[0]
+    };
   }
 
   const updatedMaxY = (yAxisDataSets.length > 1 && individualMaxY) || maxY;

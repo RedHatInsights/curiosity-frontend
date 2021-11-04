@@ -1,5 +1,6 @@
 .curiosity {
   .curiosity-tabs-container {
+    background-color: var(--pf-global--BackgroundColor--100);
     min-height: 775px;
 
     section.pf-c-tab-content:focus {
@@ -7,7 +8,11 @@
     }
   }
 
+  .curiosity-tabs {}
+
   .curiosity-tabs__no-scroll {
+    @extend .curiosity-tabs;
+
     > .pf-c-tabs__scroll-button {
       display: none;
     }

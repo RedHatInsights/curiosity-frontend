@@ -13,7 +13,8 @@ describe('GraphReducer', () => {
     specificTypes.forEach(value => {
       const dispatched = {
         type: value,
-        legend: { lorem: true }
+        id: 'lorem',
+        value: true
       };
 
       const resultState = graphReducer(undefined, dispatched);

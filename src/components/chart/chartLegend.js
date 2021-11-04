@@ -10,7 +10,7 @@ import { useChartContext, useToggleData } from './chartContext';
 const ChartLegend = () => {
   const { getIsToggled, onHide, onRevert, onToggle } = useToggleData();
   const { chartSettings = {} } = useChartContext();
-  const { chartLegend, dataSets } = chartSettings;
+  const { chartLegend, dataSets, padding = {}, xAxisProps = {} } = chartSettings;
 
   if (!chartLegend) {
     return null;
@@ -27,7 +27,13 @@ const ChartLegend = () => {
   };
 
   return (
-    <div className="curiosity-chartarea__legend">
+    <div
+      className={`curiosity-chartarea__legend${(xAxisProps?.label && '-axis-label-active') || ''}`}
+      style={{
+        marginLeft: (padding?.left && `${padding.left}px`) || 0,
+        marginRight: (padding?.right && `${padding.right}px`) || 0
+      }}
+    >
       {(React.isValidElement(chartLegend) && React.cloneElement(chartLegend, { ...legendProps })) ||
         chartLegend({ ...legendProps })}
     </div>

@@ -6,7 +6,8 @@ import { useRouteDetail } from '../../hooks/useRouter';
 import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
 import { apiQueries } from '../../redux';
-import { ConnectedGraphCard } from '../graphCard/graphCard';
+import { ConnectedGraphCard as ConnectedGraphCardDeprecated } from '../graphCard/graphCard.deprecated';
+import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList } from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
@@ -15,6 +16,7 @@ import { SelectPosition } from '../form/select';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { ConnectedInventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
+import { RHSM_API_PATH_PRODUCT_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -39,7 +41,7 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail: useAliasRouteDetail }) => {
-  const { productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
+  const { pathParameter: routeProductId, productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
 
   const renderProduct = config => {
     const {
@@ -97,33 +99,44 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
           <Toolbar />
         </PageToolbar>
         <PageSection>
-          <ConnectedGraphCard
-            key={`graph_${productId}`}
-            query={initialGraphTallyQuery}
-            productId={productId}
-            viewId={viewId}
-            cardTitle={graphCardTitle}
-          >
-            {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
-              (toolbarGraph !== false && <ToolbarFieldGranularity position={SelectPosition.right} />)}
-          </ConnectedGraphCard>
+          {productId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && (
+            <ConnectedGraphCardDeprecated
+              key={`graph_${productId}`}
+              query={initialGraphTallyQuery}
+              productId={productId}
+              viewId={viewId}
+              cardTitle={graphCardTitle}
+            >
+              {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
+                (toolbarGraph !== false && <ToolbarFieldGranularity position={SelectPosition.right} />)}
+            </ConnectedGraphCardDeprecated>
+          )}
+          {productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <GraphCard />}
         </PageSection>
         <PageSection>
-          <InventoryTabs key={`inventory_${productId}`} productId={productId}>
-            <InventoryTab
-              key={`inventory_hosts_${productId}`}
-              title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
-            >
-              <ConnectedInventoryList
-                key={`inv_${productId}`}
-                filterGuestsData={initialGuestsFilters}
-                filterInventoryData={initialInventoryFilters}
-                productId={productId}
-                settings={initialInventorySettings}
-                query={initialInventoryHostsQuery}
-                viewId={viewId}
-              />
-            </InventoryTab>
+          <InventoryTabs
+            key={`inventory_${productId}`}
+            productId={productId}
+            isDisabled={
+              (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
+            }
+          >
+            {initialInventoryFilters && (
+              <InventoryTab
+                key={`inventory_hosts_${productId}`}
+                title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+              >
+                <ConnectedInventoryList
+                  key={`inv_${productId}`}
+                  filterGuestsData={initialGuestsFilters}
+                  filterInventoryData={initialInventoryFilters}
+                  productId={productId}
+                  settings={initialInventorySettings}
+                  query={initialInventoryHostsQuery}
+                  viewId={viewId}
+                />
+              </InventoryTab>
+            )}
             {initialSubscriptionsInventoryFilters && (
               <InventoryTab
                 key={`inventory_subs_${productId}`}
@@ -149,9 +162,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
       <PageHeader productLabel={routeProductLabel}>
         {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: routeProductLabel })}
       </PageHeader>
-      <PageMessages>
-        <BannerMessages />
-      </PageMessages>
+      <PageMessages>{routeProductId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <BannerMessages />}</PageMessages>
       <PageColumns>{productConfig.map(config => renderProduct(config))}</PageColumns>
     </PageLayout>
   );
