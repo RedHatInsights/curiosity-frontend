@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductQuery } from '../productView/productViewContext';
-import { Select } from '../form/select';
+import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_USAGE_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
@@ -53,6 +53,7 @@ const useOnSelect = ({
  * @param {object} props
  * @param {boolean} props.isFilter
  * @param {object} props.options
+ * @param {string} props.position
  * @param {Function} props.t
  * @param {Function} props.useOnSelect
  * @param {Function} props.useProductQuery
@@ -61,6 +62,7 @@ const useOnSelect = ({
 const ToolbarFieldUsage = ({
   isFilter,
   options,
+  position,
   t,
   useOnSelect: useAliasOnSelect,
   useProductQuery: useAliasProductQuery
@@ -77,6 +79,7 @@ const ToolbarFieldUsage = ({
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'usage' })}
+      position={position}
       data-test="toolbarFieldUsage"
     />
   );
@@ -85,7 +88,8 @@ const ToolbarFieldUsage = ({
 /**
  * Prop types.
  *
- * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function,
+ *     position: string}}
  */
 ToolbarFieldUsage.propTypes = {
   isFilter: PropTypes.bool,
@@ -96,6 +100,7 @@ ToolbarFieldUsage.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  position: PropTypes.string,
   t: PropTypes.func,
   useOnSelect: PropTypes.func,
   useProductQuery: PropTypes.func
@@ -104,12 +109,14 @@ ToolbarFieldUsage.propTypes = {
 /**
  * Default props.
  *
- * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function,
+ *     position: string}}
  */
 
 ToolbarFieldUsage.defaultProps = {
   isFilter: false,
   options: toolbarFieldOptions,
+  position: SelectPosition.left,
   t: translate,
   useOnSelect,
   useProductQuery
