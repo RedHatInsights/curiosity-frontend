@@ -1,99 +1,119 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
-import { useProductGraphConfig, useProductGraphTallyQuery } from '../productView/productViewContext';
+import { Card, CardActions, CardBody, CardHeader, CardTitle, Title } from '@patternfly/react-core';
+import { useShallowCompareEffect } from 'react-use';
+import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
+import { useGraphCardContext, useGetGraphTally, useMetricsSelector } from './graphCardContext';
 import { graphCardHelpers } from './graphCardHelpers';
 import { Chart } from '../chart/chart';
-import GraphCardChartLegend from './graphCardChartLegend';
-import GraphCardChartTooltip from './graphCardChartTooltip';
-import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { GraphCardChartLegend } from './graphCardChartLegend';
+import { GraphCardChartTooltip } from './graphCardChartTooltip';
+import { GraphCardChartTitleTooltip } from './graphCardChartTitleTooltip';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
+import { MinHeight } from '../minHeight/minHeight';
+import { Loader } from '../loader/loader';
+import { translate } from '../i18n/i18n';
 
 /**
- * A chart/graph.
+ * A chart/graph card.
  *
  * @param {object} props
- * @param {object} props.graphData
- * @param {Function} props.useProductGraphConfig
+ * @param {Function} props.t
+ * @param {Function} props.useGetGraphTally
+ * @param {Function} props.useGraphCardContext
+ * @param {Function} props.useMetricsSelector
+ * @param {Function} props.useProduct
  * @param {Function} props.useProductGraphTallyQuery
  * @returns {Node}
  */
 const GraphCardChart = ({
-  graphData,
-  useProductGraphConfig: useAliasProductGraphConfig,
+  t,
+  useGetGraphTally: useAliasGetGraphTally,
+  useGraphCardContext: useAliasGraphCardContext,
+  useMetricsSelector: useAliasMetricsSelector,
+  useProduct: useAliasProduct,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
-  const { filters } = useAliasProductGraphConfig();
-  const query = useAliasProductGraphTallyQuery();
-  const { [RHSM_API_QUERY_TYPES.GRANULARITY]: granularity } = query;
+  const { productId } = useAliasProduct();
+  const { settings = {} } = useAliasGraphCardContext();
+  const { actionDisplay, metric, metrics = [] } = settings;
 
-  const chartAreaProps = {
-    xAxisLabelIncrement: graphCardHelpers.getChartXAxisLabelIncrement(granularity),
-    xAxisTickFormat: ({ item, previousItem, tick }) =>
-      graphCardHelpers.xAxisTickFormat({
-        tick,
-        date: item.date,
-        previousDate: previousItem.date,
-        granularity
-      }),
-    yAxisTickFormat: graphCardHelpers.yAxisTickFormat
-  };
+  const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
+  const { pending, error, data = {}, dataSets = [] } = useAliasMetricsSelector();
+  const getGraphTally = useAliasGetGraphTally();
 
-  const filteredGraphData = data => {
-    const filtered = key => {
-      const tempFiltered = {
-        data: data[key],
-        id: key,
-        strokeWidth: 2,
-        isStacked: !/^threshold/.test(key),
-        isThreshold: /^threshold/.test(key)
-      };
+  useShallowCompareEffect(() => {
+    getGraphTally(metrics.map(({ id: metricId }) => ({ id: productId, metric: metricId })));
+  }, [metrics, productId, getGraphTally]);
 
-      if (/^threshold/.test(key)) {
-        tempFiltered.stroke = chartColorGreenDark.value;
-        tempFiltered.strokeDasharray = '4,3';
-        tempFiltered.strokeWidth = 3;
-      }
+  const standaloneMetricId = (metric?.id && `_${metric?.id}`) || '';
+  let updatedActionDisplay = null;
 
-      return tempFiltered;
-    };
-
-    if (filters?.length) {
-      return filters.map(value => Object.assign(filtered(value.id), value));
-    }
-
-    return Object.keys(data).map(key => filtered(key));
-  };
+  if (typeof actionDisplay === 'function') {
+    updatedActionDisplay = actionDisplay({ data: { ...data } });
+  }
 
   return (
-    <Chart
-      key={`chart_${JSON.stringify(query)}`}
-      {...chartAreaProps}
-      dataSets={filteredGraphData(graphData)}
-      chartLegend={({ chart, datum }) => <GraphCardChartLegend chart={chart} datum={datum} />}
-      chartTooltip={({ datum }) => <GraphCardChartTooltip datum={datum} />}
-    />
+    <Card className="curiosity-usage-graph">
+      <MinHeight key="headerMinHeight">
+        <CardHeader>
+          <CardTitle>
+            <Title headingLevel="h2" size="lg">
+              {t(`curiosity-graph.cardHeading${standaloneMetricId}`, { context: productId })}
+              <GraphCardChartTitleTooltip />
+            </Title>
+          </CardTitle>
+          {updatedActionDisplay && (
+            <CardActions className={(error && 'blur') || ''}>{updatedActionDisplay}</CardActions>
+          )}
+        </CardHeader>
+      </MinHeight>
+      <MinHeight key="bodyMinHeight">
+        <CardBody>
+          <div className={(error && 'blur') || (pending && 'fadein') || ''}>
+            {pending && <Loader variant="graph" />}
+            {!pending && (
+              <Chart
+                {...graphCardHelpers.generateExtendedChartSettings({ settings, granularity })}
+                dataSets={dataSets}
+                chartLegend={({ chart, datum }) => <GraphCardChartLegend chart={chart} datum={datum} />}
+                chartTooltip={({ datum }) => <GraphCardChartTooltip datum={datum} />}
+              />
+            )}
+          </div>
+        </CardBody>
+      </MinHeight>
+    </Card>
   );
 };
 
 /**
  * Prop types.
  *
- * @type {{useProductGraphTallyQuery: Function, useProductGraphConfig: Function, graphData: object}}
+ * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function,
+ *     useMetricsSelector: Function, useGetGraphTally: Function}}
  */
 GraphCardChart.propTypes = {
-  graphData: PropTypes.object,
-  useProductGraphConfig: PropTypes.func,
+  t: PropTypes.func,
+  useGetGraphTally: PropTypes.func,
+  useGraphCardContext: PropTypes.func,
+  useMetricsSelector: PropTypes.func,
+  useProduct: PropTypes.func,
   useProductGraphTallyQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useProductGraphTallyQuery: Function, useProductGraphConfig: Function, graphData: object}}
+ * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function,
+ *     useMetricsSelector: Function, useGetGraphTally: Function}}
  */
 GraphCardChart.defaultProps = {
-  graphData: {},
-  useProductGraphConfig,
+  t: translate,
+  useGetGraphTally,
+  useGraphCardContext,
+  useMetricsSelector,
+  useProduct,
   useProductGraphTallyQuery
 };
 

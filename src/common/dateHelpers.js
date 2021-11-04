@@ -102,6 +102,7 @@ const getRangedMonthDateTime = month => {
   listDateTimeRanges = listDateTimeRanges.reverse();
   listDateTimeRanges[0] = {
     ...listDateTimeRanges[0],
+    isCurrent: true,
     _title: 'current',
     title: translate('curiosity-toolbar.granularityRangedMonthly', { context: 'current' })
   };
@@ -148,6 +149,18 @@ const timestampQuarterFormats = {
   ...timestampMonthFormats
 };
 
+/**
+ * Consistent timestamp time formats.
+ *
+ * @type {{yearTimeShort: string, timeLong: string, yearTimeLong: string, timeShort: string}}
+ */
+const timestampTimeFormats = {
+  timeLong: 'MMMM D h:mm:ss A',
+  yearTimeLong: 'MMMM D YYYY h:mm:ss A',
+  timeShort: 'MMM D h:mm A',
+  yearTimeShort: 'MMM D YYYY h:mm A'
+};
+
 const dateHelpers = {
   getCurrentDate,
   getRangedMonthDateTime,
@@ -161,7 +174,8 @@ const dateHelpers = {
   rangedYearDateTime,
   timestampDayFormats,
   timestampMonthFormats,
-  timestampQuarterFormats
+  timestampQuarterFormats,
+  timestampTimeFormats
 };
 
 export {
@@ -179,5 +193,6 @@ export {
   rangedYearDateTime,
   timestampDayFormats,
   timestampMonthFormats,
-  timestampQuarterFormats
+  timestampQuarterFormats,
+  timestampTimeFormats
 };

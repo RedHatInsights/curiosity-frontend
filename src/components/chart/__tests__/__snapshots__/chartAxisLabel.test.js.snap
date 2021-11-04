@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChartAxisLabel Component should handle an undefined coordinate: undefined y 1`] = `
+<g>
+  <foreignObject
+    height="100%"
+    width="100%"
+    x={0}
+    y={0}
+  >
+    <div
+      className="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-1"
+      style={
+        Object {
+          "top": "0px",
+        }
+      }
+      xmlns="http://www.w3.org/1999/xhtml"
+    >
+      <div
+        className="curiosity-chartarea__axis-label-container-content"
+      >
+        lorem ipsum
+      </div>
+    </div>
+  </foreignObject>
+</g>
+`;
+
+exports[`ChartAxisLabel Component should return a basic component: basic 1`] = `
+<g>
+  <foreignObject
+    height="100%"
+    width="100%"
+    x={0}
+    y={0}
+  >
+    <div
+      className="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-0"
+      style={
+        Object {
+          "top": "3px",
+        }
+      }
+      xmlns="http://www.w3.org/1999/xhtml"
+    >
+      <div
+        className="curiosity-chartarea__axis-label-container-content"
+      >
+        hello world
+      </div>
+    </div>
+  </foreignObject>
+</g>
+`;

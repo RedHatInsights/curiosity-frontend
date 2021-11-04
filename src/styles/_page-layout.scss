@@ -1,14 +1,11 @@
 .curiosity {
-  &.pf-c-page__main-section {
-    box-shadow: var(--pf-global--BoxShadow--sm);
-  }
+  &.pf-c-page__main-section {}
 }
 
 .curiosity-page-messages,
 .curiosity-page-toolbar,
 .curiosity-page-section,
 .curiosity-page-columns-column {
-  background-color: var(--pf-global--BackgroundColor--100);
   min-width: 320px;
   position: relative;
 }
