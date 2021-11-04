@@ -65,6 +65,7 @@ const useOnSelect = ({
  * @param {object} props
  * @param {boolean} props.isFilter
  * @param {Array} props.options
+ * @param {string} props.position
  * @param {Function} props.t
  * @param {Function} props.useOnSelect
  * @param {Function} props.useProductGraphTallyQuery
@@ -73,6 +74,7 @@ const useOnSelect = ({
 const ToolbarFieldRangedMonthly = ({
   isFilter,
   options,
+  position,
   t,
   useOnSelect: useAliasOnSelect,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
@@ -91,7 +93,7 @@ const ToolbarFieldRangedMonthly = ({
       onSelect={onSelect}
       options={updatedOptions}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'rangedMonthly' })}
-      position={SelectPosition.right}
+      position={position}
       maxHeight={250}
       data-test="toolbarFieldRangeGranularity"
     />
@@ -102,7 +104,7 @@ const ToolbarFieldRangedMonthly = ({
  * Prop types.
  *
  * @type {{useOnSelect: Function, useProductGraphTallyQuery: Function, t: Function, isFilter: boolean,
- *     options: Array}}
+ *     options: Array, position: string}}
  */
 ToolbarFieldRangedMonthly.propTypes = {
   isFilter: PropTypes.bool,
@@ -113,6 +115,7 @@ ToolbarFieldRangedMonthly.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  position: PropTypes.string,
   t: PropTypes.func,
   useOnSelect: PropTypes.func,
   useProductGraphTallyQuery: PropTypes.func
@@ -122,11 +125,12 @@ ToolbarFieldRangedMonthly.propTypes = {
  * Default props.
  *
  * @type {{useOnSelect: Function, useProductGraphTallyQuery: Function, t: Function, isFilter: boolean,
- *     options: Array}}
+ *     options: Array, position: string}}
  */
 ToolbarFieldRangedMonthly.defaultProps = {
   isFilter: false,
   options: toolbarFieldOptions,
+  position: SelectPosition.left,
   t: translate,
   useOnSelect,
   useProductGraphTallyQuery

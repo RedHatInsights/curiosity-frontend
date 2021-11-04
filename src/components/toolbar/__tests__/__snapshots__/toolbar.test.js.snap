@@ -63,6 +63,7 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
                 },
               ]
             }
+            position="left"
             t={[Function]}
             useOnSelect={[Function]}
             useProductQuery={[Function]}
@@ -133,6 +134,7 @@ exports[`Toolbar Component should hide categories when a single filter is availa
                 },
               ]
             }
+            position="left"
             t={[Function]}
             useOnSelect={[Function]}
             useProductQuery={[Function]}
@@ -210,6 +212,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
                 },
               ]
             }
+            position="left"
             t={[Function]}
             useOnSelect={[Function]}
             useProductQuery={[Function]}
@@ -249,6 +252,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
                 },
               ]
             }
+            position="left"
             t={[Function]}
             useOnSelect={[Function]}
             useProductQuery={[Function]}

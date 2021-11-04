@@ -8,6 +8,7 @@ import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '.
 import { RHSM_API_PATH_ID_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { apiQueries, storeHooks } from '../../redux';
 import GraphCard from '../graphCard/graphCard';
+import { SelectPosition } from '../form/select';
 import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
@@ -107,9 +108,15 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
             viewId={viewId}
             cardTitle={graphCardTitle}
           >
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && <ToolbarFieldUom />}
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && <ToolbarFieldGranularity />}
-            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && <ToolbarFieldRangedMonthly />}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && uomFilter && (
+              <ToolbarFieldUom position={SelectPosition.right} />
+            )}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT && (
+              <ToolbarFieldGranularity position={SelectPosition.right} />
+            )}
+            {productId === RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS && (
+              <ToolbarFieldRangedMonthly position={SelectPosition.right} />
+            )}
           </GraphCard>
         </PageSection>
         <PageSection>
