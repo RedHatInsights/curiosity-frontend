@@ -226,6 +226,7 @@ Array [
           "tooltipDataSetLookUp": Object {},
           "xAxisProps": Object {
             "fixLabelOverlap": true,
+            "label": null,
             "tickFormat": [Function],
             "tickValues": Array [
               1,
@@ -235,6 +236,7 @@ Array [
           "yAxisProps": Array [
             Object {
               "dependentAxis": true,
+              "label": null,
               "orientation": "left",
               "showGrid": true,
               "style": Object {

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
+Object {
+  "groupedFilters": Array [],
+  "standaloneFilters": Array [
+    Object {
+      "chartType": "line",
+      "color": "#06c",
+      "fill": "#8bc1f7",
+      "id": "Transfer-gibibytes",
+      "isStacked": false,
+      "isStandalone": true,
+      "isThreshold": false,
+      "stroke": "#06c",
+      "strokeWidth": 2,
+      "yAxisChartLabel": [Function],
+    },
+    Object {
+      "chartType": "line",
+      "color": "#5752d1",
+      "fill": "#b2b0ea",
+      "id": "Storage-gibibytes",
+      "isStacked": false,
+      "isStandalone": true,
+      "isThreshold": false,
+      "stroke": "#5752d1",
+      "strokeWidth": 2,
+      "yAxisChartLabel": [Function],
+    },
+    Object {
+      "chartType": "line",
+      "color": "#009596",
+      "fill": "#a2d9d9",
+      "id": "Instance-hours",
+      "isStacked": false,
+      "isStandalone": true,
+      "isThreshold": false,
+      "stroke": "#009596",
+      "strokeWidth": 2,
+      "yAxisChartLabel": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Product RHOSAK config should apply graph configuration: settings 1`] = `
+Object {
+  "isCardTitleDescription": true,
+  "xAxisChartLabel": [Function],
+}
+`;

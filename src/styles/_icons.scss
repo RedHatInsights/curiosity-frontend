@@ -1,6 +1,19 @@
 .curiosity {
-  .curiosity-icon__info {
-    color: var(--pf-global--palette--blue-300);
+  .curiosity-icon {
+    &__info {
+      color: var(--pf-global--palette--blue-300);
+    }
+
+    &__question {
+      color: var(--pf-global--palette--black-500);
+      font-size: var(--pf-global--FontSize--md);
+    }
+  }
+
+  span.curiosity-icon__question {
+    display: inline-block;
+    padding-left: var(--pf-global--spacer--sm);
+    padding-right: var(--pf-global--spacer--sm);
   }
 
   sub.curiosity-icon__info, sup.curiosity-icon__info {

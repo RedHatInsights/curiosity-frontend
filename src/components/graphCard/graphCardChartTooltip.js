@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import numbro from 'numbro';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { getTooltipDate } from './graphCardHelpers';
 import { translate } from '../i18n/i18n';
 import { ChartIcon } from '../chart/chartIcon';
-import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 
 /**
  * A custom chart tooltip.
@@ -22,7 +23,7 @@ const GraphCardChartTooltip = ({
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
   const { productLabel } = useAliasProduct();
-  const { [RHSM_API_QUERY_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
+  const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
 
   let header = null;
   const data = [];
@@ -88,20 +89,30 @@ const GraphCardChartTooltip = ({
           null}
         {(data.length && (
           <tbody>
-            {data.map(dataFacet => (
-              <tr key={`tooltip-${dataFacet.label}`}>
-                <th>
-                  {dataFacet.chartType === 'threshold' && (
-                    <ChartIcon size="sm" symbol="dash" fill={dataFacet.color || 'transparent'} />
-                  )}
-                  {dataFacet.chartType !== 'threshold' && (
-                    <ChartIcon size="sm" fill={dataFacet.color || 'transparent'} />
-                  )}{' '}
-                  {dataFacet.label}
-                </th>
-                <td>{dataFacet.value}</td>
-              </tr>
-            ))}
+            {data.map(dataFacet => {
+              const updatedDataFacetValue =
+                (typeof dataFacet.value === 'number' &&
+                  !Number.isInteger(dataFacet.value) &&
+                  numbro(dataFacet.value)
+                    .format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: true })
+                    .toUpperCase()) ||
+                dataFacet.value;
+
+              return (
+                <tr key={`tooltip-${dataFacet.label}`}>
+                  <th>
+                    {dataFacet.chartType === 'threshold' && (
+                      <ChartIcon size="sm" symbol="dash" fill={dataFacet.color || 'transparent'} />
+                    )}
+                    {dataFacet.chartType !== 'threshold' && (
+                      <ChartIcon size="sm" fill={dataFacet.color || 'transparent'} />
+                    )}{' '}
+                    {dataFacet.label}
+                  </th>
+                  <td>{updatedDataFacetValue}</td>
+                </tr>
+              );
+            })}
           </tbody>
         )) ||
           null}

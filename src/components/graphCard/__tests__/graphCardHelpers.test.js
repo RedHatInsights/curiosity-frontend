@@ -1,14 +1,15 @@
 import moment from 'moment';
 import {
   graphCardHelpers,
+  generateChartSettings,
+  generateExtendedChartSettings,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat,
-  yAxisTickFormatFallback
+  yAxisTickFormat
 } from '../graphCardHelpers';
 import { dateHelpers } from '../../../common';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('GraphCardHelpers', () => {
   it('should have specific functions', () => {
@@ -97,6 +98,21 @@ describe('GraphCardHelpers', () => {
     };
 
     expect(generateTicks()).toMatchSnapshot('y axis tick values');
-    expect(generateTicks(yAxisTickFormatFallback)).toMatchSnapshot('y axis tick values, yAxisTickFormatFallback');
+  });
+
+  it('generateChartSettings should return base graph settings', () => {
+    expect(generateChartSettings()).toMatchSnapshot('no filters');
+
+    expect(generateChartSettings([{ lorem: 'ipsum' }, { id: 'dolorSit', dolor: 'sit' }])).toMatchSnapshot(
+      'basic filters'
+    );
+  });
+
+  it('generateExtendedChartSettings should return extended graph settings', () => {
+    expect(generateExtendedChartSettings()).toMatchSnapshot('no settings');
+
+    expect(
+      generateExtendedChartSettings({ settings: { lorem: 'ipsum' }, granularity: GRANULARITY_TYPES.DAILY })
+    ).toMatchSnapshot('basic settings');
   });
 });

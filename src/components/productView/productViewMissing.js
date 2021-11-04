@@ -106,7 +106,7 @@ ProductViewMissing.propTypes = {
  * @type {{availableProductsRedirect: number, t: translate}}
  */
 ProductViewMissing.defaultProps = {
-  availableProductsRedirect: 3,
+  availableProductsRedirect: 4,
   t: translate
 };
 

@@ -85,4 +85,4 @@ Loader.defaultProps = {
   variant: 'spinner'
 };
 
-export { Loader as default, Loader };
+export { Loader as default, Loader, SkeletonSize };
