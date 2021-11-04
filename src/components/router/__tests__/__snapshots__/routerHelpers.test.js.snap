@@ -185,6 +185,9 @@ Object {
       "Satellite Capsule",
       "Satellite Server",
     ],
+    "viewrhosak": Array [
+      "rhosak",
+    ],
   },
   "routes": Array [
     Object {
@@ -248,6 +251,15 @@ Object {
       "exact": true,
       "id": "openshift-dedicated",
       "path": "/openshift-dedicated",
+      "redirect": null,
+    },
+    Object {
+      "activateOnError": false,
+      "component": "productView/productView",
+      "disabled": false,
+      "exact": true,
+      "id": "rhosak",
+      "path": "/rhosak",
       "redirect": null,
     },
     Object {

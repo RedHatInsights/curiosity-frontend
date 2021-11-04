@@ -16,6 +16,8 @@ import { useResizeObserver } from '../../hooks/useWindow';
  * @param {Array} props.dataSets
  * @param {object} props.padding
  * @param {string} props.themeColor
+ * @param {Node|Function} props.xAxisChartLabel
+ * @param {Node|Function} props.yAxisChartLabel
  * @param {boolean} props.xAxisFixLabelOverlap
  * @param {number} props.xAxisLabelIncrement
  * @param {Function} props.xAxisTickFormat
@@ -30,6 +32,8 @@ const Chart = ({
   dataSets,
   padding,
   themeColor,
+  xAxisChartLabel,
+  yAxisChartLabel,
   xAxisFixLabelOverlap,
   xAxisLabelIncrement,
   xAxisTickFormat,
@@ -67,6 +71,8 @@ const Chart = ({
         individualMaxY,
         maxX,
         maxY,
+        xAxisChartLabel,
+        yAxisChartLabel,
         xAxisFixLabelOverlap,
         xAxisLabelIncrement,
         xAxisTickFormat,
@@ -81,19 +87,23 @@ const Chart = ({
         xValueFormat,
         yValueFormat
       });
-      const chartDomain = chartHelpers.generateDomains({ maxY: (isMultiYAxis && individualMaxY) || maxY });
+      const { domain, padding: domainPadding } = chartHelpers.generateDomains({
+        maxY: (isMultiYAxis && individualMaxY) || maxY,
+        padding
+      });
       const hasData = !!xAxisProps.tickValues;
+      const updatedPadding = { bottom: 0, left: 0, right: 0, top: 0, ...padding, ...domainPadding };
 
       return {
         xAxisProps,
         yAxisProps,
-        chartDomain,
+        chartDomain: { domain },
         chartElementsProps,
         hasData,
         isMultiYAxis,
         maxX,
         maxY: (isMultiYAxis && individualMaxY) || maxY,
-        padding,
+        padding: updatedPadding,
         themeColor,
         tooltipDataSetLookUp
       };
@@ -117,10 +127,12 @@ const Chart = ({
     padding,
     setContext,
     themeColor,
+    xAxisChartLabel,
+    yAxisChartLabel,
+    xAxisFixLabelOverlap,
+    xAxisLabelIncrement,
     yAxisTickFormat,
     xAxisTickFormat,
-    xAxisLabelIncrement,
-    xAxisFixLabelOverlap,
     xValueFormat,
     yValueFormat
   ]);
@@ -175,6 +187,8 @@ Chart.propTypes = {
       interpolation: PropTypes.string,
       style: PropTypes.object,
       isStacked: PropTypes.bool,
+      xAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+      yAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
       xAxisUseDataSet: PropTypes.bool,
       yAxisUseDataSet: PropTypes.bool
     })
@@ -186,6 +200,8 @@ Chart.propTypes = {
     top: PropTypes.number
   }),
   themeColor: PropTypes.oneOf(Object.values(ChartThemeColor)),
+  xAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  yAxisChartLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   xAxisFixLabelOverlap: PropTypes.bool,
   xAxisLabelIncrement: PropTypes.number,
   xAxisTickFormat: PropTypes.func,
@@ -213,6 +229,8 @@ Chart.defaultProps = {
     top: 50
   },
   themeColor: 'blue',
+  xAxisChartLabel: null,
+  yAxisChartLabel: null,
   xAxisFixLabelOverlap: true,
   xAxisLabelIncrement: 1,
   xAxisTickFormat: null,

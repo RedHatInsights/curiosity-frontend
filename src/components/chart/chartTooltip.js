@@ -6,6 +6,13 @@ import { helpers } from '../../common';
  * This leads to odd implementations, like returning a function component.
  */
 /**
+ * FixMe: The right graph boundary for tooltips is dependent on Voronoi container padding.
+ * A limitation exists where Voronoi containers can only have a single padding setting. This means we use
+ * the lowest number value from the "padding" setting. The repercussion is the right boundary either has to
+ * be the lowest padding value, or equal to the lowest padding from any of the other dimensions, ie. top,
+ * bottom, left.
+ */
+/**
  * Return a compatible Victory tooltip component.
  *
  * @param {object} params
@@ -86,15 +93,20 @@ const chartTooltip = ({
 
     const containerRef = chartContainerRef();
     const tooltipRef = chartTooltipRef();
+    const updatedPadding = { bottom: 0, left: 0, right: 0, top: 0, ...padding };
     const content = tooltipDataSetLookUp?.[datum.x]?.tooltip || '';
-    const containerPaddingBottom = padding.bottom ?? 0;
     const containerBounds = containerRef?.current?.querySelector('svg')?.getBoundingClientRect() || {
       width: 0,
       height: 0
     };
+
     const tooltipBounds = tooltipRef?.current?.getBoundingClientRect() || { width: 0, height: 0 };
 
     if (content) {
+      const isOutsideGraphBottom = y > containerBounds.height - updatedPadding.bottom;
+      const isOutsideGraphLeft = x < updatedPadding.left;
+      const isOutsideGraphRight = x > containerBounds.width - updatedPadding.right;
+      const isOutsideGraphTop = y < updatedPadding.top;
       const updatedClassName = `${(tooltipBounds.height <= 0 && 'fadein') || ''}`;
 
       return (
@@ -113,7 +125,12 @@ const chartTooltip = ({
             <div
               className={`curiosity-chartarea__tooltip-container ${updatedClassName}`}
               ref={tooltipRef}
-              style={{ display: (y > containerBounds.height - containerPaddingBottom && 'none') || 'inline-block' }}
+              style={{
+                display:
+                  ((isOutsideGraphBottom || isOutsideGraphLeft || isOutsideGraphRight || isOutsideGraphTop) &&
+                    'none') ||
+                  'inline-block'
+              }}
               xmlns="http://www.w3.org/1999/xhtml"
             >
               <div

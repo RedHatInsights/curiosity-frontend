@@ -4,6 +4,7 @@ exports[`ToolbarFieldRangedMonthly Component should export select options: toolb
 Array [
   Object {
     "_title": "current",
+    "isCurrent": true,
     "selected": false,
     "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
     "value": Object {
@@ -130,6 +131,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
     Array [
       Object {
         "_title": "current",
+        "isCurrent": true,
         "selected": false,
         "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
         "value": Object {
@@ -319,6 +321,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
     Array [
       Object {
         "_title": "current",
+        "isCurrent": true,
         "selected": true,
         "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
         "value": Object {

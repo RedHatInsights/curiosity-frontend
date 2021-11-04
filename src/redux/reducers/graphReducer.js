@@ -27,7 +27,7 @@ const graphReducer = (state = initialState, action) => {
       return reduxHelpers.setStateProp(
         'legend',
         {
-          ...action.legend
+          [action.id]: action.value
         },
         {
           state,

@@ -38,11 +38,16 @@
     }
 
     &__legend-item {
-      // position: relative;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
     };
 
     &__tooltip {
-      color: #ffffff;
+      color: var(--pf-global--Color--light-100);
       font-size: 0.9em;
       padding: 8px;
 
@@ -69,14 +74,85 @@
         }
       }
     }
+
+    &__totals {
+      margin-left: var(--pf-global--spacer--md);
+      margin-right: var(--pf-global--spacer--md);
+      margin-top: var(--pf-global--spacer--md);
+
+      &:last-child {
+        margin-bottom: var(--pf-global--spacer--md);
+      };
+
+      &-column {
+        height: 100%;
+
+        > :first-child {
+          margin-bottom: var(--pf-global--spacer--md);
+        }
+
+        &-card {
+          min-height: calc(50% - var(--pf-global--spacer--md) / 2);
+          overflow: hidden;
+          text-align: center;
+
+          .ins-c-skeleton {
+            width: 100%;
+          }
+
+          .pf-c-card__title {
+            padding: var(--pf-global--spacer--md);
+            padding-bottom: 0;
+          }
+
+          .pf-c-card__body {
+            padding: var(--pf-global--spacer--md);
+
+            strong {
+              display: block;
+              font-size: var(--pf-global--FontSize--3xl);
+            }
+          }
+
+          .pf-c-card__footer {
+            color: var(--pf-global--palette--black-500);
+            font-size: var(--pf-global--FontSize--xs);
+            padding: var(--pf-global--spacer--md);
+            padding-top: 0;
+          }
+        }
+      }
+
+      &-graph-column {
+        height: 100%;
+
+        .curiosity-usage-graph {
+          height: 100%;
+        }
+
+        .pf-c-card {
+          &__header {
+            border-bottom-width: 0;
+            padding-bottom: 0;
+          }
+
+          &__body {
+            padding-top: 0;
+          }
+        }
+      }
+    }
   }
 
   .curiosity-chartarea {
     &__legend {
-      background-color: #fff;
-      margin-left: 35px;
+      background-color: var(--pf-global--BackgroundColor--100);;
       margin-top: -35px;
       position: relative;
+
+      &-axis-label-active {
+        margin-top: -20px;
+      }
     }
 
     &__icon {
@@ -130,6 +206,42 @@
         border-color: transparent transparent transparent #000;
         left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
         margin-left: 0;
+      }
+    }
+
+    &__axis-label-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: var(--pf-global--palette--black-500);
+      font-size: var(--pf-global--FontSize--xs);
+
+      &-x {
+        > .curiosity-chartarea__axis-label-container-content {
+          position: absolute;
+          top: 5px;
+        }
+      }
+
+      &-y {
+        justify-content: unset;
+
+        > .curiosity-chartarea__axis-label-container-content {
+          position: absolute;
+          left: calc(var(--pf-global--FontSize--xs) / 2);
+          transform: rotate(-90deg) translateY(0%) translateX(-50%);
+          transform-origin: left center;
+        }
+      }
+
+      &-y-1 {
+        justify-content: unset;
+        left: calc(100% - var(--pf-global--FontSize--xs));
+
+        > .curiosity-chartarea__axis-label-container-content {
+          transform: rotate(90deg) translateY(0%) translateX(-50%);
+        }
       }
     }
 

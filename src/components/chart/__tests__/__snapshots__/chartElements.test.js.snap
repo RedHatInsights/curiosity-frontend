@@ -633,6 +633,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
     viewBox="0 0 450 300"
     width="450"
   >
+    <g />
     <g
       role="presentation"
     >
@@ -662,7 +663,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <text
           direction="inherit"
           dx="0"
-          id="chart-axis-0-tickLabels-0"
+          id="chart-axis-1-tickLabels-0"
           x="120"
           y="276.97"
         >
@@ -693,7 +694,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <text
           direction="inherit"
           dx="0"
-          id="chart-axis-0-tickLabels-1"
+          id="chart-axis-1-tickLabels-1"
           x="190"
           y="276.97"
         >
@@ -724,7 +725,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <text
           direction="inherit"
           dx="0"
-          id="chart-axis-0-tickLabels-2"
+          id="chart-axis-1-tickLabels-2"
           x="260"
           y="276.97"
         >
@@ -755,7 +756,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <text
           direction="inherit"
           dx="0"
-          id="chart-axis-0-tickLabels-3"
+          id="chart-axis-1-tickLabels-3"
           x="330"
           y="276.97"
         >
@@ -786,7 +787,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <text
           direction="inherit"
           dx="0"
-          id="chart-axis-0-tickLabels-4"
+          id="chart-axis-1-tickLabels-4"
           x="400"
           y="276.97"
         >
@@ -802,7 +803,175 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         </text>
       </g>
     </g>
-    <g />
+    <g
+      role="presentation"
+    >
+      <line
+        role="presentation"
+        shape-rendering="auto"
+        style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+        vector-effect="non-scaling-stroke"
+        x1="50"
+        x2="50"
+        y1="50"
+        y2="250"
+      />
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="45"
+          y1="210"
+          y2="210"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          id="chart-axis-2-tickLabels-0"
+          x="35"
+          y="214.97"
+        >
+          <tspan
+            dx="0"
+            dy="0"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            text-anchor="end"
+            x="35"
+          >
+            0.2
+          </tspan>
+        </text>
+      </g>
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="45"
+          y1="170"
+          y2="170"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          id="chart-axis-2-tickLabels-1"
+          x="35"
+          y="174.97"
+        >
+          <tspan
+            dx="0"
+            dy="0"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            text-anchor="end"
+            x="35"
+          >
+            0.4
+          </tspan>
+        </text>
+      </g>
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="45"
+          y1="130"
+          y2="130"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          id="chart-axis-2-tickLabels-2"
+          x="35"
+          y="134.97"
+        >
+          <tspan
+            dx="0"
+            dy="0"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            text-anchor="end"
+            x="35"
+          >
+            0.6
+          </tspan>
+        </text>
+      </g>
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="45"
+          y1="89.99999999999999"
+          y2="89.99999999999999"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          id="chart-axis-2-tickLabels-3"
+          x="35"
+          y="94.96999999999998"
+        >
+          <tspan
+            dx="0"
+            dy="0"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            text-anchor="end"
+            x="35"
+          >
+            0.8
+          </tspan>
+        </text>
+      </g>
+      <g
+        role="presentation"
+      >
+        <line
+          role="presentation"
+          shape-rendering="auto"
+          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          vector-effect="non-scaling-stroke"
+          x1="50"
+          x2="45"
+          y1="50"
+          y2="50"
+        />
+        <text
+          direction="inherit"
+          dx="0"
+          id="chart-axis-2-tickLabels-4"
+          x="35"
+          y="54.97"
+        >
+          <tspan
+            dx="0"
+            dy="0"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            text-anchor="end"
+            x="35"
+          >
+            1.0
+          </tspan>
+        </text>
+      </g>
+    </g>
   </svg>
   <div
     style="z-index:99;position:absolute;top:0;left:0;width:100%;height:100%"

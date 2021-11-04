@@ -44,6 +44,12 @@ Object {
     "yearLong": "MMMM YYYY",
     "yearShort": "MMM YYYY",
   },
+  "timestampTimeFormats": Object {
+    "timeLong": "MMMM D h:mm:ss A",
+    "timeShort": "MMM D h:mm A",
+    "yearTimeLong": "MMMM D YYYY h:mm:ss A",
+    "yearTimeShort": "MMM D YYYY h:mm A",
+  },
   "weeklyDateTime": Object {
     "endDate": 2019-07-14T23:59:59.999Z,
     "startDate": 2019-04-21T00:00:00.000Z,
@@ -190,6 +196,7 @@ Object {
     },
     "current": Object {
       "_title": "current",
+      "isCurrent": true,
       "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
       "value": Object {
         "endDate": 2019-07-31T23:59:59.999Z,
@@ -280,6 +287,7 @@ Object {
   "listDateTimeRanges": Array [
     Object {
       "_title": "current",
+      "isCurrent": true,
       "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
       "value": Object {
         "endDate": 2019-07-31T23:59:59.999Z,

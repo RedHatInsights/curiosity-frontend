@@ -65,6 +65,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/graphCard/graphCardChart.js",
+    "keys": Array [
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-graph.cardHeading\${standaloneMetricId}\`, { context: productId })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/graphCard/graphCardChartLegend.js",
     "keys": Array [
       Object {
@@ -74,6 +83,15 @@ Array [
       Object {
         "key": "",
         "match": "t( \`curiosity-graph.legendTooltip\${(isThreshold && '_threshold')",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCardChartTitleTooltip.js",
+    "keys": Array [
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-graph.cardHeadingDescription\${standaloneMetricId}\`, { context: productId })",
       },
     ],
   },
@@ -111,6 +129,35 @@ Array [
       Object {
         "key": "curiosity-graph.label_noData",
         "match": "t('curiosity-graph.label_noData', { context: 'error' })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCardMetricTotals.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.cardHeadingMetric_currentTotal",
+        "match": "t('curiosity-graph.cardHeadingMetric_currentTotal', { context: [isCurrent && 'current', metricId], month: selectedMonth })",
+      },
+      Object {
+        "key": "curiosity-graph.cardBodyMetric_currentTotal",
+        "match": "t( 'curiosity-graph.cardBodyMetric_currentTotal', { context: (currentHasData && metricId)",
+      },
+      Object {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(currentDate)",
+      },
+      Object {
+        "key": "curiosity-graph.cardHeadingMetric_total",
+        "match": "t('curiosity-graph.cardHeadingMetric_total', { context: metricId, month: selectedMonth })",
+      },
+      Object {
+        "key": "curiosity-graph.cardBodyMetric_total",
+        "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (totalMonthlyHasData && metricId)",
+      },
+      Object {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(totalMonthlyDate)",
       },
     ],
   },
@@ -554,6 +601,27 @@ Array [
     ],
   },
   Object {
+    "file": "./src/config/product.rhosak.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      Object {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      Object {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      Object {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/config/product.satellite.js",
     "keys": Array [
       Object {
@@ -605,6 +673,14 @@ Array [
     "key": "curiosity-graph.label",
   },
   Object {
+    "file": "./src/components/graphCard/graphCardMetricTotals.js",
+    "key": "curiosity-graph.cardHeadingMetric_currentTotal",
+  },
+  Object {
+    "file": "./src/components/graphCard/graphCardMetricTotals.js",
+    "key": "curiosity-graph.cardHeadingMetric_total",
+  },
+  Object {
     "file": "./src/components/inventoryList/inventoryList.js",
     "key": "curiosity-inventory.tab",
   },
@@ -643,6 +719,22 @@ Array [
   Object {
     "file": "./src/config/product.rhel.js",
     "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-graph.label_axisX",
   },
   Object {
     "file": "./src/config/product.satellite.js",
