@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductQuery } from '../productView/productViewContext';
-import { Select } from '../form/select';
+import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_SLA_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
@@ -54,6 +54,7 @@ const useOnSelect = ({
  * @param {object} props
  * @param {boolean} props.isFilter
  * @param {object} props.options
+ * @param {string} props.position
  * @param {Function} props.t
  * @param {Function} props.useOnSelect
  * @param {Function} props.useProductQuery
@@ -62,6 +63,7 @@ const useOnSelect = ({
 const ToolbarFieldSla = ({
   isFilter,
   options,
+  position,
   t,
   useOnSelect: useAliasOnSelect,
   useProductQuery: useAliasProductQuery
@@ -78,6 +80,7 @@ const ToolbarFieldSla = ({
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'sla' })}
+      position={position}
       data-test="toolbarFieldSla"
     />
   );
@@ -86,7 +89,8 @@ const ToolbarFieldSla = ({
 /**
  * Prop types.
  *
- * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function,
+ *     position: string}}
  */
 ToolbarFieldSla.propTypes = {
   isFilter: PropTypes.bool,
@@ -97,6 +101,7 @@ ToolbarFieldSla.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  position: PropTypes.string,
   t: PropTypes.func,
   useOnSelect: PropTypes.func,
   useProductQuery: PropTypes.func
@@ -105,11 +110,13 @@ ToolbarFieldSla.propTypes = {
 /**
  * Default props.
  *
- * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function}}
+ * @type {{useOnSelect: Function, t: Function, isFilter: boolean, options: Array, useProductQuery: Function,
+ *     position: string}}
  */
 ToolbarFieldSla.defaultProps = {
   isFilter: false,
   options: toolbarFieldOptions,
+  position: SelectPosition.left,
   t: translate,
   useOnSelect,
   useProductQuery
