@@ -29,6 +29,7 @@ Array [
           },
         ]
       }
+      position="left"
       t={[Function]}
       useOnSelect={[Function]}
       useProductGraphTallyQuery={[Function]}
@@ -175,6 +176,7 @@ Array [
           },
         ]
       }
+      position="left"
       t={[Function]}
       useOnSelect={[Function]}
       useProductGraphTallyQuery={[Function]}
@@ -311,6 +313,7 @@ Array [
           },
         ]
       }
+      position="left"
       t={[Function]}
       useOnSelect={[Function]}
       useProductQuery={[Function]}
@@ -359,6 +362,7 @@ Array [
           },
         ]
       }
+      position="left"
       t={[Function]}
       useOnSelect={[Function]}
       useProductQuery={[Function]}
@@ -417,6 +421,7 @@ Array [
           },
         ]
       }
+      position="left"
       t={[Function]}
       useOnSelect={[Function]}
       useProductQuery={[Function]}
@@ -521,6 +526,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
               },
             ]
           }
+          position="left"
           t={[Function]}
           useOnSelect={[Function]}
           useProductQuery={[Function]}
@@ -579,6 +585,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
               },
             ]
           }
+          position="left"
           t={[Function]}
           useOnSelect={[Function]}
           useProductQuery={[Function]}
@@ -658,6 +665,7 @@ Object {
             },
           ]
         }
+        position="left"
         t={[Function]}
         useOnSelect={[Function]}
         useProductQuery={[Function]}
@@ -716,6 +724,7 @@ Object {
             },
           ]
         }
+        position="left"
         t={[Function]}
         useOnSelect={[Function]}
         useProductQuery={[Function]}
@@ -783,6 +792,7 @@ Object {
             },
           ]
         }
+        position="left"
         t={[Function]}
         useOnSelect={[Function]}
         useProductQuery={[Function]}
@@ -841,6 +851,7 @@ Object {
             },
           ]
         }
+        position="left"
         t={[Function]}
         useOnSelect={[Function]}
         useProductQuery={[Function]}

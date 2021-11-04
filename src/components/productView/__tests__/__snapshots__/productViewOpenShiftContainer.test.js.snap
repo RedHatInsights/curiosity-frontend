@@ -230,6 +230,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                 },
               ]
             }
+            position="right"
             t={[Function]}
             useOnSelect={[Function]}
             useProductQuery={[Function]}
@@ -260,6 +261,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                 },
               ]
             }
+            position="right"
             t={[Function]}
             useOnSelect={[Function]}
             useProductGraphTallyQuery={[Function]}
@@ -624,6 +626,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                 },
               ]
             }
+            position="right"
             t={[Function]}
             useOnSelect={[Function]}
             useProductGraphTallyQuery={[Function]}

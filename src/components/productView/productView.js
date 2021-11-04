@@ -11,6 +11,7 @@ import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList } from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
+import { SelectPosition } from '../form/select';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { ConnectedInventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
@@ -104,7 +105,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
             cardTitle={graphCardTitle}
           >
             {(React.isValidElement(toolbarGraph) && toolbarGraph) ||
-              (toolbarGraph !== false && <ToolbarFieldGranularity />)}
+              (toolbarGraph !== false && <ToolbarFieldGranularity position={SelectPosition.right} />)}
           </ConnectedGraphCard>
         </PageSection>
         <PageSection>

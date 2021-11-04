@@ -118,6 +118,7 @@ exports[`ProductViewOpenShiftDedicated Component should render a basic component
           },
         ]
       }
+      position="right"
       t={[Function]}
       useOnSelect={[Function]}
       useProductGraphTallyQuery={[Function]}
