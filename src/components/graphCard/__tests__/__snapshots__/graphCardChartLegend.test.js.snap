@@ -4,10 +4,9 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
 Array [
   Array [
     Object {
-      "legend": Object {
-        "test-loremIpsum": "mock boolean, loremIpsum",
-      },
+      "id": "test-loremIpsum",
       "type": "SET_GRAPH_LEGEND",
+      "value": "mock boolean, loremIpsum",
     },
   ],
 ]
@@ -17,10 +16,9 @@ exports[`GraphCardChartLegend Component should handle a click event: keyPress ev
 Array [
   Array [
     Object {
-      "legend": Object {
-        "test-loremIpsum": "mock boolean, loremIpsum",
-      },
+      "id": "test-loremIpsum",
       "type": "SET_GRAPH_LEGEND",
+      "value": "mock boolean, loremIpsum",
     },
   ],
 ]

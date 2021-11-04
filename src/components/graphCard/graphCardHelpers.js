@@ -1,6 +1,56 @@
 import moment from 'moment';
+import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
+import numbro from 'numbro';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
-import { dateHelpers, helpers } from '../../common';
+import { dateHelpers } from '../../common';
+
+/**
+ * Update chart/graph filters with base settings with styling.
+ *
+ * @param {Array} filters
+ * @returns {{standaloneFilters: Array, groupedFilters: Array}}
+ */
+const generateChartSettings = (filters = []) => {
+  const standaloneFilters = [];
+  const groupedFilters = [];
+
+  filters.forEach(({ id, isStandalone = false, isThreshold = false, ...settings }) => {
+    if (!id) {
+      return;
+    }
+
+    const baseFilterSettings = {
+      id,
+      isStacked: !isThreshold,
+      isStandalone,
+      isThreshold,
+      strokeWidth: 2
+    };
+
+    if (isThreshold) {
+      baseFilterSettings.stroke = chartColorGreenDark.value;
+      baseFilterSettings.strokeDasharray = '4,3';
+      baseFilterSettings.strokeWidth = 3;
+    }
+
+    if (isStandalone) {
+      standaloneFilters.push({
+        ...baseFilterSettings,
+        ...settings
+      });
+    } else {
+      groupedFilters.push({
+        ...baseFilterSettings,
+        ...settings
+      });
+    }
+  });
+
+  return {
+    standaloneFilters,
+    groupedFilters
+  };
+};
 
 /**
  * Returns x axis ticks/intervals array for the xAxisTickInterval
@@ -102,78 +152,71 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
 };
 
 /**
- * ToDo: Remove yAxisTickFormatFallback.
- * Appears Linux combined with Firefox has an issue using `Intl.NumberFormat` method.
- * We've applied shim code from NumeralJS and Numbro as a fallback. Up-to-date
- * browsers still have the optimal version with locale. If the original package used
- * corrects its rounding behavior we may consider re-implementing it.
+ * ToDo: review adding "locale" for numbro
+ * Original settings, numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
  */
-/**
- * Fallback method for Linux and Firefox.
- *
- * @param {object} params
- * @param {number|string} params.tick
- * @returns {string}
- */
-const yAxisTickFormatFallback = ({ tick }) => {
-  const abs = Math.abs(tick);
-  let updatedTick = tick;
-  let updatedAbbr = '';
-
-  if (abs >= Math.pow(10, 12)) {
-    updatedAbbr = 'T';
-    updatedTick = tick / Math.pow(10, 12);
-  } else if (abs < Math.pow(10, 12) && abs >= Math.pow(10, 9)) {
-    updatedAbbr = 'B';
-    updatedTick = tick / Math.pow(10, 9);
-  } else if (abs < Math.pow(10, 9) && abs >= Math.pow(10, 6)) {
-    updatedAbbr = 'M';
-    updatedTick = tick / Math.pow(10, 6);
-  } else if (abs < Math.pow(10, 6) && abs >= Math.pow(10, 3)) {
-    updatedAbbr = 'K';
-    updatedTick = tick / Math.pow(10, 3);
-  }
-
-  return `${updatedTick}${updatedAbbr}`;
-};
-
-// ToDo: remove yAxisTickFormatFallback check.
 /**
  * Format y axis ticks.
  *
  * @param {object} params
  * @param {number|string} params.tick
- * @param {string} params.locale
  * @returns {string}
  */
-const yAxisTickFormat = ({ tick, locale = helpers.UI_LOCALE_DEFAULT }) => {
-  let updatedTick = `${new Intl.NumberFormat(locale, {
-    maximumFractionDigits: 1,
-    notation: 'compact',
-    compactDisplay: 'short'
-  }).format(tick)}`;
+const yAxisTickFormat = ({ tick }) => {
+  const options = {
+    average: true,
+    mantissa: 1,
+    trimMantissa: true,
+    lowPrecision: false
+  };
 
-  if (updatedTick.length > 3 && updatedTick.length >= `${tick}`.length) {
-    updatedTick = yAxisTickFormatFallback({ tick });
+  if (!Number.isInteger(tick)) {
+    options.mantissa = 5;
+    options.lowPrecision = true;
   }
 
-  return updatedTick;
+  return numbro(tick)
+    .format({ ...options })
+    .toUpperCase();
 };
 
+/**
+ * Generate base chart component props.
+ *
+ * @param {object} params
+ * @param {object} params.settings
+ * @param {string} params.granularity
+ * @returns {object}
+ */
+const generateExtendedChartSettings = ({ settings, granularity } = {}) => ({
+  ...settings,
+  xAxisLabelIncrement: getChartXAxisLabelIncrement(granularity),
+  xAxisTickFormat: ({ item, previousItem, tick }) =>
+    xAxisTickFormat({
+      tick,
+      date: item.date,
+      previousDate: previousItem.date,
+      granularity
+    }),
+  yAxisTickFormat
+});
+
 const graphCardHelpers = {
+  generateChartSettings,
+  generateExtendedChartSettings,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat,
-  yAxisTickFormatFallback
+  yAxisTickFormat
 };
 
 export {
   graphCardHelpers as default,
   graphCardHelpers,
+  generateChartSettings,
+  generateExtendedChartSettings,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat,
-  yAxisTickFormatFallback
+  yAxisTickFormat
 };

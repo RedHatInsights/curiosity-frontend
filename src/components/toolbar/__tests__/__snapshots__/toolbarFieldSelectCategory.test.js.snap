@@ -68,6 +68,7 @@ Array [
         Array [
           Object {
             "_title": "current",
+            "isCurrent": true,
             "selected": false,
             "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
             "value": Object {
@@ -185,6 +186,7 @@ Array [
     "options": Array [
       Object {
         "_title": "current",
+        "isCurrent": true,
         "selected": false,
         "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
         "value": Object {

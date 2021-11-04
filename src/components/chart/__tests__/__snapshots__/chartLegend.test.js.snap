@@ -3,6 +3,12 @@
 exports[`ChartLegend Component should handle legend elements: element 1`] = `
 <div
   className="curiosity-chartarea__legend"
+  style={
+    Object {
+      "marginLeft": 0,
+      "marginRight": 0,
+    }
+  }
 >
   <div
     chart={
