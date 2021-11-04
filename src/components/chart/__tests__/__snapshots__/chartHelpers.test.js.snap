@@ -4,12 +4,14 @@ exports[`ChartHelpers should aggregated generated x,y axis props: default settin
 Object {
   "xAxisProps": Object {
     "fixLabelOverlap": true,
+    "label": undefined,
     "tickFormat": [Function],
     "tickValues": Array [],
   },
   "yAxisProps": Array [
     Object {
       "dependentAxis": true,
+      "label": undefined,
       "orientation": "left",
       "showGrid": true,
       "style": Object {
@@ -42,6 +44,7 @@ Object {
       300,
     ],
   },
+  "padding": Object {},
 }
 `;
 
@@ -53,6 +56,7 @@ Object {
       1.25,
     ],
   },
+  "padding": Object {},
 }
 `;
 
@@ -757,6 +761,7 @@ Array [
 
 exports[`ChartHelpers should generate x axis props: props 1`] = `
 Object {
+  "label": undefined,
   "tickFormat": [Function],
   "tickValues": Array [
     0,
@@ -792,6 +797,7 @@ Array [
 exports[`ChartHelpers should generate y axis props: props 1`] = `
 Array [
   Object {
+    "label": undefined,
     "orientation": "left",
     "style": Object {
       "axis": Object {},
@@ -800,6 +806,7 @@ Array [
     "tickFormat": [Function],
   },
   Object {
+    "label": undefined,
     "orientation": "right",
     "style": Object {
       "axis": Object {

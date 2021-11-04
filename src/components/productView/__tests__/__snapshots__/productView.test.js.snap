@@ -128,21 +128,10 @@ exports[`ProductView Component should allow custom inventory displays via config
         className=""
       >
         <Connect(InventoryTabs)
+          isDisabled={false}
           key="inventory_lorem"
           productId="lorem"
         >
-          <InventoryTab
-            active={false}
-            key="inventory_hosts_lorem"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
-          >
-            <Connect(InventoryList)
-              key="inv_lorem"
-              productId="lorem"
-              query={Object {}}
-              viewId="viewIpsum"
-            />
-          </InventoryTab>
           <InventoryTab
             active={false}
             key="inventory_subs_lorem"
@@ -290,22 +279,10 @@ exports[`ProductView Component should allow custom product views via props: cust
         className=""
       >
         <Connect(InventoryTabs)
+          isDisabled={true}
           key="inventory_lorem"
           productId="lorem"
-        >
-          <InventoryTab
-            active={false}
-            key="inventory_hosts_lorem"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
-          >
-            <Connect(InventoryList)
-              key="inv_lorem"
-              productId="lorem"
-              query={Object {}}
-              viewId="viewIpsum"
-            />
-          </InventoryTab>
-        </Connect(InventoryTabs)>
+        />
       </PageSection>
     </ContextProvider>
   </PageColumns>
@@ -387,22 +364,10 @@ exports[`ProductView Component should allow custom product views via props: cust
         className=""
       >
         <Connect(InventoryTabs)
+          isDisabled={true}
           key="inventory_lorem"
           productId="lorem"
-        >
-          <InventoryTab
-            active={false}
-            key="inventory_hosts_lorem"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
-          >
-            <Connect(InventoryList)
-              key="inv_lorem"
-              productId="lorem"
-              query={Object {}}
-              viewId="viewIpsum"
-            />
-          </InventoryTab>
-        </Connect(InventoryTabs)>
+        />
       </PageSection>
     </ContextProvider>
   </PageColumns>
@@ -514,22 +479,10 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         className=""
       >
         <Connect(InventoryTabs)
+          isDisabled={true}
           key="inventory_lorem"
           productId="lorem"
-        >
-          <InventoryTab
-            active={false}
-            key="inventory_hosts_lorem"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_lorem\\"})"
-          >
-            <Connect(InventoryList)
-              key="inv_lorem"
-              productId="lorem"
-              query={Object {}}
-              viewId="viewIpsum"
-            />
-          </InventoryTab>
-        </Connect(InventoryTabs)>
+        />
       </PageSection>
     </ContextProvider>
   </PageColumns>

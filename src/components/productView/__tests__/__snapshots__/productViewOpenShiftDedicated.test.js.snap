@@ -10,6 +10,7 @@ exports[`ProductViewOpenShiftDedicated Component should render a basic component
         Array [
           Object {
             "_title": "current",
+            "isCurrent": true,
             "selected": false,
             "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
             "value": Object {

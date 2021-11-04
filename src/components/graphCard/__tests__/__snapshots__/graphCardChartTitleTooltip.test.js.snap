@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphCardChartTitleTooltip Component should hide if there is no description: hide 1`] = `""`;
+
+exports[`GraphCardChartTitleTooltip Component should render a basic component: basic 1`] = `
+<Tooltip
+  content={
+    <p>
+      t(curiosity-graph.cardHeadingDescription_loremIpsum, {})
+    </p>
+  }
+  distance={5}
+  enableFlip={false}
+  entryDelay={100}
+  exitDelay={0}
+  position="top"
+>
+  <span
+    className="curiosity-icon__question"
+  >
+    <OutlinedQuestionCircleIcon
+      color="currentColor"
+      noVerticalAlign={false}
+      size="sm"
+    />
+  </span>
+</Tooltip>
+`;

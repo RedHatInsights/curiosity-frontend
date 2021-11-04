@@ -7,7 +7,7 @@ import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageColumns, PageHeader, PageSection, PageToolbar } from '../pageLayout/pageLayout';
 import { RHSM_API_PATH_ID_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { apiQueries, storeHooks } from '../../redux';
-import GraphCard from '../graphCard/graphCard';
+import GraphCard from '../graphCard/graphCard.deprecated';
 import { SelectPosition } from '../form/select';
 import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';

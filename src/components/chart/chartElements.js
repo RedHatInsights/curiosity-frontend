@@ -5,6 +5,7 @@ import { createContainer } from 'victory-create-container';
 import { Chart, ChartArea, ChartAxis, ChartContainer, ChartLine, ChartThreshold } from '@patternfly/react-charts';
 import { useChartContext } from './chartContext';
 import { chartTooltip } from './chartTooltip';
+import { chartAxisLabel } from './chartAxisLabel';
 
 /**
  * Generate a compatible Victory chart element/facet component.
@@ -22,11 +23,12 @@ const ChartElements = ({ chartTypeDefaults }) => {
     hasData,
     padding,
     themeColor,
-    xAxisProps,
-    yAxisProps
+    xAxisProps = {},
+    yAxisProps = []
   } = chartSettings;
 
   let containerComponent = <ChartContainer />;
+  let xAxis = null;
   let yAxis = null;
   let chartElements = [];
   let stackedChartElements = [];
@@ -53,16 +55,44 @@ const ChartElements = ({ chartTypeDefaults }) => {
             labelComponent={<TooltipLabelComponent />}
           />
         }
-        voronoiPadding={50}
+        voronoiPadding={(padding && Object.values(padding).sort()?.[0]) || 0}
         mouseFollowTooltips
       />
     );
   }
 
+  /**
+   * Generate X Axis
+   */
+  if (Object.keys(xAxisProps).length) {
+    const updatedXAxisProps = {
+      ...xAxisProps
+    };
+
+    if (updatedXAxisProps.label) {
+      const AxisLabelComponent = chartAxisLabel({ axis: 'x' });
+      updatedXAxisProps.axisLabelComponent = <AxisLabelComponent />;
+    }
+
+    xAxis = <ChartAxis {...updatedXAxisProps} animate={false} />;
+  }
+
+  /**
+   * Generate Y Axis
+   */
   if (Array.isArray(yAxisProps)) {
-    yAxis = yAxisProps.map(axisProps => (
-      <ChartAxis key={`yaxis-${axisProps.orientation}`} {...axisProps} animate={false} />
-    ));
+    yAxis = yAxisProps.map((axisProps, index) => {
+      const updatedAxisProps = {
+        ...axisProps
+      };
+
+      if (updatedAxisProps.label) {
+        const AxisLabelComponent = chartAxisLabel({ axis: 'y', index });
+        updatedAxisProps.axisLabelComponent = <AxisLabelComponent />;
+      }
+
+      return <ChartAxis key={`yaxis-${axisProps.orientation}`} {...updatedAxisProps} animate={false} />;
+    });
   }
 
   const setChartElement = ({ chartType, props }) => {
@@ -80,7 +110,7 @@ const ChartElements = ({ chartTypeDefaults }) => {
       themeColor={themeColor}
       {...{ padding, containerComponent, ...chartDomain }}
     >
-      <ChartAxis {...xAxisProps} animate={false} />
+      {xAxis}
       {yAxis}
       {chartElements}
       <ChartStack>{stackedChartElements}</ChartStack>

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphCardMetric Component should render a basic component: basic 1`] = `
+<ContextProvider
+  value={Object {}}
+>
+  <GraphCardMetricTotals
+    t={[Function]}
+    useMetricsSelector={[Function]}
+    useProductGraphTallyQuery={[Function]}
+  >
+    <GraphCardChart
+      t={[Function]}
+      useGetGraphTally={[Function]}
+      useGraphCardContext={[Function]}
+      useMetricsSelector={[Function]}
+      useProduct={[Function]}
+      useProductGraphTallyQuery={[Function]}
+    />
+  </GraphCardMetricTotals>
+</ContextProvider>
+`;
