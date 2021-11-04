@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProductView } from './productView';
+import { SelectPosition } from '../form/select';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
 
 /**
@@ -8,7 +9,7 @@ import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly'
  * @returns {Node}
  */
 const ProductViewOpenShiftDedicated = () => (
-  <ProductView toolbarGraph={<ToolbarFieldRangedMonthly />} toolbarGraphDescription />
+  <ProductView toolbarGraph={<ToolbarFieldRangedMonthly position={SelectPosition.right} />} toolbarGraphDescription />
 );
 
 /**

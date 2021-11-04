@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
-import { Select } from '../form/select';
+import { Select, SelectPosition } from '../form/select';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -66,6 +66,7 @@ const useOnSelect = ({
  * @param {object} props
  * @param {boolean} props.isFilter
  * @param {Array} props.options
+ * @param {string} props.position
  * @param {Function} props.t
  * @param {Function} props.useOnSelect
  * @param {Function} props.useProductGraphTallyQuery
@@ -74,6 +75,7 @@ const useOnSelect = ({
 const ToolbarFieldGranularity = ({
   isFilter,
   options,
+  position,
   t,
   useOnSelect: useAliasOnSelect,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
@@ -89,6 +91,7 @@ const ToolbarFieldGranularity = ({
       options={updatedOptions}
       selectedOptions={updatedValue}
       placeholder={t(`curiosity-toolbar.placeholder${(isFilter && '_filter') || ''}`, { context: 'granularity' })}
+      position={position}
       data-test="toolbarFieldGranularity"
     />
   );
@@ -98,7 +101,7 @@ const ToolbarFieldGranularity = ({
  * Prop types.
  *
  * @type {{useOnSelect: Function, useProductGraphTallyQuery: Function, t: Function, isFilter: boolean,
- *     options: Array}}
+ *     options: Array, position: string}}
  */
 ToolbarFieldGranularity.propTypes = {
   isFilter: PropTypes.bool,
@@ -109,6 +112,7 @@ ToolbarFieldGranularity.propTypes = {
       selected: PropTypes.bool
     })
   ),
+  position: PropTypes.string,
   t: PropTypes.func,
   useOnSelect: PropTypes.func,
   useProductGraphTallyQuery: PropTypes.func
@@ -118,11 +122,12 @@ ToolbarFieldGranularity.propTypes = {
  * Default props.
  *
  * @type {{useOnSelect: Function, useProductGraphTallyQuery: Function, t: Function, isFilter: boolean,
- *     options: Array}}
+ *     options: Array, position: string}}
  */
 ToolbarFieldGranularity.defaultProps = {
   isFilter: false,
   options: toolbarFieldOptions,
+  position: SelectPosition.left,
   t: translate,
   useOnSelect,
   useProductGraphTallyQuery
