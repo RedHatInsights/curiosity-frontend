@@ -1,5 +1,5 @@
 import { rhsmTypes } from '../types';
-import { rhsmServices } from '../../services/rhsmServices';
+import { rhsmServices } from '../../services/rhsm/rhsmServices';
 
 /**
  * Get a combined RHSM response from reporting and capacity.
@@ -25,6 +25,38 @@ const getGraphReportsCapacity = (id = null, query = {}, options = {}) => dispatc
       notifications: {}
     }
   });
+};
+
+/**
+ * Get a RHSM response from multiple Tally IDs and metrics.
+ *
+ * @param {object|Array} idMetric An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID }
+ * @param {object} query
+ * @param {object} options
+ * @param {string} options.cancelId
+ * @returns {Function}
+ */
+const getGraphTally = (idMetric = {}, query = {}, options = {}) => dispatch => {
+  const { cancelId = 'graphTally' } = options;
+  const multiMetric = (Array.isArray(idMetric) && idMetric) || [idMetric];
+  const multiDispatch = [];
+
+  multiMetric.forEach(({ id, metric }) => {
+    multiDispatch.push({
+      type: rhsmTypes.GET_GRAPH_TALLY_RHSM,
+      payload: rhsmServices.getGraphTally([id, metric], query, {
+        cancelId: `${cancelId}_${id}_${metric}`
+      }),
+      meta: {
+        id: `${id}_${metric}`,
+        idMetric: { id, metric },
+        query,
+        notifications: {}
+      }
+    });
+  });
+
+  return Promise.all(dispatch(multiDispatch));
 };
 
 /**
@@ -101,6 +133,7 @@ const getSubscriptionsInventory = (id = null, query = {}) => dispatch =>
 
 const rhsmActions = {
   getGraphReportsCapacity,
+  getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
   getMessageReports,
@@ -111,6 +144,7 @@ export {
   rhsmActions as default,
   rhsmActions,
   getGraphReportsCapacity,
+  getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
   getMessageReports,

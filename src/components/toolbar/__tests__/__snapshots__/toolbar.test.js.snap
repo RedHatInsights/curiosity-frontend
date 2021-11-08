@@ -29,7 +29,7 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
           categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
           chips={
             Array [
-              "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
+              "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
             ]
           }
           deleteChip={[Function]}
@@ -43,18 +43,18 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-                  "value": "premium",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+                  "value": "Premium",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-                  "value": "standard",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+                  "value": "Standard",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-                  "value": "self-support",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+                  "value": "Self-Support",
                 },
                 Object {
                   "selected": false,
@@ -113,18 +113,18 @@ exports[`Toolbar Component should hide categories when a single filter is availa
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-                  "value": "premium",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+                  "value": "Premium",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-                  "value": "standard",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+                  "value": "Standard",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-                  "value": "self-support",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+                  "value": "Self-Support",
                 },
                 Object {
                   "selected": false,
@@ -190,18 +190,18 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-                  "value": "premium",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+                  "value": "Premium",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-                  "value": "standard",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+                  "value": "Standard",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-                  "value": "self-support",
+                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+                  "value": "Self-Support",
                 },
                 Object {
                   "selected": false,

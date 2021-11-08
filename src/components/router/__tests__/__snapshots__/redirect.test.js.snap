@@ -36,7 +36,7 @@ Object {
   "productConfig": Array [
     Object {
       "graphTallyQuery": Object {
-        "granularity": "daily",
+        "granularity": "Daily",
       },
       "initialGraphFilters": Array [
         Object {
@@ -176,7 +176,7 @@ Object {
     },
     Object {
       "graphTallyQuery": Object {
-        "granularity": "daily",
+        "granularity": "Daily",
       },
       "initialGraphFilters": Array [
         Object {
@@ -258,7 +258,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "productConfig": Array [
           Object {
             "graphTallyQuery": Object {
-              "granularity": "daily",
+              "granularity": "Daily",
             },
             "initialGraphFilters": Array [
               Object {
