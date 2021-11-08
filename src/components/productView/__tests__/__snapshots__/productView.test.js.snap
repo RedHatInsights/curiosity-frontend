@@ -97,23 +97,23 @@ exports[`ProductView Component should allow custom inventory displays via config
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                  "value": "daily",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "value": "Daily",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                  "value": "weekly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "value": "Weekly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                  "value": "monthly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "value": "Monthly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                  "value": "quarterly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "value": "Quarterly",
                 },
               ]
             }
@@ -258,23 +258,23 @@ exports[`ProductView Component should allow custom product views via props: cust
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                  "value": "daily",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "value": "Daily",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                  "value": "weekly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "value": "Weekly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                  "value": "monthly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "value": "Monthly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                  "value": "quarterly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "value": "Quarterly",
                 },
               ]
             }
@@ -481,23 +481,23 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                  "value": "daily",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "value": "Daily",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                  "value": "weekly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "value": "Weekly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                  "value": "monthly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "value": "Monthly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                  "value": "quarterly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "value": "Quarterly",
                 },
               ]
             }

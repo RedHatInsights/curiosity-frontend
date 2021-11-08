@@ -9,7 +9,7 @@ Object {
 exports[`ApiQueries should parse a query object into specific api facets: rhsm 1`] = `
 Object {
   "graphTallyQuery": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "inventoryGuestsQuery": Object {
     "limit": 10,
@@ -24,12 +24,12 @@ Object {
     "offset": 0,
   },
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
     "limit": 10,
     "offset": 0,
   },
   "toolbarQuery": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
     "limit": 10,
     "offset": 0,
   },
