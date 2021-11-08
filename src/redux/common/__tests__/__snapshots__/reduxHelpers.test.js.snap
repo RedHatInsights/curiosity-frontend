@@ -9,9 +9,6 @@ Object {
     "errorMessage": "",
     "fulfilled": false,
     "meta": Object {},
-    "metaData": undefined,
-    "metaId": undefined,
-    "metaQuery": undefined,
     "pending": false,
   },
   "fulfilledState": Object {
@@ -24,9 +21,6 @@ Object {
     "errorMessage": "",
     "fulfilled": true,
     "meta": Object {},
-    "metaData": undefined,
-    "metaId": undefined,
-    "metaQuery": undefined,
     "pending": false,
     "status": 200,
   },
@@ -35,9 +29,6 @@ Object {
     "errorMessage": "",
     "fulfilled": false,
     "meta": Object {},
-    "metaData": undefined,
-    "metaId": undefined,
-    "metaQuery": undefined,
     "pending": true,
   },
   "rejectedState": Object {
@@ -45,9 +36,6 @@ Object {
     "errorMessage": "Request failed with status code 400",
     "fulfilled": false,
     "meta": Object {},
-    "metaData": undefined,
-    "metaId": undefined,
-    "metaQuery": undefined,
     "pending": false,
     "status": 400,
   },
@@ -67,6 +55,11 @@ Object {
       "errorMessage": "",
       "fulfilled": true,
       "meta": Object {
+        "data": "test data",
+        "id": "test id",
+        "query": Object {
+          "test": "query",
+        },
         "test": "test property",
       },
       "metaData": "test data",
@@ -74,6 +67,7 @@ Object {
       "metaQuery": Object {
         "test": "query",
       },
+      "metaTest": "test property",
       "pending": false,
       "status": 200,
     },
@@ -88,13 +82,17 @@ Object {
     "errorMessage": "",
     "fulfilled": true,
     "meta": Object {
+      "data": "test data",
+      "query": Object {
+        "test": "query",
+      },
       "test": "test property",
     },
     "metaData": "test data",
-    "metaId": undefined,
     "metaQuery": Object {
       "test": "query",
     },
+    "metaTest": "test property",
     "pending": false,
     "status": 200,
   },
@@ -154,7 +152,7 @@ Array [
 
 exports[`ReduxHelpers should generate an expected API query with an existing schema: rhsm query 1`] = `
 Object {
-  "granularity": "daily",
+  "granularity": "Daily",
 }
 `;
 

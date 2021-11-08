@@ -9,23 +9,23 @@ Array [
         Array [
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-            "value": "daily",
+            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+            "value": "Daily",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-            "value": "weekly",
+            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+            "value": "Weekly",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-            "value": "monthly",
+            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+            "value": "Monthly",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-            "value": "quarterly",
+            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+            "value": "Quarterly",
           },
         ]
       }
@@ -37,23 +37,23 @@ Array [
     "options": Array [
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-        "value": "daily",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+        "value": "Daily",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-        "value": "weekly",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+        "value": "Weekly",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-        "value": "monthly",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+        "value": "Monthly",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-        "value": "quarterly",
+        "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+        "value": "Quarterly",
       },
     ],
     "selected": false,
@@ -339,18 +339,18 @@ Array [
         Array [
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-            "value": "premium",
+            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+            "value": "Premium",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-            "value": "standard",
+            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+            "value": "Standard",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-            "value": "self-support",
+            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+            "value": "Self-Support",
           },
           Object {
             "selected": false,
@@ -367,18 +367,18 @@ Array [
     "options": Array [
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-        "value": "premium",
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+        "value": "Premium",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-        "value": "standard",
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+        "value": "Standard",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-        "value": "self-support",
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+        "value": "Self-Support",
       },
       Object {
         "selected": false,
@@ -501,18 +501,18 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
             Array [
               Object {
                 "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-                "value": "premium",
+                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+                "value": "Premium",
               },
               Object {
                 "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-                "value": "standard",
+                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+                "value": "Standard",
               },
               Object {
                 "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-                "value": "self-support",
+                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+                "value": "Self-Support",
               },
               Object {
                 "selected": false,
@@ -529,18 +529,18 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "options": Array [
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-            "value": "premium",
+            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+            "value": "Premium",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-            "value": "standard",
+            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+            "value": "Standard",
           },
           Object {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-            "value": "self-support",
+            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+            "value": "Self-Support",
           },
           Object {
             "selected": false,
@@ -696,18 +696,18 @@ Object {
           Array [
             Object {
               "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-              "value": "premium",
+              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+              "value": "Premium",
             },
             Object {
               "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-              "value": "standard",
+              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+              "value": "Standard",
             },
             Object {
               "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-              "value": "self-support",
+              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+              "value": "Self-Support",
             },
             Object {
               "selected": false,
@@ -724,18 +724,18 @@ Object {
       "options": Array [
         Object {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-          "value": "premium",
+          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+          "value": "Premium",
         },
         Object {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-          "value": "standard",
+          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+          "value": "Standard",
         },
         Object {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-          "value": "self-support",
+          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+          "value": "Self-Support",
         },
         Object {
           "selected": false,
@@ -821,18 +821,18 @@ Object {
           Array [
             Object {
               "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-              "value": "premium",
+              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+              "value": "Premium",
             },
             Object {
               "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-              "value": "standard",
+              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+              "value": "Standard",
             },
             Object {
               "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-              "value": "self-support",
+              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+              "value": "Self-Support",
             },
             Object {
               "selected": false,
@@ -849,18 +849,18 @@ Object {
       "options": Array [
         Object {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-          "value": "premium",
+          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+          "value": "Premium",
         },
         Object {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-          "value": "standard",
+          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+          "value": "Standard",
         },
         Object {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-          "value": "self-support",
+          "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+          "value": "Self-Support",
         },
         Object {
           "selected": false,

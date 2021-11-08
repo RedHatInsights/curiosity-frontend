@@ -1,12 +1,13 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import moxios from 'moxios';
+import { multiActionMiddleware } from '../../middleware/multiActionMiddleware';
 import { graphReducer, inventoryReducer, messagesReducer, viewReducer } from '../../reducers';
 import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
 import { rhsmActions } from '../rhsmActions';
 
 describe('RhsmActions', () => {
-  const middleware = [promiseMiddleware];
+  const middleware = [multiActionMiddleware, promiseMiddleware];
   const generateStore = () =>
     createStore(
       combineReducers({
@@ -43,6 +44,22 @@ describe('RhsmActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().graph;
       expect(response.reportCapacity.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getGraphTally method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getGraphTally([
+      { id: 'lorem', metric: 'ipsum' },
+      { id: 'dolor', metric: 'sit' }
+    ]);
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().graph;
+      expect(response.tally.lorem_ipsum.fulfilled).toBe(true);
+      expect(response.tally.dolor_sit.fulfilled).toBe(true);
+      expect(Object.entries(response.tally).length).toBe(2);
       done();
     });
   });
