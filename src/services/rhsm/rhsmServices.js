@@ -1,5 +1,7 @@
-import { serviceCall } from './config';
-import { helpers } from '../common';
+import { serviceCall } from '../config';
+import { rhsmSchemas } from './rhsmSchemas';
+import { helpers } from '../../common';
+import { rhsmTranformers } from './rhsmTranformers';
 
 /**
  * @api {get} /api/rhsm-subscriptions/v1/version
@@ -752,6 +754,775 @@ const getGraphReports = (id, params = {}, options = {}) => {
 };
 
 /**
+ * @apiMock {DelayResponse} 2000
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/:metric_id Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50.090125,
+ *           "has_data": null
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "has_data": null
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": false,
+ *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Cores",
+ *         "product": "RHEL",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+ */
+/**
+ * @apiMock {DelayResponse} 250
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Transfer-gibibytes Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "count": 31,
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": true,
+ *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Transfer-gibibytes",
+ *         "product": "RHEL",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 1024,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+ */
+/**
+ * @apiMock {DelayResponse} 250
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Storage-gibibytes Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "count": 31,
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": true,
+ *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Storage-gibibytes",
+ *         "product": "RHEL",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 2048,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+ */
+/**
+ * @apiMock {DelayResponse} 250
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Instance-hours Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": true,
+ *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Instance-hours",
+ *         "product": "RHEL",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 2000,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+ */
+/* Get RHSM API reporting/tally graph/chart data.
+ *
+ * @param {string|Array} id String ID, or an array of IDs
+ * @param {object} params Query/search params
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
+ * @returns {Promise<*>}
+ */
+const getGraphTally = (id, params = {}, options = {}) => {
+  const {
+    cache = true,
+    cancel = true,
+    cancelId,
+    schema = [rhsmSchemas.tally, rhsmSchemas.errors],
+    transform = [rhsmTranformers.tally]
+  } = options;
+  const updatedId = (typeof id === 'string' && [id]) || (Array.isArray(id) && id) || [];
+
+  let url = `${process.env.REACT_APP_SERVICES_RHSM_TALLY}`;
+  updatedId.forEach((value, index) => {
+    url = url.replace(`{${index}}`, value);
+  });
+
+  return serviceCall({
+    url,
+    params,
+    cache,
+    cancel,
+    cancelId,
+    schema,
+    transform
+  });
+};
+
+/**
  * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id Get RHSM graph capacity data, i.e. thresholds
  * @apiDescription Retrieve graph capacity data, such as thresholds.
  *
@@ -1491,6 +2262,7 @@ const rhsmServices = {
   getApiVersion,
   getGraphCapacity,
   getGraphReports,
+  getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
   getSubscriptionsInventory
@@ -1507,6 +2279,7 @@ export {
   getApiVersion,
   getGraphCapacity,
   getGraphReports,
+  getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
   getSubscriptionsInventory

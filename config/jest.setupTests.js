@@ -34,6 +34,14 @@ jest.mock('i18next', () => {
 jest.mock('lodash/debounce', () => jest.fn);
 
 /**
+ * We currently use a wrapper for useSelector, emulate for component checks
+ */
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useSelector: jest.fn()
+}));
+
+/**
  * Add the displayName property to function based components. Makes sure that snapshot tests have named components
  * instead of displaying a generic "<Component.../>".
  *

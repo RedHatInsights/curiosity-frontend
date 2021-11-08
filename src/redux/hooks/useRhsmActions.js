@@ -1,6 +1,6 @@
 import { reactReduxHooks } from './useReactRedux';
 import { rhsmTypes } from '../types/rhsmTypes';
-import { rhsmServices } from '../../services/rhsmServices';
+import { rhsmServices } from '../../services/rhsm/rhsmServices';
 
 /**
  * Get an updated store RHSM response from message reporting.
