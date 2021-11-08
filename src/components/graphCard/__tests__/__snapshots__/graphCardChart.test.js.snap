@@ -58,7 +58,7 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
   chartLegend={[Function]}
   chartTooltip={[Function]}
   dataSets={Array []}
-  key="chart_{\\"granularity\\":\\"daily\\"}"
+  key="chart_{\\"granularity\\":\\"Daily\\"}"
   padding={
     Object {
       "bottom": 75,

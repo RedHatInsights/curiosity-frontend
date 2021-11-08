@@ -9,14 +9,30 @@ Object {
       "errorMessage": "MESSAGE",
       "fulfilled": false,
       "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+    "tally": Object {},
+  },
+  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_REJECTED",
+}
+`;
+
+exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_TALLY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "legend": Object {},
+    "reportCapacity": Object {},
+    "tally": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": Object {},
       "pending": false,
       "status": 0,
     },
   },
-  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_REJECTED",
+  "type": "GET_GRAPH_TALLY_RHSM_REJECTED",
 }
 `;
 
@@ -33,14 +49,34 @@ Object {
       "errorMessage": "",
       "fulfilled": true,
       "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
+      "pending": false,
+      "status": 0,
+    },
+    "tally": Object {},
+  },
+  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_FULFILLED",
+}
+`;
+
+exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_TALLY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "legend": Object {},
+    "reportCapacity": Object {},
+    "tally": Object {
+      "data": Object {
+        "test": "success",
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
       "pending": false,
       "status": 0,
     },
   },
-  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_FULFILLED",
+  "type": "GET_GRAPH_TALLY_RHSM_FULFILLED",
 }
 `;
 
@@ -53,13 +89,28 @@ Object {
       "errorMessage": "",
       "fulfilled": false,
       "meta": Object {},
-      "metaData": undefined,
-      "metaId": undefined,
-      "metaQuery": undefined,
+      "pending": true,
+    },
+    "tally": Object {},
+  },
+  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
+}
+`;
+
+exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_TALLY_RHSM 1`] = `
+Object {
+  "result": Object {
+    "legend": Object {},
+    "reportCapacity": Object {},
+    "tally": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
       "pending": true,
     },
   },
-  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
+  "type": "GET_GRAPH_TALLY_RHSM_PENDING",
 }
 `;
 
@@ -70,6 +121,7 @@ Object {
       "lorem": true,
     },
     "reportCapacity": Object {},
+    "tally": Object {},
   },
   "type": "SET_GRAPH_LEGEND",
 }

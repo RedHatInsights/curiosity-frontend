@@ -8,7 +8,7 @@ Object {
   "meta": Object {},
   "pending": true,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -493,7 +493,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -507,7 +507,7 @@ Object {
   "meta": Object {},
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -732,7 +732,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -933,7 +933,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -1134,7 +1134,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -1335,7 +1335,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -1918,7 +1918,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }
@@ -2165,7 +2165,7 @@ Object {
   },
   "pending": false,
   "query": Object {
-    "granularity": "daily",
+    "granularity": "Daily",
   },
   "status": undefined,
 }

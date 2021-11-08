@@ -75,6 +75,7 @@
     "test:local": "jest --roots=./src --watch"
   },
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "@patternfly/patternfly": "4.135.2",
     "@patternfly/react-charts": "6.15.23",
     "@patternfly/react-core": "4.157.3",
@@ -89,6 +90,7 @@
     "classnames": "^2.3.1",
     "i18next": "^20.4.0",
     "i18next-xhr-backend": "^3.2.2",
+    "joi": "^17.4.2",
     "js-cookie": "^3.0.1",
     "locale-code": "^2.0.2",
     "lodash": "^4.17.21",

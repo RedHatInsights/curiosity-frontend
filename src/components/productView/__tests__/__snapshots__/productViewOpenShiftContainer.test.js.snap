@@ -19,7 +19,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
       value={
         Object {
           "graphTallyQuery": Object {
-            "granularity": "daily",
+            "granularity": "Daily",
           },
           "initialGraphFilters": Array [
             Object {
@@ -209,7 +209,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
             Object {
               "beginning": "2019-06-20T00:00:00.000Z",
               "ending": "2019-07-20T23:59:59.999Z",
-              "granularity": "daily",
+              "granularity": "Daily",
             }
           }
           viewId="viewOpenShift Container Platform"
@@ -240,23 +240,23 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               Array [
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"daily\\"})",
-                  "value": "daily",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "value": "Daily",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"weekly\\"})",
-                  "value": "weekly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "value": "Weekly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"monthly\\"})",
-                  "value": "monthly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "value": "Monthly",
                 },
                 Object {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"quarterly\\"})",
-                  "value": "quarterly",
+                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "value": "Quarterly",
                 },
               ]
             }
@@ -403,7 +403,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
       value={
         Object {
           "graphTallyQuery": Object {
-            "granularity": "daily",
+            "granularity": "Daily",
           },
           "initialGraphFilters": Array [
             Object {
@@ -505,7 +505,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
             Object {
               "beginning": "2019-07-01T00:00:00.000Z",
               "ending": "2019-07-31T23:59:59.999Z",
-              "granularity": "daily",
+              "granularity": "Daily",
             }
           }
           viewId="viewOpenShift-metrics"

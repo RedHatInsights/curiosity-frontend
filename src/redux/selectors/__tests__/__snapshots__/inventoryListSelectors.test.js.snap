@@ -49,7 +49,7 @@ Object {
   ],
   "pending": false,
   "query": Object {
-    "sla": "premium",
+    "sla": "Premium",
   },
   "status": undefined,
 }
@@ -102,7 +102,7 @@ Object {
   ],
   "pending": false,
   "query": Object {
-    "sla": "premium",
+    "sla": "Premium",
   },
   "status": undefined,
 }
@@ -131,7 +131,7 @@ Object {
   ],
   "pending": false,
   "query": Object {
-    "sla": "premium",
+    "sla": "Premium",
   },
   "status": undefined,
 }
@@ -160,7 +160,7 @@ Object {
   ],
   "pending": false,
   "query": Object {
-    "sla": "premium",
+    "sla": "Premium",
   },
   "status": undefined,
 }
@@ -218,7 +218,7 @@ Object {
   ],
   "pending": false,
   "query": Object {
-    "sla": "premium",
+    "sla": "Premium",
   },
   "status": undefined,
 }
@@ -261,7 +261,7 @@ Object {
   ],
   "pending": false,
   "query": Object {
-    "sla": "premium",
+    "sla": "Premium",
   },
   "status": undefined,
 }

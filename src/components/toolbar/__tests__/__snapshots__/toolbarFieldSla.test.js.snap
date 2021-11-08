@@ -4,18 +4,18 @@ exports[`ToolbarFieldSla Component should export select options: toolbarFieldOpt
 Array [
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-    "value": "premium",
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+    "value": "Premium",
   },
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-    "value": "standard",
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+    "value": "Standard",
   },
   Object {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-    "value": "self-support",
+    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+    "value": "Self-Support",
   },
   Object {
     "selected": false,
@@ -34,7 +34,7 @@ Array [
         "viewId": undefined,
       },
       Object {
-        "sla": "premium",
+        "sla": "Premium",
         "type": "SET_QUERY_RHSM_sla",
         "viewId": undefined,
       },
@@ -78,18 +78,18 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
     Array [
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"premium\\"})",
-        "value": "premium",
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+        "value": "Premium",
       },
       Object {
         "selected": true,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"standard\\"})",
-        "value": "standard",
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+        "value": "Standard",
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"self-support\\"})",
-        "value": "self-support",
+        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+        "value": "Self-Support",
       },
       Object {
         "selected": false,
@@ -100,7 +100,7 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   }
   placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
   position="left"
-  selectedOptions="standard"
+  selectedOptions="Standard"
   toggleIcon={null}
   variant="single"
 />

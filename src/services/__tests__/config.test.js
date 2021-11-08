@@ -57,14 +57,25 @@ describe('ServiceConfig', () => {
   });
 
   it('should handle cancelling service calls', async () => {
-    const response = await returnPromiseAsync(() =>
+    const responseAll = await returnPromiseAsync(() =>
       Promise.all([
+        service.serviceCall({ url: '/test/', cancel: true }),
         service.serviceCall({ url: '/test/', cancel: true }),
         service.serviceCall({ url: '/test/', cancel: true })
       ])
     );
 
-    expect(response).toMatchSnapshot('cancelled request');
+    expect(responseAll).toMatchSnapshot('cancelled request, Promise.all');
+
+    const responseAllSettled = await returnPromiseAsync(() =>
+      Promise.allSettled([
+        service.serviceCall({ url: '/test/', cancel: true }),
+        service.serviceCall({ url: '/test/', cancel: true }),
+        service.serviceCall({ url: '/test/', cancel: true })
+      ])
+    );
+
+    expect(responseAllSettled).toMatchSnapshot('cancelled request, Promise.allSettled');
   });
 
   it('should handle caching service calls', async () => {

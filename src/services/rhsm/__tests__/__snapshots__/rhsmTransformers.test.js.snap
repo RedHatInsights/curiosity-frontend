@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RHSM Transformers should attempt to parse a tally response: tally 1`] = `
+Object {
+  "data": Array [],
+  "meta": Object {
+    "count": undefined,
+    "metricId": undefined,
+    "productId": undefined,
+    "totalMonthlyDate": undefined,
+    "totalMonthlyHasData": undefined,
+    "totalMonthlyValue": undefined,
+  },
+}
+`;
+
+exports[`RHSM Transformers should have specific RHSM response transformers: specific transformers 1`] = `
+Object {
+  "tally": [Function],
+}
+`;
