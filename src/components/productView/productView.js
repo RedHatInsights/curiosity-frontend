@@ -121,7 +121,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
-            {initialInventoryFilters && (
+            {!helpers.UI_DISABLED_TABLE_HOSTS && initialInventoryFilters && (
               <InventoryTab
                 key={`inventory_hosts_${productId}`}
                 title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
@@ -137,7 +137,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                 />
               </InventoryTab>
             )}
-            {initialSubscriptionsInventoryFilters && (
+            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
               <InventoryTab
                 key={`inventory_subs_${productId}`}
                 title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
