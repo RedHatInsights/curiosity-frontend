@@ -259,7 +259,7 @@ Object {
       "disabled": false,
       "exact": true,
       "id": "rhosak",
-      "path": "/rhosak",
+      "path": "/streams",
       "redirect": null,
     },
     Object {
