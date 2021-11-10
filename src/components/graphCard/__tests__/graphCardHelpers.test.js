@@ -87,8 +87,8 @@ describe('GraphCardHelpers', () => {
   it('yAxisTickFormat should produce consistent y axis tick values', () => {
     const generateTicks = (method = yAxisTickFormat) => {
       const ticks = {};
-      for (let i = 0; i < 13; i++) {
-        const multiplier = Math.pow(10, i);
+      for (let i = 0.00001345; i < 13; i++) {
+        const multiplier = i < 1 ? i : Math.pow(10, i);
         for (let k = 1; k < 16; k++) {
           const incrementMultiplier = k * multiplier;
           ticks[incrementMultiplier] = method({ tick: incrementMultiplier });

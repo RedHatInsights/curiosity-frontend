@@ -79,7 +79,7 @@ const getChartXAxisLabelIncrement = granularity => {
  * @param {string} params.granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
  * @returns {string}
  */
-const getTooltipDate = ({ date, granularity }) => {
+const getTooltipDate = ({ date, granularity } = {}) => {
   const momentDate = moment.utc(date);
 
   switch (granularity) {
@@ -106,15 +106,20 @@ const getTooltipDate = ({ date, granularity }) => {
  * Format x axis ticks.
  *
  * @param {object} params
+ * @param {Function} params.callback
  * @param {Date} params.date
  * @param {string} params.granularity See enum of RHSM_API_QUERY_GRANULARITY_TYPES
  * @param {number|string} params.tick
  * @param {Date} params.previousDate
  * @returns {string|undefined}
  */
-const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
+const xAxisTickFormat = ({ callback, date, granularity, tick, previousDate } = {}) => {
   if (!date || !granularity) {
     return undefined;
+  }
+
+  if (callback) {
+    return callback({ callback, date, granularity, tick, previousDate });
   }
 
   const momentDate = moment.utc(date);
@@ -159,24 +164,22 @@ const xAxisTickFormat = ({ date, granularity, tick, previousDate }) => {
  * Format y axis ticks.
  *
  * @param {object} params
+ * @param {Function} params.callback
  * @param {number|string} params.tick
  * @returns {string}
  */
-const yAxisTickFormat = ({ tick }) => {
-  const options = {
-    average: true,
-    mantissa: 1,
-    trimMantissa: true,
-    lowPrecision: false
-  };
-
-  if (!Number.isInteger(tick)) {
-    options.mantissa = 5;
-    options.lowPrecision = true;
+const yAxisTickFormat = ({ callback, tick } = {}) => {
+  if (callback) {
+    return callback({ tick });
   }
 
   return numbro(tick)
-    .format({ ...options })
+    .format({
+      average: true,
+      mantissa: 1,
+      trimMantissa: true,
+      lowPrecision: false
+    })
     .toUpperCase();
 };
 
@@ -193,12 +196,17 @@ const generateExtendedChartSettings = ({ settings, granularity } = {}) => ({
   xAxisLabelIncrement: getChartXAxisLabelIncrement(granularity),
   xAxisTickFormat: ({ item, previousItem, tick }) =>
     xAxisTickFormat({
+      callback: settings?.xAxisTickFormat,
       tick,
       date: item.date,
       previousDate: previousItem.date,
       granularity
     }),
-  yAxisTickFormat
+  yAxisTickFormat: ({ tick }) =>
+    yAxisTickFormat({
+      callback: settings?.yAxisTickFormat,
+      tick
+    })
 });
 
 const graphCardHelpers = {
