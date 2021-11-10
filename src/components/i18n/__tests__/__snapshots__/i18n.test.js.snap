@@ -136,28 +136,28 @@ Array [
     "file": "./src/components/graphCard/graphCardMetricTotals.js",
     "keys": Array [
       Object {
-        "key": "curiosity-graph.cardHeadingMetric_currentTotal",
-        "match": "t('curiosity-graph.cardHeadingMetric_currentTotal', { context: [isCurrent && 'current', metricId], month: selectedMonth })",
-      },
-      Object {
-        "key": "curiosity-graph.cardBodyMetric_currentTotal",
-        "match": "t( 'curiosity-graph.cardBodyMetric_currentTotal', { context: (currentHasData && metricId)",
-      },
-      Object {
-        "key": "curiosity-graph.cardFooterMetric",
-        "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(currentDate)",
-      },
-      Object {
-        "key": "curiosity-graph.cardHeadingMetric_total",
-        "match": "t('curiosity-graph.cardHeadingMetric_total', { context: metricId, month: selectedMonth })",
+        "key": "curiosity-graph.cardHeadingMetric_dailyTotal",
+        "match": "t('curiosity-graph.cardHeadingMetric_dailyTotal', { context: [isCurrent && 'current', metricId], month: selectedMonth })",
       },
       Object {
         "key": "curiosity-graph.cardBodyMetric_total",
-        "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (totalMonthlyHasData && metricId)",
+        "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (dailyHasData && metricId)",
       },
       Object {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(totalMonthlyDate)",
+        "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+      },
+      Object {
+        "key": "curiosity-graph.cardHeadingMetric_monthlyTotal",
+        "match": "t('curiosity-graph.cardHeadingMetric_monthlyTotal', { context: [isCurrent && 'current', metricId], month: selectedMonth })",
+      },
+      Object {
+        "key": "curiosity-graph.cardBodyMetric_total",
+        "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (monthlyHasData && metricId)",
+      },
+      Object {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
       },
     ],
   },
@@ -671,14 +671,6 @@ Array [
   Object {
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
     "key": "curiosity-graph.label",
-  },
-  Object {
-    "file": "./src/components/graphCard/graphCardMetricTotals.js",
-    "key": "curiosity-graph.cardHeadingMetric_currentTotal",
-  },
-  Object {
-    "file": "./src/components/graphCard/graphCardMetricTotals.js",
-    "key": "curiosity-graph.cardHeadingMetric_total",
   },
   Object {
     "file": "./src/components/inventoryList/inventoryList.js",

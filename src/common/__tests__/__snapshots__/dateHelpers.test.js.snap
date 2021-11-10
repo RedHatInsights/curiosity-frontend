@@ -421,7 +421,7 @@ Array [
 
 exports[`DateHelpers should return a predictable range of time: range of time 1`] = `
 Object {
-  "currentDate": "20190720",
+  "currentDate": 2019-07-20T00:00:00.000Z,
   "rangeDateTime": Object {
     "endDate": 2019-07-20T23:59:59.999Z,
     "startDate": 2019-07-15T00:00:00.000Z,
