@@ -3,11 +3,13 @@ import {
   RHSM_API_RESPONSE_TALLY_META_TYPES as TALLY_META_TYPES,
   rhsmConstants
 } from './rhsmConstants';
+import { dateHelpers } from '../../common';
 
 const rhsmTally = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
+  const currentDay = dateHelpers.getCurrentDate()?.getDate();
 
   updatedResponse.data = data.map(
     (
@@ -17,7 +19,8 @@ const rhsmTally = response => {
       x: index,
       y: value,
       date,
-      hasData
+      hasData,
+      isCurrentDate: date?.getDate() === currentDay
     })
   );
 

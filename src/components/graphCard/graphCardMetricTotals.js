@@ -31,13 +31,20 @@ const GraphCardMetricTotals = ({
   const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate } = useAliasProductGraphTallyQuery();
   const { pending, error, fulfilled, dataSets = [] } = useAliasMetricsSelector();
   const { data = [], id: metricId, meta = {} } = dataSets[0] || {};
-  const { date: currentDate, hasData: currentHasData, y: currentValue } = data[data.length - 1] || {};
-  const { totalMonthlyDate, totalMonthlyHasData, totalMonthlyValue } = meta;
+  const { date: lastDate, hasData: lastHasData, y: lastValue } = data[data.length - 1] || {};
+  const { date: currentDate, hasData: currentHasData, y: currentValue } =
+    data.find(({ isCurrentDate }) => isCurrentDate === true) || {};
+
+  const { totalMonthlyDate: monthlyDate, totalMonthlyHasData: monthlyHasData, totalMonthlyValue: monthlyValue } = meta;
 
   const { title: selectedMonth, isCurrent } =
     toolbarFieldOptions.find(
       option => option.title === startDate || option.value.startDate.toISOString() === startDate
     ) || {};
+
+  const dailyDate = isCurrent ? currentDate : lastDate;
+  const dailyHasData = isCurrent ? currentHasData : lastHasData;
+  const dailyValue = isCurrent ? currentValue : lastValue;
 
   return (
     <Flex className="curiosity-usage-graph__totals">
@@ -45,7 +52,7 @@ const GraphCardMetricTotals = ({
         <FlexItem className="curiosity-usage-graph__totals-column">
           <Card className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}>
             <CardTitle>
-              {t('curiosity-graph.cardHeadingMetric_currentTotal', {
+              {t('curiosity-graph.cardHeadingMetric_dailyTotal', {
                 context: [isCurrent && 'current', metricId],
                 month: selectedMonth
               })}
@@ -56,25 +63,25 @@ const GraphCardMetricTotals = ({
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
                     t(
-                      'curiosity-graph.cardBodyMetric_currentTotal',
+                      'curiosity-graph.cardBodyMetric_total',
                       {
-                        context: (currentHasData && metricId) || '',
-                        total: numbro(currentValue)
+                        context: (dailyHasData && metricId) || '',
+                        total: numbro(dailyValue)
                           .format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
                           .toUpperCase()
                       },
-                      [<strong title={currentValue} aria-label={currentValue} />]
+                      [<strong title={dailyValue} aria-label={dailyValue} />]
                     )}
                 </div>
               </CardBody>
             </MinHeight>
             <MinHeight key="currentFooter">
               <CardFooter>
-                <div className={(!currentHasData && 'hidden') || ''}>
+                <div className={(!dailyHasData && 'hidden') || ''}>
                   {fulfilled &&
-                    currentDate &&
+                    dailyDate &&
                     t('curiosity-graph.cardFooterMetric', {
-                      date: moment.utc(currentDate).format(dateHelpers.timestampTimeFormats.yearTimeShort)
+                      date: moment.utc(dailyDate).format(dateHelpers.timestampTimeFormats.yearTimeShort)
                     })}
                 </div>
               </CardFooter>
@@ -82,7 +89,10 @@ const GraphCardMetricTotals = ({
           </Card>
           <Card className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}>
             <CardTitle>
-              {t('curiosity-graph.cardHeadingMetric_total', { context: metricId, month: selectedMonth })}
+              {t('curiosity-graph.cardHeadingMetric_monthlyTotal', {
+                context: [isCurrent && 'current', metricId],
+                month: selectedMonth
+              })}
             </CardTitle>
             <MinHeight key="totalMonthlyBody">
               <CardBody>
@@ -92,23 +102,23 @@ const GraphCardMetricTotals = ({
                     t(
                       'curiosity-graph.cardBodyMetric_total',
                       {
-                        context: (totalMonthlyHasData && metricId) || '',
-                        total: numbro(totalMonthlyValue)
+                        context: (monthlyHasData && metricId) || '',
+                        total: numbro(monthlyValue)
                           .format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
                           .toUpperCase()
                       },
-                      [<strong title={totalMonthlyValue} aria-label={totalMonthlyValue} />]
+                      [<strong title={monthlyValue} aria-label={monthlyValue} />]
                     )}
                 </div>
               </CardBody>
             </MinHeight>
             <MinHeight key="totalMonthlyFooter">
               <CardFooter>
-                <div className={(!totalMonthlyHasData && 'hidden') || ''}>
+                <div className={(!monthlyHasData && 'hidden') || ''}>
                   {fulfilled &&
-                    totalMonthlyDate &&
+                    monthlyDate &&
                     t('curiosity-graph.cardFooterMetric', {
-                      date: moment.utc(totalMonthlyDate).format(dateHelpers.timestampTimeFormats.yearTimeShort)
+                      date: moment.utc(monthlyDate).format(dateHelpers.timestampTimeFormats.yearTimeShort)
                     })}
                 </div>
               </CardFooter>
