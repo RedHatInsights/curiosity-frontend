@@ -9,7 +9,11 @@ import { translate } from '../components/i18n/i18n';
  * @returns {string|Date}
  */
 const getCurrentDate = () =>
-  (helpers.TEST_MODE && '20190720') || (helpers.DEV_MODE && process.env.REACT_APP_DEBUG_DEFAULT_DATETIME) || new Date();
+  (helpers.TEST_MODE && moment.utc('20190720').toDate()) ||
+  (helpers.DEV_MODE &&
+    process.env.REACT_APP_DEBUG_DEFAULT_DATETIME &&
+    moment.utc(process.env.REACT_APP_DEBUG_DEFAULT_DATETIME).toDate()) ||
+  new Date();
 
 /**
  * Set a date range based on a granularity type.
