@@ -5,6 +5,10 @@ describe('RHSM Transformers', () => {
     expect(rhsmTranformers).toMatchSnapshot('specific transformers');
   });
 
+  it('should attempt to parse an instances response', () => {
+    expect(rhsmTranformers.instances()).toMatchSnapshot('instances');
+  });
+
   it('should attempt to parse a tally response', () => {
     expect(rhsmTranformers.tally()).toMatchSnapshot('tally');
   });

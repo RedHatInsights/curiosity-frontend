@@ -5,7 +5,7 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * Initial state.
  *
  * @private
- * @type {{reportCapacity: {}, legend: {}, tallyCapacity: {}}}
+ * @type {{reportCapacity: {}, legend: {}, tally: {}}}
  */
 const initialState = {
   legend: {},

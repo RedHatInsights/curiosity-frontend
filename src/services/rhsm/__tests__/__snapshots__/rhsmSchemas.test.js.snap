@@ -3,6 +3,7 @@
 exports[`RHSM Schemas should have specific RHSM response schemas: specific schemas 1`] = `
 Object {
   "errors": [Function],
+  "instances": [Function],
   "tally": [Function],
 }
 `;

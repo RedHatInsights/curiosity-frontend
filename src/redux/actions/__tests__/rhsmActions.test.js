@@ -22,7 +22,7 @@ describe('RhsmActions', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(tally|capacity|hosts|subscriptions|version).*?/, {
+    moxios.stubRequest(/\/(tally|capacity|hosts|instances|subscriptions|version).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1,
@@ -82,6 +82,17 @@ describe('RhsmActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().inventory;
       expect(response.hostsGuests.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getInstancesInventory method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getInstancesInventory();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().inventory;
+      expect(response.instancesInventory.fulfilled).toBe(true);
       done();
     });
   });

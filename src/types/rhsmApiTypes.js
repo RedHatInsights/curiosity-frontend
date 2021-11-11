@@ -223,6 +223,11 @@ const RHSM_API_QUERY_GRANULARITY_TYPES = {
 };
 
 /**
+ * ToDo: Clean up sort params since they're hosts API specific.
+ * Hosts is being deprecated in favor of instances API. Instances sort params
+ * can be found in /services/rhsm/rhsmConstants.js
+ */
+/**
  * RHSM API query/search parameter SORT type values for HOSTS.
  *
  * @type {{CORES: string, CORE_HOURS: string, HARDWARE: string, SOCKETS: string, MEASUREMENT: string,
@@ -270,8 +275,7 @@ const RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES = {
  * @type {{ASCENDING: string, DESCENDING: string}}
  */
 const RHSM_API_QUERY_SORT_DIRECTION_TYPES = {
-  ASCENDING: 'asc',
-  DESCENDING: 'desc'
+  ...rhsmConstants.RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES
 };
 
 /**
@@ -328,16 +332,7 @@ const RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES = {
  *     SLA: string, LIMIT: string}}
  */
 const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
-  DIRECTION: 'dir',
-  DISPLAY_NAME: 'display_name_contains',
-  END_DATE: 'ending',
-  LIMIT: 'limit',
-  OFFSET: 'offset',
-  SLA: 'sla',
-  SORT: 'sort',
-  START_DATE: 'beginning',
-  UOM: 'uom',
-  USAGE: 'usage'
+  ...rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES
 };
 
 /**
@@ -357,7 +352,7 @@ const RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES = {
  *     LIMIT: string}}
  */
 const RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES = {
-  ...RHSM_API_QUERY_SET_INVENTORY_TYPES
+  ...rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES
 };
 
 /**

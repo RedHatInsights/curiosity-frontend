@@ -152,6 +152,14 @@ const UI_DISABLED_TABLE = process.env.REACT_APP_UI_DISABLED_TABLE === 'true';
 const UI_DISABLED_TABLE_HOSTS = process.env.REACT_APP_UI_DISABLED_TABLE_HOSTS === 'true';
 
 /**
+ * Disable the current instances inventory/table aspect of the UI.
+ * See dotenv config files for activation.
+ *
+ * @type {boolean}
+ */
+const UI_DISABLED_TABLE_INSTANCES = process.env.REACT_APP_UI_DISABLED_TABLE_INSTANCES === 'true';
+
+/**
  * Disable the current subscriptions inventory/table aspect of the UI.
  * See dotenv config files for activation.
  *
@@ -306,6 +314,7 @@ const helpers = {
   UI_DISABLED_GRAPH,
   UI_DISABLED_TABLE,
   UI_DISABLED_TABLE_HOSTS,
+  UI_DISABLED_TABLE_INSTANCES,
   UI_DISABLED_TABLE_SUBSCRIPTIONS,
   UI_DISABLED_TOOLBAR,
   UI_DISPLAY_NAME,
