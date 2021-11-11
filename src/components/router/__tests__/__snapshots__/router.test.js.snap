@@ -128,7 +128,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "disabled": false,
         "exact": true,
         "id": "rhosak",
-        "path": "/rhosak",
+        "path": "/streams",
         "redirect": null,
       },
       Object {
