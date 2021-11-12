@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardBody, CardFooter, CardTitle, Flex, FlexItem } from '@patternfly/react-core';
 import moment from 'moment';
-import numbro from 'numbro';
 import { useProductGraphTallyQuery } from '../productView/productViewContext';
 import { useMetricsSelector } from './graphCardContext';
 import { MinHeight } from '../minHeight/minHeight';
 import { Loader, SkeletonSize } from '../loader/loader';
-import { dateHelpers } from '../../common';
+import { dateHelpers, helpers } from '../../common';
 import { toolbarFieldOptions } from '../toolbar/toolbarFieldRangedMonthly';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
@@ -66,9 +65,15 @@ const GraphCardMetricTotals = ({
                       'curiosity-graph.cardBodyMetric_total',
                       {
                         context: (dailyHasData && metricId) || '',
-                        total: numbro(dailyValue)
-                          .format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
-                          .toUpperCase()
+                        total: helpers
+                          .numberDisplay(dailyValue)
+                          ?.format({
+                            average: true,
+                            mantissa: 5,
+                            trimMantissa: true,
+                            lowPrecision: false
+                          })
+                          ?.toUpperCase()
                       },
                       [<strong title={dailyValue} aria-label={dailyValue} />]
                     )}
@@ -103,9 +108,10 @@ const GraphCardMetricTotals = ({
                       'curiosity-graph.cardBodyMetric_total',
                       {
                         context: (monthlyHasData && metricId) || '',
-                        total: numbro(monthlyValue)
-                          .format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
-                          .toUpperCase()
+                        total: helpers
+                          .numberDisplay(monthlyValue)
+                          ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
+                          ?.toUpperCase()
                       },
                       [<strong title={monthlyValue} aria-label={monthlyValue} />]
                     )}

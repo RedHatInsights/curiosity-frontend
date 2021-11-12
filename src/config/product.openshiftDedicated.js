@@ -7,7 +7,6 @@ import {
 } from '@patternfly/react-tokens';
 import { Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
-import numbro from 'numbro';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
@@ -15,7 +14,7 @@ import {
   RHSM_API_QUERY_SORT_TYPES,
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
-import { dateHelpers } from '../common';
+import { dateHelpers, helpers } from '../common';
 import { translate } from '../components/i18n/i18n';
 
 const productGroup = RHSM_API_PATH_ID_TYPES.OPENSHIFT_DEDICATED_METRICS;
@@ -72,9 +71,10 @@ const config = {
       if (totalCoreHours) {
         displayContent = translate('curiosity-graph.cardActionTotal', {
           context: 'coreHours',
-          total: numbro(totalCoreHours)
-            .format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
-            .toUpperCase()
+          total: helpers
+            .numberDisplay(totalCoreHours)
+            ?.format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
+            ?.toUpperCase()
         });
       }
 
