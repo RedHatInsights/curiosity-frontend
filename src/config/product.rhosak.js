@@ -6,7 +6,6 @@ import {
   chart_color_purple_100 as chartColorPurpleLight,
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
-import numbro from 'numbro';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SET_TYPES,
@@ -14,7 +13,7 @@ import {
   RHSM_API_PATH_METRIC_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { translate } from '../components/i18n/i18n';
-import { dateHelpers } from '../common';
+import { dateHelpers, helpers } from '../common';
 
 /**
  * ToDo: evaluate separating products/product tags into individual configs...
@@ -78,11 +77,15 @@ const config = {
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
     yAxisTickFormat: ({ tick }) => {
       if (tick > 1) {
-        return numbro(tick)
-          .format({ average: true, mantissa: 1, trimMantissa: true, lowPrecision: false })
-          .toUpperCase();
+        return helpers
+          .numberDisplay(tick)
+          ?.format({ average: true, mantissa: 1, trimMantissa: true, lowPrecision: false })
+          ?.toUpperCase();
       }
-      return numbro(tick).format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: true }).toUpperCase();
+      return helpers
+        .numberDisplay(tick)
+        ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: true })
+        ?.toUpperCase();
     }
   },
   initialToolbarFilters: [
