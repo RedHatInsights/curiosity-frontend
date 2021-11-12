@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import numbro from 'numbro';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { getTooltipDate } from './graphCardHelpers';
 import { translate } from '../i18n/i18n';
 import { ChartIcon } from '../chart/chartIcon';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
+import { helpers } from '../../common';
 
 /**
  * A custom chart tooltip.
@@ -93,9 +93,10 @@ const GraphCardChartTooltip = ({
               const updatedDataFacetValue =
                 (typeof dataFacet.value === 'number' &&
                   !Number.isInteger(dataFacet.value) &&
-                  numbro(dataFacet.value)
-                    .format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: true })
-                    .toUpperCase()) ||
+                  helpers
+                    .numberDisplay(dataFacet.value)
+                    ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: true })
+                    ?.toUpperCase()) ||
                 dataFacet.value;
 
               return (

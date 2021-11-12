@@ -1,3 +1,5 @@
+import numbro from 'numbro';
+
 /**
  * Generate a random'ish ID.
  *
@@ -58,6 +60,23 @@ const noopTranslate = (key, value, components) => {
   return `t(${updatedKey}${(updatedValue && `, ${updatedValue}`) || ''}${
     (updatedComponents && `, ${updatedComponents}`) || ''
   })`;
+};
+
+/**
+ * ToDo: review adding "locale" for numbro
+ */
+/**
+ * Convenience wrapper for numbro. Numbro assumes all values passed to it conform as "number".
+ * This allows us to optional chain the function results.
+ *
+ * @param {*} value
+ * @returns {numbro.Numbro|*}
+ */
+const numberDisplay = value => {
+  if (typeof value !== 'number' || Number.isNaN(value)) {
+    return value;
+  }
+  return numbro(value);
 };
 
 /**
@@ -277,6 +296,7 @@ const helpers = {
   noop,
   noopPromise,
   noopTranslate,
+  numberDisplay,
   DEV_MODE,
   PROD_MODE,
   REVIEW_MODE,
