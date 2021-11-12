@@ -1,4 +1,4 @@
-import { helpers } from '../helpers';
+import numberDisplay, { helpers } from '../helpers';
 
 describe('Helpers', () => {
   it('should have specific functions', () => {
@@ -21,6 +21,13 @@ describe('Helpers', () => {
     expect(helpers.isPromise(Promise.resolve())).toBe(true);
     expect(helpers.isPromise(async () => {})).toBe(true);
     expect(helpers.isPromise(() => 'lorem')).toBe(false);
+  });
+
+  it('should apply a number display function', () => {
+    expect(helpers.numberDisplay(null)).toBe(null);
+    expect(helpers.numberDisplay(undefined)).toBe(undefined);
+    expect(helpers.numberDisplay(NaN)).toBe(NaN);
+    expect(helpers.numberDisplay(11)).toMatchSnapshot('number display function result');
   });
 
   it('should expose a window object', () => {

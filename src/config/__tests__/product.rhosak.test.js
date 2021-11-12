@@ -12,8 +12,23 @@ describe('Product RHOSAK config', () => {
   it('should handle a custom yAxisTickFormat for floating points', () => {
     const generateTicks = (method = config.initialGraphSettings.yAxisTickFormat) => {
       const ticks = {};
-      for (let i = 0.00001345; i < 13; i++) {
-        const multiplier = i < 1 ? i : Math.pow(10, i);
+
+      for (let i = 0.00001345; i < 1; i++) {
+        for (let k = 1; k < 26; k++) {
+          const incrementMultiplier = k * i;
+          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+        }
+      }
+
+      for (let i = 0.001; i < 1; i++) {
+        for (let k = 1; k < 26; k++) {
+          const incrementMultiplier = k * i;
+          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+        }
+      }
+
+      for (let i = 0; i < 13; i++) {
+        const multiplier = Math.pow(10, i);
         for (let k = 1; k < 16; k++) {
           const incrementMultiplier = k * multiplier;
           ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
