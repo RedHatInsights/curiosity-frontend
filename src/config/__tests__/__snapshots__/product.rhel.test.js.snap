@@ -234,7 +234,9 @@ Object {
     Object {
       "title": 10,
     },
-    [Function],
+    Object {
+      "title": "",
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -320,7 +322,9 @@ Object {
     Object {
       "title": "",
     },
-    [Function],
+    Object {
+      "title": "",
+    },
   ],
   "columnHeaders": Array [
     Object {
@@ -384,7 +388,9 @@ Object {
     Object {
       "title": "",
     },
-    [Function],
+    Object {
+      "title": "",
+    },
   ],
   "columnHeaders": Array [
     Object {
