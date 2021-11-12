@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Helpers should apply a number display function: number display function result 1`] = `
+t {
+  "_value": 11,
+}
+`;
+
 exports[`Helpers should expose a window object: limited window object 1`] = `
 Object {
   "DEV_MODE": false,
@@ -35,6 +41,7 @@ Object {
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],
+  "numberDisplay": [Function],
 }
 `;
 
@@ -73,6 +80,7 @@ Object {
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],
+  "numberDisplay": [Function],
 }
 `;
 
@@ -110,5 +118,6 @@ Object {
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],
+  "numberDisplay": [Function],
 }
 `;

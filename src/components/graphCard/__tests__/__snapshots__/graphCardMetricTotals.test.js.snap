@@ -146,7 +146,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         >
           <CardBody>
             <div>
-              t(curiosity-graph.cardBodyMetric_total, {"context":"","total":"NAN"}, [object Object])
+              t(curiosity-graph.cardBodyMetric_total, {"context":""}, [object Object])
             </div>
           </CardBody>
         </MinHeight>
@@ -177,7 +177,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         >
           <CardBody>
             <div>
-              t(curiosity-graph.cardBodyMetric_total, {"context":"","total":"NAN"}, [object Object])
+              t(curiosity-graph.cardBodyMetric_total, {"context":""}, [object Object])
             </div>
           </CardBody>
         </MinHeight>
