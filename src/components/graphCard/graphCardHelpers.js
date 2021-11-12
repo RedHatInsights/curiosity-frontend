@@ -1,8 +1,7 @@
 import moment from 'moment';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
-import numbro from 'numbro';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
-import { dateHelpers } from '../../common';
+import { dateHelpers, helpers } from '../../common';
 
 /**
  * Update chart/graph filters with base settings with styling.
@@ -157,10 +156,6 @@ const xAxisTickFormat = ({ callback, date, granularity, tick, previousDate } = {
 };
 
 /**
- * ToDo: review adding "locale" for numbro
- * Original settings, numbro(tick).format({ average: true, mantissa: 1, optionalMantissa: true });
- */
-/**
  * Format y axis ticks.
  *
  * @param {object} params
@@ -173,14 +168,15 @@ const yAxisTickFormat = ({ callback, tick } = {}) => {
     return callback({ tick });
   }
 
-  return numbro(tick)
-    .format({
+  return helpers
+    .numberDisplay(tick)
+    ?.format({
       average: true,
       mantissa: 1,
       trimMantissa: true,
       lowPrecision: false
     })
-    .toUpperCase();
+    ?.toUpperCase();
 };
 
 /**

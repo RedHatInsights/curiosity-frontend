@@ -23,6 +23,13 @@ describe('Helpers', () => {
     expect(helpers.isPromise(() => 'lorem')).toBe(false);
   });
 
+  it('should apply a number display function', () => {
+    expect(helpers.numberDisplay(null)).toBe(null);
+    expect(helpers.numberDisplay(undefined)).toBe(undefined);
+    expect(helpers.numberDisplay(NaN)).toBe(NaN);
+    expect(helpers.numberDisplay(11)).toMatchSnapshot('number display function result');
+  });
+
   it('should expose a window object', () => {
     helpers.browserExpose({ lorem: 'ipsum' });
     expect(window[helpers.UI_WINDOW_ID]).toMatchSnapshot('window object');
