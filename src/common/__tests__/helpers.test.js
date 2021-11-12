@@ -1,4 +1,4 @@
-import numberDisplay, { helpers } from '../helpers';
+import { helpers } from '../helpers';
 
 describe('Helpers', () => {
   it('should have specific functions', () => {
