@@ -6,11 +6,12 @@ import { inventoryTypes } from '../types';
  * Initial state.
  *
  * @private
- * @type {{subscriptionsInventory: {}, tabs: {}, hostsInventory: {}, hostsGuests: {}}}
+ * @type {{subscriptionsInventory: {}, instancesInventory: {}, tabs: {}, hostsInventory: {}, hostsGuests: {}}}
  */
 const initialState = {
   hostsInventory: {},
   hostsGuests: {},
+  instancesInventory: {},
   subscriptionsInventory: {},
   tabs: {}
 };
@@ -41,6 +42,7 @@ const inventoryReducer = (state = initialState, action) => {
         [
           { ref: 'hostsInventory', type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM },
           { ref: 'hostsGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM },
+          { ref: 'instancesInventory', type: rhsmTypes.GET_INSTANCES_INVENTORY_RHSM },
           { ref: 'subscriptionsInventory', type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM }
         ],
         state,
