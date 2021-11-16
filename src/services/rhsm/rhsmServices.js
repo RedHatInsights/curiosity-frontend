@@ -2158,6 +2158,109 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
 };
 
 /**
+ * @apiMock {DelayResponse} 750
+ * @api {get} /api/rhsm-subscriptions/v1/instances/products/:product_id Get RHSM instances table/inventory data
+ * @apiDescription Retrieve instances table/inventory data.
+ *
+ * Reference [RHSM for instances table/inventory](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data" : [
+ *         {
+ *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
+ *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
+ *           "display_name": "rhv.example.com",
+ *           "measurements": [
+ *              42,
+ *              0.000003563,
+ *              1
+ *           ],
+ *           "last_seen": "2020-04-01T00:00:00Z"
+ *         },
+ *         {
+ *           "inventory_id": "XXXXXX-b344-4778-831c-XXXXXXXX",
+ *           "subscription_manager_id": "XXXXXX-5b00-42fa-XXXX-75801d45cc6d",
+ *           "display_name": "dolor.example.com",
+ *           "measurements": [
+ *              20,
+ *              null,
+ *              1000
+ *           ],
+ *           "last_seen": "2020-04-02T00:00:00Z"
+ *         },
+ *         {
+ *           "inventory_id": "BBBBB-b344-4778-831c-BBBBBBB",
+ *           "subscription_manager_id": "BBBBB-5b00-42fa-BBBBB-75801d45cc6d",
+ *           "display_name": "lorem.example.com",
+ *           "measurements": [
+ *              4000,
+ *              10000.0000345678,
+ *              3000
+ *           ],
+ *           "last_seen": "2020-04-03T00:00:00Z"
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "count": 3,
+ *         "measurements": [
+ *           "Instance-hours",
+ *           "Storage-gibibytes",
+ *           "Transfer-gibibytes"
+ *         ],
+ *         "product": "RHEL",
+ *         "service_level": "Premium",
+ *         "usage": "Production"
+ *       }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *        "errors": [
+ *          {
+ *            "status": "string",
+ *            "code": "string",
+ *            "title": "string",
+ *            "detail": "string"
+ *          }
+ *        ]
+ *     }
+ */
+/**
+ * Get RHSM API instances data.
+ *
+ * @param {string} id Product ID
+ * @param {object} params Query/search params
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @returns {Promise<*>}
+ */
+const getInstancesInventory = (id, params = {}, options = {}) => {
+  const {
+    cache = true,
+    cancel = true,
+    cancelId,
+    schema = [rhsmSchemas.instances, rhsmSchemas.errors],
+    transform = [rhsmTranformers.instances]
+  } = options;
+
+  return serviceCall({
+    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_INSTANCES}${id}`,
+    params,
+    cache,
+    cancel,
+    cancelId,
+    schema,
+    transform
+  });
+};
+
+/**
  * @apiMock {DelayResponse} 250
  * @api {get} /api/rhsm-subscriptions/v1/subscriptions/products/:product_id Get RHSM subscriptions table/inventory data
  * @apiDescription Retrieve subscriptions table/inventory data.
@@ -2265,6 +2368,7 @@ const rhsmServices = {
   getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
+  getInstancesInventory,
   getSubscriptionsInventory
 };
 
@@ -2282,5 +2386,6 @@ export {
   getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
+  getInstancesInventory,
   getSubscriptionsInventory
 };

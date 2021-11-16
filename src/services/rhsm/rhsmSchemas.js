@@ -29,6 +29,57 @@ const errorResponseSchema = Joi.object()
 const linksSchema = Joi.object();
 
 /**
+ * RHSM base response meta field.
+ *
+ * @type {*} Joi schema
+ */
+const metaResponseSchema = Joi.object()
+  .keys({
+    count: Joi.number().integer().default(0),
+    product: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_PRODUCT_TYPES))
+  })
+  .unknown(true);
+
+/**
+ * Instances response meta field.
+ *
+ * @type {*} Joi schema
+ */
+const instancesMetaSchema = metaResponseSchema
+  .keys({
+    measurements: Joi.array()
+      .items(Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES)))
+      .default([])
+  })
+  .unknown(true);
+
+/**
+ * Instances response item.
+ *
+ * @type {*} Joi schema
+ */
+const instancesItem = Joi.object({
+  inventory_id: Joi.string().optional().allow(null),
+  display_name: Joi.string().optional().allow(null),
+  measurements: Joi.array().default([]),
+  subscription_manager_id: Joi.string().optional().allow(null),
+  last_seen: Joi.date().allow(null)
+})
+  .unknown(true)
+  .default();
+
+/**
+ * Instances response.
+ *
+ * @type {*} Joi schema
+ */
+const instancesResponseSchema = Joi.object().keys({
+  data: Joi.array().items(instancesItem).default([]),
+  links: linksSchema.default({}),
+  meta: instancesMetaSchema.default({})
+});
+
+/**
  * Tally response item.
  *
  * @type {*} Joi schema
@@ -46,13 +97,11 @@ const tallyItem = Joi.object({
  *
  * @type {*} Joi schema
  */
-const tallyMetaSchema = Joi.object()
+const tallyMetaSchema = metaResponseSchema
   .keys({
-    count: Joi.number().integer().default(0),
     has_cloudigrade_data: Joi.boolean().optional().allow(null),
     has_cloudigrade_mismatch: Joi.boolean().optional().allow(null),
     metric_id: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES)),
-    product: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_PRODUCT_TYPES)),
     total_monthly: tallyItem
   })
   .unknown(true);
@@ -70,6 +119,7 @@ const tallyResponseSchema = Joi.object().keys({
 
 const rhsmSchemas = {
   errors: response => schemaResponse({ response, schema: errorResponseSchema, id: 'RHSM errors' }),
+  instances: response => schemaResponse({ response, schema: instancesResponseSchema, id: 'RHSM instances' }),
   tally: response => schemaResponse({ response, schema: tallyResponseSchema, id: 'RHSM tally' })
 };
 

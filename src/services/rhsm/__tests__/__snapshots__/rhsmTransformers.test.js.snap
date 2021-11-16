@@ -14,8 +14,25 @@ Object {
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+    },
+  ],
+  "meta": Object {
+    "count": undefined,
+    "productId": undefined,
+  },
+}
+`;
+
 exports[`RHSM Transformers should have specific RHSM response transformers: specific transformers 1`] = `
 Object {
+  "instances": [Function],
   "tally": [Function],
 }
 `;
