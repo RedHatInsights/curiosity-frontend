@@ -16,7 +16,13 @@ Object {
 
 exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
 Object {
-  "data": Array [],
+  "data": Array [
+    Object {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+    },
+  ],
   "meta": Object {
     "count": undefined,
     "productId": undefined,
