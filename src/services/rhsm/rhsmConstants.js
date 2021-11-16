@@ -60,6 +60,40 @@ const RHSM_API_RESPONSE_DATA = 'data';
 const RHSM_API_RESPONSE_META = 'meta';
 
 /**
+ * RHSM response general meta types.
+ *
+ * @type {{PRODUCT: string, COUNT: string}}
+ */
+const RHSM_API_RESPONSE_META_TYPES = {
+  COUNT: 'count',
+  PRODUCT: 'product'
+};
+
+/**
+ * RHSM response Instance DATA types.
+ *
+ * @type {{MEASUREMENTS: string, SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string, DISPLAY_NAME: string,
+ *     LAST_SEEN: string}}
+ */
+const RHSM_API_RESPONSE_INSTANCES_DATA_TYPES = {
+  DISPLAY_NAME: 'display_name',
+  INVENTORY_ID: 'inventory_id',
+  LAST_SEEN: 'last_seen',
+  MEASUREMENTS: 'measurements',
+  SUBSCRIPTION_MANAGER_ID: 'subscription_manager_id'
+};
+
+/**
+ * RHSM response Instances META types.
+ *
+ * @type {{MEASUREMENTS: string, PRODUCT: string, COUNT: string}}
+ */
+const RHSM_API_RESPONSE_INSTANCES_META_TYPES = {
+  ...RHSM_API_RESPONSE_META_TYPES,
+  MEASUREMENTS: 'measurements'
+};
+
+/**
  * RHSM response Tally DATA types.
  *
  * @type {{DATE: string, HAS_DATA: string, VALUE: string}}
@@ -73,18 +107,17 @@ const RHSM_API_RESPONSE_TALLY_DATA_TYPES = {
 /**
  * RHSM response Tally META types.
  *
- * @type {{TOTAL_MONTHLY: string, DATE: string, HAS_CLOUDIGRADE_DATA: string, PRODUCT: string,
+ * @type {{TOTAL_MONTHLY: string, DATE: string, PRODUCT: string, HAS_CLOUDIGRADE_DATA: string,
  *     HAS_CLOUDIGRADE_MISMATCH: string, HAS_DATA: string, METRIC_ID: string, COUNT: string, VALUE: string}}
  */
 const RHSM_API_RESPONSE_TALLY_META_TYPES = {
-  COUNT: 'count',
+  ...RHSM_API_RESPONSE_META_TYPES,
   DATE: 'date',
   VALUE: 'value',
   HAS_CLOUDIGRADE_DATA: 'has_cloudigrade_data',
   HAS_CLOUDIGRADE_MISMATCH: 'has_cloudigrade_mismatch',
   HAS_DATA: 'has_data',
   METRIC_ID: 'metric_id',
-  PRODUCT: 'product',
   TOTAL_MONTHLY: 'total_monthly'
 };
 
@@ -146,11 +179,58 @@ const RHSM_API_RESPONSE_USAGE_TYPES = {
 
 const RHSM_API_QUERY_GRANULARITY_TYPES = RHSM_API_RESPONSE_GRANULARITY_TYPES;
 
+/**
+ * ToDo: Clean up sort params once hosts is fully deprecated
+ * These sort params are focused on the instances api NOT hosts. Since there
+ * are minor differences, hosts sort params are maintained in /types/rhsmApiTypes.js as
+ * we migrate towards hosts deprecation. Subscriptions sorts
+ */
+/**
+ * RHSM API query/search parameter SORT type values for HOSTS.
+ *
+ * @type {{CORES: string, CORE_HOURS: string, HARDWARE: string, SOCKETS: string, MEASUREMENT: string,
+ *     LAST_SEEN: string, NAME: string}}
+ */
+const RHSM_API_QUERY_INVENTORY_SORT_TYPES = {
+  ...RHSM_API_PATH_METRIC_TYPES,
+  LAST_SEEN: 'last_seen',
+  NAME: 'display_name'
+};
+
+/**
+ * RHSM API query/search parameter SORT DIRECTION type values.
+ *
+ * @type {{ASCENDING: string, DESCENDING: string}}
+ */
+const RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES = {
+  ASCENDING: 'asc',
+  DESCENDING: 'desc'
+};
+
 const RHSM_API_QUERY_SLA_TYPES = RHSM_API_RESPONSE_SLA_TYPES;
 
 const RHSM_API_QUERY_UOM_TYPES = RHSM_API_RESPONSE_UOM_TYPES;
 
 const RHSM_API_QUERY_USAGE_TYPES = RHSM_API_RESPONSE_USAGE_TYPES;
+
+/**
+ * RHSM API query/search parameter INVENTORY type values.
+ *
+ * @type {{UOM: string, USAGE: string, DIRECTION: string, SORT: string, END_DATE: string, OFFSET: string,
+ *     SLA: string, LIMIT: string, START_DATE: string, DISPLAY_NAME: string}}
+ */
+const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
+  DIRECTION: 'dir',
+  DISPLAY_NAME: 'display_name_contains',
+  END_DATE: 'ending',
+  LIMIT: 'limit',
+  OFFSET: 'offset',
+  SLA: 'sla',
+  SORT: 'sort',
+  START_DATE: 'beginning',
+  UOM: 'uom',
+  USAGE: 'usage'
+};
 
 /**
  * RHSM query parameter options for TALLY, CAPACITY endpoints.
@@ -168,9 +248,11 @@ const RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES = {
 /**
  * Aggregate all query set types.
  *
- * @type {{GRANULARITY: string, USAGE: string, END_DATE: string, SLA: string, START_DATE: string}}
+ * @type {{UOM: string, GRANULARITY: string, USAGE: string, DIRECTION: string, SORT: string, END_DATE: string,
+ *     OFFSET: string, SLA: string, LIMIT: string, START_DATE: string, DISPLAY_NAME: string}}
  */
 const RHSM_API_QUERY_SET_TYPES = {
+  ...RHSM_API_QUERY_SET_INVENTORY_TYPES,
   ...RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES
 };
 
@@ -202,6 +284,9 @@ const rhsmConstants = {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_RESPONSE_DATA,
   RHSM_API_RESPONSE_META,
+  RHSM_API_RESPONSE_META_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_META_TYPES,
   RHSM_API_RESPONSE_TALLY_DATA_TYPES,
   RHSM_API_RESPONSE_TALLY_META_TYPES,
   RHSM_API_RESPONSE_ERROR_CODE_TYPES,
@@ -210,9 +295,12 @@ const rhsmConstants = {
   RHSM_API_RESPONSE_UOM_TYPES,
   RHSM_API_RESPONSE_USAGE_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES,
+  RHSM_API_QUERY_INVENTORY_SORT_TYPES,
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SLA_TYPES,
   RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_QUERY_USAGE_TYPES,
+  RHSM_API_QUERY_SET_INVENTORY_TYPES,
   RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES,
   RHSM_API_QUERY_SET_TYPES
 };
@@ -224,6 +312,9 @@ export {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_RESPONSE_DATA,
   RHSM_API_RESPONSE_META,
+  RHSM_API_RESPONSE_META_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_META_TYPES,
   RHSM_API_RESPONSE_TALLY_DATA_TYPES,
   RHSM_API_RESPONSE_TALLY_META_TYPES,
   RHSM_API_RESPONSE_ERROR_CODE_TYPES,
@@ -232,9 +323,12 @@ export {
   RHSM_API_RESPONSE_UOM_TYPES,
   RHSM_API_RESPONSE_USAGE_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES,
+  RHSM_API_QUERY_INVENTORY_SORT_TYPES,
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SLA_TYPES,
   RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_QUERY_USAGE_TYPES,
+  RHSM_API_QUERY_SET_INVENTORY_TYPES,
   RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES,
   RHSM_API_QUERY_SET_TYPES
 };
