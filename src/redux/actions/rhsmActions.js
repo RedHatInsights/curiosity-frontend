@@ -96,6 +96,24 @@ const getHostsInventoryGuests = (id = null, query = {}) => dispatch =>
   });
 
 /**
+ * Get an instances response listing from RHSM subscriptions.
+ *
+ * @param {string} id
+ * @param {object} query
+ * @returns {Function}
+ */
+const getInstancesInventory = (id = null, query = {}) => dispatch =>
+  dispatch({
+    type: rhsmTypes.GET_INSTANCES_INVENTORY_RHSM,
+    payload: rhsmServices.getInstancesInventory(id, query),
+    meta: {
+      id,
+      query,
+      notifications: {}
+    }
+  });
+
+/**
  * Get a RHSM response from message reporting.
  *
  * @param {string} id
@@ -136,6 +154,7 @@ const rhsmActions = {
   getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
+  getInstancesInventory,
   getMessageReports,
   getSubscriptionsInventory
 };
@@ -147,6 +166,7 @@ export {
   getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
+  getInstancesInventory,
   getMessageReports,
   getSubscriptionsInventory
 };
