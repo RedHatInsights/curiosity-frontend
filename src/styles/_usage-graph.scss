@@ -76,6 +76,9 @@
     }
 
     &__totals {
+      /**
+       * ToDo: consider relocating margin into page-layout once margin is restored to all product layouts
+       */
       margin-left: var(--pf-global--spacer--md);
       margin-right: var(--pf-global--spacer--md);
       margin-top: var(--pf-global--spacer--md);

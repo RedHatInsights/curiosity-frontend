@@ -16,26 +16,14 @@ import Pagination from '../pagination/pagination';
 import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';
 import { paginationHelpers } from '../pagination/paginationHelpers';
 import {
-  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_INVENTORY_SORT_TYPES as SORT_TYPES,
-  RHSM_API_QUERY_SET_TYPES
-} from '../../services/rhsm/rhsmConstants';
+  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_SORT_TYPES as SORT_TYPES,
+  RHSM_API_QUERY_TYPES
+} from '../../types/rhsmApiTypes';
 import { translate } from '../i18n/i18n';
 
 /**
- * ToDo: refactor this component towards hooks.
- * This base component was copied from the original hosts component in order to speed
- * deliver the RHOSAK product views. This is an interim component and needs to be refactored.
- * Refactor will include
- * - Auth component, hook conversion.
- *    - Mock service updates for regular promise/platform calls
- *    - Mock service transform or hook for RBAC perms
- * - Auth context with "useAuthContext" for grabbing session object
- * - InventoryCard component
- * - Display name toolbar filter, and filter/query context
- */
-/**
- * An instances interim inventory component.
+ * A hosts system inventory component.
  *
  * @augments React.Component
  * @fires onColumnSort
@@ -66,7 +54,7 @@ class InventoryList extends React.Component {
    */
   onColumnSort = (data, { direction, id }) => {
     const { productId } = this.props;
-    const updatedSortColumn = Object.values(SORT_TYPES).find(value => value === id || _camelCase(value) === id);
+    const updatedSortColumn = Object.values(SORT_TYPES).find(value => _camelCase(value) === id);
     let updatedDirection;
 
     if (!updatedSortColumn) {
@@ -87,14 +75,14 @@ class InventoryList extends React.Component {
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.DIRECTION],
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DIRECTION],
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.DIRECTION]: updatedDirection
+        [RHSM_API_QUERY_TYPES.DIRECTION]: updatedDirection
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.SORT],
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT],
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.SORT]: updatedSortColumn
+        [RHSM_API_QUERY_TYPES.SORT]: updatedSortColumn
       }
     ]);
   };
@@ -112,14 +100,14 @@ class InventoryList extends React.Component {
 
     store.dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.OFFSET],
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET],
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.OFFSET]: offset
+        [RHSM_API_QUERY_TYPES.OFFSET]: offset
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.LIMIT],
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT],
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.LIMIT]: perPage
+        [RHSM_API_QUERY_TYPES.LIMIT]: perPage
       }
     ]);
   };
@@ -130,10 +118,10 @@ class InventoryList extends React.Component {
    * @event onUpdateInventoryData
    */
   onUpdateInventoryData = () => {
-    const { getInstancesInventory, isDisabled, productId, query } = this.props;
+    const { getHostsInventory, isDisabled, productId, query } = this.props;
 
     if (!isDisabled && productId) {
-      getInstancesInventory(productId, query);
+      getHostsInventory(productId, query);
     }
   };
 
@@ -143,7 +131,7 @@ class InventoryList extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { filterGuestsData, filterInventoryData, data: listData, query, session, settings } = this.props;
+    const { filterGuestsData, filterInventoryData, listData, query, session, settings } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
@@ -205,8 +193,8 @@ class InventoryList extends React.Component {
       filterInventoryData,
       fulfilled,
       isDisabled,
-      data: listData,
-      meta,
+      itemCount,
+      listData,
       pending,
       perPageDefault,
       query,
@@ -224,9 +212,8 @@ class InventoryList extends React.Component {
       );
     }
 
-    const itemCount = meta?.count;
-    const updatedPerPage = query[RHSM_API_QUERY_SET_TYPES.LIMIT] || perPageDefault;
-    const updatedOffset = query[RHSM_API_QUERY_SET_TYPES.OFFSET];
+    const updatedPerPage = query[RHSM_API_QUERY_TYPES.LIMIT] || perPageDefault;
+    const updatedOffset = query[RHSM_API_QUERY_TYPES.OFFSET];
     const isLastPage = paginationHelpers.isLastPage(updatedOffset, updatedPerPage, itemCount);
 
     // Set an updated key to force refresh minHeight
@@ -302,13 +289,12 @@ class InventoryList extends React.Component {
 /**
  * Prop types.
  *
- * @type {{settings: object, data: Array, productId: string, session: object, pending: boolean, query: object,
- *     fulfilled: boolean, error: boolean, getInstancesInventory: Function, viewId: string, t: Function,
- *     filterInventoryData: Array, meta: object, filterGuestsData: Array, perPageDefault: number,
- *     isDisabled: boolean}}
+ * @type {{settings:object, productId: string, listData: Array, session: object, pending: boolean,
+ *     query: object, fulfilled: boolean, getHostsInventory: Function, error: boolean,
+ *     itemCount: number, viewId: string, t: Function, filterInventoryData: Array, filterGuestsData: Array,
+ *     perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.propTypes = {
-  data: PropTypes.array,
   error: PropTypes.bool,
   fulfilled: PropTypes.bool,
   filterGuestsData: PropTypes.array,
@@ -331,12 +317,13 @@ InventoryList.propTypes = {
       ])
     }).isRequired
   ),
-  getInstancesInventory: PropTypes.func,
+  getHostsInventory: PropTypes.func,
   isDisabled: PropTypes.bool,
-  meta: PropTypes.shape({ count: PropTypes.number }),
+  itemCount: PropTypes.number,
+  listData: PropTypes.array,
   pending: PropTypes.bool,
-  perPageDefault: PropTypes.number,
   productId: PropTypes.string.isRequired,
+  perPageDefault: PropTypes.number,
   query: PropTypes.object.isRequired,
   session: PropTypes.object,
   settings: PropTypes.shape({
@@ -349,27 +336,25 @@ InventoryList.propTypes = {
 /**
  * Default props.
  *
- * @type {{settings: object, data: Array, session: object, pending: boolean, fulfilled: boolean, error: boolean,
- *     getInstancesInventory: Function, viewId: string, t: Function, filterInventoryData: Array, meta: object,
- *     filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
+ * @type {{settings: object, listData: Array, session: object, pending: boolean, fulfilled: boolean,
+ *     getHostsInventory: Function, error: boolean, itemCount: number, viewId: string, t: translate,
+ *     filterInventoryData: Array, filterGuestsData: Array, perPageDefault: number, isDisabled: boolean}}
  */
 InventoryList.defaultProps = {
-  data: [],
   error: false,
   fulfilled: false,
   filterGuestsData: [],
   filterInventoryData: [],
-  getInstancesInventory: helpers.noop,
-  isDisabled: helpers.UI_DISABLED_TABLE_INSTANCES,
-  meta: {
-    count: 0
-  },
+  getHostsInventory: helpers.noop,
+  isDisabled: helpers.UI_DISABLED_TABLE_HOSTS,
+  itemCount: 0,
+  listData: [],
   pending: false,
   perPageDefault: 10,
   session: {},
   settings: {},
   t: translate,
-  viewId: 'inventoryInstancesList'
+  viewId: 'inventoryList'
 };
 
 /**
@@ -379,7 +364,7 @@ InventoryList.defaultProps = {
  * @returns {object}
  */
 const mapDispatchToProps = dispatch => ({
-  getInstancesInventory: (id, query) => dispatch(reduxActions.rhsm.getInstancesInventory(id, query))
+  getHostsInventory: (id, query) => dispatch(reduxActions.rhsm.getHostsInventory(id, query))
 });
 
 /**
@@ -387,7 +372,7 @@ const mapDispatchToProps = dispatch => ({
  *
  * @type {Function}
  */
-const makeMapStateToProps = reduxSelectors.instancesList.makeInstancesList();
+const makeMapStateToProps = reduxSelectors.inventoryList.makeInventoryList();
 
 const ConnectedInventoryList = connect(makeMapStateToProps, mapDispatchToProps)(InventoryList);
 

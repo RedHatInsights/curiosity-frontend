@@ -1,5 +1,12 @@
 import { config } from '../product.rhosak';
 import { generateChartSettings } from '../../components/graphCard/graphCardHelpers';
+import { parseRowCellsListData } from '../../components/inventoryList/inventoryListHelpers';
+import {
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_PATH_METRIC_TYPES
+} from '../../services/rhsm/rhsmConstants';
 
 describe('Product RHOSAK config', () => {
   it('should apply graph configuration', () => {
@@ -38,5 +45,40 @@ describe('Product RHOSAK config', () => {
     };
 
     expect(generateTicks()).toMatchSnapshot('yAxisTickFormat');
+  });
+
+  /**
+   * FixMe: this test needs to be updated as part of the refactor towards instances vs hosts
+   */
+  it('should apply an instances inventory configuration under hosts', () => {
+    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
+
+    const inventoryData = {
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem ipsum',
+      [RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES]: 0.0003456,
+      [RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES]: 1000.00123,
+      [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: 200,
+      [INVENTORY_TYPES.LAST_SEEN]: '2020-04-02T00:00:00Z'
+    };
+
+    const filteredInventoryData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: inventoryData
+    });
+
+    expect(filteredInventoryData).toMatchSnapshot('filtered');
+
+    const filteredInventoryDataAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+      },
+      session: { authorized: { inventory: true } }
+    });
+
+    expect(filteredInventoryDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
 });

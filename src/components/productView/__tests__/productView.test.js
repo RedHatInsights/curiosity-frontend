@@ -1,5 +1,7 @@
 import React from 'react';
 import { ProductView } from '../productView';
+import { config as rhosakConfig } from '../../../config/product.rhosak';
+import { InventoryTab } from '../../inventoryTabs/inventoryTab';
 
 describe('ProductView Component', () => {
   it('should render a basic component', async () => {
@@ -66,5 +68,18 @@ describe('ProductView Component', () => {
 
     const component = await shallowHookComponent(<ProductView {...props} />);
     expect(component).toMatchSnapshot('custom tabs, subscriptions table');
+  });
+
+  it('should use an instances inventory for rhosak', async () => {
+    const props = {
+      useRouteDetail: () => ({
+        pathParameter: rhosakConfig.productId,
+        productParameter: rhosakConfig.productGroup,
+        productConfig: [rhosakConfig]
+      })
+    };
+
+    const component = await shallowHookComponent(<ProductView {...props} />);
+    expect(component.find(InventoryTab).first()).toMatchSnapshot('custom inventory, instances table');
   });
 });

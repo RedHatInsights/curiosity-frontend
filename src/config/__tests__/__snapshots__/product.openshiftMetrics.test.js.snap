@@ -109,7 +109,9 @@ Object {
     Object {
       "title": "0.00",
     },
-    [Function],
+    Object {
+      "title": "",
+    },
   ],
   "columnHeaders": Array [
     Object {
