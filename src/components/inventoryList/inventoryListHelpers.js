@@ -6,6 +6,7 @@ import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_TYPES
 } from '../../types/rhsmApiTypes';
+import { helpers } from '../../common';
 
 /**
  * Apply sort filter to filters.
@@ -18,7 +19,8 @@ import {
  * @returns {object}
  */
 const applySortFilters = ({ filter = {}, onSort, query = {} }) => {
-  const { id } = filter;
+  const { id, sortId } = filter;
+  const updatedId = sortId || id;
   const updatedFilter = { ...filter };
   const hasSort = updatedFilter.onSort || onSort;
 
@@ -31,7 +33,7 @@ const applySortFilters = ({ filter = {}, onSort, query = {} }) => {
     hasSort &&
     typeof updatedFilter.sortActive !== 'boolean' &&
     query?.[RHSM_API_QUERY_TYPES.SORT] &&
-    _camelCase(query?.[RHSM_API_QUERY_TYPES.SORT]) === id
+    (query?.[RHSM_API_QUERY_TYPES.SORT] === updatedId || _camelCase(query?.[RHSM_API_QUERY_TYPES.SORT]) === updatedId)
   ) {
     updatedFilter.sortActive = true;
   }
@@ -130,7 +132,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
     updatedColumnHeaders.length = 0;
     updatedCells.length = 0;
 
-    filters.forEach(({ id, cell, cellWidth, header, onSort, sortActive, sortDirection, transforms }) => {
+    filters.forEach(({ id, cell, cellWidth, header, onSort, sortId, sortActive, sortDirection, transforms }) => {
       let headerUpdated;
       let cellUpdated;
 
@@ -172,7 +174,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
       if (typeof onSort === 'function') {
         headerUpdated = {
           ...headerUpdated,
-          onSort: obj => onSort({ ...allCells }, { ...obj, id }),
+          onSort: obj => onSort({ ...allCells }, { ...obj, id: sortId || id }),
           sortActive,
           sortDirection
         };
@@ -180,12 +182,23 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
 
       // set table row cell filter params
       if (cell) {
-        cellUpdated = (typeof cell === 'function' && cell({ ...allCells }, { ...session })) || cell;
+        cellUpdated = typeof cell === 'function' ? cell({ ...allCells }, { ...session }) : cell;
       }
 
       if (typeof cellUpdated === 'string' || typeof cellUpdated === 'number' || React.isValidElement(cellUpdated)) {
         cellUpdated = {
           title: cellUpdated
+        };
+      } else if (!cellUpdated?.title) {
+        if (helpers.DEV_MODE || helpers.REVIEW_MODE) {
+          console.error(
+            `PF table throws an error when cell values don't conform to what it is expecting, or align exactly to column headers.
+            \n\nSee cell ID=${id} with VALUE=${cellUpdated}`
+          );
+        }
+
+        cellUpdated = {
+          title: ''
         };
       }
 
