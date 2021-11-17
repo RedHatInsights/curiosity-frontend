@@ -10,6 +10,14 @@
   position: relative;
 }
 
+.curiosity-page-section {
+  &__tabs {
+    margin-bottom: var(--pf-global--spacer--md);
+    margin-left: var(--pf-global--spacer--md);
+    margin-right: var(--pf-global--spacer--md);
+  }
+}
+
 .curiosity-page-columns > .curiosity-page-columns-column {
   margin-left: 0;
   margin-right: 0;

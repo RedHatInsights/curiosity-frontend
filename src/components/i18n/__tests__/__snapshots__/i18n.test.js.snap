@@ -162,6 +162,15 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/inventoryList/inventoryList.js",
     "keys": Array [
       Object {
@@ -305,6 +314,10 @@ Array [
       Object {
         "key": "curiosity-inventory.tabHosts",
         "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
+      },
+      Object {
+        "key": "curiosity-inventory.tabInstances",
+        "match": "t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })",
       },
       Object {
         "key": "curiosity-inventory.tabSubscriptions",
@@ -619,6 +632,18 @@ Array [
         "key": "curiosity-graph.label_axisX",
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
+      Object {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES, total: helpers.numberDisplay(total?.value)",
+      },
+      Object {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES, total: helpers.numberDisplay(total?.value)",
+      },
+      Object {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS, total: helpers.numberDisplay(total?.value)",
+      },
     ],
   },
   Object {
@@ -671,6 +696,10 @@ Array [
   Object {
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
     "key": "curiosity-graph.label",
+  },
+  Object {
+    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "key": "curiosity-inventory.tab",
   },
   Object {
     "file": "./src/components/inventoryList/inventoryList.js",
@@ -727,6 +756,18 @@ Array [
   Object {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisX",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-inventory.measurement",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-inventory.measurement",
+  },
+  Object {
+    "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-inventory.measurement",
   },
   Object {
     "file": "./src/config/product.satellite.js",

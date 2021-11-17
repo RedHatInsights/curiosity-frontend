@@ -1,5 +1,170 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product RHOSAK config should apply an instances inventory configuration under hosts: filtered 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "lorem ipsum",
+    },
+    Object {
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
+    },
+    Object {
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibytes\\",\\"total\\":\\"1000.00123\\"})",
+    },
+    Object {
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Instance-hours\\",\\"total\\":\\"200\\"})",
+    },
+    Object {
+      "title": <DateFormat
+        date="2020-04-02T00:00:00Z"
+      />,
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "Instance-hours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
+      "value": 200,
+    },
+    "Storage-gibibytes": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+      "value": 1000.00123,
+    },
+    "Transfer-gibibytes": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+      "value": 0.0003456,
+    },
+    "display_name": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
+      "value": "lorem ipsum",
+    },
+    "last_seen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
+      "value": "2020-04-02T00:00:00Z",
+    },
+  },
+}
+`;
+
+exports[`Product RHOSAK config should apply an instances inventory configuration under hosts: filtered, authorized 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": <React.Fragment>
+        <Button
+          component="a"
+          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+          isInline={true}
+          variant="link"
+        >
+          lorem ipsum
+        </Button>
+      </React.Fragment>,
+    },
+    Object {
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
+    },
+    Object {
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibytes\\",\\"total\\":\\"1000.00123\\"})",
+    },
+    Object {
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Instance-hours\\",\\"total\\":\\"200\\"})",
+    },
+    Object {
+      "title": <DateFormat
+        date="2020-04-02T00:00:00Z"
+      />,
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "Instance-hours": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
+      "value": 200,
+    },
+    "Storage-gibibytes": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+      "value": 1000.00123,
+    },
+    "Transfer-gibibytes": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+      "value": 0.0003456,
+    },
+    "display_name": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
+      "value": "lorem ipsum",
+    },
+    "inventory_id": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventory_id\\"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
+      "value": "2020-04-02T00:00:00Z",
+    },
+  },
+}
+`;
+
 exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
 Object {
   "groupedFilters": Array [],
