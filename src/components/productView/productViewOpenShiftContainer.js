@@ -13,7 +13,7 @@ import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
 import { Toolbar } from '../toolbar/toolbar';
-import InventoryList from '../inventoryList/inventoryList';
+import InventoryList from '../inventoryList/inventoryList.deprecated';
 import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { translate } from '../i18n/i18n';
