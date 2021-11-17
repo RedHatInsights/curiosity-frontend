@@ -49,7 +49,10 @@ const GraphCardMetricTotals = ({
     <Flex className="curiosity-usage-graph__totals">
       <Flex flex={{ default: 'flex_1' }} direction={{ default: 'column' }} alignSelf={{ default: 'alignSelfStretch' }}>
         <FlexItem className="curiosity-usage-graph__totals-column">
-          <Card className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}>
+          <Card
+            data-test="graphDailyTotalCard"
+            className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
+          >
             <CardTitle>
               {t('curiosity-graph.cardHeadingMetric_dailyTotal', {
                 context: [isCurrent && 'current', metricId],
@@ -92,7 +95,10 @@ const GraphCardMetricTotals = ({
               </CardFooter>
             </MinHeight>
           </Card>
-          <Card className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}>
+          <Card
+            data-test="graphMonthlyTotalCard"
+            className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
+          >
             <CardTitle>
               {t('curiosity-graph.cardHeadingMetric_monthlyTotal', {
                 context: [isCurrent && 'current', metricId],
