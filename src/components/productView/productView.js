@@ -9,6 +9,7 @@ import { apiQueries } from '../../redux';
 import { ConnectedGraphCard as ConnectedGraphCardDeprecated } from '../graphCard/graphCard.deprecated';
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
+import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryList/inventoryList.deprecated';
 import { ConnectedInventoryList } from '../inventoryList/inventoryList';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
@@ -113,7 +114,9 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
           )}
           {productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <GraphCard />}
         </PageSection>
-        <PageSection>
+        <PageSection
+          className={(productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && 'curiosity-page-section__tabs') || ''}
+        >
           <InventoryTabs
             key={`inventory_${productId}`}
             productId={productId}
@@ -121,22 +124,42 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
-            {!helpers.UI_DISABLED_TABLE_HOSTS && initialInventoryFilters && (
-              <InventoryTab
-                key={`inventory_hosts_${productId}`}
-                title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
-              >
-                <ConnectedInventoryList
-                  key={`inv_${productId}`}
-                  filterGuestsData={initialGuestsFilters}
-                  filterInventoryData={initialInventoryFilters}
-                  productId={productId}
-                  settings={initialInventorySettings}
-                  query={initialInventoryHostsQuery}
-                  viewId={viewId}
-                />
-              </InventoryTab>
-            )}
+            {!helpers.UI_DISABLED_TABLE_HOSTS &&
+              productId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK &&
+              initialInventoryFilters && (
+                <InventoryTab
+                  key={`inventory_hosts_${productId}`}
+                  title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+                >
+                  <ConnectedInventoryListDeprecated
+                    key={`inv_${productId}`}
+                    filterGuestsData={initialGuestsFilters}
+                    filterInventoryData={initialInventoryFilters}
+                    productId={productId}
+                    settings={initialInventorySettings}
+                    query={initialInventoryHostsQuery}
+                    viewId={viewId}
+                  />
+                </InventoryTab>
+              )}
+            {!helpers.UI_DISABLED_TABLE_INSTANCES &&
+              productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK &&
+              initialInventoryFilters && (
+                <InventoryTab
+                  key={`inventory_instances_${productId}`}
+                  title={t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })}
+                >
+                  <ConnectedInventoryList
+                    key={`inv_instances_${productId}`}
+                    filterGuestsData={initialGuestsFilters}
+                    filterInventoryData={initialInventoryFilters}
+                    productId={productId}
+                    settings={initialInventorySettings}
+                    query={initialInventoryHostsQuery}
+                    viewId={viewId}
+                  />
+                </InventoryTab>
+              )}
             {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
               <InventoryTab
                 key={`inventory_subs_${productId}`}

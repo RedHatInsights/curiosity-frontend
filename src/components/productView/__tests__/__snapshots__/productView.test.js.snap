@@ -522,3 +522,64 @@ exports[`ProductView Component should render nothing if path and product paramet
   />
 </PageLayout>
 `;
+
+exports[`ProductView Component should use an instances inventory for rhosak: custom inventory, instances table 1`] = `
+<InventoryTab
+  active={false}
+  key="inventory_instances_rhosak"
+  title="t(curiosity-inventory.tabInstances, {\\"context\\":\\"noInstances_rhosak\\"})"
+>
+  <Connect(InventoryList)
+    filterInventoryData={
+      Array [
+        Object {
+          "cell": [Function],
+          "id": "display_name",
+          "isSortable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
+          "id": "Transfer-gibibytes",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
+          "id": "Storage-gibibytes",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
+          "id": "Instance-hours",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+        Object {
+          "cell": [Function],
+          "cellWidth": 15,
+          "id": "last_seen",
+          "isSortable": true,
+          "isWrappable": true,
+        },
+      ]
+    }
+    key="inv_instances_rhosak"
+    productId="rhosak"
+    query={
+      Object {
+        "beginning": "2019-07-01T00:00:00.000Z",
+        "dir": "desc",
+        "ending": "2019-07-31T23:59:59.999Z",
+        "limit": 100,
+        "offset": 0,
+        "sort": "last_seen",
+      }
+    }
+    viewId="viewrhosak"
+  />
+</InventoryTab>
+`;
