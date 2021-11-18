@@ -46,7 +46,7 @@ const GraphCardMetricTotals = ({
   const dailyValue = isCurrent ? currentValue : lastValue;
 
   return (
-    <Flex className="curiosity-usage-graph__totals">
+    <Flex data-test="graphMetricTotals" className="curiosity-usage-graph__totals">
       <Flex flex={{ default: 'flex_1' }} direction={{ default: 'column' }} alignSelf={{ default: 'alignSelfStretch' }}>
         <FlexItem className="curiosity-usage-graph__totals-column">
           <Card
