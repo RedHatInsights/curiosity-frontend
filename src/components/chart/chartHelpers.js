@@ -59,10 +59,10 @@ const generateDomains = ({ maxY, padding = {} } = {}) => {
 
   if (Object.values(maxY).length) {
     generatedDomain.y = [0, 1.25];
-  } else if (maxY >= 0.01) {
+  } else if (maxY >= 0.1) {
     const floored = Math.pow(10, Math.floor(Math.log10(maxY || 10)));
     generatedDomain.y = [0, Math.ceil((maxY + 1) / floored) * floored];
-  } else if (maxY < 0.01) {
+  } else if (maxY < 0.1) {
     generatedDomain.y = [0, maxY + maxY / 4 || 10];
   } else {
     generatedDomain.y = [0, 10];

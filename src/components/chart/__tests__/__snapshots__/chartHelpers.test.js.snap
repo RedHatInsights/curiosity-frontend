@@ -36,6 +36,18 @@ Object {
 }
 `;
 
+exports[`ChartHelpers should generate domain ranges: domain, maxY less than 0.1 1`] = `
+Object {
+  "domain": Object {
+    "y": Array [
+      0,
+      0.0125,
+    ],
+  },
+  "padding": Object {},
+}
+`;
+
 exports[`ChartHelpers should generate domain ranges: domain, maxY number 1`] = `
 Object {
   "domain": Object {

@@ -62,6 +62,10 @@ describe('ChartHelpers', () => {
       dolor: 100
     };
     expect(chartHelpers.generateDomains(options)).toMatchSnapshot('domain, maxY object');
+
+    options.maxY = 0.01;
+
+    expect(chartHelpers.generateDomains(options)).toMatchSnapshot('domain, maxY less than 0.1');
   });
 
   it('should generate element props', () => {
