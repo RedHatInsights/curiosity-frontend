@@ -63,7 +63,7 @@ const instancesItem = Joi.object({
   display_name: Joi.string().optional().allow(null),
   measurements: Joi.array().default([]),
   subscription_manager_id: Joi.string().optional().allow(null),
-  last_seen: Joi.date().allow(null)
+  last_seen: Joi.date().utc().allow(null)
 })
   .unknown(true)
   .default();
@@ -85,7 +85,7 @@ const instancesResponseSchema = Joi.object().keys({
  * @type {*} Joi schema
  */
 const tallyItem = Joi.object({
-  date: Joi.date().allow(null),
+  date: Joi.date().utc().allow(null),
   has_data: Joi.boolean().optional().allow(null),
   value: Joi.number().allow(null).default(0)
 })
