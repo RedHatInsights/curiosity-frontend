@@ -13,7 +13,7 @@ const getCurrentDate = () =>
   (helpers.DEV_MODE &&
     process.env.REACT_APP_DEBUG_DEFAULT_DATETIME &&
     moment.utc(process.env.REACT_APP_DEBUG_DEFAULT_DATETIME).toDate()) ||
-  new Date();
+  moment.utc().toDate();
 
 /**
  * Set a date range based on a granularity type.
