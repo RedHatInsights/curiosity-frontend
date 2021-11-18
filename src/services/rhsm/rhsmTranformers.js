@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INSTANCES_DATA_TYPES,
   RHSM_API_RESPONSE_INSTANCES_META_TYPES as INSTANCES_META_TYPES,
@@ -52,13 +53,7 @@ const rhsmTally = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
-  /**
-   * FixMe: this is a potential bug
-   * Under RHOSAK this can't be seen because we're using a monthly range. However, under something like RHEL
-   * where a "quarterly range" that spans a year+ days of the month repeat. We need to match the full date
-   * instead of just the day.
-   */
-  const currentDay = dateHelpers.getCurrentDate()?.getDate();
+  const currentDay = moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY');
 
   updatedResponse.data = data.map(
     (
@@ -69,7 +64,7 @@ const rhsmTally = response => {
       y: value,
       date,
       hasData,
-      isCurrentDate: date?.getDate() === currentDay
+      isCurrentDate: moment.utc(date).format('MM-D-YYYY') === currentDay
     })
   );
 
