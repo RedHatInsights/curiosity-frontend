@@ -2,12 +2,14 @@ import { config as rhel } from './product.rhel';
 import { config as openshiftContainer } from './product.openshiftContainer';
 import { config as openshiftMetrics } from './product.openshiftMetrics';
 import { config as openshiftDedicated } from './product.openshiftDedicated';
+import { config as rhosak } from './product.rhosak';
 import { config as satelliteProduct } from './product.satellite';
 import rbacConfig from './rbac.json';
 import { routes as routesConfig } from './routes';
 
 const productsConfig = {
   rhel,
+  rhosak,
   openshiftContainer,
   openshiftMetrics,
   openshiftDedicated,
