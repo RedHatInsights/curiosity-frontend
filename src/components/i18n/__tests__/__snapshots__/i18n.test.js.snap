@@ -137,7 +137,7 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-graph.cardHeadingMetric_dailyTotal",
-        "match": "t('curiosity-graph.cardHeadingMetric_dailyTotal', { context: [isCurrent && 'current', metricId], month: selectedMonth })",
+        "match": "t('curiosity-graph.cardHeadingMetric_dailyTotal', { context: metricId, month: selectedMonth })",
       },
       Object {
         "key": "curiosity-graph.cardBodyMetric_total",
@@ -149,7 +149,7 @@ Array [
       },
       Object {
         "key": "curiosity-graph.cardHeadingMetric_monthlyTotal",
-        "match": "t('curiosity-graph.cardHeadingMetric_monthlyTotal', { context: [isCurrent && 'current', metricId], month: selectedMonth })",
+        "match": "t('curiosity-graph.cardHeadingMetric_monthlyTotal', { context: metricId, month: selectedMonth })",
       },
       Object {
         "key": "curiosity-graph.cardBodyMetric_total",
