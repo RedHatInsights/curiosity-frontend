@@ -50,6 +50,12 @@ Object {
     "yearTimeLong": "MMMM D YYYY h:mm:ss A",
     "yearTimeShort": "MMM D YYYY h:mm A",
   },
+  "timestampUTCTimeFormats": Object {
+    "timeLong": "DD MMMM HH:mm:ss UTC",
+    "timeShort": "DD MMM HH:mm UTC",
+    "yearTimeLong": "DD MMMM YYYY HH:mm:ss UTC",
+    "yearTimeShort": "DD MMM YYYY HH:mm UTC",
+  },
   "weeklyDateTime": Object {
     "endDate": 2019-07-14T23:59:59.999Z,
     "startDate": 2019-04-21T00:00:00.000Z,
