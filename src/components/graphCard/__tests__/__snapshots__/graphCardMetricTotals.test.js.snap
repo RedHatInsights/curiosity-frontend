@@ -3,7 +3,7 @@
 exports[`GraphCardMetricTotals Component should handle multiple display states: error 1`] = `
 <Flex
   className="curiosity-usage-graph__totals"
-  data-test="graphMetricTotals"
+  data-test="graphMetricTotals-"
 >
   <Flex
     alignSelf={
@@ -114,7 +114,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 exports[`GraphCardMetricTotals Component should handle multiple display states: fulfilled 1`] = `
 <Flex
   className="curiosity-usage-graph__totals"
-  data-test="graphMetricTotals"
+  data-test="graphMetricTotals-"
 >
   <Flex
     alignSelf={
@@ -229,7 +229,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 exports[`GraphCardMetricTotals Component should handle multiple display states: pending 1`] = `
 <Flex
   className="curiosity-usage-graph__totals"
-  data-test="graphMetricTotals"
+  data-test="graphMetricTotals-"
 >
   <Flex
     alignSelf={
@@ -360,7 +360,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 exports[`GraphCardMetricTotals Component should render a basic component: basic 1`] = `
 <Flex
   className="curiosity-usage-graph__totals"
-  data-test="graphMetricTotals"
+  data-test="graphMetricTotals-"
 >
   <Flex
     alignSelf={

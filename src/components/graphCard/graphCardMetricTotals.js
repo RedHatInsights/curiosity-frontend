@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardBody, CardFooter, CardTitle, Flex, FlexItem } from '@patternfly/react-core';
 import moment from 'moment';
+import _camelCase from 'lodash/camelCase';
 import { useProductGraphTallyQuery } from '../productView/productViewContext';
 import { useMetricsSelector } from './graphCardContext';
 import { MinHeight } from '../minHeight/minHeight';
@@ -46,7 +47,7 @@ const GraphCardMetricTotals = ({
   const dailyValue = isCurrent ? currentValue : lastValue;
 
   return (
-    <Flex data-test="graphMetricTotals" className="curiosity-usage-graph__totals">
+    <Flex data-test={`graphMetricTotals-${_camelCase(metricId)}`} className="curiosity-usage-graph__totals">
       <Flex flex={{ default: 'flex_1' }} direction={{ default: 'column' }} alignSelf={{ default: 'alignSelfStretch' }}>
         <FlexItem className="curiosity-usage-graph__totals-column">
           <Card
