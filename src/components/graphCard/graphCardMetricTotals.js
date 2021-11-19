@@ -55,7 +55,7 @@ const GraphCardMetricTotals = ({
           >
             <CardTitle>
               {t('curiosity-graph.cardHeadingMetric_dailyTotal', {
-                context: [isCurrent && 'current', metricId],
+                context: metricId,
                 month: selectedMonth
               })}
             </CardTitle>
@@ -101,7 +101,7 @@ const GraphCardMetricTotals = ({
           >
             <CardTitle>
               {t('curiosity-graph.cardHeadingMetric_monthlyTotal', {
-                context: [isCurrent && 'current', metricId],
+                context: metricId,
                 month: selectedMonth
               })}
             </CardTitle>
