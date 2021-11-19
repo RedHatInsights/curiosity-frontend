@@ -89,7 +89,7 @@ const GraphCardMetricTotals = ({
                   {fulfilled &&
                     dailyDate &&
                     t('curiosity-graph.cardFooterMetric', {
-                      date: moment.utc(dailyDate).format(dateHelpers.timestampTimeFormats.yearTimeShort)
+                      date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort)
                     })}
                 </div>
               </CardFooter>
@@ -130,7 +130,7 @@ const GraphCardMetricTotals = ({
                   {fulfilled &&
                     monthlyDate &&
                     t('curiosity-graph.cardFooterMetric', {
-                      date: moment.utc(monthlyDate).format(dateHelpers.timestampTimeFormats.yearTimeShort)
+                      date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort)
                     })}
                 </div>
               </CardFooter>
