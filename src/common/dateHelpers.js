@@ -165,6 +165,18 @@ const timestampTimeFormats = {
   yearTimeShort: 'MMM D YYYY h:mm A'
 };
 
+/**
+ * Consistent UTC timestamp time formats.
+ *
+ * @type {{yearTimeShort: string, timeLong: string, yearTimeLong: string, timeShort: string}}
+ */
+const timestampUTCTimeFormats = {
+  timeLong: 'DD MMMM HH:mm:ss UTC',
+  yearTimeLong: 'DD MMMM YYYY HH:mm:ss UTC',
+  timeShort: 'DD MMM HH:mm UTC',
+  yearTimeShort: 'DD MMM YYYY HH:mm UTC'
+};
+
 const dateHelpers = {
   getCurrentDate,
   getRangedMonthDateTime,
@@ -179,7 +191,8 @@ const dateHelpers = {
   timestampDayFormats,
   timestampMonthFormats,
   timestampQuarterFormats,
-  timestampTimeFormats
+  timestampTimeFormats,
+  timestampUTCTimeFormats
 };
 
 export {
@@ -198,5 +211,6 @@ export {
   timestampDayFormats,
   timestampMonthFormats,
   timestampQuarterFormats,
-  timestampTimeFormats
+  timestampTimeFormats,
+  timestampUTCTimeFormats
 };
