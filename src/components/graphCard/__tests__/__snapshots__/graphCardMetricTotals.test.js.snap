@@ -29,7 +29,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         data-test="graphDailyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_dailyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_dailyTotal, {})
         </CardTitle>
         <MinHeight
           key="currentBody"
@@ -59,7 +59,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         data-test="graphMonthlyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {})
         </CardTitle>
         <MinHeight
           key="totalMonthlyBody"
@@ -139,7 +139,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         data-test="graphDailyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_dailyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_dailyTotal, {})
         </CardTitle>
         <MinHeight
           key="currentBody"
@@ -171,7 +171,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         data-test="graphMonthlyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {})
         </CardTitle>
         <MinHeight
           key="totalMonthlyBody"
@@ -253,7 +253,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         data-test="graphDailyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_dailyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_dailyTotal, {})
         </CardTitle>
         <MinHeight
           key="currentBody"
@@ -293,7 +293,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         data-test="graphMonthlyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {})
         </CardTitle>
         <MinHeight
           key="totalMonthlyBody"
@@ -383,7 +383,7 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
         data-test="graphDailyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_dailyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_dailyTotal, {})
         </CardTitle>
         <MinHeight
           key="currentBody"
@@ -413,7 +413,7 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
         data-test="graphMonthlyTotalCard"
       >
         <CardTitle>
-          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {"context":""})
+          t(curiosity-graph.cardHeadingMetric_monthlyTotal, {})
         </CardTitle>
         <MinHeight
           key="totalMonthlyBody"
