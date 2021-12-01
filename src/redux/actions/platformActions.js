@@ -86,16 +86,18 @@ const setAppName = name => ({
  * @param {boolean} options.secondaryNav
  * @returns {Function}
  */
-const setAppNav = (id, { appName, secondaryNav } = {}) => dispatch =>
-  dispatch({
-    type: platformTypes.PLATFORM_SET_NAV,
-    payload: platformServices.setAppNav(id, { appName, secondaryNav }),
-    meta: {
-      id,
-      appName,
-      secondaryNav
-    }
-  });
+const setAppNav =
+  (id, { appName, secondaryNav } = {}) =>
+  dispatch =>
+    dispatch({
+      type: platformTypes.PLATFORM_SET_NAV,
+      payload: platformServices.setAppNav(id, { appName, secondaryNav }),
+      meta: {
+        id,
+        appName,
+        secondaryNav
+      }
+    });
 
 const platformActions = {
   addNotification,

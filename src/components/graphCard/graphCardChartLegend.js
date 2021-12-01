@@ -32,7 +32,11 @@ const GraphCardChartLegend = ({
   const { productLabel, viewId } = useAliasProduct();
   const dispatch = useAliasDispatch();
   const legendItems = useAliasSelectors(
-    datum.dataSets.map(({ id }) => ({ graph }) => graph.legend?.[`${viewId}-${id}`])
+    datum.dataSets.map(
+      ({ id }) =>
+        ({ graph }) =>
+          graph.legend?.[`${viewId}-${id}`]
+    )
   );
 
   useMount(() => {
