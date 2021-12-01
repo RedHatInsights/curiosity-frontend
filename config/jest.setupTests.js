@@ -9,7 +9,7 @@ import { setupDotenvFilesForEnv } from './build.dotenv';
 /**
  * Set dotenv params.
  */
-setupDotenvFilesForEnv({ env: 'test' });
+setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
 
 /**
  * Set enzyme adapter.

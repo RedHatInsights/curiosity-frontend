@@ -57,7 +57,11 @@ const useMetricsSelector = ({
   const data = {};
 
   const metricResponses = useAliasSelectors(
-    metrics.map(({ id: metricId }) => ({ graph }) => graph.tally?.[`${productId}_${metricId}`]),
+    metrics.map(
+      ({ id: metricId }) =>
+        ({ graph }) =>
+          graph.tally?.[`${productId}_${metricId}`]
+    ),
     []
   );
 

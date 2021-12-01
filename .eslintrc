@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true,
     "es6": true,
@@ -56,6 +56,7 @@
     "class-methods-use-this": 1,
     "comma-dangle": 0,
     "consistent-return": 1,
+    "default-param-last": 0,
     "import/extensions": [
       "error",
       {
@@ -113,8 +114,12 @@
     "no-debugger": 1,
     "no-lonely-if": 1,
     "no-plusplus": 0,
+    "no-promise-executor-return": 1,
+    "no-restricted-exports": [1, {"restrictedNamedExports":  []}],
     "no-restricted-properties": [0, {"object": "Math", "property": "pow"}],
     "no-underscore-dangle": 0,
+    "no-unsafe-optional-chaining": 1,
+    "prefer-exponentiation-operator": 0,
     "prefer-promise-reject-errors": 1,
     "prettier/prettier": [
       "error",
@@ -126,12 +131,16 @@
       }
     ],
     "react/forbid-prop-types": 0,
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }],
     "react/jsx-curly-newline": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-fragments": [ 1, "element" ],
     "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": 0,
+    "react/jsx-no-constructed-context-values": 1,
     "react/no-unused-prop-types": 1,
+    "react/no-unstable-nested-components": 0,
+    "react/jsx-no-useless-fragment": 1,
     "react/state-in-constructor": [ 1, "never" ],
     "space-before-function-paren": 0,
     "jsx-a11y/anchor-is-valid": 1,

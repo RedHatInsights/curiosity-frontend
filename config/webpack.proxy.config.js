@@ -15,6 +15,7 @@ if (/(prod|qa|ci)-beta/.test(DEV_BRANCH)) {
 
 const { config: webpackConfig, plugins } = config({
   appUrl: [`${BETA_PREFIX}/insights/subscriptions`, `${BETA_PREFIX}/openshift/subscriptions`],
+  client: { overlay: false },
   debug: true,
   deployment: (/beta/.test(BETA_PREFIX) && 'beta/apps') || 'apps',
   env: (/(prod|qa|ci)(-stable|-beta)$/.test(DEV_BRANCH) && DEV_BRANCH) || 'ci-stable',
