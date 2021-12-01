@@ -32,8 +32,11 @@ const GraphCardMetricTotals = ({
   const { pending, error, fulfilled, dataSets = [] } = useAliasMetricsSelector();
   const { data = [], id: metricId, meta = {} } = dataSets[0] || {};
   const { date: lastDate, hasData: lastHasData, y: lastValue } = data[data.length - 1] || {};
-  const { date: currentDate, hasData: currentHasData, y: currentValue } =
-    data.find(({ isCurrentDate }) => isCurrentDate === true) || {};
+  const {
+    date: currentDate,
+    hasData: currentHasData,
+    y: currentValue
+  } = data.find(({ isCurrentDate }) => isCurrentDate === true) || {};
 
   const { totalMonthlyDate: monthlyDate, totalMonthlyHasData: monthlyHasData, totalMonthlyValue: monthlyValue } = meta;
 
