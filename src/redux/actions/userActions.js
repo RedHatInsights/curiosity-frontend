@@ -58,29 +58,31 @@ const getAccountOptIn = () => dispatch =>
  * @param {object} query
  * @returns {Function}
  */
-const updateAccountOptIn = (query = {}) => dispatch =>
-  dispatch({
-    type: userTypes.UPDATE_USER_OPTIN,
-    payload: userServices.updateAccountOptIn(query),
-    meta: {
-      query,
-      notifications: {
-        rejected: {
-          variant: 'danger',
-          title: translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
-          description: translate('curiosity-optin.notificationsErrorDescription'),
-          dismissable: true
-        },
-        fulfilled: {
-          variant: 'success',
-          title: translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
-          description: translate('curiosity-optin.notificationsSuccessDescription'),
-          dismissable: true,
-          autoDismiss: false
+const updateAccountOptIn =
+  (query = {}) =>
+  dispatch =>
+    dispatch({
+      type: userTypes.UPDATE_USER_OPTIN,
+      payload: userServices.updateAccountOptIn(query),
+      meta: {
+        query,
+        notifications: {
+          rejected: {
+            variant: 'danger',
+            title: translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME }),
+            description: translate('curiosity-optin.notificationsErrorDescription'),
+            dismissable: true
+          },
+          fulfilled: {
+            variant: 'success',
+            title: translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME }),
+            description: translate('curiosity-optin.notificationsSuccessDescription'),
+            dismissable: true,
+            autoDismiss: false
+          }
         }
       }
-    }
-  });
+    });
 
 const userActions = { authorizeUser, getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
 

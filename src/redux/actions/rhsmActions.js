@@ -10,22 +10,24 @@ import { rhsmServices } from '../../services/rhsm/rhsmServices';
  * @param {string} options.cancelId
  * @returns {Function}
  */
-const getGraphReportsCapacity = (id = null, query = {}, options = {}) => dispatch => {
-  const { cancelId = 'graphReportsCapacity' } = options;
+const getGraphReportsCapacity =
+  (id = null, query = {}, options = {}) =>
+  dispatch => {
+    const { cancelId = 'graphReportsCapacity' } = options;
 
-  return dispatch({
-    type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM,
-    payload: Promise.all([
-      rhsmServices.getGraphReports(id, query, { cancelId }),
-      rhsmServices.getGraphCapacity(id, query, { cancelId })
-    ]),
-    meta: {
-      id,
-      query,
-      notifications: {}
-    }
-  });
-};
+    return dispatch({
+      type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM,
+      payload: Promise.all([
+        rhsmServices.getGraphReports(id, query, { cancelId }),
+        rhsmServices.getGraphCapacity(id, query, { cancelId })
+      ]),
+      meta: {
+        id,
+        query,
+        notifications: {}
+      }
+    });
+  };
 
 /**
  * Get a RHSM response from multiple Tally IDs and metrics.
@@ -36,28 +38,30 @@ const getGraphReportsCapacity = (id = null, query = {}, options = {}) => dispatc
  * @param {string} options.cancelId
  * @returns {Function}
  */
-const getGraphTally = (idMetric = {}, query = {}, options = {}) => dispatch => {
-  const { cancelId = 'graphTally' } = options;
-  const multiMetric = (Array.isArray(idMetric) && idMetric) || [idMetric];
-  const multiDispatch = [];
+const getGraphTally =
+  (idMetric = {}, query = {}, options = {}) =>
+  dispatch => {
+    const { cancelId = 'graphTally' } = options;
+    const multiMetric = (Array.isArray(idMetric) && idMetric) || [idMetric];
+    const multiDispatch = [];
 
-  multiMetric.forEach(({ id, metric }) => {
-    multiDispatch.push({
-      type: rhsmTypes.GET_GRAPH_TALLY_RHSM,
-      payload: rhsmServices.getGraphTally([id, metric], query, {
-        cancelId: `${cancelId}_${id}_${metric}`
-      }),
-      meta: {
-        id: `${id}_${metric}`,
-        idMetric: { id, metric },
-        query,
-        notifications: {}
-      }
+    multiMetric.forEach(({ id, metric }) => {
+      multiDispatch.push({
+        type: rhsmTypes.GET_GRAPH_TALLY_RHSM,
+        payload: rhsmServices.getGraphTally([id, metric], query, {
+          cancelId: `${cancelId}_${id}_${metric}`
+        }),
+        meta: {
+          id: `${id}_${metric}`,
+          idMetric: { id, metric },
+          query,
+          notifications: {}
+        }
+      });
     });
-  });
 
-  return Promise.all(dispatch(multiDispatch));
-};
+    return Promise.all(dispatch(multiDispatch));
+  };
 
 /**
  * Get a hosts response listing from RHSM subscriptions.
@@ -66,16 +70,18 @@ const getGraphTally = (idMetric = {}, query = {}, options = {}) => dispatch => {
  * @param {object} query
  * @returns {Function}
  */
-const getHostsInventory = (id = null, query = {}) => dispatch =>
-  dispatch({
-    type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM,
-    payload: rhsmServices.getHostsInventory(id, query),
-    meta: {
-      id,
-      query,
-      notifications: {}
-    }
-  });
+const getHostsInventory =
+  (id = null, query = {}) =>
+  dispatch =>
+    dispatch({
+      type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM,
+      payload: rhsmServices.getHostsInventory(id, query),
+      meta: {
+        id,
+        query,
+        notifications: {}
+      }
+    });
 
 /**
  * Get a host's guest response listing from RHSM subscriptions.
@@ -84,16 +90,18 @@ const getHostsInventory = (id = null, query = {}) => dispatch =>
  * @param {object} query
  * @returns {Function}
  */
-const getHostsInventoryGuests = (id = null, query = {}) => dispatch =>
-  dispatch({
-    type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM,
-    payload: rhsmServices.getHostsInventoryGuests(id, query),
-    meta: {
-      id,
-      query,
-      notifications: {}
-    }
-  });
+const getHostsInventoryGuests =
+  (id = null, query = {}) =>
+  dispatch =>
+    dispatch({
+      type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM,
+      payload: rhsmServices.getHostsInventoryGuests(id, query),
+      meta: {
+        id,
+        query,
+        notifications: {}
+      }
+    });
 
 /**
  * Get an instances response listing from RHSM subscriptions.
@@ -102,16 +110,18 @@ const getHostsInventoryGuests = (id = null, query = {}) => dispatch =>
  * @param {object} query
  * @returns {Function}
  */
-const getInstancesInventory = (id = null, query = {}) => dispatch =>
-  dispatch({
-    type: rhsmTypes.GET_INSTANCES_INVENTORY_RHSM,
-    payload: rhsmServices.getInstancesInventory(id, query),
-    meta: {
-      id,
-      query,
-      notifications: {}
-    }
-  });
+const getInstancesInventory =
+  (id = null, query = {}) =>
+  dispatch =>
+    dispatch({
+      type: rhsmTypes.GET_INSTANCES_INVENTORY_RHSM,
+      payload: rhsmServices.getInstancesInventory(id, query),
+      meta: {
+        id,
+        query,
+        notifications: {}
+      }
+    });
 
 /**
  * Get a RHSM response from message reporting.
@@ -120,16 +130,18 @@ const getInstancesInventory = (id = null, query = {}) => dispatch =>
  * @param {object} query
  * @returns {Function}
  */
-const getMessageReports = (id = null, query = {}) => dispatch =>
-  dispatch({
-    type: rhsmTypes.GET_MESSAGE_REPORTS_RHSM,
-    payload: rhsmServices.getGraphReports(id, query, { cancelId: 'messageReport' }),
-    meta: {
-      id,
-      query,
-      notifications: {}
-    }
-  });
+const getMessageReports =
+  (id = null, query = {}) =>
+  dispatch =>
+    dispatch({
+      type: rhsmTypes.GET_MESSAGE_REPORTS_RHSM,
+      payload: rhsmServices.getGraphReports(id, query, { cancelId: 'messageReport' }),
+      meta: {
+        id,
+        query,
+        notifications: {}
+      }
+    });
 
 /**
  * Get a subscriptions response from RHSM subscriptions.
@@ -138,16 +150,18 @@ const getMessageReports = (id = null, query = {}) => dispatch =>
  * @param {object} query
  * @returns {Function}
  */
-const getSubscriptionsInventory = (id = null, query = {}) => dispatch =>
-  dispatch({
-    type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM,
-    payload: rhsmServices.getSubscriptionsInventory(id, query),
-    meta: {
-      id,
-      query,
-      notifications: {}
-    }
-  });
+const getSubscriptionsInventory =
+  (id = null, query = {}) =>
+  dispatch =>
+    dispatch({
+      type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM,
+      payload: rhsmServices.getSubscriptionsInventory(id, query),
+      meta: {
+        id,
+        query,
+        notifications: {}
+      }
+    });
 
 const rhsmActions = {
   getGraphReportsCapacity,
