@@ -4,6 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const fedModulePlugin = require('@redhat-cloud-services/frontend-components-config/federated-modules');
 const { setupWebpackDotenvFilesForEnv } = require('./build.dotenv');
+const { dependencies } = require('../package.json');
 
 const setHtmlPlugin = () => ({
   title: process.env.REACT_APP_UI_DISPLAY_NAME,
@@ -25,12 +26,20 @@ const setCommonPlugins = () => {
   const SRC_DIR = process.env._BUILD_SRC_DIR;
   const STATIC_DIR = process.env._BUILD_STATIC_DIR;
 
+  /**
+   * FixMe: See PR, https://github.com/RedHatInsights/curiosity-frontend/pull/847
+   * The module sharing for React Redux is a "fix" to let us upgrade to the latest platform hosted configs.
+   * It should be determined why this is happening, and if we can resolve it from the Curiosity end.
+   */
   const plugins = [
     ...setupWebpackDotenvFilesForEnv({ directory: RELATIVE_DIRNAME, env: DOTENV_ENV }),
     new CopyPlugin({
       patterns: [{ from: join(STATIC_DIR, 'locales'), to: join(DIST_DIR, 'locales'), noErrorOnMissing: true }]
     }),
-    fedModulePlugin({ root: RELATIVE_DIRNAME })
+    fedModulePlugin({
+      root: RELATIVE_DIRNAME,
+      shared: [{ 'react-redux': { requiredVersion: dependencies['react-redux'] } }]
+    })
   ];
 
   // Development plugins

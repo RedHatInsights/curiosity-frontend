@@ -21,15 +21,8 @@ class Authentication extends Component {
   removeListeners = helpers.noop;
 
   async componentDidMount() {
-    const {
-      authorizeUser,
-      hideGlobalFilter,
-      history,
-      initializeChrome,
-      onNavigation,
-      session,
-      setAppName
-    } = this.props;
+    const { authorizeUser, hideGlobalFilter, history, initializeChrome, onNavigation, session, setAppName } =
+      this.props;
     const { subscriptions: authorized } = session.authorized || {};
 
     if (!authorized) {
