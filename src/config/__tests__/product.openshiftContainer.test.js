@@ -46,10 +46,8 @@ describe('Product OpenShift Container config', () => {
   });
 
   it('should apply subscriptions inventory configuration', () => {
-    const {
-      initialSubscriptionsInventoryFilters: initialFilters,
-      inventorySubscriptionsQuery: inventoryQuery
-    } = config;
+    const { initialSubscriptionsInventoryFilters: initialFilters, inventorySubscriptionsQuery: inventoryQuery } =
+      config;
 
     const inventoryData = {
       productName: 'lorem',
