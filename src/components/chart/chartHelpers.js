@@ -101,18 +101,8 @@ const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValue
   const stackedElementsById = {};
 
   dataSets.forEach(dataSet => {
-    const {
-      animate,
-      chartType,
-      data,
-      fill,
-      id,
-      isStacked,
-      interpolation,
-      stroke,
-      strokeDasharray,
-      strokeWidth
-    } = dataSet;
+    const { animate, chartType, data, fill, id, isStacked, interpolation, stroke, strokeDasharray, strokeWidth } =
+      dataSet;
 
     if (data?.length) {
       const dataColorStroke = {
@@ -170,7 +160,7 @@ const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValue
               maxY: typeof maxY === 'number' ? maxY : maxY?.[dataSet.id]
             });
           } else {
-            yValue = typeof maxY === 'number' ? datum.y : datum.y / maxY?.[dataSet.id];
+            yValue = typeof maxY === 'number' ? datum.y : datum.y / maxY?.[dataSet.id]; // eslint-disable-line
           }
 
           return yValue === undefined || Number.isNaN(yValue) ? 0 : yValue;
