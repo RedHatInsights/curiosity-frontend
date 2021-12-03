@@ -35,7 +35,9 @@ Array [
       "config": Object {
         "adapter": [Function],
         "cancelToken": CancelToken {
-          "promise": Promise {},
+          "promise": Promise {
+            "then": [Function],
+          },
         },
         "data": undefined,
         "headers": Object {
@@ -67,7 +69,9 @@ Array [
         "config": Object {
           "adapter": [Function],
           "cancelToken": CancelToken {
-            "promise": Promise {},
+            "promise": Promise {
+              "then": [Function],
+            },
           },
           "data": undefined,
           "headers": Object {

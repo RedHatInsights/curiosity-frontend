@@ -710,6 +710,10 @@ Array [
     "key": "curiosity-inventory.tab",
   },
   Object {
+    "file": "./src/components/inventoryTabs/inventoryTabs.js",
+    "key": "curiosity-inventory.tabHeading",
+  },
+  Object {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
     "key": "curiosity-toolbar.granularity",
   },
