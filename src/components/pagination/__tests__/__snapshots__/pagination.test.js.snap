@@ -75,7 +75,6 @@ exports[`Pagination Component should render a non-connected component: non-conne
       "toPreviousPage": "Go to previous page",
     }
   }
-  toggleTemplate={[Function]}
   variant={null}
   widgetId="pagination-options-menu"
 />
