@@ -24,6 +24,7 @@ exports[`Tabs Component should handle no tabs: no tabs 1`] = `
       leftScrollAriaLabel="Scroll left"
       mountOnEnter={true}
       onSelect={[Function]}
+      onToggle={[Function]}
       ouiaSafe={true}
       rightScrollAriaLabel="Scroll right"
       unmountOnExit={true}
@@ -57,6 +58,7 @@ exports[`Tabs Component should render a non-connected component: non-connected 1
       leftScrollAriaLabel="Scroll left"
       mountOnEnter={true}
       onSelect={[Function]}
+      onToggle={[Function]}
       ouiaSafe={true}
       rightScrollAriaLabel="Scroll right"
       unmountOnExit={true}
