@@ -101,9 +101,11 @@ exports[`Select Component should allow being disabled with missing options: no o
     favorites={Array []}
     favoritesLabel="Favorites"
     hasInlineFilter={false}
+    hasPlaceholderStyle={false}
     inlineFilterPlaceholderText={null}
     inputIdPrefix=""
     isCreatable={false}
+    isCreateSelectOptionObject={false}
     isDisabled={true}
     isGrouped={false}
     isInputValuePersisted={false}
@@ -120,6 +122,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     onTypeaheadInputChanged={null}
     ouiaSafe={true}
     placeholderText="Select option"
+    position="left"
     removeSelectionAriaLabel="Remove"
     selections={Array []}
     toggleAriaLabel="Options menu"
@@ -152,9 +155,11 @@ exports[`Select Component should allow being disabled with missing options: opti
     favorites={Array []}
     favoritesLabel="Favorites"
     hasInlineFilter={false}
+    hasPlaceholderStyle={false}
     inlineFilterPlaceholderText={null}
     inputIdPrefix=""
     isCreatable={false}
+    isCreateSelectOptionObject={false}
     isDisabled={true}
     isGrouped={false}
     isInputValuePersisted={false}
@@ -171,6 +176,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     onTypeaheadInputChanged={null}
     ouiaSafe={true}
     placeholderText="Select option"
+    position="left"
     removeSelectionAriaLabel="Remove"
     selections={Array []}
     toggleAriaLabel="Options menu"
@@ -300,9 +306,11 @@ exports[`Select Component should allow being disabled with missing options: opti
     favorites={Array []}
     favoritesLabel="Favorites"
     hasInlineFilter={false}
+    hasPlaceholderStyle={false}
     inlineFilterPlaceholderText={null}
     inputIdPrefix=""
     isCreatable={false}
+    isCreateSelectOptionObject={false}
     isDisabled={true}
     isGrouped={false}
     isInputValuePersisted={false}
@@ -319,6 +327,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     onTypeaheadInputChanged={null}
     ouiaSafe={true}
     placeholderText="Select option"
+    position="left"
     removeSelectionAriaLabel="Remove"
     selections={Array []}
     toggleAriaLabel="Options menu"

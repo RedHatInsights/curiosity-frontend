@@ -25,6 +25,7 @@ exports[`Table Component should allow expandable content: expandable content 1`]
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -97,6 +98,7 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -173,6 +175,7 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -255,6 +258,7 @@ exports[`Table Component should allow sortable content: sorted column callback 1
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -322,6 +326,7 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -381,6 +386,7 @@ exports[`Table Component should allow variations in table layout: borders and ta
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -440,6 +446,7 @@ exports[`Table Component should allow variations in table layout: className and 
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -499,6 +506,7 @@ exports[`Table Component should allow variations in table layout: generated rows
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -559,6 +567,7 @@ exports[`Table Component should pass child components, nodes when there are no r
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
@@ -612,6 +621,7 @@ exports[`Table Component should render a non-connected component: non-connected 
       dropdownPosition="right"
       expandId="expandable-toggle"
       gridBreakPoint="grid-md"
+      isHeaderSelectDisabled={false}
       isNested={false}
       isStickyHeader={false}
       isTreeTable={false}
