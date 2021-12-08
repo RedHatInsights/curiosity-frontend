@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
-import { useMount, useUnmount } from 'react-use';
 import { connect, reduxActions, reduxSelectors } from '../../redux';
+import { routerHooks } from '../../hooks/useRouter';
+import { routerHelpers, Redirect } from '../router';
 import { rhsmApiTypes } from '../../types';
 import { helpers } from '../../common';
-import { routerHelpers, Redirect } from '../router';
 import MessageView from '../messageView/messageView';
 import { translate } from '../i18n/i18n';
 
@@ -19,12 +19,12 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.authorizeUser
  * @param {Node} props.children
  * @param {Function} props.hideGlobalFilter
- * @param {object} props.history
  * @param {Function} props.initializeChrome
  * @param {Function} props.onNavigation
  * @param {object} props.session
  * @param {Function} props.setAppName
  * @param {Function} props.t
+ * @param {Function} props.useHistory
  * @returns {Node}
  */
 const Authentication = ({
@@ -32,37 +32,32 @@ const Authentication = ({
   authorizeUser,
   children,
   hideGlobalFilter,
-  history,
   initializeChrome,
   onNavigation,
   session,
   setAppName,
-  t
+  t,
+  useHistory: useAliasHistory
 }) => {
+  const history = useAliasHistory();
   const { errorCodes, pending, status: httpStatus, subscriptions: authorized } = session.authorized || {};
-  let removeListeners = helpers.noop;
 
-  useMount(async () => {
+  useEffect(() => {
+    const getAuth = async () => authorizeUser();
+
     if (!authorized) {
-      await authorizeUser();
+      getAuth();
     }
 
     initializeChrome();
     setAppName(appName);
     hideGlobalFilter();
 
-    const appNav = onNavigation(event => {
-      const { routeHref } = routerHelpers.getRouteConfig({ id: event.navId });
-      history.push(routeHref);
-    });
+    const appNav = onNavigation(event => history.push(event.navId));
 
-    removeListeners = () => {
+    return () => {
       appNav();
     };
-  });
-
-  useUnmount(() => {
-    removeListeners();
   });
 
   if (helpers.UI_DISABLED) {
@@ -99,18 +94,13 @@ const Authentication = ({
  * Prop types.
  *
  * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: Function,
- *     children: Node, initializeChrome: Function, session: object, history: object,
- *     hideGlobalFilter: Function}}
+ *     children: Node, initializeChrome: Function, session: object, hideGlobalFilter: Function}}
  */
 Authentication.propTypes = {
   appName: PropTypes.string,
   authorizeUser: PropTypes.func,
   children: PropTypes.node.isRequired,
   hideGlobalFilter: PropTypes.func,
-  history: PropTypes.shape({
-    listen: PropTypes.func.isRequired,
-    push: PropTypes.func.isRequired
-  }).isRequired,
   initializeChrome: PropTypes.func,
   onNavigation: PropTypes.func,
   setAppName: PropTypes.func,
@@ -122,7 +112,8 @@ Authentication.propTypes = {
     pending: PropTypes.bool,
     status: PropTypes.number
   }),
-  t: PropTypes.func
+  t: PropTypes.func,
+  useHistory: PropTypes.func
 };
 
 /**
@@ -145,7 +136,8 @@ Authentication.defaultProps = {
     pending: false,
     status: null
   },
-  t: translate
+  t: translate,
+  useHistory: routerHooks.useHistory
 };
 
 /**
