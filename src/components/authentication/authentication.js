@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
-import { connect, reduxActions, reduxSelectors } from '../../redux';
+import { useMount, useUnmount } from 'react-use';
+import { connect, reduxActions, reduxSelectors, storeHooks } from '../../redux';
 import { routerHooks } from '../../hooks/useRouter';
 import { routerHelpers, Redirect } from '../router';
 import { rhsmApiTypes } from '../../types';
@@ -24,6 +25,7 @@ import { translate } from '../i18n/i18n';
  * @param {object} props.session
  * @param {Function} props.setAppName
  * @param {Function} props.t
+ * @param {Function} props.useDispatch
  * @param {Function} props.useHistory
  * @returns {Node}
  */
@@ -37,27 +39,25 @@ const Authentication = ({
   session,
   setAppName,
   t,
+  useDispatch: useAliasDispatch,
   useHistory: useAliasHistory
 }) => {
+  const [unregister, setUnregister] = useState(() => helpers.noop);
+  const dispatch = useAliasDispatch();
   const history = useAliasHistory();
   const { errorCodes, pending, status: httpStatus, subscriptions: authorized } = session.authorized || {};
 
-  useEffect(() => {
-    const getAuth = async () => authorizeUser();
-
+  useMount(async () => {
     if (!authorized) {
-      getAuth();
+      await dispatch(authorizeUser());
     }
 
-    initializeChrome();
-    setAppName(appName);
-    hideGlobalFilter();
+    dispatch([initializeChrome(), setAppName(appName), hideGlobalFilter()]);
+    setUnregister(() => dispatch(onNavigation(event => history.push(event.navId))));
+  });
 
-    const appNav = onNavigation(event => history.push(event.navId));
-
-    return () => {
-      appNav();
-    };
+  useUnmount(() => {
+    unregister();
   });
 
   if (helpers.UI_DISABLED) {
@@ -93,8 +93,9 @@ const Authentication = ({
 /**
  * Prop types.
  *
- * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: Function,
- *     children: Node, initializeChrome: Function, session: object, hideGlobalFilter: Function}}
+ * @type {{authorizeUser: Function, onNavigation: Function, useHistory: Function, setAppName: Function,
+ *     t: Function, children: Node, appName: string, initializeChrome: Function, session: object,
+ *     useDispatch: Function, hideGlobalFilter: Function}}
  */
 Authentication.propTypes = {
   appName: PropTypes.string,
@@ -113,23 +114,24 @@ Authentication.propTypes = {
     status: PropTypes.number
   }),
   t: PropTypes.func,
+  useDispatch: PropTypes.func,
   useHistory: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{authorizeUser: Function, onNavigation: Function, setAppName: Function, t: translate,
- *     initializeChrome: Function, session: {authorized: object, errorCodes: Array, pending: boolean,
- *     status: number}, hideGlobalFilter: Function}}
+ * @type {{authorizeUser: Function, onNavigation: Function, useHistory: Function, setAppName: Function,
+ *     t: Function, appName: string, initializeChrome: Function, session: object, useDispatch: Function,
+ *     hideGlobalFilter: Function}}
  */
 Authentication.defaultProps = {
   appName: routerHelpers.appName,
-  authorizeUser: helpers.noop,
-  hideGlobalFilter: helpers.noop,
-  initializeChrome: helpers.noop,
-  onNavigation: helpers.noop,
-  setAppName: helpers.noop,
+  authorizeUser: reduxActions.user.authorizeUser,
+  hideGlobalFilter: reduxActions.platform.hideGlobalFilter,
+  initializeChrome: reduxActions.platform.initializeChrome,
+  onNavigation: reduxActions.platform.onNavigation,
+  setAppName: reduxActions.platform.setAppName,
   session: {
     authorized: {},
     errorCodes: [],
@@ -137,22 +139,9 @@ Authentication.defaultProps = {
     status: null
   },
   t: translate,
+  useDispatch: storeHooks.reactRedux.useDispatch,
   useHistory: routerHooks.useHistory
 };
-
-/**
- * Apply actions to props.
- *
- * @param {Function} dispatch
- * @returns {object}
- */
-const mapDispatchToProps = dispatch => ({
-  authorizeUser: () => dispatch(reduxActions.user.authorizeUser()),
-  hideGlobalFilter: isHidden => dispatch(reduxActions.platform.hideGlobalFilter(isHidden)),
-  initializeChrome: () => dispatch(reduxActions.platform.initializeChrome()),
-  onNavigation: callback => dispatch(reduxActions.platform.onNavigation(callback)),
-  setAppName: name => dispatch(reduxActions.platform.setAppName(name))
-});
 
 /**
  * Create a selector from applied state, props.
@@ -161,6 +150,6 @@ const mapDispatchToProps = dispatch => ({
  */
 const makeMapStateToProps = reduxSelectors.user.makeUserSession();
 
-const ConnectedAuthentication = connect(makeMapStateToProps, mapDispatchToProps)(Authentication);
+const ConnectedAuthentication = connect(makeMapStateToProps)(Authentication);
 
 export { ConnectedAuthentication as default, ConnectedAuthentication, Authentication };
