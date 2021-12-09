@@ -21,6 +21,7 @@ import { translate } from '../i18n/i18n';
  * @param {Node} props.children
  * @param {Function} props.hideGlobalFilter
  * @param {Function} props.initializeChrome
+ * @param {boolean} props.isDisabled
  * @param {Function} props.onNavigation
  * @param {object} props.session
  * @param {Function} props.setAppName
@@ -35,6 +36,7 @@ const Authentication = ({
   children,
   hideGlobalFilter,
   initializeChrome,
+  isDisabled,
   onNavigation,
   session,
   setAppName,
@@ -45,10 +47,11 @@ const Authentication = ({
   const [unregister, setUnregister] = useState(() => helpers.noop);
   const dispatch = useAliasDispatch();
   const history = useAliasHistory();
-  const { errorCodes, pending, status: httpStatus, subscriptions: authorized } = session.authorized || {};
+  const { errorCodes, pending, status: httpStatus, authorized } = session || {};
+  const { [appName]: isAuthorized } = authorized || {};
 
   useMount(async () => {
-    if (!authorized) {
+    if (!isAuthorized) {
       await dispatch(authorizeUser());
     }
 
@@ -60,7 +63,7 @@ const Authentication = ({
     unregister();
   });
 
-  if (helpers.UI_DISABLED) {
+  if (isDisabled) {
     return (
       <MessageView>
         <Maintenance description={t('curiosity-auth.maintenanceCopy', '...')} />
@@ -68,7 +71,7 @@ const Authentication = ({
     );
   }
 
-  if (authorized) {
+  if (isAuthorized) {
     return <React.Fragment>{children}</React.Fragment>;
   }
 
@@ -95,7 +98,7 @@ const Authentication = ({
  *
  * @type {{authorizeUser: Function, onNavigation: Function, useHistory: Function, setAppName: Function,
  *     t: Function, children: Node, appName: string, initializeChrome: Function, session: object,
- *     useDispatch: Function, hideGlobalFilter: Function}}
+ *     useDispatch: Function, isDisabled: boolean, hideGlobalFilter: Function}}
  */
 Authentication.propTypes = {
   appName: PropTypes.string,
@@ -103,6 +106,7 @@ Authentication.propTypes = {
   children: PropTypes.node.isRequired,
   hideGlobalFilter: PropTypes.func,
   initializeChrome: PropTypes.func,
+  isDisabled: PropTypes.bool,
   onNavigation: PropTypes.func,
   setAppName: PropTypes.func,
   session: PropTypes.shape({
@@ -123,13 +127,14 @@ Authentication.propTypes = {
  *
  * @type {{authorizeUser: Function, onNavigation: Function, useHistory: Function, setAppName: Function,
  *     t: Function, appName: string, initializeChrome: Function, session: object, useDispatch: Function,
- *     hideGlobalFilter: Function}}
+ *     isDisabled: boolean, hideGlobalFilter: Function}}
  */
 Authentication.defaultProps = {
   appName: routerHelpers.appName,
   authorizeUser: reduxActions.user.authorizeUser,
   hideGlobalFilter: reduxActions.platform.hideGlobalFilter,
   initializeChrome: reduxActions.platform.initializeChrome,
+  isDisabled: helpers.UI_DISABLED,
   onNavigation: reduxActions.platform.onNavigation,
   setAppName: reduxActions.platform.setAppName,
   session: {

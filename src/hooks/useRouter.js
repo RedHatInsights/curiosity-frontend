@@ -7,7 +7,7 @@ import { reduxActions, storeHooks } from '../redux';
  * Pass useHistory methods. Proxy useHistory push with Platform specific navigation update.
  *
  * @param {object} options
- * @param {boolean} options.isSetAppNav Set the Platform's left navigation
+ * @param {boolean} options.isSetAppNav Allow setting the Platform's left navigation if conditions are met, or fallback to  history.push.
  * @param {Function} options.useHistory
  * @param {Function} options.useDispatch
  * @returns {object}
@@ -31,7 +31,7 @@ const useHistory = ({
         return dispatch(reduxActions.platform.setAppNav(id));
       }
 
-      return history.push(routeHref || (pathName && `${pathName}${search}${hash}`) || pathLocation, historyState);
+      return history?.push(routeHref || (pathName && `${pathName}${search}${hash}`) || pathLocation, historyState);
     }
   };
 };

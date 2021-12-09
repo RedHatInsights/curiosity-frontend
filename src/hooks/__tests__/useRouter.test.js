@@ -15,10 +15,28 @@ describe('useRouter', () => {
       })
     );
 
+    mockUseHistory.push('/lorem/ipsum');
     mockUseHistory.push('rhel');
-    expect(mockDispatch.mock.calls).toMatchSnapshot('push, config route');
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch platform navigation');
+    expect(mockHistoryPush.mock.calls).toMatchSnapshot('history push');
+  });
+
+  it('should apply a hook for useHistory that emulates history but allows dispatching platform navigation updates if available', () => {
+    const mockDispatch = jest.fn();
+    const mockHistoryPush = jest.fn();
+    const { result: mockUseHistory } = shallowHook(() =>
+      useHistory({
+        isSetAppNav: true,
+        useDispatch: () => action => action(mockDispatch),
+        useHistory: () => ({ push: mockHistoryPush })
+      })
+    );
 
     mockUseHistory.push('/lorem/ipsum');
-    expect(mockHistoryPush.mock.calls).toMatchSnapshot('push, unique route');
+    mockUseHistory.push('rhel');
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch platform navigation');
+    expect(mockHistoryPush.mock.calls).toMatchSnapshot('history push');
   });
 });

@@ -1,22 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Authentication Component should allow being disabled: disabled 1`] = `
+<MessageView
+  icon={null}
+  message={null}
+  pageTitle={null}
+  title={null}
+>
+  <Maintenance
+    description="t(curiosity-auth.maintenanceCopy, ...)"
+    endTime="8am"
+    redirectLink="https://status.redhat.com/incidents"
+    startTime="6am"
+    timeZone="EST"
+    title="Maintenance in progress"
+    utcEndTime="12am"
+    utcStartTime="10am"
+  />
+</MessageView>
+`;
+
 exports[`Authentication Component should render a connected component: connected 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(Authentication)>
+    <span
+      className="test"
+    >
+      lorem
+    </span>
+  </Connect(Authentication)>
+</ContextProvider>
 `;
 
 exports[`Authentication Component should render a non-connected component authorized: non-connected authorized 1`] = `
 <Authentication
+  appName="subscriptions"
   authorizeUser={[Function]}
   hideGlobalFilter={[Function]}
-  history={
-    Object {
-      "listen": [Function],
-      "push": [Function],
-    }
-  }
   initializeChrome={[Function]}
+  isDisabled={false}
   onNavigation={[Function]}
   session={
     Object {
@@ -29,6 +73,8 @@ exports[`Authentication Component should render a non-connected component author
   }
   setAppName={[Function]}
   t={[Function]}
+  useDispatch={[Function]}
+  useHistory={[Function]}
 >
   <span
     className="test"
@@ -40,15 +86,11 @@ exports[`Authentication Component should render a non-connected component author
 
 exports[`Authentication Component should render a non-connected component error: non-connected error 1`] = `
 <Authentication
+  appName="subscriptions"
   authorizeUser={[Function]}
   hideGlobalFilter={[Function]}
-  history={
-    Object {
-      "listen": [Function],
-      "push": [Function],
-    }
-  }
   initializeChrome={[Function]}
+  isDisabled={false}
   onNavigation={[Function]}
   session={
     Object {
@@ -59,6 +101,8 @@ exports[`Authentication Component should render a non-connected component error:
   }
   setAppName={[Function]}
   t={[Function]}
+  useDispatch={[Function]}
+  useHistory={[Function]}
 >
   <MessageView
     icon={null}

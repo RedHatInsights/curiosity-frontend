@@ -30,7 +30,7 @@ const filterAvailableProducts = () => {
  * @returns {Node}
  */
 const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAliasHistory }) => {
-  const history = useAliasHistory({ isSetNav: true });
+  const history = useAliasHistory({ isSetAppNav: true });
   const availableProducts = filterAvailableProducts();
 
   useMount(() => {
