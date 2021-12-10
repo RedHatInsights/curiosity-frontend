@@ -5,9 +5,9 @@ import { ArrowRightIcon } from '@patternfly/react-icons';
 import { useMount } from 'react-use';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
 import { routerHelpers } from '../router';
+import { routerHooks } from '../../hooks/useRouter';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
-import { useHistory } from '../../hooks/useRouter';
 
 /**
  * Return a list of available products.
@@ -26,10 +26,11 @@ const filterAvailableProducts = () => {
  * @param {object} props
  * @param {number} props.availableProductsRedirect
  * @param {Function} props.t
+ * @param {Function} props.useHistory
  * @returns {Node}
  */
-const ProductViewMissing = ({ availableProductsRedirect, t }) => {
-  const history = useHistory();
+const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAliasHistory }) => {
+  const history = useAliasHistory({ isSetAppNav: true });
   const availableProducts = filterAvailableProducts();
 
   useMount(() => {
@@ -93,21 +94,23 @@ const ProductViewMissing = ({ availableProductsRedirect, t }) => {
 /**
  * Prop types.
  *
- * @type {{availableProductsRedirect: number, t: Function}}
+ * @type {{useHistory: Function, availableProductsRedirect: number, t: Function}}
  */
 ProductViewMissing.propTypes = {
   availableProductsRedirect: PropTypes.number,
-  t: PropTypes.func
+  t: PropTypes.func,
+  useHistory: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{availableProductsRedirect: number, t: translate}}
+ * @type {{useHistory: Function, availableProductsRedirect: number, t: translate}}
  */
 ProductViewMissing.defaultProps = {
   availableProductsRedirect: 4,
-  t: translate
+  t: translate,
+  useHistory: routerHooks.useHistory
 };
 
 export { ProductViewMissing as default, ProductViewMissing };
