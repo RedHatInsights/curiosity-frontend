@@ -4,19 +4,16 @@ import { routerHelpers } from '../components/router/routerHelpers';
 import { reduxActions, storeHooks } from '../redux';
 
 /**
- * ToDo: reevaluate this alternative pattern of passing library hooks as options
- * We did this as a test to see if its more convenient for unit testing instead of
- * having to spy or mock entire resources.
- */
-/**
  * Pass useHistory methods. Proxy useHistory push with Platform specific navigation update.
  *
  * @param {object} options
+ * @param {boolean} options.isSetAppNav Allow setting the Platform's left navigation if conditions are met or fallback to history.push.
  * @param {Function} options.useHistory
  * @param {Function} options.useDispatch
- * @returns {object<history>}
+ * @returns {object}
  */
 const useHistory = ({
+  isSetAppNav = false,
   useHistory: useAliasHistory = useHistoryRRD,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch
 } = {}) => {
@@ -30,11 +27,11 @@ const useHistory = ({
       const { productParameter, id, routeHref } = routerHelpers.getRouteConfig({ pathName, id: pathName });
       const { hash, search } = window.location;
 
-      if (productParameter) {
+      if (isSetAppNav && productParameter) {
         return dispatch(reduxActions.platform.setAppNav(id));
       }
 
-      return history.push(routeHref || (pathName && `${pathName}${search}${hash}`) || pathLocation, historyState);
+      return history?.push(routeHref || (pathName && `${pathName}${search}${hash}`) || pathLocation, historyState);
     }
   };
 };

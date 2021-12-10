@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useMount } from 'react-use';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
-import { connectRouter, reduxActions } from './redux';
-import { helpers } from './common/helpers';
+import { reduxActions, storeHooks } from './redux';
 import { I18n } from './components/i18n/i18n';
 import { Router } from './components/router';
 import Authentication from './components/authentication/authentication';
@@ -10,73 +10,50 @@ import Authentication from './components/authentication/authentication';
 /**
  * Application
  *
- * @augments React.Component
+ * @param {object} props
+ * @param {Function} props.getLocale
+ * @param {Function} props.useDispatch
+ * @param {Function} props.useSelector
+ * @returns {Node}
  */
-class App extends React.Component {
-  componentDidMount() {
-    const { getLocale } = this.props;
-    getLocale();
-  }
+const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSelector }) => {
+  const dispatch = useAliasDispatch();
+  const { value: locale } = useAliasSelector(({ user }) => user.session?.locale, {});
 
-  /**
-   * Render application.
-   *
-   * @returns {Node}
-   */
-  render() {
-    const { locale } = this.props;
+  useMount(() => {
+    dispatch(getLocale());
+  });
 
-    return (
-      <I18n locale={(locale && locale.value) || null}>
-        <NotificationsPortal />
-        <Authentication>
-          <Router />
-        </Authentication>
-      </I18n>
-    );
-  }
-}
+  return (
+    <I18n locale={locale || null}>
+      <NotificationsPortal />
+      <Authentication>
+        <Router />
+      </Authentication>
+    </I18n>
+  );
+};
 
 /**
  * Prop types.
  *
- * @type {{locale: object, getLocale: Function}}
+ * @type {{useSelector: Function, useDispatch: Function, getLocale: Function}}
  */
 App.propTypes = {
   getLocale: PropTypes.func,
-  locale: PropTypes.shape({
-    value: PropTypes.string
-  })
+  useDispatch: PropTypes.func,
+  useSelector: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{locale: {}, getLocale: Function}}
+ * @type {{useSelector: Function, useDispatch: Function, getLocale: Function}}
  */
 App.defaultProps = {
-  getLocale: helpers.noop,
-  locale: {}
+  getLocale: reduxActions.user.getLocale,
+  useDispatch: storeHooks.reactRedux.useDispatch,
+  useSelector: storeHooks.reactRedux.useSelector
 };
 
-/**
- * Apply actions to props.
- *
- * @param {Function} dispatch
- * @returns {object}
- */
-const mapDispatchToProps = dispatch => ({
-  getLocale: () => dispatch(reduxActions.user.getLocale())
-});
-
-/**
- * Apply state to props.
- *
- * @param {object} state
- * @returns {object}
- */
-const mapStateToProps = state => ({ locale: state.user.session.locale });
-
-const ConnectedApp = connectRouter(mapStateToProps, mapDispatchToProps)(App);
-
-export { ConnectedApp as default, ConnectedApp, App };
+export { App as default, App };
