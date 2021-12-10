@@ -1,41 +1,32 @@
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
-import { mount, shallow } from 'enzyme';
-import { helpers } from '../../../common/helpers';
+import { Provider } from 'react-redux';
+import { store } from '../../../redux';
+import { helpers } from '../../../common';
 import { ConnectedAuthentication, Authentication } from '../authentication';
 import { rhsmApiTypes } from '../../../types';
 
 describe('Authentication Component', () => {
-  const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
-
-  it('should render a connected component', () => {
-    const store = generateEmptyStore({
-      user: { session: { authorized: {}, error: false, errorMessage: '', pending: false } }
-    });
-
-    const component = shallow(
-      <ConnectedAuthentication>
-        <span className="test">lorem</span>
-      </ConnectedAuthentication>,
-      { context: { store } }
+  it('should render a connected component', async () => {
+    const component = await shallowHookComponent(
+      <Provider store={store}>
+        <ConnectedAuthentication>
+          <span className="test">lorem</span>
+        </ConnectedAuthentication>
+      </Provider>
     );
 
     expect(component).toMatchSnapshot('connected');
   });
 
-  it('should render a non-connected component error', () => {
+  it('should render a non-connected component error', async () => {
     const props = {
-      history: {
-        listen: helpers.noop,
-        push: helpers.noop
-      },
       session: {
         authorized: {},
         error: true,
         pending: false
       }
     };
-    const component = mount(
+    const component = await mountHookComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -44,12 +35,21 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('non-connected error');
   });
 
-  it('should return a redirect on 418 error', () => {
+  it('should allow being disabled', async () => {
     const props = {
-      history: {
-        listen: helpers.noop,
-        push: helpers.noop
-      },
+      isDisabled: true
+    };
+    const component = await shallowHookComponent(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+
+    expect(component).toMatchSnapshot('disabled');
+  });
+
+  it('should return a redirect on 418 error', async () => {
+    const props = {
       session: {
         authorized: {},
         error: true,
@@ -58,7 +58,7 @@ describe('Authentication Component', () => {
         pending: false
       }
     };
-    const component = shallow(
+    const component = await shallowHookComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -67,12 +67,8 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('418 error');
   });
 
-  it('should return a redirect on a specific 403 error and error code', () => {
+  it('should return a redirect on a specific 403 error and error code', async () => {
     const props = {
-      history: {
-        listen: helpers.noop,
-        push: helpers.noop
-      },
       session: {
         authorized: {},
         error: true,
@@ -82,7 +78,7 @@ describe('Authentication Component', () => {
         pending: false
       }
     };
-    const component = shallow(
+    const component = await shallowHookComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -100,18 +96,14 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('403 error');
   });
 
-  it('should return a message on 401 error', () => {
+  it('should return a message on 401 error', async () => {
     const props = {
-      history: {
-        listen: helpers.noop,
-        push: helpers.noop
-      },
       session: {
         authorized: {},
         status: 401
       }
     };
-    const component = shallow(
+    const component = await shallowHookComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -120,12 +112,8 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('401 error');
   });
 
-  it('should render a non-connected component pending', () => {
+  it('should render a non-connected component pending', async () => {
     const props = {
-      history: {
-        listen: helpers.noop,
-        push: helpers.noop
-      },
       session: {
         authorized: {},
         error: false,
@@ -133,7 +121,7 @@ describe('Authentication Component', () => {
         pending: true
       }
     };
-    const component = shallow(
+    const component = await shallowHookComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -142,12 +130,8 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('non-connected pending');
   });
 
-  it('should render a non-connected component authorized', () => {
+  it('should render a non-connected component authorized', async () => {
     const props = {
-      history: {
-        listen: helpers.noop,
-        push: helpers.noop
-      },
       session: {
         authorized: {
           [helpers.UI_NAME]: true
@@ -156,7 +140,7 @@ describe('Authentication Component', () => {
         pending: false
       }
     };
-    const component = mount(
+    const component = await mountHookComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
