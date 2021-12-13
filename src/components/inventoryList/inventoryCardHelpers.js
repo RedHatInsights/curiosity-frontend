@@ -214,7 +214,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} }) =>
   };
 };
 
-const inventoryListHelpers = {
+const inventoryCardHelpers = {
   applySortFilters,
   applyWrappableFilters,
   parseInventoryFilters,
@@ -222,8 +222,8 @@ const inventoryListHelpers = {
 };
 
 export {
-  inventoryListHelpers as default,
-  inventoryListHelpers,
+  inventoryCardHelpers as default,
+  inventoryCardHelpers,
   applySortFilters,
   applyWrappableFilters,
   parseInventoryFilters,

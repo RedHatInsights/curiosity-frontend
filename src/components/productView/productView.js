@@ -10,7 +10,7 @@ import { ConnectedGraphCard as ConnectedGraphCardDeprecated } from '../graphCard
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryList/inventoryList.deprecated';
-import { ConnectedInventoryList } from '../inventoryList/inventoryList';
+import { ConnectedInventoryList } from '../inventoryList/inventoryCard';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { SelectPosition } from '../form/select';
