@@ -4,7 +4,7 @@ import { TableVariant } from '@patternfly/react-table';
 import { helpers } from '../../common';
 import { apiQueries, connect, reduxActions, reduxSelectors } from '../../redux';
 import { Loader } from '../loader/loader';
-import { inventoryListHelpers } from '../inventoryList/inventoryListHelpers';
+import { inventoryCardHelpers } from '../inventoryList/inventoryCardHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { Table } from '../table/table';
 
@@ -121,7 +121,7 @@ class GuestsList extends React.Component {
     let updatedColumnHeaders = [];
 
     const updatedRows = [...previousData, ...(listData || [])].map(({ ...cellData }) => {
-      const { columnHeaders, cells } = inventoryListHelpers.parseRowCellsListData({
+      const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
         filters: filterGuestsData,
         cellData,
         session

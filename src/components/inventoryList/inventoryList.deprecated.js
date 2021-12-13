@@ -11,7 +11,7 @@ import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
 import GuestsList from '../guestsList/guestsList';
-import { inventoryListHelpers } from './inventoryListHelpers';
+import { inventoryCardHelpers } from './inventoryCardHelpers';
 import Pagination from '../pagination/pagination';
 import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';
 import { paginationHelpers } from '../pagination/paginationHelpers';
@@ -135,8 +135,8 @@ class InventoryList extends React.Component {
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
-      const { columnHeaders, cells } = inventoryListHelpers.parseRowCellsListData({
-        filters: inventoryListHelpers.parseInventoryFilters({
+      const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
+        filters: inventoryCardHelpers.parseInventoryFilters({
           filters: filterInventoryData,
           onSort: this.onColumnSort,
           query

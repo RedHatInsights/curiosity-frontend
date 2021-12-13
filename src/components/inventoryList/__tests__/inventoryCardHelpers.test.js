@@ -1,10 +1,10 @@
 import {
-  inventoryListHelpers,
+  inventoryCardHelpers,
   applySortFilters,
   applyWrappableFilters,
   parseInventoryFilters,
   parseRowCellsListData
-} from '../inventoryListHelpers';
+} from '../inventoryCardHelpers';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_TYPES
@@ -12,7 +12,7 @@ import {
 
 describe('InventoryListHelpers', () => {
   it('should have specific functions', () => {
-    expect(inventoryListHelpers).toMatchSnapshot('inventoryListHelpers');
+    expect(inventoryCardHelpers).toMatchSnapshot('inventoryListHelpers');
   });
 
   it('parseRowCellsListData should parse and return formatted/filtered table cells.', () => {
