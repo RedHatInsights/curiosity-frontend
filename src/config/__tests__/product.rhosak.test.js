@@ -1,6 +1,6 @@
 import { config } from '../product.rhosak';
 import { generateChartSettings } from '../../components/graphCard/graphCardHelpers';
-import { parseRowCellsListData } from '../../components/inventoryList/inventoryListHelpers';
+import { parseRowCellsListData } from '../../components/inventoryList/inventoryCardHelpers';
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,

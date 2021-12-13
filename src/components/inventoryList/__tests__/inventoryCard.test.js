@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { SortByDirection } from '@patternfly/react-table';
 import Table from '../../table/table';
-import { InventoryList } from '../inventoryList';
+import { InventoryList } from '../inventoryCard';
 import { store } from '../../../redux';
 import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
