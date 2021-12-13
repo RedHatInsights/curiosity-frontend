@@ -10,7 +10,7 @@ import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import { inventoryListHelpers } from '../inventoryList/inventoryListHelpers';
+import { inventoryCardHelpers } from '../inventoryList/inventoryCardHelpers';
 import Pagination from '../pagination/pagination';
 import { paginationHelpers } from '../pagination/paginationHelpers';
 import {
@@ -133,8 +133,8 @@ class InventorySubscriptions extends React.Component {
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
-      const { columnHeaders, cells } = inventoryListHelpers.parseRowCellsListData({
-        filters: inventoryListHelpers.parseInventoryFilters({
+      const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
+        filters: inventoryCardHelpers.parseInventoryFilters({
           filters: filterInventoryData,
           onSort: this.onColumnSort,
           query

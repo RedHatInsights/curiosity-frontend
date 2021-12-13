@@ -162,7 +162,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "file": "./src/components/inventoryList/inventoryCard.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.tab",
@@ -171,16 +171,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryList.js",
-    "keys": Array [
-      Object {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
-      },
-    ],
-  },
-  Object {
-    "file": "./src/components/inventoryList/inventoryListHelpers.js",
+    "file": "./src/components/inventoryList/inventoryCardHelpers.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.header",
@@ -189,6 +180,15 @@ Array [
       Object {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: id })",
+      },
+    ],
+  },
+  Object {
+    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-inventory.tab",
+        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
       },
     ],
   },
@@ -702,11 +702,11 @@ Array [
     "key": "curiosity-graph.label",
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "file": "./src/components/inventoryList/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryList.js",
+    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
