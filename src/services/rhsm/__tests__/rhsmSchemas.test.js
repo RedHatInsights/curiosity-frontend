@@ -7,6 +7,8 @@ describe('RHSM Schemas', () => {
 
   it('should have valid RHSM schemas that validate API responses', () => {
     expect(rhsmSchemas.errors({})).toMatchSnapshot('error schema');
-    expect(rhsmSchemas.tally({})).toMatchSnapshot('response schema');
+    expect(rhsmSchemas.tally({})).toMatchSnapshot('tally response schema');
+    expect(rhsmSchemas.instances({})).toMatchSnapshot('instances response schema');
+    expect(rhsmSchemas.guests({})).toMatchSnapshot('guests response schema');
   });
 });

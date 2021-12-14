@@ -274,6 +274,7 @@ Object {
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryGuestsQuery 1`] = `
 Object {
+  "limit": 100,
   "offset": "testOffset",
 }
 `;
@@ -314,6 +315,20 @@ Object {
   ],
   "settings": Object {
     "lorem": "ipsum",
+  },
+}
+`;
+
+exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productInventoryGuestsConfig 1`] = `
+Object {
+  "filters": Array [
+    Object {
+      "sit": "dolor",
+    },
+  ],
+  "initialQuery": Object {},
+  "settings": Object {
+    "sit": "dolor",
   },
 }
 `;
@@ -389,6 +404,7 @@ Object {
   },
   "useGraphConfig": [Function],
   "useGraphTallyQuery": [Function],
+  "useInventoryGuestsConfig": [Function],
   "useInventoryGuestsQuery": [Function],
   "useInventoryHostsConfig": [Function],
   "useInventoryHostsQuery": [Function],

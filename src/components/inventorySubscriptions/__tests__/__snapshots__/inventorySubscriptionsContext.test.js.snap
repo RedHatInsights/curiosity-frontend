@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InventorySubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "dir": "desc",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
+        "viewId": "lorem",
+      },
+      Object {
+        "sort": "loremIpsumColumnOne",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "dir": "asc",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
+        "viewId": "lorem",
+      },
+      Object {
+        "sort": "loremIpsumColumnOne",
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`InventorySubscriptionsContext should handle an onPage event: onPage event, dispatch 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "offset": 1,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      Object {
+        "limit": 5,
+        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
+Object {
+  "data": Object {},
+  "error": undefined,
+  "fulfilled": undefined,
+  "pending": true,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, disabled 1`] = `
+Object {
+  "data": Object {},
+  "error": undefined,
+  "fulfilled": undefined,
+  "pending": false,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
+Object {
+  "data": Object {},
+  "error": true,
+  "fulfilled": undefined,
+  "pending": false,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
+Object {
+  "data": Object {},
+  "error": undefined,
+  "fulfilled": true,
+  "pending": false,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
+Object {
+  "data": Object {},
+  "error": undefined,
+  "fulfilled": undefined,
+  "pending": true,
+}
+`;
+
+exports[`InventorySubscriptionsContext should return specific properties: specific properties 1`] = `
+Object {
+  "useGetSubscriptionsInventory": [Function],
+  "useOnColumnSortSubscriptions": [Function],
+  "useOnPageSubscriptions": [Function],
+}
+`;

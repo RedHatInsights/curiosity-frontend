@@ -1490,6 +1490,7 @@ const getGraphReports = (id, params = {}, options = {}) => {
  * @param {string|Array} id String ID, or an array of IDs
  * @param {object} params Query/search params
  * @param {object} options
+ * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
  * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
@@ -2142,18 +2143,30 @@ const getHostsInventory = (id, params = {}, options = {}) => {
  * @param {string} id Subscription Manager ID
  * @param {object} params Query/search params
  * @param {object} options
+ * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
+ * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getHostsInventoryGuests = (id, params = {}, options = {}) => {
-  const { cache = true, cancel = false, cancelId } = options;
+  const {
+    cache = true,
+    cancel = false,
+    cancelId,
+    schema = [rhsmSchemas.guests, rhsmSchemas.errors],
+    transform = []
+  } = options;
+
   return serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_INVENTORY_GUESTS.replace('{0}', id),
     params,
     cache,
     cancel,
-    cancelId
+    cancelId,
+    schema,
+    transform
   });
 };
 
@@ -2169,6 +2182,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *     {
  *       "data" : [
  *         {
+ *           "number_of_guests": 70,
  *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
  *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
  *           "display_name": "rhv.example.com",
@@ -2236,8 +2250,11 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  * @param {string} id Product ID
  * @param {object} params Query/search params
  * @param {object} options
+ * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
+ * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getInstancesInventory = (id, params = {}, options = {}) => {
@@ -2261,7 +2278,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
 };
 
 /**
- * @apiMock {DelayResponse} 250
+ * @apiMock {DelayResponse} 0
  * @api {get} /api/rhsm-subscriptions/v1/subscriptions/products/:product_id Get RHSM subscriptions table/inventory data
  * @apiDescription Retrieve subscriptions table/inventory data.
  *
@@ -2346,18 +2363,30 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  * @param {string} id Product ID
  * @param {object} params Query/search params
  * @param {object} options
+ * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
+ * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getSubscriptionsInventory = (id, params = {}, options = {}) => {
-  const { cache = true, cancel = true, cancelId } = options;
+  const {
+    cache = true,
+    cancel = true,
+    cancelId,
+    schema = [rhsmSchemas.subscriptions, rhsmSchemas.errors],
+    transform = []
+  } = options;
+
   return serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_SUBSCRIPTIONS}${id}`,
     params,
     cache,
     cancel,
-    cancelId
+    cancelId,
+    schema,
+    transform
   });
 };
 
