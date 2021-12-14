@@ -217,11 +217,7 @@ const config = {
     },
     {
       id: 'nextEventDate',
-      cell: data =>
-        (data?.nextEventDate?.value &&
-          helpers.isDate(data?.nextEventDate?.value) &&
-          moment.utc(data?.nextEventDate?.value).format('YYYY-DD-MM')) ||
-        '',
+      cell: data => (data?.nextEventDate?.value && moment.utc(data?.nextEventDate?.value).format('YYYY-DD-MM')) || '',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15

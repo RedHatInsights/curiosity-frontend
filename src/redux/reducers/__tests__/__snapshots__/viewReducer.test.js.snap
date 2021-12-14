@@ -4,7 +4,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -27,11 +31,44 @@ Object {
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 0,
+      },
+    },
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_LIST 1`] = `
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -56,7 +93,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "offset": 0,
@@ -73,11 +114,74 @@ Object {
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_GUESTS_INVENTORY_limit 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "limit": 10,
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_limit",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_GUESTS_INVENTORY_offset 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 10,
+      },
+    },
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {},
+  },
+  "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_offset",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_dir 1`] = `
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "lorem asc direction",
@@ -102,7 +206,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -128,7 +236,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -154,7 +266,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -179,7 +295,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -204,7 +324,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -229,7 +353,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -255,7 +383,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -280,7 +412,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -305,7 +441,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -334,7 +474,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -367,7 +511,11 @@ Object {
         "granularity": "lorem granularity",
       },
     },
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -392,7 +540,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -421,7 +573,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",
@@ -450,7 +606,11 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 Object {
   "result": Object {
     "graphTallyQuery": Object {},
-    "inventoryGuestsQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
     "inventoryHostsQuery": Object {
       "test_id": Object {
         "dir": "dolor desc direction",

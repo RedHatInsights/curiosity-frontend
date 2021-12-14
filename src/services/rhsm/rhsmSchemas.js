@@ -41,6 +41,42 @@ const metaResponseSchema = Joi.object()
   .unknown(true);
 
 /**
+ * Guests response meta field.
+ *
+ * @type {*} Joi schema
+ */
+const guestsMetaSchema = Joi.object()
+  .keys({
+    count: Joi.number().integer().default(0)
+  })
+  .unknown(true);
+
+/**
+ * Instances response item.
+ *
+ * @type {*} Joi schema
+ */
+const guestsItem = Joi.object({
+  inventory_id: Joi.string().optional().allow(null),
+  display_name: Joi.string().optional().allow(null),
+  subscription_manager_id: Joi.string().optional().allow(null),
+  last_seen: Joi.date().utc().allow(null)
+})
+  .unknown(true)
+  .default();
+
+/**
+ * Instances response.
+ *
+ * @type {*} Joi schema
+ */
+const guestsResponseSchema = Joi.object().keys({
+  data: Joi.array().items(guestsItem).default([]),
+  links: linksSchema.default({}),
+  meta: guestsMetaSchema.default({})
+});
+
+/**
  * Instances response meta field.
  *
  * @type {*} Joi schema
@@ -77,6 +113,42 @@ const instancesResponseSchema = Joi.object().keys({
   data: Joi.array().items(instancesItem).default([]),
   links: linksSchema.default({}),
   meta: instancesMetaSchema.default({})
+});
+
+/**
+ * Subscriptions response meta field.
+ *
+ * @type {*} Joi schema
+ */
+const subscriptionsMetaSchema = metaResponseSchema;
+
+/**
+ * Subscriptions response item.
+ *
+ * @type {*} Joi schema
+ */
+const subscriptionsItem = Joi.object({
+  next_event_date: Joi.date().utc().allow(null),
+  product_name: Joi.string().optional().allow(null),
+  quantity: Joi.number().allow(null).default(0),
+  service_level: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_RESPONSE_SLA_TYPES)),
+  total_capacity: Joi.number().allow(null).default(0),
+  uom: Joi.string()
+    .lowercase()
+    .valid(...Object.values(rhsmConstants.RHSM_API_RESPONSE_UOM_TYPES))
+})
+  .unknown(true)
+  .default();
+
+/**
+ * Subscriptions response.
+ *
+ * @type {*} Joi schema
+ */
+const subscriptionsResponseSchema = Joi.object().keys({
+  data: Joi.array().items(subscriptionsItem).default([]),
+  links: linksSchema.default({}),
+  meta: subscriptionsMetaSchema.default({})
 });
 
 /**
@@ -119,7 +191,10 @@ const tallyResponseSchema = Joi.object().keys({
 
 const rhsmSchemas = {
   errors: response => schemaResponse({ response, schema: errorResponseSchema, id: 'RHSM errors' }),
+  guests: response => schemaResponse({ response, casing: 'camel', schema: guestsResponseSchema, id: 'RHSM guests' }),
   instances: response => schemaResponse({ response, schema: instancesResponseSchema, id: 'RHSM instances' }),
+  subscriptions: response =>
+    schemaResponse({ response, casing: 'camel', schema: subscriptionsResponseSchema, id: 'RHSM subscriptions' }),
   tally: response => schemaResponse({ response, schema: tallyResponseSchema, id: 'RHSM tally' })
 };
 

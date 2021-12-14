@@ -21,6 +21,8 @@ Object {
       "a": 0.0003456,
       "b": 2,
       "c": 1000,
+      "numberOfGuests": undefined,
+      "subscriptionManagerId": undefined,
     },
   ],
   "meta": Object {

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InventorySubscriptionsContext should handle an onScroll event: onPage event, dispatch 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "offset": 1,
+        "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_offset",
+        "viewId": "1234567890",
+      },
+      Object {
+        "limit": 100,
+        "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_limit",
+        "viewId": "1234567890",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
+        "viewId": "1234567890",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
+Object {
+  "cancelled": true,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
+Object {
+  "error": true,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
+Object {
+  "fulfilled": true,
+}
+`;
+
+exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
+Object {
+  "pending": true,
+}
+`;
+
+exports[`InventorySubscriptionsContext should return specific properties: specific properties 1`] = `
+Object {
+  "useGetGuestsInventory": [Function],
+  "useOnScroll": [Function],
+  "useSelectorsGuestsInventory": [Function],
+}
+`;

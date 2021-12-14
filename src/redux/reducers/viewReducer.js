@@ -86,6 +86,33 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
+    case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST:
+      const updateClearGuestQuery = (query = {}, id) => {
+        const queryIds = routerHelpers.productGroups[id] || (query[id] && [id]) || [];
+        const updatedQuery = { ...query };
+
+        queryIds.forEach(queryId => {
+          const productQuery = updatedQuery[queryId] || {};
+
+          if (typeof productQuery[RHSM_API_QUERY_TYPES.OFFSET] === 'number') {
+            productQuery[RHSM_API_QUERY_TYPES.OFFSET] = 0;
+          }
+        });
+
+        return updatedQuery;
+      };
+
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          ...state,
+          inventoryGuestsQuery: updateClearGuestQuery(state.inventoryGuestsQuery, action.viewId)
+        },
+        {
+          state,
+          reset: false
+        }
+      );
     case reduxTypes.query.SET_QUERY_CLEAR:
       return reduxHelpers.setStateProp(
         'query',
@@ -177,6 +204,34 @@ const viewReducer = (state = initialState, action) => {
           [action.viewId]: {
             ...state.query[action.viewId],
             [RHSM_API_QUERY_TYPES.USAGE]: action[RHSM_API_QUERY_TYPES.USAGE]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]:
+      return reduxHelpers.setStateProp(
+        'inventoryGuestsQuery',
+        {
+          [action.viewId]: {
+            ...state.inventoryGuestsQuery[action.viewId],
+            [RHSM_API_QUERY_TYPES.LIMIT]: action[RHSM_API_QUERY_TYPES.LIMIT]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]:
+      return reduxHelpers.setStateProp(
+        'inventoryGuestsQuery',
+        {
+          [action.viewId]: {
+            ...state.inventoryGuestsQuery[action.viewId],
+            [RHSM_API_QUERY_TYPES.OFFSET]: action[RHSM_API_QUERY_TYPES.OFFSET]
           }
         },
         {
