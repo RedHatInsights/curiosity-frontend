@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryList Component should handle expandable guests data: number of guests 1`] = `
+exports[`InventoryCard Component should handle expandable guests data: number of guests 1`] = `
 <Table
   ariaLabel={null}
   borders={true}
@@ -31,7 +31,7 @@ exports[`InventoryList Component should handle expandable guests data: number of
 />
 `;
 
-exports[`InventoryList Component should handle expandable guests data: number of guests, and id 1`] = `
+exports[`InventoryCard Component should handle expandable guests data: number of guests, and id 1`] = `
 <Table
   ariaLabel={null}
   borders={true}
@@ -55,15 +55,8 @@ exports[`InventoryList Component should handle expandable guests data: number of
           "loremIpsum",
         ],
         "expandedContent": <Memo(Connect(GuestsList))
-          filterGuestsData={Array []}
           id="loremIpsum"
           numberOfGuests={1}
-          query={
-            Object {
-              "limit": 10,
-              "offset": 0,
-            }
-          }
         />,
       },
     ]
@@ -74,7 +67,7 @@ exports[`InventoryList Component should handle expandable guests data: number of
 />
 `;
 
-exports[`InventoryList Component should handle expandable guests data: number of guests, id, and NO expandable guests display 1`] = `
+exports[`InventoryCard Component should handle expandable guests data: number of guests, id, and NO expandable guests display 1`] = `
 <Table
   ariaLabel={null}
   borders={true}
@@ -107,7 +100,7 @@ exports[`InventoryList Component should handle expandable guests data: number of
 />
 `;
 
-exports[`InventoryList Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
+exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -127,7 +120,6 @@ exports[`InventoryList Component should handle multiple display states, error, p
           useDispatch={[Function]}
           useProduct={[Function]}
           useProductInventoryHostsQuery={[Function]}
-          viewId="inventoryInstancesList"
         />
       </CardHeaderMain>
       <CardActions
@@ -202,7 +194,7 @@ exports[`InventoryList Component should handle multiple display states, error, p
 </Card>
 `;
 
-exports[`InventoryList Component should handle multiple display states, error, pending, fulfilled: fulfilled 1`] = `
+exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: fulfilled 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -222,7 +214,6 @@ exports[`InventoryList Component should handle multiple display states, error, p
           useDispatch={[Function]}
           useProduct={[Function]}
           useProductInventoryHostsQuery={[Function]}
-          viewId="inventoryInstancesList"
         />
       </CardHeaderMain>
       <CardActions
@@ -319,7 +310,7 @@ exports[`InventoryList Component should handle multiple display states, error, p
 </Card>
 `;
 
-exports[`InventoryList Component should handle multiple display states, error, pending, fulfilled: pending 1`] = `
+exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: pending 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -339,7 +330,6 @@ exports[`InventoryList Component should handle multiple display states, error, p
           useDispatch={[Function]}
           useProduct={[Function]}
           useProductInventoryHostsQuery={[Function]}
-          viewId="inventoryInstancesList"
         />
       </CardHeaderMain>
       <CardActions
@@ -420,132 +410,7 @@ exports[`InventoryList Component should handle multiple display states, error, p
 </Card>
 `;
 
-exports[`InventoryList Component should handle updating api data when query, or product id is updated: getInstancesInventory 1`] = `
-Array [
-  Array [
-    "lorem",
-    Object {
-      "lorem": "ipsum",
-    },
-  ],
-  Array [
-    "dolor",
-    Object {
-      "dolor": "sit",
-    },
-  ],
-]
-`;
-
-exports[`InventoryList Component should handle updating paging through redux state: dispatch onPage 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
-        "offset": 10,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-      Object {
-        "limit": 10,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "offset": 20,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-      Object {
-        "limit": 10,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "offset": 0,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-      Object {
-        "limit": 20,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "offset": 0,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-        "viewId": "lorem",
-      },
-      Object {
-        "limit": 50,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-]
-`;
-
-exports[`InventoryList Component should handle updating sorting through redux state: dispatch filter 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
-        "dir": "asc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
-        "viewId": "lorem",
-      },
-      Object {
-        "sort": "Sockets",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "dir": "desc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
-        "viewId": "lorem",
-      },
-      Object {
-        "sort": "Sockets",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "dir": "asc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
-        "viewId": "lorem",
-      },
-      Object {
-        "sort": "Sockets",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-]
-`;
-
-exports[`InventoryList Component should handle variations in data: filtered data 1`] = `
+exports[`InventoryCard Component should handle variations in data: filtered data 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -565,7 +430,6 @@ exports[`InventoryList Component should handle variations in data: filtered data
           useDispatch={[Function]}
           useProduct={[Function]}
           useProductInventoryHostsQuery={[Function]}
-          viewId="inventoryInstancesList"
         />
       </CardHeaderMain>
       <CardActions
@@ -587,7 +451,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
     </CardHeader>
   </MinHeight>
   <MinHeight
-    key="bodyMinHeight-10"
+    key="bodyMinHeight-10-resize"
     minHeight={0}
     updateOnContent={true}
     updateOnResize={true}
@@ -666,7 +530,7 @@ exports[`InventoryList Component should handle variations in data: filtered data
 </Card>
 `;
 
-exports[`InventoryList Component should handle variations in data: variable data 1`] = `
+exports[`InventoryCard Component should handle variations in data: variable data 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -686,7 +550,6 @@ exports[`InventoryList Component should handle variations in data: variable data
           useDispatch={[Function]}
           useProduct={[Function]}
           useProductInventoryHostsQuery={[Function]}
-          viewId="inventoryInstancesList"
         />
       </CardHeaderMain>
       <CardActions
@@ -708,7 +571,7 @@ exports[`InventoryList Component should handle variations in data: variable data
     </CardHeader>
   </MinHeight>
   <MinHeight
-    key="bodyMinHeight-10"
+    key="bodyMinHeight-10-resize"
     minHeight={0}
     updateOnContent={true}
     updateOnResize={true}
@@ -783,7 +646,7 @@ exports[`InventoryList Component should handle variations in data: variable data
 </Card>
 `;
 
-exports[`InventoryList Component should render a non-connected component: non-connected 1`] = `
+exports[`InventoryCard Component should render a basic component: basic render 1`] = `
 <Card
   className="curiosity-inventory-card"
 >
@@ -803,7 +666,6 @@ exports[`InventoryList Component should render a non-connected component: non-co
           useDispatch={[Function]}
           useProduct={[Function]}
           useProductInventoryHostsQuery={[Function]}
-          viewId="inventoryInstancesList"
         />
       </CardHeaderMain>
       <CardActions
@@ -813,7 +675,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
         <Pagination
           dropDirection="down"
           isCompact={true}
-          isDisabled={false}
+          isDisabled={true}
           itemCount={0}
           offset={0}
           onPage={[Function]}
@@ -832,18 +694,24 @@ exports[`InventoryList Component should render a non-connected component: non-co
   >
     <CardBody>
       <div
-        className=""
+        className="fadein"
       >
-        <Table
-          ariaLabel={null}
-          borders={true}
-          className="curiosity-inventory-list"
-          columnHeaders={Array []}
-          isHeader={true}
-          rows={Array []}
-          summary={null}
-          t={[Function]}
-          variant="compact"
+        <Loader
+          skeletonProps={
+            Object {
+              "size": "sm",
+            }
+          }
+          tableProps={
+            Object {
+              "className": "curiosity-inventory-list",
+              "colCount": 1,
+              "colWidth": Array [],
+              "rowCount": 10,
+              "variant": "compact",
+            }
+          }
+          variant="table"
         />
       </div>
     </CardBody>
@@ -864,7 +732,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
         <Pagination
           dropDirection="up"
           isCompact={false}
-          isDisabled={false}
+          isDisabled={true}
           itemCount={0}
           offset={0}
           onPage={[Function]}
@@ -878,7 +746,7 @@ exports[`InventoryList Component should render a non-connected component: non-co
 </Card>
 `;
 
-exports[`InventoryList Component should return an empty render when disabled: disabled component 1`] = `
+exports[`InventoryCard Component should return an empty render when disabled: disabled component 1`] = `
 <Card
   className="curiosity-inventory-card__disabled"
 >
