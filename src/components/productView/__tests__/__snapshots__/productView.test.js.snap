@@ -137,12 +137,13 @@ exports[`ProductView Component should allow custom inventory displays via config
             key="inventory_subs_lorem"
             title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem\\"})"
           >
-            <Connect(InventorySubscriptions)
-              filterInventoryData={Array []}
-              key="subs_lorem"
-              productId="lorem"
-              query={Object {}}
-              viewId="viewIpsum"
+            <InventorySubscriptions
+              isDisabled={false}
+              useGetInventory={[Function]}
+              useOnColumnSort={[Function]}
+              useOnPage={[Function]}
+              useProductInventoryConfig={[Function]}
+              useProductInventoryQuery={[Function]}
             />
           </InventoryTab>
         </Connect(InventoryTabs)>
@@ -529,57 +530,6 @@ exports[`ProductView Component should use an instances inventory for rhosak: cus
   key="inventory_instances_rhosak"
   title="t(curiosity-inventory.tabInstances, {\\"context\\":\\"noInstances_rhosak\\"})"
 >
-  <Connect(InventoryList)
-    filterInventoryData={
-      Array [
-        Object {
-          "cell": [Function],
-          "id": "display_name",
-          "isSortable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "Transfer-gibibytes",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "Storage-gibibytes",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "Instance-hours",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-        Object {
-          "cell": [Function],
-          "cellWidth": 15,
-          "id": "last_seen",
-          "isSortable": true,
-          "isWrappable": true,
-        },
-      ]
-    }
-    key="inv_instances_rhosak"
-    productId="rhosak"
-    query={
-      Object {
-        "beginning": "2019-07-01T00:00:00.000Z",
-        "dir": "desc",
-        "ending": "2019-07-31T23:59:59.999Z",
-        "limit": 100,
-        "offset": 0,
-        "sort": "last_seen",
-      }
-    }
-    viewId="viewrhosak"
-  />
+  <Connect(InventoryCard) />
 </InventoryTab>
 `;

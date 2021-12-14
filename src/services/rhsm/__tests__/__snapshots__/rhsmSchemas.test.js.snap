@@ -3,7 +3,9 @@
 exports[`RHSM Schemas should have specific RHSM response schemas: specific schemas 1`] = `
 Object {
   "errors": [Function],
+  "guests": [Function],
   "instances": [Function],
+  "subscriptions": [Function],
   "tally": [Function],
 }
 `;
@@ -14,7 +16,23 @@ Object {
 }
 `;
 
-exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: response schema 1`] = `
+exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: guests response schema 1`] = `
+Object {
+  "data": Array [],
+  "links": Object {},
+  "meta": Object {},
+}
+`;
+
+exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: instances response schema 1`] = `
+Object {
+  "data": Array [],
+  "links": Object {},
+  "meta": Object {},
+}
+`;
+
+exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: tally response schema 1`] = `
 Object {
   "data": Array [],
   "links": Object {},

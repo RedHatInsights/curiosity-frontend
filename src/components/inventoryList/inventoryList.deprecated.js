@@ -10,7 +10,7 @@ import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import GuestsList from '../guestsList/guestsList';
+import GuestsList from '../guestsList/guestsList.deprecated';
 import { inventoryCardHelpers } from './inventoryCardHelpers';
 import Pagination from '../pagination/pagination';
 import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';
@@ -131,7 +131,7 @@ class InventoryList extends React.Component {
    * @returns {Node}
    */
   renderTable() {
-    const { filterGuestsData, filterInventoryData, listData, query, session, settings } = this.props;
+    const { filterGuestsData, filterInventoryData, listData, productId, query, session, settings } = this.props;
     let updatedColumnHeaders = [];
 
     const updatedRows = listData.map(({ ...cellData }) => {
@@ -160,7 +160,7 @@ class InventoryList extends React.Component {
         expandedContent:
           (hasGuests && (
             <GuestsList
-              key={guestsId}
+              key={`${productId}_${guestsId}`}
               filterGuestsData={filterGuestsData}
               numberOfGuests={cellData?.numberOfGuests}
               id={guestsId}

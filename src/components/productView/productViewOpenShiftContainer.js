@@ -53,14 +53,10 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
       return null;
     }
 
-    const {
-      graphTallyQuery: initialGraphTallyQuery,
-      inventoryHostsQuery: initialInventoryHostsQuery,
-      inventorySubscriptionsQuery: initialInventorySubscriptionsQuery
-    } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
+    const { graphTallyQuery: initialGraphTallyQuery, inventoryHostsQuery: initialInventoryHostsQuery } =
+      apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
     let inventoryFilters = initialInventoryFilters;
-    let subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters;
     let uomFilter;
 
     if (productContextFilterUom) {
@@ -74,7 +70,6 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
       };
 
       inventoryFilters = initialInventoryFilters.filter(filter);
-      subscriptionsInventoryFilters = initialSubscriptionsInventoryFilters.filter(filter);
     }
 
     const graphCardTitle = (
@@ -140,13 +135,7 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
                 key={`inventory_subs_${productId}`}
                 title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
               >
-                <InventorySubscriptions
-                  key={`subs_${productId}`}
-                  filterInventoryData={subscriptionsInventoryFilters}
-                  productId={productId}
-                  query={initialInventorySubscriptionsQuery}
-                  viewId={viewId}
-                />
+                <InventorySubscriptions />
               </InventoryTab>
             )}
           </InventoryTabs>

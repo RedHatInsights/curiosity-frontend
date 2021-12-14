@@ -100,7 +100,7 @@
     "tabHosts_OpenShift-dedicated-metrics_other": "{{count}} instances",
     "tabInstances": "Current monthly instances",
     "tabSubscriptions": "Current subscriptions",
-    "tab_disabled": "The {{tabName}} display is currently disabled.",
+    "tab_disabled": "The inventory display is currently disabled.",
     "tableAriaLabel": "{{appName}} systems inventory table.",
     "tableSummary": "A generated table with one level of column headers.",
     "tableEmptyInventoryTitle": "No results found",

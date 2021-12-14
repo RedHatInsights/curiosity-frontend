@@ -345,56 +345,13 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
             key="inventory_subs_OpenShift Container Platform"
             title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"OpenShift Container Platform\\"})"
           >
-            <Connect(InventorySubscriptions)
-              filterInventoryData={
-                Array [
-                  Object {
-                    "id": "productName",
-                    "isSortable": false,
-                    "isWrappable": true,
-                  },
-                  Object {
-                    "cellWidth": 15,
-                    "id": "serviceLevel",
-                    "isSortable": true,
-                    "isWrappable": true,
-                  },
-                  Object {
-                    "cellWidth": 20,
-                    "id": "quantity",
-                    "isSortable": true,
-                    "isWrappable": true,
-                  },
-                  Object {
-                    "cellWidth": 15,
-                    "header": [Function],
-                    "id": "totalCapacity",
-                    "isSortable": false,
-                    "isWrappable": true,
-                  },
-                  Object {
-                    "cell": [Function],
-                    "cellWidth": 15,
-                    "id": "nextEventDate",
-                    "isSortable": true,
-                    "isWrappable": true,
-                  },
-                ]
-              }
-              key="subs_OpenShift Container Platform"
-              productId="OpenShift Container Platform"
-              query={
-                Object {
-                  "beginning": "2019-06-20T00:00:00.000Z",
-                  "dir": "desc",
-                  "ending": "2019-07-20T23:59:59.999Z",
-                  "limit": 100,
-                  "offset": 0,
-                  "sort": "next_event_date",
-                  "uom": "cores",
-                }
-              }
-              viewId="viewOpenShift Container Platform"
+            <InventorySubscriptions
+              isDisabled={false}
+              useGetInventory={[Function]}
+              useOnColumnSort={[Function]}
+              useOnPage={[Function]}
+              useProductInventoryConfig={[Function]}
+              useProductInventoryQuery={[Function]}
             />
           </InventoryTab>
         </Connect(InventoryTabs)>
