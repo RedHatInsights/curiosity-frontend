@@ -9,6 +9,7 @@ import {
   useProductContext,
   useProduct,
   useProductGraphConfig,
+  useProductInventoryGuestsConfig,
   useProductInventoryHostsConfig,
   useProductInventorySubscriptionsConfig,
   useProductToolbarConfig
@@ -116,6 +117,10 @@ describe('ProductViewContext', () => {
       initialGraphSettings: {
         lorem: 'ipsum'
       },
+      initialGuestsFilters: [{ sit: 'dolor' }],
+      initialGuestsSettings: {
+        sit: 'dolor'
+      },
       initialInventoryFilters: [{ dolor: 'sit' }],
       initialInventorySettings: {
         dolor: 'sit'
@@ -137,6 +142,11 @@ describe('ProductViewContext', () => {
       useProductGraphConfig({ useProductContext: () => mockContextValue })
     );
     expect(productGraphConfig).toMatchSnapshot('productGraphConfig');
+
+    const { result: productInventoryGuestsConfig } = shallowHook(() =>
+      useProductInventoryGuestsConfig({ useProductContext: () => mockContextValue })
+    );
+    expect(productInventoryGuestsConfig).toMatchSnapshot('productInventoryGuestsConfig');
 
     const { result: productInventoryHostsConfig } = shallowHook(() =>
       useProductInventoryHostsConfig({ useProductContext: () => mockContextValue })

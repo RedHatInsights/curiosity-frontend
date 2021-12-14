@@ -48,6 +48,14 @@ Object {
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
+  "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
+    "NEXT_EVENT_DATE": "next_event_date",
+    "NEXT_EVENT_TYPE": "next_event_type",
+    "QUANTITY": "quantity",
+    "SERVICE_LEVEL": "service_level",
+    "SKU": "sku",
+    "USAGE": "usage",
+  },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
@@ -112,6 +120,7 @@ Object {
     "INVENTORY_ID": "inventory_id",
     "LAST_SEEN": "last_seen",
     "MEASUREMENTS": "measurements",
+    "NUMBER_OF_GUESTS": "number_of_guests",
     "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
   },
   "RHSM_API_RESPONSE_INSTANCES_META_TYPES": Object {
@@ -203,6 +212,14 @@ Object {
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
+    "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
+      "NEXT_EVENT_DATE": "next_event_date",
+      "NEXT_EVENT_TYPE": "next_event_type",
+      "QUANTITY": "quantity",
+      "SERVICE_LEVEL": "service_level",
+      "SKU": "sku",
+      "USAGE": "usage",
+    },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
@@ -267,6 +284,7 @@ Object {
       "INVENTORY_ID": "inventory_id",
       "LAST_SEEN": "last_seen",
       "MEASUREMENTS": "measurements",
+      "NUMBER_OF_GUESTS": "number_of_guests",
       "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
     },
     "RHSM_API_RESPONSE_INSTANCES_META_TYPES": Object {
@@ -359,6 +377,14 @@ Object {
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
+    "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
+      "NEXT_EVENT_DATE": "next_event_date",
+      "NEXT_EVENT_TYPE": "next_event_type",
+      "QUANTITY": "quantity",
+      "SERVICE_LEVEL": "service_level",
+      "SKU": "sku",
+      "USAGE": "usage",
+    },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
@@ -423,6 +449,7 @@ Object {
       "INVENTORY_ID": "inventory_id",
       "LAST_SEEN": "last_seen",
       "MEASUREMENTS": "measurements",
+      "NUMBER_OF_GUESTS": "number_of_guests",
       "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
     },
     "RHSM_API_RESPONSE_INSTANCES_META_TYPES": Object {
@@ -519,6 +546,14 @@ Object {
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
+  "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
+    "NEXT_EVENT_DATE": "next_event_date",
+    "NEXT_EVENT_TYPE": "next_event_type",
+    "QUANTITY": "quantity",
+    "SERVICE_LEVEL": "service_level",
+    "SKU": "sku",
+    "USAGE": "usage",
+  },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
@@ -583,6 +618,7 @@ Object {
     "INVENTORY_ID": "inventory_id",
     "LAST_SEEN": "last_seen",
     "MEASUREMENTS": "measurements",
+    "NUMBER_OF_GUESTS": "number_of_guests",
     "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
   },
   "RHSM_API_RESPONSE_INSTANCES_META_TYPES": Object {

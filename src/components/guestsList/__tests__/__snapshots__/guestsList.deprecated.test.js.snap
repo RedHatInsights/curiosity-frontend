@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GuestsList Component should handle an onScroll event: scroll event 1`] = `
-Array [
-  Array [
-    Object {
-      "target": Object {
-        "clientHeight": 100,
-        "scrollHeight": 200,
-        "scrollTop": 100,
-      },
-    },
-  ],
-]
-`;
-
 exports[`GuestsList Component should handle multiple display states: fulfilled 1`] = `
 <div
   className="fadein "
@@ -85,6 +71,73 @@ exports[`GuestsList Component should handle multiple display states: initial pen
 </div>
 `;
 
+exports[`GuestsList Component should handle multiple display states: paged pending 1`] = `
+<div
+  className="fadein "
+>
+  <div
+    className="curiosity-table-scroll"
+    style={
+      Object {
+        "height": "84px",
+      }
+    }
+  >
+    <div
+      className="curiosity-table-scroll-list__no-scroll"
+      onScroll={[Function]}
+    >
+      <div
+        className="curiosity-table-scroll-loader__custom"
+      >
+        <Loader
+          skeletonProps={
+            Object {
+              "size": "sm",
+            }
+          }
+          tableProps={
+            Object {
+              "borders": false,
+              "colCount": 1,
+              "colWidth": Array [],
+              "rowCount": 0,
+              "variant": "compact",
+            }
+          }
+          variant="table"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`GuestsList Component should handle updating paging state: state 1`] = `
+Object {
+  "initialState": Object {
+    "currentPage": 0,
+    "limit": 100,
+    "previousData": Array [],
+  },
+  "scrollComplete": Object {
+    "currentPage": 1,
+    "limit": 100,
+    "previousData": Array [
+      Object {
+        "dolor": "sit",
+        "lorem": "ipsum",
+      },
+    ],
+  },
+  "scrollProgress": Object {
+    "currentPage": 0,
+    "limit": 100,
+    "previousData": Array [],
+  },
+}
+`;
+
 exports[`GuestsList Component should handle variations in data: filtered data 1`] = `
 <div
   className="fadein "
@@ -109,9 +162,7 @@ exports[`GuestsList Component should handle variations in data: filtered data 1`
           Array [
             Object {
               "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-              "transforms": Array [
-                [Function],
-              ],
+              "transforms": Array [],
             },
           ]
         }
@@ -195,27 +246,22 @@ exports[`GuestsList Component should handle variations in data: variable data 1`
 </div>
 `;
 
-exports[`GuestsList Component should render a basic component: basic render 1`] = `
+exports[`GuestsList Component should render a non-connected component: non-connected 1`] = `
 <div
   className="fadein "
 >
-  <Loader
-    skeletonProps={
+  <div
+    className="curiosity-table-scroll"
+    style={
       Object {
-        "size": "sm",
+        "height": "42px",
       }
     }
-    tableProps={
-      Object {
-        "borders": false,
-        "className": "curiosity-guests-list",
-        "colCount": 1,
-        "colWidth": Array [],
-        "rowCount": 0,
-        "variant": "compact",
-      }
-    }
-    variant="table"
-  />
+  >
+    <div
+      className="curiosity-table-scroll-list__no-scroll"
+      onScroll={[Function]}
+    />
+  </div>
 </div>
 `;

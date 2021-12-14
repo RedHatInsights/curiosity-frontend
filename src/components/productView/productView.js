@@ -10,13 +10,13 @@ import { ConnectedGraphCard as ConnectedGraphCardDeprecated } from '../graphCard
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryList/inventoryList.deprecated';
-import { ConnectedInventoryList } from '../inventoryList/inventoryCard';
+import { ConnectedInventoryCard } from '../inventoryList/inventoryCard';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { SelectPosition } from '../form/select';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
-import { ConnectedInventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
+import { InventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
 import { RHSM_API_PATH_PRODUCT_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
@@ -62,11 +62,8 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
       return null;
     }
 
-    const {
-      graphTallyQuery: initialGraphTallyQuery,
-      inventoryHostsQuery: initialInventoryHostsQuery,
-      inventorySubscriptionsQuery: initialInventorySubscriptionsQuery
-    } = apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
+    const { graphTallyQuery: initialGraphTallyQuery, inventoryHostsQuery: initialInventoryHostsQuery } =
+      apiQueries.parseRhsmQuery(query, { graphTallyQuery, inventoryHostsQuery, inventorySubscriptionsQuery });
 
     let graphCardTooltip = null;
 
@@ -149,15 +146,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                   key={`inventory_instances_${productId}`}
                   title={t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })}
                 >
-                  <ConnectedInventoryList
-                    key={`inv_instances_${productId}`}
-                    filterGuestsData={initialGuestsFilters}
-                    filterInventoryData={initialInventoryFilters}
-                    productId={productId}
-                    settings={initialInventorySettings}
-                    query={initialInventoryHostsQuery}
-                    viewId={viewId}
-                  />
+                  <ConnectedInventoryCard />
                 </InventoryTab>
               )}
             {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
@@ -165,13 +154,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                 key={`inventory_subs_${productId}`}
                 title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
               >
-                <ConnectedInventorySubscriptions
-                  key={`subs_${productId}`}
-                  filterInventoryData={initialSubscriptionsInventoryFilters}
-                  productId={productId}
-                  query={initialInventorySubscriptionsQuery}
-                  viewId={viewId}
-                />
+                <InventorySubscriptions />
               </InventoryTab>
             )}
           </InventoryTabs>

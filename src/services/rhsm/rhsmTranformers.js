@@ -23,17 +23,26 @@ const rhsmInstances = response => {
     response || {};
   const metaMeasurements = meta[INSTANCES_META_TYPES.MEASUREMENTS];
 
-  updatedResponse.data = data.map(({ [INSTANCES_DATA_TYPES.MEASUREMENTS]: measurements, ...dataResponse }) => {
-    const updatedData = {
+  updatedResponse.data = data.map(
+    ({
+      [INSTANCES_DATA_TYPES.MEASUREMENTS]: measurements,
+      [INSTANCES_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
+      [INSTANCES_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
       ...dataResponse
-    };
+    }) => {
+      const updatedData = {
+        numberOfGuests,
+        subscriptionManagerId,
+        ...dataResponse
+      };
 
-    metaMeasurements?.forEach((measurement, index) => {
-      updatedData[measurement] = measurements[index];
-    });
+      metaMeasurements?.forEach((measurement, index) => {
+        updatedData[measurement] = measurements[index];
+      });
 
-    return updatedData;
-  });
+      return updatedData;
+    }
+  );
 
   updatedResponse.meta = {
     count: meta[INSTANCES_META_TYPES.COUNT],

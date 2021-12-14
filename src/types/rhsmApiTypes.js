@@ -1,12 +1,18 @@
 import { rhsmConstants } from '../services/rhsm/rhsmConstants';
 
 /**
+ * ToDo: Clean up params, see userReducer.
+ */
+/**
  * RHSM response Error DATA type.
  *
  * @type {string}
  */
 const RHSM_API_RESPONSE_ERROR_DATA = 'errors';
 
+/**
+ * ToDo: Clean up params, see userReducer.
+ */
 /**
  * RHSM response Error DATA types.
  * Schema/map of expected Error data response properties.
@@ -28,12 +34,18 @@ const RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES = {
 };
 
 /**
+ * ToDo: Clean up params, unused.
+ */
+/**
  * RHSM response links type.
  *
  * @type {string}
  */
 const RHSM_API_RESPONSE_LINKS = 'links';
 
+/**
+ * ToDo: Clean up params, unused.
+ */
 /**
  * RHSM response LINKS type.
  * Schema/map of expected inventory LINKS response properties.
@@ -54,6 +66,10 @@ const RHSM_API_RESPONSE_LINKS_TYPES = {
  */
 const RHSM_API_RESPONSE_META = 'meta';
 
+/**
+ * ToDo: Clean up params, used by deprecated graph component selector and deprecated inventory component selector.
+ * It appears some of these may need to move over towards rhsmSchemas.js
+ */
 /**
  * RHSM response META types.
  * Schema/map of expected META response properties.
@@ -80,6 +96,10 @@ const RHSM_API_RESPONSE_DATA = 'data';
  */
 const RHSM_API_RESPONSE_CAPACITY_DATA = RHSM_API_RESPONSE_DATA;
 
+/**
+ * ToDo: Clean up params, used by deprecated graph component selector.
+ * We may need to relocate this as part of a "capacity" schema some of these params towards rhsmSchemas.js
+ */
 /**
  * RHSM response Capacity DATA types.
  * Schema/map of expected Capacity data response properties.
@@ -109,6 +129,9 @@ const RHSM_API_RESPONSE_CAPACITY_DATA_TYPES = {
 const RHSM_API_RESPONSE_INVENTORY_DATA = RHSM_API_RESPONSE_DATA;
 
 /**
+ * ToDo: Clean up params, used by deprecated inventory component and related selector.
+ */
+/**
  * RHSM response inventory DATA types.
  * Schema/map of expected inventory DATA response properties.
  *
@@ -132,6 +155,9 @@ const RHSM_API_RESPONSE_INVENTORY_DATA_TYPES = {
 };
 
 /**
+ * ToDo: Clean up params, used by deprecated guests component selector.
+ */
+/**
  * RHSM response inventory guests DATA types.
  * Schema/map of expected inventory guests DATA response properties.
  *
@@ -145,34 +171,16 @@ const RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES = {
 };
 
 /**
- * RHSM response subscriptions inventory DATA types.
- *
- * @type {{UOM: string, SUBSCRIPTIONS: string, PHYSICAL_CAPACITY: string, USAGE: string,
- *     QUANTITY: string, NEXT_EVENT_TYPE: string, NEXT_EVENT_DATE: string, VIRTUAL_CAPACITY: string,
- *     TOTAL_CAPACITY: string, SKU: string, PRODUCT_NAME: string, SERVICE_LEVEL: string}}
- */
-const RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES = {
-  SKU: 'sku',
-  PRODUCT_NAME: 'product_name',
-  SERVICE_LEVEL: 'service_level',
-  USAGE: 'usage',
-  SUBSCRIPTIONS: 'subscriptions',
-  NEXT_EVENT_DATE: 'next_event_date',
-  NEXT_EVENT_TYPE: 'next_event_type',
-  QUANTITY: 'quantity',
-  PHYSICAL_CAPACITY: 'physical_capacity',
-  VIRTUAL_CAPACITY: 'virtual_capacity',
-  TOTAL_CAPACITY: 'total_capacity',
-  UOM: 'uom'
-};
-
-/**
  * RHSM response Reporting/Tally DATA type.
  *
  * @type {string}
  */
 const RHSM_API_RESPONSE_PRODUCTS_DATA = RHSM_API_RESPONSE_DATA;
 
+/**
+ * ToDo: Clean up params, used by app message component, deprecated graph component, and Tally response selectors.
+ * May need to move part of this towards rhsmConstants.js
+ */
 /**
  * RHSM response Reporting/Tally DATA types.
  * Schema/map of expected Reporting/Tally DATA response properties.
@@ -245,28 +253,13 @@ const RHSM_API_QUERY_SORT_TYPES = {
 };
 
 /**
- * RHSM API query/search parameter of EVENT type values for Subscriptions.
- *
- * @type {{EVENT_START: string, EVENT_END: string}}
- */
-const RHSM_API_QUERY_SUBSCRIPTIONS_EVENT_TYPES = {
-  EVENT_START: 'Subscription Start',
-  EVENT_END: 'Subscription End'
-};
-
-/**
  * RHSM API query/search parameter SORT type values for SUBSCRIPTIONS.
  *
  * @type {{QUANTITY: string, USAGE: string, NEXT_EVENT_TYPE: string, NEXT_EVENT_DATE: string, SKU: string,
  *     SERVICE_LEVEL: string}}
  */
 const RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES = {
-  NEXT_EVENT_DATE: 'next_event_date',
-  NEXT_EVENT_TYPE: 'next_event_type',
-  QUANTITY: 'quantity',
-  SKU: 'sku',
-  SERVICE_LEVEL: 'service_level',
-  USAGE: 'usage'
+  ...rhsmConstants.RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES
 };
 
 /**
@@ -306,6 +299,9 @@ const RHSM_API_QUERY_USAGE_TYPES = {
 };
 
 /**
+ * ToDo: Clean up params, unused.
+ */
+/**
  * RHSM API query/search parameter OPTIN type values.
  *
  * @type {{TALLY_SYNC: string, TALLY_REPORT: string, CONDUIT_SYNC: string}}
@@ -341,8 +337,7 @@ const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
  * @type {{OFFSET: string, LIMIT: string}}
  */
 const RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES = {
-  LIMIT: 'limit',
-  OFFSET: 'offset'
+  ...rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES
 };
 
 /**
@@ -373,44 +368,37 @@ const RHSM_API_QUERY_TYPES = {
 /**
  * RHSM API types.
  *
- * @type {{RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES: {UOM: string, USAGE: string, DIRECTION: string, SORT: string,
- *     OFFSET: string, SLA: string, LIMIT: string}, RHSM_API_RESPONSE_DATA: string,
- *     RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES: {UOM: string, SUBSCRIPTIONS: string, PHYSICAL_CAPACITY: string,
- *     USAGE: string, QUANTITY: string, NEXT_EVENT_TYPE: string, NEXT_EVENT_DATE: string, VIRTUAL_CAPACITY: string,
- *     TOTAL_CAPACITY: string, SKU: string, PRODUCT_NAME: string, SERVICE_LEVEL: string},
- *     RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES: {GENERIC: string, OPTIN: string}, RHSM_API_RESPONSE_INVENTORY_DATA: string,
- *     RHSM_API_RESPONSE_CAPACITY_DATA: string, RHSM_API_RESPONSE_ERROR_DATA_TYPES: {CODE: string, DETAIL: string},
+ * @type {{RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES: {UOM: string, USAGE: string, DIRECTION: string, SORT: string, OFFSET: string,
+ *     SLA: string, LIMIT: string}, RHSM_API_RESPONSE_DATA: string, RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES: {GENERIC: string,
+ *     OPTIN: string}, RHSM_API_RESPONSE_INVENTORY_DATA: string, RHSM_API_RESPONSE_CAPACITY_DATA: string,
+ *     RHSM_API_RESPONSE_ERROR_DATA_TYPES: {CODE: string, DETAIL: string},
  *     RHSM_API_RESPONSE_CAPACITY_DATA_TYPES: {HYPERVISOR_SOCKETS: string, CORES: string, DATE: string, SOCKETS: string,
  *     PHYSICAL_SOCKETS: string, HYPERVISOR_CORES: string, HAS_INFINITE: string, PHYSICAL_CORES: string},
- *     RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES: {QUANTITY: string, USAGE: string, NEXT_EVENT_TYPE: string,
- *     NEXT_EVENT_DATE: string, SKU: string, SERVICE_LEVEL: string}, RHSM_API_RESPONSE_META_TYPES: {COUNT: string,
- *     TOTAL_INSTANCE_HOURS: string, TOTAL_CORE_HOURS: string}, RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string,
- *     QUARTERLY: string, DAILY: string, MONTHLY: string}, RHSM_API_QUERY_SORT_DIRECTION_TYPES: {ASCENDING: string,
- *     DESCENDING: string}, RHSM_API_RESPONSE_PRODUCTS_DATA: string,
- *     RHSM_API_QUERY_SUBSCRIPTIONS_EVENT_TYPES: {EVENT_START: string, EVENT_END: string},
- *     RHSM_API_QUERY_TYPES: {GRANULARITY: string, TALLY_SYNC: string, DIRECTION: string, END_DATE: string, SLA: string,
- *     START_DATE: string, LIMIT: string, UOM: string, TALLY_REPORT: string, USAGE: string, SORT: string, OFFSET: string,
- *     CONDUIT_SYNC: string}, RHSM_API_RESPONSE_LINKS: string, RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES: {OFFSET: string,
- *     LIMIT: string}, RHSM_API_PATH_ID_TYPES: {RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string,
- *     RHEL_WORKSTATION: string, RHOSAK: string, RHEL_COMPUTE_NODE: string, RHEL_X86: string, OPENSHIFT: string,
- *     SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_DESKTOP: string, RHEL: string,
- *     SATELLITE_CAPSULE: string, RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string},
+ *     RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES: {QUANTITY: string, USAGE: string, NEXT_EVENT_TYPE: string, NEXT_EVENT_DATE: string,
+ *     SKU: string, SERVICE_LEVEL: string}, RHSM_API_RESPONSE_META_TYPES: {COUNT: string, TOTAL_INSTANCE_HOURS: string,
+ *     TOTAL_CORE_HOURS: string}, RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY: string,
+ *     MONTHLY: string}, RHSM_API_QUERY_SORT_DIRECTION_TYPES: {ASCENDING: string, DESCENDING: string},
+ *     RHSM_API_RESPONSE_PRODUCTS_DATA: string, RHSM_API_QUERY_TYPES: {GRANULARITY: string, TALLY_SYNC: string, DIRECTION: string,
+ *     END_DATE: string, SLA: string, START_DATE: string, LIMIT: string, UOM: string, TALLY_REPORT: string, USAGE: string,
+ *     SORT: string, OFFSET: string, CONDUIT_SYNC: string}, RHSM_API_RESPONSE_LINKS: string,
+ *     RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES: {OFFSET: string, LIMIT: string}, RHSM_API_PATH_ID_TYPES: {RHEL_ARM: string,
+ *     OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHOSAK: string, RHEL_COMPUTE_NODE: string,
+ *     RHEL_X86: string, OPENSHIFT: string, SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string, RHEL_DESKTOP: string,
+ *     RHEL: string, SATELLITE_CAPSULE: string, RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string},
  *     RHSM_API_QUERY_SET_OPTIN_TYPES: {TALLY_SYNC: string, TALLY_REPORT: string, CONDUIT_SYNC: string},
  *     RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT: string, PRODUCTION: string},
  *     RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string, STANDARD: string},
- *     RHSM_API_QUERY_SET_INVENTORY_TYPES: {UOM: string, USAGE: string, DIRECTION: string, SORT: string, OFFSET: string,
- *     SLA: string, LIMIT: string}, RHSM_API_QUERY_SORT_TYPES: {CORES: string, CORE_HOURS: string, HARDWARE: string,
- *     SOCKETS: string, MEASUREMENT: string, LAST_SEEN: string, NAME: string},
- *     RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES: {HYPERVISOR_SOCKETS: string, CORES: string, INSTANCE_HOURS: string,
- *     SOCKETS: string, CLOUD_CORES: string, HAS_DATA: string, PHYSICAL_SOCKETS: string, PHYSICAL_CORES: string,
- *     CLOUD_INSTANCES: string, DATE: string, CORE_HOURS: string, CLOUD_SOCKETS: string, HAS_CLOUDIGRADE_DATA: string,
- *     HAS_CLOUDIGRADE_MISMATCH: string, HYPERVISOR_CORES: string}, RHSM_API_QUERY_UOM_TYPES: {CORES: string,
- *     SOCKETS: string}, RHSM_API_RESPONSE_LINKS_TYPES: string,
- *     RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES: {SUBSCRIPTION_ID: string, ID: string, NAME: string,
- *     LAST_SEEN: string}, RHSM_API_RESPONSE_ERROR_DATA: string, RHSM_API_RESPONSE_META: string,
- *     RHSM_API_RESPONSE_INVENTORY_DATA_TYPES: {CORES: string, CORE_HOURS: string, HARDWARE: string, SOCKETS: string,
- *     SUBSCRIPTION_ID: string, INVENTORY_ID: string, MEASUREMENT: string, ID: string, GUESTS: string,
- *     CLOUD_PROVIDER: string, LAST_SEEN: string, NAME: string},
+ *     RHSM_API_QUERY_SET_INVENTORY_TYPES: {UOM: string, USAGE: string, DIRECTION: string, SORT: string, OFFSET: string, SLA: string,
+ *     LIMIT: string}, RHSM_API_QUERY_SORT_TYPES: {CORES: string, CORE_HOURS: string, HARDWARE: string, SOCKETS: string,
+ *     MEASUREMENT: string, LAST_SEEN: string, NAME: string}, RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES: {HYPERVISOR_SOCKETS: string,
+ *     CORES: string, INSTANCE_HOURS: string, SOCKETS: string, CLOUD_CORES: string, HAS_DATA: string, PHYSICAL_SOCKETS: string,
+ *     PHYSICAL_CORES: string, CLOUD_INSTANCES: string, DATE: string, CORE_HOURS: string, CLOUD_SOCKETS: string,
+ *     HAS_CLOUDIGRADE_DATA: string, HAS_CLOUDIGRADE_MISMATCH: string, HYPERVISOR_CORES: string},
+ *     RHSM_API_QUERY_UOM_TYPES: {CORES: string, SOCKETS: string}, RHSM_API_RESPONSE_LINKS_TYPES: string,
+ *     RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES: {SUBSCRIPTION_ID: string, ID: string, NAME: string, LAST_SEEN: string},
+ *     RHSM_API_RESPONSE_ERROR_DATA: string, RHSM_API_RESPONSE_META: string, RHSM_API_RESPONSE_INVENTORY_DATA_TYPES: {CORES: string,
+ *     CORE_HOURS: string, HARDWARE: string, SOCKETS: string, SUBSCRIPTION_ID: string, INVENTORY_ID: string, MEASUREMENT: string,
+ *     ID: string, GUESTS: string, CLOUD_PROVIDER: string, LAST_SEEN: string, NAME: string},
  *     RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES: {GRANULARITY: string, USAGE: string, END_DATE: string, SLA: string,
  *     START_DATE: string}}}
  */
@@ -428,13 +416,11 @@ const rhsmApiTypes = {
   RHSM_API_RESPONSE_INVENTORY_DATA,
   RHSM_API_RESPONSE_INVENTORY_DATA_TYPES,
   RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES,
-  RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES,
   RHSM_API_RESPONSE_PRODUCTS_DATA,
   RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES,
   RHSM_API_PATH_ID_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_QUERY_SUBSCRIPTIONS_EVENT_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SLA_TYPES,
@@ -464,13 +450,11 @@ export {
   RHSM_API_RESPONSE_INVENTORY_DATA,
   RHSM_API_RESPONSE_INVENTORY_DATA_TYPES,
   RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES,
-  RHSM_API_RESPONSE_INVENTORY_SUBSCRIPTIONS_DATA_TYPES,
   RHSM_API_RESPONSE_PRODUCTS_DATA,
   RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES,
   RHSM_API_PATH_ID_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES,
   RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_QUERY_SUBSCRIPTIONS_EVENT_TYPES,
   RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SLA_TYPES,

@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from 'react';
 import { reduxHelpers } from '../../redux/common';
 import { storeHooks } from '../../redux/hooks';
 import { RHSM_API_QUERY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -25,19 +26,22 @@ const useProductViewContext = () => useContext(ProductViewContext);
  *
  * @param {string} queryType An identifier used to pull from both config and Redux, they should named the same.
  * @param {object} options
+ * @param {string} options.overrideId A custom identifier, used for scenarios like the Guest inventory IDs
  * @param {object} options.useProductViewContext
  * @returns {object}
  */
 const useProductQueryFactory = (
   queryType,
-  { useProductViewContext: useAliasProductViewContext = useProductViewContext } = {}
+  { overrideId, useProductViewContext: useAliasProductViewContext = useProductViewContext } = {}
 ) => {
   const { [queryType]: initialQuery, productId, viewId } = useAliasProductViewContext();
+  const queryOverride = storeHooks.reactRedux.useSelector(({ view }) => view?.[queryType]?.[overrideId], undefined);
   const queryProduct = storeHooks.reactRedux.useSelector(({ view }) => view?.[queryType]?.[productId], undefined);
   const queryView = storeHooks.reactRedux.useSelector(({ view }) => view?.[queryType]?.[viewId], undefined);
 
   return {
     ...initialQuery,
+    ...queryOverride,
     ...queryProduct,
     ...queryView
   };
@@ -76,21 +80,27 @@ const useProductGraphTallyQuery = ({
   );
 
 /**
- * Return the inventory query for guests.
+ * Return the inventory query for guests. Use fallback/defaults for guests offset, limit.
  *
  * @param {object} options
+ * @param {number} options.defaultLimit
+ * @param {number} options.defaultOffset
  * @param {string} options.queryType
  * @param {object} options.schemaCheck
  * @param {object} options.options
  * @returns {object}
  */
 const useProductInventoryGuestsQuery = ({
+  defaultLimit = 100,
+  defaultOffset = 0,
   queryType = 'inventoryGuestsQuery',
   schemaCheck = rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
     {
+      [RHSM_API_QUERY_SET_TYPES.LIMIT]: defaultLimit,
+      [RHSM_API_QUERY_SET_TYPES.OFFSET]: defaultOffset,
       ...useProductQuery(),
       ...useProductQueryFactory(queryType, options)
     },
@@ -230,6 +240,22 @@ const useProductGraphConfig = ({ useProductContext: useAliasProductContext = use
 };
 
 /**
+ * Return guests inventory configuration.
+ *
+ * @param {object} options
+ * @param {Function} options.useProductContext
+ * @returns {{settings: object, filters: Array}}
+ */
+const useProductInventoryGuestsConfig = ({ useProductContext: useAliasProductContext = useProductContext } = {}) => {
+  const { inventoryGuestsQuery = {}, initialGuestsFilters, initialGuestsSettings = {} } = useAliasProductContext();
+  return {
+    filters: initialGuestsFilters,
+    initialQuery: inventoryGuestsQuery,
+    settings: initialGuestsSettings
+  };
+};
+
+/**
  * Return hosts inventory configuration.
  *
  * @param {object} options
@@ -288,6 +314,7 @@ const context = {
   useInventorySubscriptionsQuery: useProductInventorySubscriptionsQuery,
   useProduct,
   useGraphConfig: useProductGraphConfig,
+  useInventoryGuestsConfig: useProductInventoryGuestsConfig,
   useInventoryHostsConfig: useProductInventoryHostsConfig,
   useInventorySubscriptionsConfig: useProductInventorySubscriptionsConfig,
   useToolbarConfig: useProductToolbarConfig
@@ -307,6 +334,7 @@ export {
   useProductInventorySubscriptionsQuery,
   useProduct,
   useProductGraphConfig,
+  useProductInventoryGuestsConfig,
   useProductInventoryHostsConfig,
   useProductInventorySubscriptionsConfig,
   useProductToolbarConfig
