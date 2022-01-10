@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.0.0...v2.1.0) (2022-01-10)
+
+
+### Features
+
+* **inventorySubscriptions:** ent-3352 activate subs table ([#795](https://github.com/RedHatInsights/curiosity-frontend/issues/795)) ([fa3186b](https://github.com/RedHatInsights/curiosity-frontend/commit/fa3186b8cbd809b1acf7f99a6cb8c089e2949704))
+* **productView,graphCard:** ent-4366 rhosak multi-graph display ([#824](https://github.com/RedHatInsights/curiosity-frontend/issues/824)) ([17dee2d](https://github.com/RedHatInsights/curiosity-frontend/commit/17dee2db9234a4357e89790b236e1b22e9ed64e4))
+* **productView,inventoryList:** ent-4367 rhosak inventory ([#831](https://github.com/RedHatInsights/curiosity-frontend/issues/831)) ([8b9a560](https://github.com/RedHatInsights/curiosity-frontend/commit/8b9a5607c5bafd6a24900b68250ce121cf00fe75))
+* **rhsmServices,redux:** ent-4366 tally refactor for metric id ([#822](https://github.com/RedHatInsights/curiosity-frontend/issues/822)) ([f146d9f](https://github.com/RedHatInsights/curiosity-frontend/commit/f146d9f811bc42f8322adddc8dbd0eea9881392b))
+* **rhsmServices,redux:** ent-4367 instances inventory ([#830](https://github.com/RedHatInsights/curiosity-frontend/issues/830)) ([6db7120](https://github.com/RedHatInsights/curiosity-frontend/commit/6db71209f04d3a6533190db9f4026222bdafc398))
+* **toolbarFieldSla,Usage:** ent-4208 standalone sla, usage ([#820](https://github.com/RedHatInsights/curiosity-frontend/issues/820)) ([b0632a3](https://github.com/RedHatInsights/curiosity-frontend/commit/b0632a330af125a97e7c2584e87b06e1a2a2b040))
+
+
+### Bug Fixes
+
+* **build:** npm updates ([#767](https://github.com/RedHatInsights/curiosity-frontend/issues/767)) ([c457fcb](https://github.com/RedHatInsights/curiosity-frontend/commit/c457fcba55c8a3594bde12552751c6b6269167ea))
+* **build:** npm updates ([#801](https://github.com/RedHatInsights/curiosity-frontend/issues/801)) ([f933afc](https://github.com/RedHatInsights/curiosity-frontend/commit/f933afc458c03b533e930fd0080b264d663bfcd8))
+* **build:** pf, platform npm updates ([#801](https://github.com/RedHatInsights/curiosity-frontend/issues/801)) ([7b71658](https://github.com/RedHatInsights/curiosity-frontend/commit/7b7165809ee8e391c4649bc703760c96ac43509f))
+* **chartHelpers:** ent-4135 custom x, y, filter NaN and undefined ([#783](https://github.com/RedHatInsights/curiosity-frontend/issues/783)) ([a106d13](https://github.com/RedHatInsights/curiosity-frontend/commit/a106d138ab636f04fdd19ab9c662a25700b62124))
+* **chartHelpers:** ent-4366 adjust yaxis domain for small values ([#839](https://github.com/RedHatInsights/curiosity-frontend/issues/839)) ([ffa9dd6](https://github.com/RedHatInsights/curiosity-frontend/commit/ffa9dd68b3251f1bbca3d7cda5f13ff49c58efc6))
+* **config:** ent-4367 rhosak config checks ([#840](https://github.com/RedHatInsights/curiosity-frontend/issues/840)) ([58ef9b6](https://github.com/RedHatInsights/curiosity-frontend/commit/58ef9b6c1ff5a17c076c42367884f903a055736f))
+* **graphCardHelpers:** ent-4510 allow product custom axes ([#829](https://github.com/RedHatInsights/curiosity-frontend/issues/829)) ([a8f31d3](https://github.com/RedHatInsights/curiosity-frontend/commit/a8f31d37a0d7caa6445c4645a639cf8052227a76))
+* **graphCardMetricTotals:** ent-4366 daily monthly displays ([#827](https://github.com/RedHatInsights/curiosity-frontend/issues/827)) ([164b0a8](https://github.com/RedHatInsights/curiosity-frontend/commit/164b0a89f1cdfed8a0b46b045a7e51569e8b3a75))
+* **graphCardMetricTotals:** ent-4366 daily, monthly header copy ([#840](https://github.com/RedHatInsights/curiosity-frontend/issues/840)) ([b570613](https://github.com/RedHatInsights/curiosity-frontend/commit/b570613d5bb5f9bde90dce9a72f7973f3e47e68e))
+* **graphCardMetricTotals:** ent-4366 data-test attributes ([#836](https://github.com/RedHatInsights/curiosity-frontend/issues/836)) ([6aed282](https://github.com/RedHatInsights/curiosity-frontend/commit/6aed282f372c470179a6bba5e75acf339cdda86d))
+* **graphCardMetricTotals:** ent-4366 expand data-test ([#838](https://github.com/RedHatInsights/curiosity-frontend/issues/838)) ([2dc7fc3](https://github.com/RedHatInsights/curiosity-frontend/commit/2dc7fc3a91c6b7389102bfd64853bbc80c7c956f))
+* **graphCardMetricTotals:** ent-4366 total timestamp formats ([#840](https://github.com/RedHatInsights/curiosity-frontend/issues/840)) ([d8d69aa](https://github.com/RedHatInsights/curiosity-frontend/commit/d8d69aa1dea2d31ac9db9b07bdc5d68d1f6f8937))
+* **helpers:** ent-4366 optional chaining for numbro ([#832](https://github.com/RedHatInsights/curiosity-frontend/issues/832)) ([33daf62](https://github.com/RedHatInsights/curiosity-frontend/commit/33daf62d6ccae748652b4e7e646fd05fe9536bba))
+* **i18n:** ent-4251 filter undefined, empty multi-context ([#775](https://github.com/RedHatInsights/curiosity-frontend/issues/775)) ([caf8232](https://github.com/RedHatInsights/curiosity-frontend/commit/caf8232a7fc875a550cfce3637633d849f87a6f5))
+* **locale:** ent-4251 graph string key restructure ([#775](https://github.com/RedHatInsights/curiosity-frontend/issues/775)) ([d264834](https://github.com/RedHatInsights/curiosity-frontend/commit/d264834bf8e85384cd76d8c7e13a47ae537cb6ba))
+* **locales:** ent-4367 string updates for rhosak ([#835](https://github.com/RedHatInsights/curiosity-frontend/issues/835)) ([8409632](https://github.com/RedHatInsights/curiosity-frontend/commit/8409632e90f61ee4644b20245a0686266b6c6f04))
+* **openshiftMetrics,openshiftDedicated:** ent-4251 legend tooltip ([#775](https://github.com/RedHatInsights/curiosity-frontend/issues/775)) ([9d4f6b6](https://github.com/RedHatInsights/curiosity-frontend/commit/9d4f6b63d6017f87908bba15ae3df426ff329a8f))
+* **productView:** ent-4247 disable take a tour header button ([#774](https://github.com/RedHatInsights/curiosity-frontend/issues/774)) ([19d3461](https://github.com/RedHatInsights/curiosity-frontend/commit/19d3461cdfb6e9008d1999bef22b924ef1fc0060))
+* **productViewOpenShiftContainer:** ent-4367 hosts inventory ([#833](https://github.com/RedHatInsights/curiosity-frontend/issues/833)) ([90f579b](https://github.com/RedHatInsights/curiosity-frontend/commit/90f579bafb5983e9f5ebb17d314dc272bc29d9b7))
+* **rhsmSchemas:** ent-4366 graph total display mismatch ([#837](https://github.com/RedHatInsights/curiosity-frontend/issues/837)) ([c1674b5](https://github.com/RedHatInsights/curiosity-frontend/commit/c1674b5556eb25e9e83bfe8c27902850f6af0b3b))
+* **rhsmServices:** ent-3352 api response props, mock and tests ([#786](https://github.com/RedHatInsights/curiosity-frontend/issues/786)) ([76a3fc7](https://github.com/RedHatInsights/curiosity-frontend/commit/76a3fc792820b04730ea16e93ddcecbd41d99a5d))
+* **routes:** ent-4366 rhosak product path id ([#826](https://github.com/RedHatInsights/curiosity-frontend/issues/826)) ([9a51b9b](https://github.com/RedHatInsights/curiosity-frontend/commit/9a51b9b17484ee8d6eff19d9fa450d20f44e734d))
+* **routing:** Use dynamic router basename ([#821](https://github.com/RedHatInsights/curiosity-frontend/issues/821)) ([61b6b9f](https://github.com/RedHatInsights/curiosity-frontend/commit/61b6b9fabb43006487378ce542c07399c24550ef))
+* **toolbarFields:** ent-4208 left, right select positioning ([#824](https://github.com/RedHatInsights/curiosity-frontend/issues/824)) ([7c97513](https://github.com/RedHatInsights/curiosity-frontend/commit/7c9751311985a522aa4f60e21aa962b8032cdc78))
+* **useRhsmSelectors:** import cleanup ([#817](https://github.com/RedHatInsights/curiosity-frontend/issues/817)) ([6196a3a](https://github.com/RedHatInsights/curiosity-frontend/commit/6196a3a5c21d74a45dc9d9a671ad65465c0002c8))
+
+
+### Build
+
+* **dev,proxy:** ent-3643 eslint webpack plugin ([#761](https://github.com/RedHatInsights/curiosity-frontend/issues/761)) ([47e22d6](https://github.com/RedHatInsights/curiosity-frontend/commit/47e22d6abdddbf1757eb9d544f040797cbe5afdf))
+
+
+### Code Refactoring
+
+* **graphCard:** ent-4208 activate product hooks ([#817](https://github.com/RedHatInsights/curiosity-frontend/issues/817)) ([416e891](https://github.com/RedHatInsights/curiosity-frontend/commit/416e89148dde5bcbc2431037a643c0eb1ad3e474))
+* **inventorySubscriptions:** ent-4366 disable subscriptions ([#825](https://github.com/RedHatInsights/curiosity-frontend/issues/825)) ([1ac999f](https://github.com/RedHatInsights/curiosity-frontend/commit/1ac999f9f6cfe2d3c859ab21867e49c10325d4f6))
+* **productView:** ent-4208 activate product, query context ([#814](https://github.com/RedHatInsights/curiosity-frontend/issues/814)) ([6d9a284](https://github.com/RedHatInsights/curiosity-frontend/commit/6d9a284e0c6fc905261ebc812233007ea2050818))
+* **router:** ent-4208 activate routeDetail context ([#813](https://github.com/RedHatInsights/curiosity-frontend/issues/813)) ([3e2e24e](https://github.com/RedHatInsights/curiosity-frontend/commit/3e2e24ec48c5542643bf133c038d7a846c2223ba))
+* **toolbar:** ent-4208 activate product hooks ([#820](https://github.com/RedHatInsights/curiosity-frontend/issues/820)) ([f356683](https://github.com/RedHatInsights/curiosity-frontend/commit/f356683759b2e01d7d53e9c34c8edbd5d0ebae60))
+
 ## [2.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v1.7.1...v2.0.0) (2021-08-17)
 
 
