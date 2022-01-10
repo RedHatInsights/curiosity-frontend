@@ -53,7 +53,7 @@
     "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/rhsm",
     "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy-hosts": "bash ./scripts/proxy.api.sh",
-    "build": "run-s -l build:pre build:js build:post test:integration",
+    "build": "run-s -l build:pre build:js build:post",
     "build:js": "export NODE_ENV=production; webpack --config config/webpack.prod.config.js",
     "build:post": "bash ./scripts/post.sh",
     "build:pre": "bash ./scripts/pre.sh",
