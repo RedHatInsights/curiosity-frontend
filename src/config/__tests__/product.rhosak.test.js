@@ -81,4 +81,39 @@ describe('Product RHOSAK config', () => {
 
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
+
+  it('should apply subscriptions inventory configuration', () => {
+    const {
+      initialSubscriptionsInventoryFilters: initialFilters,
+      inventorySubscriptionsQuery: inventoryQuery
+    } = config;
+
+    const inventoryData = {
+      productName: 'lorem',
+      serviceLevel: 'hello world',
+      nextEventDate: 'lorem date obj'
+    };
+
+    const filteredInventoryData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: inventoryData
+    });
+
+    expect(filteredInventoryData).toMatchSnapshot('filtered');
+
+    const fallbackInventoryData = {
+      ...inventoryData,
+      serviceLevel: null,
+      nextEventDate: null
+    };
+
+    const fallbackFilteredInventoryData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: fallbackInventoryData
+    });
+
+    expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
+
+    expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
+  });
 });
