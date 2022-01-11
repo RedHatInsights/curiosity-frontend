@@ -217,6 +217,138 @@ Object {
 }
 `;
 
+exports[`Product RHOSAK config should apply subscriptions inventory configuration: filtered 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "lorem",
+    },
+    Object {
+      "title": "hello world",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "nextEventDate": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "value": "lorem date obj",
+    },
+    "productName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "value": "lorem",
+    },
+    "serviceLevel": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "value": "hello world",
+    },
+  },
+}
+`;
+
+exports[`Product RHOSAK config should apply subscriptions inventory configuration: filtered, fallback display 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "lorem",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+    Object {
+      "title": "",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "nextEventDate": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "value": null,
+    },
+    "productName": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "value": "lorem",
+    },
+    "serviceLevel": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "value": null,
+    },
+  },
+}
+`;
+
 exports[`Product RHOSAK config should handle a custom yAxisTickFormat for floating points: yAxisTickFormat 1`] = `
 Object {
   "0.00001345": "0.00001",
