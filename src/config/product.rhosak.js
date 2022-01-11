@@ -9,6 +9,8 @@ import {
 } from '@patternfly/react-tokens';
 import { Button } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
+import moment from 'moment';
+import { RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES } from '../types/rhsmApiTypes';
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_TYPES,
@@ -50,7 +52,12 @@ const config = {
     [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
     [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
-  inventorySubscriptionsQuery: {},
+  inventorySubscriptionsQuery: {
+    [RHSM_API_QUERY_SET_TYPES.SORT]: RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES.NEXT_EVENT_DATE,
+    [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
+    [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
+    [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
+  },
   initialGraphFilters: [
     {
       id: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES,
@@ -168,6 +175,43 @@ const config = {
       id: INVENTORY_TYPES.LAST_SEEN,
       cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen }) =>
         (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
+      isSortable: true,
+      isWrappable: true,
+      cellWidth: 15
+    }
+  ],
+  initialSubscriptionsInventoryFilters: [
+    {
+      id: 'productName',
+      isSortable: false,
+      isWrappable: true
+    },
+    {
+      id: 'serviceLevel',
+      isSortable: true,
+      isWrappable: true,
+      cellWidth: 15
+    },
+    {
+      id: 'quantity',
+      isSortable: true,
+      cellWidth: 10,
+      isWrappable: true
+    },
+    {
+      id: 'totalCapacity',
+      header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
+      isSortable: false,
+      cellWidth: 10,
+      isWrappable: true
+    },
+    {
+      id: 'nextEventDate',
+      cell: data =>
+        (data?.nextEventDate?.value &&
+          helpers.isDate(data?.nextEventDate?.value) &&
+          moment.utc(data?.nextEventDate?.value).format('YYYY-DD-MM')) ||
+        '',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
