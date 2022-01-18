@@ -102,7 +102,7 @@ describe('Product OpenShift Dedicated config', () => {
       inventoryId: 'lorem inventory id',
       coreHours: 12.53,
       instanceHours: 20.04,
-      lastSeen: 'lorem date obj',
+      lastSeen: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 
