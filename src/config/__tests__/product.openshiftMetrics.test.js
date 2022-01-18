@@ -101,7 +101,7 @@ describe('Product OpenShift Metrics config', () => {
       displayName: 'lorem',
       inventoryId: 'lorem inventory id',
       coreHours: 12.53,
-      lastSeen: 'lorem date obj',
+      lastSeen: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 

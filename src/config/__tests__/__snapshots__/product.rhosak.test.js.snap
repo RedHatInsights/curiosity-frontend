@@ -17,7 +17,7 @@ Object {
     },
     Object {
       "title": <DateFormat
-        date="2020-04-02T00:00:00Z"
+        date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
@@ -70,7 +70,7 @@ Object {
     },
     "last_seen": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
-      "value": "2020-04-02T00:00:00Z",
+      "value": "2022-01-01T00:00:00.000Z",
     },
   },
 }
@@ -102,7 +102,7 @@ Object {
     },
     Object {
       "title": <DateFormat
-        date="2020-04-02T00:00:00Z"
+        date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
@@ -159,7 +159,7 @@ Object {
     },
     "last_seen": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
-      "value": "2020-04-02T00:00:00Z",
+      "value": "2022-01-01T00:00:00.000Z",
     },
   },
 }
@@ -269,7 +269,7 @@ Object {
   "data": Object {
     "nextEventDate": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
-      "value": "lorem date obj",
+      "value": "2022-01-01T00:00:00.000Z",
     },
     "productName": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",

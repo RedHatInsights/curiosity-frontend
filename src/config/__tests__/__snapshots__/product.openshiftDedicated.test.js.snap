@@ -56,7 +56,7 @@ Object {
     },
     Object {
       "title": <DateFormat
-        date="lorem date obj"
+        date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
@@ -103,7 +103,7 @@ Object {
     },
     "lastSeen": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "value": "lorem date obj",
+      "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
