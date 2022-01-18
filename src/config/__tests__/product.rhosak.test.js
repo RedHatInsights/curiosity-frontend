@@ -58,7 +58,7 @@ describe('Product RHOSAK config', () => {
       [RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES]: 0.0003456,
       [RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES]: 1000.00123,
       [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: 200,
-      [INVENTORY_TYPES.LAST_SEEN]: '2020-04-02T00:00:00Z'
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z'
     };
 
     const filteredInventoryData = parseRowCellsListData({
@@ -89,7 +89,7 @@ describe('Product RHOSAK config', () => {
     const inventoryData = {
       productName: 'lorem',
       serviceLevel: 'hello world',
-      nextEventDate: 'lorem date obj'
+      nextEventDate: '2022-01-01T00:00:00.000Z'
     };
 
     const filteredInventoryData = parseRowCellsListData({

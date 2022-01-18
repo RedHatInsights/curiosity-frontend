@@ -17,7 +17,7 @@ describe('Product RHEL config', () => {
       numberOfGuests: 3,
       sockets: 10,
       cores: 12,
-      lastSeen: 'lorem date obj',
+      lastSeen: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 
@@ -52,7 +52,7 @@ describe('Product RHEL config', () => {
     const inventoryData = {
       productName: 'lorem',
       serviceLevel: 'hello world',
-      nextEventDate: 'lorem date obj'
+      nextEventDate: '2022-01-01T00:00:00.000Z'
     };
 
     const filteredInventoryData = parseRowCellsListData({
@@ -85,7 +85,7 @@ describe('Product RHEL config', () => {
       displayName: 'lorem',
       inventoryId: 'lorem inventory id',
       subscriptionManagerId: 'lorem subscription id',
-      lastSeen: 'lorem date obj',
+      lastSeen: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 
