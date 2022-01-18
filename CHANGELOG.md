@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.1.0...v2.2.0) (2022-01-18)
+
+
+### Features
+
+* **rhosak:** ent-4499 activate subs table ([#863](https://github.com/RedHatInsights/curiosity-frontend/issues/863)) ([4014b3c](https://github.com/RedHatInsights/curiosity-frontend/commit/4014b3c5d4ea194529bb94800e93781b9c373888))
+
+
+### Code Refactoring
+
+* **inventorySubscriptions:** ent-4500 enable subscriptions ([#854](https://github.com/RedHatInsights/curiosity-frontend/issues/854)) ([1cd25f3](https://github.com/RedHatInsights/curiosity-frontend/commit/1cd25f36f958f1d8db583f22d1a4268fc098086b))
+
 ## [2.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.0.0...v2.1.0) (2022-01-10)
 
 
