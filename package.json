@@ -119,7 +119,7 @@
     "@redhat-cloud-services/frontend-components-config": "4.5.6",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
     "apidoc-mock": "^4.0.2",
-    "babel-jest": "^27.4.2",
+    "babel-jest": "^27.4.6",
     "babel-preset-react-app": "^10.0.0",
     "copy-webpack-plugin": "^9.1.0",
     "cspell": "^5.13.1",
