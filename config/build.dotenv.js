@@ -1,6 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
-const dotenvExpand = require('dotenv-expand');
+const { expand: dotenvExpand } = require('dotenv-expand');
 const Dotenv = require('dotenv-webpack');
 
 /**
