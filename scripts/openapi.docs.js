@@ -6,8 +6,7 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const openApiSpecs = [
   {
-    file:
-      'https://raw.githubusercontent.com/RedHatInsights/rhsm-subscriptions/main/api/rhsm-subscriptions-api-spec.yaml',
+    file: 'https://raw.githubusercontent.com/RedHatInsights/rhsm-subscriptions/develop/api/rhsm-subscriptions-api-spec.yaml',
     outputDir: `${process.cwd()}/.openapi`,
     outputFileName: 'rhsm.yaml',
     port: 5050
