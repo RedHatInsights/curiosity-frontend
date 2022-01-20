@@ -12,7 +12,7 @@ describe('Build distribution', () => {
       .replace(new RegExp(`./${outputDir}`, 'gi'), `~./${outputDir}`)
       .replace(new RegExp(`~./${outputDir}/.DS_Store`, 'gi'), '')
       .replace(new RegExp(`~./${outputDir}/(beta/|)config/main.yml`, 'gi'), '')
-      .replace(/\.([a-z0-9]+)\./gi, '*')
+      .replace(/(?!^)\.[a-z0-9.]+\./gi, '*')
       .split('~')
       .sort();
 
