@@ -4,7 +4,7 @@ import { TableVariant } from '@patternfly/react-table';
 import { helpers } from '../../common';
 import { apiQueries, connect, reduxActions, reduxSelectors } from '../../redux';
 import { Loader } from '../loader/loader';
-import { inventoryCardHelpers } from '../inventoryList/inventoryCardHelpers';
+import { inventoryCardHelpers } from '../inventoryCard/inventoryCardHelpers';
 import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
 import { Table } from '../table/table';
 

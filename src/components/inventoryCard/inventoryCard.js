@@ -9,7 +9,7 @@ import { connect, reduxSelectors } from '../../redux';
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import GuestsList from '../guestsList/guestsList';
+import InventoryGuests from '../inventoryGuests/inventoryGuests';
 import { inventoryCardHelpers } from './inventoryCardHelpers';
 import Pagination from '../pagination/pagination';
 import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';
@@ -112,7 +112,7 @@ const InventoryCard = ({
       return {
         cells,
         expandedContent:
-          (isSubTable && <GuestsList numberOfGuests={numberOfGuests} id={subscriptionManagerId} />) || undefined
+          (isSubTable && <InventoryGuests numberOfGuests={numberOfGuests} id={subscriptionManagerId} />) || undefined
       };
     });
 

@@ -1,4 +1,4 @@
-import { context, useGetGuestsInventory, useOnScroll } from '../guestsListContext';
+import { context, useGetGuestsInventory, useOnScroll } from '../inventoryGuestsContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('InventorySubscriptionsContext', () => {

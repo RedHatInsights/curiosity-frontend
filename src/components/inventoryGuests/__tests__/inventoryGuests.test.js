@@ -1,5 +1,5 @@
 import React from 'react';
-import { GuestsList } from '../guestsList';
+import { InventoryGuests } from '../inventoryGuests';
 
 describe('GuestsList Component', () => {
   it('should render a basic component', async () => {
@@ -8,7 +8,7 @@ describe('GuestsList Component', () => {
       numberOfGuests: 0
     };
 
-    const component = await shallowHookComponent(<GuestsList {...props} />);
+    const component = await shallowHookComponent(<InventoryGuests {...props} />);
     expect(component).toMatchSnapshot('basic render');
   });
 
@@ -26,7 +26,7 @@ describe('GuestsList Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<GuestsList {...props} />);
+    const component = await shallowHookComponent(<InventoryGuests {...props} />);
     expect(component).toMatchSnapshot('variable data');
 
     component.setProps({
@@ -47,7 +47,7 @@ describe('GuestsList Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<GuestsList {...props} />);
+    const component = await shallowHookComponent(<InventoryGuests {...props} />);
     expect(component).toMatchSnapshot('initial pending');
 
     component.setProps({
@@ -76,7 +76,7 @@ describe('GuestsList Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<GuestsList {...props} />);
+    const component = await shallowHookComponent(<InventoryGuests {...props} />);
     component
       .find('.curiosity-table-scroll-list')
       .simulate('scroll', { target: { scrollHeight: 200, scrollTop: 100, clientHeight: 100 } });

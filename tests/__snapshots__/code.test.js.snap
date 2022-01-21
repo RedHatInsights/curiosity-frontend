@@ -2,10 +2,10 @@
 
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 Array [
-  "components/inventoryList/inventoryCardContext.js:127:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
-  "components/inventoryList/inventoryCardHelpers.js:194:          console.error(",
-  "components/inventoryList/inventoryList.deprecated.js:62:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
-  "components/inventorySubscriptions/inventorySubscriptionsContext.js:127:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/inventoryCard/inventoryCardContext.js:127:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/inventoryCard/inventoryCardHelpers.js:194:          console.error(",
+  "components/inventoryCard/inventoryList.deprecated.js:62:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:127:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "redux/common/reduxHelpers.js:282:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:286:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
   "services/common/helpers.js:64:    console.error(",
