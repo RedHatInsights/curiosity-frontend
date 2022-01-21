@@ -1,5 +1,5 @@
 import { config } from '../product.openshiftMetrics';
-import { parseRowCellsListData } from '../../components/inventoryList/inventoryCardHelpers';
+import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_TYPES

@@ -10,7 +10,7 @@ import { connect, reduxActions, reduxSelectors, reduxTypes, store } from '../../
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import GuestsList from '../guestsList/guestsList.deprecated';
+import GuestsList from '../inventoryGuests/guestsList.deprecated';
 import { inventoryCardHelpers } from './inventoryCardHelpers';
 import Pagination from '../pagination/pagination';
 import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';

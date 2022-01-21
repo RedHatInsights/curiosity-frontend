@@ -4,10 +4,10 @@ import { TableVariant } from '@patternfly/react-table';
 import { useProductInventoryGuestsConfig, useProductInventoryGuestsQuery } from '../productView/productViewContext';
 import { connect, reduxSelectors } from '../../redux';
 import { Loader } from '../loader/loader';
-import { inventoryCardHelpers } from '../inventoryList/inventoryCardHelpers';
+import { inventoryCardHelpers } from '../inventoryCard/inventoryCardHelpers';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { Table } from '../table/table';
-import { useGetGuestsInventory, useOnScroll } from './guestsListContext';
+import { useGetGuestsInventory, useOnScroll } from './inventoryGuestsContext';
 
 /**
  * A system inventory guests component.
@@ -24,7 +24,7 @@ import { useGetGuestsInventory, useOnScroll } from './guestsListContext';
  * @fires onScroll
  * @returns {Node}
  */
-const GuestsList = ({
+const InventoryGuests = ({
   defaultPerPage,
   id,
   numberOfGuests,
@@ -149,7 +149,7 @@ const GuestsList = ({
  * @type {{useProductInventoryGuestsConfig: Function, session: object, useOnScroll: Function, numberOfGuests: number,
  *     id: string, useGetGuestsInventory: Function, useProductInventoryGuestsQuery: Function, defaultPerPage: number}}
  */
-GuestsList.propTypes = {
+InventoryGuests.propTypes = {
   defaultPerPage: PropTypes.number,
   id: PropTypes.string.isRequired,
   numberOfGuests: PropTypes.number.isRequired,
@@ -166,7 +166,7 @@ GuestsList.propTypes = {
  * @type {{useProductInventoryGuestsConfig: Function, session: object, useOnScroll: Function,
  *     useGetGuestsInventory: Function, useProductInventoryGuestsQuery: Function, defaultPerPage: number}}
  */
-GuestsList.defaultProps = {
+InventoryGuests.defaultProps = {
   defaultPerPage: 5,
   session: {},
   useGetGuestsInventory,
@@ -182,6 +182,6 @@ GuestsList.defaultProps = {
  */
 const makeMapStateToProps = reduxSelectors.user.makeUserSession();
 
-const ConnectedGuestsList = connect(makeMapStateToProps)(GuestsList);
+const ConnectedInventoryGuests = connect(makeMapStateToProps)(InventoryGuests);
 
-export { ConnectedGuestsList as default, ConnectedGuestsList, GuestsList };
+export { ConnectedInventoryGuests as default, ConnectedInventoryGuests, InventoryGuests };

@@ -137,7 +137,7 @@ exports[`ProductView Component should allow custom inventory displays via config
             key="inventory_subs_lorem"
             title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem\\"})"
           >
-            <InventorySubscriptions
+            <InventoryCardSubscriptions
               isDisabled={false}
               useGetInventory={[Function]}
               useOnColumnSort={[Function]}
