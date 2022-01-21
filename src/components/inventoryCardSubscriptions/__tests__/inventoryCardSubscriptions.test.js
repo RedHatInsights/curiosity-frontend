@@ -1,8 +1,8 @@
 import React from 'react';
-import { InventorySubscriptions } from '../inventorySubscriptions';
+import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions';
 import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 
-describe('InventorySubscriptions Component', () => {
+describe('InventoryCardSubscriptions Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useProduct: () => ({ productId: 'lorem' }),
@@ -12,7 +12,7 @@ describe('InventorySubscriptions Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventorySubscriptions {...props} />);
+    const component = await shallowHookComponent(<InventoryCardSubscriptions {...props} />);
     expect(component).toMatchSnapshot('basic render');
   });
 });

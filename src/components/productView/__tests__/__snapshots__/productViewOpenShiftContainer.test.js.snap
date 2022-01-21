@@ -345,7 +345,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
             key="inventory_subs_OpenShift Container Platform"
             title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"OpenShift Container Platform\\"})"
           >
-            <InventorySubscriptions
+            <InventoryCardSubscriptions
               isDisabled={false}
               useGetInventory={[Function]}
               useOnColumnSort={[Function]}
