@@ -13,8 +13,8 @@ import { ToolbarFieldUom } from '../toolbar/toolbarFieldUom';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import { ToolbarFieldRangedMonthly } from '../toolbar/toolbarFieldRangedMonthly';
 import { Toolbar } from '../toolbar/toolbar';
-import InventoryList from '../inventoryList/inventoryList.deprecated';
-import InventorySubscriptions from '../inventorySubscriptions/inventorySubscriptions';
+import InventoryList from '../inventoryCard/inventoryList.deprecated';
+import InventoryCardSubscriptions from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { translate } from '../i18n/i18n';
 import { helpers } from '../../common';
@@ -135,7 +135,7 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
                 key={`inventory_subs_${productId}`}
                 title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
               >
-                <InventorySubscriptions />
+                <InventoryCardSubscriptions />
               </InventoryTab>
             )}
           </InventoryTabs>

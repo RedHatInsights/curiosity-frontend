@@ -8,8 +8,8 @@ import {
   useGetSubscriptionsInventory,
   useOnPageSubscriptions,
   useOnColumnSortSubscriptions
-} from './inventorySubscriptionsContext';
-import InventoryCard from '../inventoryList/inventoryCard';
+} from './inventoryCardSubscriptionsContext';
+import InventoryCard from '../inventoryCard/inventoryCard';
 import { helpers } from '../../common';
 
 /**
@@ -27,7 +27,7 @@ import { helpers } from '../../common';
  * @fires onUpdateInventoryData
  * @returns {Node}
  */
-const InventorySubscriptions = ({
+const InventoryCardSubscriptions = ({
   isDisabled,
   useGetInventory: useAliasGetInventory,
   useOnPage: useAliasOnPage,
@@ -52,7 +52,7 @@ const InventorySubscriptions = ({
  * @type {{useOnPage: Function, isDisabled: boolean, useProductInventoryConfig: Function, useGetInventory: Function,
  *     useOnColumnSort: Function, useProductInventoryQuery: Function}}
  */
-InventorySubscriptions.propTypes = {
+InventoryCardSubscriptions.propTypes = {
   isDisabled: PropTypes.bool,
   useGetInventory: PropTypes.func,
   useOnPage: PropTypes.func,
@@ -67,7 +67,7 @@ InventorySubscriptions.propTypes = {
  * @type {{useOnPage: Function, isDisabled: boolean, useProductInventoryConfig: Function, useGetInventory: Function,
  *     useOnColumnSort: Function, useProductInventoryQuery: Function}}
  */
-InventorySubscriptions.defaultProps = {
+InventoryCardSubscriptions.defaultProps = {
   isDisabled: helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS,
   useGetInventory: useGetSubscriptionsInventory,
   useOnPage: useOnPageSubscriptions,
@@ -76,4 +76,4 @@ InventorySubscriptions.defaultProps = {
   useProductInventoryQuery: useProductInventorySubscriptionsQuery
 };
 
-export { InventorySubscriptions as default, InventorySubscriptions };
+export { InventoryCardSubscriptions as default, InventoryCardSubscriptions };

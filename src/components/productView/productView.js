@@ -9,14 +9,14 @@ import { apiQueries } from '../../redux';
 import { ConnectedGraphCard as ConnectedGraphCardDeprecated } from '../graphCard/graphCard.deprecated';
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
-import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryList/inventoryList.deprecated';
-import { ConnectedInventoryCard } from '../inventoryList/inventoryCard';
+import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryCard/inventoryList.deprecated';
+import { ConnectedInventoryCard } from '../inventoryCard/inventoryCard';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { SelectPosition } from '../form/select';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
-import { InventorySubscriptions } from '../inventorySubscriptions/inventorySubscriptions';
+import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
 import { RHSM_API_PATH_PRODUCT_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
@@ -154,7 +154,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                 key={`inventory_subs_${productId}`}
                 title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
               >
-                <InventorySubscriptions />
+                <InventoryCardSubscriptions />
               </InventoryTab>
             )}
           </InventoryTabs>

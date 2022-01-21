@@ -3,10 +3,10 @@ import {
   useGetSubscriptionsInventory,
   useOnPageSubscriptions,
   useOnColumnSortSubscriptions
-} from '../inventorySubscriptionsContext';
+} from '../inventoryCardSubscriptionsContext';
 import { RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES } from '../../../services/rhsm/rhsmConstants';
 
-describe('InventorySubscriptionsContext', () => {
+describe('InventoryCardSubscriptionsContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
