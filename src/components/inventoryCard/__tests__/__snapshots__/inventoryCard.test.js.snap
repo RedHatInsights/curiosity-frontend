@@ -54,7 +54,7 @@ exports[`InventoryCard Component should handle expandable guests data: number of
           1,
           "loremIpsum",
         ],
-        "expandedContent": <Memo(Connect(GuestsList))
+        "expandedContent": <Memo(Connect(InventoryGuests))
           id="loremIpsum"
           numberOfGuests={1}
         />,

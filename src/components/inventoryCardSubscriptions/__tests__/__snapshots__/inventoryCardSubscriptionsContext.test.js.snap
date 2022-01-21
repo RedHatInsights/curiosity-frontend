@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventorySubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
 Array [
   Array [
     Array [
@@ -33,7 +33,7 @@ Array [
 ]
 `;
 
-exports[`InventorySubscriptionsContext should handle an onPage event: onPage event, dispatch 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle an onPage event: onPage event, dispatch 1`] = `
 Array [
   Array [
     Array [
@@ -52,7 +52,7 @@ Array [
 ]
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -61,7 +61,7 @@ Object {
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, disabled 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, disabled 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -70,7 +70,7 @@ Object {
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
 Object {
   "data": Object {},
   "error": true,
@@ -79,7 +79,7 @@ Object {
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -88,7 +88,7 @@ Object {
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -97,7 +97,7 @@ Object {
 }
 `;
 
-exports[`InventorySubscriptionsContext should return specific properties: specific properties 1`] = `
+exports[`InventoryCardSubscriptionsContext should return specific properties: specific properties 1`] = `
 Object {
   "useGetSubscriptionsInventory": [Function],
   "useOnColumnSortSubscriptions": [Function],

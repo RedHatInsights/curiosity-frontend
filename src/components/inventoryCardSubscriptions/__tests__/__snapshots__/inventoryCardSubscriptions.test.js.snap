@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventorySubscriptions Component should render a basic component: basic render 1`] = `
+exports[`InventoryCardSubscriptions Component should render a basic component: basic render 1`] = `
 <Connect(InventoryCard)
   cardActions={null}
   isDisabled={false}

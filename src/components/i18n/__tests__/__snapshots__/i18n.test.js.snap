@@ -162,7 +162,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryCard.js",
+    "file": "./src/components/inventoryCard/inventoryCard.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.tab",
@@ -171,7 +171,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryCardHelpers.js",
+    "file": "./src/components/inventoryCard/inventoryCardHelpers.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.header",
@@ -184,7 +184,7 @@ Array [
     ],
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
     "keys": Array [
       Object {
         "key": "curiosity-inventory.tab",
@@ -693,11 +693,11 @@ Array [
     "key": "curiosity-graph.label",
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryCard.js",
+    "file": "./src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
-    "file": "./src/components/inventoryList/inventoryList.deprecated.js",
+    "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
     "key": "curiosity-inventory.tab",
   },
   Object {
