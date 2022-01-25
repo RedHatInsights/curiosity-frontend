@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.2.0...v2.2.1) (2022-01-25)
+
+
+### Bug Fixes
+
+* **build:** npm updates, deps ([#847](https://github.com/RedHatInsights/curiosity-frontend/issues/847)) ([21e9232](https://github.com/RedHatInsights/curiosity-frontend/commit/21e92328d8b5307dd16f4a1a3fc307b5b2795534))
+* **build:** npm updates, deps-dev ([#847](https://github.com/RedHatInsights/curiosity-frontend/issues/847)) ([383db57](https://github.com/RedHatInsights/curiosity-frontend/commit/383db57d1827b4d07350360db412dc427a029704))
+* **locales:** thresholdSockets legend string for Satellite ([#853](https://github.com/RedHatInsights/curiosity-frontend/issues/853)) ([63c365d](https://github.com/RedHatInsights/curiosity-frontend/commit/63c365d0b401325ffc6d556698e01a7250042511))
+
+
+### Code Refactoring
+
+* **app,auth:** ent-4572 convert class components ([#852](https://github.com/RedHatInsights/curiosity-frontend/issues/852)) ([a5dda3d](https://github.com/RedHatInsights/curiosity-frontend/commit/a5dda3d600dcec94fcc421558238c9e51113da9b))
+
+
+### Build
+
+* **proxy:** ent-4581 default towards stage-beta, stable ([#856](https://github.com/RedHatInsights/curiosity-frontend/issues/856)) ([74a2f8c](https://github.com/RedHatInsights/curiosity-frontend/commit/74a2f8c92b6665da4c431c640ecac635751a995b))
+
 ## [2.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.1.0...v2.2.0) (2022-01-18)
 
 
