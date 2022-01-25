@@ -72,9 +72,7 @@ exports[`PageLayout Component should render header and section children: multipl
                       data-ouia-safe={true}
                       widget-type="InsightsPageHeaderTitle"
                     >
-                       
                       lorem
-                       
                     </h1>
                   </Title>
                 </PageHeaderTitle>

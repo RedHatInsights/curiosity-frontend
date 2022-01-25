@@ -48,13 +48,11 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
                     data-ouia-safe={true}
                     widget-type="InsightsPageHeaderTitle"
                   >
-                     
                     <span
                       className="test"
                     >
                       lorem
                     </span>
-                     
                   </h1>
                 </Title>
               </PageHeaderTitle>
@@ -114,9 +112,7 @@ exports[`PageHeader Component should render string node types: string 1`] = `
                     data-ouia-safe={true}
                     widget-type="InsightsPageHeaderTitle"
                   >
-                     
                     dolor sit
-                     
                   </h1>
                 </Title>
               </PageHeaderTitle>
@@ -176,9 +172,7 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
                     data-ouia-safe={true}
                     widget-type="InsightsPageHeaderTitle"
                   >
-                     
                     lorem
-                     
                   </h1>
                 </Title>
               </PageHeaderTitle>
@@ -217,7 +211,7 @@ exports[`PageHeader Component should render the tour button when includeTour is 
         data-ouia-safe="true"
         widget-type="InsightsPageHeaderTitle"
       >
-         lorem 
+        lorem
       </h1>
     </div>
     <div
@@ -288,9 +282,7 @@ exports[`PageHeader Component should render the tour button when includeTour is 
                     data-ouia-safe={true}
                     widget-type="InsightsPageHeaderTitle"
                   >
-                     
                     lorem
-                     
                   </h1>
                 </Title>
               </PageHeaderTitle>
