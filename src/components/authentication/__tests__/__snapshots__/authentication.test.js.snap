@@ -155,9 +155,7 @@ exports[`Authentication Component should render a non-connected component error:
                           data-ouia-safe={true}
                           widget-type="InsightsPageHeaderTitle"
                         >
-                           
                           Subscriptions
-                           
                         </h1>
                       </Title>
                     </PageHeaderTitle>

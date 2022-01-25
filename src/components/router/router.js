@@ -100,15 +100,15 @@ const Router = ({ routes } = {}) => {
 Router.propTypes = {
   routes: PropTypes.arrayOf(
     PropTypes.shape({
-      activateOnError: PropTypes.boolean,
+      activateOnError: PropTypes.bool,
       component: PropTypes.string.isRequired,
-      disabled: PropTypes.boolean,
-      exact: PropTypes.boolean,
+      disabled: PropTypes.bool,
+      exact: PropTypes.bool,
       id: PropTypes.string,
       path: PropTypes.string.isRequired,
       redirect: PropTypes.string,
-      render: PropTypes.boolean,
-      strict: PropTypes.boolean
+      render: PropTypes.bool,
+      strict: PropTypes.bool
     })
   )
 };

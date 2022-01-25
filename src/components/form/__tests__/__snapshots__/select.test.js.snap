@@ -108,6 +108,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     isCreateSelectOptionObject={false}
     isDisabled={true}
     isGrouped={false}
+    isInputFilterPersisted={false}
     isInputValuePersisted={false}
     isOpen={false}
     isPlain={false}
@@ -162,6 +163,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     isCreateSelectOptionObject={false}
     isDisabled={true}
     isGrouped={false}
+    isInputFilterPersisted={false}
     isInputValuePersisted={false}
     isOpen={false}
     isPlain={false}
@@ -313,6 +315,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     isCreateSelectOptionObject={false}
     isDisabled={true}
     isGrouped={false}
+    isInputFilterPersisted={false}
     isInputValuePersisted={false}
     isOpen={false}
     isPlain={false}
