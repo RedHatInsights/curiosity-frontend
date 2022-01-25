@@ -16,7 +16,7 @@ import {
   Spinner,
   Title
 } from '@patternfly/react-core';
-import { connect, reduxActions } from '../../redux';
+import { connect, reduxActions, reduxSelectors, storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
 import { PageLayout } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
@@ -26,27 +26,39 @@ import graphPng4x from '../../images/graph4x.png';
 /**
  * An account opt-in view.
  *
- * @augments React.Component
+ * @param {object} props
+ * @param {object} props.session
+ * @param {Function} props.t
+ * @param {Function} props.updateAccountOptIn
+ * @param {Function} props.useSelectorsResponse
+ * @param {Function} props.useDispatch
  * @fires onSubmitOptIn
+ * @returns {Node}
  */
-class OptinView extends React.Component {
+const OptinView = ({
+  session,
+  t,
+  updateAccountOptIn,
+  useDispatch: useAliasDispatch,
+  useSelectorsResponse: useAliasSelectorsResponse
+}) => {
+  const dispatch = useAliasDispatch();
+  const { error, fulfilled, pending } = useAliasSelectorsResponse(({ user }) => user?.optin);
+
   /**
    * Submit and update account opt-in.
    *
    * @event onSubmitOptIn
+   * @returns {void}
    */
-  onSubmitOptIn = () => {
-    const { updateAccountOptIn } = this.props;
-    updateAccountOptIn();
-  };
+  const onSubmitOptIn = () => updateAccountOptIn()(dispatch);
 
   /**
    * Render opt-in form states.
    *
    * @returns {Node}
    */
-  renderOptinForm() {
-    const { error, fulfilled, pending, session, t } = this.props;
+  const renderOptinForm = () => {
     const disableButton = session.status !== 403;
 
     if (pending) {
@@ -87,152 +99,125 @@ class OptinView extends React.Component {
     return (
       <Form>
         <ActionGroup>
-          <Button variant="primary" onClick={this.onSubmitOptIn}>
+          <Button variant="primary" onClick={onSubmitOptIn}>
             {t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })}
           </Button>
         </ActionGroup>
       </Form>
     );
-  }
+  };
 
   /**
    * Render tour copy and button.
    *
    * @returns {Node}
    */
-  renderTour() {
-    const { t } = this.props;
+  const renderTour = () => (
+    <Card className="curiosity-optin-tour">
+      <CardHeader>
+        <CardHeaderMain>
+          <Brand
+            srcSet={`${graphPng4x} 1064w, ${graphPng2x} 600w`}
+            src={graphPng4x}
+            alt={t('curiosity-optin.tourTitleImageAlt')}
+            aria-hidden
+            className="curiosity-optin-image"
+          />
+        </CardHeaderMain>
+      </CardHeader>
+      <CardTitle>
+        <Title headingLevel="h3" size="2xl">
+          {t('curiosity-optin.tourTitle')}
+        </Title>
+      </CardTitle>
+      <CardBody>{t('curiosity-optin.tourDescription')}</CardBody>
+      <CardFooter>
+        <Button variant="secondary" className="uxui-curiosity__button-tour">
+          {t('curiosity-optin.buttonTour')}
+        </Button>
+      </CardFooter>
+    </Card>
+  );
 
-    return (
-      <Card className="curiosity-optin-tour">
-        <CardHeader>
-          <CardHeaderMain>
-            <Brand
-              srcSet={`${graphPng4x} 1064w, ${graphPng2x} 600w`}
-              src={graphPng4x}
-              alt={t('curiosity-optin.tourTitleImageAlt')}
-              aria-hidden
-              className="curiosity-optin-image"
-            />
-          </CardHeaderMain>
-        </CardHeader>
-        <CardTitle>
-          <Title headingLevel="h3" size="2xl">
-            {t('curiosity-optin.tourTitle')}
-          </Title>
-        </CardTitle>
-        <CardBody>{t('curiosity-optin.tourDescription')}</CardBody>
-        <CardFooter>
-          <Button variant="secondary" className="uxui-curiosity__button-tour">
-            {t('curiosity-optin.buttonTour')}
-          </Button>
-        </CardFooter>
-      </Card>
-    );
-  }
+  return (
+    <PageLayout>
+      <Card>
+        <Flex>
+          <Flex flex={{ default: 'flex_2' }}>
+            <FlexItem>
+              <CardTitle key="heading1Title">
+                <Title headingLevel="h1" size="2xl">
+                  {t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}
+                </Title>
+              </CardTitle>
+              <CardBody key="heading1Desc">
+                {t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })}
+              </CardBody>
 
-  /**
-   * Render opt-in.
-   *
-   * @returns {Node}
-   */
-  render() {
-    const { t } = this.props;
+              <CardTitle key="heading2Title">
+                <Title headingLevel="h2" size="xl">
+                  {t('curiosity-optin.cardSeeTitle')}
+                </Title>
+              </CardTitle>
+              <CardBody key="heading2Desc">{t('curiosity-optin.cardSeeDescription')}</CardBody>
 
-    return (
-      <PageLayout>
-        <Card>
-          <Flex>
-            <Flex flex={{ default: 'flex_2' }}>
-              <FlexItem>
-                <CardTitle key="heading1Title">
-                  <Title headingLevel="h1" size="2xl">
-                    {t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })}
-                  </Title>
-                </CardTitle>
-                <CardBody key="heading1Desc">
-                  {t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })}
-                </CardBody>
+              <CardTitle key="heading3Title">
+                <Title headingLevel="h2" size="xl">
+                  {t('curiosity-optin.cardReportTitle')}
+                </Title>
+              </CardTitle>
+              <CardBody key="heading3Desc">{t('curiosity-optin.cardReportDescription')}</CardBody>
 
-                <CardTitle key="heading2Title">
-                  <Title headingLevel="h2" size="xl">
-                    {t('curiosity-optin.cardSeeTitle')}
-                  </Title>
-                </CardTitle>
-                <CardBody key="heading2Desc">{t('curiosity-optin.cardSeeDescription')}</CardBody>
+              <CardTitle key="heading4Title">
+                <Title headingLevel="h2" size="xl">
+                  {t('curiosity-optin.cardFilterTitle')}
+                </Title>
+              </CardTitle>
+              <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
 
-                <CardTitle key="heading3Title">
-                  <Title headingLevel="h2" size="xl">
-                    {t('curiosity-optin.cardReportTitle')}
-                  </Title>
-                </CardTitle>
-                <CardBody key="heading3Desc">{t('curiosity-optin.cardReportDescription')}</CardBody>
-
-                <CardTitle key="heading4Title">
-                  <Title headingLevel="h2" size="xl">
-                    {t('curiosity-optin.cardFilterTitle')}
-                  </Title>
-                </CardTitle>
-                <CardBody key="heading4Desc">{t('curiosity-optin.cardFilterDescription')}</CardBody>
-
-                <CardFooter>{this.renderOptinForm()}</CardFooter>
-              </FlexItem>
-            </Flex>
-            <Flex flex={{ default: 'flex_1' }} alignSelf={{ default: 'alignSelfCenter' }}>
-              <FlexItem>
-                <CardBody>{this.renderTour()}</CardBody>
-              </FlexItem>
-            </Flex>
+              <CardFooter>{renderOptinForm()}</CardFooter>
+            </FlexItem>
           </Flex>
-        </Card>
-      </PageLayout>
-    );
-  }
-}
+          <Flex flex={{ default: 'flex_1' }} alignSelf={{ default: 'alignSelfCenter' }}>
+            <FlexItem>
+              <CardBody>{renderTour()}</CardBody>
+            </FlexItem>
+          </Flex>
+        </Flex>
+      </Card>
+    </PageLayout>
+  );
+};
 
 /**
  * Prop types.
  *
- * @type {{t: Function, session: object, updateAccountOptIn: Function, pending: boolean, fulfilled: boolean,
- *     error: boolean}}
+ * @type {{t: Function, session:object, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
  */
 OptinView.propTypes = {
-  error: PropTypes.bool,
-  fulfilled: PropTypes.bool,
-  pending: PropTypes.bool,
   session: PropTypes.shape({
     status: PropTypes.number
   }),
   t: PropTypes.func,
-  updateAccountOptIn: PropTypes.func
+  updateAccountOptIn: PropTypes.func,
+  useDispatch: PropTypes.func,
+  useSelectorsResponse: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate, session: {status: null}, updateAccountOptIn: Function, pending: boolean,
- *     fulfilled: boolean, error: boolean}}
+ * @type {{t: Function, session:object, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
  */
 OptinView.defaultProps = {
-  error: false,
-  fulfilled: false,
-  pending: false,
   session: {
     status: null
   },
   t: translate,
-  updateAccountOptIn: helpers.noop
+  updateAccountOptIn: reduxActions.user.updateAccountOptIn,
+  useDispatch: storeHooks.reactRedux.useDispatch,
+  useSelectorsResponse: storeHooks.reactRedux.useSelectorsResponse
 };
-
-/**
- * Apply actions to props.
- *
- * @param {Function} dispatch
- * @returns {object}
- */
-const mapDispatchToProps = dispatch => ({
-  updateAccountOptIn: query => dispatch(reduxActions.user.updateAccountOptIn(query))
-});
 
 /**
  * Apply state to props.
@@ -241,8 +226,8 @@ const mapDispatchToProps = dispatch => ({
  * @param {object} state.user
  * @returns {object}
  */
-const mapStateToProps = ({ user }) => ({ ...user.optin, session: user.session });
+const makeMapStateToProps = reduxSelectors.user.makeUserSession();
 
-const ConnectedOptinView = connect(mapStateToProps, mapDispatchToProps)(OptinView);
+const ConnectedOptinView = connect(makeMapStateToProps)(OptinView);
 
 export { ConnectedOptinView as default, ConnectedOptinView, OptinView };
