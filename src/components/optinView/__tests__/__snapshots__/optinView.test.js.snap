@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OptinView Component should render a non-connected component: non-connected 1`] = `
+exports[`OptinView Component should render a basic component: basic 1`] = `
 <PageLayout
   className=""
 >
@@ -421,4 +421,33 @@ exports[`OptinView Component should render an API state driven view: pending vie
     </ActionGroup>
   </Form>
 </CardFooter>
+`;
+
+exports[`OptinView Component should submit an opt-in form: dispatch 1`] = `
+Array [
+  Array [
+    Object {
+      "meta": Object {
+        "notifications": Object {
+          "fulfilled": Object {
+            "autoDismiss": false,
+            "description": "t(curiosity-optin.notificationsSuccessDescription)",
+            "dismissable": true,
+            "title": "t(curiosity-optin.notificationsSuccessTitle, {\\"appName\\":\\"Subscriptions\\"})",
+            "variant": "success",
+          },
+          "rejected": Object {
+            "description": "t(curiosity-optin.notificationsErrorDescription)",
+            "dismissable": true,
+            "title": "t(curiosity-optin.notificationsErrorTitle, {\\"appName\\":\\"Subscriptions\\"})",
+            "variant": "danger",
+          },
+        },
+        "query": Object {},
+      },
+      "payload": Promise {},
+      "type": "UPDATE_USER_OPTIN",
+    },
+  ],
+]
 `;
