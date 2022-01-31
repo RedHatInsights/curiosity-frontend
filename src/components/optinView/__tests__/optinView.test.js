@@ -1,19 +1,18 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
 import { OptinView } from '../optinView';
 
 describe('OptinView Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a basic component', async () => {
     const props = {};
 
-    const component = shallow(<OptinView {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    const component = await shallowHookComponent(<OptinView {...props} />);
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render an API state driven view', () => {
+  it('should render an API state driven view', async () => {
     const props = {};
 
-    const component = shallow(<OptinView {...props} />);
+    const component = await shallowHookComponent(<OptinView {...props} />);
     expect(component).toMatchSnapshot('initial view');
 
     component.setProps({
@@ -59,40 +58,35 @@ describe('OptinView Component', () => {
     expect(component.find('CardFooter').first()).toMatchSnapshot('null or undefined status view');
 
     component.setProps({
-      pending: true,
+      useSelectorsResponse: () => ({ pending: true }),
       session: {}
     });
     expect(component.find('CardFooter').first()).toMatchSnapshot('pending view');
 
     component.setProps({
-      pending: false,
-      error: true
+      useSelectorsResponse: () => ({ error: true })
     });
     expect(component.find('CardFooter').first()).toMatchSnapshot('error view');
 
     component.setProps({
-      pending: false,
-      error: false,
-      fulfilled: true
+      useSelectorsResponse: () => ({ fulfilled: true })
     });
     expect(component.find('CardFooter').first()).toMatchSnapshot('fulfilled view');
   });
 
-  it('should submit an opt-in form', () => {
+  it('should submit an opt-in form', async () => {
+    const mockDispatch = jest.fn();
     const props = {
+      useDispatch: () => mockDispatch,
       session: {
         status: 403
       }
     };
 
-    const component = mount(<OptinView {...props} />);
-    const componentInstance = component.instance();
-    const spy = jest.spyOn(componentInstance, 'onSubmitOptIn');
-
-    component.update();
-    componentInstance.forceUpdate();
-
+    const component = await mountHookComponent(<OptinView {...props} />);
     component.find('form button').simulate('click');
-    expect(spy).toHaveBeenCalledTimes(1);
+
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch');
   });
 });
