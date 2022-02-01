@@ -1,5 +1,5 @@
 import { userTypes } from '../types';
-import { userServices } from '../../services/userServices';
+import { userServices } from '../../services/user/userServices';
 import { helpers } from '../../common/helpers';
 import { translate } from '../../components/i18n/i18n';
 

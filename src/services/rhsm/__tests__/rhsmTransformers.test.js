@@ -1,14 +1,14 @@
-import { rhsmTranformers } from '../rhsmTranformers';
+import { rhsmTransformers } from '../rhsmTransformers';
 import { rhsmConstants } from '../rhsmConstants';
 
 describe('RHSM Transformers', () => {
   it('should have specific RHSM response transformers', () => {
-    expect(rhsmTranformers).toMatchSnapshot('specific transformers');
+    expect(rhsmTransformers).toMatchSnapshot('specific transformers');
   });
 
   it('should attempt to parse an instances response', () => {
     expect(
-      rhsmTranformers.instances({
+      rhsmTransformers.instances({
         [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
           {
             [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
@@ -22,6 +22,6 @@ describe('RHSM Transformers', () => {
   });
 
   it('should attempt to parse a tally response', () => {
-    expect(rhsmTranformers.tally()).toMatchSnapshot('tally');
+    expect(rhsmTransformers.tally()).toMatchSnapshot('tally');
   });
 });
