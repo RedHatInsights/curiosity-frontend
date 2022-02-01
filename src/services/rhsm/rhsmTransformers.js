@@ -89,9 +89,9 @@ const rhsmTally = response => {
   return updatedResponse;
 };
 
-const rhsmTranformers = {
+const rhsmTransformers = {
   instances: rhsmInstances,
   tally: rhsmTally
 };
 
-export { rhsmTranformers as default, rhsmTranformers, rhsmInstances, rhsmTally };
+export { rhsmTransformers as default, rhsmTransformers, rhsmInstances, rhsmTally };

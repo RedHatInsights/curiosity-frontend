@@ -4,7 +4,7 @@ import {
   clearNotifications as RcsClearNotifications
 } from '@redhat-cloud-services/frontend-components-notifications';
 import { platformTypes } from '../types';
-import { platformServices } from '../../services/platformServices';
+import { platformServices } from '../../services/platform/platformServices';
 
 /**
  * Add a platform plugin toast notification.
