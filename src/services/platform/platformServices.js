@@ -1,9 +1,9 @@
 import _set from 'lodash/set';
-import { helpers } from '../common';
+import { helpers } from '../../common';
 import {
-  platformApiTypes,
+  platformConstants,
   PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES
-} from '../types/platformApiTypes';
+} from './platformConstants';
 
 /**
  * Basic user authentication.
@@ -18,9 +18,9 @@ const getUser = async () => {
         _set(
           {},
           [
-            platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY,
-            platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
-            platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
+            platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY,
+            platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
+            platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
           ],
           process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
         )) ||

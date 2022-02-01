@@ -1,7 +1,7 @@
 import { serviceCall } from '../config';
 import { rhsmSchemas } from './rhsmSchemas';
 import { helpers } from '../../common';
-import { rhsmTranformers } from './rhsmTranformers';
+import { rhsmTransformers } from './rhsmTransformers';
 
 /**
  * @api {get} /api/rhsm-subscriptions/v1/version
@@ -1503,7 +1503,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
     cancel = true,
     cancelId,
     schema = [rhsmSchemas.tally, rhsmSchemas.errors],
-    transform = [rhsmTranformers.tally]
+    transform = [rhsmTransformers.tally]
   } = options;
   const updatedId = (typeof id === 'string' && [id]) || (Array.isArray(id) && id) || [];
 
@@ -2263,7 +2263,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
     cancel = true,
     cancelId,
     schema = [rhsmSchemas.instances, rhsmSchemas.errors],
-    transform = [rhsmTranformers.instances]
+    transform = [rhsmTransformers.instances]
   } = options;
 
   return serviceCall({

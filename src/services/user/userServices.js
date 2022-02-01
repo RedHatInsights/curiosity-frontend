@@ -1,10 +1,10 @@
 import Cookies from 'js-cookie';
 import LocaleCode from 'locale-code';
 import _isPlainObject from 'lodash/isPlainObject';
-import { rbacConfig as permissions } from '../config';
-import { getUser, getUserPermissions } from './platformServices';
-import { serviceCall } from './config';
-import { helpers } from '../common';
+import { rbacConfig as permissions } from '../../config';
+import { getUser, getUserPermissions } from '../platform/platformServices';
+import { serviceCall } from '../config';
+import { helpers } from '../../common';
 
 /**
  * Apply an emulated API response to the platforms getUser method.

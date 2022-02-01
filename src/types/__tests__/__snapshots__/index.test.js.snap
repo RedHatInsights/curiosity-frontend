@@ -3,37 +3,6 @@
 exports[`ApiTypes should have specific API properties: all exported api types 1`] = `
 Object {
   "apiTypes": Object {
-    "platformApi": Object {
-      "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
-        "ACTIVE_APP": "activeApp",
-      },
-      "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
-      "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
-        "ENTITLED": "is_entitled",
-      },
-      "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
-      "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
-        "USER": "user",
-      },
-      "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
-        "ORG_ADMIN": "is_org_admin",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-        "SUBSCRIPTIONS": "subscriptions",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
-        "ALL": "*",
-        "READ": "read",
-        "WRITE": "write",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
-        "ALL": "*",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
-        "PERMISSION": "permission",
-        "RESOURCE_DEFS": "resourceDefinitions",
-      },
-    },
     "rhsmApi": Object {
       "RHSM_API_PATH_ID_TYPES": Object {
         "OPENSHIFT": "OpenShift Container Platform",
@@ -242,37 +211,6 @@ Object {
     },
   },
   "default": Object {
-    "platformApi": Object {
-      "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
-        "ACTIVE_APP": "activeApp",
-      },
-      "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
-      "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
-        "ENTITLED": "is_entitled",
-      },
-      "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
-      "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
-        "USER": "user",
-      },
-      "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
-        "ORG_ADMIN": "is_org_admin",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-        "SUBSCRIPTIONS": "subscriptions",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
-        "ALL": "*",
-        "READ": "read",
-        "WRITE": "write",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
-        "ALL": "*",
-      },
-      "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
-        "PERMISSION": "permission",
-        "RESOURCE_DEFS": "resourceDefinitions",
-      },
-    },
     "rhsmApi": Object {
       "RHSM_API_PATH_ID_TYPES": Object {
         "OPENSHIFT": "OpenShift Container Platform",
@@ -478,37 +416,6 @@ Object {
         "PHYSICAL_SOCKETS": "physical_sockets",
         "SOCKETS": "sockets",
       },
-    },
-  },
-  "platformApiTypes": Object {
-    "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
-      "ACTIVE_APP": "activeApp",
-    },
-    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
-    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
-      "ENTITLED": "is_entitled",
-    },
-    "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
-    "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
-      "USER": "user",
-    },
-    "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
-      "ORG_ADMIN": "is_org_admin",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-      "SUBSCRIPTIONS": "subscriptions",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
-      "ALL": "*",
-      "READ": "read",
-      "WRITE": "write",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
-      "ALL": "*",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
-      "PERMISSION": "permission",
-      "RESOURCE_DEFS": "resourceDefinitions",
     },
   },
   "rhsmApiTypes": Object {
@@ -722,37 +629,6 @@ Object {
 
 exports[`ApiTypes should have specific API properties: specific types 1`] = `
 Object {
-  "platformApi": Object {
-    "PLATFORM_API_RESPONSE_NAV_TYPES": Object {
-      "ACTIVE_APP": "activeApp",
-    },
-    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
-    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
-      "ENTITLED": "is_entitled",
-    },
-    "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
-    "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
-      "USER": "user",
-    },
-    "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
-      "ORG_ADMIN": "is_org_admin",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
-      "SUBSCRIPTIONS": "subscriptions",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
-      "ALL": "*",
-      "READ": "read",
-      "WRITE": "write",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
-      "ALL": "*",
-    },
-    "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
-      "PERMISSION": "permission",
-      "RESOURCE_DEFS": "resourceDefinitions",
-    },
-  },
   "rhsmApi": Object {
     "RHSM_API_PATH_ID_TYPES": Object {
       "OPENSHIFT": "OpenShift Container Platform",
