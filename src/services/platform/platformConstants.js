@@ -1,13 +1,4 @@
 /**
- * Platform response for appNavClick.
- *
- * @type {{ACTIVE_APP: string}}
- */
-const PLATFORM_API_RESPONSE_NAV_TYPES = {
-  ACTIVE_APP: 'activeApp'
-};
-
-/**
  * Platform response entitlements type.
  *
  * @type {string}
@@ -62,6 +53,7 @@ const PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES = {
   RESOURCE_DEFS: 'resourceDefinitions'
 };
 
+// ToDo: clean up this app name piece, these facets come through the helpers and src/config/rbac.json
 const PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES = {
   SUBSCRIPTIONS: process.env.REACT_APP_UI_NAME
 };
@@ -76,16 +68,7 @@ const PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES = {
   WRITE: 'write'
 };
 
-/**
- * Platform API types.
- *
- * @type {{PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES: {USER: string},
- *     PLATFORM_API_RESPONSE_USER_ENTITLEMENTS: string, PLATFORM_API_RESPONSE_USER_IDENTITY: string,
- *     PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES: {ENTITLED: string},
- *     PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES: {ORG_ADMIN: string}}}
- */
-const platformApiTypes = {
-  PLATFORM_API_RESPONSE_NAV_TYPES,
+const platformConstants = {
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES,
   PLATFORM_API_RESPONSE_USER_IDENTITY,
@@ -98,9 +81,8 @@ const platformApiTypes = {
 };
 
 export {
-  platformApiTypes as default,
-  platformApiTypes,
-  PLATFORM_API_RESPONSE_NAV_TYPES,
+  platformConstants as default,
+  platformConstants,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES,
   PLATFORM_API_RESPONSE_USER_IDENTITY,
