@@ -1,11 +1,11 @@
 import userSelectors from '../userSelectors';
 import {
-  platformApiTypes,
+  platformConstants as platformApiTypes,
   PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES
-} from '../../../types/platformApiTypes';
+} from '../../../services/platform/platformConstants';
 import { helpers } from '../../../common';
 
 describe('UserSelectors', () => {

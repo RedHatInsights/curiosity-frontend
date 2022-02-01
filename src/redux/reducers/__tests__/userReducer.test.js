@@ -1,5 +1,6 @@
 import userReducer from '../userReducer';
-import { platformApiTypes, rhsmApiTypes } from '../../../types';
+import { rhsmApiTypes } from '../../../types';
+import { platformConstants as platformApiTypes } from '../../../services/platform/platformConstants';
 import { appTypes, userTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 

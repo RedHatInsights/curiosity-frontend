@@ -1,4 +1,4 @@
-import { platformApiTypes } from '../../types';
+import { platformConstants as platformApiTypes } from '../../services/platform/platformConstants';
 
 /**
  * Modify actions' payload for privacy.

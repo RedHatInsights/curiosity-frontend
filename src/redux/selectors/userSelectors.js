@@ -2,11 +2,11 @@ import { createSelectorCreator, defaultMemoize } from 'reselect';
 import _isEqual from 'lodash/isEqual';
 import { rbacConfig as permissions } from '../../config';
 import {
-  platformApiTypes,
+  platformConstants as platformApiTypes,
   PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES as APP_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES as RESOURCE_TYPES,
   PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES as OPERATION_TYPES
-} from '../../types/platformApiTypes';
+} from '../../services/platform/platformConstants';
 
 /**
  * Create a custom "are objects equal" selector.
