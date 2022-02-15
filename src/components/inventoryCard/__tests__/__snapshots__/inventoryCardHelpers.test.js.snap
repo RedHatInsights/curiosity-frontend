@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventoryListHelpers applyConfigProperty should determine if filter property is valid and return it or undefined: prop invalid, null 1`] = `undefined`;
+
+exports[`InventoryListHelpers applyConfigProperty should determine if filter property is valid and return it or undefined: prop valid, function 1`] = `"ipsum"`;
+
+exports[`InventoryListHelpers applyConfigProperty should determine if filter property is valid and return it or undefined: prop valid, number 1`] = `1000`;
+
+exports[`InventoryListHelpers applyConfigProperty should determine if filter property is valid and return it or undefined: prop valid, string 1`] = `"hello world"`;
+
 exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: NOT sortable 1`] = `
 Object {
   "id": "lorem",
@@ -193,6 +201,82 @@ Object {
 }
 `;
 
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell tooltips 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": <Tooltip
+        content="tooltip body content"
+        distance={5}
+        enableFlip={false}
+        entryDelay={100}
+        exitDelay={0}
+        isNoWrap={false}
+        position="top"
+      >
+        object, body, lorem
+      </Tooltip>,
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": <Tooltip
+        content="tooltip header content"
+        distance={5}
+        enableFlip={false}
+        entryDelay={100}
+        exitDelay={0}
+        isNoWrap={false}
+        position="top"
+      >
+        object, header, lorem
+      </Tooltip>,
+      "transforms": Array [],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell, hide cell and column header if data is missing 1`] = `
+Object {
+  "cells": Array [],
+  "columnHeaders": Array [],
+  "data": Object {},
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell, use an empty cell if data is missing 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "transforms": Array [],
+    },
+  ],
+  "data": Object {
+    "hello": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hello\\"})",
+      "value": "world",
+    },
+  },
+}
+`;
+
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom header data 1`] = `
 Object {
   "cells": Array [
@@ -250,6 +334,8 @@ Object {
 
 exports[`InventoryListHelpers should have specific functions: inventoryListHelpers 1`] = `
 Object {
+  "applyConfigProperty": [Function],
+  "applyHeaderRowCellFilters": [Function],
   "applySortFilters": [Function],
   "applyWrappableFilters": [Function],
   "parseInventoryFilters": [Function],

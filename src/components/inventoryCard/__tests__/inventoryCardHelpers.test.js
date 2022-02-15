@@ -1,5 +1,6 @@
 import {
   inventoryCardHelpers,
+  applyConfigProperty,
   applySortFilters,
   applyWrappableFilters,
   parseInventoryFilters,
@@ -51,6 +52,38 @@ describe('InventoryListHelpers', () => {
     expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom header data');
 
     filters[0] = {
+      id: 'lorem'
+    };
+
+    expect(parseRowCellsListData({ filters, cellData: { hello: 'world' } })).toMatchSnapshot(
+      'custom cell, use an empty cell if data is missing'
+    );
+
+    filters[0] = {
+      id: 'lorem',
+      showEmptyCell: false
+    };
+
+    expect(parseRowCellsListData({ filters, cellData: {} })).toMatchSnapshot(
+      'custom cell, hide cell and column header if data is missing'
+    );
+
+    filters[0] = {
+      id: 'lorem',
+      header: {
+        title: 'object, header, lorem',
+        tooltip: 'tooltip header content'
+      },
+      cell: {
+        title: 'object, body, lorem',
+        tooltip: 'tooltip body content'
+      }
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom cell tooltips');
+
+    filters[0] = {
+      id: 'lorem',
       header: ({ lorem, dolor }) => `${lorem.title}/${dolor.title}`,
       cell: ({ lorem, dolor }) => `${lorem.value}/${dolor.value}`
     };
@@ -70,6 +103,26 @@ describe('InventoryListHelpers', () => {
 
     filters[0].isSortable = true;
     expect(parseInventoryFilters({ filters, onSort: () => {} })).toMatchSnapshot('sortable');
+  });
+
+  it('applyConfigProperty should determine if filter property is valid and return it or undefined', () => {
+    const filter = {
+      title: 'hello world'
+    };
+
+    expect(applyConfigProperty(filter.title, { params: { lorem: 'ipsum' } })).toMatchSnapshot('prop valid, string');
+
+    filter.title = 1000;
+
+    expect(applyConfigProperty(filter.title, { params: { lorem: 'ipsum' } })).toMatchSnapshot('prop valid, number');
+
+    filter.title = ({ lorem }) => lorem;
+
+    expect(applyConfigProperty(filter.title, { params: { lorem: 'ipsum' } })).toMatchSnapshot('prop valid, function');
+
+    filter.title = null;
+
+    expect(applyConfigProperty(filter.title, { params: { lorem: 'ipsum' } })).toMatchSnapshot('prop invalid, null');
   });
 
   it('applySortFilters should apply and return updated filters for table sorting', () => {
