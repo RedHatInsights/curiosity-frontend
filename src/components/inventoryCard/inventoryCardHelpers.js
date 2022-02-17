@@ -55,7 +55,7 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
 
   filters.forEach(
     ({ id, cell, cellWidth, header, onSort, showEmptyCell = true, sortId, sortActive, sortDirection, transforms }) => {
-      const headerCellUpdated = { title: translate('curiosity-inventory.header', { context: id }) };
+      const headerCellUpdated = { title: translate('curiosity-inventory.header', { context: id }), transforms: [] };
       const bodyCellUpdated = { title: '' };
 
       // set filtered base header and body cells, or if filter doesn't exist skip
@@ -94,9 +94,7 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
       }
 
       // set header cell transforms
-      if (headerCellUpdated) {
-        headerCellUpdated.transforms = [];
-
+      if (Array.isArray(headerCellUpdated.transforms)) {
         if (Array.isArray(transforms)) {
           headerCellUpdated.transforms = headerCellUpdated.transforms.concat([...transforms]);
         }

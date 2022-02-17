@@ -62,6 +62,28 @@ describe('InventoryListHelpers', () => {
     expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom sort');
 
     filters[0] = {
+      id: 'lorem',
+      transforms: [() => {}]
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom transforms');
+
+    filters[0] = {
+      id: 'lorem',
+      transforms: [() => {}],
+      cellWidth: 200
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom and generated transforms');
+
+    filters[0] = {
+      id: 'lorem',
+      cellWidth: 200
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('generated transforms');
+
+    filters[0] = {
       id: 'missing'
     };
 

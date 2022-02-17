@@ -146,6 +146,35 @@ Object {
 }
 `;
 
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom and generated transforms 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "ipsum",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "transforms": Array [
+        [Function],
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom callback data 1`] = `
 Object {
   "cells": Array [
@@ -335,6 +364,34 @@ Object {
 }
 `;
 
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom transforms 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "ipsum",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "transforms": Array [
+        [Function],
+      ],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: filtered data 1`] = `
 Object {
   "cells": Array [
@@ -346,6 +403,34 @@ Object {
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
       "transforms": Array [],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: generated transforms 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "ipsum",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
   ],
   "data": Object {
