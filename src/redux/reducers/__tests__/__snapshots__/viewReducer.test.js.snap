@@ -470,6 +470,39 @@ Object {
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_billing_provider 1`] = `
+Object {
+  "result": Object {
+    "graphTallyQuery": Object {},
+    "inventoryGuestsQuery": Object {
+      "test_id": Object {
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": Object {
+      "test_id": Object {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": Object {
+      "test_id": Object {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": Object {
+      "test_id": Object {
+        "billing_provider": "dolor provider",
+      },
+    },
+  },
+  "type": "SET_QUERY_RHSM_billing_provider",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_ending 1`] = `
 Object {
   "result": Object {
