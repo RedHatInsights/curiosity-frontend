@@ -170,6 +170,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
           useToolbarFieldQueries={[Function]}
+          useToolbarSecondaryFields={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -425,6 +426,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
           useToolbarFieldQueries={[Function]}
+          useToolbarSecondaryFields={[Function]}
         />
       </PageToolbar>
       <PageSection

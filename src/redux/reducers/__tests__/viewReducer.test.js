@@ -1,6 +1,6 @@
 import viewReducer from '../viewReducer';
 import { queryTypes as types } from '../../types';
-import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('ViewReducer', () => {
   it('should return the initial state', () => {
@@ -46,6 +46,7 @@ describe('ViewReducer', () => {
 
       const dispatched = {
         type: value,
+        [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: 'dolor provider',
         [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem asc direction',
         [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem name',
         [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
