@@ -66,7 +66,7 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
         if (helpers.DEV_MODE || helpers.REVIEW_MODE) {
           console.warn(`Warning: Filter "${id}" not found in "table row" response data.`, cellData);
         }
-        if (!showEmptyCell) {
+        if (showEmptyCell === false) {
           return;
         }
       }

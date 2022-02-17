@@ -264,7 +264,7 @@ Object {
   ],
   "columnHeaders": Array [
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"missing\\"})",
       "transforms": Array [],
     },
   ],
@@ -290,6 +290,35 @@ Object {
         "textCenter": true,
       },
       "title": "object, header, lorem",
+      "transforms": Array [],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom sort 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "ipsum",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "onSort": [Function],
+      "sortActive": undefined,
+      "sortDirection": undefined,
+      "title": "header, lorem sort",
       "transforms": Array [],
     },
   ],

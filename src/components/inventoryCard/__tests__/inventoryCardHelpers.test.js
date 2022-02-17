@@ -52,7 +52,17 @@ describe('InventoryListHelpers', () => {
     expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom header data');
 
     filters[0] = {
-      id: 'lorem'
+      id: 'lorem',
+      header: {
+        title: 'header, lorem sort'
+      },
+      onSort: () => {}
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom sort');
+
+    filters[0] = {
+      id: 'missing'
     };
 
     expect(parseRowCellsListData({ filters, cellData: { hello: 'world' } })).toMatchSnapshot(
@@ -60,7 +70,7 @@ describe('InventoryListHelpers', () => {
     );
 
     filters[0] = {
-      id: 'lorem',
+      id: 'missing',
       showEmptyCell: false
     };
 
