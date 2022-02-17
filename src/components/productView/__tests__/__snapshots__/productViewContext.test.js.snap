@@ -368,6 +368,11 @@ Object {
       "ipsum": "dolor",
     },
   ],
+  "secondaryFilters": Array [
+    Object {
+      "hello": "world",
+    },
+  ],
   "settings": Object {
     "ipsum": "dolor",
   },
