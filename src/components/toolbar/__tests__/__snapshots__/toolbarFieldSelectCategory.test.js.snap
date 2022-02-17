@@ -3,37 +3,7 @@
 exports[`ToolbarFieldSelectCategory Component should export select options: toolbarFieldOptions 1`] = `
 Array [
   Object {
-    "component": <ToolbarFieldGranularity
-      isFilter={true}
-      options={
-        Array [
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
-            "value": "Daily",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
-            "value": "Weekly",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
-            "value": "Monthly",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
-            "value": "Quarterly",
-          },
-        ]
-      }
-      position="left"
-      t={[Function]}
-      useOnSelect={[Function]}
-      useProductGraphTallyQuery={[Function]}
-    />,
+    "component": [Function],
     "isClearable": false,
     "options": Array [
       Object {
@@ -62,126 +32,7 @@ Array [
     "value": "granularity",
   },
   Object {
-    "component": <ToolbarFieldRangedMonthly
-      isFilter={true}
-      options={
-        Array [
-          Object {
-            "_title": "current",
-            "isCurrent": true,
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
-            "value": Object {
-              "endDate": 2019-07-31T23:59:59.999Z,
-              "startDate": 2019-07-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "june",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"June\\"})",
-            "value": Object {
-              "endDate": 2019-06-30T23:59:59.999Z,
-              "startDate": 2019-06-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "may",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"May\\"})",
-            "value": Object {
-              "endDate": 2019-05-31T23:59:59.999Z,
-              "startDate": 2019-05-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "april",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"April\\"})",
-            "value": Object {
-              "endDate": 2019-04-30T23:59:59.999Z,
-              "startDate": 2019-04-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "march",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"March\\"})",
-            "value": Object {
-              "endDate": 2019-03-31T23:59:59.999Z,
-              "startDate": 2019-03-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "february",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"February\\"})",
-            "value": Object {
-              "endDate": 2019-02-28T23:59:59.999Z,
-              "startDate": 2019-02-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "january",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"January\\"})",
-            "value": Object {
-              "endDate": 2019-01-31T23:59:59.999Z,
-              "startDate": 2019-01-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "december",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"December 2018\\"})",
-            "value": Object {
-              "endDate": 2018-12-31T23:59:59.999Z,
-              "startDate": 2018-12-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "november",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"November 2018\\"})",
-            "value": Object {
-              "endDate": 2018-11-30T23:59:59.999Z,
-              "startDate": 2018-11-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "october",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"October 2018\\"})",
-            "value": Object {
-              "endDate": 2018-10-31T23:59:59.999Z,
-              "startDate": 2018-10-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "september",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"September 2018\\"})",
-            "value": Object {
-              "endDate": 2018-09-30T23:59:59.999Z,
-              "startDate": 2018-09-01T00:00:00.000Z,
-            },
-          },
-          Object {
-            "_title": "august",
-            "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"August 2018\\"})",
-            "value": Object {
-              "endDate": 2018-08-31T23:59:59.999Z,
-              "startDate": 2018-08-01T00:00:00.000Z,
-            },
-          },
-        ]
-      }
-      position="left"
-      t={[Function]}
-      useOnSelect={[Function]}
-      useProductGraphTallyQuery={[Function]}
-    />,
+    "component": [Function],
     "isClearable": false,
     "options": Array [
       Object {
@@ -299,27 +150,7 @@ Array [
     "value": "rangedMonthly",
   },
   Object {
-    "component": <ToolbarFieldUom
-      isFilter={true}
-      options={
-        Array [
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
-            "value": "cores",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
-            "value": "sockets",
-          },
-        ]
-      }
-      position="left"
-      t={[Function]}
-      useOnSelect={[Function]}
-      useProductQuery={[Function]}
-    />,
+    "component": [Function],
     "isClearable": false,
     "options": Array [
       Object {
@@ -338,37 +169,31 @@ Array [
     "value": "uom",
   },
   Object {
-    "component": <ToolbarFieldSla
-      isFilter={true}
-      options={
-        Array [
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-            "value": "Premium",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-            "value": "Standard",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-            "value": "Self-Support",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-            "value": "",
-          },
-        ]
-      }
-      position="left"
-      t={[Function]}
-      useOnSelect={[Function]}
-      useProductQuery={[Function]}
-    />,
+    "component": [Function],
+    "isClearable": true,
+    "options": Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"Red Hat Marketplace\\"})",
+        "value": "Red Hat Marketplace",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"AWS\\"})",
+        "value": "AWS",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"Azure\\"})",
+        "value": "Azure",
+      },
+    ],
+    "selected": false,
+    "title": "t(curiosity-toolbar.category, {\\"context\\":\\"billing_provider\\"})",
+    "value": "billing_provider",
+  },
+  Object {
+    "component": [Function],
     "isClearable": true,
     "options": Array [
       Object {
@@ -397,37 +222,7 @@ Array [
     "value": "sla",
   },
   Object {
-    "component": <ToolbarFieldUsage
-      isFilter={true}
-      options={
-        Array [
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
-            "value": "Production",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
-            "value": "Development/Test",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
-            "value": "Disaster Recovery",
-          },
-          Object {
-            "selected": false,
-            "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
-            "value": "",
-          },
-        ]
-      }
-      position="left"
-      t={[Function]}
-      useOnSelect={[Function]}
-      useProductQuery={[Function]}
-    />,
+    "component": [Function],
     "isClearable": true,
     "options": Array [
       Object {
@@ -502,37 +297,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   options={
     Array [
       Object {
-        "component": <ToolbarFieldSla
-          isFilter={true}
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-                "value": "Premium",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-                "value": "Standard",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-                "value": "Self-Support",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-                "value": "",
-              },
-            ]
-          }
-          position="left"
-          t={[Function]}
-          useOnSelect={[Function]}
-          useProductQuery={[Function]}
-        />,
+        "component": [Function],
         "isClearable": true,
         "options": Array [
           Object {
@@ -561,37 +326,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "value": "sla",
       },
       Object {
-        "component": <ToolbarFieldUsage
-          isFilter={true}
-          options={
-            Array [
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
-                "value": "Production",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
-                "value": "Development/Test",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
-                "value": "Disaster Recovery",
-              },
-              Object {
-                "selected": false,
-                "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
-                "value": "",
-              },
-            ]
-          }
-          position="left"
-          t={[Function]}
-          useOnSelect={[Function]}
-          useProductQuery={[Function]}
-        />,
+        "component": [Function],
         "isClearable": true,
         "options": Array [
           Object {
@@ -641,37 +376,7 @@ Object {
   "initialCategory": undefined,
   "options": Array [
     Object {
-      "component": <ToolbarFieldUsage
-        isFilter={true}
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
-              "value": "Production",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
-              "value": "Development/Test",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
-              "value": "Disaster Recovery",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
-              "value": "",
-            },
-          ]
-        }
-        position="left"
-        t={[Function]}
-        useOnSelect={[Function]}
-        useProductQuery={[Function]}
-      />,
+      "component": [Function],
       "isClearable": true,
       "options": Array [
         Object {
@@ -700,37 +405,7 @@ Object {
       "value": "usage",
     },
     Object {
-      "component": <ToolbarFieldSla
-        isFilter={true}
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-              "value": "Premium",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-              "value": "Standard",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-              "value": "Self-Support",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-              "value": "",
-            },
-          ]
-        }
-        position="left"
-        t={[Function]}
-        useOnSelect={[Function]}
-        useProductQuery={[Function]}
-      />,
+      "component": [Function],
       "isClearable": true,
       "options": Array [
         Object {
@@ -768,37 +443,7 @@ Object {
   "initialCategory": "usage",
   "options": Array [
     Object {
-      "component": <ToolbarFieldUsage
-        isFilter={true}
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
-              "value": "Production",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
-              "value": "Development/Test",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
-              "value": "Disaster Recovery",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
-              "value": "",
-            },
-          ]
-        }
-        position="left"
-        t={[Function]}
-        useOnSelect={[Function]}
-        useProductQuery={[Function]}
-      />,
+      "component": [Function],
       "isClearable": true,
       "options": Array [
         Object {
@@ -827,37 +472,7 @@ Object {
       "value": "usage",
     },
     Object {
-      "component": <ToolbarFieldSla
-        isFilter={true}
-        options={
-          Array [
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-              "value": "Premium",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-              "value": "Standard",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-              "value": "Self-Support",
-            },
-            Object {
-              "selected": false,
-              "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-              "value": "",
-            },
-          ]
-        }
-        position="left"
-        t={[Function]}
-        useOnSelect={[Function]}
-        useProductQuery={[Function]}
-      />,
+      "component": [Function],
       "isClearable": true,
       "options": Array [
         Object {

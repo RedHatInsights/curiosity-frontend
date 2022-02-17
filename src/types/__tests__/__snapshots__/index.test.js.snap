@@ -60,6 +60,7 @@ Object {
         "WEEKLY": "Weekly",
       },
       "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
@@ -72,6 +73,7 @@ Object {
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
@@ -84,6 +86,7 @@ Object {
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
@@ -101,6 +104,7 @@ Object {
         "TALLY_SYNC": "enable_tally_sync",
       },
       "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
         "SLA": "sla",
@@ -136,6 +140,7 @@ Object {
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "CONDUIT_SYNC": "enable_conduit_sync",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
@@ -297,6 +302,7 @@ Object {
         "WEEKLY": "Weekly",
       },
       "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
@@ -309,6 +315,7 @@ Object {
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
@@ -321,6 +328,7 @@ Object {
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
         "END_DATE": "ending",
@@ -338,6 +346,7 @@ Object {
         "TALLY_SYNC": "enable_tally_sync",
       },
       "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
         "SLA": "sla",
@@ -373,6 +382,7 @@ Object {
         "USAGE": "usage",
       },
       "RHSM_API_QUERY_TYPES": Object {
+        "BILLING_PROVIDER": "billing_provider",
         "CONDUIT_SYNC": "enable_conduit_sync",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
@@ -533,6 +543,7 @@ Object {
       "WEEKLY": "Weekly",
     },
     "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -545,6 +556,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -557,6 +569,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -574,6 +587,7 @@ Object {
       "TALLY_SYNC": "enable_tally_sync",
     },
     "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -609,6 +623,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "CONDUIT_SYNC": "enable_conduit_sync",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
@@ -773,6 +788,7 @@ Object {
       "WEEKLY": "Weekly",
     },
     "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -785,6 +801,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -797,6 +814,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -814,6 +832,7 @@ Object {
       "TALLY_SYNC": "enable_tally_sync",
     },
     "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -849,6 +868,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "CONDUIT_SYNC": "enable_conduit_sync",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",

@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldBillingProvider Component should export select options: toolbarFieldOptions 1`] = `
+Array [
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"Red Hat Marketplace\\"})",
+    "value": "Red Hat Marketplace",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"AWS\\"})",
+    "value": "AWS",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"Azure\\"})",
+    "value": "Azure",
+  },
+]
+`;
+
+exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with component: dispatch billing provider, component 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "billing_provider": "Red Hat Marketplace",
+        "type": "SET_QUERY_RHSM_billing_provider",
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with hook: dispatch billing provider, hook 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "billing_provider": "dolor sit",
+        "type": "SET_QUERY_RHSM_billing_provider",
+        "viewId": "loremIpsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"billing_provider\\"})"
+  ariaLabel="Select option"
+  className=""
+  data-test="toolbarFieldBillingProvider"
+  direction="down"
+  id="generatedid-"
+  isDisabled={false}
+  isToggleText={true}
+  maxHeight={null}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"Red Hat Marketplace\\"})",
+        "value": "Red Hat Marketplace",
+      },
+      Object {
+        "selected": true,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"AWS\\"})",
+        "value": "AWS",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"Azure\\"})",
+        "value": "Azure",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"billing_provider\\"})"
+  position="left"
+  selectedOptions="AWS"
+  toggleIcon={null}
+  variant="single"
+/>
+`;

@@ -402,6 +402,23 @@ Array [
     ],
   },
   Object {
+    "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-toolbar.billing_provider",
+        "match": "translate('curiosity-toolbar.billing_provider', { context: (type === '' && 'none')",
+      },
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
+      },
+      Object {
+        "key": "",
+        "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
+      },
+    ],
+  },
+  Object {
     "file": "./src/components/toolbar/toolbarFieldDisplayName.js",
     "keys": Array [
       Object {
@@ -458,6 +475,10 @@ Array [
       Object {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.UOM })",
+      },
+      Object {
+        "key": "curiosity-toolbar.category",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.BILLING_PROVIDER })",
       },
       Object {
         "key": "curiosity-toolbar.category",
@@ -703,6 +724,10 @@ Array [
   Object {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "key": "curiosity-inventory.tabHeading",
+  },
+  Object {
+    "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
+    "key": "curiosity-toolbar.billing_provider",
   },
   Object {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",

@@ -3,6 +3,7 @@
 exports[`RHSM Constants should have specific RHSM properties: all exported rhsm constants 1`] = `
 Object {
   "RHSM_API_PATH_METRIC_TYPES": Object {
+    "BILLING_PROVIDER": "Billing-provider",
     "CORES": "Cores",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
@@ -28,6 +29,11 @@ Object {
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
   },
+  "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
+    "AWS": "AWS",
+    "AZURE": "Azure",
+    "RH_MARKETPLACE": "Red Hat Marketplace",
+  },
   "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
     "DAILY": "Daily",
     "MONTHLY": "Monthly",
@@ -39,6 +45,7 @@ Object {
     "DESCENDING": "desc",
   },
   "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
+    "BILLING_PROVIDER": "Billing-provider",
     "CORES": "Cores",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
@@ -57,6 +64,7 @@ Object {
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+    "BILLING_PROVIDER": "billing_provider",
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
     "END_DATE": "ending",
@@ -69,6 +77,7 @@ Object {
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": Object {
+    "BILLING_PROVIDER": "billing_provider",
     "END_DATE": "ending",
     "GRANULARITY": "granularity",
     "SLA": "sla",
@@ -76,6 +85,7 @@ Object {
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_TYPES": Object {
+    "BILLING_PROVIDER": "billing_provider",
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
     "END_DATE": "ending",
@@ -103,6 +113,11 @@ Object {
     "DISASTER": "Disaster Recovery",
     "PRODUCTION": "Production",
     "UNSPECIFIED": "",
+  },
+  "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
+    "AWS": "AWS",
+    "AZURE": "Azure",
+    "RH_MARKETPLACE": "Red Hat Marketplace",
   },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
@@ -167,6 +182,7 @@ Object {
   },
   "default": Object {
     "RHSM_API_PATH_METRIC_TYPES": Object {
+      "BILLING_PROVIDER": "Billing-provider",
       "CORES": "Cores",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
@@ -192,6 +208,11 @@ Object {
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
     },
+    "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
+      "AWS": "AWS",
+      "AZURE": "Azure",
+      "RH_MARKETPLACE": "Red Hat Marketplace",
+    },
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
@@ -203,6 +224,7 @@ Object {
       "DESCENDING": "desc",
     },
     "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
+      "BILLING_PROVIDER": "Billing-provider",
       "CORES": "Cores",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
@@ -221,6 +243,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -233,6 +256,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -240,6 +264,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -267,6 +292,11 @@ Object {
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
+    },
+    "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
+      "AWS": "AWS",
+      "AZURE": "Azure",
+      "RH_MARKETPLACE": "Red Hat Marketplace",
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
@@ -332,6 +362,7 @@ Object {
   },
   "rhsmConstants": Object {
     "RHSM_API_PATH_METRIC_TYPES": Object {
+      "BILLING_PROVIDER": "Billing-provider",
       "CORES": "Cores",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
@@ -357,6 +388,11 @@ Object {
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
     },
+    "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
+      "AWS": "AWS",
+      "AZURE": "Azure",
+      "RH_MARKETPLACE": "Red Hat Marketplace",
+    },
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
@@ -368,6 +404,7 @@ Object {
       "DESCENDING": "desc",
     },
     "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
+      "BILLING_PROVIDER": "Billing-provider",
       "CORES": "Cores",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
@@ -386,6 +423,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -398,6 +436,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -405,6 +444,7 @@ Object {
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_TYPES": Object {
+      "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -432,6 +472,11 @@ Object {
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
+    },
+    "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
+      "AWS": "AWS",
+      "AZURE": "Azure",
+      "RH_MARKETPLACE": "Red Hat Marketplace",
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
@@ -501,6 +546,7 @@ Object {
 exports[`RHSM Constants should have specific RHSM properties: specific constants 1`] = `
 Object {
   "RHSM_API_PATH_METRIC_TYPES": Object {
+    "BILLING_PROVIDER": "Billing-provider",
     "CORES": "Cores",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
@@ -526,6 +572,11 @@ Object {
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
   },
+  "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
+    "AWS": "AWS",
+    "AZURE": "Azure",
+    "RH_MARKETPLACE": "Red Hat Marketplace",
+  },
   "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
     "DAILY": "Daily",
     "MONTHLY": "Monthly",
@@ -537,6 +588,7 @@ Object {
     "DESCENDING": "desc",
   },
   "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
+    "BILLING_PROVIDER": "Billing-provider",
     "CORES": "Cores",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
@@ -555,6 +607,7 @@ Object {
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+    "BILLING_PROVIDER": "billing_provider",
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
     "END_DATE": "ending",
@@ -567,6 +620,7 @@ Object {
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": Object {
+    "BILLING_PROVIDER": "billing_provider",
     "END_DATE": "ending",
     "GRANULARITY": "granularity",
     "SLA": "sla",
@@ -574,6 +628,7 @@ Object {
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_TYPES": Object {
+    "BILLING_PROVIDER": "billing_provider",
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
     "END_DATE": "ending",
@@ -601,6 +656,11 @@ Object {
     "DISASTER": "Disaster Recovery",
     "PRODUCTION": "Production",
     "UNSPECIFIED": "",
+  },
+  "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
+    "AWS": "AWS",
+    "AZURE": "Azure",
+    "RH_MARKETPLACE": "Red Hat Marketplace",
   },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {

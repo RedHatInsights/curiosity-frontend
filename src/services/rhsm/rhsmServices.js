@@ -2187,6 +2187,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
  *           "display_name": "rhv.example.com",
  *           "measurements": [
+ *              "Marketplace",
  *              42,
  *              0.000003563,
  *              1
@@ -2198,6 +2199,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "subscription_manager_id": "XXXXXX-5b00-42fa-XXXX-75801d45cc6d",
  *           "display_name": "dolor.example.com",
  *           "measurements": [
+ *              "Azure",
  *              20,
  *              null,
  *              1000
@@ -2209,6 +2211,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "subscription_manager_id": "BBBBB-5b00-42fa-BBBBB-75801d45cc6d",
  *           "display_name": "lorem.example.com",
  *           "measurements": [
+ *              "Unknown",
  *              4000,
  *              10000.0000345678,
  *              3000
@@ -2220,6 +2223,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *       "meta": {
  *         "count": 3,
  *         "measurements": [
+ *           "Billing-provider",
  *           "Instance-hours",
  *           "Storage-gibibytes",
  *           "Transfer-gibibytes"
