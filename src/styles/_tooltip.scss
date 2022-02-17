@@ -1,0 +1,8 @@
+html > .curiosity-tooltip,
+.curiosity-tooltip {
+  &__nowrap {
+    white-space: nowrap;
+  }
+
+  &-children {}
+}
