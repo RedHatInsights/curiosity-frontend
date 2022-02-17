@@ -24,7 +24,7 @@ describe('ToolbarFieldSelectCategory Component', () => {
   it('should render a basic component', () => {
     const props = {
       useSelectCategoryOptions: () => ({
-        options: [selectCategoryOptions[3], selectCategoryOptions[4]],
+        options: [selectCategoryOptions[4], selectCategoryOptions[5]],
         currentCategory: RHSM_API_QUERY_TYPES.SLA
       })
     };

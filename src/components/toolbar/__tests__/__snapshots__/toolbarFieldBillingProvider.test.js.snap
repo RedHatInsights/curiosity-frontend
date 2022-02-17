@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldBillingProvider Component should export select options: toolbarFieldOptions 1`] = `
+Array [
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"red hat\\"})",
+    "value": "red hat",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"aws\\"})",
+    "value": "aws",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"gcp\\"})",
+    "value": "gcp",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"azure\\"})",
+    "value": "azure",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"oracle\\"})",
+    "value": "oracle",
+  },
+  Object {
+    "selected": false,
+    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"none\\"})",
+    "value": "",
+  },
+]
+`;
+
+exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with component: dispatch billing provider, component 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "billing_provider": "red hat",
+        "type": "SET_QUERY_RHSM_billing_provider",
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with hook: dispatch billing provider, hook 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "loremIpsum",
+      },
+      Object {
+        "billing_provider": "dolor sit",
+        "type": "SET_QUERY_RHSM_billing_provider",
+        "viewId": "loremIpsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"billing_provider\\"})"
+  ariaLabel="Select option"
+  className=""
+  data-test="toolbarFieldBillingProvider"
+  direction="down"
+  id="generatedid-"
+  isDisabled={false}
+  isToggleText={true}
+  maxHeight={null}
+  name={null}
+  onSelect={[Function]}
+  options={
+    Array [
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"red hat\\"})",
+        "value": "red hat",
+      },
+      Object {
+        "selected": true,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"aws\\"})",
+        "value": "aws",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"gcp\\"})",
+        "value": "gcp",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"azure\\"})",
+        "value": "azure",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"oracle\\"})",
+        "value": "oracle",
+      },
+      Object {
+        "selected": false,
+        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"none\\"})",
+        "value": "",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"billing_provider\\"})"
+  position="left"
+  selectedOptions="aws"
+  toggleIcon={null}
+  variant="single"
+/>
+`;
