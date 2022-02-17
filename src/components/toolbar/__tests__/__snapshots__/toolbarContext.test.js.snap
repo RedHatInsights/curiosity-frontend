@@ -28,11 +28,37 @@ Array [
       },
     ],
   ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "billing_provider": null,
+        "type": "SET_QUERY_RHSM_billing_provider",
+        "viewId": undefined,
+      },
+    ],
+  ],
 ]
 `;
 
 exports[`ToolbarContext should apply a hook for clearing specific active toolbar fields through redux: clear all fields 1`] = `
 Array [
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "billing_provider": null,
+        "type": "SET_QUERY_RHSM_billing_provider",
+        "viewId": undefined,
+      },
+    ],
+  ],
   Array [
     Array [
       Object {
@@ -55,6 +81,19 @@ Array [
       Object {
         "type": "SET_QUERY_RHSM_usage",
         "usage": null,
+        "viewId": undefined,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      Object {
+        "billing_provider": null,
+        "type": "SET_QUERY_RHSM_billing_provider",
         "viewId": undefined,
       },
     ],
@@ -99,11 +138,21 @@ Array [
 
 exports[`ToolbarContext should apply a hook for retrieving api queries specific to toolbar: query 1`] = `
 Object {
+  "billing_provider": "testProvider",
   "granularity": "testGranularity",
   "sla": "testSla",
   "uom": undefined,
-  "usage": undefined,
+  "usage": "testUsage",
 }
+`;
+
+exports[`ToolbarContext should apply a hook for retrieving secondary toolbar field components: secondary field, rangedMonthly 1`] = `
+Array [
+  <RangedMonthly
+    isFilter={false}
+    position="right"
+  />,
+]
 `;
 
 exports[`ToolbarContext should return specific properties: specific properties 1`] = `
@@ -111,5 +160,6 @@ Object {
   "useToolbarFieldClear": [Function],
   "useToolbarFieldClearAll": [Function],
   "useToolbarFieldQueries": [Function],
+  "useToolbarSecondaryFields": [Function],
 }
 `;

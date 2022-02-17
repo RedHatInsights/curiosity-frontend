@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
+exports[`Toolbar Component should handle displaying secondary components, fields: secondary 1`] = `
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
@@ -27,52 +27,57 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})"
-          chips={
-            Array [
-              "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-            ]
-          }
+          chips={Array []}
           deleteChip={[Function]}
           key="sla"
           showToolbarItem={true}
         >
-          <ToolbarFieldSla
+          <Sla
             isFilter={true}
-            key="selectCategory_sla"
-            options={
-              Array [
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-                  "value": "Premium",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-                  "value": "Standard",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-                  "value": "Self-Support",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-                  "value": "",
-                },
-              ]
-            }
-            position="left"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductQuery={[Function]}
           />
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
+    <ToolbarItem
+      alignment={
+        Object {
+          "default": "alignRight",
+        }
+      }
+    >
+      <span
+        key="lorem"
+      >
+        lorem ipsum
+      </span>
+    </ToolbarItem>
   </ToolbarContent>
 </Toolbar>
+`;
+
+exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
+Object {
+  "categoryName": "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
+  "children": <Sla
+    isFilter={true}
+  />,
+  "chips": Array [
+    "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+  ],
+  "deleteChip": [Function],
+  "showToolbarItem": true,
+}
+`;
+
+exports[`Toolbar Component should handle updating toolbar chips: chips, not clearable 1`] = `
+Object {
+  "categoryName": "t(curiosity-toolbar.category, {\\"context\\":\\"sla\\"})",
+  "children": <Sla
+    isFilter={true}
+  />,
+  "chips": Array [],
+  "showToolbarItem": true,
+}
 `;
 
 exports[`Toolbar Component should hide categories when a single filter is available: single filter 1`] = `
@@ -107,41 +112,19 @@ exports[`Toolbar Component should hide categories when a single filter is availa
           key="sla"
           showToolbarItem={true}
         >
-          <ToolbarFieldSla
+          <Sla
             isFilter={true}
-            key="selectCategory_sla"
-            options={
-              Array [
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-                  "value": "Premium",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-                  "value": "Standard",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-                  "value": "Self-Support",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-                  "value": "",
-                },
-              ]
-            }
-            position="left"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductQuery={[Function]}
           />
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
+    <ToolbarItem
+      alignment={
+        Object {
+          "default": "alignRight",
+        }
+      }
+    />
   </ToolbarContent>
 </Toolbar>
 `;
@@ -185,37 +168,8 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
           key="sla"
           showToolbarItem={false}
         >
-          <ToolbarFieldSla
+          <Sla
             isFilter={true}
-            key="selectCategory_sla"
-            options={
-              Array [
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
-                  "value": "Premium",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
-                  "value": "Standard",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
-                  "value": "Self-Support",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
-                  "value": "",
-                },
-              ]
-            }
-            position="left"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductQuery={[Function]}
           />
         </ToolbarFilter>
         <ToolbarFilter
@@ -225,41 +179,19 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
           key="usage"
           showToolbarItem={false}
         >
-          <ToolbarFieldUsage
+          <Usage
             isFilter={true}
-            key="selectCategory_usage"
-            options={
-              Array [
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Production\\"})",
-                  "value": "Production",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Development/Test\\"})",
-                  "value": "Development/Test",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"Disaster Recovery\\"})",
-                  "value": "Disaster Recovery",
-                },
-                Object {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.usage, {\\"context\\":\\"unspecified\\"})",
-                  "value": "",
-                },
-              ]
-            }
-            position="left"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductQuery={[Function]}
           />
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
+    <ToolbarItem
+      alignment={
+        Object {
+          "default": "alignRight",
+        }
+      }
+    />
   </ToolbarContent>
 </Toolbar>
 `;
@@ -267,3 +199,46 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
 exports[`Toolbar Component should return an empty render when disabled or missing filters: disabled component 1`] = `""`;
 
 exports[`Toolbar Component should return an empty render when disabled or missing filters: missing filters 1`] = `""`;
+
+exports[`Toolbar Component should return an empty render when disabled or missing filters: missing primary, has secondary filters 1`] = `
+<Toolbar
+  className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
+  clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
+  collapseListedFiltersBreakpoint="sm"
+  id="curiosity-toolbar"
+>
+  <ToolbarContent
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
+    >
+      <ForwardRef
+        variant="filter-group"
+      />
+    </ToolbarToggleGroup>
+    <ToolbarItem
+      alignment={
+        Object {
+          "default": "alignRight",
+        }
+      }
+    >
+      <span
+        key="lorem"
+      >
+        lorem ipsum
+      </span>
+    </ToolbarItem>
+  </ToolbarContent>
+</Toolbar>
+`;

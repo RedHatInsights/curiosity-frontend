@@ -1,7 +1,7 @@
 import { routerHelpers } from '../../components/router';
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
-import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services/rhsm/rhsmConstants';
 
 /**
  * Initial state.
@@ -162,6 +162,20 @@ const viewReducer = (state = initialState, action) => {
           [action.viewId]: {
             ...state.query[action.viewId],
             [RHSM_API_QUERY_TYPES.END_DATE]: action[RHSM_API_QUERY_TYPES.END_DATE]
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.BILLING_PROVIDER]:
+      return reduxHelpers.setStateProp(
+        'query',
+        {
+          [action.viewId]: {
+            ...state.query[action.viewId],
+            [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: action[RHSM_API_QUERY_TYPES.BILLING_PROVIDER]
           }
         },
         {
