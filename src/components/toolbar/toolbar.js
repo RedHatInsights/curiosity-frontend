@@ -9,7 +9,12 @@ import {
   ToolbarToggleGroup
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
-import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFieldQueries } from './toolbarContext';
+import {
+  useToolbarFieldClear,
+  useToolbarFieldClearAll,
+  useToolbarFieldQueries,
+  useToolbarSecondaryFields
+} from './toolbarContext';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -27,6 +32,7 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.useToolbarFieldClear
  * @param {Function} props.useToolbarFieldClearAll
  * @param {Function} props.useToolbarFieldQueries
+ * @param {Function} props.useToolbarSecondaryFields
  * @returns {Node}
  */
 const Toolbar = ({
@@ -36,14 +42,16 @@ const Toolbar = ({
   useSelectCategoryOptions: useAliasSelectCategoryOptions,
   useToolbarFieldClear: useAliasToolbarFieldClear,
   useToolbarFieldClearAll: useAliasToolbarFieldClearAll,
-  useToolbarFieldQueries: useAliasToolbarFieldQueries
+  useToolbarFieldQueries: useAliasToolbarFieldQueries,
+  useToolbarSecondaryFields: useAliasToolbarSecondaryFields
 }) => {
   const { currentCategory, options } = useAliasSelectCategoryOptions();
   const toolbarFieldQueries = useAliasToolbarFieldQueries();
   const clearField = useAliasToolbarFieldClear();
   const clearAllFields = useAliasToolbarFieldClearAll();
+  const secondaryFields = useAliasToolbarSecondaryFields();
 
-  if (isDisabled || !options?.length) {
+  if (isDisabled || (!options?.length && !secondaryFields?.length)) {
     return null;
   }
 
@@ -94,7 +102,7 @@ const Toolbar = ({
                 <ToolbarFieldSelectCategory />
               </ToolbarItem>
             )}
-            {options.map(({ title, value, component, isClearable, options: filterOptions }) => {
+            {options.map(({ title, value, component: OptionComponent, isClearable, options: filterOptions }) => {
               const chipProps = { categoryName: title };
 
               if (isClearable !== false) {
@@ -108,12 +116,13 @@ const Toolbar = ({
                   showToolbarItem={currentCategory === value || options.length === 1}
                   {...chipProps}
                 >
-                  {component}
+                  <OptionComponent isFilter />
                 </ToolbarFilter>
               );
             })}
           </ToolbarGroup>
         </ToolbarToggleGroup>
+        <ToolbarItem alignment={{ default: 'alignRight' }}>{secondaryFields}</ToolbarItem>
       </ToolbarContent>
     </PfToolbar>
   );
@@ -123,7 +132,7 @@ const Toolbar = ({
  * Prop types
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     isDisabled: boolean, useToolbarFieldClearAll: Function, useToolbarFieldQueries: Function}}
+ *     useToolbarSecondaryFields: Function, isDisabled: boolean, useToolbarFieldClearAll: Function, useToolbarFieldQueries: Function}}
  */
 Toolbar.propTypes = {
   hardFilterReset: PropTypes.bool,
@@ -132,14 +141,15 @@ Toolbar.propTypes = {
   useSelectCategoryOptions: PropTypes.func,
   useToolbarFieldClear: PropTypes.func,
   useToolbarFieldClearAll: PropTypes.func,
-  useToolbarFieldQueries: PropTypes.func
+  useToolbarFieldQueries: PropTypes.func,
+  useToolbarSecondaryFields: PropTypes.func
 };
 
 /**
  * Default props.
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     isDisabled: boolean, useToolbarFieldClearAll: Function, useToolbarFieldQueries: Function}}
+ *     useToolbarSecondaryFields: Function, isDisabled: boolean, useToolbarFieldClearAll: Function, useToolbarFieldQueries: Function}}
  */
 Toolbar.defaultProps = {
   hardFilterReset: false,
@@ -148,7 +158,8 @@ Toolbar.defaultProps = {
   useSelectCategoryOptions,
   useToolbarFieldClear,
   useToolbarFieldClearAll,
-  useToolbarFieldQueries
+  useToolbarFieldQueries,
+  useToolbarSecondaryFields
 };
 
 export { Toolbar as default, Toolbar };
