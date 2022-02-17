@@ -130,6 +130,7 @@ describe('ProductViewContext', () => {
         sit: 'amet'
       },
       initialToolbarFilters: [{ ipsum: 'dolor' }],
+      initialSecondaryToolbarFilters: [{ hello: 'world' }],
       initialToolbarSettings: {
         ipsum: 'dolor'
       }
