@@ -175,11 +175,11 @@ Array [
     "keys": Array [
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: key })",
+        "match": "translate('curiosity-inventory.header', { context: id })",
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: id })",
+        "match": "translate('curiosity-inventory.header', { context: key })",
       },
     ],
   },
