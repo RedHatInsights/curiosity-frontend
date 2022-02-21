@@ -103,6 +103,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     hasInlineFilter={false}
     hasPlaceholderStyle={false}
     inlineFilterPlaceholderText={null}
+    inputAutoComplete="off"
     inputIdPrefix=""
     isCreatable={false}
     isCreateSelectOptionObject={false}
@@ -158,6 +159,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     hasInlineFilter={false}
     hasPlaceholderStyle={false}
     inlineFilterPlaceholderText={null}
+    inputAutoComplete="off"
     inputIdPrefix=""
     isCreatable={false}
     isCreateSelectOptionObject={false}
@@ -310,6 +312,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     hasInlineFilter={false}
     hasPlaceholderStyle={false}
     inlineFilterPlaceholderText={null}
+    inputAutoComplete="off"
     inputIdPrefix=""
     isCreatable={false}
     isCreateSelectOptionObject={false}

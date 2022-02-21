@@ -67,6 +67,7 @@ exports[`Pagination Component should render a non-connected component: non-conne
       "ofWord": "of",
       "optionsToggle": "Items per page",
       "page": "",
+      "pages": "",
       "paginationTitle": "Pagination",
       "perPageSuffix": "per page",
       "toFirstPage": "Go to first page",
