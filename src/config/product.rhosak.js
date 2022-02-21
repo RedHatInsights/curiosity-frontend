@@ -134,7 +134,7 @@ const config = {
           );
         }
 
-        return <React.Fragment>{updatedDisplayName}</React.Fragment>;
+        return updatedDisplayName;
       },
       isSortable: true
     },

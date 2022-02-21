@@ -80,16 +80,14 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
 Object {
   "cells": Array [
     Object {
-      "title": <React.Fragment>
-        <Button
-          component="a"
-          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-          isInline={true}
-          variant="link"
-        >
-          lorem ipsum
-        </Button>
-      </React.Fragment>,
+      "title": <Button
+        component="a"
+        href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+        isInline={true}
+        variant="link"
+      >
+        lorem ipsum
+      </Button>,
     },
     Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",

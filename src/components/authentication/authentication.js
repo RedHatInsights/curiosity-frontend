@@ -18,7 +18,7 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {string} props.appName
  * @param {Function} props.authorizeUser
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {Function} props.hideGlobalFilter
  * @param {Function} props.initializeChrome
  * @param {boolean} props.isDisabled
@@ -28,7 +28,7 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.t
  * @param {Function} props.useDispatch
  * @param {Function} props.useHistory
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const Authentication = ({
   appName,
@@ -72,7 +72,7 @@ const Authentication = ({
   }
 
   if (isAuthorized) {
-    return <React.Fragment>{children}</React.Fragment>;
+    return children;
   }
 
   if (pending) {
@@ -97,7 +97,7 @@ const Authentication = ({
  * Prop types.
  *
  * @type {{authorizeUser: Function, onNavigation: Function, useHistory: Function, setAppName: Function,
- *     t: Function, children: Node, appName: string, initializeChrome: Function, session: object,
+ *     t: Function, children: React.ReactNode, appName: string, initializeChrome: Function, session: object,
  *     useDispatch: Function, isDisabled: boolean, hideGlobalFilter: Function}}
  */
 Authentication.propTypes = {
