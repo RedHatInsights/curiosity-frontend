@@ -29,7 +29,7 @@ const cancelTokens = {};
  * @type {object}
  */
 const responseCache = new LruCache({
-  maxAge: Number.parseInt(process.env.REACT_APP_AJAX_CACHE, 10),
+  ttl: Number.parseInt(process.env.REACT_APP_AJAX_CACHE, 10),
   max: 100,
   updateAgeOnGet: true
 });
