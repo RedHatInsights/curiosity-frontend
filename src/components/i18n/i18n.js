@@ -13,7 +13,7 @@ import { helpers } from '../../common/helpers';
  * @param {string|Array} translateKey A key reference, or an array of a primary key with fallback keys.
  * @param {string|object|Array} values A default string if the key can't be found. An object with i18next settings. Or an array of objects (key/value) pairs used to replace string tokes. i.e. "[{ hello: 'world' }]"
  * @param {Array} components An array of HTML/React nodes used to replace string tokens. i.e. "[<span />, <React.Fragment />]"
- * @returns {string|Node}
+ * @returns {string|React.ReactNode}
  */
 const translate = (translateKey, values = null, components) => {
   const updatedValues = values;
@@ -47,8 +47,8 @@ const translate = (translateKey, values = null, components) => {
 /**
  * Apply string replacements against a component, HOC.
  *
- * @param {Node} Component
- * @returns {Node}
+ * @param {React.ReactNode} Component
+ * @returns {React.ReactNode}
  */
 const translateComponent = Component => {
   const withTranslation = ({ ...props }) => (
@@ -67,11 +67,11 @@ const translateComponent = Component => {
  * Load I18n.
  *
  * @param {object} props
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {string} props.fallbackLng
  * @param {string} props.loadPath
  * @param {string} props.locale
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const I18n = ({ children, fallbackLng, loadPath, locale }) => {
   const [initialized, setInitialized] = useState(false);
@@ -117,13 +117,13 @@ const I18n = ({ children, fallbackLng, loadPath, locale }) => {
     }
   }, [initialized, locale]);
 
-  return (initialized && <React.Fragment>{children}</React.Fragment>) || <React.Fragment />;
+  return (initialized && children) || <React.Fragment />;
 };
 
 /**
  * Prop types.
  *
- * @type {{loadPath: string, children: Node, locale: string, fallbackLng: string}}
+ * @type {{loadPath: string, children: React.ReactNode, locale: string, fallbackLng: string}}
  */
 I18n.propTypes = {
   children: PropTypes.node.isRequired,
