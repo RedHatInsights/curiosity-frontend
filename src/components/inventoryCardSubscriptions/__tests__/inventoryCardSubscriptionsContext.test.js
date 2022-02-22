@@ -4,11 +4,18 @@ import {
   useOnPageSubscriptions,
   useOnColumnSortSubscriptions
 } from '../inventoryCardSubscriptionsContext';
-import { RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES } from '../../../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SORT_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('InventoryCardSubscriptionsContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
+  });
+
+  it('should expect specific sort properties', () => {
+    expect(SORT_TYPES).toMatchSnapshot('sort properties');
   });
 
   it('should handle instances inventory API responses', async () => {
