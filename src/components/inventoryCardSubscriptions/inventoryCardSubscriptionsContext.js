@@ -5,7 +5,7 @@ import { reduxActions, reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductInventorySubscriptionsQuery } from '../productView/productViewContext';
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_INVENTORY_SORT_TYPES as SORT_TYPES,
+  RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES
 } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
