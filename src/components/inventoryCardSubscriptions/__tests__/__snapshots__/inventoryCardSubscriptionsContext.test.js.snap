@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventoryCardSubscriptionsContext should expect specific sort properties: sort properties 1`] = `
+Object {
+  "NEXT_EVENT_DATE": "next_event_date",
+  "NEXT_EVENT_TYPE": "next_event_type",
+  "QUANTITY": "quantity",
+  "SERVICE_LEVEL": "service_level",
+  "SKU": "sku",
+  "USAGE": "usage",
+}
+`;
+
 exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
 Array [
   Array [
