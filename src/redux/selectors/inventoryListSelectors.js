@@ -21,9 +21,9 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
  * @type {object}
  */
 const selectorCache = new LruCache({
-  maxAge: Number.parseInt(process.env.REACT_APP_SELECTOR_CACHE, 10),
+  ttl: Number.parseInt(process.env.REACT_APP_SELECTOR_CACHE, 10),
   max: 10,
-  stale: true,
+  allowStale: true,
   updateAgeOnGet: true
 });
 
