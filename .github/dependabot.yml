@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: weekly
       day: monday
-    open-pull-requests-limit: 2
+    open-pull-requests-limit: 1
     target-branch: "ci"
     versioning-strategy: increase
     allow:
@@ -15,6 +15,7 @@ updates:
       - dependency-name: "@redhat-cloud-services/frontend*"
       - dependency-name: "*i18next*"
       - dependency-name: "victory*"
+      - dependency-name: "react-router*"
     labels:
       - "build"
 
