@@ -13,9 +13,7 @@ Array [
 `;
 
 exports[`InventoryTab Component should output a non-connected component: non-connected 1`] = `
-<Fragment>
-  <div>
-    lorem ipsum
-  </div>
-</Fragment>
+<div>
+  lorem ipsum
+</div>
 `;

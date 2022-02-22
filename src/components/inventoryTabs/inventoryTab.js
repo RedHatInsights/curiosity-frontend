@@ -6,17 +6,17 @@ import PropTypes from 'prop-types';
  *
  * @param {object} props
  * @param {boolean} props.active
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {string} props.title
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 // eslint-disable-next-line no-unused-vars
-const InventoryTab = ({ active, children, title }) => <React.Fragment>{children}</React.Fragment>;
+const InventoryTab = ({ active, children, title }) => children;
 
 /**
  * Prop types.
  *
- * @type {{children: Node, className: string}}
+ * @type {{children: React.ReactNode, className: string}}
  */
 InventoryTab.propTypes = {
   children: PropTypes.node.isRequired,
