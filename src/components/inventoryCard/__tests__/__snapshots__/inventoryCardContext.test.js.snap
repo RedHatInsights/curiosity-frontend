@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InventoryCardContext should expect specific sort properties: sort properties 1`] = `
+Object {
+  "CORES": "Cores",
+  "CORE_SECONDS": "Core-seconds",
+  "INSTANCE_HOURS": "Instance-hours",
+  "LAST_SEEN": "last_seen",
+  "NAME": "display_name",
+  "SOCKETS": "Sockets",
+  "STORAGE_GIBIBYTES": "Storage-gibibytes",
+  "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+}
+`;
+
 exports[`InventoryCardContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
 Array [
   Array [
