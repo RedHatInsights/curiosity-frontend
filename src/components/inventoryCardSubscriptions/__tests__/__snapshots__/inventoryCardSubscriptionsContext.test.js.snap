@@ -4,9 +4,11 @@ exports[`InventoryCardSubscriptionsContext should expect specific sort propertie
 Object {
   "NEXT_EVENT_DATE": "next_event_date",
   "NEXT_EVENT_TYPE": "next_event_type",
+  "PRODUCT_NAME": "product_name",
   "QUANTITY": "quantity",
   "SERVICE_LEVEL": "service_level",
   "SKU": "sku",
+  "TOTAL_CAPACITY": "total_capacity",
   "USAGE": "usage",
 }
 `;
