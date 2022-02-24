@@ -85,7 +85,7 @@ Object {
   "initialSubscriptionsInventoryFilters": Array [
     Object {
       "id": "productName",
-      "isSortable": false,
+      "isSortable": true,
       "isWrappable": true,
     },
     Object {
@@ -104,7 +104,7 @@ Object {
       "cellWidth": 15,
       "header": [Function],
       "id": "totalCapacity",
-      "isSortable": false,
+      "isSortable": true,
       "isWrappable": true,
     },
     Object {
@@ -207,7 +207,7 @@ Object {
   "initialSubscriptionsInventoryFilters": Array [
     Object {
       "id": "productName",
-      "isSortable": false,
+      "isSortable": true,
       "isWrappable": true,
     },
     Object {
@@ -226,7 +226,7 @@ Object {
       "cellWidth": 15,
       "header": [Function],
       "id": "totalCapacity",
-      "isSortable": false,
+      "isSortable": true,
       "isWrappable": true,
     },
     Object {

@@ -99,7 +99,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           "initialSubscriptionsInventoryFilters": Array [
             Object {
               "id": "productName",
-              "isSortable": false,
+              "isSortable": true,
               "isWrappable": true,
             },
             Object {
@@ -118,7 +118,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "cellWidth": 15,
               "header": [Function],
               "id": "totalCapacity",
-              "isSortable": false,
+              "isSortable": true,
               "isWrappable": true,
             },
             Object {
