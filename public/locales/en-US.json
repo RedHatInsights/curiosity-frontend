@@ -148,6 +148,8 @@
     "header_subscriptions_cores": "Cores",
     "header_subscriptions_sockets": "Sockets",
     "header_Transfer-gibibytes": "Data transfer",
+    "header_tooltip_Storage-gibibytes": "Measurements in binary gigabyte hours",
+    "header_tooltip_Transfer-gibibytes": "Measurements in binary gigabytes",
     "measurement_Instance-hours": "{{total}} Hours",
     "measurement_Storage-gibibytes": "{{total}} GB hours",
     "measurement_Transfer-gibibytes": "{{total}} GB",

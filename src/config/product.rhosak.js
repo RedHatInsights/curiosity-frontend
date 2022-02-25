@@ -140,6 +140,12 @@ const config = {
     },
     {
       id: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES,
+      header: {
+        tooltip: () =>
+          translate('curiosity-inventory.header', {
+            context: ['tooltip', RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES]
+          })
+      },
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES]: total }) =>
         translate('curiosity-inventory.measurement', {
           context: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES,
@@ -151,6 +157,12 @@ const config = {
     },
     {
       id: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES,
+      header: {
+        tooltip: () =>
+          translate('curiosity-inventory.header', {
+            context: ['tooltip', RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES]
+          })
+      },
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES]: total }) =>
         translate('curiosity-inventory.measurement', {
           context: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES,
