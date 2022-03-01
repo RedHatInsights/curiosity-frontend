@@ -27,13 +27,33 @@ Object {
       "transforms": Array [],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+      "title": <Tooltip
+        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Transfer-gibibytes\\"})"
+        distance={5}
+        enableFlip={false}
+        entryDelay={100}
+        exitDelay={0}
+        isNoWrap={false}
+        position="top"
+      >
+        t(curiosity-inventory.header, {"context":"Transfer-gibibytes"})
+      </Tooltip>,
       "transforms": Array [
         [Function],
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+      "title": <Tooltip
+        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibytes\\"})"
+        distance={5}
+        enableFlip={false}
+        entryDelay={100}
+        exitDelay={0}
+        isNoWrap={false}
+        position="top"
+      >
+        t(curiosity-inventory.header, {"context":"Storage-gibibytes"})
+      </Tooltip>,
       "transforms": Array [
         [Function],
       ],
@@ -110,13 +130,33 @@ Object {
       "transforms": Array [],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+      "title": <Tooltip
+        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Transfer-gibibytes\\"})"
+        distance={5}
+        enableFlip={false}
+        entryDelay={100}
+        exitDelay={0}
+        isNoWrap={false}
+        position="top"
+      >
+        t(curiosity-inventory.header, {"context":"Transfer-gibibytes"})
+      </Tooltip>,
       "transforms": Array [
         [Function],
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+      "title": <Tooltip
+        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibytes\\"})"
+        distance={5}
+        enableFlip={false}
+        entryDelay={100}
+        exitDelay={0}
+        isNoWrap={false}
+        position="top"
+      >
+        t(curiosity-inventory.header, {"context":"Storage-gibibytes"})
+      </Tooltip>,
       "transforms": Array [
         [Function],
       ],
