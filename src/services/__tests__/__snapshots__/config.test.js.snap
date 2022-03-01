@@ -2,9 +2,12 @@
 
 exports[`ServiceConfig should handle caching service calls: cached responses, emulated 304 1`] = `
 Array [
-  200,
-  304,
-  200,
+  "1. method=get, status=200, desc=initial call",
+  "2. method=get, status=304, desc=repeat 1st call and config",
+  "3. method=get, status=200, desc=updated config",
+  "4. method=post, status=200, desc=attempt post method",
+  "5. method=get, status=304, desc=repeat 3rd call and config",
+  "6. method=get, status=200, desc=no caching",
 ]
 `;
 
@@ -34,6 +37,101 @@ Array [
       "code": undefined,
       "config": Object {
         "adapter": [Function],
+        "cacheResponse": false,
+        "cancelToken": CancelToken {
+          "promise": Promise {
+            "then": [Function],
+          },
+        },
+        "data": undefined,
+        "headers": Object {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        "maxBodyLength": -1,
+        "maxContentLength": -1,
+        "method": "post",
+        "timeout": "60000",
+        "transformRequest": Array [
+          [Function],
+        ],
+        "transformResponse": Array [
+          [Function],
+        ],
+        "transitional": Object {
+          "clarifyTimeoutError": false,
+          "forcedJSONParsing": true,
+          "silentJSONParsing": true,
+        },
+        "url": "/test/",
+        "validateStatus": [Function],
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+      },
+      "data": "success",
+      "headers": undefined,
+      "request": Request {
+        "config": Object {
+          "adapter": [Function],
+          "cacheResponse": false,
+          "cancelToken": CancelToken {
+            "promise": Promise {
+              "then": [Function],
+            },
+          },
+          "data": undefined,
+          "headers": Object {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          "maxBodyLength": -1,
+          "maxContentLength": -1,
+          "method": "post",
+          "timeout": "60000",
+          "transformRequest": Array [
+            [Function],
+          ],
+          "transformResponse": Array [
+            [Function],
+          ],
+          "transitional": Object {
+            "clarifyTimeoutError": false,
+            "forcedJSONParsing": true,
+            "silentJSONParsing": true,
+          },
+          "url": "/test/",
+          "validateStatus": [Function],
+          "xsrfCookieName": "XSRF-TOKEN",
+          "xsrfHeaderName": "X-XSRF-TOKEN",
+        },
+        "headers": Object {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        "reject": [Function],
+        "resolve": [Function],
+        "responseType": undefined,
+        "timeout": "60000",
+        "url": "/test/",
+        "withCredentials": false,
+      },
+      "status": 200,
+      "statusText": undefined,
+    },
+  },
+  Object {
+    "reason": Cancel {
+      "message": "cancelled request",
+    },
+    "status": "rejected",
+  },
+  Object {
+    "status": "fulfilled",
+    "value": Response {
+      "code": undefined,
+      "config": Object {
+        "adapter": [Function],
+        "cacheResponse": false,
         "cancelToken": CancelToken {
           "promise": Promise {
             "then": [Function],
@@ -68,6 +166,7 @@ Array [
       "request": Request {
         "config": Object {
           "adapter": [Function],
+          "cacheResponse": false,
           "cancelToken": CancelToken {
             "promise": Promise {
               "then": [Function],
@@ -111,5 +210,60 @@ Array [
       "statusText": undefined,
     },
   },
+]
+`;
+
+exports[`ServiceConfig should handle producing a service call configuration: response configs 1`] = `
+Array [
+  "{
+  transitional: {
+    silentJSONParsing: true,
+    forcedJSONParsing: true,
+    clarifyTimeoutError: false
+  },
+  adapter: function mockAdapter(config) {\\\\n\\\\t  return new Promise(function (resolve, reject) {\\\\n\\\\t    var request = new Request(resolve, reject, config);\\\\n\\\\t    moxios.requests.track(request);\\\\n\\\\t\\\\n\\\\t    // Check for matching stub to auto respond with\\\\n\\\\t    for (var i = 0, l = moxios.stubs.count(); i < l; i++) {\\\\n\\\\t      var stub = moxios.stubs.at(i);\\\\n\\\\t      var correctURL = stub.url instanceof RegExp ? stub.url.test(request.url) : stub.url === request.url;\\\\n\\\\t      var correctMethod = true;\\\\n\\\\t\\\\n\\\\t      if (stub.method !== undefined) {\\\\n\\\\t        correctMethod = stub.method.toLowerCase() === request.config.method.toLowerCase();\\\\n\\\\t      }\\\\n\\\\t\\\\n\\\\t      if (correctURL && correctMethod) {\\\\n\\\\t        if (stub.timeout) {\\\\n\\\\t          throwTimeout(config);\\\\n\\\\t        }\\\\n\\\\t        request.respondWith(stub.response);\\\\n\\\\t        stub.resolve();\\\\n\\\\t        break;\\\\n\\\\t      }\\\\n\\\\t    }\\\\n\\\\t  });\\\\n\\\\t},
+  transformRequest: [
+    function transformRequest(data, headers) {\\\\n    normalizeHeaderName(headers, 'Accept');\\\\n    normalizeHeaderName(headers, 'Content-Type');\\\\n\\\\n    if (utils.isFormData(data) ||\\\\n      utils.isArrayBuffer(data) ||\\\\n      utils.isBuffer(data) ||\\\\n      utils.isStream(data) ||\\\\n      utils.isFile(data) ||\\\\n      utils.isBlob(data)\\\\n    ) {\\\\n      return data;\\\\n    }\\\\n    if (utils.isArrayBufferView(data)) {\\\\n      return data.buffer;\\\\n    }\\\\n    if (utils.isURLSearchParams(data)) {\\\\n      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\\\\n      return data.toString();\\\\n    }\\\\n    if (utils.isObject(data) || (headers && headers['Content-Type'] === 'application/json')) {\\\\n      setContentTypeIfUnset(headers, 'application/json');\\\\n      return stringifySafely(data);\\\\n    }\\\\n    return data;\\\\n  }
+  ],
+  transformResponse: [
+    function transformResponse(data) {\\\\n    var transitional = this.transitional || defaults.transitional;\\\\n    var silentJSONParsing = transitional && transitional.silentJSONParsing;\\\\n    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;\\\\n    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';\\\\n\\\\n    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {\\\\n      try {\\\\n        return JSON.parse(data);\\\\n      } catch (e) {\\\\n        if (strictJSONParsing) {\\\\n          if (e.name === 'SyntaxError') {\\\\n            throw enhanceError(e, this, 'E_JSON_PARSE');\\\\n          }\\\\n          throw e;\\\\n        }\\\\n      }\\\\n    }\\\\n\\\\n    return data;\\\\n  }
+  ],
+  timeout: 60000,
+  xsrfCookieName: XSRF-TOKEN,
+  xsrfHeaderName: X-XSRF-TOKEN,
+  maxContentLength: -1,
+  maxBodyLength: -1,
+  validateStatus: function validateStatus(status) {\\\\n    return status >= 200 && status < 300;\\\\n  },
+  headers: {
+    Accept: application/json, text/plain, */*
+  },
+  exposeCacheId: true,
+  url: /test/,
+  params: {
+    lorem: ipsum,
+    dolor: sit
+  },
+  schema: [
+    successResponse => \`\${successResponse}-schema-transform\`
+  ],
+  transform: [
+    successResponse => \`\${successResponse}-transform\`
+  ],
+  cacheResponse: false,
+  method: get,
+  cacheId: null
+}",
+]
+`;
+
+exports[`ServiceConfig should handle transforming service call responses: transformed responses 1`] = `
+Array [
+  "success-schema-transform",
+  "success-transform",
+  "error-error-transform",
+  Array [
+    "cancelled request",
+    undefined,
+  ],
 ]
 `;
