@@ -1,5 +1,6 @@
 import axios, { CancelToken } from 'axios';
 import LruCache from 'lru-cache';
+import _isPlainObject from 'lodash/isPlainObject';
 import { platformServices } from './platform/platformServices';
 import { serviceHelpers } from './common/helpers';
 
@@ -34,6 +35,7 @@ const responseCache = new LruCache({
   updateAgeOnGet: true
 });
 
+// ToDo: consider another way of hashing cacheIDs. base64 could get a little large depending on settings, i.e. md5
 /**
  * Set Axios configuration, which includes response schema validation and caching.
  * Call platform "getUser" auth method, and apply service config. Service configuration
@@ -48,6 +50,7 @@ const responseCache = new LruCache({
  * @param {boolean} config.cache
  * @param {boolean} config.cancel
  * @param {string} config.cancelId
+ * @param {boolean} config.exposeCacheId
  * @param {Array} config.schema
  * @param {Array} config.transform
  * @returns {Promise<*>}
@@ -55,16 +58,37 @@ const responseCache = new LruCache({
 const serviceCall = async config => {
   await platformServices.getUser();
 
-  const updatedConfig = { ...config, cache: undefined, cacheResponse: config.cache };
+  const updatedConfig = { ...config, cache: undefined, cacheResponse: config.cache, method: config.method || 'get' };
   const responseTransformers = [];
   const cancelledMessage = 'cancelled request';
   const axiosInstance = axios.create();
-  const sortedParams =
-    (updatedConfig.params && Object.entries(updatedConfig.params).sort(([a], [b]) => a.localeCompare(b))) || [];
-  const cacheId = `${updatedConfig.url}-${JSON.stringify(sortedParams)}`;
+
+  // don't cache responses if "get" isn't used
+  updatedConfig.cacheResponse = updatedConfig.cacheResponse === true && updatedConfig.method === 'get';
+
+  // account for alterations to transforms, and other config props
+  const cacheId =
+    (updatedConfig.cacheResponse === true &&
+      `${btoa(
+        JSON.stringify(updatedConfig, (key, value) => {
+          if (value !== updatedConfig && _isPlainObject(value)) {
+            return (Object.entries(value).sort(([a], [b]) => a.localeCompare(b)) || []).toString();
+          }
+          if (typeof value === 'function') {
+            return value.toString();
+          }
+          return value;
+        })
+      )}`) ||
+    null;
+
+  // simple check to place responsibility on consumer, primarily used for testing
+  if (updatedConfig.exposeCacheId === true) {
+    updatedConfig.cacheId = cacheId;
+  }
 
   if (updatedConfig.cancel === true) {
-    const cancelTokensId = `${updatedConfig.cancelId || ''}-${updatedConfig.url}`;
+    const cancelTokensId = `${updatedConfig.cancelId || ''}-${updatedConfig.method}-${updatedConfig.url}`;
 
     if (cancelTokens[cancelTokensId]) {
       cancelTokens[cancelTokensId].cancel(cancelledMessage);

@@ -121,6 +121,7 @@
     "no-unsafe-optional-chaining": 1,
     "prefer-exponentiation-operator": 0,
     "prefer-promise-reject-errors": 1,
+    "prefer-regex-literals": 0,
     "prettier/prettier": [
       "error",
       {
