@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.2.1...v2.3.0) (2022-03-08)
+
+
+### Features
+
+* **inventoryCardHelpers:** ent-4689 custom tooltip config ([#884](https://github.com/RedHatInsights/curiosity-frontend/issues/884)) ([a3a242e](https://github.com/RedHatInsights/curiosity-frontend/commit/a3a242ed49eea52fbf91ce7546b105ea4003a703))
+* **inventoryCardSubscriptions:** ent-4772 product_name sort ([#896](https://github.com/RedHatInsights/curiosity-frontend/issues/896)) ([d265597](https://github.com/RedHatInsights/curiosity-frontend/commit/d2655979e724c3319e2b578675cf9cf0d31cd279))
+
+
+### Bug Fixes
+
+* **build:** npm updates ([#874](https://github.com/RedHatInsights/curiosity-frontend/issues/874)) ([4b4f1b6](https://github.com/RedHatInsights/curiosity-frontend/commit/4b4f1b66c190011f4b93d4abe3ef4448a13392d2))
+* **build:** npm updates, regen lock ([#887](https://github.com/RedHatInsights/curiosity-frontend/issues/887)) ([fd6e47f](https://github.com/RedHatInsights/curiosity-frontend/commit/fd6e47ff5c428cdd57bc02c960ce669e738b4e62))
+* **config:** ent-4777 next_event_date display format ([#897](https://github.com/RedHatInsights/curiosity-frontend/issues/897)) ([26b71e8](https://github.com/RedHatInsights/curiosity-frontend/commit/26b71e899f00f809dea2dd22653fd2fc9a8d3f56))
+* **inventoryCardSubscriptionsContext:** ent-4572 sort types ([#890](https://github.com/RedHatInsights/curiosity-frontend/issues/890)) ([7fed4e0](https://github.com/RedHatInsights/curiosity-frontend/commit/7fed4e0e5a191ff05822f8693def1793a98f5d32))
+* **productViews:** product configs, test timestamps ([#857](https://github.com/RedHatInsights/curiosity-frontend/issues/857)) ([771c819](https://github.com/RedHatInsights/curiosity-frontend/commit/771c819c22de164d40879be5a5f123b3cde5ee3d))
+* **rhosak:** ent-4615 gibibytes to binary gigabytes ([#895](https://github.com/RedHatInsights/curiosity-frontend/issues/895)) ([d554e91](https://github.com/RedHatInsights/curiosity-frontend/commit/d554e91f59c1b82c58aaa2465cf1b2aaff58d528))
+* **testing:** clean up fragment wrappers ([#892](https://github.com/RedHatInsights/curiosity-frontend/issues/892)) ([abcaa68](https://github.com/RedHatInsights/curiosity-frontend/commit/abcaa684a9b4eaa2f87e793ebcd97832919c7303))
+
+
+### Code Refactoring
+
+* **inventoryCard:** ent-4572 class, function conversion ([#857](https://github.com/RedHatInsights/curiosity-frontend/issues/857)) ([2c27c67](https://github.com/RedHatInsights/curiosity-frontend/commit/2c27c6719dc533408e7d85b9ebb96d35743ee157))
+* **inventoryCard:** ent-4572 rename from inventoryList ([#857](https://github.com/RedHatInsights/curiosity-frontend/issues/857)) ([ef9f794](https://github.com/RedHatInsights/curiosity-frontend/commit/ef9f79486ae8c5e18ae34346880a3b028d0e799a))
+* **inventory:** ent-4572 rename components ([#857](https://github.com/RedHatInsights/curiosity-frontend/issues/857)) ([ddfe6f2](https://github.com/RedHatInsights/curiosity-frontend/commit/ddfe6f2d5449b100152288bc59c6d5b4985df1d9))
+* **optinView:** ent-4572 convert class component ([#877](https://github.com/RedHatInsights/curiosity-frontend/issues/877)) ([39f9c2d](https://github.com/RedHatInsights/curiosity-frontend/commit/39f9c2d3c0ed03ef4b4b3a86cdbcc56d49ff00bd))
+
+
+### Build
+
+* **deps:** aggregated dependency checks, updates ([#903](https://github.com/RedHatInsights/curiosity-frontend/issues/903)) ([76b901d](https://github.com/RedHatInsights/curiosity-frontend/commit/76b901def5979058a075b8328c88e82775929c14))
+* **dev:** local run, content security policy update ([#880](https://github.com/RedHatInsights/curiosity-frontend/issues/880)) ([fb484c9](https://github.com/RedHatInsights/curiosity-frontend/commit/fb484c9897fa2f85eba0ec881bb41718267b5b73))
+
 ### [2.2.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.2.0...v2.2.1) (2022-01-25)
 
 
