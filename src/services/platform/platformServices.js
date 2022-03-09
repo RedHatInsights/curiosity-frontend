@@ -1,4 +1,8 @@
 import _set from 'lodash/set';
+import { rbacConfig } from '../../config';
+import { axiosServiceCall } from '../common/serviceConfig';
+import { platformSchemas } from './platformSchemas';
+import { platformTransformers } from './platformTransformers';
 import { helpers } from '../../common';
 import {
   platformConstants,
@@ -8,57 +12,78 @@ import {
 /**
  * Basic user authentication.
  *
- * @returns {Promise<void>}
+ * @param {object} options
+ * @returns {Promise<*>}
  */
-const getUser = async () => {
+const getUser = async (options = {}) => {
+  const { schema = [platformSchemas.user], transform = [platformTransformers.user] } = options;
   const { insights } = window;
-  try {
-    return (
-      (helpers.DEV_MODE &&
-        _set(
-          {},
-          [
-            platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY,
-            platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
-            platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
-          ],
-          process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
-        )) ||
-      (await insights.chrome.auth.getUser())
-    );
-  } catch (e) {
-    throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
-  }
+  return axiosServiceCall({
+    url: async () => {
+      try {
+        return (
+          (helpers.DEV_MODE &&
+            _set(
+              {},
+              [
+                platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY,
+                platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER,
+                platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN
+              ],
+              process.env.REACT_APP_DEBUG_ORG_ADMIN === 'true'
+            )) ||
+          (await insights.chrome.auth.getUser())
+        );
+      } catch (e) {
+        throw new Error(`{ getUser } = insights.chrome.auth, ${e.message}`);
+      }
+    },
+    schema,
+    transform
+  });
 };
 
-/**
- * FixMe: revert this back towards async/await
- * Removed because there appears to be some quirky behavior where permissions will not come through
- * unless the function, and/or await are specifically returned, i.e. "return await insights.chrome...".
- */
 /**
  * Basic user permissions.
  *
  * @param {string} appName
- * @returns {Promise<void>}
+ * @param {object} options
+ * @returns {Promise<*>}
  */
-const getUserPermissions = appName => {
+const getUserPermissions = (appName = Object.keys(rbacConfig), options = {}) => {
+  const { schema = [platformSchemas.permissions], transform = [platformTransformers.permissions] } = options;
+  const updatedAppName = (Array.isArray(appName) && appName) || [appName];
   const { insights } = window;
-  try {
-    return (
-      (helpers.DEV_MODE && [
-        {
-          [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_ONE
-        },
-        {
-          [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_TWO
+  const platformMethod = name =>
+    (helpers.DEV_MODE && [
+      {
+        [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_ONE
+      },
+      {
+        [USER_PERMISSION_TYPES.PERMISSION]: process.env.REACT_APP_DEBUG_PERMISSION_APP_TWO
+      }
+    ]) ||
+    insights.chrome.getUserPermissions(name);
+
+  return axiosServiceCall({
+    url: async () => {
+      let userPermissions;
+
+      try {
+        const allPermissions = await Promise.all(updatedAppName.map(name => platformMethod(name)));
+
+        if (Array.isArray(allPermissions)) {
+          userPermissions = [...allPermissions.flat()];
         }
-      ]) ||
-      insights.chrome.getUserPermissions(appName)
-    );
-  } catch (e) {
-    throw new Error(`{ getUserPermissions } = insights.chrome, ${e.message}`);
-  }
+      } catch (e) {
+        throw new Error(`{ getUserPermissions } = insights.chrome, ${e.message}`);
+      }
+
+      return userPermissions;
+    },
+    schema,
+    transform
+  });
 };
 
 /**
@@ -79,7 +104,7 @@ const hideGlobalFilter = async (isHidden = true) => {
 /**
  * Help initialize global platform methods.
  *
- * @returns {Promise<void>}
+ * @returns {Promise<*>}
  */
 const initializeChrome = async () => {
   const { insights } = window;
@@ -105,21 +130,23 @@ const onNavigation = callback => {
   }
 };
 
-// FixMe: Revert catch to throwing an error. Relaxed for development
 /**
  * Set application ID.
  *
  * @param {string} name
- * @returns {Promise<void>}
+ * @returns {Promise<*>}
  */
-const setAppName = async (name = null) => {
+const setAppName = (name = null) => {
   const { insights } = window;
-  try {
-    await insights.chrome.identifyApp(name);
-  } catch (e) {
-    const error = `{ identifyApp } = insights.chrome, ${e.message}`;
-    await Promise.reject(error);
-  }
+  return axiosServiceCall({
+    url: async () => {
+      try {
+        await insights.chrome.identifyApp(name);
+      } catch (e) {
+        throw new Error(`{ identifyApp } = insights.chrome, ${e.message}`);
+      }
+    }
+  });
 };
 
 /**
@@ -129,7 +156,7 @@ const setAppName = async (name = null) => {
  * @param {object} options
  * @param {string} options.appName
  * @param {boolean} options.secondaryNav
- * @returns {Promise<object>}
+ * @returns {Promise<*>}
  */
 const setAppNav = async (id, { appName = helpers.UI_NAME, secondaryNav = true } = {}) => {
   const { insights } = window;

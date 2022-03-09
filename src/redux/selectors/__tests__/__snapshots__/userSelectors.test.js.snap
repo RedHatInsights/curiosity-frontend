@@ -1,94 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserSelectors should not authorize a user when global errors exist: global errors, unauthorized 1`] = `
-Object {
-  "session": Object {
-    "admin": false,
-    "authorized": Object {},
-    "entitled": false,
-    "error": true,
-    "errorCodes": Array [
-      "loremIpsum",
-    ],
-    "errorMessage": "lorem ipsum",
-    "permissions": Object {},
-    "status": 403,
-  },
-}
-`;
-
-exports[`UserSelectors should pass data with administrator checks: administrator, and missing user data 1`] = `
-Object {
-  "session": Object {
-    "admin": true,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": false,
-    },
-    "entitled": false,
-    "error": false,
-    "permissions": Object {},
-  },
-}
-`;
-
-exports[`UserSelectors should pass data with entitlements checks: entitlements, and missing user data 1`] = `
-Object {
-  "session": Object {
-    "admin": false,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": false,
-    },
-    "entitled": true,
-    "error": false,
-    "permissions": Object {},
-  },
-}
-`;
-
-exports[`UserSelectors should pass data with permissions checks: permissions, and missing user data 1`] = `
-Object {
-  "session": Object {
-    "admin": false,
-    "authorized": Object {
-      "inventory": false,
-      "subscriptions": true,
-    },
-    "entitled": false,
-    "error": false,
-    "permissions": Object {
-      "ipsum": Object {
-        "all": false,
-        "resources": Object {
-          "*": Object {
-            "read": Array [],
-          },
-        },
-      },
-      "lorem": Object {
-        "all": false,
-        "resources": Object {
-          "*": Object {
-            "read": Array [],
-          },
-        },
-      },
-      "subscriptions": Object {
-        "all": true,
-        "resources": Object {
-          "*": Object {
-            "*": Array [],
-            "loremCustom": Array [],
-            "read": Array [],
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
 exports[`UserSelectors should pass error state data through response: error state data 1`] = `
 Object {
   "session": Object {
@@ -127,6 +38,33 @@ Object {
     "entitled": false,
     "error": false,
     "permissions": Object {},
+  },
+}
+`;
+
+exports[`UserSelectors should pass transformed data on fulfill: fulfilled state data 1`] = `
+Object {
+  "session": Object {
+    "admin": false,
+    "authorized": Object {
+      "subscriptions": true,
+    },
+    "entitled": true,
+    "error": false,
+    "permissions": Array [
+      Object {
+        "subscriptions": Object {
+          "all": true,
+          "resources": Object {
+            "*": Object {
+              "*": Array [],
+              "loremCustom": Array [],
+              "read": Array [],
+            },
+          },
+        },
+      },
+    ],
   },
 }
 `;

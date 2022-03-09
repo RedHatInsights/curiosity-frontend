@@ -2,7 +2,7 @@ import { rhsmTransformers } from '../rhsmTransformers';
 import { rhsmConstants } from '../rhsmConstants';
 
 describe('RHSM Transformers', () => {
-  it('should have specific RHSM response transformers', () => {
+  it('should have specific response transformers', () => {
     expect(rhsmTransformers).toMatchSnapshot('specific transformers');
   });
 

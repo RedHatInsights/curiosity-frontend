@@ -32,7 +32,7 @@ Object {
 }
 `;
 
-exports[`RHSM Transformers should have specific RHSM response transformers: specific transformers 1`] = `
+exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
 Object {
   "instances": [Function],
   "tally": [Function],
