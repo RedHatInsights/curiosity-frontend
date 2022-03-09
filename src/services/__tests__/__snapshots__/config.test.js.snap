@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ServiceConfig should allow passing a function and emulating a service call: function responses 1`] = `
+Array [
+  "lorem.ipsum",
+  "lorem.ipsum-function-schema-transform",
+  "lorem.ipsum-function-transform",
+  undefined,
+  "dolor.sit-error-transform",
+  "dolor.sit-error-transform",
+]
+`;
+
 exports[`ServiceConfig should handle caching service calls: cached responses, emulated 304 1`] = `
 Array [
   "1. method=get, status=200, desc=initial call",
