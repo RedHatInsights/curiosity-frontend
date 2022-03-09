@@ -145,19 +145,19 @@ const serviceCall = async config => {
 
     if (errorTransform) {
       transformers[1] = response => {
-        const updatedResponse = { ...response };
+        const updatedResponse = { ...(response.response || response) };
 
         if (updatedResponse?.message === cancelledMessage) {
           return Promise.reject(updatedResponse);
         }
 
         const { data, error: normalizeError } = serviceHelpers.passDataToCallback(
-          updatedResponse?.response?.data,
+          updatedResponse?.data || updatedResponse?.message,
           errorTransform
         );
 
         if (!normalizeError) {
-          updatedResponse.response = { ...updatedResponse.response, data };
+          updatedResponse.response = { ...updatedResponse, data };
         }
 
         return Promise.reject(updatedResponse);
@@ -176,6 +176,40 @@ const serviceCall = async config => {
       },
       response => Promise.reject(response)
     );
+  }
+
+  if (typeof updatedConfig.url === 'function') {
+    const emulateCallback = updatedConfig.url;
+    updatedConfig.url = '/';
+
+    let message = `success, emulated`;
+    let emulatedResponse;
+    let isSuccess = true;
+
+    try {
+      emulatedResponse = await emulateCallback();
+    } catch (e) {
+      isSuccess = false;
+      message = e.message || e;
+    }
+
+    if (isSuccess) {
+      updatedConfig.adapter = adapterConfig =>
+        Promise.resolve({
+          data: emulatedResponse,
+          status: 200,
+          statusText: message,
+          config: adapterConfig
+        });
+    } else {
+      updatedConfig.adapter = adapterConfig =>
+        Promise.reject({ // eslint-disable-line
+          ...new Error(message),
+          message,
+          status: 418,
+          config: adapterConfig
+        });
+    }
   }
 
   return axiosInstance(serviceConfig(updatedConfig));
