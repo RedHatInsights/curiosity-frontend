@@ -240,4 +240,80 @@ describe('ServiceConfig', () => {
 
     expect(responses).toMatchSnapshot('transformed responses');
   });
+
+  it('should allow passing a function and emulating a service call', async () => {
+    const responses = [];
+
+    // First, pass a regular function similar to any service call
+    const responseOne = await service.serviceCall({
+      cache: true,
+      url: () => 'lorem.ipsum'
+    });
+    responses.push(responseOne.data);
+
+    // Second, pass a function similar to any service call, schema transform
+    const responseTwo = await service.serviceCall({
+      cache: true,
+      url: () => Promise.resolve('lorem.ipsum'),
+      schema: [successResponse => `${successResponse}-function-schema-transform`]
+    });
+    responses.push(responseTwo.data);
+
+    // Third, pass a function similar to any service call, transform
+    const responseThree = await service.serviceCall({
+      cache: true,
+      url: () => Promise.resolve('lorem.ipsum'),
+      transform: [successResponse => `${successResponse}-function-transform`]
+    });
+    responses.push(responseThree.data);
+
+    // Fourth, use error
+    let responseFour;
+    try {
+      responseFour = await service.serviceCall({
+        cache: true,
+        url: () => Promise.reject(new Error('dolor.sit'))
+      });
+    } catch (e) {
+      responseFour = e.response || e;
+    }
+
+    responses.push(responseFour.data);
+
+    // Fifth, use reject error with transform
+    let responseFive;
+    try {
+      responseFive = await service.serviceCall({
+        cache: true,
+        url: () => Promise.reject(new Error('dolor.sit')),
+        transform: [
+          successResponse => `${successResponse}-transform`,
+          errorResponse => `${errorResponse}-error-transform`
+        ]
+      });
+    } catch (e) {
+      responseFive = e.response || e;
+    }
+
+    responses.push(responseFive.data);
+
+    // Sixth, use reject string with transform
+    let responseSix;
+    try {
+      responseSix = await service.serviceCall({
+        cache: true,
+        url: () => Promise.reject('dolor.sit'), // eslint-disable-line
+        transform: [
+          successResponse => `${successResponse}-transform`,
+          errorResponse => `${errorResponse}-error-transform`
+        ]
+      });
+    } catch (e) {
+      responseSix = e.response || e;
+    }
+
+    responses.push(responseSix.data);
+
+    expect(responses).toMatchSnapshot('function responses');
+  });
 });
