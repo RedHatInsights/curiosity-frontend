@@ -18,12 +18,11 @@ describe('UserServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(userServices)).toHaveLength(5);
+    expect(Object.keys(userServices)).toHaveLength(4);
   });
 
   it('should have specific methods', () => {
     expect(userServices.getLocale).toBeDefined();
-    expect(userServices.logoutUser).toBeDefined();
     expect(userServices.deleteAccountOptIn).toBeDefined();
     expect(userServices.getAccountOptIn).toBeDefined();
     expect(userServices.updateAccountOptIn).toBeDefined();
@@ -43,20 +42,20 @@ describe('UserServices', () => {
   it('should return default locale if no locale cookie is present', async () => {
     const response = await userServices.getLocale();
 
-    expect(response).toMatchSnapshot();
+    expect(response.data).toMatchSnapshot();
   });
 
   it('should return a specific locale cookie value', async () => {
     Cookies.get = jest.fn().mockImplementation(() => 'en_US');
     const response = await userServices.getLocale();
 
-    expect(response).toMatchSnapshot();
+    expect(response.data).toMatchSnapshot();
   });
 
   it('should return the default locale with an invalid ISO_639 code', async () => {
     Cookies.get = jest.fn().mockImplementation(() => 'test_US');
     const response = await userServices.getLocale();
 
-    expect(response).toMatchSnapshot();
+    expect(response.data).toMatchSnapshot();
   });
 });
