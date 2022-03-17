@@ -1,5 +1,5 @@
 import _get from 'lodash/get';
-import { appTypes, userTypes } from '../types';
+import { appTypes, platformTypes, userTypes } from '../types';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
 import { reduxHelpers } from '../common/reduxHelpers';
 
@@ -72,7 +72,7 @@ const userReducer = (state = initialState, action) => {
           { ref: 'optin', type: userTypes.DELETE_USER_OPTIN },
           { ref: 'optin', type: userTypes.GET_USER_OPTIN },
           { ref: 'optin', type: userTypes.UPDATE_USER_OPTIN },
-          { ref: 'session', type: userTypes.USER_AUTH }
+          { ref: 'session', type: platformTypes.PLATFORM_USER_AUTH }
         ],
         state,
         action
