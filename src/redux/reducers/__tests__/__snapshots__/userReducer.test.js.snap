@@ -40,6 +40,25 @@ Object {
 }
 `;
 
+exports[`UserReducer should handle all defined error types: rejected types PLATFORM_USER_AUTH 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {},
+    "session": Object {
+      "error": true,
+      "errorCodes": Array [],
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "locale": null,
+      "meta": Object {},
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "PLATFORM_USER_AUTH_REJECTED",
+}
+`;
+
 exports[`UserReducer should handle all defined error types: rejected types UPDATE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
@@ -57,25 +76,6 @@ Object {
     },
   },
   "type": "UPDATE_USER_OPTIN_REJECTED",
-}
-`;
-
-exports[`UserReducer should handle all defined error types: rejected types USER_AUTH 1`] = `
-Object {
-  "result": Object {
-    "optin": Object {},
-    "session": Object {
-      "error": true,
-      "errorCodes": Array [],
-      "errorMessage": "MESSAGE",
-      "fulfilled": false,
-      "locale": null,
-      "meta": Object {},
-      "pending": false,
-      "status": 0,
-    },
-  },
-  "type": "USER_AUTH_REJECTED",
 }
 `;
 
@@ -143,6 +143,37 @@ Object {
 }
 `;
 
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types PLATFORM_USER_AUTH 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {},
+    "session": Object {
+      "data": Object {
+        "permissions": Array [],
+        "test": "success",
+        "user": Object {
+          "identity": Object {
+            "user": Object {
+              "is_org_admin": true,
+            },
+          },
+        },
+      },
+      "date": null,
+      "error": false,
+      "errorCodes": Array [],
+      "errorMessage": "",
+      "fulfilled": true,
+      "locale": null,
+      "meta": Object {},
+      "pending": false,
+      "status": 0,
+    },
+  },
+  "type": "PLATFORM_USER_AUTH_FULFILLED",
+}
+`;
+
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types UPDATE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
@@ -172,37 +203,6 @@ Object {
     },
   },
   "type": "UPDATE_USER_OPTIN_FULFILLED",
-}
-`;
-
-exports[`UserReducer should handle all defined fulfilled types: fulfilled types USER_AUTH 1`] = `
-Object {
-  "result": Object {
-    "optin": Object {},
-    "session": Object {
-      "data": Object {
-        "permissions": Array [],
-        "test": "success",
-        "user": Object {
-          "identity": Object {
-            "user": Object {
-              "is_org_admin": true,
-            },
-          },
-        },
-      },
-      "date": null,
-      "error": false,
-      "errorCodes": Array [],
-      "errorMessage": "",
-      "fulfilled": true,
-      "locale": null,
-      "meta": Object {},
-      "pending": false,
-      "status": 0,
-    },
-  },
-  "type": "USER_AUTH_FULFILLED",
 }
 `;
 
@@ -267,6 +267,24 @@ Object {
 }
 `;
 
+exports[`UserReducer should handle all defined pending types: pending types PLATFORM_USER_AUTH 1`] = `
+Object {
+  "result": Object {
+    "optin": Object {},
+    "session": Object {
+      "error": false,
+      "errorCodes": Array [],
+      "errorMessage": "",
+      "fulfilled": false,
+      "locale": null,
+      "meta": Object {},
+      "pending": true,
+    },
+  },
+  "type": "PLATFORM_USER_AUTH_PENDING",
+}
+`;
+
 exports[`UserReducer should handle all defined pending types: pending types UPDATE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
@@ -283,24 +301,6 @@ Object {
     },
   },
   "type": "UPDATE_USER_OPTIN_PENDING",
-}
-`;
-
-exports[`UserReducer should handle all defined pending types: pending types USER_AUTH 1`] = `
-Object {
-  "result": Object {
-    "optin": Object {},
-    "session": Object {
-      "error": false,
-      "errorCodes": Array [],
-      "errorMessage": "",
-      "fulfilled": false,
-      "locale": null,
-      "meta": Object {},
-      "pending": true,
-    },
-  },
-  "type": "USER_AUTH_PENDING",
 }
 `;
 

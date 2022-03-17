@@ -4,17 +4,6 @@ import { helpers } from '../../common/helpers';
 import { translate } from '../../components/i18n/i18n';
 
 /**
- * Get an emulated API response from the platforms "getUser" method.
- *
- * @returns {Function}
- */
-const authorizeUser = () => dispatch =>
-  dispatch({
-    type: userTypes.USER_AUTH,
-    payload: userServices.authorizeUser()
-  });
-
-/**
  * Get a user's locale.
  *
  * @returns {{payload: Promise<{data: void}>, type: string}}
@@ -84,14 +73,6 @@ const updateAccountOptIn =
       }
     });
 
-const userActions = { authorizeUser, getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
+const userActions = { getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
 
-export {
-  userActions as default,
-  userActions,
-  authorizeUser,
-  getLocale,
-  deleteAccountOptIn,
-  getAccountOptIn,
-  updateAccountOptIn
-};
+export { userActions as default, userActions, getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };

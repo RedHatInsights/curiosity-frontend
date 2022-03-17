@@ -1,22 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlatformServices should return a failed getUser: failed authorized user 1`] = `[Error: { getUser } = insights.chrome.auth, insights.chrome.auth.getUser is not a function]`;
+exports[`PlatformServices should return a failed getUser: failed authorized user 1`] = `
+Object {
+  "data": undefined,
+  "message": "{ getUser } = insights.chrome.auth, insights.chrome.auth.getUser is not a function",
+  "status": 418,
+  "statusText": undefined,
+}
+`;
+
+exports[`PlatformServices should return a failed getUserPermissions: failed user permissions 1`] = `
+Object {
+  "data": undefined,
+  "message": "{ getUserPermissions } = insights.chrome, insights.chrome.getUserPermissions is not a function",
+  "status": 418,
+  "statusText": undefined,
+}
+`;
 
 exports[`PlatformServices should return a failed hideGlobalFilter: failed hideGlobalFilter 1`] = `[Error: { on } = insights.chrome, insights.chrome.hideGlobalFilter is not a function]`;
 
 exports[`PlatformServices should return a failed initializeChrome: failed initializeChrome 1`] = `[Error: { init } = insights.chrome, insights.chrome.init is not a function]`;
 
-exports[`PlatformServices should return a failed setAppName: failed setAppName 1`] = `"{ identifyApp } = insights.chrome, insights.chrome.identifyApp is not a function"`;
+exports[`PlatformServices should return a failed setAppName: failed setAppName 1`] = `
+Object {
+  "data": undefined,
+  "message": "{ identifyApp } = insights.chrome, insights.chrome.identifyApp is not a function",
+  "status": 418,
+  "statusText": undefined,
+}
+`;
 
 exports[`PlatformServices should return a failed setAppNav: failed setAppNav 1`] = `[Error: { appNavClick } = insights.chrome, insights.chrome.appNavClick is not a function]`;
 
-exports[`PlatformServices should return a successful getUser with a specific response: specific success for authorized user 1`] = `"lorem ipsum"`;
+exports[`PlatformServices should return a successful getUser with a specific response: specific success for authorized user 1`] = `
+Object {
+  "data": Object {
+    "isAdmin": false,
+    "isEntitled": false,
+  },
+  "message": undefined,
+  "status": 200,
+  "statusText": "success, emulated",
+}
+`;
 
 exports[`PlatformServices should return a successful getUser: success authorized user 1`] = `
 Object {
-  "identity": Object {
-    "account_number": "0",
-    "type": "User",
+  "data": Object {
+    "isAdmin": false,
+    "isEntitled": false,
   },
+  "message": undefined,
+  "status": 200,
+  "statusText": "success, emulated",
 }
 `;

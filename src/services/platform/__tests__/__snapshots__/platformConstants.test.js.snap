@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Platform Constants should have specific properties: all exported constants 1`] = `
+Object {
+  "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
+  "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
+    "ENTITLED": "is_entitled",
+  },
+  "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
+  "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
+    "USER": "user",
+  },
+  "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
+    "ORG_ADMIN": "is_org_admin",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+    "SUBSCRIPTIONS": "subscriptions",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+    "ALL": "*",
+    "READ": "read",
+    "WRITE": "write",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+    "ALL": "*",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+    "PERMISSION": "permission",
+    "RESOURCE_DEFS": "resourceDefinitions",
+  },
+  "default": Object {
+    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
+    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
+      "ENTITLED": "is_entitled",
+    },
+    "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
+    "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
+      "USER": "user",
+    },
+    "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
+      "ORG_ADMIN": "is_org_admin",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+      "SUBSCRIPTIONS": "subscriptions",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+      "ALL": "*",
+      "READ": "read",
+      "WRITE": "write",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+      "ALL": "*",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+      "PERMISSION": "permission",
+      "RESOURCE_DEFS": "resourceDefinitions",
+    },
+  },
+  "platformConstants": Object {
+    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
+    "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
+      "ENTITLED": "is_entitled",
+    },
+    "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
+    "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
+      "USER": "user",
+    },
+    "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
+      "ORG_ADMIN": "is_org_admin",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+      "SUBSCRIPTIONS": "subscriptions",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+      "ALL": "*",
+      "READ": "read",
+      "WRITE": "write",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+      "ALL": "*",
+    },
+    "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+      "PERMISSION": "permission",
+      "RESOURCE_DEFS": "resourceDefinitions",
+    },
+  },
+}
+`;
+
+exports[`Platform Constants should have specific properties: specific constants 1`] = `
+Object {
+  "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
+  "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": Object {
+    "ENTITLED": "is_entitled",
+  },
+  "PLATFORM_API_RESPONSE_USER_IDENTITY": "identity",
+  "PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES": Object {
+    "USER": "user",
+  },
+  "PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES": Object {
+    "ORG_ADMIN": "is_org_admin",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_APP_TYPES": Object {
+    "SUBSCRIPTIONS": "subscriptions",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES": Object {
+    "ALL": "*",
+    "READ": "read",
+    "WRITE": "write",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_RESOURCE_TYPES": Object {
+    "ALL": "*",
+  },
+  "PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES": Object {
+    "PERMISSION": "permission",
+    "RESOURCE_DEFS": "resourceDefinitions",
+  },
+}
+`;

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Platform Transformers should attempt to parse a permissions response: permissions, default 1`] = `
+Object {
+  "authorized": Object {
+    "inventory": false,
+    "subscriptions": false,
+  },
+  "permissions": Object {},
+}
+`;
+
+exports[`Platform Transformers should attempt to parse a permissions response: permissions, parsed 1`] = `
+Object {
+  "authorized": Object {
+    "inventory": false,
+    "subscriptions": true,
+  },
+  "permissions": Object {
+    "ipsum": Object {
+      "all": false,
+      "resources": Object {
+        "*": Object {
+          "read": Array [],
+        },
+      },
+    },
+    "lorem": Object {
+      "all": false,
+      "resources": Object {
+        "*": Object {
+          "read": Array [],
+        },
+      },
+    },
+    "subscriptions": Object {
+      "all": true,
+      "resources": Object {
+        "*": Object {
+          "*": Array [],
+          "loremCustom": Array [],
+          "read": Array [],
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Platform Transformers should attempt to parse a user response: user, default 1`] = `
+Object {
+  "isAdmin": false,
+  "isEntitled": false,
+}
+`;
+
+exports[`Platform Transformers should attempt to parse a user response: user, parsed 1`] = `
+Object {
+  "isAdmin": true,
+  "isEntitled": true,
+}
+`;
+
+exports[`Platform Transformers should have specific response transformers: specific transformers 1`] = `
+Object {
+  "permissions": [Function],
+  "user": [Function],
+}
+`;

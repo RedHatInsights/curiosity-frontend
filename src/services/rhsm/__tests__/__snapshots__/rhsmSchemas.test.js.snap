@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RHSM Schemas should have specific RHSM response schemas: specific schemas 1`] = `
+exports[`RHSM Schemas should have specific response schemas: specific schemas 1`] = `
 Object {
   "errors": [Function],
   "guests": [Function],
@@ -10,13 +10,13 @@ Object {
 }
 `;
 
-exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: error schema 1`] = `
+exports[`RHSM Schemas should have valid schemas that validate API responses: error schema 1`] = `
 Object {
   "errors": Array [],
 }
 `;
 
-exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: guests response schema 1`] = `
+exports[`RHSM Schemas should have valid schemas that validate API responses: guests response schema 1`] = `
 Object {
   "data": Array [],
   "links": Object {},
@@ -24,7 +24,7 @@ Object {
 }
 `;
 
-exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: instances response schema 1`] = `
+exports[`RHSM Schemas should have valid schemas that validate API responses: instances response schema 1`] = `
 Object {
   "data": Array [],
   "links": Object {},
@@ -32,7 +32,7 @@ Object {
 }
 `;
 
-exports[`RHSM Schemas should have valid RHSM schemas that validate API responses: tally response schema 1`] = `
+exports[`RHSM Schemas should have valid schemas that validate API responses: tally response schema 1`] = `
 Object {
   "data": Array [],
   "links": Object {},
