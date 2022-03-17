@@ -4,40 +4,35 @@ import { serviceCall } from '../config';
 import { helpers } from '../../common';
 
 /**
- * Return a platform locale value from a cookie.
- *
- * @private
- * @returns {{value: string, key: string | null}|null}
+ * ToDo: Review moving the getLocale function under platformServices.
+ * Also review using window.navigator.language as the primary pull for language.
  */
-const getLocaleFromCookie = () => {
-  const value = (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace('_', '-');
-  const key = (value && LocaleCode.getLanguageName(value)) || null;
-
-  return (key && { value, key }) || null;
-};
-
 /**
- * Return platform locale.
+ * Return a browser locale, or fallback towards the platform locale cookie
  *
- * @returns {Promise<{data: void}>}
+ * @returns {Promise<*>}
  */
 const getLocale = () => {
-  const defaultLocale = {
+  const defaultLang = {
     value: helpers.UI_LOCALE_DEFAULT,
     key: helpers.UI_LOCALE_DEFAULT_DESC
   };
+  const parseLang = value => {
+    const key = (value && LocaleCode.getLanguageName(value)) || null;
+    return (key && { value, key }) || undefined;
+  };
 
-  return new Promise(resolve =>
-    resolve({
-      data: getLocaleFromCookie() || defaultLocale
-    })
-  );
-};
+  return serviceCall({
+    url: async () => {
+      const cookieLang = await (Cookies.get(process.env.REACT_APP_CONFIG_SERVICE_LOCALES_COOKIE) || '').replace(
+        '_',
+        '-'
+      );
 
-const logoutUser = () =>
-  new Promise(resolve => {
-    resolve({});
+      return parseLang(cookieLang) || defaultLang;
+    }
   });
+};
 
 /**
  * @apiMock {DelayResponse} 2000
@@ -243,19 +238,11 @@ const updateAccountOptIn = (params = {}) =>
     params
   });
 
-const userServices = { getLocale, logoutUser, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
+const userServices = { getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
 
 /**
  * Expose services to the browser's developer console.
  */
 helpers.browserExpose({ userServices });
 
-export {
-  userServices as default,
-  userServices,
-  getLocale,
-  logoutUser,
-  deleteAccountOptIn,
-  getAccountOptIn,
-  updateAccountOptIn
-};
+export { userServices as default, userServices, getLocale, deleteAccountOptIn, getAccountOptIn, updateAccountOptIn };
