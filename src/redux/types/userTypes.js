@@ -1,16 +1,16 @@
 const DELETE_USER_OPTIN = 'DELETE_USER_OPTIN';
 const GET_USER_OPTIN = 'GET_USER_OPTIN';
 const UPDATE_USER_OPTIN = 'UPDATE_USER_OPTIN';
-const USER_AUTH = 'USER_AUTH';
 const USER_LOCALE = 'USER_LOCALE';
 const USER_LOGOUT = 'USER_LOGOUT';
 
 /**
  * User action, reducer types.
  *
- * @type {{USER_LOGOUT: string, USER_AUTH: string, USER_LOCALE: string}}
+ * @type {{USER_LOGOUT: string, USER_LOCALE: string, GET_USER_OPTIN: string,
+ *     UPDATE_USER_OPTIN: string, DELETE_USER_OPTIN: string}}
  */
-const userTypes = { DELETE_USER_OPTIN, GET_USER_OPTIN, UPDATE_USER_OPTIN, USER_AUTH, USER_LOCALE, USER_LOGOUT };
+const userTypes = { DELETE_USER_OPTIN, GET_USER_OPTIN, UPDATE_USER_OPTIN, USER_LOCALE, USER_LOGOUT };
 
 export {
   userTypes as default,
@@ -18,7 +18,6 @@ export {
   DELETE_USER_OPTIN,
   GET_USER_OPTIN,
   UPDATE_USER_OPTIN,
-  USER_AUTH,
   USER_LOCALE,
   USER_LOGOUT
 };

@@ -1,7 +1,7 @@
 import userReducer from '../userReducer';
 import { rhsmApiTypes } from '../../../types';
 import { platformConstants as platformApiTypes } from '../../../services/platform/platformConstants';
-import { appTypes, userTypes as types } from '../../types';
+import { appTypes, platformTypes, userTypes as types } from '../../types';
 import { reduxHelpers } from '../../common/reduxHelpers';
 
 describe('UserReducer', () => {
@@ -44,7 +44,12 @@ describe('UserReducer', () => {
   });
 
   it('should handle all defined error types', () => {
-    const specificTypes = [types.USER_AUTH, types.DELETE_USER_OPTIN, types.GET_USER_OPTIN, types.UPDATE_USER_OPTIN];
+    const specificTypes = [
+      platformTypes.PLATFORM_USER_AUTH,
+      types.DELETE_USER_OPTIN,
+      types.GET_USER_OPTIN,
+      types.UPDATE_USER_OPTIN
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -71,7 +76,12 @@ describe('UserReducer', () => {
   });
 
   it('should handle all defined pending types', () => {
-    const specificTypes = [types.USER_AUTH, types.DELETE_USER_OPTIN, types.GET_USER_OPTIN, types.UPDATE_USER_OPTIN];
+    const specificTypes = [
+      platformTypes.PLATFORM_USER_AUTH,
+      types.DELETE_USER_OPTIN,
+      types.GET_USER_OPTIN,
+      types.UPDATE_USER_OPTIN
+    ];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -88,7 +98,7 @@ describe('UserReducer', () => {
 
   it('should handle all defined fulfilled types', () => {
     const specificTypes = [
-      types.USER_AUTH,
+      platformTypes.PLATFORM_USER_AUTH,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,

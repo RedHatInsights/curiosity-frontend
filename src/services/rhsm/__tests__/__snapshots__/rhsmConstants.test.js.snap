@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RHSM Constants should have specific RHSM properties: all exported rhsm constants 1`] = `
+exports[`RHSM Constants should have specific properties: all exported constants 1`] = `
 Object {
   "RHSM_API_PATH_METRIC_TYPES": Object {
     "CORES": "Cores",
@@ -504,7 +504,7 @@ Object {
 }
 `;
 
-exports[`RHSM Constants should have specific RHSM properties: specific constants 1`] = `
+exports[`RHSM Constants should have specific properties: specific constants 1`] = `
 Object {
   "RHSM_API_PATH_METRIC_TYPES": Object {
     "CORES": "Cores",

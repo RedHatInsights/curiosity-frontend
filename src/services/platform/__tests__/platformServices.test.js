@@ -40,31 +40,30 @@ describe('PlatformServices', () => {
   });
 
   it('should return a successful getUser', async () => {
-    const response = await platformServices.getUser();
+    const { status, statusText, data, message } = await platformServices.getUser();
 
-    expect(response).toMatchSnapshot('success authorized user');
+    expect({ status, statusText, data, message }).toMatchSnapshot('success authorized user');
   });
 
   it('should return a successful getUser with a specific response', async () => {
     window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => Promise.resolve('lorem ipsum'));
-    const response = await platformServices.getUser();
+    const { status, statusText, data, message } = await platformServices.getUser();
 
-    expect(response).toMatchSnapshot('specific success for authorized user');
+    expect({ status, statusText, data, message }).toMatchSnapshot('specific success for authorized user');
   });
 
   it('should return a failed getUser', async () => {
     window.insights.chrome.auth.getUser = undefined;
-    const response = await returnPromiseAsync(platformServices.getUser);
+    const { status, statusText, data, message } = await returnPromiseAsync(platformServices.getUser);
 
-    expect(response).toMatchSnapshot('failed authorized user');
+    expect({ status, statusText, data, message }).toMatchSnapshot('failed authorized user');
   });
 
-  it('should return a failed getUserPermissions', () => {
+  it('should return a failed getUserPermissions', async () => {
     window.insights.chrome.getUserPermissions = undefined;
+    const { status, statusText, data, message } = await returnPromiseAsync(platformServices.getUserPermissions);
 
-    expect(platformServices.getUserPermissions).toThrowError(
-      '{ getUserPermissions } = insights.chrome, insights.chrome.getUserPermissions is not a function'
-    );
+    expect({ status, statusText, data, message }).toMatchSnapshot('failed user permissions');
   });
 
   it('should return a failed hideGlobalFilter', async () => {
@@ -90,9 +89,9 @@ describe('PlatformServices', () => {
 
   it('should return a failed setAppName', async () => {
     window.insights.chrome.identifyApp = undefined;
-    const response = await returnPromiseAsync(platformServices.setAppName);
+    const { status, statusText, data, message } = await returnPromiseAsync(platformServices.setAppName);
 
-    expect(response).toMatchSnapshot('failed setAppName');
+    expect({ status, statusText, data, message }).toMatchSnapshot('failed setAppName');
   });
 
   it('should return a failed setAppNav', async () => {

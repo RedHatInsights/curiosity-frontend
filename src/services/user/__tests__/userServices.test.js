@@ -3,19 +3,6 @@ import moxios from 'moxios';
 import userServices from '../userServices';
 
 describe('UserServices', () => {
-  // Return a promise, or promise like, response for errors
-  const returnPromiseAsync = async promiseAsyncCall => {
-    let response;
-
-    try {
-      response = await promiseAsyncCall();
-    } catch (e) {
-      response = e;
-    }
-
-    return response;
-  };
-
   beforeEach(() => {
     moxios.install();
 
@@ -31,11 +18,10 @@ describe('UserServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(userServices)).toHaveLength(6);
+    expect(Object.keys(userServices)).toHaveLength(5);
   });
 
   it('should have specific methods', () => {
-    expect(userServices.authorizeUser).toBeDefined();
     expect(userServices.getLocale).toBeDefined();
     expect(userServices.logoutUser).toBeDefined();
     expect(userServices.deleteAccountOptIn).toBeDefined();
@@ -72,32 +58,5 @@ describe('UserServices', () => {
     const response = await userServices.getLocale();
 
     expect(response).toMatchSnapshot();
-  });
-
-  it('should return a successful authorized user', async () => {
-    const response = await userServices.authorizeUser();
-
-    expect(response).toMatchSnapshot('success authorized user');
-  });
-
-  it('should return a failed authorized user', async () => {
-    window.insights.chrome.auth.getUser = undefined;
-    const response = await returnPromiseAsync(userServices.authorizeUser);
-
-    expect(response).toMatchSnapshot('failed authorized user');
-  });
-
-  it('should return a failed authorized user on empty response', async () => {
-    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => ({}));
-    const response = await returnPromiseAsync(userServices.authorizeUser);
-
-    expect(response).toMatchSnapshot('failed authorized user: empty object');
-  });
-
-  it('should return a failed authorized user on an unexpected response', async () => {
-    window.insights.chrome.auth.getUser = jest.fn().mockImplementation(() => 'lorem ipsum');
-    const response = await returnPromiseAsync(userServices.authorizeUser);
-
-    expect(response).toMatchSnapshot('failed authorized user: unexpected');
   });
 });

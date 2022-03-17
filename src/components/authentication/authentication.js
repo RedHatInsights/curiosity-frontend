@@ -131,7 +131,7 @@ Authentication.propTypes = {
  */
 Authentication.defaultProps = {
   appName: routerHelpers.appName,
-  authorizeUser: reduxActions.user.authorizeUser,
+  authorizeUser: reduxActions.platform.authorizeUser,
   hideGlobalFilter: reduxActions.platform.hideGlobalFilter,
   initializeChrome: reduxActions.platform.initializeChrome,
   isDisabled: helpers.UI_DISABLED,

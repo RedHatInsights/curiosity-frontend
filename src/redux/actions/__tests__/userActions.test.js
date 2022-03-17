@@ -31,18 +31,6 @@ describe('UserActions', () => {
     moxios.uninstall();
   });
 
-  it('Should return response content for authorizeUser method', done => {
-    const store = generateStore();
-    const dispatcher = userActions.authorizeUser();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user;
-
-      expect(response.session.fulfilled).toBe(true);
-      done();
-    });
-  });
-
   it('Should return response content for deleteAccountOptIn method', done => {
     const store = generateStore();
     const dispatcher = userActions.deleteAccountOptIn();
