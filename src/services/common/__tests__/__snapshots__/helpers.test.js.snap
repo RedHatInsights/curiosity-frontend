@@ -24,6 +24,7 @@ Object {
   "camelCase": [Function],
   "passDataToCallback": [Function],
   "schemaResponse": [Function],
+  "timeoutFunctionCancel": [Function],
 }
 `;
 
@@ -48,5 +49,12 @@ Object {
       ],
     },
   ],
+}
+`;
+
+exports[`Service Helpers should support cancelling function calls: timeout error 1`] = `
+Object {
+  "error": "dolor sit error",
+  "success": "lorem ipsum success",
 }
 `;
