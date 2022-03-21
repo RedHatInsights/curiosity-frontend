@@ -12,7 +12,7 @@ const globalXhrTimeout = Number.parseInt(process.env.REACT_APP_AJAX_TIMEOUT, 10)
  * Cache Axios service call cancel tokens.
  *
  * @private
- * @type {object}
+ * @type {{}}
  */
 const globalCancelTokens = {};
 
@@ -70,7 +70,7 @@ const axiosServiceCall = async (
   // account for alterations to transforms, and other config props
   const cacheId =
     (updatedConfig.cacheResponse === true &&
-      `${btoa(
+      `${window.btoa(
         JSON.stringify(updatedConfig, (key, value) => {
           if (value !== updatedConfig && _isPlainObject(value)) {
             return (Object.entries(value).sort(([a], [b]) => a.localeCompare(b)) || []).toString();
@@ -183,14 +183,14 @@ const axiosServiceCall = async (
 
   if (typeof updatedConfig.url === 'function') {
     const emulateCallback = updatedConfig.url;
-    updatedConfig.url = '/';
+    updatedConfig.url = '/emulated';
 
-    let message = `success, emulated`;
+    let message = 'success, emulated';
     let emulatedResponse;
     let isSuccess = true;
 
     try {
-      emulatedResponse = await emulateCallback();
+      emulatedResponse = await serviceHelpers.timeoutFunctionCancel(emulateCallback, { timeout: xhrTimeout });
     } catch (e) {
       isSuccess = false;
       message = e.message || e;

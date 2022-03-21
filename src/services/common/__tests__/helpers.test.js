@@ -5,6 +5,33 @@ describe('Service Helpers', () => {
     expect(serviceHelpers).toMatchSnapshot('serviceHelpers');
   });
 
+  it('should support cancelling function calls', async () => {
+    const mockTimeout = async (successMessage, errorMessage, pause, timeout) => {
+      const testFn = async () => {
+        await new Promise(resolve => {
+          window.setTimeout(resolve, pause);
+        });
+
+        return successMessage;
+      };
+
+      let value;
+
+      try {
+        value = await serviceHelpers.timeoutFunctionCancel(testFn, { timeout, errorMessage });
+      } catch (e) {
+        value = e.message;
+      }
+
+      return value;
+    };
+
+    const success = await mockTimeout('lorem ipsum success', 'dolor sit error', 50, 100);
+    const error = await mockTimeout('lorem ipsum success', 'dolor sit error', 100, 50);
+
+    expect({ success, error }).toMatchSnapshot('timeout error');
+  });
+
   it('should support camel casing obj keys', () => {
     expect(
       serviceHelpers.camelCase({
