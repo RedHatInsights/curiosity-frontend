@@ -161,6 +161,19 @@ Things to try:
 You can take the easy way out and just run, `$ yarn start`, it'll be styled and use mock data, but you'll have enough access to continue development. 
 
 ## Build
+### Maintenance
+#### NPMs
+Our schedule for updating NPMs
+- dependabot running once a week on low level packages that require only testing confirmation
+- 1x a month: running our aggregated dependency update script for all low level packages that require only testing confirmation
+   - `$ yarn build:deps`
+- 1x a month: running updates on NPMs that require additional visual confirmation, this includes...
+   - dependency-name: "@patternfly/*"
+   - dependency-name: "@redhat-cloud-services/frontend*"
+   - dependency-name: "*i18next*"
+   - dependency-name: "victory*"
+   - dependency-name: "react-router*"
+
 ### dotenv files
 Our current build leverages `dotenv`, or `.env*`, files to apply environment build configuration. 
 
