@@ -5,6 +5,25 @@ describe('Helpers', () => {
     expect(helpers).toMatchSnapshot('helpers');
   });
 
+  /**
+   * ToDo: review this test for writing against actual AggregateError
+   * Right now we're purposefully using the fallback to this test.
+   */
+  it('should handle use aggregate error, or fallback', () => {
+    const aggregateError = window.AggregateError;
+    window.AggregateError = undefined;
+    const aggregated = helpers.aggregatedError(
+      [new Error('lorem ipsum'), new Error('dolor sit')],
+      'testing aggregated'
+    );
+    expect({
+      aggregated,
+      ...aggregated
+    }).toMatchSnapshot('emulated aggregate error');
+
+    window.AggregateError = aggregateError;
+  });
+
   it('should support generated IDs', () => {
     expect(helpers.generateId()).toBe('generatedid-');
     expect(helpers.generateId('lorem')).toBe('lorem-');
