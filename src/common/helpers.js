@@ -1,6 +1,30 @@
 import numbro from 'numbro';
 
 /**
+ * Fill for AggregatedError
+ *
+ * @param {Array|*} errors An array of errors
+ * @param {string|*} message
+ * @param {object} options
+ * @param {string} options.name
+ * @returns {Error|window.AggregateError<Error>}
+ */
+const aggregatedError = (errors, message, { name = 'AggregateError' } = {}) => {
+  const { AggregateError, Error } = window;
+  let err;
+
+  if (AggregateError) {
+    err = new AggregateError(errors, message);
+  } else {
+    err = new Error(message);
+    err.name = name;
+    err.errors = (Array.isArray(errors) && errors) || [errors];
+    err.isEmulated = true;
+  }
+  return err;
+};
+
+/**
  * Generate a random'ish ID.
  *
  * @param {string} prefix
@@ -297,6 +321,7 @@ const browserExpose = (obj = {}, options) => {
 };
 
 const helpers = {
+  aggregatedError,
   browserExpose,
   generateId,
   isDate,
