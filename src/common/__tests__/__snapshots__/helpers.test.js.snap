@@ -34,6 +34,7 @@ Object {
   "UI_PATH": "/apps/subscriptions/",
   "UI_VERSION": "0.0.0.0000000",
   "UI_WINDOW_ID": "curiosity",
+  "aggregatedError": [Function],
   "browserExpose": [Function],
   "generateId": [Function],
   "isDate": [Function],
@@ -74,6 +75,7 @@ Object {
   "UI_PATH": "/apps/subscriptions/",
   "UI_VERSION": "0.0.0.0000000",
   "UI_WINDOW_ID": "curiosity",
+  "aggregatedError": [Function],
   "browserExpose": [Function],
   "generateId": [Function],
   "isDate": [Function],
@@ -83,6 +85,18 @@ Object {
   "noopPromise": Promise {},
   "noopTranslate": [Function],
   "numberDisplay": [Function],
+}
+`;
+
+exports[`Helpers should handle use aggregate error, or fallback: emulated aggregate error 1`] = `
+Object {
+  "aggregated": [AggregateError: testing aggregated],
+  "errors": Array [
+    [Error: lorem ipsum],
+    [Error: dolor sit],
+  ],
+  "isEmulated": true,
+  "name": "AggregateError",
 }
 `;
 
@@ -114,6 +128,7 @@ Object {
   "UI_PATH": "/apps/subscriptions/",
   "UI_VERSION": "0.0.0.0000000",
   "UI_WINDOW_ID": "curiosity",
+  "aggregatedError": [Function],
   "browserExpose": [Function],
   "generateId": [Function],
   "isDate": [Function],
