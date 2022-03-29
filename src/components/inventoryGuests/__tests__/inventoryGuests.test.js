@@ -5,7 +5,8 @@ describe('GuestsList Component', () => {
   it('should render a basic component', async () => {
     const props = {
       id: 'lorem',
-      numberOfGuests: 0
+      numberOfGuests: 0,
+      useGetGuestsInventory: () => ({ pending: true })
     };
 
     const component = await shallowHookComponent(<InventoryGuests {...props} />);
