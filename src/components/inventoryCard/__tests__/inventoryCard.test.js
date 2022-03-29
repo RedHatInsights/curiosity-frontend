@@ -10,6 +10,9 @@ describe('InventoryCard Component', () => {
       useProductInventoryQuery: () => ({
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
+      }),
+      useGetInventory: () => ({
+        pending: true
       })
     };
 
