@@ -65,6 +65,14 @@
       }
     }
 
+    // FixMe: Disable the PF table header implemented expand/collapse arrow
+    // Questionable behavior, throws an error when clicked, seems to appear randomly dependent on
+    // environment packages, and opens/expands based on the first collapsible only.
+    // Easier to disable for now.
+    thead .pf-c-table__toggle {
+      visibility: hidden;
+    }
+
     .pf-c-label {
       padding-top: 1px;
       padding-bottom: 1px;
