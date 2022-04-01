@@ -1,24 +1,20 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from '../../../redux';
 import { helpers } from '../../../common';
-import { ConnectedAuthentication, Authentication } from '../authentication';
+import { Authentication } from '../authentication';
 import { rhsmApiTypes } from '../../../types';
 
 describe('Authentication Component', () => {
-  it('should render a connected component', async () => {
+  it('should render a basic component', async () => {
     const component = await shallowHookComponent(
-      <Provider store={store}>
-        <ConnectedAuthentication>
-          <span className="test">lorem</span>
-        </ConnectedAuthentication>
-      </Provider>
+      <Authentication>
+        <span className="test">lorem</span>
+      </Authentication>
     );
 
-    expect(component).toMatchSnapshot('connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render a non-connected component error', async () => {
+  it('should render a component error', async () => {
     const props = {
       session: {
         authorized: {},
@@ -32,7 +28,7 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('non-connected error');
+    expect(component).toMatchSnapshot('error');
   });
 
   it('should allow being disabled', async () => {
@@ -112,7 +108,7 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('401 error');
   });
 
-  it('should render a non-connected component pending', async () => {
+  it('should render a component pending', async () => {
     const props = {
       session: {
         authorized: {},
@@ -127,10 +123,10 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('non-connected pending');
+    expect(component).toMatchSnapshot('pending');
   });
 
-  it('should render a non-connected component authorized', async () => {
+  it('should render a component authorized', async () => {
     const props = {
       session: {
         authorized: {
@@ -146,6 +142,6 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('non-connected authorized');
+    expect(component).toMatchSnapshot('authorized');
   });
 });

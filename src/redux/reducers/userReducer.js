@@ -1,20 +1,19 @@
 import _get from 'lodash/get';
 import { appTypes, platformTypes, userTypes } from '../types';
 import { rhsmApiTypes } from '../../types/rhsmApiTypes';
-import { reduxHelpers } from '../common/reduxHelpers';
+import { reduxHelpers } from '../common';
 
 /**
  * Initial state.
  *
  * @private
- * @type {{session: {errorCodes: Array, locale: string}, optin: {}}}
+ * @type {{auth: {}, optin: {}, locale: null, errors: {}}}
  */
 const initialState = {
-  optin: {},
-  session: {
-    errorCodes: [],
-    locale: null
-  }
+  auth: {},
+  errors: {},
+  locale: {},
+  optin: {}
 };
 
 /**
@@ -26,22 +25,12 @@ const initialState = {
  */
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case reduxHelpers.FULFILLED_ACTION(userTypes.USER_LOCALE):
-      return reduxHelpers.setStateProp(
-        'session',
-        {
-          locale: action.payload.data
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-
     case reduxHelpers.HTTP_STATUS_RANGE(appTypes.STATUS_4XX):
+      // case reduxHelpers.HTTP_STATUS_RANGE(appTypes.STATUS_5XX):
       const actionStatus = reduxHelpers.getStatusFromResults(action);
 
       if (actionStatus === 401 || actionStatus === 403) {
+        // if (actionStatus === 401 || actionStatus === 403 || actionStatus >= 500) {
         const errorCodes = _get(
           reduxHelpers.getDataFromResults(action),
           [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA],
@@ -49,12 +38,11 @@ const userReducer = (state = initialState, action) => {
         );
 
         return reduxHelpers.setStateProp(
-          'session',
+          'errors',
           {
             error: true,
-            errorCodes: errorCodes.map(value => value[rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_TYPES.CODE]),
             errorMessage: reduxHelpers.getMessageFromResults(action),
-            locale: state.session.locale,
+            data: errorCodes.map(value => value[rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_TYPES.CODE]),
             status: reduxHelpers.getStatusFromResults(action)
           },
           {
@@ -69,10 +57,11 @@ const userReducer = (state = initialState, action) => {
     default:
       return reduxHelpers.generatedPromiseActionReducer(
         [
+          { ref: 'locale', type: userTypes.USER_LOCALE },
           { ref: 'optin', type: userTypes.DELETE_USER_OPTIN },
           { ref: 'optin', type: userTypes.GET_USER_OPTIN },
           { ref: 'optin', type: userTypes.UPDATE_USER_OPTIN },
-          { ref: 'session', type: platformTypes.PLATFORM_USER_AUTH }
+          { ref: 'auth', type: platformTypes.PLATFORM_USER_AUTH }
         ],
         state,
         action
