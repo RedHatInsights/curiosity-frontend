@@ -73,7 +73,7 @@ const axiosServiceCall = async (
       `${window.btoa(
         JSON.stringify(updatedConfig, (key, value) => {
           if (value !== updatedConfig && _isPlainObject(value)) {
-            return (Object.entries(value).sort(([a], [b]) => a.localeCompare(b)) || []).toString();
+            return JSON.stringify(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)) || []);
           }
           if (typeof value === 'function') {
             return value.toString();
