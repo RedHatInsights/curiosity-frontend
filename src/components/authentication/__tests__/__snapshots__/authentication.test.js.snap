@@ -54,221 +54,17 @@ exports[`Authentication Component should render a component authorized: authoriz
   initializeChrome={[Function]}
   isDisabled={false}
   onNavigation={[Function]}
-  session={
-    Object {
-      "authorized": Object {
-        "subscriptions": true,
-      },
-      "error": false,
-      "pending": false,
-    }
-  }
   setAppName={[Function]}
   t={[Function]}
   useAuth={[Function]}
   useDispatch={[Function]}
   useHistory={[Function]}
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
+  <span
+    className="test"
   >
-    <PageLayout
-      className=""
-    >
-      <PageHeader
-        includeTour={false}
-        key=".0"
-        productLabel={null}
-        t={[Function]}
-      >
-        <PageHeader>
-          <section
-            className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-            widget-type="InsightsPageHeader"
-          >
-            <Flex
-              justifyContent={
-                Object {
-                  "sm": "justifyContentSpaceBetween",
-                }
-              }
-            >
-              <div
-                className="pf-l-flex pf-m-justify-content-space-between-on-sm"
-              >
-                <FlexItem>
-                  <div
-                    className=""
-                  >
-                    <PageHeaderTitle
-                      className="pf-u-mb-sm"
-                      title="Subscriptions"
-                    >
-                      <Title
-                        className="pf-u-mb-sm"
-                        headingLevel="h1"
-                        size="2xl"
-                        widget-type="InsightsPageHeaderTitle"
-                      >
-                        <h1
-                          className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                          data-ouia-component-id="OUIA-Generated-Title-3"
-                          data-ouia-component-type="PF4/Title"
-                          data-ouia-safe={true}
-                          widget-type="InsightsPageHeaderTitle"
-                        >
-                          Subscriptions
-                        </h1>
-                      </Title>
-                    </PageHeaderTitle>
-                  </div>
-                </FlexItem>
-                <FlexItem>
-                  <div
-                    className=""
-                  />
-                </FlexItem>
-              </div>
-            </Flex>
-          </section>
-        </PageHeader>
-      </PageHeader>
-      <PageSection
-        className="curiosity "
-        padding={
-          Object {
-            "default": "noPadding",
-          }
-        }
-      >
-        <section
-          className="pf-c-page__main-section pf-m-no-padding curiosity "
-        >
-          <PageSection
-            className=""
-            key=".1"
-          >
-            <Section
-              className="curiosity-page-section "
-            >
-              <section
-                className="curiosity-page-section "
-              >
-                 
-                <NotAuthorized
-                  serviceName="Subscriptions"
-                >
-                  <EmptyState
-                    className="ins-c-not-authorized "
-                    variant="full"
-                  >
-                    <div
-                      className="pf-c-empty-state ins-c-not-authorized "
-                    >
-                      <div
-                        className="pf-c-empty-state__content"
-                      >
-                        <EmptyStateIcon
-                          icon={[Function]}
-                        >
-                          <LockIcon
-                            aria-hidden="true"
-                            className="pf-c-empty-state__icon"
-                            color="currentColor"
-                            noVerticalAlign={false}
-                            size="sm"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              aria-labelledby={null}
-                              className="pf-c-empty-state__icon"
-                              fill="currentColor"
-                              height="1em"
-                              role="img"
-                              style={
-                                Object {
-                                  "verticalAlign": "-0.125em",
-                                }
-                              }
-                              viewBox="0 0 448 512"
-                              width="1em"
-                            >
-                              <path
-                                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-                              />
-                            </svg>
-                          </LockIcon>
-                        </EmptyStateIcon>
-                        <Title
-                          headingLevel="h5"
-                          size="lg"
-                        >
-                          <h5
-                            className="pf-c-title pf-m-lg"
-                            data-ouia-component-id="OUIA-Generated-Title-4"
-                            data-ouia-component-type="PF4/Title"
-                            data-ouia-safe={true}
-                          >
-                            You do not have access to Subscriptions
-                          </h5>
-                        </Title>
-                        <EmptyStateBody>
-                          <div
-                            className="pf-c-empty-state__body"
-                          >
-                            <ContactBody>
-                              Contact your organization administrator(s) for more information or visit 
-                              <a
-                                href="./settings/my-user-access"
-                              >
-                                My User Access
-                              </a>
-                                to learn more about your permissions.
-                            </ContactBody>
-                          </div>
-                        </EmptyStateBody>
-                        <Button
-                          component="a"
-                          href="."
-                          variant="primary"
-                        >
-                          <ButtonBase
-                            component="a"
-                            href="."
-                            innerRef={null}
-                            variant="primary"
-                          >
-                            <a
-                              aria-disabled={false}
-                              aria-label={null}
-                              className="pf-c-button pf-m-primary"
-                              data-ouia-component-id="OUIA-Generated-Button-primary-2"
-                              data-ouia-component-type="PF4/Button"
-                              data-ouia-safe={true}
-                              disabled={null}
-                              href="."
-                              role={null}
-                              type={null}
-                            >
-                              Go to landing page
-                            </a>
-                          </ButtonBase>
-                        </Button>
-                      </div>
-                    </div>
-                  </EmptyState>
-                </NotAuthorized>
-                 
-              </section>
-            </Section>
-          </PageSection>
-        </section>
-      </PageSection>
-    </PageLayout>
-  </MessageView>
+    lorem
+  </span>
 </Authentication>
 `;
 
@@ -280,13 +76,6 @@ exports[`Authentication Component should render a component error: error 1`] = `
   initializeChrome={[Function]}
   isDisabled={false}
   onNavigation={[Function]}
-  session={
-    Object {
-      "authorized": Object {},
-      "error": true,
-      "pending": false,
-    }
-  }
   setAppName={[Function]}
   t={[Function]}
   useAuth={[Function]}
@@ -500,22 +289,18 @@ exports[`Authentication Component should render a component pending: pending 1`]
 <ContextProvider
   value={
     Object {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": Object {},
+      "errorCodes": Array [],
+      "errorStatus": undefined,
     }
   }
 >
   <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
+    icon={[Function]}
+    message="t(curiosity-auth.pending, ...)"
+    pageTitle=" "
     title={null}
-  >
-    <NotAuthorized
-      serviceName="Subscriptions"
-    />
-  </MessageView>
+  />
 </ContextProvider>
 `;
 
@@ -523,9 +308,9 @@ exports[`Authentication Component should return a message on 401 error: 401 erro
 <ContextProvider
   value={
     Object {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": Object {},
+      "errorCodes": Array [],
+      "errorStatus": 401,
     }
   }
 >
@@ -546,22 +331,138 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
 <ContextProvider
   value={
     Object {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": Object {},
+      "errorCodes": Array [],
+      "errorStatus": 418,
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
-    <NotAuthorized
-      serviceName="Subscriptions"
-    />
-  </MessageView>
+  <Redirect
+    isForced={false}
+    route="/optin"
+    routes={
+      Array [
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel",
+          "path": "/rhel",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-arm",
+          "path": "/rhel-arm",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-ibmpower",
+          "path": "/rhel-ibmpower",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-ibmz",
+          "path": "/rhel-ibmz",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-x86",
+          "path": "/rhel-x86",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewOpenShiftContainer",
+          "disabled": false,
+          "exact": true,
+          "id": "openshift-container",
+          "path": "/openshift-container",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewOpenShiftDedicated",
+          "disabled": false,
+          "exact": true,
+          "id": "openshift-dedicated",
+          "path": "/openshift-dedicated",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhosak",
+          "path": "/streams",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite",
+          "path": "/satellite",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite-capsule",
+          "path": "/satellite-capsule",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite-server",
+          "path": "/satellite-server",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": true,
+          "component": "optinView/optinView",
+          "disabled": false,
+          "exact": true,
+          "id": "optin",
+          "path": "/optin",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewMissing",
+          "disabled": false,
+          "exact": true,
+          "id": "missing",
+          "path": "/",
+          "redirect": "/",
+        },
+      ]
+    }
+    url={null}
+  />
 </ContextProvider>
 `;
 
@@ -569,22 +470,140 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 <ContextProvider
   value={
     Object {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": Object {},
+      "errorCodes": Array [
+        "SUBSCRIPTIONS1004",
+      ],
+      "errorStatus": 403,
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
-    <NotAuthorized
-      serviceName="Subscriptions"
-    />
-  </MessageView>
+  <Redirect
+    isForced={false}
+    route="/optin"
+    routes={
+      Array [
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel",
+          "path": "/rhel",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-arm",
+          "path": "/rhel-arm",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-ibmpower",
+          "path": "/rhel-ibmpower",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-ibmz",
+          "path": "/rhel-ibmz",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-x86",
+          "path": "/rhel-x86",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewOpenShiftContainer",
+          "disabled": false,
+          "exact": true,
+          "id": "openshift-container",
+          "path": "/openshift-container",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewOpenShiftDedicated",
+          "disabled": false,
+          "exact": true,
+          "id": "openshift-dedicated",
+          "path": "/openshift-dedicated",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhosak",
+          "path": "/streams",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite",
+          "path": "/satellite",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite-capsule",
+          "path": "/satellite-capsule",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite-server",
+          "path": "/satellite-server",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": true,
+          "component": "optinView/optinView",
+          "disabled": false,
+          "exact": true,
+          "id": "optin",
+          "path": "/optin",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewMissing",
+          "disabled": false,
+          "exact": true,
+          "id": "missing",
+          "path": "/",
+          "redirect": "/",
+        },
+      ]
+    }
+    url={null}
+  />
 </ContextProvider>
 `;
 
@@ -592,21 +611,139 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 <ContextProvider
   value={
     Object {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": Object {},
+      "errorCodes": Array [
+        "SUBSCRIPTIONS1004",
+      ],
+      "errorStatus": 403,
     }
   }
 >
-  <MessageView
-    icon={null}
-    message={null}
-    pageTitle={null}
-    title={null}
-  >
-    <NotAuthorized
-      serviceName="Subscriptions"
-    />
-  </MessageView>
+  <Redirect
+    isForced={false}
+    route="/optin"
+    routes={
+      Array [
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel",
+          "path": "/rhel",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-arm",
+          "path": "/rhel-arm",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-ibmpower",
+          "path": "/rhel-ibmpower",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-ibmz",
+          "path": "/rhel-ibmz",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhel-x86",
+          "path": "/rhel-x86",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewOpenShiftContainer",
+          "disabled": false,
+          "exact": true,
+          "id": "openshift-container",
+          "path": "/openshift-container",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewOpenShiftDedicated",
+          "disabled": false,
+          "exact": true,
+          "id": "openshift-dedicated",
+          "path": "/openshift-dedicated",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "rhosak",
+          "path": "/streams",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite",
+          "path": "/satellite",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite-capsule",
+          "path": "/satellite-capsule",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productView",
+          "disabled": false,
+          "exact": true,
+          "id": "satellite-server",
+          "path": "/satellite-server",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": true,
+          "component": "optinView/optinView",
+          "disabled": false,
+          "exact": true,
+          "id": "optin",
+          "path": "/optin",
+          "redirect": null,
+        },
+        Object {
+          "activateOnError": false,
+          "component": "productView/productViewMissing",
+          "disabled": false,
+          "exact": true,
+          "id": "missing",
+          "path": "/",
+          "redirect": "/",
+        },
+      ]
+    }
+    url={null}
+  />
 </ContextProvider>
 `;
