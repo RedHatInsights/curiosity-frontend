@@ -465,20 +465,4 @@ describe('useReactRedux', () => {
       'aggregated calls, useSelectorsRaceResponse'
     );
   });
-
-  /*
-  it('should return responses as a list or object with ID for aggregated selector responses', () => {
-    const mockUseSelector = callback => callback();
-    const mockListSelectors = [() => 'dolor', () => 'sit'];
-    const mockObjectSelectors = [
-      { id: 'hello', selector: () => 'dolor' },
-      { id: 'world', selector: () => 'sit' }
-    ];
-
-    expect({
-      list: reactReduxHooks.useSelectors(mockListSelectors, undefined, { useSelector: mockUseSelector }),
-      object: reactReduxHooks.useSelectors(mockObjectSelectors, undefined, { useSelector: mockUseSelector })
-    }).toMatchSnapshot('list and object');
-  });
-  */
 });
