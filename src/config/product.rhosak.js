@@ -20,8 +20,10 @@ import {
   RHSM_API_PATH_PRODUCT_TYPES,
   RHSM_API_PATH_METRIC_TYPES
 } from '../services/rhsm/rhsmConstants';
-import { translate } from '../components/i18n/i18n';
 import { dateHelpers, helpers } from '../common';
+import { Tooltip } from '../components/tooltip/tooltip';
+import { ChartIcon } from '../components/chart/chartIcon';
+import { translate } from '../components/i18n/i18n';
 
 /**
  * ToDo: evaluate separating products/product tags into individual configs...
@@ -213,6 +215,18 @@ const config = {
     {
       id: 'totalCapacity',
       header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
+      cell: (data = {}) => {
+        const { hasInfiniteQuantity, totalCapacity, uom } = data;
+        if (hasInfiniteQuantity?.value === true) {
+          const content = translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] });
+          return (
+            <Tooltip content={content}>
+              <ChartIcon symbol="infinity" title={content} />
+            </Tooltip>
+          );
+        }
+        return totalCapacity?.value;
+      },
       isSortable: true,
       cellWidth: 10,
       isWrappable: true

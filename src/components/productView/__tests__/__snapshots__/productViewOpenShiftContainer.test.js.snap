@@ -115,6 +115,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "isWrappable": true,
             },
             Object {
+              "cell": [Function],
               "cellWidth": 15,
               "header": [Function],
               "id": "totalCapacity",
