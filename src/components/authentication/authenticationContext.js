@@ -36,7 +36,7 @@ const useAuth = ({
     }
   ]);
 
-  const [user = {}, app = {}] = data.auth || [];
+  const [user = {}, app = {}] = (Array.isArray(data.auth) && data.auth) || [];
   const errorStatus = (error && responses?.errors?.status) || null;
 
   return {
