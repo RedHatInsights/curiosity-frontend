@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EyeIcon, EyeSlashIcon, InfinityIcon, SquareIcon, IconSize } from '@patternfly/react-icons';
+import { EyeIcon, EyeSlashIcon, SquareIcon, IconSize } from '@patternfly/react-icons';
 
 /**
  * Emulate pf icon sizing for custom SVGs
@@ -9,6 +9,10 @@ import { EyeIcon, EyeSlashIcon, InfinityIcon, SquareIcon, IconSize } from '@patt
  * @returns {string} em measurement
  */
 const getSize = size => {
+  if (!Number.isNaN(Number.parseFloat(size))) {
+    return size;
+  }
+
   switch (size) {
     case 'md':
       return '1.5em';
@@ -35,6 +39,7 @@ const getSize = size => {
 const ChartIcon = ({ fill, symbol, size, title }) => {
   const svgProps = {};
   const iconProps = { size, title };
+  const fontProps = { style: { fontSize: getSize(size) }, title, 'aria-label': title };
   const emSvgSize = getSize(size);
 
   if (title) {
@@ -45,6 +50,7 @@ const ChartIcon = ({ fill, symbol, size, title }) => {
 
   if (fill) {
     iconProps.color = fill;
+    fontProps.style.color = fill;
   }
 
   const setIcon = () => {
@@ -85,7 +91,12 @@ const ChartIcon = ({ fill, symbol, size, title }) => {
       case 'eyeSlash':
         return <EyeSlashIcon {...iconProps} />;
       case 'infinity':
-        return <InfinityIcon {...iconProps} />;
+        return (
+          <span className="curiosity-icon__f-infinity" {...fontProps}>
+            <span aria-hidden>&#x221e;</span>
+          </span>
+        );
+
       case 'square':
       default:
         return <SquareIcon {...iconProps} />;

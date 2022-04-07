@@ -74,12 +74,22 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
 <span
   className="curiosity-chartarea__icon curiosity-chartarea__icon-infinity"
 >
-  <InfinityIcon
-    color="currentColor"
-    noVerticalAlign={false}
-    size="md"
+  <span
+    aria-label="lorem ipsum infinity"
+    className="curiosity-icon__f-infinity"
+    style={
+      Object {
+        "fontSize": "1.5em",
+      }
+    }
     title="lorem ipsum infinity"
-  />
+  >
+    <span
+      aria-hidden={true}
+    >
+      ∞
+    </span>
+  </span>
 </span>
 `;
 

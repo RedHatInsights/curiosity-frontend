@@ -106,6 +106,8 @@
     "tableEmptyInventoryTitle": "No results found",
     "tableEmptyInventoryMessage": "No results match the filter criteria. Remove filters or clear all filters to show results.",
     "tableSkeletonAriaLabel": "Loading",
+    "label_hasInfiniteQuantity_cores": "Unlimited cores",
+    "label_hasInfiniteQuantity_sockets": "Unlimited sockets",
     "label_numberOfGuests_one": "<0>{{count}} guest</0>",
     "label_numberOfGuests_other": "<0>{{count}} guests</0>",
     "cloudProvider": "{{context}}",
