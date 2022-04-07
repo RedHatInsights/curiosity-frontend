@@ -530,6 +530,26 @@ exports[`ProductView Component should use an instances inventory for rhosak: cus
   key="inventory_instances_rhosak"
   title="t(curiosity-inventory.tabInstances, {\\"context\\":\\"noInstances_rhosak\\"})"
 >
-  <Connect(InventoryCard) />
+  <InventoryCard
+    cardActions={
+      <CardHeaderMain>
+        <ToolbarFieldDisplayName
+          t={[Function]}
+          useDispatch={[Function]}
+          useProduct={[Function]}
+          useProductInventoryHostsQuery={[Function]}
+        />
+      </CardHeaderMain>
+    }
+    isDisabled={false}
+    perPageDefault={10}
+    t={[Function]}
+    useGetInventory={[Function]}
+    useOnColumnSort={[Function]}
+    useOnPage={[Function]}
+    useProductInventoryConfig={[Function]}
+    useProductInventoryQuery={[Function]}
+    useSession={[Function]}
+  />
 </InventoryTab>
 `;

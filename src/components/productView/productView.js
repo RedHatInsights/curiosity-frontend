@@ -10,7 +10,7 @@ import { ConnectedGraphCard as ConnectedGraphCardDeprecated } from '../graphCard
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryCard/inventoryList.deprecated';
-import { ConnectedInventoryCard } from '../inventoryCard/inventoryCard';
+import { InventoryCard } from '../inventoryCard/inventoryCard';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { SelectPosition } from '../form/select';
@@ -146,7 +146,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                   key={`inventory_instances_${productId}`}
                   title={t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })}
                 >
-                  <ConnectedInventoryCard />
+                  <InventoryCard />
                 </InventoryTab>
               )}
             {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (

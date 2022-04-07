@@ -8,7 +8,7 @@ import { rhsmConstants } from '../services/rhsm/rhsmConstants';
  *
  * @type {string}
  */
-const RHSM_API_RESPONSE_ERROR_DATA = 'errors';
+const RHSM_API_RESPONSE_ERROR_DATA = rhsmConstants.RHSM_API_RESPONSE_ERRORS;
 
 /**
  * ToDo: Clean up params, see userReducer.
@@ -20,8 +20,7 @@ const RHSM_API_RESPONSE_ERROR_DATA = 'errors';
  * @type {{CODE: string, DETAIL: string}}
  */
 const RHSM_API_RESPONSE_ERROR_DATA_TYPES = {
-  CODE: 'code',
-  DETAIL: 'detail'
+  ...rhsmConstants.RHSM_API_RESPONSE_ERRORS_TYPES
 };
 
 /**
@@ -30,7 +29,7 @@ const RHSM_API_RESPONSE_ERROR_DATA_TYPES = {
  * @type {{GENERIC: string, OPTIN: string}}
  */
 const RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES = {
-  ...rhsmConstants.RHSM_API_RESPONSE_ERROR_CODE_TYPES
+  ...rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES
 };
 
 /**

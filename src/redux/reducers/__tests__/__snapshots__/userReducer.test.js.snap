@@ -3,6 +3,9 @@
 exports[`UserReducer should handle all defined error types: rejected types DELETE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -10,10 +13,6 @@ Object {
       "meta": Object {},
       "pending": false,
       "status": 0,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "DELETE_USER_OPTIN_REJECTED",
@@ -23,6 +22,9 @@ Object {
 exports[`UserReducer should handle all defined error types: rejected types GET_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -30,10 +32,6 @@ Object {
       "meta": Object {},
       "pending": false,
       "status": 0,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "GET_USER_OPTIN_REJECTED",
@@ -43,17 +41,17 @@ Object {
 exports[`UserReducer should handle all defined error types: rejected types PLATFORM_USER_AUTH 1`] = `
 Object {
   "result": Object {
-    "optin": Object {},
-    "session": Object {
+    "auth": Object {
       "error": true,
-      "errorCodes": Array [],
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "locale": null,
       "meta": Object {},
       "pending": false,
       "status": 0,
     },
+    "errors": Object {},
+    "locale": Object {},
+    "optin": Object {},
   },
   "type": "PLATFORM_USER_AUTH_REJECTED",
 }
@@ -62,6 +60,9 @@ Object {
 exports[`UserReducer should handle all defined error types: rejected types UPDATE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -70,18 +71,36 @@ Object {
       "pending": false,
       "status": 0,
     },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
-    },
   },
   "type": "UPDATE_USER_OPTIN_REJECTED",
+}
+`;
+
+exports[`UserReducer should handle all defined error types: rejected types USER_LOCALE 1`] = `
+Object {
+  "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": Object {},
+      "pending": false,
+      "status": 0,
+    },
+    "optin": Object {},
+  },
+  "type": "USER_LOCALE_REJECTED",
 }
 `;
 
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types DELETE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "data": Object {
         "permissions": Array [],
@@ -101,10 +120,6 @@ Object {
       "meta": Object {},
       "pending": false,
       "status": 0,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "DELETE_USER_OPTIN_FULFILLED",
@@ -114,6 +129,9 @@ Object {
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "data": Object {
         "permissions": Array [],
@@ -133,10 +151,6 @@ Object {
       "meta": Object {},
       "pending": false,
       "status": 0,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "GET_USER_OPTIN_FULFILLED",
@@ -146,8 +160,7 @@ Object {
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types PLATFORM_USER_AUTH 1`] = `
 Object {
   "result": Object {
-    "optin": Object {},
-    "session": Object {
+    "auth": Object {
       "data": Object {
         "permissions": Array [],
         "test": "success",
@@ -161,14 +174,15 @@ Object {
       },
       "date": null,
       "error": false,
-      "errorCodes": Array [],
       "errorMessage": "",
       "fulfilled": true,
-      "locale": null,
       "meta": Object {},
       "pending": false,
       "status": 0,
     },
+    "errors": Object {},
+    "locale": Object {},
+    "optin": Object {},
   },
   "type": "PLATFORM_USER_AUTH_FULFILLED",
 }
@@ -177,6 +191,9 @@ Object {
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types UPDATE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "data": Object {
         "permissions": Array [],
@@ -196,10 +213,6 @@ Object {
       "meta": Object {},
       "pending": false,
       "status": 0,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "UPDATE_USER_OPTIN_FULFILLED",
@@ -209,10 +222,10 @@ Object {
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types USER_LOCALE 1`] = `
 Object {
   "result": Object {
-    "optin": Object {},
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {
+      "data": Object {
         "permissions": Array [],
         "test": "success",
         "user": Object {
@@ -223,7 +236,15 @@ Object {
           },
         },
       },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": Object {},
+      "pending": false,
+      "status": 0,
     },
+    "optin": Object {},
   },
   "type": "USER_LOCALE_FULFILLED",
 }
@@ -232,16 +253,15 @@ Object {
 exports[`UserReducer should handle all defined pending types: pending types DELETE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
       "meta": Object {},
       "pending": true,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "DELETE_USER_OPTIN_PENDING",
@@ -251,16 +271,15 @@ Object {
 exports[`UserReducer should handle all defined pending types: pending types GET_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
       "meta": Object {},
       "pending": true,
-    },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
     },
   },
   "type": "GET_USER_OPTIN_PENDING",
@@ -270,16 +289,16 @@ Object {
 exports[`UserReducer should handle all defined pending types: pending types PLATFORM_USER_AUTH 1`] = `
 Object {
   "result": Object {
-    "optin": Object {},
-    "session": Object {
+    "auth": Object {
       "error": false,
-      "errorCodes": Array [],
       "errorMessage": "",
       "fulfilled": false,
-      "locale": null,
       "meta": Object {},
       "pending": true,
     },
+    "errors": Object {},
+    "locale": Object {},
+    "optin": Object {},
   },
   "type": "PLATFORM_USER_AUTH_PENDING",
 }
@@ -288,6 +307,9 @@ Object {
 exports[`UserReducer should handle all defined pending types: pending types UPDATE_USER_OPTIN 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {
       "error": false,
       "errorMessage": "",
@@ -295,23 +317,36 @@ Object {
       "meta": Object {},
       "pending": true,
     },
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
-    },
   },
   "type": "UPDATE_USER_OPTIN_PENDING",
+}
+`;
+
+exports[`UserReducer should handle all defined pending types: pending types USER_LOCALE 1`] = `
+Object {
+  "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": Object {},
+      "pending": true,
+    },
+    "optin": Object {},
+  },
+  "type": "USER_LOCALE_PENDING",
 }
 `;
 
 exports[`UserReducer should handle specific http status types: http status 4XX 400 1`] = `
 Object {
   "result": Object {
+    "auth": Object {},
+    "errors": Object {},
+    "locale": Object {},
     "optin": Object {},
-    "session": Object {
-      "errorCodes": Array [],
-      "locale": null,
-    },
   },
   "type": "4XX",
 }
@@ -320,16 +355,17 @@ Object {
 exports[`UserReducer should handle specific http status types: http status 4XX 401 1`] = `
 Object {
   "result": Object {
-    "optin": Object {},
-    "session": Object {
-      "error": true,
-      "errorCodes": Array [
+    "auth": Object {},
+    "errors": Object {
+      "data": Array [
         "SUBSCRIPTIONS1004",
       ],
+      "error": true,
       "errorMessage": "Request failed with status code 401",
-      "locale": null,
       "status": 401,
     },
+    "locale": Object {},
+    "optin": Object {},
   },
   "type": "4XX",
 }
@@ -338,16 +374,17 @@ Object {
 exports[`UserReducer should handle specific http status types: http status 4XX 403 1`] = `
 Object {
   "result": Object {
-    "optin": Object {},
-    "session": Object {
-      "error": true,
-      "errorCodes": Array [
+    "auth": Object {},
+    "errors": Object {
+      "data": Array [
         "SUBSCRIPTIONS1004",
       ],
+      "error": true,
       "errorMessage": "Request failed with status code 403",
-      "locale": null,
       "status": 403,
     },
+    "locale": Object {},
+    "optin": Object {},
   },
   "type": "4XX",
 }

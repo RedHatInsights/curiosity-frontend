@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TableVariant } from '@patternfly/react-table';
+import { useSession } from '../authentication/authenticationContext';
 import { useProductInventoryGuestsConfig, useProductInventoryGuestsQuery } from '../productView/productViewContext';
-import { connect, reduxSelectors } from '../../redux';
 import { Loader } from '../loader/loader';
 import { inventoryCardHelpers } from '../inventoryCard/inventoryCardHelpers';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
@@ -16,11 +16,11 @@ import { useGetGuestsInventory, useOnScroll } from './inventoryGuestsContext';
  * @param {number} props.defaultPerPage
  * @param {string} props.id
  * @param {number} props.numberOfGuests
- * @param {object} props.session
  * @param {Function} props.useGetGuestsInventory
  * @param {Function} props.useOnScroll
  * @param {Function} props.useProductInventoryGuestsQuery
  * @param {Function} props.useProductInventoryGuestsConfig
+ * @param {Function} props.useSession
  * @fires onScroll
  * @returns {Node}
  */
@@ -28,13 +28,14 @@ const InventoryGuests = ({
   defaultPerPage,
   id,
   numberOfGuests,
-  session,
   useGetGuestsInventory: useAliasGetGuestsInventory,
   useOnScroll: useAliasOnScroll,
   useProductInventoryGuestsQuery: useAliasProductInventoryGuestsQuery,
-  useProductInventoryGuestsConfig: useAliasProductInventoryGuestsConfig
+  useProductInventoryGuestsConfig: useAliasProductInventoryGuestsConfig,
+  useSession: useAliasSession
 }) => {
   const [previousData, setPreviousData] = useState([]);
+  const sessionData = useAliasSession();
   const { filters: filterGuestsData } = useAliasProductInventoryGuestsConfig();
 
   const query = useAliasProductInventoryGuestsQuery({ options: { overrideId: id } });
@@ -86,7 +87,7 @@ const InventoryGuests = ({
       const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
         filters: filterGuestsData,
         cellData,
-        session
+        session: sessionData
       });
 
       updatedColumnHeaders = columnHeaders;
@@ -146,42 +147,34 @@ const InventoryGuests = ({
 /**
  * Prop types.
  *
- * @type {{useProductInventoryGuestsConfig: Function, session: object, useOnScroll: Function, numberOfGuests: number,
- *     id: string, useGetGuestsInventory: Function, useProductInventoryGuestsQuery: Function, defaultPerPage: number}}
+ * @type {{useProductInventoryGuestsConfig: Function, useSession: Function, numberOfGuests: number, id: string,
+ *     useOnScroll: Function, useGetGuestsInventory: Function, useProductInventoryGuestsQuery: Function,
+ *     defaultPerPage: number}}
  */
 InventoryGuests.propTypes = {
   defaultPerPage: PropTypes.number,
   id: PropTypes.string.isRequired,
   numberOfGuests: PropTypes.number.isRequired,
-  session: PropTypes.object,
   useGetGuestsInventory: PropTypes.func,
   useOnScroll: PropTypes.func,
   useProductInventoryGuestsConfig: PropTypes.func,
-  useProductInventoryGuestsQuery: PropTypes.func
+  useProductInventoryGuestsQuery: PropTypes.func,
+  useSession: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useProductInventoryGuestsConfig: Function, session: object, useOnScroll: Function,
+ * @type {{useProductInventoryGuestsConfig: Function, useSession: Function, useOnScroll: Function,
  *     useGetGuestsInventory: Function, useProductInventoryGuestsQuery: Function, defaultPerPage: number}}
  */
 InventoryGuests.defaultProps = {
   defaultPerPage: 5,
-  session: {},
   useGetGuestsInventory,
   useOnScroll,
   useProductInventoryGuestsConfig,
-  useProductInventoryGuestsQuery
+  useProductInventoryGuestsQuery,
+  useSession
 };
 
-/**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.user.makeUserSession();
-
-const ConnectedInventoryGuests = connect(makeMapStateToProps)(InventoryGuests);
-
-export { ConnectedInventoryGuests as default, ConnectedInventoryGuests, InventoryGuests };
+export { InventoryGuests as default, InventoryGuests };

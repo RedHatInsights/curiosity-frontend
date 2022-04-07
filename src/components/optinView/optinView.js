@@ -16,7 +16,8 @@ import {
   Spinner,
   Title
 } from '@patternfly/react-core';
-import { connect, reduxActions, reduxSelectors, storeHooks } from '../../redux';
+import { useSession } from '../authentication/authenticationContext';
+import { reduxActions, storeHooks } from '../../redux';
 import { translate } from '../i18n/i18n';
 import { PageLayout } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
@@ -27,22 +28,23 @@ import graphPng4x from '../../images/graph4x.png';
  * An account opt-in view.
  *
  * @param {object} props
- * @param {object} props.session
  * @param {Function} props.t
  * @param {Function} props.updateAccountOptIn
- * @param {Function} props.useSelectorsResponse
  * @param {Function} props.useDispatch
+ * @param {Function} props.useSelectorsResponse
+ * @param {Function} props.useSession
  * @fires onSubmitOptIn
  * @returns {Node}
  */
 const OptinView = ({
-  session,
   t,
   updateAccountOptIn,
   useDispatch: useAliasDispatch,
-  useSelectorsResponse: useAliasSelectorsResponse
+  useSelectorsResponse: useAliasSelectorsResponse,
+  useSession: useAliasSession
 }) => {
   const dispatch = useAliasDispatch();
+  const { errorStatus } = useAliasSession();
   const { error, fulfilled, pending } = useAliasSelectorsResponse(({ user }) => user?.optin);
 
   /**
@@ -59,7 +61,7 @@ const OptinView = ({
    * @returns {Node}
    */
   const renderOptinForm = () => {
-    const disableButton = session.status !== 403;
+    const disableButton = errorStatus !== 403;
 
     if (pending) {
       return (
@@ -192,42 +194,27 @@ const OptinView = ({
 /**
  * Prop types.
  *
- * @type {{t: Function, session:object, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
+ * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
  */
 OptinView.propTypes = {
-  session: PropTypes.shape({
-    status: PropTypes.number
-  }),
   t: PropTypes.func,
   updateAccountOptIn: PropTypes.func,
   useDispatch: PropTypes.func,
-  useSelectorsResponse: PropTypes.func
+  useSelectorsResponse: PropTypes.func,
+  useSession: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{t: Function, session:object, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
+ * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
  */
 OptinView.defaultProps = {
-  session: {
-    status: null
-  },
   t: translate,
   updateAccountOptIn: reduxActions.user.updateAccountOptIn,
   useDispatch: storeHooks.reactRedux.useDispatch,
-  useSelectorsResponse: storeHooks.reactRedux.useSelectorsResponse
+  useSelectorsResponse: storeHooks.reactRedux.useSelectorsResponse,
+  useSession
 };
 
-/**
- * Apply state to props.
- *
- * @param {object} state
- * @param {object} state.user
- * @returns {object}
- */
-const makeMapStateToProps = reduxSelectors.user.makeUserSession();
-
-const ConnectedOptinView = connect(makeMapStateToProps)(OptinView);
-
-export { ConnectedOptinView as default, ConnectedOptinView, OptinView };
+export { OptinView as default, OptinView };

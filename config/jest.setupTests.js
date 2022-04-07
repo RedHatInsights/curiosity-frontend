@@ -1,4 +1,5 @@
 import React from 'react';
+import * as reactRedux from 'react-redux';
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
@@ -112,21 +113,23 @@ global.mockObjectProperty = (object = {}, property, mockValue) => {
 /**
  * Enzyme for components using hooks.
  *
- * @param {Node} component
+ * @param {React.ReactNode} component
  * @param {object} options
+ * @param {Function} options.callback
+ * @param {object} options.options
  *
  * @returns {Promise<null>}
  */
-global.mountHookComponent = async (component, options = {}) => {
+global.mountHookComponent = async (component, { callback, ...options } = {}) => {
   let mountedComponent = null;
   await act(async () => {
     mountedComponent = mount(component, options);
   });
   mountedComponent?.update();
 
-  if (typeof options?.callback === 'function') {
+  if (typeof callback === 'function') {
     await act(async () => {
-      await options?.callback({ component: mountedComponent });
+      await callback({ component: mountedComponent });
     });
     mountedComponent?.update();
   }
@@ -139,21 +142,23 @@ global.mountHookWrapper = global.mountHookComponent;
 /**
  * Enzyme for components using hooks.
  *
- * @param {Node} component
+ * @param {React.ReactNode} component
  * @param {object} options
+ * @param {Function} options.callback
+ * @param {object} options.options
  *
  * @returns {Promise<null>}
  */
-global.shallowHookComponent = async (component, options = {}) => {
+global.shallowHookComponent = async (component, { callback, ...options } = {}) => {
   let mountedComponent = null;
   await act(async () => {
     mountedComponent = shallow(component, options);
   });
   mountedComponent?.update();
 
-  if (typeof options?.callback === 'function') {
+  if (typeof callback === 'function') {
     await act(async () => {
-      await options?.callback({ component: mountedComponent });
+      await callback({ component: mountedComponent });
     });
     mountedComponent?.update();
   }
@@ -167,16 +172,22 @@ global.shallowHookWrapper = global.shallowHookComponent;
  * Fire a hook, return the result.
  *
  * @param {Function} useHook
+ * @param {object} options
+ * @param {object} options.state An object representing a mock Redux store's state.
  * @returns {*}
  */
-global.mountHook = async (useHook = Function.prototype) => {
+global.mountHook = async (useHook = Function.prototype, { state } = {}) => {
   let result;
   let mountedHook;
+  let spyUseSelector;
   const Hook = () => {
     result = useHook();
     return null;
   };
   await act(async () => {
+    if (state) {
+      spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(state));
+    }
     mountedHook = mount(<Hook />);
   });
   mountedHook?.update();
@@ -185,6 +196,10 @@ global.mountHook = async (useHook = Function.prototype) => {
     await act(async () => mountedHook.unmount());
   };
 
+  if (state) {
+    spyUseSelector.mockClear();
+  }
+
   return { unmount, result };
 };
 
@@ -192,17 +207,28 @@ global.mountHook = async (useHook = Function.prototype) => {
  * Fire a hook, return the result.
  *
  * @param {Function} useHook
+ * @param {object} options
+ * @param {object} options.state An object representing a mock Redux store's state.
  * @returns {*}
  */
-global.shallowHook = (useHook = Function.prototype) => {
+global.shallowHook = (useHook = Function.prototype, { state } = {}) => {
   let result;
+  let spyUseSelector;
   const Hook = () => {
     result = useHook();
     return null;
   };
 
+  if (state) {
+    spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(state));
+  }
+
   const shallowHook = shallow(<Hook />);
   const unmount = () => shallowHook.unmount();
+
+  if (state) {
+    spyUseSelector.mockClear();
+  }
 
   return { unmount, result };
 };

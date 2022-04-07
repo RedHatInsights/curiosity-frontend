@@ -1,13 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InventoryCardSubscriptions Component should render a basic component: basic render 1`] = `
-<Connect(InventoryCard)
+<InventoryCard
   cardActions={null}
   isDisabled={false}
+  perPageDefault={10}
+  t={[Function]}
   useGetInventory={[Function]}
   useOnColumnSort={[Function]}
   useOnPage={[Function]}
   useProductInventoryConfig={[Function]}
   useProductInventoryQuery={[Function]}
+  useSession={[Function]}
 />
 `;
