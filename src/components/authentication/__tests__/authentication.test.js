@@ -1,30 +1,30 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from '../../../redux';
 import { helpers } from '../../../common';
-import { ConnectedAuthentication, Authentication } from '../authentication';
+import { Authentication } from '../authentication';
 import { rhsmApiTypes } from '../../../types';
 
 describe('Authentication Component', () => {
-  it('should render a connected component', async () => {
+  it('should render a basic component', async () => {
     const component = await shallowHookComponent(
-      <Provider store={store}>
-        <ConnectedAuthentication>
-          <span className="test">lorem</span>
-        </ConnectedAuthentication>
-      </Provider>
+      <Authentication>
+        <span className="test">lorem</span>
+      </Authentication>
     );
 
-    expect(component).toMatchSnapshot('connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render a non-connected component error', async () => {
+  it('should render a component error', async () => {
     const props = {
-      session: {
-        authorized: {},
+      useAuth: () => ({
         error: true,
-        pending: false
-      }
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      })
     };
     const component = await mountHookComponent(
       <Authentication {...props}>
@@ -32,7 +32,7 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('non-connected error');
+    expect(component).toMatchSnapshot('error');
   });
 
   it('should allow being disabled', async () => {
@@ -50,13 +50,15 @@ describe('Authentication Component', () => {
 
   it('should return a redirect on 418 error', async () => {
     const props = {
-      session: {
-        authorized: {},
+      useAuth: () => ({
         error: true,
-        status: 418,
-        errorMessage: `I'm a teapot`,
-        pending: false
-      }
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: 418
+        }
+      })
     };
     const component = await shallowHookComponent(
       <Authentication {...props}>
@@ -69,14 +71,15 @@ describe('Authentication Component', () => {
 
   it('should return a redirect on a specific 403 error and error code', async () => {
     const props = {
-      session: {
-        authorized: {},
+      useAuth: () => ({
         error: true,
-        status: 403,
-        errorCodes: [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN],
-        errorMessage: `Forbidden`,
-        pending: false
-      }
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN],
+          errorStatus: 403
+        }
+      })
     };
     const component = await shallowHookComponent(
       <Authentication {...props}>
@@ -98,10 +101,15 @@ describe('Authentication Component', () => {
 
   it('should return a message on 401 error', async () => {
     const props = {
-      session: {
-        authorized: {},
-        status: 401
-      }
+      useAuth: () => ({
+        error: true,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: 401
+        }
+      })
     };
     const component = await shallowHookComponent(
       <Authentication {...props}>
@@ -112,14 +120,17 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('401 error');
   });
 
-  it('should render a non-connected component pending', async () => {
+  it('should render a component pending', async () => {
     const props = {
-      session: {
-        authorized: {},
+      useAuth: () => ({
         error: false,
-        errorMessage: '',
-        pending: true
-      }
+        pending: true,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      })
     };
     const component = await shallowHookComponent(
       <Authentication {...props}>
@@ -127,18 +138,22 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('non-connected pending');
+    expect(component).toMatchSnapshot('pending');
   });
 
-  it('should render a non-connected component authorized', async () => {
+  it('should render a component authorized', async () => {
     const props = {
-      session: {
-        authorized: {
-          [helpers.UI_NAME]: true
-        },
+      useAuth: () => ({
         error: false,
-        pending: false
-      }
+        pending: false,
+        data: {
+          authorized: {
+            [helpers.UI_NAME]: true
+          },
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      })
     };
     const component = await mountHookComponent(
       <Authentication {...props}>
@@ -146,6 +161,6 @@ describe('Authentication Component', () => {
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('non-connected authorized');
+    expect(component).toMatchSnapshot('authorized');
   });
 });

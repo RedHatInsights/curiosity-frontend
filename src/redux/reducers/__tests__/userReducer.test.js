@@ -1,8 +1,8 @@
 import userReducer from '../userReducer';
-import { rhsmApiTypes } from '../../../types';
-import { platformConstants as platformApiTypes } from '../../../services/platform/platformConstants';
+import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
+import { platformConstants } from '../../../services/platform/platformConstants';
 import { appTypes, platformTypes, userTypes as types } from '../../types';
-import { reduxHelpers } from '../../common/reduxHelpers';
+import { reduxHelpers } from '../../common';
 
 describe('UserReducer', () => {
   it('should return the initial state', () => {
@@ -26,10 +26,10 @@ describe('UserReducer', () => {
             status: value.status,
             statusText: 'Error',
             data: {
-              [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA]: [
+              [rhsmConstants.RHSM_API_RESPONSE_ERRORS]: [
                 {
-                  [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_TYPES.CODE]:
-                    rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN
+                  [rhsmConstants.RHSM_API_RESPONSE_ERRORS_TYPES.CODE]:
+                    rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN
                 }
               ]
             }
@@ -46,6 +46,7 @@ describe('UserReducer', () => {
   it('should handle all defined error types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
+      types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
       types.UPDATE_USER_OPTIN
@@ -78,6 +79,7 @@ describe('UserReducer', () => {
   it('should handle all defined pending types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
+      types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
       types.UPDATE_USER_OPTIN
@@ -112,9 +114,9 @@ describe('UserReducer', () => {
           data: {
             test: 'success',
             user: {
-              [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
-                [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {
-                  [platformApiTypes.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN]: true
+              [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY]: {
+                [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_TYPES.USER]: {
+                  [platformConstants.PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES.ORG_ADMIN]: true
                 }
               }
             },

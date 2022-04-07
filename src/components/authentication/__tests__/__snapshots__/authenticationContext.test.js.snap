@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: error response 1`] = `
+Object {
+  "data": Object {
+    "errorCodes": Array [
+      "SUBSCRIPTIONS1004",
+    ],
+    "errorStatus": 403,
+    "locale": Object {},
+  },
+  "error": true,
+  "fulfilled": undefined,
+  "pending": undefined,
+}
+`;
+
+exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: mock store error response 1`] = `
+Object {
+  "data": Object {
+    "errorCodes": Array [
+      "lorem",
+      "ipsum",
+    ],
+    "errorStatus": null,
+    "locale": undefined,
+  },
+  "error": true,
+  "fulfilled": false,
+  "pending": false,
+}
+`;
+
+exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: mock store success response 1`] = `
+Object {
+  "data": Object {
+    "authorized": Object {
+      "subscriptions": true,
+    },
+    "errorCodes": Array [],
+    "errorStatus": null,
+    "isAdmin": true,
+    "isEntitled": true,
+    "locale": Object {},
+    "permissions": Array [
+      Object {
+        "subscriptions": Object {
+          "all": true,
+          "resources": Object {
+            "*": Object {
+              "*": Array [],
+              "loremCustom": Array [],
+              "read": Array [],
+            },
+          },
+        },
+      },
+    ],
+  },
+  "error": false,
+  "fulfilled": true,
+  "pending": false,
+}
+`;
+
+exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: success response 1`] = `
+Object {
+  "data": Object {
+    "errorCodes": Array [],
+    "errorStatus": null,
+    "locale": Object {},
+  },
+  "error": undefined,
+  "fulfilled": true,
+  "pending": undefined,
+}
+`;
+
+exports[`AuthenticationContext should apply a hook for retrieving auth data results as context for session: session context, basic 1`] = `
+Object {
+  "lorem": "ipsum",
+}
+`;
+
+exports[`AuthenticationContext should return specific properties: specific properties 1`] = `
+Object {
+  "AuthenticationContext": Object {
+    "$$typeof": Symbol(react.context),
+    "Consumer": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": [Circular],
+    },
+    "Provider": Object {
+      "$$typeof": Symbol(react.provider),
+      "_context": [Circular],
+    },
+    "_calculateChangedBits": null,
+    "_currentRenderer": null,
+    "_currentRenderer2": null,
+    "_currentValue": Array [
+      Object {},
+      [Function],
+    ],
+    "_currentValue2": Array [
+      Object {},
+      [Function],
+    ],
+    "_threadCount": 0,
+  },
+  "DEFAULT_CONTEXT": Array [
+    Object {},
+    [Function],
+  ],
+  "useAuth": [Function],
+  "useAuthContext": [Function],
+  "useSession": [Function],
+}
+`;

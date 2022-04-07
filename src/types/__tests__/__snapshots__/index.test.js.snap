@@ -154,7 +154,6 @@ Object {
       },
       "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
         "CODE": "code",
-        "DETAIL": "detail",
       },
       "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
       "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
@@ -362,7 +361,6 @@ Object {
       },
       "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
         "CODE": "code",
-        "DETAIL": "detail",
       },
       "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
       "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
@@ -569,7 +567,6 @@ Object {
     },
     "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
       "CODE": "code",
-      "DETAIL": "detail",
     },
     "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
     "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
@@ -780,7 +777,6 @@ Object {
     },
     "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
       "CODE": "code",
-      "DETAIL": "detail",
     },
     "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
     "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {

@@ -24,7 +24,6 @@ Object {
     "authorized": Object {},
     "entitled": false,
     "error": false,
-    "locale": "en-US",
     "permissions": Object {},
   },
 }
