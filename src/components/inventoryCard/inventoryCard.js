@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { TableVariant } from '@patternfly/react-table';
 import { Bullseye, Card, CardActions, CardBody, CardFooter, CardHeader, CardHeaderMain } from '@patternfly/react-core';
 import { TableToolbar } from '@redhat-cloud-services/frontend-components/TableToolbar';
+import { useSession } from '../authentication/authenticationContext';
 import { useProductInventoryHostsConfig, useProductInventoryHostsQuery } from '../productView/productViewContext';
 import { helpers } from '../../common';
-import { connect, reduxSelectors } from '../../redux';
 import Table from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
@@ -26,12 +26,12 @@ import { useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances 
  * @param {boolean} props.isDisabled
  * @param {number} props.perPageDefault
  * @param {Function} props.t
- * @param {object} props.session
  * @param {Function} props.useGetInventory
  * @param {Function} props.useOnPage
  * @param {Function} props.useOnColumnSort
  * @param {Function} props.useProductInventoryConfig
  * @param {Function} props.useProductInventoryQuery
+ * @param {Function} props.useSession
  * @fires onColumnSort
  * @fires onPage
  * @fires onUpdateInventoryData
@@ -42,13 +42,14 @@ const InventoryCard = ({
   isDisabled,
   perPageDefault,
   t,
-  session,
   useGetInventory: useAliasGetInventory,
   useOnPage: useAliasOnPage,
   useOnColumnSort: useAliasOnColumnSort,
   useProductInventoryConfig: useAliasProductInventoryConfig,
-  useProductInventoryQuery: useAliasProductInventoryQuery
+  useProductInventoryQuery: useAliasProductInventoryQuery,
+  useSession: useAliasSession
 }) => {
+  const sessionData = useAliasSession();
   const query = useAliasProductInventoryQuery();
   const onPage = useAliasOnPage();
   const onColumnSort = useAliasOnColumnSort();
@@ -94,7 +95,7 @@ const InventoryCard = ({
           query
         }),
         cellData,
-        session
+        session: sessionData
       });
 
       updatedColumnHeaders = columnHeaders;
@@ -104,7 +105,7 @@ const InventoryCard = ({
 
       // Is there a subTable, callback, or attempt to determine, return boolean
       if (typeof settings?.hasSubTable === 'function') {
-        isSubTable = settings.hasSubTable({ ...cellData }, { ...session });
+        isSubTable = settings.hasSubTable({ ...cellData }, { ...sessionData });
       } else {
         isSubTable = numberOfGuests > 0 && subscriptionManagerId;
       }
@@ -190,28 +191,28 @@ const InventoryCard = ({
 /**
  * Prop types.
  *
- * @type {{useOnPage: Function, t: Function, session: object, perPageDefault: number, isDisabled: boolean,
- *     useProductInventoryConfig: Function, useGetInventory: Function, useOnColumnSort: Function,
+ * @type {{cardActions: React.ReactNode, useSession: Function, useOnPage: Function, t: Function, perPageDefault: number,
+ *     isDisabled: boolean, useProductInventoryConfig: Function, useGetInventory: Function, useOnColumnSort: Function,
  *     useProductInventoryQuery: Function}}
  */
 InventoryCard.propTypes = {
   cardActions: PropTypes.node,
   isDisabled: PropTypes.bool,
   perPageDefault: PropTypes.number,
-  session: PropTypes.object,
   t: PropTypes.func,
   useGetInventory: PropTypes.func,
   useOnPage: PropTypes.func,
   useOnColumnSort: PropTypes.func,
   useProductInventoryConfig: PropTypes.func,
-  useProductInventoryQuery: PropTypes.func
+  useProductInventoryQuery: PropTypes.func,
+  useSession: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useOnPage: Function, t: Function, session: object, perPageDefault: number, isDisabled: boolean,
- *     useProductInventoryConfig: Function, useGetInventory: Function, useOnColumnSort: Function,
+ * @type {{cardActions: React.ReactNode, useSession: Function, useOnPage: Function, t: Function, perPageDefault: number,
+ *     isDisabled: boolean, useProductInventoryConfig: Function, useGetInventory: Function, useOnColumnSort: Function,
  *     useProductInventoryQuery: Function}}
  */
 InventoryCard.defaultProps = {
@@ -222,22 +223,13 @@ InventoryCard.defaultProps = {
   ),
   isDisabled: helpers.UI_DISABLED_TABLE_INSTANCES,
   perPageDefault: 10,
-  session: {},
   t: translate,
   useGetInventory: useGetInstancesInventory,
   useOnPage: useOnPageInstances,
   useOnColumnSort: useOnColumnSortInstances,
   useProductInventoryConfig: useProductInventoryHostsConfig,
-  useProductInventoryQuery: useProductInventoryHostsQuery
+  useProductInventoryQuery: useProductInventoryHostsQuery,
+  useSession
 };
 
-/**
- * Create a selector from applied state, props.
- *
- * @type {Function}
- */
-const makeMapStateToProps = reduxSelectors.user.makeUserSession();
-
-const ConnectedInventoryCard = connect(makeMapStateToProps)(InventoryCard);
-
-export { ConnectedInventoryCard as default, ConnectedInventoryCard, InventoryCard };
+export { InventoryCard as default, InventoryCard };

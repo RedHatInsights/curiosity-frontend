@@ -18,7 +18,7 @@ import Authentication from './components/authentication/authentication';
  */
 const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSelector }) => {
   const dispatch = useAliasDispatch();
-  const { value: locale } = useAliasSelector(({ user }) => user.session?.locale, {});
+  const { value: locale } = useAliasSelector(({ user }) => user?.locale?.data, {});
 
   useMount(() => {
     dispatch(getLocale());

@@ -20,7 +20,7 @@ describe('PlatformActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().user;
 
-      expect(response.session.fulfilled).toBe(true);
+      expect(response.auth.fulfilled).toBe(true);
       done();
     });
   });
