@@ -89,7 +89,9 @@ describe('Product RHOSAK config', () => {
     const inventoryData = {
       productName: 'lorem',
       serviceLevel: 'hello world',
-      nextEventDate: '2022-01-01T00:00:00.000Z'
+      nextEventDate: '2022-01-01T00:00:00.000Z',
+      totalCapacity: 2000,
+      hasInfiniteQuantity: true
     };
 
     const filteredInventoryData = parseRowCellsListData({
