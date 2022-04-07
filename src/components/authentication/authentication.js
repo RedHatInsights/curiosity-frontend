@@ -7,7 +7,7 @@ import { useMount, useUnmount } from 'react-use';
 import { reduxActions, storeHooks } from '../../redux';
 import { routerHooks } from '../../hooks/useRouter';
 import { routerHelpers, Redirect } from '../router';
-import { rhsmApiTypes } from '../../types';
+import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 import MessageView from '../messageView/messageView';
 import { translate } from '../i18n/i18n';
@@ -84,7 +84,7 @@ const Authentication = ({
     }
 
     if (
-      (errorCodes && errorCodes.includes(rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN)) ||
+      (errorCodes && errorCodes.includes(rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN)) ||
       errorStatus === 418
     ) {
       return <Redirect route={routerHelpers.getErrorRoute.path} />;
