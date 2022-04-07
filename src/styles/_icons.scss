@@ -8,6 +8,12 @@
       color: var(--pf-global--palette--black-500);
       font-size: var(--pf-global--FontSize--md);
     }
+
+    &__f-infinity {
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: default;
+    }
   }
 
   span.curiosity-icon__question {

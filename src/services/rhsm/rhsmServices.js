@@ -2300,11 +2300,12 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           ],
  *           "next_event_date": "2020-04-01T00:00:00Z",
  *           "next_event_type": "Subscription Begin",
- *           "quantity": 3,
+ *           "quantity": 1,
  *           "physical_capacity": 1,
  *           "virtual_capacity": 1,
  *           "total_capacity": 2,
- *           "uom": "Sockets"
+ *           "uom": "Sockets",
+ *           "has_infinite_quantity": true
  *         },
  *         {
  *           "sku": "RH00010",
@@ -2318,7 +2319,8 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "physical_capacity": 1,
  *           "virtual_capacity": 1,
  *           "total_capacity": 2,
- *           "uom": "Sockets"
+ *           "uom": "Sockets",
+ *           "has_infinite_quantity": false
  *         },
  *         {
  *           "sku": "RH00009",
@@ -2334,7 +2336,8 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *           "physical_capacity": 2,
  *           "virtual_capacity": 2,
  *           "total_capacity": 4,
- *           "uom": "Cores"
+ *           "uom": "Cores",
+ *           "has_infinite_quantity": false
  *         }
  *       ],
  *       "links": {},

@@ -132,6 +132,7 @@ Object {
           "isWrappable": true,
         },
         Object {
+          "cell": [Function],
           "cellWidth": 15,
           "header": [Function],
           "id": "totalCapacity",

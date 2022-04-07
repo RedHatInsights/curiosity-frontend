@@ -128,6 +128,7 @@ const subscriptionsMetaSchema = metaResponseSchema;
  * @type {*} Joi schema
  */
 const subscriptionsItem = Joi.object({
+  has_infinite_quantity: Joi.boolean().optional().allow(null),
   next_event_date: Joi.date().utc().allow(null),
   product_name: Joi.string().optional().allow(null),
   quantity: Joi.number().allow(null).default(0),

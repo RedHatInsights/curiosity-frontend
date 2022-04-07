@@ -16,6 +16,8 @@ import {
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
 import { dateHelpers, helpers } from '../common';
+import { Tooltip } from '../components/tooltip/tooltip';
+import { ChartIcon } from '../components/chart/chartIcon';
 import { translate } from '../components/i18n/i18n';
 
 // ToDo: evaluate the need for "productLabel" or using productId
@@ -195,6 +197,18 @@ const config = {
     {
       id: 'totalCapacity',
       header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
+      cell: (data = {}) => {
+        const { hasInfiniteQuantity, totalCapacity, uom } = data;
+        if (hasInfiniteQuantity?.value === true) {
+          const content = translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] });
+          return (
+            <Tooltip content={content}>
+              <ChartIcon symbol="infinity" title={content} />
+            </Tooltip>
+          );
+        }
+        return totalCapacity?.value;
+      },
       isSortable: true,
       cellWidth: 15,
       isWrappable: true
