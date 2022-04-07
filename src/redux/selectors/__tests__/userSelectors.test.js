@@ -25,7 +25,7 @@ describe('UserSelectors', () => {
   it('should pass error state data through response', () => {
     const state = {
       user: {
-        session: {
+        errors: {
           error: true,
           errorCodes: ['loremIpsum'],
           errorMessage: 'lorem ipsum',
@@ -40,7 +40,7 @@ describe('UserSelectors', () => {
   it('should pass transformed data on fulfill', () => {
     const state = {
       user: {
-        session: {
+        auth: {
           fulfilled: true,
           data: [
             {

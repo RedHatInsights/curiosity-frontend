@@ -54,9 +54,15 @@ exports[`InventoryCard Component should handle expandable guests data: number of
           1,
           "loremIpsum",
         ],
-        "expandedContent": <Memo(Connect(InventoryGuests))
+        "expandedContent": <InventoryGuests
+          defaultPerPage={5}
           id="loremIpsum"
           numberOfGuests={1}
+          useGetGuestsInventory={[Function]}
+          useOnScroll={[Function]}
+          useProductInventoryGuestsConfig={[Function]}
+          useProductInventoryGuestsQuery={[Function]}
+          useSession={[Function]}
         />,
       },
     ]

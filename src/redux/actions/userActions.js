@@ -8,10 +8,11 @@ import { translate } from '../../components/i18n/i18n';
  *
  * @returns {{payload: Promise<{data: void}>, type: string}}
  */
-const getLocale = () => ({
-  type: userTypes.USER_LOCALE,
-  payload: userServices.getLocale()
-});
+const getLocale = () => dispatch =>
+  dispatch({
+    type: userTypes.USER_LOCALE,
+    payload: userServices.getLocale()
+  });
 
 /**
  * Delete a user's opt-in.

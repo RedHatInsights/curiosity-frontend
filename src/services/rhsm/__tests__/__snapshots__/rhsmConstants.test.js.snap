@@ -107,9 +107,13 @@ Object {
     "UNSPECIFIED": "",
   },
   "RHSM_API_RESPONSE_DATA": "data",
-  "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
+  "RHSM_API_RESPONSE_ERRORS": "errors",
+  "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": Object {
     "GENERIC": "SUBSCRIPTIONS1003",
     "OPTIN": "SUBSCRIPTIONS1004",
+  },
+  "RHSM_API_RESPONSE_ERRORS_TYPES": Object {
+    "CODE": "code",
   },
   "RHSM_API_RESPONSE_GRANULARITY_TYPES": Object {
     "DAILY": "Daily",
@@ -273,9 +277,13 @@ Object {
       "UNSPECIFIED": "",
     },
     "RHSM_API_RESPONSE_DATA": "data",
-    "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
+    "RHSM_API_RESPONSE_ERRORS": "errors",
+    "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": Object {
       "GENERIC": "SUBSCRIPTIONS1003",
       "OPTIN": "SUBSCRIPTIONS1004",
+    },
+    "RHSM_API_RESPONSE_ERRORS_TYPES": Object {
+      "CODE": "code",
     },
     "RHSM_API_RESPONSE_GRANULARITY_TYPES": Object {
       "DAILY": "Daily",
@@ -440,9 +448,13 @@ Object {
       "UNSPECIFIED": "",
     },
     "RHSM_API_RESPONSE_DATA": "data",
-    "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
+    "RHSM_API_RESPONSE_ERRORS": "errors",
+    "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": Object {
       "GENERIC": "SUBSCRIPTIONS1003",
       "OPTIN": "SUBSCRIPTIONS1004",
+    },
+    "RHSM_API_RESPONSE_ERRORS_TYPES": Object {
+      "CODE": "code",
     },
     "RHSM_API_RESPONSE_GRANULARITY_TYPES": Object {
       "DAILY": "Daily",
@@ -611,9 +623,13 @@ Object {
     "UNSPECIFIED": "",
   },
   "RHSM_API_RESPONSE_DATA": "data",
-  "RHSM_API_RESPONSE_ERROR_CODE_TYPES": Object {
+  "RHSM_API_RESPONSE_ERRORS": "errors",
+  "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": Object {
     "GENERIC": "SUBSCRIPTIONS1003",
     "OPTIN": "SUBSCRIPTIONS1004",
+  },
+  "RHSM_API_RESPONSE_ERRORS_TYPES": Object {
+    "CODE": "code",
   },
   "RHSM_API_RESPONSE_GRANULARITY_TYPES": Object {
     "DAILY": "Daily",

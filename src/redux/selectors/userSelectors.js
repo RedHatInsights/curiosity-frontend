@@ -2,6 +2,9 @@ import { createSelectorCreator, defaultMemoize } from 'reselect';
 import _isEqual from 'lodash/isEqual';
 
 /**
+ * ToDo: This selector can be removed after guestsList.deprecated and inventoryList.deprecated components are removed
+ */
+/**
  * Create a custom "are objects equal" selector.
  *
  * @private
@@ -17,7 +20,12 @@ const createDeepEqualSelector = createSelectorCreator(defaultMemoize, _isEqual);
  * @returns {object}
  */
 const statePropsFilter = state => ({
-  ...state.user?.session
+  auth: {
+    ...state.user?.auth
+  },
+  errors: {
+    ...state.user?.errors
+  }
 });
 
 /**
@@ -27,18 +35,18 @@ const statePropsFilter = state => ({
  *     error: boolean}}}
  */
 const selector = createDeepEqualSelector([statePropsFilter], response => {
-  const { error = false, fulfilled = false, data = {}, ...rest } = response || {};
+  const { errors = {}, auth = {} } = response || {};
   const updatedSession = {
-    ...rest,
+    ...errors,
     admin: false,
     entitled: false,
-    error,
+    error: errors?.error || false,
     authorized: {},
     permissions: {}
   };
 
-  if (!error && fulfilled) {
-    const [user = {}, responsePermissions = {}] = data;
+  if (!updatedSession?.error && auth?.fulfilled) {
+    const [user = {}, responsePermissions = {}] = auth?.data || [];
     updatedSession.admin = user.isAdmin;
     updatedSession.entitled = user.isEntitled;
     updatedSession.permissions = responsePermissions.permissions;
