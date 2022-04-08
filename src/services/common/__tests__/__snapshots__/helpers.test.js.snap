@@ -28,12 +28,24 @@ Object {
 }
 `;
 
+exports[`Service Helpers should support applying data to a supplied callback: passDataToCallback, error 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "dolor": "sit",
+    },
+  ],
+  "error": [Error: hello world],
+}
+`;
+
 exports[`Service Helpers should support applying data to a supplied callback: passDataToCallback, success 1`] = `
 Array [
   Array [
     Object {
       "hello": "world",
     },
+    "lorem ipsum",
   ],
 ]
 `;
