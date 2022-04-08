@@ -22,10 +22,4 @@ describe('PageHeader Component', () => {
     const component = mount(<PageHeader productLabel="RHEL">lorem</PageHeader>);
     expect(component).toMatchSnapshot('with subtitle');
   });
-
-  it('should render the tour button when includeTour is provided', () => {
-    const component = mount(<PageHeader includeTour>lorem</PageHeader>);
-    expect(component).toMatchSnapshot('with tour button');
-    expect(component.render()).toMatchSnapshot('consistent html output for Pendo CSS selector');
-  });
 });
