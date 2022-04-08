@@ -5,7 +5,6 @@ exports[`ProductView Component should allow custom inventory displays via config
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel="lorem ipsum product label"
     t={[Function]}
   >
@@ -158,7 +157,6 @@ exports[`ProductView Component should allow custom product views via props: cust
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel="lorem ipsum product label"
     t={[Function]}
   >
@@ -295,7 +293,6 @@ exports[`ProductView Component should allow custom product views via props: cust
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel="lorem ipsum product label"
     t={[Function]}
   >
@@ -380,7 +377,6 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel="lorem ipsum product label"
     t={[Function]}
   >
@@ -495,7 +491,6 @@ exports[`ProductView Component should render nothing if path and product paramet
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
