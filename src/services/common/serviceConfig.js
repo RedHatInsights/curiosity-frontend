@@ -134,8 +134,9 @@ const axiosServiceCall = async (
       transformers[0] = response => {
         const updatedResponse = { ...response };
         const { data, error: normalizeError } = serviceHelpers.passDataToCallback(
+          successTransform,
           updatedResponse.data,
-          successTransform
+          updatedResponse.config
         );
 
         if (!normalizeError) {
@@ -155,8 +156,9 @@ const axiosServiceCall = async (
         }
 
         const { data, error: normalizeError } = serviceHelpers.passDataToCallback(
+          errorTransform,
           updatedResponse?.data || updatedResponse?.message,
-          errorTransform
+          updatedResponse.config
         );
 
         if (!normalizeError) {
