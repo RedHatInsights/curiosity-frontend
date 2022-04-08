@@ -60,16 +60,16 @@ const camelCase = obj => {
 /**
  * Apply data to a callback, pass original data on error.
  *
- * @param {object} data
  * @param {Function} callback
+ * @param {Array} data
  * @returns {{data: *, error}}
  */
-const passDataToCallback = (data, callback) => {
+const passDataToCallback = (callback, ...data) => {
   let error;
   let updatedData = data;
 
   try {
-    updatedData = callback(data);
+    updatedData = callback(...data);
   } catch (e) {
     error = e;
   }
