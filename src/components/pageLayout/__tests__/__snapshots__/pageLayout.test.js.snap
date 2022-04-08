@@ -31,7 +31,6 @@ exports[`PageLayout Component should render header and section children: multipl
   className=""
 >
   <PageHeader
-    includeTour={false}
     key=".1"
     productLabel={null}
     t={[Function]}
@@ -77,11 +76,6 @@ exports[`PageLayout Component should render header and section children: multipl
                   </Title>
                 </PageHeaderTitle>
               </div>
-            </FlexItem>
-            <FlexItem>
-              <div
-                className=""
-              />
             </FlexItem>
           </div>
         </Flex>

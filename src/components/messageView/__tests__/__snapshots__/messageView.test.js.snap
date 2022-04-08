@@ -5,7 +5,6 @@ exports[`MessageView Component should have fallback conditions for all props: fa
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
@@ -27,7 +26,6 @@ exports[`MessageView Component should render a non-connected component: non-conn
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
@@ -62,7 +60,6 @@ exports[`MessageView Component should render children when provided: children di
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel={null}
     t={[Function]}
   >
