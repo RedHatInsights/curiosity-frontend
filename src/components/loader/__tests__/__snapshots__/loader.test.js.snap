@@ -73,7 +73,6 @@ exports[`Loader Component should handle variant loader components: variant: titl
   className=""
 >
   <PageHeader
-    includeTour={false}
     productLabel={null}
     t={[Function]}
   >

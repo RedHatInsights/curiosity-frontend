@@ -92,7 +92,6 @@ exports[`Authentication Component should render a component error: error 1`] = `
       className=""
     >
       <PageHeader
-        includeTour={false}
         key=".0"
         productLabel={null}
         t={[Function]}
@@ -138,11 +137,6 @@ exports[`Authentication Component should render a component error: error 1`] = `
                       </Title>
                     </PageHeaderTitle>
                   </div>
-                </FlexItem>
-                <FlexItem>
-                  <div
-                    className=""
-                  />
                 </FlexItem>
               </div>
             </Flex>

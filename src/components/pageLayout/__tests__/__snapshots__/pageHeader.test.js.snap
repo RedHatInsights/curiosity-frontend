@@ -2,7 +2,6 @@
 
 exports[`PageHeader Component should render a basic component: basic 1`] = `
 <PageHeader
-  includeTour={false}
   productLabel={null}
   t={[Function]}
 >
@@ -58,11 +57,6 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
               </PageHeaderTitle>
             </div>
           </FlexItem>
-          <FlexItem>
-            <div
-              className=""
-            />
-          </FlexItem>
         </div>
       </Flex>
     </section>
@@ -72,7 +66,6 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
 
 exports[`PageHeader Component should render string node types: string 1`] = `
 <PageHeader
-  includeTour={false}
   productLabel={null}
   t={[Function]}
 >
@@ -118,11 +111,6 @@ exports[`PageHeader Component should render string node types: string 1`] = `
               </PageHeaderTitle>
             </div>
           </FlexItem>
-          <FlexItem>
-            <div
-              className=""
-            />
-          </FlexItem>
         </div>
       </Flex>
     </section>
@@ -132,7 +120,6 @@ exports[`PageHeader Component should render string node types: string 1`] = `
 
 exports[`PageHeader Component should render the subtitle when viewId is provided: with subtitle 1`] = `
 <PageHeader
-  includeTour={false}
   productLabel="RHEL"
   t={[Function]}
 >
@@ -178,162 +165,11 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
               </PageHeaderTitle>
             </div>
           </FlexItem>
-          <FlexItem>
-            <div
-              className=""
-            />
-          </FlexItem>
         </div>
       </Flex>
       <p>
         t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"RHEL"}, [object Object])
       </p>
-    </section>
-  </PageHeader>
-</PageHeader>
-`;
-
-exports[`PageHeader Component should render the tour button when includeTour is provided: consistent html output for Pendo CSS selector 1`] = `
-<section
-  class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-  widget-type="InsightsPageHeader"
->
-  <div
-    class="pf-l-flex pf-m-justify-content-space-between-on-sm"
-  >
-    <div
-      class=""
-    >
-      <h1
-        class="pf-c-title pf-m-2xl pf-u-mb-sm"
-        data-ouia-component-id="OUIA-Generated-Title-4"
-        data-ouia-component-type="PF4/Title"
-        data-ouia-safe="true"
-        widget-type="InsightsPageHeaderTitle"
-      >
-        lorem
-      </h1>
-    </div>
-    <div
-      class=""
-    >
-      <button
-        aria-disabled="false"
-        class="pf-c-button pf-m-link pf-m-inline uxui-curiosity__button-tour"
-        data-ouia-component-id="OUIA-Generated-Button-link-1"
-        data-ouia-component-type="PF4/Button"
-        data-ouia-safe="true"
-        type="button"
-      >
-        <span
-          class="pf-c-label pf-m-blue"
-        >
-          <span
-            class="pf-c-label__content"
-          >
-            t(curiosity-optin.buttonTour)
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
-</section>
-`;
-
-exports[`PageHeader Component should render the tour button when includeTour is provided: with tour button 1`] = `
-<PageHeader
-  includeTour={true}
-  productLabel={null}
-  t={[Function]}
->
-  <PageHeader>
-    <section
-      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-      widget-type="InsightsPageHeader"
-    >
-      <Flex
-        justifyContent={
-          Object {
-            "sm": "justifyContentSpaceBetween",
-          }
-        }
-      >
-        <div
-          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
-        >
-          <FlexItem>
-            <div
-              className=""
-            >
-              <PageHeaderTitle
-                className="pf-u-mb-sm"
-                title="lorem"
-              >
-                <Title
-                  className="pf-u-mb-sm"
-                  headingLevel="h1"
-                  size="2xl"
-                  widget-type="InsightsPageHeaderTitle"
-                >
-                  <h1
-                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-4"
-                    data-ouia-component-type="PF4/Title"
-                    data-ouia-safe={true}
-                    widget-type="InsightsPageHeaderTitle"
-                  >
-                    lorem
-                  </h1>
-                </Title>
-              </PageHeaderTitle>
-            </div>
-          </FlexItem>
-          <FlexItem>
-            <div
-              className=""
-            >
-              <Button
-                className="uxui-curiosity__button-tour"
-                isInline={true}
-                variant="link"
-              >
-                <ButtonBase
-                  className="uxui-curiosity__button-tour"
-                  innerRef={null}
-                  isInline={true}
-                  variant="link"
-                >
-                  <button
-                    aria-disabled={false}
-                    aria-label={null}
-                    className="pf-c-button pf-m-link pf-m-inline uxui-curiosity__button-tour"
-                    data-ouia-component-id="OUIA-Generated-Button-link-1"
-                    data-ouia-component-type="PF4/Button"
-                    data-ouia-safe={true}
-                    disabled={false}
-                    role={null}
-                    type="button"
-                  >
-                    <Label
-                      color="blue"
-                    >
-                      <span
-                        className="pf-c-label pf-m-blue"
-                      >
-                        <span
-                          className="pf-c-label__content"
-                        >
-                          t(curiosity-optin.buttonTour)
-                        </span>
-                      </span>
-                    </Label>
-                  </button>
-                </ButtonBase>
-              </Button>
-            </div>
-          </FlexItem>
-        </div>
-      </Flex>
     </section>
   </PageHeader>
 </PageHeader>
