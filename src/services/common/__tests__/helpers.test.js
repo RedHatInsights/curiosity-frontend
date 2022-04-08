@@ -51,17 +51,29 @@ describe('Service Helpers', () => {
   it('should support applying data to a supplied callback', () => {
     const mockSchema = jest.fn();
 
-    serviceHelpers.passDataToCallback({ hello: 'world' }, mockSchema);
+    serviceHelpers.passDataToCallback(mockSchema, { hello: 'world' }, 'lorem ipsum');
 
     expect(mockSchema.mock.calls).toMatchSnapshot('passDataToCallback, success');
 
     mockSchema.mockClear();
+
+    expect(
+      serviceHelpers.passDataToCallback(
+        () => {
+          throw new Error('hello world');
+        },
+        { dolor: 'sit' }
+      )
+    ).toMatchSnapshot('passDataToCallback, error');
   });
 
   it('should attempt to apply a Joi schema to a response', () => {
     const mockValidate = jest.fn().mockImplementation(response => ({ value: response }));
 
-    serviceHelpers.schemaResponse({ schema: { validate: mockValidate }, response: { lorem_ipsum: 'dolor_sit' } });
+    serviceHelpers.schemaResponse({
+      schema: { validate: mockValidate },
+      response: { lorem_ipsum: 'dolor_sit' }
+    });
     expect(mockValidate.mock.calls).toMatchSnapshot('schemaResponse, parameters');
 
     expect(
@@ -71,5 +83,7 @@ describe('Service Helpers', () => {
         casing: 'camel'
       })
     ).toMatchSnapshot('schemaResponse, camelCasing');
+
+    mockValidate.mockClear();
   });
 });

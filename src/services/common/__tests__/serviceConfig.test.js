@@ -106,7 +106,9 @@ describe('ServiceConfig', () => {
       params: { lorem: 'ipsum', dolor: 'sit' },
       exposeCacheId: true
     });
-    responses.push(`1. method=get, status=${responseOne.status}, desc=initial call`);
+    responses.push(
+      `1. method=get, status=${responseOne.status}, cacheId=${responseOne.request.config.cacheId}, desc=initial call`
+    );
 
     // Second, call the same endpoint with same params, expect a cached response, emulated 304
     const responseTwo = await serviceConfig.axiosServiceCall({
@@ -115,7 +117,9 @@ describe('ServiceConfig', () => {
       params: { lorem: 'ipsum', dolor: 'sit' },
       exposeCacheId: true
     });
-    responses.push(`2. method=get, status=${responseTwo.status}, desc=repeat 1st call and config`);
+    responses.push(
+      `2. method=get, status=${responseTwo.status}, cacheId=${responseTwo.request.config.cacheId}, desc=repeat 1st call and config`
+    );
 
     // Third, updating config creates a new cache
     const responseThree = await serviceConfig.axiosServiceCall({
@@ -124,7 +128,9 @@ describe('ServiceConfig', () => {
       params: { lorem: 'ipsum' },
       exposeCacheId: true
     });
-    responses.push(`3. method=get, status=${responseThree.status}, desc=updated config`);
+    responses.push(
+      `3. method=get, status=${responseThree.status}, cacheId=${responseThree.request.config.cacheId}, desc=updated config`
+    );
 
     // Fourth, confirm cache isn't created for other methods, i.e. post
     const responseFour = await serviceConfig.axiosServiceCall({
@@ -134,7 +140,9 @@ describe('ServiceConfig', () => {
       params: { lorem: 'ipsum' },
       exposeCacheId: true
     });
-    responses.push(`4. method=post, status=${responseFour.status}, desc=attempt post method`);
+    responses.push(
+      `4. method=post, status=${responseFour.status}, cacheId=${responseFour.request.config.cacheId}, desc=attempt post method`
+    );
 
     // Fifth, confirm cache exists from responseThree
     const responseFive = await serviceConfig.axiosServiceCall({
@@ -143,7 +151,9 @@ describe('ServiceConfig', () => {
       params: { lorem: 'ipsum' },
       exposeCacheId: true
     });
-    responses.push(`5. method=get, status=${responseFive.status}, desc=repeat 3rd call and config`);
+    responses.push(
+      `5. method=get, status=${responseFive.status}, cacheId=${responseFive.request.config.cacheId}, desc=repeat 3rd call and config`
+    );
 
     // Six, don't use a cache
     const responseSix = await serviceConfig.axiosServiceCall({
@@ -152,7 +162,9 @@ describe('ServiceConfig', () => {
       params: { lorem: 'ipsum' },
       exposeCacheId: true
     });
-    responses.push(`6. method=get, status=${responseSix.status}, desc=no caching`);
+    responses.push(
+      `6. method=get, status=${responseSix.status}, cacheId=${responseSix.request.config.cacheId}, desc=no caching`
+    );
 
     expect(responses).toMatchSnapshot('cached responses, emulated 304');
   });
