@@ -1,37 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PageHeader as RcsPageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
-import { Button, Flex, FlexItem, Label as PfLabel } from '@patternfly/react-core';
+import { Button, Flex, FlexItem } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
- * ToDo: Review removing the "includeTour" prop and associated button code.
- * ...instead of disabling it, ENT-4247
- */
-/**
  * Render a platform page header.
  *
  * @param {object} props
  * @param {Node} props.children
- * @param {boolean} props.includeTour
  * @param {string} props.productLabel
  * @param {Function} props.t
  * @returns {Node}
  */
-const PageHeader = ({ children, includeTour, productLabel, t }) => (
+const PageHeader = ({ children, productLabel, t }) => (
   <RcsPageHeader>
     <Flex justifyContent={{ sm: 'justifyContentSpaceBetween' }}>
       <FlexItem>
         <PageHeaderTitle title={children} className="pf-u-mb-sm" />
-      </FlexItem>
-      <FlexItem>
-        {includeTour && (
-          <Button variant="link" className="uxui-curiosity__button-tour" isInline>
-            <PfLabel color="blue">{t('curiosity-optin.buttonTour')}</PfLabel>
-          </Button>
-        )}
       </FlexItem>
     </Flex>
     {productLabel && (
@@ -55,11 +43,10 @@ const PageHeader = ({ children, includeTour, productLabel, t }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node, includeTour: boolean, productLabel: string, t: Function}}
+ * @type {{children: React.ReactNode, productLabel: string, t: Function}}
  */
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired,
-  includeTour: PropTypes.bool,
   productLabel: PropTypes.string,
   t: PropTypes.func
 };
@@ -70,7 +57,6 @@ PageHeader.propTypes = {
  * @type {{includeTour: boolean, productLabel: null, t: translate}}
  */
 PageHeader.defaultProps = {
-  includeTour: false,
   productLabel: null,
   t: translate
 };
