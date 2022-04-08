@@ -16,7 +16,7 @@ describe('Authentication Component', () => {
 
   it('should render a component error', async () => {
     const props = {
-      useAuth: () => ({
+      useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
@@ -50,7 +50,7 @@ describe('Authentication Component', () => {
 
   it('should return a redirect on 418 error', async () => {
     const props = {
-      useAuth: () => ({
+      useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
@@ -71,7 +71,7 @@ describe('Authentication Component', () => {
 
   it('should return a redirect on a specific 403 error and error code', async () => {
     const props = {
-      useAuth: () => ({
+      useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
@@ -101,7 +101,7 @@ describe('Authentication Component', () => {
 
   it('should return a message on 401 error', async () => {
     const props = {
-      useAuth: () => ({
+      useGetAuthorization: () => ({
         error: true,
         pending: false,
         data: {
@@ -122,7 +122,7 @@ describe('Authentication Component', () => {
 
   it('should render a component pending', async () => {
     const props = {
-      useAuth: () => ({
+      useGetAuthorization: () => ({
         error: false,
         pending: true,
         data: {
@@ -143,7 +143,7 @@ describe('Authentication Component', () => {
 
   it('should render a component authorized', async () => {
     const props = {
-      useAuth: () => ({
+      useGetAuthorization: () => ({
         error: false,
         pending: false,
         data: {
