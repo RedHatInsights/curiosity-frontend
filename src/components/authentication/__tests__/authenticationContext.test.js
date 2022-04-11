@@ -17,8 +17,10 @@ describe('AuthenticationContext', () => {
             locale: {}
           },
           responses: {
-            errors: {
-              status: 403
+            id: {
+              errors: {
+                status: 403
+              }
             }
           }
         })
@@ -37,7 +39,9 @@ describe('AuthenticationContext', () => {
             locale: {}
           },
           responses: {
-            errors: {}
+            id: {
+              errors: {}
+            }
           }
         })
       })
