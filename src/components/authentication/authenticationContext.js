@@ -37,7 +37,7 @@ const useAuth = ({
   ]);
 
   const [user = {}, app = {}] = (Array.isArray(data.auth) && data.auth) || [];
-  const errorStatus = (error && responses?.errors?.status) || null;
+  const errorStatus = (error && responses?.id?.errors?.status) || null;
 
   return {
     data: {
