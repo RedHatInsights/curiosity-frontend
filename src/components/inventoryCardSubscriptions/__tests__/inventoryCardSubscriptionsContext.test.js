@@ -18,7 +18,30 @@ describe('InventoryCardSubscriptionsContext', () => {
     expect(SORT_TYPES).toMatchSnapshot('sort properties');
   });
 
-  it('should handle instances inventory API responses', async () => {
+  it('should handle a store response with useGetSubscriptionsInventory', async () => {
+    const { result } = await shallowHook(
+      () =>
+        useGetSubscriptionsInventory({
+          useProduct: () => ({ productId: 'lorem' })
+        }),
+      {
+        state: {
+          inventory: {
+            subscriptionsInventory: {
+              lorem: {
+                fulfilled: true,
+                data: [{ data: [{ lorem: 'ipsum' }, { dolor: 'sit' }], meta: {} }]
+              }
+            }
+          }
+        }
+      }
+    );
+
+    expect(result).toMatchSnapshot('store response');
+  });
+
+  it('should handle variations in instances inventory API responses', async () => {
     const { result: errorResponse } = shallowHook(() =>
       useGetSubscriptionsInventory({
         useProduct: () => ({ productId: 'lorem' }),
