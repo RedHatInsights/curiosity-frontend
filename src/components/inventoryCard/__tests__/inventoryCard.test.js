@@ -6,7 +6,7 @@ import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
 describe('InventoryCard Component', () => {
   it('should render a basic component', async () => {
     const props = {
-      useProduct: () => ({ productId: 'lorem' }),
+      useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
@@ -23,7 +23,7 @@ describe('InventoryCard Component', () => {
   it('should return an empty render when disabled', async () => {
     const props = {
       isDisabled: true,
-      useProduct: () => ({ productId: 'lorem' }),
+      useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
@@ -47,7 +47,7 @@ describe('InventoryCard Component', () => {
 
   it('should handle multiple display states, error, pending, fulfilled', async () => {
     const props = {
-      useProduct: () => ({ productId: 'lorem' }),
+      useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
         lorem: 'ipsum'
       }),
@@ -90,7 +90,7 @@ describe('InventoryCard Component', () => {
 
   it('should handle variations in data', async () => {
     const props = {
-      useProduct: () => ({ productId: 'lorem' }),
+      useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
@@ -121,7 +121,7 @@ describe('InventoryCard Component', () => {
 
   it('should handle expandable guests data', async () => {
     const props = {
-      useProduct: () => ({ productId: 'lorem' }),
+      useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
         [RHSM_API_QUERY_TYPES.LIMIT]: 10,
         [RHSM_API_QUERY_TYPES.OFFSET]: 0
