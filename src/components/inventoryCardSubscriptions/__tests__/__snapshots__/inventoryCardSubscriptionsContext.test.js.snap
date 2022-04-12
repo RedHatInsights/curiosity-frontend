@@ -13,6 +13,27 @@ Object {
 }
 `;
 
+exports[`InventoryCardSubscriptionsContext should handle a store response with useGetSubscriptionsInventory: store response 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "data": Array [
+        Object {
+          "lorem": "ipsum",
+        },
+        Object {
+          "dolor": "sit",
+        },
+      ],
+      "meta": Object {},
+    },
+  ],
+  "error": false,
+  "fulfilled": true,
+  "pending": false,
+}
+`;
+
 exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
 Array [
   Array [
@@ -65,7 +86,7 @@ Array [
 ]
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -74,7 +95,7 @@ Object {
 }
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, disabled 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -83,7 +104,7 @@ Object {
 }
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, error 1`] = `
 Object {
   "data": Object {},
   "error": true,
@@ -92,7 +113,7 @@ Object {
 }
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, fulfilled 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
@@ -101,7 +122,7 @@ Object {
 }
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
+exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, pending 1`] = `
 Object {
   "data": Object {},
   "error": undefined,
