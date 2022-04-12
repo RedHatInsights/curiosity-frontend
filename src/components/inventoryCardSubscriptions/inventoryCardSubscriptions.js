@@ -27,24 +27,7 @@ import { helpers } from '../../common';
  * @fires onUpdateInventoryData
  * @returns {Node}
  */
-const InventoryCardSubscriptions = ({
-  isDisabled,
-  useGetInventory: useAliasGetInventory,
-  useOnPage: useAliasOnPage,
-  useOnColumnSort: useAliasOnColumnSort,
-  useProductInventoryConfig: useAliasProductInventoryConfig,
-  useProductInventoryQuery: useAliasProductInventoryQuery
-}) => (
-  <InventoryCard
-    cardActions={null}
-    isDisabled={isDisabled}
-    useGetInventory={useAliasGetInventory}
-    useOnPage={useAliasOnPage}
-    useOnColumnSort={useAliasOnColumnSort}
-    useProductInventoryConfig={useAliasProductInventoryConfig}
-    useProductInventoryQuery={useAliasProductInventoryQuery}
-  />
-);
+const InventoryCardSubscriptions = ({ ...props }) => <InventoryCard cardActions={null} {...props} />;
 
 /**
  * Prop types.
