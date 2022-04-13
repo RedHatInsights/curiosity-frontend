@@ -203,7 +203,7 @@ const config = {
           const content = translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] });
           return (
             <Tooltip content={content}>
-              <ChartIcon symbol="infinity" title={content} />
+              <ChartIcon symbol="infinity" aria-label={content} />
             </Tooltip>
           );
         }

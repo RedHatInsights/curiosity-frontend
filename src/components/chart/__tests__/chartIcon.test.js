@@ -15,7 +15,8 @@ describe('ChartIcon Component', () => {
       {
         size: 'md',
         symbol: 'eye',
-        title: 'lorem ipsum eye'
+        title: 'lorem ipsum eye',
+        'aria-label': 'hello world'
       },
       {
         size: 'md',
