@@ -298,10 +298,11 @@ Object {
         position="top"
       >
         <ChartIcon
+          aria-label="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
           fill={null}
           size="sm"
           symbol="infinity"
-          title="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
+          title={null}
         />
       </Tooltip>,
     },
@@ -387,10 +388,11 @@ Object {
         position="top"
       >
         <ChartIcon
+          aria-label="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
           fill={null}
           size="sm"
           symbol="infinity"
-          title="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
+          title={null}
         />
       </Tooltip>,
     },
