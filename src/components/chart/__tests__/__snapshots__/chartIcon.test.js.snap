@@ -49,6 +49,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   className="curiosity-chartarea__icon curiosity-chartarea__icon-eye"
 >
   <EyeIcon
+    aria-label="hello world"
     color="currentColor"
     noVerticalAlign={false}
     size="md"
@@ -75,7 +76,6 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   className="curiosity-chartarea__icon curiosity-chartarea__icon-infinity"
 >
   <span
-    aria-label="lorem ipsum infinity"
     className="curiosity-icon__f-infinity"
     style={
       Object {
