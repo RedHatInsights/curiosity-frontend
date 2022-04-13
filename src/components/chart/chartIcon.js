@@ -34,12 +34,12 @@ const getSize = size => {
  * @param {string} props.symbol
  * @param {string} props.size
  * @param {string} props.title
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
-const ChartIcon = ({ fill, symbol, size, title }) => {
-  const svgProps = {};
-  const iconProps = { size, title };
-  const fontProps = { style: { fontSize: getSize(size) }, title, 'aria-label': title };
+const ChartIcon = ({ fill, symbol, size, title, ...props }) => {
+  const svgProps = { ...props };
+  const iconProps = { size, title, ...props };
+  const fontProps = { style: { fontSize: getSize(size) }, title, ...props };
   const emSvgSize = getSize(size);
 
   if (title) {
@@ -106,6 +106,11 @@ const ChartIcon = ({ fill, symbol, size, title }) => {
   return <span className={`curiosity-chartarea__icon curiosity-chartarea__icon-${symbol}`}>{setIcon()}</span>;
 };
 
+/**
+ * Prop types.
+ *
+ * @type {{symbol: string, size: string, fill: string, title: string}}
+ */
 ChartIcon.propTypes = {
   fill: PropTypes.string,
   size: PropTypes.oneOf([...Object.keys(IconSize)]),
@@ -113,6 +118,11 @@ ChartIcon.propTypes = {
   title: PropTypes.string
 };
 
+/**
+ * Default props.
+ *
+ * @type {{symbol: string, size: string, fill: null, title: null}}
+ */
 ChartIcon.defaultProps = {
   fill: null,
   size: 'sm',
