@@ -112,8 +112,8 @@ Object {
     Object {},
     [Function],
   ],
-  "useAuth": [Function],
   "useAuthContext": [Function],
+  "useGetAuthorization": [Function],
   "useSession": [Function],
 }
 `;
