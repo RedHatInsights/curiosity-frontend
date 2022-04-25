@@ -1,4 +1,4 @@
-import { context, useAuth, useSession } from '../authenticationContext';
+import { context, useGetAuthorization, useSession } from '../authenticationContext';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
 describe('AuthenticationContext', () => {
@@ -8,7 +8,7 @@ describe('AuthenticationContext', () => {
 
   it('should apply a hook for retrieving auth data from multiple selectors', () => {
     const { result: errorResponse } = shallowHook(() =>
-      useAuth({
+      useGetAuthorization({
         useSelectorsResponse: () => ({
           error: true,
           data: {
@@ -30,7 +30,7 @@ describe('AuthenticationContext', () => {
     expect(errorResponse).toMatchSnapshot('error response');
 
     const { result: successResponse } = shallowHook(() =>
-      useAuth({
+      useGetAuthorization({
         useSelectorsResponse: () => ({
           fulfilled: true,
           data: {
@@ -49,7 +49,7 @@ describe('AuthenticationContext', () => {
 
     expect(successResponse).toMatchSnapshot('success response');
 
-    const { result: mockStoreSuccessResponse } = shallowHook(() => useAuth(), {
+    const { result: mockStoreSuccessResponse } = shallowHook(() => useGetAuthorization(), {
       state: {
         user: {
           auth: {
@@ -85,7 +85,7 @@ describe('AuthenticationContext', () => {
 
     expect(mockStoreSuccessResponse).toMatchSnapshot('mock store success response');
 
-    const { result: mockStoreErrorResponse } = shallowHook(() => useAuth(), {
+    const { result: mockStoreErrorResponse } = shallowHook(() => useGetAuthorization(), {
       state: {
         user: {
           auth: {
