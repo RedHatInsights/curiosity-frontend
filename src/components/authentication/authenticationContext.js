@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
-import { storeHooks } from '../../redux';
+import React, { useContext, useState } from 'react';
+import { useMount, useUnmount } from 'react-use';
+import { reduxActions, storeHooks } from '../../redux';
+import { routerHooks } from '../../hooks/useRouter';
 import { helpers } from '../../common';
+import { routerHelpers } from '../router';
 
 /**
  * Base context.
@@ -19,14 +22,34 @@ const AuthenticationContext = React.createContext(DEFAULT_CONTEXT);
 const useAuthContext = () => useContext(AuthenticationContext);
 
 /**
- * Return a combined state store that includes authorization, locale, and API errors
+ * Initialize an app, and return a combined state store that includes authorization, locale, and API errors
  *
- * @param {Function} useSelectorsAllSettledResponse
+ * @param {object} options
+ * @param {string} options.appName
+ * @param {Function} options.authorizeUser
+ * @param {Function} options.hideGlobalFilter
+ * @param {Function} options.initializeChrome
+ * @param {Function} options.onNavigation
+ * @param {Function} options.setAppName
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useHistory
+ * @param {Function} options.useSelectorsResponse
  * @returns {{data: {errorCodes, errorStatus: *, locale}, pending: boolean, fulfilled: boolean, error: boolean}}
  */
-const useAuth = ({
+const useGetAuthorization = ({
+  appName = routerHelpers.appName,
+  authorizeUser = reduxActions.platform.authorizeUser,
+  hideGlobalFilter = reduxActions.platform.hideGlobalFilter,
+  initializeChrome = reduxActions.platform.initializeChrome,
+  onNavigation = reduxActions.platform.onNavigation,
+  setAppName = reduxActions.platform.setAppName,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useHistory: useAliasHistory = routerHooks.useHistory,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
+  const [unregister, setUnregister] = useState(() => helpers.noop);
+  const history = useAliasHistory();
+  const dispatch = useAliasDispatch();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
     { id: 'auth', selector: ({ user }) => user?.auth },
     { id: 'locale', selector: ({ user }) => user?.locale },
@@ -35,6 +58,16 @@ const useAuth = ({
       selector: ({ user }) => (user?.errors?.error === true && user.errors) || { fulfilled: true, data: [] }
     }
   ]);
+
+  useMount(async () => {
+    await dispatch(authorizeUser());
+    dispatch([initializeChrome(), setAppName(appName), hideGlobalFilter()]);
+    setUnregister(() => dispatch(onNavigation(event => history.push(event.navId))));
+  });
+
+  useUnmount(() => {
+    unregister();
+  });
 
   const [user = {}, app = {}] = (Array.isArray(data.auth) && data.auth) || [];
   const errorStatus = (error && responses?.id?.errors?.status) || null;
@@ -70,8 +103,16 @@ const context = {
   AuthenticationContext,
   DEFAULT_CONTEXT,
   useAuthContext,
-  useAuth,
+  useGetAuthorization,
   useSession
 };
 
-export { context as default, context, AuthenticationContext, DEFAULT_CONTEXT, useAuthContext, useAuth, useSession };
+export {
+  context as default,
+  context,
+  AuthenticationContext,
+  DEFAULT_CONTEXT,
+  useAuthContext,
+  useGetAuthorization,
+  useSession
+};
