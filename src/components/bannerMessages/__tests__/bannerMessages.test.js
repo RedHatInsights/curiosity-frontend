@@ -3,7 +3,7 @@ import { AlertActionCloseButton } from '@patternfly/react-core';
 import { BannerMessages } from '../bannerMessages';
 
 describe('BannerMessages Component', () => {
-  it('should render a non-connected component', async () => {
+  it('should render a basic component', async () => {
     const props = {
       messages: [
         {
@@ -12,14 +12,38 @@ describe('BannerMessages Component', () => {
           message: 'Lorem ipsum message'
         }
       ],
-      useAppMessages: () => ({ appMessages: { loremIpsum: true } }),
-      useRouteDetail: () => ({})
+      useGetAppMessages: () => ({
+        data: {
+          loremIpsum: true
+        }
+      })
+    };
+    const component = await mountHookComponent(<BannerMessages {...props} />);
+
+    expect(component).toMatchSnapshot('basic');
+  });
+
+  it('should handle closing messages from state', async () => {
+    const props = {
+      messages: [
+        {
+          id: 'dolorSit',
+          title: 'Dolor sit title',
+          message: 'Dolor sit message'
+        }
+      ],
+      useGetAppMessages: () => ({ data: { dolorSit: true } })
     };
 
     const component = await mountHookComponent(<BannerMessages {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('state messages, ON');
+
+    component.find(AlertActionCloseButton).first().simulate('click');
+
+    expect(component.render()).toMatchSnapshot('state messages, OFF');
   });
 
+  /*
   it('should attempt to check reports on product update', async () => {
     const props = {
       messages: [
@@ -29,7 +53,7 @@ describe('BannerMessages Component', () => {
           message: 'Lorem ipsum message'
         }
       ],
-      useAppMessages: jest.fn(() => ({})),
+      useGetAppMessages: jest.fn(() => ({})),
       useRouteDetail: () => ({ productConfig: [{ productId: 'lorem' }] })
     };
 
@@ -80,4 +104,5 @@ describe('BannerMessages Component', () => {
 
     expect(component.render()).toMatchSnapshot('state messages, OFF');
   });
+   */
 });

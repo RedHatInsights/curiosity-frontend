@@ -9,6 +9,11 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 
 /**
+ * ToDo: useGetAppMessages is setup to work with existing Tally response, pre-metrics
+ * Banner messages scans the returned Tally listing for the HAS_CLOUDIGRADE_MISMATCH. In the future
+ * this may need to be updated to pull from the "meta" object part of the Tally response.
+ */
+/**
  * Get app messages.
  *
  * @param {object} options
