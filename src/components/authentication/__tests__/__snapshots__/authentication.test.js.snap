@@ -49,16 +49,9 @@ exports[`Authentication Component should render a basic component: basic 1`] = `
 exports[`Authentication Component should render a component authorized: authorized 1`] = `
 <Authentication
   appName="subscriptions"
-  authorizeUser={[Function]}
-  hideGlobalFilter={[Function]}
-  initializeChrome={[Function]}
   isDisabled={false}
-  onNavigation={[Function]}
-  setAppName={[Function]}
   t={[Function]}
-  useAuth={[Function]}
-  useDispatch={[Function]}
-  useHistory={[Function]}
+  useGetAuthorization={[Function]}
 >
   <span
     className="test"
@@ -71,16 +64,9 @@ exports[`Authentication Component should render a component authorized: authoriz
 exports[`Authentication Component should render a component error: error 1`] = `
 <Authentication
   appName="subscriptions"
-  authorizeUser={[Function]}
-  hideGlobalFilter={[Function]}
-  initializeChrome={[Function]}
   isDisabled={false}
-  onNavigation={[Function]}
-  setAppName={[Function]}
   t={[Function]}
-  useAuth={[Function]}
-  useDispatch={[Function]}
-  useHistory={[Function]}
+  useGetAuthorization={[Function]}
 >
   <MessageView
     icon={null}
