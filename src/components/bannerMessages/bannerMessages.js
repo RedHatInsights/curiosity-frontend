@@ -13,7 +13,7 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {Array} props.messages
  * @param {Function} props.useGetAppMessages
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const BannerMessages = ({ messages, useGetAppMessages: useAliasGetAppMessages }) => {
   const [hideAlerts, setHideAlerts] = useState({});
