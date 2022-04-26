@@ -131,19 +131,44 @@ exports[`Product RHACS config should apply an instances inventory configuration 
 
 exports[`Product RHACS config should apply graph configuration: filters 1`] = `
 {
-  "groupedFilters": [],
-  "standaloneFilters": [
+  "groupedFiltersSettings": undefined,
+  "standaloneFiltersSettings": [
     {
-      "chartType": "line",
-      "color": "#06c",
-      "fill": "#8bc1f7",
-      "id": "Cores",
-      "isStacked": false,
-      "isStandalone": true,
-      "isThreshold": false,
-      "stroke": "#06c",
-      "strokeWidth": 2,
-      "yAxisChartLabel": [Function],
+      "settings": {
+        "isStandalone": true,
+        "metric": {
+          "chartType": "line",
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "Cores",
+          "isStacked": false,
+          "isStandalone": true,
+          "isThreshold": false,
+          "stroke": "#06c",
+          "strokeWidth": 2,
+          "yAxisChartLabel": [Function],
+        },
+        "metrics": [
+          {
+            "chartType": "line",
+            "color": "#06c",
+            "fill": "#8bc1f7",
+            "id": "Cores",
+            "isStacked": false,
+            "isStandalone": true,
+            "isThreshold": false,
+            "stroke": "#06c",
+            "strokeWidth": 2,
+            "yAxisChartLabel": [Function],
+          },
+        ],
+        "padding": {
+          "bottom": 75,
+          "left": 75,
+          "right": 45,
+          "top": 45,
+        },
+      },
     },
   ],
 }
