@@ -4,16 +4,17 @@ import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../typ
 import { dateHelpers, helpers } from '../../common';
 
 /**
- * Update chart/graph filters with base settings with styling.
+ * Update chart/graph filters with core settings and styling.
  *
  * @param {Array} filters
- * @returns {{standaloneFilters: Array, groupedFilters: Array}}
+ * @param {object} graphCardSettings
+ * @returns {{standaloneFilters: Array, groupedFilters: object}}
  */
-const generateChartSettings = (filters = []) => {
-  const standaloneFilters = [];
-  const groupedFilters = [];
+const generateChartSettings = (filters = [], graphCardSettings = {}) => {
+  const standaloneFiltersSettings = [];
+  const groupedFiltersSettings = [];
 
-  filters.forEach(({ id, isStandalone = false, isThreshold = false, ...settings }) => {
+  filters.forEach(({ id, isStandalone = false, isThreshold = false, ...filterSettings }) => {
     if (!id) {
       return;
     }
@@ -33,21 +34,50 @@ const generateChartSettings = (filters = []) => {
     }
 
     if (isStandalone) {
-      standaloneFilters.push({
-        ...baseFilterSettings,
-        ...settings
+      standaloneFiltersSettings.push({
+        settings: {
+          padding: {
+            bottom: 75,
+            left: 75,
+            right: 45,
+            top: 45
+          },
+          ...graphCardSettings,
+          isStandalone: true,
+          metric: {
+            ...baseFilterSettings,
+            ...filterSettings
+          },
+          metrics: [
+            {
+              ...baseFilterSettings,
+              ...filterSettings
+            }
+          ]
+        }
       });
     } else {
-      groupedFilters.push({
+      groupedFiltersSettings.push({
         ...baseFilterSettings,
-        ...settings
+        ...filterSettings
       });
     }
   });
 
+  const updatedGroupedFiltersSettings =
+    (groupedFiltersSettings.length && {
+      settings: {
+        ...graphCardSettings,
+        isStandalone: false,
+        metric: undefined,
+        metrics: groupedFiltersSettings
+      }
+    }) ||
+    undefined;
+
   return {
-    standaloneFilters,
-    groupedFilters
+    standaloneFiltersSettings,
+    groupedFiltersSettings: updatedGroupedFiltersSettings
   };
 };
 

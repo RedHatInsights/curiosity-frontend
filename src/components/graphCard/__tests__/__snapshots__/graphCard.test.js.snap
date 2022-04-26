@@ -4,51 +4,113 @@ exports[`GraphCard Component should allow being disabled: disabled 1`] = `""`;
 
 exports[`GraphCard Component should render a basic component: basic 1`] = `
 <Fragment>
-  <GraphCardMetrics
-    metricFilters={
-      [
-        {
-          "id": "Core-seconds",
-          "isStacked": true,
+  <ContextProvider
+    value={
+      {
+        "settings": {
           "isStandalone": false,
-          "isThreshold": false,
-          "strokeWidth": 2,
+          "metric": undefined,
+          "metrics": [
+            {
+              "id": "Core-seconds",
+              "isStacked": true,
+              "isStandalone": false,
+              "isThreshold": false,
+              "strokeWidth": 2,
+            },
+          ],
         },
-      ]
+      }
     }
-    useProductGraphConfig={[Function]}
-  />
+  >
+    <GraphCardChart
+      t={[Function]}
+      useGetGraphTally={[Function]}
+      useGraphCardContext={[Function]}
+      useMetricsSelector={[Function]}
+      useProduct={[Function]}
+      useProductGraphTallyQuery={[Function]}
+    />
+  </ContextProvider>
 </Fragment>
 `;
 
 exports[`GraphCard Component should setup basic settings: settings 1`] = `
 <Fragment>
-  <GraphCardMetrics
-    metricFilters={
-      [
-        {
-          "id": "Core-seconds",
-          "isStacked": true,
-          "isStandalone": false,
-          "isThreshold": false,
-          "strokeWidth": 2,
-        },
-      ]
-    }
-    useProductGraphConfig={[Function]}
-  />
-  <GraphCardMetric
-    key="graphCard_Sockets"
-    metricFilter={
+  <ContextProvider
+    value={
       {
-        "id": "Sockets",
-        "isStacked": true,
-        "isStandalone": true,
-        "isThreshold": false,
-        "strokeWidth": 2,
+        "settings": {
+          "isStandalone": false,
+          "metric": undefined,
+          "metrics": [
+            {
+              "id": "Core-seconds",
+              "isStacked": true,
+              "isStandalone": false,
+              "isThreshold": false,
+              "strokeWidth": 2,
+            },
+          ],
+        },
       }
     }
-    useProductGraphConfig={[Function]}
-  />
+  >
+    <GraphCardChart
+      t={[Function]}
+      useGetGraphTally={[Function]}
+      useGraphCardContext={[Function]}
+      useMetricsSelector={[Function]}
+      useProduct={[Function]}
+      useProductGraphTallyQuery={[Function]}
+    />
+  </ContextProvider>
+  <ContextProvider
+    key="graphCard_undefined"
+    value={
+      {
+        "settings": {
+          "isStandalone": true,
+          "metric": {
+            "id": "Sockets",
+            "isStacked": true,
+            "isStandalone": true,
+            "isThreshold": false,
+            "strokeWidth": 2,
+          },
+          "metrics": [
+            {
+              "id": "Sockets",
+              "isStacked": true,
+              "isStandalone": true,
+              "isThreshold": false,
+              "strokeWidth": 2,
+            },
+          ],
+          "padding": {
+            "bottom": 75,
+            "left": 75,
+            "right": 45,
+            "top": 45,
+          },
+        },
+      }
+    }
+  >
+    <GraphCardMetricTotals
+      t={[Function]}
+      useMetricsSelector={[Function]}
+      useProductGraphTallyQuery={[Function]}
+    >
+      <GraphCardChart
+        t={[Function]}
+        useGetGraphTally={[Function]}
+        useGraphCardContext={[Function]}
+        useMetricsSelector={[Function]}
+        useProduct={[Function]}
+        useProductGraphTallyQuery={[Function]}
+      />
+    </GraphCardMetricTotals>
+  </ContextProvider>
 </Fragment>
 `;
