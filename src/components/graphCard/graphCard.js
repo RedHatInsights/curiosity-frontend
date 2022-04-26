@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useProductGraphConfig } from '../productView/productViewContext';
 import { helpers } from '../../common';
-import { GraphCardMetrics } from './graphCardMetrics';
-import { GraphCardMetric } from './graphCardMetric';
+import { GraphCardMetricTotals } from './graphCardMetricTotals';
+import { GraphCardChart } from './graphCardChart';
+import { GraphCardContext } from './graphCardContext';
 import { graphCardHelpers } from './graphCardHelpers';
 
 /**
@@ -15,8 +16,11 @@ import { graphCardHelpers } from './graphCardHelpers';
  * @returns {Node}
  */
 const GraphCard = ({ isDisabled, useProductGraphConfig: useAliasProductGraphConfig }) => {
-  const { filters } = useAliasProductGraphConfig();
-  const { groupedFilters, standaloneFilters } = graphCardHelpers.generateChartSettings(filters);
+  const { filters, settings } = useAliasProductGraphConfig();
+  const { groupedFiltersSettings, standaloneFiltersSettings } = graphCardHelpers.generateChartSettings(
+    filters,
+    settings
+  );
 
   if (isDisabled) {
     return null;
@@ -24,9 +28,18 @@ const GraphCard = ({ isDisabled, useProductGraphConfig: useAliasProductGraphConf
 
   return (
     <React.Fragment>
-      {(groupedFilters?.length && <GraphCardMetrics metricFilters={groupedFilters} />) || null}
-      {standaloneFilters.map(metricFilter => (
-        <GraphCardMetric key={`graphCard_${metricFilter.id}`} metricFilter={metricFilter} />
+      {(groupedFiltersSettings && (
+        <GraphCardContext.Provider value={groupedFiltersSettings}>
+          <GraphCardChart />
+        </GraphCardContext.Provider>
+      )) ||
+        null}
+      {standaloneFiltersSettings?.map(filtersSettings => (
+        <GraphCardContext.Provider key={`graphCard_${filtersSettings?.metric?.id}`} value={filtersSettings}>
+          <GraphCardMetricTotals>
+            <GraphCardChart />
+          </GraphCardMetricTotals>
+        </GraphCardContext.Provider>
       ))}
     </React.Fragment>
   );
