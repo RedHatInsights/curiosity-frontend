@@ -7,7 +7,7 @@
 export COMPONENT="rhsm"
 export APP_NAME=`node -e 'console.log(require("./package.json").insights.appname)'`
 export APP_ROOT=$(pwd)
-export NODE_BUILD_VERSION=12
+export NODE_BUILD_VERSION=14
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
 
 # --------------------------------------------
