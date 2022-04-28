@@ -42,7 +42,7 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail: useAliasRouteDetail }) => {
-  const { pathParameter: routeProductId, productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
+  const { productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
 
   const renderProduct = config => {
     const {
@@ -93,6 +93,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
 
     return (
       <ProductViewContext.Provider value={config} key={`product_${productId}`}>
+        <PageMessages>{productId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <BannerMessages />}</PageMessages>
         <PageToolbar>
           <Toolbar />
         </PageToolbar>
@@ -168,7 +169,6 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
       <PageHeader productLabel={routeProductLabel}>
         {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: routeProductLabel })}
       </PageHeader>
-      <PageMessages>{routeProductId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <BannerMessages />}</PageMessages>
       <PageColumns>{productConfig.map(config => renderProduct(config))}</PageColumns>
     </PageLayout>
   );
