@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`useRhsmActions should return specific properties: specific properties 1`] = `
-Object {
-  "useGetMessageReports": [Function],
-}
-`;

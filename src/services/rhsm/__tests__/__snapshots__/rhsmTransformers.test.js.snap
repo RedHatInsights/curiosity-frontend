@@ -4,6 +4,7 @@ exports[`RHSM Transformers should attempt to parse a tally response: tally 1`] =
 Object {
   "data": Array [],
   "meta": Object {
+    "cloudigradeHasMismatch": undefined,
     "count": undefined,
     "metricId": undefined,
     "productId": undefined,
