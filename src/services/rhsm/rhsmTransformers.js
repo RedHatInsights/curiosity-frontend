@@ -79,6 +79,7 @@ const rhsmTally = response => {
 
   updatedResponse.meta = {
     count: meta[TALLY_META_TYPES.COUNT],
+    cloudigradeHasMismatch: meta[TALLY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH],
     metricId: meta[TALLY_META_TYPES.METRIC_ID],
     productId: meta[TALLY_META_TYPES.PRODUCT],
     totalMonthlyDate: meta[TALLY_META_TYPES.TOTAL_MONTHLY]?.[TALLY_META_TYPES.DATE],
