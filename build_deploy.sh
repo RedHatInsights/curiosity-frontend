@@ -7,7 +7,7 @@
 export COMPONENT="rhsm"
 export APP_NAME=`node -e 'console.log(require("./package.json").insights.appname)'`
 export APP_ROOT=$(pwd)
-export NODE_BUILD_VERSION=`node -e 'console.log(Number.parseInt(require("./package.json").engines.node.replace(/[\D0]/g, ""), 10))'`
+export NODE_BUILD_VERSION=`node -e 'console.log(require("./package.json").engines.node.match(/(\d+\.\d+\.\d+)/)[0])'`
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
 
 # --------------------------------------------
