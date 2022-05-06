@@ -11,7 +11,7 @@ describe('Index.HTML', () => {
       .replace(/"([/a-z0-9]*)\/apps\//gi, '"*/apps/')
       .replace(/\/([a-z0-9]+)\.([a-z0-9]+)\.chunk.css"/gi, '/*.chunk.css"')
       .replace(/\/([a-z0-9]+)\.([a-z0-9]+)\.chunk.js"/gi, '/*.chunk.js"')
-      .replace(/\/([a-z]+)\.([a-z0-9]+)\.js"/gi, '/$1.*.js"')
+      .replace(/\/([a-z-]+)\.([a-z0-9]+)\.js"/gi, '/$1.*.js"')
       .replace(/<script>([\d\D])+?<\/script>/gi, '<script>/* filtered */</script>');
 
     expect(replacedFile).toMatchSnapshot('html output');
