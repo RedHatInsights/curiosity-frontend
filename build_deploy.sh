@@ -5,6 +5,8 @@
 # --------------------------------------------
 # name of app-sre "application" folder this component lives in; needs to match for quay
 export COMPONENT="rhsm"
+# IMAGE should match the quay repo set by app.yaml in app-interface
+export IMAGE="quay.io/cloudservices/curiosity-frontend"
 export APP_NAME=`node -e 'console.log(require("./package.json").insights.appname)'`
 export APP_ROOT=$(pwd)
 export NODE_BUILD_VERSION=`node -e 'console.log(require("./package.json").engines.node.match(/(\d+)\.\d+\.\d+/)[1])'`
