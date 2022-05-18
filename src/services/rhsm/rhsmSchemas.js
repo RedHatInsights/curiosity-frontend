@@ -97,6 +97,8 @@ const instancesMetaSchema = metaResponseSchema
 const instancesItem = Joi.object({
   inventory_id: Joi.string().optional().allow(null),
   display_name: Joi.string().optional().allow(null),
+  billing_provider: Joi.string().optional().allow(null),
+  billing_account_id: Joi.string().optional().allow(null),
   measurements: Joi.array().default([]),
   subscription_manager_id: Joi.string().optional().allow(null),
   last_seen: Joi.date().utc().allow(null)
