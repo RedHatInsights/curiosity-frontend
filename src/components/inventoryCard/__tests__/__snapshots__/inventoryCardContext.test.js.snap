@@ -2,7 +2,7 @@
 
 exports[`InventoryCardContext should expect specific sort properties: sort properties 1`] = `
 Object {
-  "BILLING_PROVIDER": "Billing-provider",
+  "BILLING_PROVIDER": "billing_provider",
   "CORES": "Cores",
   "CORE_SECONDS": "Core-seconds",
   "INSTANCE_HOURS": "Instance-hours",
