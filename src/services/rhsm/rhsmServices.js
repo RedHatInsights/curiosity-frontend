@@ -2183,11 +2183,12 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *       "data" : [
  *         {
  *           "number_of_guests": 70,
+ *           "billing_provider": "red hat",
+ *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx01",
  *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
  *           "subscription_manager_id": "adafd9d5-5b00-42fa-a6c9-75801d45cc6d",
  *           "display_name": "rhv.example.com",
  *           "measurements": [
- *              "red hat",
  *              42,
  *              0.000003563,
  *              1
@@ -2195,11 +2196,12 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-04-01T00:00:00Z"
  *         },
  *         {
+ *           "billing_provider": "azure",
+ *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx02",
  *           "inventory_id": "XXXXXX-b344-4778-831c-XXXXXXXX",
  *           "subscription_manager_id": "XXXXXX-5b00-42fa-XXXX-75801d45cc6d",
  *           "display_name": "dolor.example.com",
  *           "measurements": [
- *              "azure",
  *              20,
  *              null,
  *              1000
@@ -2207,11 +2209,12 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "last_seen": "2020-04-02T00:00:00Z"
  *         },
  *         {
+ *           "billing_provider": "Unknown",
+ *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx03",
  *           "inventory_id": "BBBBB-b344-4778-831c-BBBBBBB",
  *           "subscription_manager_id": "BBBBB-5b00-42fa-BBBBB-75801d45cc6d",
  *           "display_name": "lorem.example.com",
  *           "measurements": [
- *              "Unknown",
  *              4000,
  *              10000.0000345678,
  *              3000
@@ -2223,7 +2226,6 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *       "meta": {
  *         "count": 3,
  *         "measurements": [
- *           "Billing-provider",
  *           "Instance-hours",
  *           "Storage-gibibytes",
  *           "Transfer-gibibytes"
