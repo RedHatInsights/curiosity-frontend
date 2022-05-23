@@ -141,6 +141,16 @@ const config = {
       isSortable: true
     },
     {
+      id: INVENTORY_TYPES.BILLING_PROVIDER,
+      cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
+        translate(`curiosity-inventory.measurement_${INVENTORY_TYPES.BILLING_PROVIDER}`, {
+          context: provider?.value
+        }),
+      isSortable: true,
+      isWrappable: false,
+      cellWidth: 15
+    },
+    {
       id: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES,
       header: {
         tooltip: () =>
@@ -244,6 +254,11 @@ const config = {
     }
   ],
   initialToolbarFilters: [
+    {
+      id: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER
+    }
+  ],
+  initialSecondaryToolbarFilters: [
     {
       id: 'rangedMonthly'
     }
