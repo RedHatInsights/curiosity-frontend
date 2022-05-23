@@ -7,6 +7,9 @@ Object {
       "title": "lorem ipsum",
     },
     Object {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {})",
+    },
+    Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
     },
     Object {
@@ -25,6 +28,12 @@ Object {
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
       "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
     Object {
       "title": <Tooltip
@@ -110,6 +119,9 @@ Object {
       </Button>,
     },
     Object {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {})",
+    },
+    Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
     },
     Object {
@@ -128,6 +140,12 @@ Object {
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
       "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
     Object {
       "title": <Tooltip
