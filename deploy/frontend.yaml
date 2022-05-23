@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: rhsm-frontend
+objects:
+  - apiVersion: cloud.redhat.com/v1alpha1
+    kind: Frontend
+    metadata:
+      # this must match appList value in frontend-configs/deploy/deploy.yaml
+      name: subscriptions
+    spec:
+      envName: ${ENV_NAME}
+      title: rhsm
+      deploymentRepo: https://github.com/RedHatInsights/curiosity-frontend
+      API:
+        versions:
+          - v1
+      frontend:
+        paths:
+          - /apps/subscriptions
+      image: ${IMAGE}:${IMAGE_TAG}
+      navItems:
+        # use *-navigation.json in cloud-services-config for reference
+        - title: "Subscriptions"
+          expandable: true
+          routes:
+            - appId: "subscriptions"
+              title: "All RHEL"
+              href: "/insights/subscriptions/rhel"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "ARM"
+              href: "/insights/subscriptions/rhel-arm"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "IBM Power"
+              href: "/insights/subscriptions/rhel-ibmpower"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "IBM Z systems"
+              href: "/insights/subscriptions/rhel-ibmz"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "X86"
+              href: "/insights/subscriptions/rhel-x86"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "OpenShift Subscriptions"
+              href: "/openshift/subscriptions/openshift-container"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "Dedicated (On-Demand)"
+              href: "/openshift/subscriptions/openshift-dedicated"
+              product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "Streams for Apache Kafka"
+              href: "/application-services/subscriptions/streams"
+              product: "Subscription Watch"
+      module:
+        # this should match chrome/fed-modules.json in cloud-services-config
+        manifestLocation: "/apps/subscriptions/fed-mods.json"
+        modules:
+          - id: "application-services-subscriptions"
+            module: "./RootApp"
+            routes:
+              - pathname: "/application-services/subscriptions"
+          - id: "insights-subscriptions"
+            module: "./RootApp"
+            routes:
+              - pathname: "/insights/subscriptions"
+          - id: "openshift-subscriptions"
+            module: "./RootApp"
+            routes:
+              - pathname: "/openshift/subscriptions"
+
+parameters:
+  - name: ENV_NAME
+    required: true
+  - name: IMAGE_TAG
+    required: true
+  - name: IMAGE
+    value: quay.io/cloudservices/rhsm-frontend
