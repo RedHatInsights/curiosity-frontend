@@ -7,7 +7,7 @@ Object {
       "title": "lorem ipsum",
     },
     Object {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {})",
+      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
     },
     Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
@@ -119,7 +119,7 @@ Object {
       </Button>,
     },
     Object {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {})",
+      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
     },
     Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",

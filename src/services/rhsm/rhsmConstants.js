@@ -168,6 +168,10 @@ const RHSM_API_RESPONSE_GRANULARITY_TYPES = {
 };
 
 /**
+ * ToDo: Activate available provider type as it becomes available 202205
+ * (just uncomment)
+ */
+/**
  * RHSM response, query parameters for BILLING_PROVIDER
  *
  * @type {{AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS: string, ORACLE: string}}
@@ -175,9 +179,9 @@ const RHSM_API_RESPONSE_GRANULARITY_TYPES = {
 const RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES = {
   RED_HAT: 'red hat',
   AWS: 'aws',
-  GCP: 'gcp',
-  AZURE: 'azure',
-  ORACLE: 'oracle',
+  // GCP: 'gcp',
+  // AZURE: 'azure',
+  // ORACLE: 'oracle',
   NONE: ''
 };
 
