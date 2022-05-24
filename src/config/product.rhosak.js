@@ -144,7 +144,7 @@ const config = {
       id: INVENTORY_TYPES.BILLING_PROVIDER,
       cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
         translate(`curiosity-inventory.measurement_${INVENTORY_TYPES.BILLING_PROVIDER}`, {
-          context: provider?.value
+          context: provider?.value || 'none'
         }),
       isSortable: true,
       isWrappable: false,

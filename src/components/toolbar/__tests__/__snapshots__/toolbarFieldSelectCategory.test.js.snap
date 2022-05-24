@@ -184,21 +184,6 @@ Array [
       },
       Object {
         "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"gcp\\"})",
-        "value": "gcp",
-      },
-      Object {
-        "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"azure\\"})",
-        "value": "azure",
-      },
-      Object {
-        "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"oracle\\"})",
-        "value": "oracle",
-      },
-      Object {
-        "selected": false,
         "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"none\\"})",
         "value": "",
       },

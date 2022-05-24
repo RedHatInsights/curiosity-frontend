@@ -650,7 +650,7 @@ Array [
       },
       Object {
         "key": "",
-        "match": "translate(\`curiosity-inventory.measurement_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value })",
+        "match": "translate(\`curiosity-inventory.measurement_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
       },
       Object {
         "key": "curiosity-inventory.header",
