@@ -36,6 +36,7 @@ version()
 clean()
 {
   echo "Cleaning build directories, files..."
+  rm -rf -- ./dist
   rm -rf -- ./build
   rm -rf -- ./public/apps
   rm -f ./.env.production.local
