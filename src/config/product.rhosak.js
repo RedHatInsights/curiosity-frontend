@@ -21,9 +21,7 @@ import {
   RHSM_API_PATH_METRIC_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
-import { Tooltip } from '../components/tooltip/tooltip';
-import { ChartIcon } from '../components/chart/chartIcon';
-import { translate } from '../components/i18n/i18n';
+import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
 
 /**
  * ToDo: evaluate separating products/product tags into individual configs...
@@ -223,22 +221,13 @@ const config = {
       isWrappable: true
     },
     {
-      id: 'totalCapacity',
-      header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
-      cell: (data = {}) => {
-        const { hasInfiniteQuantity, totalCapacity, uom } = data;
-        if (hasInfiniteQuantity?.value === true) {
-          const content = translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] });
-          return (
-            <Tooltip content={content}>
-              <ChartIcon symbol="infinity" aria-label={content} />
-            </Tooltip>
-          );
-        }
-        return totalCapacity?.value;
-      },
-      isSortable: true,
-      cellWidth: 10,
+      id: 'subscriptionType',
+      cell: (data, session, meta) =>
+        translate('curiosity-inventory.label_subscriptionType', {
+          context: meta?.subscriptionType || EMPTY_CONTEXT
+        }),
+      isSortable: false,
+      cellWidth: 15,
       isWrappable: true
     },
     {
