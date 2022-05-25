@@ -75,7 +75,7 @@
     "test:dev": "export NODE_ENV=test; run-s test:spell test:lint test:local",
     "test:deps": "run-s test build",
     "test:integration": "jest ./tests",
-    "test:integration-ephemeral": "TZ=UTC jest ./tests --no-cache",
+    "test:integration-ephemeral": "TZ=UTC jest ./tests --no-cache --testPathIgnorePatterns ./tests/dist.test.js",
     "test:integration-dev": "jest --roots=./tests --watch",
     "test:lint": "eslint --ext=json --ext=js --ext=jsx src",
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
