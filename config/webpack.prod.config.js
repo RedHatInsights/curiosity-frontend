@@ -1,6 +1,6 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const config = require('@redhat-cloud-services/frontend-components-config');
-const { setHtmlPlugin, setReplacePlugin, setCommonPlugins } = require('./build.plugins');
+const { setReplacePlugin, setCommonPlugins } = require('./build.plugins');
 const { setupDotenvFilesForEnv } = require('./build.dotenv');
 
 const {
@@ -12,7 +12,6 @@ const {
 const { config: webpackConfig, plugins } = config({
   rootFolder: _BUILD_RELATIVE_DIRNAME,
   deployment: (/beta/.test(BETA_PREFIX) && 'beta/apps') || 'apps',
-  htmlPlugin: setHtmlPlugin(),
   replacePlugin: setReplacePlugin()
 });
 
