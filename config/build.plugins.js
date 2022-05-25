@@ -6,11 +6,6 @@ const fedModulePlugin = require('@redhat-cloud-services/frontend-components-conf
 const { setupWebpackDotenvFilesForEnv } = require('./build.dotenv');
 const { dependencies } = require('../package.json');
 
-const setHtmlPlugin = () => ({
-  title: process.env.REACT_APP_UI_DISPLAY_NAME,
-  template: join(process.env._BUILD_STATIC_DIR, 'index.html')
-});
-
 const setReplacePlugin = () => [
   {
     pattern: /%([A-Z_]+)%/g,
@@ -62,6 +57,5 @@ const setCommonPlugins = () => {
 
 module.exports = {
   setCommonPlugins,
-  setHtmlPlugin,
   setReplacePlugin
 };

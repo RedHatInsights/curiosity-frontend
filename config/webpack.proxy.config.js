@@ -1,5 +1,5 @@
 const config = require('@redhat-cloud-services/frontend-components-config');
-const { setHtmlPlugin, setReplacePlugin, setCommonPlugins } = require('./build.plugins');
+const { setReplacePlugin, setCommonPlugins } = require('./build.plugins');
 const { setupDotenvFilesForEnv } = require('./build.dotenv');
 const { setProxyRoutes } = require('./spandx.config');
 
@@ -28,7 +28,6 @@ const { config: webpackConfig, plugins } = config({
   routes: setProxyRoutes({ DEV_PORT, BETA_PREFIX }),
   standalone: false,
   useProxy: true,
-  htmlPlugin: setHtmlPlugin(),
   replacePlugin: setReplacePlugin()
 });
 
