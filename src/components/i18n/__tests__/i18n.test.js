@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 import _get from 'lodash/get';
 import enLocales from '../../../../public/locales/en-US.json';
-import { I18n, translate, translateComponent } from '../i18n';
+import { EMPTY_CONTEXT, I18n, translate, translateComponent } from '../i18n';
 
 /**
  * Get translation keys.
@@ -97,6 +97,8 @@ describe('I18n Component', () => {
   });
 
   it('should attempt to perform a string replace', () => {
+    const emptyContext = translate('lorem.ipsum', { context: EMPTY_CONTEXT });
+    const emptyPartialContext = translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT] });
     const localeKey = translate('lorem.ipsum');
     const placeholder = translate('lorem.ipsum', 'hello world');
     const multiContext = translate('lorem.ipsum', { context: ['hello', 'world'] });
@@ -104,6 +106,8 @@ describe('I18n Component', () => {
     const multiKey = translate(['lorem.ipsum', undefined, null, '', 'lorem.fallback']);
 
     expect({
+      emptyContext,
+      emptyPartialContext,
       localeKey,
       placeholder,
       multiContext,
