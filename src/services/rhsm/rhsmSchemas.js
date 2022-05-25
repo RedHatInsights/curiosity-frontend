@@ -122,7 +122,11 @@ const instancesResponseSchema = Joi.object().keys({
  *
  * @type {*} Joi schema
  */
-const subscriptionsMetaSchema = metaResponseSchema;
+const subscriptionsMetaSchema = metaResponseSchema
+  .keys({
+    subscription_type: Joi.string().valid(null, ...Object.values(rhsmConstants.RHSM_API_RESPONSE_SUBSCRIPTION_TYPES))
+  })
+  .unknown(true);
 
 /**
  * Subscriptions response item.
