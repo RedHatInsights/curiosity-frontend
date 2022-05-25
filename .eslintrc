@@ -46,7 +46,8 @@
     "mockWindowLocation": "readonly",
     "shallowHook": "readonly",
     "shallowHookComponent": "readonly",
-    "shallowHookWrapper": "readonly"
+    "shallowHookWrapper": "readonly",
+    "skipIt": "readonly"
   },
   "rules": {
     "arrow-parens": [
@@ -74,6 +75,10 @@
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
     "jest/no-done-callback": 0,
+    "jest/no-standalone-expect": [
+      2,
+      { "additionalTestBlockFunctions": ["skipIt"] }
+    ],
     "jest/prefer-to-have-length": 0,
     "jsdoc/check-tag-names": [
       2,

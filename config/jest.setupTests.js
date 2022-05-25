@@ -18,6 +18,17 @@ setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
 configure({ adapter: new Adapter() });
 
 /**
+ * Conditionally skip "it" test statements.
+ * Ex:
+ *   skipIt(true)('should do a thing...', () => { ... });
+ *
+ * @param {*|boolean} value Any truthy value, typically used with environment variables
+ *
+ * @returns {*|jest.It}
+ */
+global.skipIt = value => (value && it?.skip) || it;
+
+/**
  * Emulate for component checks
  */
 jest.mock('i18next', () => {
