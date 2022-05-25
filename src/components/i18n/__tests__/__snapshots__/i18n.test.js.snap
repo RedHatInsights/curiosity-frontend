@@ -675,12 +675,8 @@ Array [
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS, total: helpers.numberDisplay(total?.value)",
       },
       Object {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
-      },
-      Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] })",
+        "key": "curiosity-inventory.label_subscriptionType",
+        "match": "translate('curiosity-inventory.label_subscriptionType', { context: meta?.subscriptionType || EMPTY_CONTEXT })",
       },
     ],
   },
@@ -814,10 +810,6 @@ Array [
   Object {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
-  },
-  Object {
-    "file": "./src/config/product.rhosak.js",
-    "key": "curiosity-inventory.label",
   },
   Object {
     "file": "./src/config/product.satellite.js",
