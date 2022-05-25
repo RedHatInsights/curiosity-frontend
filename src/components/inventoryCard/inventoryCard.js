@@ -95,6 +95,7 @@ const InventoryCard = ({
           query
         }),
         cellData,
+        meta,
         session: sessionData
       });
 

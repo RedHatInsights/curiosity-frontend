@@ -146,6 +146,32 @@ Object {
 }
 `;
 
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: basic standalone data 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "world",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "hello",
+      "transforms": Array [],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom and generated transforms 1`] = `
 Object {
   "cells": Array [
@@ -348,6 +374,32 @@ Object {
       "sortActive": undefined,
       "sortDirection": undefined,
       "title": "header, lorem sort",
+      "transforms": Array [],
+    },
+  ],
+  "data": Object {
+    "dolor": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+      "value": "sit",
+    },
+    "lorem": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom standalone data 1`] = `
+Object {
+  "cells": Array [
+    Object {
+      "title": "custom ipsum/sit",
+    },
+  ],
+  "columnHeaders": Array [
+    Object {
+      "title": "custom t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})/t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
       "transforms": Array [],
     },
   ],
