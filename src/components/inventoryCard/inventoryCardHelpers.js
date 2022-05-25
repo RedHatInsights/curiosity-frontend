@@ -41,20 +41,33 @@ const applyConfigProperty = (prop, { params = [] } = {}) => {
 /**
  * Generate header and row cell configuration from filters.
  *
- * @param {Array<{id: string, cell:React.ReactNode|{ title: string }, cellWidth: number,
- *     header:React.ReactNode|{ title: string }, onSort: Function, showEmptyCell: boolean,
- *     sortId: string, sortActive: boolean, sortDirection: string,
- *     transforms: Array}>} filters
- * @param {object} cellData
- * @param {object} session
+ * @param {object} params
+ * @param {Array<{id: string, isStandalone: boolean, cell:React.ReactNode|{ title: string }, cellWidth: number,
+ *     header:React.ReactNode|{ title: string }, onSort: Function, showEmptyCell: boolean, sortId: string,
+ *     sortActive: boolean, sortDirection: string, transforms: Array}>} params.filters
+ * @param {object} params.cellData
+ * @param {object} params.meta
+ * @param {object} params.session
  * @returns {{bodyCells: { title: React.ReactNode }[], headerCells: { title: React.ReactNode }[]}}
  */
-const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) => {
+const applyHeaderRowCellFilters = ({ filters = [], cellData = {}, meta = {}, session = {} } = {}) => {
   const headerCells = [];
   const bodyCells = [];
 
   filters.forEach(
-    ({ id, cell, cellWidth, header, onSort, showEmptyCell = true, sortId, sortActive, sortDirection, transforms }) => {
+    ({
+      isStandalone,
+      id,
+      cell,
+      cellWidth,
+      header,
+      onSort,
+      showEmptyCell = true,
+      sortId,
+      sortActive,
+      sortDirection,
+      transforms
+    }) => {
       const headerCellUpdated = { title: translate('curiosity-inventory.header', { context: id }), transforms: [] };
       const bodyCellUpdated = { title: '' };
 
@@ -62,6 +75,9 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
       if (cellData[id]) {
         headerCellUpdated.title = cellData[id]?.title ?? id;
         bodyCellUpdated.title = cellData[id]?.value ?? '';
+      } else if (isStandalone === true) {
+        headerCellUpdated.title = '';
+        bodyCellUpdated.title = '';
       } else {
         if (helpers.DEV_MODE || helpers.REVIEW_MODE) {
           console.warn(`Warning: Filter "${id}" not found in "table row" response data.`, cellData);
@@ -73,7 +89,9 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
 
       // set header cell title
       if (header) {
-        const updatedHeaderCellTitle = applyConfigProperty(header, { params: [{ ...cellData }, { ...session }] });
+        const updatedHeaderCellTitle = applyConfigProperty(header, {
+          params: [{ ...cellData }, { ...session }, { ...meta }]
+        });
         if (updatedHeaderCellTitle) {
           headerCellUpdated.title = updatedHeaderCellTitle;
         } else if (_isPlainObject(header)) {
@@ -83,7 +101,7 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
         // set header cell tooltip
         if (header.tooltip && headerCellUpdated.title) {
           const updatedHeaderCellTooltip = applyConfigProperty(header.tooltip, {
-            params: [{ ...cellData }, { ...session }]
+            params: [{ ...cellData }, { ...session }, { ...meta }]
           });
           if (updatedHeaderCellTooltip) {
             headerCellUpdated.title = <Tooltip content={updatedHeaderCellTooltip}>{headerCellUpdated.title}</Tooltip>;
@@ -113,7 +131,9 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
 
       // set body cell title
       if (cell) {
-        const updatedBodyCellTitle = applyConfigProperty(cell, { params: [{ ...cellData }, { ...session }] });
+        const updatedBodyCellTitle = applyConfigProperty(cell, {
+          params: [{ ...cellData }, { ...session }, { ...meta }]
+        });
         if (updatedBodyCellTitle) {
           bodyCellUpdated.title = updatedBodyCellTitle;
         } else if (_isPlainObject(cell)) {
@@ -123,7 +143,7 @@ const applyHeaderRowCellFilters = (filters = [], cellData = {}, session = {}) =>
         // set body cell tooltip
         if (cell.tooltip && bodyCellUpdated.title) {
           const updatedBodyCellTooltip = applyConfigProperty(cell.tooltip, {
-            params: [{ ...cellData }, { ...session }]
+            params: [{ ...cellData }, { ...session }, { ...meta }]
           });
           if (updatedBodyCellTooltip) {
             bodyCellUpdated.title = <Tooltip content={updatedBodyCellTooltip}>{bodyCellUpdated.title}</Tooltip>;
@@ -257,10 +277,11 @@ const parseInventoryFilters = ({ filters = [], onSort, query = {} } = {}) =>
  *     sortId: string, sortActive: boolean, sortDirection: string,
  *     transforms: Array}>} params.filters
  * @param {object} params.cellData
+ * @param {object} params.meta
  * @param {object} params.session
  * @returns {{columnHeaders: { title: React.ReactNode }[], cells: { title: React.ReactNode }[], data: {}}}
  */
-const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} } = {}) => {
+const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, session = {} } = {}) => {
   const updatedColumnHeaders = [];
   const updatedCells = [];
   const allCells = {};
@@ -281,7 +302,12 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, session = {} } = {
     updatedColumnHeaders.length = 0;
     updatedCells.length = 0;
 
-    const { headerCells = [], bodyCells = [] } = applyHeaderRowCellFilters(filters, allCells, session);
+    const { headerCells = [], bodyCells = [] } = applyHeaderRowCellFilters({
+      filters,
+      cellData: allCells,
+      meta,
+      session
+    });
 
     updatedColumnHeaders.push(...headerCells);
     updatedCells.push(...bodyCells);
