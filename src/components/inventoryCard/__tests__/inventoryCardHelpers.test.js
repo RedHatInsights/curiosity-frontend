@@ -121,6 +121,22 @@ describe('InventoryListHelpers', () => {
     };
 
     expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom callback data');
+
+    filters[0] = {
+      isStandalone: true,
+      header: 'hello',
+      cell: 'world'
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('basic standalone data');
+
+    filters[0] = {
+      isStandalone: true,
+      header: ({ lorem, dolor }) => `custom ${lorem.title}/${dolor.title}`,
+      cell: ({ lorem, dolor }) => `custom ${lorem.value}/${dolor.value}`
+    };
+
+    expect(parseRowCellsListData({ filters, cellData })).toMatchSnapshot('custom standalone data');
   });
 
   it('parseInventoryFilters should parse and return updated filters for table cells', () => {
