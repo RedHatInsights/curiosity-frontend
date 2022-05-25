@@ -2348,7 +2348,8 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *       ],
  *       "links": {},
  *       "meta": {
- *         "count": 3
+ *         "count": 3,
+ *         "subscription_type": "On-demand"
  *       }
  *     }
  *
