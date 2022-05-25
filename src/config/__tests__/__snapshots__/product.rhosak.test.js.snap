@@ -286,23 +286,7 @@ Object {
       "title": "",
     },
     Object {
-      "title": <Tooltip
-        content="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
-        distance={5}
-        enableFlip={false}
-        entryDelay={100}
-        exitDelay={0}
-        isNoWrap={false}
-        position="top"
-      >
-        <ChartIcon
-          aria-label="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
-          fill={null}
-          size="sm"
-          symbol="infinity"
-          title={null}
-        />
-      </Tooltip>,
+      "title": "t(curiosity-inventory.label_subscriptionType, {\\"context\\":\\"dolor\\"})",
     },
     Object {
       "title": "2022-01-01T00:00:00.000Z",
@@ -326,7 +310,7 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionType\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -376,23 +360,7 @@ Object {
       "title": "",
     },
     Object {
-      "title": <Tooltip
-        content="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
-        distance={5}
-        enableFlip={false}
-        entryDelay={100}
-        exitDelay={0}
-        isNoWrap={false}
-        position="top"
-      >
-        <ChartIcon
-          aria-label="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
-          fill={null}
-          size="sm"
-          symbol="infinity"
-          title={null}
-        />
-      </Tooltip>,
+      "title": "t(curiosity-inventory.label_subscriptionType, {\\"context\\":\\" \\"})",
     },
     Object {
       "title": "",
@@ -416,7 +384,7 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionType\\"})",
       "transforms": Array [
         [Function],
       ],

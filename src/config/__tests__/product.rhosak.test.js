@@ -94,9 +94,14 @@ describe('Product RHOSAK config', () => {
       hasInfiniteQuantity: true
     };
 
+    const inventoryMeta = {
+      subscriptionType: 'dolor'
+    };
+
     const filteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: inventoryData
+      cellData: inventoryData,
+      meta: inventoryMeta
     });
 
     expect(filteredInventoryData).toMatchSnapshot('filtered');
@@ -109,7 +114,8 @@ describe('Product RHOSAK config', () => {
 
     const fallbackFilteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: fallbackInventoryData
+      cellData: fallbackInventoryData,
+      meta: {}
     });
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');

@@ -163,6 +163,10 @@ Object {
     "SELF": "Self-Support",
     "STANDARD": "Standard",
   },
+  "RHSM_API_RESPONSE_SUBSCRIPTION_TYPES": Object {
+    "ANNUAL": "Annual",
+    "ON_DEMAND": "On-demand",
+  },
   "RHSM_API_RESPONSE_TALLY_DATA_TYPES": Object {
     "DATE": "date",
     "HAS_DATA": "has_data",
@@ -350,6 +354,10 @@ Object {
       "PREMIUM": "Premium",
       "SELF": "Self-Support",
       "STANDARD": "Standard",
+    },
+    "RHSM_API_RESPONSE_SUBSCRIPTION_TYPES": Object {
+      "ANNUAL": "Annual",
+      "ON_DEMAND": "On-demand",
     },
     "RHSM_API_RESPONSE_TALLY_DATA_TYPES": Object {
       "DATE": "date",
@@ -539,6 +547,10 @@ Object {
       "PREMIUM": "Premium",
       "SELF": "Self-Support",
       "STANDARD": "Standard",
+    },
+    "RHSM_API_RESPONSE_SUBSCRIPTION_TYPES": Object {
+      "ANNUAL": "Annual",
+      "ON_DEMAND": "On-demand",
     },
     "RHSM_API_RESPONSE_TALLY_DATA_TYPES": Object {
       "DATE": "date",
@@ -732,6 +744,10 @@ Object {
     "PREMIUM": "Premium",
     "SELF": "Self-Support",
     "STANDARD": "Standard",
+  },
+  "RHSM_API_RESPONSE_SUBSCRIPTION_TYPES": Object {
+    "ANNUAL": "Annual",
+    "ON_DEMAND": "On-demand",
   },
   "RHSM_API_RESPONSE_TALLY_DATA_TYPES": Object {
     "DATE": "date",
