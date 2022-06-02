@@ -13,7 +13,7 @@ Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
     },
     Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibytes\\",\\"total\\":\\"1000.00123\\"})",
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibyte-months\\",\\"total\\":0})",
     },
     Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Instance-hours\\",\\"total\\":\\"200\\"})",
@@ -53,7 +53,7 @@ Object {
     },
     Object {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibytes\\"})"
+        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibyte-months\\"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -61,7 +61,7 @@ Object {
         isNoWrap={false}
         position="top"
       >
-        t(curiosity-inventory.header, {"context":"Storage-gibibytes"})
+        t(curiosity-inventory.header, {"context":"Storage-gibibyte-months"})
       </Tooltip>,
       "transforms": Array [
         [Function],
@@ -125,7 +125,7 @@ Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
     },
     Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibytes\\",\\"total\\":\\"1000.00123\\"})",
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibyte-months\\",\\"total\\":0})",
     },
     Object {
       "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Instance-hours\\",\\"total\\":\\"200\\"})",
@@ -165,7 +165,7 @@ Object {
     },
     Object {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibytes\\"})"
+        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibyte-months\\"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -173,7 +173,7 @@ Object {
         isNoWrap={false}
         position="top"
       >
-        t(curiosity-inventory.header, {"context":"Storage-gibibytes"})
+        t(curiosity-inventory.header, {"context":"Storage-gibibyte-months"})
       </Tooltip>,
       "transforms": Array [
         [Function],
@@ -241,7 +241,7 @@ Object {
       "chartType": "line",
       "color": "#5752d1",
       "fill": "#b2b0ea",
-      "id": "Storage-gibibytes",
+      "id": "Storage-gibibyte-months",
       "isStacked": false,
       "isStandalone": true,
       "isThreshold": false,

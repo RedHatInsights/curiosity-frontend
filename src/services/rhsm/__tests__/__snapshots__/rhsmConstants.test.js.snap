@@ -8,6 +8,7 @@ Object {
     "INSTANCE_HOURS": "Instance-hours",
     "SOCKETS": "Sockets",
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
+    "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
   "RHSM_API_PATH_PRODUCT_TYPES": Object {
@@ -52,6 +53,7 @@ Object {
     "NAME": "display_name",
     "SOCKETS": "Sockets",
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
+    "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
   "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
@@ -200,6 +202,7 @@ Object {
       "INSTANCE_HOURS": "Instance-hours",
       "SOCKETS": "Sockets",
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
+      "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
     "RHSM_API_PATH_PRODUCT_TYPES": Object {
@@ -244,6 +247,7 @@ Object {
       "NAME": "display_name",
       "SOCKETS": "Sockets",
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
+      "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
     "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
@@ -393,6 +397,7 @@ Object {
       "INSTANCE_HOURS": "Instance-hours",
       "SOCKETS": "Sockets",
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
+      "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
     "RHSM_API_PATH_PRODUCT_TYPES": Object {
@@ -437,6 +442,7 @@ Object {
       "NAME": "display_name",
       "SOCKETS": "Sockets",
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
+      "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
     "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
@@ -590,6 +596,7 @@ Object {
     "INSTANCE_HOURS": "Instance-hours",
     "SOCKETS": "Sockets",
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
+    "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
   "RHSM_API_PATH_PRODUCT_TYPES": Object {
@@ -634,6 +641,7 @@ Object {
     "NAME": "display_name",
     "SOCKETS": "Sockets",
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
+    "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
   "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": Object {
