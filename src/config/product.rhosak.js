@@ -70,7 +70,7 @@ const config = {
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES,
+      id: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
       fill: chartColorPurpleLight.value,
       stroke: chartColorPurpleDark.value,
       color: chartColorPurpleDark.value,
@@ -166,16 +166,16 @@ const config = {
       cellWidth: 15
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES,
+      id: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
       header: {
         tooltip: () =>
           translate('curiosity-inventory.header', {
-            context: ['tooltip', RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES]
+            context: ['tooltip', RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS]
           })
       },
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES]: total }) =>
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS]: total }) =>
         translate('curiosity-inventory.measurement', {
-          context: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTES,
+          context: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
           total: helpers.numberDisplay(total?.value)?.format({ mantissa: 5, trimMantissa: true }) || 0
         }),
       isSortable: true,
