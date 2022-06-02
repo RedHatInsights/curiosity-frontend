@@ -178,7 +178,7 @@ const config = {
           context: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
           total: helpers.numberDisplay(total?.value)?.format({ mantissa: 5, trimMantissa: true }) || 0
         }),
-      isSortable: true,
+      isSortable: false,
       isWrappable: true,
       cellWidth: 15
     },
