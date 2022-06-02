@@ -1290,7 +1290,7 @@ const getGraphReports = (id, params = {}, options = {}) => {
  *         "granularity": "daily",
  *         "has_cloudigrade_data": true,
  *         "has_cloudigrade_mismatch": true,
- *         "metric_id": "Storage-gibibytes",
+ *         "metric_id": "Storage-gibibyte-months",
  *         "product": "RHEL",
  *         "service_level": "",
  *         "total_monthly": {
@@ -2227,7 +2227,7 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *         "count": 3,
  *         "measurements": [
  *           "Instance-hours",
- *           "Storage-gibibytes",
+ *           "Storage-gibibyte-months",
  *           "Transfer-gibibytes"
  *         ],
  *         "product": "RHEL",

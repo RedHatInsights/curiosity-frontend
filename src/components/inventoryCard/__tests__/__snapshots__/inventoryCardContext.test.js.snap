@@ -10,6 +10,7 @@ Object {
   "NAME": "display_name",
   "SOCKETS": "Sockets",
   "STORAGE_GIBIBYTES": "Storage-gibibytes",
+  "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
   "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
 }
 `;
