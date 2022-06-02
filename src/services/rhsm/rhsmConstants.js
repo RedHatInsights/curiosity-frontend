@@ -33,7 +33,7 @@ const RHSM_API_PATH_PRODUCT_TYPES = {
 /**
  * RHSM path IDs for metrics.
  *
- * @type {{CORES: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string,
+ * @type {{CORES: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string, STORAGE_GIBIBYTE_MONTHS: string,
  *     TRANSFER_GIBIBYTES: string, CORE_SECONDS: string}}
  */
 const RHSM_API_PATH_METRIC_TYPES = {
@@ -42,6 +42,7 @@ const RHSM_API_PATH_METRIC_TYPES = {
   CORE_SECONDS: 'Core-seconds',
   INSTANCE_HOURS: 'Instance-hours',
   STORAGE_GIBIBYTES: 'Storage-gibibytes',
+  STORAGE_GIBIBYTE_MONTHS: 'Storage-gibibyte-months',
   TRANSFER_GIBIBYTES: 'Transfer-gibibytes'
 };
 
@@ -337,37 +338,36 @@ const RHSM_API_QUERY_SET_TYPES = {
  *
  * @type {{RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES: {GRANULARITY: string, USAGE: string, END_DATE: string, SLA: string,
  *     START_DATE: string, BILLING_PROVIDER: string}, RHSM_API_RESPONSE_DATA: string, RHSM_API_PATH_METRIC_TYPES: {CORES: string,
- *     STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string, TRANSFER_GIBIBYTES: string, CORE_SECONDS: string},
- *     RHSM_API_RESPONSE_TALLY_DATA_TYPES: {DATE: string, HAS_DATA: string, VALUE: string},
+ *     STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string, STORAGE_GIBIBYTE_MONTHS: string, TRANSFER_GIBIBYTES: string,
+ *     CORE_SECONDS: string}, RHSM_API_RESPONSE_TALLY_DATA_TYPES: {DATE: string, HAS_DATA: string, VALUE: string},
  *     RHSM_API_RESPONSE_INSTANCES_META_TYPES: {MEASUREMENTS: string, PRODUCT: string, COUNT: string},
  *     RHSM_API_RESPONSE_INSTANCES_DATA_TYPES: {MEASUREMENTS: string, BILLING_ACCOUNT_ID: string, SUBSCRIPTION_MANAGER_ID: string,
  *     INVENTORY_ID: string, NUMBER_OF_GUESTS: string, BILLING_PROVIDER: string, DISPLAY_NAME: string, LAST_SEEN: string},
  *     RHSM_API_RESPONSE_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string, STANDARD: string},
- *     RHSM_API_RESPONSE_META_TYPES: {PRODUCT: string, COUNT: string}, RHSM_API_RESPONSE_ERRORS_CODE_TYPES: {GENERIC: string,
- *     OPTIN: string}, RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY: string, MONTHLY: string},
+ *     RHSM_API_RESPONSE_META_TYPES: {PRODUCT: string, COUNT: string}, RHSM_API_RESPONSE_ERRORS_CODE_TYPES: {GENERIC: string, OPTIN: string},
+ *     RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY: string, MONTHLY: string},
  *     RHSM_API_RESPONSE_UOM_TYPES: {CORES: string, SOCKETS: string}, RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES: {ASCENDING: string,
  *     DESCENDING: string}, RHSM_API_RESPONSE_SUBSCRIPTION_TYPES: {ANNUAL: string, ON_DEMAND: string},
  *     RHSM_API_QUERY_INVENTORY_SORT_TYPES: {CORES: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string,
  *     TRANSFER_GIBIBYTES: string, BILLING_PROVIDER: string, CORE_SECONDS: string, LAST_SEEN: string, NAME: string},
- *     RHSM_API_PATH_PRODUCT_TYPES: {RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string,
- *     RHOSAK: string, RHEL_COMPUTE_NODE: string, RHEL_X86: string, OPENSHIFT: string, SATELLITE_SERVER: string,
- *     OPENSHIFT_DEDICATED_METRICS: string, RHEL_DESKTOP: string, RHEL: string, SATELLITE_CAPSULE: string, RHEL_SERVER: string,
- *     RHEL_IBM_Z: string, RHEL_IBM_POWER: string}, RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string,
- *     RED_HAT: string, NONE: string, AWS: string, ORACLE: string}, RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string},
- *     RHSM_API_QUERY_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS: string, ORACLE: string},
- *     RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT: string, PRODUCTION: string},
- *     RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string, STANDARD: string},
+ *     RHSM_API_PATH_PRODUCT_TYPES: {RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHOSAK: string,
+ *     RHEL_COMPUTE_NODE: string, RHEL_X86: string, OPENSHIFT: string, SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string,
+ *     RHEL_DESKTOP: string, RHEL: string, SATELLITE_CAPSULE: string, RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string},
+ *     RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS: string, ORACLE: string},
+ *     RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string}, RHSM_API_QUERY_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string,
+ *     NONE: string, AWS: string, ORACLE: string}, RHSM_API_QUERY_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT: string,
+ *     PRODUCTION: string}, RHSM_API_QUERY_SLA_TYPES: {PREMIUM: string, SELF: string, NONE: string, STANDARD: string},
  *     RHSM_API_QUERY_SET_INVENTORY_TYPES: {UOM: string, BILLING_ACCOUNT_ID: string, USAGE: string, DIRECTION: string, SORT: string,
- *     END_DATE: string, OFFSET: string, SLA: string, LIMIT: string, START_DATE: string, BILLING_PROVIDER: string,
- *     DISPLAY_NAME: string}, RHSM_API_RESPONSE_ERRORS: string, RHSM_API_RESPONSE_TALLY_META_TYPES: {TOTAL_MONTHLY: string,
- *     DATE: string, PRODUCT: string, HAS_CLOUDIGRADE_DATA: string, HAS_CLOUDIGRADE_MISMATCH: string, HAS_DATA: string,
- *     METRIC_ID: string, COUNT: string, VALUE: string}, RHSM_API_QUERY_UOM_TYPES: {CORES: string, SOCKETS: string},
- *     RHSM_API_RESPONSE_META: string, RHSM_API_RESPONSE_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY: string,
- *     MONTHLY: string}, RHSM_API_QUERY_SET_TYPES: {UOM: string, GRANULARITY: string, USAGE: string, DIRECTION: string, SORT: string,
- *     END_DATE: string, OFFSET: string, SLA: string, LIMIT: string, START_DATE: string, DISPLAY_NAME: string},
- *     RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES: {QUANTITY: string, USAGE: string, NEXT_EVENT_TYPE: string,
- *     NEXT_EVENT_DATE: string, TOTAL_CAPACITY: string, PRODUCT_NAME: string, SKU: string, SERVICE_LEVEL: string},
- *     RHSM_API_RESPONSE_USAGE_TYPES: {UNSPECIFIED: string, DISASTER: string, DEVELOPMENT: string, PRODUCTION: string}}}
+ *     END_DATE: string, OFFSET: string, SLA: string, LIMIT: string, START_DATE: string, BILLING_PROVIDER: string, DISPLAY_NAME: string},
+ *     RHSM_API_RESPONSE_ERRORS: string, RHSM_API_RESPONSE_TALLY_META_TYPES: {TOTAL_MONTHLY: string, DATE: string, PRODUCT: string,
+ *     HAS_CLOUDIGRADE_DATA: string, HAS_CLOUDIGRADE_MISMATCH: string, HAS_DATA: string, METRIC_ID: string, COUNT: string, VALUE: string},
+ *     RHSM_API_QUERY_UOM_TYPES: {CORES: string, SOCKETS: string}, RHSM_API_RESPONSE_META: string,
+ *     RHSM_API_RESPONSE_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY: string, MONTHLY: string},
+ *     RHSM_API_QUERY_SET_TYPES: {UOM: string, GRANULARITY: string, USAGE: string, DIRECTION: string, SORT: string, END_DATE: string,
+ *     OFFSET: string, SLA: string, LIMIT: string, START_DATE: string, DISPLAY_NAME: string},
+ *     RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES: {QUANTITY: string, USAGE: string, NEXT_EVENT_TYPE: string, NEXT_EVENT_DATE: string,
+ *     TOTAL_CAPACITY: string, PRODUCT_NAME: string, SKU: string, SERVICE_LEVEL: string}, RHSM_API_RESPONSE_USAGE_TYPES: {UNSPECIFIED: string,
+ *     DISASTER: string, DEVELOPMENT: string, PRODUCTION: string}}}
  */
 const rhsmConstants = {
   RHSM_API_PATH_PRODUCT_TYPES,
