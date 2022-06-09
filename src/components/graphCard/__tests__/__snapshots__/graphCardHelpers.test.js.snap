@@ -10,6 +10,7 @@ exports[`GraphCardHelpers generateChartSettings should return base graph setting
         {
           "dolor": "sit",
           "id": "dolorSit",
+          "isCapacity": false,
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
