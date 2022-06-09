@@ -54,8 +54,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/graphCard/graphCardChart.js",
     "keys": [
       {
-        "key": "",
-        "match": "t(\`curiosity-graph.cardHeading\${standaloneMetricId}\`, { context: productId })",
+        "key": "curiosity-graph.cardHeading",
+        "match": "t('curiosity-graph.cardHeading', { context: (isStandalone && metric?.id)",
       },
     ],
   },
@@ -63,12 +63,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/graphCard/graphCardChartLegend.js",
     "keys": [
       {
-        "key": "",
-        "match": "t( [\`curiosity-graph.label_\${(isThreshold && 'threshold')",
+        "key": "curiosity-graph.label",
+        "match": "t([\`curiosity-graph.label\`, 'curiosity-graph.label_no'], { product: productLabel, context: (isThreshold && 'threshold')",
       },
       {
-        "key": "",
-        "match": "t( \`curiosity-graph.legendTooltip\${(isThreshold && '_threshold')",
+        "key": "curiosity-graph.legendTooltip",
+        "match": "t( \`curiosity-graph.legendTooltip\`, { product: productLabel, context: [isThreshold && 'threshold', id] }, [<span style={{ whiteSpace: 'nowrap' }} />] )",
       },
     ],
   },
@@ -76,8 +76,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/graphCard/graphCardChartTitleTooltip.js",
     "keys": [
       {
-        "key": "",
-        "match": "t(\`curiosity-graph.cardHeadingDescription\${standaloneMetricId}\`, { context: productId })",
+        "key": "curiosity-graph.cardHeadingDescription",
+        "match": "t(\`curiosity-graph.cardHeadingDescription\`, { context: (isStandalone && metric?.id)",
       },
     ],
   },
@@ -85,36 +85,32 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
     "keys": [
       {
-        "key": "curiosity-graph.label_noData",
-        "match": "t('curiosity-graph.label_noData')",
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: 'noData' })",
       },
       {
-        "key": "curiosity-graph.label_threshold",
-        "match": "t('curiosity-graph.label_threshold', { context: 'infinite' })",
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: ['threshold', 'infinite'] }, [ tempDataFacet.color && ( <ChartIcon symbol="infinity" fill="#ffffff" title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })",
       },
       {
-        "key": "curiosity-graph.label_threshold",
-        "match": "t('curiosity-graph.label_threshold', { context: 'infinite' })",
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: ['threshold'] })",
       },
       {
-        "key": "curiosity-graph.label_threshold",
-        "match": "t('curiosity-graph.label_threshold')",
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: 'noData' })",
       },
       {
-        "key": "curiosity-graph.label_noData",
-        "match": "t('curiosity-graph.label_noData')",
-      },
-      {
-        "key": "",
-        "match": "t(\`curiosity-graph.label_\${key}\`, { context: productId, product: productLabel })",
+        "key": "curiosity-graph.label",
+        "match": "t(\`curiosity-graph.label\`, { context: key, product: productLabel })",
       },
       {
         "key": "curiosity-graph.tooltipSummary",
         "match": "t('curiosity-graph.tooltipSummary')",
       },
       {
-        "key": "curiosity-graph.label_noData",
-        "match": "t('curiosity-graph.label_noData', { context: 'error' })",
+        "key": "curiosity-graph.label",
+        "match": "t('curiosity-graph.label', { context: ['noData', 'error'] })",
       },
     ],
   },
@@ -122,24 +118,24 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/graphCard/graphCardMetricTotals.js",
     "keys": [
       {
-        "key": "curiosity-graph.cardHeadingMetric_dailyTotal",
-        "match": "t('curiosity-graph.cardHeadingMetric_dailyTotal', { context: metricId, month: selectedMonth })",
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "t('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', id], month: selectedMonth })",
       },
       {
-        "key": "curiosity-graph.cardBodyMetric_total",
-        "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (dailyHasData && metricId)",
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "t( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && id], total: helpers .numberDisplay(dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
         "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
       },
       {
-        "key": "curiosity-graph.cardHeadingMetric_monthlyTotal",
-        "match": "t('curiosity-graph.cardHeadingMetric_monthlyTotal', { context: metricId, month: selectedMonth })",
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "t('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', id], month: selectedMonth })",
       },
       {
-        "key": "curiosity-graph.cardBodyMetric_total",
-        "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (monthlyHasData && metricId)",
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "t( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && id], total: helpers .numberDisplay(monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",

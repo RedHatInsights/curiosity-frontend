@@ -23,7 +23,7 @@ const GraphCardChartTooltip = ({
   useProduct: useAliasProduct,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
-  const { productId, productLabel } = useAliasProduct();
+  const { productLabel } = useAliasProduct();
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
 
   let header = null;
@@ -45,31 +45,30 @@ const GraphCardChartTooltip = ({
       };
 
       if (itemsByKey[key]?.chartType === ChartTypeVariant.threshold) {
-        let thresholdStringValue = itemsByKey[key]?.data.y ?? t('curiosity-graph.label_noData');
+        let thresholdStringValue = itemsByKey[key]?.data.y ?? t('curiosity-graph.label', { context: 'noData' });
 
-        if (itemsByKey[key]?.data.hasInfinite) {
-          if (tempDataFacet.color) {
-            thresholdStringValue = (
+        // ToDo: Remove hasInfinite check once deprecated graphCard components are removed
+        if (itemsByKey[key]?.data.hasInfinite || itemsByKey[key]?.data.hasInfiniteQuantity) {
+          thresholdStringValue = t('curiosity-graph.label', { context: ['threshold', 'infinite'] }, [
+            tempDataFacet.color && (
               <ChartIcon
                 symbol="infinity"
                 fill="#ffffff"
-                title={t('curiosity-graph.label_threshold', { context: 'infinite' })}
+                title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })}
               />
-            );
-          } else {
-            thresholdStringValue = t('curiosity-graph.label_threshold', { context: 'infinite' });
-          }
+            )
+          ]);
         }
 
-        tempDataFacet.label = t('curiosity-graph.label_threshold');
+        tempDataFacet.label = t('curiosity-graph.label', { context: ['threshold'] });
         tempDataFacet.value = thresholdStringValue;
       } else {
         const dataFactsValue =
-          (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.label_noData')) ||
+          (itemsByKey[key]?.data.hasData === false && t('curiosity-graph.label', { context: 'noData' })) ||
           itemsByKey[key]?.data.y ||
           0;
 
-        tempDataFacet.label = t(`curiosity-graph.label_${key}`, { context: productId, product: productLabel });
+        tempDataFacet.label = t(`curiosity-graph.label`, { context: key, product: productLabel });
         tempDataFacet.value = dataFactsValue;
       }
 
@@ -119,7 +118,7 @@ const GraphCardChartTooltip = ({
         )) ||
           null}
       </table>
-      {(!data.length && t('curiosity-graph.label_noData', { context: 'error' })) || null}
+      {(!data.length && t('curiosity-graph.label', { context: ['noData', 'error'] })) || null}
     </div>
   );
 };
@@ -139,6 +138,7 @@ GraphCardChartTooltip.propTypes = {
           date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
           hasData: PropTypes.bool,
           hasInfinite: PropTypes.bool,
+          hasInfiniteQuantity: PropTypes.bool,
           y: PropTypes.number
         })
       })

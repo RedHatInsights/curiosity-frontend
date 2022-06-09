@@ -4,7 +4,9 @@ import { GraphCardChartTitleTooltip } from '../graphCardChartTitleTooltip';
 describe('GraphCardChartTitleTooltip Component', () => {
   it('should render a basic component', async () => {
     const props = {
-      useGraphCardContext: () => ({ settings: { isCardTitleDescription: true, metric: { id: 'loremIpsum' } } })
+      useGraphCardContext: () => ({
+        settings: { isCardTitleDescription: true, isStandalone: true, metric: { id: 'loremIpsum' } }
+      })
     };
     const component = await shallowHookComponent(<GraphCardChartTitleTooltip {...props} />);
 

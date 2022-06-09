@@ -6,7 +6,7 @@ exports[`GraphCardChartTitleTooltip Component should render a basic component: b
 <Tooltip
   content={
     <p>
-      t(curiosity-graph.cardHeadingDescription_loremIpsum, {})
+      t(curiosity-graph.cardHeadingDescription, {"context":"loremIpsum"})
     </p>
   }
   distance={5}
