@@ -71,19 +71,16 @@ const GraphCardChartLegend = ({
         const isDisabled =
           !data.find(({ y, hasData }) => (y >= 0 && hasData === true) || (y >= 0 && isThreshold === true)) || false;
 
-        const labelContent = t(
-          [`curiosity-graph.label_${(isThreshold && 'threshold') || id}`, 'curiosity-graph.label_no'],
-          {
-            product: productLabel,
-            context: productLabel
-          }
-        );
+        const labelContent = t([`curiosity-graph.label`, 'curiosity-graph.label_no'], {
+          product: productLabel,
+          context: (isThreshold && 'threshold') || id
+        });
 
         const tooltipContent = t(
-          `curiosity-graph.legendTooltip${(isThreshold && '_threshold') || ''}_${id}`,
+          `curiosity-graph.legendTooltip`,
           {
             product: productLabel,
-            context: productLabel
+            context: [isThreshold && 'threshold', id]
           },
           [<span style={{ whiteSpace: 'nowrap' }} />]
         );

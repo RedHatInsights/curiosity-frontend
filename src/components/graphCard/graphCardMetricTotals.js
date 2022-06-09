@@ -30,7 +30,7 @@ const GraphCardMetricTotals = ({
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate } = useAliasProductGraphTallyQuery();
   const { pending, error, fulfilled, dataSets = [] } = useAliasMetricsSelector();
-  const { data = [], id: metricId, meta = {} } = dataSets[0] || {};
+  const { data = [], id, metric: metricId, meta = {} } = dataSets[0] || {};
   const { date: lastDate, hasData: lastHasData, y: lastValue } = data[data.length - 1] || {};
   const {
     date: currentDate,
@@ -58,8 +58,8 @@ const GraphCardMetricTotals = ({
             className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
           >
             <CardTitle>
-              {t('curiosity-graph.cardHeadingMetric_dailyTotal', {
-                context: metricId,
+              {t('curiosity-graph.cardHeadingMetric', {
+                context: ['dailyTotal', id],
                 month: selectedMonth
               })}
             </CardTitle>
@@ -69,9 +69,9 @@ const GraphCardMetricTotals = ({
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
                     t(
-                      'curiosity-graph.cardBodyMetric_total',
+                      'curiosity-graph.cardBodyMetric',
                       {
-                        context: (dailyHasData && metricId) || '',
+                        context: ['total', dailyHasData && id],
                         total: helpers
                           .numberDisplay(dailyValue)
                           ?.format({
@@ -104,8 +104,8 @@ const GraphCardMetricTotals = ({
             className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
           >
             <CardTitle>
-              {t('curiosity-graph.cardHeadingMetric_monthlyTotal', {
-                context: metricId,
+              {t('curiosity-graph.cardHeadingMetric', {
+                context: ['monthlyTotal', id],
                 month: selectedMonth
               })}
             </CardTitle>
@@ -115,9 +115,9 @@ const GraphCardMetricTotals = ({
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
                     t(
-                      'curiosity-graph.cardBodyMetric_total',
+                      'curiosity-graph.cardBodyMetric',
                       {
-                        context: (monthlyHasData && metricId) || '',
+                        context: ['total', monthlyHasData && id],
                         total: helpers
                           .numberDisplay(monthlyValue)
                           ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })

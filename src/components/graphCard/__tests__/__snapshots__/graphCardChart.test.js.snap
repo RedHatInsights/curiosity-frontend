@@ -34,7 +34,7 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
   >
     <CardBody>
       <div
-        className="blur"
+        className=""
       >
         <Chart
           chartLegend={[Function]}

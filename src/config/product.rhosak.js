@@ -65,7 +65,7 @@ const config = {
   },
   initialGraphFilters: [
     {
-      id: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES,
+      metric: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value,
@@ -75,7 +75,7 @@ const config = {
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
+      metric: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
       fill: chartColorPurpleLight.value,
       stroke: chartColorPurpleDark.value,
       color: chartColorPurpleDark.value,
@@ -85,7 +85,7 @@ const config = {
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+      metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
       fill: chartColorCyanLight.value,
       stroke: chartColorCyanDark.value,
       color: chartColorCyanDark.value,

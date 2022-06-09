@@ -18,6 +18,7 @@ exports[`GraphCardHelpers generateChartSettings should return base graph setting
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "metric": "dolorSit",
           "strokeWidth": 2,
         },
       ],

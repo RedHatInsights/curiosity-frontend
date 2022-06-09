@@ -8,7 +8,7 @@ describe('GraphCard Component', () => {
       useProductGraphConfig: () => ({
         filters: [
           {
-            id: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS
+            metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS
           }
         ]
       })
@@ -23,10 +23,10 @@ describe('GraphCard Component', () => {
       useProductGraphConfig: () => ({
         filters: [
           {
-            id: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS
+            metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS
           },
           {
-            id: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+            metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.SOCKETS,
             isStandalone: true
           }
         ]
