@@ -7,54 +7,33 @@ describe('GraphCardContext', () => {
 
   it('should aggregate metric API calls', () => {
     // error response
-    const errorError = useMetricsSelector({
-      useGraphCardContext: () => ({ settings: { metrics: [{ id: 'ipsum' }, { id: 'dolor' }] } }),
-      useSelectors: () => [{ error: true }, { error: true }],
-      useProduct: () => ({ productId: 'lorem' })
+    const error = useMetricsSelector({
+      useGraphCardContext: () => ({
+        settings: { metrics: [{ id: 'ipsum_mock-product-id' }, { id: 'dolor_mock-product-id' }] }
+      }),
+      useSelectorsResponse: () => ({ error: true, data: [{ data: ['ipsum'] }, { data: ['dolor'] }] })
     });
 
-    expect(errorError).toMatchSnapshot('aggregated calls, error');
+    expect(error).toMatchSnapshot('aggregated calls, error');
 
     // pending response
-    const pendingError = useMetricsSelector({
-      useGraphCardContext: () => ({ settings: { metrics: [{ id: 'ipsum' }, { id: 'dolor' }] } }),
-      useSelectors: () => [{ pending: true }, { error: true }],
-      useProduct: () => ({ productId: 'lorem' })
+    const pending = useMetricsSelector({
+      useGraphCardContext: () => ({
+        settings: { metrics: [{ id: 'ipsum_mock-product-id' }, { id: 'dolor_mock-product-id' }] }
+      }),
+      useSelectorsResponse: () => ({ pending: true, data: [{ data: ['ipsum'] }, { data: ['dolor'] }] })
     });
 
-    expect(pendingError).toMatchSnapshot('aggregated calls, pending error');
-
-    const pendingPending = useMetricsSelector({
-      useGraphCardContext: () => ({ settings: { metrics: [{ id: 'ipsum' }, { id: 'dolor' }] } }),
-      useSelectors: () => [{ pending: true }, { pending: true }],
-      useProduct: () => ({ productId: 'lorem' })
-    });
-
-    expect(pendingPending).toMatchSnapshot('aggregated calls, pending');
+    expect(pending).toMatchSnapshot('aggregated calls, pending');
 
     // fulfilled response
-    const fulfilledError = useMetricsSelector({
-      useGraphCardContext: () => ({ settings: { metrics: [{ id: 'ipsum' }, { id: 'dolor' }] } }),
-      useSelectors: () => [{ error: true }, { fulfilled: true }],
-      useProduct: () => ({ productId: 'lorem' })
+    const fulfilled = useMetricsSelector({
+      useGraphCardContext: () => ({
+        settings: { metrics: [{ id: 'ipsum_mock-product-id' }, { id: 'dolor_mock-product-id' }] }
+      }),
+      useSelectorsResponse: () => ({ fulfilled: true, data: [{ data: ['ipsum'] }, { data: ['dolor'] }] })
     });
 
-    expect(fulfilledError).toMatchSnapshot('aggregated calls, fulfilled error');
-
-    const fulfilledPending = useMetricsSelector({
-      useGraphCardContext: () => ({ settings: { metrics: [{ id: 'ipsum' }, { id: 'dolor' }] } }),
-      useSelectors: () => [{ pending: true }, { fulfilled: true }],
-      useProduct: () => ({ productId: 'lorem' })
-    });
-
-    expect(fulfilledPending).toMatchSnapshot('aggregated calls, fulfilled pending');
-
-    const fulfilledFulfilled = useMetricsSelector({
-      useGraphCardContext: () => ({ settings: { metrics: [{ id: 'ipsum' }, { id: 'dolor' }] } }),
-      useSelectors: () => [{ fulfilled: true }, { fulfilled: true }],
-      useProduct: () => ({ productId: 'lorem' })
-    });
-
-    expect(fulfilledFulfilled).toMatchSnapshot('aggregated calls, fulfilled');
+    expect(fulfilled).toMatchSnapshot('aggregated calls, fulfilled');
   });
 });

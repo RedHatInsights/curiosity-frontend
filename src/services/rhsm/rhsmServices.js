@@ -1116,7 +1116,7 @@ const getGraphReports = (id, params = {}, options = {}) => {
  *     }
  */
 /**
- * @apiMock {DelayResponse} 250
+ * @apiMock {DelayResponse} 1000
  * @apiMock {RandomSuccess}
  * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Transfer-gibibytes Get RHSM graph data
  * @apiDescription Retrieve graph data.

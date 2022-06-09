@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useShallowCompareEffect } from 'react-use';
 import { reduxActions, storeHooks } from '../../redux';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { helpers } from '../../common/helpers';
@@ -20,96 +21,96 @@ const GraphCardContext = React.createContext(DEFAULT_CONTEXT);
 const useGraphCardContext = () => useContext(GraphCardContext);
 
 /**
- * Use Redux RHSM Actions, getGraphTally.
- *
- * @param {object} options
- * @param {Function} options.useDispatch
- * @param {Function} options.useProductGraphTallyQuery
- * @returns {Function}
- */
-const useGetGraphTally = ({
-  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery
-} = {}) => {
-  const query = useAliasProductGraphTallyQuery();
-  const dispatch = useAliasDispatch();
-
-  return metrics => reduxActions.rhsm.getGraphTally(metrics, query)(dispatch);
-};
-
-/**
- * Get multiple metrics from store.
+ * Transform multiple metrics from store for chart/graph consumption.
  *
  * @param {object} options
  * @param {Function} options.useGraphCardContext
- * @param {Function} options.useSelectors
- * @param {Function} options.useProduct
- * @returns {{data: object, pending: boolean, fulfilled: boolean, dataSets: Array, error: boolean}}
+ * @param {Function} options.useSelectorsResponse
+ * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
+ *     id: {}, list: *[]}, cancelled: boolean, dataSets: unknown[], message: null, error: boolean}}
  */
 const useMetricsSelector = ({
   useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
-  useSelectors: useAliasSelectors = storeHooks.reactRedux.useSelectors,
-  useProduct: useAliasProduct = useProduct
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsAllSettledResponse
 } = {}) => {
-  const { productId } = useAliasProduct();
   const { settings = {} } = useAliasGraphCardContext();
   const { metrics = [] } = settings;
-  const data = {};
 
-  const metricResponses = useAliasSelectors(
+  const {
+    error,
+    fulfilled,
+    pending,
+    data = [],
+    ...response
+  } = useAliasSelectorsResponse(
     metrics.map(
-      ({ id: metricId }) =>
+      ({ id: metricId, isCapacity }) =>
         ({ graph }) =>
-          graph.tally?.[`${productId}_${metricId}`]
-    ),
-    []
+          isCapacity ? graph.capacity?.[metricId] : graph.tally?.[metricId]
+    )
   );
 
-  let isPending = false;
-  let isFulfilled = false;
-  let errorCount = 0;
-
-  const dataSets = metricResponses.map((metric, index) => {
-    const { pending, fulfilled, error, cancelled } = metric || {};
-    const updatedPending = pending || cancelled || false;
-
-    if (updatedPending) {
-      isPending = true;
-    }
-
-    if (fulfilled) {
-      isFulfilled = true;
-    }
-
-    if (error) {
-      errorCount += 1;
-    }
-
-    const updatedMetric = {
+  /**
+   * Apply graph config settings to metric data.
+   */
+  const dataById = {};
+  const dataByList = data?.map((metricData, index) => {
+    const updatedMetricData = {
       ...metrics[index],
-      data: metric?.data?.data || [],
-      meta: metric?.data?.meta || {}
+      ...metricData
     };
-    data[metrics[index].id] = updatedMetric;
-
-    return updatedMetric;
+    dataById[metrics[index].id] = updatedMetricData;
+    return updatedMetricData;
   });
 
-  const response = {
-    data,
-    dataSets,
-    error: false,
-    fulfilled: false,
-    pending: false
+  return {
+    ...response,
+    data: dataById,
+    dataSets: dataByList,
+    error,
+    fulfilled,
+    pending
   };
+};
 
-  if (errorCount === dataSets.length) {
-    response.error = true;
-  } else if (isPending) {
-    response.pending = true;
-  } else if (isFulfilled) {
-    response.fulfilled = true;
-  }
+/**
+ * Get graph metrics from Tally or Capacity.
+ *
+ * @param {object} params
+ * @param {Function} params.getGraphMetrics
+ * @param {Function} params.useDispatch
+ * @param {Function} params.useGraphCardContext
+ * @param {Function} params.useMetricsSelector
+ * @param {Function} params.useProduct
+ * @param {Function} params.useProductGraphTallyQuery
+ * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
+ *     id: {}, list: *[]}, cancelled: boolean, dataSets: *[], message: null, error: boolean}}
+ */
+const useGetMetrics = ({
+  getGraphMetrics = reduxActions.rhsm.getGraphMetrics,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
+  useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
+  useProduct: useAliasProduct = useProduct,
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery
+} = {}) => {
+  const { productId } = useAliasProduct();
+  const query = useAliasProductGraphTallyQuery();
+  const dispatch = useAliasDispatch();
+  const { settings = {} } = useAliasGraphCardContext();
+  const { metrics = [] } = settings;
+
+  const response = useAliasMetricsSelector();
+
+  useShallowCompareEffect(() => {
+    const updatedMetrics = metrics.map(({ metric: metricId, isCapacity, query: metricQuery }) => ({
+      id: productId,
+      metric: metricId,
+      isCapacity,
+      query: metricQuery
+    }));
+    getGraphMetrics(updatedMetrics, query)(dispatch);
+  }, [dispatch, getGraphMetrics, metrics, productId, query]);
 
   return response;
 };
@@ -117,7 +118,7 @@ const useMetricsSelector = ({
 const context = {
   GraphCardContext,
   DEFAULT_CONTEXT,
-  useGetGraphTally,
+  useGetMetrics,
   useGraphCardContext,
   useMetricsSelector
 };
@@ -127,7 +128,7 @@ export {
   context,
   GraphCardContext,
   DEFAULT_CONTEXT,
-  useGetGraphTally,
+  useGetMetrics,
   useGraphCardContext,
   useMetricsSelector
 };

@@ -107,9 +107,9 @@ describe('GraphCardHelpers', () => {
   it('generateChartSettings should return base graph settings', () => {
     expect(generateChartSettings()).toMatchSnapshot('no filters');
 
-    expect(generateChartSettings([{ lorem: 'ipsum' }, { id: 'dolorSit', dolor: 'sit' }])).toMatchSnapshot(
-      'basic filters'
-    );
+    expect(
+      generateChartSettings({ filters: [{ lorem: 'ipsum' }, { metric: 'dolorSit', dolor: 'sit' }] })
+    ).toMatchSnapshot('basic filters');
   });
 
   it('generateExtendedChartSettings should return extended graph settings', () => {
