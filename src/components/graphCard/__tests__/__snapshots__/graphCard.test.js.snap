@@ -13,6 +13,7 @@ exports[`GraphCard Component should render a basic component: basic 1`] = `
           "metrics": [
             {
               "id": "Core-seconds",
+              "isCapacity": false,
               "isStacked": true,
               "isStandalone": false,
               "isThreshold": false,
@@ -46,6 +47,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
           "metrics": [
             {
               "id": "Core-seconds",
+              "isCapacity": false,
               "isStacked": true,
               "isStandalone": false,
               "isThreshold": false,
@@ -73,6 +75,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
           "isStandalone": true,
           "metric": {
             "id": "Sockets",
+            "isCapacity": false,
             "isStacked": true,
             "isStandalone": true,
             "isThreshold": false,
@@ -81,6 +84,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
           "metrics": [
             {
               "id": "Sockets",
+              "isCapacity": false,
               "isStacked": true,
               "isStandalone": true,
               "isThreshold": false,

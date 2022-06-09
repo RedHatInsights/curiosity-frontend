@@ -14,16 +14,18 @@ const generateChartSettings = (filters = [], graphCardSettings = {}) => {
   const standaloneFiltersSettings = [];
   const groupedFiltersSettings = [];
 
-  filters.forEach(({ id, isStandalone = false, isThreshold = false, ...filterSettings }) => {
+  filters.forEach(({ id, isStandalone = false, ...filterSettings }) => {
     if (!id) {
       return;
     }
 
+    const isThreshold = filterSettings?.chartType === 'threshold';
     const baseFilterSettings = {
       id,
       isStacked: !isThreshold,
       isStandalone,
       isThreshold,
+      isCapacity: isThreshold,
       strokeWidth: 2
     };
 
