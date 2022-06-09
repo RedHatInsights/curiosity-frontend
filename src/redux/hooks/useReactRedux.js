@@ -191,7 +191,7 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
     dataByList.push(updatedResponse?.data || updatedResponse);
   });
 
-  const isById = idList.length === updatedSelectorResponse.length;
+  const isById = idList.length !== 0 && idList.length === updatedSelectorResponse.length;
 
   const response = {
     responses: {
