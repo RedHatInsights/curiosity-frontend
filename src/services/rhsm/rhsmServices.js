@@ -756,7 +756,188 @@ const getGraphReports = (id, params = {}, options = {}) => {
 /**
  * @apiMock {DelayResponse} 2000
  * @apiMock {RandomSuccess}
- * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/:metric_id Get RHSM graph data
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Sockets Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50.090125,
+ *           "has_data": null
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "has_data": null
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": false,
+ *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Sockets",
+ *         "product": "RHEL",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+ */
+/**
+ * @apiMock {DelayResponse} 250
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Cores Get RHSM graph data
  * @apiDescription Retrieve graph data.
  *
  * @apiSuccessExample {json} DAILY, Success-Response:
@@ -1290,6 +1471,190 @@ const getGraphReports = (id, params = {}, options = {}) => {
  *         "granularity": "daily",
  *         "has_cloudigrade_data": true,
  *         "has_cloudigrade_mismatch": true,
+ *         "metric_id": "Storage-gibibyte",
+ *         "product": "RHEL",
+ *         "service_level": "",
+ *         "total_monthly": {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 2048,
+ *           "has_data": true
+ *         },
+ *         "usage": ""
+ *       }
+ *     }
+ */
+/**
+ * @apiMock {DelayResponse} 250
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Storage-gibibyte-months Get RHSM graph data
+ * @apiDescription Retrieve graph data.
+ *
+ * @apiSuccessExample {json} DAILY, Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "date": "2020-07-01T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-02T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-03T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-04T00:00:00Z",
+ *           "value": 25,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-05T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-06T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-07T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-08T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-09T00:00:00Z",
+ *           "value": 1000,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-10T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-11T00:00:00Z",
+ *           "value": 50,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-12T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-13T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-14T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-15T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-16T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-17T00:00:00Z",
+ *           "value": null,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-18T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-19T00:00:00Z",
+ *           "value": null,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-20T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-21T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-22T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-23T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": false
+ *         },
+ *         {
+ *           "date": "2020-07-24T00:00:00Z",
+ *           "value": 0,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-25T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-26T00:00:00Z",
+ *           "value": 104,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-27T00:00:00Z",
+ *           "value": 70,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-28T00:00:00Z",
+ *           "value": 82,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-29T00:00:00Z",
+ *           "value": 86,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-30T00:00:00Z",
+ *           "value": 90,
+ *           "has_data": true
+ *         },
+ *         {
+ *           "date": "2020-07-31T00:00:00Z",
+ *           "value": 144,
+ *           "has_data": true
+ *         }
+ *       ],
+ *       "links": {},
+ *       "meta": {
+ *         "count": 31,
+ *         "granularity": "daily",
+ *         "has_cloudigrade_data": true,
+ *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Storage-gibibyte-months",
  *         "product": "RHEL",
  *         "service_level": "",
@@ -1487,7 +1852,7 @@ const getGraphReports = (id, params = {}, options = {}) => {
  */
 /* Get RHSM API reporting/tally graph/chart data.
  *
- * @param {string|Array} id String ID, or an array of IDs
+ * @param {string|Array} id String ID, or an array of identifiers to update a dotenv url path
  * @param {object} params Query/search params
  * @param {object} options
  * @param {boolean} options.cache
@@ -1814,14 +2179,55 @@ const getGraphTally = (id, params = {}, options = {}) => {
  * @param {string} options.cancelId
  * @returns {Promise<*>}
  */
-const getGraphCapacity = (id, params = {}, options = {}) => {
+const getGraphCapacityDeprecated = (id, params = {}, options = {}) => {
   const { cache = true, cancel = true, cancelId } = options;
   return serviceCall({
-    url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}${id}`,
+    url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY_DEPRECATED}${id}`,
     params,
     cache,
     cancel,
     cancelId
+  });
+};
+
+/**
+ * Get RHSM API capacity/threshold graph/chart data.
+ *
+ * @param {string|Array} id String ID, or an array of identifiers to update a dotenv url path
+ * @param {object} params Query/search params
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @returns {Promise<*>}
+ */
+const getGraphCapacity = (id, params = {}, options = {}) => {
+  const {
+    cache = true,
+    cancel = true,
+    cancelId,
+    schema = [rhsmSchemas.capacity, rhsmSchemas.errors],
+    transform = [rhsmTransformers.capacity]
+  } = options;
+  const updatedId = (typeof id === 'string' && [id]) || (Array.isArray(id) && id) || [];
+  const url = `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY_DEPRECATED}${updatedId?.[0]}`;
+
+  /**
+   * ToDo: remove this if/when capacity supports metric identifiers in its path
+   * We're emulating metric identifiers for the capacity endpoint to align with Tally updates,
+   * and provide consistency for consuming components. The value is passed via Redux action ->
+   * to service call -> to transformer.
+   */
+  const _metricId = updatedId?.[1];
+
+  return serviceCall({
+    url,
+    params,
+    cache,
+    cancel,
+    cancelId,
+    schema,
+    transform,
+    _metricId
   });
 };
 
@@ -2406,6 +2812,7 @@ const getSubscriptionsInventory = (id, params = {}, options = {}) => {
 const rhsmServices = {
   getApiVersion,
   getGraphCapacity,
+  getGraphCapacityDeprecated,
   getGraphReports,
   getGraphTally,
   getHostsInventory,
@@ -2424,6 +2831,7 @@ export {
   rhsmServices,
   getApiVersion,
   getGraphCapacity,
+  getGraphCapacityDeprecated,
   getGraphReports,
   getGraphTally,
   getHostsInventory,
