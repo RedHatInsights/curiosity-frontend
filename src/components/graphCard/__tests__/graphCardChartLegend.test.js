@@ -9,12 +9,12 @@ describe('GraphCardChartLegend Component', () => {
         dataSets: [
           {
             stroke: '#000000',
-            id: 'loremIpsum',
+            id: 'loremIpsum_mock-product-id',
             data: [{ y: 0, hasData: true }]
           }
         ]
       },
-      useProduct: () => ({ productLabel: 'dolorSit' }),
+      useProduct: () => ({ productLabel: 'mock-product-label' }),
       useSelector: callback => callback({})
     };
     const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
@@ -28,31 +28,35 @@ describe('GraphCardChartLegend Component', () => {
         dataSets: [
           {
             stroke: '#000000',
-            id: 'loremIpsum',
+            id: 'loremIpsum_mock-product-id',
+            metric: 'loremIpsum',
             isThreshold: false,
             data: [{ y: 0, hasData: true }]
           },
           {
             stroke: '#000000',
-            id: 'ametConsectetur',
+            id: 'ametConsectetur_mock-product-id',
+            metric: 'ametConsectetur',
             isThreshold: false,
             data: [{ y: 0, hasData: false }]
           },
           {
             stroke: '#ff0000',
-            id: 'dolorSit',
+            id: 'dolorSit_mock-product-id',
+            metric: 'dolorSit',
             isThreshold: true,
             data: [{ y: 0, isInfinite: false }]
           },
           {
             stroke: '#ff0000',
-            id: 'nonCursus',
+            id: 'nonCursus_mock-product-id',
+            metric: 'nonCursus',
             isThreshold: true,
             data: [{ y: 0, isInfinite: true }]
           }
         ]
       },
-      useProduct: () => ({ productId: 'test id', productLabel: 'test' }),
+      useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label' }),
       useSelector: callback => callback({})
     };
 
@@ -68,20 +72,22 @@ describe('GraphCardChartLegend Component', () => {
         dataSets: [
           {
             stroke: '#000000',
-            id: 'loremIpsum',
+            id: 'loremIpsum_mock-product-id',
+            metric: 'loremIpsum',
             isThreshold: false,
             data: [{ y: 0, hasData: true }]
           },
           {
             stroke: '#ff0000',
-            id: 'dolorSit',
+            id: 'dolorSit_mock-product-id',
+            metric: 'dolorSit',
             isThreshold: true,
             data: [{ y: 0, isInfinite: false }]
           }
         ]
       },
       useDispatch: () => mockDispatch,
-      useProduct: () => ({ productId: 'test id', productLabel: 'test', viewId: 'test' }),
+      useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label', viewId: 'mock-view-id' }),
       useSelector: callback => callback({ legend: { 'test-dolorSit': true } })
     };
 
@@ -102,20 +108,22 @@ describe('GraphCardChartLegend Component', () => {
         dataSets: [
           {
             stroke: '#000000',
-            id: 'loremIpsum',
+            id: 'loremIpsum_mock-product-id',
+            metric: 'loremIpsum',
             isThreshold: false,
             data: [{ y: 0, hasData: true }]
           },
           {
             stroke: '#ff0000',
-            id: 'dolorSit',
+            id: 'dolorSit_mock-product-id',
+            metric: 'dolorSit',
             isThreshold: true,
             data: [{ y: 0, isInfinite: false }]
           }
         ]
       },
       useDispatch: () => {},
-      useProduct: () => ({ productId: 'test id', productLabel: 'test', viewId: 'test' }),
+      useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label', viewId: 'mock-view-id' }),
       useSelector: callback => callback({ legend: { 'test-dolorSit': true, 'test-loremIpsum': false } })
     };
 

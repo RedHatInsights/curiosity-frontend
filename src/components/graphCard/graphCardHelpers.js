@@ -24,26 +24,29 @@ const generateChartIds = ({ metric, productId, query = {} } = {}) => {
 /**
  * Update chart/graph filters with core settings and styling.
  *
- * @param {Array} filters
- * @param {object} graphCardSettings
+ * @param {object} params
+ * @param {Array} params.filters
+ * @param {object} params.settings
+ * @param {string} params.productId
  * @returns {{standaloneFilters: Array, groupedFilters: object}}
  */
-const generateChartSettings = (filters = [], graphCardSettings = {}) => {
+const generateChartSettings = ({ filters = [], settings: graphCardSettings = {}, productId } = {}) => {
   const standaloneFiltersSettings = [];
   const groupedFiltersSettings = [];
 
-  filters.forEach(({ id, isStandalone = false, ...filterSettings }) => {
-    if (!id) {
+  filters.forEach(({ metric, isStandalone = false, ...filterSettings }) => {
+    if (!metric) {
       return;
     }
 
     const isThreshold = filterSettings?.chartType === ChartTypeVariant.threshold;
     const baseFilterSettings = {
-      id,
+      id: generateChartIds({ metric, productId, query: filterSettings?.query }),
       isStacked: !isThreshold,
       isStandalone,
       isThreshold,
       isCapacity: isThreshold,
+      metric,
       strokeWidth: 2
     };
 

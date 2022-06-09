@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useProductGraphConfig } from '../productView/productViewContext';
+import { useProduct, useProductGraphConfig } from '../productView/productViewContext';
 import { helpers } from '../../common';
 import { GraphCardMetricTotals } from './graphCardMetricTotals';
 import { GraphCardChart } from './graphCardChart';
@@ -12,15 +12,18 @@ import { graphCardHelpers } from './graphCardHelpers';
  *
  * @param {object} props
  * @param {boolean} props.isDisabled
+ * @param {Function} props.useProduct
  * @param {Function} props.useProductGraphConfig
  * @returns {Node}
  */
-const GraphCard = ({ isDisabled, useProductGraphConfig: useAliasProductGraphConfig }) => {
+const GraphCard = ({ isDisabled, useProduct: useAliasProduct, useProductGraphConfig: useAliasProductGraphConfig }) => {
+  const { productId } = useAliasProduct();
   const { filters, settings } = useAliasProductGraphConfig();
-  const { groupedFiltersSettings, standaloneFiltersSettings } = graphCardHelpers.generateChartSettings(
+  const { groupedFiltersSettings, standaloneFiltersSettings } = graphCardHelpers.generateChartSettings({
     filters,
-    settings
-  );
+    settings,
+    productId
+  });
 
   if (isDisabled) {
     return null;
@@ -48,20 +51,22 @@ const GraphCard = ({ isDisabled, useProductGraphConfig: useAliasProductGraphConf
 /**
  * Prop types.
  *
- * @type {{useProductGraphConfig: Function, isDisabled: boolean}}
+ * @type {{useProduct: Function, useProductGraphConfig: Function, isDisabled: boolean}}
  */
 GraphCard.propTypes = {
   isDisabled: PropTypes.bool,
+  useProduct: PropTypes.func,
   useProductGraphConfig: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useProductGraphConfig: Function, isDisabled: boolean}}
+ * @type {{useProduct: Function, useProductGraphConfig: Function, isDisabled: boolean}}
  */
 GraphCard.defaultProps = {
   isDisabled: helpers.UI_DISABLED_GRAPH,
+  useProduct,
   useProductGraphConfig
 };
 

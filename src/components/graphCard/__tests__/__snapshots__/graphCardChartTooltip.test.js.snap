@@ -29,7 +29,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
     </thead>
     <tbody>
       <tr
-        key="tooltip-t(curiosity-graph.label_dolorSit, {})"
+        key="tooltip-t(curiosity-graph.label, {"context":"dolorSit"})"
       >
         <th>
           <ChartIcon
@@ -39,14 +39,14 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             title={null}
           />
            
-          t(curiosity-graph.label_dolorSit, {})
+          t(curiosity-graph.label, {"context":"dolorSit"})
         </th>
         <td>
           1
         </td>
       </tr>
       <tr
-        key="tooltip-t(curiosity-graph.label_loremIpsum, {})"
+        key="tooltip-t(curiosity-graph.label, {"context":"loremIpsum"})"
       >
         <th>
           <ChartIcon
@@ -56,7 +56,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             title={null}
           />
            
-          t(curiosity-graph.label_loremIpsum, {})
+          t(curiosity-graph.label, {"context":"loremIpsum"})
         </th>
         <td>
           0
@@ -70,16 +70,16 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display > 0 and NOT hasData on report 1`] = `
 {
   "daily": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
 }
 `;
@@ -121,16 +121,16 @@ exports[`GraphCardChartTooltip Component should return a formatted tooltip based
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for null and NOT hasData on report 1`] = `
 {
   "daily": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
 }
 `;
@@ -172,16 +172,16 @@ exports[`GraphCardChartTooltip Component should return a formatted tooltip based
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: data display for zero and NOT hasData on report 1`] = `
 {
   "daily": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
 }
 `;
@@ -283,16 +283,16 @@ exports[`GraphCardChartTooltip Component should return a formatted tooltip based
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and NOT hasInfinite on threshold 1`] = `
 {
   "daily": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
 }
 `;
@@ -300,16 +300,16 @@ exports[`GraphCardChartTooltip Component should return a formatted tooltip based
 exports[`GraphCardChartTooltip Component should return a formatted tooltip based on data and granularity: threshold display for null and UNDEFINED hasInfinite on threshold 1`] = `
 {
   "daily": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "monthly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "quarterly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
   "weekly": <td>
-    t(curiosity-graph.label_noData)
+    t(curiosity-graph.label, {"context":"noData"})
   </td>,
 }
 `;

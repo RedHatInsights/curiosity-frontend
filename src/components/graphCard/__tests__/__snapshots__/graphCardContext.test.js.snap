@@ -3,191 +3,107 @@
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, error 1`] = `
 {
   "data": {
-    "dolor": {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
+    "dolor_mock-product-id": {
+      "data": [
+        "dolor",
+      ],
+      "id": "dolor_mock-product-id",
     },
-    "ipsum": {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
+    "ipsum_mock-product-id": {
+      "data": [
+        "ipsum",
+      ],
+      "id": "ipsum_mock-product-id",
     },
   },
   "dataSets": [
     {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
+      "data": [
+        "ipsum",
+      ],
+      "id": "ipsum_mock-product-id",
     },
     {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
+      "data": [
+        "dolor",
+      ],
+      "id": "dolor_mock-product-id",
     },
   ],
   "error": true,
-  "fulfilled": false,
-  "pending": false,
+  "fulfilled": undefined,
+  "pending": undefined,
 }
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled 1`] = `
 {
   "data": {
-    "dolor": {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
+    "dolor_mock-product-id": {
+      "data": [
+        "dolor",
+      ],
+      "id": "dolor_mock-product-id",
     },
-    "ipsum": {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
+    "ipsum_mock-product-id": {
+      "data": [
+        "ipsum",
+      ],
+      "id": "ipsum_mock-product-id",
     },
   },
   "dataSets": [
     {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
+      "data": [
+        "ipsum",
+      ],
+      "id": "ipsum_mock-product-id",
     },
     {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
+      "data": [
+        "dolor",
+      ],
+      "id": "dolor_mock-product-id",
     },
   ],
-  "error": false,
+  "error": undefined,
   "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled error 1`] = `
-{
-  "data": {
-    "dolor": {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
-    },
-    "ipsum": {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
-    },
-  },
-  "dataSets": [
-    {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
-    },
-    {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
-    },
-  ],
-  "error": false,
-  "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled pending 1`] = `
-{
-  "data": {
-    "dolor": {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
-    },
-    "ipsum": {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
-    },
-  },
-  "dataSets": [
-    {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
-    },
-    {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
-    },
-  ],
-  "error": false,
-  "fulfilled": false,
-  "pending": true,
+  "pending": undefined,
 }
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, pending 1`] = `
 {
   "data": {
-    "dolor": {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
+    "dolor_mock-product-id": {
+      "data": [
+        "dolor",
+      ],
+      "id": "dolor_mock-product-id",
     },
-    "ipsum": {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
-    },
-  },
-  "dataSets": [
-    {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
-    },
-    {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
-    },
-  ],
-  "error": false,
-  "fulfilled": false,
-  "pending": true,
-}
-`;
-
-exports[`GraphCardContext should aggregate metric API calls: aggregated calls, pending error 1`] = `
-{
-  "data": {
-    "dolor": {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
-    },
-    "ipsum": {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
+    "ipsum_mock-product-id": {
+      "data": [
+        "ipsum",
+      ],
+      "id": "ipsum_mock-product-id",
     },
   },
   "dataSets": [
     {
-      "data": [],
-      "id": "ipsum",
-      "meta": {},
+      "data": [
+        "ipsum",
+      ],
+      "id": "ipsum_mock-product-id",
     },
     {
-      "data": [],
-      "id": "dolor",
-      "meta": {},
+      "data": [
+        "dolor",
+      ],
+      "id": "dolor_mock-product-id",
     },
   ],
-  "error": false,
-  "fulfilled": false,
+  "error": undefined,
+  "fulfilled": undefined,
   "pending": true,
 }
 `;
@@ -240,7 +156,7 @@ exports[`GraphCardContext should return specific properties: specific properties
     ],
     "_threadCount": 0,
   },
-  "useGetGraphTally": [Function],
+  "useGetMetrics": [Function],
   "useGraphCardContext": [Function],
   "useMetricsSelector": [Function],
 }
