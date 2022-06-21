@@ -84,13 +84,13 @@ Object {
   "initialOption": "cores",
   "initialSubscriptionsInventoryFilters": Array [
     Object {
-      "id": "productName",
+      "id": "product_name",
       "isSortable": true,
       "isWrappable": true,
     },
     Object {
       "cellWidth": 15,
-      "id": "serviceLevel",
+      "id": "service_level",
       "isSortable": true,
       "isWrappable": true,
     },
@@ -102,16 +102,16 @@ Object {
     },
     Object {
       "cell": [Function],
-      "cellWidth": 15,
+      "cellWidth": 10,
       "header": [Function],
-      "id": "totalCapacity",
+      "id": "total_capacity",
       "isSortable": true,
       "isWrappable": true,
     },
     Object {
       "cell": [Function],
       "cellWidth": 15,
-      "id": "nextEventDate",
+      "id": "next_event_date",
       "isSortable": true,
       "isWrappable": true,
     },
@@ -207,13 +207,13 @@ Object {
   "initialOption": "cores",
   "initialSubscriptionsInventoryFilters": Array [
     Object {
-      "id": "productName",
+      "id": "product_name",
       "isSortable": true,
       "isWrappable": true,
     },
     Object {
       "cellWidth": 15,
-      "id": "serviceLevel",
+      "id": "service_level",
       "isSortable": true,
       "isWrappable": true,
     },
@@ -225,16 +225,16 @@ Object {
     },
     Object {
       "cell": [Function],
-      "cellWidth": 15,
+      "cellWidth": 10,
       "header": [Function],
-      "id": "totalCapacity",
+      "id": "total_capacity",
       "isSortable": true,
       "isWrappable": true,
     },
     Object {
       "cell": [Function],
       "cellWidth": 15,
-      "id": "nextEventDate",
+      "id": "next_event_date",
       "isSortable": true,
       "isWrappable": true,
     },

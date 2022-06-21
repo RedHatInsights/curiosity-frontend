@@ -4,6 +4,8 @@ import { parseRowCellsListData } from '../../components/inventoryCard/inventoryC
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES as SUBSCRIPTIONS_INVENTORY_META_TYPES,
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_PATH_METRIC_TYPES
 } from '../../services/rhsm/rhsmConstants';
@@ -87,15 +89,15 @@ describe('Product RHOSAK config', () => {
       config;
 
     const inventoryData = {
-      productName: 'lorem',
-      serviceLevel: 'hello world',
-      nextEventDate: '2022-01-01T00:00:00.000Z',
-      totalCapacity: 2000,
-      hasInfiniteQuantity: true
+      [SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME]: 'lorem',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: 'hello world',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: '2022-01-01T00:00:00.000Z',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: 2000,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: true
     };
 
     const inventoryMeta = {
-      subscriptionType: 'dolor'
+      [SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE]: 'dolor'
     };
 
     const filteredInventoryData = parseRowCellsListData({
@@ -108,8 +110,8 @@ describe('Product RHOSAK config', () => {
 
     const fallbackInventoryData = {
       ...inventoryData,
-      serviceLevel: null,
-      nextEventDate: null
+      [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: null,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: null
     };
 
     const fallbackFilteredInventoryData = parseRowCellsListData({
