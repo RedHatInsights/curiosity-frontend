@@ -182,11 +182,6 @@ Array [
         "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"aws\\"})",
         "value": "aws",
       },
-      Object {
-        "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"none\\"})",
-        "value": "",
-      },
     ],
     "selected": false,
     "title": "t(curiosity-toolbar.category, {\\"context\\":\\"billing_provider\\"})",

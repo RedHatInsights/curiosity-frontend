@@ -31,7 +31,6 @@ Object {
   },
   "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
     "AWS": "aws",
-    "NONE": "",
     "RED_HAT": "red hat",
   },
   "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -121,7 +120,6 @@ Object {
   },
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
     "AWS": "aws",
-    "NONE": "",
     "RED_HAT": "red hat",
   },
   "RHSM_API_RESPONSE_DATA": "data",
@@ -247,7 +245,6 @@ Object {
     },
     "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
       "AWS": "aws",
-      "NONE": "",
       "RED_HAT": "red hat",
     },
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -337,7 +334,6 @@ Object {
     },
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
       "AWS": "aws",
-      "NONE": "",
       "RED_HAT": "red hat",
     },
     "RHSM_API_RESPONSE_DATA": "data",
@@ -464,7 +460,6 @@ Object {
     },
     "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
       "AWS": "aws",
-      "NONE": "",
       "RED_HAT": "red hat",
     },
     "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -554,7 +549,6 @@ Object {
     },
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
       "AWS": "aws",
-      "NONE": "",
       "RED_HAT": "red hat",
     },
     "RHSM_API_RESPONSE_DATA": "data",
@@ -685,7 +679,6 @@ Object {
   },
   "RHSM_API_QUERY_BILLING_PROVIDER_TYPES": Object {
     "AWS": "aws",
-    "NONE": "",
     "RED_HAT": "red hat",
   },
   "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
@@ -775,7 +768,6 @@ Object {
   },
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": Object {
     "AWS": "aws",
-    "NONE": "",
     "RED_HAT": "red hat",
   },
   "RHSM_API_RESPONSE_DATA": "data",
