@@ -15,6 +15,198 @@ Object {
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse a tally response: tally, daily like granularity 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "date": "2019-07-14T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 0,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-07-15T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 1,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-07-16T00:00:00Z",
+      "hasData": true,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 2,
+      "y": 1.4977989514668784,
+    },
+    Object {
+      "date": "2019-07-17T00:00:00Z",
+      "hasData": true,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 3,
+      "y": 1.5547887908087836,
+    },
+    Object {
+      "date": "2019-07-18T00:00:00Z",
+      "hasData": true,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 4,
+      "y": 4.446975872251722,
+    },
+    Object {
+      "date": "2019-07-19T00:00:00Z",
+      "hasData": true,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 5,
+      "y": 4.69084013303121,
+    },
+    Object {
+      "date": "2019-07-20T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": true,
+      "isFutureDate": false,
+      "x": 6,
+      "y": null,
+    },
+    Object {
+      "date": "2019-07-21T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": true,
+      "x": 7,
+      "y": null,
+    },
+    Object {
+      "date": "2019-07-22T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": true,
+      "x": 8,
+      "y": null,
+    },
+    Object {
+      "date": "2019-07-23T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": true,
+      "x": 9,
+      "y": null,
+    },
+    Object {
+      "date": "2019-07-24T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": true,
+      "x": 10,
+      "y": null,
+    },
+    Object {
+      "date": "2019-07-25T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": true,
+      "x": 11,
+      "y": null,
+    },
+  ],
+  "meta": Object {
+    "cloudigradeHasMismatch": undefined,
+    "count": undefined,
+    "metricId": undefined,
+    "productId": undefined,
+    "totalMonthlyDate": undefined,
+    "totalMonthlyHasData": undefined,
+    "totalMonthlyValue": undefined,
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a tally response: tally, monthly like granularity 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "date": "2019-01-01T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 0,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-02-01T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 1,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-03-01T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 2,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-04-01T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 3,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-05-01T00:00:00Z",
+      "hasData": true,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 4,
+      "y": 4.767144674723709,
+    },
+    Object {
+      "date": "2019-06-01T00:00:00Z",
+      "hasData": true,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 5,
+      "y": 4.446975872251722,
+    },
+    Object {
+      "date": "2019-07-01T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": false,
+      "x": 6,
+      "y": 0,
+    },
+    Object {
+      "date": "2019-08-01T00:00:00Z",
+      "hasData": false,
+      "isCurrentDate": false,
+      "isFutureDate": true,
+      "x": 7,
+      "y": null,
+    },
+  ],
+  "meta": Object {
+    "cloudigradeHasMismatch": undefined,
+    "count": undefined,
+    "metricId": undefined,
+    "productId": undefined,
+    "totalMonthlyDate": undefined,
+    "totalMonthlyHasData": undefined,
+    "totalMonthlyValue": undefined,
+  },
+}
+`;
+
 exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
 Object {
   "data": Array [

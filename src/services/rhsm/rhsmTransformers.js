@@ -62,19 +62,26 @@ const rhsmTally = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
-  const currentDay = moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY');
+  const currentDate = moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY');
 
   updatedResponse.data = data.map(
     (
       { [TALLY_DATA_TYPES.DATE]: date, [TALLY_DATA_TYPES.VALUE]: value, [TALLY_DATA_TYPES.HAS_DATA]: hasData },
       index
-    ) => ({
-      x: index,
-      y: value,
-      date,
-      hasData,
-      isCurrentDate: moment.utc(date).format('MM-D-YYYY') === currentDay
-    })
+    ) => {
+      const updatedDate = moment.utc(date);
+      const isCurrentDate = updatedDate.format('MM-D-YYYY') === currentDate;
+      const isFutureDate = updatedDate.diff(currentDate) > 0;
+
+      return {
+        x: index,
+        y: (hasData === false && isFutureDate) || (hasData === false && isCurrentDate) ? null : value,
+        date,
+        hasData,
+        isCurrentDate,
+        isFutureDate
+      };
+    }
   );
 
   updatedResponse.meta = {
