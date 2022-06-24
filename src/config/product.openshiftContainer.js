@@ -220,7 +220,7 @@ const config = {
         return totalCapacity?.value;
       },
       isSortable: true,
-      cellWidth: 10,
+      cellWidth: 15,
       isWrappable: true
     },
     {
