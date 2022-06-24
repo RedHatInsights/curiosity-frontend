@@ -201,7 +201,7 @@ const rhsmSchemas = {
   guests: response => schemaResponse({ response, casing: 'camel', schema: guestsResponseSchema, id: 'RHSM guests' }),
   instances: response => schemaResponse({ response, schema: instancesResponseSchema, id: 'RHSM instances' }),
   subscriptions: response =>
-    schemaResponse({ response, casing: 'camel', schema: subscriptionsResponseSchema, id: 'RHSM subscriptions' }),
+    schemaResponse({ response, schema: subscriptionsResponseSchema, id: 'RHSM subscriptions' }),
   tally: response => schemaResponse({ response, schema: tallyResponseSchema, id: 'RHSM tally' })
 };
 

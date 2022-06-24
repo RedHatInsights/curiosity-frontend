@@ -568,11 +568,11 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
       },
       Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] })",
+        "key": "",
+        "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom?.value } )",
       },
     ],
   },
@@ -623,11 +623,11 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
       },
       Object {
-        "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] })",
+        "key": "",
+        "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom?.value } )",
       },
     ],
   },
@@ -675,8 +675,8 @@ Array [
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS, total: helpers.numberDisplay(total?.value)",
       },
       Object {
-        "key": "curiosity-inventory.label_subscriptionType",
-        "match": "translate('curiosity-inventory.label_subscriptionType', { context: meta?.subscriptionType || EMPTY_CONTEXT })",
+        "key": "",
+        "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
       },
     ],
   },
@@ -764,19 +764,11 @@ Array [
     "key": "curiosity-inventory.label",
   },
   Object {
-    "file": "./src/config/product.openshiftContainer.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
     "file": "./src/config/product.openshiftDedicated.js",
     "key": "curiosity-inventory.label",
   },
   Object {
     "file": "./src/config/product.openshiftMetrics.js",
-    "key": "curiosity-inventory.label",
-  },
-  Object {
-    "file": "./src/config/product.rhel.js",
     "key": "curiosity-inventory.label",
   },
   Object {
