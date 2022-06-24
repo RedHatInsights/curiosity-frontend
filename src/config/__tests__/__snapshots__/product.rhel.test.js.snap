@@ -321,7 +321,7 @@ Object {
     },
     Object {
       "title": <Tooltip
-        content="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
+        content="t(curiosity-inventory.label_has_infinite_quantity, {})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -330,7 +330,7 @@ Object {
         position="top"
       >
         <ChartIcon
-          aria-label="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
+          aria-label="t(curiosity-inventory.label_has_infinite_quantity, {})"
           fill={null}
           size="sm"
           symbol="infinity"
@@ -344,11 +344,11 @@ Object {
   ],
   "columnHeaders": Array [
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
       "transforms": Array [],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -366,31 +366,31 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
       "transforms": Array [
         [Function],
       ],
     },
   ],
   "data": Object {
-    "hasInfiniteQuantity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hasInfiniteQuantity\\"})",
+    "has_infinite_quantity": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"has_infinite_quantity\\"})",
       "value": true,
     },
-    "nextEventDate": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+    "next_event_date": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "productName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+    "product_name": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
       "value": "lorem",
     },
-    "serviceLevel": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+    "service_level": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
       "value": "hello world",
     },
-    "totalCapacity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"totalCapacity\\"})",
+    "total_capacity": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"total_capacity\\"})",
       "value": 2000,
     },
   },
@@ -411,7 +411,7 @@ Object {
     },
     Object {
       "title": <Tooltip
-        content="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
+        content="t(curiosity-inventory.label_has_infinite_quantity, {})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -420,7 +420,7 @@ Object {
         position="top"
       >
         <ChartIcon
-          aria-label="t(curiosity-inventory.label, {\\"context\\":\\"hasInfiniteQuantity\\"})"
+          aria-label="t(curiosity-inventory.label_has_infinite_quantity, {})"
           fill={null}
           size="sm"
           symbol="infinity"
@@ -434,11 +434,11 @@ Object {
   ],
   "columnHeaders": Array [
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
       "transforms": Array [],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -456,31 +456,31 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
       "transforms": Array [
         [Function],
       ],
     },
   ],
   "data": Object {
-    "hasInfiniteQuantity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hasInfiniteQuantity\\"})",
+    "has_infinite_quantity": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"has_infinite_quantity\\"})",
       "value": true,
     },
-    "nextEventDate": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"nextEventDate\\"})",
+    "next_event_date": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
       "value": null,
     },
-    "productName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"productName\\"})",
+    "product_name": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
       "value": "lorem",
     },
-    "serviceLevel": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"serviceLevel\\"})",
+    "service_level": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
       "value": null,
     },
-    "totalCapacity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"totalCapacity\\"})",
+    "total_capacity": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"total_capacity\\"})",
       "value": 2000,
     },
   },
