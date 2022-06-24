@@ -14,11 +14,14 @@ import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_TYPES,
   RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
+} from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
 import { ChartIcon } from '../components/chart/chartIcon';
@@ -55,7 +58,7 @@ const config = {
     [RHSM_API_QUERY_TYPES.OFFSET]: 0
   },
   inventorySubscriptionsQuery: {
-    [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SUBSCRIPTIONS_SORT_TYPES.NEXT_EVENT_DATE,
+    [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES.NEXT_EVENT_DATE,
     [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
     [RHSM_API_QUERY_TYPES.LIMIT]: 100,
     [RHSM_API_QUERY_TYPES.OFFSET]: 0
@@ -194,29 +197,36 @@ const config = {
   initialInventorySettings: {},
   initialSubscriptionsInventoryFilters: [
     {
-      id: 'productName',
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,
       isSortable: true,
       isWrappable: true
     },
     {
-      id: 'serviceLevel',
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL,
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
     {
-      id: 'quantity',
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
       isSortable: true,
       cellWidth: 10,
       isWrappable: true
     },
     {
-      id: 'totalCapacity',
-      header: data => translate('curiosity-inventory.header', { context: ['subscriptions', data?.uom?.value] }),
-      cell: (data = {}) => {
-        const { hasInfiniteQuantity, totalCapacity, uom } = data;
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
+      header: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom } = {}) =>
+        translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] }),
+      cell: ({
+        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: totalCapacity,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom
+      } = {}) => {
         if (hasInfiniteQuantity?.value === true) {
-          const content = translate('curiosity-inventory.label', { context: ['hasInfiniteQuantity', uom?.value] });
+          const content = translate(
+            `curiosity-inventory.label_${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}`,
+            { context: uom?.value }
+          );
           return (
             <Tooltip content={content}>
               <ChartIcon symbol="infinity" aria-label={content} />
@@ -230,8 +240,9 @@ const config = {
       isWrappable: true
     },
     {
-      id: 'nextEventDate',
-      cell: data => (data?.nextEventDate?.value && moment.utc(data?.nextEventDate?.value).format('YYYY-MM-DD')) || '',
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: nextEventDate } = {}) =>
+        (nextEventDate?.value && moment.utc(nextEventDate?.value).format('YYYY-MM-DD')) || '',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
