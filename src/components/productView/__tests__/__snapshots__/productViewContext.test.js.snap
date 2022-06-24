@@ -102,7 +102,7 @@ Object {
     },
     Object {
       "cell": [Function],
-      "cellWidth": 10,
+      "cellWidth": 15,
       "header": [Function],
       "id": "total_capacity",
       "isSortable": true,
@@ -225,7 +225,7 @@ Object {
     },
     Object {
       "cell": [Function],
-      "cellWidth": 10,
+      "cellWidth": 15,
       "header": [Function],
       "id": "total_capacity",
       "isSortable": true,
