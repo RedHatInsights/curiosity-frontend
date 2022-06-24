@@ -4,6 +4,7 @@ import {
   RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_TYPES
 } from '../../types/rhsmApiTypes';
+import { RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES } from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Container config', () => {
   it('should apply hosts inventory configuration', () => {
@@ -50,11 +51,11 @@ describe('Product OpenShift Container config', () => {
       config;
 
     const inventoryData = {
-      productName: 'lorem',
-      serviceLevel: 'hello world',
-      nextEventDate: '2022-01-01T00:00:00.000Z',
-      totalCapacity: 2000,
-      hasInfiniteQuantity: true
+      [SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME]: 'lorem',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: 'hello world',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: '2022-01-01T00:00:00.000Z',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: 2000,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: true
     };
 
     const filteredInventoryData = parseRowCellsListData({
@@ -66,8 +67,8 @@ describe('Product OpenShift Container config', () => {
 
     const fallbackInventoryData = {
       ...inventoryData,
-      serviceLevel: null,
-      nextEventDate: null
+      [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: null,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: null
     };
 
     const fallbackFilteredInventoryData = parseRowCellsListData({
