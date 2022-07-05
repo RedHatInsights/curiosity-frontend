@@ -5,6 +5,7 @@ Contributing encompasses repository specific requirements and the global [Insigh
 Before developing you'll need to install:
  * [NodeJS and NPM](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/install/)
+   * Alternatively, you can try [Podman](https://github.com/containers/podman). [Homebrew](https://brew.sh/) can be used for the install `$ brew install podman`
  * And [Yarn](https://yarnpkg.com)
 
 ### OS Support
@@ -342,7 +343,7 @@ If you're having trouble getting an accurate code coverage report, or it's faili
 1. Start developing...
 
 ### Local Run Development Workflow
-1. Confirm you've installed all recommended tooling
+1. Confirm you've installed all recommended tooling, and it's running (Docker or alternative)
 1. Confirm the repository name has no blank spaces in it. If it does replace that blank with a dash or underscore, Docker has issues with unescaped parameter strings.
 1. Confirm you've installed resources through yarn
 1. Create a local dotenv file called `.env.local` and add the following contents
