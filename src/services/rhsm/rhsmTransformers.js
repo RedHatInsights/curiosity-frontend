@@ -53,6 +53,11 @@ const rhsmInstances = response => {
 };
 
 /**
+ * ToDo: Evaluate granularity alterations, transform logic is targeted at daily granularity
+ * Specifically, the "isCurrentDate" condition is targeted at daily. Weekly, monthly, and
+ * quarterly have not been tested, and may need logic adjustments for "isCurrentLikeDate".
+ */
+/**
  * Parse RHSM tally response for caching.
  *
  * @param {object} response
@@ -63,6 +68,7 @@ const rhsmTally = response => {
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
   const currentDate = moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY');
+  let futureDateCount = 0;
 
   updatedResponse.data = data.map(
     (
@@ -72,6 +78,10 @@ const rhsmTally = response => {
       const updatedDate = moment.utc(date);
       const isCurrentDate = updatedDate.format('MM-D-YYYY') === currentDate;
       const isFutureDate = updatedDate.diff(currentDate) > 0;
+
+      if (isFutureDate) {
+        futureDateCount += 1;
+      }
 
       return {
         x: index,
@@ -83,6 +93,20 @@ const rhsmTally = response => {
       };
     }
   );
+
+  /**
+   * Add an extra date to the first entry of the range to help Victory charts display.
+   */
+  if (futureDateCount === updatedResponse.data.length - 1) {
+    updatedResponse.data = [
+      {
+        ...updatedResponse.data[0],
+        x: 0,
+        isCurrentDate: false
+      },
+      ...updatedResponse.data
+    ].map((props, index) => ({ ...props, x: index }));
+  }
 
   updatedResponse.meta = {
     count: meta[TALLY_META_TYPES.COUNT],
