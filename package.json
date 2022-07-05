@@ -50,7 +50,7 @@
     ]
   },
   "scripts": {
-    "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/rhsm",
+    "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/rhsm -w ./src/services/platform",
     "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy-hosts": "bash ./scripts/proxy.api.sh",
     "build": "run-s -l build:pre build:js build:post test:integration",
