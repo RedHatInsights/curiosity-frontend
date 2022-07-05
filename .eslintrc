@@ -95,6 +95,7 @@
         ]
       }
     ],
+    "jsdoc/no-undefined-types": [1, { "definedTypes": ["html"] }],
     "jsdoc/require-param-description": 0,
     "jsdoc/require-property-description": 0,
     "jsdoc/require-returns-description": 0,
