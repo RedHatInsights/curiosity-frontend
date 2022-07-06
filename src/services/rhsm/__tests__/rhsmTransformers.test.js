@@ -97,6 +97,78 @@ describe('RHSM Transformers', () => {
 
     expect(rhsmTransformers.tally(dailyTallyResponse)).toMatchSnapshot('tally, daily like granularity');
 
+    const dailyTallyFirstMonthResponse = {
+      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-20T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.1,
+          [TALLY_DATA_TYPES.HAS_DATA]: true
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-21T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-22T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-23T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-24T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-25T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-26T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-27T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-28T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-29T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-30T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        },
+        {
+          [TALLY_DATA_TYPES.DATE]: '2019-07-31T00:00:00Z',
+          [TALLY_DATA_TYPES.VALUE]: 0.0,
+          [TALLY_DATA_TYPES.HAS_DATA]: false
+        }
+      ],
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+    };
+
+    const transformedDailyTallyFirstMonthResponse = rhsmTransformers.tally(dailyTallyFirstMonthResponse);
+
+    expect(dailyTallyFirstMonthResponse[rhsmConstants.RHSM_API_RESPONSE_DATA].length).toBe(12);
+    expect(transformedDailyTallyFirstMonthResponse.data.length).toBe(13);
+    expect(transformedDailyTallyFirstMonthResponse).toMatchSnapshot('tally, daily like first of month granularity');
+
     const monthlyTallyResponse = {
       [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
         {
