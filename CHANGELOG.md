@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.3.0...v2.4.0) (2022-07-11)
+
+
+### Features
+
+* **authenticationContext:** ent-4669 context, useSession hooks ([#915](https://github.com/RedHatInsights/curiosity-frontend/issues/915)) ([030471e](https://github.com/RedHatInsights/curiosity-frontend/commit/030471e43a23fdc7628f135f237f741d8101c469))
+* **config:** ent-3230 unlimited quantity subscriptions display ([#918](https://github.com/RedHatInsights/curiosity-frontend/issues/918)) ([2cbf32b](https://github.com/RedHatInsights/curiosity-frontend/commit/2cbf32bb241d1c831ad529a760e6ef9534c33053))
+* **helpers:** ent-4669 aggregate error ([#913](https://github.com/RedHatInsights/curiosity-frontend/issues/913)) ([ce343cc](https://github.com/RedHatInsights/curiosity-frontend/commit/ce343ccf7699a6cd5c8bb6ee32c034561ef40aaf))
+* **serviceConfig:** ent-4669 mock service calls via functions ([#879](https://github.com/RedHatInsights/curiosity-frontend/issues/879)) ([7b05675](https://github.com/RedHatInsights/curiosity-frontend/commit/7b056754cbfe1d8d0afb2200b3e83e13f03836a1))
+* **serviceConfig:** ent-4669 pass config for transformers ([#922](https://github.com/RedHatInsights/curiosity-frontend/issues/922)) ([3043f6b](https://github.com/RedHatInsights/curiosity-frontend/commit/3043f6b9d11f71fd311622b7b6cdc39576068f81))
+* **serviceConfig:** ent-4669 timeout for emulated call ([#913](https://github.com/RedHatInsights/curiosity-frontend/issues/913)) ([18a4158](https://github.com/RedHatInsights/curiosity-frontend/commit/18a4158747844e4e1b52cbd086c3574d70b6a35c))
+
+
+### Bug Fixes
+
+* **authenticationContext:** ent-4669 pass errorStatus correctly ([#919](https://github.com/RedHatInsights/curiosity-frontend/issues/919)) ([86b4efd](https://github.com/RedHatInsights/curiosity-frontend/commit/86b4efd0d356fe8137ea3bea97d82176799c0316))
+* **build:** npm updates ([#912](https://github.com/RedHatInsights/curiosity-frontend/issues/912)) ([fef62d1](https://github.com/RedHatInsights/curiosity-frontend/commit/fef62d1402b554e84191154c9e78ef5f3b7300c0))
+* **config:** ent-3230 unlimited quantity, use aria-label ([#924](https://github.com/RedHatInsights/curiosity-frontend/issues/924)) ([af58911](https://github.com/RedHatInsights/curiosity-frontend/commit/af58911f201a0de12de561fef58586d2303b262f))
+* **inventoryCardSubscriptions:** clean up props, inventory tests ([#922](https://github.com/RedHatInsights/curiosity-frontend/issues/922)) ([90125a4](https://github.com/RedHatInsights/curiosity-frontend/commit/90125a48885ba09839c9fbf9f9ecfc046fc9453a))
+* **pageHeader:** clean up unused take a tour ([#922](https://github.com/RedHatInsights/curiosity-frontend/issues/922)) ([d55032d](https://github.com/RedHatInsights/curiosity-frontend/commit/d55032dfd943a00e0740b594a5ae50f86a020678))
+* **serviceConfig:** caching reset on config update ([#879](https://github.com/RedHatInsights/curiosity-frontend/issues/879)) ([c40b205](https://github.com/RedHatInsights/curiosity-frontend/commit/c40b205fee1599e450b736ed4a033c0e22ebc2a9))
+* **serviceConfig:** ent-4869 empty, null distinction ([#917](https://github.com/RedHatInsights/curiosity-frontend/issues/917)) ([61b956f](https://github.com/RedHatInsights/curiosity-frontend/commit/61b956f8e1fc1e24ef2c53e88222870926373c6e))
+* **styling:** hide header expand collapse icon ([#916](https://github.com/RedHatInsights/curiosity-frontend/issues/916)) ([d01baa1](https://github.com/RedHatInsights/curiosity-frontend/commit/d01baa124ccddb36de52bee60832aa6434184adb))
+
+
+### Code Refactoring
+
+* **platform,userServices:** ent-4669 restructure dir ([#879](https://github.com/RedHatInsights/curiosity-frontend/issues/879)) ([6351502](https://github.com/RedHatInsights/curiosity-frontend/commit/6351502783e4afbfcb7bc661f5bef5adbaa96fc7))
+* **services:** ent-4669 move config to serviceConfig ([#909](https://github.com/RedHatInsights/curiosity-frontend/issues/909)) ([e90b0c6](https://github.com/RedHatInsights/curiosity-frontend/commit/e90b0c6aa4ea8368c9920886f73493fbd1f08790))
+* **useReactRedux:** ent-4669 expand useSelectorsResponse ([#916](https://github.com/RedHatInsights/curiosity-frontend/issues/916)) ([19be673](https://github.com/RedHatInsights/curiosity-frontend/commit/19be673a4e8888f543a5ec1313d3d571b6e75c54))
+* **userServices:** ent-4669 locale func ([#913](https://github.com/RedHatInsights/curiosity-frontend/issues/913)) ([ac3e273](https://github.com/RedHatInsights/curiosity-frontend/commit/ac3e2734783ab5c57347d17cbc131c4525af5f17))
+
 ## [2.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.2.1...v2.3.0) (2022-03-08)
 
 
