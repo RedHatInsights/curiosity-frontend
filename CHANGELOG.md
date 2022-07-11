@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.4.0...v2.5.0) (2022-07-11)
+
+
+### Features
+
+* **rhosak:** ent-4689 activate billing provider ([#894](https://github.com/RedHatInsights/curiosity-frontend/issues/894)) ([d5ab3cc](https://github.com/RedHatInsights/curiosity-frontend/commit/d5ab3cca17e9024ff7da187f1ba8a9a08f510b2a))
+* **toolbarFieldBillingProvider:** ent-4689 select, services ([#893](https://github.com/RedHatInsights/curiosity-frontend/issues/893)) ([00a52f7](https://github.com/RedHatInsights/curiosity-frontend/commit/00a52f7f0a5b7adaea4936306139aa784530ba56))
+
+
+### Bug Fixes
+
+* **i18n:** ent-5022 allow empty string context value ([#939](https://github.com/RedHatInsights/curiosity-frontend/issues/939)) ([913c98d](https://github.com/RedHatInsights/curiosity-frontend/commit/913c98d419789b8ac3ab346255c1d61b1734b8a8))
+* **inventoryCard:** ent-5022 pass meta response for configs ([#939](https://github.com/RedHatInsights/curiosity-frontend/issues/939)) ([15f2ea1](https://github.com/RedHatInsights/curiosity-frontend/commit/15f2ea1ba747fbc07ec7bd5ef60110073d233a61))
+* **rhosak:** ent-4689 convert non-metric ([#893](https://github.com/RedHatInsights/curiosity-frontend/issues/893)) ([42e23a9](https://github.com/RedHatInsights/curiosity-frontend/commit/42e23a92038c0daf4d70b83cfa9ea08a4492b609))
+* **rhosak:** ent-4689 none, unknown billing provider ([#936](https://github.com/RedHatInsights/curiosity-frontend/issues/936)) ([0f8ea3b](https://github.com/RedHatInsights/curiosity-frontend/commit/0f8ea3b1b5625e6cbd1500c2cf85832cc4241640))
+* **rhosak:** ent-4982 activate sort, storage GiB months ([#945](https://github.com/RedHatInsights/curiosity-frontend/issues/945)) ([59c2c1d](https://github.com/RedHatInsights/curiosity-frontend/commit/59c2c1d79ace8101da5dbb2f91a49343f06912b9))
+* **rhosak:** ent-4982 storage GiB as GB hours to months ([#934](https://github.com/RedHatInsights/curiosity-frontend/issues/934)) ([50c0faa](https://github.com/RedHatInsights/curiosity-frontend/commit/50c0faabf90a6e9ff5e76d9f5105e4d9e9a43d39))
+* **rhosak:** ent-4982 storage GiB as GB hours to months ([#943](https://github.com/RedHatInsights/curiosity-frontend/issues/943)) ([b412022](https://github.com/RedHatInsights/curiosity-frontend/commit/b412022103cd944bb4eaba6e4fe035a239bbb5bd))
+* **rhosak:** ent-5022 subscription type column activated ([#939](https://github.com/RedHatInsights/curiosity-frontend/issues/939)) ([9267833](https://github.com/RedHatInsights/curiosity-frontend/commit/9267833f3b43c656710abfedf60d4403cf1f5bcc))
+* **rhsmTransformers:** ent-5121 hide graph future dates ([#948](https://github.com/RedHatInsights/curiosity-frontend/issues/948)) ([c995348](https://github.com/RedHatInsights/curiosity-frontend/commit/c99534804bbf1c81f37bc1f62eed7c9699ef8f0c))
+* **toolbarFieldBillingProvider:** ent-4689 tally query ([#894](https://github.com/RedHatInsights/curiosity-frontend/issues/894)) ([1929289](https://github.com/RedHatInsights/curiosity-frontend/commit/1929289c5943979bcce6824db915e836c115ac71))
+
+
+### Build
+
+* **dev,proxy,prod:** remove unused html template ([#937](https://github.com/RedHatInsights/curiosity-frontend/issues/937)) ([8a2de47](https://github.com/RedHatInsights/curiosity-frontend/commit/8a2de47d96de99ee6a990f26e568a7223f557696))
+
+
+### Code Refactoring
+
+* **authentication:** ent-4899 align hook components ([#921](https://github.com/RedHatInsights/curiosity-frontend/issues/921)) ([5eaf380](https://github.com/RedHatInsights/curiosity-frontend/commit/5eaf3809450457efae3890fffd3aa93a9abb747c))
+* **bannerMessages:** ent-4899 align hook components ([#926](https://github.com/RedHatInsights/curiosity-frontend/issues/926)) ([69fafd3](https://github.com/RedHatInsights/curiosity-frontend/commit/69fafd3a075b9ee295836a09969108f20f8656e1))
+* **inventoryCardSubscriptions:** ent-5129 camel to snake ([#949](https://github.com/RedHatInsights/curiosity-frontend/issues/949)) ([b0f23bc](https://github.com/RedHatInsights/curiosity-frontend/commit/b0f23bc9aea8d0d253f397486b3037f8eabd0c43))
+
 ## [2.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.3.0...v2.4.0) (2022-07-11)
 
 
