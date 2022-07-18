@@ -64,49 +64,72 @@ For Github issues that looks like
 Settings for [Standard Version](https://github.com/conventional-changelog/standard-version#readme) can be found in [package.json](./package.json)
 
 ### Branching, Pull Requests, and Releases
-Curiosity makes use of the branches `main`, `stage`, `qa`, and `ci`. 
-- `main` branch is a protected representation of production environments
-   - Adding commits, or a PR, into `main` should generate a `prod-stable` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `prod-stable` branch is manually deployed through coordination with the operations team.
-- `stage` branch is a protected representation of production environments
-   - Adding commits, or a PR, into `stage` should generate a `prod-beta` branch within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `prod-beta` branch is manually deployed through coordination with the operations team.
-- `qa` branch is a representation of `ci-stable`, `qa-stable` and `stage-stable`.
-   - Adding commits, or a PR, into `ci-stable` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for `https://ci.*.redhat.com`, `https://qa.*.redhat.com` and `https://*.stage.redhat.com`
-   - In the future, once the API is fully deployed to QA, this will be a representation of `qa-beta` and `qa-stable`
-- `ci` branch is a representation of `ci-beta`, `qa-beta` and `stage-beta`.
-   - Adding commits, or a PR, into `ci-beta` should generate `ci-*` and `qa-*` branches within the deploy repository [curiosity-frontend-build](https://github.com/RedHatInsights/curiosity-frontend-build)
-   - The `ci-*` and `qa-*` branches are automatically deployed within an averaged time for `https://ci.*.redhat.com`, `https://qa.*.redhat.com` and  `https://*.stage.redhat.com`
-   - In the future, once the API is fully deployed to QA, this will be a representation of `ci-beta` and `ci-stable`
+Curiosity makes use of the branches `dev`, `main`.
+- `dev` (formerly `ci`) branch is **NOW** a representation of `stage-beta`.
+   - The `dev` branch is automatically deployed within an averaged time for `https://console.stage.redhat.com/beta`
+   - The release to `stage-beta` will be discontinued in the future.
+- `main` (formerly `prod`) branch is **NOW** a representation of `stage-stable`, `prod-beta`, and `prod-stable`.
+   - The `main` branch is automatically deployed within an averaged time for `https://console.stage.redhat.com/[env]` and `https://console.redhat.com/[env]`
+   - `prod-beta` is accessed through release candidate tagging
+   - `prod-stable` is accessed through release tagging and a commit message in the form of `chore(release): [version number]`
+  
 
 #### Branching and Pull Request Workflow
 It is required that all work is handled through GitHub's fork and pull workflow. 
 
 **Working directly on the main repository is highly discouraged. Continuous Integration is dependent on branch structure.**
 
-1. General development PRs should almost always be opened against the `ci` branch.
-1. It is preferred that PRs to `qa` originate from `ci`, but testing related fixes and general PRs opened against `qa` are allowed.
-1  PRs from `ci` to `qa` are allowed
-1. PRs from `qa` to `stage` are preferred.
-1. PRs to `stage` require a QE team members approval/sign-off.
-1. PRs to `main` are only allowed from `stage`.
-1. PRs to `main` branch are considered production ready releases.
-1. Development or testing PRs opened against main, unless a team agreed exception occurs, will be closed.
-1. All PRs to production, main branch, should have a final review, coordination, from Quality Engineering.
+1. Development PRs should be opened gainst the `dev` branch.
+1  PRs from `dev` to `main` are allowed
+   - PRs to `main` should originate from `dev`
+   - Patch PRs opened against `main` are allowed, but development PRs opened against `main`, unless a team agreed exception occurs, will be closed.
+   - Release candidate tagging requires a Quality Engineering team member's approval/sign-off.
+   - Release tagging and committing requires a Quality Engineering team member's approval/sign-off.
 
 ```
-   PR fork -> ci <-> qa -> stage -> main
+   PR fork -> dev <-> main
 ```
 
 ### Releases and Tagging
-1. Merging a PR into `main` is considered production ready.
-1. Merging a PR into `main` doesn't require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
-1. Running `$ yarn release` after commits are merged into `main` generates the release commit and [CHANGELOG.md](./CHANGELOG.md). You may need to update/pull tags prior to running this command. This commit should be pushed towards `main`. This release commit is currently used as a purposeful block and may be automated in the future. [The commit message is recognized in the release script](./.travis/custom_release.sh#L41). This commit format controls when files are pushed towards production stable, and gives development a fallback when something goes wrong.
-1. Tagging and `CHANGELOG.md` updates should be coordinated against a consistent release cycle, and can take place at an independent time.
-1. Tagging should make use of semver.
-1. Manipulating tags against commits directly should be avoided in favor of a semantic version increment, iteration.
-1. Once a release commit and tag have been implemented `stage`, `qa`, and `ci` will be rebased accordingly.
+#### Release process
+##### Guidelines
+1. Merging a PR into `main` does not require tagging and [CHANGELOG.md](./CHANGELOG.md) updates.
+2. Tagging and [CHANGELOG.md](./CHANGELOG.md) updates should be coordinated against a consistent release cycle, and can take place at an independent time.
+3. Tagging should make use of semver, use existing tags as a base for new tags.
+4. Manipulating already-created tags against commits directly should be avoided in favor of a semantic version increment and iteration.
+   - Having multiple release candidate tag versions is not bad
+6. Tagging a release candidate commit in `main` is considered production ready. 
+7. Creating and tagging a release commit in `main` is considered production ready.
+8. Once a release commit, and tag, have been implemented from `main`, `dev` will be synced accordingly.
+
+##### General process
+1. PR is merged into `main`
+2. QE and automation perform approvals, validation
+3. After QE and automation approvals, 3 paths are available for release to production via tagging
+   - Do nothing, continue development on `dev`
+   - or `v[x].[x].[x]-rc.[x]`, release candidate tag which releases to `prod-beta`
+   - or `v[x].[x].[x]`, an actual release tag and commit, which release to `prod-stable`
+
+###### Release candidates, prod-beta
+1. Make sure your local repo is up-to-date, and you're on the `main` branch. This includes having your tags updated.
+2. Run the command `$ yarn release:rc` which should output a console log with the estimated `rc` tag with version.
+3. Create a tag from the output using the format `v[x].[x].[x]-rc.[x]`
+   - The preferred way of creating tags is from the `main` branch using the GitHub interface. This avoids the scenario of making sure your local repo is up-to-date, and provides additional confirmation the tag doesn't already exist.
+4. Next automation takes over, and the following things happen
+   - `prod-beta` is released via Travis
+
+###### Release, prod-stable
+1. Make sure your local repo is up-to-date, and you're on the `main` branch. This includes having your tags updated.
+2. Run the command `$ yarn release` which will generate a release commit containing updates to `package.json` and [CHANGELOG.md](./CHANGELOG.md)
+3. Push this commit up to the `main` branch
+4. Create a tag from the console output using the format `v[x].[x].[x]`
+   - The preferred way of creating tags is from the `main` branch using the GitHub interface. This avoids the scenario of making sure your local repo is up-to-date, and provides additional confirmation the tag doesn't already exist.
+5. Next automation takes over and the following things happen
+   - `prod-stable` is released via Travis
+   - `prod-beta` is refreshed via Travis
+   - `stage-stable` is refreshed via Travis
+6. Once automation is complete the `main` branch will be synced towards the `dev` branch.
+
 
 ## Serving content, or getting everything to run in your local environment.
 To serve content you'll need to have Docker, Node, and Yarn installed.
