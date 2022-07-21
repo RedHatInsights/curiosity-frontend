@@ -63,6 +63,7 @@
     "build:prod": "run-s build:ephemeral",
     "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
     "release": "standard-version",
+    "release:rc": "standard-version --prerelease rc --dry-run",
     "start": "run-p -l api:dev start:js",
     "start:js": "export NODE_ENV=development; webpack serve --config config/webpack.dev.config.js",
     "start:js-proxy": "export NODE_ENV=development; webpack serve --config config/webpack.proxy.config.js",

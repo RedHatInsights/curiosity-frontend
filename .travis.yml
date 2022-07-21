@@ -17,11 +17,11 @@ jobs:
       script: yarn test
       after_success: codecov
     - stage: Beta Deploy
-      if: branch IN (stage, dev, ci)
+      if: branch IN (master, main, prod, dev) OR tag IS present
       script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
         | bash -s
     - stage: Stable Deploy
-      if: branch IN (master, main, prod, test, qa)
+      if: branch IN (master, main, prod) OR tag IS present
       script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
         | bash -s
 env:
