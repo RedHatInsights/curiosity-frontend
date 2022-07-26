@@ -108,6 +108,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     isCreatable={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
+    isFlipEnabled={false}
     isGrouped={false}
     isInputFilterPersisted={false}
     isInputValuePersisted={false}
@@ -127,9 +128,11 @@ exports[`Select Component should allow being disabled with missing options: no o
     position="left"
     removeSelectionAriaLabel="Remove"
     selections={Array []}
+    shouldResetOnSelect={true}
     toggleAriaLabel="Options menu"
     toggleIcon={null}
     toggleId={null}
+    typeAheadAriaDescribedby=""
     typeAheadAriaLabel=""
     validated="default"
     variant="single"
@@ -164,6 +167,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     isCreatable={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
+    isFlipEnabled={false}
     isGrouped={false}
     isInputFilterPersisted={false}
     isInputValuePersisted={false}
@@ -183,9 +187,11 @@ exports[`Select Component should allow being disabled with missing options: opti
     position="left"
     removeSelectionAriaLabel="Remove"
     selections={Array []}
+    shouldResetOnSelect={true}
     toggleAriaLabel="Options menu"
     toggleIcon={null}
     toggleId={null}
+    typeAheadAriaDescribedby=""
     typeAheadAriaLabel=""
     validated="default"
     variant="single"
@@ -317,6 +323,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     isCreatable={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
+    isFlipEnabled={false}
     isGrouped={false}
     isInputFilterPersisted={false}
     isInputValuePersisted={false}
@@ -336,9 +343,11 @@ exports[`Select Component should allow being disabled with missing options: opti
     position="left"
     removeSelectionAriaLabel="Remove"
     selections={Array []}
+    shouldResetOnSelect={true}
     toggleAriaLabel="Options menu"
     toggleIcon={null}
     toggleId={null}
+    typeAheadAriaDescribedby=""
     typeAheadAriaLabel=""
     validated="default"
     variant="single"
@@ -462,9 +471,9 @@ exports[`Select Component should render a basic component: basic component 1`] =
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-label="Options menu"
-      aria-labelledby=" pf-select-toggle-id-2"
+      aria-labelledby=" pf-select-toggle-id-1"
       class="pf-c-select__toggle"
-      id="pf-select-toggle-id-2"
+      id="pf-select-toggle-id-1"
       type="button"
     >
       <div
@@ -511,9 +520,9 @@ exports[`Select Component should render a checkbox select: checkbox select 1`] =
     <button
       aria-expanded="false"
       aria-label="Options menu"
-      aria-labelledby=" pf-select-toggle-id-5"
+      aria-labelledby=" pf-select-toggle-id-3"
       class="pf-c-select__toggle"
-      id="pf-select-toggle-id-5"
+      id="pf-select-toggle-id-3"
       type="button"
     >
       <div

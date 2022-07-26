@@ -8,6 +8,10 @@
   YELLOW="\e[33m"
   NOCOLOR="\e[39m"
 
+  echo "Reset existing build dependencies..."
+  rm -rf -- ./node_modules
+  yarn install
+
   echo "Confirm and update build dependencies..."
 
   DEPS_UPDATE=$(ncu "$@");
