@@ -126,7 +126,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
       <line
         role="presentation"
         shape-rendering="auto"
-        style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+        style="stroke:var(--pf-chart-axis--axis--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--axis--Fill, transparent);stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
         vector-effect="non-scaling-stroke"
         x1="50"
         x2="400"
@@ -139,7 +139,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="120"
           x2="120"
@@ -156,7 +156,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="120"
           >
@@ -170,7 +170,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="190"
           x2="190"
@@ -187,7 +187,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="190"
           >
@@ -201,7 +201,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="260"
           x2="260"
@@ -218,7 +218,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="260"
           >
@@ -232,7 +232,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="330"
           x2="330"
@@ -249,7 +249,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="330"
           >
@@ -263,7 +263,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="400"
           x2="400"
@@ -280,7 +280,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="400"
           >
@@ -295,7 +295,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
       <line
         role="presentation"
         shape-rendering="auto"
-        style="stroke:#d2d2d2;fill:transparent;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+        style="stroke:var(--pf-chart-axis--axis--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--axis--Fill, transparent);stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
         vector-effect="non-scaling-stroke"
         x1="50"
         x2="50"
@@ -308,7 +308,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="45"
@@ -325,7 +325,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -339,7 +339,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="45"
@@ -356,7 +356,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -370,7 +370,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="45"
@@ -387,7 +387,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -401,7 +401,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="45"
@@ -418,7 +418,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -432,7 +432,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
         <line
           role="presentation"
           shape-rendering="auto"
-          style="stroke:#d2d2d2;fill:transparent;size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
+          style="stroke:var(--pf-chart-axis--tick--stroke--Color, #d2d2d2);fill:var(--pf-chart-axis--tick--Fill, transparent);size:5px;stroke-linecap:round;stroke-linejoin:round;stroke-width:1"
           vector-effect="non-scaling-stroke"
           x1="50"
           x2="45"
@@ -449,7 +449,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:transparent;fill:#4f5255"
+            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
