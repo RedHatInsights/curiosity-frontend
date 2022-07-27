@@ -137,7 +137,7 @@ const useToolbarSecondaryFields = ({
       ({ value: categoryOptionValue }) => id === categoryOptionValue
     );
 
-    return <OptionComponent isFilter={false} position={SelectPosition.right} />;
+    return <OptionComponent key={`option-${id}`} isFilter={false} position={SelectPosition.right} />;
   });
 };
 
