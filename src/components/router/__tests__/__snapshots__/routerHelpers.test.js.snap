@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RouterHelpers should apply a simple pathJoin helper: double forward slash 1`] = `"//hello/world/lorem/ipsum/dolor"`;
+
+exports[`RouterHelpers should apply a simple pathJoin helper: forward slashes everywhere 1`] = `"//hello/world/lorem/ipsum/dolor"`;
+
+exports[`RouterHelpers should apply a simple pathJoin helper: single forward slash 1`] = `"/hello/world/lorem/ipsum/dolor/"`;
+
+exports[`RouterHelpers should apply a simple pathJoin helper: triple forward slash 1`] = `"//hello/world/lorem/ipsum/dolor"`;
+
 exports[`RouterHelpers should handle location search and hash passthrough values: NO search and hash 1`] = `
 Object {
   "routeHref": "/rhel",
@@ -161,6 +169,7 @@ Object {
   "getRouteConfig": [Function],
   "getRouteConfigByPath": [Function],
   "importView": [Function],
+  "pathJoin": [Function],
   "platformLandingRedirect": "/",
   "platformModalRedirect": "/?not_entitled=subscriptions",
   "productGroups": Object {

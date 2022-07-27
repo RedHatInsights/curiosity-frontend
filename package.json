@@ -49,8 +49,20 @@
       }
     ]
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "scripts": {
-    "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/rhsm -w ./src/services/platform",
+    "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/rhsm",
     "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy-hosts": "bash ./scripts/proxy.api.sh",
     "build": "run-s -l build:pre build:js build:post test:integration",
@@ -64,10 +76,13 @@
     "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
     "release": "standard-version",
     "release:rc": "standard-version --prerelease rc --dry-run",
-    "start": "run-p -l api:dev start:js",
+    "start": "run-p -l api:dev start:standalone",
+    "start:deprecated": "run-p -l api:dev start:js",
     "start:js": "export NODE_ENV=development; webpack serve --config config/webpack.dev.config.js",
     "start:js-proxy": "export NODE_ENV=development; webpack serve --config config/webpack.proxy.config.js",
+    "start:rs": "react-scripts start",
     "start:proxy": "run-s -l api:proxy-hosts start:js-proxy",
+    "start:standalone": "export NODE_ENV=development; run-s start:rs",
     "test": "export NODE_ENV=test; run-s test:spell* test:lint test:ci",
     "test:ci": "export CI=true; jest ./src --coverage",
     "test:ci-ephemeral": "export CI=true; TZ=UTC jest ./src --coverage --no-cache",
@@ -162,6 +177,7 @@
     "npm-check-updates": "^16.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
+    "react-scripts": "^5.0.1",
     "redux-mock-store": "^1.5.4",
     "standard-version": "^9.5.0",
     "swagger-ui-express": "^4.5.0",

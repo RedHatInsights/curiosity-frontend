@@ -5,9 +5,6 @@
  */
 const setDevRoutes = () => ({
   routes: {
-    '/auth': {
-      host: `http://localhost:5000`
-    },
     '/api/rhsm-subscriptions': {
       host: `http://localhost:5000`
     }

@@ -6,7 +6,12 @@ import { reduxActions, storeHooks } from './redux';
 import { I18n } from './components/i18n/i18n';
 import { Router } from './components/router';
 import Authentication from './components/authentication/authentication';
+import { helpers } from './common';
 
+/**
+ * ToDo: Investigate replacing NotificationsPortal
+ * NotificationsPortal takes down the entire app when the parent Redux store is unavailable.
+ */
 /**
  * Application
  *
@@ -19,14 +24,19 @@ import Authentication from './components/authentication/authentication';
 const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSelector }) => {
   const dispatch = useAliasDispatch();
   const { value: locale } = useAliasSelector(({ user }) => user?.locale?.data, {});
+  let platformNotifications = null;
 
   useMount(() => {
     dispatch(getLocale());
   });
 
+  if (!helpers.UI_DISABLED_NOTIFICATIONS) {
+    platformNotifications = <NotificationsPortal />;
+  }
+
   return (
     <I18n locale={locale || null}>
-      <NotificationsPortal />
+      {platformNotifications}
       <Authentication>
         <Router />
       </Authentication>
