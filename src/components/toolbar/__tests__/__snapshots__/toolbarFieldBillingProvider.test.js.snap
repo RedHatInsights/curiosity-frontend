@@ -12,11 +12,6 @@ Array [
     "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"aws\\"})",
     "value": "aws",
   },
-  Object {
-    "selected": false,
-    "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"none\\"})",
-    "value": "",
-  },
 ]
 `;
 
@@ -80,11 +75,6 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
         "selected": true,
         "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"aws\\"})",
         "value": "aws",
-      },
-      Object {
-        "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {\\"context\\":\\"none\\"})",
-        "value": "",
       },
     ]
   }
