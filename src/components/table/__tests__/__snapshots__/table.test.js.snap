@@ -10,7 +10,7 @@ exports[`Table Component should allow expandable content: expandable content 1`]
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -85,7 +85,7 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -160,7 +160,7 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -229,7 +229,7 @@ exports[`Table Component should allow sortable content: sorted column callback 1
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -319,7 +319,7 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
     <Table
       aria-label="lorem ipsum aria-label"
       borders={false}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -381,7 +381,7 @@ exports[`Table Component should allow variations in table layout: borders and ta
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={false}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -443,7 +443,7 @@ exports[`Table Component should allow variations in table layout: className and 
     <Table
       aria-label="lorem ipsum aria-label"
       borders={false}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -505,7 +505,7 @@ exports[`Table Component should allow variations in table layout: generated rows
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -568,7 +568,7 @@ exports[`Table Component should pass child components, nodes when there are no r
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
@@ -615,7 +615,7 @@ exports[`Table Component should render a non-connected component: non-connected 
     <Table
       aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
       borders={true}
-      canCollapseAll={true}
+      canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={

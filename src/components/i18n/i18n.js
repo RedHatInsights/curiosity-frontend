@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
-import XHR from 'i18next-xhr-backend';
+import XHR from 'i18next-http-backend';
 import { initReactI18next, Trans } from 'react-i18next';
 import { useMount } from 'react-use';
 import { helpers } from '../../common/helpers';
