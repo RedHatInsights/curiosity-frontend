@@ -1,0 +1,23 @@
+.mock-header {
+  min-height: 4.25rem;
+  background-color: var(--pf-global--BackgroundColor--dark-100);
+}
+
+section.pf-l-page-header {
+  margin: 1.25rem;
+}
+
+.pf-c-page__main-section.curiosity  {
+  background-color: var(--pf-global--BackgroundColor--light-300);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
