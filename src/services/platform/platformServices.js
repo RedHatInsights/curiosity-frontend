@@ -10,23 +10,6 @@ import {
 } from './platformConstants';
 
 /**
- * @api {get} /auth/realms/redhat-external/protocol/openid-connect/3p-cookies/step1.html
- * @apiDescription Mock keycloak bypass
- *
- * @apiSuccessExample {html} Success-Response:
- *     HTTP/1.1 200 OK
- *     <!DOCTYPE html>
- *     <html>
- *       <body>
- *         <script>
- *           document.cookie = "KEYCLOAK_3P_COOKIE_SAMESITE=; expires=Thu, 01 Jan 1970 00:00:00 GMT; secure"
- *           document.cookie = "KEYCLOAK_3P_COOKIE=; expires=Thu, 01 Jan 1970 00:00:00 GMT"
- *           window.parent.postMessage("supported", "*")
- *         </script>
- *       </body>
- *     </html>
- */
-/**
  * Basic user authentication.
  *
  * @param {object} options

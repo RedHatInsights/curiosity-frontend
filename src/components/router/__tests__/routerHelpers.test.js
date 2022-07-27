@@ -4,7 +4,8 @@ import {
   dynamicBasePath,
   getErrorRoute,
   getRouteConfig,
-  getRouteConfigByPath
+  getRouteConfigByPath,
+  pathJoin
 } from '../routerHelpers';
 import { routes } from '../../../config/routes';
 
@@ -105,6 +106,15 @@ describe('RouterHelpers', () => {
         appName: 'appName'
       })
     ).toMatchSnapshot('insights, beta app lorem route name base path');
+  });
+
+  it('should apply a simple pathJoin helper', () => {
+    expect(pathJoin('/hello', 'world', 'lorem/', 'ipsum', '/dolor/')).toMatchSnapshot('single forward slash');
+    expect(pathJoin('//hello', '/world', '/lorem/', 'ipsum', '/dolor')).toMatchSnapshot('double forward slash');
+    expect(pathJoin('///hello', '/world', '//lorem/', 'ipsum', '//dolor')).toMatchSnapshot('triple forward slash');
+    expect(pathJoin('/////hello', '///world////', '///////lorem///', 'ipsum', '///dolor')).toMatchSnapshot(
+      'forward slashes everywhere'
+    );
   });
 
   it('should return an error route', () => {

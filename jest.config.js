@@ -6,6 +6,7 @@ module.exports = {
     '!src/app.js',
     '!src/bootstrap.js',
     '!src/entry.js',
+    '!src/index.js',
     '!src/components/**/index.js',
     '!src/common/index.js',
     '!src/redux/index.js',

@@ -1,5 +1,4 @@
 import React from 'react';
-import path from 'path';
 import { helpers } from '../../common/helpers';
 import { routesConfig } from '../../config';
 
@@ -15,14 +14,14 @@ const appName = helpers.UI_NAME;
  *
  * @returns {Array}
  */
-const platformLandingRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/');
+const platformLandingRedirect = `${helpers.UI_DEPLOY_PATH_PREFIX || ''}/`;
 
 /**
  * Return a string that describes a platform redirect.
  *
  * @returns {Array}
  */
-const platformModalRedirect = path.join(helpers.UI_DEPLOY_PATH_PREFIX, '/?not_entitled=subscriptions');
+const platformModalRedirect = `${helpers.UI_DEPLOY_PATH_PREFIX || ''}/?not_entitled=subscriptions`;
 
 /**
  * Return an assumed route baseName directory based on existing app name.
@@ -61,6 +60,28 @@ const dynamicBasePath = ({ pathName = window.location.pathname, appName: applica
  * @type {string}
  */
 const basePath = (helpers.TEST_MODE && '/') || dynamicBasePath();
+
+/**
+ * Basic path join, minor emulation for path.join.
+ *
+ * @param {object} paths
+ * @returns {string}
+ */
+const pathJoin = (...paths) => {
+  let updatedPath = Array.from(paths);
+  const hasLead = /^\/\//.test(updatedPath[0]);
+  updatedPath = updatedPath
+    .join('/')
+    .replace(/(\/\/)+/g, '~')
+    .replace(/~/g, '/')
+    .replace(/\/\//g, '/');
+
+  if (hasLead) {
+    updatedPath = `/${updatedPath}`;
+  }
+
+  return updatedPath;
+};
 
 /**
  * Generate product groups for applying query filter resets.
@@ -254,6 +275,7 @@ const routerHelpers = {
   getRouteConfig,
   getRouteConfigByPath,
   importView,
+  pathJoin,
   platformLandingRedirect,
   platformModalRedirect,
   productGroups,
@@ -275,6 +297,7 @@ export {
   getRouteConfig,
   getRouteConfigByPath,
   importView,
+  pathJoin,
   platformLandingRedirect,
   platformModalRedirect,
   productGroups,

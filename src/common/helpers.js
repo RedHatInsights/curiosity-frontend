@@ -160,6 +160,14 @@ const UI_DISABLED = process.env.REACT_APP_UI_DISABLED === 'true';
 const UI_DISABLED_GRAPH = process.env.REACT_APP_UI_DISABLED_GRAPH === 'true';
 
 /**
+ * Disable platform notifications.
+ * See dotenv config files for activation.
+ *
+ * @type {boolean}
+ */
+const UI_DISABLED_NOTIFICATIONS = process.env.REACT_APP_UI_DISABLED_NOTIFICATIONS === 'true';
+
+/**
  * Disable the inventory/table aspect of the UI.
  * See dotenv config files for activation.
  *
@@ -337,6 +345,7 @@ const helpers = {
   UI_DEPLOY_PATH_PREFIX,
   UI_DISABLED,
   UI_DISABLED_GRAPH,
+  UI_DISABLED_NOTIFICATIONS,
   UI_DISABLED_TABLE,
   UI_DISABLED_TABLE_HOSTS,
   UI_DISABLED_TABLE_INSTANCES,

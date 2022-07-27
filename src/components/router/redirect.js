@@ -1,8 +1,7 @@
-import path from 'path';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Router } from './router';
-import { routerHelpers } from './routerHelpers';
+import { pathJoin, routerHelpers } from './routerHelpers';
 import { helpers } from '../../common';
 /**
  * A routing redirect.
@@ -22,7 +21,7 @@ const Redirect = ({ isForced, route, routes, url }) => {
    */
   const forceNavigation = () => {
     const { hash = '', search = '' } = window.location;
-    const forcePath = url || (route && `${path.join(baseName, route)}${search}${hash}`);
+    const forcePath = url || (route && `${pathJoin(baseName, route)}${search}${hash}`);
 
     window.location.replace(forcePath);
   };
