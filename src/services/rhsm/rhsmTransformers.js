@@ -67,7 +67,8 @@ const rhsmTally = response => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
-  const currentDate = moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY');
+  const currentDate = moment.utc(dateHelpers.getCurrentDate());
+  const currentDateStr = moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY');
   let futureDateCount = 0;
 
   updatedResponse.data = data.map(
@@ -76,10 +77,10 @@ const rhsmTally = response => {
       index
     ) => {
       const updatedDate = moment.utc(date);
-      const isCurrentDate = updatedDate.format('MM-D-YYYY') === currentDate;
+      const isCurrentDate = updatedDate.format('MM-D-YYYY') === currentDateStr;
       const isFutureDate = updatedDate.diff(currentDate) > 0;
 
-      if (isFutureDate) {
+      if (isFutureDate && !isCurrentDate) {
         futureDateCount += 1;
       }
 
