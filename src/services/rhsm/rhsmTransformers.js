@@ -6,7 +6,7 @@ import {
   RHSM_API_RESPONSE_TALLY_META_TYPES as TALLY_META_TYPES,
   rhsmConstants
 } from './rhsmConstants';
-import { dateHelpers } from '../../common';
+import { dateHelpers, helpers } from '../../common';
 
 /**
  * FixMe: If RHSM Instances is deprecating Hosts we're missing a property, number_of_guests
@@ -125,5 +125,15 @@ const rhsmTransformers = {
   instances: rhsmInstances,
   tally: rhsmTally
 };
+
+helpers.browserExpose(
+  {
+    rhsmTransformers: {
+      ...rhsmTransformers,
+      currentData: moment.utc(dateHelpers.getCurrentDate()).format('MM-D-YYYY')
+    }
+  },
+  { limit: false }
+);
 
 export { rhsmTransformers as default, rhsmTransformers, rhsmInstances, rhsmTally };

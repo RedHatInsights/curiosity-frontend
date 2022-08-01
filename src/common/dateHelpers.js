@@ -195,7 +195,7 @@ const dateHelpers = {
   timestampUTCTimeFormats
 };
 
-helpers.browserExpose({ ...dateHelpers }, { limit: false });
+helpers.browserExpose({ dateHelpers }, { limit: false });
 
 export {
   dateHelpers as default,
