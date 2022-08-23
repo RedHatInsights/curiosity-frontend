@@ -27,15 +27,11 @@ exports[`ServiceConfig should handle cancelling service calls: cancelled request
 exports[`ServiceConfig should handle cancelling service calls: cancelled request, Promise.allSettled 1`] = `
 Array [
   Object {
-    "reason": Cancel {
-      "message": "cancelled request",
-    },
+    "reason": [CanceledError: cancelled request],
     "status": "rejected",
   },
   Object {
-    "reason": Cancel {
-      "message": "cancelled request",
-    },
+    "reason": [CanceledError: cancelled request],
     "status": "rejected",
   },
   Object {
@@ -51,6 +47,9 @@ Array [
           },
         },
         "data": undefined,
+        "env": Object {
+          "FormData": [Function],
+        },
         "headers": Object {
           "Accept": "application/json, text/plain, */*",
           "Content-Type": "application/x-www-form-urlencoded",
@@ -87,6 +86,9 @@ Array [
             },
           },
           "data": undefined,
+          "env": Object {
+            "FormData": [Function],
+          },
           "headers": Object {
             "Accept": "application/json, text/plain, */*",
             "Content-Type": "application/x-www-form-urlencoded",
@@ -127,9 +129,7 @@ Array [
     },
   },
   Object {
-    "reason": Cancel {
-      "message": "cancelled request",
-    },
+    "reason": [CanceledError: cancelled request],
     "status": "rejected",
   },
   Object {
@@ -145,6 +145,9 @@ Array [
           },
         },
         "data": undefined,
+        "env": Object {
+          "FormData": [Function],
+        },
         "headers": Object {
           "Accept": "application/json, text/plain, */*",
         },
@@ -180,6 +183,9 @@ Array [
             },
           },
           "data": undefined,
+          "env": Object {
+            "FormData": [Function],
+          },
           "headers": Object {
             "Accept": "application/json, text/plain, */*",
           },
@@ -230,16 +236,19 @@ Array [
   },
   adapter: function mockAdapter(config) {\\\\n\\\\t  return new Promise(function (resolve, reject) {\\\\n\\\\t    var request = new Request(resolve, reject, config);\\\\n\\\\t    moxios.requests.track(request);\\\\n\\\\t\\\\n\\\\t    // Check for matching stub to auto respond with\\\\n\\\\t    for (var i = 0, l = moxios.stubs.count(); i < l; i++) {\\\\n\\\\t      var stub = moxios.stubs.at(i);\\\\n\\\\t      var correctURL = stub.url instanceof RegExp ? stub.url.test(request.url) : stub.url === request.url;\\\\n\\\\t      var correctMethod = true;\\\\n\\\\t\\\\n\\\\t      if (stub.method !== undefined) {\\\\n\\\\t        correctMethod = stub.method.toLowerCase() === request.config.method.toLowerCase();\\\\n\\\\t      }\\\\n\\\\t\\\\n\\\\t      if (correctURL && correctMethod) {\\\\n\\\\t        if (stub.timeout) {\\\\n\\\\t          throwTimeout(config);\\\\n\\\\t        }\\\\n\\\\t        request.respondWith(stub.response);\\\\n\\\\t        stub.resolve();\\\\n\\\\t        break;\\\\n\\\\t      }\\\\n\\\\t    }\\\\n\\\\t  });\\\\n\\\\t},
   transformRequest: [
-    function transformRequest(data, headers) {\\\\n    normalizeHeaderName(headers, 'Accept');\\\\n    normalizeHeaderName(headers, 'Content-Type');\\\\n\\\\n    if (utils.isFormData(data) ||\\\\n      utils.isArrayBuffer(data) ||\\\\n      utils.isBuffer(data) ||\\\\n      utils.isStream(data) ||\\\\n      utils.isFile(data) ||\\\\n      utils.isBlob(data)\\\\n    ) {\\\\n      return data;\\\\n    }\\\\n    if (utils.isArrayBufferView(data)) {\\\\n      return data.buffer;\\\\n    }\\\\n    if (utils.isURLSearchParams(data)) {\\\\n      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\\\\n      return data.toString();\\\\n    }\\\\n    if (utils.isObject(data) || (headers && headers['Content-Type'] === 'application/json')) {\\\\n      setContentTypeIfUnset(headers, 'application/json');\\\\n      return stringifySafely(data);\\\\n    }\\\\n    return data;\\\\n  }
+    function transformRequest(data, headers) {\\\\n    normalizeHeaderName(headers, 'Accept');\\\\n    normalizeHeaderName(headers, 'Content-Type');\\\\n\\\\n    if (utils.isFormData(data) ||\\\\n      utils.isArrayBuffer(data) ||\\\\n      utils.isBuffer(data) ||\\\\n      utils.isStream(data) ||\\\\n      utils.isFile(data) ||\\\\n      utils.isBlob(data)\\\\n    ) {\\\\n      return data;\\\\n    }\\\\n    if (utils.isArrayBufferView(data)) {\\\\n      return data.buffer;\\\\n    }\\\\n    if (utils.isURLSearchParams(data)) {\\\\n      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\\\\n      return data.toString();\\\\n    }\\\\n\\\\n    var isObjectPayload = utils.isObject(data);\\\\n    var contentType = headers && headers['Content-Type'];\\\\n\\\\n    var isFileList;\\\\n\\\\n    if ((isFileList = utils.isFileList(data)) || (isObjectPayload && contentType === 'multipart/form-data')) {\\\\n      var _FormData = this.env && this.env.FormData;\\\\n      return toFormData(isFileList ? {'files[]': data} : data, _FormData && new _FormData());\\\\n    } else if (isObjectPayload || contentType === 'application/json') {\\\\n      setContentTypeIfUnset(headers, 'application/json');\\\\n      return stringifySafely(data);\\\\n    }\\\\n\\\\n    return data;\\\\n  }
   ],
   transformResponse: [
-    function transformResponse(data) {\\\\n    var transitional = this.transitional || defaults.transitional;\\\\n    var silentJSONParsing = transitional && transitional.silentJSONParsing;\\\\n    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;\\\\n    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';\\\\n\\\\n    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {\\\\n      try {\\\\n        return JSON.parse(data);\\\\n      } catch (e) {\\\\n        if (strictJSONParsing) {\\\\n          if (e.name === 'SyntaxError') {\\\\n            throw enhanceError(e, this, 'E_JSON_PARSE');\\\\n          }\\\\n          throw e;\\\\n        }\\\\n      }\\\\n    }\\\\n\\\\n    return data;\\\\n  }
+    function transformResponse(data) {\\\\n    var transitional = this.transitional || defaults.transitional;\\\\n    var silentJSONParsing = transitional && transitional.silentJSONParsing;\\\\n    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;\\\\n    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';\\\\n\\\\n    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {\\\\n      try {\\\\n        return JSON.parse(data);\\\\n      } catch (e) {\\\\n        if (strictJSONParsing) {\\\\n          if (e.name === 'SyntaxError') {\\\\n            throw AxiosError.from(e, AxiosError.ERR_BAD_RESPONSE, this, null, this.response);\\\\n          }\\\\n          throw e;\\\\n        }\\\\n      }\\\\n    }\\\\n\\\\n    return data;\\\\n  }
   ],
   timeout: 60000,
   xsrfCookieName: XSRF-TOKEN,
   xsrfHeaderName: X-XSRF-TOKEN,
   maxContentLength: -1,
   maxBodyLength: -1,
+  env: {
+    FormData: function FormData(options) {\\\\n  if (!(this instanceof FormData)) {\\\\n    return new FormData(options);\\\\n  }\\\\n\\\\n  this._overheadLength = 0;\\\\n  this._valueLength = 0;\\\\n  this._valuesToMeasure = [];\\\\n\\\\n  CombinedStream.call(this);\\\\n\\\\n  options = options || {};\\\\n  for (var option in options) {\\\\n    this[option] = options[option];\\\\n  }\\\\n}
+  },
   validateStatus: function validateStatus(status) {\\\\n    return status >= 200 && status < 300;\\\\n  },
   headers: {
     Accept: application/json, text/plain, */*
