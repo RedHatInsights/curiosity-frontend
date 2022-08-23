@@ -17,7 +17,7 @@ import { SelectPosition } from '../form/select';
 import { ToolbarFieldGranularity } from '../toolbar/toolbarFieldGranularity';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
-import { RHSM_API_PATH_PRODUCT_TYPES } from '../../services/rhsm/rhsmConstants';
+import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -54,6 +54,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
       initialInventoryFilters,
       initialInventorySettings,
       initialSubscriptionsInventoryFilters,
+      productDisplay,
       productId,
       viewId
     } = config;
@@ -93,12 +94,12 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
 
     return (
       <ProductViewContext.Provider value={config} key={`product_${productId}`}>
-        <PageMessages>{productId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <BannerMessages />}</PageMessages>
+        <PageMessages>{productDisplay !== DISPLAY_TYPES.HOURLY && <BannerMessages />}</PageMessages>
         <PageToolbar>
           <Toolbar />
         </PageToolbar>
         <PageSection>
-          {productId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && (
+          {productDisplay !== DISPLAY_TYPES.HOURLY && (
             <ConnectedGraphCardDeprecated
               key={`graph_${productId}`}
               query={initialGraphTallyQuery}
@@ -110,11 +111,9 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                 (toolbarGraph !== false && <ToolbarFieldGranularity position={SelectPosition.right} />)}
             </ConnectedGraphCardDeprecated>
           )}
-          {productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && <GraphCard />}
+          {productDisplay === DISPLAY_TYPES.HOURLY && <GraphCard />}
         </PageSection>
-        <PageSection
-          className={(productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK && 'curiosity-page-section__tabs') || ''}
-        >
+        <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
           <InventoryTabs
             key={`inventory_${productId}`}
             productId={productId}
@@ -122,26 +121,24 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
-            {!helpers.UI_DISABLED_TABLE_HOSTS &&
-              productId !== RHSM_API_PATH_PRODUCT_TYPES.RHOSAK &&
-              initialInventoryFilters && (
-                <InventoryTab
-                  key={`inventory_hosts_${productId}`}
-                  title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
-                >
-                  <ConnectedInventoryListDeprecated
-                    key={`inv_${productId}`}
-                    filterGuestsData={initialGuestsFilters}
-                    filterInventoryData={initialInventoryFilters}
-                    productId={productId}
-                    settings={initialInventorySettings}
-                    query={initialInventoryHostsQuery}
-                    viewId={viewId}
-                  />
-                </InventoryTab>
-              )}
+            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay !== DISPLAY_TYPES.HOURLY && initialInventoryFilters && (
+              <InventoryTab
+                key={`inventory_hosts_${productId}`}
+                title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+              >
+                <ConnectedInventoryListDeprecated
+                  key={`inv_${productId}`}
+                  filterGuestsData={initialGuestsFilters}
+                  filterInventoryData={initialInventoryFilters}
+                  productId={productId}
+                  settings={initialInventorySettings}
+                  query={initialInventoryHostsQuery}
+                  viewId={viewId}
+                />
+              </InventoryTab>
+            )}
             {!helpers.UI_DISABLED_TABLE_INSTANCES &&
-              productId === RHSM_API_PATH_PRODUCT_TYPES.RHOSAK &&
+              productDisplay === DISPLAY_TYPES.HOURLY &&
               initialInventoryFilters && (
                 <InventoryTab
                   key={`inventory_instances_${productId}`}

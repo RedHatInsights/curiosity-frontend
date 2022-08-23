@@ -20,7 +20,8 @@ import {
 } from '../types/rhsmApiTypes';
 import {
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES,
-  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
@@ -42,6 +43,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
+  productDisplay: DISPLAY_TYPES.LEGACY,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,

@@ -16,7 +16,10 @@ import {
   RHSM_API_QUERY_TYPES,
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
-import { RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES } from '../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES,
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
+} from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { translate } from '../components/i18n/i18n';
 
@@ -35,6 +38,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
+  productDisplay: DISPLAY_TYPES.LEGACY,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedDateTime(GRANULARITY_TYPES.DAILY).startDate.toISOString(),

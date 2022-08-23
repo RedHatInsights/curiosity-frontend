@@ -20,7 +20,8 @@ import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
-  RHSM_API_PATH_METRIC_TYPES
+  RHSM_API_PATH_METRIC_TYPES,
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
@@ -40,6 +41,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
+  productDisplay: DISPLAY_TYPES.HOURLY,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
