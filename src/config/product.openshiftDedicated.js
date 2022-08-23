@@ -14,6 +14,7 @@ import {
   RHSM_API_QUERY_SORT_TYPES,
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
+import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { translate } from '../components/i18n/i18n';
 
@@ -27,6 +28,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
+  productDisplay: DISPLAY_TYPES.DUAL_AXES,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
