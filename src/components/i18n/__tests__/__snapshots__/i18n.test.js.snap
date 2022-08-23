@@ -603,6 +603,31 @@ Array [
     ],
   },
   Object {
+    "file": "./src/config/product.rhacs.js",
+    "keys": Array [
+      Object {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      Object {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+      Object {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.measurement_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
+      },
+      Object {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORE_HOURS, total: helpers.numberDisplay(total?.value)",
+      },
+      Object {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
+      },
+    ],
+  },
+  Object {
     "file": "./src/config/product.rhel.js",
     "keys": Array [
       Object {
@@ -770,6 +795,18 @@ Array [
   Object {
     "file": "./src/config/product.openshiftMetrics.js",
     "key": "curiosity-inventory.label",
+  },
+  Object {
+    "file": "./src/config/product.rhacs.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  Object {
+    "file": "./src/config/product.rhacs.js",
+    "key": "curiosity-graph.label_axisX",
+  },
+  Object {
+    "file": "./src/config/product.rhacs.js",
+    "key": "curiosity-inventory.measurement",
   },
   Object {
     "file": "./src/config/product.rhel.js",
