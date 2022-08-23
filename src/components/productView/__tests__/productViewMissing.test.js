@@ -40,7 +40,9 @@ describe('ProductViewMissing Component', () => {
     const mockDispatch = jest.fn();
     useDispatchMock.mockImplementation(action => action(mockDispatch));
 
-    const props = {};
+    const props = {
+      availableProductsRedirect: 200
+    };
 
     await mountHookComponent(<ProductViewMissing {...props} />);
     expect(mockDispatch.mock.calls).toMatchSnapshot('redirect action');
