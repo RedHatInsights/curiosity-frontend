@@ -54,7 +54,7 @@ const messagesList = parsedMessages =>
 
     const issueNumberValid =
       (/(^issues\/[\d,]+$)/.test(issueNumber) && 'valid') ||
-      (/(^ent-[\d,]+$)/.test(issueNumber) && 'valid') ||
+      (/(^[a-zA-Z]+-[\d,]+$)/.test(issueNumber) && 'valid') ||
       (issueNumberException && 'valid') ||
       'INVALID: issue number';
 
