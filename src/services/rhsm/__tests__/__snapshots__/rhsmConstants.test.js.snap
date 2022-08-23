@@ -215,6 +215,11 @@ Object {
     "PRODUCTION": "Production",
     "UNSPECIFIED": "",
   },
+  "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": Object {
+    "DUAL_AXES": "dual-axes",
+    "HOURLY": "hourly",
+    "LEGACY": "legacy",
+  },
   "default": Object {
     "RHSM_API_PATH_METRIC_TYPES": Object {
       "CORES": "Cores",
@@ -428,6 +433,11 @@ Object {
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
+    },
+    "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": Object {
+      "DUAL_AXES": "dual-axes",
+      "HOURLY": "hourly",
+      "LEGACY": "legacy",
     },
   },
   "rhsmConstants": Object {
@@ -643,6 +653,11 @@ Object {
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
+    },
+    "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": Object {
+      "DUAL_AXES": "dual-axes",
+      "HOURLY": "hourly",
+      "LEGACY": "legacy",
     },
   },
 }
@@ -862,6 +877,11 @@ Object {
     "DISASTER": "Disaster Recovery",
     "PRODUCTION": "Production",
     "UNSPECIFIED": "",
+  },
+  "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": Object {
+    "DUAL_AXES": "dual-axes",
+    "HOURLY": "hourly",
+    "LEGACY": "legacy",
   },
 }
 `;
