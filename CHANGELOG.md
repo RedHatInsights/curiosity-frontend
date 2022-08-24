@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.5.0...v2.5.1) (2022-08-24)
+
+
+### Bug Fixes
+
+* **build:** keycloak for local run ([#954](https://github.com/RedHatInsights/curiosity-frontend/issues/954)) ([4687c1c](https://github.com/RedHatInsights/curiosity-frontend/commit/4687c1c972a0276a5ed6f42cc7df7efa9a2f2472))
+* **build:** sw-460 dev standalone local run ([#957](https://github.com/RedHatInsights/curiosity-frontend/issues/957)) ([6bdb1ef](https://github.com/RedHatInsights/curiosity-frontend/commit/6bdb1ef35d1b7f83b9a1529806cdc8aaf32e4555)), closes [#954](https://github.com/RedHatInsights/curiosity-frontend/issues/954)
+* **build:** sw-460 npm updates ([#958](https://github.com/RedHatInsights/curiosity-frontend/issues/958)) ([dfaa4a6](https://github.com/RedHatInsights/curiosity-frontend/commit/dfaa4a68b1ce8dab3636042e27a0e5be29ac1467))
+* **rhosak:** sw-93 billing provider, remove none option ([#951](https://github.com/RedHatInsights/curiosity-frontend/issues/951)) ([5d4ee24](https://github.com/RedHatInsights/curiosity-frontend/commit/5d4ee24e7f7a6237d417334a06931fb1c2f99e4b))
+* **rhsmTransformers:** ent-5213 allow first dates to draw line ([#955](https://github.com/RedHatInsights/curiosity-frontend/issues/955)) ([2ffda57](https://github.com/RedHatInsights/curiosity-frontend/commit/2ffda57ad8cf6e89840bbf91e151833b4fe3d73c))
+* **rhsmTransformers:** sw-43 patch isFutureDate, isCurrentDate ([#963](https://github.com/RedHatInsights/curiosity-frontend/issues/963)) ([f4367a0](https://github.com/RedHatInsights/curiosity-frontend/commit/f4367a0dbe6bfce30ab53dfc2bc1b4d4aaf1c4a3))
+* **toolbarContext:** keys for secondary fields ([#957](https://github.com/RedHatInsights/curiosity-frontend/issues/957)) ([08b631f](https://github.com/RedHatInsights/curiosity-frontend/commit/08b631f3d5ea818dae2741f8edede0e015db6c46))
+
+
+### Build
+
+* **branching:** sw-450 restructure, rename ([#956](https://github.com/RedHatInsights/curiosity-frontend/issues/956)) ([4a107f4](https://github.com/RedHatInsights/curiosity-frontend/commit/4a107f4a7076c20b8bfc2a3097975a57d0c43454))
+
+
 ## [2.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.4.0...v2.5.0) (2022-07-11)
 
 
