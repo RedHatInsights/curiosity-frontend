@@ -111,7 +111,7 @@
     "@redhat-cloud-services/frontend-components": "3.9.8",
     "@redhat-cloud-services/frontend-components-notifications": "3.2.9",
     "@redhat-cloud-services/frontend-components-utilities": "3.2.23",
-    "axios": "^0.26.1",
+    "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "i18next": "^21.8.14",
     "i18next-http-backend": "^1.4.1",
