@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: rhsm-frontend
+  name: curiosity-frontend
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
@@ -79,4 +79,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/cloudservices/rhsm-frontend
+    value: quay.io/cloudservices/curiosity-frontend
