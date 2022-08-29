@@ -121,8 +121,8 @@ Array [
         "match": "t('curiosity-graph.label_noData')",
       },
       Object {
-        "key": "curiosity-graph.label",
-        "match": "t('curiosity-graph.label', { context: key, product: productLabel })",
+        "key": "",
+        "match": "t(\`curiosity-graph.label_\${key}\`, { context: productId, product: productLabel })",
       },
       Object {
         "key": "curiosity-graph.tooltipSummary",
@@ -619,7 +619,7 @@ Array [
       },
       Object {
         "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORE_HOURS, total: helpers.numberDisplay(total?.value)",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total?.value)",
       },
       Object {
         "key": "",
@@ -752,10 +752,6 @@ Array [
 
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
 Array [
-  Object {
-    "file": "./src/components/graphCard/graphCardChartTooltip.js",
-    "key": "curiosity-graph.label",
-  },
   Object {
     "file": "./src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
