@@ -4,7 +4,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
 Object {
   "RHSM_API_PATH_METRIC_TYPES": Object {
     "CORES": "Cores",
-    "CORE_HOURS": "Core-hours",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
     "SOCKETS": "Sockets",
@@ -48,7 +47,6 @@ Object {
   "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
     "BILLING_PROVIDER": "billing_provider",
     "CORES": "Cores",
-    "CORE_HOURS": "Core-hours",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
     "LAST_SEEN": "last_seen",
@@ -226,7 +224,6 @@ Object {
   "default": Object {
     "RHSM_API_PATH_METRIC_TYPES": Object {
       "CORES": "Cores",
-      "CORE_HOURS": "Core-hours",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
       "SOCKETS": "Sockets",
@@ -270,7 +267,6 @@ Object {
     "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
       "BILLING_PROVIDER": "billing_provider",
       "CORES": "Cores",
-      "CORE_HOURS": "Core-hours",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
       "LAST_SEEN": "last_seen",
@@ -449,7 +445,6 @@ Object {
   "rhsmConstants": Object {
     "RHSM_API_PATH_METRIC_TYPES": Object {
       "CORES": "Cores",
-      "CORE_HOURS": "Core-hours",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
       "SOCKETS": "Sockets",
@@ -493,7 +488,6 @@ Object {
     "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
       "BILLING_PROVIDER": "billing_provider",
       "CORES": "Cores",
-      "CORE_HOURS": "Core-hours",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
       "LAST_SEEN": "last_seen",
@@ -676,7 +670,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
 Object {
   "RHSM_API_PATH_METRIC_TYPES": Object {
     "CORES": "Cores",
-    "CORE_HOURS": "Core-hours",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
     "SOCKETS": "Sockets",
@@ -720,7 +713,6 @@ Object {
   "RHSM_API_QUERY_INVENTORY_SORT_TYPES": Object {
     "BILLING_PROVIDER": "billing_provider",
     "CORES": "Cores",
-    "CORE_HOURS": "Core-hours",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
     "LAST_SEEN": "last_seen",
