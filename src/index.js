@@ -4,10 +4,17 @@
 import './styles/standalone.scss';
 import '@patternfly/react-core/dist/styles/base.css';
 import('./bootstrap');
+import { routerHelpers } from './components/router';
 
 window.insights = {
   chrome: {
-    appNavClick: (...args) => console.log(`Emulated appNavClick: ${JSON.stringify(args)}`),
+    appNavClick: ({ id, ...rest }) => {
+      console.log(`Emulated appNavClick: ${JSON.stringify({ id, ...rest })}`);
+      document.location.href = routerHelpers.pathJoin(
+        document.location.pathname,
+        routerHelpers.getRouteConfig({ id }).path
+      );
+    },
     auth: {
       getUser: () =>
         new Promise(resolve => {
