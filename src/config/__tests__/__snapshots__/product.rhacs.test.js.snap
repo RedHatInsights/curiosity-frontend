@@ -10,7 +10,7 @@ Object {
       "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
     },
     Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Core-hours\\",\\"total\\":\\"200\\"})",
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Cores\\",\\"total\\":\\"200\\"})",
     },
     Object {
       "title": <DateFormat
@@ -30,7 +30,7 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Core-hours\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Cores\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -43,8 +43,8 @@ Object {
     },
   ],
   "data": Object {
-    "Core-hours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Core-hours\\"})",
+    "Cores": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Cores\\"})",
       "value": 200,
     },
     "display_name": Object {
@@ -76,7 +76,7 @@ Object {
       "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
     },
     Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Core-hours\\",\\"total\\":\\"200\\"})",
+      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Cores\\",\\"total\\":\\"200\\"})",
     },
     Object {
       "title": <DateFormat
@@ -96,7 +96,7 @@ Object {
       ],
     },
     Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Core-hours\\"})",
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Cores\\"})",
       "transforms": Array [
         [Function],
       ],
@@ -109,8 +109,8 @@ Object {
     },
   ],
   "data": Object {
-    "Core-hours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Core-hours\\"})",
+    "Cores": Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Cores\\"})",
       "value": 200,
     },
     "display_name": Object {
@@ -137,7 +137,7 @@ Object {
       "chartType": "line",
       "color": "#06c",
       "fill": "#8bc1f7",
-      "id": "Core-hours",
+      "id": "Cores",
       "isStacked": false,
       "isStandalone": true,
       "isThreshold": false,

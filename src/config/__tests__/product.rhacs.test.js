@@ -57,7 +57,7 @@ describe('Product RHACS config', () => {
 
     const inventoryData = {
       [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem ipsum',
-      [RHSM_API_PATH_METRIC_TYPES.CORE_HOURS]: 200,
+      [RHSM_API_PATH_METRIC_TYPES.CORES]: 200,
       [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z'
     };
 

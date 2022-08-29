@@ -22,7 +22,7 @@ const GraphCardChartTooltip = ({
   useProduct: useAliasProduct,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
-  const { productLabel } = useAliasProduct();
+  const { productId, productLabel } = useAliasProduct();
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
 
   let header = null;
@@ -68,7 +68,7 @@ const GraphCardChartTooltip = ({
           itemsByKey[key]?.data.y ||
           0;
 
-        tempDataFacet.label = t('curiosity-graph.label', { context: key, product: productLabel });
+        tempDataFacet.label = t(`curiosity-graph.label_${key}`, { context: productId, product: productLabel });
         tempDataFacet.value = dataFactsValue;
       }
 

@@ -60,7 +60,7 @@ const config = {
   },
   initialGraphFilters: [
     {
-      id: RHSM_API_PATH_METRIC_TYPES.CORE_HOURS,
+      id: RHSM_API_PATH_METRIC_TYPES.CORES,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value,
@@ -129,10 +129,10 @@ const config = {
       cellWidth: 15
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.CORE_HOURS,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORE_HOURS]: total }) =>
+      id: RHSM_API_PATH_METRIC_TYPES.CORES,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total }) =>
         translate('curiosity-inventory.measurement', {
-          context: RHSM_API_PATH_METRIC_TYPES.CORE_HOURS,
+          context: RHSM_API_PATH_METRIC_TYPES.CORES,
           total: helpers.numberDisplay(total?.value)?.format({ mantissa: 5, trimMantissa: true }) || 0
         }),
       isSortable: true,

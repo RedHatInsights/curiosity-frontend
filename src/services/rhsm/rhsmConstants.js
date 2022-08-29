@@ -34,13 +34,12 @@ const RHSM_API_PATH_PRODUCT_TYPES = {
 /**
  * RHSM path IDs for metrics.
  *
- * @type {{CORES: string, CORE_HOURS: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string,
+ * @type {{CORES: string, STORAGE_GIBIBYTES: string, SOCKETS: string, INSTANCE_HOURS: string,
  *     TRANSFER_GIBIBYTES: string, CORE_SECONDS: string, STORAGE_GIBIBYTE_MONTHS: string}}
  */
 const RHSM_API_PATH_METRIC_TYPES = {
   CORES: 'Cores',
   SOCKETS: 'Sockets',
-  CORE_HOURS: 'Core-hours',
   CORE_SECONDS: 'Core-seconds',
   INSTANCE_HOURS: 'Instance-hours',
   STORAGE_GIBIBYTES: 'Storage-gibibytes',
@@ -380,7 +379,7 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *
  * @type {{RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES: {GRANULARITY: string, USAGE: string, END_DATE: string, SLA: string, START_DATE: string,
  *     BILLING_PROVIDER: string}, RHSM_API_RESPONSE_DATA: string, RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES: {PRODUCT: string,
- *     SUBSCRIPTION_TYPE: string, COUNT: string}, RHSM_API_PATH_METRIC_TYPES: {CORES: string, CORE_HOURS: string, STORAGE_GIBIBYTES: string,
+ *     SUBSCRIPTION_TYPE: string, COUNT: string}, RHSM_API_PATH_METRIC_TYPES: {CORES: string, STORAGE_GIBIBYTES: string,
  *     SOCKETS: string, INSTANCE_HOURS: string, TRANSFER_GIBIBYTES: string, CORE_SECONDS: string, STORAGE_GIBIBYTE_MONTHS: string},
  *     RHSM_API_RESPONSE_TALLY_DATA_TYPES: {DATE: string, HAS_DATA: string, VALUE: string},
  *     RHSM_API_RESPONSE_INSTANCES_META_TYPES: {MEASUREMENTS: string, PRODUCT: string, COUNT: string},
