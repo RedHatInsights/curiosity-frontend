@@ -142,7 +142,7 @@ const routes = [
     productParameter: [satelliteProductConfig.productGroup],
     productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE }],
     redirect: null,
-    isSearchable: false,
+    isSearchable: true,
     aliases: [],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
