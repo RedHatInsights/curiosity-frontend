@@ -77,8 +77,7 @@ const config = {
       fill: chartColorPurpleLight.value,
       stroke: chartColorPurpleDark.value,
       color: chartColorPurpleDark.value
-    },
-    { id: 'thresholdSockets', chartType: 'threshold' }
+    }
   ],
   initialGuestsFilters: [
     {
