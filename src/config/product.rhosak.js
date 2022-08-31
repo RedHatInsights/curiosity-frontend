@@ -213,6 +213,16 @@ const config = {
       isWrappable: true
     },
     {
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
+        translate(`curiosity-inventory.measurement_${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}`, {
+          context: provider?.value || 'none'
+        }),
+      isSortable: true,
+      isWrappable: false,
+      cellWidth: 15
+    },
+    {
       id: SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL,
       isSortable: true,
       isWrappable: true,
