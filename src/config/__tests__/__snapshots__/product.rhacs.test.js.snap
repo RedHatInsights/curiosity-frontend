@@ -164,6 +164,9 @@ Object {
       "title": "lorem",
     },
     Object {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
+    },
+    Object {
       "title": "hello world",
     },
     Object {
@@ -180,6 +183,12 @@ Object {
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
       "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
@@ -238,6 +247,9 @@ Object {
       "title": "lorem",
     },
     Object {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
+    },
+    Object {
       "title": "",
     },
     Object {
@@ -254,6 +266,12 @@ Object {
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
       "transforms": Array [],
+    },
+    Object {
+      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
+      "transforms": Array [
+        [Function],
+      ],
     },
     Object {
       "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",

@@ -2297,6 +2297,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *         {
  *           "sku": "RH00011",
  *           "product_name": "Red Hat Enterprise Linux Server, Premium (Physical and 4 Virtual Nodes)(L3 Only)",
+ *           "billing_provider": "red hat",
  *           "service_level": "Premium",
  *           "usage": "Production",
  *           "subscriptions": [
@@ -2316,6 +2317,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *         {
  *           "sku": "RH00010",
  *           "product_name": "Red Hat Enterprise Linux Server",
+ *           "billing_provider": "azure",
  *           "service_level": "Self-Support",
  *           "usage": "Production",
  *           "subscriptions": [],
@@ -2331,6 +2333,7 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  *         {
  *           "sku": "RH00009",
  *           "product_name": "Red Hat Enterprise Linux Server, Premium",
+ *           "billing_provider": "Unknown",
  *           "service_level": "Premium",
  *           "usage": "Production",
  *           "subscriptions": [

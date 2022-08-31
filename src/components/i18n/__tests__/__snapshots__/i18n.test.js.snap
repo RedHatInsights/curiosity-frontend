@@ -623,6 +623,10 @@ Array [
       },
       Object {
         "key": "",
+        "match": "translate(\`curiosity-inventory.measurement_\${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
+      },
+      Object {
+        "key": "",
         "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
       },
     ],
@@ -698,6 +702,10 @@ Array [
       Object {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS, total: helpers.numberDisplay(total?.value)",
+      },
+      Object {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.measurement_\${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
       },
       Object {
         "key": "",
