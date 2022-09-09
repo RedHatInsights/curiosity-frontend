@@ -263,7 +263,7 @@
     "cardTitle": "Welcome to {{appName}}",
     "cardDescription": "{{appName}} unlocks a single-pane view into your total subscription package, from usage to capacity, across your hybrid infrastructure over time.",
     "cardSeeTitle": "Know your account-wide usage at a glance",
-    "cardSeeDescription": "See unified reporting of subscription usage information across your physical, virtual, on-premise, and cloud infrastructure.",
+    "cardSeeDescription": "See unified reporting of subscription usage information across your physical, virtual, and cloud infrastructure.",
     "cardReportTitle": "Prepare for capacity events",
     "cardReportDescription": "Enhance your ability to consume, track, report, and reconcile your Red Hat subscriptions.",
     "cardFilterTitle": "Isolate specific usage",
