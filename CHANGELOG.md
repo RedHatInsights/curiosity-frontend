@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.5.1...v2.6.0) (2022-09-13)
+
+
+### Features
+
+* **rhacs:** sw-479 activate product display ([#965](https://github.com/RedHatInsights/curiosity-frontend/issues/965)) ([4cdbc99](https://github.com/RedHatInsights/curiosity-frontend/commit/4cdbc99221321daaecff3492ceaa39509ff76505))
+
+
+### Bug Fixes
+
+* **build:** npm updates ([#968](https://github.com/RedHatInsights/curiosity-frontend/issues/968)) ([448025d](https://github.com/RedHatInsights/curiosity-frontend/commit/448025de7ac7d8a5c5358b9107dec283d4196a3b))
+* **build:** sw-460 dev local run navigation ([#965](https://github.com/RedHatInsights/curiosity-frontend/issues/965)) ([9babc7c](https://github.com/RedHatInsights/curiosity-frontend/commit/9babc7cf91ef43f84eb13ada05e04a5f126fe7c7))
+* **productViews:** sw-479 display types ([#965](https://github.com/RedHatInsights/curiosity-frontend/issues/965)) ([f77fcc5](https://github.com/RedHatInsights/curiosity-frontend/commit/f77fcc504d7c59c11d82299e571beea47953a1bc))
+* **rhacs:** sw-479 Core-hours to Cores metric ([#965](https://github.com/RedHatInsights/curiosity-frontend/issues/965)) ([54c8d52](https://github.com/RedHatInsights/curiosity-frontend/commit/54c8d52f6976f7bcf1b18b7de692d2ee5de3806c))
+* **rhosak,rhacs:** sw-47 billing provider for subs inv ([#947](https://github.com/RedHatInsights/curiosity-frontend/issues/947)) ([36d23c3](https://github.com/RedHatInsights/curiosity-frontend/commit/36d23c3588cdb438e2c4e28784b67073b7ef50eb))
+* **satellite:** sw-20 remove graph threshold ([#967](https://github.com/RedHatInsights/curiosity-frontend/issues/967)) ([7ae7bfb](https://github.com/RedHatInsights/curiosity-frontend/commit/7ae7bfbcae7e3713b1b968de313f4fa8232a4cbf))
+
+
 ### [2.5.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.5.0...v2.5.1) (2022-08-24)
 
 
