@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.6.0...v2.6.1) (2022-09-13)
+
+### Bug Fixes
+
+* **optin:** sw-547 remove on-premise copy ([#973](https://github.com/RedHatInsights/curiosity-frontend/issues/973)) ([3e8055f](https://github.com/RedHatInsights/curiosity-frontend/commit/3e8055f72f8148f28091c87d5e3d0d1ccf83550c))
+
+
 ## [2.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.5.1...v2.6.0) (2022-09-13)
 
 
