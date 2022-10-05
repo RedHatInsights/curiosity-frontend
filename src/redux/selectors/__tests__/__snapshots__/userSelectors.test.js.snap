@@ -1,64 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserSelectors should pass error state data through response: error state data 1`] = `
-Object {
-  "session": Object {
+{
+  "session": {
     "admin": false,
-    "authorized": Object {},
+    "authorized": {},
     "entitled": false,
     "error": true,
-    "errorCodes": Array [
+    "errorCodes": [
       "loremIpsum",
     ],
     "errorMessage": "lorem ipsum",
-    "permissions": Object {},
+    "permissions": {},
     "status": 403,
   },
 }
 `;
 
 exports[`UserSelectors should pass existing state data through response: existing state data 1`] = `
-Object {
-  "session": Object {
+{
+  "session": {
     "admin": false,
-    "authorized": Object {},
+    "authorized": {},
     "entitled": false,
     "error": false,
-    "permissions": Object {},
+    "permissions": {},
   },
 }
 `;
 
 exports[`UserSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
-Object {
-  "session": Object {
+{
+  "session": {
     "admin": false,
-    "authorized": Object {},
+    "authorized": {},
     "entitled": false,
     "error": false,
-    "permissions": Object {},
+    "permissions": {},
   },
 }
 `;
 
 exports[`UserSelectors should pass transformed data on fulfill: fulfilled state data 1`] = `
-Object {
-  "session": Object {
+{
+  "session": {
     "admin": false,
-    "authorized": Object {
+    "authorized": {
       "subscriptions": true,
     },
     "entitled": true,
     "error": false,
-    "permissions": Array [
-      Object {
-        "subscriptions": Object {
+    "permissions": [
+      {
+        "subscriptions": {
           "all": true,
-          "resources": Object {
-            "*": Object {
-              "*": Array [],
-              "loremCustom": Array [],
-              "read": Array [],
+          "resources": {
+            "*": {
+              "*": [],
+              "loremCustom": [],
+              "read": [],
             },
           },
         },
@@ -69,7 +69,7 @@ Object {
 `;
 
 exports[`UserSelectors should return specific selectors: selectors 1`] = `
-Object {
+{
   "makeUserSession": [Function],
   "userSession": [Function],
 }

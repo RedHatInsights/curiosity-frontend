@@ -11,7 +11,7 @@ exports[`ChartAxisLabel Component should handle an undefined coordinate: undefin
     <div
       className="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-1"
       style={
-        Object {
+        {
           "top": "0px",
         }
       }
@@ -38,7 +38,7 @@ exports[`ChartAxisLabel Component should return a basic component: basic 1`] = `
     <div
       className="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-0"
       style={
-        Object {
+        {
           "top": "3px",
         }
       }

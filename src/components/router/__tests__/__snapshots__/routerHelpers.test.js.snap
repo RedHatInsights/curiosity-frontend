@@ -9,25 +9,25 @@ exports[`RouterHelpers should apply a simple pathJoin helper: single forward sla
 exports[`RouterHelpers should apply a simple pathJoin helper: triple forward slash 1`] = `"//hello/world/lorem/ipsum/dolor"`;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: NO search and hash 1`] = `
-Object {
+{
   "routeHref": "/rhel",
 }
 `;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: hash 1`] = `
-Object {
+{
   "routeHref": "/rhel#lorem",
 }
 `;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: search 1`] = `
-Object {
+{
   "routeHref": "/rhel?dolor=sit",
 }
 `;
 
 exports[`RouterHelpers should handle location search and hash passthrough values: search and hash 1`] = `
-Object {
+{
   "routeHref": "/rhel?dolor=sit#lorem",
 }
 `;
@@ -57,7 +57,7 @@ exports[`RouterHelpers should return a generated basePath: insights, beta app ba
 exports[`RouterHelpers should return a generated basePath: insights, beta app lorem route name base path 1`] = `"/beta/insights/"`;
 
 exports[`RouterHelpers should return an error route: error route 1`] = `
-Object {
+{
   "activateOnError": true,
   "component": "optinView/optinView",
   "disabled": false,
@@ -69,87 +69,87 @@ Object {
 `;
 
 exports[`RouterHelpers should return default navigation and route details: detail: defaults 1`] = `
-Object {
-  "configs": Array [],
-  "configsById": Object {},
+{
+  "configs": [],
+  "configsById": {},
   "firstMatch": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: match specific path 1`] = `
-Object {
+{
   "id": "rhel",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: missing parameters 1`] = `
-Object {
+{
   "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: missing pathName 1`] = `
-Object {
+{
   "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: specific product path 1`] = `
-Object {
+{
   "id": "rhel-arm",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a related name: detail: match related name 1`] = `
-Object {
+{
   "id": "rhel-arm",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
-Object {
+{
   "id": "rhel",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing ID, specific path 1`] = `
-Object {
+{
   "id": "rhel",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathName and default 1`] = `
-Object {
+{
   "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathName, default 1`] = `
-Object {
+{
   "id": "missing",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: missing parameters 1`] = `
-Object {
+{
   "id": undefined,
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
-Object {
+{
   "id": "rhel-arm",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
-Object {
+{
   "id": "optin",
 }
 `;
 
 exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
-Object {
+{
   "appName": "subscriptions",
   "baseName": "/",
   "basePath": "/",
@@ -157,7 +157,7 @@ Object {
   "dynamicBasePath": [Function],
   "generateProductGroups": [Function],
   "generateRoutes": [Function],
-  "getErrorRoute": Object {
+  "getErrorRoute": {
     "activateOnError": true,
     "component": "optinView/optinView",
     "disabled": false,
@@ -172,37 +172,37 @@ Object {
   "pathJoin": [Function],
   "platformLandingRedirect": "/",
   "platformModalRedirect": "/?not_entitled=subscriptions",
-  "productGroups": Object {
-    "viewOpenShift Container Platform": Array [
+  "productGroups": {
+    "viewOpenShift Container Platform": [
       "OpenShift Container Platform",
     ],
-    "viewOpenShift-dedicated-metrics": Array [
+    "viewOpenShift-dedicated-metrics": [
       "OpenShift-dedicated-metrics",
     ],
-    "viewOpenShift-metrics": Array [
+    "viewOpenShift-metrics": [
       "OpenShift-metrics",
     ],
-    "viewRHEL": Array [
+    "viewRHEL": [
       "RHEL",
       "RHEL for ARM",
       "RHEL for IBM Power",
       "RHEL for IBM z",
       "RHEL for x86",
     ],
-    "viewSatellite": Array [
+    "viewSatellite": [
       "Satellite",
       "Satellite Capsule",
       "Satellite Server",
     ],
-    "viewrhacs": Array [
+    "viewrhacs": [
       "rhacs",
     ],
-    "viewrhosak": Array [
+    "viewrhosak": [
       "rhosak",
     ],
   },
-  "routes": Array [
-    Object {
+  "routes": [
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -211,7 +211,7 @@ Object {
       "path": "/rhel",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -220,7 +220,7 @@ Object {
       "path": "/rhel-arm",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -229,7 +229,7 @@ Object {
       "path": "/rhel-ibmpower",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -238,7 +238,7 @@ Object {
       "path": "/rhel-ibmz",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -247,7 +247,7 @@ Object {
       "path": "/rhel-x86",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productViewOpenShiftContainer",
       "disabled": false,
@@ -256,7 +256,7 @@ Object {
       "path": "/openshift-container",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productViewOpenShiftDedicated",
       "disabled": false,
@@ -265,7 +265,7 @@ Object {
       "path": "/openshift-dedicated",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -274,7 +274,7 @@ Object {
       "path": "/rhacs",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -283,7 +283,7 @@ Object {
       "path": "/streams",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -292,7 +292,7 @@ Object {
       "path": "/satellite",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -301,7 +301,7 @@ Object {
       "path": "/satellite-capsule",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productView",
       "disabled": false,
@@ -310,7 +310,7 @@ Object {
       "path": "/satellite-server",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": true,
       "component": "optinView/optinView",
       "disabled": false,
@@ -319,7 +319,7 @@ Object {
       "path": "/optin",
       "redirect": null,
     },
-    Object {
+    {
       "activateOnError": false,
       "component": "productView/productViewMissing",
       "disabled": false,

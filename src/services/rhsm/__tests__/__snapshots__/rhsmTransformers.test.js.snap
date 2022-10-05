@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RHSM Transformers should attempt to parse a tally response: tally 1`] = `
-Object {
-  "data": Array [],
-  "meta": Object {
+{
+  "data": [],
+  "meta": {
     "cloudigradeHasMismatch": undefined,
     "count": undefined,
     "metricId": undefined,
@@ -16,9 +16,9 @@ Object {
 `;
 
 exports[`RHSM Transformers should attempt to parse a tally response: tally, daily like first of month granularity 1`] = `
-Object {
-  "data": Array [
-    Object {
+{
+  "data": [
+    {
       "date": "2019-07-20T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -26,7 +26,7 @@ Object {
       "x": 0,
       "y": 0.1,
     },
-    Object {
+    {
       "date": "2019-07-20T00:00:00Z",
       "hasData": true,
       "isCurrentDate": true,
@@ -34,7 +34,7 @@ Object {
       "x": 1,
       "y": 0.1,
     },
-    Object {
+    {
       "date": "2019-07-21T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -42,7 +42,7 @@ Object {
       "x": 2,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-22T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -50,7 +50,7 @@ Object {
       "x": 3,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-23T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -58,7 +58,7 @@ Object {
       "x": 4,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-24T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -66,7 +66,7 @@ Object {
       "x": 5,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-25T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -74,7 +74,7 @@ Object {
       "x": 6,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-26T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -82,7 +82,7 @@ Object {
       "x": 7,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-27T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -90,7 +90,7 @@ Object {
       "x": 8,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-28T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -98,7 +98,7 @@ Object {
       "x": 9,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-29T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -106,7 +106,7 @@ Object {
       "x": 10,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-30T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -114,7 +114,7 @@ Object {
       "x": 11,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-31T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -123,7 +123,7 @@ Object {
       "y": null,
     },
   ],
-  "meta": Object {
+  "meta": {
     "cloudigradeHasMismatch": undefined,
     "count": undefined,
     "metricId": undefined,
@@ -136,9 +136,9 @@ Object {
 `;
 
 exports[`RHSM Transformers should attempt to parse a tally response: tally, daily like granularity 1`] = `
-Object {
-  "data": Array [
-    Object {
+{
+  "data": [
+    {
       "date": "2019-07-14T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -146,7 +146,7 @@ Object {
       "x": 0,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-07-15T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -154,7 +154,7 @@ Object {
       "x": 1,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-07-16T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -162,7 +162,7 @@ Object {
       "x": 2,
       "y": 1.4977989514668784,
     },
-    Object {
+    {
       "date": "2019-07-17T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -170,7 +170,7 @@ Object {
       "x": 3,
       "y": 1.5547887908087836,
     },
-    Object {
+    {
       "date": "2019-07-18T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -178,7 +178,7 @@ Object {
       "x": 4,
       "y": 4.446975872251722,
     },
-    Object {
+    {
       "date": "2019-07-19T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -186,7 +186,7 @@ Object {
       "x": 5,
       "y": 4.69084013303121,
     },
-    Object {
+    {
       "date": "2019-07-20T00:00:00Z",
       "hasData": false,
       "isCurrentDate": true,
@@ -194,7 +194,7 @@ Object {
       "x": 6,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-21T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -202,7 +202,7 @@ Object {
       "x": 7,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-22T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -210,7 +210,7 @@ Object {
       "x": 8,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-23T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -218,7 +218,7 @@ Object {
       "x": 9,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-24T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -226,7 +226,7 @@ Object {
       "x": 10,
       "y": null,
     },
-    Object {
+    {
       "date": "2019-07-25T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -235,7 +235,7 @@ Object {
       "y": null,
     },
   ],
-  "meta": Object {
+  "meta": {
     "cloudigradeHasMismatch": undefined,
     "count": undefined,
     "metricId": undefined,
@@ -248,9 +248,9 @@ Object {
 `;
 
 exports[`RHSM Transformers should attempt to parse a tally response: tally, monthly like granularity 1`] = `
-Object {
-  "data": Array [
-    Object {
+{
+  "data": [
+    {
       "date": "2019-01-01T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -258,7 +258,7 @@ Object {
       "x": 0,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-02-01T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -266,7 +266,7 @@ Object {
       "x": 1,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-03-01T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -274,7 +274,7 @@ Object {
       "x": 2,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-04-01T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -282,7 +282,7 @@ Object {
       "x": 3,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-05-01T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -290,7 +290,7 @@ Object {
       "x": 4,
       "y": 4.767144674723709,
     },
-    Object {
+    {
       "date": "2019-06-01T00:00:00Z",
       "hasData": true,
       "isCurrentDate": false,
@@ -298,7 +298,7 @@ Object {
       "x": 5,
       "y": 4.446975872251722,
     },
-    Object {
+    {
       "date": "2019-07-01T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -306,7 +306,7 @@ Object {
       "x": 6,
       "y": 0,
     },
-    Object {
+    {
       "date": "2019-08-01T00:00:00Z",
       "hasData": false,
       "isCurrentDate": false,
@@ -315,7 +315,7 @@ Object {
       "y": null,
     },
   ],
-  "meta": Object {
+  "meta": {
     "cloudigradeHasMismatch": undefined,
     "count": undefined,
     "metricId": undefined,
@@ -328,9 +328,9 @@ Object {
 `;
 
 exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
-Object {
-  "data": Array [
-    Object {
+{
+  "data": [
+    {
       "a": 0.0003456,
       "b": 2,
       "c": 1000,
@@ -338,7 +338,7 @@ Object {
       "subscriptionManagerId": undefined,
     },
   ],
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "productId": undefined,
   },
@@ -346,7 +346,7 @@ Object {
 `;
 
 exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
-Object {
+{
   "instances": [Function],
   "tally": [Function],
 }

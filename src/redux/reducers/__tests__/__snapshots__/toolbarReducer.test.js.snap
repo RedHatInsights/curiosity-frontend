@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToolbarReducer should handle specific defined types: defined type SET_ACTIVE_FILTERS 1`] = `
-Object {
-  "result": Object {
-    "filters": Object {
-      "test_id": Object {
+{
+  "result": {
+    "filters": {
+      "test_id": {
         "activeFilters": Set {
           "lorem",
         },
@@ -16,10 +16,10 @@ Object {
 `;
 
 exports[`ToolbarReducer should handle specific defined types: defined type SET_FILTER_TYPE 1`] = `
-Object {
-  "result": Object {
-    "filters": Object {
-      "test_id": Object {
+{
+  "result": {
+    "filters": {
+      "test_id": {
         "currentFilter": "lorem",
       },
     },

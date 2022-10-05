@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserServices should return a specific locale cookie value 1`] = `
-Object {
+{
   "key": "English",
   "value": "en-US",
 }
 `;
 
 exports[`UserServices should return default locale if no locale cookie is present 1`] = `
-Object {
+{
   "key": "English",
   "value": "en-US",
 }
 `;
 
 exports[`UserServices should return the default locale with an invalid ISO_639 code 1`] = `
-Object {
+{
   "key": "English",
   "value": "en-US",
 }

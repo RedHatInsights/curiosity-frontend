@@ -10,9 +10,9 @@ exports[`Chart Component should render a basic component: basic 1`] = `
 `;
 
 exports[`Chart Component should setup basic chart settings: settings 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "children": <div
         className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
         id="curiosity-chartarea"
@@ -20,35 +20,35 @@ Array [
       "value": undefined,
     },
   ],
-  Array [
-    Object {
+  [
+    {
       "children": <div
         className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
         id="curiosity-chartarea"
       />,
-      "value": Object {
+      "value": {
         "chartContainerRef": [Function],
-        "chartSettings": Object {
-          "chartDomain": Object {
-            "domain": Object {
-              "y": Array [
+        "chartSettings": {
+          "chartDomain": {
+            "domain": {
+              "y": [
                 0,
                 3,
               ],
             },
           },
-          "chartElementsProps": Object {
-            "elements": Array [
-              Object {
+          "chartElementsProps": {
+            "elements": [
+              {
                 "chartType": undefined,
-                "props": Object {
-                  "data": Array [
-                    Object {
+                "props": {
+                  "data": [
+                    {
                       "x": 1,
                       "xAxisLabel": "1 x axis label",
                       "y": 1,
                     },
-                    Object {
+                    {
                       "x": 2,
                       "xAxisLabel": "2 x axis label",
                       "y": 2,
@@ -56,8 +56,8 @@ Array [
                   ],
                   "key": "chart-ipsumGraph-",
                   "name": "chart-ipsumGraph-",
-                  "style": Object {
-                    "data": Object {
+                  "style": {
+                    "data": {
                       "fill": "#ipsum",
                       "stroke": "#lorem",
                       "strokeDasharray": "4,3",
@@ -71,17 +71,17 @@ Array [
                 },
               },
             ],
-            "elementsById": Object {
-              "ipsumGraph": Object {
+            "elementsById": {
+              "ipsumGraph": {
                 "chartType": undefined,
-                "props": Object {
-                  "data": Array [
-                    Object {
+                "props": {
+                  "data": [
+                    {
                       "x": 1,
                       "xAxisLabel": "1 x axis label",
                       "y": 1,
                     },
-                    Object {
+                    {
                       "x": 2,
                       "xAxisLabel": "2 x axis label",
                       "y": 2,
@@ -89,8 +89,8 @@ Array [
                   ],
                   "key": "chart-ipsumGraph-",
                   "name": "chart-ipsumGraph-",
-                  "style": Object {
-                    "data": Object {
+                  "style": {
+                    "data": {
                       "fill": "#ipsum",
                       "stroke": "#lorem",
                       "strokeDasharray": "4,3",
@@ -104,17 +104,17 @@ Array [
                 },
               },
             },
-            "stackedElements": Array [
-              Object {
+            "stackedElements": [
+              {
                 "chartType": undefined,
-                "props": Object {
-                  "data": Array [
-                    Object {
+                "props": {
+                  "data": [
+                    {
                       "x": 1,
                       "xAxisLabel": "1 x axis label",
                       "y": 1,
                     },
-                    Object {
+                    {
                       "x": 2,
                       "xAxisLabel": "2 x axis label",
                       "y": 2,
@@ -122,8 +122,8 @@ Array [
                   ],
                   "key": "chart-loremGraph-",
                   "name": "chart-loremGraph-",
-                  "style": Object {
-                    "data": Object {
+                  "style": {
+                    "data": {
                       "fill": "#ipsum",
                       "stroke": "#lorem",
                       "strokeWidth": 2,
@@ -136,17 +136,17 @@ Array [
                 },
               },
             ],
-            "stackedElementsById": Object {
-              "loremGraph": Object {
+            "stackedElementsById": {
+              "loremGraph": {
                 "chartType": undefined,
-                "props": Object {
-                  "data": Array [
-                    Object {
+                "props": {
+                  "data": [
+                    {
                       "x": 1,
                       "xAxisLabel": "1 x axis label",
                       "y": 1,
                     },
-                    Object {
+                    {
                       "x": 2,
                       "xAxisLabel": "2 x axis label",
                       "y": 2,
@@ -154,8 +154,8 @@ Array [
                   ],
                   "key": "chart-loremGraph-",
                   "name": "chart-loremGraph-",
-                  "style": Object {
-                    "data": Object {
+                  "style": {
+                    "data": {
                       "fill": "#ipsum",
                       "stroke": "#lorem",
                       "strokeWidth": 2,
@@ -171,15 +171,15 @@ Array [
           },
           "chartLegend": null,
           "chartWidth": 0,
-          "dataSets": Array [
-            Object {
-              "data": Array [
-                Object {
+          "dataSets": [
+            {
+              "data": [
+                {
                   "x": 1,
                   "xAxisLabel": "1 x axis label",
                   "y": 1,
                 },
-                Object {
+                {
                   "x": 2,
                   "xAxisLabel": "2 x axis label",
                   "y": 2,
@@ -191,14 +191,14 @@ Array [
               "stroke": "#lorem",
               "strokeWidth": 2,
             },
-            Object {
-              "data": Array [
-                Object {
+            {
+              "data": [
+                {
                   "x": 1,
                   "xAxisLabel": "1 x axis label",
                   "y": 1,
                 },
-                Object {
+                {
                   "x": 2,
                   "xAxisLabel": "2 x axis label",
                   "y": 2,
@@ -216,40 +216,40 @@ Array [
           "isMultiYAxis": false,
           "maxX": 2,
           "maxY": 2,
-          "padding": Object {
+          "padding": {
             "bottom": 75,
             "left": 55,
             "right": 55,
             "top": 50,
           },
           "themeColor": "blue",
-          "tooltipDataSetLookUp": Object {},
-          "xAxisProps": Object {
+          "tooltipDataSetLookUp": {},
+          "xAxisProps": {
             "fixLabelOverlap": true,
             "label": null,
             "tickFormat": [Function],
-            "tickValues": Array [
+            "tickValues": [
               1,
               2,
             ],
           },
-          "yAxisProps": Array [
-            Object {
+          "yAxisProps": [
+            {
               "dependentAxis": true,
               "label": null,
               "orientation": "left",
               "showGrid": true,
-              "style": Object {
-                "axis": Object {},
-                "tickLabels": Object {},
+              "style": {
+                "axis": {},
+                "tickLabels": {},
               },
               "tickFormat": [Function],
             },
           ],
         },
         "chartTooltipRef": [Function],
-        "dataSetsToggle": Array [
-          Object {},
+        "dataSetsToggle": [
+          {},
           [Function],
         ],
       },

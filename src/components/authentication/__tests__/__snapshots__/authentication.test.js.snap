@@ -3,7 +3,7 @@
 exports[`Authentication Component should allow being disabled: disabled 1`] = `
 <ContextProvider
   value={
-    Object {
+    {
       "errorCodes": undefined,
       "errorStatus": null,
       "locale": undefined,
@@ -26,7 +26,7 @@ exports[`Authentication Component should allow being disabled: disabled 1`] = `
 exports[`Authentication Component should render a basic component: basic 1`] = `
 <ContextProvider
   value={
-    Object {
+    {
       "errorCodes": undefined,
       "errorStatus": null,
       "locale": undefined,
@@ -89,7 +89,7 @@ exports[`Authentication Component should render a component error: error 1`] = `
           >
             <Flex
               justifyContent={
-                Object {
+                {
                   "sm": "justifyContentSpaceBetween",
                 }
               }
@@ -132,7 +132,7 @@ exports[`Authentication Component should render a component error: error 1`] = `
       <PageSection
         className="curiosity "
         padding={
-          Object {
+          {
             "default": "noPadding",
           }
         }
@@ -182,7 +182,7 @@ exports[`Authentication Component should render a component error: error 1`] = `
                               height="1em"
                               role="img"
                               style={
-                                Object {
+                                {
                                   "verticalAlign": "-0.125em",
                                 }
                               }
@@ -268,9 +268,9 @@ exports[`Authentication Component should render a component error: error 1`] = `
 exports[`Authentication Component should render a component pending: pending 1`] = `
 <ContextProvider
   value={
-    Object {
-      "authorized": Object {},
-      "errorCodes": Array [],
+    {
+      "authorized": {},
+      "errorCodes": [],
       "errorStatus": undefined,
     }
   }
@@ -287,9 +287,9 @@ exports[`Authentication Component should render a component pending: pending 1`]
 exports[`Authentication Component should return a message on 401 error: 401 error 1`] = `
 <ContextProvider
   value={
-    Object {
-      "authorized": Object {},
-      "errorCodes": Array [],
+    {
+      "authorized": {},
+      "errorCodes": [],
       "errorStatus": 401,
     }
   }
@@ -310,9 +310,9 @@ exports[`Authentication Component should return a message on 401 error: 401 erro
 exports[`Authentication Component should return a redirect on 418 error: 418 error 1`] = `
 <ContextProvider
   value={
-    Object {
-      "authorized": Object {},
-      "errorCodes": Array [],
+    {
+      "authorized": {},
+      "errorCodes": [],
       "errorStatus": 418,
     }
   }
@@ -321,8 +321,8 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
     isForced={false}
     route="/optin"
     routes={
-      Array [
-        Object {
+      [
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -331,7 +331,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/rhel",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -340,7 +340,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/rhel-arm",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -349,7 +349,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/rhel-ibmpower",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -358,7 +358,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/rhel-ibmz",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -367,7 +367,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/rhel-x86",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewOpenShiftContainer",
           "disabled": false,
@@ -376,7 +376,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/openshift-container",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewOpenShiftDedicated",
           "disabled": false,
@@ -385,7 +385,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/openshift-dedicated",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -394,7 +394,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/rhacs",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -403,7 +403,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/streams",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -412,7 +412,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/satellite",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -421,7 +421,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/satellite-capsule",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -430,7 +430,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/satellite-server",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": true,
           "component": "optinView/optinView",
           "disabled": false,
@@ -439,7 +439,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
           "path": "/optin",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewMissing",
           "disabled": false,
@@ -458,9 +458,9 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 error 1`] = `
 <ContextProvider
   value={
-    Object {
-      "authorized": Object {},
-      "errorCodes": Array [
+    {
+      "authorized": {},
+      "errorCodes": [
         "SUBSCRIPTIONS1004",
       ],
       "errorStatus": 403,
@@ -471,8 +471,8 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     isForced={false}
     route="/optin"
     routes={
-      Array [
-        Object {
+      [
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -481,7 +481,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -490,7 +490,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-arm",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -499,7 +499,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-ibmpower",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -508,7 +508,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-ibmz",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -517,7 +517,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-x86",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewOpenShiftContainer",
           "disabled": false,
@@ -526,7 +526,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/openshift-container",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewOpenShiftDedicated",
           "disabled": false,
@@ -535,7 +535,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/openshift-dedicated",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -544,7 +544,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhacs",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -553,7 +553,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/streams",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -562,7 +562,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/satellite",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -571,7 +571,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/satellite-capsule",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -580,7 +580,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/satellite-server",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": true,
           "component": "optinView/optinView",
           "disabled": false,
@@ -589,7 +589,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/optin",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewMissing",
           "disabled": false,
@@ -608,9 +608,9 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `
 <ContextProvider
   value={
-    Object {
-      "authorized": Object {},
-      "errorCodes": Array [
+    {
+      "authorized": {},
+      "errorCodes": [
         "SUBSCRIPTIONS1004",
       ],
       "errorStatus": 403,
@@ -621,8 +621,8 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     isForced={false}
     route="/optin"
     routes={
-      Array [
-        Object {
+      [
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -631,7 +631,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -640,7 +640,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-arm",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -649,7 +649,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-ibmpower",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -658,7 +658,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-ibmz",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -667,7 +667,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhel-x86",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewOpenShiftContainer",
           "disabled": false,
@@ -676,7 +676,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/openshift-container",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewOpenShiftDedicated",
           "disabled": false,
@@ -685,7 +685,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/openshift-dedicated",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -694,7 +694,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/rhacs",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -703,7 +703,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/streams",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -712,7 +712,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/satellite",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -721,7 +721,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/satellite-capsule",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productView",
           "disabled": false,
@@ -730,7 +730,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/satellite-server",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": true,
           "component": "optinView/optinView",
           "disabled": false,
@@ -739,7 +739,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
           "path": "/optin",
           "redirect": null,
         },
-        Object {
+        {
           "activateOnError": false,
           "component": "productView/productViewMissing",
           "disabled": false,

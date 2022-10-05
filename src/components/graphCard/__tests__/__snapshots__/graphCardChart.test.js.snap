@@ -39,9 +39,9 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
         <Chart
           chartLegend={[Function]}
           chartTooltip={[Function]}
-          dataSets={Array []}
+          dataSets={[]}
           padding={
-            Object {
+            {
               "bottom": 75,
               "left": 55,
               "right": 55,

@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Platform Schemas should have specific response schemas: specific schemas 1`] = `
-Object {
+{
   "permissions": [Function],
   "user": [Function],
 }
 `;
 
-exports[`Platform Schemas should have valid schemas that validate API responses: permissions response schema 1`] = `Array []`;
+exports[`Platform Schemas should have valid schemas that validate API responses: permissions response schema 1`] = `[]`;
 
 exports[`Platform Schemas should have valid schemas that validate API responses: user response schema 1`] = `
-Object {
-  "entitlements": Object {},
-  "identity": Object {},
+{
+  "entitlements": {},
+  "identity": {},
 }
 `;

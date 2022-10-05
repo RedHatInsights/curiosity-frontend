@@ -3,12 +3,12 @@
 exports[`I18n Component should attempt to perform a component translate: translated component 1`] = `"<div>t(lorem.ipsum, hello world)</div>"`;
 
 exports[`I18n Component should attempt to perform a string replace: translate 1`] = `
-Object {
-  "emptyContext": "t(lorem.ipsum, {\\"context\\":\\" \\"})",
-  "emptyPartialContext": "t(lorem.ipsum, {\\"context\\":\\"hello_ \\"})",
+{
+  "emptyContext": "t(lorem.ipsum, {"context":" "})",
+  "emptyPartialContext": "t(lorem.ipsum, {"context":"hello_ "})",
   "localeKey": "t(lorem.ipsum)",
-  "multiContext": "t(lorem.ipsum, {\\"context\\":\\"hello_world\\"})",
-  "multiContextWithEmptyValue": "t(lorem.ipsum, {\\"context\\":\\"hello_world\\"})",
+  "multiContext": "t(lorem.ipsum, {"context":"hello_world"})",
+  "multiContextWithEmptyValue": "t(lorem.ipsum, {"context":"hello_world"})",
   "multiKey": "t([lorem.ipsum,lorem.fallback])",
   "placeholder": "t(lorem.ipsum, hello world)",
 }
@@ -17,739 +17,739 @@ Object {
 exports[`I18n Component should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, {&quot;hello&quot;:&quot;world&quot;}, [object Object])</div>"`;
 
 exports[`I18n Component should generate a predictable locale key output snapshot: key output 1`] = `
-Array [
-  Object {
+[
+  {
     "file": "./src/common/dateHelpers.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.granularityRangedMonthly",
         "match": "translate('curiosity-toolbar.granularityRangedMonthly', { context: dateTime.title })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.granularityRangedMonthly",
         "match": "translate('curiosity-toolbar.granularityRangedMonthly', { context: 'current' })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/common/helpers.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "",
         "match": "t(\${updatedKey}\${(updatedValue && \`, \${updatedValue}\`)",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/authentication/authentication.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-auth.maintenanceCopy",
         "match": "t('curiosity-auth.maintenanceCopy', '...')",
       },
-      Object {
+      {
         "key": "curiosity-auth.pending",
         "match": "t('curiosity-auth.pending', '...')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/bannerMessages/bannerMessages.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-banner.dataMismatchTitle",
         "match": "translate('curiosity-banner.dataMismatchTitle')",
       },
-      Object {
+      {
         "key": "curiosity-banner.dataMismatchMessage",
-        "match": "translate( 'curiosity-banner.dataMismatchMessage', { context: helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS !== '' && 'cloudigradeMismatch', appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href={helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS} /> ] )",
+        "match": "translate( 'curiosity-banner.dataMismatchMessage', { context: helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS !== '' && 'cloudigradeMismatch', appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS} /> ] )",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/graphCard/graphCardChart.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "",
         "match": "t(\`curiosity-graph.cardHeading\${standaloneMetricId}\`, { context: productId })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/graphCard/graphCardChartLegend.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "",
         "match": "t( [\`curiosity-graph.label_\${(isThreshold && 'threshold')",
       },
-      Object {
+      {
         "key": "",
         "match": "t( \`curiosity-graph.legendTooltip\${(isThreshold && '_threshold')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/graphCard/graphCardChartTitleTooltip.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "",
         "match": "t(\`curiosity-graph.cardHeadingDescription\${standaloneMetricId}\`, { context: productId })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/graphCard/graphCardChartTooltip.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.label_noData",
         "match": "t('curiosity-graph.label_noData')",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_threshold",
         "match": "t('curiosity-graph.label_threshold', { context: 'infinite' })",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_threshold",
         "match": "t('curiosity-graph.label_threshold', { context: 'infinite' })",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_threshold",
         "match": "t('curiosity-graph.label_threshold')",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_noData",
         "match": "t('curiosity-graph.label_noData')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-graph.label_\${key}\`, { context: productId, product: productLabel })",
       },
-      Object {
+      {
         "key": "curiosity-graph.tooltipSummary",
         "match": "t('curiosity-graph.tooltipSummary')",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_noData",
         "match": "t('curiosity-graph.label_noData', { context: 'error' })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/graphCard/graphCardMetricTotals.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.cardHeadingMetric_dailyTotal",
         "match": "t('curiosity-graph.cardHeadingMetric_dailyTotal', { context: metricId, month: selectedMonth })",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardBodyMetric_total",
         "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (dailyHasData && metricId)",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardFooterMetric",
         "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardHeadingMetric_monthlyTotal",
         "match": "t('curiosity-graph.cardHeadingMetric_monthlyTotal', { context: metricId, month: selectedMonth })",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardBodyMetric_total",
         "match": "t( 'curiosity-graph.cardBodyMetric_total', { context: (monthlyHasData && metricId)",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardFooterMetric",
         "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/inventoryCard/inventoryCard.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.tab",
         "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/inventoryCard/inventoryCardHelpers.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: id })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: key })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.tab",
         "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.tabSubHeading",
         "match": "t('curiosity-inventory.tabSubHeading', { count: index })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tabHeading",
         "match": "t('curiosity-inventory.tabHeading', { count: updatedChildren.length })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/optinView/optinView.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-optin.buttonActivate",
         "match": "t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardIsErrorDescription",
-        "match": "t('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component=\\"a\\" variant=\\"link\\" target=\\"_blank\\" href={helpers.UI_LINK_CONTACT_US} /> ])",
+        "match": "t('curiosity-optin.cardIsErrorDescription', { appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component="a" variant="link" target="_blank" href={helpers.UI_LINK_CONTACT_US} /> ])",
       },
-      Object {
+      {
         "key": "curiosity-optin.buttonIsActive",
         "match": "t('curiosity-optin.buttonIsActive', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardIsActiveDescription",
         "match": "t('curiosity-optin.cardIsActiveDescription')",
       },
-      Object {
+      {
         "key": "curiosity-optin.buttonActivate",
         "match": "t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.tourTitleImageAlt",
         "match": "t('curiosity-optin.tourTitleImageAlt')",
       },
-      Object {
+      {
         "key": "curiosity-optin.tourTitle",
         "match": "t('curiosity-optin.tourTitle')",
       },
-      Object {
+      {
         "key": "curiosity-optin.tourDescription",
         "match": "t('curiosity-optin.tourDescription')",
       },
-      Object {
+      {
         "key": "curiosity-optin.buttonTour",
         "match": "t('curiosity-optin.buttonTour')",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardTitle",
         "match": "t('curiosity-optin.cardTitle', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardDescription",
         "match": "t('curiosity-optin.cardDescription', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardSeeTitle",
         "match": "t('curiosity-optin.cardSeeTitle')",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardSeeDescription",
         "match": "t('curiosity-optin.cardSeeDescription')",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardReportTitle",
         "match": "t('curiosity-optin.cardReportTitle')",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardReportDescription",
         "match": "t('curiosity-optin.cardReportDescription')",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardFilterTitle",
         "match": "t('curiosity-optin.cardFilterTitle')",
       },
-      Object {
+      {
         "key": "curiosity-optin.cardFilterDescription",
         "match": "t('curiosity-optin.cardFilterDescription')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/pageLayout/pageHeader.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-view.subtitle",
-        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component=\\"a\\" variant=\\"link\\" icon={<ExternalLinkAltIcon />} iconPosition=\\"right\\" target=\\"_blank\\" href={helpers.UI_LINK_LEARN_MORE} /> ])",
+        "match": "t(\`curiosity-view.subtitle\`, { appName: helpers.UI_DISPLAY_NAME, context: productLabel }, [ <Button isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_LEARN_MORE} /> ])",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/productView/productView.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.cardHeadingDescription",
         "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardHeading",
         "match": "t('curiosity-graph.cardHeading', { context: productId })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tabHosts",
         "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tabInstances",
         "match": "t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tabSubscriptions",
         "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
       },
-      Object {
+      {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: routeProductLabel })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/productView/productViewMissing.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-view.title",
         "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: (Array.isArray(product.pathParameter)",
       },
-      Object {
+      {
         "key": "curiosity-view.description",
         "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: (Array.isArray(product.productParameter)",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/productView/productViewOpenShiftContainer.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.cardHeading",
         "match": "t('curiosity-graph.cardHeading', { context: productId })",
       },
-      Object {
+      {
         "key": "curiosity-graph.cardHeadingDescription",
         "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tabHosts",
         "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tabSubscriptions",
         "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
       },
-      Object {
+      {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewProductLabel })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/table/table.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.tableEmptyInventoryTitle",
         "match": "t('curiosity-inventory.tableEmptyInventoryTitle')",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tableEmptyInventoryMessage",
         "match": "t('curiosity-inventory.tableEmptyInventoryMessage')",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tableAriaLabel",
         "match": "t('curiosity-inventory.tableAriaLabel', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.tableSummary",
         "match": "t('curiosity-inventory.tableSummary')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/table/tableSkeleton.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.tableSkeletonAriaLabel",
         "match": "t('curiosity-inventory.tableSkeletonAriaLabel')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbar.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.clearFilters",
         "match": "t('curiosity-toolbar.clearFilters')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.billing_provider",
         "match": "translate('curiosity-toolbar.billing_provider', { context: (type === '' && 'none')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldDisplayName.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.placeholder_filter",
         "match": "t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.placeholder_filter",
         "match": "t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.granularity",
         "match": "translate('curiosity-toolbar.granularity', { context: type })",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldRangedMonthly.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.GRANULARITY })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: 'rangedMonthly' })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.UOM })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.BILLING_PROVIDER })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.category",
         "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE })",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.placeholder_filter",
         "match": "t('curiosity-toolbar.placeholder_filter')",
       },
-      Object {
+      {
         "key": "curiosity-toolbar.placeholder_filter",
         "match": "t('curiosity-toolbar.placeholder_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldSla.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.sla",
         "match": "translate('curiosity-toolbar.sla', { context: (type === '' && 'none')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldUom.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.uom",
         "match": "translate('curiosity-toolbar.uom', { context: type })",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldUsage.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-toolbar.usage",
         "match": "translate('curiosity-toolbar.usage', { context: (type === '' && 'unspecified')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
-      Object {
+      {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.openshiftContainer.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['sockets', 'OpenShift Container Platform'] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['cores', 'OpenShift Container Platform'] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
       },
-      Object {
+      {
         "key": "",
         "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom?.value } )",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.openshiftDedicated.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.cardActionTotal",
         "match": "translate('curiosity-graph.cardActionTotal', { context: 'coreHours', total: helpers .numberDisplay(totalCoreHours)",
       },
-      Object {
+      {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.openshiftMetrics.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.cardActionTotal",
         "match": "translate('curiosity-graph.cardActionTotal', { context: 'coreHours', total: helpers .numberDisplay(totalCoreHours)",
       },
-      Object {
+      {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.rhacs.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.label_axisY",
         "match": "translate('curiosity-graph.label_axisY', { context: id })",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_axisX",
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
-      Object {
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.measurement_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total?.value)",
       },
-      Object {
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.measurement_\${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
       },
-      Object {
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.rhel.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
       },
-      Object {
+      {
         "key": "curiosity-inventory.measurementType",
         "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.cloudProvider",
         "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
       },
-      Object {
+      {
         "key": "",
         "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom?.value } )",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-graph.label_axisY",
         "match": "translate('curiosity-graph.label_axisY', { context: id })",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_axisY",
         "match": "translate('curiosity-graph.label_axisY', { context: id })",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_axisY",
         "match": "translate('curiosity-graph.label_axisY', { context: id })",
       },
-      Object {
+      {
         "key": "curiosity-graph.label_axisX",
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
-      Object {
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.measurement_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['tooltip', RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.TRANSFER_GIBIBYTES, total: helpers.numberDisplay(total?.value)",
       },
-      Object {
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['tooltip', RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS] })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS, total: helpers.numberDisplay(total?.value)",
       },
-      Object {
+      {
         "key": "curiosity-inventory.measurement",
         "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS, total: helpers.numberDisplay(total?.value)",
       },
-      Object {
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.measurement_\${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
       },
-      Object {
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/config/product.satellite.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color=\\"blue\\" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
       },
-      Object {
+      {
         "key": "curiosity-inventory.measurementType",
         "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
       },
-      Object {
+      {
         "key": "curiosity-inventory.cloudProvider",
         "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
       },
     ],
   },
-  Object {
+  {
     "file": "./src/redux/actions/userActions.js",
-    "keys": Array [
-      Object {
+    "keys": [
+      {
         "key": "curiosity-optin.notificationsErrorTitle",
         "match": "translate('curiosity-optin.notificationsErrorTitle', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.notificationsErrorDescription",
         "match": "translate('curiosity-optin.notificationsErrorDescription')",
       },
-      Object {
+      {
         "key": "curiosity-optin.notificationsSuccessTitle",
         "match": "translate('curiosity-optin.notificationsSuccessTitle', { appName: helpers.UI_DISPLAY_NAME })",
       },
-      Object {
+      {
         "key": "curiosity-optin.notificationsSuccessDescription",
         "match": "translate('curiosity-optin.notificationsSuccessDescription')",
       },
@@ -759,92 +759,92 @@ Array [
 `;
 
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
-Array [
-  Object {
+[
+  {
     "file": "./src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
-  Object {
+  {
     "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
     "key": "curiosity-inventory.tab",
   },
-  Object {
+  {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "key": "curiosity-inventory.tabHeading",
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
     "key": "curiosity-toolbar.granularity",
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldSla.js",
     "key": "curiosity-toolbar.sla",
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldUom.js",
     "key": "curiosity-toolbar.uom",
   },
-  Object {
+  {
     "file": "./src/components/toolbar/toolbarFieldUsage.js",
     "key": "curiosity-toolbar.usage",
   },
-  Object {
+  {
     "file": "./src/config/product.openshiftContainer.js",
     "key": "curiosity-inventory.label",
   },
-  Object {
+  {
     "file": "./src/config/product.openshiftDedicated.js",
     "key": "curiosity-inventory.label",
   },
-  Object {
+  {
     "file": "./src/config/product.openshiftMetrics.js",
     "key": "curiosity-inventory.label",
   },
-  Object {
+  {
     "file": "./src/config/product.rhacs.js",
     "key": "curiosity-graph.label_axisY",
   },
-  Object {
+  {
     "file": "./src/config/product.rhacs.js",
     "key": "curiosity-graph.label_axisX",
   },
-  Object {
+  {
     "file": "./src/config/product.rhacs.js",
     "key": "curiosity-inventory.measurement",
   },
-  Object {
+  {
     "file": "./src/config/product.rhel.js",
     "key": "curiosity-inventory.label",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisY",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisY",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisY",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisX",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
   },
-  Object {
+  {
     "file": "./src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
   },
-  Object {
+  {
     "file": "./src/config/product.satellite.js",
     "key": "curiosity-inventory.label",
   },

@@ -7,7 +7,7 @@ t {
 `;
 
 exports[`Helpers should expose a window object: limited window object 1`] = `
-Object {
+{
   "DEV_MODE": false,
   "PROD_MODE": false,
   "REVIEW_MODE": false,
@@ -49,7 +49,7 @@ Object {
 `;
 
 exports[`Helpers should expose a window object: window object 1`] = `
-Object {
+{
   "DEV_MODE": false,
   "PROD_MODE": false,
   "REVIEW_MODE": false,
@@ -91,9 +91,9 @@ Object {
 `;
 
 exports[`Helpers should handle use aggregate error, or fallback: emulated aggregate error 1`] = `
-Object {
+{
   "aggregated": [AggregateError: testing aggregated],
-  "errors": Array [
+  "errors": [
     [Error: lorem ipsum],
     [Error: dolor sit],
   ],
@@ -103,7 +103,7 @@ Object {
 `;
 
 exports[`Helpers should have specific functions: helpers 1`] = `
-Object {
+{
   "DEV_MODE": false,
   "PROD_MODE": false,
   "REVIEW_MODE": false,

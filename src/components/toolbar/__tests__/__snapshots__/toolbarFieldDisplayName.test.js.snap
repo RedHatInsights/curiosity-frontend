@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToolbarFieldDisplayName Component should handle clearing display name through redux state: clear display name 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
         "viewId": "loremIpsum",
       },
-      Object {
+      {
         "display_name_contains": null,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
         "viewId": "loremIpsum",
@@ -19,14 +19,14 @@ Array [
 `;
 
 exports[`ToolbarFieldDisplayName Component should handle updating display name through redux state: dispatch display name 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
         "viewId": "loremIpsum",
       },
-      Object {
+      {
         "display_name_contains": "dolor sit",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
         "viewId": "loremIpsum",
@@ -37,14 +37,14 @@ Array [
 `;
 
 exports[`ToolbarFieldDisplayName Component should handle updating display name using the enter key: enter display name 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
         "viewId": "loremIpsum",
       },
-      Object {
+      {
         "display_name_contains": "dolor sit",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
         "viewId": "loremIpsum",
@@ -57,7 +57,7 @@ Array [
 exports[`ToolbarFieldDisplayName Component should render a basic component: basic 1`] = `
 <InputGroup>
   <TextInput
-    aria-label="t(curiosity-toolbar.placeholder_filter, {\\"context\\":\\"displayName\\"})"
+    aria-label="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
     className="curiosity-input__display-name"
     data-test="toolbarFieldDisplayName"
     iconVariant="search"
@@ -70,7 +70,7 @@ exports[`ToolbarFieldDisplayName Component should render a basic component: basi
     onClear={[Function]}
     onKeyUp={[Function]}
     onMouseUp={[Function]}
-    placeholder="t(curiosity-toolbar.placeholder_filter, {\\"context\\":\\"displayName\\"})"
+    placeholder="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
     type="text"
     value="lorem ipsum"
   />

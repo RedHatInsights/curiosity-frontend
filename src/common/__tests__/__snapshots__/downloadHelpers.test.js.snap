@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DownloadHelpers should attempt to download data: data download 1`] = `
-Object {
+{
   "data": "",
   "fileName": "download.txt",
 }
 `;
 
 exports[`DownloadHelpers should have specific functions: helpers 1`] = `
-Object {
+{
   "debugLog": [Function],
   "downloadData": [Function],
 }

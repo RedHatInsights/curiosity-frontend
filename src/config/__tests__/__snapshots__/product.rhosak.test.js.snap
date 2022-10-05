@@ -1,43 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Product RHOSAK config should apply an instances inventory configuration under hosts: filtered 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem ipsum",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Transfer-gibibytes","total":"0.00035"})",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibyte-months\\",\\"total\\":0})",
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Storage-gibibyte-months","total":0})",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Instance-hours\\",\\"total\\":\\"200\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Instance-hours","total":"200"})",
     },
-    Object {
+    {
       "title": <DateFormat
         date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"display_name"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"billing_provider"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
+    {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Transfer-gibibytes\\"})"
+        content="t(curiosity-inventory.header, {"context":"tooltip_Transfer-gibibytes"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -47,13 +47,13 @@ Object {
       >
         t(curiosity-inventory.header, {"context":"Transfer-gibibytes"})
       </Tooltip>,
-      "transforms": Array [
+      "transforms": [
         [Function],
       ],
     },
-    Object {
+    {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibyte-months\\"})"
+        content="t(curiosity-inventory.header, {"context":"tooltip_Storage-gibibyte-months"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -63,42 +63,42 @@ Object {
       >
         t(curiosity-inventory.header, {"context":"Storage-gibibyte-months"})
       </Tooltip>,
-      "transforms": Array [
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Instance-hours"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"last_seen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "Instance-hours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
+  "data": {
+    "Instance-hours": {
+      "title": "t(curiosity-inventory.header, {"context":"Instance-hours"})",
       "value": 200,
     },
-    "Storage-gibibytes": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+    "Storage-gibibytes": {
+      "title": "t(curiosity-inventory.header, {"context":"Storage-gibibytes"})",
       "value": 1000.00123,
     },
-    "Transfer-gibibytes": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+    "Transfer-gibibytes": {
+      "title": "t(curiosity-inventory.header, {"context":"Transfer-gibibytes"})",
       "value": 0.0003456,
     },
-    "display_name": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header, {"context":"display_name"})",
       "value": "lorem ipsum",
     },
-    "last_seen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header, {"context":"last_seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -106,9 +106,9 @@ Object {
 `;
 
 exports[`Product RHOSAK config should apply an instances inventory configuration under hosts: filtered, authorized 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": <Button
         component="a"
         href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
@@ -118,38 +118,38 @@ Object {
         lorem ipsum
       </Button>,
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Transfer-gibibytes\\",\\"total\\":\\"0.00035\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Transfer-gibibytes","total":"0.00035"})",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Storage-gibibyte-months\\",\\"total\\":0})",
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Storage-gibibyte-months","total":0})",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement, {\\"context\\":\\"Instance-hours\\",\\"total\\":\\"200\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Instance-hours","total":"200"})",
     },
-    Object {
+    {
       "title": <DateFormat
         date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"display_name"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"billing_provider"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
+    {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Transfer-gibibytes\\"})"
+        content="t(curiosity-inventory.header, {"context":"tooltip_Transfer-gibibytes"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -159,13 +159,13 @@ Object {
       >
         t(curiosity-inventory.header, {"context":"Transfer-gibibytes"})
       </Tooltip>,
-      "transforms": Array [
+      "transforms": [
         [Function],
       ],
     },
-    Object {
+    {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {\\"context\\":\\"tooltip_Storage-gibibyte-months\\"})"
+        content="t(curiosity-inventory.header, {"context":"tooltip_Storage-gibibyte-months"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -175,46 +175,46 @@ Object {
       >
         t(curiosity-inventory.header, {"context":"Storage-gibibyte-months"})
       </Tooltip>,
-      "transforms": Array [
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Instance-hours"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"last_seen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "Instance-hours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Instance-hours\\"})",
+  "data": {
+    "Instance-hours": {
+      "title": "t(curiosity-inventory.header, {"context":"Instance-hours"})",
       "value": 200,
     },
-    "Storage-gibibytes": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Storage-gibibytes\\"})",
+    "Storage-gibibytes": {
+      "title": "t(curiosity-inventory.header, {"context":"Storage-gibibytes"})",
       "value": 1000.00123,
     },
-    "Transfer-gibibytes": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"Transfer-gibibytes\\"})",
+    "Transfer-gibibytes": {
+      "title": "t(curiosity-inventory.header, {"context":"Transfer-gibibytes"})",
       "value": 0.0003456,
     },
-    "display_name": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"display_name\\"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header, {"context":"display_name"})",
       "value": "lorem ipsum",
     },
-    "inventory_id": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventory_id\\"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header, {"context":"inventory_id"})",
       "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
-    "last_seen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"last_seen\\"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header, {"context":"last_seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -222,10 +222,10 @@ Object {
 `;
 
 exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
-Object {
-  "groupedFilters": Array [],
-  "standaloneFilters": Array [
-    Object {
+{
+  "groupedFilters": [],
+  "standaloneFilters": [
+    {
       "chartType": "line",
       "color": "#06c",
       "fill": "#8bc1f7",
@@ -237,7 +237,7 @@ Object {
       "strokeWidth": 2,
       "yAxisChartLabel": [Function],
     },
-    Object {
+    {
       "chartType": "line",
       "color": "#5752d1",
       "fill": "#b2b0ea",
@@ -249,7 +249,7 @@ Object {
       "strokeWidth": 2,
       "yAxisChartLabel": [Function],
     },
-    Object {
+    {
       "chartType": "line",
       "color": "#009596",
       "fill": "#a2d9d9",
@@ -266,7 +266,7 @@ Object {
 `;
 
 exports[`Product RHOSAK config should apply graph configuration: settings 1`] = `
-Object {
+{
   "isCardTitleDescription": true,
   "xAxisChartLabel": [Function],
   "yAxisTickFormat": [Function],
@@ -274,82 +274,82 @@ Object {
 `;
 
 exports[`Product RHOSAK config should apply subscriptions inventory configuration: filtered 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
     },
-    Object {
+    {
       "title": "hello world",
     },
-    Object {
+    {
       "title": "",
     },
-    Object {
-      "title": "t(curiosity-inventory.label_subscription_type, {\\"context\\":\\"dolor\\"})",
+    {
+      "title": "t(curiosity-inventory.label_subscription_type, {"context":"dolor"})",
     },
-    Object {
+    {
       "title": "2022-01-01T00:00:00.000Z",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"billing_provider"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscription_type\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"subscription_type"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "has_infinite_quantity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"has_infinite_quantity\\"})",
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header, {"context":"has_infinite_quantity"})",
       "value": true,
     },
-    "next_event_date": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "product_name": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
+    "product_name": {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
       "value": "lorem",
     },
-    "service_level": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
+    "service_level": {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
       "value": "hello world",
     },
-    "total_capacity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"total_capacity\\"})",
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header, {"context":"total_capacity"})",
       "value": 2000,
     },
   },
@@ -357,82 +357,82 @@ Object {
 `;
 
 exports[`Product RHOSAK config should apply subscriptions inventory configuration: filtered, fallback display 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {\\"context\\":\\"none\\"})",
+    {
+      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
     },
-    Object {
+    {
       "title": "",
     },
-    Object {
+    {
       "title": "",
     },
-    Object {
-      "title": "t(curiosity-inventory.label_subscription_type, {\\"context\\":\\" \\"})",
+    {
+      "title": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
     },
-    Object {
+    {
       "title": "",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"billing_provider\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"billing_provider"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscription_type\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"subscription_type"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "has_infinite_quantity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"has_infinite_quantity\\"})",
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header, {"context":"has_infinite_quantity"})",
       "value": true,
     },
-    "next_event_date": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
       "value": null,
     },
-    "product_name": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
+    "product_name": {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
       "value": "lorem",
     },
-    "service_level": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
+    "service_level": {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
       "value": null,
     },
-    "total_capacity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"total_capacity\\"})",
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header, {"context":"total_capacity"})",
       "value": 2000,
     },
   },
@@ -440,7 +440,7 @@ Object {
 `;
 
 exports[`Product RHOSAK config should handle a custom yAxisTickFormat for floating points: yAxisTickFormat 1`] = `
-Object {
+{
   "0.00001345": "0.00001",
   "0.0000269": "0.00003",
   "0.00004035": "0.00004",

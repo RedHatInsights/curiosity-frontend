@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ServiceConfig should allow passing a function and emulating a service call: function responses 1`] = `
-Array [
+[
   "lorem.ipsum",
   "lorem.ipsum-function-schema-transform",
   "lorem.ipsum-function-transform",
@@ -12,7 +12,7 @@ Array [
 `;
 
 exports[`ServiceConfig should handle caching service calls: cached responses, emulated 304 1`] = `
-Array [
+[
   "1. method=get, status=200, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImRvbG9yXCIsXCJzaXRcIl0sW1wibG9yZW1cIixcImlwc3VtXCJdXSIsImV4cG9zZUNhY2hlSWQiOnRydWUsImNhY2hlUmVzcG9uc2UiOnRydWUsIm1ldGhvZCI6ImdldCJ9, desc=initial call",
   "2. method=get, status=304, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImRvbG9yXCIsXCJzaXRcIl0sW1wibG9yZW1cIixcImlwc3VtXCJdXSIsImV4cG9zZUNhY2hlSWQiOnRydWUsImNhY2hlUmVzcG9uc2UiOnRydWUsIm1ldGhvZCI6ImdldCJ9, desc=repeat 1st call and config",
   "3. method=get, status=200, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImxvcmVtXCIsXCJpcHN1bVwiXV0iLCJleHBvc2VDYWNoZUlkIjp0cnVlLCJjYWNoZVJlc3BvbnNlIjp0cnVlLCJtZXRob2QiOiJnZXQifQ==, desc=updated config",
@@ -25,20 +25,20 @@ Array [
 exports[`ServiceConfig should handle cancelling service calls: cancelled request, Promise.all 1`] = `"cancelled request"`;
 
 exports[`ServiceConfig should handle cancelling service calls: cancelled request, Promise.allSettled 1`] = `
-Array [
-  Object {
+[
+  {
     "reason": [CanceledError: cancelled request],
     "status": "rejected",
   },
-  Object {
+  {
     "reason": [CanceledError: cancelled request],
     "status": "rejected",
   },
-  Object {
+  {
     "status": "fulfilled",
     "value": Response {
       "code": undefined,
-      "config": Object {
+      "config": {
         "adapter": [Function],
         "cacheResponse": false,
         "cancelToken": CancelToken {
@@ -47,10 +47,10 @@ Array [
           },
         },
         "data": undefined,
-        "env": Object {
+        "env": {
           "FormData": [Function],
         },
-        "headers": Object {
+        "headers": {
           "Accept": "application/json, text/plain, */*",
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -58,13 +58,13 @@ Array [
         "maxContentLength": -1,
         "method": "post",
         "timeout": 60000,
-        "transformRequest": Array [
+        "transformRequest": [
           [Function],
         ],
-        "transformResponse": Array [
+        "transformResponse": [
           [Function],
         ],
-        "transitional": Object {
+        "transitional": {
           "clarifyTimeoutError": false,
           "forcedJSONParsing": true,
           "silentJSONParsing": true,
@@ -77,7 +77,7 @@ Array [
       "data": "success",
       "headers": undefined,
       "request": Request {
-        "config": Object {
+        "config": {
           "adapter": [Function],
           "cacheResponse": false,
           "cancelToken": CancelToken {
@@ -86,10 +86,10 @@ Array [
             },
           },
           "data": undefined,
-          "env": Object {
+          "env": {
             "FormData": [Function],
           },
-          "headers": Object {
+          "headers": {
             "Accept": "application/json, text/plain, */*",
             "Content-Type": "application/x-www-form-urlencoded",
           },
@@ -97,13 +97,13 @@ Array [
           "maxContentLength": -1,
           "method": "post",
           "timeout": 60000,
-          "transformRequest": Array [
+          "transformRequest": [
             [Function],
           ],
-          "transformResponse": Array [
+          "transformResponse": [
             [Function],
           ],
-          "transitional": Object {
+          "transitional": {
             "clarifyTimeoutError": false,
             "forcedJSONParsing": true,
             "silentJSONParsing": true,
@@ -113,7 +113,7 @@ Array [
           "xsrfCookieName": "XSRF-TOKEN",
           "xsrfHeaderName": "X-XSRF-TOKEN",
         },
-        "headers": Object {
+        "headers": {
           "Accept": "application/json, text/plain, */*",
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -128,15 +128,15 @@ Array [
       "statusText": undefined,
     },
   },
-  Object {
+  {
     "reason": [CanceledError: cancelled request],
     "status": "rejected",
   },
-  Object {
+  {
     "status": "fulfilled",
     "value": Response {
       "code": undefined,
-      "config": Object {
+      "config": {
         "adapter": [Function],
         "cacheResponse": false,
         "cancelToken": CancelToken {
@@ -145,23 +145,23 @@ Array [
           },
         },
         "data": undefined,
-        "env": Object {
+        "env": {
           "FormData": [Function],
         },
-        "headers": Object {
+        "headers": {
           "Accept": "application/json, text/plain, */*",
         },
         "maxBodyLength": -1,
         "maxContentLength": -1,
         "method": "get",
         "timeout": 60000,
-        "transformRequest": Array [
+        "transformRequest": [
           [Function],
         ],
-        "transformResponse": Array [
+        "transformResponse": [
           [Function],
         ],
-        "transitional": Object {
+        "transitional": {
           "clarifyTimeoutError": false,
           "forcedJSONParsing": true,
           "silentJSONParsing": true,
@@ -174,7 +174,7 @@ Array [
       "data": "success",
       "headers": undefined,
       "request": Request {
-        "config": Object {
+        "config": {
           "adapter": [Function],
           "cacheResponse": false,
           "cancelToken": CancelToken {
@@ -183,23 +183,23 @@ Array [
             },
           },
           "data": undefined,
-          "env": Object {
+          "env": {
             "FormData": [Function],
           },
-          "headers": Object {
+          "headers": {
             "Accept": "application/json, text/plain, */*",
           },
           "maxBodyLength": -1,
           "maxContentLength": -1,
           "method": "get",
           "timeout": 60000,
-          "transformRequest": Array [
+          "transformRequest": [
             [Function],
           ],
-          "transformResponse": Array [
+          "transformResponse": [
             [Function],
           ],
-          "transitional": Object {
+          "transitional": {
             "clarifyTimeoutError": false,
             "forcedJSONParsing": true,
             "silentJSONParsing": true,
@@ -209,7 +209,7 @@ Array [
           "xsrfCookieName": "XSRF-TOKEN",
           "xsrfHeaderName": "X-XSRF-TOKEN",
         },
-        "headers": Object {
+        "headers": {
           "Accept": "application/json, text/plain, */*",
         },
         "reject": [Function],
@@ -227,19 +227,19 @@ Array [
 `;
 
 exports[`ServiceConfig should handle producing a service call configuration: response configs 1`] = `
-Array [
+[
   "{
   transitional: {
     silentJSONParsing: true,
     forcedJSONParsing: true,
     clarifyTimeoutError: false
   },
-  adapter: function mockAdapter(config) {\\\\n\\\\t  return new Promise(function (resolve, reject) {\\\\n\\\\t    var request = new Request(resolve, reject, config);\\\\n\\\\t    moxios.requests.track(request);\\\\n\\\\t\\\\n\\\\t    // Check for matching stub to auto respond with\\\\n\\\\t    for (var i = 0, l = moxios.stubs.count(); i < l; i++) {\\\\n\\\\t      var stub = moxios.stubs.at(i);\\\\n\\\\t      var correctURL = stub.url instanceof RegExp ? stub.url.test(request.url) : stub.url === request.url;\\\\n\\\\t      var correctMethod = true;\\\\n\\\\t\\\\n\\\\t      if (stub.method !== undefined) {\\\\n\\\\t        correctMethod = stub.method.toLowerCase() === request.config.method.toLowerCase();\\\\n\\\\t      }\\\\n\\\\t\\\\n\\\\t      if (correctURL && correctMethod) {\\\\n\\\\t        if (stub.timeout) {\\\\n\\\\t          throwTimeout(config);\\\\n\\\\t        }\\\\n\\\\t        request.respondWith(stub.response);\\\\n\\\\t        stub.resolve();\\\\n\\\\t        break;\\\\n\\\\t      }\\\\n\\\\t    }\\\\n\\\\t  });\\\\n\\\\t},
+  adapter: function mockAdapter(config) {\\n\\t  return new Promise(function (resolve, reject) {\\n\\t    var request = new Request(resolve, reject, config);\\n\\t    moxios.requests.track(request);\\n\\t\\n\\t    // Check for matching stub to auto respond with\\n\\t    for (var i = 0, l = moxios.stubs.count(); i < l; i++) {\\n\\t      var stub = moxios.stubs.at(i);\\n\\t      var correctURL = stub.url instanceof RegExp ? stub.url.test(request.url) : stub.url === request.url;\\n\\t      var correctMethod = true;\\n\\t\\n\\t      if (stub.method !== undefined) {\\n\\t        correctMethod = stub.method.toLowerCase() === request.config.method.toLowerCase();\\n\\t      }\\n\\t\\n\\t      if (correctURL && correctMethod) {\\n\\t        if (stub.timeout) {\\n\\t          throwTimeout(config);\\n\\t        }\\n\\t        request.respondWith(stub.response);\\n\\t        stub.resolve();\\n\\t        break;\\n\\t      }\\n\\t    }\\n\\t  });\\n\\t},
   transformRequest: [
-    function transformRequest(data, headers) {\\\\n    normalizeHeaderName(headers, 'Accept');\\\\n    normalizeHeaderName(headers, 'Content-Type');\\\\n\\\\n    if (utils.isFormData(data) ||\\\\n      utils.isArrayBuffer(data) ||\\\\n      utils.isBuffer(data) ||\\\\n      utils.isStream(data) ||\\\\n      utils.isFile(data) ||\\\\n      utils.isBlob(data)\\\\n    ) {\\\\n      return data;\\\\n    }\\\\n    if (utils.isArrayBufferView(data)) {\\\\n      return data.buffer;\\\\n    }\\\\n    if (utils.isURLSearchParams(data)) {\\\\n      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\\\\n      return data.toString();\\\\n    }\\\\n\\\\n    var isObjectPayload = utils.isObject(data);\\\\n    var contentType = headers && headers['Content-Type'];\\\\n\\\\n    var isFileList;\\\\n\\\\n    if ((isFileList = utils.isFileList(data)) || (isObjectPayload && contentType === 'multipart/form-data')) {\\\\n      var _FormData = this.env && this.env.FormData;\\\\n      return toFormData(isFileList ? {'files[]': data} : data, _FormData && new _FormData());\\\\n    } else if (isObjectPayload || contentType === 'application/json') {\\\\n      setContentTypeIfUnset(headers, 'application/json');\\\\n      return stringifySafely(data);\\\\n    }\\\\n\\\\n    return data;\\\\n  }
+    function transformRequest(data, headers) {\\n    normalizeHeaderName(headers, 'Accept');\\n    normalizeHeaderName(headers, 'Content-Type');\\n\\n    if (utils.isFormData(data) ||\\n      utils.isArrayBuffer(data) ||\\n      utils.isBuffer(data) ||\\n      utils.isStream(data) ||\\n      utils.isFile(data) ||\\n      utils.isBlob(data)\\n    ) {\\n      return data;\\n    }\\n    if (utils.isArrayBufferView(data)) {\\n      return data.buffer;\\n    }\\n    if (utils.isURLSearchParams(data)) {\\n      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');\\n      return data.toString();\\n    }\\n\\n    var isObjectPayload = utils.isObject(data);\\n    var contentType = headers && headers['Content-Type'];\\n\\n    var isFileList;\\n\\n    if ((isFileList = utils.isFileList(data)) || (isObjectPayload && contentType === 'multipart/form-data')) {\\n      var _FormData = this.env && this.env.FormData;\\n      return toFormData(isFileList ? {'files[]': data} : data, _FormData && new _FormData());\\n    } else if (isObjectPayload || contentType === 'application/json') {\\n      setContentTypeIfUnset(headers, 'application/json');\\n      return stringifySafely(data);\\n    }\\n\\n    return data;\\n  }
   ],
   transformResponse: [
-    function transformResponse(data) {\\\\n    var transitional = this.transitional || defaults.transitional;\\\\n    var silentJSONParsing = transitional && transitional.silentJSONParsing;\\\\n    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;\\\\n    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';\\\\n\\\\n    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {\\\\n      try {\\\\n        return JSON.parse(data);\\\\n      } catch (e) {\\\\n        if (strictJSONParsing) {\\\\n          if (e.name === 'SyntaxError') {\\\\n            throw AxiosError.from(e, AxiosError.ERR_BAD_RESPONSE, this, null, this.response);\\\\n          }\\\\n          throw e;\\\\n        }\\\\n      }\\\\n    }\\\\n\\\\n    return data;\\\\n  }
+    function transformResponse(data) {\\n    var transitional = this.transitional || defaults.transitional;\\n    var silentJSONParsing = transitional && transitional.silentJSONParsing;\\n    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;\\n    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';\\n\\n    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {\\n      try {\\n        return JSON.parse(data);\\n      } catch (e) {\\n        if (strictJSONParsing) {\\n          if (e.name === 'SyntaxError') {\\n            throw AxiosError.from(e, AxiosError.ERR_BAD_RESPONSE, this, null, this.response);\\n          }\\n          throw e;\\n        }\\n      }\\n    }\\n\\n    return data;\\n  }
   ],
   timeout: 60000,
   xsrfCookieName: XSRF-TOKEN,
@@ -247,9 +247,9 @@ Array [
   maxContentLength: -1,
   maxBodyLength: -1,
   env: {
-    FormData: function FormData(options) {\\\\n  if (!(this instanceof FormData)) {\\\\n    return new FormData(options);\\\\n  }\\\\n\\\\n  this._overheadLength = 0;\\\\n  this._valueLength = 0;\\\\n  this._valuesToMeasure = [];\\\\n\\\\n  CombinedStream.call(this);\\\\n\\\\n  options = options || {};\\\\n  for (var option in options) {\\\\n    this[option] = options[option];\\\\n  }\\\\n}
+    FormData: function FormData(options) {\\n  if (!(this instanceof FormData)) {\\n    return new FormData(options);\\n  }\\n\\n  this._overheadLength = 0;\\n  this._valueLength = 0;\\n  this._valuesToMeasure = [];\\n\\n  CombinedStream.call(this);\\n\\n  options = options || {};\\n  for (var option in options) {\\n    this[option] = options[option];\\n  }\\n}
   },
-  validateStatus: function validateStatus(status) {\\\\n    return status >= 200 && status < 300;\\\\n  },
+  validateStatus: function validateStatus(status) {\\n    return status >= 200 && status < 300;\\n  },
   headers: {
     Accept: application/json, text/plain, */*
   },
@@ -273,11 +273,11 @@ Array [
 `;
 
 exports[`ServiceConfig should handle transforming service call responses: transformed responses 1`] = `
-Array [
+[
   "success-schema-transform",
   "success-transform",
   "error-error-transform",
-  Array [
+  [
     "cancelled request",
     undefined,
   ],
@@ -285,7 +285,7 @@ Array [
 `;
 
 exports[`ServiceConfig should have specific properties and methods: specific props and methods 1`] = `
-Array [
+[
   "axiosServiceCall",
   "globalXhrTimeout",
   "globalCancelTokens",

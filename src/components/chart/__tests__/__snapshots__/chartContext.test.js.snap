@@ -1,54 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartContext should apply a hook for toggling chart layers: toggle data 1`] = `
-Object {
+{
   "ipsum": false,
   "lorem": true,
 }
 `;
 
 exports[`ChartContext should return specific properties: specific properties 1`] = `
-Object {
-  "ChartContext": Object {
+{
+  "ChartContext": {
     "$$typeof": Symbol(react.context),
-    "Consumer": Object {
+    "Consumer": {
       "$$typeof": Symbol(react.context),
       "_calculateChangedBits": null,
       "_context": [Circular],
     },
-    "Provider": Object {
+    "Provider": {
       "$$typeof": Symbol(react.provider),
       "_context": [Circular],
     },
     "_calculateChangedBits": null,
     "_currentRenderer": null,
     "_currentRenderer2": null,
-    "_currentValue": Array [
-      Object {
+    "_currentValue": [
+      {
         "chartContainerRef": [Function],
-        "chartSettings": Object {},
+        "chartSettings": {},
         "chartTooltipRef": [Function],
-        "dataSetsToggle": Array [],
+        "dataSetsToggle": [],
       },
       [Function],
     ],
-    "_currentValue2": Array [
-      Object {
+    "_currentValue2": [
+      {
         "chartContainerRef": [Function],
-        "chartSettings": Object {},
+        "chartSettings": {},
         "chartTooltipRef": [Function],
-        "dataSetsToggle": Array [],
+        "dataSetsToggle": [],
       },
       [Function],
     ],
     "_threadCount": 0,
   },
-  "DEFAULT_CONTEXT": Array [
-    Object {
+  "DEFAULT_CONTEXT": [
+    {
       "chartContainerRef": [Function],
-      "chartSettings": Object {},
+      "chartSettings": {},
       "chartTooltipRef": [Function],
-      "dataSetsToggle": Array [],
+      "dataSetsToggle": [],
     },
     [Function],
   ],

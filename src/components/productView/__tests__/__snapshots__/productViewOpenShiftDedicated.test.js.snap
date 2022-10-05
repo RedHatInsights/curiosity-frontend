@@ -7,112 +7,112 @@ exports[`ProductViewOpenShiftDedicated Component should render a basic component
     <ToolbarFieldRangedMonthly
       isFilter={false}
       options={
-        Array [
-          Object {
+        [
+          {
             "_title": "current",
             "isCurrent": true,
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})",
+            "value": {
               "endDate": 2019-07-31T23:59:59.999Z,
               "startDate": 2019-07-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "june",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"June\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"June"})",
+            "value": {
               "endDate": 2019-06-30T23:59:59.999Z,
               "startDate": 2019-06-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "may",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"May\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"May"})",
+            "value": {
               "endDate": 2019-05-31T23:59:59.999Z,
               "startDate": 2019-05-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "april",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"April\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"April"})",
+            "value": {
               "endDate": 2019-04-30T23:59:59.999Z,
               "startDate": 2019-04-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "march",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"March\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"March"})",
+            "value": {
               "endDate": 2019-03-31T23:59:59.999Z,
               "startDate": 2019-03-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "february",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"February\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"February"})",
+            "value": {
               "endDate": 2019-02-28T23:59:59.999Z,
               "startDate": 2019-02-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "january",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"January\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"January"})",
+            "value": {
               "endDate": 2019-01-31T23:59:59.999Z,
               "startDate": 2019-01-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "december",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"December 2018\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"December 2018"})",
+            "value": {
               "endDate": 2018-12-31T23:59:59.999Z,
               "startDate": 2018-12-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "november",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"November 2018\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"November 2018"})",
+            "value": {
               "endDate": 2018-11-30T23:59:59.999Z,
               "startDate": 2018-11-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "october",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"October 2018\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"October 2018"})",
+            "value": {
               "endDate": 2018-10-31T23:59:59.999Z,
               "startDate": 2018-10-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "september",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"September 2018\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"September 2018"})",
+            "value": {
               "endDate": 2018-09-30T23:59:59.999Z,
               "startDate": 2018-09-01T00:00:00.000Z,
             },
           },
-          Object {
+          {
             "_title": "august",
             "selected": false,
-            "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"August 2018\\"})",
-            "value": Object {
+            "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"August 2018"})",
+            "value": {
               "endDate": 2018-08-31T23:59:59.999Z,
               "startDate": 2018-08-01T00:00:00.000Z,
             },

@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, error 1`] = `
-Object {
-  "data": Object {
-    "dolor": Object {
-      "data": Array [],
+{
+  "data": {
+    "dolor": {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
-    "ipsum": Object {
-      "data": Array [],
+    "ipsum": {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
   },
-  "dataSets": Array [
-    Object {
-      "data": Array [],
+  "dataSets": [
+    {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
-    Object {
-      "data": Array [],
+    {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": true,
@@ -33,29 +33,29 @@ Object {
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled 1`] = `
-Object {
-  "data": Object {
-    "dolor": Object {
-      "data": Array [],
+{
+  "data": {
+    "dolor": {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
-    "ipsum": Object {
-      "data": Array [],
+    "ipsum": {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
   },
-  "dataSets": Array [
-    Object {
-      "data": Array [],
+  "dataSets": [
+    {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
-    Object {
-      "data": Array [],
+    {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": false,
@@ -65,29 +65,29 @@ Object {
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled error 1`] = `
-Object {
-  "data": Object {
-    "dolor": Object {
-      "data": Array [],
+{
+  "data": {
+    "dolor": {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
-    "ipsum": Object {
-      "data": Array [],
+    "ipsum": {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
   },
-  "dataSets": Array [
-    Object {
-      "data": Array [],
+  "dataSets": [
+    {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
-    Object {
-      "data": Array [],
+    {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": false,
@@ -97,29 +97,29 @@ Object {
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, fulfilled pending 1`] = `
-Object {
-  "data": Object {
-    "dolor": Object {
-      "data": Array [],
+{
+  "data": {
+    "dolor": {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
-    "ipsum": Object {
-      "data": Array [],
+    "ipsum": {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
   },
-  "dataSets": Array [
-    Object {
-      "data": Array [],
+  "dataSets": [
+    {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
-    Object {
-      "data": Array [],
+    {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": false,
@@ -129,29 +129,29 @@ Object {
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, pending 1`] = `
-Object {
-  "data": Object {
-    "dolor": Object {
-      "data": Array [],
+{
+  "data": {
+    "dolor": {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
-    "ipsum": Object {
-      "data": Array [],
+    "ipsum": {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
   },
-  "dataSets": Array [
-    Object {
-      "data": Array [],
+  "dataSets": [
+    {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
-    Object {
-      "data": Array [],
+    {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": false,
@@ -161,29 +161,29 @@ Object {
 `;
 
 exports[`GraphCardContext should aggregate metric API calls: aggregated calls, pending error 1`] = `
-Object {
-  "data": Object {
-    "dolor": Object {
-      "data": Array [],
+{
+  "data": {
+    "dolor": {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
-    "ipsum": Object {
-      "data": Array [],
+    "ipsum": {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
   },
-  "dataSets": Array [
-    Object {
-      "data": Array [],
+  "dataSets": [
+    {
+      "data": [],
       "id": "ipsum",
-      "meta": Object {},
+      "meta": {},
     },
-    Object {
-      "data": Array [],
+    {
+      "data": [],
       "id": "dolor",
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": false,
@@ -193,47 +193,47 @@ Object {
 `;
 
 exports[`GraphCardContext should return specific properties: specific properties 1`] = `
-Object {
-  "DEFAULT_CONTEXT": Array [
-    Object {
-      "settings": Object {
+{
+  "DEFAULT_CONTEXT": [
+    {
+      "settings": {
         "isStandalone": false,
         "metric": undefined,
-        "metrics": Array [],
+        "metrics": [],
       },
     },
     [Function],
   ],
-  "GraphCardContext": Object {
+  "GraphCardContext": {
     "$$typeof": Symbol(react.context),
-    "Consumer": Object {
+    "Consumer": {
       "$$typeof": Symbol(react.context),
       "_calculateChangedBits": null,
       "_context": [Circular],
     },
-    "Provider": Object {
+    "Provider": {
       "$$typeof": Symbol(react.provider),
       "_context": [Circular],
     },
     "_calculateChangedBits": null,
     "_currentRenderer": null,
     "_currentRenderer2": null,
-    "_currentValue": Array [
-      Object {
-        "settings": Object {
+    "_currentValue": [
+      {
+        "settings": {
           "isStandalone": false,
           "metric": undefined,
-          "metrics": Array [],
+          "metrics": [],
         },
       },
       [Function],
     ],
-    "_currentValue2": Array [
-      Object {
-        "settings": Object {
+    "_currentValue2": [
+      {
+        "settings": {
           "isStandalone": false,
           "metric": undefined,
-          "metrics": Array [],
+          "metrics": [],
         },
       },
       [Function],

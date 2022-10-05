@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToolbarFieldUom Component should export select options: toolbarFieldOptions 1`] = `
-Array [
-  Object {
+[
+  {
     "selected": false,
-    "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
+    "title": "t(curiosity-toolbar.uom, {"context":"cores"})",
     "value": "cores",
   },
-  Object {
+  {
     "selected": false,
-    "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
+    "title": "t(curiosity-toolbar.uom, {"context":"sockets"})",
     "value": "sockets",
   },
 ]
 `;
 
 exports[`ToolbarFieldUom Component should handle updating uom through redux state with component: dispatch uom, component 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
         "viewId": undefined,
       },
-      Object {
+      {
         "type": "SET_QUERY_RHSM_uom",
         "uom": "cores",
         "viewId": undefined,
@@ -34,14 +34,14 @@ Array [
 `;
 
 exports[`ToolbarFieldUom Component should handle updating uom through redux state with hook: dispatch uom, hook 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
         "viewId": "loremIpsum",
       },
-      Object {
+      {
         "type": "SET_QUERY_RHSM_uom",
         "uom": "dolor sit",
         "viewId": "loremIpsum",
@@ -53,7 +53,7 @@ Array [
 
 exports[`ToolbarFieldUom Component should render a basic component: basic 1`] = `
 <Select
-  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
+  aria-label="t(curiosity-toolbar.placeholder, {"context":"uom"})"
   ariaLabel="Select option"
   className=""
   data-test="toolbarFieldUom"
@@ -65,20 +65,20 @@ exports[`ToolbarFieldUom Component should render a basic component: basic 1`] = 
   name={null}
   onSelect={[Function]}
   options={
-    Array [
-      Object {
+    [
+      {
         "selected": false,
-        "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
+        "title": "t(curiosity-toolbar.uom, {"context":"cores"})",
         "value": "cores",
       },
-      Object {
+      {
         "selected": true,
-        "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
+        "title": "t(curiosity-toolbar.uom, {"context":"sockets"})",
         "value": "sockets",
       },
     ]
   }
-  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"uom\\"})"
+  placeholder="t(curiosity-toolbar.placeholder, {"context":"uom"})"
   position="left"
   selectedOptions="sockets"
   toggleIcon={null}

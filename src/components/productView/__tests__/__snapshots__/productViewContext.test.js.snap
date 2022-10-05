@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductViewContext should apply a hook factory for retrieving api queries: query factory 1`] = `
-Object {
+{
   "lorem": "ipsum",
 }
 `;
 
 exports[`ProductViewContext should apply a hook for retrieving product context: product context, basic 1`] = `
-Object {
-  "dolor": Object {
+{
+  "dolor": {
     "dolor": "sit",
   },
-  "initialGraphFilters": Array [],
-  "initialInventoryFilters": Array [],
-  "initialSubscriptionsInventoryFilters": Array [],
-  "lorem": Object {
+  "initialGraphFilters": [],
+  "initialInventoryFilters": [],
+  "initialSubscriptionsInventoryFilters": [],
+  "lorem": {
     "lorem": "ipsum",
   },
   "productId": "lorem",
@@ -23,48 +23,48 @@ Object {
 `;
 
 exports[`ProductViewContext should apply a hook for retrieving product context: product context, uom filtering cores 1`] = `
-Object {
-  "graphTallyQuery": Object {
+{
+  "graphTallyQuery": {
     "granularity": "Daily",
   },
-  "initialGraphFilters": Array [
-    Object {
+  "initialGraphFilters": [
+    {
       "color": "#06c",
       "fill": "#8bc1f7",
       "id": "cores",
       "isOptional": true,
       "stroke": "#06c",
     },
-    Object {
+    {
       "chartType": "threshold",
       "id": "thresholdCores",
       "isOptional": true,
     },
   ],
-  "initialGraphSettings": Object {},
-  "initialGuestsFilters": Array [
-    Object {
+  "initialGraphSettings": {},
+  "initialGuestsFilters": [
+    {
       "cell": [Function],
       "header": [Function],
       "id": "displayName",
     },
-    Object {
+    {
       "cellWidth": 40,
       "id": "inventoryId",
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 15,
       "id": "lastSeen",
     },
   ],
-  "initialInventoryFilters": Array [
-    Object {
+  "initialInventoryFilters": [
+    {
       "cell": [Function],
       "id": "displayName",
       "isSortable": true,
     },
-    Object {
+    {
       "cellWidth": 15,
       "header": [Function],
       "id": "cores",
@@ -72,7 +72,7 @@ Object {
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 25,
       "id": "lastSeen",
@@ -80,27 +80,27 @@ Object {
       "isWrappable": true,
     },
   ],
-  "initialInventorySettings": Object {},
+  "initialInventorySettings": {},
   "initialOption": "cores",
-  "initialSubscriptionsInventoryFilters": Array [
-    Object {
+  "initialSubscriptionsInventoryFilters": [
+    {
       "id": "product_name",
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cellWidth": 15,
       "id": "service_level",
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cellWidth": 20,
       "id": "quantity",
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 15,
       "header": [Function],
@@ -108,7 +108,7 @@ Object {
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 15,
       "id": "next_event_date",
@@ -116,18 +116,18 @@ Object {
       "isWrappable": true,
     },
   ],
-  "initialToolbarFilters": Array [
-    Object {
+  "initialToolbarFilters": [
+    {
       "id": "sla",
     },
   ],
-  "inventoryHostsQuery": Object {
+  "inventoryHostsQuery": {
     "dir": "desc",
     "limit": 100,
     "offset": 0,
     "sort": "last_seen",
   },
-  "inventorySubscriptionsQuery": Object {
+  "inventorySubscriptionsQuery": {
     "dir": "desc",
     "limit": 100,
     "offset": 0,
@@ -137,7 +137,7 @@ Object {
   "productGroup": "OpenShift Container Platform",
   "productId": "OpenShift Container Platform",
   "productLabel": "OpenShift Container Platform",
-  "query": Object {
+  "query": {
     "beginning": "2019-06-20T00:00:00.000Z",
     "ending": "2019-07-20T23:59:59.999Z",
     "uom": "cores",
@@ -147,48 +147,48 @@ Object {
 `;
 
 exports[`ProductViewContext should apply a hook for retrieving product context: product context, uom filtering sockets 1`] = `
-Object {
-  "graphTallyQuery": Object {
+{
+  "graphTallyQuery": {
     "granularity": "Daily",
   },
-  "initialGraphFilters": Array [
-    Object {
+  "initialGraphFilters": [
+    {
       "color": "#06c",
       "fill": "#8bc1f7",
       "id": "sockets",
       "isOptional": true,
       "stroke": "#06c",
     },
-    Object {
+    {
       "chartType": "threshold",
       "id": "thresholdSockets",
       "isOptional": true,
     },
   ],
-  "initialGraphSettings": Object {},
-  "initialGuestsFilters": Array [
-    Object {
+  "initialGraphSettings": {},
+  "initialGuestsFilters": [
+    {
       "cell": [Function],
       "header": [Function],
       "id": "displayName",
     },
-    Object {
+    {
       "cellWidth": 40,
       "id": "inventoryId",
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 15,
       "id": "lastSeen",
     },
   ],
-  "initialInventoryFilters": Array [
-    Object {
+  "initialInventoryFilters": [
+    {
       "cell": [Function],
       "id": "displayName",
       "isSortable": true,
     },
-    Object {
+    {
       "cellWidth": 15,
       "header": [Function],
       "id": "sockets",
@@ -196,7 +196,7 @@ Object {
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 25,
       "id": "lastSeen",
@@ -204,27 +204,27 @@ Object {
       "isWrappable": true,
     },
   ],
-  "initialInventorySettings": Object {},
+  "initialInventorySettings": {},
   "initialOption": "cores",
-  "initialSubscriptionsInventoryFilters": Array [
-    Object {
+  "initialSubscriptionsInventoryFilters": [
+    {
       "id": "product_name",
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cellWidth": 15,
       "id": "service_level",
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cellWidth": 20,
       "id": "quantity",
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 15,
       "header": [Function],
@@ -232,7 +232,7 @@ Object {
       "isSortable": true,
       "isWrappable": true,
     },
-    Object {
+    {
       "cell": [Function],
       "cellWidth": 15,
       "id": "next_event_date",
@@ -240,18 +240,18 @@ Object {
       "isWrappable": true,
     },
   ],
-  "initialToolbarFilters": Array [
-    Object {
+  "initialToolbarFilters": [
+    {
       "id": "sla",
     },
   ],
-  "inventoryHostsQuery": Object {
+  "inventoryHostsQuery": {
     "dir": "desc",
     "limit": 100,
     "offset": 0,
     "sort": "last_seen",
   },
-  "inventorySubscriptionsQuery": Object {
+  "inventorySubscriptionsQuery": {
     "dir": "desc",
     "limit": 100,
     "offset": 0,
@@ -261,7 +261,7 @@ Object {
   "productGroup": "OpenShift Container Platform",
   "productId": "OpenShift Container Platform",
   "productLabel": "OpenShift Container Platform",
-  "query": Object {
+  "query": {
     "beginning": "2019-06-20T00:00:00.000Z",
     "ending": "2019-07-20T23:59:59.999Z",
     "uom": "cores",
@@ -271,38 +271,38 @@ Object {
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: graphTallyQuery 1`] = `
-Object {
+{
   "granularity": "testGranularity",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryGuestsQuery 1`] = `
-Object {
+{
   "limit": 100,
   "offset": "testOffset",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryHostsQuery 1`] = `
-Object {
+{
   "limit": "testLimit",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventorySubscriptionsQuery 1`] = `
-Object {
+{
   "sla": "testSla",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: query 1`] = `
-Object {
+{
   "lorem": "ipsum",
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productConfig 1`] = `
-Object {
+{
   "productGroup": "loremIpsum",
   "productId": "lorem",
   "productLabel": "labelLorem",
@@ -311,102 +311,102 @@ Object {
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productGraphConfig 1`] = `
-Object {
-  "filters": Array [
-    Object {
+{
+  "filters": [
+    {
       "lorem": "ipsum",
     },
   ],
-  "settings": Object {
+  "settings": {
     "lorem": "ipsum",
   },
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productInventoryGuestsConfig 1`] = `
-Object {
-  "filters": Array [
-    Object {
+{
+  "filters": [
+    {
       "sit": "dolor",
     },
   ],
-  "initialQuery": Object {},
-  "settings": Object {
+  "initialQuery": {},
+  "settings": {
     "sit": "dolor",
   },
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productInventoryHostsConfig 1`] = `
-Object {
-  "filters": Array [
-    Object {
+{
+  "filters": [
+    {
       "dolor": "sit",
     },
   ],
-  "settings": Object {
+  "settings": {
     "dolor": "sit",
   },
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productInventorySubscriptionsConfig 1`] = `
-Object {
-  "filters": Array [
-    Object {
+{
+  "filters": [
+    {
       "sit": "amet",
     },
   ],
-  "settings": Object {
+  "settings": {
     "sit": "amet",
   },
 }
 `;
 
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productToolbarConfig 1`] = `
-Object {
-  "filters": Array [
-    Object {
+{
+  "filters": [
+    {
       "ipsum": "dolor",
     },
   ],
-  "secondaryFilters": Array [
-    Object {
+  "secondaryFilters": [
+    {
       "hello": "world",
     },
   ],
-  "settings": Object {
+  "settings": {
     "ipsum": "dolor",
   },
 }
 `;
 
 exports[`ProductViewContext should return specific properties: specific properties 1`] = `
-Object {
-  "DEFAULT_CONTEXT": Array [
-    Object {},
+{
+  "DEFAULT_CONTEXT": [
+    {},
     [Function],
   ],
-  "ProductViewContext": Object {
+  "ProductViewContext": {
     "$$typeof": Symbol(react.context),
-    "Consumer": Object {
+    "Consumer": {
       "$$typeof": Symbol(react.context),
       "_calculateChangedBits": null,
       "_context": [Circular],
     },
-    "Provider": Object {
+    "Provider": {
       "$$typeof": Symbol(react.provider),
       "_context": [Circular],
     },
     "_calculateChangedBits": null,
     "_currentRenderer": null,
     "_currentRenderer2": null,
-    "_currentValue": Array [
-      Object {},
+    "_currentValue": [
+      {},
       [Function],
     ],
-    "_currentValue2": Array [
-      Object {},
+    "_currentValue2": [
+      {},
       [Function],
     ],
     "_threadCount": 0,

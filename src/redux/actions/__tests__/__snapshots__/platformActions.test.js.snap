@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlatformActions Should return a dispatch object for the hideGlobalFilter method: dispatch object 1`] = `
-Object {
+{
   "payload": Promise {},
   "type": "PLATFORM_GLOBAL_FILTER_HIDE",
 }
 `;
 
 exports[`PlatformActions Should return a dispatch object for the initializeChrome method: dispatch object 1`] = `
-Object {
+{
   "payload": Promise {},
   "type": "PLATFORM_INIT",
 }
 `;
 
 exports[`PlatformActions Should return a dispatch object for the setAppName method: dispatch object 1`] = `
-Object {
-  "meta": Object {
-    "data": Object {
+{
+  "meta": {
+    "data": {
       "name": undefined,
     },
   },
@@ -31,8 +31,8 @@ exports[`PlatformActions Should return a function for the onNavigation method: e
 exports[`PlatformActions Should return a function for the onNavigation method: function 1`] = `[Function]`;
 
 exports[`PlatformActions Should return a function for the setAppNav method: expected process 1`] = `
-Object {
-  "meta": Object {
+{
+  "meta": {
     "appName": undefined,
     "id": "lorem",
     "secondaryNav": undefined,

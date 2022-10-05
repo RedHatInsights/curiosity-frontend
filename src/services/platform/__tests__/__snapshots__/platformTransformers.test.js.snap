@@ -1,45 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Platform Transformers should attempt to parse a permissions response: permissions, default 1`] = `
-Object {
-  "authorized": Object {
+{
+  "authorized": {
     "inventory": false,
     "subscriptions": false,
   },
-  "permissions": Object {},
+  "permissions": {},
 }
 `;
 
 exports[`Platform Transformers should attempt to parse a permissions response: permissions, parsed 1`] = `
-Object {
-  "authorized": Object {
+{
+  "authorized": {
     "inventory": false,
     "subscriptions": true,
   },
-  "permissions": Object {
-    "ipsum": Object {
+  "permissions": {
+    "ipsum": {
       "all": false,
-      "resources": Object {
-        "*": Object {
-          "read": Array [],
+      "resources": {
+        "*": {
+          "read": [],
         },
       },
     },
-    "lorem": Object {
+    "lorem": {
       "all": false,
-      "resources": Object {
-        "*": Object {
-          "read": Array [],
+      "resources": {
+        "*": {
+          "read": [],
         },
       },
     },
-    "subscriptions": Object {
+    "subscriptions": {
       "all": true,
-      "resources": Object {
-        "*": Object {
-          "*": Array [],
-          "loremCustom": Array [],
-          "read": Array [],
+      "resources": {
+        "*": {
+          "*": [],
+          "loremCustom": [],
+          "read": [],
         },
       },
     },
@@ -48,21 +48,21 @@ Object {
 `;
 
 exports[`Platform Transformers should attempt to parse a user response: user, default 1`] = `
-Object {
+{
   "isAdmin": false,
   "isEntitled": false,
 }
 `;
 
 exports[`Platform Transformers should attempt to parse a user response: user, parsed 1`] = `
-Object {
+{
   "isAdmin": true,
   "isEntitled": true,
 }
 `;
 
 exports[`Platform Transformers should have specific response transformers: specific transformers 1`] = `
-Object {
+{
   "permissions": [Function],
   "user": [Function],
 }

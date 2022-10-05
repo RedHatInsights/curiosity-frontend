@@ -1,57 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Product RHEL config should apply guest inventory configuration: filtered 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
+    {
       "title": "lorem inventory id",
     },
-    Object {
+    {
       "title": <DateFormat
         date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+  "data": {
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    "subscriptionManagerId": {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
       "value": "lorem subscription id",
     },
   },
@@ -59,9 +59,9 @@ Object {
 `;
 
 exports[`Product RHEL config should apply guest inventory configuration: filtered, authorized 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": <Button
         component="a"
         href="/insights/inventory/lorem inventory id/"
@@ -71,52 +71,52 @@ Object {
         lorem
       </Button>,
     },
-    Object {
+    {
       "title": "lorem inventory id",
     },
-    Object {
+    {
       "title": <DateFormat
         date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"guestsDisplayName\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+  "data": {
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    "subscriptionManagerId": {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
       "value": "lorem subscription id",
     },
   },
@@ -124,90 +124,90 @@ Object {
 `;
 
 exports[`Product RHEL config should apply hosts inventory configuration: filtered 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": <React.Fragment>
         lorem
          
         t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
       </React.Fragment>,
     },
-    Object {
+    {
       "title": <React.Fragment>
         t(curiosity-inventory.measurementType, {"context":null})
          
         
       </React.Fragment>,
     },
-    Object {
+    {
       "title": 10,
     },
-    Object {
+    {
       "title": <DateFormat
         date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "cores": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
+  "data": {
+    "cores": {
+      "title": "t(curiosity-inventory.header, {"context":"cores"})",
       "value": 12,
     },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "hardwareType": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+    "hardwareType": {
+      "title": "t(curiosity-inventory.header, {"context":"hardwareType"})",
       "value": "ipsum",
     },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "measurementType": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+    "measurementType": {
+      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
       "value": null,
     },
-    "numberOfGuests": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+    "numberOfGuests": {
+      "title": "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
       "value": 3,
     },
-    "sockets": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+    "sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
       "value": 10,
     },
   },
@@ -215,12 +215,12 @@ Object {
 `;
 
 exports[`Product RHEL config should apply hosts inventory configuration: filtered, fallback display 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
+    {
       "title": <React.Fragment>
         t(curiosity-inventory.measurementType, {"context":null})
          
@@ -231,76 +231,76 @@ Object {
         </Label>
       </React.Fragment>,
     },
-    Object {
+    {
       "title": 10,
     },
-    Object {
+    {
       "title": "",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "cloudProvider": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cloudProvider\\"})",
+  "data": {
+    "cloudProvider": {
+      "title": "t(curiosity-inventory.header, {"context":"cloudProvider"})",
       "value": "dolor sit",
     },
-    "cores": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"cores\\"})",
+    "cores": {
+      "title": "t(curiosity-inventory.header, {"context":"cores"})",
       "value": 12,
     },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "hardwareType": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hardwareType\\"})",
+    "hardwareType": {
+      "title": "t(curiosity-inventory.header, {"context":"hardwareType"})",
       "value": "ipsum",
     },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "value": null,
     },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": null,
     },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "measurementType": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"measurementType\\"})",
+    "measurementType": {
+      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
       "value": null,
     },
-    "numberOfGuests": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+    "numberOfGuests": {
+      "title": "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
       "value": 3,
     },
-    "sockets": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"sockets\\"})",
+    "sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
       "value": 10,
     },
   },
@@ -308,18 +308,18 @@ Object {
 `;
 
 exports[`Product RHEL config should apply subscriptions inventory configuration: filtered 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
+    {
       "title": "hello world",
     },
-    Object {
+    {
       "title": "",
     },
-    Object {
+    {
       "title": <Tooltip
         content="t(curiosity-inventory.label_has_infinite_quantity, {})"
         distance={5}
@@ -338,59 +338,59 @@ Object {
         />
       </Tooltip>,
     },
-    Object {
+    {
       "title": "2022-01-01",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "has_infinite_quantity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"has_infinite_quantity\\"})",
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header, {"context":"has_infinite_quantity"})",
       "value": true,
     },
-    "next_event_date": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "product_name": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
+    "product_name": {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
       "value": "lorem",
     },
-    "service_level": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
+    "service_level": {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
       "value": "hello world",
     },
-    "total_capacity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"total_capacity\\"})",
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header, {"context":"total_capacity"})",
       "value": 2000,
     },
   },
@@ -398,18 +398,18 @@ Object {
 `;
 
 exports[`Product RHEL config should apply subscriptions inventory configuration: filtered, fallback display 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
+    {
       "title": "",
     },
-    Object {
+    {
       "title": "",
     },
-    Object {
+    {
       "title": <Tooltip
         content="t(curiosity-inventory.label_has_infinite_quantity, {})"
         distance={5}
@@ -428,59 +428,59 @@ Object {
         />
       </Tooltip>,
     },
-    Object {
+    {
       "title": "",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"quantity\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"subscriptions\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "has_infinite_quantity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"has_infinite_quantity\\"})",
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header, {"context":"has_infinite_quantity"})",
       "value": true,
     },
-    "next_event_date": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"next_event_date\\"})",
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
       "value": null,
     },
-    "product_name": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"product_name\\"})",
+    "product_name": {
+      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
       "value": "lorem",
     },
-    "service_level": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"service_level\\"})",
+    "service_level": {
+      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
       "value": null,
     },
-    "total_capacity": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"total_capacity\\"})",
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header, {"context":"total_capacity"})",
       "value": 2000,
     },
   },

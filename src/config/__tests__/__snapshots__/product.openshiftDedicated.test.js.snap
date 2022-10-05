@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Product OpenShift Dedicated config should apply graph configuration: product action display should NOT display a total value 1`] = `
-Object {
+{
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   />,
@@ -9,7 +9,7 @@ Object {
 `;
 
 exports[`Product OpenShift Dedicated config should apply graph configuration: product action display should display a total value 1`] = `
-Object {
+{
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
@@ -19,7 +19,7 @@ Object {
 `;
 
 exports[`Product OpenShift Dedicated config should apply graph configuration: product action display should display a total value below 1000 1`] = `
-Object {
+{
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
@@ -29,7 +29,7 @@ Object {
 `;
 
 exports[`Product OpenShift Dedicated config should apply graph configuration: product action display should display a total value below 1000000 1`] = `
-Object {
+{
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
@@ -39,74 +39,74 @@ Object {
 `;
 
 exports[`Product OpenShift Dedicated config should apply hosts inventory configuration: filtered 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": <React.Fragment>
         lorem
          
         
       </React.Fragment>,
     },
-    Object {
+    {
       "title": "12.53",
     },
-    Object {
+    {
       "title": "20.04",
     },
-    Object {
+    {
       "title": <DateFormat
         date="2022-01-01T00:00:00.000Z"
       />,
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"instanceHours"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+  "data": {
+    "coreHours": {
+      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
       "value": 12.53,
     },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "instanceHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+    "instanceHours": {
+      "title": "t(curiosity-inventory.header, {"context":"instanceHours"})",
       "value": 20.04,
     },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
   },
@@ -114,68 +114,68 @@ Object {
 `;
 
 exports[`Product OpenShift Dedicated config should apply hosts inventory configuration: filtered, fallback display 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "lorem",
     },
-    Object {
+    {
       "title": "0.00",
     },
-    Object {
+    {
       "title": "0.00",
     },
-    Object {
+    {
       "title": "",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "transforms": [],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"instanceHours"})",
+      "transforms": [
         [Function],
       ],
     },
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
-      "transforms": Array [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "coreHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"coreHours\\"})",
+  "data": {
+    "coreHours": {
+      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
       "value": null,
     },
-    "displayName": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"displayName\\"})",
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "instanceHours": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"instanceHours\\"})",
+    "instanceHours": {
+      "title": "t(curiosity-inventory.header, {"context":"instanceHours"})",
       "value": null,
     },
-    "inventoryId": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"inventoryId\\"})",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "value": null,
     },
-    "lastSeen": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lastSeen\\"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": null,
     },
-    "loremIpsum": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"loremIpsum\\"})",
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
   },

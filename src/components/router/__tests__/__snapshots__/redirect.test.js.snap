@@ -8,8 +8,8 @@ exports[`Redirect Component should handle a forced redirect: forced route 1`] = 
 `;
 
 exports[`Redirect Component should handle a forced redirect: forced route, replace 1`] = `
-Array [
-  Array [
+[
+  [
     "/subscriptions/dolor?dolor=sit",
   ],
 ]
@@ -23,9 +23,9 @@ exports[`Redirect Component should handle a redirect with a url: redirect url 1`
 `;
 
 exports[`Redirect Component should handle existing routes: existing route 1`] = `
-Object {
+{
   "activateOnError": false,
-  "aliases": Array [],
+  "aliases": [],
   "component": "productView/productViewOpenShiftContainer",
   "default": false,
   "disabled": false,
@@ -33,61 +33,61 @@ Object {
   "isSearchable": true,
   "path": "*",
   "pathParameter": "OpenShift Container Platform",
-  "productConfig": Array [
-    Object {
-      "graphTallyQuery": Object {
+  "productConfig": [
+    {
+      "graphTallyQuery": {
         "granularity": "Daily",
       },
-      "initialGraphFilters": Array [
-        Object {
+      "initialGraphFilters": [
+        {
           "color": "#06c",
           "fill": "#8bc1f7",
           "id": "cores",
           "isOptional": true,
           "stroke": "#06c",
         },
-        Object {
+        {
           "color": "#06c",
           "fill": "#8bc1f7",
           "id": "sockets",
           "isOptional": true,
           "stroke": "#06c",
         },
-        Object {
+        {
           "chartType": "threshold",
           "id": "thresholdSockets",
           "isOptional": true,
         },
-        Object {
+        {
           "chartType": "threshold",
           "id": "thresholdCores",
           "isOptional": true,
         },
       ],
-      "initialGraphSettings": Object {},
-      "initialGuestsFilters": Array [
-        Object {
+      "initialGraphSettings": {},
+      "initialGuestsFilters": [
+        {
           "cell": [Function],
           "header": [Function],
           "id": "displayName",
         },
-        Object {
+        {
           "cellWidth": 40,
           "id": "inventoryId",
         },
-        Object {
+        {
           "cell": [Function],
           "cellWidth": 15,
           "id": "lastSeen",
         },
       ],
-      "initialInventoryFilters": Array [
-        Object {
+      "initialInventoryFilters": [
+        {
           "cell": [Function],
           "id": "displayName",
           "isSortable": true,
         },
-        Object {
+        {
           "cellWidth": 15,
           "header": [Function],
           "id": "sockets",
@@ -95,7 +95,7 @@ Object {
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cellWidth": 15,
           "header": [Function],
           "id": "cores",
@@ -103,7 +103,7 @@ Object {
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cell": [Function],
           "cellWidth": 25,
           "id": "lastSeen",
@@ -111,27 +111,27 @@ Object {
           "isWrappable": true,
         },
       ],
-      "initialInventorySettings": Object {},
+      "initialInventorySettings": {},
       "initialOption": "cores",
-      "initialSubscriptionsInventoryFilters": Array [
-        Object {
+      "initialSubscriptionsInventoryFilters": [
+        {
           "id": "product_name",
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cellWidth": 15,
           "id": "service_level",
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cellWidth": 20,
           "id": "quantity",
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cell": [Function],
           "cellWidth": 15,
           "header": [Function],
@@ -139,7 +139,7 @@ Object {
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cell": [Function],
           "cellWidth": 15,
           "id": "next_event_date",
@@ -147,18 +147,18 @@ Object {
           "isWrappable": true,
         },
       ],
-      "initialToolbarFilters": Array [
-        Object {
+      "initialToolbarFilters": [
+        {
           "id": "sla",
         },
       ],
-      "inventoryHostsQuery": Object {
+      "inventoryHostsQuery": {
         "dir": "desc",
         "limit": 100,
         "offset": 0,
         "sort": "last_seen",
       },
-      "inventorySubscriptionsQuery": Object {
+      "inventorySubscriptionsQuery": {
         "dir": "desc",
         "limit": 100,
         "offset": 0,
@@ -169,42 +169,42 @@ Object {
       "productGroup": "OpenShift Container Platform",
       "productId": "OpenShift Container Platform",
       "productLabel": "OpenShift Container Platform",
-      "query": Object {
+      "query": {
         "beginning": "2019-06-20T00:00:00.000Z",
         "ending": "2019-07-20T23:59:59.999Z",
         "uom": "cores",
       },
       "viewId": "viewOpenShift Container Platform",
     },
-    Object {
-      "graphTallyQuery": Object {
+    {
+      "graphTallyQuery": {
         "granularity": "Daily",
       },
-      "initialGraphFilters": Array [
-        Object {
+      "initialGraphFilters": [
+        {
           "color": "#06c",
           "fill": "#8bc1f7",
           "id": "coreHours",
           "stroke": "#06c",
         },
       ],
-      "initialGraphSettings": Object {
+      "initialGraphSettings": {
         "actionDisplay": [Function],
       },
-      "initialInventoryFilters": Array [
-        Object {
+      "initialInventoryFilters": [
+        {
           "cell": [Function],
           "id": "displayName",
           "isSortable": true,
         },
-        Object {
+        {
           "cell": [Function],
           "cellWidth": 20,
           "id": "coreHours",
           "isSortable": true,
           "isWrappable": true,
         },
-        Object {
+        {
           "cell": [Function],
           "cellWidth": 25,
           "id": "lastSeen",
@@ -213,7 +213,7 @@ Object {
         },
       ],
       "initialToolbarFilters": undefined,
-      "inventoryHostsQuery": Object {
+      "inventoryHostsQuery": {
         "dir": "desc",
         "limit": 100,
         "offset": 0,
@@ -223,7 +223,7 @@ Object {
       "productGroup": "OpenShift-metrics",
       "productId": "OpenShift-metrics",
       "productLabel": "OpenShift-metrics",
-      "query": Object {
+      "query": {
         "beginning": "2019-07-01T00:00:00.000Z",
         "ending": "2019-07-31T23:59:59.999Z",
       },
@@ -247,10 +247,10 @@ exports[`Redirect Component should handle missing routes: missing route, compone
 exports[`Redirect Component should render a basic component: basic 1`] = `
 <Router
   routes={
-    Array [
-      Object {
+    [
+      {
         "activateOnError": false,
-        "aliases": Array [],
+        "aliases": [],
         "component": "productView/productViewOpenShiftDedicated",
         "default": false,
         "disabled": false,
@@ -258,13 +258,13 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "isSearchable": true,
         "path": "*",
         "pathParameter": "OpenShift-dedicated-metrics",
-        "productConfig": Array [
-          Object {
-            "graphTallyQuery": Object {
+        "productConfig": [
+          {
+            "graphTallyQuery": {
               "granularity": "Daily",
             },
-            "initialGraphFilters": Array [
-              Object {
+            "initialGraphFilters": [
+              {
                 "chartType": "line",
                 "color": "#06c",
                 "fill": "#8bc1f7",
@@ -273,7 +273,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
                 "stroke": "#06c",
                 "yAxisUseDataSet": true,
               },
-              Object {
+              {
                 "chartType": "line",
                 "color": "#009596",
                 "fill": "#a2d9d9",
@@ -283,30 +283,30 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
                 "yAxisUseDataSet": true,
               },
             ],
-            "initialGraphSettings": Object {
+            "initialGraphSettings": {
               "actionDisplay": [Function],
             },
-            "initialInventoryFilters": Array [
-              Object {
+            "initialInventoryFilters": [
+              {
                 "cell": [Function],
                 "id": "displayName",
                 "isSortable": true,
               },
-              Object {
+              {
                 "cell": [Function],
                 "cellWidth": 15,
                 "id": "coreHours",
                 "isSortable": true,
                 "isWrappable": true,
               },
-              Object {
+              {
                 "cell": [Function],
                 "cellWidth": 15,
                 "id": "instanceHours",
                 "isSortable": true,
                 "isWrappable": true,
               },
-              Object {
+              {
                 "cell": [Function],
                 "cellWidth": 15,
                 "id": "lastSeen",
@@ -315,7 +315,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
               },
             ],
             "initialToolbarFilters": undefined,
-            "inventoryHostsQuery": Object {
+            "inventoryHostsQuery": {
               "dir": "desc",
               "limit": 100,
               "offset": 0,
@@ -325,7 +325,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
             "productGroup": "OpenShift-dedicated-metrics",
             "productId": "OpenShift-dedicated-metrics",
             "productLabel": "OpenShift-dedicated-metrics",
-            "query": Object {
+            "query": {
               "beginning": "2019-07-01T00:00:00.000Z",
               "ending": "2019-07-31T23:59:59.999Z",
             },
@@ -337,7 +337,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "routeHref": "/openshift-dedicated",
         "viewParameter": "viewOpenShift-dedicated-metrics",
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -346,7 +346,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/rhel",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -355,7 +355,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/rhel-arm",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -364,7 +364,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/rhel-ibmpower",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -373,7 +373,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/rhel-ibmz",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -382,7 +382,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/rhel-x86",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productViewOpenShiftContainer",
         "disabled": false,
@@ -391,7 +391,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/openshift-container",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productViewOpenShiftDedicated",
         "disabled": false,
@@ -400,7 +400,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/openshift-dedicated",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -409,7 +409,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/rhacs",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -418,7 +418,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/streams",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -427,7 +427,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/satellite",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -436,7 +436,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/satellite-capsule",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -445,7 +445,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/satellite-server",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": true,
         "component": "optinView/optinView",
         "disabled": false,
@@ -454,7 +454,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
         "path": "/optin",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productViewMissing",
         "disabled": false,

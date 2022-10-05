@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphCardChartLegend Component should handle a click event: click event, dispatch 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "id": "test-loremIpsum",
       "type": "SET_GRAPH_LEGEND",
       "value": "mock boolean, loremIpsum",
@@ -13,9 +13,9 @@ Array [
 `;
 
 exports[`GraphCardChartLegend Component should handle a click event: keyPress event, dispatch 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "id": "test-loremIpsum",
       "type": "SET_GRAPH_LEGEND",
       "value": "mock boolean, loremIpsum",
@@ -45,7 +45,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
           fill="#000000"
           size="sm"
           style={
-            Object {
+            {
               "visibility": "visible",
             }
           }
@@ -82,7 +82,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
           fill="#ff0000"
           size="sm"
           style={
-            Object {
+            {
               "visibility": "visible",
             }
           }
@@ -124,7 +124,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
           fill="#000000"
           size="sm"
           style={
-            Object {
+            {
               "visibility": "visible",
             }
           }
@@ -166,7 +166,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           fill="#000000"
           size="sm"
           style={
-            Object {
+            {
               "visibility": "visible",
             }
           }
@@ -235,7 +235,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           fill="#ff0000"
           size="sm"
           style={
-            Object {
+            {
               "visibility": "visible",
             }
           }
@@ -272,7 +272,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           fill="#ff0000"
           size="sm"
           style={
-            Object {
+            {
               "visibility": "visible",
             }
           }
