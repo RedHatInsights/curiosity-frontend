@@ -126,6 +126,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     ouiaSafe={true}
     placeholderText="Select option"
     position="left"
+    removeFindDomNode={false}
     removeSelectionAriaLabel="Remove"
     selections={Array []}
     shouldResetOnSelect={true}
@@ -185,6 +186,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     ouiaSafe={true}
     placeholderText="Select option"
     position="left"
+    removeFindDomNode={false}
     removeSelectionAriaLabel="Remove"
     selections={Array []}
     shouldResetOnSelect={true}
@@ -341,6 +343,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     ouiaSafe={true}
     placeholderText="Select option"
     position="left"
+    removeFindDomNode={false}
     removeSelectionAriaLabel="Remove"
     selections={Array []}
     shouldResetOnSelect={true}
@@ -471,9 +474,9 @@ exports[`Select Component should render a basic component: basic component 1`] =
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-label="Options menu"
-      aria-labelledby=" pf-select-toggle-id-1"
+      aria-labelledby=" pf-select-toggle-id-2"
       class="pf-c-select__toggle"
-      id="pf-select-toggle-id-1"
+      id="pf-select-toggle-id-2"
       type="button"
     >
       <div
@@ -520,9 +523,9 @@ exports[`Select Component should render a checkbox select: checkbox select 1`] =
     <button
       aria-expanded="false"
       aria-label="Options menu"
-      aria-labelledby=" pf-select-toggle-id-3"
+      aria-labelledby=" pf-select-toggle-id-5"
       class="pf-c-select__toggle"
-      id="pf-select-toggle-id-3"
+      id="pf-select-toggle-id-5"
       type="button"
     >
       <div

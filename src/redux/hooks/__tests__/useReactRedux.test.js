@@ -26,7 +26,7 @@ describe('useReactRedux', () => {
 
     reactReduxHooks.useSelector(...params);
 
-    expect(mockSelector).toBeCalledTimes(1);
+    expect(mockSelector).toHaveBeenCalledTimes(1);
     mockSelector.mockClear();
   });
 
@@ -39,8 +39,8 @@ describe('useReactRedux', () => {
 
     reactReduxHooks.useSelectors(...params);
 
-    expect(mockSelectorOne).toBeCalledTimes(1);
-    expect(mockSelectorTwo).toBeCalledTimes(1);
+    expect(mockSelectorOne).toHaveBeenCalledTimes(1);
+    expect(mockSelectorTwo).toHaveBeenCalledTimes(1);
 
     mockSelectorOne.mockClear();
     mockSelectorTwo.mockClear();

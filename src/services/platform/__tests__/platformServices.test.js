@@ -82,9 +82,7 @@ describe('PlatformServices', () => {
 
   it('should return a failed onNavigation', () => {
     window.insights.chrome.on = undefined;
-    expect(platformServices.onNavigation).toThrowError(
-      '{ on } = insights.chrome, insights.chrome.on is not a function'
-    );
+    expect(platformServices.onNavigation).toThrow('{ on } = insights.chrome, insights.chrome.on is not a function');
   });
 
   it('should return a failed setAppName', async () => {
