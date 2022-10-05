@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Configuration should have a consistent route configuration: inconsistent entries 1`] = `Array []`;
+exports[`Configuration should have a consistent route configuration: inconsistent entries 1`] = `[]`;
 
-exports[`Configuration should have consistent product configuration: inconsistent entries 1`] = `Array []`;
+exports[`Configuration should have consistent product configuration: inconsistent entries 1`] = `[]`;
 
 exports[`Configuration should have consistent product configuration: products 1`] = `
-Array [
+[
   "rhel",
   "rhosak",
   "openshiftContainer",
@@ -16,7 +16,7 @@ Array [
 `;
 
 exports[`Configuration should have specific config properties: config 1`] = `
-Array [
+[
   "products",
   "rbac",
   "routes",

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginationHelpers should have specific functions: paginationHelpers 1`] = `
-Object {
+{
   "calculateOffsetFromPage": [Function],
   "calculatePageFromOffset": [Function],
   "isLastPage": [Function],
@@ -9,33 +9,33 @@ Object {
 `;
 
 exports[`PaginationHelpers should return a boolean indicating last page: last page variations 1`] = `
-Array [
-  Object {
+[
+  {
     "offset=0, perPage=10, itemCount=50": false,
   },
-  Object {
+  {
     "offset=10, perPage=10, itemCount=50": false,
   },
-  Object {
+  {
     "offset=40, perPage=10, itemCount=50": true,
   },
-  Object {
+  {
     "offset=50, perPage=10, itemCount=50": false,
   },
-  Object {
+  {
     "offset=0, perPage=20, itemCount=100": false,
   },
-  Object {
+  {
     "offset=80, perPage=20, itemCount=100": true,
   },
-  Object {
+  {
     "offset=100, perPage=20, itemCount=100": false,
   },
 ]
 `;
 
 exports[`PaginationHelpers should return a page from offset and perPage/limit: page variations 1`] = `
-Array [
+[
   1,
   2,
   3,
@@ -52,7 +52,7 @@ Array [
 `;
 
 exports[`PaginationHelpers should return an offset from page and perPage/limit: page variations 1`] = `
-Array [
+[
   0,
   10,
   20,

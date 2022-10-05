@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Platform Configuration, Build should have a name reference that matches configuration: ui name 1`] = `
-Array [
+[
   "REACT_APP_UI_NAME=subscriptions",
   "",
 ]
 `;
 
 exports[`Platform Configuration, Build should have a proxy configuration with path references that match configuration: proxy references 1`] = `
-Array [
+[
   "host: \`https://localhost:\${DEV_PORT}\${BETA_PREFIX}/apps/subscriptions\`",
   "",
 ]
 `;
 
 exports[`Platform Configuration, Build should have path references that match configuration: path references 1`] = `
-Array [
+[
   "PUBLIC_URL=\${UI_DEPLOY_PATH_PREFIX}/apps/subscriptions/",
   "REACT_APP_CONFIG_SERVICE_LOCALES=\${UI_DEPLOY_PATH_PREFIX}/apps/subscriptions/locales/locales.json",
   "REACT_APP_CONFIG_SERVICE_LOCALES_PATH=\${UI_DEPLOY_PATH_PREFIX}/apps/subscriptions/locales/{{lng}}.json",
@@ -23,8 +23,8 @@ Array [
 ]
 `;
 
-exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: direct import exceptions, components 1`] = `Array []`;
+exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: direct import exceptions, components 1`] = `[]`;
 
-exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, notifications 1`] = `Array []`;
+exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, notifications 1`] = `[]`;
 
-exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, utilities 1`] = `Array []`;
+exports[`Platform Configuration, Build should use direct imports for platform components, with exceptions: import exceptions, utilities 1`] = `[]`;

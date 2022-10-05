@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartElements Component should handle basic element settings from context: chart elements 1`] = `
-Array [
+[
   <ChartAxis
     animate={false}
     fixLabelOverlap={true}
     tickFormat={[Function]}
     tickValues={
-      Array [
+      [
         1,
         2,
       ]
@@ -20,30 +20,30 @@ Array [
     orientation="left"
     showGrid={true}
     style={
-      Object {
-        "axis": Object {},
-        "tickLabels": Object {},
+      {
+        "axis": {},
+        "tickLabels": {},
       }
     }
     tickFormat={[Function]}
   />,
   <ChartArea
     animate={
-      Object {
+      {
         "duration": 250,
-        "onLoad": Object {
+        "onLoad": {
           "duration": 250,
         },
       }
     }
     data={
-      Array [
-        Object {
+      [
+        {
           "x": 1,
           "xAxisLabel": "1 x axis label",
           "y": 1,
         },
-        Object {
+        {
           "x": 2,
           "xAxisLabel": "2 x axis label",
           "y": 2,
@@ -54,8 +54,8 @@ Array [
     key="chart-ipsumGraph-"
     name="chart-ipsumGraph-"
     style={
-      Object {
-        "data": Object {
+      {
+        "data": {
           "fill": "#ipsum",
           "stroke": "#lorem",
           "strokeDasharray": "4,3",
@@ -68,21 +68,21 @@ Array [
   <VictoryStack>
     <ChartArea
       animate={
-        Object {
+        {
           "duration": 250,
-          "onLoad": Object {
+          "onLoad": {
             "duration": 250,
           },
         }
       }
       data={
-        Array [
-          Object {
+        [
+          {
             "x": 1,
             "xAxisLabel": "1 x axis label",
             "y": 1,
           },
-          Object {
+          {
             "x": 2,
             "xAxisLabel": "2 x axis label",
             "y": 2,
@@ -93,8 +93,8 @@ Array [
       key="chart-loremGraph-"
       name="chart-loremGraph-"
       style={
-        Object {
-          "data": Object {
+        {
+          "data": {
             "fill": "#ipsum",
             "stroke": "#lorem",
             "strokeWidth": 2,
@@ -156,7 +156,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="120"
           >
@@ -187,7 +187,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="190"
           >
@@ -218,7 +218,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="260"
           >
@@ -249,7 +249,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="330"
           >
@@ -280,7 +280,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="middle"
             x="400"
           >
@@ -325,7 +325,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -356,7 +356,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -387,7 +387,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -418,7 +418,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >
@@ -449,7 +449,7 @@ exports[`ChartElements Component should render a basic component: basic 1`] = `
           <tspan
             dx="0"
             dy="0"
-            style="font-family:\\"RedHatText\\",\\"Overpass\\",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
+            style="font-family:"RedHatText","Overpass",overpass,helvetica,arial,sans-serif;font-size:14px;letter-spacing:normal;padding:10px;stroke:var(--pf-chart-global--label--stroke, transparent);fill:var(--pf-chart-axis--tick-label--Fill, #4f5255)"
             text-anchor="end"
             x="35"
           >

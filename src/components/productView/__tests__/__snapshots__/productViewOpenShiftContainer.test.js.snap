@@ -16,60 +16,60 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
     <ContextProvider
       key="product_OpenShift Container Platform_cores"
       value={
-        Object {
-          "graphTallyQuery": Object {
+        {
+          "graphTallyQuery": {
             "granularity": "Daily",
           },
-          "initialGraphFilters": Array [
-            Object {
+          "initialGraphFilters": [
+            {
               "color": "#06c",
               "fill": "#8bc1f7",
               "id": "cores",
               "isOptional": true,
               "stroke": "#06c",
             },
-            Object {
+            {
               "color": "#06c",
               "fill": "#8bc1f7",
               "id": "sockets",
               "isOptional": true,
               "stroke": "#06c",
             },
-            Object {
+            {
               "chartType": "threshold",
               "id": "thresholdSockets",
               "isOptional": true,
             },
-            Object {
+            {
               "chartType": "threshold",
               "id": "thresholdCores",
               "isOptional": true,
             },
           ],
-          "initialGraphSettings": Object {},
-          "initialGuestsFilters": Array [
-            Object {
+          "initialGraphSettings": {},
+          "initialGuestsFilters": [
+            {
               "cell": [Function],
               "header": [Function],
               "id": "displayName",
             },
-            Object {
+            {
               "cellWidth": 40,
               "id": "inventoryId",
             },
-            Object {
+            {
               "cell": [Function],
               "cellWidth": 15,
               "id": "lastSeen",
             },
           ],
-          "initialInventoryFilters": Array [
-            Object {
+          "initialInventoryFilters": [
+            {
               "cell": [Function],
               "id": "displayName",
               "isSortable": true,
             },
-            Object {
+            {
               "cellWidth": 15,
               "header": [Function],
               "id": "sockets",
@@ -77,7 +77,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cellWidth": 15,
               "header": [Function],
               "id": "cores",
@@ -85,7 +85,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cell": [Function],
               "cellWidth": 25,
               "id": "lastSeen",
@@ -93,27 +93,27 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "isWrappable": true,
             },
           ],
-          "initialInventorySettings": Object {},
+          "initialInventorySettings": {},
           "initialOption": "cores",
-          "initialSubscriptionsInventoryFilters": Array [
-            Object {
+          "initialSubscriptionsInventoryFilters": [
+            {
               "id": "product_name",
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cellWidth": 15,
               "id": "service_level",
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cellWidth": 20,
               "id": "quantity",
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cell": [Function],
               "cellWidth": 15,
               "header": [Function],
@@ -121,7 +121,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cell": [Function],
               "cellWidth": 15,
               "id": "next_event_date",
@@ -129,18 +129,18 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               "isWrappable": true,
             },
           ],
-          "initialToolbarFilters": Array [
-            Object {
+          "initialToolbarFilters": [
+            {
               "id": "sla",
             },
           ],
-          "inventoryHostsQuery": Object {
+          "inventoryHostsQuery": {
             "dir": "desc",
             "limit": 100,
             "offset": 0,
             "sort": "last_seen",
           },
-          "inventorySubscriptionsQuery": Object {
+          "inventorySubscriptionsQuery": {
             "dir": "desc",
             "limit": 100,
             "offset": 0,
@@ -151,7 +151,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           "productGroup": "OpenShift Container Platform",
           "productId": "OpenShift Container Platform",
           "productLabel": "OpenShift Container Platform",
-          "query": Object {
+          "query": {
             "beginning": "2019-06-20T00:00:00.000Z",
             "ending": "2019-07-20T23:59:59.999Z",
             "uom": "cores",
@@ -208,7 +208,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           key="graph_OpenShift Container Platform"
           productId="OpenShift Container Platform"
           query={
-            Object {
+            {
               "beginning": "2019-06-20T00:00:00.000Z",
               "ending": "2019-07-20T23:59:59.999Z",
               "granularity": "Daily",
@@ -219,15 +219,15 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <ToolbarFieldUom
             isFilter={false}
             options={
-              Array [
-                Object {
+              [
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"cores\\"})",
+                  "title": "t(curiosity-toolbar.uom, {"context":"cores"})",
                   "value": "cores",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.uom, {\\"context\\":\\"sockets\\"})",
+                  "title": "t(curiosity-toolbar.uom, {"context":"sockets"})",
                   "value": "sockets",
                 },
               ]
@@ -240,25 +240,25 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <ToolbarFieldGranularity
             isFilter={false}
             options={
-              Array [
-                Object {
+              [
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
                   "value": "Daily",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
                   "value": "Weekly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
                   "value": "Monthly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
                   "value": "Quarterly",
                 },
               ]
@@ -280,21 +280,21 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <InventoryTab
             active={false}
             key="inventory_hosts_OpenShift Container Platform"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_OpenShift Container Platform\\"})"
+            title="t(curiosity-inventory.tabHosts, {"context":"noInstances_OpenShift Container Platform"})"
           >
             <Connect(InventoryList)
               filterGuestsData={
-                Array [
-                  Object {
+                [
+                  {
                     "cell": [Function],
                     "header": [Function],
                     "id": "displayName",
                   },
-                  Object {
+                  {
                     "cellWidth": 40,
                     "id": "inventoryId",
                   },
-                  Object {
+                  {
                     "cell": [Function],
                     "cellWidth": 15,
                     "id": "lastSeen",
@@ -302,13 +302,13 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                 ]
               }
               filterInventoryData={
-                Array [
-                  Object {
+                [
+                  {
                     "cell": [Function],
                     "id": "displayName",
                     "isSortable": true,
                   },
-                  Object {
+                  {
                     "cellWidth": 15,
                     "header": [Function],
                     "id": "cores",
@@ -316,7 +316,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                     "isSortable": true,
                     "isWrappable": true,
                   },
-                  Object {
+                  {
                     "cell": [Function],
                     "cellWidth": 25,
                     "id": "lastSeen",
@@ -328,7 +328,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               key="inv_OpenShift Container Platform"
               productId="OpenShift Container Platform"
               query={
-                Object {
+                {
                   "beginning": "2019-06-20T00:00:00.000Z",
                   "dir": "desc",
                   "ending": "2019-07-20T23:59:59.999Z",
@@ -338,14 +338,14 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                   "uom": "cores",
                 }
               }
-              settings={Object {}}
+              settings={{}}
               viewId="viewOpenShift Container Platform"
             />
           </InventoryTab>
           <InventoryTab
             active={false}
             key="inventory_subs_OpenShift Container Platform"
-            title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"OpenShift Container Platform\\"})"
+            title="t(curiosity-inventory.tabSubscriptions, {"context":"OpenShift Container Platform"})"
           >
             <InventoryCardSubscriptions
               isDisabled={false}
@@ -362,35 +362,35 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
     <ContextProvider
       key="product_OpenShift-metrics_undefined"
       value={
-        Object {
-          "graphTallyQuery": Object {
+        {
+          "graphTallyQuery": {
             "granularity": "Daily",
           },
-          "initialGraphFilters": Array [
-            Object {
+          "initialGraphFilters": [
+            {
               "color": "#06c",
               "fill": "#8bc1f7",
               "id": "coreHours",
               "stroke": "#06c",
             },
           ],
-          "initialGraphSettings": Object {
+          "initialGraphSettings": {
             "actionDisplay": [Function],
           },
-          "initialInventoryFilters": Array [
-            Object {
+          "initialInventoryFilters": [
+            {
               "cell": [Function],
               "id": "displayName",
               "isSortable": true,
             },
-            Object {
+            {
               "cell": [Function],
               "cellWidth": 20,
               "id": "coreHours",
               "isSortable": true,
               "isWrappable": true,
             },
-            Object {
+            {
               "cell": [Function],
               "cellWidth": 25,
               "id": "lastSeen",
@@ -399,7 +399,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
             },
           ],
           "initialToolbarFilters": undefined,
-          "inventoryHostsQuery": Object {
+          "inventoryHostsQuery": {
             "dir": "desc",
             "limit": 100,
             "offset": 0,
@@ -409,7 +409,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           "productGroup": "OpenShift-metrics",
           "productId": "OpenShift-metrics",
           "productLabel": "OpenShift-metrics",
-          "query": Object {
+          "query": {
             "beginning": "2019-07-01T00:00:00.000Z",
             "ending": "2019-07-31T23:59:59.999Z",
           },
@@ -465,7 +465,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           key="graph_OpenShift-metrics"
           productId="OpenShift-metrics"
           query={
-            Object {
+            {
               "beginning": "2019-07-01T00:00:00.000Z",
               "ending": "2019-07-31T23:59:59.999Z",
               "granularity": "Daily",
@@ -476,112 +476,112 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <ToolbarFieldRangedMonthly
             isFilter={false}
             options={
-              Array [
-                Object {
+              [
+                {
                   "_title": "current",
                   "isCurrent": true,
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"current\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})",
+                  "value": {
                     "endDate": 2019-07-31T23:59:59.999Z,
                     "startDate": 2019-07-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "june",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"June\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"June"})",
+                  "value": {
                     "endDate": 2019-06-30T23:59:59.999Z,
                     "startDate": 2019-06-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "may",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"May\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"May"})",
+                  "value": {
                     "endDate": 2019-05-31T23:59:59.999Z,
                     "startDate": 2019-05-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "april",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"April\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"April"})",
+                  "value": {
                     "endDate": 2019-04-30T23:59:59.999Z,
                     "startDate": 2019-04-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "march",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"March\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"March"})",
+                  "value": {
                     "endDate": 2019-03-31T23:59:59.999Z,
                     "startDate": 2019-03-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "february",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"February\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"February"})",
+                  "value": {
                     "endDate": 2019-02-28T23:59:59.999Z,
                     "startDate": 2019-02-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "january",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"January\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"January"})",
+                  "value": {
                     "endDate": 2019-01-31T23:59:59.999Z,
                     "startDate": 2019-01-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "december",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"December 2018\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"December 2018"})",
+                  "value": {
                     "endDate": 2018-12-31T23:59:59.999Z,
                     "startDate": 2018-12-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "november",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"November 2018\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"November 2018"})",
+                  "value": {
                     "endDate": 2018-11-30T23:59:59.999Z,
                     "startDate": 2018-11-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "october",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"October 2018\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"October 2018"})",
+                  "value": {
                     "endDate": 2018-10-31T23:59:59.999Z,
                     "startDate": 2018-10-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "september",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"September 2018\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"September 2018"})",
+                  "value": {
                     "endDate": 2018-09-30T23:59:59.999Z,
                     "startDate": 2018-09-01T00:00:00.000Z,
                   },
                 },
-                Object {
+                {
                   "_title": "august",
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {\\"context\\":\\"August 2018\\"})",
-                  "value": Object {
+                  "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"August 2018"})",
+                  "value": {
                     "endDate": 2018-08-31T23:59:59.999Z,
                     "startDate": 2018-08-01T00:00:00.000Z,
                   },
@@ -605,25 +605,25 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <InventoryTab
             active={false}
             key="inventory_hosts_OpenShift-metrics"
-            title="t(curiosity-inventory.tabHosts, {\\"context\\":\\"noInstances_OpenShift-metrics\\"})"
+            title="t(curiosity-inventory.tabHosts, {"context":"noInstances_OpenShift-metrics"})"
           >
             <Connect(InventoryList)
-              filterGuestsData={Array []}
+              filterGuestsData={[]}
               filterInventoryData={
-                Array [
-                  Object {
+                [
+                  {
                     "cell": [Function],
                     "id": "displayName",
                     "isSortable": true,
                   },
-                  Object {
+                  {
                     "cell": [Function],
                     "cellWidth": 20,
                     "id": "coreHours",
                     "isSortable": true,
                     "isWrappable": true,
                   },
-                  Object {
+                  {
                     "cell": [Function],
                     "cellWidth": 25,
                     "id": "lastSeen",
@@ -635,7 +635,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
               key="inv_OpenShift-metrics"
               productId="OpenShift-metrics"
               query={
-                Object {
+                {
                   "beginning": "2019-07-01T00:00:00.000Z",
                   "dir": "desc",
                   "ending": "2019-07-31T23:59:59.999Z",
@@ -644,7 +644,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
                   "sort": "last_seen",
                 }
               }
-              settings={Object {}}
+              settings={{}}
               viewId="viewOpenShift-metrics"
             />
           </InventoryTab>

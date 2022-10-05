@@ -6,8 +6,8 @@ exports[`GraphCard Component should render a basic component: basic 1`] = `
 <Fragment>
   <GraphCardMetrics
     metricFilters={
-      Array [
-        Object {
+      [
+        {
           "id": "Core-seconds",
           "isStacked": true,
           "isStandalone": false,
@@ -25,8 +25,8 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
 <Fragment>
   <GraphCardMetrics
     metricFilters={
-      Array [
-        Object {
+      [
+        {
           "id": "Core-seconds",
           "isStacked": true,
           "isStandalone": false,
@@ -40,7 +40,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
   <GraphCardMetric
     key="graphCard_Sockets"
     metricFilter={
-      Object {
+      {
         "id": "Sockets",
         "isStacked": true,
         "isStandalone": true,

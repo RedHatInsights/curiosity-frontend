@@ -6,17 +6,17 @@ exports[`InventoryCard Component should handle expandable guests data: number of
   borders={true}
   className="curiosity-inventory-list"
   columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+    [
+      "t(curiosity-inventory.header, {"context":"lorem"})",
+      "t(curiosity-inventory.header, {"context":"dolor"})",
+      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
     ]
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           "sit",
           "amet",
           1,
@@ -37,18 +37,18 @@ exports[`InventoryCard Component should handle expandable guests data: number of
   borders={true}
   className="curiosity-inventory-list"
   columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    [
+      "t(curiosity-inventory.header, {"context":"lorem"})",
+      "t(curiosity-inventory.header, {"context":"dolor"})",
+      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+      "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
     ]
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           "sit",
           "amet",
           1,
@@ -79,18 +79,18 @@ exports[`InventoryCard Component should handle expandable guests data: number of
   borders={true}
   className="curiosity-inventory-list"
   columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    [
+      "t(curiosity-inventory.header, {"context":"lorem"})",
+      "t(curiosity-inventory.header, {"context":"dolor"})",
+      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+      "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
     ]
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           "sit",
           "amet",
           2,
@@ -160,9 +160,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           ariaLabel={null}
           borders={true}
           className="curiosity-inventory-list"
-          columnHeaders={Array []}
+          columnHeaders={[]}
           isHeader={true}
-          rows={Array []}
+          rows={[]}
           summary={null}
           t={[Function]}
           variant="compact"
@@ -255,23 +255,23 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           borders={true}
           className="curiosity-inventory-list"
           columnHeaders={
-            Array [
-              "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-              "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+            [
+              "t(curiosity-inventory.header, {"context":"lorem"})",
+              "t(curiosity-inventory.header, {"context":"dolor"})",
             ]
           }
           isHeader={true}
           rows={
-            Array [
-              Object {
-                "cells": Array [
+            [
+              {
+                "cells": [
                   "ipsum",
                   "sit",
                 ],
                 "expandedContent": undefined,
               },
-              Object {
-                "cells": Array [
+              {
+                "cells": [
                   "sit",
                   "amet",
                 ],
@@ -368,15 +368,15 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Loader
           skeletonProps={
-            Object {
+            {
               "size": "sm",
             }
           }
           tableProps={
-            Object {
+            {
               "className": "curiosity-inventory-list",
               "colCount": 1,
-              "colWidth": Array [],
+              "colWidth": [],
               "rowCount": 10,
               "variant": "compact",
             }
@@ -471,27 +471,27 @@ exports[`InventoryCard Component should handle variations in data: filtered data
           borders={true}
           className="curiosity-inventory-list"
           columnHeaders={
-            Array [
-              Object {
-                "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-                "transforms": Array [],
+            [
+              {
+                "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+                "transforms": [],
               },
             ]
           }
           isHeader={true}
           rows={
-            Array [
-              Object {
-                "cells": Array [
-                  Object {
+            [
+              {
+                "cells": [
+                  {
                     "title": "ipsum",
                   },
                 ],
                 "expandedContent": undefined,
               },
-              Object {
-                "cells": Array [
-                  Object {
+              {
+                "cells": [
+                  {
                     "title": "sit",
                   },
                 ],
@@ -591,23 +591,23 @@ exports[`InventoryCard Component should handle variations in data: variable data
           borders={true}
           className="curiosity-inventory-list"
           columnHeaders={
-            Array [
-              "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-              "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+            [
+              "t(curiosity-inventory.header, {"context":"lorem"})",
+              "t(curiosity-inventory.header, {"context":"dolor"})",
             ]
           }
           isHeader={true}
           rows={
-            Array [
-              Object {
-                "cells": Array [
+            [
+              {
+                "cells": [
                   "ipsum",
                   "sit",
                 ],
                 "expandedContent": undefined,
               },
-              Object {
-                "cells": Array [
+              {
+                "cells": [
                   "sit",
                   "amet",
                 ],
@@ -704,15 +704,15 @@ exports[`InventoryCard Component should render a basic component: basic render 1
       >
         <Loader
           skeletonProps={
-            Object {
+            {
               "size": "sm",
             }
           }
           tableProps={
-            Object {
+            {
               "className": "curiosity-inventory-list",
               "colCount": 1,
-              "colWidth": Array [],
+              "colWidth": [],
               "rowCount": 10,
               "variant": "compact",
             }

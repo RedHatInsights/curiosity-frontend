@@ -9,14 +9,14 @@ exports[`InventoryListHelpers applyConfigProperty should determine if filter pro
 exports[`InventoryListHelpers applyConfigProperty should determine if filter property is valid and return it or undefined: prop valid, string 1`] = `"hello world"`;
 
 exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: NOT sortable 1`] = `
-Object {
+{
   "id": "lorem",
   "isSortable": false,
 }
 `;
 
 exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable 1`] = `
-Object {
+{
   "id": "lorem",
   "isSortable": true,
   "onSort": [Function],
@@ -24,7 +24,7 @@ Object {
 `;
 
 exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable, active column 1`] = `
-Object {
+{
   "id": "lorem",
   "isSortable": true,
   "onSort": [Function],
@@ -34,14 +34,14 @@ Object {
 `;
 
 exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable, direction 1`] = `
-Object {
-  "ascending": Object {
+{
+  "ascending": {
     "id": "lorem",
     "isSortable": true,
     "onSort": [Function],
     "sortDirection": "asc",
   },
-  "descending": Object {
+  "descending": {
     "id": "lorem",
     "isSortable": true,
     "onSort": [Function],
@@ -51,7 +51,7 @@ Object {
 `;
 
 exports[`InventoryListHelpers applySortFilters should apply and return updated filters for table sorting: sortable, set a default field 1`] = `
-Object {
+{
   "id": "lorem",
   "isSortDefault": true,
   "isSortable": true,
@@ -63,8 +63,8 @@ Object {
 `;
 
 exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: NOT wrappable header 1`] = `
-Array [
-  Object {
+[
+  {
     "id": "lorem",
     "isWrappable": false,
   },
@@ -72,10 +72,10 @@ Array [
 `;
 
 exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: append/push a wrappable transform 1`] = `
-Object {
+{
   "id": "lorem",
   "isWrappable": true,
-  "transforms": Array [
+  "transforms": [
     "lorem",
     [Function],
   ],
@@ -83,21 +83,21 @@ Object {
 `;
 
 exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: apply default wrappable transform 1`] = `
-Object {
+{
   "id": "lorem",
   "isWrappable": true,
-  "transforms": Array [
+  "transforms": [
     [Function],
   ],
 }
 `;
 
 exports[`InventoryListHelpers applyWrappableFilters should apply and return updated filters for table header wrapping: wrappable header 1`] = `
-Array [
-  Object {
+[
+  {
     "id": "lorem",
     "isWrappable": true,
-    "transforms": Array [
+    "transforms": [
       [Function],
     ],
   },
@@ -105,8 +105,8 @@ Array [
 `;
 
 exports[`InventoryListHelpers parseInventoryFilters should parse and return updated filters for table cells: NOT sortable 1`] = `
-Array [
-  Object {
+[
+  {
     "id": "lorem",
     "isSortable": false,
   },
@@ -114,8 +114,8 @@ Array [
 `;
 
 exports[`InventoryListHelpers parseInventoryFilters should parse and return updated filters for table cells: sortable 1`] = `
-Array [
-  Object {
+[
+  {
     "id": "lorem",
     "isSortable": true,
     "onSort": [Function],
@@ -124,22 +124,22 @@ Array [
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: basic cell data 1`] = `
-Object {
-  "cells": Array [
+{
+  "cells": [
     "ipsum",
     "sit",
   ],
-  "columnHeaders": Array [
-    "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-    "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "columnHeaders": [
+    "t(curiosity-inventory.header, {"context":"lorem"})",
+    "t(curiosity-inventory.header, {"context":"dolor"})",
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -147,25 +147,25 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: basic standalone data 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "world",
     },
   ],
-  "columnHeaders": Array [
-    Object {
+  "columnHeaders": [
+    {
       "title": "hello",
-      "transforms": Array [],
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -173,28 +173,28 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom and generated transforms 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "transforms": Array [
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+      "transforms": [
         [Function],
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -202,25 +202,25 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom callback data 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum/sit",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})/t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})/t(curiosity-inventory.header, {"context":"dolor"})",
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -228,28 +228,28 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell data 1`] = `
-Object {
-  "cells": Array [
-    Object {
-      "props": Object {
+{
+  "cells": [
+    {
+      "props": {
         "textCenter": true,
       },
       "title": "object, cell, lorem",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -257,9 +257,9 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell tooltips 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": <Tooltip
         content="tooltip body content"
         distance={5}
@@ -273,8 +273,8 @@ Object {
       </Tooltip>,
     },
   ],
-  "columnHeaders": Array [
-    Object {
+  "columnHeaders": [
+    {
       "title": <Tooltip
         content="tooltip header content"
         distance={5}
@@ -286,16 +286,16 @@ Object {
       >
         object, header, lorem
       </Tooltip>,
-      "transforms": Array [],
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -303,29 +303,29 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell, hide cell and column header if data is missing 1`] = `
-Object {
-  "cells": Array [],
-  "columnHeaders": Array [],
-  "data": Object {},
+{
+  "cells": [],
+  "columnHeaders": [],
+  "data": {},
 }
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom cell, use an empty cell if data is missing 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"missing\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"missing"})",
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "hello": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"hello\\"})",
+  "data": {
+    "hello": {
+      "title": "t(curiosity-inventory.header, {"context":"hello"})",
       "value": "world",
     },
   },
@@ -333,28 +333,28 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom header data 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "props": Object {
+  "columnHeaders": [
+    {
+      "props": {
         "textCenter": true,
       },
       "title": "object, header, lorem",
-      "transforms": Array [],
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -362,28 +362,28 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom sort 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum",
     },
   ],
-  "columnHeaders": Array [
-    Object {
+  "columnHeaders": [
+    {
       "onSort": [Function],
       "sortActive": undefined,
       "sortDirection": undefined,
       "title": "header, lorem sort",
-      "transforms": Array [],
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -391,25 +391,25 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom standalone data 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "custom ipsum/sit",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "custom t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})/t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "custom t(curiosity-inventory.header, {"context":"lorem"})/t(curiosity-inventory.header, {"context":"dolor"})",
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -417,27 +417,27 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: custom transforms 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "transforms": Array [
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -445,25 +445,25 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: filtered data 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "transforms": Array [],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+      "transforms": [],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -471,27 +471,27 @@ Object {
 `;
 
 exports[`InventoryListHelpers parseRowCellsListData should parse and return formatted/filtered table cells.: generated transforms 1`] = `
-Object {
-  "cells": Array [
-    Object {
+{
+  "cells": [
+    {
       "title": "ipsum",
     },
   ],
-  "columnHeaders": Array [
-    Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "transforms": Array [
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+      "transforms": [
         [Function],
       ],
     },
   ],
-  "data": Object {
-    "dolor": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+  "data": {
+    "dolor": {
+      "title": "t(curiosity-inventory.header, {"context":"dolor"})",
       "value": "sit",
     },
-    "lorem": Object {
-      "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
+    "lorem": {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
       "value": "ipsum",
     },
   },
@@ -499,7 +499,7 @@ Object {
 `;
 
 exports[`InventoryListHelpers should have specific functions: inventoryListHelpers 1`] = `
-Object {
+{
   "applyConfigProperty": [Function],
   "applyHeaderRowCellFilters": [Function],
   "applySortFilters": [Function],

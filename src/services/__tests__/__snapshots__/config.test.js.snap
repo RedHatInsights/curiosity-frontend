@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Services Configuration should handle a bundled authentication and service call: responses 1`] = `
-Array [
-  Object {
+[
+  {
     "data": "success",
   },
-  Object {
+  {
     "data": "error",
   },
 ]
 `;
 
 exports[`Services Configuration should have specific properties and methods: specific props and methods 1`] = `
-Array [
+[
   "serviceCall",
   "serviceConfig",
 ]

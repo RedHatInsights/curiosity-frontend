@@ -12,7 +12,7 @@ exports[`PageHeader Component should render a basic component: basic 1`] = `
     >
       <Flex
         justifyContent={
-          Object {
+          {
             "sm": "justifyContentSpaceBetween",
           }
         }
@@ -76,7 +76,7 @@ exports[`PageHeader Component should render string node types: string 1`] = `
     >
       <Flex
         justifyContent={
-          Object {
+          {
             "sm": "justifyContentSpaceBetween",
           }
         }
@@ -130,7 +130,7 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
     >
       <Flex
         justifyContent={
-          Object {
+          {
             "sm": "justifyContentSpaceBetween",
           }
         }

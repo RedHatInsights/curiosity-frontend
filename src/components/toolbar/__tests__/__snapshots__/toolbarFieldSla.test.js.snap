@@ -1,39 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToolbarFieldSla Component should export select options: toolbarFieldOptions 1`] = `
-Array [
-  Object {
+[
+  {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+    "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
     "value": "Premium",
   },
-  Object {
+  {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+    "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
     "value": "Standard",
   },
-  Object {
+  {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+    "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
     "value": "Self-Support",
   },
-  Object {
+  {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
+    "title": "t(curiosity-toolbar.sla, {"context":"none"})",
     "value": "",
   },
 ]
 `;
 
 exports[`ToolbarFieldSla Component should handle updating sla through redux state with component: dispatch sla, component 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
         "viewId": undefined,
       },
-      Object {
+      {
         "sla": "Premium",
         "type": "SET_QUERY_RHSM_sla",
         "viewId": undefined,
@@ -44,14 +44,14 @@ Array [
 `;
 
 exports[`ToolbarFieldSla Component should handle updating sla through redux state with hook: dispatch sla, hook 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "type": "SET_QUERY_RESET_INVENTORY_LIST",
         "viewId": "loremIpsum",
       },
-      Object {
+      {
         "sla": "dolor sit",
         "type": "SET_QUERY_RHSM_sla",
         "viewId": "loremIpsum",
@@ -63,7 +63,7 @@ Array [
 
 exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = `
 <Select
-  aria-label="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+  aria-label="t(curiosity-toolbar.placeholder, {"context":"sla"})"
   ariaLabel="Select option"
   className=""
   data-test="toolbarFieldSla"
@@ -75,30 +75,30 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   name={null}
   onSelect={[Function]}
   options={
-    Array [
-      Object {
+    [
+      {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Premium\\"})",
+        "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
         "value": "Premium",
       },
-      Object {
+      {
         "selected": true,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Standard\\"})",
+        "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
         "value": "Standard",
       },
-      Object {
+      {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"Self-Support\\"})",
+        "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
         "value": "Self-Support",
       },
-      Object {
+      {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {\\"context\\":\\"none\\"})",
+        "title": "t(curiosity-toolbar.sla, {"context":"none"})",
         "value": "",
       },
     ]
   }
-  placeholder="t(curiosity-toolbar.placeholder, {\\"context\\":\\"sla\\"})"
+  placeholder="t(curiosity-toolbar.placeholder, {"context":"sla"})"
   position="left"
   selectedOptions="Standard"
   toggleIcon={null}

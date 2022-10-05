@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InventoryCardSubscriptionsContext should expect specific sort properties: sort properties 1`] = `
-Object {
+{
   "NEXT_EVENT_DATE": "next_event_date",
   "NEXT_EVENT_TYPE": "next_event_type",
   "PRODUCT_NAME": "product_name",
@@ -14,18 +14,18 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle a store response with useGetSubscriptionsInventory: store response 1`] = `
-Object {
-  "data": Array [
-    Object {
-      "data": Array [
-        Object {
+{
+  "data": [
+    {
+      "data": [
+        {
           "lorem": "ipsum",
         },
-        Object {
+        {
           "dolor": "sit",
         },
       ],
-      "meta": Object {},
+      "meta": {},
     },
   ],
   "error": false,
@@ -35,29 +35,29 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "dir": "desc",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
         "viewId": "lorem",
       },
-      Object {
+      {
         "sort": "loremIpsumColumnOne",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
       },
     ],
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "dir": "asc",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
         "viewId": "lorem",
       },
-      Object {
+      {
         "sort": "loremIpsumColumnOne",
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
         "viewId": "lorem",
@@ -68,15 +68,15 @@ Array [
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle an onPage event: onPage event, dispatch 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "offset": 1,
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
         "viewId": "lorem",
       },
-      Object {
+      {
         "limit": 5,
         "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
         "viewId": "lorem",
@@ -87,8 +87,8 @@ Array [
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
-Object {
-  "data": Object {},
+{
+  "data": {},
   "error": undefined,
   "fulfilled": undefined,
   "pending": true,
@@ -96,8 +96,8 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
-Object {
-  "data": Object {},
+{
+  "data": {},
   "error": undefined,
   "fulfilled": undefined,
   "pending": false,
@@ -105,8 +105,8 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, error 1`] = `
-Object {
-  "data": Object {},
+{
+  "data": {},
   "error": true,
   "fulfilled": undefined,
   "pending": false,
@@ -114,8 +114,8 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, fulfilled 1`] = `
-Object {
-  "data": Object {},
+{
+  "data": {},
   "error": undefined,
   "fulfilled": true,
   "pending": false,
@@ -123,8 +123,8 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, pending 1`] = `
-Object {
-  "data": Object {},
+{
+  "data": {},
   "error": undefined,
   "fulfilled": undefined,
   "pending": true,
@@ -132,7 +132,7 @@ Object {
 `;
 
 exports[`InventoryCardSubscriptionsContext should return specific properties: specific properties 1`] = `
-Object {
+{
   "useGetSubscriptionsInventory": [Function],
   "useOnColumnSortSubscriptions": [Function],
   "useOnPageSubscriptions": [Function],

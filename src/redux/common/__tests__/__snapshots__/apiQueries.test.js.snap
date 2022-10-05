@@ -1,34 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiQueries should have specific functions: apiQueries 1`] = `
-Object {
+{
   "parseRhsmQuery": [Function],
 }
 `;
 
 exports[`ApiQueries should parse a query object into specific api facets: rhsm 1`] = `
-Object {
-  "graphTallyQuery": Object {
+{
+  "graphTallyQuery": {
     "granularity": "Daily",
   },
-  "inventoryGuestsQuery": Object {
+  "inventoryGuestsQuery": {
     "limit": 10,
     "offset": 0,
   },
-  "inventoryHostsQuery": Object {
+  "inventoryHostsQuery": {
     "limit": 10,
     "offset": 0,
   },
-  "inventorySubscriptionsQuery": Object {
+  "inventorySubscriptionsQuery": {
     "limit": 10,
     "offset": 0,
   },
-  "query": Object {
+  "query": {
     "granularity": "Daily",
     "limit": 10,
     "offset": 0,
   },
-  "toolbarQuery": Object {
+  "toolbarQuery": {
     "granularity": "Daily",
     "limit": 10,
     "offset": 0,

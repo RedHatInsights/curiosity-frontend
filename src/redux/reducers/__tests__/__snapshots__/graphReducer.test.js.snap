@@ -1,33 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {},
-    "reportCapacity": Object {
+{
+  "result": {
+    "legend": {},
+    "reportCapacity": {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "tally": Object {},
+    "tally": {},
   },
   "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_REJECTED",
 }
 `;
 
 exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_TALLY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {},
-    "reportCapacity": Object {},
-    "tally": Object {
+{
+  "result": {
+    "legend": {},
+    "reportCapacity": {},
+    "tally": {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
@@ -37,41 +37,41 @@ Object {
 `;
 
 exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {},
-    "reportCapacity": Object {
-      "data": Object {
+{
+  "result": {
+    "legend": {},
+    "reportCapacity": {
+      "data": {
         "test": "success",
       },
       "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "tally": Object {},
+    "tally": {},
   },
   "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_FULFILLED",
 }
 `;
 
 exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_TALLY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {},
-    "reportCapacity": Object {},
-    "tally": Object {
-      "data": Object {
+{
+  "result": {
+    "legend": {},
+    "reportCapacity": {},
+    "tally": {
+      "data": {
         "test": "success",
       },
       "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
@@ -81,32 +81,32 @@ Object {
 `;
 
 exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {},
-    "reportCapacity": Object {
+{
+  "result": {
+    "legend": {},
+    "reportCapacity": {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": true,
     },
-    "tally": Object {},
+    "tally": {},
   },
   "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
 }
 `;
 
 exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_TALLY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {},
-    "reportCapacity": Object {},
-    "tally": Object {
+{
+  "result": {
+    "legend": {},
+    "reportCapacity": {},
+    "tally": {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": true,
     },
   },
@@ -115,13 +115,13 @@ Object {
 `;
 
 exports[`GraphReducer should handle specific defined types: defined type SET_GRAPH_LEGEND 1`] = `
-Object {
-  "result": Object {
-    "legend": Object {
+{
+  "result": {
+    "legend": {
       "lorem": true,
     },
-    "reportCapacity": Object {},
-    "tally": Object {},
+    "reportCapacity": {},
+    "tally": {},
   },
   "type": "SET_GRAPH_LEGEND",
 }

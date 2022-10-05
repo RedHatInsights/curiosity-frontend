@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useRouter should apply a hook for useHistory that emulates history but allows dispatching platform navigation updates if available: dispatch platform navigation 1`] = `
-Array [
-  Array [
-    Object {
-      "meta": Object {
+[
+  [
+    {
+      "meta": {
         "appName": undefined,
         "id": "rhel",
         "secondaryNav": undefined,
@@ -17,23 +17,23 @@ Array [
 `;
 
 exports[`useRouter should apply a hook for useHistory that emulates history but allows dispatching platform navigation updates if available: history push 1`] = `
-Array [
-  Array [
+[
+  [
     "/lorem/ipsum",
     undefined,
   ],
 ]
 `;
 
-exports[`useRouter should apply a hook for useHistory: dispatch platform navigation 1`] = `Array []`;
+exports[`useRouter should apply a hook for useHistory: dispatch platform navigation 1`] = `[]`;
 
 exports[`useRouter should apply a hook for useHistory: history push 1`] = `
-Array [
-  Array [
+[
+  [
     "/lorem/ipsum",
     undefined,
   ],
-  Array [
+  [
     "/rhel",
     undefined,
   ],
@@ -41,7 +41,7 @@ Array [
 `;
 
 exports[`useRouter should return specific properties: specific properties 1`] = `
-Object {
+{
   "useHistory": [Function],
   "useLocation": [Function],
   "useParams": [Function],

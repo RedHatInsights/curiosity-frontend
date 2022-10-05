@@ -123,14 +123,14 @@ exports[`Checkbox Component should render a basic component: basic component 1`]
 `;
 
 exports[`Checkbox Component should return an emulated onChange event: emulated event 1`] = `
-Object {
+{
   "checked": true,
-  "currentTarget": Object {},
+  "currentTarget": {},
   "id": "generatedid-",
   "keyCode": undefined,
   "name": "generatedid-",
   "persist": [Function],
-  "target": Object {},
+  "target": {},
   "value": undefined,
 }
 `;

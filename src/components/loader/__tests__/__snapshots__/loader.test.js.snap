@@ -60,7 +60,7 @@ exports[`Loader Component should handle variant loader components: variant: tabl
   borders={true}
   className={null}
   colCount={1}
-  colWidth={Array []}
+  colWidth={[]}
   isHeader={true}
   rowCount={5}
   t={[Function]}

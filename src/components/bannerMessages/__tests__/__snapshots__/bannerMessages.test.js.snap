@@ -5,8 +5,8 @@ exports[`BannerMessages Component should handle closing messages from state: sta
 exports[`BannerMessages Component should handle closing messages from state: state messages, ON 1`] = `
 <BannerMessages
   messages={
-    Array [
-      Object {
+    [
+      {
         "id": "dolorSit",
         "message": "Dolor sit message",
         "title": "Dolor sit title",
@@ -55,7 +55,7 @@ exports[`BannerMessages Component should handle closing messages from state: sta
                 height="1em"
                 role="img"
                 style={
-                  Object {
+                  {
                     "verticalAlign": "-0.125em",
                   }
                 }
@@ -120,7 +120,7 @@ exports[`BannerMessages Component should handle closing messages from state: sta
                       height="1em"
                       role="img"
                       style={
-                        Object {
+                        {
                           "verticalAlign": "-0.125em",
                         }
                       }
@@ -151,8 +151,8 @@ exports[`BannerMessages Component should handle closing messages from state: sta
 exports[`BannerMessages Component should render a basic component: basic 1`] = `
 <BannerMessages
   messages={
-    Array [
-      Object {
+    [
+      {
         "id": "loremIpsum",
         "message": "Lorem ipsum message",
         "title": "Lorem ipsum title",
@@ -201,7 +201,7 @@ exports[`BannerMessages Component should render a basic component: basic 1`] = `
                 height="1em"
                 role="img"
                 style={
-                  Object {
+                  {
                     "verticalAlign": "-0.125em",
                   }
                 }
@@ -266,7 +266,7 @@ exports[`BannerMessages Component should render a basic component: basic 1`] = `
                       height="1em"
                       role="img"
                       style={
-                        Object {
+                        {
                           "verticalAlign": "-0.125em",
                         }
                       }

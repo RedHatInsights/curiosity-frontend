@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination Component should handle per-page limit, and page offset updates through props: page, offset 1`] = `
-Object {
+{
   "pageOffset": 0,
   "pagePage": 2,
   "pagePerPage": 20,
@@ -9,7 +9,7 @@ Object {
 `;
 
 exports[`Pagination Component should handle per-page limit, and page offset updates through props: per-page, limit 1`] = `
-Object {
+{
   "perPageOffset": 0,
   "perPagePage": 1,
   "perPagePerPage": 20,
@@ -41,27 +41,27 @@ exports[`Pagination Component should render a non-connected component: non-conne
   perPage={20}
   perPageComponent="div"
   perPageOptions={
-    Array [
-      Object {
+    [
+      {
         "title": "10",
         "value": 10,
       },
-      Object {
+      {
         "title": "20",
         "value": 20,
       },
-      Object {
+      {
         "title": "50",
         "value": 50,
       },
-      Object {
+      {
         "title": "100",
         "value": 100,
       },
     ]
   }
   titles={
-    Object {
+    {
       "currPage": "Current page",
       "items": "",
       "itemsPerPage": "Items per page",
