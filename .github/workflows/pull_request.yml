@@ -41,7 +41,7 @@ jobs:
             }
       - name: Code coverage
         if: ${{ success() }}
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v3.1.1
       - name: Confirm beta integration
         if: ${{ success() }}
         uses: actions/github-script@v6
