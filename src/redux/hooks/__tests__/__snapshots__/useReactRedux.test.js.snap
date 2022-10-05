@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useReactRedux should apply a hook for useDispatch: dispatch 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "data": "ipsum",
       "type": "lorem",
     },
@@ -12,14 +12,14 @@ Array [
 `;
 
 exports[`useReactRedux should apply hooks for aggregating multiple selector responses: aggregated calls, useSelectors, All Response 1`] = `
-Object {
-  "cancelledCancelled": Object {
+{
+  "cancelledCancelled": {
     "cancelled": true,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "cancelled": true,
       },
-      Object {
+      {
         "cancelled": true,
       },
     ],
@@ -27,26 +27,26 @@ Object {
     "fulfilled": false,
     "message": [Error: Cancelled useSelectorsResponse],
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "cancelled": true,
         },
-        Object {
+        {
           "cancelled": true,
         },
       ],
     },
   },
-  "cancelledCancelledById": Object {
+  "cancelledCancelledById": {
     "cancelled": true,
-    "data": Object {
-      "ipsum": Object {
+    "data": {
+      "ipsum": {
         "cancelled": true,
         "id": "ipsum",
       },
-      "lorem": Object {
+      "lorem": {
         "cancelled": true,
         "id": "lorem",
       },
@@ -55,33 +55,33 @@ Object {
     "fulfilled": false,
     "message": [Error: Cancelled useSelectorsResponse],
     "pending": false,
-    "responses": Object {
-      "id": Object {
-        "ipsum": Object {
+    "responses": {
+      "id": {
+        "ipsum": {
           "cancelled": true,
           "id": "ipsum",
         },
-        "lorem": Object {
+        "lorem": {
           "cancelled": true,
           "id": "lorem",
         },
       },
-      "list": Array [
-        Object {
+      "list": [
+        {
           "cancelled": true,
           "id": "lorem",
         },
-        Object {
+        {
           "cancelled": true,
           "id": "ipsum",
         },
       ],
     },
   },
-  "errorCancelled": Object {
+  "errorCancelled": {
     "cancelled": false,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "error": true,
       },
     ],
@@ -89,25 +89,25 @@ Object {
     "fulfilled": false,
     "message": [Error: useSelectorsResponse, {"error":true}],
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "cancelled": true,
         },
-        Object {
+        {
           "error": true,
         },
       ],
     },
   },
-  "errorError": Object {
+  "errorError": {
     "cancelled": false,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "error": true,
       },
-      Object {
+      {
         "error": true,
       },
     ],
@@ -115,26 +115,26 @@ Object {
     "fulfilled": false,
     "message": [Error: useSelectorsResponse, {"error":true}],
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "error": true,
         },
-        Object {
+        {
           "error": true,
         },
       ],
     },
   },
-  "errorErrorById": Object {
+  "errorErrorById": {
     "cancelled": false,
-    "data": Object {
-      "ipsum": Object {
+    "data": {
+      "ipsum": {
         "error": true,
         "id": "ipsum",
       },
-      "lorem": Object {
+      "lorem": {
         "error": true,
         "id": "lorem",
       },
@@ -143,36 +143,36 @@ Object {
     "fulfilled": false,
     "message": [Error: useSelectorsResponse, {"error":true,"id":"lorem"}],
     "pending": false,
-    "responses": Object {
-      "id": Object {
-        "ipsum": Object {
+    "responses": {
+      "id": {
+        "ipsum": {
           "error": true,
           "id": "ipsum",
         },
-        "lorem": Object {
+        "lorem": {
           "error": true,
           "id": "lorem",
         },
       },
-      "list": Array [
-        Object {
+      "list": [
+        {
           "error": true,
           "id": "lorem",
         },
-        Object {
+        {
           "error": true,
           "id": "ipsum",
         },
       ],
     },
   },
-  "fulfilledCancelled": Object {
+  "fulfilledCancelled": {
     "cancelled": false,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "fulfilled": true,
       },
-      Object {
+      {
         "cancelled": true,
       },
     ],
@@ -180,22 +180,22 @@ Object {
     "fulfilled": true,
     "message": null,
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "fulfilled": true,
         },
-        Object {
+        {
           "cancelled": true,
         },
       ],
     },
   },
-  "fulfilledError": Object {
+  "fulfilledError": {
     "cancelled": false,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "error": true,
       },
     ],
@@ -203,25 +203,25 @@ Object {
     "fulfilled": false,
     "message": [Error: useSelectorsResponse, {"error":true}],
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "fulfilled": true,
         },
-        Object {
+        {
           "error": true,
         },
       ],
     },
   },
-  "fulfilledFulfilled": Object {
+  "fulfilledFulfilled": {
     "cancelled": false,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "fulfilled": true,
       },
-      Object {
+      {
         "fulfilled": true,
       },
     ],
@@ -229,26 +229,26 @@ Object {
     "fulfilled": true,
     "message": null,
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "fulfilled": true,
         },
-        Object {
+        {
           "fulfilled": true,
         },
       ],
     },
   },
-  "fulfilledFulfilledById": Object {
+  "fulfilledFulfilledById": {
     "cancelled": false,
-    "data": Object {
-      "ipsum": Object {
+    "data": {
+      "ipsum": {
         "fulfilled": true,
         "id": "ipsum",
       },
-      "lorem": Object {
+      "lorem": {
         "fulfilled": true,
         "id": "lorem",
       },
@@ -257,71 +257,71 @@ Object {
     "fulfilled": true,
     "message": null,
     "pending": false,
-    "responses": Object {
-      "id": Object {
-        "ipsum": Object {
+    "responses": {
+      "id": {
+        "ipsum": {
           "fulfilled": true,
           "id": "ipsum",
         },
-        "lorem": Object {
+        "lorem": {
           "fulfilled": true,
           "id": "lorem",
         },
       },
-      "list": Array [
-        Object {
+      "list": [
+        {
           "fulfilled": true,
           "id": "lorem",
         },
-        Object {
+        {
           "fulfilled": true,
           "id": "ipsum",
         },
       ],
     },
   },
-  "fulfilledPending": Object {
+  "fulfilledPending": {
     "cancelled": false,
-    "data": Array [],
+    "data": [],
     "error": false,
     "fulfilled": false,
     "message": null,
     "pending": true,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "fulfilled": true,
         },
-        Object {
+        {
           "pending": true,
         },
       ],
     },
   },
-  "pendingCancelled": Object {
+  "pendingCancelled": {
     "cancelled": false,
-    "data": Array [],
+    "data": [],
     "error": false,
     "fulfilled": false,
     "message": null,
     "pending": true,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "pending": true,
         },
-        Object {
+        {
           "cancelled": true,
         },
       ],
     },
   },
-  "pendingError": Object {
+  "pendingError": {
     "cancelled": false,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "error": true,
       },
     ],
@@ -329,61 +329,61 @@ Object {
     "fulfilled": false,
     "message": [Error: useSelectorsResponse, {"error":true}],
     "pending": false,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "pending": true,
         },
-        Object {
+        {
           "error": true,
         },
       ],
     },
   },
-  "pendingPending": Object {
+  "pendingPending": {
     "cancelled": false,
-    "data": Array [],
+    "data": [],
     "error": false,
     "fulfilled": false,
     "message": null,
     "pending": true,
-    "responses": Object {
-      "id": Object {},
-      "list": Array [
-        Object {
+    "responses": {
+      "id": {},
+      "list": [
+        {
           "pending": true,
         },
-        Object {
+        {
           "pending": true,
         },
       ],
     },
   },
-  "pendingPendingById": Object {
+  "pendingPendingById": {
     "cancelled": false,
-    "data": Object {},
+    "data": {},
     "error": false,
     "fulfilled": false,
     "message": null,
     "pending": true,
-    "responses": Object {
-      "id": Object {
-        "ipsum": Object {
+    "responses": {
+      "id": {
+        "ipsum": {
           "id": "ipsum",
           "pending": true,
         },
-        "lorem": Object {
+        "lorem": {
           "id": "lorem",
           "pending": true,
         },
       },
-      "list": Array [
-        Object {
+      "list": [
+        {
           "id": "lorem",
           "pending": true,
         },
-        Object {
+        {
           "id": "ipsum",
           "pending": true,
         },
@@ -394,62 +394,62 @@ Object {
 `;
 
 exports[`useReactRedux should apply hooks for aggregating multiple selector responses: aggregated calls, useSelectorsAllSettledResponse 1`] = `
-Object {
-  "cancelledCancelled": Object {
-    "data": Array [
-      Object {
+{
+  "cancelledCancelled": {
+    "data": [
+      {
         "cancelled": true,
       },
-      Object {
+      {
         "cancelled": true,
       },
     ],
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "cancelledCancelledById": Object {
-    "data": Object {
-      "ipsum": Object {
+  "cancelledCancelledById": {
+    "data": {
+      "ipsum": {
         "cancelled": true,
       },
-      "lorem": Object {
+      "lorem": {
         "cancelled": true,
       },
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "errorCancelled": Object {
-    "data": Array [
-      Object {
+  "errorCancelled": {
+    "data": [
+      {
         "error": true,
       },
-      Object {
+      {
         "cancelled": true,
       },
     ],
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "errorError": Object {
-    "data": Array [
-      Object {
+  "errorError": {
+    "data": [
+      {
         "error": true,
       },
-      Object {
+      {
         "error": true,
       },
     ],
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "errorErrorById": Object {
-    "data": Array [
-      Object {
+  "errorErrorById": {
+    "data": [
+      {
         "error": true,
         "id": "lorem",
       },
-      Object {
+      {
         "error": true,
         "id": "ipsum",
       },
@@ -457,71 +457,71 @@ Object {
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledCancelled": Object {
-    "data": Array [
-      Object {
+  "fulfilledCancelled": {
+    "data": [
+      {
         "fulfilled": true,
       },
-      Object {
+      {
         "cancelled": true,
       },
     ],
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledError": Object {
-    "data": Array [
-      Object {
+  "fulfilledError": {
+    "data": [
+      {
         "fulfilled": true,
       },
-      Object {
+      {
         "error": true,
       },
     ],
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledFulfilled": Object {
-    "data": Array [
-      Object {
+  "fulfilledFulfilled": {
+    "data": [
+      {
         "fulfilled": true,
       },
-      Object {
+      {
         "fulfilled": true,
       },
     ],
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledFulfilledById": Object {
-    "data": Object {
-      "ipsum": Object {
+  "fulfilledFulfilledById": {
+    "data": {
+      "ipsum": {
         "fulfilled": true,
       },
-      "lorem": Object {
+      "lorem": {
         "fulfilled": true,
       },
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledPending": Object {
+  "fulfilledPending": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingCancelled": Object {
+  "pendingCancelled": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingError": Object {
+  "pendingError": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingPending": Object {
+  "pendingPending": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingPendingById": Object {
+  "pendingPendingById": {
     "lorem": "ipsum",
     "pending": true,
   },
@@ -529,36 +529,36 @@ Object {
 `;
 
 exports[`useReactRedux should apply hooks for aggregating multiple selector responses: aggregated calls, useSelectorsAnyResponse 1`] = `
-Object {
-  "cancelledCancelled": Object {
+{
+  "cancelledCancelled": {
     "cancelled": true,
-    "data": Array [
-      Object {
+    "data": [
+      {
         "cancelled": true,
       },
-      Object {
+      {
         "cancelled": true,
       },
     ],
     "lorem": "ipsum",
     "message": [Error: Cancelled useSelectorsAnyResponse],
   },
-  "cancelledCancelledById": Object {
+  "cancelledCancelledById": {
     "cancelled": true,
-    "data": Object {
-      "ipsum": Object {
+    "data": {
+      "ipsum": {
         "cancelled": true,
       },
-      "lorem": Object {
+      "lorem": {
         "cancelled": true,
       },
     },
     "lorem": "ipsum",
     "message": [Error: Cancelled useSelectorsAnyResponse],
   },
-  "errorCancelled": Object {
-    "data": Array [
-      Object {
+  "errorCancelled": {
+    "data": [
+      {
         "error": true,
       },
     ],
@@ -566,12 +566,12 @@ Object {
     "lorem": "ipsum",
     "message": [AggregateError: useSelectorsAnyResponse],
   },
-  "errorError": Object {
-    "data": Array [
-      Object {
+  "errorError": {
+    "data": [
+      {
         "error": true,
       },
-      Object {
+      {
         "error": true,
       },
     ],
@@ -579,13 +579,13 @@ Object {
     "lorem": "ipsum",
     "message": [AggregateError: useSelectorsAnyResponse],
   },
-  "errorErrorById": Object {
-    "data": Array [
-      Object {
+  "errorErrorById": {
+    "data": [
+      {
         "error": true,
         "id": "lorem",
       },
-      Object {
+      {
         "error": true,
         "id": "ipsum",
       },
@@ -594,54 +594,54 @@ Object {
     "lorem": "ipsum",
     "message": [AggregateError: useSelectorsAnyResponse],
   },
-  "fulfilledCancelled": Object {
-    "data": Object {
+  "fulfilledCancelled": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledError": Object {
-    "data": Object {
+  "fulfilledError": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledFulfilled": Object {
-    "data": Object {
+  "fulfilledFulfilled": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledFulfilledById": Object {
-    "data": Object {
+  "fulfilledFulfilledById": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledPending": Object {
-    "data": Object {
+  "fulfilledPending": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "pendingCancelled": Object {
+  "pendingCancelled": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingError": Object {
+  "pendingError": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingPending": Object {
+  "pendingPending": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingPendingById": Object {
+  "pendingPendingById": {
     "lorem": "ipsum",
     "pending": true,
   },
@@ -649,41 +649,41 @@ Object {
 `;
 
 exports[`useReactRedux should apply hooks for aggregating multiple selector responses: aggregated calls, useSelectorsRaceResponse 1`] = `
-Object {
-  "cancelledCancelled": Object {
+{
+  "cancelledCancelled": {
     "cancelled": true,
-    "data": Object {
+    "data": {
       "cancelled": true,
     },
     "lorem": "ipsum",
     "message": [Error: Cancelled useSelectorsRaceResponse],
   },
-  "cancelledCancelledById": Object {
+  "cancelledCancelledById": {
     "cancelled": true,
-    "data": Object {
+    "data": {
       "cancelled": true,
     },
     "lorem": "ipsum",
     "message": [Error: Cancelled useSelectorsRaceResponse],
   },
-  "errorCancelled": Object {
-    "data": Object {
+  "errorCancelled": {
+    "data": {
       "error": true,
     },
     "error": true,
     "lorem": "ipsum",
     "message": [Error: useSelectorsRaceResponse, {"error":true}],
   },
-  "errorError": Object {
-    "data": Object {
+  "errorError": {
+    "data": {
       "error": true,
     },
     "error": true,
     "lorem": "ipsum",
     "message": [Error: useSelectorsRaceResponse, {"error":true}],
   },
-  "errorErrorById": Object {
-    "data": Object {
+  "errorErrorById": {
+    "data": {
       "error": true,
       "id": "lorem",
     },
@@ -691,58 +691,58 @@ Object {
     "lorem": "ipsum",
     "message": [Error: useSelectorsRaceResponse, {"id":"lorem","error":true}],
   },
-  "fulfilledCancelled": Object {
-    "data": Object {
+  "fulfilledCancelled": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledError": Object {
-    "data": Object {
+  "fulfilledError": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledFulfilled": Object {
-    "data": Object {
+  "fulfilledFulfilled": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledFulfilledById": Object {
-    "data": Object {
+  "fulfilledFulfilledById": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "fulfilledPending": Object {
-    "data": Object {
+  "fulfilledPending": {
+    "data": {
       "fulfilled": true,
     },
     "fulfilled": true,
     "lorem": "ipsum",
   },
-  "pendingCancelled": Object {
+  "pendingCancelled": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingError": Object {
-    "data": Object {
+  "pendingError": {
+    "data": {
       "error": true,
     },
     "error": true,
     "lorem": "ipsum",
     "message": [Error: useSelectorsRaceResponse, {"error":true}],
   },
-  "pendingPending": Object {
+  "pendingPending": {
     "lorem": "ipsum",
     "pending": true,
   },
-  "pendingPendingById": Object {
+  "pendingPendingById": {
     "lorem": "ipsum",
     "pending": true,
   },
@@ -750,12 +750,12 @@ Object {
 `;
 
 exports[`useReactRedux should return a list or object with ID for multiple selectors with useSelectors: list and object 1`] = `
-Object {
-  "list": Array [
+{
+  "list": [
     "dolor",
     "sit",
   ],
-  "object": Object {
+  "object": {
     "hello": "dolor",
     "world": "sit",
   },
@@ -763,7 +763,7 @@ Object {
 `;
 
 exports[`useReactRedux should return specific properties: specific properties 1`] = `
-Object {
+{
   "shallowEqual": [Function],
   "useDispatch": [Function],
   "useSelector": [Function],

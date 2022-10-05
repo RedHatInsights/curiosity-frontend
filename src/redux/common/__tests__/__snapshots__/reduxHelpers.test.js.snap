@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ReduxHelpers should automate creating general promise action reducers: generatedPromiseActionReducer basic updated state 1`] = `
-Object {
-  "cancelledState": Object {
+{
+  "cancelledState": {
     "cancelled": true,
     "date": null,
     "error": false,
     "errorMessage": "",
     "fulfilled": false,
-    "meta": Object {},
+    "meta": {},
     "pending": false,
   },
-  "fulfilledState": Object {
-    "data": Object {
+  "fulfilledState": {
+    "data": {
       "dolor": "sit",
       "lorem": "ipsum",
     },
@@ -20,22 +20,22 @@ Object {
     "error": false,
     "errorMessage": "",
     "fulfilled": true,
-    "meta": Object {},
+    "meta": {},
     "pending": false,
     "status": 200,
   },
-  "pendingState": Object {
+  "pendingState": {
     "error": false,
     "errorMessage": "",
     "fulfilled": false,
-    "meta": Object {},
+    "meta": {},
     "pending": true,
   },
-  "rejectedState": Object {
+  "rejectedState": {
     "error": true,
     "errorMessage": "Request failed with status code 400",
     "fulfilled": false,
-    "meta": Object {},
+    "meta": {},
     "pending": false,
     "status": 400,
   },
@@ -43,10 +43,10 @@ Object {
 `;
 
 exports[`ReduxHelpers should automate creating promise action reducers with meta data: generatedPromiseActionReducer passed meta data 1`] = `
-Object {
-  "appliedMetaIdFulfilledState": Object {
-    "test id": Object {
-      "data": Object {
+{
+  "appliedMetaIdFulfilledState": {
+    "test id": {
+      "data": {
         "dolor": "sit",
         "lorem": "ipsum",
       },
@@ -54,17 +54,17 @@ Object {
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {
+      "meta": {
         "data": "test data",
         "id": "test id",
-        "query": Object {
+        "query": {
           "test": "query",
         },
         "test": "test property",
       },
       "metaData": "test data",
       "metaId": "test id",
-      "metaQuery": Object {
+      "metaQuery": {
         "test": "query",
       },
       "metaTest": "test property",
@@ -72,8 +72,8 @@ Object {
       "status": 200,
     },
   },
-  "fulfilledState": Object {
-    "data": Object {
+  "fulfilledState": {
+    "data": {
       "dolor": "sit",
       "lorem": "ipsum",
     },
@@ -81,15 +81,15 @@ Object {
     "error": false,
     "errorMessage": "",
     "fulfilled": true,
-    "meta": Object {
+    "meta": {
       "data": "test data",
-      "query": Object {
+      "query": {
         "test": "query",
       },
       "test": "test property",
     },
     "metaData": "test data",
-    "metaQuery": Object {
+    "metaQuery": {
       "test": "query",
     },
     "metaTest": "test property",
@@ -100,13 +100,13 @@ Object {
 `;
 
 exports[`ReduxHelpers should generate a normalized API response using a schema: array response 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "ipsum": 1,
       "sit": undefined,
     },
-    Object {
+    {
       "ipsum": undefined,
       "sit": "hello world",
     },
@@ -115,9 +115,9 @@ Array [
 `;
 
 exports[`ReduxHelpers should generate a normalized API response using a schema: object response 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "ipsum": 1,
       "sit": undefined,
     },
@@ -126,23 +126,23 @@ Array [
 `;
 
 exports[`ReduxHelpers should generate a normalized API response using a schema: parameters 1`] = `
-Array [
-  Array [
-    Object {
+[
+  [
+    {
       "ipsum": 1,
       "sit": undefined,
     },
-    Object {
+    {
       "ipsum": undefined,
       "sit": "hello world",
     },
   ],
-  Array [
-    Object {
+  [
+    {
       "ipsum": "custom value = 1",
       "sit": "custom value = undefined",
     },
-    Object {
+    {
       "ipsum": "custom value = undefined",
       "sit": "custom value = hello world",
     },
@@ -151,18 +151,18 @@ Array [
 `;
 
 exports[`ReduxHelpers should generate an expected API query with an existing schema: rhsm query 1`] = `
-Object {
+{
   "granularity": "Daily",
 }
 `;
 
 exports[`ReduxHelpers should generate an expected API response with an existing schema: array 1`] = `
-Array [
-  Object {
+[
+  {
     "ipsum": undefined,
     "lorem": undefined,
   },
-  Object {
+  {
     "hello": undefined,
     "world": undefined,
   },
@@ -170,11 +170,11 @@ Array [
 `;
 
 exports[`ReduxHelpers should generate an expected API response with an existing schema: object 1`] = `
-Array [
-  Object {
+[
+  {
     "ipsum": undefined,
   },
-  Object {
+  {
     "world": undefined,
   },
 ]
@@ -219,44 +219,44 @@ exports[`ReduxHelpers should get a message from a service call response: respons
 exports[`ReduxHelpers should get a message from a service call response: response payload for 4XX 1`] = `"Request failed with status code 403"`;
 
 exports[`ReduxHelpers should get data from a service call response: ARRAY data 1`] = `
-Array [
-  Object {
+[
+  {
     "dolor": "sit",
     "lorem": "ipsum",
   },
-  Object {
+  {
     "hello": "world",
   },
 ]
 `;
 
 exports[`ReduxHelpers should get data from a service call response: data 1`] = `
-Object {
+{
   "dolor": "sit",
   "lorem": "ipsum",
 }
 `;
 
 exports[`ReduxHelpers should get data from a service call response: data that is an array 1`] = `
-Array [
-  Object {
+[
+  {
     "lorem": "ipsum",
   },
-  Object {
+  {
     "dolor": "sit",
   },
 ]
 `;
 
 exports[`ReduxHelpers should get data from a service call response: error response data 1`] = `
-Object {
+{
   "dolor": "sit",
   "lorem": "ipsum",
 }
 `;
 
 exports[`ReduxHelpers should have specific functions: reduxHelpers 1`] = `
-Object {
+{
   "FULFILLED_ACTION": [Function],
   "HTTP_STATUS_RANGE": [Function],
   "PENDING_ACTION": [Function],
@@ -276,14 +276,14 @@ Object {
 `;
 
 exports[`ReduxHelpers should update a state object: don't reset state object 1`] = `
-Object {
+{
   "ipsum": false,
   "lorem": true,
 }
 `;
 
 exports[`ReduxHelpers should update a state object: reset state object 1`] = `
-Object {
+{
   "ipsum": true,
   "lorem": true,
 }

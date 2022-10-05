@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiTypes should have specific API properties: all exported api types 1`] = `
-Object {
-  "apiTypes": Object {
-    "rhsmApi": Object {
-      "RHSM_API_PATH_ID_TYPES": Object {
+{
+  "apiTypes": {
+    "rhsmApi": {
+      "RHSM_API_PATH_ID_TYPES": {
         "OPENSHIFT": "OpenShift Container Platform",
         "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
         "OPENSHIFT_METRICS": "OpenShift-metrics",
@@ -23,13 +23,13 @@ Object {
         "SATELLITE_CAPSULE": "Satellite Capsule",
         "SATELLITE_SERVER": "Satellite Server",
       },
-      "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+      "RHSM_API_QUERY_GRANULARITY_TYPES": {
         "DAILY": "Daily",
         "MONTHLY": "Monthly",
         "QUARTERLY": "Quarterly",
         "WEEKLY": "Weekly",
       },
-      "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+      "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
@@ -43,7 +43,7 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+      "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
@@ -57,7 +57,7 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+      "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
@@ -71,12 +71,12 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
+      "RHSM_API_QUERY_SET_OPTIN_TYPES": {
         "CONDUIT_SYNC": "enable_conduit_sync",
         "TALLY_REPORT": "enable_tally_reporting",
         "TALLY_SYNC": "enable_tally_sync",
       },
-      "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+      "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
         "BILLING_PROVIDER": "billing_provider",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
@@ -84,17 +84,17 @@ Object {
         "START_DATE": "beginning",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SLA_TYPES": Object {
+      "RHSM_API_QUERY_SLA_TYPES": {
         "NONE": "",
         "PREMIUM": "Premium",
         "SELF": "Self-Support",
         "STANDARD": "Standard",
       },
-      "RHSM_API_QUERY_SORT_DIRECTION_TYPES": Object {
+      "RHSM_API_QUERY_SORT_DIRECTION_TYPES": {
         "ASCENDING": "asc",
         "DESCENDING": "desc",
       },
-      "RHSM_API_QUERY_SORT_TYPES": Object {
+      "RHSM_API_QUERY_SORT_TYPES": {
         "CORES": "cores",
         "CORE_HOURS": "core_hours",
         "HARDWARE": "hardware_type",
@@ -104,7 +104,7 @@ Object {
         "NAME": "display_name",
         "SOCKETS": "sockets",
       },
-      "RHSM_API_QUERY_TYPES": Object {
+      "RHSM_API_QUERY_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "CONDUIT_SYNC": "enable_conduit_sync",
@@ -122,18 +122,18 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_UOM_TYPES": Object {
+      "RHSM_API_QUERY_UOM_TYPES": {
         "CORES": "cores",
         "SOCKETS": "sockets",
       },
-      "RHSM_API_QUERY_USAGE_TYPES": Object {
+      "RHSM_API_QUERY_USAGE_TYPES": {
         "DEVELOPMENT": "Development/Test",
         "DISASTER": "Disaster Recovery",
         "PRODUCTION": "Production",
         "UNSPECIFIED": "",
       },
       "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
-      "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
         "CLOUD_CORES": "cloud_cores",
         "CLOUD_INSTANCES": "cloud_instance_count",
         "CLOUD_SOCKETS": "cloud_sockets",
@@ -148,15 +148,15 @@ Object {
       },
       "RHSM_API_RESPONSE_DATA": "data",
       "RHSM_API_RESPONSE_ERROR_DATA": "errors",
-      "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+      "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": {
         "GENERIC": "SUBSCRIPTIONS1003",
         "OPTIN": "SUBSCRIPTIONS1004",
       },
-      "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_ERROR_DATA_TYPES": {
         "CODE": "code",
       },
       "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
-      "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": {
         "CLOUD_PROVIDER": "cloud_provider",
         "CORES": "cores",
         "CORE_HOURS": "core_hours",
@@ -170,27 +170,27 @@ Object {
         "SOCKETS": "sockets",
         "SUBSCRIPTION_ID": "subscription_manager_id",
       },
-      "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": {
         "ID": "insights_id",
         "LAST_SEEN": "last_seen",
         "NAME": "display_name",
         "SUBSCRIPTION_ID": "subscription_manager_id",
       },
       "RHSM_API_RESPONSE_LINKS": "links",
-      "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+      "RHSM_API_RESPONSE_LINKS_TYPES": {
         "FIRST": "first",
         "LAST": "last",
         "NEXT": "next",
         "PREVIOUS": "previous",
       },
       "RHSM_API_RESPONSE_META": "meta",
-      "RHSM_API_RESPONSE_META_TYPES": Object {
+      "RHSM_API_RESPONSE_META_TYPES": {
         "COUNT": "count",
         "TOTAL_CORE_HOURS": "total_core_hours",
         "TOTAL_INSTANCE_HOURS": "total_instance_hours",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
-      "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": {
         "CLOUD_CORES": "cloud_cores",
         "CLOUD_INSTANCES": "cloud_instance_count",
         "CLOUD_SOCKETS": "cloud_sockets",
@@ -209,9 +209,9 @@ Object {
       },
     },
   },
-  "default": Object {
-    "rhsmApi": Object {
-      "RHSM_API_PATH_ID_TYPES": Object {
+  "default": {
+    "rhsmApi": {
+      "RHSM_API_PATH_ID_TYPES": {
         "OPENSHIFT": "OpenShift Container Platform",
         "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
         "OPENSHIFT_METRICS": "OpenShift-metrics",
@@ -230,13 +230,13 @@ Object {
         "SATELLITE_CAPSULE": "Satellite Capsule",
         "SATELLITE_SERVER": "Satellite Server",
       },
-      "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+      "RHSM_API_QUERY_GRANULARITY_TYPES": {
         "DAILY": "Daily",
         "MONTHLY": "Monthly",
         "QUARTERLY": "Quarterly",
         "WEEKLY": "Weekly",
       },
-      "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+      "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
@@ -250,7 +250,7 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+      "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
@@ -264,7 +264,7 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+      "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "DIRECTION": "dir",
@@ -278,12 +278,12 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
+      "RHSM_API_QUERY_SET_OPTIN_TYPES": {
         "CONDUIT_SYNC": "enable_conduit_sync",
         "TALLY_REPORT": "enable_tally_reporting",
         "TALLY_SYNC": "enable_tally_sync",
       },
-      "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+      "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
         "BILLING_PROVIDER": "billing_provider",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
@@ -291,17 +291,17 @@ Object {
         "START_DATE": "beginning",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_SLA_TYPES": Object {
+      "RHSM_API_QUERY_SLA_TYPES": {
         "NONE": "",
         "PREMIUM": "Premium",
         "SELF": "Self-Support",
         "STANDARD": "Standard",
       },
-      "RHSM_API_QUERY_SORT_DIRECTION_TYPES": Object {
+      "RHSM_API_QUERY_SORT_DIRECTION_TYPES": {
         "ASCENDING": "asc",
         "DESCENDING": "desc",
       },
-      "RHSM_API_QUERY_SORT_TYPES": Object {
+      "RHSM_API_QUERY_SORT_TYPES": {
         "CORES": "cores",
         "CORE_HOURS": "core_hours",
         "HARDWARE": "hardware_type",
@@ -311,7 +311,7 @@ Object {
         "NAME": "display_name",
         "SOCKETS": "sockets",
       },
-      "RHSM_API_QUERY_TYPES": Object {
+      "RHSM_API_QUERY_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
         "CONDUIT_SYNC": "enable_conduit_sync",
@@ -329,18 +329,18 @@ Object {
         "UOM": "uom",
         "USAGE": "usage",
       },
-      "RHSM_API_QUERY_UOM_TYPES": Object {
+      "RHSM_API_QUERY_UOM_TYPES": {
         "CORES": "cores",
         "SOCKETS": "sockets",
       },
-      "RHSM_API_QUERY_USAGE_TYPES": Object {
+      "RHSM_API_QUERY_USAGE_TYPES": {
         "DEVELOPMENT": "Development/Test",
         "DISASTER": "Disaster Recovery",
         "PRODUCTION": "Production",
         "UNSPECIFIED": "",
       },
       "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
-      "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
         "CLOUD_CORES": "cloud_cores",
         "CLOUD_INSTANCES": "cloud_instance_count",
         "CLOUD_SOCKETS": "cloud_sockets",
@@ -355,15 +355,15 @@ Object {
       },
       "RHSM_API_RESPONSE_DATA": "data",
       "RHSM_API_RESPONSE_ERROR_DATA": "errors",
-      "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+      "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": {
         "GENERIC": "SUBSCRIPTIONS1003",
         "OPTIN": "SUBSCRIPTIONS1004",
       },
-      "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_ERROR_DATA_TYPES": {
         "CODE": "code",
       },
       "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
-      "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": {
         "CLOUD_PROVIDER": "cloud_provider",
         "CORES": "cores",
         "CORE_HOURS": "core_hours",
@@ -377,27 +377,27 @@ Object {
         "SOCKETS": "sockets",
         "SUBSCRIPTION_ID": "subscription_manager_id",
       },
-      "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": {
         "ID": "insights_id",
         "LAST_SEEN": "last_seen",
         "NAME": "display_name",
         "SUBSCRIPTION_ID": "subscription_manager_id",
       },
       "RHSM_API_RESPONSE_LINKS": "links",
-      "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+      "RHSM_API_RESPONSE_LINKS_TYPES": {
         "FIRST": "first",
         "LAST": "last",
         "NEXT": "next",
         "PREVIOUS": "previous",
       },
       "RHSM_API_RESPONSE_META": "meta",
-      "RHSM_API_RESPONSE_META_TYPES": Object {
+      "RHSM_API_RESPONSE_META_TYPES": {
         "COUNT": "count",
         "TOTAL_CORE_HOURS": "total_core_hours",
         "TOTAL_INSTANCE_HOURS": "total_instance_hours",
       },
       "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
-      "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+      "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": {
         "CLOUD_CORES": "cloud_cores",
         "CLOUD_INSTANCES": "cloud_instance_count",
         "CLOUD_SOCKETS": "cloud_sockets",
@@ -416,8 +416,8 @@ Object {
       },
     },
   },
-  "rhsmApiTypes": Object {
-    "RHSM_API_PATH_ID_TYPES": Object {
+  "rhsmApiTypes": {
+    "RHSM_API_PATH_ID_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
       "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
       "OPENSHIFT_METRICS": "OpenShift-metrics",
@@ -436,13 +436,13 @@ Object {
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
     },
-    "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+    "RHSM_API_QUERY_GRANULARITY_TYPES": {
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
       "QUARTERLY": "Quarterly",
       "WEEKLY": "Weekly",
     },
-    "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+    "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -456,7 +456,7 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+    "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -470,7 +470,7 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+    "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -484,12 +484,12 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
+    "RHSM_API_QUERY_SET_OPTIN_TYPES": {
       "CONDUIT_SYNC": "enable_conduit_sync",
       "TALLY_REPORT": "enable_tally_reporting",
       "TALLY_SYNC": "enable_tally_sync",
     },
-    "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+    "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
@@ -497,17 +497,17 @@ Object {
       "START_DATE": "beginning",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SLA_TYPES": Object {
+    "RHSM_API_QUERY_SLA_TYPES": {
       "NONE": "",
       "PREMIUM": "Premium",
       "SELF": "Self-Support",
       "STANDARD": "Standard",
     },
-    "RHSM_API_QUERY_SORT_DIRECTION_TYPES": Object {
+    "RHSM_API_QUERY_SORT_DIRECTION_TYPES": {
       "ASCENDING": "asc",
       "DESCENDING": "desc",
     },
-    "RHSM_API_QUERY_SORT_TYPES": Object {
+    "RHSM_API_QUERY_SORT_TYPES": {
       "CORES": "cores",
       "CORE_HOURS": "core_hours",
       "HARDWARE": "hardware_type",
@@ -517,7 +517,7 @@ Object {
       "NAME": "display_name",
       "SOCKETS": "sockets",
     },
-    "RHSM_API_QUERY_TYPES": Object {
+    "RHSM_API_QUERY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CONDUIT_SYNC": "enable_conduit_sync",
@@ -535,18 +535,18 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_UOM_TYPES": Object {
+    "RHSM_API_QUERY_UOM_TYPES": {
       "CORES": "cores",
       "SOCKETS": "sockets",
     },
-    "RHSM_API_QUERY_USAGE_TYPES": Object {
+    "RHSM_API_QUERY_USAGE_TYPES": {
       "DEVELOPMENT": "Development/Test",
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
     },
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
-    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
       "CLOUD_CORES": "cloud_cores",
       "CLOUD_INSTANCES": "cloud_instance_count",
       "CLOUD_SOCKETS": "cloud_sockets",
@@ -561,15 +561,15 @@ Object {
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERROR_DATA": "errors",
-    "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+    "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": {
       "GENERIC": "SUBSCRIPTIONS1003",
       "OPTIN": "SUBSCRIPTIONS1004",
     },
-    "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_ERROR_DATA_TYPES": {
       "CODE": "code",
     },
     "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
-    "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": {
       "CLOUD_PROVIDER": "cloud_provider",
       "CORES": "cores",
       "CORE_HOURS": "core_hours",
@@ -583,27 +583,27 @@ Object {
       "SOCKETS": "sockets",
       "SUBSCRIPTION_ID": "subscription_manager_id",
     },
-    "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": {
       "ID": "insights_id",
       "LAST_SEEN": "last_seen",
       "NAME": "display_name",
       "SUBSCRIPTION_ID": "subscription_manager_id",
     },
     "RHSM_API_RESPONSE_LINKS": "links",
-    "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+    "RHSM_API_RESPONSE_LINKS_TYPES": {
       "FIRST": "first",
       "LAST": "last",
       "NEXT": "next",
       "PREVIOUS": "previous",
     },
     "RHSM_API_RESPONSE_META": "meta",
-    "RHSM_API_RESPONSE_META_TYPES": Object {
+    "RHSM_API_RESPONSE_META_TYPES": {
       "COUNT": "count",
       "TOTAL_CORE_HOURS": "total_core_hours",
       "TOTAL_INSTANCE_HOURS": "total_instance_hours",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
-    "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": {
       "CLOUD_CORES": "cloud_cores",
       "CLOUD_INSTANCES": "cloud_instance_count",
       "CLOUD_SOCKETS": "cloud_sockets",
@@ -625,9 +625,9 @@ Object {
 `;
 
 exports[`ApiTypes should have specific API properties: specific types 1`] = `
-Object {
-  "rhsmApi": Object {
-    "RHSM_API_PATH_ID_TYPES": Object {
+{
+  "rhsmApi": {
+    "RHSM_API_PATH_ID_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
       "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
       "OPENSHIFT_METRICS": "OpenShift-metrics",
@@ -646,13 +646,13 @@ Object {
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
     },
-    "RHSM_API_QUERY_GRANULARITY_TYPES": Object {
+    "RHSM_API_QUERY_GRANULARITY_TYPES": {
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
       "QUARTERLY": "Quarterly",
       "WEEKLY": "Weekly",
     },
-    "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": Object {
+    "RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -666,7 +666,7 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": Object {
+    "RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -680,7 +680,7 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SET_INVENTORY_TYPES": Object {
+    "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -694,12 +694,12 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SET_OPTIN_TYPES": Object {
+    "RHSM_API_QUERY_SET_OPTIN_TYPES": {
       "CONDUIT_SYNC": "enable_conduit_sync",
       "TALLY_REPORT": "enable_tally_reporting",
       "TALLY_SYNC": "enable_tally_sync",
     },
-    "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": Object {
+    "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
@@ -707,17 +707,17 @@ Object {
       "START_DATE": "beginning",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_SLA_TYPES": Object {
+    "RHSM_API_QUERY_SLA_TYPES": {
       "NONE": "",
       "PREMIUM": "Premium",
       "SELF": "Self-Support",
       "STANDARD": "Standard",
     },
-    "RHSM_API_QUERY_SORT_DIRECTION_TYPES": Object {
+    "RHSM_API_QUERY_SORT_DIRECTION_TYPES": {
       "ASCENDING": "asc",
       "DESCENDING": "desc",
     },
-    "RHSM_API_QUERY_SORT_TYPES": Object {
+    "RHSM_API_QUERY_SORT_TYPES": {
       "CORES": "cores",
       "CORE_HOURS": "core_hours",
       "HARDWARE": "hardware_type",
@@ -727,7 +727,7 @@ Object {
       "NAME": "display_name",
       "SOCKETS": "sockets",
     },
-    "RHSM_API_QUERY_TYPES": Object {
+    "RHSM_API_QUERY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CONDUIT_SYNC": "enable_conduit_sync",
@@ -745,18 +745,18 @@ Object {
       "UOM": "uom",
       "USAGE": "usage",
     },
-    "RHSM_API_QUERY_UOM_TYPES": Object {
+    "RHSM_API_QUERY_UOM_TYPES": {
       "CORES": "cores",
       "SOCKETS": "sockets",
     },
-    "RHSM_API_QUERY_USAGE_TYPES": Object {
+    "RHSM_API_QUERY_USAGE_TYPES": {
       "DEVELOPMENT": "Development/Test",
       "DISASTER": "Disaster Recovery",
       "PRODUCTION": "Production",
       "UNSPECIFIED": "",
     },
     "RHSM_API_RESPONSE_CAPACITY_DATA": "data",
-    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
       "CLOUD_CORES": "cloud_cores",
       "CLOUD_INSTANCES": "cloud_instance_count",
       "CLOUD_SOCKETS": "cloud_sockets",
@@ -771,15 +771,15 @@ Object {
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERROR_DATA": "errors",
-    "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": Object {
+    "RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES": {
       "GENERIC": "SUBSCRIPTIONS1003",
       "OPTIN": "SUBSCRIPTIONS1004",
     },
-    "RHSM_API_RESPONSE_ERROR_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_ERROR_DATA_TYPES": {
       "CODE": "code",
     },
     "RHSM_API_RESPONSE_INVENTORY_DATA": "data",
-    "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_INVENTORY_DATA_TYPES": {
       "CLOUD_PROVIDER": "cloud_provider",
       "CORES": "cores",
       "CORE_HOURS": "core_hours",
@@ -793,27 +793,27 @@ Object {
       "SOCKETS": "sockets",
       "SUBSCRIPTION_ID": "subscription_manager_id",
     },
-    "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_INVENTORY_GUESTS_DATA_TYPES": {
       "ID": "insights_id",
       "LAST_SEEN": "last_seen",
       "NAME": "display_name",
       "SUBSCRIPTION_ID": "subscription_manager_id",
     },
     "RHSM_API_RESPONSE_LINKS": "links",
-    "RHSM_API_RESPONSE_LINKS_TYPES": Object {
+    "RHSM_API_RESPONSE_LINKS_TYPES": {
       "FIRST": "first",
       "LAST": "last",
       "NEXT": "next",
       "PREVIOUS": "previous",
     },
     "RHSM_API_RESPONSE_META": "meta",
-    "RHSM_API_RESPONSE_META_TYPES": Object {
+    "RHSM_API_RESPONSE_META_TYPES": {
       "COUNT": "count",
       "TOTAL_CORE_HOURS": "total_core_hours",
       "TOTAL_INSTANCE_HOURS": "total_instance_hours",
     },
     "RHSM_API_RESPONSE_PRODUCTS_DATA": "data",
-    "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": Object {
+    "RHSM_API_RESPONSE_PRODUCTS_DATA_TYPES": {
       "CLOUD_CORES": "cloud_cores",
       "CLOUD_INSTANCES": "cloud_instance_count",
       "CLOUD_SOCKETS": "cloud_sockets",

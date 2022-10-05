@@ -6,17 +6,17 @@ exports[`InventoryList Component should handle expandable guests data: number of
   borders={true}
   className="curiosity-inventory-list"
   columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
+    [
+      "t(curiosity-inventory.header, {"context":"lorem"})",
+      "t(curiosity-inventory.header, {"context":"dolor"})",
+      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
     ]
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           "sit",
           "amet",
           1,
@@ -37,29 +37,29 @@ exports[`InventoryList Component should handle expandable guests data: number of
   borders={true}
   className="curiosity-inventory-list"
   columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    [
+      "t(curiosity-inventory.header, {"context":"lorem"})",
+      "t(curiosity-inventory.header, {"context":"dolor"})",
+      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+      "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
     ]
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           "sit",
           "amet",
           1,
           "loremIpsum",
         ],
         "expandedContent": <Memo(Connect(GuestsList))
-          filterGuestsData={Array []}
+          filterGuestsData={[]}
           id="loremIpsum"
           numberOfGuests={1}
           query={
-            Object {
+            {
               "limit": 10,
               "offset": 0,
             }
@@ -80,18 +80,18 @@ exports[`InventoryList Component should handle expandable guests data: number of
   borders={true}
   className="curiosity-inventory-list"
   columnHeaders={
-    Array [
-      "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"numberOfGuests\\"})",
-      "t(curiosity-inventory.header, {\\"context\\":\\"subscriptionManagerId\\"})",
+    [
+      "t(curiosity-inventory.header, {"context":"lorem"})",
+      "t(curiosity-inventory.header, {"context":"dolor"})",
+      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+      "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
     ]
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           "sit",
           "amet",
           2,
@@ -108,57 +108,57 @@ exports[`InventoryList Component should handle expandable guests data: number of
 `;
 
 exports[`InventoryList Component should handle updating paging through redux state: dispatch onPage 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "offset": 10,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
-      Object {
+      {
         "limit": 10,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
       },
     ],
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "offset": 20,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
-      Object {
+      {
         "limit": 10,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
       },
     ],
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "offset": 0,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
-      Object {
+      {
         "limit": 20,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
       },
     ],
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "offset": 0,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
         "viewId": "lorem",
       },
-      Object {
+      {
         "limit": 50,
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
         "viewId": "lorem",
@@ -169,43 +169,43 @@ Array [
 `;
 
 exports[`InventoryList Component should handle updating sorting through redux state: dispatch filter 1`] = `
-Array [
-  Array [
-    Array [
-      Object {
+[
+  [
+    [
+      {
         "dir": "asc",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
         "viewId": "lorem",
       },
-      Object {
+      {
         "sort": "sockets",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
         "viewId": "lorem",
       },
     ],
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "dir": "desc",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
         "viewId": "lorem",
       },
-      Object {
+      {
         "sort": "sockets",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
         "viewId": "lorem",
       },
     ],
   ],
-  Array [
-    Array [
-      Object {
+  [
+    [
+      {
         "dir": "asc",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
         "viewId": "lorem",
       },
-      Object {
+      {
         "sort": "sockets",
         "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
         "viewId": "lorem",
@@ -271,27 +271,27 @@ exports[`InventoryList Component should handle variations in data: filtered data
           borders={true}
           className="curiosity-inventory-list"
           columnHeaders={
-            Array [
-              Object {
-                "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-                "transforms": Array [],
+            [
+              {
+                "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+                "transforms": [],
               },
             ]
           }
           isHeader={true}
           rows={
-            Array [
-              Object {
-                "cells": Array [
-                  Object {
+            [
+              {
+                "cells": [
+                  {
                     "title": "ipsum",
                   },
                 ],
                 "expandedContent": undefined,
               },
-              Object {
-                "cells": Array [
-                  Object {
+              {
+                "cells": [
+                  {
                     "title": "sit",
                   },
                 ],
@@ -392,23 +392,23 @@ exports[`InventoryList Component should handle variations in data: variable data
           borders={true}
           className="curiosity-inventory-list"
           columnHeaders={
-            Array [
-              "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-              "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+            [
+              "t(curiosity-inventory.header, {"context":"lorem"})",
+              "t(curiosity-inventory.header, {"context":"dolor"})",
             ]
           }
           isHeader={true}
           rows={
-            Array [
-              Object {
-                "cells": Array [
+            [
+              {
+                "cells": [
                   "ipsum",
                   "sit",
                 ],
                 "expandedContent": undefined,
               },
-              Object {
-                "cells": Array [
+              {
+                "cells": [
                   "sit",
                   "amet",
                 ],
@@ -508,9 +508,9 @@ exports[`InventoryList Component should render a non-connected component: non-co
           ariaLabel={null}
           borders={true}
           className="curiosity-inventory-list"
-          columnHeaders={Array []}
+          columnHeaders={[]}
           isHeader={true}
-          rows={Array []}
+          rows={[]}
           summary={null}
           t={[Function]}
           variant="compact"

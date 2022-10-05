@@ -7,17 +7,17 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 >
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_1",
       }
     }
@@ -89,17 +89,17 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
   </Flex>
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_3",
       }
     }
@@ -118,17 +118,17 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 >
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_1",
       }
     }
@@ -204,17 +204,17 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
   </Flex>
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_3",
       }
     }
@@ -233,17 +233,17 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 >
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_1",
       }
     }
@@ -268,11 +268,11 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
             <div>
               <Loader
                 skeletonProps={
-                  Object {
+                  {
                     "size": "lg",
                   }
                 }
-                tableProps={Object {}}
+                tableProps={{}}
                 variant="skeleton"
               />
             </div>
@@ -308,11 +308,11 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
             <div>
               <Loader
                 skeletonProps={
-                  Object {
+                  {
                     "size": "lg",
                   }
                 }
-                tableProps={Object {}}
+                tableProps={{}}
                 variant="skeleton"
               />
             </div>
@@ -335,17 +335,17 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
   </Flex>
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_3",
       }
     }
@@ -364,17 +364,17 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
 >
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_1",
       }
     }
@@ -446,17 +446,17 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
   </Flex>
   <Flex
     alignSelf={
-      Object {
+      {
         "default": "alignSelfStretch",
       }
     }
     direction={
-      Object {
+      {
         "default": "column",
       }
     }
     flex={
-      Object {
+      {
         "default": "flex_3",
       }
     }

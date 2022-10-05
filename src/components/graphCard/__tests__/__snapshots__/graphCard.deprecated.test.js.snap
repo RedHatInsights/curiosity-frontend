@@ -5,9 +5,9 @@ exports[`GraphCard Component should render a non-connected component: non-connec
   cardTitle={null}
   error={false}
   getGraphReportsCapacity={[Function]}
-  graphData={Object {}}
+  graphData={{}}
   isDisabled={false}
-  meta={Object {}}
+  meta={{}}
   pending={false}
   useProduct={[Function]}
   useProductGraphConfig={[Function]}
@@ -84,17 +84,17 @@ exports[`GraphCard Component should render a non-connected component: non-connec
                   className=""
                 >
                   <GraphCardChart
-                    graphData={Object {}}
+                    graphData={{}}
                     useProductGraphConfig={[Function]}
                     useProductGraphTallyQuery={[Function]}
                   >
                     <Chart
                       chartLegend={[Function]}
                       chartTooltip={[Function]}
-                      dataSets={Array []}
+                      dataSets={[]}
                       key="chart_{}"
                       padding={
-                        Object {
+                        {
                           "bottom": 75,
                           "left": 55,
                           "right": 55,
@@ -162,19 +162,19 @@ exports[`GraphCard Component should render multiple states: error state 1`] = `
       >
         <GraphCardChart
           graphData={
-            Object {
-              "physicalSockets": Array [
-                Object {
+            {
+              "physicalSockets": [
+                {
                   "date": 2019-06-01T00:00:00.000Z,
                   "x": 0,
                   "y": 10,
                 },
-                Object {
+                {
                   "date": 2019-06-08T00:00:00.000Z,
                   "x": 1,
                   "y": 12,
                 },
-                Object {
+                {
                   "date": 2019-06-25T00:00:00.000Z,
                   "x": 2,
                   "y": 3,
@@ -225,11 +225,11 @@ exports[`GraphCard Component should render multiple states: pending state 1`] = 
       >
         <Loader
           skeletonProps={
-            Object {
+            {
               "size": "sm",
             }
           }
-          tableProps={Object {}}
+          tableProps={{}}
           variant="graph"
         />
       </div>

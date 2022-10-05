@@ -6,38 +6,38 @@ exports[`TableSkeleton Component should allow variations in table layout: border
   borders={false}
   className="curiosity-skeleton-table "
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
@@ -45,9 +45,9 @@ exports[`TableSkeleton Component should allow variations in table layout: border
   }
   isHeader={false}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
@@ -79,38 +79,38 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
   borders={false}
   className="curiosity-skeleton-table lorem-ipsum-class"
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
@@ -118,9 +118,9 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
   }
   isHeader={false}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
@@ -152,28 +152,28 @@ exports[`TableSkeleton Component should allow variations in table layout: column
   borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
@@ -182,9 +182,9 @@ exports[`TableSkeleton Component should allow variations in table layout: column
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
@@ -216,38 +216,38 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
   borders={false}
   className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows lorem-ipsum-class"
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
@@ -255,9 +255,9 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
   }
   isHeader={false}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
@@ -289,38 +289,38 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
   borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
@@ -328,9 +328,9 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
@@ -362,38 +362,38 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
   borders={false}
   className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows lorem-ipsum-class"
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
-      Object {
+      {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": Array [
+        "transforms": [
           [Function],
         ],
       },
@@ -401,9 +401,9 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
@@ -435,8 +435,8 @@ exports[`TableSkeleton Component should render a non-connected component: non-co
   borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
-    Array [
-      Object {
+    [
+      {
         "title": <Skeleton
           size="md"
         />,
@@ -445,37 +445,37 @@ exports[`TableSkeleton Component should render a non-connected component: non-co
   }
   isHeader={true}
   rows={
-    Array [
-      Object {
-        "cells": Array [
+    [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
         ],
       },
-      Object {
-        "cells": Array [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
         ],
       },
-      Object {
-        "cells": Array [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
         ],
       },
-      Object {
-        "cells": Array [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,
         ],
       },
-      Object {
-        "cells": Array [
+      {
+        "cells": [
           <Skeleton
             size="md"
           />,

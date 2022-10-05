@@ -6,7 +6,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
 >
   <span
     style={
-      Object {
+      {
         "height": "1em",
         "width": "2em",
       }
@@ -78,7 +78,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   <span
     className="curiosity-icon__f-infinity"
     style={
-      Object {
+      {
         "fontSize": "1.5em",
       }
     }
@@ -99,7 +99,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
 >
   <span
     style={
-      Object {
+      {
         "height": "3em",
         "width": "6em",
       }

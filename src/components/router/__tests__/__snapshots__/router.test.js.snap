@@ -5,24 +5,24 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
   fallback={
     <Loader
       skeletonProps={
-        Object {
+        {
           "size": "sm",
         }
       }
-      tableProps={Object {}}
+      tableProps={{}}
       variant="title"
     />
   }
   routes={
-    Array [
-      Object {
+    [
+      {
         "component": "loremComponent",
         "disabled": false,
         "exact": false,
         "path": "/lorem",
         "redirect": "/loremIpsum",
       },
-      Object {
+      {
         "activateOnError": true,
         "component": "ipsumComponent",
         "disabled": false,
@@ -37,7 +37,7 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
 `;
 
 exports[`Router Component should pass route context: context 1`] = `
-Object {
+{
   "pathParameter": "RHEL for ARM",
   "productParameter": "RHEL",
   "viewParameter": "viewRHEL",
@@ -49,17 +49,17 @@ exports[`Router Component should render a basic component: basic 1`] = `
   fallback={
     <Loader
       skeletonProps={
-        Object {
+        {
           "size": "sm",
         }
       }
-      tableProps={Object {}}
+      tableProps={{}}
       variant="title"
     />
   }
   routes={
-    Array [
-      Object {
+    [
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -68,7 +68,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/rhel",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -77,7 +77,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/rhel-arm",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -86,7 +86,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/rhel-ibmpower",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -95,7 +95,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/rhel-ibmz",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -104,7 +104,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/rhel-x86",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productViewOpenShiftContainer",
         "disabled": false,
@@ -113,7 +113,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/openshift-container",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productViewOpenShiftDedicated",
         "disabled": false,
@@ -122,7 +122,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/openshift-dedicated",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -131,7 +131,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/rhacs",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -140,7 +140,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/streams",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -149,7 +149,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/satellite",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -158,7 +158,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/satellite-capsule",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productView",
         "disabled": false,
@@ -167,7 +167,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/satellite-server",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": true,
         "component": "optinView/optinView",
         "disabled": false,
@@ -176,7 +176,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "path": "/optin",
         "redirect": null,
       },
-      Object {
+      {
         "activateOnError": false,
         "component": "productView/productViewMissing",
         "disabled": false,

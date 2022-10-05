@@ -6,13 +6,13 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
 >
   <Flex
     alignItems={
-      Object {
+      {
         "sm": "alignItemsStretch",
       }
     }
     className="curiosity-page-columns lorem"
     spaceItems={
-      Object {
+      {
         "sm": "spaceItemsNone",
       }
     }
@@ -23,7 +23,7 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
       <FlexItem
         className="curiosity-page-columns-column"
         grow={
-          Object {
+          {
             "sm": "grow",
           }
         }
@@ -43,7 +43,7 @@ exports[`PageColumns Component should render a basic component: basic 1`] = `
       <FlexItem
         className="curiosity-page-columns-column"
         grow={
-          Object {
+          {
             "sm": "grow",
           }
         }

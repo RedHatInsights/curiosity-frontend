@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: error response 1`] = `
-Object {
-  "data": Object {
-    "errorCodes": Array [
+{
+  "data": {
+    "errorCodes": [
       "SUBSCRIPTIONS1004",
     ],
     "errorStatus": 403,
-    "locale": Object {},
+    "locale": {},
   },
   "error": true,
   "fulfilled": undefined,
@@ -16,9 +16,9 @@ Object {
 `;
 
 exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: mock store error response 1`] = `
-Object {
-  "data": Object {
-    "errorCodes": Array [
+{
+  "data": {
+    "errorCodes": [
       "lorem",
       "ipsum",
     ],
@@ -32,25 +32,25 @@ Object {
 `;
 
 exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: mock store success response 1`] = `
-Object {
-  "data": Object {
-    "authorized": Object {
+{
+  "data": {
+    "authorized": {
       "subscriptions": true,
     },
-    "errorCodes": Array [],
+    "errorCodes": [],
     "errorStatus": null,
     "isAdmin": true,
     "isEntitled": true,
-    "locale": Object {},
-    "permissions": Array [
-      Object {
-        "subscriptions": Object {
+    "locale": {},
+    "permissions": [
+      {
+        "subscriptions": {
           "all": true,
-          "resources": Object {
-            "*": Object {
-              "*": Array [],
-              "loremCustom": Array [],
-              "read": Array [],
+          "resources": {
+            "*": {
+              "*": [],
+              "loremCustom": [],
+              "read": [],
             },
           },
         },
@@ -64,11 +64,11 @@ Object {
 `;
 
 exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: success response 1`] = `
-Object {
-  "data": Object {
-    "errorCodes": Array [],
+{
+  "data": {
+    "errorCodes": [],
     "errorStatus": null,
-    "locale": Object {},
+    "locale": {},
   },
   "error": undefined,
   "fulfilled": true,
@@ -77,39 +77,39 @@ Object {
 `;
 
 exports[`AuthenticationContext should apply a hook for retrieving auth data results as context for session: session context, basic 1`] = `
-Object {
+{
   "lorem": "ipsum",
 }
 `;
 
 exports[`AuthenticationContext should return specific properties: specific properties 1`] = `
-Object {
-  "AuthenticationContext": Object {
+{
+  "AuthenticationContext": {
     "$$typeof": Symbol(react.context),
-    "Consumer": Object {
+    "Consumer": {
       "$$typeof": Symbol(react.context),
       "_calculateChangedBits": null,
       "_context": [Circular],
     },
-    "Provider": Object {
+    "Provider": {
       "$$typeof": Symbol(react.provider),
       "_context": [Circular],
     },
     "_calculateChangedBits": null,
     "_currentRenderer": null,
     "_currentRenderer2": null,
-    "_currentValue": Array [
-      Object {},
+    "_currentValue": [
+      {},
       [Function],
     ],
-    "_currentValue2": Array [
-      Object {},
+    "_currentValue2": [
+      {},
       [Function],
     ],
     "_threadCount": 0,
   },
-  "DEFAULT_CONTEXT": Array [
-    Object {},
+  "DEFAULT_CONTEXT": [
+    {},
     [Function],
   ],
   "useAuthContext": [Function],

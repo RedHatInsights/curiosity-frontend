@@ -11,7 +11,7 @@ exports[`ChartTooltip Component should handle tooltip position: left tail 1`] = 
     <div
       className="curiosity-chartarea__tooltip-container "
       style={
-        Object {
+        {
           "display": "inline-block",
         }
       }
@@ -38,7 +38,7 @@ exports[`ChartTooltip Component should handle tooltip position: middle tail 1`] 
     <div
       className="curiosity-chartarea__tooltip-container "
       style={
-        Object {
+        {
           "display": "inline-block",
         }
       }
@@ -65,7 +65,7 @@ exports[`ChartTooltip Component should handle tooltip position: right tail 1`] =
     <div
       className="curiosity-chartarea__tooltip-container "
       style={
-        Object {
+        {
           "display": "inline-block",
         }
       }
@@ -92,7 +92,7 @@ exports[`ChartTooltip Component should return a basic component: basic 1`] = `
     <div
       className="curiosity-chartarea__tooltip-container fadein"
       style={
-        Object {
+        {
           "display": "none",
         }
       }

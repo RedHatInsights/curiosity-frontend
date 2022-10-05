@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphCardSelectors should handle pending state on a product ID: pending 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": false,
-  "graphData": Object {},
-  "meta": Object {},
+  "graphData": {},
+  "meta": {},
   "pending": true,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -15,12 +15,12 @@ Object {
 `;
 
 exports[`GraphCardSelectors should map a fulfilled product ID response to an aggregated output: fulfilled 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -28,7 +28,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -36,7 +36,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -45,8 +45,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -54,7 +54,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -62,7 +62,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -71,8 +71,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -80,7 +80,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -88,7 +88,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -97,8 +97,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -106,7 +106,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -114,7 +114,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -123,8 +123,8 @@ Object {
         "y": 0,
       },
     ],
-    "cores": Array [
-      Object {
+    "cores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -132,7 +132,7 @@ Object {
         "x": 0,
         "y": 2,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -140,7 +140,7 @@ Object {
         "x": 1,
         "y": 2,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -149,8 +149,8 @@ Object {
         "y": 4,
       },
     ],
-    "hypervisorCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -158,7 +158,7 @@ Object {
         "x": 0,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -166,7 +166,7 @@ Object {
         "x": 1,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -175,8 +175,8 @@ Object {
         "y": 2,
       },
     ],
-    "hypervisorSockets": Array [
-      Object {
+    "hypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -184,7 +184,7 @@ Object {
         "x": 0,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -192,7 +192,7 @@ Object {
         "x": 1,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -201,8 +201,8 @@ Object {
         "y": 2,
       },
     ],
-    "instanceHours": Array [
-      Object {
+    "instanceHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -210,7 +210,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -218,7 +218,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -227,8 +227,8 @@ Object {
         "y": 0,
       },
     ],
-    "physicalCores": Array [
-      Object {
+    "physicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -236,7 +236,7 @@ Object {
         "x": 0,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -244,7 +244,7 @@ Object {
         "x": 1,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -253,8 +253,8 @@ Object {
         "y": 2,
       },
     ],
-    "physicalSockets": Array [
-      Object {
+    "physicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -262,7 +262,7 @@ Object {
         "x": 0,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -270,7 +270,7 @@ Object {
         "x": 1,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -279,8 +279,8 @@ Object {
         "y": null,
       },
     ],
-    "sockets": Array [
-      Object {
+    "sockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -288,7 +288,7 @@ Object {
         "x": 0,
         "y": 2,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -296,7 +296,7 @@ Object {
         "x": 1,
         "y": 2,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -305,180 +305,180 @@ Object {
         "y": 4,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "thresholdCloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdPhysicalCores": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdPhysicalSockets": Array [
-      Object {
+    "thresholdPhysicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
         "y": null,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 100,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": true,
         "x": 1,
         "y": null,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": true,
         "x": 2,
@@ -486,13 +486,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -500,13 +500,13 @@ Object {
 `;
 
 exports[`GraphCardSelectors should pass minimal data on a product ID without a product ID provided: no product id error 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": false,
-  "graphData": Object {},
-  "meta": Object {},
+  "graphData": {},
+  "meta": {},
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -514,36 +514,36 @@ Object {
 `;
 
 exports[`GraphCardSelectors should pass minimal data on a product ID without granularity provided: no granularity error 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": false,
-  "graphData": Object {},
-  "meta": Object {},
+  "graphData": {},
+  "meta": {},
   "pending": false,
-  "query": Object {},
+  "query": {},
   "status": undefined,
 }
 `;
 
 exports[`GraphCardSelectors should pass minimal data on missing a reducer response: missing reducer error 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": false,
-  "graphData": Object {},
-  "meta": Object {},
+  "graphData": {},
+  "meta": {},
   "pending": false,
-  "query": Object {},
+  "query": {},
   "status": undefined,
 }
 `;
 
 exports[`GraphCardSelectors should populate data from the in memory cache: cached data: ERROR, query mismatch 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -552,8 +552,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -562,8 +562,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -572,8 +572,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -582,68 +582,8 @@ Object {
         "y": 0,
       },
     ],
-    "cores": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 2,
-      },
-    ],
-    "hypervisorCores": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "hypervisorSockets": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "instanceHours": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 0,
-      },
-    ],
-    "physicalCores": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "physicalSockets": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "sockets": Array [
-      Object {
+    "cores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -652,72 +592,132 @@ Object {
         "y": 2,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "instanceHours": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "physicalCores": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "thresholdCloudCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdPhysicalCores": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdPhysicalSockets": Array [
-      Object {
+    "thresholdPhysicalSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
@@ -725,13 +725,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -739,12 +739,12 @@ Object {
 `;
 
 exports[`GraphCardSelectors should populate data from the in memory cache: cached data: cache used and pending 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -753,8 +753,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -763,8 +763,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -773,8 +773,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -783,68 +783,8 @@ Object {
         "y": 0,
       },
     ],
-    "cores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 2,
-      },
-    ],
-    "hypervisorCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "hypervisorSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "instanceHours": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 0,
-      },
-    ],
-    "physicalCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "physicalSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "sockets": Array [
-      Object {
+    "cores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -853,72 +793,132 @@ Object {
         "y": 2,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "instanceHours": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "physicalCores": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "thresholdCloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdPhysicalCores": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdPhysicalSockets": Array [
-      Object {
+    "thresholdPhysicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
@@ -926,13 +926,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -940,12 +940,12 @@ Object {
 `;
 
 exports[`GraphCardSelectors should populate data from the in memory cache: cached data: initial fulfilled 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -954,8 +954,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -964,8 +964,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -974,8 +974,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -984,68 +984,8 @@ Object {
         "y": 0,
       },
     ],
-    "cores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 2,
-      },
-    ],
-    "hypervisorCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "hypervisorSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "instanceHours": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 0,
-      },
-    ],
-    "physicalCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "physicalSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "sockets": Array [
-      Object {
+    "cores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -1054,72 +994,132 @@ Object {
         "y": 2,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "instanceHours": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "physicalCores": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "thresholdCloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdPhysicalCores": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdPhysicalSockets": Array [
-      Object {
+    "thresholdPhysicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
@@ -1127,13 +1127,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -1141,12 +1141,12 @@ Object {
 `;
 
 exports[`GraphCardSelectors should populate data from the in memory cache: cached data: update and fulfilled 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -1155,8 +1155,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -1165,8 +1165,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -1175,8 +1175,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -1185,68 +1185,8 @@ Object {
         "y": 0,
       },
     ],
-    "cores": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 2,
-      },
-    ],
-    "hypervisorCores": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "hypervisorSockets": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "instanceHours": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 0,
-      },
-    ],
-    "physicalCores": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "physicalSockets": Array [
-      Object {
-        "date": 2018-07-04T00:00:00.000Z,
-        "hasCloudigradeData": true,
-        "hasCloudigradeMismatch": true,
-        "hasData": true,
-        "x": 0,
-        "y": 1,
-      },
-    ],
-    "sockets": Array [
-      Object {
+    "cores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasCloudigradeData": true,
         "hasCloudigradeMismatch": true,
@@ -1255,72 +1195,132 @@ Object {
         "y": 2,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "hypervisorSockets": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "instanceHours": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 0,
+      },
+    ],
+    "physicalCores": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "physicalSockets": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 1,
+      },
+    ],
+    "sockets": [
+      {
+        "date": 2018-07-04T00:00:00.000Z,
+        "hasCloudigradeData": true,
+        "hasCloudigradeMismatch": true,
+        "hasData": true,
+        "x": 0,
+        "y": 2,
+      },
+    ],
+    "thresholdCloudCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdPhysicalCores": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdPhysicalSockets": Array [
-      Object {
+    "thresholdPhysicalSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
         "y": 50,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdSockets": [
+      {
         "date": 2018-07-04T00:00:00.000Z,
         "hasInfinite": false,
         "x": 0,
@@ -1328,13 +1328,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -1342,12 +1342,12 @@ Object {
 `;
 
 exports[`GraphCardSelectors should populate data on a product ID when the api response is missing expected properties: data populated, missing properties 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1355,7 +1355,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1363,7 +1363,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1372,8 +1372,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1381,7 +1381,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1389,7 +1389,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1398,8 +1398,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1407,7 +1407,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1415,7 +1415,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1424,8 +1424,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1433,7 +1433,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1441,7 +1441,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1450,8 +1450,8 @@ Object {
         "y": 0,
       },
     ],
-    "cores": Array [
-      Object {
+    "cores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1459,7 +1459,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1467,7 +1467,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1476,8 +1476,8 @@ Object {
         "y": 0,
       },
     ],
-    "hasCloudigradeData": Array [
-      Object {
+    "hasCloudigradeData": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1485,7 +1485,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1493,7 +1493,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1502,8 +1502,8 @@ Object {
         "y": 0,
       },
     ],
-    "hasCloudigradeMismatch": Array [
-      Object {
+    "hasCloudigradeMismatch": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1511,7 +1511,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1519,7 +1519,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1528,8 +1528,8 @@ Object {
         "y": 0,
       },
     ],
-    "hasData": Array [
-      Object {
+    "hasData": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1537,7 +1537,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1545,7 +1545,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1554,8 +1554,8 @@ Object {
         "y": 0,
       },
     ],
-    "hypervisorCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1563,7 +1563,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1571,7 +1571,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1580,8 +1580,8 @@ Object {
         "y": 0,
       },
     ],
-    "hypervisorSockets": Array [
-      Object {
+    "hypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1589,7 +1589,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1597,7 +1597,7 @@ Object {
         "x": 1,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1606,8 +1606,8 @@ Object {
         "y": 0,
       },
     ],
-    "instanceHours": Array [
-      Object {
+    "instanceHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1615,7 +1615,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1623,7 +1623,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1632,8 +1632,8 @@ Object {
         "y": 0,
       },
     ],
-    "physicalCores": Array [
-      Object {
+    "physicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1641,7 +1641,7 @@ Object {
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1649,7 +1649,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1658,8 +1658,8 @@ Object {
         "y": 0,
       },
     ],
-    "physicalSockets": Array [
-      Object {
+    "physicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1667,7 +1667,7 @@ Object {
         "x": 0,
         "y": 1,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1675,7 +1675,7 @@ Object {
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1684,8 +1684,8 @@ Object {
         "y": 2,
       },
     ],
-    "sockets": Array [
-      Object {
+    "sockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1693,7 +1693,7 @@ Object {
         "x": 0,
         "y": 2,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1701,7 +1701,7 @@ Object {
         "x": 1,
         "y": 2,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1710,200 +1710,200 @@ Object {
         "y": 4,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "thresholdCloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 0,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 0,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 0,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 0,
       },
     ],
-    "thresholdHasInfiniteQuantity": Array [
-      Object {
+    "thresholdHasInfiniteQuantity": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 0,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 0,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 50,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
-        "date": 2019-09-06T00:00:00.000Z,
-        "hasInfinite": undefined,
-        "x": 2,
-        "y": 50,
-      },
-    ],
-    "thresholdPhysicalCores": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasInfinite": undefined,
-        "x": 0,
-        "y": 0,
-      },
-      Object {
-        "date": 2019-09-05T00:00:00.000Z,
-        "hasInfinite": undefined,
-        "x": 1,
-        "y": 0,
-      },
-      Object {
-        "date": 2019-09-06T00:00:00.000Z,
-        "hasInfinite": undefined,
-        "x": 2,
-        "y": 0,
-      },
-    ],
-    "thresholdPhysicalSockets": Array [
-      Object {
-        "date": 2019-09-04T00:00:00.000Z,
-        "hasInfinite": undefined,
-        "x": 0,
-        "y": 50,
-      },
-      Object {
-        "date": 2019-09-05T00:00:00.000Z,
-        "hasInfinite": undefined,
-        "x": 1,
-        "y": 0,
-      },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
         "y": 50,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasInfinite": undefined,
+        "x": 0,
+        "y": 0,
+      },
+      {
+        "date": 2019-09-05T00:00:00.000Z,
+        "hasInfinite": undefined,
+        "x": 1,
+        "y": 0,
+      },
+      {
+        "date": 2019-09-06T00:00:00.000Z,
+        "hasInfinite": undefined,
+        "x": 2,
+        "y": 0,
+      },
+    ],
+    "thresholdPhysicalSockets": [
+      {
+        "date": 2019-09-04T00:00:00.000Z,
+        "hasInfinite": undefined,
+        "x": 0,
+        "y": 50,
+      },
+      {
+        "date": 2019-09-05T00:00:00.000Z,
+        "hasInfinite": undefined,
+        "x": 1,
+        "y": 0,
+      },
+      {
+        "date": 2019-09-06T00:00:00.000Z,
+        "hasInfinite": undefined,
+        "x": 2,
+        "y": 50,
+      },
+    ],
+    "thresholdSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 100,
       },
-      Object {
+      {
         "date": 2019-09-05T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 1,
         "y": 0,
       },
-      Object {
+      {
         "date": 2019-09-06T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 2,
@@ -1911,13 +1911,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -1925,12 +1925,12 @@ Object {
 `;
 
 exports[`GraphCardSelectors should populate data on a product ID when the api response provided mismatches index or date: data populated on mismatch fulfilled 1`] = `
-Object {
+{
   "error": false,
   "fulfilled": true,
-  "graphData": Object {
-    "cloudCores": Array [
-      Object {
+  "graphData": {
+    "cloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1939,8 +1939,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudInstanceCount": Array [
-      Object {
+    "cloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1949,8 +1949,8 @@ Object {
         "y": 0,
       },
     ],
-    "cloudSockets": Array [
-      Object {
+    "cloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1959,8 +1959,8 @@ Object {
         "y": 0,
       },
     ],
-    "coreHours": Array [
-      Object {
+    "coreHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1969,8 +1969,8 @@ Object {
         "y": 1000.03,
       },
     ],
-    "cores": Array [
-      Object {
+    "cores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1979,8 +1979,8 @@ Object {
         "y": 2,
       },
     ],
-    "hasCloudigradeData": Array [
-      Object {
+    "hasCloudigradeData": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1989,8 +1989,8 @@ Object {
         "y": 0,
       },
     ],
-    "hasCloudigradeMismatch": Array [
-      Object {
+    "hasCloudigradeMismatch": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -1999,8 +1999,8 @@ Object {
         "y": 0,
       },
     ],
-    "hasData": Array [
-      Object {
+    "hasData": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2009,8 +2009,8 @@ Object {
         "y": 0,
       },
     ],
-    "hypervisorCores": Array [
-      Object {
+    "hypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2019,8 +2019,8 @@ Object {
         "y": 1,
       },
     ],
-    "hypervisorSockets": Array [
-      Object {
+    "hypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2029,8 +2029,8 @@ Object {
         "y": 1,
       },
     ],
-    "instanceHours": Array [
-      Object {
+    "instanceHours": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2039,8 +2039,8 @@ Object {
         "y": 0,
       },
     ],
-    "physicalCores": Array [
-      Object {
+    "physicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2049,8 +2049,8 @@ Object {
         "y": 1,
       },
     ],
-    "physicalSockets": Array [
-      Object {
+    "physicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2059,8 +2059,8 @@ Object {
         "y": 1,
       },
     ],
-    "sockets": Array [
-      Object {
+    "sockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasCloudigradeData": undefined,
         "hasCloudigradeMismatch": undefined,
@@ -2069,88 +2069,88 @@ Object {
         "y": 2,
       },
     ],
-    "thresholdCloudCores": Array [
-      Object {
+    "thresholdCloudCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudInstanceCount": Array [
-      Object {
+    "thresholdCloudInstanceCount": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCloudSockets": Array [
-      Object {
+    "thresholdCloudSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdCores": Array [
-      Object {
+    "thresholdCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdDate": Array [
-      Object {
+    "thresholdDate": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHasInfiniteQuantity": Array [
-      Object {
+    "thresholdHasInfiniteQuantity": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorCores": Array [
-      Object {
+    "thresholdHypervisorCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdHypervisorSockets": Array [
-      Object {
+    "thresholdHypervisorSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdPhysicalCores": Array [
-      Object {
+    "thresholdPhysicalCores": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdPhysicalSockets": Array [
-      Object {
+    "thresholdPhysicalSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
         "y": 0,
       },
     ],
-    "thresholdSockets": Array [
-      Object {
+    "thresholdSockets": [
+      {
         "date": 2019-09-04T00:00:00.000Z,
         "hasInfinite": undefined,
         "x": 0,
@@ -2158,13 +2158,13 @@ Object {
       },
     ],
   },
-  "meta": Object {
+  "meta": {
     "count": undefined,
     "totalCoreHours": undefined,
     "totalInstanceHours": undefined,
   },
   "pending": false,
-  "query": Object {
+  "query": {
     "granularity": "Daily",
   },
   "status": undefined,
@@ -2172,7 +2172,7 @@ Object {
 `;
 
 exports[`GraphCardSelectors should return specific selectors: selectors 1`] = `
-Object {
+{
   "graphCard": [Function],
   "makeGraphCard": [Function],
 }

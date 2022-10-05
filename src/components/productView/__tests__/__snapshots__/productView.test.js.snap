@@ -16,8 +16,8 @@ exports[`ProductView Component should allow custom inventory displays via config
     <ContextProvider
       key="product_lorem"
       value={
-        Object {
-          "initialSubscriptionsInventoryFilters": Array [],
+        {
+          "initialSubscriptionsInventoryFilters": [],
           "lorem": "ipsum",
           "productId": "lorem",
           "viewId": "viewIpsum",
@@ -29,10 +29,10 @@ exports[`ProductView Component should allow custom inventory displays via config
       >
         <BannerMessages
           messages={
-            Array [
-              Object {
+            [
+              {
                 "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
                 "title": "t(curiosity-banner.dataMismatchTitle)",
               },
             ]
@@ -87,31 +87,31 @@ exports[`ProductView Component should allow custom inventory displays via config
           }
           key="graph_lorem"
           productId="lorem"
-          query={Object {}}
+          query={{}}
           viewId="viewIpsum"
         >
           <ToolbarFieldGranularity
             isFilter={false}
             options={
-              Array [
-                Object {
+              [
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
                   "value": "Daily",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
                   "value": "Weekly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
                   "value": "Monthly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
                   "value": "Quarterly",
                 },
               ]
@@ -134,7 +134,7 @@ exports[`ProductView Component should allow custom inventory displays via config
           <InventoryTab
             active={false}
             key="inventory_subs_lorem"
-            title="t(curiosity-inventory.tabSubscriptions, {\\"context\\":\\"lorem\\"})"
+            title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
           >
             <InventoryCardSubscriptions
               isDisabled={false}
@@ -168,7 +168,7 @@ exports[`ProductView Component should allow custom product views via props: cust
     <ContextProvider
       key="product_lorem"
       value={
-        Object {
+        {
           "lorem": "ipsum",
           "productId": "lorem",
           "viewId": "viewIpsum",
@@ -180,10 +180,10 @@ exports[`ProductView Component should allow custom product views via props: cust
       >
         <BannerMessages
           messages={
-            Array [
-              Object {
+            [
+              {
                 "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
                 "title": "t(curiosity-banner.dataMismatchTitle)",
               },
             ]
@@ -238,31 +238,31 @@ exports[`ProductView Component should allow custom product views via props: cust
           }
           key="graph_lorem"
           productId="lorem"
-          query={Object {}}
+          query={{}}
           viewId="viewIpsum"
         >
           <ToolbarFieldGranularity
             isFilter={false}
             options={
-              Array [
-                Object {
+              [
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
                   "value": "Daily",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
                   "value": "Weekly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
                   "value": "Monthly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
                   "value": "Quarterly",
                 },
               ]
@@ -304,7 +304,7 @@ exports[`ProductView Component should allow custom product views via props: cust
     <ContextProvider
       key="product_lorem"
       value={
-        Object {
+        {
           "lorem": "ipsum",
           "productId": "lorem",
           "viewId": "viewIpsum",
@@ -316,10 +316,10 @@ exports[`ProductView Component should allow custom product views via props: cust
       >
         <BannerMessages
           messages={
-            Array [
-              Object {
+            [
+              {
                 "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
                 "title": "t(curiosity-banner.dataMismatchTitle)",
               },
             ]
@@ -352,7 +352,7 @@ exports[`ProductView Component should allow custom product views via props: cust
           }
           key="graph_lorem"
           productId="lorem"
-          query={Object {}}
+          query={{}}
           viewId="viewIpsum"
         >
           lorem ipsum
@@ -388,7 +388,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
     <ContextProvider
       key="product_lorem"
       value={
-        Object {
+        {
           "lorem": "ipsum",
           "productId": "lorem",
           "viewId": "viewIpsum",
@@ -400,10 +400,10 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       >
         <BannerMessages
           messages={
-            Array [
-              Object {
+            [
+              {
                 "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {\\"context\\":\\"cloudigradeMismatch\\",\\"appName\\":\\"Subscriptions\\"}, [object Object])",
+                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
                 "title": "t(curiosity-banner.dataMismatchTitle)",
               },
             ]
@@ -436,31 +436,31 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
           }
           key="graph_lorem"
           productId="lorem"
-          query={Object {}}
+          query={{}}
           viewId="viewIpsum"
         >
           <ToolbarFieldGranularity
             isFilter={false}
             options={
-              Array [
-                Object {
+              [
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Daily\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
                   "value": "Daily",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Weekly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
                   "value": "Weekly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Monthly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
                   "value": "Monthly",
                 },
-                Object {
+                {
                   "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {\\"context\\":\\"Quarterly\\"})",
+                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
                   "value": "Quarterly",
                 },
               ]
@@ -506,7 +506,7 @@ exports[`ProductView Component should use an instances inventory for rhosak: cus
 <InventoryTab
   active={false}
   key="inventory_instances_rhosak"
-  title="t(curiosity-inventory.tabInstances, {\\"context\\":\\"noInstances_rhosak\\"})"
+  title="t(curiosity-inventory.tabInstances, {"context":"noInstances_rhosak"})"
 >
   <InventoryCard
     cardActions={

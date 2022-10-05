@@ -59,61 +59,61 @@ exports[`TextInput Component should render a basic component: basic component 1`
 `;
 
 exports[`TextInput Component should return an emulated onChange event: emulated event, change 1`] = `
-Object {
+{
   "checked": undefined,
-  "currentTarget": Object {
+  "currentTarget": {
     "value": "dolor sit",
   },
   "id": undefined,
   "keyCode": undefined,
   "name": undefined,
   "persist": [Function],
-  "target": Object {},
+  "target": {},
   "value": "dolor sit",
 }
 `;
 
 exports[`TextInput Component should return an emulated onClear event on escape with type search: emulated event, esc, type search 1`] = `
-Object {
+{
   "checked": undefined,
-  "currentTarget": Object {
+  "currentTarget": {
     "value": "",
   },
   "id": undefined,
   "keyCode": 27,
   "name": undefined,
   "persist": [Function],
-  "target": Object {},
+  "target": {},
   "value": "",
 }
 `;
 
 exports[`TextInput Component should return an emulated onClear event on escape: emulated event, esc 1`] = `
-Object {
+{
   "checked": undefined,
-  "currentTarget": Object {
+  "currentTarget": {
     "value": "",
   },
   "id": undefined,
   "keyCode": 27,
   "name": undefined,
   "persist": [Function],
-  "target": Object {},
+  "target": {},
   "value": "",
 }
 `;
 
 exports[`TextInput Component should return an emulated onClear event on search clear: emulated event, clear 1`] = `
-Object {
+{
   "checked": undefined,
-  "currentTarget": Object {
+  "currentTarget": {
     "value": "",
   },
   "id": undefined,
   "keyCode": undefined,
   "name": undefined,
   "persist": [Function],
-  "target": Object {},
+  "target": {},
   "value": "",
 }
 `;

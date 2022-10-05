@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormHelpers should have specific helpers: helpers 1`] = `
-Object {
+{
   "createMockEvent": [Function],
   "doesNotHaveMinimumCharacters": [Function],
 }
@@ -26,14 +26,14 @@ exports[`FormHelpers should return a boolean for not having the correct number o
 exports[`FormHelpers should return a boolean for not having the correct number of characters: undefined 1`] = `true`;
 
 exports[`FormHelpers should return a mocked event object: mock event 1`] = `
-Object {
+{
   "checked": undefined,
-  "currentTarget": Object {},
+  "currentTarget": {},
   "id": undefined,
   "keyCode": undefined,
   "name": undefined,
   "persist": [Function],
-  "target": Object {},
+  "target": {},
   "value": undefined,
 }
 `;

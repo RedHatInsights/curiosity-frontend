@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GuestsList Component should handle an onScroll event: scroll event 1`] = `
-Array [
-  Array [
-    Object {
-      "target": Object {
+[
+  [
+    {
+      "target": {
         "clientHeight": 100,
         "scrollHeight": 200,
         "scrollTop": 100,
@@ -21,7 +21,7 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
   <div
     className="curiosity-table-scroll"
     style={
-      Object {
+      {
         "height": "84px",
       }
     }
@@ -35,16 +35,16 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
         borders={false}
         className="curiosity-guests-list"
         columnHeaders={
-          Array [
-            "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-            "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+          [
+            "t(curiosity-inventory.header, {"context":"lorem"})",
+            "t(curiosity-inventory.header, {"context":"dolor"})",
           ]
         }
         isHeader={true}
         rows={
-          Array [
-            Object {
-              "cells": Array [
+          [
+            {
+              "cells": [
                 "ipsum",
                 "sit",
               ],
@@ -66,16 +66,16 @@ exports[`GuestsList Component should handle multiple display states: initial pen
 >
   <Loader
     skeletonProps={
-      Object {
+      {
         "size": "sm",
       }
     }
     tableProps={
-      Object {
+      {
         "borders": false,
         "className": "curiosity-guests-list",
         "colCount": 1,
-        "colWidth": Array [],
+        "colWidth": [],
         "rowCount": 1,
         "variant": "compact",
       }
@@ -92,7 +92,7 @@ exports[`GuestsList Component should handle variations in data: filtered data 1`
   <div
     className="curiosity-table-scroll"
     style={
-      Object {
+      {
         "height": "126px",
       }
     }
@@ -106,10 +106,10 @@ exports[`GuestsList Component should handle variations in data: filtered data 1`
         borders={false}
         className="curiosity-guests-list"
         columnHeaders={
-          Array [
-            Object {
-              "title": "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-              "transforms": Array [
+          [
+            {
+              "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+              "transforms": [
                 [Function],
               ],
             },
@@ -117,17 +117,17 @@ exports[`GuestsList Component should handle variations in data: filtered data 1`
         }
         isHeader={true}
         rows={
-          Array [
-            Object {
-              "cells": Array [
-                Object {
+          [
+            {
+              "cells": [
+                {
                   "title": "ipsum",
                 },
               ],
             },
-            Object {
-              "cells": Array [
-                Object {
+            {
+              "cells": [
+                {
                   "title": "amet",
                 },
               ],
@@ -150,7 +150,7 @@ exports[`GuestsList Component should handle variations in data: variable data 1`
   <div
     className="curiosity-table-scroll"
     style={
-      Object {
+      {
         "height": "126px",
       }
     }
@@ -164,22 +164,22 @@ exports[`GuestsList Component should handle variations in data: variable data 1`
         borders={false}
         className="curiosity-guests-list"
         columnHeaders={
-          Array [
-            "t(curiosity-inventory.header, {\\"context\\":\\"lorem\\"})",
-            "t(curiosity-inventory.header, {\\"context\\":\\"dolor\\"})",
+          [
+            "t(curiosity-inventory.header, {"context":"lorem"})",
+            "t(curiosity-inventory.header, {"context":"dolor"})",
           ]
         }
         isHeader={true}
         rows={
-          Array [
-            Object {
-              "cells": Array [
+          [
+            {
+              "cells": [
                 "ipsum",
                 "sit",
               ],
             },
-            Object {
-              "cells": Array [
+            {
+              "cells": [
                 "amet",
                 "amet",
               ],
@@ -201,16 +201,16 @@ exports[`GuestsList Component should render a basic component: basic render 1`] 
 >
   <Loader
     skeletonProps={
-      Object {
+      {
         "size": "sm",
       }
     }
     tableProps={
-      Object {
+      {
         "borders": false,
         "className": "curiosity-guests-list",
         "colCount": 1,
-        "colWidth": Array [],
+        "colWidth": [],
         "rowCount": 0,
         "variant": "compact",
       }

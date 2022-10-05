@@ -8,14 +8,14 @@ exports[`Table Component should allow expandable content: expandable content 1`]
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -36,18 +36,18 @@ exports[`Table Component should allow expandable content: expandable content 1`]
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
             "isOpen": false,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "",
               },
             ],
@@ -55,9 +55,9 @@ exports[`Table Component should allow expandable content: expandable content 1`]
             "fullWidth": true,
             "parent": 0,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -83,14 +83,14 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -111,18 +111,18 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
             "isOpen": true,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "dolor sit expandable content",
               },
             ],
@@ -130,9 +130,9 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
             "fullWidth": false,
             "parent": 0,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -158,17 +158,17 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "onSort": [MockFunction],
             "title": "lorem ipsum",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
@@ -190,17 +190,17 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -208,7 +208,7 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
         ]
       }
       selectVariant="checkbox"
-      sortBy={Object {}}
+      sortBy={{}}
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
     >
@@ -227,33 +227,33 @@ exports[`Table Component should allow sortable content: sorted column callback 1
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "onSort": [MockFunction] {
-              "calls": Array [
-                Array [
-                  Object {
+              "calls": [
+                [
+                  {
                     "direction": "asc",
                     "index": 0,
                     "label": undefined,
                   },
                 ],
               ],
-              "results": Array [
-                Object {
+              "results": [
+                {
                   "type": "return",
                   "value": undefined,
                 },
               ],
             },
             "title": "lorem ipsum",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
@@ -275,17 +275,17 @@ exports[`Table Component should allow sortable content: sorted column callback 1
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -294,7 +294,7 @@ exports[`Table Component should allow sortable content: sorted column callback 1
       }
       selectVariant="checkbox"
       sortBy={
-        Object {
+        {
           "direction": "asc",
           "index": 0,
         }
@@ -323,8 +323,8 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -344,17 +344,17 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -379,14 +379,14 @@ exports[`Table Component should allow variations in table layout: borders and ta
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={false}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -406,17 +406,17 @@ exports[`Table Component should allow variations in table layout: borders and ta
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -447,8 +447,8 @@ exports[`Table Component should allow variations in table layout: className and 
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -468,17 +468,17 @@ exports[`Table Component should allow variations in table layout: className and 
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -503,14 +503,14 @@ exports[`Table Component should allow variations in table layout: generated rows
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -530,17 +530,17 @@ exports[`Table Component should allow variations in table layout: generated rows
       role="grid"
       rowLabeledBy="simple-node"
       rows={
-        Array [
-          Object {
-            "cells": Array [
-              Object {
+        [
+          {
+            "cells": [
+              {
                 "title": "dolor",
               },
             ],
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "sit",
               },
             ],
@@ -566,14 +566,14 @@ exports[`Table Component should pass child components, nodes when there are no r
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem ipsum",
           },
         ]
@@ -592,7 +592,7 @@ exports[`Table Component should pass child components, nodes when there are no r
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
-      rows={Array []}
+      rows={[]}
       selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}
@@ -613,23 +613,23 @@ exports[`Table Component should render a non-connected component: non-connected 
     span={12}
   >
     <Table
-      aria-label="t(curiosity-inventory.tableAriaLabel, {\\"appName\\":\\"Subscriptions\\"})"
+      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
       canSelectAll={true}
       canSortFavorites={true}
       cells={
-        Array [
-          Object {
+        [
+          {
             "title": "lorem",
           },
-          Object {
+          {
             "title": "ipsum",
           },
-          Object {
+          {
             "title": "dolor",
           },
-          Object {
+          {
             "title": "sit",
           },
         ]
@@ -648,7 +648,7 @@ exports[`Table Component should render a non-connected component: non-connected 
       ouiaSafe={true}
       role="grid"
       rowLabeledBy="simple-node"
-      rows={Array []}
+      rows={[]}
       selectVariant="checkbox"
       summary="t(curiosity-inventory.tableSummary)"
       variant={null}

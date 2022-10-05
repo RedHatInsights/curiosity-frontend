@@ -4,7 +4,7 @@ exports[`ChartLegend Component should handle legend elements: element 1`] = `
 <div
   className="curiosity-chartarea__legend"
   style={
-    Object {
+    {
       "marginLeft": 0,
       "marginRight": 0,
     }
@@ -12,7 +12,7 @@ exports[`ChartLegend Component should handle legend elements: element 1`] = `
 >
   <div
     chart={
-      Object {
+      {
         "hide": [Function],
         "isToggled": [Function],
         "revert": [Function],
@@ -20,16 +20,16 @@ exports[`ChartLegend Component should handle legend elements: element 1`] = `
       }
     }
     datum={
-      Object {
-        "dataSets": Array [
-          Object {
-            "data": Array [
-              Object {
+      {
+        "dataSets": [
+          {
+            "data": [
+              {
                 "x": 1,
                 "xAxisLabel": "1 x axis label",
                 "y": 1,
               },
-              Object {
+              {
                 "x": 2,
                 "xAxisLabel": "2 x axis label",
                 "y": 2,
@@ -47,25 +47,25 @@ exports[`ChartLegend Component should handle legend elements: element 1`] = `
 `;
 
 exports[`ChartLegend Component should pass legend props: passed props 1`] = `
-Array [
-  Array [
-    Object {
-      "chart": Object {
+[
+  [
+    {
+      "chart": {
         "hide": [Function],
         "isToggled": [Function],
         "revert": [Function],
         "toggle": [Function],
       },
-      "datum": Object {
-        "dataSets": Array [
-          Object {
-            "data": Array [
-              Object {
+      "datum": {
+        "dataSets": [
+          {
+            "data": [
+              {
                 "x": 1,
                 "xAxisLabel": "1 x axis label",
                 "y": 1,
               },
-              Object {
+              {
                 "x": 2,
                 "xAxisLabel": "2 x axis label",
                 "y": 2,
@@ -77,14 +77,14 @@ Array [
             "stroke": "#lorem",
             "strokeWidth": 2,
           },
-          Object {
-            "data": Array [
-              Object {
+          {
+            "data": [
+              {
                 "x": 1,
                 "xAxisLabel": "1 x axis label",
                 "y": 1,
               },
-              Object {
+              {
                 "x": 2,
                 "xAxisLabel": "2 x axis label",
                 "y": 2,

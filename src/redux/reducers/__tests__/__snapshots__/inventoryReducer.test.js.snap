@@ -1,265 +1,265 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {
+{
+  "result": {
+    "hostsGuests": {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_REJECTED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_REJECTED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_INSTANCES_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_INSTANCES_INVENTORY_RHSM_REJECTED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "tabs": Object {},
+    "tabs": {},
   },
   "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_REJECTED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {
-      "data": Object {
+{
+  "result": {
+    "hostsGuests": {
+      "data": {
         "test": "success",
       },
       "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_FULFILLED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {
-      "data": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {
+      "data": {
         "test": "success",
       },
       "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_FULFILLED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_INSTANCES_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {
-      "data": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {
+      "data": {
         "test": "success",
       },
       "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_INSTANCES_INVENTORY_RHSM_FULFILLED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {
-      "data": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {
+      "data": {
         "test": "success",
       },
       "date": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
-      "meta": Object {},
+      "meta": {},
       "pending": false,
       "status": 0,
     },
-    "tabs": Object {},
+    "tabs": {},
   },
   "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_FULFILLED",
 }
 `;
 
 exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {
+{
+  "result": {
+    "hostsGuests": {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": true,
     },
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_PENDING",
 }
 `;
 
 exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": true,
     },
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_HOSTS_INVENTORY_RHSM_PENDING",
 }
 `;
 
 exports[`InventoryReducer should handle all defined pending types: pending types GET_INSTANCES_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": true,
     },
-    "subscriptionsInventory": Object {},
-    "tabs": Object {},
+    "subscriptionsInventory": {},
+    "tabs": {},
   },
   "type": "GET_INSTANCES_INVENTORY_RHSM_PENDING",
 }
 `;
 
 exports[`InventoryReducer should handle all defined pending types: pending types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
-      "meta": Object {},
+      "meta": {},
       "pending": true,
     },
-    "tabs": Object {},
+    "tabs": {},
   },
   "type": "GET_SUBSCRIPTIONS_INVENTORY_RHSM_PENDING",
 }
 `;
 
 exports[`InventoryReducer should handle specific defined types: defined type SET_INVENTORY_TAB 1`] = `
-Object {
-  "result": Object {
-    "hostsGuests": Object {},
-    "hostsInventory": Object {},
-    "instancesInventory": Object {},
-    "subscriptionsInventory": Object {},
-    "tabs": Object {
+{
+  "result": {
+    "hostsGuests": {},
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {
       "lorem": 1,
     },
   },

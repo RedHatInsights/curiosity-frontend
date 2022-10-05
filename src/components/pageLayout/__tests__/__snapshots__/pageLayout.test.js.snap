@@ -7,7 +7,7 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
   <PageSection
     className="curiosity "
     padding={
-      Object {
+      {
         "default": "noPadding",
       }
     }
@@ -42,7 +42,7 @@ exports[`PageLayout Component should render header and section children: multipl
       >
         <Flex
           justifyContent={
-            Object {
+            {
               "sm": "justifyContentSpaceBetween",
             }
           }
@@ -85,7 +85,7 @@ exports[`PageLayout Component should render header and section children: multipl
   <PageSection
     className="curiosity "
     padding={
-      Object {
+      {
         "default": "noPadding",
       }
     }

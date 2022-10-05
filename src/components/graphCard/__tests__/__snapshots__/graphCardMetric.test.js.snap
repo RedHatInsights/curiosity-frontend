@@ -2,7 +2,7 @@
 
 exports[`GraphCardMetric Component should render a basic component: basic 1`] = `
 <ContextProvider
-  value={Object {}}
+  value={{}}
 >
   <GraphCardMetricTotals
     t={[Function]}

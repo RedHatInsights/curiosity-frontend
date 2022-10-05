@@ -8,7 +8,7 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
     <Flex>
       <Flex
         flex={
-          Object {
+          {
             "default": "flex_2",
           }
         }
@@ -90,12 +90,12 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
       </Flex>
       <Flex
         alignSelf={
-          Object {
+          {
             "default": "alignSelfCenter",
           }
         }
         flex={
-          Object {
+          {
             "default": "flex_1",
           }
         }
@@ -253,7 +253,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
     <Flex>
       <Flex
         flex={
-          Object {
+          {
             "default": "flex_2",
           }
         }
@@ -335,12 +335,12 @@ exports[`OptinView Component should render an API state driven view: initial vie
       </Flex>
       <Flex
         alignSelf={
-          Object {
+          {
             "default": "alignSelfCenter",
           }
         }
         flex={
-          Object {
+          {
             "default": "flex_1",
           }
         }
@@ -424,26 +424,26 @@ exports[`OptinView Component should render an API state driven view: pending vie
 `;
 
 exports[`OptinView Component should submit an opt-in form: dispatch 1`] = `
-Array [
-  Array [
-    Object {
-      "meta": Object {
-        "notifications": Object {
-          "fulfilled": Object {
+[
+  [
+    {
+      "meta": {
+        "notifications": {
+          "fulfilled": {
             "autoDismiss": false,
             "description": "t(curiosity-optin.notificationsSuccessDescription)",
             "dismissable": true,
-            "title": "t(curiosity-optin.notificationsSuccessTitle, {\\"appName\\":\\"Subscriptions\\"})",
+            "title": "t(curiosity-optin.notificationsSuccessTitle, {"appName":"Subscriptions"})",
             "variant": "success",
           },
-          "rejected": Object {
+          "rejected": {
             "description": "t(curiosity-optin.notificationsErrorDescription)",
             "dismissable": true,
-            "title": "t(curiosity-optin.notificationsErrorTitle, {\\"appName\\":\\"Subscriptions\\"})",
+            "title": "t(curiosity-optin.notificationsErrorTitle, {"appName":"Subscriptions"})",
             "variant": "danger",
           },
         },
-        "query": Object {},
+        "query": {},
       },
       "payload": Promise {},
       "type": "UPDATE_USER_OPTIN",
