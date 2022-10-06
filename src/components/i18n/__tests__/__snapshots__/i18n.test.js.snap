@@ -661,6 +661,35 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "./src/config/product.rhods.js",
+    "keys": [
+      {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+      {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.measurement_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total?.value)",
+      },
+      {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.measurement_\${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
+      },
+      {
+        "key": "",
+        "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
+      },
+    ],
+  },
+  {
     "file": "./src/config/product.rhosak.js",
     "keys": [
       {
@@ -815,6 +844,18 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "./src/config/product.rhel.js",
     "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "./src/config/product.rhods.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  {
+    "file": "./src/config/product.rhods.js",
+    "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "./src/config/product.rhods.js",
+    "key": "curiosity-inventory.measurement",
   },
   {
     "file": "./src/config/product.rhosak.js",

@@ -178,6 +178,42 @@ exports[`ProductViewMissing Component should render a non-connected component: n
       </Card>
       <Card
         isHoverable={true}
+        key="missingViewCard-rhods"
+        onClick={[Function]}
+      >
+        <CardTitle>
+          <Title
+            headingLevel="h2"
+            size="lg"
+          >
+            t(curiosity-view.title, {"appName":"Subscriptions","context":"rhods"})
+          </Title>
+        </CardTitle>
+        <CardBody
+          className="curiosity-missing-view__card-description"
+        >
+          t(curiosity-view.description, {"appName":"Subscriptions","context":"rhods"})
+        </CardBody>
+        <CardFooter>
+          <Button
+            icon={
+              <ArrowRightIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            }
+            iconPosition="right"
+            isInline={true}
+            onClick={[Function]}
+            variant="link"
+          >
+            Open
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card
+        isHoverable={true}
         key="missingViewCard-rhosak"
         onClick={[Function]}
       >
