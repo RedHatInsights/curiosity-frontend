@@ -3,6 +3,7 @@ import { config as openshiftContainerConfig } from './product.openshiftContainer
 import { config as openshiftMetricsConfig } from './product.openshiftMetrics';
 import { config as openshiftDedicatedConfig } from './product.openshiftDedicated';
 import { config as rhacsConfig } from './product.rhacs';
+import { config as rhodsConfig } from './product.rhods';
 import { config as rhosakConfig } from './product.rhosak';
 import { config as satelliteProductConfig } from './product.satellite';
 import { RHSM_API_PATH_ID_TYPES } from '../types/rhsmApiTypes';
@@ -116,6 +117,20 @@ const routes = [
     redirect: null,
     isSearchable: true,
     aliases: ['rhacs'],
+    activateOnError: false,
+    disabled: helpers.UI_DISABLED,
+    default: false,
+    component: 'productView/productView'
+  },
+  {
+    id: 'rhods',
+    path: '/rhods',
+    pathParameter: [rhodsConfig.productId],
+    productParameter: [rhodsConfig.productGroup],
+    productConfig: [rhodsConfig],
+    redirect: null,
+    isSearchable: true,
+    aliases: ['rhods'],
     activateOnError: false,
     disabled: helpers.UI_DISABLED,
     default: false,
