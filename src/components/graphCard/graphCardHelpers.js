@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
+import { ChartTypeVariant } from '../chart/chart';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
 import { dateHelpers, helpers } from '../../common';
 
@@ -19,7 +20,7 @@ const generateChartSettings = (filters = [], graphCardSettings = {}) => {
       return;
     }
 
-    const isThreshold = filterSettings?.chartType === 'threshold';
+    const isThreshold = filterSettings?.chartType === ChartTypeVariant.threshold;
     const baseFilterSettings = {
       id,
       isStacked: !isThreshold,

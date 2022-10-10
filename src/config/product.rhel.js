@@ -26,6 +26,7 @@ import {
 import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
 import { ChartIcon } from '../components/chart/chartIcon';
+import { ChartTypeVariant } from '../components/chart/chart';
 import { translate } from '../components/i18n/i18n';
 
 /**
@@ -84,7 +85,7 @@ const config = {
       stroke: chartColorPurpleDark.value,
       color: chartColorPurpleDark.value
     },
-    { id: 'thresholdSockets', chartType: 'threshold' }
+    { id: 'thresholdSockets', chartType: ChartTypeVariant.threshold }
   ],
   initialGuestsFilters: [
     {

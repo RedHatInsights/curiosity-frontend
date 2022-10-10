@@ -21,6 +21,7 @@ import {
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
+import { ChartTypeVariant } from '../components/chart/chart';
 import { ChartIcon } from '../components/chart/chartIcon';
 import { translate } from '../components/i18n/i18n';
 
@@ -75,8 +76,8 @@ const config = {
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     },
-    { id: 'thresholdSockets', chartType: 'threshold', isOptional: true },
-    { id: 'thresholdCores', chartType: 'threshold', isOptional: true }
+    { id: 'thresholdSockets', chartType: ChartTypeVariant.threshold, isOptional: true },
+    { id: 'thresholdCores', chartType: ChartTypeVariant.threshold, isOptional: true }
   ],
   initialGraphSettings: {},
   initialGuestsFilters: [

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { getTooltipDate } from './graphCardHelpers';
 import { translate } from '../i18n/i18n';
+import { ChartTypeVariant } from '../chart/chart';
 import { ChartIcon } from '../chart/chartIcon';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
@@ -43,7 +44,7 @@ const GraphCardChartTooltip = ({
         color: itemsByKey[key]?.color
       };
 
-      if (itemsByKey[key]?.chartType === 'threshold') {
+      if (itemsByKey[key]?.chartType === ChartTypeVariant.threshold) {
         let thresholdStringValue = itemsByKey[key]?.data.y ?? t('curiosity-graph.label_noData');
 
         if (itemsByKey[key]?.data.hasInfinite) {
@@ -102,10 +103,10 @@ const GraphCardChartTooltip = ({
               return (
                 <tr key={`tooltip-${dataFacet.label}`}>
                   <th>
-                    {dataFacet.chartType === 'threshold' && (
+                    {dataFacet.chartType === ChartTypeVariant.threshold && (
                       <ChartIcon size="sm" symbol="dash" fill={dataFacet.color || 'transparent'} />
                     )}
-                    {dataFacet.chartType !== 'threshold' && (
+                    {dataFacet.chartType !== ChartTypeVariant.threshold && (
                       <ChartIcon size="sm" fill={dataFacet.color || 'transparent'} />
                     )}{' '}
                     {dataFacet.label}
