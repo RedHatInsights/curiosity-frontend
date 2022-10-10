@@ -15,6 +15,7 @@ import {
   RHSM_API_PATH_ID_TYPES
 } from '../types/rhsmApiTypes';
 import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../services/rhsm/rhsmConstants';
+import { ChartTypeVariant } from '../components/chart/chart';
 import { dateHelpers, helpers } from '../common';
 import { translate } from '../components/i18n/i18n';
 
@@ -49,7 +50,7 @@ const config = {
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value,
-      chartType: 'line',
+      chartType: ChartTypeVariant.line,
       isStacked: false,
       yAxisUseDataSet: true
     },
@@ -58,7 +59,7 @@ const config = {
       fill: chartColorCyanLight.value,
       stroke: chartColorCyanDark.value,
       color: chartColorCyanDark.value,
-      chartType: 'line',
+      chartType: ChartTypeVariant.line,
       isStacked: false,
       yAxisUseDataSet: true
     }

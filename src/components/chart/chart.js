@@ -4,7 +4,7 @@ import { ChartThemeColor } from '@patternfly/react-charts';
 import { ChartContext } from './chartContext';
 import { ChartElements } from './chartElements';
 import { ChartLegend } from './chartLegend';
-import { chartHelpers } from './chartHelpers';
+import { chartHelpers, ChartTypeVariant } from './chartHelpers';
 import { useResizeObserver } from '../../hooks/useWindow';
 
 /**
@@ -176,7 +176,7 @@ Chart.propTypes = {
         })
       ),
       animate: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-      chartType: PropTypes.oneOf(['area', 'line', 'threshold']),
+      chartType: PropTypes.oneOf([...Object.values(ChartTypeVariant)]),
       fill: PropTypes.string,
       stroke: PropTypes.string,
       strokeWidth: PropTypes.number,
@@ -239,4 +239,4 @@ Chart.defaultProps = {
   yValueFormat: null
 };
 
-export { Chart as default, Chart };
+export { Chart as default, Chart, ChartTypeVariant };

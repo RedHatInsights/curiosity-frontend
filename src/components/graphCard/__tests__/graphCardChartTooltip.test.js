@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { GraphCardChartTooltip } from '../graphCardChartTooltip';
+import { ChartTypeVariant } from '../../chart/chart';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SET_TYPES
@@ -134,7 +135,7 @@ describe('GraphCardChartTooltip Component', () => {
 
     // threshold value > 0
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: undefined }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -142,7 +143,7 @@ describe('GraphCardChartTooltip Component', () => {
     );
 
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: false }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -150,7 +151,7 @@ describe('GraphCardChartTooltip Component', () => {
     );
 
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: 100, date: '2019-06-01T00:00:00Z', hasInfinite: true }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -159,7 +160,7 @@ describe('GraphCardChartTooltip Component', () => {
 
     // threshold value = 0
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: undefined }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -167,7 +168,7 @@ describe('GraphCardChartTooltip Component', () => {
     );
 
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: false }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -175,7 +176,7 @@ describe('GraphCardChartTooltip Component', () => {
     );
 
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: 0, date: '2019-06-01T00:00:00Z', hasInfinite: true }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -184,7 +185,7 @@ describe('GraphCardChartTooltip Component', () => {
 
     // threshold value = null
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: undefined }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -192,7 +193,7 @@ describe('GraphCardChartTooltip Component', () => {
     );
 
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: false }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(
@@ -200,7 +201,7 @@ describe('GraphCardChartTooltip Component', () => {
     );
 
     itemsByKey.threshold = {
-      chartType: 'threshold',
+      chartType: ChartTypeVariant.threshold,
       data: { x: 0, y: null, date: '2019-06-01T00:00:00Z', hasInfinite: true }
     };
     expect({ daily: daily(), weekly: weekly(), monthly: monthly(), quarterly: quarterly() }).toMatchSnapshot(

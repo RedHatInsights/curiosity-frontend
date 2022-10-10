@@ -3,6 +3,17 @@ import _cloneDeep from 'lodash/cloneDeep';
 import { helpers } from '../../common';
 
 /**
+ * Available chart types
+ *
+ * @type {{area: string, line: string, threshold: string}}
+ */
+const ChartTypeVariant = {
+  area: 'area',
+  line: 'line',
+  threshold: 'threshold'
+};
+
+/**
  * Generate max X and Y values from datasets.
  *
  * @param {object} params
@@ -92,9 +103,14 @@ const generateDomains = ({ maxY, padding = {} } = {}) => {
  * @param {number} params.maxY
  * @param {Function} params.xValueFormat
  * @param {Function} params.yValueFormat
+ * @param {object} options
+ * @param {object} options.chartTypeVariant
  * @returns {{elementsById: object, stackedElements: Array, stackedElementsById: object, elements: Array}}
  */
-const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValueFormat }) => {
+const generateElementsProps = (
+  { dataSets = [], maxX, maxY, xValueFormat, yValueFormat } = {},
+  { chartTypeVariant = ChartTypeVariant } = {}
+) => {
   const elements = [];
   const stackedElements = [];
   const elementsById = {};
@@ -109,7 +125,7 @@ const generateElementsProps = ({ dataSets = [], maxX, maxY, xValueFormat, yValue
         data: {}
       };
 
-      if (fill && chartType !== 'line' && chartType !== 'threshold') {
+      if (fill && chartType !== chartTypeVariant.line && chartType !== chartTypeVariant.threshold) {
         dataColorStroke.data.fill = fill;
       }
 
@@ -422,6 +438,7 @@ const generateAxisProps = ({
 };
 
 const chartHelpers = {
+  ChartTypeVariant,
   generateAxisProps,
   generateDomains,
   generateElementsProps,
@@ -434,6 +451,7 @@ const chartHelpers = {
 export {
   chartHelpers as default,
   chartHelpers,
+  ChartTypeVariant,
   generateAxisProps,
   generateDomains,
   generateElementsProps,

@@ -6,6 +6,7 @@ import { Chart, ChartArea, ChartAxis, ChartContainer, ChartLine, ChartThreshold 
 import { useChartContext } from './chartContext';
 import { chartTooltip } from './chartTooltip';
 import { chartAxisLabel } from './chartAxisLabel';
+import { ChartTypeVariant } from './chartHelpers';
 
 /**
  * Generate a compatible Victory chart element/facet component.
@@ -96,7 +97,8 @@ const ChartElements = ({ chartTypeDefaults }) => {
   }
 
   const setChartElement = ({ chartType, props }) => {
-    const { component: Component, ...defaultProps } = chartTypeDefaults[chartType] || chartTypeDefaults.area;
+    const { component: Component, ...defaultProps } =
+      chartTypeDefaults[chartType] || chartTypeDefaults[ChartTypeVariant.area];
     return <Component {...{ ...defaultProps, ...props }} />;
   };
 
@@ -130,7 +132,7 @@ ChartElements.propTypes = {
 
 ChartElements.defaultProps = {
   chartTypeDefaults: {
-    area: {
+    [ChartTypeVariant.area]: {
       component: ChartArea,
       animate: {
         duration: 250,
@@ -138,7 +140,7 @@ ChartElements.defaultProps = {
       },
       interpolation: 'monotoneX'
     },
-    line: {
+    [ChartTypeVariant.line]: {
       component: ChartLine,
       animate: {
         duration: 250,
@@ -146,7 +148,7 @@ ChartElements.defaultProps = {
       },
       interpolation: 'monotoneX'
     },
-    threshold: {
+    [ChartTypeVariant.threshold]: {
       component: ChartThreshold,
       animate: {
         duration: 100,
