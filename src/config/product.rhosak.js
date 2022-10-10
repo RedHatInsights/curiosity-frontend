@@ -23,6 +23,7 @@ import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
+import { ChartTypeVariant } from '../components/chart/chart';
 import { dateHelpers, helpers } from '../common';
 import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
 
@@ -68,7 +69,7 @@ const config = {
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value,
-      chartType: 'line',
+      chartType: ChartTypeVariant.line,
       isStacked: false,
       isStandalone: true,
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
@@ -78,7 +79,7 @@ const config = {
       fill: chartColorPurpleLight.value,
       stroke: chartColorPurpleDark.value,
       color: chartColorPurpleDark.value,
-      chartType: 'line',
+      chartType: ChartTypeVariant.line,
       isStacked: false,
       isStandalone: true,
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
@@ -88,7 +89,7 @@ const config = {
       fill: chartColorCyanLight.value,
       stroke: chartColorCyanDark.value,
       color: chartColorCyanDark.value,
-      chartType: 'line',
+      chartType: ChartTypeVariant.line,
       isStacked: false,
       isStandalone: true,
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })

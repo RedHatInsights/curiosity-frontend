@@ -834,6 +834,11 @@ exports[`ChartHelpers should generate y axis props: props 1`] = `
 
 exports[`ChartHelpers should return specific properties: specific properties 1`] = `
 {
+  "ChartTypeVariant": {
+    "area": "area",
+    "line": "line",
+    "threshold": "threshold",
+  },
   "generateAxisProps": [Function],
   "generateDomains": [Function],
   "generateElementsProps": [Function],
