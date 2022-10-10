@@ -111,7 +111,7 @@
     "@redhat-cloud-services/frontend-components": "3.9.15",
     "@redhat-cloud-services/frontend-components-notifications": "3.2.11",
     "@redhat-cloud-services/frontend-components-utilities": "3.3.0",
-    "axios": "^0.27.2",
+    "axios": "^1.1.2",
     "classnames": "^2.3.2",
     "i18next": "^21.9.2",
     "i18next-http-backend": "^1.4.4",
@@ -164,7 +164,7 @@
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react": "^7.31.9",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-webpack-plugin": "^3.2.0",
     "express": "^4.18.1",
@@ -185,6 +185,6 @@
     "yamljs": "^0.3.0"
   },
   "resolutions": {
-    "eslint-plugin-react": "7.31.8"
+    "eslint-plugin-react": "7.31.9"
   }
 }
