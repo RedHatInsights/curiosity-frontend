@@ -1,11 +1,9 @@
 import { readFileSync } from 'fs';
 import glob from 'glob';
 import React from 'react';
-import PropTypes from 'prop-types';
-import { shallow } from 'enzyme';
 import _get from 'lodash/get';
 import enLocales from '../../../../public/locales/en-US.json';
-import { EMPTY_CONTEXT, I18n, translate, translateComponent } from '../i18n';
+import { I18n } from '../i18n';
 
 /**
  * Get translation keys.
@@ -66,54 +64,6 @@ describe('I18n Component', () => {
     const component = await mountHookComponent(<I18n>lorem ipsum</I18n>);
 
     expect(component.html()).toMatchSnapshot('children');
-  });
-
-  it('should attempt to perform translate with a node', () => {
-    const ExampleComponent = () => <div>{translate('lorem.ipsum', { hello: 'world' }, [<span id="test" />])}</div>;
-
-    ExampleComponent.propTypes = {};
-    ExampleComponent.defaultProps = {};
-
-    const component = shallow(<ExampleComponent />);
-
-    expect(component.html()).toMatchSnapshot('translated node');
-  });
-
-  it('should attempt to perform a component translate', () => {
-    const ExampleComponent = ({ t }) => <div>{t('lorem.ipsum', 'hello world')}</div>;
-
-    ExampleComponent.propTypes = {
-      t: PropTypes.func
-    };
-
-    ExampleComponent.defaultProps = {
-      t: translate
-    };
-
-    const TranslatedComponent = translateComponent(ExampleComponent);
-    const component = shallow(<TranslatedComponent />);
-
-    expect(component.html()).toMatchSnapshot('translated component');
-  });
-
-  it('should attempt to perform a string replace', () => {
-    const emptyContext = translate('lorem.ipsum', { context: EMPTY_CONTEXT });
-    const emptyPartialContext = translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT] });
-    const localeKey = translate('lorem.ipsum');
-    const placeholder = translate('lorem.ipsum', 'hello world');
-    const multiContext = translate('lorem.ipsum', { context: ['hello', 'world'] });
-    const multiContextWithEmptyValue = translate('lorem.ipsum', { context: ['hello', undefined, null, '', 'world'] });
-    const multiKey = translate(['lorem.ipsum', undefined, null, '', 'lorem.fallback']);
-
-    expect({
-      emptyContext,
-      emptyPartialContext,
-      localeKey,
-      placeholder,
-      multiContext,
-      multiContextWithEmptyValue,
-      multiKey
-    }).toMatchSnapshot('translate');
   });
 
   it('should generate a predictable locale key output snapshot', () => {
