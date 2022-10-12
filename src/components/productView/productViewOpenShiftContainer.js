@@ -118,7 +118,7 @@ const ProductViewOpenShiftContainer = ({ t, useRouteDetail: useAliasRouteDetail 
           <InventoryTabs key={`inventory_${productId}`} productId={productId}>
             <InventoryTab
               key={`inventory_hosts_${productId}`}
-              title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+              title={t('curiosity-inventory.tabHosts', { context: [productId] })}
             >
               <InventoryList
                 key={`inv_${productId}`}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import PropTypes from 'prop-types';
 import { i18nHelpers, EMPTY_CONTEXT, translate, translateComponent } from '../i18nHelpers';
 
@@ -8,20 +7,17 @@ describe('I18nHelpers', () => {
     expect(i18nHelpers).toMatchSnapshot('i18nHelpers');
   });
 
-  it('should attempt to perform translate with a node', () => {
+  it('should attempt to perform translate with a node', async () => {
     const ExampleComponent = () => <div>{translate('lorem.ipsum', { hello: 'world' }, [<span id="test" />])}</div>;
-
     ExampleComponent.propTypes = {};
     ExampleComponent.defaultProps = {};
 
-    const component = shallow(<ExampleComponent />);
-
+    const component = await shallowHookComponent(<ExampleComponent />);
     expect(component.html()).toMatchSnapshot('translated node');
   });
 
-  it('should attempt to perform a component translate', () => {
+  it('should attempt to perform a component translate', async () => {
     const ExampleComponent = ({ t }) => <div>{t('lorem.ipsum', 'hello world')}</div>;
-
     ExampleComponent.propTypes = {
       t: PropTypes.func
     };
@@ -31,8 +27,7 @@ describe('I18nHelpers', () => {
     };
 
     const TranslatedComponent = translateComponent(ExampleComponent);
-    const component = shallow(<TranslatedComponent />);
-
+    const component = await shallowHookComponent(<TranslatedComponent />);
     expect(component.html()).toMatchSnapshot('translated component');
   });
 

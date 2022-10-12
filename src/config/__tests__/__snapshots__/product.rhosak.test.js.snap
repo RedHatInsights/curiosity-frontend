@@ -37,7 +37,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
     },
     {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {"context":"tooltip_Transfer-gibibytes"})"
+        content="t(curiosity-inventory.header_tooltip, {"context":"Transfer-gibibytes"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -53,7 +53,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
     },
     {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {"context":"tooltip_Storage-gibibyte-months"})"
+        content="t(curiosity-inventory.header_tooltip, {"context":"Storage-gibibyte-months"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -149,7 +149,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
     },
     {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {"context":"tooltip_Transfer-gibibytes"})"
+        content="t(curiosity-inventory.header_tooltip, {"context":"Transfer-gibibytes"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}
@@ -165,7 +165,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
     },
     {
       "title": <Tooltip
-        content="t(curiosity-inventory.header, {"context":"tooltip_Storage-gibibyte-months"})"
+        content="t(curiosity-inventory.header_tooltip, {"context":"Storage-gibibyte-months"})"
         distance={5}
         enableFlip={false}
         entryDelay={100}

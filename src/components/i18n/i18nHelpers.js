@@ -22,7 +22,7 @@ const EMPTY_CONTEXT = 'LOCALE_EMPTY_CONTEXT';
  * @returns {string|React.ReactNode}
  */
 const translate = (translateKey, values = null, components, { emptyContextValue = EMPTY_CONTEXT } = {}) => {
-  const updatedValues = values;
+  const updatedValues = values || {};
   let updatedTranslateKey = translateKey;
 
   if (Array.isArray(updatedTranslateKey)) {
@@ -30,10 +30,23 @@ const translate = (translateKey, values = null, components, { emptyContextValue 
   }
 
   if (Array.isArray(updatedValues?.context)) {
-    updatedValues.context = updatedValues.context
+    const updatedContext = updatedValues.context
       .map(value => (value === emptyContextValue && ' ') || value)
-      .filter(value => typeof value === 'string' && value.length > 0)
-      .join('_');
+      .filter(value => typeof value === 'string' && value.length > 0);
+
+    if (updatedContext?.length > 1) {
+      const lastContext = updatedContext.pop();
+
+      if (Array.isArray(updatedTranslateKey)) {
+        updatedTranslateKey[0] = `${updatedTranslateKey[0]}_${updatedContext.join('_')}`;
+      } else {
+        updatedTranslateKey = `${updatedTranslateKey}_${updatedContext.join('_')}`;
+      }
+
+      updatedValues.context = lastContext;
+    } else {
+      updatedValues.context = updatedContext.join('_');
+    }
   } else if (updatedValues?.context === emptyContextValue) {
     updatedValues.context = ' ';
   }

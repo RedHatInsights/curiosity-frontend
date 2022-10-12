@@ -151,13 +151,13 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"sockets_OpenShift Container Platform"})",
+      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"cores_OpenShift Container Platform"})",
+      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -224,13 +224,13 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"sockets_OpenShift Container Platform"})",
+      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"cores_OpenShift Container Platform"})",
+      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
