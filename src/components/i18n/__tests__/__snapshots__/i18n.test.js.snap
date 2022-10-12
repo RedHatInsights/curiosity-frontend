@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`I18n Component should attempt to perform a component translate: translated component 1`] = `"<div>t(lorem.ipsum, hello world)</div>"`;
-
-exports[`I18n Component should attempt to perform a string replace: translate 1`] = `
-{
-  "emptyContext": "t(lorem.ipsum, {"context":" "})",
-  "emptyPartialContext": "t(lorem.ipsum, {"context":"hello_ "})",
-  "localeKey": "t(lorem.ipsum)",
-  "multiContext": "t(lorem.ipsum, {"context":"hello_world"})",
-  "multiContextWithEmptyValue": "t(lorem.ipsum, {"context":"hello_world"})",
-  "multiKey": "t([lorem.ipsum,lorem.fallback])",
-  "placeholder": "t(lorem.ipsum, hello world)",
-}
-`;
-
-exports[`I18n Component should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, {&quot;hello&quot;:&quot;world&quot;}, [object Object])</div>"`;
-
 exports[`I18n Component should generate a predictable locale key output snapshot: key output 1`] = `
 [
   {
