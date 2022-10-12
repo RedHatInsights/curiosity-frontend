@@ -35,7 +35,7 @@ const GraphCard = ({ isDisabled, useProductGraphConfig: useAliasProductGraphConf
       )) ||
         null}
       {standaloneFiltersSettings?.map(filtersSettings => (
-        <GraphCardContext.Provider key={`graphCard_${filtersSettings?.metric?.id}`} value={filtersSettings}>
+        <GraphCardContext.Provider key={`graphCard_${filtersSettings?.settings?.metric?.id}`} value={filtersSettings}>
           <GraphCardMetricTotals>
             <GraphCardChart />
           </GraphCardMetricTotals>

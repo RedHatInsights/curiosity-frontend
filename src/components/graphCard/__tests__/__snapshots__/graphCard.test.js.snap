@@ -68,7 +68,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
     />
   </ContextProvider>
   <ContextProvider
-    key="graphCard_undefined"
+    key="graphCard_Sockets"
     value={
       {
         "settings": {
