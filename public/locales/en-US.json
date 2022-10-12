@@ -120,7 +120,7 @@
     "cardHeading": "Current systems",
     "tabSubHeading": "Tab {{count}}",
     "tabHosts": "Current systems",
-    "tabHosts_noInstances_OpenShift-dedicated-metrics": "Current instances",
+    "tabHosts_OpenShift-dedicated-metrics": "Current instances",
     "tabHosts_OpenShift-dedicated-metrics_one": "{{count}} instance",
     "tabHosts_OpenShift-dedicated-metrics_other": "{{count}} instances",
     "tabInstances": "Current monthly instances",
