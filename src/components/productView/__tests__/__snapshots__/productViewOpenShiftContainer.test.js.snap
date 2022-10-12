@@ -280,7 +280,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <InventoryTab
             active={false}
             key="inventory_hosts_OpenShift Container Platform"
-            title="t(curiosity-inventory.tabHosts, {"context":"noInstances_OpenShift Container Platform"})"
+            title="t(curiosity-inventory.tabHosts, {"context":"OpenShift Container Platform"})"
           >
             <Connect(InventoryList)
               filterGuestsData={
@@ -605,7 +605,7 @@ exports[`ProductViewOpenShiftContainer Component should render a basic component
           <InventoryTab
             active={false}
             key="inventory_hosts_OpenShift-metrics"
-            title="t(curiosity-inventory.tabHosts, {"context":"noInstances_OpenShift-metrics"})"
+            title="t(curiosity-inventory.tabHosts, {"context":"OpenShift-metrics"})"
           >
             <Connect(InventoryList)
               filterGuestsData={[]}
