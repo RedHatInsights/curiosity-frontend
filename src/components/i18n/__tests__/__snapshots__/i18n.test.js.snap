@@ -286,15 +286,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.tabHosts",
-        "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
+        "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
       },
       {
         "key": "curiosity-inventory.tabInstances",
-        "match": "t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })",
+        "match": "t('curiosity-inventory.tabInstances', { context: [productId] })",
       },
       {
         "key": "curiosity-inventory.tabSubscriptions",
-        "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
+        "match": "t('curiosity-inventory.tabSubscriptions', { context: [productId] })",
       },
       {
         "key": "curiosity-view.title",
@@ -332,7 +332,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.tabHosts",
-        "match": "t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })",
+        "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
       },
       {
         "key": "curiosity-inventory.tabSubscriptions",

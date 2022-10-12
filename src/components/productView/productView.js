@@ -124,7 +124,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
             {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay !== DISPLAY_TYPES.HOURLY && initialInventoryFilters && (
               <InventoryTab
                 key={`inventory_hosts_${productId}`}
-                title={t('curiosity-inventory.tabHosts', { context: ['noInstances', productId] })}
+                title={t('curiosity-inventory.tabHosts', { context: [productId] })}
               >
                 <ConnectedInventoryListDeprecated
                   key={`inv_${productId}`}
@@ -142,7 +142,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               initialInventoryFilters && (
                 <InventoryTab
                   key={`inventory_instances_${productId}`}
-                  title={t('curiosity-inventory.tabInstances', { context: ['noInstances', productId] })}
+                  title={t('curiosity-inventory.tabInstances', { context: [productId] })}
                 >
                   <InventoryCard />
                 </InventoryTab>
@@ -150,7 +150,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
             {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
               <InventoryTab
                 key={`inventory_subs_${productId}`}
-                title={t('curiosity-inventory.tabSubscriptions', { context: productId })}
+                title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
               >
                 <InventoryCardSubscriptions />
               </InventoryTab>

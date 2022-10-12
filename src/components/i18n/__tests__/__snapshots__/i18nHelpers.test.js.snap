@@ -5,10 +5,10 @@ exports[`I18nHelpers should attempt to perform a component translate: translated
 exports[`I18nHelpers should attempt to perform a string replace: translate 1`] = `
 {
   "emptyContext": "t(lorem.ipsum, {"context":" "})",
-  "emptyPartialContext": "t(lorem.ipsum, {"context":"hello_ "})",
+  "emptyPartialContext": "t(lorem.ipsum_hello, {"context":" "})",
   "localeKey": "t(lorem.ipsum)",
-  "multiContext": "t(lorem.ipsum, {"context":"hello_world"})",
-  "multiContextWithEmptyValue": "t(lorem.ipsum, {"context":"hello_world"})",
+  "multiContext": "t(lorem.ipsum_hello, {"context":"world"})",
+  "multiContextWithEmptyValue": "t(lorem.ipsum_hello, {"context":"world"})",
   "multiKey": "t([lorem.ipsum,lorem.fallback])",
   "placeholder": "t(lorem.ipsum, hello world)",
 }
