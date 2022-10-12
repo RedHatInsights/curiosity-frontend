@@ -129,7 +129,7 @@
     "tableAriaLabel": "{{appName}} systems inventory table.",
     "tableSummary": "A generated table with one level of column headers.",
     "tableEmptyInventoryTitle": "No results found",
-    "tableEmptyInventoryMessage": "No results match the filter criteria. Remove filters or clear all filters to show results.",
+    "tableEmptyInventoryMessage": "To show more results, clear some or all filters.",
     "tableSkeletonAriaLabel": "Loading",
     "label_has_infinite_quantity_cores": "Unlimited cores",
     "label_has_infinite_quantity_sockets": "Unlimited sockets",
