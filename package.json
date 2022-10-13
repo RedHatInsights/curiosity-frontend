@@ -18,37 +18,6 @@
   "insights": {
     "appname": "subscriptions"
   },
-  "standard-version": {
-    "skip": {
-      "tag": true
-    },
-    "types": [
-      {
-        "type": "feat",
-        "section": "Features"
-      },
-      {
-        "type": "fix",
-        "section": "Bug Fixes"
-      },
-      {
-        "type": "refactor",
-        "section": "Code Refactoring"
-      },
-      {
-        "type": "perf",
-        "section": "Performance Improvements"
-      },
-      {
-        "type": "style",
-        "section": "Styles"
-      },
-      {
-        "type": "build",
-        "section": "Build"
-      }
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -74,8 +43,8 @@
     "build:pre": "bash ./scripts/pre.sh",
     "build:prod": "run-s build:ephemeral",
     "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
-    "release": "standard-version",
-    "release:rc": "standard-version --prerelease rc --dry-run",
+    "release": "changelog",
+    "release:rc": "changelog --dry-run",
     "start": "run-p -l api:dev start:standalone",
     "start:deprecated": "run-p -l api:dev start:js",
     "start:js": "export NODE_ENV=development; webpack serve --config config/webpack.dev.config.js",
@@ -146,6 +115,7 @@
     "apidoc-mock": "^4.0.4",
     "babel-jest": "^29.1.2",
     "babel-preset-react-app": "^10.0.1",
+    "changelog-light": "^0.2.0",
     "copy-webpack-plugin": "^11.0.0",
     "cspell": "^6.12.0",
     "dotenv": "^16.0.3",
@@ -179,7 +149,6 @@
     "prettier": "^2.7.1",
     "react-scripts": "^5.0.1",
     "redux-mock-store": "^1.5.4",
-    "standard-version": "^9.5.0",
     "swagger-ui-express": "^4.5.0",
     "webpack-bundle-analyzer": "^4.6.1",
     "yamljs": "^0.3.0"

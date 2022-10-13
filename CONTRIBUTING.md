@@ -45,7 +45,7 @@ You can also use [Homebrew](https://brew.sh/)
 ## Git process
 ### Commits
 In an effort to continue enhancing future automation around 
-[CHANGELOG.md](./CHANGELOG.md) and tagging we make use of [Standard Version](https://github.com/conventional-changelog/standard-version#readme) and [Conventional Commits](https://www.conventionalcommits.org).
+[CHANGELOG.md](./CHANGELOG.md) and tagging we make use of [Conventional Commits](https://www.conventionalcommits.org).
 
 It's required that commit messaging follow the format
 ```
@@ -61,8 +61,6 @@ For Github issues that looks like
 ```
    <type>[optional scope]: issues/123 <description>
 ```
-
-Settings for [Standard Version](https://github.com/conventional-changelog/standard-version#readme) can be found in [package.json](./package.json)
 
 ### Branching, Pull Requests, and Releases
 Curiosity makes use of the branches `dev`, `main`.
@@ -113,8 +111,8 @@ It is required that all work is handled through GitHub's fork and pull workflow.
 
 ###### Release candidates, prod-beta
 1. Make sure your local repo is up-to-date, and you're on the `main` branch. This includes having your tags updated.
-2. Run the command `$ yarn release:rc` which should output a console log with the estimated `rc` tag with version.
-3. Create a tag from the output using the format `v[x].[x].[x]-rc.[x]`
+2. Run the command `$ yarn release:rc` which should output a console log with the estimated tag version, convert this version to a `rc.[x]` typically starting with `rc.0`.
+3. Create a tag from the output using the format `v[x].[x].[x]-rc.0`
    - The preferred way of creating tags is from the `main` branch using the GitHub interface. This avoids the scenario of making sure your local repo is up-to-date, and provides additional confirmation the tag doesn't already exist.
 4. Next automation takes over, and the following things happen
    - `prod-beta` is released via Travis
