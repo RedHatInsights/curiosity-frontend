@@ -2,7 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
-### [2.6.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.6.0...v2.6.1) (2022-09-13)
+
+## [2.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/04a5d08629d0ab7bc51fc865da9b2a25029cde8a...7e894b2e0cb9fed615cabb5dfa413dc172d29e75) (2022-10-18)
+
+### Features
+* **rhods** sw-270 activate product display  ([#980](https://github.com/RedHatInsights/curiosity-frontend/pull/980)) ([2ca0496](https://github.com/RedHatInsights/curiosity-frontend/commit/2ca0496a88618343c2bc1f17fd955a8544f268b3))
+
+### Code Refactoring
+* **chartTypeVariant** ent-4899 consistent types  ([#927](https://github.com/RedHatInsights/curiosity-frontend/pull/927)) ([7bad2e5](https://github.com/RedHatInsights/curiosity-frontend/commit/7bad2e5f63f984897a98b586400b71a12b7f11f5))
+* **graphCard** ent-4899 align hook components  ([#927](https://github.com/RedHatInsights/curiosity-frontend/pull/927)) ([e372d75](https://github.com/RedHatInsights/curiosity-frontend/commit/e372d754152f75a77364986954c2e5428ff063bc))
+
+### Chores
+* **build** generated changelog  ([#987](https://github.com/RedHatInsights/curiosity-frontend/pull/987)) ([7e894b2](https://github.com/RedHatInsights/curiosity-frontend/commit/7e894b2e0cb9fed615cabb5dfa413dc172d29e75))
+* **deps-dev** bump eslint-plugin-react from 7.31.8 to 7.31.9  ([#981](https://github.com/RedHatInsights/curiosity-frontend/pull/981)) ([2bdb7be](https://github.com/RedHatInsights/curiosity-frontend/commit/2bdb7be53590d56a5e21a2b84c1fd10bbc22cc35))
+* **deps** bump codecov/codecov-action from 3.1.0 to 3.1.1  ([#976](https://github.com/RedHatInsights/curiosity-frontend/pull/976)) ([1430347](https://github.com/RedHatInsights/curiosity-frontend/commit/14303479c42da0c054d0c38a11ce6669ab01e3d6))
+
+### Bug Fixes
+* **graphCard** sw-223 generated key from settings  ([#984](https://github.com/RedHatInsights/curiosity-frontend/pull/984)) ([f59462f](https://github.com/RedHatInsights/curiosity-frontend/commit/f59462f7041c982a6a0e7db7bf546f6bc44a5593))
+* **inventory** sw-356 empty state copy  ([#983](https://github.com/RedHatInsights/curiosity-frontend/pull/983)) ([b25c6fb](https://github.com/RedHatInsights/curiosity-frontend/commit/b25c6fb9301b826a025799d859e43c26fbb98b12))
+* **graphCardHelpers** ent-4899 generate isThreshold setting  ([#927](https://github.com/RedHatInsights/curiosity-frontend/pull/927)) ([03a816c](https://github.com/RedHatInsights/curiosity-frontend/commit/03a816ca47d38a19e8daca627e9fa15f13eab7db))
+* **useReactRedux** ent-4899 default return array  ([#927](https://github.com/RedHatInsights/curiosity-frontend/pull/927)) ([cebcb7c](https://github.com/RedHatInsights/curiosity-frontend/commit/cebcb7c6885940e1cdb455e59c3f15ba6d7850dc))
+* **build** jest package update  ([#978](https://github.com/RedHatInsights/curiosity-frontend/pull/978)) ([2ee64c5](https://github.com/RedHatInsights/curiosity-frontend/commit/2ee64c5ef137609e61f2ff8a5b75b67fe7bfd157))
+* **build** npm updates  ([#978](https://github.com/RedHatInsights/curiosity-frontend/pull/978)) ([34d64fe](https://github.com/RedHatInsights/curiosity-frontend/commit/34d64fef09e5c0a24fff5698ca000a9f240eb6ec))
+
+## [2.6.1](https://github.com/RedHatInsights/curiosity-frontend/compare/v2.6.0...v2.6.1) (2022-09-13)
 
 ### Bug Fixes
 
