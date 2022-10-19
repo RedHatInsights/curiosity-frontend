@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import LocaleCode from 'locale-code';
+import LocaleCode from 'iso-639-1';
 import { serviceCall } from '../config';
 import { helpers } from '../../common';
 
@@ -18,7 +18,7 @@ const getLocale = () => {
     key: helpers.UI_LOCALE_DEFAULT_DESC
   };
   const parseLang = value => {
-    const key = (value && LocaleCode.getLanguageName(value)) || null;
+    const key = (value && LocaleCode.getName(value.split('-')[0])) || null;
     return (key && { value, key }) || undefined;
   };
 
