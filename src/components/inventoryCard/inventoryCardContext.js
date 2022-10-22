@@ -10,6 +10,35 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 
+const useGetHostsInventory = ({
+  isDisabled = false,
+  getInventory = reduxActions.rhsm.getHostsInventory,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct,
+  useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventoryHostsQuery,
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
+} = {}) => {
+  const { productId } = useAliasProduct();
+  const query = useAliasProductInventoryQuery();
+  const dispatch = useAliasDispatch();
+  const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
+    ({ inventory }) => inventory?.hostsInventory?.[productId]
+  );
+
+  useShallowCompareEffect(() => {
+    if (!isDisabled) {
+      getInventory(productId, query)(dispatch);
+    }
+  }, [dispatch, isDisabled, productId, query]);
+
+  return {
+    error,
+    fulfilled,
+    pending: pending || cancelled || false,
+    data: (data?.length === 1 && data[0]) || data || {}
+  };
+};
+
 /**
  * Combined Redux RHSM Actions, getInstancesInventory, and inventory selector response.
  *
@@ -154,9 +183,17 @@ const useOnColumnSortInstances = ({
 };
 
 const context = {
+  useGetHostsInventory,
   useGetInstancesInventory,
   useOnPageInstances,
   useOnColumnSortInstances
 };
 
-export { context as default, context, useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances };
+export {
+  context as default,
+  context,
+  useGetHostsInventory,
+  useGetInstancesInventory,
+  useOnPageInstances,
+  useOnColumnSortInstances
+};

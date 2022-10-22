@@ -3,6 +3,8 @@ import {
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_RESPONSE_CAPACITY_DATA_TYPES as CAPACITY_DATA_TYPES,
   RHSM_API_RESPONSE_CAPACITY_META_TYPES as CAPACITY_META_TYPES,
+  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as HOSTS_DATA_TYPES,
+  RHSM_API_RESPONSE_HOSTS_META_TYPES as HOSTS_META_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INSTANCES_DATA_TYPES,
   RHSM_API_RESPONSE_INSTANCES_META_TYPES as INSTANCES_META_TYPES,
   RHSM_API_RESPONSE_TALLY_DATA_TYPES as TALLY_DATA_TYPES,
@@ -80,6 +82,56 @@ const rhsmCapacity = (response, { _metricId, params } = {}) => {
     count: meta[CAPACITY_META_TYPES.COUNT],
     metricId: _metricId,
     productId: meta[CAPACITY_META_TYPES.PRODUCT]
+  };
+
+  return updatedResponse;
+};
+
+/**
+ * Parse RHSM hosts response for caching.
+ *
+ * @param {object} response
+ * @returns {object}
+ */
+const rhsmHosts = response => {
+  const updatedResponse = {};
+  const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
+    response || {};
+
+  updatedResponse.data = data.map(
+    ({
+      // [HOSTS_DATA_TYPES.CORES]: cores,
+      [HOSTS_DATA_TYPES.CLOUD_PROVIDER]: cloudProvider,
+      // [HOSTS_DATA_TYPES.DISPLAY_NAME]: displayName,
+      [HOSTS_DATA_TYPES.HARDWARE_TYPE]: hardwareType,
+      // [HOSTS_DATA_TYPES.INVENTORY_ID]: inventoryId,
+      // [HOSTS_DATA_TYPES.LAST_SEEN]: lastSeen,
+      [HOSTS_DATA_TYPES.MEASUREMENT_TYPE]: measurementType,
+      [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
+      // [HOSTS_DATA_TYPES.SOCKETS]: sockets,
+      [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
+      ...dataResponse
+    }) => ({
+      // cores,
+      // cloudProvider,
+      [HOSTS_DATA_TYPES.CLOUD_PROVIDER]: cloudProvider?.toLowerCase(),
+      [HOSTS_DATA_TYPES.HARDWARE_TYPE]: hardwareType?.toLowerCase(),
+      [HOSTS_DATA_TYPES.MEASUREMENT_TYPE]: measurementType?.toLowerCase(),
+      // displayName,
+      // hardwareType,
+      // inventoryId,
+      // lastSeen,
+      // measurementType,
+      numberOfGuests,
+      // sockets,
+      subscriptionManagerId,
+      ...dataResponse
+    })
+  );
+
+  updatedResponse.meta = {
+    count: meta[HOSTS_META_TYPES.COUNT],
+    productId: meta[HOSTS_META_TYPES.PRODUCT]
   };
 
   return updatedResponse;
@@ -204,8 +256,9 @@ const rhsmTally = (response, { params } = {}) => {
 
 const rhsmTransformers = {
   capacity: rhsmCapacity,
+  hosts: rhsmHosts,
   instances: rhsmInstances,
   tally: rhsmTally
 };
 
-export { rhsmTransformers as default, rhsmTransformers, rhsmCapacity, rhsmInstances, rhsmTally };
+export { rhsmTransformers as default, rhsmTransformers, rhsmCapacity, rhsmHosts, rhsmInstances, rhsmTally };

@@ -11,6 +11,7 @@ import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
 import { ConnectedInventoryList as ConnectedInventoryListDeprecated } from '../inventoryCard/inventoryList.deprecated';
 import { InventoryCard } from '../inventoryCard/inventoryCard';
+import { InventoryCardHosts } from '../inventoryCard/inventoryCardHosts';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import { SelectPosition } from '../form/select';
@@ -99,7 +100,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
           <Toolbar />
         </PageToolbar>
         <PageSection>
-          {productDisplay !== DISPLAY_TYPES.HOURLY && (
+          {productDisplay !== DISPLAY_TYPES.HOURLY && productDisplay !== DISPLAY_TYPES.PARTIAL && (
             <ConnectedGraphCardDeprecated
               key={`graph_${productId}`}
               query={initialGraphTallyQuery}
@@ -111,7 +112,8 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                 (toolbarGraph !== false && <ToolbarFieldGranularity position={SelectPosition.right} />)}
             </ConnectedGraphCardDeprecated>
           )}
-          {productDisplay === DISPLAY_TYPES.HOURLY && <GraphCard />}
+          {(productDisplay === DISPLAY_TYPES.HOURLY && <GraphCard />) ||
+            (productDisplay === DISPLAY_TYPES.PARTIAL && <GraphCard />)}
         </PageSection>
         <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
           <InventoryTabs
@@ -121,20 +123,31 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
-            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay !== DISPLAY_TYPES.HOURLY && initialInventoryFilters && (
+            {!helpers.UI_DISABLED_TABLE_HOSTS &&
+              productDisplay !== DISPLAY_TYPES.HOURLY &&
+              productDisplay !== DISPLAY_TYPES.PARTIAL &&
+              initialInventoryFilters && (
+                <InventoryTab
+                  key={`inventory_hosts_${productId}`}
+                  title={t('curiosity-inventory.tabHosts', { context: [productId] })}
+                >
+                  <ConnectedInventoryListDeprecated
+                    key={`inv_${productId}`}
+                    filterGuestsData={initialGuestsFilters}
+                    filterInventoryData={initialInventoryFilters}
+                    productId={productId}
+                    settings={initialInventorySettings}
+                    query={initialInventoryHostsQuery}
+                    viewId={viewId}
+                  />
+                </InventoryTab>
+              )}
+            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay === DISPLAY_TYPES.PARTIAL && initialInventoryFilters && (
               <InventoryTab
-                key={`inventory_hosts_${productId}`}
+                key={`inventory_instances_${productId}`}
                 title={t('curiosity-inventory.tabHosts', { context: [productId] })}
               >
-                <ConnectedInventoryListDeprecated
-                  key={`inv_${productId}`}
-                  filterGuestsData={initialGuestsFilters}
-                  filterInventoryData={initialInventoryFilters}
-                  productId={productId}
-                  settings={initialInventorySettings}
-                  query={initialInventoryHostsQuery}
-                  viewId={viewId}
-                />
+                <InventoryCardHosts />
               </InventoryTab>
             )}
             {!helpers.UI_DISABLED_TABLE_INSTANCES &&
