@@ -53,7 +53,7 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
 
 exports[`ToolbarFieldBillingProvider Component should render a basic component: basic 1`] = `
 <Select
-  aria-label="t(curiosity-toolbar.placeholder, {"context":"billing_provider"})"
+  aria-label="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
   ariaLabel="Select option"
   className=""
   data-test="toolbarFieldBillingProvider"
@@ -78,7 +78,7 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
       },
     ]
   }
-  placeholder="t(curiosity-toolbar.placeholder, {"context":"billing_provider"})"
+  placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
   position="left"
   selectedOptions="aws"
   toggleIcon={null}

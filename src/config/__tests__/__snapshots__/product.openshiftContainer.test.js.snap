@@ -312,11 +312,11 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
       "transforms": [
         [Function],
       ],
@@ -334,7 +334,7 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
       "transforms": [
         [Function],
       ],
@@ -342,23 +342,23 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header, {"context":"has_infinite_quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
       "value": true,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
       "value": "hello world",
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header, {"context":"total_capacity"})",
+      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
       "value": 2000,
     },
   },
@@ -402,11 +402,11 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
       "transforms": [
         [Function],
       ],
@@ -424,7 +424,7 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
       "transforms": [
         [Function],
       ],
@@ -432,23 +432,23 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header, {"context":"has_infinite_quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
       "value": true,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header, {"context":"next_event_date"})",
+      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
       "value": null,
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header, {"context":"product_name"})",
+      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header, {"context":"service_level"})",
+      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
       "value": null,
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header, {"context":"total_capacity"})",
+      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
       "value": 2000,
     },
   },
