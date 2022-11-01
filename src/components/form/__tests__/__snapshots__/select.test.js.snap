@@ -133,6 +133,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     toggleAriaLabel="Options menu"
     toggleIcon={null}
     toggleId={null}
+    toggleIndicator={null}
     typeAheadAriaDescribedby=""
     typeAheadAriaLabel=""
     validated="default"
@@ -193,6 +194,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     toggleAriaLabel="Options menu"
     toggleIcon={null}
     toggleId={null}
+    toggleIndicator={null}
     typeAheadAriaDescribedby=""
     typeAheadAriaLabel=""
     validated="default"
@@ -350,6 +352,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     toggleAriaLabel="Options menu"
     toggleIcon={null}
     toggleId={null}
+    toggleIndicator={null}
     typeAheadAriaDescribedby=""
     typeAheadAriaLabel=""
     validated="default"
