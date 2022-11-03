@@ -36,7 +36,10 @@ describe('I18nHelpers', () => {
     const emptyPartialContext = translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT] });
     const localeKey = translate('lorem.ipsum');
     const placeholder = translate('lorem.ipsum', 'hello world');
+    const stringContext = translate('lorem.ipsum', { context: 'hello' });
+    const stringContextNested = translate('lorem.ipsum', { context: 'hello_world_lorem_ipsum_dolor_sit' });
     const multiContext = translate('lorem.ipsum', { context: ['hello', 'world'] });
+    const multiContextNested = translate('lorem.ipsum', { context: ['hello', 'world', 'lorem_ipsum_dolor_sit'] });
     const multiContextWithEmptyValue = translate('lorem.ipsum', { context: ['hello', undefined, null, '', 'world'] });
     const multiKey = translate(['lorem.ipsum', undefined, null, '', 'lorem.fallback']);
 
@@ -45,7 +48,10 @@ describe('I18nHelpers', () => {
       emptyPartialContext,
       localeKey,
       placeholder,
+      stringContext,
+      stringContextNested,
       multiContext,
+      multiContextNested,
       multiContextWithEmptyValue,
       multiKey
     }).toMatchSnapshot('translate');

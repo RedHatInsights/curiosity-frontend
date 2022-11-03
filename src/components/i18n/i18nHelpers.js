@@ -24,14 +24,25 @@ const EMPTY_CONTEXT = 'LOCALE_EMPTY_CONTEXT';
 const translate = (translateKey, values = null, components, { emptyContextValue = EMPTY_CONTEXT } = {}) => {
   const updatedValues = values || {};
   let updatedTranslateKey = translateKey;
+  const splitContext = value => {
+    if (typeof value === 'string' && value !== emptyContextValue && /_/.test(value)) {
+      return value.split('_');
+    }
+    return value;
+  };
 
   if (Array.isArray(updatedTranslateKey)) {
     updatedTranslateKey = updatedTranslateKey.filter(value => typeof value === 'string' && value.length > 0);
   }
 
+  if (updatedValues?.context) {
+    updatedValues.context = splitContext(updatedValues.context);
+  }
+
   if (Array.isArray(updatedValues?.context)) {
     const updatedContext = updatedValues.context
-      .map(value => (value === emptyContextValue && ' ') || value)
+      .map(value => (value === emptyContextValue && ' ') || splitContext(value))
+      .flat()
       .filter(value => typeof value === 'string' && value.length > 0);
 
     if (updatedContext?.length > 1) {
