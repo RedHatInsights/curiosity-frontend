@@ -8,9 +8,12 @@ exports[`I18nHelpers should attempt to perform a string replace: translate 1`] =
   "emptyPartialContext": "t(lorem.ipsum_hello, {"context":" "})",
   "localeKey": "t(lorem.ipsum)",
   "multiContext": "t(lorem.ipsum_hello, {"context":"world"})",
+  "multiContextNested": "t(lorem.ipsum_hello_world_lorem_ipsum_dolor, {"context":"sit"})",
   "multiContextWithEmptyValue": "t(lorem.ipsum_hello, {"context":"world"})",
   "multiKey": "t([lorem.ipsum,lorem.fallback])",
   "placeholder": "t(lorem.ipsum, hello world)",
+  "stringContext": "t(lorem.ipsum, {"context":"hello"})",
+  "stringContextNested": "t(lorem.ipsum_hello_world_lorem_ipsum_dolor, {"context":"sit"})",
 }
 `;
 
