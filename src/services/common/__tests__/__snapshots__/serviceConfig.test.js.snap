@@ -13,11 +13,11 @@ exports[`ServiceConfig should allow passing a function and emulating a service c
 
 exports[`ServiceConfig should handle caching service calls: cached responses, emulated 304 1`] = `
 [
-  "1. method=get, status=200, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImRvbG9yXCIsXCJzaXRcIl0sW1wibG9yZW1cIixcImlwc3VtXCJdXSIsImV4cG9zZUNhY2hlSWQiOnRydWUsImNhY2hlUmVzcG9uc2UiOnRydWUsIm1ldGhvZCI6ImdldCJ9, desc=initial call",
-  "2. method=get, status=304, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImRvbG9yXCIsXCJzaXRcIl0sW1wibG9yZW1cIixcImlwc3VtXCJdXSIsImV4cG9zZUNhY2hlSWQiOnRydWUsImNhY2hlUmVzcG9uc2UiOnRydWUsIm1ldGhvZCI6ImdldCJ9, desc=repeat 1st call and config",
-  "3. method=get, status=200, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImxvcmVtXCIsXCJpcHN1bVwiXV0iLCJleHBvc2VDYWNoZUlkIjp0cnVlLCJjYWNoZVJlc3BvbnNlIjp0cnVlLCJtZXRob2QiOiJnZXQifQ==, desc=updated config",
+  "1. method=get, status=200, cacheId=0ec09bb76453e6a9c190cade66c6127fc0a423bf, desc=initial call",
+  "2. method=get, status=304, cacheId=0ec09bb76453e6a9c190cade66c6127fc0a423bf, desc=repeat 1st call and config",
+  "3. method=get, status=200, cacheId=27842fbee2f81542b8d1c7513810a502746f6408, desc=updated config",
   "4. method=post, status=200, cacheId=null, desc=attempt post method",
-  "5. method=get, status=304, cacheId=eyJ0aW1lb3V0Ijo2MDAwMCwidXJsIjoiL3Rlc3QvIiwicGFyYW1zIjoiW1tcImxvcmVtXCIsXCJpcHN1bVwiXV0iLCJleHBvc2VDYWNoZUlkIjp0cnVlLCJjYWNoZVJlc3BvbnNlIjp0cnVlLCJtZXRob2QiOiJnZXQifQ==, desc=repeat 3rd call and config",
+  "5. method=get, status=304, cacheId=27842fbee2f81542b8d1c7513810a502746f6408, desc=repeat 3rd call and config",
   "6. method=get, status=200, cacheId=null, desc=no caching",
 ]
 `;
