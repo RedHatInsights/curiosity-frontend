@@ -9,6 +9,6 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "index.js:12:      console.log(\`Emulated appNavClick: \${JSON.stringify({ id, ...rest })}\`);",
   "redux/common/reduxHelpers.js:282:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:286:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
-  "services/common/helpers.js:95:    console.error(",
+  "services/common/helpers.js:100:    console.error(",
 ]
 `;

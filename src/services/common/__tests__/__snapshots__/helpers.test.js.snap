@@ -22,6 +22,7 @@ exports[`Service Helpers should attempt to apply a Joi schema to a response: sch
 exports[`Service Helpers should have specific functions: serviceHelpers 1`] = `
 {
   "camelCase": [Function],
+  "generateHash": [Function],
   "passDataToCallback": [Function],
   "schemaResponse": [Function],
   "timeoutFunctionCancel": [Function],
