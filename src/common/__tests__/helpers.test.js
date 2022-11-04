@@ -1,3 +1,4 @@
+import cryptoMd5 from 'crypto-js/md5';
 import { helpers } from '../helpers';
 
 describe('Helpers', () => {
@@ -27,6 +28,18 @@ describe('Helpers', () => {
   it('should support generated IDs', () => {
     expect(helpers.generateId()).toBe('generatedid-');
     expect(helpers.generateId('lorem')).toBe('lorem-');
+  });
+
+  it('should support generated consistent hashes from objects', () => {
+    expect(
+      helpers.generateHash({ lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] })
+    ).toMatchSnapshot('hash');
+    expect(
+      helpers.generateHash(
+        { lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] },
+        { method: cryptoMd5 }
+      )
+    ).toMatchSnapshot('method md5');
   });
 
   it('should determine a date', () => {

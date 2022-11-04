@@ -1,4 +1,6 @@
 import numbro from 'numbro';
+import cryptoSha1 from 'crypto-js/sha1';
+import _isPlainObject from 'lodash/isPlainObject';
 
 /**
  * Fill for AggregatedError
@@ -48,6 +50,30 @@ const isDate = date => Object.prototype.toString.call(date) === '[object Date]';
  * @returns {boolean}
  */
 const isPromise = obj => /^\[object (Promise|Async|AsyncFunction)]/.test(Object.prototype.toString.call(obj));
+
+/**
+ * Generate a consistent hash
+ *
+ * @param {object} obj
+ * @param {object} options
+ * @param {Function} options.method
+ * @returns {*|string}
+ */
+const generateHash = (obj, { method = cryptoSha1 } = {}) =>
+  method(
+    JSON.stringify(
+      Object.entries(obj).sort(([a], [b]) => a.localeCompare(b)),
+      (key, value) => {
+        if (value !== obj && _isPlainObject(value)) {
+          return JSON.stringify(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)) || []);
+        }
+        if (typeof value === 'function') {
+          return value.toString();
+        }
+        return value;
+      }
+    )
+  ).toString();
 
 /**
  * An empty function.
@@ -331,6 +357,7 @@ const browserExpose = (obj = {}, options) => {
 const helpers = {
   aggregatedError,
   browserExpose,
+  generateHash,
   generateId,
   isDate,
   isPromise,
