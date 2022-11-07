@@ -79,6 +79,7 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
       },
       "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
         "BILLING_PROVIDER": "billing_provider",
+        "CATEGORY": "category",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
         "SLA": "sla",
@@ -108,6 +109,7 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
       "RHSM_API_QUERY_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
+        "CATEGORY": "category",
         "CONDUIT_SYNC": "enable_conduit_sync",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
@@ -287,6 +289,7 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
       },
       "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
         "BILLING_PROVIDER": "billing_provider",
+        "CATEGORY": "category",
         "END_DATE": "ending",
         "GRANULARITY": "granularity",
         "SLA": "sla",
@@ -316,6 +319,7 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
       "RHSM_API_QUERY_TYPES": {
         "BILLING_ACCOUNT_ID": "billing_account_id",
         "BILLING_PROVIDER": "billing_provider",
+        "CATEGORY": "category",
         "CONDUIT_SYNC": "enable_conduit_sync",
         "DIRECTION": "dir",
         "DISPLAY_NAME": "display_name_contains",
@@ -494,6 +498,7 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
     },
     "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -523,6 +528,7 @@ exports[`ApiTypes should have specific API properties: all exported api types 1`
     "RHSM_API_QUERY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "CONDUIT_SYNC": "enable_conduit_sync",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
@@ -705,6 +711,7 @@ exports[`ApiTypes should have specific API properties: specific types 1`] = `
     },
     "RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -734,6 +741,7 @@ exports[`ApiTypes should have specific API properties: specific types 1`] = `
     "RHSM_API_QUERY_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "CONDUIT_SYNC": "enable_conduit_sync",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",

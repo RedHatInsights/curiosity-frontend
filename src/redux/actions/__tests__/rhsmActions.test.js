@@ -1,5 +1,5 @@
 import promiseMiddleware from 'redux-promise-middleware';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 import moxios from 'moxios';
 import { multiActionMiddleware } from '../../middleware/multiActionMiddleware';
 import { graphReducer, inventoryReducer, messagesReducer, viewReducer } from '../../reducers';
@@ -44,6 +44,28 @@ describe('RhsmActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().graph;
       expect(response.reportCapacity.fulfilled).toBe(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getGraphMetrics method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getGraphMetrics([
+      { id: 'lorem', metric: 'ipsum' },
+      { id: 'dolor', metric: 'sit' },
+      { id: 'lorem', metric: 'ipsum', isCapacity: true },
+      { id: 'dolor', metric: 'sit', isCapacity: true }
+    ]);
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().graph;
+      expect(response.tally.ipsum_lorem.fulfilled).toBe(true);
+      expect(response.tally.sit_dolor.fulfilled).toBe(true);
+      expect(Object.entries(response.tally).length).toBe(2);
+
+      expect(response.capacity.ipsum_lorem.fulfilled).toBe(true);
+      expect(response.capacity.sit_dolor.fulfilled).toBe(true);
+      expect(Object.entries(response.capacity).length).toBe(2);
       done();
     });
   });
