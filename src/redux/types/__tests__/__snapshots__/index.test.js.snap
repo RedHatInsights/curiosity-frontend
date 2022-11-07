@@ -61,6 +61,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       },
     },
     "rhsm": {
+      "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
       "GET_GRAPH_REPORT_CAPACITY_RHSM": "GET_GRAPH_REPORT_CAPACITY_RHSM",
       "GET_GRAPH_TALLY_RHSM": "GET_GRAPH_TALLY_RHSM",
       "GET_HOSTS_INVENTORY_GUESTS_RHSM": "GET_HOSTS_INVENTORY_GUESTS_RHSM",
@@ -185,6 +186,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       },
     },
     "rhsm": {
+      "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
       "GET_GRAPH_REPORT_CAPACITY_RHSM": "GET_GRAPH_REPORT_CAPACITY_RHSM",
       "GET_GRAPH_TALLY_RHSM": "GET_GRAPH_TALLY_RHSM",
       "GET_HOSTS_INVENTORY_GUESTS_RHSM": "GET_HOSTS_INVENTORY_GUESTS_RHSM",
@@ -206,6 +208,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     },
   },
   "rhsmTypes": {
+    "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
     "GET_GRAPH_REPORT_CAPACITY_RHSM": "GET_GRAPH_REPORT_CAPACITY_RHSM",
     "GET_GRAPH_TALLY_RHSM": "GET_GRAPH_TALLY_RHSM",
     "GET_HOSTS_INVENTORY_GUESTS_RHSM": "GET_HOSTS_INVENTORY_GUESTS_RHSM",
@@ -284,6 +287,7 @@ exports[`ReduxTypes should have specific type properties: specific types 1`] = `
     },
   },
   "rhsm": {
+    "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
     "GET_GRAPH_REPORT_CAPACITY_RHSM": "GET_GRAPH_REPORT_CAPACITY_RHSM",
     "GET_GRAPH_TALLY_RHSM": "GET_GRAPH_TALLY_RHSM",
     "GET_HOSTS_INVENTORY_GUESTS_RHSM": "GET_HOSTS_INVENTORY_GUESTS_RHSM",

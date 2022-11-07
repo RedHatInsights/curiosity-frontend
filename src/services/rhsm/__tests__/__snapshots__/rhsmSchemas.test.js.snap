@@ -2,6 +2,7 @@
 
 exports[`RHSM Schemas should have specific response schemas: specific schemas 1`] = `
 {
+  "capacity": [Function],
   "errors": [Function],
   "guests": [Function],
   "instances": [Function],
@@ -10,7 +11,15 @@ exports[`RHSM Schemas should have specific response schemas: specific schemas 1`
 }
 `;
 
-exports[`RHSM Schemas should have valid schemas that validate API responses: error schema 1`] = `
+exports[`RHSM Schemas should have valid schemas that validate API responses: capacity response schema 1`] = `
+{
+  "data": [],
+  "links": {},
+  "meta": {},
+}
+`;
+
+exports[`RHSM Schemas should have valid schemas that validate API responses: errors response schema 1`] = `
 {
   "errors": [],
 }
@@ -25,6 +34,14 @@ exports[`RHSM Schemas should have valid schemas that validate API responses: gue
 `;
 
 exports[`RHSM Schemas should have valid schemas that validate API responses: instances response schema 1`] = `
+{
+  "data": [],
+  "links": {},
+  "meta": {},
+}
+`;
+
+exports[`RHSM Schemas should have valid schemas that validate API responses: subscriptions response schema 1`] = `
 {
   "data": [],
   "links": {},

@@ -35,6 +35,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "AWS": "aws",
     "RED_HAT": "red hat",
   },
+  "RHSM_API_QUERY_CATEGORY_TYPES": {
+    "CLOUD": "cloud",
+    "HYPERVISOR": "hypervisor",
+    "PHYSICAL": "physical",
+    "VIRTUAL": "virtual",
+  },
   "RHSM_API_QUERY_GRANULARITY_TYPES": {
     "DAILY": "Daily",
     "MONTHLY": "Monthly",
@@ -83,6 +89,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "END_DATE": "ending",
     "GRANULARITY": "granularity",
     "SLA": "sla",
@@ -92,6 +99,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_QUERY_SET_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
     "END_DATE": "ending",
@@ -123,6 +131,17 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
     "RED_HAT": "red hat",
+  },
+  "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
+    "CORES": "cores",
+    "DATE": "date",
+    "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
+    "SOCKETS": "sockets",
+  },
+  "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
+    "COUNT": "count",
+    "METRIC_ID": "metric_id",
+    "PRODUCT": "product",
   },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERRORS": "errors",
@@ -256,6 +275,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "AWS": "aws",
       "RED_HAT": "red hat",
     },
+    "RHSM_API_QUERY_CATEGORY_TYPES": {
+      "CLOUD": "cloud",
+      "HYPERVISOR": "hypervisor",
+      "PHYSICAL": "physical",
+      "VIRTUAL": "virtual",
+    },
     "RHSM_API_QUERY_GRANULARITY_TYPES": {
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
@@ -304,6 +329,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -313,6 +339,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_QUERY_SET_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -344,6 +371,17 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
       "RED_HAT": "red hat",
+    },
+    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
+      "CORES": "cores",
+      "DATE": "date",
+      "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
+      "SOCKETS": "sockets",
+    },
+    "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
+      "COUNT": "count",
+      "METRIC_ID": "metric_id",
+      "PRODUCT": "product",
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERRORS": "errors",
@@ -478,6 +516,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "AWS": "aws",
       "RED_HAT": "red hat",
     },
+    "RHSM_API_QUERY_CATEGORY_TYPES": {
+      "CLOUD": "cloud",
+      "HYPERVISOR": "hypervisor",
+      "PHYSICAL": "physical",
+      "VIRTUAL": "virtual",
+    },
     "RHSM_API_QUERY_GRANULARITY_TYPES": {
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
@@ -526,6 +570,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "END_DATE": "ending",
       "GRANULARITY": "granularity",
       "SLA": "sla",
@@ -535,6 +580,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_QUERY_SET_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "DIRECTION": "dir",
       "DISPLAY_NAME": "display_name_contains",
       "END_DATE": "ending",
@@ -566,6 +612,17 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
       "AWS": "aws",
       "RED_HAT": "red hat",
+    },
+    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
+      "CORES": "cores",
+      "DATE": "date",
+      "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
+      "SOCKETS": "sockets",
+    },
+    "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
+      "COUNT": "count",
+      "METRIC_ID": "metric_id",
+      "PRODUCT": "product",
     },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERRORS": "errors",
@@ -704,6 +761,12 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "AWS": "aws",
     "RED_HAT": "red hat",
   },
+  "RHSM_API_QUERY_CATEGORY_TYPES": {
+    "CLOUD": "cloud",
+    "HYPERVISOR": "hypervisor",
+    "PHYSICAL": "physical",
+    "VIRTUAL": "virtual",
+  },
   "RHSM_API_QUERY_GRANULARITY_TYPES": {
     "DAILY": "Daily",
     "MONTHLY": "Monthly",
@@ -752,6 +815,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "END_DATE": "ending",
     "GRANULARITY": "granularity",
     "SLA": "sla",
@@ -761,6 +825,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_QUERY_SET_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "DIRECTION": "dir",
     "DISPLAY_NAME": "display_name_contains",
     "END_DATE": "ending",
@@ -792,6 +857,17 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES": {
     "AWS": "aws",
     "RED_HAT": "red hat",
+  },
+  "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
+    "CORES": "cores",
+    "DATE": "date",
+    "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
+    "SOCKETS": "sockets",
+  },
+  "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
+    "COUNT": "count",
+    "METRIC_ID": "metric_id",
+    "PRODUCT": "product",
   },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERRORS": "errors",
