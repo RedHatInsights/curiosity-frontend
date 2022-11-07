@@ -195,7 +195,6 @@ const subscriptionsResponseSchema = Joi.object().keys({
  *
  * @type {*} Joi schema
  */
-// const tallyCapacityItem = Joi.object({
 const tallyItem = Joi.object({
   date: Joi.date().utc().allow(null),
   has_data: Joi.boolean().optional().allow(null),
@@ -215,17 +214,8 @@ const tallyMetaSchema = metaResponseSchema
     has_cloudigrade_mismatch: Joi.boolean().optional().allow(null),
     metric_id: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES)),
     total_monthly: tallyItem
-    // total_monthly: tallyCapacityItem
   })
   .unknown(true);
-
-/*
-const capacityMetaSchema = metaResponseSchema
-  .keys({
-    metric_id: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES)),
-  })
-  .unknown(true);
-*/
 
 /**
  * Tally response.
@@ -233,19 +223,10 @@ const capacityMetaSchema = metaResponseSchema
  * @type {*} Joi schema
  */
 const tallyResponseSchema = Joi.object().keys({
-  // data: Joi.array().items(tallyCapacityItem).default([]),
   data: Joi.array().items(tallyItem).default([]),
   links: linksSchema.default({}),
   meta: tallyMetaSchema.default({})
 });
-
-/*
-const capacityResponseSchema = Joi.object().keys({
-  data: Joi.array().items(tallyCapacityItem).default([]),
-  links: linksSchema.default({}),
-  meta: capacityMetaSchema.default({})
-});
- */
 
 const rhsmSchemas = {
   capacity: response => schemaResponse({ response, schema: capacityResponseSchema, id: 'RHSM capacity' }),
