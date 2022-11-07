@@ -1,6 +1,7 @@
 import moment from 'moment';
 import {
   graphCardHelpers,
+  generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
   getChartXAxisLabelIncrement,
@@ -9,7 +10,10 @@ import {
   yAxisTickFormat
 } from '../graphCardHelpers';
 import { dateHelpers } from '../../../common';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('GraphCardHelpers', () => {
   it('should have specific functions', () => {
@@ -114,5 +118,17 @@ describe('GraphCardHelpers', () => {
     expect(
       generateExtendedChartSettings({ settings: { lorem: 'ipsum' }, granularity: GRANULARITY_TYPES.DAILY })
     ).toMatchSnapshot('basic settings');
+  });
+
+  it('generateChartIds should return consistent IDs', () => {
+    expect(generateChartIds({ metric: 'lorem', productId: 'ipsum' })).toMatchSnapshot('base id');
+
+    expect(
+      generateChartIds({
+        metric: 'lorem',
+        productId: 'ipsum',
+        query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: 'dolor-sir' }
+      })
+    ).toMatchSnapshot('category id');
   });
 });

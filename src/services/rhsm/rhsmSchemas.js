@@ -41,6 +41,38 @@ const metaResponseSchema = Joi.object()
   .unknown(true);
 
 /**
+ * Capacity response meta field.
+ *
+ * @type {*} Joi schema
+ */
+const capacityMetaSchema = metaResponseSchema;
+
+/**
+ * Capacity response item.
+ *
+ * @type {*} Joi schema
+ */
+const capacityItem = Joi.object({
+  cores: Joi.number().allow(null).default(0),
+  date: Joi.date().utc().allow(null),
+  has_infinite_quantity: Joi.boolean().optional().allow(null),
+  sockets: Joi.number().allow(null).default(0)
+})
+  .unknown(true)
+  .default();
+
+/**
+ * Capacity response.
+ *
+ * @type {*} Joi schema
+ */
+const capacityResponseSchema = Joi.object().keys({
+  data: Joi.array().items(capacityItem).default([]),
+  links: linksSchema.default({}),
+  meta: capacityMetaSchema.default({})
+});
+
+/**
  * Guests response meta field.
  *
  * @type {*} Joi schema
@@ -52,7 +84,7 @@ const guestsMetaSchema = Joi.object()
   .unknown(true);
 
 /**
- * Instances response item.
+ * Guests response item.
  *
  * @type {*} Joi schema
  */
@@ -66,7 +98,7 @@ const guestsItem = Joi.object({
   .default();
 
 /**
- * Instances response.
+ * Guests response.
  *
  * @type {*} Joi schema
  */
@@ -159,7 +191,7 @@ const subscriptionsResponseSchema = Joi.object().keys({
 });
 
 /**
- * Tally response item.
+ * Tally and capacity metric response item.
  *
  * @type {*} Joi schema
  */
@@ -197,6 +229,7 @@ const tallyResponseSchema = Joi.object().keys({
 });
 
 const rhsmSchemas = {
+  capacity: response => schemaResponse({ response, schema: capacityResponseSchema, id: 'RHSM capacity' }),
   errors: response => schemaResponse({ response, schema: errorResponseSchema, id: 'RHSM errors' }),
   guests: response => schemaResponse({ response, casing: 'camel', schema: guestsResponseSchema, id: 'RHSM guests' }),
   instances: response => schemaResponse({ response, schema: instancesResponseSchema, id: 'RHSM instances' }),

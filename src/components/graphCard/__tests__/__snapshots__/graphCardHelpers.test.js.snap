@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GraphCardHelpers generateChartIds should return consistent IDs: base id 1`] = `"lorem_ipsum"`;
+
+exports[`GraphCardHelpers generateChartIds should return consistent IDs: category id 1`] = `"lorem_dolor-sir_ipsum"`;
+
 exports[`GraphCardHelpers generateChartSettings should return base graph settings: basic filters 1`] = `
 {
   "groupedFiltersSettings": {
@@ -67,6 +71,7 @@ exports[`GraphCardHelpers getTooltipDate should return a formatted date based on
 
 exports[`GraphCardHelpers should have specific functions: graphCardHelpers 1`] = `
 {
+  "generateChartIds": [Function],
   "generateChartSettings": [Function],
   "generateExtendedChartSettings": [Function],
   "getChartXAxisLabelIncrement": [Function],

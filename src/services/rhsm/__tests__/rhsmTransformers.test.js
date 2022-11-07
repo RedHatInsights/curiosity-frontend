@@ -1,5 +1,9 @@
 import { rhsmTransformers } from '../rhsmTransformers';
-import { rhsmConstants, RHSM_API_RESPONSE_TALLY_DATA_TYPES as TALLY_DATA_TYPES } from '../rhsmConstants';
+import {
+  rhsmConstants,
+  RHSM_API_RESPONSE_CAPACITY_DATA_TYPES as CAPACITY_DATA_TYPES,
+  RHSM_API_RESPONSE_TALLY_DATA_TYPES as TALLY_DATA_TYPES
+} from '../rhsmConstants';
 
 describe('RHSM Transformers', () => {
   it('should have specific response transformers', () => {
@@ -19,6 +23,205 @@ describe('RHSM Transformers', () => {
         }
       })
     ).toMatchSnapshot('instances');
+  });
+
+  it('should attempt to parse a capacity response', () => {
+    const baseCapacity = {
+      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [],
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+    };
+
+    expect(rhsmTransformers.tally(baseCapacity)).toMatchSnapshot('capacity');
+
+    const dailyCapacityResponse = {
+      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-14T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-15T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-16T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 1.4977989514668784,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-17T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 1.5547887908087836,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-18T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 4.446975872251722,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-19T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 4.69084013303121,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-20T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-21T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-22T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-23T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-24T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-25T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        }
+      ],
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+    };
+
+    expect(rhsmTransformers.capacity(dailyCapacityResponse)).toMatchSnapshot('capacity, daily like granularity');
+
+    const dailyCapacityFirstMonthResponse = {
+      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-20T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.1,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-21T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-22T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-23T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-24T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-25T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-26T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-27T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-28T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-29T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-30T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-31T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        }
+      ],
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+    };
+
+    const transformedDailyCapacityFirstMonthResponse = rhsmTransformers.capacity(dailyCapacityFirstMonthResponse);
+
+    expect(dailyCapacityFirstMonthResponse[rhsmConstants.RHSM_API_RESPONSE_DATA].length).toBe(12);
+    expect(transformedDailyCapacityFirstMonthResponse.data.length).toBe(13);
+    expect(transformedDailyCapacityFirstMonthResponse).toMatchSnapshot(
+      'capacity, daily like first of month granularity'
+    );
+
+    const monthlyCapacityResponse = {
+      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-01-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-02-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-03-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-04-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-05-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 4.767144674723709,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-06-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 4.446975872251722,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: true
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-07-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        },
+        {
+          [CAPACITY_DATA_TYPES.DATE]: '2019-08-01T00:00:00Z',
+          [CAPACITY_DATA_TYPES.SOCKETS]: 0.0,
+          [CAPACITY_DATA_TYPES.HAS_INFINITE_QUANTITY]: false
+        }
+      ],
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {}
+    };
+
+    expect(rhsmTransformers.capacity(monthlyCapacityResponse)).toMatchSnapshot('capacity, monthly like granularity');
   });
 
   it('should attempt to parse a tally response', () => {

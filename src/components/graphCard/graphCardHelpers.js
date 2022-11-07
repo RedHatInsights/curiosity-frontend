@@ -1,8 +1,25 @@
 import moment from 'moment';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import { ChartTypeVariant } from '../chart/chart';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../../common';
+
+/**
+ * Generate a consistent chart identifier from API.
+ *
+ * @param {object} params
+ * @param {string} params.metric
+ * @param {string} params.productId
+ * @param {object} params.query
+ * @returns {string}
+ */
+const generateChartIds = ({ metric, productId, query = {} } = {}) => {
+  const metricCategory = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY] || undefined;
+  return `${metric}${(metricCategory && `_${metricCategory}`) || ''}${(productId && `_${productId}`) || ''}`;
+};
 
 /**
  * Update chart/graph filters with core settings and styling.
@@ -239,6 +256,7 @@ const generateExtendedChartSettings = ({ settings, granularity } = {}) => ({
 });
 
 const graphCardHelpers = {
+  generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
   getChartXAxisLabelIncrement,
@@ -250,6 +268,7 @@ const graphCardHelpers = {
 export {
   graphCardHelpers as default,
   graphCardHelpers,
+  generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
   getChartXAxisLabelIncrement,
