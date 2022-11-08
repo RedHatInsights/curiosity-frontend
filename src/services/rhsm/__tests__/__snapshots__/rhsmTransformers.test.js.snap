@@ -650,6 +650,22 @@ exports[`RHSM Transformers should attempt to parse a tally response: tally, mont
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse an hosts response: hosts 1`] = `
+{
+  "data": [
+    {
+      "numberOfGuests": 2,
+      "sockets": 1000,
+      "subscriptionManagerId": undefined,
+    },
+  ],
+  "meta": {
+    "count": 10,
+    "productId": undefined,
+  },
+}
+`;
+
 exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
 {
   "data": [
