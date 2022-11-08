@@ -100,30 +100,11 @@ const rhsmHosts = response => {
 
   updatedResponse.data = data.map(
     ({
-      // [HOSTS_DATA_TYPES.CORES]: cores,
-      [HOSTS_DATA_TYPES.CLOUD_PROVIDER]: cloudProvider,
-      // [HOSTS_DATA_TYPES.DISPLAY_NAME]: displayName,
-      [HOSTS_DATA_TYPES.HARDWARE_TYPE]: hardwareType,
-      // [HOSTS_DATA_TYPES.INVENTORY_ID]: inventoryId,
-      // [HOSTS_DATA_TYPES.LAST_SEEN]: lastSeen,
-      [HOSTS_DATA_TYPES.MEASUREMENT_TYPE]: measurementType,
       [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
-      // [HOSTS_DATA_TYPES.SOCKETS]: sockets,
       [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
       ...dataResponse
     }) => ({
-      // cores,
-      // cloudProvider,
-      [HOSTS_DATA_TYPES.CLOUD_PROVIDER]: cloudProvider?.toLowerCase(),
-      [HOSTS_DATA_TYPES.HARDWARE_TYPE]: hardwareType?.toLowerCase(),
-      [HOSTS_DATA_TYPES.MEASUREMENT_TYPE]: measurementType?.toLowerCase(),
-      // displayName,
-      // hardwareType,
-      // inventoryId,
-      // lastSeen,
-      // measurementType,
       numberOfGuests,
-      // sockets,
       subscriptionManagerId,
       ...dataResponse
     })
