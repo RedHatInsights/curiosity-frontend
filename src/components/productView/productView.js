@@ -128,7 +128,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               productDisplay !== DISPLAY_TYPES.PARTIAL &&
               initialInventoryFilters && (
                 <InventoryTab
-                  key={`inventory_hosts_${productId}`}
+                  key={`inventory_deprecated-hosts_${productId}`}
                   title={t('curiosity-inventory.tabHosts', { context: [productId] })}
                 >
                   <ConnectedInventoryListDeprecated
@@ -144,7 +144,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               )}
             {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay === DISPLAY_TYPES.PARTIAL && initialInventoryFilters && (
               <InventoryTab
-                key={`inventory_instances_${productId}`}
+                key={`inventory_hosts_${productId}`}
                 title={t('curiosity-inventory.tabHosts', { context: [productId] })}
               >
                 <InventoryCardHosts />

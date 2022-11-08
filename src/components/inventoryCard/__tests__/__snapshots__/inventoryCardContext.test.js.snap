@@ -135,6 +135,7 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 
 exports[`InventoryCardContext should return specific properties: specific properties 1`] = `
 {
+  "useGetHostsInventory": [Function],
   "useGetInstancesInventory": [Function],
   "useOnColumnSortInstances": [Function],
   "useOnPageInstances": [Function],

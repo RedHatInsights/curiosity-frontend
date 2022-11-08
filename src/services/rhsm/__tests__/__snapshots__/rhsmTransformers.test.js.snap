@@ -671,6 +671,7 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
 {
   "capacity": [Function],
+  "hosts": [Function],
   "instances": [Function],
   "tally": [Function],
 }

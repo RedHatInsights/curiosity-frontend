@@ -158,6 +158,22 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "QUARTERLY": "Quarterly",
     "WEEKLY": "Weekly",
   },
+  "RHSM_API_RESPONSE_HOSTS_DATA_TYPES": {
+    "CLOUD_PROVIDER": "cloud_provider",
+    "CORES": "cores",
+    "DISPLAY_NAME": "display_name",
+    "HARDWARE_TYPE": "hardware_type",
+    "INVENTORY_ID": "inventory_id",
+    "LAST_SEEN": "last_seen",
+    "MEASUREMENT_TYPE": "measurement_type",
+    "NUMBER_OF_GUESTS": "number_of_guests",
+    "SOCKETS": "sockets",
+    "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
+  },
+  "RHSM_API_RESPONSE_HOSTS_META_TYPES": {
+    "COUNT": "count",
+    "PRODUCT": "product",
+  },
   "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
@@ -240,6 +256,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "DUAL_AXES": "dual-axes",
     "HOURLY": "hourly",
     "LEGACY": "legacy",
+    "PARTIAL": "partial",
   },
   "default": {
     "RHSM_API_PATH_METRIC_TYPES": {
@@ -398,6 +415,22 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "QUARTERLY": "Quarterly",
       "WEEKLY": "Weekly",
     },
+    "RHSM_API_RESPONSE_HOSTS_DATA_TYPES": {
+      "CLOUD_PROVIDER": "cloud_provider",
+      "CORES": "cores",
+      "DISPLAY_NAME": "display_name",
+      "HARDWARE_TYPE": "hardware_type",
+      "INVENTORY_ID": "inventory_id",
+      "LAST_SEEN": "last_seen",
+      "MEASUREMENT_TYPE": "measurement_type",
+      "NUMBER_OF_GUESTS": "number_of_guests",
+      "SOCKETS": "sockets",
+      "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
+    },
+    "RHSM_API_RESPONSE_HOSTS_META_TYPES": {
+      "COUNT": "count",
+      "PRODUCT": "product",
+    },
     "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
@@ -480,6 +513,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "DUAL_AXES": "dual-axes",
       "HOURLY": "hourly",
       "LEGACY": "legacy",
+      "PARTIAL": "partial",
     },
   },
   "rhsmConstants": {
@@ -639,6 +673,22 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "QUARTERLY": "Quarterly",
       "WEEKLY": "Weekly",
     },
+    "RHSM_API_RESPONSE_HOSTS_DATA_TYPES": {
+      "CLOUD_PROVIDER": "cloud_provider",
+      "CORES": "cores",
+      "DISPLAY_NAME": "display_name",
+      "HARDWARE_TYPE": "hardware_type",
+      "INVENTORY_ID": "inventory_id",
+      "LAST_SEEN": "last_seen",
+      "MEASUREMENT_TYPE": "measurement_type",
+      "NUMBER_OF_GUESTS": "number_of_guests",
+      "SOCKETS": "sockets",
+      "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
+    },
+    "RHSM_API_RESPONSE_HOSTS_META_TYPES": {
+      "COUNT": "count",
+      "PRODUCT": "product",
+    },
     "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
@@ -721,6 +771,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "DUAL_AXES": "dual-axes",
       "HOURLY": "hourly",
       "LEGACY": "legacy",
+      "PARTIAL": "partial",
     },
   },
 }
@@ -884,6 +935,22 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "QUARTERLY": "Quarterly",
     "WEEKLY": "Weekly",
   },
+  "RHSM_API_RESPONSE_HOSTS_DATA_TYPES": {
+    "CLOUD_PROVIDER": "cloud_provider",
+    "CORES": "cores",
+    "DISPLAY_NAME": "display_name",
+    "HARDWARE_TYPE": "hardware_type",
+    "INVENTORY_ID": "inventory_id",
+    "LAST_SEEN": "last_seen",
+    "MEASUREMENT_TYPE": "measurement_type",
+    "NUMBER_OF_GUESTS": "number_of_guests",
+    "SOCKETS": "sockets",
+    "SUBSCRIPTION_MANAGER_ID": "subscription_manager_id",
+  },
+  "RHSM_API_RESPONSE_HOSTS_META_TYPES": {
+    "COUNT": "count",
+    "PRODUCT": "product",
+  },
   "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
@@ -966,6 +1033,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "DUAL_AXES": "dual-axes",
     "HOURLY": "hourly",
     "LEGACY": "legacy",
+    "PARTIAL": "partial",
   },
 }
 `;
