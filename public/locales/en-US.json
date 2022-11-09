@@ -118,6 +118,7 @@
   },
   "curiosity-inventory": {
     "cardHeading": "Current systems",
+    "tabHeading": "Inventory tabs",
     "tabSubHeading": "Tab {{count}}",
     "tabHosts": "Current systems",
     "tabHosts_OpenShift-dedicated-metrics": "Current instances",

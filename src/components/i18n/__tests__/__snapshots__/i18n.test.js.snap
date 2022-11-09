@@ -289,6 +289,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
       },
       {
+        "key": "curiosity-inventory.tabHosts",
+        "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
+      },
+      {
         "key": "curiosity-inventory.tabInstances",
         "match": "t('curiosity-inventory.tabInstances', { context: [productId] })",
       },
@@ -780,10 +784,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
     "key": "curiosity-inventory.tab",
-  },
-  {
-    "file": "./src/components/inventoryTabs/inventoryTabs.js",
-    "key": "curiosity-inventory.tabHeading",
   },
   {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",

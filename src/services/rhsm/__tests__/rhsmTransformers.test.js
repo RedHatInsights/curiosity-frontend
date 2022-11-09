@@ -10,21 +10,6 @@ describe('RHSM Transformers', () => {
     expect(rhsmTransformers).toMatchSnapshot('specific transformers');
   });
 
-  it('should attempt to parse an instances response', () => {
-    expect(
-      rhsmTransformers.instances({
-        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
-          {
-            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
-          }
-        ],
-        [rhsmConstants.RHSM_API_RESPONSE_META]: {
-          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b']
-        }
-      })
-    ).toMatchSnapshot('instances');
-  });
-
   it('should attempt to parse a capacity response', () => {
     const baseCapacity = {
       [rhsmConstants.RHSM_API_RESPONSE_DATA]: [],
@@ -222,6 +207,37 @@ describe('RHSM Transformers', () => {
     };
 
     expect(rhsmTransformers.capacity(monthlyCapacityResponse)).toMatchSnapshot('capacity, monthly like granularity');
+  });
+
+  it('should attempt to parse an hosts response', () => {
+    expect(
+      rhsmTransformers.hosts({
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: 2,
+            [rhsmConstants.RHSM_API_RESPONSE_HOSTS_DATA_TYPES.SOCKETS]: 1000
+          }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_HOSTS_META_TYPES.COUNT]: 10
+        }
+      })
+    ).toMatchSnapshot('hosts');
+  });
+
+  it('should attempt to parse an instances response', () => {
+    expect(
+      rhsmTransformers.instances({
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+          {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
+          }
+        ],
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b']
+        }
+      })
+    ).toMatchSnapshot('instances');
   });
 
   it('should attempt to parse a tally response', () => {
