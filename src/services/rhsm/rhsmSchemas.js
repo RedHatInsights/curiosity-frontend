@@ -121,11 +121,11 @@ const hostsMetaSchema = metaResponseSchema;
  * @type {*} Joi schema
  */
 const hostsItem = Joi.object({
-  cloud_provider: Joi.string().optional().allow(null),
+  cloud_provider: Joi.string().lowercase().optional().allow(null),
   display_name: Joi.string().optional().allow(null),
-  hardware_type: Joi.string().optional().allow(null),
+  hardware_type: Joi.string().lowercase().optional().allow(null),
   inventory_id: Joi.string().optional().allow(null),
-  measurement_type: Joi.string().optional().allow(null),
+  measurement_type: Joi.string().lowercase().optional().allow(null),
   number_of_guests: Joi.number().integer().default(0),
   subscription_manager_id: Joi.string().optional().allow(null),
   last_seen: Joi.date().utc().allow(null)
