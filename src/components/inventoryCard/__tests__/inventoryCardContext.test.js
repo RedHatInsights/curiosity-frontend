@@ -1,5 +1,6 @@
 import {
   context,
+  useGetHostsInventory,
   useGetInstancesInventory,
   useOnPageInstances,
   useOnColumnSortInstances
@@ -16,6 +17,29 @@ describe('InventoryCardContext', () => {
 
   it('should expect specific sort properties', () => {
     expect(SORT_TYPES).toMatchSnapshot('sort properties');
+  });
+
+  it('should handle a store response with useGetHostsInventory', async () => {
+    const { result } = await shallowHook(
+      () =>
+        useGetHostsInventory({
+          useProduct: () => ({ productId: 'lorem' })
+        }),
+      {
+        state: {
+          inventory: {
+            hostsInventory: {
+              lorem: {
+                fulfilled: true,
+                data: [{ data: [{ lorem: 'ipsum' }, { dolor: 'sit' }], meta: {} }]
+              }
+            }
+          }
+        }
+      }
+    );
+
+    expect(result).toMatchSnapshot('store response');
   });
 
   it('should handle a store response with useGetInstancesInventory', async () => {
@@ -39,6 +63,70 @@ describe('InventoryCardContext', () => {
     );
 
     expect(result).toMatchSnapshot('store response');
+  });
+
+  it('should handle variations in hosts inventory API responses', async () => {
+    const { result: errorResponse } = shallowHook(() =>
+      useGetHostsInventory({
+        useProduct: () => ({ productId: 'lorem' }),
+        useDispatch: () => {},
+        useProductInventoryQuery: () => ({}),
+        useSelectorsResponse: () => ({ error: true })
+      })
+    );
+
+    expect(errorResponse).toMatchSnapshot('inventory, error');
+
+    const { result: pendingResponse } = shallowHook(() =>
+      useGetHostsInventory({
+        useProduct: () => ({ productId: 'lorem' }),
+        useDispatch: () => {},
+        useProductInventoryQuery: () => ({}),
+        useSelectorsResponse: () => ({ pending: true })
+      })
+    );
+
+    expect(pendingResponse).toMatchSnapshot('inventory, pending');
+
+    const { result: cancelledResponse } = shallowHook(() =>
+      useGetHostsInventory({
+        useProduct: () => ({ productId: 'lorem' }),
+        useDispatch: () => {},
+        useProductInventoryQuery: () => ({}),
+        useSelectorsResponse: () => ({ cancelled: true })
+      })
+    );
+
+    expect(cancelledResponse).toMatchSnapshot('inventory, cancelled');
+
+    const mockFulfilledGetInventory = jest.fn();
+    const { result: fulfilledResponse } = await mountHook(() =>
+      useGetHostsInventory({
+        getInventory: () => mockFulfilledGetInventory,
+        useProduct: () => ({ productId: 'lorem' }),
+        useDispatch: () => {},
+        useProductInventoryQuery: () => ({}),
+        useSelectorsResponse: () => ({ fulfilled: true })
+      })
+    );
+
+    expect(mockFulfilledGetInventory).toHaveBeenCalledTimes(1);
+    expect(fulfilledResponse).toMatchSnapshot('inventory, fulfilled');
+
+    const mockDisabledGetInventory = jest.fn();
+    const { result: disabledResponse } = await mountHook(() =>
+      useGetHostsInventory({
+        isDisabled: true,
+        getInventory: () => mockDisabledGetInventory,
+        useProduct: () => ({ productId: 'lorem' }),
+        useDispatch: () => {},
+        useProductInventoryQuery: () => ({}),
+        useSelectorsResponse: () => ({})
+      })
+    );
+
+    expect(mockDisabledGetInventory).toHaveBeenCalledTimes(0);
+    expect(disabledResponse).toMatchSnapshot('inventory, disabled');
   });
 
   it('should handle variations in instances inventory API responses', async () => {
