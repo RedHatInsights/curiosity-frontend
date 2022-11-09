@@ -11,6 +11,47 @@ import {
 import { helpers } from '../../common';
 
 /**
+ * Combined Redux RHSM Actions, getHostsInventory, and inventory selector response.
+ *
+ * @param {object} options
+ * @param {boolean} options.isDisabled
+ * @param {Function} options.getInventory
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useProduct
+ * @param {Function} options.useProductInventoryQuery
+ * @param {Function} options.useSelectorsResponse
+ * @returns {{data: (*|{}|*[]|{}), pending: boolean, fulfilled: boolean, error: boolean}}
+ */
+const useGetHostsInventory = ({
+  isDisabled = false,
+  getInventory = reduxActions.rhsm.getHostsInventory,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct,
+  useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventoryHostsQuery,
+  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
+} = {}) => {
+  const { productId } = useAliasProduct();
+  const query = useAliasProductInventoryQuery();
+  const dispatch = useAliasDispatch();
+  const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
+    ({ inventory }) => inventory?.hostsInventory?.[productId]
+  );
+
+  useShallowCompareEffect(() => {
+    if (!isDisabled) {
+      getInventory(productId, query)(dispatch);
+    }
+  }, [dispatch, isDisabled, productId, query]);
+
+  return {
+    error,
+    fulfilled,
+    pending: pending || cancelled || false,
+    data: (data?.length === 1 && data[0]) || data || {}
+  };
+};
+
+/**
  * Combined Redux RHSM Actions, getInstancesInventory, and inventory selector response.
  *
  * @param {object} options
@@ -20,7 +61,7 @@ import { helpers } from '../../common';
  * @param {Function} options.useProduct
  * @param {Function} options.useProductInventoryQuery
  * @param {Function} options.useSelectorsResponse
- * @returns {Function}
+ * @returns {{data: (*|{}|*[]|{}), pending: boolean, fulfilled: boolean, error: boolean}}
  */
 const useGetInstancesInventory = ({
   isDisabled = false,
@@ -154,9 +195,17 @@ const useOnColumnSortInstances = ({
 };
 
 const context = {
+  useGetHostsInventory,
   useGetInstancesInventory,
   useOnPageInstances,
   useOnColumnSortInstances
 };
 
-export { context as default, context, useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances };
+export {
+  context as default,
+  context,
+  useGetHostsInventory,
+  useGetInstancesInventory,
+  useOnPageInstances,
+  useOnColumnSortInstances
+};

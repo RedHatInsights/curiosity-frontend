@@ -2426,13 +2426,22 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  * @returns {Promise<*>}
  */
 const getHostsInventory = (id, params = {}, options = {}) => {
-  const { cache = true, cancel = true, cancelId } = options;
+  const {
+    cache = true,
+    cancel = true,
+    cancelId,
+    schema = [rhsmSchemas.hosts, rhsmSchemas.errors],
+    transform = [rhsmTransformers.hosts]
+  } = options;
+
   return serviceCall({
     url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY}${id}`,
     params,
     cache,
     cancel,
-    cancelId
+    cancelId,
+    schema,
+    transform
   });
 };
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import Table from '../../table/table';
 import { InventoryCard } from '../inventoryCard';
-import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('InventoryCard Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
-        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
+        [RHSM_API_QUERY_SET_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
       }),
       useGetInventory: () => ({
         pending: true
@@ -25,8 +25,8 @@ describe('InventoryCard Component', () => {
       isDisabled: true,
       useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
-        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
+        [RHSM_API_QUERY_SET_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
       }),
       useGetInventory: () => ({
         data: {
@@ -92,8 +92,8 @@ describe('InventoryCard Component', () => {
     const props = {
       useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
-        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
+        [RHSM_API_QUERY_SET_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
       }),
       useGetInventory: () => ({
         fulfilled: true,
@@ -123,8 +123,8 @@ describe('InventoryCard Component', () => {
     const props = {
       useProductInventoryConfig: () => ({ filters: [], settings: {} }),
       useProductInventoryQuery: () => ({
-        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 0
+        [RHSM_API_QUERY_SET_TYPES.LIMIT]: 10,
+        [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
       }),
       useGetInventory: () => ({
         fulfilled: true,
