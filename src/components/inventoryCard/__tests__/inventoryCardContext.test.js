@@ -9,7 +9,6 @@ import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as SORT_TYPES
 } from '../../../services/rhsm/rhsmConstants';
-import hostsInventory from '../../../redux/reducers/inventoryReducer';
 
 describe('InventoryCardContext', () => {
   it('should return specific properties', () => {
