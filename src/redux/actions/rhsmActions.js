@@ -84,7 +84,7 @@ const getGraphMetrics =
       const methodService = isCapacity ? rhsmServices.getGraphCapacity : rhsmServices.getGraphTally;
       const methodType = isCapacity ? rhsmTypes.GET_GRAPH_CAPACITY_RHSM : rhsmTypes.GET_GRAPH_TALLY_RHSM;
       const methodCancelId = isCapacity ? 'graphCapacity' : cancelId;
-      const generatedId = generateChartIds({ metric, productId: id, query: metricQuery });
+      const generatedId = generateChartIds({ isCapacity, metric, productId: id, query: metricQuery });
 
       multiDispatch.push({
         type: methodType,
