@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ToolbarFilter } from '@patternfly/react-core';
 import { Toolbar } from '../toolbar';
-import { RHSM_API_QUERY_SLA_TYPES, RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SLA_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 import { toolbarFieldOptions as selectCategoryOptions } from '../toolbarFieldSelectCategory';
 
 describe('Toolbar Component', () => {
@@ -48,7 +48,7 @@ describe('Toolbar Component', () => {
   it('should handle updating toolbar chips', () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
-      useToolbarFieldQueries: () => ({ [RHSM_API_QUERY_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM })
+      useToolbarFieldQueries: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM })
     };
     const component = shallow(<Toolbar {...props} />);
 

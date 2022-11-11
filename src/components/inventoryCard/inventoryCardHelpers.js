@@ -5,9 +5,9 @@ import _isPlainObject from 'lodash/isPlainObject';
 import { Tooltip } from '../tooltip/tooltip';
 import { translate } from '../i18n/i18n';
 import {
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../types/rhsmApiTypes';
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 
 /**
@@ -188,15 +188,16 @@ const applySortFilters = ({ filter = {}, onSort, query = {} } = {}) => {
   if (
     hasSort &&
     typeof updatedFilter.sortActive !== 'boolean' &&
-    query?.[RHSM_API_QUERY_TYPES.SORT] &&
-    (query?.[RHSM_API_QUERY_TYPES.SORT] === updatedId || _camelCase(query?.[RHSM_API_QUERY_TYPES.SORT]) === updatedId)
+    query?.[RHSM_API_QUERY_SET_TYPES.SORT] &&
+    (query?.[RHSM_API_QUERY_SET_TYPES.SORT] === updatedId ||
+      _camelCase(query?.[RHSM_API_QUERY_SET_TYPES.SORT]) === updatedId)
   ) {
     updatedFilter.sortActive = true;
   }
 
   // set sort direction
-  if (hasSort && !updatedFilter.sortDirection && query?.[RHSM_API_QUERY_TYPES.DIRECTION]) {
-    switch (query?.[RHSM_API_QUERY_TYPES.DIRECTION]) {
+  if (hasSort && !updatedFilter.sortDirection && query?.[RHSM_API_QUERY_SET_TYPES.DIRECTION]) {
+    switch (query?.[RHSM_API_QUERY_SET_TYPES.DIRECTION]) {
       case SORT_DIRECTION_TYPES.DESCENDING:
         updatedFilter.sortDirection = SortByDirection.desc;
         break;
@@ -209,7 +210,7 @@ const applySortFilters = ({ filter = {}, onSort, query = {} } = {}) => {
   if (
     hasSort &&
     !updatedFilter.sortActive &&
-    !query?.[RHSM_API_QUERY_TYPES.SORT] &&
+    !query?.[RHSM_API_QUERY_SET_TYPES.SORT] &&
     updatedFilter.isSortDefault === true
   ) {
     updatedFilter.sortActive = true;

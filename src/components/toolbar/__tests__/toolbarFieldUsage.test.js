@@ -2,7 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ToolbarFieldUsage, toolbarFieldOptions, useOnSelect } from '../toolbarFieldUsage';
 import { store } from '../../../redux/store';
-import { RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES, RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_USAGE_TYPES as USAGE_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('ToolbarFieldSla Component', () => {
   let mockDispatch;
@@ -17,7 +20,7 @@ describe('ToolbarFieldSla Component', () => {
 
   it('should render a basic component', () => {
     const props = {
-      useProductQuery: () => ({ [RHSM_API_QUERY_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT })
+      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT })
     };
     const component = shallow(<ToolbarFieldUsage {...props} />);
 

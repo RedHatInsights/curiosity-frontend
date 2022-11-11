@@ -5,7 +5,7 @@ import _debounce from 'lodash/debounce';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductInventoryHostsQuery } from '../productView/productViewContext';
 import { TextInput } from '../form/textInput';
-import { RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -31,7 +31,7 @@ const ToolbarFieldDisplayName = ({
   useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery
 }) => {
   const { viewId } = useAliasProduct();
-  const { [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
+  const { [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: currentValue } = useAliasProductInventoryHostsQuery();
   const dispatch = useAliasDispatch();
 
   /**
@@ -48,9 +48,9 @@ const ToolbarFieldDisplayName = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME],
         viewId,
-        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: submitValue?.trim() || null
+        [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: submitValue?.trim() || null
       }
     ]);
 
@@ -71,9 +71,9 @@ const ToolbarFieldDisplayName = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME],
+        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME],
         viewId,
-        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: null
+        [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: null
       }
     ]);
   };
