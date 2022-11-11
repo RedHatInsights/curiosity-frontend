@@ -1,8 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import { reduxHelpers } from '../../redux/common';
 import { storeHooks } from '../../redux/hooks';
-import { RHSM_API_QUERY_TYPES, rhsmApiTypes } from '../../types/rhsmApiTypes';
-import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
+import { rhsmConstants, RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -68,7 +67,7 @@ const useProductQuery = ({ queryType = 'query', options } = {}) => useProductQue
  */
 const useProductGraphTallyQuery = ({
   queryType = 'graphTallyQuery',
-  schemaCheck = rhsmApiTypes.RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES,
+  schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
@@ -94,7 +93,7 @@ const useProductInventoryGuestsQuery = ({
   defaultLimit = 100,
   defaultOffset = 0,
   queryType = 'inventoryGuestsQuery',
-  schemaCheck = rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES,
+  schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
@@ -118,7 +117,7 @@ const useProductInventoryGuestsQuery = ({
  */
 const useProductInventoryHostsQuery = ({
   queryType = 'inventoryHostsQuery',
-  schemaCheck = rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_TYPES,
+  schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
@@ -140,7 +139,7 @@ const useProductInventoryHostsQuery = ({
  */
 const useProductInventorySubscriptionsQuery = ({
   queryType = 'inventorySubscriptionsQuery',
-  schemaCheck = rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_TYPES,
+  schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
@@ -163,7 +162,7 @@ const useProductContext = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
   useProductViewContext: useAliasProductViewContext = useProductViewContext
 } = {}) => {
-  const { [RHSM_API_QUERY_TYPES.UOM]: uomFilter } = useAliasProductQuery();
+  const { [RHSM_API_QUERY_SET_TYPES.UOM]: uomFilter } = useAliasProductQuery();
   const {
     initialGraphFilters = [],
     initialInventoryFilters = [],

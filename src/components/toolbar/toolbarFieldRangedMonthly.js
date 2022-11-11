@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import {
+  RHSM_API_QUERY_GRANULARITY_TYPES as FIELD_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../services/rhsm/rhsmConstants';
 import { dateHelpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -40,19 +43,19 @@ const useOnSelect = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY],
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.GRANULARITY],
         viewId,
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: FIELD_TYPES.DAILY
+        [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: FIELD_TYPES.DAILY
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.START_DATE],
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.START_DATE],
         viewId,
-        [RHSM_API_QUERY_TYPES.START_DATE]: startDate?.toISOString()
+        [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate?.toISOString()
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.END_DATE],
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.END_DATE],
         viewId,
-        [RHSM_API_QUERY_TYPES.END_DATE]: endDate?.toISOString()
+        [RHSM_API_QUERY_SET_TYPES.END_DATE]: endDate?.toISOString()
       }
     ]);
   };
@@ -79,7 +82,7 @@ const ToolbarFieldRangedMonthly = ({
   useOnSelect: useAliasOnSelect,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
-  const { [RHSM_API_QUERY_TYPES.START_DATE]: updatedValue } = useAliasProductGraphTallyQuery();
+  const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: updatedValue } = useAliasProductGraphTallyQuery();
   const onSelect = useAliasOnSelect();
 
   const updatedOptions = options.map(option => ({

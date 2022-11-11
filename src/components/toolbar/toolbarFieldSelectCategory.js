@@ -5,7 +5,7 @@ import { useShallowCompareEffect } from 'react-use';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductToolbarConfig } from '../productView/productViewContext';
 import { Select } from '../form/select';
-import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services/rhsm/rhsmConstants';
+import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 import { ToolbarFieldGranularity, toolbarFieldOptions as granularityOptions } from './toolbarFieldGranularity';
 import { ToolbarFieldRangedMonthly, toolbarFieldOptions as rangedMonthlyOptions } from './toolbarFieldRangedMonthly';
@@ -25,8 +25,8 @@ import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolba
  */
 const toolbarFieldOptions = [
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.GRANULARITY }),
-    value: RHSM_API_QUERY_TYPES.GRANULARITY,
+    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.GRANULARITY }),
+    value: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
     component: function Granularity(props) {
       return <ToolbarFieldGranularity key="selectCategory_granularity" {...props} />;
     },
@@ -43,8 +43,8 @@ const toolbarFieldOptions = [
     isClearable: false
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.UOM }),
-    value: RHSM_API_QUERY_TYPES.UOM,
+    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.UOM }),
+    value: RHSM_API_QUERY_SET_TYPES.UOM,
     component: function Uom(props) {
       return <ToolbarFieldUom key="selectCategory_uom" {...props} />;
     },
@@ -52,8 +52,8 @@ const toolbarFieldOptions = [
     isClearable: false
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.BILLING_PROVIDER }),
-    value: RHSM_API_QUERY_TYPES.BILLING_PROVIDER,
+    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER }),
+    value: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER,
     component: function BillingProvider(props) {
       return <ToolbarFieldBillingProvider key="selectCategory_billingProvider" {...props} />;
     },
@@ -61,8 +61,8 @@ const toolbarFieldOptions = [
     isClearable: true
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA }),
-    value: RHSM_API_QUERY_TYPES.SLA,
+    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.SLA }),
+    value: RHSM_API_QUERY_SET_TYPES.SLA,
     component: function Sla(props) {
       return <ToolbarFieldSla key="selectCategory_sla" {...props} />;
     },
@@ -70,8 +70,8 @@ const toolbarFieldOptions = [
     isClearable: true
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE }),
-    value: RHSM_API_QUERY_TYPES.USAGE,
+    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.USAGE }),
+    value: RHSM_API_QUERY_SET_TYPES.USAGE,
     component: function Usage(props) {
       return <ToolbarFieldUsage key="selectCategory_usage" {...props} />;
     },

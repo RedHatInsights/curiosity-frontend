@@ -7,9 +7,9 @@ import {
   parseRowCellsListData
 } from '../inventoryCardHelpers';
 import {
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../../types/rhsmApiTypes';
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('InventoryListHelpers', () => {
   it('should have specific functions', () => {
@@ -188,12 +188,12 @@ describe('InventoryListHelpers', () => {
       ascending: applySortFilters({
         filter,
         onSort: () => {},
-        query: { [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.ASCENDING }
+        query: { [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.ASCENDING }
       }),
       descending: applySortFilters({
         filter,
         onSort: () => {},
-        query: { [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING }
+        query: { [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING }
       })
     }).toMatchSnapshot('sortable, direction');
 
@@ -202,8 +202,8 @@ describe('InventoryListHelpers', () => {
         filter,
         onSort: () => {},
         query: {
-          [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.ASCENDING,
-          [RHSM_API_QUERY_TYPES.SORT]: 'lorem'
+          [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.ASCENDING,
+          [RHSM_API_QUERY_SET_TYPES.SORT]: 'lorem'
         }
       })
     ).toMatchSnapshot('sortable, active column');
