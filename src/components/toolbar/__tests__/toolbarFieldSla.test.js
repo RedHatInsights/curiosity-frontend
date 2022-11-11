@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ToolbarFieldSla, toolbarFieldOptions, useOnSelect } from '../toolbarFieldSla';
 import { store } from '../../../redux/store';
-import { RHSM_API_QUERY_SLA_TYPES as SLA_TYPES, RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SLA_TYPES as SLA_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('ToolbarFieldSla Component', () => {
   let mockDispatch;
@@ -17,7 +17,7 @@ describe('ToolbarFieldSla Component', () => {
 
   it('should render a basic component', () => {
     const props = {
-      useProductQuery: () => ({ [RHSM_API_QUERY_TYPES.SLA]: SLA_TYPES.STANDARD })
+      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD })
     };
     const component = shallow(<ToolbarFieldSla {...props} />);
 

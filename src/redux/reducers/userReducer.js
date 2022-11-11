@@ -1,6 +1,6 @@
 import _get from 'lodash/get';
 import { appTypes, platformTypes, userTypes } from '../types';
-import { rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { reduxHelpers } from '../common';
 
 /**
@@ -29,18 +29,14 @@ const userReducer = (state = initialState, action) => {
       const actionStatus = reduxHelpers.getStatusFromResults(action);
 
       if (actionStatus === 401 || actionStatus === 403) {
-        const errorCodes = _get(
-          reduxHelpers.getDataFromResults(action),
-          [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA],
-          []
-        );
+        const errorCodes = _get(reduxHelpers.getDataFromResults(action), [rhsmConstants.RHSM_API_RESPONSE_ERRORS], []);
 
         return reduxHelpers.setStateProp(
           'errors',
           {
             error: true,
             errorMessage: reduxHelpers.getMessageFromResults(action),
-            data: errorCodes.map(value => value[rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_TYPES.CODE]),
+            data: errorCodes.map(value => value[rhsmConstants.RHSM_API_RESPONSE_ERRORS_TYPES.CODE]),
             status: reduxHelpers.getStatusFromResults(action)
           },
           {

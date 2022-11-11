@@ -14,7 +14,7 @@ import {
   useProductInventorySubscriptionsConfig,
   useProductToolbarConfig
 } from '../productViewContext';
-import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { config as openshiftContainerConfig } from '../../../config/product.openshiftContainer';
 
 describe('ProductViewContext', () => {
@@ -39,10 +39,10 @@ describe('ProductViewContext', () => {
   it('should apply hooks for retrieving specific api queries', () => {
     const mockContextValue = {
       query: { lorem: 'ipsum' },
-      graphTallyQuery: { [rhsmApiTypes.RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES.GRANULARITY]: 'testGranularity' },
-      inventoryGuestsQuery: { [rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES.OFFSET]: 'testOffset' },
-      inventoryHostsQuery: { [rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_TYPES.LIMIT]: 'testLimit' },
-      inventorySubscriptionsQuery: { [rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_SUBSCRIPTIONS_TYPES.SLA]: 'testSla' },
+      graphTallyQuery: { [rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES.GRANULARITY]: 'testGranularity' },
+      inventoryGuestsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.OFFSET]: 'testOffset' },
+      inventoryHostsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.LIMIT]: 'testLimit' },
+      inventorySubscriptionsQuery: { [rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES.SLA]: 'testSla' },
       productId: 'lorem',
       viewId: 'viewIpsum'
     };
@@ -89,7 +89,7 @@ describe('ProductViewContext', () => {
     const { result: openshiftUomCores } = shallowHook(() =>
       useProductContext({
         useProductQuery: () => ({
-          [rhsmApiTypes.RHSM_API_QUERY_TYPES.UOM]: rhsmApiTypes.RHSM_API_QUERY_UOM_TYPES.CORES
+          [rhsmConstants.RHSM_API_QUERY_SET_TYPES.UOM]: rhsmConstants.RHSM_API_QUERY_UOM_TYPES.CORES
         }),
         useProductViewContext: () => openshiftContainerConfig
       })
@@ -99,7 +99,7 @@ describe('ProductViewContext', () => {
     const { result: openshiftUomSockets } = shallowHook(() =>
       useProductContext({
         useProductQuery: () => ({
-          [rhsmApiTypes.RHSM_API_QUERY_TYPES.UOM]: rhsmApiTypes.RHSM_API_QUERY_UOM_TYPES.SOCKETS
+          [rhsmConstants.RHSM_API_QUERY_SET_TYPES.UOM]: rhsmConstants.RHSM_API_QUERY_UOM_TYPES.SOCKETS
         }),
         useProductViewContext: () => openshiftContainerConfig
       })

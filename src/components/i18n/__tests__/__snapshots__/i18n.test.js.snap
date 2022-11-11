@@ -448,7 +448,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.GRANULARITY })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.GRANULARITY })",
       },
       {
         "key": "curiosity-toolbar.category",
@@ -456,19 +456,19 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.UOM })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.UOM })",
       },
       {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.BILLING_PROVIDER })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER })",
       },
       {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.SLA })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.SLA })",
       },
       {
         "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_TYPES.USAGE })",
+        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.USAGE })",
       },
       {
         "key": "curiosity-toolbar.placeholder_filter",

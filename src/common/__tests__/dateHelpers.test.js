@@ -5,7 +5,7 @@ import {
   getRangedDateTime,
   getRangedMonthDateTime
 } from '../dateHelpers';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../../services/rhsm/rhsmConstants';
 
 describe('DateHelpers', () => {
   it('should have specific functions', () => {

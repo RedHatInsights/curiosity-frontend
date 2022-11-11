@@ -1,7 +1,7 @@
 import React from 'react';
 import { helpers } from '../../../common';
 import { Authentication } from '../authentication';
-import { rhsmApiTypes } from '../../../types';
+import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
 describe('Authentication Component', () => {
   it('should render a basic component', async () => {
@@ -76,7 +76,7 @@ describe('Authentication Component', () => {
         pending: false,
         data: {
           authorized: {},
-          errorCodes: [rhsmApiTypes.RHSM_API_RESPONSE_ERROR_DATA_CODE_TYPES.OPTIN],
+          errorCodes: [rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN],
           errorStatus: 403
         }
       })

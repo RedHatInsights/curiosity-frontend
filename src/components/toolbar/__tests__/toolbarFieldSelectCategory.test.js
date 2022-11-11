@@ -8,7 +8,7 @@ import {
   toolbarFieldOptions as selectCategoryOptions
 } from '../toolbarFieldSelectCategory';
 import { store } from '../../../redux/store';
-import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('ToolbarFieldSelectCategory Component', () => {
   let mockDispatch;
@@ -25,7 +25,7 @@ describe('ToolbarFieldSelectCategory Component', () => {
     const props = {
       useSelectCategoryOptions: () => ({
         options: [selectCategoryOptions[4], selectCategoryOptions[5]],
-        currentCategory: RHSM_API_QUERY_TYPES.SLA
+        currentCategory: RHSM_API_QUERY_SET_TYPES.SLA
       })
     };
     const component = shallow(<ToolbarFieldSelectCategory {...props} />);
@@ -70,7 +70,7 @@ describe('ToolbarFieldSelectCategory Component', () => {
     const options = {
       useProduct: () => ({ viewId: 'loremIpsum' }),
       useProductToolbarConfig: () => ({
-        filters: [{ id: RHSM_API_QUERY_TYPES.USAGE, selected: true }, { id: RHSM_API_QUERY_TYPES.SLA }]
+        filters: [{ id: RHSM_API_QUERY_SET_TYPES.USAGE, selected: true }, { id: RHSM_API_QUERY_SET_TYPES.SLA }]
       }),
       useSelector: () => ({ currentFilter: undefined })
     };
@@ -80,7 +80,7 @@ describe('ToolbarFieldSelectCategory Component', () => {
     expect(initialResult).toMatchSnapshot('options, initialCategory, hook');
 
     const { result: updatedResult } = shallowHook(() =>
-      useSelectCategoryOptions({ ...options, useSelector: () => ({ currentFilter: RHSM_API_QUERY_TYPES.SLA }) })
+      useSelectCategoryOptions({ ...options, useSelector: () => ({ currentFilter: RHSM_API_QUERY_SET_TYPES.SLA }) })
     );
 
     expect(updatedResult).toMatchSnapshot('options, currentCategory, hook');

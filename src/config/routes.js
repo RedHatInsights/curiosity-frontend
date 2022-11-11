@@ -6,16 +6,16 @@ import { config as rhacsConfig } from './product.rhacs';
 import { config as rhodsConfig } from './product.rhods';
 import { config as rhosakConfig } from './product.rhosak';
 import { config as satelliteProductConfig } from './product.satellite';
-import { RHSM_API_PATH_ID_TYPES } from '../types/rhsmApiTypes';
+import { RHSM_API_PATH_PRODUCT_TYPES } from '../services/rhsm/rhsmConstants';
 import { helpers } from '../common';
 
 const routes = [
   {
     id: 'rhel',
     path: '/rhel',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.RHEL],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL }],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL }],
     redirect: null,
     isSearchable: true,
     aliases: ['insights'],
@@ -27,9 +27,9 @@ const routes = [
   {
     id: 'rhel-arm',
     path: '/rhel-arm',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_ARM],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_ARM }],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_ARM }],
     redirect: null,
     isSearchable: false,
     aliases: [],
@@ -41,9 +41,9 @@ const routes = [
   {
     id: 'rhel-ibmpower',
     path: '/rhel-ibmpower',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.RHEL_IBM_POWER],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_IBM_POWER }],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_IBM_POWER }],
     redirect: null,
     isSearchable: false,
     aliases: [],
@@ -55,9 +55,9 @@ const routes = [
   {
     id: 'rhel-ibmz',
     path: '/rhel-ibmz',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.RHEL_IBM_Z],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_IBM_Z }],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_IBM_Z }],
     redirect: null,
     isSearchable: false,
     aliases: [],
@@ -69,9 +69,9 @@ const routes = [
   {
     id: 'rhel-x86',
     path: '/rhel-x86',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.RHEL_X86],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86],
     productParameter: [rhelConfig.productGroup],
-    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_ID_TYPES.RHEL_X86 }],
+    productConfig: [{ ...rhelConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86 }],
     redirect: null,
     isSearchable: false,
     aliases: [],
@@ -153,9 +153,9 @@ const routes = [
   {
     id: 'satellite',
     path: '/satellite',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.SATELLITE],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.SATELLITE],
     productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE }],
+    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE }],
     redirect: null,
     isSearchable: true,
     aliases: [],
@@ -167,9 +167,9 @@ const routes = [
   {
     id: 'satellite-capsule',
     path: '/satellite-capsule',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_CAPSULE],
     productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE_CAPSULE }],
+    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_CAPSULE }],
     redirect: null,
     isSearchable: false,
     aliases: [],
@@ -181,9 +181,9 @@ const routes = [
   {
     id: 'satellite-server',
     path: '/satellite-server',
-    pathParameter: [RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER],
+    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER],
     productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_ID_TYPES.SATELLITE_SERVER }],
+    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER }],
     redirect: null,
     isSearchable: false,
     aliases: [],
