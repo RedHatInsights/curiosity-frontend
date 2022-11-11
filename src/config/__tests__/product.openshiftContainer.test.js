@@ -1,10 +1,10 @@
 import { config } from '../product.openshiftContainer';
 import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../types/rhsmApiTypes';
-import { RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES } from '../../services/rhsm/rhsmConstants';
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
+} from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Container config', () => {
   it('should apply hosts inventory configuration', () => {
@@ -43,7 +43,7 @@ describe('Product OpenShift Container config', () => {
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
 
-    expect(inventoryQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
+    expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
 
   it('should apply subscriptions inventory configuration', () => {
@@ -78,7 +78,7 @@ describe('Product OpenShift Container config', () => {
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
 
-    expect(inventoryQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
+    expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
 
   it('should apply guest inventory configuration', () => {

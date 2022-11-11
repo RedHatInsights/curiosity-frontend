@@ -6,23 +6,23 @@ import {
 import { Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import {
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_PATH_PRODUCT_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
-  RHSM_API_QUERY_TYPES,
-  RHSM_API_QUERY_SORT_TYPES,
-  RHSM_API_PATH_ID_TYPES
-} from '../types/rhsmApiTypes';
-import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../services/rhsm/rhsmConstants';
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_INVENTORY_SORT_TYPES as INVENTORY_SORT_TYPES,
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
+} from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { translate } from '../components/i18n/i18n';
 
 // ToDo: evaluate the need for "productLabel" or using productId
 
-const productGroup = RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS;
+const productGroup = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 
-const productId = RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS;
+const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 
-const productLabel = RHSM_API_PATH_ID_TYPES.OPENSHIFT_METRICS;
+const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 
 const config = {
   productGroup,
@@ -31,17 +31,17 @@ const config = {
   productDisplay: DISPLAY_TYPES.LEGACY,
   viewId: `view${productGroup}`,
   query: {
-    [RHSM_API_QUERY_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
-    [RHSM_API_QUERY_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
+    [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
+    [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()
   },
   graphTallyQuery: {
-    [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
+    [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
   },
   inventoryHostsQuery: {
-    [RHSM_API_QUERY_TYPES.SORT]: RHSM_API_QUERY_SORT_TYPES.LAST_SEEN,
-    [RHSM_API_QUERY_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
-    [RHSM_API_QUERY_TYPES.LIMIT]: 100,
-    [RHSM_API_QUERY_TYPES.OFFSET]: 0
+    [RHSM_API_QUERY_SET_TYPES.SORT]: INVENTORY_SORT_TYPES.LAST_SEEN,
+    [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
+    [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
+    [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   initialGraphFilters: [
     {
