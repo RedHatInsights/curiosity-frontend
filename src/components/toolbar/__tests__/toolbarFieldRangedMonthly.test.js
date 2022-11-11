@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ToolbarFieldRangedMonthly, toolbarFieldOptions, useOnSelect } from '../toolbarFieldRangedMonthly';
 import { store } from '../../../redux/store';
-import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('ToolbarFieldRangedMonthly Component', () => {
   let mockDispatch;
@@ -18,7 +18,7 @@ describe('ToolbarFieldRangedMonthly Component', () => {
   it('should render a basic component', () => {
     const props = {
       useProductGraphTallyQuery: () => ({
-        [RHSM_API_QUERY_TYPES.START_DATE]: 't(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})'
+        [RHSM_API_QUERY_SET_TYPES.START_DATE]: 't(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})'
       })
     };
     const component = shallow(<ToolbarFieldRangedMonthly {...props} />);
@@ -32,7 +32,7 @@ describe('ToolbarFieldRangedMonthly Component', () => {
 
   it('should handle selecting an option directly', () => {
     const props = {
-      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_TYPES.START_DATE]: '2018-08-01T00:00:00.000Z' })
+      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.START_DATE]: '2018-08-01T00:00:00.000Z' })
     };
     const component = shallow(<ToolbarFieldRangedMonthly {...props} />);
 

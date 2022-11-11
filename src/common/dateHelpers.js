@@ -1,6 +1,6 @@
 import moment from 'moment/moment';
 import { helpers } from './helpers';
-import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../types/rhsmApiTypes';
+import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../services/rhsm/rhsmConstants';
 import { translate } from '../components/i18n/i18n';
 
 /**

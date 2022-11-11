@@ -1,9 +1,9 @@
 import { reduxHelpers } from '../reduxHelpers';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
-  RHSM_API_QUERY_TYPES,
-  RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES
-} from '../../../types/rhsmApiTypes';
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('ReduxHelpers', () => {
   it('should have specific functions', () => {
@@ -19,11 +19,11 @@ describe('ReduxHelpers', () => {
 
   it('should generate an expected API query with an existing schema', () => {
     const rhsmQuery = {
-      [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
-      [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-      [RHSM_API_QUERY_TYPES.OFFSET]: 0
+      [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
+      [RHSM_API_QUERY_SET_TYPES.LIMIT]: 10,
+      [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
     };
-    expect(reduxHelpers.setApiQuery(rhsmQuery, RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES)).toMatchSnapshot('rhsm query');
+    expect(reduxHelpers.setApiQuery(rhsmQuery, RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES)).toMatchSnapshot('rhsm query');
   });
 
   it('should generate an expected API response with an existing schema', () => {

@@ -4,8 +4,8 @@ import { ToolbarFieldGranularity, toolbarFieldOptions, useOnSelect } from '../to
 import { store } from '../../../redux/store';
 import {
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../../types/rhsmApiTypes';
+  RHSM_API_QUERY_SET_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('ToolbarFieldGranularity Component', () => {
   let mockDispatch;
@@ -20,7 +20,7 @@ describe('ToolbarFieldGranularity Component', () => {
 
   it('should render a basic component', () => {
     const props = {
-      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_TYPES.GRANULARITY]: GRANULARITY_TYPES.WEEKLY })
+      useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.WEEKLY })
     };
     const component = shallow(<ToolbarFieldGranularity {...props} />);
 

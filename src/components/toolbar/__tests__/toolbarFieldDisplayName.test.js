@@ -4,7 +4,7 @@ import { ToolbarFieldDisplayName } from '../toolbarFieldDisplayName';
 import { store } from '../../../redux/store';
 import { TextInput } from '../../form/textInput';
 import { helpers } from '../../../common/helpers';
-import { RHSM_API_QUERY_TYPES } from '../../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('ToolbarFieldDisplayName Component', () => {
   let mockDispatch;
@@ -20,7 +20,7 @@ describe('ToolbarFieldDisplayName Component', () => {
   it('should render a basic component', () => {
     const props = {
       useProduct: () => ({ viewId: 'loremIpsum' }),
-      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
+      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
     const component = shallow(<ToolbarFieldDisplayName {...props} />);
 
@@ -30,7 +30,7 @@ describe('ToolbarFieldDisplayName Component', () => {
   it('should handle updating display name through redux state', () => {
     const props = {
       useProduct: () => ({ viewId: 'loremIpsum' }),
-      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
+      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
 
     const component = shallow(<ToolbarFieldDisplayName {...props} />);
@@ -43,7 +43,7 @@ describe('ToolbarFieldDisplayName Component', () => {
   it('should handle updating display name using the enter key', async () => {
     const props = {
       useProduct: () => ({ viewId: 'loremIpsum' }),
-      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
+      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
 
     const component = await mountHookComponent(<ToolbarFieldDisplayName {...props} />);
@@ -56,7 +56,7 @@ describe('ToolbarFieldDisplayName Component', () => {
   it('should handle clearing display name through redux state', async () => {
     const props = {
       useProduct: () => ({ viewId: 'loremIpsum' }),
-      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
+      useProductInventoryHostsQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: 'lorem ipsum' })
     };
 
     const component = await mountHookComponent(<ToolbarFieldDisplayName {...props} />);

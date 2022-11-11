@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductQuery } from '../productView/productViewContext';
 import { Select, SelectPosition } from '../form/select';
-import { RHSM_API_QUERY_UOM_TYPES as FIELD_TYPES, RHSM_API_QUERY_TYPES } from '../../types/rhsmApiTypes';
+import { RHSM_API_QUERY_UOM_TYPES as FIELD_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -39,9 +39,9 @@ const useOnSelect = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM],
+        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.UOM],
         viewId,
-        [RHSM_API_QUERY_TYPES.UOM]: value
+        [RHSM_API_QUERY_SET_TYPES.UOM]: value
       }
     ]);
 };
@@ -67,7 +67,7 @@ const ToolbarFieldUom = ({
   useOnSelect: useAliasOnSelect,
   useProductQuery: useAliasProductQuery
 }) => {
-  const { [RHSM_API_QUERY_TYPES.UOM]: updatedValue } = useAliasProductQuery();
+  const { [RHSM_API_QUERY_SET_TYPES.UOM]: updatedValue } = useAliasProductQuery();
   const onSelect = useAliasOnSelect();
 
   const updatedOptions = options.map(option => ({ ...option, selected: option.value === updatedValue }));

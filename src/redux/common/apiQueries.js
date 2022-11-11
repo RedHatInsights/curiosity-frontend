@@ -1,4 +1,4 @@
-import { rhsmApiTypes } from '../../types/rhsmApiTypes';
+import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { reduxHelpers } from './reduxHelpers';
 
 /**
@@ -12,15 +12,12 @@ import { reduxHelpers } from './reduxHelpers';
 const parseRhsmQuery = (query = {}, queries = {}) => {
   const { graphTallyQuery, inventoryGuestsQuery, inventoryHostsQuery, inventorySubscriptionsQuery } = queries;
 
-  const updatedGraphTallyQuery = reduxHelpers.setApiQuery(query, rhsmApiTypes.RHSM_API_QUERY_SET_REPORT_CAPACITY_TYPES);
-  const updatedInventoryGuestsQuery = reduxHelpers.setApiQuery(
-    query,
-    rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_GUESTS_TYPES
-  );
-  const updatedInventoryHostsQuery = reduxHelpers.setApiQuery(query, rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_TYPES);
+  const updatedGraphTallyQuery = reduxHelpers.setApiQuery(query, rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES);
+  const updatedInventoryGuestsQuery = reduxHelpers.setApiQuery(query, rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES);
+  const updatedInventoryHostsQuery = reduxHelpers.setApiQuery(query, rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES);
   const updatedInventorySubscriptionsQuery = reduxHelpers.setApiQuery(
     query,
-    rhsmApiTypes.RHSM_API_QUERY_SET_INVENTORY_TYPES
+    rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES
   );
 
   return {

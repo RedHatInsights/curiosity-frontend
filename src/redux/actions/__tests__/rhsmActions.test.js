@@ -3,7 +3,7 @@ import { applyMiddleware, combineReducers, legacy_createStore as createStore } f
 import moxios from 'moxios';
 import { multiActionMiddleware } from '../../middleware/multiActionMiddleware';
 import { graphReducer, inventoryReducer, messagesReducer, viewReducer } from '../../reducers';
-import { rhsmApiTypes } from '../../../types/rhsmApiTypes';
+import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { rhsmActions } from '../rhsmActions';
 
 describe('RhsmActions', () => {
@@ -28,7 +28,7 @@ describe('RhsmActions', () => {
       timeout: 1,
       response: {
         test: 'success',
-        [rhsmApiTypes.RHSM_API_RESPONSE_PRODUCTS_DATA]: ['success']
+        [rhsmConstants.RHSM_API_RESPONSE_DATA]: ['success']
       }
     });
   });
