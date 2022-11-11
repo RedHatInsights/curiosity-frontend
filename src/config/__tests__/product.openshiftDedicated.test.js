@@ -1,9 +1,9 @@
 import { config } from '../product.openshiftDedicated';
 import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
-  RHSM_API_QUERY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_TYPES
-} from '../../types/rhsmApiTypes';
+  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
+  RHSM_API_QUERY_SET_TYPES
+} from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Dedicated config', () => {
   it('should apply graph configuration', () => {
@@ -128,6 +128,6 @@ describe('Product OpenShift Dedicated config', () => {
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
 
-    expect(inventoryQuery[RHSM_API_QUERY_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
+    expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
 });
