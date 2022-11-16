@@ -18,12 +18,10 @@ describe('GuestsList Component', () => {
       id: 'lorem',
       numberOfGuests: 2,
       useGetGuestsInventory: () => ({
-        data: {
-          data: [
-            { lorem: 'ipsum', dolor: 'sit' },
-            { lorem: 'amet', dolor: 'amet' }
-          ]
-        }
+        data: [
+          { lorem: 'ipsum', dolor: 'sit' },
+          { lorem: 'amet', dolor: 'amet' }
+        ]
       })
     };
 
@@ -53,10 +51,7 @@ describe('GuestsList Component', () => {
 
     component.setProps({
       useGetGuestsInventory: () => ({
-        fulfilled: true,
-        data: {
-          data: [{ lorem: 'ipsum', dolor: 'sit' }]
-        }
+        data: [{ lorem: 'ipsum', dolor: 'sit' }]
       })
     });
 
@@ -71,9 +66,7 @@ describe('GuestsList Component', () => {
       useOnScroll: () => mockOnScroll,
       useGetGuestsInventory: () => ({
         fulfilled: true,
-        data: {
-          data: [{ lorem: 'ipsum', dolor: 'sit' }]
-        }
+        data: [{ lorem: 'ipsum', dolor: 'sit' }]
       })
     };
 

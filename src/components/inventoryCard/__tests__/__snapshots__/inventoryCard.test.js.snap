@@ -1,109 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InventoryCard Component should handle expandable guests data: number of guests 1`] = `
-<Table
-  ariaLabel={null}
-  borders={true}
-  className="curiosity-inventory-list"
-  columnHeaders={
-    [
-      "t(curiosity-inventory.header, {"context":"lorem"})",
-      "t(curiosity-inventory.header, {"context":"dolor"})",
-      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
-    ]
-  }
-  isHeader={true}
-  rows={
-    [
-      {
-        "cells": [
-          "sit",
-          "amet",
-          1,
-        ],
-        "expandedContent": undefined,
-      },
-    ]
-  }
-  summary={null}
-  t={[Function]}
-  variant="compact"
-/>
+{
+  "ariaLabel": null,
+  "borders": true,
+  "children": null,
+  "className": "curiosity-inventory-list",
+  "columnHeaders": [
+    "t(curiosity-inventory.header, {"context":"lorem"})",
+    "t(curiosity-inventory.header, {"context":"dolor"})",
+    "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+  ],
+  "isHeader": true,
+  "rows": [
+    {
+      "cells": [
+        "sit",
+        "amet",
+        1,
+      ],
+      "expandedContent": undefined,
+    },
+  ],
+  "summary": null,
+  "t": [Function],
+  "variant": "compact",
+}
 `;
 
 exports[`InventoryCard Component should handle expandable guests data: number of guests, and id 1`] = `
-<Table
-  ariaLabel={null}
-  borders={true}
-  className="curiosity-inventory-list"
-  columnHeaders={
-    [
-      "t(curiosity-inventory.header, {"context":"lorem"})",
-      "t(curiosity-inventory.header, {"context":"dolor"})",
-      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
-      "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
-    ]
-  }
-  isHeader={true}
-  rows={
-    [
-      {
-        "cells": [
-          "sit",
-          "amet",
-          1,
-          "loremIpsum",
-        ],
-        "expandedContent": <InventoryGuests
-          defaultPerPage={5}
-          id="loremIpsum"
-          numberOfGuests={1}
-          useGetGuestsInventory={[Function]}
-          useOnScroll={[Function]}
-          useProductInventoryGuestsConfig={[Function]}
-          useProductInventoryGuestsQuery={[Function]}
-          useSession={[Function]}
-        />,
-      },
-    ]
-  }
-  summary={null}
-  t={[Function]}
-  variant="compact"
-/>
+{
+  "ariaLabel": null,
+  "borders": true,
+  "children": null,
+  "className": "curiosity-inventory-list",
+  "columnHeaders": [
+    "t(curiosity-inventory.header, {"context":"lorem"})",
+    "t(curiosity-inventory.header, {"context":"dolor"})",
+    "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+    "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+  ],
+  "isHeader": true,
+  "rows": [
+    {
+      "cells": [
+        "sit",
+        "amet",
+        1,
+        "loremIpsum",
+      ],
+      "expandedContent": <InventoryGuests
+        defaultPerPage={5}
+        id="loremIpsum"
+        numberOfGuests={1}
+        useGetGuestsInventory={[Function]}
+        useOnScroll={[Function]}
+        useProductInventoryGuestsConfig={[Function]}
+        useProductInventoryGuestsQuery={[Function]}
+        useSession={[Function]}
+      />,
+    },
+  ],
+  "summary": null,
+  "t": [Function],
+  "variant": "compact",
+}
 `;
 
 exports[`InventoryCard Component should handle expandable guests data: number of guests, id, and NO expandable guests display 1`] = `
-<Table
-  ariaLabel={null}
-  borders={true}
-  className="curiosity-inventory-list"
-  columnHeaders={
-    [
-      "t(curiosity-inventory.header, {"context":"lorem"})",
-      "t(curiosity-inventory.header, {"context":"dolor"})",
-      "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
-      "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
-    ]
-  }
-  isHeader={true}
-  rows={
-    [
-      {
-        "cells": [
-          "sit",
-          "amet",
-          2,
-          "loremIpsum",
-        ],
-        "expandedContent": undefined,
-      },
-    ]
-  }
-  summary={null}
-  t={[Function]}
-  variant="compact"
-/>
+{
+  "ariaLabel": null,
+  "borders": true,
+  "children": null,
+  "className": "curiosity-inventory-list",
+  "columnHeaders": [
+    "t(curiosity-inventory.header, {"context":"lorem"})",
+    "t(curiosity-inventory.header, {"context":"dolor"})",
+    "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+    "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+  ],
+  "isHeader": true,
+  "rows": [
+    {
+      "cells": [
+        "sit",
+        "amet",
+        2,
+        "loremIpsum",
+      ],
+      "expandedContent": undefined,
+    },
+  ],
+  "summary": null,
+  "t": [Function],
+  "variant": "compact",
+}
 `;
 
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
@@ -254,31 +245,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           ariaLabel={null}
           borders={true}
           className="curiosity-inventory-list"
-          columnHeaders={
-            [
-              "t(curiosity-inventory.header, {"context":"lorem"})",
-              "t(curiosity-inventory.header, {"context":"dolor"})",
-            ]
-          }
+          columnHeaders={[]}
           isHeader={true}
-          rows={
-            [
-              {
-                "cells": [
-                  "ipsum",
-                  "sit",
-                ],
-                "expandedContent": undefined,
-              },
-              {
-                "cells": [
-                  "sit",
-                  "amet",
-                ],
-                "expandedContent": undefined,
-              },
-            ]
-          }
+          rows={[]}
           summary={null}
           t={[Function]}
           variant="compact"
@@ -417,239 +386,73 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 `;
 
 exports[`InventoryCard Component should handle variations in data: filtered data 1`] = `
-<Card
-  className="curiosity-inventory-card"
->
-  <MinHeight
-    key="headerMinHeight"
-    minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
-  >
-    <CardHeader
-      aria-hidden={false}
-      className=""
-    >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={false}
-        className=""
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={false}
-          itemCount={2}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
-      </CardActions>
-    </CardHeader>
-  </MinHeight>
-  <MinHeight
-    key="bodyMinHeight-10-resize"
-    minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
-  >
-    <CardBody>
-      <div
-        className=""
-      >
-        <Table
-          ariaLabel={null}
-          borders={true}
-          className="curiosity-inventory-list"
-          columnHeaders={
-            [
-              {
-                "title": "t(curiosity-inventory.header, {"context":"lorem"})",
-                "transforms": [],
-              },
-            ]
-          }
-          isHeader={true}
-          rows={
-            [
-              {
-                "cells": [
-                  {
-                    "title": "ipsum",
-                  },
-                ],
-                "expandedContent": undefined,
-              },
-              {
-                "cells": [
-                  {
-                    "title": "sit",
-                  },
-                ],
-                "expandedContent": undefined,
-              },
-            ]
-          }
-          summary={null}
-          t={[Function]}
-          variant="compact"
-        />
-      </div>
-    </CardBody>
-  </MinHeight>
-  <MinHeight
-    key="footerMinHeight"
-    minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
-  >
-    <CardFooter
-      aria-hidden={false}
-      className=""
-    >
-      <TableToolbar
-        isFooter={true}
-      >
-        <Pagination
-          dropDirection="up"
-          isCompact={false}
-          isDisabled={false}
-          itemCount={2}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
-      </TableToolbar>
-    </CardFooter>
-  </MinHeight>
-</Card>
+{
+  "ariaLabel": null,
+  "borders": true,
+  "children": null,
+  "className": "curiosity-inventory-list",
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
+      "transforms": [],
+    },
+  ],
+  "isHeader": true,
+  "rows": [
+    {
+      "cells": [
+        {
+          "title": "ipsum",
+        },
+      ],
+      "expandedContent": undefined,
+    },
+    {
+      "cells": [
+        {
+          "title": "sit",
+        },
+      ],
+      "expandedContent": undefined,
+    },
+  ],
+  "summary": null,
+  "t": [Function],
+  "variant": "compact",
+}
 `;
 
 exports[`InventoryCard Component should handle variations in data: variable data 1`] = `
-<Card
-  className="curiosity-inventory-card"
->
-  <MinHeight
-    key="headerMinHeight"
-    minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
-  >
-    <CardHeader
-      aria-hidden={false}
-      className=""
-    >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={false}
-        className=""
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={false}
-          itemCount={2}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
-      </CardActions>
-    </CardHeader>
-  </MinHeight>
-  <MinHeight
-    key="bodyMinHeight-10-resize"
-    minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
-  >
-    <CardBody>
-      <div
-        className=""
-      >
-        <Table
-          ariaLabel={null}
-          borders={true}
-          className="curiosity-inventory-list"
-          columnHeaders={
-            [
-              "t(curiosity-inventory.header, {"context":"lorem"})",
-              "t(curiosity-inventory.header, {"context":"dolor"})",
-            ]
-          }
-          isHeader={true}
-          rows={
-            [
-              {
-                "cells": [
-                  "ipsum",
-                  "sit",
-                ],
-                "expandedContent": undefined,
-              },
-              {
-                "cells": [
-                  "sit",
-                  "amet",
-                ],
-                "expandedContent": undefined,
-              },
-            ]
-          }
-          summary={null}
-          t={[Function]}
-          variant="compact"
-        />
-      </div>
-    </CardBody>
-  </MinHeight>
-  <MinHeight
-    key="footerMinHeight"
-    minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
-  >
-    <CardFooter
-      aria-hidden={false}
-      className=""
-    >
-      <TableToolbar
-        isFooter={true}
-      >
-        <Pagination
-          dropDirection="up"
-          isCompact={false}
-          isDisabled={false}
-          itemCount={2}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
-      </TableToolbar>
-    </CardFooter>
-  </MinHeight>
-</Card>
+{
+  "ariaLabel": null,
+  "borders": true,
+  "children": null,
+  "className": "curiosity-inventory-list",
+  "columnHeaders": [
+    "t(curiosity-inventory.header, {"context":"lorem"})",
+    "t(curiosity-inventory.header, {"context":"dolor"})",
+  ],
+  "isHeader": true,
+  "rows": [
+    {
+      "cells": [
+        "ipsum",
+        "sit",
+      ],
+      "expandedContent": undefined,
+    },
+    {
+      "cells": [
+        "sit",
+        "amet",
+      ],
+      "expandedContent": undefined,
+    },
+  ],
+  "summary": null,
+  "t": [Function],
+  "variant": "compact",
+}
 `;
 
 exports[`InventoryCard Component should render a basic component: basic render 1`] = `

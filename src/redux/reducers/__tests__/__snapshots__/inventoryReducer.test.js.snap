@@ -252,6 +252,21 @@ exports[`InventoryReducer should handle all defined pending types: pending types
 }
 `;
 
+exports[`InventoryReducer should handle specific defined types: defined type CLEAR_INVENTORY_GUESTS 1`] = `
+{
+  "result": {
+    "hostsGuests": {
+      "lorem": {},
+    },
+    "hostsInventory": {},
+    "instancesInventory": {},
+    "subscriptionsInventory": {},
+    "tabs": {},
+  },
+  "type": "CLEAR_INVENTORY_GUESTS",
+}
+`;
+
 exports[`InventoryReducer should handle specific defined types: defined type SET_INVENTORY_TAB 1`] = `
 {
   "result": {

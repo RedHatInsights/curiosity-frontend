@@ -109,14 +109,15 @@ describe('InventoryCard Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryCard {...props} />);
-    expect(component).toMatchSnapshot('variable data');
+    const component = await mountHookComponent(<InventoryCard {...props} />);
+    expect(component.find(Table).props()).toMatchSnapshot('variable data');
 
     component.setProps({
       useProductInventoryConfig: () => ({ filters: [{ id: 'lorem' }] })
     });
 
-    expect(component).toMatchSnapshot('filtered data');
+    component.update();
+    expect(component.find(Table).props()).toMatchSnapshot('filtered data');
   });
 
   it('should handle expandable guests data', async () => {
@@ -137,8 +138,8 @@ describe('InventoryCard Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryCard {...props} />);
-    expect(component.find(Table)).toMatchSnapshot('number of guests');
+    const component = await mountHookComponent(<InventoryCard {...props} />);
+    expect(component.find(Table).props()).toMatchSnapshot('number of guests');
 
     component.setProps({
       ...props,
@@ -153,7 +154,8 @@ describe('InventoryCard Component', () => {
       })
     });
 
-    expect(component.find(Table)).toMatchSnapshot('number of guests, and id');
+    component.update();
+    expect(component.find(Table).props()).toMatchSnapshot('number of guests, and id');
 
     component.setProps({
       ...props,
@@ -176,6 +178,7 @@ describe('InventoryCard Component', () => {
       })
     });
 
-    expect(component.find(Table)).toMatchSnapshot('number of guests, id, and NO expandable guests display');
+    component.update();
+    expect(component.find(Table).props()).toMatchSnapshot('number of guests, id, and NO expandable guests display');
   });
 });
