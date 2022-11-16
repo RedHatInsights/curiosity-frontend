@@ -5,7 +5,7 @@ exports[`InventorySubscriptionsContext should handle an onScroll event: onPage e
   [
     [
       {
-        "offset": 1,
+        "offset": 100,
         "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_offset",
         "viewId": "1234567890",
       },
@@ -22,6 +22,10 @@ exports[`InventorySubscriptionsContext should handle an onScroll event: onPage e
         "type": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
         "viewId": "1234567890",
       },
+      {
+        "id": "1234567890",
+        "type": "CLEAR_INVENTORY_GUESTS",
+      },
     ],
   ],
 ]
@@ -30,23 +34,30 @@ exports[`InventorySubscriptionsContext should handle an onScroll event: onPage e
 exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
 {
   "cancelled": true,
+  "data": [],
+  "fulfilled": false,
 }
 `;
 
 exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
 {
+  "data": [],
   "error": true,
+  "fulfilled": false,
 }
 `;
 
 exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
 {
+  "data": [],
   "fulfilled": true,
 }
 `;
 
 exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
 {
+  "data": [],
+  "fulfilled": false,
   "pending": true,
 }
 `;

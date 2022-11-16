@@ -8,14 +8,15 @@ describe('InventoryReducer', () => {
   });
 
   it('should handle specific defined types', () => {
-    const specificTypes = [inventoryTypes.SET_INVENTORY_TAB];
+    const specificTypes = [inventoryTypes.SET_INVENTORY_TAB, inventoryTypes.CLEAR_INVENTORY_GUESTS];
 
     specificTypes.forEach(value => {
       const dispatched = {
         type: value,
         tabs: {
           lorem: 1
-        }
+        },
+        id: 'lorem'
       };
 
       const resultState = inventoryReducer(undefined, dispatched);

@@ -359,6 +359,7 @@ exports[`ProductView Component should use an instances inventory for rhosak: cus
     useGetInventory={[Function]}
     useOnColumnSort={[Function]}
     useOnPage={[Function]}
+    useProduct={[Function]}
     useProductInventoryConfig={[Function]}
     useProductInventoryQuery={[Function]}
     useSession={[Function]}

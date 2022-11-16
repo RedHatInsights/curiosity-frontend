@@ -50,10 +50,9 @@ describe('InventorySubscriptionsContext', () => {
 
   it('should handle an onScroll event', async () => {
     const mockDispatch = jest.fn();
-    const mockSuccessCallback = jest.fn();
 
     const { unmount } = await mountHook(() => {
-      const onScroll = useOnScroll('1234567890', mockSuccessCallback, {
+      const onScroll = useOnScroll('1234567890', {
         useDispatch: () => mockDispatch,
         useProductInventoryQuery: () => ({
           [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0,
@@ -68,9 +67,6 @@ describe('InventorySubscriptionsContext', () => {
     await unmount();
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('onPage event, dispatch');
-    expect(mockSuccessCallback).toHaveBeenCalledTimes(1);
-
     mockDispatch.mockClear();
-    mockSuccessCallback.mockClear();
   });
 });

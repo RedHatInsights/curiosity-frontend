@@ -157,11 +157,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: id })",
+        "match": "translate('curiosity-inventory.header', { context: [id, productId] })",
       },
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: key })",
+        "match": "translate('curiosity-inventory.header', { context: [key, productId] })",
       },
     ],
   },
