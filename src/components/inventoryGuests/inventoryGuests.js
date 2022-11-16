@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { TableVariant } from '@patternfly/react-table';
 import { useSession } from '../authentication/authenticationContext';
@@ -34,36 +34,40 @@ const InventoryGuests = ({
   useProductInventoryGuestsConfig: useAliasProductInventoryGuestsConfig,
   useSession: useAliasSession
 }) => {
-  const [previousData, setPreviousData] = useState([]);
   const sessionData = useAliasSession();
   const { filters: filterGuestsData } = useAliasProductInventoryGuestsConfig();
-
+  const { pending, data: listData = [] } = useAliasGetGuestsInventory(id);
+  const onScroll = useAliasOnScroll(id);
   const query = useAliasProductInventoryGuestsQuery({ options: { overrideId: id } });
   const { [RHSM_API_QUERY_SET_TYPES.OFFSET]: currentPage } = query;
-
-  const { error, pending, data = {} } = useAliasGetGuestsInventory(id);
-  const { data: listData = [] } = data;
-
-  const onScroll = useAliasOnScroll(id, () => {
-    const updatedData = [...previousData, ...(listData || [])];
-    setPreviousData(updatedData);
-  });
 
   /**
    * Render a scroll table loader.
    *
+   * @param {boolean} isFirstPage
    * @returns {Node}
    */
-  const renderLoader = () => {
-    if (currentPage > 0 && pending) {
+  const renderLoader = isFirstPage => {
+    if (pending) {
+      let updatedRowCount = 0;
+
+      if (isFirstPage) {
+        if (numberOfGuests < defaultPerPage) {
+          updatedRowCount = numberOfGuests;
+        } else {
+          updatedRowCount = defaultPerPage;
+        }
+      }
+
       const scrollLoader = (
         <Loader
           variant="table"
           tableProps={{
             borders: false,
+            className: (isFirstPage && 'curiosity-guests-list') || undefined,
             colCount: filterGuestsData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
             colWidth: (filterGuestsData?.length && filterGuestsData.map(({ cellWidth }) => cellWidth)) || [],
-            rowCount: 0,
+            rowCount: updatedRowCount,
             variant: TableVariant.compact
           }}
         />
@@ -75,40 +79,34 @@ const InventoryGuests = ({
     return null;
   };
 
-  /**
-   * Render a guests table.
-   *
-   * @returns {Node}
-   */
-  const renderTable = () => {
-    let updatedColumnHeaders = [];
-
-    const updatedRows = [...previousData, ...(listData || [])].map(({ ...cellData }) => {
-      const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
-        filters: filterGuestsData,
-        cellData,
-        session: sessionData
-      });
-
-      updatedColumnHeaders = columnHeaders;
-
-      return {
-        cells
-      };
+  let updatedColumnHeaders = [];
+  const updatedRows = listData.map(({ ...cellData }) => {
+    const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
+      filters: filterGuestsData,
+      cellData,
+      session: sessionData
     });
 
-    // ToDo: Review having the height be a calc value
-    // Include the table header
-    let updatedHeight = (numberOfGuests + 1) * 42;
-    updatedHeight = (updatedHeight < 275 && updatedHeight) || 275;
+    updatedColumnHeaders = columnHeaders;
 
-    return (
+    return {
+      cells
+    };
+  });
+
+  // ToDo: Review having the height be a calc value
+  // Include the table header
+  let updatedHeight = (numberOfGuests + 1) * 42;
+  updatedHeight = (updatedHeight < 275 && updatedHeight) || 275;
+
+  return (
+    <div className="fadein">
       <div className="curiosity-table-scroll" style={{ height: `${updatedHeight}px` }}>
         <div
           className={`curiosity-table-scroll-list${(updatedHeight < 275 && '__no-scroll') || ''}`}
           onScroll={onScroll}
         >
-          {renderLoader()}
+          {renderLoader(currentPage === 0)}
           {(updatedRows.length && (
             <Table
               borders={false}
@@ -121,25 +119,6 @@ const InventoryGuests = ({
             null}
         </div>
       </div>
-    );
-  };
-
-  return (
-    <div className={`fadein ${(error && 'blur') || ''}`}>
-      {pending && currentPage === 0 && (
-        <Loader
-          variant="table"
-          tableProps={{
-            borders: false,
-            className: 'curiosity-guests-list',
-            colCount: filterGuestsData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
-            colWidth: (filterGuestsData?.length && filterGuestsData.map(({ cellWidth }) => cellWidth)) || [],
-            rowCount: numberOfGuests < defaultPerPage ? numberOfGuests : defaultPerPage,
-            variant: TableVariant.compact
-          }}
-        />
-      )}
-      {((!pending && currentPage === 0) || currentPage > 0) && renderTable()}
     </div>
   );
 };

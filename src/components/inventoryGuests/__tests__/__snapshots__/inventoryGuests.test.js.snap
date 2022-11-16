@@ -16,7 +16,7 @@ exports[`GuestsList Component should handle an onScroll event: scroll event 1`] 
 
 exports[`GuestsList Component should handle multiple display states: fulfilled 1`] = `
 <div
-  className="fadein "
+  className="fadein"
 >
   <div
     className="curiosity-table-scroll"
@@ -62,32 +62,50 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
 
 exports[`GuestsList Component should handle multiple display states: initial pending 1`] = `
 <div
-  className="fadein "
+  className="fadein"
 >
-  <Loader
-    skeletonProps={
+  <div
+    className="curiosity-table-scroll"
+    style={
       {
-        "size": "sm",
+        "height": "84px",
       }
     }
-    tableProps={
-      {
-        "borders": false,
-        "className": "curiosity-guests-list",
-        "colCount": 1,
-        "colWidth": [],
-        "rowCount": 1,
-        "variant": "compact",
-      }
-    }
-    variant="table"
-  />
+  >
+    <div
+      className="curiosity-table-scroll-list__no-scroll"
+      onScroll={[Function]}
+    >
+      <div
+        className="curiosity-table-scroll-loader__custom"
+      >
+        <Loader
+          skeletonProps={
+            {
+              "size": "sm",
+            }
+          }
+          tableProps={
+            {
+              "borders": false,
+              "className": "curiosity-guests-list",
+              "colCount": 1,
+              "colWidth": [],
+              "rowCount": 1,
+              "variant": "compact",
+            }
+          }
+          variant="table"
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`GuestsList Component should handle variations in data: filtered data 1`] = `
 <div
-  className="fadein "
+  className="fadein"
 >
   <div
     className="curiosity-table-scroll"
@@ -145,7 +163,7 @@ exports[`GuestsList Component should handle variations in data: filtered data 1`
 
 exports[`GuestsList Component should handle variations in data: variable data 1`] = `
 <div
-  className="fadein "
+  className="fadein"
 >
   <div
     className="curiosity-table-scroll"
@@ -197,25 +215,43 @@ exports[`GuestsList Component should handle variations in data: variable data 1`
 
 exports[`GuestsList Component should render a basic component: basic render 1`] = `
 <div
-  className="fadein "
+  className="fadein"
 >
-  <Loader
-    skeletonProps={
+  <div
+    className="curiosity-table-scroll"
+    style={
       {
-        "size": "sm",
+        "height": "42px",
       }
     }
-    tableProps={
-      {
-        "borders": false,
-        "className": "curiosity-guests-list",
-        "colCount": 1,
-        "colWidth": [],
-        "rowCount": 0,
-        "variant": "compact",
-      }
-    }
-    variant="table"
-  />
+  >
+    <div
+      className="curiosity-table-scroll-list__no-scroll"
+      onScroll={[Function]}
+    >
+      <div
+        className="curiosity-table-scroll-loader__custom"
+      >
+        <Loader
+          skeletonProps={
+            {
+              "size": "sm",
+            }
+          }
+          tableProps={
+            {
+              "borders": false,
+              "className": "curiosity-guests-list",
+              "colCount": 1,
+              "colWidth": [],
+              "rowCount": 0,
+              "variant": "compact",
+            }
+          }
+          variant="table"
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;

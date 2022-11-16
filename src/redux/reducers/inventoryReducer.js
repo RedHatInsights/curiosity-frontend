@@ -37,6 +37,17 @@ const inventoryReducer = (state = initialState, action) => {
           reset: false
         }
       );
+    case inventoryTypes.CLEAR_INVENTORY_GUESTS:
+      return reduxHelpers.setStateProp(
+        'hostsGuests',
+        {
+          [action.id]: {}
+        },
+        {
+          state,
+          reset: false
+        }
+      );
     default:
       return reduxHelpers.generatedPromiseActionReducer(
         [
