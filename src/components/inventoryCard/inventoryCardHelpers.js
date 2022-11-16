@@ -47,10 +47,11 @@ const applyConfigProperty = (prop, { params = [] } = {}) => {
  *     sortActive: boolean, sortDirection: string, transforms: Array}>} params.filters
  * @param {object} params.cellData
  * @param {object} params.meta
+ * @param {string} params.productId
  * @param {object} params.session
  * @returns {{bodyCells: { title: React.ReactNode }[], headerCells: { title: React.ReactNode }[]}}
  */
-const applyHeaderRowCellFilters = ({ filters = [], cellData = {}, meta = {}, session = {} } = {}) => {
+const applyHeaderRowCellFilters = ({ filters = [], cellData = {}, meta = {}, productId, session = {} } = {}) => {
   const headerCells = [];
   const bodyCells = [];
 
@@ -68,7 +69,10 @@ const applyHeaderRowCellFilters = ({ filters = [], cellData = {}, meta = {}, ses
       sortDirection,
       transforms
     }) => {
-      const headerCellUpdated = { title: translate('curiosity-inventory.header', { context: id }), transforms: [] };
+      const headerCellUpdated = {
+        title: translate('curiosity-inventory.header', { context: [id, productId] }),
+        transforms: []
+      };
       const bodyCellUpdated = { title: '' };
 
       // set filtered base header and body cells, or if filter doesn't exist skip
@@ -279,10 +283,11 @@ const parseInventoryFilters = ({ filters = [], onSort, query = {} } = {}) =>
  *     transforms: Array}>} params.filters
  * @param {object} params.cellData
  * @param {object} params.meta
+ * @param {string} params.productId
  * @param {object} params.session
  * @returns {{columnHeaders: { title: React.ReactNode }[], cells: { title: React.ReactNode }[], data: {}}}
  */
-const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, session = {} } = {}) => {
+const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, productId, session = {} } = {}) => {
   const updatedColumnHeaders = [];
   const updatedCells = [];
   const allCells = {};
@@ -290,7 +295,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, session
   // Apply basic translation and value
   Object.entries(cellData).forEach(([key, value = '']) => {
     allCells[key] = {
-      title: translate('curiosity-inventory.header', { context: key }),
+      title: translate('curiosity-inventory.header', { context: [key, productId] }),
       value
     };
 
@@ -307,6 +312,7 @@ const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, session
       filters,
       cellData: allCells,
       meta,
+      productId,
       session
     });
 

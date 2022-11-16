@@ -3,7 +3,7 @@
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 [
   "components/inventoryCard/inventoryCardContext.js:168:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
-  "components/inventoryCard/inventoryCardHelpers.js:83:          console.warn(\`Warning: Filter "\${id}" not found in "table row" response data.\`, cellData);",
+  "components/inventoryCard/inventoryCardHelpers.js:87:          console.warn(\`Warning: Filter "\${id}" not found in "table row" response data.\`, cellData);",
   "components/inventoryCard/inventoryList.deprecated.js:62:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:127:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "index.js:12:      console.log(\`Emulated appNavClick: \${JSON.stringify({ id, ...rest })}\`);",
