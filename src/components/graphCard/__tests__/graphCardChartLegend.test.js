@@ -42,14 +42,14 @@ describe('GraphCardChartLegend Component', () => {
           },
           {
             stroke: '#ff0000',
-            id: 'dolorSit_mock-product-id',
+            id: 'threshold_dolorSit_mock-product-id',
             metric: 'dolorSit',
             isThreshold: true,
             data: [{ y: 0, isInfinite: false }]
           },
           {
             stroke: '#ff0000',
-            id: 'nonCursus_mock-product-id',
+            id: 'threshold_nonCursus_mock-product-id',
             metric: 'nonCursus',
             isThreshold: true,
             data: [{ y: 0, isInfinite: true }]
@@ -79,7 +79,7 @@ describe('GraphCardChartLegend Component', () => {
           },
           {
             stroke: '#ff0000',
-            id: 'dolorSit_mock-product-id',
+            id: 'threshold_dolorSit_mock-product-id',
             metric: 'dolorSit',
             isThreshold: true,
             data: [{ y: 0, isInfinite: false }]
@@ -115,7 +115,7 @@ describe('GraphCardChartLegend Component', () => {
           },
           {
             stroke: '#ff0000',
-            id: 'dolorSit_mock-product-id',
+            id: 'threshold_dolorSit_mock-product-id',
             metric: 'dolorSit',
             isThreshold: true,
             data: [{ y: 0, isInfinite: false }]

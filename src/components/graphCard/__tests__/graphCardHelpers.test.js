@@ -123,6 +123,10 @@ describe('GraphCardHelpers', () => {
   it('generateChartIds should return consistent IDs', () => {
     expect(generateChartIds({ metric: 'lorem', productId: 'ipsum' })).toMatchSnapshot('base id');
 
+    expect(generateChartIds({ isCapacity: true, metric: 'lorem', productId: 'ipsum' })).toMatchSnapshot(
+      'threshold, capacity id'
+    );
+
     expect(
       generateChartIds({
         metric: 'lorem',

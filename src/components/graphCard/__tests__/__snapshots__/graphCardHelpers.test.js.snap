@@ -4,6 +4,8 @@ exports[`GraphCardHelpers generateChartIds should return consistent IDs: base id
 
 exports[`GraphCardHelpers generateChartIds should return consistent IDs: category id 1`] = `"lorem_dolor-sir_ipsum"`;
 
+exports[`GraphCardHelpers generateChartIds should return consistent IDs: threshold, capacity id 1`] = `"threshold_lorem_ipsum"`;
+
 exports[`GraphCardHelpers generateChartSettings should return base graph settings: basic filters 1`] = `
 {
   "groupedFiltersSettings": {
