@@ -63,8 +63,8 @@ describe('RhsmActions', () => {
       expect(response.tally.sit_dolor.fulfilled).toBe(true);
       expect(Object.entries(response.tally).length).toBe(2);
 
-      expect(response.capacity.ipsum_lorem.fulfilled).toBe(true);
-      expect(response.capacity.sit_dolor.fulfilled).toBe(true);
+      expect(response.capacity.threshold_ipsum_lorem.fulfilled).toBe(true);
+      expect(response.capacity.threshold_sit_dolor.fulfilled).toBe(true);
       expect(Object.entries(response.capacity).length).toBe(2);
       done();
     });
