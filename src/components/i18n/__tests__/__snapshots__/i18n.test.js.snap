@@ -320,31 +320,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/productView/productViewOpenShiftContainer.js",
-    "keys": [
-      {
-        "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading', { context: productId })",
-      },
-      {
-        "key": "curiosity-graph.cardHeadingDescription",
-        "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
-      },
-      {
-        "key": "curiosity-inventory.tabHosts",
-        "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
-      },
-      {
-        "key": "curiosity-inventory.tabSubscriptions",
-        "match": "t('curiosity-inventory.tabSubscriptions', { context: productId })",
-      },
-      {
-        "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: viewProductLabel })",
-      },
-    ],
-  },
-  {
     "file": "./src/components/table/table.js",
     "keys": [
       {
@@ -565,7 +540,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.cardActionTotal",
-        "match": "translate('curiosity-graph.cardActionTotal', { context: 'coreHours', total: helpers .numberDisplay(totalCoreHours)",
+        "match": "translate('curiosity-graph.cardActionTotal', { context: id, total: helpers .numberDisplay(totalMonthlyValue)",
       },
       {
         "key": "curiosity-inventory.label",
@@ -578,7 +553,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.cardActionTotal",
-        "match": "translate('curiosity-graph.cardActionTotal', { context: 'coreHours', total: helpers .numberDisplay(totalCoreHours)",
+        "match": "translate('curiosity-graph.cardActionTotal', { context: id, total: helpers .numberDisplay(totalMonthlyValue)",
       },
       {
         "key": "curiosity-inventory.label",

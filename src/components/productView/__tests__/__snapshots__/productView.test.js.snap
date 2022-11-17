@@ -57,71 +57,11 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageSection
         className=""
       >
-        <Connect(GraphCard)
-          cardTitle={
-            <React.Fragment>
-              t(curiosity-graph.cardHeading, {"context":"lorem"})
-              <Tooltip
-                content={
-                  <p>
-                    t(curiosity-graph.cardHeadingDescription, {"context":"lorem"})
-                  </p>
-                }
-                distance={5}
-                enableFlip={false}
-                entryDelay={100}
-                exitDelay={0}
-                position="top"
-              >
-                <sup
-                  className="curiosity-icon__info"
-                >
-                  <InfoCircleIcon
-                    color="currentColor"
-                    noVerticalAlign={false}
-                    size="sm"
-                  />
-                </sup>
-              </Tooltip>
-            </React.Fragment>
-          }
-          key="graph_lorem"
-          productId="lorem"
-          query={{}}
-          viewId="viewIpsum"
-        >
-          <ToolbarFieldGranularity
-            isFilter={false}
-            options={
-              [
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
-                  "value": "Daily",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
-                  "value": "Weekly",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
-                  "value": "Monthly",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
-                  "value": "Quarterly",
-                },
-              ]
-            }
-            position="right"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductGraphTallyQuery={[Function]}
-          />
-        </Connect(GraphCard)>
+        <GraphCard
+          isDisabled={false}
+          useProduct={[Function]}
+          useProductGraphConfig={[Function]}
+        />
       </PageSection>
       <PageSection
         className=""
@@ -208,71 +148,11 @@ exports[`ProductView Component should allow custom product views via props: cust
       <PageSection
         className=""
       >
-        <Connect(GraphCard)
-          cardTitle={
-            <React.Fragment>
-              t(curiosity-graph.cardHeading, {"context":"lorem"})
-              <Tooltip
-                content={
-                  <p>
-                    t(curiosity-graph.cardHeadingDescription, {"context":"lorem"})
-                  </p>
-                }
-                distance={5}
-                enableFlip={false}
-                entryDelay={100}
-                exitDelay={0}
-                position="top"
-              >
-                <sup
-                  className="curiosity-icon__info"
-                >
-                  <InfoCircleIcon
-                    color="currentColor"
-                    noVerticalAlign={false}
-                    size="sm"
-                  />
-                </sup>
-              </Tooltip>
-            </React.Fragment>
-          }
-          key="graph_lorem"
-          productId="lorem"
-          query={{}}
-          viewId="viewIpsum"
-        >
-          <ToolbarFieldGranularity
-            isFilter={false}
-            options={
-              [
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
-                  "value": "Daily",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
-                  "value": "Weekly",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
-                  "value": "Monthly",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
-                  "value": "Quarterly",
-                },
-              ]
-            }
-            position="right"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductGraphTallyQuery={[Function]}
-          />
-        </Connect(GraphCard)>
+        <GraphCard
+          isDisabled={false}
+          useProduct={[Function]}
+          useProductGraphConfig={[Function]}
+        />
       </PageSection>
       <PageSection
         className=""
@@ -344,19 +224,11 @@ exports[`ProductView Component should allow custom product views via props: cust
       <PageSection
         className=""
       >
-        <Connect(GraphCard)
-          cardTitle={
-            <React.Fragment>
-              t(curiosity-graph.cardHeading, {"context":"lorem"})
-            </React.Fragment>
-          }
-          key="graph_lorem"
-          productId="lorem"
-          query={{}}
-          viewId="viewIpsum"
-        >
-          lorem ipsum
-        </Connect(GraphCard)>
+        <GraphCard
+          isDisabled={false}
+          useProduct={[Function]}
+          useProductGraphConfig={[Function]}
+        />
       </PageSection>
       <PageSection
         className=""
@@ -428,49 +300,11 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       <PageSection
         className=""
       >
-        <Connect(GraphCard)
-          cardTitle={
-            <React.Fragment>
-              t(curiosity-graph.cardHeading, {"context":"lorem"})
-            </React.Fragment>
-          }
-          key="graph_lorem"
-          productId="lorem"
-          query={{}}
-          viewId="viewIpsum"
-        >
-          <ToolbarFieldGranularity
-            isFilter={false}
-            options={
-              [
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
-                  "value": "Daily",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
-                  "value": "Weekly",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
-                  "value": "Monthly",
-                },
-                {
-                  "selected": false,
-                  "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
-                  "value": "Quarterly",
-                },
-              ]
-            }
-            position="right"
-            t={[Function]}
-            useOnSelect={[Function]}
-            useProductGraphTallyQuery={[Function]}
-          />
-        </Connect(GraphCard)>
+        <GraphCard
+          isDisabled={false}
+          useProduct={[Function]}
+          useProductGraphConfig={[Function]}
+        />
       </PageSection>
       <PageSection
         className=""

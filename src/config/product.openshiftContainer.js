@@ -7,6 +7,7 @@ import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import moment from 'moment';
 import {
+  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -35,7 +36,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
-  productDisplay: DISPLAY_TYPES.LEGACY,
+  productDisplay: DISPLAY_TYPES.PARTIAL,
   viewId: `view${productGroup}`,
   productContextFilterUom: true,
   query: {
@@ -63,23 +64,33 @@ const config = {
   initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
     {
-      id: 'cores',
+      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       isOptional: true,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     },
     {
-      id: 'sockets',
+      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
       isOptional: true,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     },
-    { id: 'thresholdSockets', chartType: ChartTypeVariant.threshold, isOptional: true },
-    { id: 'thresholdCores', chartType: ChartTypeVariant.threshold, isOptional: true }
+    {
+      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+      chartType: ChartTypeVariant.threshold,
+      isOptional: true
+    },
+    {
+      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+      chartType: ChartTypeVariant.threshold,
+      isOptional: true
+    }
   ],
-  initialGraphSettings: {},
+  initialGraphSettings: {
+    isCardTitleDescription: true
+  },
   initialGuestsFilters: [
     {
       id: 'displayName',
@@ -238,6 +249,14 @@ const config = {
   initialToolbarFilters: [
     {
       id: RHSM_API_QUERY_SET_TYPES.SLA
+    }
+  ],
+  initialSecondaryToolbarFilters: [
+    {
+      id: RHSM_API_QUERY_SET_TYPES.UOM
+    },
+    {
+      id: RHSM_API_QUERY_SET_TYPES.GRANULARITY
     }
   ]
 };

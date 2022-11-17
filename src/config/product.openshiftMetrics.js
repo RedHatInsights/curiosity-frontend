@@ -6,6 +6,7 @@ import {
 import { Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import {
+  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -28,7 +29,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
-  productDisplay: DISPLAY_TYPES.LEGACY,
+  productDisplay: DISPLAY_TYPES.PARTIAL,
   viewId: `view${productGroup}`,
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
@@ -45,24 +46,24 @@ const config = {
   },
   initialGraphFilters: [
     {
-      id: 'coreHours',
+      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
       color: chartColorBlueDark.value
     }
   ],
   initialGraphSettings: {
-    actionDisplay: (data = {}) => {
-      const {
-        meta: { totalCoreHours }
-      } = data;
+    isCardTitleDescription: true,
+    actionDisplay: ({ data = [] } = {}) => {
+      const { id, meta = {} } = data.find(({ metric }) => metric === RHSM_API_PATH_METRIC_TYPES.CORES) || {};
+      const { totalMonthlyValue } = meta;
       let displayContent;
 
-      if (totalCoreHours) {
+      if (totalMonthlyValue) {
         displayContent = translate('curiosity-graph.cardActionTotal', {
-          context: 'coreHours',
+          context: id,
           total: helpers
-            .numberDisplay(totalCoreHours)
+            .numberDisplay(totalMonthlyValue)
             ?.format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
             ?.toUpperCase()
         });
@@ -112,7 +113,12 @@ const config = {
       cellWidth: 25
     }
   ],
-  initialToolbarFilters: undefined
+  initialToolbarFilters: undefined,
+  initialSecondaryToolbarFilters: [
+    {
+      id: 'rangedMonthly'
+    }
+  ]
 };
 
 export { config as default, config, productGroup, productId };

@@ -12,6 +12,7 @@ exports[`GraphCard Component should render a basic component: basic 1`] = `
           "metric": undefined,
           "metrics": [
             {
+              "chartType": "area",
               "id": "Core-seconds",
               "isCapacity": false,
               "isStacked": true,
@@ -46,6 +47,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
           "metric": undefined,
           "metrics": [
             {
+              "chartType": "area",
               "id": "Core-seconds",
               "isCapacity": false,
               "isStacked": true,
@@ -74,6 +76,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
         "settings": {
           "isStandalone": true,
           "metric": {
+            "chartType": "area",
             "id": "Sockets",
             "isCapacity": false,
             "isStacked": true,
@@ -84,6 +87,7 @@ exports[`GraphCard Component should setup basic settings: settings 1`] = `
           },
           "metrics": [
             {
+              "chartType": "area",
               "id": "Sockets",
               "isCapacity": false,
               "isStacked": true,

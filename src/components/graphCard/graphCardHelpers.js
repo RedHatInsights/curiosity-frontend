@@ -41,9 +41,10 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
     if (!metric) {
       return;
     }
-
+    const updatedChartType = filterSettings?.chartType || ChartTypeVariant.area;
     const isThreshold = filterSettings?.chartType === ChartTypeVariant.threshold;
     const baseFilterSettings = {
+      chartType: updatedChartType,
       id: generateChartIds({ isCapacity: isThreshold, metric, productId, query: filterSettings?.query }),
       isStacked: !isThreshold,
       isStandalone,

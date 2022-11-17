@@ -369,7 +369,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
         },
         {
           "activateOnError": false,
-          "component": "productView/productViewOpenShiftContainer",
+          "component": "productView/productView",
           "disabled": false,
           "exact": true,
           "id": "openshift-container",
@@ -378,7 +378,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
         },
         {
           "activateOnError": false,
-          "component": "productView/productViewOpenShiftDedicated",
+          "component": "productView/productView",
           "disabled": false,
           "exact": true,
           "id": "openshift-dedicated",
@@ -528,7 +528,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
         },
         {
           "activateOnError": false,
-          "component": "productView/productViewOpenShiftContainer",
+          "component": "productView/productView",
           "disabled": false,
           "exact": true,
           "id": "openshift-container",
@@ -537,7 +537,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
         },
         {
           "activateOnError": false,
-          "component": "productView/productViewOpenShiftDedicated",
+          "component": "productView/productView",
           "disabled": false,
           "exact": true,
           "id": "openshift-dedicated",
@@ -687,7 +687,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
         },
         {
           "activateOnError": false,
-          "component": "productView/productViewOpenShiftContainer",
+          "component": "productView/productView",
           "disabled": false,
           "exact": true,
           "id": "openshift-container",
@@ -696,7 +696,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
         },
         {
           "activateOnError": false,
-          "component": "productView/productViewOpenShiftDedicated",
+          "component": "productView/productView",
           "disabled": false,
           "exact": true,
           "id": "openshift-dedicated",

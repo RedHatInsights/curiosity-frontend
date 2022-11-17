@@ -173,11 +173,11 @@ const useProductContext = ({
 
   const applyUomFilter = useCallback(() => {
     if (productContextFilterUom === true) {
-      const filterFilters = ({ id, isOptional }) => {
+      const filterFilters = ({ id, metric, isOptional }) => {
         if (!isOptional) {
           return true;
         }
-        return new RegExp(uomFilter, 'i').test(id);
+        return new RegExp(uomFilter, 'i').test(metric) || new RegExp(uomFilter, 'i').test(id);
       };
 
       return {

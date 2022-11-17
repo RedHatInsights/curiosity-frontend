@@ -36,12 +36,12 @@ const GraphCardChart = ({
   const { actionDisplay, isStandalone, metric } = settings;
 
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
-  const { pending, error, data = {}, dataSets = [] } = useAliasGetMetrics();
+  const { pending, error, dataSets = [] } = useAliasGetMetrics();
 
   let updatedActionDisplay = null;
 
   if (typeof actionDisplay === 'function') {
-    updatedActionDisplay = actionDisplay({ data: { ...data } });
+    updatedActionDisplay = actionDisplay({ data: dataSets });
   }
 
   return (
