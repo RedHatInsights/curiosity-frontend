@@ -3,6 +3,7 @@ import {
   useGetHostsInventory,
   useGetInstancesInventory,
   useOnPageInstances,
+  useOnColumnSortHosts,
   useOnColumnSortInstances
 } from '../inventoryCardContext';
 import {
@@ -202,6 +203,21 @@ describe('InventoryCardContext', () => {
 
     onPage({ offset: 1, perPage: 5 });
     expect(mockDispatch.mock.calls).toMatchSnapshot('onPage event, dispatch');
+    mockDispatch.mockClear();
+  });
+
+  it('should handle an onColumnSort event for hosts', () => {
+    const mockDispatch = jest.fn();
+    const onColumnSort = useOnColumnSortHosts({
+      sortColumns: { LOREM_IPSUM_COLUMN_ONE: 'loremIpsumColumnOne' },
+      useDispatch: () => mockDispatch,
+      useProduct: () => ({ productId: 'lorem' })
+    });
+
+    onColumnSort(null, { direction: SORT_DIRECTION_TYPES.DESCENDING, id: 'loremIpsumColumnOne' });
+    onColumnSort(null, { direction: SORT_DIRECTION_TYPES.ASCENDING, id: 'loremIpsumColumnOne' });
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('onColumnSort event, dispatch hosts');
     mockDispatch.mockClear();
   });
 

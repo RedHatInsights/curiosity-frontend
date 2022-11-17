@@ -63,12 +63,11 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "initialInventoryFilters": [
     {
       "cell": [Function],
-      "id": "displayName",
+      "id": "display_name",
       "isSortable": true,
     },
     {
       "cellWidth": 15,
-      "header": [Function],
       "id": "cores",
       "isOptional": true,
       "isSortable": true,
@@ -76,8 +75,8 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     },
     {
       "cell": [Function],
-      "cellWidth": 25,
-      "id": "lastSeen",
+      "cellWidth": 20,
+      "id": "last_seen",
       "isSortable": true,
       "isWrappable": true,
     },
@@ -197,12 +196,11 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "initialInventoryFilters": [
     {
       "cell": [Function],
-      "id": "displayName",
+      "id": "display_name",
       "isSortable": true,
     },
     {
       "cellWidth": 15,
-      "header": [Function],
       "id": "sockets",
       "isOptional": true,
       "isSortable": true,
@@ -210,8 +208,8 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     },
     {
       "cell": [Function],
-      "cellWidth": 25,
-      "id": "lastSeen",
+      "cellWidth": 20,
+      "id": "last_seen",
       "isSortable": true,
       "isWrappable": true,
     },

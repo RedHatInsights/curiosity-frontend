@@ -111,7 +111,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
-            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay !== DISPLAY_TYPES.HOURLY && initialInventoryFilters && (
+            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay === DISPLAY_TYPES.LEGACY && initialInventoryFilters && (
               <InventoryTab
                 key={`inventory_deprecated-hosts_${productId}`}
                 title={t('curiosity-inventory.tabHosts', { context: [productId] })}
@@ -128,10 +128,8 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               </InventoryTab>
             )}
             {!helpers.UI_DISABLED_TABLE_HOSTS &&
-              productDisplay !== DISPLAY_TYPES.DUAL_AXES &&
               productDisplay !== DISPLAY_TYPES.LEGACY &&
               productDisplay !== DISPLAY_TYPES.HOURLY &&
-              productDisplay !== DISPLAY_TYPES.PARTIAL &&
               initialInventoryFilters && (
                 <InventoryTab
                   key={`inventory_hosts_${productId}`}

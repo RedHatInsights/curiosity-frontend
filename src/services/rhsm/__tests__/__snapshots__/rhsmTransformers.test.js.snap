@@ -655,8 +655,10 @@ exports[`RHSM Transformers should attempt to parse an hosts response: hosts 1`] 
   "data": [
     {
       "numberOfGuests": 2,
+      "number_of_guests": 2,
       "sockets": 1000,
       "subscriptionManagerId": undefined,
+      "subscription_manager_id": undefined,
     },
   ],
   "meta": {

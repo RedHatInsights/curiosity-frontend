@@ -14,6 +14,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as INVENTORY_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { ChartTypeVariant } from '../components/chart/chart';
@@ -87,10 +88,12 @@ const config = {
   },
   initialInventoryFilters: [
     {
-      id: 'displayName',
-      cell: (data = {}) => {
-        const { displayName = {}, inventoryId = {}, numberOfGuests = {} } = data;
-
+      id: INVENTORY_TYPES.DISPLAY_NAME,
+      cell: ({
+        [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
+        [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {},
+        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
+      } = {}) => {
         if (!inventoryId.value) {
           return displayName.value;
         }
@@ -101,9 +104,11 @@ const config = {
           <React.Fragment>
             {updatedDisplayName}{' '}
             {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
-                <PfLabel color="blue" />
-              ])) ||
+              translate(
+                'curiosity-inventory.label',
+                { context: INVENTORY_TYPES.NUMBER_OF_GUESTS, count: numberOfGuests.value },
+                [<PfLabel color="blue" />]
+              )) ||
               ''}
           </React.Fragment>
         );
@@ -111,25 +116,25 @@ const config = {
       isSortable: true
     },
     {
-      id: 'coreHours',
-      cell: data =>
-        (typeof data?.coreHours?.value === 'number' && Number.parseFloat(data?.coreHours?.value).toFixed(2)) || `0.00`,
+      id: INVENTORY_TYPES.CORE_HOURS,
+      cell: ({ [INVENTORY_TYPES.CORE_HOURS]: coreHours }) =>
+        (typeof coreHours?.value === 'number' && Number.parseFloat(coreHours?.value).toFixed(2)) || `0.00`,
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
     {
-      id: 'instanceHours',
-      cell: data =>
-        (typeof data?.instanceHours?.value === 'number' && Number.parseFloat(data?.instanceHours?.value).toFixed(2)) ||
-        `0.00`,
+      id: INVENTORY_TYPES.INSTANCE_HOURS,
+      cell: ({ [INVENTORY_TYPES.INSTANCE_HOURS]: instanceHours } = {}) =>
+        (typeof instanceHours?.value === 'number' && Number.parseFloat(instanceHours?.value).toFixed(2)) || `0.00`,
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
     {
-      id: 'lastSeen',
-      cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
+      id: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
+        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15

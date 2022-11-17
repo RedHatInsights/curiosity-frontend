@@ -93,41 +93,41 @@ exports[`Product OpenShift Metrics config should apply hosts inventory configura
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
+      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "coreHours": {
-      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
+    "core_hours": {
+      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
       "value": 12.53,
     },
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-metrics"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift-metrics"})",
       "value": "hello world",
     },
   },
@@ -149,41 +149,41 @@ exports[`Product OpenShift Metrics config should apply hosts inventory configura
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
+      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "coreHours": {
-      "title": "t(curiosity-inventory.header, {"context":"coreHours"})",
+    "core_hours": {
+      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
       "value": null,
     },
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-metrics"})",
       "value": null,
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
       "value": null,
     },
     "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift-metrics"})",
       "value": "hello world",
     },
   },
