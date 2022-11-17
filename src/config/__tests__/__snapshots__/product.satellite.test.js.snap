@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product Satellite config should apply graph configuration: filters 1`] = `
+{
+  "groupedFiltersSettings": {
+    "settings": {
+      "isStandalone": false,
+      "metric": undefined,
+      "metrics": [
+        {
+          "chartType": "area",
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "Sockets_physical",
+          "isCapacity": false,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Sockets",
+          "query": {
+            "category": "physical",
+          },
+          "stroke": "#06c",
+          "strokeWidth": 2,
+        },
+        {
+          "chartType": "area",
+          "color": "#009596",
+          "fill": "#a2d9d9",
+          "id": "Sockets_hypervisor",
+          "isCapacity": false,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Sockets",
+          "query": {
+            "category": "hypervisor",
+          },
+          "stroke": "#009596",
+          "strokeWidth": 2,
+        },
+        {
+          "chartType": "area",
+          "color": "#5752d1",
+          "fill": "#b2b0ea",
+          "id": "Sockets_cloud",
+          "isCapacity": false,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Sockets",
+          "query": {
+            "category": "cloud",
+          },
+          "stroke": "#5752d1",
+          "strokeWidth": 2,
+        },
+      ],
+    },
+  },
+  "standaloneFiltersSettings": [],
+}
+`;
+
+exports[`Product Satellite config should apply graph configuration: settings 1`] = `{}`;
+
 exports[`Product Satellite config should apply guest inventory configuration: filtered 1`] = `
 {
   "cells": [

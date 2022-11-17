@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product OpenShift Container config should apply graph configuration: filters 1`] = `
+{
+  "groupedFiltersSettings": {
+    "settings": {
+      "isStandalone": false,
+      "metric": undefined,
+      "metrics": [
+        {
+          "chartType": "area",
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "Cores",
+          "isCapacity": false,
+          "isOptional": true,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Cores",
+          "stroke": "#06c",
+          "strokeWidth": 2,
+        },
+        {
+          "chartType": "area",
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "Sockets",
+          "isCapacity": false,
+          "isOptional": true,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Sockets",
+          "stroke": "#06c",
+          "strokeWidth": 2,
+        },
+        {
+          "chartType": "threshold",
+          "id": "threshold_Sockets",
+          "isCapacity": true,
+          "isOptional": true,
+          "isStacked": false,
+          "isStandalone": false,
+          "isThreshold": true,
+          "metric": "Sockets",
+          "stroke": "#4cb140",
+          "strokeDasharray": "4,3",
+          "strokeWidth": 3,
+        },
+        {
+          "chartType": "threshold",
+          "id": "threshold_Cores",
+          "isCapacity": true,
+          "isOptional": true,
+          "isStacked": false,
+          "isStandalone": false,
+          "isThreshold": true,
+          "metric": "Cores",
+          "stroke": "#4cb140",
+          "strokeDasharray": "4,3",
+          "strokeWidth": 3,
+        },
+      ],
+    },
+  },
+  "standaloneFiltersSettings": [],
+}
+`;
+
+exports[`Product OpenShift Container config should apply graph configuration: settings 1`] = `
+{
+  "isCardTitleDescription": true,
+}
+`;
+
 exports[`Product OpenShift Container config should apply guest inventory configuration: filtered 1`] = `
 {
   "cells": [

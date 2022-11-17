@@ -122,7 +122,7 @@ const Toolbar = ({
             })}
           </ToolbarGroup>
         </ToolbarToggleGroup>
-        <ToolbarItem alignment={{ default: 'alignRight' }}>{secondaryFields}</ToolbarItem>
+        <ToolbarGroup alignment={{ default: 'alignRight' }}>{secondaryFields}</ToolbarGroup>
       </ToolbarContent>
     </PfToolbar>
   );

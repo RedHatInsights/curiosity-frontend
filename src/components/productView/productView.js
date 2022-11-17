@@ -22,17 +22,6 @@ import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../serv
 import { translate } from '../i18n/i18n';
 
 /**
- * ToDo: base for default product layouts, add additional props for various toolbars
- * Next steps include...
- * Consider being able to pass customized toolbars for GraphCard and the
- * various Inventory displays. Have to evaluate how to handle the global toolbar, one
- * consideration is creating optional widgets with self-contained state update ability
- * based off of context/props/etc.
- *
- * Moving existing products to this layout, or maintaining them "as is", then renaming and
- * relocating them to this directory if they've been customized beyond a basic layout.
- */
-/**
  * Display product columns.
  *
  * @param {object} props
@@ -100,7 +89,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
           <Toolbar />
         </PageToolbar>
         <PageSection>
-          {productDisplay !== DISPLAY_TYPES.HOURLY && productDisplay !== DISPLAY_TYPES.PARTIAL && (
+          {productDisplay === DISPLAY_TYPES.LEGACY && (
             <ConnectedGraphCardDeprecated
               key={`graph_${productId}`}
               query={initialGraphTallyQuery}
@@ -112,8 +101,7 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
                 (toolbarGraph !== false && <ToolbarFieldGranularity position={SelectPosition.right} />)}
             </ConnectedGraphCardDeprecated>
           )}
-          {(productDisplay === DISPLAY_TYPES.HOURLY && <GraphCard />) ||
-            (productDisplay === DISPLAY_TYPES.PARTIAL && <GraphCard />)}
+          {productDisplay !== DISPLAY_TYPES.LEGACY && <GraphCard />}
         </PageSection>
         <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
           <InventoryTabs
@@ -123,33 +111,35 @@ const ProductView = ({ t, toolbarGraph, toolbarGraphDescription, useRouteDetail:
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
+            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay !== DISPLAY_TYPES.HOURLY && initialInventoryFilters && (
+              <InventoryTab
+                key={`inventory_deprecated-hosts_${productId}`}
+                title={t('curiosity-inventory.tabHosts', { context: [productId] })}
+              >
+                <ConnectedInventoryListDeprecated
+                  key={`inv_${productId}`}
+                  filterGuestsData={initialGuestsFilters}
+                  filterInventoryData={initialInventoryFilters}
+                  productId={productId}
+                  settings={initialInventorySettings}
+                  query={initialInventoryHostsQuery}
+                  viewId={viewId}
+                />
+              </InventoryTab>
+            )}
             {!helpers.UI_DISABLED_TABLE_HOSTS &&
+              productDisplay !== DISPLAY_TYPES.DUAL_AXES &&
+              productDisplay !== DISPLAY_TYPES.LEGACY &&
               productDisplay !== DISPLAY_TYPES.HOURLY &&
               productDisplay !== DISPLAY_TYPES.PARTIAL &&
               initialInventoryFilters && (
                 <InventoryTab
-                  key={`inventory_deprecated-hosts_${productId}`}
+                  key={`inventory_hosts_${productId}`}
                   title={t('curiosity-inventory.tabHosts', { context: [productId] })}
                 >
-                  <ConnectedInventoryListDeprecated
-                    key={`inv_${productId}`}
-                    filterGuestsData={initialGuestsFilters}
-                    filterInventoryData={initialInventoryFilters}
-                    productId={productId}
-                    settings={initialInventorySettings}
-                    query={initialInventoryHostsQuery}
-                    viewId={viewId}
-                  />
+                  <InventoryCardHosts />
                 </InventoryTab>
               )}
-            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay === DISPLAY_TYPES.PARTIAL && initialInventoryFilters && (
-              <InventoryTab
-                key={`inventory_hosts_${productId}`}
-                title={t('curiosity-inventory.tabHosts', { context: [productId] })}
-              >
-                <InventoryCardHosts />
-              </InventoryTab>
-            )}
             {!helpers.UI_DISABLED_TABLE_INSTANCES &&
               productDisplay === DISPLAY_TYPES.HOURLY &&
               initialInventoryFilters && (

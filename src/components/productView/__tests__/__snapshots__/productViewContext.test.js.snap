@@ -31,17 +31,19 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     {
       "color": "#06c",
       "fill": "#8bc1f7",
-      "id": "cores",
       "isOptional": true,
+      "metric": "Cores",
       "stroke": "#06c",
     },
     {
       "chartType": "threshold",
-      "id": "thresholdCores",
       "isOptional": true,
+      "metric": "Cores",
     },
   ],
-  "initialGraphSettings": {},
+  "initialGraphSettings": {
+    "isCardTitleDescription": true,
+  },
   "initialGuestsFilters": [
     {
       "cell": [Function],
@@ -82,6 +84,14 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   ],
   "initialInventorySettings": {},
   "initialOption": "cores",
+  "initialSecondaryToolbarFilters": [
+    {
+      "id": "uom",
+    },
+    {
+      "id": "granularity",
+    },
+  ],
   "initialSubscriptionsInventoryFilters": [
     {
       "id": "product_name",
@@ -133,7 +143,7 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     "offset": 0,
     "sort": "next_event_date",
   },
-  "productDisplay": "legacy",
+  "productDisplay": "partial",
   "productGroup": "OpenShift Container Platform",
   "productId": "OpenShift Container Platform",
   "productLabel": "OpenShift Container Platform",
@@ -155,17 +165,19 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     {
       "color": "#06c",
       "fill": "#8bc1f7",
-      "id": "sockets",
       "isOptional": true,
+      "metric": "Sockets",
       "stroke": "#06c",
     },
     {
       "chartType": "threshold",
-      "id": "thresholdSockets",
       "isOptional": true,
+      "metric": "Sockets",
     },
   ],
-  "initialGraphSettings": {},
+  "initialGraphSettings": {
+    "isCardTitleDescription": true,
+  },
   "initialGuestsFilters": [
     {
       "cell": [Function],
@@ -206,6 +218,14 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   ],
   "initialInventorySettings": {},
   "initialOption": "cores",
+  "initialSecondaryToolbarFilters": [
+    {
+      "id": "uom",
+    },
+    {
+      "id": "granularity",
+    },
+  ],
   "initialSubscriptionsInventoryFilters": [
     {
       "id": "product_name",
@@ -257,7 +277,7 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     "offset": 0,
     "sort": "next_event_date",
   },
-  "productDisplay": "legacy",
+  "productDisplay": "partial",
   "productGroup": "OpenShift Container Platform",
   "productId": "OpenShift Container Platform",
   "productLabel": "OpenShift Container Platform",

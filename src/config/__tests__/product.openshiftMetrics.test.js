@@ -1,95 +1,116 @@
 import { config } from '../product.openshiftMetrics';
+import { generateChartIds, generateChartSettings } from '../../components/graphCard/graphCardHelpers';
 import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
+  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SET_TYPES
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Metrics config', () => {
   it('should apply graph configuration', () => {
-    const { initialGraphSettings } = config;
+    const { initialGraphFilters, initialGraphSettings } = config;
+
+    expect(generateChartSettings({ filters: initialGraphFilters })).toMatchSnapshot('filters');
+    expect(initialGraphSettings).toMatchSnapshot('settings');
 
     expect({
       productActionDisplay: initialGraphSettings.actionDisplay({
-        data: {
-          coreHours: [
-            {
-              y: 0
-            },
-            {
-              y: 400
-            },
-            {
-              y: 100
+        data: [
+          {
+            id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
+            metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+            data: [
+              {
+                y: 0
+              },
+              {
+                y: 400
+              },
+              {
+                y: 100
+              }
+            ],
+            meta: {
+              totalMonthlyValue: 500
             }
-          ]
-        },
-        meta: {
-          totalCoreHours: 500
-        }
+          }
+        ]
       })
     }).toMatchSnapshot('product action display should display a total value below 1000');
 
     expect({
       productActionDisplay: initialGraphSettings.actionDisplay({
-        data: {
-          coreHours: [
-            {
-              y: 0
-            },
-            {
-              y: 800000
-            },
-            {
-              y: 100000
+        data: [
+          {
+            id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
+            metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+            data: [
+              {
+                y: 0
+              },
+              {
+                y: 800000
+              },
+              {
+                y: 100000
+              }
+            ],
+            meta: {
+              totalMonthlyValue: 900000
             }
-          ]
-        },
-        meta: {
-          totalCoreHours: 900000
-        }
+          }
+        ]
       })
     }).toMatchSnapshot('product action display should display a total value below 1000000');
 
     expect({
       productActionDisplay: initialGraphSettings.actionDisplay({
-        data: {
-          coreHours: [
-            {
-              y: 0
-            },
-            {
-              y: 1000
-            },
-            {
-              y: 100
+        data: [
+          {
+            id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
+            metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+            data: [
+              {
+                y: 0
+              },
+              {
+                y: 1000
+              },
+              {
+                y: 100
+              }
+            ],
+            meta: {
+              totalMonthlyValue: 1100
             }
-          ]
-        },
-        meta: {
-          totalCoreHours: 1100
-        }
+          }
+        ]
       })
     }).toMatchSnapshot('product action display should display a total value');
 
     expect({
       productActionDisplay: initialGraphSettings.actionDisplay({
-        data: {
-          loremIpsum: [
-            {
-              y: 0
-            },
-            {
-              y: 1000
-            },
-            {
-              y: 100
+        data: [
+          {
+            id: generateChartIds({ isCapacity: false, metric: 'loremIpsum', productId: 'Ipsum' }),
+            metric: 'loremIpsum',
+            data: [
+              {
+                y: 0
+              },
+              {
+                y: 1000
+              },
+              {
+                y: 100
+              }
+            ],
+            meta: {
+              totalMonthlyValue: undefined
             }
-          ]
-        },
-        meta: {
-          totalCoreHours: undefined
-        }
+          }
+        ]
       })
     }).toMatchSnapshot('product action display should NOT display a total value');
   });
