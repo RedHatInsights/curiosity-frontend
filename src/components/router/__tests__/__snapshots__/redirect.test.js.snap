@@ -86,12 +86,11 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
       "initialInventoryFilters": [
         {
           "cell": [Function],
-          "id": "displayName",
+          "id": "display_name",
           "isSortable": true,
         },
         {
           "cellWidth": 15,
-          "header": [Function],
           "id": "sockets",
           "isOptional": true,
           "isSortable": true,
@@ -99,7 +98,6 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         },
         {
           "cellWidth": 15,
-          "header": [Function],
           "id": "cores",
           "isOptional": true,
           "isSortable": true,
@@ -107,8 +105,8 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         },
         {
           "cell": [Function],
-          "cellWidth": 25,
-          "id": "lastSeen",
+          "cellWidth": 20,
+          "id": "last_seen",
           "isSortable": true,
           "isWrappable": true,
         },
@@ -205,20 +203,20 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
       "initialInventoryFilters": [
         {
           "cell": [Function],
-          "id": "displayName",
+          "id": "display_name",
           "isSortable": true,
         },
         {
           "cell": [Function],
           "cellWidth": 20,
-          "id": "coreHours",
+          "id": "core_hours",
           "isSortable": true,
           "isWrappable": true,
         },
         {
           "cell": [Function],
-          "cellWidth": 25,
-          "id": "lastSeen",
+          "cellWidth": 20,
+          "id": "last_seen",
           "isSortable": true,
           "isWrappable": true,
         },
@@ -306,27 +304,27 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
             "initialInventoryFilters": [
               {
                 "cell": [Function],
-                "id": "displayName",
+                "id": "display_name",
                 "isSortable": true,
               },
               {
                 "cell": [Function],
                 "cellWidth": 15,
-                "id": "coreHours",
-                "isSortable": true,
-                "isWrappable": true,
-              },
-              {
-                "cell": [Function],
-                "cellWidth": 15,
-                "id": "instanceHours",
+                "id": "core_hours",
                 "isSortable": true,
                 "isWrappable": true,
               },
               {
                 "cell": [Function],
                 "cellWidth": 15,
-                "id": "lastSeen",
+                "id": "instance_hours",
+                "isSortable": true,
+                "isWrappable": true,
+              },
+              {
+                "cell": [Function],
+                "cellWidth": 15,
+                "id": "last_seen",
                 "isSortable": true,
                 "isWrappable": true,
               },

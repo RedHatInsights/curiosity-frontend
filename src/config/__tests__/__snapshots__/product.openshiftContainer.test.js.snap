@@ -221,7 +221,7 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
       "transforms": [],
     },
     {
@@ -237,7 +237,7 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -245,31 +245,31 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
   ],
   "data": {
     "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
+      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
       "value": 20,
     },
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift Container Platform"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift Container Platform"})",
       "value": "hello world",
     },
-    "numberOfGuests": {
-      "title": "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"OpenShift Container Platform"})",
       "value": 3,
     },
     "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
       "value": 100,
     },
   },
@@ -294,7 +294,7 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
       "transforms": [],
     },
     {
@@ -310,7 +310,7 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -318,31 +318,31 @@ exports[`Product OpenShift Container config should apply hosts inventory configu
   ],
   "data": {
     "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
+      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
     "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift Container Platform"})",
       "value": "hello world",
     },
-    "numberOfGuests": {
-      "title": "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
     "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
   },

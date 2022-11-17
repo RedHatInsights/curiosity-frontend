@@ -4,6 +4,7 @@ import { parseRowCellsListData } from '../../components/inventoryCard/inventoryC
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
 } from '../../services/rhsm/rhsmConstants';
 
@@ -16,37 +17,39 @@ describe('Product OpenShift Container config', () => {
   });
 
   it('should apply hosts inventory configuration', () => {
-    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
+    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery, productId } = config;
 
     const inventoryData = {
-      displayName: 'lorem',
-      inventoryId: 'lorem inventory id',
-      numberOfGuests: 3,
-      cores: 20,
-      sockets: 100,
-      lastSeen: '2022-01-01T00:00:00.000Z',
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
+      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 3,
+      [INVENTORY_TYPES.CORES]: 20,
+      [INVENTORY_TYPES.SOCKETS]: 100,
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 
     const filteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: inventoryData
+      cellData: inventoryData,
+      productId
     });
 
     expect(filteredInventoryData).toMatchSnapshot('filtered');
 
     const fallbackInventoryData = {
       ...inventoryData,
-      inventoryId: null,
-      numberOfGuests: null,
-      cores: null,
-      sockets: null,
-      lastSeen: null
+      [INVENTORY_TYPES.INVENTORY_ID]: null,
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: null,
+      [INVENTORY_TYPES.CORES]: null,
+      [INVENTORY_TYPES.SOCKETS]: null,
+      [INVENTORY_TYPES.LAST_SEEN]: null
     };
 
     const fallbackFilteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: fallbackInventoryData
+      cellData: fallbackInventoryData,
+      productId
     });
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');

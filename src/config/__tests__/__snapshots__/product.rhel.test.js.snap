@@ -227,11 +227,11 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
+      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
       "transforms": [
         [Function],
       ],
@@ -243,7 +243,7 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
@@ -254,32 +254,32 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       "title": "t(curiosity-inventory.header, {"context":"cores"})",
       "value": 12,
     },
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "hardwareType": {
-      "title": "t(curiosity-inventory.header, {"context":"hardwareType"})",
+    "hardware_type": {
+      "title": "t(curiosity-inventory.header_hardware, {"context":"type"})",
       "value": "ipsum",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "measurementType": {
-      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
+    "measurement_type": {
+      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
       "value": null,
     },
-    "numberOfGuests": {
-      "title": "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
       "value": 3,
     },
     "sockets": {
@@ -316,11 +316,11 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
+      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
       "transforms": [
         [Function],
       ],
@@ -332,47 +332,47 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "cloudProvider": {
-      "title": "t(curiosity-inventory.header, {"context":"cloudProvider"})",
+    "cloud_provider": {
+      "title": "t(curiosity-inventory.header_cloud, {"context":"provider"})",
       "value": "dolor sit",
     },
     "cores": {
       "title": "t(curiosity-inventory.header, {"context":"cores"})",
       "value": 12,
     },
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "hardwareType": {
-      "title": "t(curiosity-inventory.header, {"context":"hardwareType"})",
+    "hardware_type": {
+      "title": "t(curiosity-inventory.header_hardware, {"context":"type"})",
       "value": "ipsum",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": null,
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": null,
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "measurementType": {
-      "title": "t(curiosity-inventory.header, {"context":"measurementType"})",
+    "measurement_type": {
+      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
       "value": null,
     },
-    "numberOfGuests": {
-      "title": "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
       "value": 3,
     },
     "sockets": {

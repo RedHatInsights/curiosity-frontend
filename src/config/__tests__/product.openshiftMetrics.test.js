@@ -4,7 +4,8 @@ import { parseRowCellsListData } from '../../components/inventoryCard/inventoryC
 import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_SET_TYPES
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Metrics config', () => {
@@ -116,33 +117,35 @@ describe('Product OpenShift Metrics config', () => {
   });
 
   it('should apply hosts inventory configuration', () => {
-    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
+    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery, productId } = config;
 
     const inventoryData = {
-      displayName: 'lorem',
-      inventoryId: 'lorem inventory id',
-      coreHours: 12.53,
-      lastSeen: '2022-01-01T00:00:00.000Z',
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
+      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.CORE_HOURS]: 12.53,
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 
     const filteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: inventoryData
+      cellData: inventoryData,
+      productId
     });
 
     expect(filteredInventoryData).toMatchSnapshot('filtered');
 
     const fallbackInventoryData = {
       ...inventoryData,
-      coreHours: null,
-      inventoryId: null,
-      lastSeen: null
+      [INVENTORY_TYPES.INVENTORY_ID]: null,
+      [INVENTORY_TYPES.CORE_HOURS]: null,
+      [INVENTORY_TYPES.LAST_SEEN]: null
     };
 
     const fallbackFilteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: fallbackInventoryData
+      cellData: fallbackInventoryData,
+      productId
     });
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
