@@ -71,7 +71,7 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-dolorSit_mock-product-id"
+    key="curiosity-tooltip-threshold_dolorSit_mock-product-id"
     position="top"
   >
     <Button
@@ -91,13 +91,13 @@ exports[`GraphCardChartLegend Component should handle variations in data when re
         />
       }
       isDisabled={false}
-      key="curiosity-button-dolorSit_mock-product-id"
+      key="curiosity-button-threshold_dolorSit_mock-product-id"
       onClick={[Function]}
       onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
-      t([curiosity-graph.label,curiosity-graph.label_no], {"product":"mock-product-label","context":"threshold"})
+      t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
     </Button>
   </Tooltip>
 </Fragment>
@@ -224,7 +224,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-dolorSit_mock-product-id"
+    key="curiosity-tooltip-threshold_dolorSit_mock-product-id"
     position="top"
   >
     <Button
@@ -244,13 +244,13 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         />
       }
       isDisabled={false}
-      key="curiosity-button-dolorSit_mock-product-id"
+      key="curiosity-button-threshold_dolorSit_mock-product-id"
       onClick={[Function]}
       onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
-      t([curiosity-graph.label,curiosity-graph.label_no], {"product":"mock-product-label","context":"threshold"})
+      t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
     </Button>
   </Tooltip>
   <Tooltip
@@ -261,7 +261,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-nonCursus_mock-product-id"
+    key="curiosity-tooltip-threshold_nonCursus_mock-product-id"
     position="top"
   >
     <Button
@@ -281,13 +281,13 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         />
       }
       isDisabled={false}
-      key="curiosity-button-nonCursus_mock-product-id"
+      key="curiosity-button-threshold_nonCursus_mock-product-id"
       onClick={[Function]}
       onKeyPress={[Function]}
       tabIndex={0}
       variant="link"
     >
-      t([curiosity-graph.label,curiosity-graph.label_no], {"product":"mock-product-label","context":"threshold"})
+      t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
     </Button>
   </Tooltip>
 </Fragment>

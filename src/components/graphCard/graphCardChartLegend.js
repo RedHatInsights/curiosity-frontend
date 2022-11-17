@@ -73,14 +73,14 @@ const GraphCardChartLegend = ({
 
         const labelContent = t([`curiosity-graph.label`, 'curiosity-graph.label_no'], {
           product: productLabel,
-          context: (isThreshold && 'threshold') || id
+          context: id
         });
 
         const tooltipContent = t(
           `curiosity-graph.legendTooltip`,
           {
             product: productLabel,
-            context: [isThreshold && 'threshold', id]
+            context: id
           },
           [<span style={{ whiteSpace: 'nowrap' }} />]
         );
@@ -145,9 +145,10 @@ GraphCardChartLegend.propTypes = {
   datum: PropTypes.shape({
     dataSets: PropTypes.arrayOf(
       PropTypes.shape({
-        stroke: PropTypes.string.isRequired,
+        data: PropTypes.array,
         id: PropTypes.string.isRequired,
-        isThreshold: PropTypes.bool
+        isThreshold: PropTypes.bool,
+        stroke: PropTypes.string.isRequired
       })
     )
   }),

@@ -11,14 +11,17 @@ import { dateHelpers, helpers } from '../../common';
  * Generate a consistent chart identifier from API.
  *
  * @param {object} params
+ * @param {boolean} params.isCapacity
  * @param {string} params.metric
  * @param {string} params.productId
  * @param {object} params.query
  * @returns {string}
  */
-const generateChartIds = ({ metric, productId, query = {} } = {}) => {
+const generateChartIds = ({ isCapacity, metric, productId, query = {} } = {}) => {
   const metricCategory = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY] || undefined;
-  return `${metric}${(metricCategory && `_${metricCategory}`) || ''}${(productId && `_${productId}`) || ''}`;
+  return `${(isCapacity && 'threshold_') || ''}${metric}${(metricCategory && `_${metricCategory}`) || ''}${
+    (productId && `_${productId}`) || ''
+  }`;
 };
 
 /**
@@ -41,7 +44,7 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
 
     const isThreshold = filterSettings?.chartType === ChartTypeVariant.threshold;
     const baseFilterSettings = {
-      id: generateChartIds({ metric, productId, query: filterSettings?.query }),
+      id: generateChartIds({ isCapacity: isThreshold, metric, productId, query: filterSettings?.query }),
       isStacked: !isThreshold,
       isStandalone,
       isThreshold,

@@ -64,11 +64,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.label",
-        "match": "t([\`curiosity-graph.label\`, 'curiosity-graph.label_no'], { product: productLabel, context: (isThreshold && 'threshold')",
+        "match": "t([\`curiosity-graph.label\`, 'curiosity-graph.label_no'], { product: productLabel, context: id })",
       },
       {
         "key": "curiosity-graph.legendTooltip",
-        "match": "t( \`curiosity-graph.legendTooltip\`, { product: productLabel, context: [isThreshold && 'threshold', id] }, [<span style={{ whiteSpace: 'nowrap' }} />] )",
+        "match": "t( \`curiosity-graph.legendTooltip\`, { product: productLabel, context: id }, [<span style={{ whiteSpace: 'nowrap' }} />] )",
       },
     ],
   },
