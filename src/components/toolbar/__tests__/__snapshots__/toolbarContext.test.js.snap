@@ -148,10 +148,12 @@ exports[`ToolbarContext should apply a hook for retrieving api queries specific 
 
 exports[`ToolbarContext should apply a hook for retrieving secondary toolbar field components: secondary field, rangedMonthly 1`] = `
 [
-  <RangedMonthly
-    isFilter={false}
-    position="right"
-  />,
+  <ToolbarItem>
+    <RangedMonthly
+      isFilter={false}
+      position="right"
+    />
+  </ToolbarItem>,
 ]
 `;
 

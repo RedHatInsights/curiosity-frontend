@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product OpenShift Dedicated config should apply graph configuration: filters 1`] = `
+{
+  "groupedFiltersSettings": {
+    "settings": {
+      "isStandalone": false,
+      "metric": undefined,
+      "metrics": [
+        {
+          "chartType": "line",
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "id": "Cores",
+          "isCapacity": false,
+          "isStacked": false,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Cores",
+          "stroke": "#06c",
+          "strokeWidth": 2,
+          "yAxisUseDataSet": true,
+        },
+        {
+          "chartType": "line",
+          "color": "#009596",
+          "fill": "#a2d9d9",
+          "id": "Instance-hours",
+          "isCapacity": false,
+          "isStacked": false,
+          "isStandalone": false,
+          "isThreshold": false,
+          "metric": "Instance-hours",
+          "stroke": "#009596",
+          "strokeWidth": 2,
+          "yAxisUseDataSet": true,
+        },
+      ],
+    },
+  },
+  "standaloneFiltersSettings": [],
+}
+`;
+
 exports[`Product OpenShift Dedicated config should apply graph configuration: product action display should NOT display a total value 1`] = `
 {
   "productActionDisplay": <div
@@ -13,7 +55,7 @@ exports[`Product OpenShift Dedicated config should apply graph configuration: pr
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
-    t(curiosity-graph.cardActionTotal, {"context":"coreHours","total":"1.1K"})
+    t(curiosity-graph.cardActionTotal_Cores, {"context":"Ipsum","total":"1.1K"})
   </div>,
 }
 `;
@@ -23,7 +65,7 @@ exports[`Product OpenShift Dedicated config should apply graph configuration: pr
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
-    t(curiosity-graph.cardActionTotal, {"context":"coreHours","total":"500"})
+    t(curiosity-graph.cardActionTotal_Cores, {"context":"Ipsum","total":"500"})
   </div>,
 }
 `;
@@ -33,8 +75,15 @@ exports[`Product OpenShift Dedicated config should apply graph configuration: pr
   "productActionDisplay": <div
     className="curiosity-usage-graph__total"
   >
-    t(curiosity-graph.cardActionTotal, {"context":"coreHours","total":"900K"})
+    t(curiosity-graph.cardActionTotal_Cores, {"context":"Ipsum","total":"900K"})
   </div>,
+}
+`;
+
+exports[`Product OpenShift Dedicated config should apply graph configuration: settings 1`] = `
+{
+  "actionDisplay": [Function],
+  "isCardTitleDescription": true,
 }
 `;
 

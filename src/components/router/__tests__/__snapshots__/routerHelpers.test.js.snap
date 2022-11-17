@@ -252,7 +252,7 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
     },
     {
       "activateOnError": false,
-      "component": "productView/productViewOpenShiftContainer",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "openshift-container",
@@ -261,7 +261,7 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
     },
     {
       "activateOnError": false,
-      "component": "productView/productViewOpenShiftDedicated",
+      "component": "productView/productView",
       "disabled": false,
       "exact": true,
       "id": "openshift-dedicated",
