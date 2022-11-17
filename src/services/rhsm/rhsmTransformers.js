@@ -104,6 +104,8 @@ const rhsmHosts = response => {
       [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
       ...dataResponse
     }) => ({
+      [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
+      [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
       numberOfGuests,
       subscriptionManagerId,
       ...dataResponse
