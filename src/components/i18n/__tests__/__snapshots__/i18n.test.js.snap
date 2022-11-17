@@ -519,14 +519,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['sockets', 'OpenShift Container Platform'] })",
-      },
-      {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['cores', 'OpenShift Container Platform'] })",
-      },
-      {
-        "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
       },
       {
@@ -544,7 +536,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate( 'curiosity-inventory.label', { context: INVENTORY_TYPES.NUMBER_OF_GUESTS, count: numberOfGuests.value }, [<PfLabel color="blue" />] )",
       },
     ],
   },
@@ -603,11 +595,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.measurementType",
-        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
+        "match": "translate('curiosity-inventory.measurementType', { context: measurementType?.value })",
       },
       {
         "key": "curiosity-inventory.cloudProvider",
-        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
+        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider?.value })",
       },
       {
         "key": "curiosity-inventory.header",
@@ -714,11 +706,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.measurementType",
-        "match": "translate('curiosity-inventory.measurementType', { context: measurementType.value })",
+        "match": "translate('curiosity-inventory.measurementType', { context: measurementType?.value })",
       },
       {
         "key": "curiosity-inventory.cloudProvider",
-        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })",
+        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider?.value })",
       },
     ],
   },

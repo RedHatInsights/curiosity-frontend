@@ -18,6 +18,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as INVENTORY_SORT_TYPES,
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
@@ -131,9 +132,15 @@ const config = {
   ],
   initialInventoryFilters: [
     {
-      id: 'displayName',
-      cell: (data, session) => {
-        const { displayName = {}, inventoryId = {}, numberOfGuests = {} } = data;
+      id: INVENTORY_TYPES.DISPLAY_NAME,
+      cell: (
+        {
+          [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
+          [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {},
+          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
+        } = {},
+        session
+      ) => {
         const { inventory: authorized } = session?.authorized || {};
 
         if (!inventoryId.value) {
@@ -169,33 +176,34 @@ const config = {
       isSortable: true
     },
     {
-      id: 'measurementType',
-      cell: (data = {}) => {
-        const { cloudProvider = {}, measurementType = {} } = data;
-        return (
-          <React.Fragment>
-            {translate('curiosity-inventory.measurementType', { context: measurementType.value })}{' '}
-            {(cloudProvider.value && (
-              <PfLabel color="purple">
-                {translate('curiosity-inventory.cloudProvider', { context: cloudProvider.value })}
-              </PfLabel>
-            )) ||
-              ''}
-          </React.Fragment>
-        );
-      },
+      id: INVENTORY_TYPES.MEASUREMENT_TYPE,
+      cell: ({
+        [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider,
+        [INVENTORY_TYPES.MEASUREMENT_TYPE]: measurementType
+      } = {}) => (
+        <React.Fragment>
+          {translate('curiosity-inventory.measurementType', { context: measurementType?.value })}{' '}
+          {(cloudProvider?.value && (
+            <PfLabel color="purple">
+              {translate('curiosity-inventory.cloudProvider', { context: cloudProvider?.value })}
+            </PfLabel>
+          )) ||
+            ''}
+        </React.Fragment>
+      ),
       isSortable: true,
       cellWidth: 20
     },
     {
-      id: 'sockets',
+      id: INVENTORY_TYPES.SOCKETS,
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
     {
-      id: 'lastSeen',
-      cell: data => (data?.lastSeen?.value && <DateFormat date={data?.lastSeen?.value} />) || '',
+      id: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen }) =>
+        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15

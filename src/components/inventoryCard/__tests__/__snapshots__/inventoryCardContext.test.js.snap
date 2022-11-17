@@ -57,6 +57,39 @@ exports[`InventoryCardContext should handle a store response with useGetInstance
 }
 `;
 
+exports[`InventoryCardContext should handle an onColumnSort event for hosts: onColumnSort event, dispatch hosts 1`] = `
+[
+  [
+    [
+      {
+        "dir": "desc",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "viewId": "lorem",
+      },
+      {
+        "sort": "loremIpsumColumnOne",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  [
+    [
+      {
+        "dir": "asc",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "viewId": "lorem",
+      },
+      {
+        "sort": "loremIpsumColumnOne",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`InventoryCardContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
 [
   [
@@ -203,6 +236,7 @@ exports[`InventoryCardContext should return specific properties: specific proper
 {
   "useGetHostsInventory": [Function],
   "useGetInstancesInventory": [Function],
+  "useOnColumnSortHosts": [Function],
   "useOnColumnSortInstances": [Function],
   "useOnPageInstances": [Function],
 }
