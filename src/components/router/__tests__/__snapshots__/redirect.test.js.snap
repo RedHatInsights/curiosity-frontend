@@ -26,7 +26,7 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
 {
   "activateOnError": false,
   "aliases": [],
-  "component": "productView/productViewOpenShiftContainer",
+  "component": "productView/productView",
   "default": false,
   "disabled": false,
   "id": "openshift-container",
@@ -42,29 +42,31 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         {
           "color": "#06c",
           "fill": "#8bc1f7",
-          "id": "cores",
           "isOptional": true,
+          "metric": "Cores",
           "stroke": "#06c",
         },
         {
           "color": "#06c",
           "fill": "#8bc1f7",
-          "id": "sockets",
           "isOptional": true,
+          "metric": "Sockets",
           "stroke": "#06c",
         },
         {
           "chartType": "threshold",
-          "id": "thresholdSockets",
           "isOptional": true,
+          "metric": "Sockets",
         },
         {
           "chartType": "threshold",
-          "id": "thresholdCores",
           "isOptional": true,
+          "metric": "Cores",
         },
       ],
-      "initialGraphSettings": {},
+      "initialGraphSettings": {
+        "isCardTitleDescription": true,
+      },
       "initialGuestsFilters": [
         {
           "cell": [Function],
@@ -113,6 +115,14 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
       ],
       "initialInventorySettings": {},
       "initialOption": "cores",
+      "initialSecondaryToolbarFilters": [
+        {
+          "id": "uom",
+        },
+        {
+          "id": "granularity",
+        },
+      ],
       "initialSubscriptionsInventoryFilters": [
         {
           "id": "product_name",
@@ -165,7 +175,7 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         "sort": "next_event_date",
       },
       "productContextFilterUom": true,
-      "productDisplay": "legacy",
+      "productDisplay": "partial",
       "productGroup": "OpenShift Container Platform",
       "productId": "OpenShift Container Platform",
       "productLabel": "OpenShift Container Platform",
@@ -184,12 +194,13 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         {
           "color": "#06c",
           "fill": "#8bc1f7",
-          "id": "coreHours",
+          "metric": "Cores",
           "stroke": "#06c",
         },
       ],
       "initialGraphSettings": {
         "actionDisplay": [Function],
+        "isCardTitleDescription": true,
       },
       "initialInventoryFilters": [
         {
@@ -212,6 +223,11 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
           "isWrappable": true,
         },
       ],
+      "initialSecondaryToolbarFilters": [
+        {
+          "id": "rangedMonthly",
+        },
+      ],
       "initialToolbarFilters": undefined,
       "inventoryHostsQuery": {
         "dir": "desc",
@@ -219,7 +235,7 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         "offset": 0,
         "sort": "last_seen",
       },
-      "productDisplay": "legacy",
+      "productDisplay": "partial",
       "productGroup": "OpenShift-metrics",
       "productId": "OpenShift-metrics",
       "productLabel": "OpenShift-metrics",
@@ -251,7 +267,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       {
         "activateOnError": false,
         "aliases": [],
-        "component": "productView/productViewOpenShiftDedicated",
+        "component": "productView/productView",
         "default": false,
         "disabled": false,
         "id": "openshift-dedicated",
@@ -268,8 +284,8 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
                 "chartType": "line",
                 "color": "#06c",
                 "fill": "#8bc1f7",
-                "id": "coreHours",
                 "isStacked": false,
+                "metric": "Cores",
                 "stroke": "#06c",
                 "yAxisUseDataSet": true,
               },
@@ -277,14 +293,15 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
                 "chartType": "line",
                 "color": "#009596",
                 "fill": "#a2d9d9",
-                "id": "instanceHours",
                 "isStacked": false,
+                "metric": "Instance-hours",
                 "stroke": "#009596",
                 "yAxisUseDataSet": true,
               },
             ],
             "initialGraphSettings": {
               "actionDisplay": [Function],
+              "isCardTitleDescription": true,
             },
             "initialInventoryFilters": [
               {
@@ -312,6 +329,11 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
                 "id": "lastSeen",
                 "isSortable": true,
                 "isWrappable": true,
+              },
+            ],
+            "initialSecondaryToolbarFilters": [
+              {
+                "id": "rangedMonthly",
               },
             ],
             "initialToolbarFilters": undefined,
@@ -384,7 +406,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       {
         "activateOnError": false,
-        "component": "productView/productViewOpenShiftContainer",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "openshift-container",
@@ -393,7 +415,7 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
       },
       {
         "activateOnError": false,
-        "component": "productView/productViewOpenShiftDedicated",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "openshift-dedicated",

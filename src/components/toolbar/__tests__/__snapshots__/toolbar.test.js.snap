@@ -38,7 +38,7 @@ exports[`Toolbar Component should handle displaying secondary components, fields
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ToolbarItem
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
@@ -50,7 +50,7 @@ exports[`Toolbar Component should handle displaying secondary components, fields
       >
         lorem ipsum
       </span>
-    </ToolbarItem>
+    </ForwardRef>
   </ToolbarContent>
 </Toolbar>
 `;
@@ -118,7 +118,7 @@ exports[`Toolbar Component should hide categories when a single filter is availa
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ToolbarItem
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
@@ -185,7 +185,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ToolbarItem
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
@@ -226,7 +226,7 @@ exports[`Toolbar Component should return an empty render when disabled or missin
         variant="filter-group"
       />
     </ToolbarToggleGroup>
-    <ToolbarItem
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
@@ -238,7 +238,7 @@ exports[`Toolbar Component should return an empty render when disabled or missin
       >
         lorem ipsum
       </span>
-    </ToolbarItem>
+    </ForwardRef>
   </ToolbarContent>
 </Toolbar>
 `;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToolbarItem } from '@patternfly/react-core';
 import { useProductQuery, useProductGraphTallyQuery, useProductToolbarConfig } from '../productView/productViewContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { useOnSelect as useSelectCategoryOnSelect, toolbarFieldOptions } from './toolbarFieldSelectCategory';
@@ -6,6 +7,7 @@ import { useOnSelect as useBillingProviderOnSelect } from './toolbarFieldBilling
 import { useOnSelect as useSlaOnSelect } from './toolbarFieldSla';
 import { useOnSelect as useUsageOnSelect } from './toolbarFieldUsage';
 import { SelectPosition } from '../form/select';
+import { helpers } from '../../common/helpers';
 
 /**
  * Return current values for categories/queries.
@@ -132,12 +134,18 @@ const useToolbarSecondaryFields = ({
 } = {}) => {
   const { secondaryFilters = [] } = useAliasProductToolbarConfig();
 
-  return secondaryFilters.map(({ id }) => {
-    const { component: OptionComponent } = categoryOptions.find(
-      ({ value: categoryOptionValue }) => id === categoryOptionValue
-    );
+  return secondaryFilters.map(({ id, content }) => {
+    const option = categoryOptions.find(({ value: categoryOptionValue }) => id === categoryOptionValue);
+    const { component: OptionComponent } = option || {};
 
-    return <OptionComponent key={`option-${id}`} isFilter={false} position={SelectPosition.right} />;
+    return (
+      (OptionComponent && (
+        <ToolbarItem key={`option-${id}`}>
+          <OptionComponent isFilter={false} position={SelectPosition.right} />
+        </ToolbarItem>
+      )) || <ToolbarItem key={helpers.generateId()}>{content}</ToolbarItem> ||
+      null
+    );
   });
 };
 

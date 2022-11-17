@@ -1,4 +1,5 @@
 import { config } from '../product.rhel';
+import { generateChartSettings } from '../../components/graphCard/graphCardHelpers';
 import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -7,6 +8,13 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product RHEL config', () => {
+  it('should apply graph configuration', () => {
+    const { initialGraphFilters, initialGraphSettings } = config;
+
+    expect(generateChartSettings({ filters: initialGraphFilters })).toMatchSnapshot('filters');
+    expect(initialGraphSettings).toMatchSnapshot('settings');
+  });
+
   it('should apply hosts inventory configuration', () => {
     const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
 

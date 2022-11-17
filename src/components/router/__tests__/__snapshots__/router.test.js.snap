@@ -106,7 +106,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       {
         "activateOnError": false,
-        "component": "productView/productViewOpenShiftContainer",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "openshift-container",
@@ -115,7 +115,7 @@ exports[`Router Component should render a basic component: basic 1`] = `
       },
       {
         "activateOnError": false,
-        "component": "productView/productViewOpenShiftDedicated",
+        "component": "productView/productView",
         "disabled": false,
         "exact": true,
         "id": "openshift-dedicated",
