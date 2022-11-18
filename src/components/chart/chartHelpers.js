@@ -220,7 +220,7 @@ const generateTooltipData = ({ content = helpers.noop, dataSets = [] } = {}) => 
       const itemsByKey = {};
 
       dataSets.forEach(data => {
-        if (data?.data[index]) {
+        if (data?.data?.[index]) {
           itemsByKey[data.id] = {
             color: data.stroke || data.fill || data.color || '',
             chartType: data.chartType,
