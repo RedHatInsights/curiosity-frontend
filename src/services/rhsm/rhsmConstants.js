@@ -1,9 +1,4 @@
 /**
- * ToDo: migrate to using rhsmConstants only!
- * Exporting rhsmConstants through rhsmApiTypes is currently considered a stop-gap during migration to the
- * schema validator.
- */
-/**
  * RHSM path IDs for products.
  *
  * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHODS: string, RHOSAK: string,
