@@ -15,22 +15,45 @@ COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-fronten
 # --------------------------------------------
 # Options that must be configured by app owner
 # --------------------------------------------
-IQE_PLUGINS="curiosity"
-IQE_MARKER_EXPRESSION="smoke"
-IQE_FILTER_EXPRESSION=""
+export IQE_PLUGINS="curiosity"
+export IQE_IMAGE_TAG="curiosity"
+export IQE_MARKER_EXPRESSION="ephemeral"
+export IQE_FILTER_EXPRESSION=""
+export IQE_ENV="ephemeral"
+export IQE_SELENIUM="true"
+export IQE_CJI_TIMEOUT="30m"
 
+# --------------------------------------------
+# Run unit tests, build container and push it to quay
+# --------------------------------------------
 set -exv
 # source is preferred to | bash -s in this case to avoid a subshell
 source <(curl -sSL $COMMON_BUILDER/src/frontend-build.sh)
 BUILD_RESULTS=$?
 
-# Stubbed out for now
-mkdir -p $WORKSPACE/artifacts
-cat << EOF > $WORKSPACE/artifacts/junit-dummy.xml
-<testsuite tests="1">
-    <testcase classname="dummy" name="dummytest"/>
-</testsuite>
-EOF
+# --------------------------------------------
+# Run QE tests on ephemeral environment
+# --------------------------------------------
+
+# Install bonfire repo/initialize
+CICD_URL=https://raw.githubusercontent.com/RedHatInsights/bonfire/master/cicd
+curl -s $CICD_URL/bootstrap.sh > .cicd_bootstrap.sh && source .cicd_bootstrap.sh
+
+export APP_NAME="rhsm"
+export REF_ENV="insights-production"
+export DEPLOY_FRONTENDS="true"
+export COMPONENT_NAME="curiosity-frontend"
+# Keep that in sync with rhsm-subscriptions pr_check.sh
+export OPTIONAL_DEPS_METHOD=none
+
+# Deploy to an ephemeral namespace for testing
+source $CICD_ROOT/deploy_ephemeral_env.sh
+
+# Run smoke tests with ClowdJobInvocation
+source $CICD_ROOT/cji_smoke_test.sh
+
+# Add link to Ibutsu in GitHub check results
+source $CICD_ROOT/post_test_results.sh
 
 # teardown_docker
 exit $BUILD_RESULTS
