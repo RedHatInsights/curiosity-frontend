@@ -30,7 +30,29 @@ exports[`InventoryCardSubscriptionsContext should handle a store response with u
   ],
   "error": false,
   "fulfilled": true,
+  "message": null,
   "pending": false,
+  "responses": {
+    "id": {},
+    "list": [
+      {
+        "data": [
+          {
+            "data": [
+              {
+                "lorem": "ipsum",
+              },
+              {
+                "dolor": "sit",
+              },
+            ],
+            "meta": {},
+          },
+        ],
+        "fulfilled": true,
+      },
+    ],
+  },
 }
 `;
 
@@ -89,8 +111,6 @@ exports[`InventoryCardSubscriptionsContext should handle an onPage event: onPage
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": true,
 }
 `;
@@ -98,8 +118,6 @@ exports[`InventoryCardSubscriptionsContext should handle variations in instances
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": false,
 }
 `;
@@ -108,7 +126,6 @@ exports[`InventoryCardSubscriptionsContext should handle variations in instances
 {
   "data": {},
   "error": true,
-  "fulfilled": undefined,
   "pending": false,
 }
 `;
@@ -116,7 +133,6 @@ exports[`InventoryCardSubscriptionsContext should handle variations in instances
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, fulfilled 1`] = `
 {
   "data": {},
-  "error": undefined,
   "fulfilled": true,
   "pending": false,
 }
@@ -125,8 +141,6 @@ exports[`InventoryCardSubscriptionsContext should handle variations in instances
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, pending 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": true,
 }
 `;
