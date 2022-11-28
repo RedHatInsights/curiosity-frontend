@@ -50,7 +50,8 @@ const config = {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       fill: chartColorBlueLight.value,
       stroke: chartColorBlueDark.value,
-      color: chartColorBlueDark.value
+      color: chartColorBlueDark.value,
+      isStacked: false
     }
   ],
   initialGraphSettings: {
