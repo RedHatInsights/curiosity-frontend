@@ -192,6 +192,7 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         {
           "color": "#06c",
           "fill": "#8bc1f7",
+          "isStacked": false,
           "metric": "Cores",
           "stroke": "#06c",
         },

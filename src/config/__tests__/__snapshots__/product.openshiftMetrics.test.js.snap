@@ -13,7 +13,7 @@ exports[`Product OpenShift Metrics config should apply graph configuration: filt
           "fill": "#8bc1f7",
           "id": "Cores",
           "isCapacity": false,
-          "isStacked": true,
+          "isStacked": false,
           "isStandalone": false,
           "isThreshold": false,
           "metric": "Cores",
