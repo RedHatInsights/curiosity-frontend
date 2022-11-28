@@ -32,7 +32,29 @@ exports[`InventoryCardContext should handle a store response with useGetHostsInv
   ],
   "error": false,
   "fulfilled": true,
+  "message": null,
   "pending": false,
+  "responses": {
+    "id": {},
+    "list": [
+      {
+        "data": [
+          {
+            "data": [
+              {
+                "lorem": "ipsum",
+              },
+              {
+                "dolor": "sit",
+              },
+            ],
+            "meta": {},
+          },
+        ],
+        "fulfilled": true,
+      },
+    ],
+  },
 }
 `;
 
@@ -53,7 +75,29 @@ exports[`InventoryCardContext should handle a store response with useGetInstance
   ],
   "error": false,
   "fulfilled": true,
+  "message": null,
   "pending": false,
+  "responses": {
+    "id": {},
+    "list": [
+      {
+        "data": [
+          {
+            "data": [
+              {
+                "lorem": "ipsum",
+              },
+              {
+                "dolor": "sit",
+              },
+            ],
+            "meta": {},
+          },
+        ],
+        "fulfilled": true,
+      },
+    ],
+  },
 }
 `;
 
@@ -145,8 +189,6 @@ exports[`InventoryCardContext should handle an onPage event: onPage event, dispa
 exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, cancelled 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": true,
 }
 `;
@@ -154,8 +196,6 @@ exports[`InventoryCardContext should handle variations in hosts inventory API re
 exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, disabled 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": false,
 }
 `;
@@ -164,7 +204,6 @@ exports[`InventoryCardContext should handle variations in hosts inventory API re
 {
   "data": {},
   "error": true,
-  "fulfilled": undefined,
   "pending": false,
 }
 `;
@@ -172,7 +211,6 @@ exports[`InventoryCardContext should handle variations in hosts inventory API re
 exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, fulfilled 1`] = `
 {
   "data": {},
-  "error": undefined,
   "fulfilled": true,
   "pending": false,
 }
@@ -181,8 +219,6 @@ exports[`InventoryCardContext should handle variations in hosts inventory API re
 exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, pending 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": true,
 }
 `;
@@ -190,8 +226,6 @@ exports[`InventoryCardContext should handle variations in hosts inventory API re
 exports[`InventoryCardContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": true,
 }
 `;
@@ -199,8 +233,6 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 exports[`InventoryCardContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": false,
 }
 `;
@@ -209,7 +241,6 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 {
   "data": {},
   "error": true,
-  "fulfilled": undefined,
   "pending": false,
 }
 `;
@@ -217,7 +248,6 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 exports[`InventoryCardContext should handle variations in instances inventory API responses: inventory, fulfilled 1`] = `
 {
   "data": {},
-  "error": undefined,
   "fulfilled": true,
   "pending": false,
 }
@@ -226,8 +256,6 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 exports[`InventoryCardContext should handle variations in instances inventory API responses: inventory, pending 1`] = `
 {
   "data": {},
-  "error": undefined,
-  "fulfilled": undefined,
   "pending": true,
 }
 `;
