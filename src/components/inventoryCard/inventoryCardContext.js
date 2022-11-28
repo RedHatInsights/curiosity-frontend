@@ -34,7 +34,7 @@ const useGetHostsInventory = ({
   const { productId } = useAliasProduct();
   const query = useAliasProductInventoryQuery();
   const dispatch = useAliasDispatch();
-  const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
+  const { cancelled, pending, data, ...response } = useAliasSelectorsResponse(
     ({ inventory }) => inventory?.hostsInventory?.[productId]
   );
 
@@ -45,8 +45,7 @@ const useGetHostsInventory = ({
   }, [dispatch, isDisabled, productId, query]);
 
   return {
-    error,
-    fulfilled,
+    ...response,
     pending: pending || cancelled || false,
     data: (data?.length === 1 && data[0]) || data || {}
   };
@@ -75,7 +74,7 @@ const useGetInstancesInventory = ({
   const { productId } = useAliasProduct();
   const query = useAliasProductInventoryQuery();
   const dispatch = useAliasDispatch();
-  const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
+  const { cancelled, pending, data, ...response } = useAliasSelectorsResponse(
     ({ inventory }) => inventory?.instancesInventory?.[productId]
   );
 
@@ -86,8 +85,7 @@ const useGetInstancesInventory = ({
   }, [dispatch, isDisabled, productId, query]);
 
   return {
-    error,
-    fulfilled,
+    ...response,
     pending: pending || cancelled || false,
     data: (data?.length === 1 && data[0]) || data || {}
   };
