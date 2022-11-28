@@ -72,9 +72,11 @@ const InventoryCard = ({
   const { data: listData = [], meta = {} } = data;
 
   useDeepCompareEffect(() => {
+    let updatedColumnHeaders = [];
+    let updatedRows = [];
+
     if (fulfilled && listData.length) {
-      let updatedColumnHeaders = [];
-      const updatedRows = listData.map(({ ...cellData }) => {
+      updatedRows = listData.map(({ ...cellData }) => {
         const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
           filters: inventoryCardHelpers.parseInventoryFilters({
             filters: filterInventoryData,
@@ -112,12 +114,12 @@ const InventoryCard = ({
             undefined
         };
       });
-
-      setUpdatedColumnsRows(() => ({
-        columnHeaders: updatedColumnHeaders,
-        rows: updatedRows
-      }));
     }
+
+    setUpdatedColumnsRows(() => ({
+      columnHeaders: updatedColumnHeaders,
+      rows: updatedRows
+    }));
   }, [filterInventoryData, fulfilled, listData]);
 
   if (isDisabled) {

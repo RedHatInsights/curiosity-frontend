@@ -33,7 +33,7 @@ const useGetSubscriptionsInventory = ({
   const { productId } = useAliasProduct();
   const query = useAliasProductInventoryQuery();
   const dispatch = useAliasDispatch();
-  const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
+  const { cancelled, pending, data, ...response } = useAliasSelectorsResponse(
     ({ inventory }) => inventory?.subscriptionsInventory?.[productId]
   );
 
@@ -44,8 +44,7 @@ const useGetSubscriptionsInventory = ({
   }, [dispatch, isDisabled, productId, query]);
 
   return {
-    error,
-    fulfilled,
+    ...response,
     pending: pending || cancelled || false,
     data: (data?.length === 1 && data[0]) || data || {}
   };
