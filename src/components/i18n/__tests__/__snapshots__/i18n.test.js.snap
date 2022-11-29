@@ -166,15 +166,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
-    "keys": [
-      {
-        "key": "curiosity-inventory.tab",
-        "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
-      },
-    ],
-  },
-  {
     "file": "./src/components/inventoryTabs/inventoryTabs.js",
     "keys": [
       {
@@ -272,18 +263,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
   {
     "file": "./src/components/productView/productView.js",
     "keys": [
-      {
-        "key": "curiosity-graph.cardHeadingDescription",
-        "match": "t('curiosity-graph.cardHeadingDescription', { context: productId })",
-      },
-      {
-        "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading', { context: productId })",
-      },
-      {
-        "key": "curiosity-inventory.tabHosts",
-        "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
-      },
       {
         "key": "curiosity-inventory.tabHosts",
         "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
@@ -742,10 +721,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
 [
   {
     "file": "./src/components/inventoryCard/inventoryCard.js",
-    "key": "curiosity-inventory.tab",
-  },
-  {
-    "file": "./src/components/inventoryCard/inventoryList.deprecated.js",
     "key": "curiosity-inventory.tab",
   },
   {
