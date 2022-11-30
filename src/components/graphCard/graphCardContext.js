@@ -100,19 +100,24 @@ const useGetMetrics = ({
   const { settings = {} } = useAliasGraphCardContext();
   const { metrics = [] } = settings;
 
-  const response = useAliasMetricsSelector();
+  const { pending, ...response } = useAliasMetricsSelector();
 
   useShallowCompareEffect(() => {
-    const updatedMetrics = metrics.map(({ metric: metricId, isCapacity, query: metricQuery }) => ({
-      id: productId,
-      metric: metricId,
-      isCapacity,
-      query: metricQuery
-    }));
-    getGraphMetrics(updatedMetrics, query)(dispatch);
-  }, [dispatch, getGraphMetrics, metrics, productId, query]);
+    if (!pending) {
+      const updatedMetrics = metrics.map(({ metric: metricId, isCapacity, query: metricQuery }) => ({
+        id: productId,
+        metric: metricId,
+        isCapacity,
+        query: metricQuery
+      }));
+      getGraphMetrics(updatedMetrics, query)(dispatch);
+    }
+  }, [metrics, productId, query]);
 
-  return response;
+  return {
+    ...response,
+    pending
+  };
 };
 
 const context = {
