@@ -28,6 +28,13 @@ const SelectDirection = DropdownDirection;
 const SelectPosition = DropdownPosition;
 
 /**
+ * FixMe: PF isFlipEnabled busts left/right positioning, we now disable it by default
+ * We caught this adjustment through our component code test snapshots. PF positioning for left/right has issues in general on
+ * Select (Dropdown used to use the same styling, and functioned correctly, we'd need to reevaluate it now). We patched Select
+ * with a minor styling adjustment for position from Dropdown, this worked until isFlipEnabled became defaulted to true.
+ * Evaluate on next PF patch.
+ */
+/**
  * A wrapper for Patternfly Select. Provides restructured event data for onSelect callback.
  *
  * @augments React.Component
@@ -227,6 +234,7 @@ class Select extends React.Component {
       className,
       direction,
       isDisabled,
+      isFlipEnabled,
       isToggleText,
       maxHeight,
       placeholder,
@@ -237,6 +245,7 @@ class Select extends React.Component {
 
     const pfSelectOptions = {
       direction,
+      isFlipEnabled,
       maxHeight
     };
 
@@ -294,9 +303,9 @@ class Select extends React.Component {
 /**
  * Prop types.
  *
- * @type {{toggleIcon: (Node|Function), className: string, ariaLabel: string, onSelect: Function,
- *     isToggleText: boolean, maxHeight: number, name: string, options: (Array|object),
- *     selectedOptions: (number|string|Array), variant: string, id: string, isDisabled: boolean,
+ * @type {{isFlipEnabled: boolean, toggleIcon: React.ReactNode|Function, className: string, ariaLabel: string,
+ *     onSelect: Function, isToggleText: boolean, maxHeight: number, name: string, options: Array|object,
+ *     selectedOptions: number|string|Array, variant: string, id: string, isDisabled: boolean,
  *     placeholder: string, position: string, direction: string}}
  */
 Select.propTypes = {
@@ -305,6 +314,7 @@ Select.propTypes = {
   direction: PropTypes.oneOf(Object.values(SelectDirection)),
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
+  isFlipEnabled: PropTypes.bool,
   isToggleText: PropTypes.bool,
   maxHeight: PropTypes.number,
   name: PropTypes.string,
@@ -339,8 +349,8 @@ Select.propTypes = {
 /**
  * Default props.
  *
- * @type {{toggleIcon: (Node|Function), className: string, ariaLabel: string, onSelect: Function, isToggleText: boolean,
- *     maxHeight: number, name: string, options: (Array|object), selectedOptions: (number|string|Array),
+ * @type {{isFlipEnabled: boolean, toggleIcon: React.ReactNode|Function, className: string, ariaLabel: string,
+ *     onSelect: Function, isToggleText: boolean, maxHeight: null, name: null, options: *[], selectedOptions: null,
  *     variant: SelectVariant.single, id: string, isDisabled: boolean, placeholder: string,
  *     position: DropdownPosition.left, direction: DropdownDirection.down}}
  */
@@ -350,6 +360,7 @@ Select.defaultProps = {
   direction: SelectDirection.down,
   id: helpers.generateId(),
   isDisabled: false,
+  isFlipEnabled: false,
   isToggleText: true,
   maxHeight: null,
   name: null,

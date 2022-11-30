@@ -123,6 +123,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isFlipEnabled={false}
   isToggleText={true}
   maxHeight={250}
   name={null}
@@ -313,6 +314,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isFlipEnabled={false}
   isToggleText={true}
   maxHeight={250}
   name={null}
