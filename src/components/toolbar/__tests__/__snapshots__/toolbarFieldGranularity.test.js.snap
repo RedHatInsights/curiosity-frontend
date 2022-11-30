@@ -90,6 +90,7 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isFlipEnabled={false}
   isToggleText={true}
   maxHeight={null}
   name={null}

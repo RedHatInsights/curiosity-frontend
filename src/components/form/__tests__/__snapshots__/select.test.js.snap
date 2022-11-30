@@ -109,7 +109,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     isCreateOptionOnTop={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
-    isFlipEnabled={true}
+    isFlipEnabled={false}
     isGrouped={false}
     isInputFilterPersisted={false}
     isInputValuePersisted={false}
@@ -172,7 +172,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     isCreateOptionOnTop={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
-    isFlipEnabled={true}
+    isFlipEnabled={false}
     isGrouped={false}
     isInputFilterPersisted={false}
     isInputValuePersisted={false}
@@ -332,7 +332,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     isCreateOptionOnTop={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
-    isFlipEnabled={true}
+    isFlipEnabled={false}
     isGrouped={false}
     isInputFilterPersisted={false}
     isInputValuePersisted={false}
@@ -377,6 +377,7 @@ exports[`Select Component should allow data- props: data- attributes 1`] = `
   "direction": "down",
   "id": "generatedid-",
   "isDisabled": false,
+  "isFlipEnabled": false,
   "isToggleText": true,
   "maxHeight": null,
   "name": null,
