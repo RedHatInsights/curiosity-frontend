@@ -106,6 +106,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     inputAutoComplete="off"
     inputIdPrefix=""
     isCreatable={false}
+    isCreateOptionOnTop={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
     isFlipEnabled={false}
@@ -139,6 +140,7 @@ exports[`Select Component should allow being disabled with missing options: no o
     validated="default"
     variant="single"
     width=""
+    zIndex={9999}
   />
 </div>
 `;
@@ -167,6 +169,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     inputAutoComplete="off"
     inputIdPrefix=""
     isCreatable={false}
+    isCreateOptionOnTop={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
     isFlipEnabled={false}
@@ -200,6 +203,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     validated="default"
     variant="single"
     width=""
+    zIndex={9999}
   >
     <SelectOption
       className=""
@@ -325,6 +329,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     inputAutoComplete="off"
     inputIdPrefix=""
     isCreatable={false}
+    isCreateOptionOnTop={false}
     isCreateSelectOptionObject={false}
     isDisabled={true}
     isFlipEnabled={false}
@@ -358,6 +363,7 @@ exports[`Select Component should allow being disabled with missing options: opti
     validated="default"
     variant="single"
     width=""
+    zIndex={9999}
   />
 </div>
 `;
@@ -371,6 +377,7 @@ exports[`Select Component should allow data- props: data- attributes 1`] = `
   "direction": "down",
   "id": "generatedid-",
   "isDisabled": false,
+  "isFlipEnabled": false,
   "isToggleText": true,
   "maxHeight": null,
   "name": null,
