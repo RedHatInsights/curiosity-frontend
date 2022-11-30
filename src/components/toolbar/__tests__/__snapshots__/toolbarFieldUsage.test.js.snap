@@ -70,6 +70,7 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isFlipEnabled={false}
   isToggleText={true}
   maxHeight={null}
   name={null}

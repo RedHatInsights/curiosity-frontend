@@ -60,6 +60,7 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isFlipEnabled={false}
   isToggleText={true}
   maxHeight={null}
   name={null}
