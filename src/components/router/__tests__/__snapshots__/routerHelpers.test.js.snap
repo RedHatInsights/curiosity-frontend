@@ -96,13 +96,13 @@ exports[`RouterHelpers should return navigation and route details from a path: d
 
 exports[`RouterHelpers should return navigation and route details from a path: detail: specific product path 1`] = `
 {
-  "id": "rhel-arm",
+  "id": "rhods",
 }
 `;
 
 exports[`RouterHelpers should return navigation and route details from a related name: detail: match related name 1`] = `
 {
-  "id": "rhel-arm",
+  "id": "rhods",
 }
 `;
 
@@ -138,7 +138,7 @@ exports[`RouterHelpers should return navigation and route details that align to 
 
 exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
 {
-  "id": "rhel-arm",
+  "id": "rhods",
 }
 `;
 
@@ -184,10 +184,6 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
     ],
     "viewRHEL": [
       "RHEL",
-      "RHEL for ARM",
-      "RHEL for IBM Power",
-      "RHEL for IBM z",
-      "RHEL for x86",
     ],
     "viewSatellite": [
       "Satellite",
@@ -212,42 +208,6 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
       "exact": true,
       "id": "rhel",
       "path": "/rhel",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhel-arm",
-      "path": "/rhel-arm",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhel-ibmpower",
-      "path": "/rhel-ibmpower",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhel-ibmz",
-      "path": "/rhel-ibmz",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhel-x86",
-      "path": "/rhel-x86",
       "redirect": null,
     },
     {
