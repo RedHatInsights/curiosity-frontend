@@ -45,14 +45,14 @@ describe('Router Component', () => {
 
     const component = await mountHookComponent(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/rhel-arm?ipsum=1%202&dolor=sit&dolor=sit&dolor']}>
+        <MemoryRouter initialEntries={['/rhods?ipsum=1%202&dolor=sit&dolor=sit&dolor']}>
           <Router {...props} />
         </MemoryRouter>
       </Provider>
     );
     const specificRoute = component.find(Route);
     expect(specificRoute.length).toBe(1);
-    expect(specificRoute.props().path).toBe('/rhel-arm');
+    expect(specificRoute.props().path).toBe('/rhods');
   });
 
   it('should pass route context', async () => {
@@ -66,7 +66,7 @@ describe('Router Component', () => {
 
     await mountHookComponent(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/rhel-arm']}>
+        <MemoryRouter initialEntries={['/rhods']}>
           <Router {...props} />
         </MemoryRouter>
       </Provider>
