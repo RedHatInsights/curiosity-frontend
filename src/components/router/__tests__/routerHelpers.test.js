@@ -127,7 +127,7 @@ describe('RouterHelpers', () => {
     }).toMatchSnapshot('detail: specific route ID');
 
     expect({
-      id: getRouteConfig({ id: 'rhel-arm' })?.id
+      id: getRouteConfig({ id: 'rhods' })?.id
     }).toMatchSnapshot('detail: specific navigation ID');
 
     expect({
@@ -172,7 +172,7 @@ describe('RouterHelpers', () => {
     }).toMatchSnapshot('detail: match specific path');
 
     expect({
-      id: getRouteConfigByPath({ pathName: '/rhel-arm' }).firstMatch?.id
+      id: getRouteConfigByPath({ pathName: '/rhods' }).firstMatch?.id
     }).toMatchSnapshot('detail: specific product path');
 
     expect({
@@ -186,7 +186,7 @@ describe('RouterHelpers', () => {
 
   it('should return navigation and route details from a related name', () => {
     expect({
-      id: getRouteConfigByPath({ pathName: '/lorem-ipsum/RHEL%20for%20ARM' }).firstMatch?.id
+      id: getRouteConfigByPath({ pathName: '/lorem-ipsum/RHODS' }).firstMatch?.id
     }).toMatchSnapshot('detail: match related name');
   });
 
