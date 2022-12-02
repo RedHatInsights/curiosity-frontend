@@ -28,8 +28,6 @@
     "cardHeading_OpenShift-dedicated-metrics": "On-Demand subscriptions",
     "cardHeading_RHEL": "CPU socket usage",
     "cardHeading_Satellite": "CPU socket usage",
-    "cardHeading_Satellite Capsule": "$t(curiosity-graph.cardHeading_Satellite)",
-    "cardHeading_Satellite Server": "$t(curiosity-graph.cardHeading_Satellite)",
     "cardHeadingDescription": "...",
     "cardHeadingDescription_Cores": "vCPU hours usage in hours",
     "cardHeadingDescription_Instance-hours": "Instance hours usage in hours",
@@ -370,8 +368,6 @@
     "title_rhosak": "Red Hat OpenShift Streams for Apache Kafka",
     "subtitle_rhosak": "Monitor your Apache Kafka usage for On-Demand subscriptions. <0>Learn more about {{appName}} reporting</0>",
     "description_rhosak": "Monitor your Apache Kafka usage for On-Demand subscriptions.",
-    "title_Satellite": "Red Hat Satellite",
-    "title_Satellite Capsule": "Red Hat Satellite Capsule",
-    "title_Satellite Server": "Red Hat Satellite Server"
+    "title_Satellite": "Red Hat Satellite"
   }
 }
