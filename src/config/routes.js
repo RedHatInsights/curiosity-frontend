@@ -109,34 +109,6 @@ const routes = [
     component: 'productView/productView'
   },
   {
-    id: 'satellite-capsule',
-    path: '/satellite-capsule',
-    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_CAPSULE],
-    productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_CAPSULE }],
-    redirect: null,
-    isSearchable: false,
-    aliases: [],
-    activateOnError: false,
-    disabled: helpers.UI_DISABLED,
-    default: false,
-    component: 'productView/productView'
-  },
-  {
-    id: 'satellite-server',
-    path: '/satellite-server',
-    pathParameter: [RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER],
-    productParameter: [satelliteProductConfig.productGroup],
-    productConfig: [{ ...satelliteProductConfig, productId: RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER }],
-    redirect: null,
-    isSearchable: false,
-    aliases: [],
-    activateOnError: false,
-    disabled: helpers.UI_DISABLED,
-    default: false,
-    component: 'productView/productView'
-  },
-  {
     id: 'optin',
     path: '/optin',
     pathParameter: null,
