@@ -4,22 +4,22 @@ exports[`ToolbarFieldGranularity Component should export select options: toolbar
 [
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
+    "title": "t(curiosity-toolbar.label_granularity, {"context":"Daily"})",
     "value": "Daily",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
+    "title": "t(curiosity-toolbar.label_granularity, {"context":"Weekly"})",
     "value": "Weekly",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
+    "title": "t(curiosity-toolbar.label_granularity, {"context":"Monthly"})",
     "value": "Monthly",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
+    "title": "t(curiosity-toolbar.label_granularity, {"context":"Quarterly"})",
     "value": "Quarterly",
   },
 ]
@@ -99,22 +99,22 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
     [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Daily"})",
         "value": "Daily",
       },
       {
         "selected": true,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Weekly"})",
         "value": "Weekly",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Monthly"})",
         "value": "Monthly",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Quarterly"})",
         "value": "Quarterly",
       },
     ]

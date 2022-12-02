@@ -332,8 +332,29 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbar.js",
     "keys": [
       {
+        "key": "curiosity-toolbar.label",
+        "match": "t('curiosity-toolbar.label', { context: [value, categoryValue] })",
+      },
+      {
         "key": "curiosity-toolbar.clearFilters",
         "match": "t('curiosity-toolbar.clearFilters')",
+      },
+    ],
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldArchitecture.js",
+    "keys": [
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['architecture', (type === '' && 'unspecified')",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'architecture'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'architecture'] })",
       },
     ],
   },
@@ -341,8 +362,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.billing_provider",
-        "match": "translate('curiosity-toolbar.billing_provider', { context: (type === '' && 'none')",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['billing_provider', (type === '' && 'none')",
       },
       {
         "key": "",
@@ -371,8 +392,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.granularity",
-        "match": "translate('curiosity-toolbar.granularity', { context: type })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['granularity', type] })",
       },
       {
         "key": "",
@@ -401,28 +422,36 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.GRANULARITY })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.GRANULARITY] })",
       },
       {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: 'rangedMonthly' })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', 'rangedMonthly'] })",
       },
       {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.UOM })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.UOM] })",
       },
       {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] })",
       },
       {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.SLA })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.SLA] })",
       },
       {
-        "key": "curiosity-toolbar.category",
-        "match": "translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.USAGE })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.USAGE] })",
+      },
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.VARIANT] })",
+      },
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.ARCHITECTURE] })",
       },
       {
         "key": "curiosity-toolbar.placeholder_filter",
@@ -438,8 +467,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbarFieldSla.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.sla",
-        "match": "translate('curiosity-toolbar.sla', { context: (type === '' && 'none')",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['sla', (type === '' && 'none')",
       },
       {
         "key": "",
@@ -455,8 +484,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbarFieldUom.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.uom",
-        "match": "translate('curiosity-toolbar.uom', { context: type })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['uom', type] })",
       },
       {
         "key": "",
@@ -472,8 +501,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/components/toolbar/toolbarFieldUsage.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.usage",
-        "match": "translate('curiosity-toolbar.usage', { context: (type === '' && 'unspecified')",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['usage', (type === '' && 'unspecified')",
       },
       {
         "key": "",
@@ -482,6 +511,23 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "",
         "match": "t(\`curiosity-toolbar.placeholder\${(isFilter && '_filter')",
+      },
+    ],
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldVariant.js",
+    "keys": [
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['variant', (type === '' && 'unspecified')",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'variant'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'variant'] })",
       },
     ],
   },
@@ -720,24 +766,80 @@ exports[`I18n Component should generate a predictable locale key output snapshot
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
 [
   {
+    "file": "./src/common/dateHelpers.js",
+    "key": "curiosity-toolbar.granularityRangedMonthly",
+  },
+  {
+    "file": "./src/common/dateHelpers.js",
+    "key": "curiosity-toolbar.granularityRangedMonthly",
+  },
+  {
     "file": "./src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
   {
+    "file": "./src/components/toolbar/toolbar.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldArchitecture.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
-    "key": "curiosity-toolbar.granularity",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "./src/components/toolbar/toolbarFieldSla.js",
-    "key": "curiosity-toolbar.sla",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "./src/components/toolbar/toolbarFieldUom.js",
-    "key": "curiosity-toolbar.uom",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "./src/components/toolbar/toolbarFieldUsage.js",
-    "key": "curiosity-toolbar.usage",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldVariant.js",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "./src/config/product.openshiftContainer.js",

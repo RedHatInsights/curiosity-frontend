@@ -4,22 +4,22 @@ exports[`ToolbarFieldSla Component should export select options: toolbarFieldOpt
 [
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.usage, {"context":"Production"})",
+    "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
     "value": "Production",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.usage, {"context":"Development/Test"})",
+    "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
     "value": "Development/Test",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.usage, {"context":"Disaster Recovery"})",
+    "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
     "value": "Disaster Recovery",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.usage, {"context":"unspecified"})",
+    "title": "t(curiosity-toolbar.label_usage, {"context":"unspecified"})",
     "value": "",
   },
 ]
@@ -79,22 +79,22 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
     [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"Production"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
         "value": "Production",
       },
       {
         "selected": true,
-        "title": "t(curiosity-toolbar.usage, {"context":"Development/Test"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
         "value": "Development/Test",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"Disaster Recovery"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
         "value": "Disaster Recovery",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"unspecified"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"unspecified"})",
         "value": "",
       },
     ]

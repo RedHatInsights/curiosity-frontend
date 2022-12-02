@@ -4,12 +4,12 @@ exports[`ToolbarFieldUom Component should export select options: toolbarFieldOpt
 [
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.uom, {"context":"cores"})",
+    "title": "t(curiosity-toolbar.label_uom, {"context":"cores"})",
     "value": "cores",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.uom, {"context":"sockets"})",
+    "title": "t(curiosity-toolbar.label_uom, {"context":"sockets"})",
     "value": "sockets",
   },
 ]
@@ -69,12 +69,12 @@ exports[`ToolbarFieldUom Component should render a basic component: basic 1`] = 
     [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.uom, {"context":"cores"})",
+        "title": "t(curiosity-toolbar.label_uom, {"context":"cores"})",
         "value": "cores",
       },
       {
         "selected": true,
-        "title": "t(curiosity-toolbar.uom, {"context":"sockets"})",
+        "title": "t(curiosity-toolbar.label_uom, {"context":"sockets"})",
         "value": "sockets",
       },
     ]

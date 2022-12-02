@@ -9,12 +9,8 @@ import {
   ToolbarToggleGroup
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
-import {
-  useToolbarFieldClear,
-  useToolbarFieldClearAll,
-  useToolbarFieldQueries,
-  useToolbarSecondaryFields
-} from './toolbarContext';
+import { useProductToolbarQuery } from '../productView/productViewContext';
+import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarSecondaryFields } from './toolbarContext';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -28,10 +24,10 @@ import { translate } from '../i18n/i18n';
  * @param {boolean} props.hardFilterReset On clearing all fields allow the category to reset as well.
  * @param {boolean} props.isDisabled
  * @param {Function} props.t
+ * @param {Function} props.useProductToolbarQuery
  * @param {Function} props.useSelectCategoryOptions
  * @param {Function} props.useToolbarFieldClear
  * @param {Function} props.useToolbarFieldClearAll
- * @param {Function} props.useToolbarFieldQueries
  * @param {Function} props.useToolbarSecondaryFields
  * @returns {Node}
  */
@@ -39,14 +35,14 @@ const Toolbar = ({
   hardFilterReset,
   isDisabled,
   t,
+  useProductToolbarQuery: useAliasProductToolbarQuery,
   useSelectCategoryOptions: useAliasSelectCategoryOptions,
   useToolbarFieldClear: useAliasToolbarFieldClear,
   useToolbarFieldClearAll: useAliasToolbarFieldClearAll,
-  useToolbarFieldQueries: useAliasToolbarFieldQueries,
   useToolbarSecondaryFields: useAliasToolbarSecondaryFields
 }) => {
+  const toolbarFieldQueries = useAliasProductToolbarQuery();
   const { currentCategory, options } = useAliasSelectCategoryOptions();
-  const toolbarFieldQueries = useAliasToolbarFieldQueries();
   const clearField = useAliasToolbarFieldClear();
   const clearAllFields = useAliasToolbarFieldClearAll();
   const secondaryFields = useAliasToolbarSecondaryFields();
@@ -77,13 +73,12 @@ const Toolbar = ({
    * Set selected options for chip display.
    *
    * @param {object} params
-   * @param {Array} params.options
    * @param {*} params.value
    * @returns {Array}
    */
-  const setSelectedOptions = ({ options: filterOptions, value }) => {
-    const query = filterOptions.find(({ value: optionValue }) => optionValue === toolbarFieldQueries?.[value]);
-    return (query?.title && [query?.title]) || [];
+  const setSelectedOptions = ({ value } = {}) => {
+    const categoryValue = toolbarFieldQueries?.[value];
+    return (categoryValue && [t('curiosity-toolbar.label', { context: [value, categoryValue] })]) || [];
   };
 
   return (
@@ -102,12 +97,12 @@ const Toolbar = ({
                 <ToolbarFieldSelectCategory />
               </ToolbarItem>
             )}
-            {options.map(({ title, value, component: OptionComponent, isClearable, options: filterOptions }) => {
+            {options.map(({ title, value, component: OptionComponent, isClearable }) => {
               const chipProps = { categoryName: title };
 
               if (isClearable !== false) {
-                chipProps.chips = setSelectedOptions({ options: filterOptions, value });
-                chipProps.deleteChip = () => onClearFilter({ options: filterOptions, value });
+                chipProps.chips = setSelectedOptions({ value });
+                chipProps.deleteChip = () => onClearFilter({ value });
               }
 
               return (
@@ -132,16 +127,17 @@ const Toolbar = ({
  * Prop types
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarSecondaryFields: Function, isDisabled: boolean, useToolbarFieldClearAll: Function, useToolbarFieldQueries: Function}}
+ *     useToolbarSecondaryFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.propTypes = {
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
   t: PropTypes.func,
+  useProductToolbarQuery: PropTypes.func,
   useSelectCategoryOptions: PropTypes.func,
   useToolbarFieldClear: PropTypes.func,
   useToolbarFieldClearAll: PropTypes.func,
-  useToolbarFieldQueries: PropTypes.func,
   useToolbarSecondaryFields: PropTypes.func
 };
 
@@ -149,16 +145,17 @@ Toolbar.propTypes = {
  * Default props.
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarSecondaryFields: Function, isDisabled: boolean, useToolbarFieldClearAll: Function, useToolbarFieldQueries: Function}}
+ *     useToolbarSecondaryFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.defaultProps = {
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
   t: translate,
+  useProductToolbarQuery,
   useSelectCategoryOptions,
   useToolbarFieldClear,
   useToolbarFieldClearAll,
-  useToolbarFieldQueries,
   useToolbarSecondaryFields
 };
 

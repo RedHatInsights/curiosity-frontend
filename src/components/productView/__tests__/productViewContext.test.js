@@ -6,6 +6,7 @@ import {
   useProductInventoryGuestsQuery,
   useProductInventoryHostsQuery,
   useProductInventorySubscriptionsQuery,
+  useProductToolbarQuery,
   useProductContext,
   useProduct,
   useProductGraphConfig,
@@ -71,6 +72,11 @@ describe('ProductViewContext', () => {
       useProductInventorySubscriptionsQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(inventorySubscriptionsQuery).toMatchSnapshot('inventorySubscriptionsQuery');
+
+    const { result: toolbarQuery } = shallowHook(() =>
+      useProductToolbarQuery({ options: { useProductViewContext: () => mockContextValue } })
+    );
+    expect(toolbarQuery).toMatchSnapshot('toolbarQuery');
   });
 
   it('should apply a hook for retrieving product context', () => {
