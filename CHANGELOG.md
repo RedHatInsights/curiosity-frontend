@@ -3,7 +3,24 @@
 All notable changes to this project will be documented in this file.
 
 
-## [2.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/04a5d08629d0ab7bc51fc865da9b2a25029cde8a...7e894b2e0cb9fed615cabb5dfa413dc172d29e75) (2022-10-18)
+
+## [2.7.1](https://github.com/RedHatInsights/curiosity-frontend/compare/0f68906b34368e8616e3284c5123ee7d995ba728...26b7866246034d614a551401298172e728e2227c) (2022-12-05)
+
+### Performance Improvements
+* **i18n** breakout i18n into helpers  ([#985](https://github.com/RedHatInsights/curiosity-frontend/pull/985)) ([52e6ba2](https://github.com/RedHatInsights/curiosity-frontend/commit/52e6ba246c19dbb7bea183a934dca06d581a6d49))
+
+### Chores
+* **deps-dev** jest-environment-jsdom from 29.1.2 to 29.2.2  ([#992](https://github.com/RedHatInsights/curiosity-frontend/pull/992)) ([ef22824](https://github.com/RedHatInsights/curiosity-frontend/commit/ef22824921efa269404decc19d76a6ed10e10c80))
+* **deps-dev** bump eslint-plugin-react from 7.31.9 to 7.31.10  ([#991](https://github.com/RedHatInsights/curiosity-frontend/pull/991)) ([1cfd70a](https://github.com/RedHatInsights/curiosity-frontend/commit/1cfd70a0de0a1ef73d9584a0a2c970eac6d62f3b))
+* **deps-dev** bump express from 4.18.1 to 4.18.2  ([#988](https://github.com/RedHatInsights/curiosity-frontend/pull/988)) ([192d05b](https://github.com/RedHatInsights/curiosity-frontend/commit/192d05ba0db811192adf738395468df28fb135c3))
+
+### Bug Fixes
+* **i18nHelpers** nested context strings  ([#994](https://github.com/RedHatInsights/curiosity-frontend/pull/994)) ([26b7866](https://github.com/RedHatInsights/curiosity-frontend/commit/26b7866246034d614a551401298172e728e2227c))
+* **build** npm updates  ([#993](https://github.com/RedHatInsights/curiosity-frontend/pull/993)) ([3b49456](https://github.com/RedHatInsights/curiosity-frontend/commit/3b494566b11268d81ff512fa2793954beb819e55))
+* **dep** replace locale-code with iso-639-1  ([#990](https://github.com/RedHatInsights/curiosity-frontend/pull/990)) ([927636a](https://github.com/RedHatInsights/curiosity-frontend/commit/927636a79b2e71472c9d3d684b5154cbbc2ecbec))
+* **i18nHelpers** update multi-context keys  ([#985](https://github.com/RedHatInsights/curiosity-frontend/pull/985)) ([ce5da27](https://github.com/RedHatInsights/curiosity-frontend/commit/ce5da270b4b7f287d072426d143ab515c34b1830))
+
+##  [2.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/04a5d08629d0ab7bc51fc865da9b2a25029cde8a...7e894b2e0cb9fed615cabb5dfa413dc172d29e75) (2022-10-18)
 
 ### Features
 * **rhods** sw-270 activate product display  ([#980](https://github.com/RedHatInsights/curiosity-frontend/pull/980)) ([2ca0496](https://github.com/RedHatInsights/curiosity-frontend/commit/2ca0496a88618343c2bc1f17fd955a8544f268b3))
