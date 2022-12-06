@@ -16,6 +16,7 @@ exports[`Product Satellite config should apply graph configuration: filters 1`] 
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
             "category": "physical",
@@ -32,6 +33,7 @@ exports[`Product Satellite config should apply graph configuration: filters 1`] 
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
             "category": "hypervisor",
@@ -48,6 +50,7 @@ exports[`Product Satellite config should apply graph configuration: filters 1`] 
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
             "category": "cloud",
