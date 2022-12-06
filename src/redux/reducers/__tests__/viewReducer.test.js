@@ -16,7 +16,8 @@ describe('ViewReducer', () => {
       types.SET_QUERY_CLEAR,
       types.SET_QUERY_CLEAR_INVENTORY_LIST,
       types.SET_QUERY_RESET_INVENTORY_LIST,
-      types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST
+      types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST,
+      types.SET_QUERY
     ];
 
     specificTypes.forEach(value => {

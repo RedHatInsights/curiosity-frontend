@@ -7,15 +7,17 @@ import { useProduct, useProductToolbarConfig } from '../productView/productViewC
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
-import { ToolbarFieldGranularity, toolbarFieldOptions as granularityOptions } from './toolbarFieldGranularity';
-import { ToolbarFieldRangedMonthly, toolbarFieldOptions as rangedMonthlyOptions } from './toolbarFieldRangedMonthly';
+import { ToolbarFieldArchitecture } from './toolbarFieldArchitecture';
 import {
   ToolbarFieldBillingProvider,
   toolbarFieldOptions as billingProviderOptions
 } from './toolbarFieldBillingProvider';
+import { ToolbarFieldGranularity, toolbarFieldOptions as granularityOptions } from './toolbarFieldGranularity';
+import { ToolbarFieldRangedMonthly, toolbarFieldOptions as rangedMonthlyOptions } from './toolbarFieldRangedMonthly';
 import { ToolbarFieldSla, toolbarFieldOptions as slaOptions } from './toolbarFieldSla';
 import { ToolbarFieldUom, toolbarFieldOptions as uomOptions } from './toolbarFieldUom';
 import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolbarFieldUsage';
+import { ToolbarFieldVariant } from './toolbarFieldVariant';
 
 /**
  * Select field options. Use function instead of arrow func to help with component
@@ -25,7 +27,7 @@ import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolba
  */
 const toolbarFieldOptions = [
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.GRANULARITY }),
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.GRANULARITY] }),
     value: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
     component: function Granularity(props) {
       return <ToolbarFieldGranularity key="selectCategory_granularity" {...props} />;
@@ -34,7 +36,7 @@ const toolbarFieldOptions = [
     isClearable: false
   },
   {
-    title: translate('curiosity-toolbar.category', { context: 'rangedMonthly' }),
+    title: translate('curiosity-toolbar.label', { context: ['category', 'rangedMonthly'] }),
     value: 'rangedMonthly',
     component: function RangedMonthly(props) {
       return <ToolbarFieldRangedMonthly key="selectCategory_rangedMonthly" {...props} />;
@@ -43,7 +45,7 @@ const toolbarFieldOptions = [
     isClearable: false
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.UOM }),
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.UOM] }),
     value: RHSM_API_QUERY_SET_TYPES.UOM,
     component: function Uom(props) {
       return <ToolbarFieldUom key="selectCategory_uom" {...props} />;
@@ -52,7 +54,7 @@ const toolbarFieldOptions = [
     isClearable: false
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER }),
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] }),
     value: RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER,
     component: function BillingProvider(props) {
       return <ToolbarFieldBillingProvider key="selectCategory_billingProvider" {...props} />;
@@ -61,7 +63,7 @@ const toolbarFieldOptions = [
     isClearable: true
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.SLA }),
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.SLA] }),
     value: RHSM_API_QUERY_SET_TYPES.SLA,
     component: function Sla(props) {
       return <ToolbarFieldSla key="selectCategory_sla" {...props} />;
@@ -70,12 +72,30 @@ const toolbarFieldOptions = [
     isClearable: true
   },
   {
-    title: translate('curiosity-toolbar.category', { context: RHSM_API_QUERY_SET_TYPES.USAGE }),
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.USAGE] }),
     value: RHSM_API_QUERY_SET_TYPES.USAGE,
     component: function Usage(props) {
       return <ToolbarFieldUsage key="selectCategory_usage" {...props} />;
     },
     options: usageOptions,
+    isClearable: true
+  },
+  {
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.VARIANT] }),
+    value: RHSM_API_QUERY_SET_TYPES.VARIANT,
+    component: function Variant(props) {
+      return <ToolbarFieldVariant key="selectCategory_variant" {...props} />;
+    },
+    options: [],
+    isClearable: true
+  },
+  {
+    title: translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.ARCHITECTURE] }),
+    value: RHSM_API_QUERY_SET_TYPES.ARCHITECTURE,
+    component: function Architecture(props) {
+      return <ToolbarFieldArchitecture key="selectCategory_architecture" {...props} />;
+    },
+    options: [],
     isClearable: true
   }
 ].map(option => ({

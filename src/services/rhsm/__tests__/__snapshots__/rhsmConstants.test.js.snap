@@ -11,6 +11,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
+  "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
+    "RHEL_ARM": "RHEL for ARM",
+    "RHEL_IBM_POWER": "RHEL for IBM Power",
+    "RHEL_IBM_Z": "RHEL for IBM z",
+    "RHEL_X86": "RHEL for x86",
+  },
   "RHSM_API_PATH_PRODUCT_TYPES": {
     "OPENSHIFT": "OpenShift Container Platform",
     "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -28,6 +34,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHODS": "rhods",
     "RHOSAK": "rhosak",
     "SATELLITE": "Satellite",
+    "SATELLITE_CAPSULE": "Satellite Capsule",
+    "SATELLITE_SERVER": "Satellite Server",
+  },
+  "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
   },
@@ -84,6 +94,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
+    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "DIRECTION": "dir",
@@ -96,8 +107,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "START_DATE": "beginning",
     "UOM": "uom",
     "USAGE": "usage",
+    "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+    "ARCHITECTURE": "architecture",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "END_DATE": "ending",
@@ -105,8 +118,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "SLA": "sla",
     "START_DATE": "beginning",
     "USAGE": "usage",
+    "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TYPES": {
+    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
@@ -121,6 +136,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "START_DATE": "beginning",
     "UOM": "uom",
     "USAGE": "usage",
+    "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SLA_TYPES": {
     "NONE": "",
@@ -280,6 +296,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
+    "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
+      "RHEL_ARM": "RHEL for ARM",
+      "RHEL_IBM_POWER": "RHEL for IBM Power",
+      "RHEL_IBM_Z": "RHEL for IBM z",
+      "RHEL_X86": "RHEL for x86",
+    },
     "RHSM_API_PATH_PRODUCT_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
       "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -297,6 +319,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHODS": "rhods",
       "RHOSAK": "rhosak",
       "SATELLITE": "Satellite",
+      "SATELLITE_CAPSULE": "Satellite Capsule",
+      "SATELLITE_SERVER": "Satellite Server",
+    },
+    "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
     },
@@ -353,6 +379,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
+      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -365,8 +392,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "START_DATE": "beginning",
       "UOM": "uom",
       "USAGE": "usage",
+      "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+      "ARCHITECTURE": "architecture",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "END_DATE": "ending",
@@ -374,8 +403,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "SLA": "sla",
       "START_DATE": "beginning",
       "USAGE": "usage",
+      "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TYPES": {
+      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
@@ -390,6 +421,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "START_DATE": "beginning",
       "UOM": "uom",
       "USAGE": "usage",
+      "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SLA_TYPES": {
       "NONE": "",
@@ -550,6 +582,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
+    "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
+      "RHEL_ARM": "RHEL for ARM",
+      "RHEL_IBM_POWER": "RHEL for IBM Power",
+      "RHEL_IBM_Z": "RHEL for IBM z",
+      "RHEL_X86": "RHEL for x86",
+    },
     "RHSM_API_PATH_PRODUCT_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
       "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -567,6 +605,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHODS": "rhods",
       "RHOSAK": "rhosak",
       "SATELLITE": "Satellite",
+      "SATELLITE_CAPSULE": "Satellite Capsule",
+      "SATELLITE_SERVER": "Satellite Server",
+    },
+    "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
     },
@@ -623,6 +665,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
+      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "DIRECTION": "dir",
@@ -635,8 +678,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "START_DATE": "beginning",
       "UOM": "uom",
       "USAGE": "usage",
+      "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+      "ARCHITECTURE": "architecture",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "END_DATE": "ending",
@@ -644,8 +689,10 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "SLA": "sla",
       "START_DATE": "beginning",
       "USAGE": "usage",
+      "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TYPES": {
+      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
@@ -660,6 +707,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "START_DATE": "beginning",
       "UOM": "uom",
       "USAGE": "usage",
+      "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SLA_TYPES": {
       "NONE": "",
@@ -824,6 +872,12 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
+  "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
+    "RHEL_ARM": "RHEL for ARM",
+    "RHEL_IBM_POWER": "RHEL for IBM Power",
+    "RHEL_IBM_Z": "RHEL for IBM z",
+    "RHEL_X86": "RHEL for x86",
+  },
   "RHSM_API_PATH_PRODUCT_TYPES": {
     "OPENSHIFT": "OpenShift Container Platform",
     "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -841,6 +895,10 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "RHODS": "rhods",
     "RHOSAK": "rhosak",
     "SATELLITE": "Satellite",
+    "SATELLITE_CAPSULE": "Satellite Capsule",
+    "SATELLITE_SERVER": "Satellite Server",
+  },
+  "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
   },
@@ -897,6 +955,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
+    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "DIRECTION": "dir",
@@ -909,8 +968,10 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "START_DATE": "beginning",
     "UOM": "uom",
     "USAGE": "usage",
+    "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+    "ARCHITECTURE": "architecture",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "END_DATE": "ending",
@@ -918,8 +979,10 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "SLA": "sla",
     "START_DATE": "beginning",
     "USAGE": "usage",
+    "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TYPES": {
+    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
@@ -934,6 +997,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "START_DATE": "beginning",
     "UOM": "uom",
     "USAGE": "usage",
+    "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SLA_TYPES": {
     "NONE": "",

@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "test_id": {
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": {
+      "test_id": {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "test_id": {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": {
+      "test_id": {
+        "undefined": undefined,
+      },
+    },
+  },
+  "type": "SET_QUERY",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR 1`] = `
 {
   "result": {

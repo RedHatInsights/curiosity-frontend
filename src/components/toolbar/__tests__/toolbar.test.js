@@ -45,12 +45,12 @@ describe('Toolbar Component', () => {
     expect(component).toMatchSnapshot('single filter');
   });
 
-  it('should handle updating toolbar chips', () => {
+  it('should handle updating toolbar chips', async () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
-      useToolbarFieldQueries: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM })
+      useProductToolbarQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: RHSM_API_QUERY_SLA_TYPES.PREMIUM })
     };
-    const component = shallow(<Toolbar {...props} />);
+    const component = await shallowHookComponent(<Toolbar {...props} />);
 
     expect(component.find(ToolbarFilter).props()).toMatchSnapshot('chips');
 
