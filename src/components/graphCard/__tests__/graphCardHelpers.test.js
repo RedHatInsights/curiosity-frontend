@@ -4,6 +4,7 @@ import {
   generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
+  generateIsToolbarFilter,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
@@ -118,6 +119,13 @@ describe('GraphCardHelpers', () => {
     expect(
       generateExtendedChartSettings({ settings: { lorem: 'ipsum' }, granularity: GRANULARITY_TYPES.DAILY })
     ).toMatchSnapshot('basic settings');
+  });
+
+  it('generateIsToolbarFilter should return a consistent check', () => {
+    expect(generateIsToolbarFilter({ query: {} })).toMatchSnapshot('is NOT a toolbar filter');
+    expect(generateIsToolbarFilter({ query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: 'lorem' } })).toMatchSnapshot(
+      'is toolbar filter'
+    );
   });
 
   it('generateChartIds should return consistent IDs', () => {

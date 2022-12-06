@@ -5,6 +5,7 @@ import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { useOnSelect as useSelectCategoryOnSelect, toolbarFieldOptions } from './toolbarFieldSelectCategory';
 import { useOnSelect as useArchitectureOnSelect } from './toolbarFieldArchitecture';
 import { useOnSelect as useBillingProviderOnSelect } from './toolbarFieldBillingProvider';
+import { useOnSelect as useCategoryOnSelect } from './toolbarFieldCategory';
 import { useOnSelect as useSlaOnSelect } from './toolbarFieldSla';
 import { useOnSelect as useUsageOnSelect } from './toolbarFieldUsage';
 import { useOnSelect as useVariantOnSelect } from './toolbarFieldVariant';
@@ -17,6 +18,7 @@ import { helpers } from '../../common/helpers';
  * @param {object} options
  * @param {Function} options.useArchitectureOnSelect
  * @param {Function} options.useBillingProviderOnSelect
+ * @param {Function} options.useCategoryOnSelect
  * @param {Function} options.useSlaOnSelect
  * @param {Function} options.useUsageOnSelect
  * @param {Function} options.useVariantOnSelect
@@ -25,12 +27,14 @@ import { helpers } from '../../common/helpers';
 const useToolbarFieldClear = ({
   useArchitectureOnSelect: useAliasArchitectureOnSelect = useArchitectureOnSelect,
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
+  useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
   useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect,
   useVariantOnSelect: useAliasVariantOnSelect = useVariantOnSelect
 } = {}) => {
   const architectureOnSelect = useAliasArchitectureOnSelect();
   const billingOnSelect = useAliasBillingProviderOnSelect();
+  const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
   const usageOnSelect = useAliasUsageOnSelect();
   const variantOnSelect = useAliasVariantOnSelect();
@@ -42,6 +46,9 @@ const useToolbarFieldClear = ({
         break;
       case RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER:
         billingOnSelect();
+        break;
+      case RHSM_API_QUERY_SET_TYPES.CATEGORY:
+        categoryOnSelect();
         break;
       case RHSM_API_QUERY_SET_TYPES.SLA:
         slaOnSelect();
@@ -66,6 +73,7 @@ const useToolbarFieldClear = ({
  * @param {Function} options.useArchitectureOnSelect
  * @param {Function} options.useSelectCategoryOnSelect
  * @param {Function} options.useBillingProviderOnSelect
+ * @param {Function} options.useCategoryOnSelect
  * @param {Function} options.useSlaOnSelect
  * @param {Function} options.useUsageOnSelect
  * @param {Function} options.useVariantOnSelect
@@ -76,6 +84,7 @@ const useToolbarFieldClearAll = ({
   useArchitectureOnSelect: useAliasArchitectureOnSelect = useArchitectureOnSelect,
   useSelectCategoryOnSelect: useAliasSelectCategoryOnSelect = useSelectCategoryOnSelect,
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
+  useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
   useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect,
   useVariantOnSelect: useAliasVariantOnSelect = useVariantOnSelect
@@ -83,12 +92,14 @@ const useToolbarFieldClearAll = ({
   const {
     [RHSM_API_QUERY_SET_TYPES.ARCHITECTURE]: architecture,
     [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billingProvider,
+    [RHSM_API_QUERY_SET_TYPES.CATEGORY]: category,
     [RHSM_API_QUERY_SET_TYPES.SLA]: sla,
     [RHSM_API_QUERY_SET_TYPES.USAGE]: usage,
     [RHSM_API_QUERY_SET_TYPES.VARIANT]: variant
   } = useAliasProductQuery();
   const architectureOnSelect = useAliasArchitectureOnSelect();
   const billingOnSelect = useAliasBillingProviderOnSelect();
+  const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
   const usageOnSelect = useAliasUsageOnSelect();
   const selectCategoryOnSelect = useAliasSelectCategoryOnSelect();
@@ -101,6 +112,10 @@ const useToolbarFieldClearAll = ({
 
     if (typeof billingProvider === 'string') {
       billingOnSelect();
+    }
+
+    if (typeof category === 'string') {
+      categoryOnSelect();
     }
 
     if (typeof sla === 'string') {

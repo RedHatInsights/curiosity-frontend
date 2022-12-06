@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { useMount } from 'react-use';
-import { useProduct } from '../productView/productViewContext';
+import { useProduct, useProductGraphConfig } from '../productView/productViewContext';
 import { reduxTypes, storeHooks } from '../../redux';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 import { ChartIcon } from '../chart/chartIcon';
 
+/**
+ * FixMe: PF button disabled borks events on immediate parent nodes, such as tooltip wrappers
+ * PF is using "pointer-events: none" styling when disabled is activated. This
+ * currently affects events on immediate parent nodes.
+ */
 /**
  * A custom chart legend.
  *
@@ -18,6 +23,7 @@ import { ChartIcon } from '../chart/chartIcon';
  * @param {Function} props.t
  * @param {Function} props.useDispatch
  * @param {Function} props.useProduct
+ * @param {Function} props.useProductGraphConfig
  * @param {Function} props.useSelectors
  * @returns {Node}
  */
@@ -26,25 +32,36 @@ const GraphCardChartLegend = ({
   datum,
   t,
   useDispatch: useAliasDispatch,
+  useProductGraphConfig: useAliasProductGraphConfig,
   useSelectors: useAliasSelectors,
   useProduct: useAliasProduct
 }) => {
   const { productLabel, viewId } = useAliasProduct();
+  const { settings = {} } = useAliasProductGraphConfig();
+  const { isDisabledLegendClick } = settings;
+
   const dispatch = useAliasDispatch();
-  const legendItems = useAliasSelectors(
-    datum.dataSets.map(
+  const [invertedLegendItem, ...legendItems] = useAliasSelectors([
+    ({ graph }) => graph.legend?.[`${viewId}-inverted`],
+    ...datum.dataSets.map(
       ({ id }) =>
         ({ graph }) =>
           graph.legend?.[`${viewId}-${id}`]
     )
-  );
+  ]);
 
   useMount(() => {
-    datum.dataSets.forEach(({ id }, index) => {
-      const checkIsToggled = legendItems?.[index] || chart.isToggled(id);
+    datum.dataSets.forEach(({ id, isToolbarFilter }, index) => {
+      if (invertedLegendItem && isToolbarFilter) {
+        if (!new RegExp(invertedLegendItem).test(id)) {
+          chart.hide(id);
+        }
+      } else {
+        const checkIsToggled = legendItems?.[index] || chart.isToggled(id);
 
-      if (checkIsToggled) {
-        chart.hide(id);
+        if (checkIsToggled) {
+          chart.hide(id);
+        }
       }
     });
   });
@@ -86,17 +103,22 @@ const GraphCardChartLegend = ({
         );
 
         const checkIsToggled = legendItems?.[index] || chart.isToggled(id);
+        const buttonActionProps = {};
+
+        if (!isDisabledLegendClick) {
+          buttonActionProps.onClick = () => onClick(id);
+          buttonActionProps.onKeyPress = () => onClick(id);
+        }
 
         const button = (
           <Button
-            onClick={() => onClick(id)}
-            onKeyPress={() => onClick(id)}
+            {...buttonActionProps}
             className="curiosity-usage-graph__legend-item"
             tabIndex={0}
             key={`curiosity-button-${id}`}
             variant="link"
             component="a"
-            isDisabled={isDisabled}
+            isDisabled={isDisabledLegendClick ?? isDisabled}
             icon={
               ((isDisabled || checkIsToggled) && <ChartIcon symbol="eyeSlash" />) || (
                 <ChartIcon
@@ -120,7 +142,7 @@ const GraphCardChartLegend = ({
               enableFlip
               distance={5}
             >
-              {button}
+              <span className="pf-c-button pf-m-link">{button}</span>
             </Tooltip>
           );
         }
@@ -134,7 +156,8 @@ const GraphCardChartLegend = ({
 /**
  * Prop types.
  *
- * @type {{datum: object, useProduct: Function, t: Function, useDispatch: Function, useSelectors: Function, chart: object}}
+ * @type {{datum: object, useProduct: Function, t: Function, useProductGraphConfig: Function, useDispatch: Function,
+ *     useSelectors: Function, chart: object}}
  */
 GraphCardChartLegend.propTypes = {
   chart: PropTypes.shape({
@@ -154,14 +177,16 @@ GraphCardChartLegend.propTypes = {
   }),
   t: PropTypes.func,
   useDispatch: PropTypes.func,
-  useSelectors: PropTypes.func,
-  useProduct: PropTypes.func
+  useProduct: PropTypes.func,
+  useProductGraphConfig: PropTypes.func,
+  useSelectors: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{datum: object, useProduct: Function, t: Function, useDispatch: Function, useSelectors: Function, chart: object}}
+ * @type {{datum: {dataSets: *[]}, useProduct: Function, t: Function, useProductGraphConfig: Function, useDispatch: Function,
+ *     useSelectors: Function, chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
   chart: {
@@ -174,8 +199,9 @@ GraphCardChartLegend.defaultProps = {
   },
   t: translate,
   useDispatch: storeHooks.reactRedux.useDispatch,
-  useSelectors: storeHooks.reactRedux.useSelectors,
-  useProduct
+  useProduct,
+  useProductGraphConfig,
+  useSelectors: storeHooks.reactRedux.useSelectors
 };
 
 export { GraphCardChartLegend as default, GraphCardChartLegend };
