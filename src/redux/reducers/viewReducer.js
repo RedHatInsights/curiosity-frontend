@@ -127,6 +127,20 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
+    case reduxTypes.query.SET_QUERY:
+      return reduxHelpers.setStateProp(
+        'query',
+        {
+          [action.viewId]: {
+            ...state.query[action.viewId],
+            [action.filter]: action.value
+          }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
     case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY]:
       return reduxHelpers.setStateProp(
         'graphTallyQuery',

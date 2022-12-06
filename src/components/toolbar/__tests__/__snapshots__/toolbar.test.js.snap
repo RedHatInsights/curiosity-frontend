@@ -26,7 +26,7 @@ exports[`Toolbar Component should handle displaying secondary components, fields
         variant="filter-group"
       >
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, {"context":"sla"})"
+          categoryName="t(curiosity-toolbar.label_category, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
           key="sla"
@@ -57,12 +57,12 @@ exports[`Toolbar Component should handle displaying secondary components, fields
 
 exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
 {
-  "categoryName": "t(curiosity-toolbar.category, {"context":"sla"})",
+  "categoryName": "t(curiosity-toolbar.label_category, {"context":"sla"})",
   "children": <Sla
     isFilter={true}
   />,
   "chips": [
-    "t(curiosity-toolbar.sla, {"context":"Premium"})",
+    "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
   ],
   "deleteChip": [Function],
   "showToolbarItem": true,
@@ -71,7 +71,7 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
 
 exports[`Toolbar Component should handle updating toolbar chips: chips, not clearable 1`] = `
 {
-  "categoryName": "t(curiosity-toolbar.category, {"context":"sla"})",
+  "categoryName": "t(curiosity-toolbar.label_category, {"context":"sla"})",
   "children": <Sla
     isFilter={true}
   />,
@@ -106,7 +106,7 @@ exports[`Toolbar Component should hide categories when a single filter is availa
         variant="filter-group"
       >
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, {"context":"sla"})"
+          categoryName="t(curiosity-toolbar.label_category, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
           key="sla"
@@ -162,7 +162,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
           />
         </ToolbarItem>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, {"context":"sla"})"
+          categoryName="t(curiosity-toolbar.label_category, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
           key="sla"
@@ -173,7 +173,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
           />
         </ToolbarFilter>
         <ToolbarFilter
-          categoryName="t(curiosity-toolbar.category, {"context":"usage"})"
+          categoryName="t(curiosity-toolbar.label_category, {"context":"usage"})"
           chips={[]}
           deleteChip={[Function]}
           key="usage"

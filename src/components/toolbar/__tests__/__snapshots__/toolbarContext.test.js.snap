@@ -136,16 +136,6 @@ exports[`ToolbarContext should apply a hook for clearing specific active toolbar
 ]
 `;
 
-exports[`ToolbarContext should apply a hook for retrieving api queries specific to toolbar: query 1`] = `
-{
-  "billing_provider": "testProvider",
-  "granularity": "testGranularity",
-  "sla": "testSla",
-  "uom": undefined,
-  "usage": "testUsage",
-}
-`;
-
 exports[`ToolbarContext should apply a hook for retrieving secondary toolbar field components: secondary field, rangedMonthly 1`] = `
 [
   <ToolbarItem>
@@ -161,7 +151,6 @@ exports[`ToolbarContext should return specific properties: specific properties 1
 {
   "useToolbarFieldClear": [Function],
   "useToolbarFieldClearAll": [Function],
-  "useToolbarFieldQueries": [Function],
   "useToolbarSecondaryFields": [Function],
 }
 `;

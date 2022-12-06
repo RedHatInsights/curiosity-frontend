@@ -12,6 +12,7 @@ import { DateFormat } from '@redhat-cloud-services/frontend-components/DateForma
 import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
+  RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES,
   RHSM_API_QUERY_CATEGORY_TYPES as CATEGORY_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
@@ -41,6 +42,7 @@ const config = {
   productLabel,
   productDisplay: DISPLAY_TYPES.PARTIAL,
   viewId: `view${productGroup}`,
+  productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES)],
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers
       .getRangedDateTime(GRANULARITY_TYPES.DAILY)

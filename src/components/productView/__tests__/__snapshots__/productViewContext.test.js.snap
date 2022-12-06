@@ -319,11 +319,22 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
 }
 `;
 
+exports[`ProductViewContext should apply hooks for retrieving specific api queries: toolbarQuery 1`] = `
+{
+  "granularity": "testGranularity",
+  "limit": "testLimit",
+  "lorem": "ipsum",
+  "sla": "testSla",
+}
+`;
+
 exports[`ProductViewContext should apply hooks for retrieving specific config filters and settings: productConfig 1`] = `
 {
+  "productArchitectures": undefined,
   "productGroup": "loremIpsum",
   "productId": "lorem",
   "productLabel": "labelLorem",
+  "productVariants": undefined,
   "viewId": "viewIpsum",
 }
 `;
@@ -442,5 +453,6 @@ exports[`ProductViewContext should return specific properties: specific properti
   "useQuery": [Function],
   "useQueryFactory": [Function],
   "useToolbarConfig": [Function],
+  "useToolbarQuery": [Function],
 }
 `;

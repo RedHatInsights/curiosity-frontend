@@ -47,10 +47,10 @@ exports[`ProductView Component should allow custom inventory displays via config
           hardFilterReset={false}
           isDisabled={false}
           t={[Function]}
+          useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarFieldQueries={[Function]}
           useToolbarSecondaryFields={[Function]}
         />
       </PageToolbar>
@@ -138,10 +138,10 @@ exports[`ProductView Component should allow custom product views via props: cust
           hardFilterReset={false}
           isDisabled={false}
           t={[Function]}
+          useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarFieldQueries={[Function]}
           useToolbarSecondaryFields={[Function]}
         />
       </PageToolbar>
@@ -214,10 +214,10 @@ exports[`ProductView Component should allow custom product views via props: cust
           hardFilterReset={false}
           isDisabled={false}
           t={[Function]}
+          useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarFieldQueries={[Function]}
           useToolbarSecondaryFields={[Function]}
         />
       </PageToolbar>
@@ -290,10 +290,10 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
           hardFilterReset={false}
           isDisabled={false}
           t={[Function]}
+          useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarFieldQueries={[Function]}
           useToolbarSecondaryFields={[Function]}
         />
       </PageToolbar>
