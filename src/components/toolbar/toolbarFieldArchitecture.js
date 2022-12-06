@@ -21,7 +21,7 @@ const useToolbarFieldOptions = ({ useProduct: useAliasProduct = useProduct } = {
     options.push(
       ...productArchitectures.map(type => ({
         title: translate('curiosity-toolbar.label', {
-          context: ['architecture', (type === '' && 'unspecified') || type]
+          context: ['architecture', (type === '' && 'none') || type]
         }),
         value: type,
         selected: false

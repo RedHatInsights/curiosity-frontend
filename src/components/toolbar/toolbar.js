@@ -76,9 +76,14 @@ const Toolbar = ({
    * @param {*} params.value
    * @returns {Array}
    */
-  const setSelectedOptions = ({ value } = {}) => {
-    const categoryValue = toolbarFieldQueries?.[value];
-    return (categoryValue && [t('curiosity-toolbar.label', { context: [value, categoryValue] })]) || [];
+  const setSelectedOptions = ({ value: filterName } = {}) => {
+    const filterValue = toolbarFieldQueries?.[filterName];
+    return (
+      (typeof filterValue === 'string' && [
+        t('curiosity-toolbar.label', { context: [filterName, (filterValue === '' && 'none') || filterValue] })
+      ]) ||
+      []
+    );
   };
 
   return (
@@ -97,18 +102,18 @@ const Toolbar = ({
                 <ToolbarFieldSelectCategory />
               </ToolbarItem>
             )}
-            {options.map(({ title, value, component: OptionComponent, isClearable }) => {
+            {options.map(({ title, value: filterName, component: OptionComponent, isClearable }) => {
               const chipProps = { categoryName: title };
 
               if (isClearable !== false) {
-                chipProps.chips = setSelectedOptions({ value });
-                chipProps.deleteChip = () => onClearFilter({ value });
+                chipProps.chips = setSelectedOptions({ value: filterName });
+                chipProps.deleteChip = () => onClearFilter({ value: filterName });
               }
 
               return (
                 <ToolbarFilter
-                  key={value}
-                  showToolbarItem={currentCategory === value || options.length === 1}
+                  key={filterName}
+                  showToolbarItem={currentCategory === filterName || options.length === 1}
                   {...chipProps}
                 >
                   <OptionComponent isFilter />
