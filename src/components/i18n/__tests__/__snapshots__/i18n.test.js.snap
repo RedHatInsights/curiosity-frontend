@@ -6,12 +6,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "./src/common/dateHelpers.js",
     "keys": [
       {
-        "key": "curiosity-toolbar.granularityRangedMonthly",
-        "match": "translate('curiosity-toolbar.granularityRangedMonthly', { context: dateTime.title })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['granularityRangedMonthly', dateTime.title] })",
       },
       {
-        "key": "curiosity-toolbar.granularityRangedMonthly",
-        "match": "translate('curiosity-toolbar.granularityRangedMonthly', { context: 'current' })",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['granularityRangedMonthly', 'current'] })",
       },
     ],
   },
@@ -333,7 +333,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "t('curiosity-toolbar.label', { context: [value, categoryValue] })",
+        "match": "t('curiosity-toolbar.label', { context: [filterName, (filterValue === '' && 'none')",
       },
       {
         "key": "curiosity-toolbar.clearFilters",
@@ -346,7 +346,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['architecture', (type === '' && 'unspecified')",
+        "match": "translate('curiosity-toolbar.label', { context: ['architecture', (type === '' && 'none')",
       },
       {
         "key": "curiosity-toolbar.placeholder",
@@ -485,7 +485,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['uom', type] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['uom', (type === '' && 'none')",
       },
       {
         "key": "",
@@ -502,7 +502,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['usage', (type === '' && 'unspecified')",
+        "match": "translate('curiosity-toolbar.label', { context: ['usage', (type === '' && 'none')",
       },
       {
         "key": "",
@@ -519,7 +519,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['variant', (type === '' && 'unspecified')",
+        "match": "translate('curiosity-toolbar.label', { context: ['variant', (type === '' && 'none')",
       },
       {
         "key": "curiosity-toolbar.placeholder",
@@ -767,11 +767,11 @@ exports[`I18n Component should have locale keys that exist in the default langua
 [
   {
     "file": "./src/common/dateHelpers.js",
-    "key": "curiosity-toolbar.granularityRangedMonthly",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "./src/common/dateHelpers.js",
-    "key": "curiosity-toolbar.granularityRangedMonthly",
+    "key": "curiosity-toolbar.label",
   },
   {
     "file": "./src/components/inventoryCard/inventoryCard.js",
