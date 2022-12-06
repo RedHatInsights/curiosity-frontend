@@ -64,7 +64,7 @@ const useGetAppMessages = ({
       messages?.data
         ?.reverse()
         ?.find(
-          ({ [rhsmConstants.RHSM_API_RESPONSE_TALLY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH]: mismatch }) =>
+          ({ [rhsmConstants.RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH]: mismatch }) =>
             mismatch === true
         ) !== undefined;
   }

@@ -45,7 +45,11 @@ const metaResponseSchema = Joi.object()
  *
  * @type {*} Joi schema
  */
-const capacityMetaSchema = metaResponseSchema;
+const capacityMetaSchema = metaResponseSchema
+  .keys({
+    metric_id: Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES))
+  })
+  .unknown(true);
 
 /**
  * Capacity response item.
@@ -53,10 +57,10 @@ const capacityMetaSchema = metaResponseSchema;
  * @type {*} Joi schema
  */
 const capacityItem = Joi.object({
-  cores: Joi.number().allow(null).default(0),
   date: Joi.date().utc().allow(null),
+  has_data: Joi.boolean().optional().allow(null),
   has_infinite_quantity: Joi.boolean().optional().allow(null),
-  sockets: Joi.number().allow(null).default(0)
+  value: Joi.number().allow(null).default(0)
 })
   .unknown(true)
   .default();

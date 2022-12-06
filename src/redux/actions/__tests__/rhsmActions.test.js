@@ -37,17 +37,6 @@ describe('RhsmActions', () => {
     moxios.uninstall();
   });
 
-  it('Should return response content for getGraphReportsCapacity method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getGraphReportsCapacity();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().graph;
-      expect(response.reportCapacity.fulfilled).toBe(true);
-      done();
-    });
-  });
-
   it('Should return response content for getGraphMetrics method', done => {
     const store = generateStore();
     const dispatcher = rhsmActions.getGraphMetrics([
@@ -66,22 +55,6 @@ describe('RhsmActions', () => {
       expect(response.capacity.threshold_ipsum_lorem.fulfilled).toBe(true);
       expect(response.capacity.threshold_sit_dolor.fulfilled).toBe(true);
       expect(Object.entries(response.capacity).length).toBe(2);
-      done();
-    });
-  });
-
-  it('Should return response content for getGraphTally method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getGraphTally([
-      { id: 'lorem', metric: 'ipsum' },
-      { id: 'dolor', metric: 'sit' }
-    ]);
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().graph;
-      expect(response.tally.lorem_ipsum.fulfilled).toBe(true);
-      expect(response.tally.dolor_sit.fulfilled).toBe(true);
-      expect(Object.entries(response.tally).length).toBe(2);
       done();
     });
   });

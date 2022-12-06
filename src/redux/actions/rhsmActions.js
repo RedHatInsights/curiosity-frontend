@@ -3,68 +3,6 @@ import { rhsmServices } from '../../services/rhsm/rhsmServices';
 import { generateChartIds } from '../../components/graphCard/graphCardHelpers';
 
 /**
- * Get a combined RHSM response from reporting and capacity.
- *
- * @param {string} id
- * @param {object} query
- * @param {object} options
- * @param {string} options.cancelId
- * @returns {Function}
- */
-const getGraphReportsCapacity =
-  (id = null, query = {}, options = {}) =>
-  dispatch => {
-    const { cancelId = 'graphReportsCapacity' } = options;
-
-    return dispatch({
-      type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM,
-      payload: Promise.all([
-        rhsmServices.getGraphReports(id, query, { cancelId }),
-        rhsmServices.getGraphCapacityDeprecated(id, query, { cancelId })
-      ]),
-      meta: {
-        id,
-        query,
-        notifications: {}
-      }
-    });
-  };
-
-/**
- * Get a RHSM response from multiple Tally IDs and metrics.
- *
- * @param {object|Array} idMetric An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID }
- * @param {object} query
- * @param {object} options
- * @param {string} options.cancelId
- * @returns {Function}
- */
-const getGraphTally =
-  (idMetric = {}, query = {}, options = {}) =>
-  dispatch => {
-    const { cancelId = 'graphTally' } = options;
-    const multiMetric = (Array.isArray(idMetric) && idMetric) || [idMetric];
-    const multiDispatch = [];
-
-    multiMetric.forEach(({ id, metric }) => {
-      multiDispatch.push({
-        type: rhsmTypes.GET_GRAPH_TALLY_RHSM,
-        payload: rhsmServices.getGraphTally([id, metric], query, {
-          cancelId: `${cancelId}_${id}_${metric}`
-        }),
-        meta: {
-          id: `${id}_${metric}`,
-          idMetric: { id, metric },
-          query,
-          notifications: {}
-        }
-      });
-    });
-
-    return Promise.all(dispatch(multiDispatch));
-  };
-
-/**
  * Get a RHSM response from multiple Tally, or Capacity, IDs and metrics.
  *
  * @param {object|Array} idMetric An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID, isCapacity: boolean }
@@ -208,8 +146,6 @@ const getSubscriptionsInventory =
 
 const rhsmActions = {
   getGraphMetrics,
-  getGraphReportsCapacity,
-  getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
   getInstancesInventory,
@@ -221,8 +157,6 @@ export {
   rhsmActions as default,
   rhsmActions,
   getGraphMetrics,
-  getGraphReportsCapacity,
-  getGraphTally,
   getHostsInventory,
   getHostsInventoryGuests,
   getInstancesInventory,
