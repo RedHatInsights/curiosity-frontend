@@ -47,7 +47,7 @@ describe('BannerMessagesContext', () => {
                 data: {
                   data: [
                     {
-                      [rhsmConstants.RHSM_API_RESPONSE_TALLY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH]: true
+                      [rhsmConstants.RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH]: true
                     }
                   ]
                 }

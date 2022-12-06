@@ -1876,7 +1876,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
     cancel = true,
     cancelId,
     schema = [rhsmSchemas.tally, rhsmSchemas.errors],
-    transform = [rhsmTransformers.tally]
+    transform = [rhsmTransformers.tallyCapacity]
   } = options;
   const updatedId = (typeof id === 'string' && [id]) || (Array.isArray(id) && id) || [];
 
@@ -1902,7 +1902,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
 };
 
 /**
- * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id Get RHSM graph capacity data, i.e. thresholds
+ * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id/:metric_id Get RHSM graph capacity data, i.e. thresholds
  * @apiDescription Retrieve graph capacity data, such as thresholds.
  *
  * Reference [RHSM for capacity params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
@@ -1913,232 +1913,198 @@ const getGraphTally = (id, params = {}, options = {}) => {
  *       "data": [
  *         {
  *           "date": "2020-07-01T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 0,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-02T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 0,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-03T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 0,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-04T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 25,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-05T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 50,
+ *           "has_data": false,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-06T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 0,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-07T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 0,
+ *           "has_data": false,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-08T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 0,
+ *           "has_data": false,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-09T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
+ *           "value": 50,
+ *           "has_data": false,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-10T00:00:00Z",
- *           "sockets": 0,
- *           "physical_sockets": 0,
- *           "hypervisor_sockets": 0,
- *           "has_infinite_quantity": true
+ *           "value": 100,
+ *           "has_data": false,
+ *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-11T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": 100,
+ *           "has_data": null,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-12T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "has_data": null,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-13T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "has_data": false,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-14T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": null,
+ *           "has_data": false,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-15T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": null,
+ *           "has_data": false,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-16T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": null,
+ *           "has_data": false,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-17T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": null,
+ *           "has_data": false,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-18T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": null,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-19T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 50,
- *           "hypervisor_sockets": 0,
+ *           "value": null,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-20T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 32,
- *           "hypervisor_sockets": 18,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-21T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 32,
- *           "hypervisor_sockets": 18,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-22T00:00:00Z",
- *           "sockets": 50,
- *           "physical_sockets": 32,
- *           "hypervisor_sockets": 18,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-23T00:00:00Z",
- *           "sockets": null,
- *           "physical_sockets": null,
- *           "hypervisor_sockets": null,
+ *           "value": 200,
+ *           "has_data": false,
  *           "has_infinite_quantity": false
  *         },
  *         {
  *           "date": "2020-07-24T00:00:00Z",
- *           "sockets": null,
- *           "physical_sockets": null,
- *           "hypervisor_sockets": null,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-25T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-26T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-27T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-28T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-29T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-30T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         },
  *         {
  *           "date": "2020-07-31T00:00:00Z",
- *           "sockets": 100,
- *           "physical_sockets": 75,
- *           "hypervisor_sockets": 25,
+ *           "value": 200,
+ *           "has_data": true,
  *           "has_infinite_quantity": true
  *         }
  *       ],
- *       "links": {
- *         "first": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?granularity=daily&beginning=2020-07-20T00:00:00.000Z&ending=2020-08-19T23:59:59.999Z&offset=0",
- *         "last": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?granularity=daily&beginning=2020-07-20T00:00:00.000Z&ending=2020-08-19T23:59:59.999Z&offset=0",
- *         "previous": null,
- *         "next": "/api/rhsm-subscriptions/v1/capacity/products/RHEL?granularity=daily&beginning=2020-07-20T00:00:00.000Z&ending=2020-08-19T23:59:59.999Z&offset=0"
- *       },
+ *       "links": {},
  *       "meta": {
- *         "count": 11,
+ *         "count": 31,
  *         "product": "RHEL",
- *         "granularity": "daily"
+ *         "metric_id": "Sockets",
+ *         "granularity": "daily",
+ *         "service_level": "",
+ *         "usage": "",
+ *         "category": ""
  *       }
  *     }
  *
@@ -2185,28 +2151,6 @@ const getGraphTally = (id, params = {}, options = {}) => {
 /**
  * Get RHSM API capacity/threshold graph/chart data.
  *
- * @param {string} id Product ID
- * @param {object} params Query/search params
- * @param {object} options
- * @param {boolean} options.cancel
- * @param {string} options.cancelId
- * @returns {Promise<*>}
- */
-const getGraphCapacityDeprecated = (id, params = {}, options = {}) => {
-  const { cache = true, cancel = true, cancelId } = options;
-  const updatedId = rhsmHelpers.filterArchitectureVariant(id, params);
-  return serviceCall({
-    url: `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY_DEPRECATED}${updatedId}`,
-    params,
-    cache,
-    cancel,
-    cancelId
-  });
-};
-
-/**
- * Get RHSM API capacity/threshold graph/chart data.
- *
  * @param {string|Array} id String ID, or an array of identifiers to update a dotenv url path
  * @param {object} params Query/search params
  * @param {object} options
@@ -2220,25 +2164,19 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
     cancel = true,
     cancelId,
     schema = [rhsmSchemas.capacity, rhsmSchemas.errors],
-    transform = [rhsmTransformers.capacity]
+    transform = [rhsmTransformers.tallyCapacity]
   } = options;
   const updatedId = (typeof id === 'string' && [id]) || (Array.isArray(id) && id) || [];
 
-  let url = `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY_DEPRECATED}`;
+  let url = `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}`;
   updatedId.forEach((value, index) => {
+    let updatedValue = value;
     if (index === 0) {
-      const updatedValue = rhsmHelpers.filterArchitectureVariant(value, params);
-      url = `${url}${updatedValue}`;
+      updatedValue = rhsmHelpers.filterArchitectureVariant(value, params);
     }
-  });
 
-  /**
-   * ToDo: remove this if/when capacity supports metric identifiers in its path
-   * We're emulating metric identifiers for the capacity endpoint to align with Tally updates,
-   * and provide consistency for consuming components. The value is passed via Redux action ->
-   * to service call -> to transformer.
-   */
-  const _metricId = updatedId?.[1];
+    url = url.replace(`{${index}}`, updatedValue);
+  });
 
   return serviceCall({
     url,
@@ -2247,8 +2185,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
     cancel,
     cancelId,
     schema,
-    transform,
-    _metricId
+    transform
   });
 };
 
@@ -2842,7 +2779,6 @@ const getSubscriptionsInventory = (id, params = {}, options = {}) => {
 const rhsmServices = {
   getApiVersion,
   getGraphCapacity,
-  getGraphCapacityDeprecated,
   getGraphReports,
   getGraphTally,
   getHostsInventory,
@@ -2861,7 +2797,6 @@ export {
   rhsmServices,
   getApiVersion,
   getGraphCapacity,
-  getGraphCapacityDeprecated,
   getGraphReports,
   getGraphTally,
   getHostsInventory,

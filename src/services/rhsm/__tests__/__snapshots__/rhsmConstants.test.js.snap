@@ -159,17 +159,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "AWS": "aws",
     "RED_HAT": "red hat",
   },
-  "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
-    "CORES": "cores",
-    "DATE": "date",
-    "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
-    "SOCKETS": "sockets",
-  },
-  "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
-    "COUNT": "count",
-    "METRIC_ID": "metric_id",
-    "PRODUCT": "product",
-  },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERRORS": "errors",
   "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": {
@@ -255,12 +244,13 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "ANNUAL": "Annual",
     "ON_DEMAND": "On-demand",
   },
-  "RHSM_API_RESPONSE_TALLY_DATA_TYPES": {
+  "RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES": {
     "DATE": "date",
     "HAS_DATA": "has_data",
+    "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
     "VALUE": "value",
   },
-  "RHSM_API_RESPONSE_TALLY_META_TYPES": {
+  "RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES": {
     "COUNT": "count",
     "DATE": "date",
     "HAS_CLOUDIGRADE_DATA": "has_cloudigrade_data",
@@ -445,17 +435,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "AWS": "aws",
       "RED_HAT": "red hat",
     },
-    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
-      "CORES": "cores",
-      "DATE": "date",
-      "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
-      "SOCKETS": "sockets",
-    },
-    "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
-      "COUNT": "count",
-      "METRIC_ID": "metric_id",
-      "PRODUCT": "product",
-    },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERRORS": "errors",
     "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": {
@@ -541,12 +520,13 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "ANNUAL": "Annual",
       "ON_DEMAND": "On-demand",
     },
-    "RHSM_API_RESPONSE_TALLY_DATA_TYPES": {
+    "RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES": {
       "DATE": "date",
       "HAS_DATA": "has_data",
+      "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
       "VALUE": "value",
     },
-    "RHSM_API_RESPONSE_TALLY_META_TYPES": {
+    "RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES": {
       "COUNT": "count",
       "DATE": "date",
       "HAS_CLOUDIGRADE_DATA": "has_cloudigrade_data",
@@ -732,17 +712,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "AWS": "aws",
       "RED_HAT": "red hat",
     },
-    "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
-      "CORES": "cores",
-      "DATE": "date",
-      "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
-      "SOCKETS": "sockets",
-    },
-    "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
-      "COUNT": "count",
-      "METRIC_ID": "metric_id",
-      "PRODUCT": "product",
-    },
     "RHSM_API_RESPONSE_DATA": "data",
     "RHSM_API_RESPONSE_ERRORS": "errors",
     "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": {
@@ -828,12 +797,13 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "ANNUAL": "Annual",
       "ON_DEMAND": "On-demand",
     },
-    "RHSM_API_RESPONSE_TALLY_DATA_TYPES": {
+    "RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES": {
       "DATE": "date",
       "HAS_DATA": "has_data",
+      "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
       "VALUE": "value",
     },
-    "RHSM_API_RESPONSE_TALLY_META_TYPES": {
+    "RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES": {
       "COUNT": "count",
       "DATE": "date",
       "HAS_CLOUDIGRADE_DATA": "has_cloudigrade_data",
@@ -1023,17 +993,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "AWS": "aws",
     "RED_HAT": "red hat",
   },
-  "RHSM_API_RESPONSE_CAPACITY_DATA_TYPES": {
-    "CORES": "cores",
-    "DATE": "date",
-    "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
-    "SOCKETS": "sockets",
-  },
-  "RHSM_API_RESPONSE_CAPACITY_META_TYPES": {
-    "COUNT": "count",
-    "METRIC_ID": "metric_id",
-    "PRODUCT": "product",
-  },
   "RHSM_API_RESPONSE_DATA": "data",
   "RHSM_API_RESPONSE_ERRORS": "errors",
   "RHSM_API_RESPONSE_ERRORS_CODE_TYPES": {
@@ -1119,12 +1078,13 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "ANNUAL": "Annual",
     "ON_DEMAND": "On-demand",
   },
-  "RHSM_API_RESPONSE_TALLY_DATA_TYPES": {
+  "RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES": {
     "DATE": "date",
     "HAS_DATA": "has_data",
+    "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
     "VALUE": "value",
   },
-  "RHSM_API_RESPONSE_TALLY_META_TYPES": {
+  "RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES": {
     "COUNT": "count",
     "DATE": "date",
     "HAS_CLOUDIGRADE_DATA": "has_cloudigrade_data",
