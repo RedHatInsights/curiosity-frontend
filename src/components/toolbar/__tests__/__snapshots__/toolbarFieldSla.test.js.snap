@@ -4,22 +4,22 @@ exports[`ToolbarFieldSla Component should export select options: toolbarFieldOpt
 [
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
+    "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
     "value": "Premium",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
+    "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
     "value": "Standard",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
+    "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
     "value": "Self-Support",
   },
   {
     "selected": false,
-    "title": "t(curiosity-toolbar.sla, {"context":"none"})",
+    "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
     "value": "",
   },
 ]
@@ -79,22 +79,22 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
     [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
         "value": "Premium",
       },
       {
         "selected": true,
-        "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
         "value": "Standard",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
         "value": "Self-Support",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"none"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
         "value": "",
       },
     ]

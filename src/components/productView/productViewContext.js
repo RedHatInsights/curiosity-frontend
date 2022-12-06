@@ -27,16 +27,23 @@ const useProductViewContext = () => useContext(ProductViewContext);
  * @param {object} options
  * @param {string} options.overrideId A custom identifier, used for scenarios like the Guest inventory IDs
  * @param {object} options.useProductViewContext
+ * @param {Function} options.useSelectors
  * @returns {object}
  */
 const useProductQueryFactory = (
   queryType,
-  { overrideId, useProductViewContext: useAliasProductViewContext = useProductViewContext } = {}
+  {
+    overrideId,
+    useProductViewContext: useAliasProductViewContext = useProductViewContext,
+    useSelectors: useAliasSelectors = storeHooks.reactRedux.useSelectors
+  } = {}
 ) => {
   const { [queryType]: initialQuery, productId, viewId } = useAliasProductViewContext();
-  const queryOverride = storeHooks.reactRedux.useSelector(({ view }) => view?.[queryType]?.[overrideId], undefined);
-  const queryProduct = storeHooks.reactRedux.useSelector(({ view }) => view?.[queryType]?.[productId], undefined);
-  const queryView = storeHooks.reactRedux.useSelector(({ view }) => view?.[queryType]?.[viewId], undefined);
+  const [queryOverride, queryProduct, queryView] = useAliasSelectors([
+    ({ view }) => view?.[queryType]?.[overrideId],
+    ({ view }) => view?.[queryType]?.[productId],
+    ({ view }) => view?.[queryType]?.[viewId]
+  ]);
 
   return {
     ...initialQuery,
@@ -51,10 +58,15 @@ const useProductQueryFactory = (
  *
  * @param {object} options
  * @param {string} options.queryType
+ * @param {Function} options.useProductQueryFactory
  * @param {object} options.options
  * @returns {object}
  */
-const useProductQuery = ({ queryType = 'query', options } = {}) => useProductQueryFactory(queryType, options);
+const useProductQuery = ({
+  queryType = 'query',
+  useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
+  options
+} = {}) => useAliasProductQueryFactory(queryType, options);
 
 /**
  * Return the graph query based off of tally and capacity.
@@ -62,18 +74,22 @@ const useProductQuery = ({ queryType = 'query', options } = {}) => useProductQue
  * @param {object} options
  * @param {string} options.queryType
  * @param {object} options.schemaCheck
+ * @param {Function} options.useProductQuery
+ * @param {Function} options.useProductQueryFactory
  * @param {object} options.options
  * @returns {object}
  */
 const useProductGraphTallyQuery = ({
   queryType = 'graphTallyQuery',
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES,
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
     {
-      ...useProductQuery(),
-      ...useProductQueryFactory(queryType, options)
+      ...useAliasProductQuery(),
+      ...useAliasProductQueryFactory(queryType, options)
     },
     schemaCheck
   );
@@ -86,6 +102,8 @@ const useProductGraphTallyQuery = ({
  * @param {number} options.defaultOffset
  * @param {string} options.queryType
  * @param {object} options.schemaCheck
+ * @param {Function} options.useProductQuery
+ * @param {Function} options.useProductQueryFactory
  * @param {object} options.options
  * @returns {object}
  */
@@ -94,14 +112,16 @@ const useProductInventoryGuestsQuery = ({
   defaultOffset = 0,
   queryType = 'inventoryGuestsQuery',
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
     {
       [RHSM_API_QUERY_SET_TYPES.LIMIT]: defaultLimit,
       [RHSM_API_QUERY_SET_TYPES.OFFSET]: defaultOffset,
-      ...useProductQuery(),
-      ...useProductQueryFactory(queryType, options)
+      ...useAliasProductQuery(),
+      ...useAliasProductQueryFactory(queryType, options)
     },
     schemaCheck
   );
@@ -112,18 +132,22 @@ const useProductInventoryGuestsQuery = ({
  * @param {object} options
  * @param {string} options.queryType
  * @param {object} options.schemaCheck
+ * @param {Function} options.useProductQuery
+ * @param {Function} options.useProductQueryFactory
  * @param {object} options.options
  * @returns {object}
  */
 const useProductInventoryHostsQuery = ({
   queryType = 'inventoryHostsQuery',
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
     {
-      ...useProductQuery(),
-      ...useProductQueryFactory(queryType, options)
+      ...useAliasProductQuery(),
+      ...useAliasProductQueryFactory(queryType, options)
     },
     schemaCheck
   );
@@ -134,21 +158,50 @@ const useProductInventoryHostsQuery = ({
  * @param {object} options
  * @param {string} options.queryType
  * @param {object} options.schemaCheck
+ * @param {Function} options.useProductQuery
+ * @param {Function} options.useProductQueryFactory
  * @param {object} options.options
  * @returns {object}
  */
 const useProductInventorySubscriptionsQuery = ({
   queryType = 'inventorySubscriptionsQuery',
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useProductQueryFactory: useAliasProductQueryFactory = useProductQueryFactory,
   options
 } = {}) =>
   reduxHelpers.setApiQuery(
     {
-      ...useProductQuery(),
-      ...useProductQueryFactory(queryType, options)
+      ...useAliasProductQuery(),
+      ...useAliasProductQueryFactory(queryType, options)
     },
     schemaCheck
   );
+
+/**
+ * Return a unified query for toolbars
+ *
+ * @param {object} options
+ * @param {Function} options.useProductQuery
+ * @param {Function} options.useProductGraphTallyQuery
+ * @param {Function} options.useProductInventoryHostsQuery
+ * @param {Function} options.useProductInventorySubscriptionsQuery
+ * @param {object} options.options
+ * @returns {object}
+ */
+const useProductToolbarQuery = ({
+  useProductQuery: useAliasProductQuery = useProductQuery,
+  useProductGraphTallyQuery: useAliasProductGraphTallyQuery = useProductGraphTallyQuery,
+  useProductInventoryHostsQuery: useAliasProductInventoryHostsQuery = useProductInventoryHostsQuery,
+  useProductInventorySubscriptionsQuery:
+    useAliasProductInventorySubscriptionsQuery = useProductInventorySubscriptionsQuery,
+  options
+} = {}) => ({
+  ...useAliasProductQuery({ options }),
+  ...useAliasProductGraphTallyQuery({ options }),
+  ...useAliasProductInventoryHostsQuery({ options }),
+  ...useAliasProductInventorySubscriptionsQuery({ options })
+});
 
 /**
  * Get a filtered product configuration context.
@@ -211,14 +264,17 @@ const useProductContext = ({
  *
  * @param {object} options
  * @param {Function} options.useProductViewContext
- * @returns {{productLabel: string, viewId: string, productId: string, productGroup: string}}
+ * @returns {{productLabel, viewId, productId, productGroup, productVariants, productArchitectures}}
  */
 const useProduct = ({ useProductViewContext: useAliasProductViewContext = useProductViewContext } = {}) => {
-  const { productGroup, productId, productLabel, viewId } = useAliasProductViewContext();
+  const { productArchitectures, productGroup, productId, productLabel, productVariants, viewId } =
+    useAliasProductViewContext();
   return {
+    productArchitectures,
     productGroup,
     productId,
     productLabel,
+    productVariants,
     viewId
   };
 };
@@ -321,7 +377,8 @@ const context = {
   useInventoryGuestsConfig: useProductInventoryGuestsConfig,
   useInventoryHostsConfig: useProductInventoryHostsConfig,
   useInventorySubscriptionsConfig: useProductInventorySubscriptionsConfig,
-  useToolbarConfig: useProductToolbarConfig
+  useToolbarConfig: useProductToolbarConfig,
+  useToolbarQuery: useProductToolbarQuery
 };
 
 export {
@@ -341,5 +398,6 @@ export {
   useProductInventoryGuestsConfig,
   useProductInventoryHostsConfig,
   useProductInventorySubscriptionsConfig,
-  useProductToolbarConfig
+  useProductToolbarConfig,
+  useProductToolbarQuery
 };

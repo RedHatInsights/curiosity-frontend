@@ -30,6 +30,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       "PLATFORM_USER_AUTH": "PLATFORM_USER_AUTH",
     },
     "query": {
+      "SET_QUERY": "SET_QUERY",
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
       "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
       "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
@@ -102,6 +103,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     "PLATFORM_USER_AUTH": "PLATFORM_USER_AUTH",
   },
   "queryTypes": {
+    "SET_QUERY": "SET_QUERY",
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
     "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
     "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
@@ -157,6 +159,7 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       "PLATFORM_USER_AUTH": "PLATFORM_USER_AUTH",
     },
     "query": {
+      "SET_QUERY": "SET_QUERY",
       "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
       "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
       "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",
@@ -259,6 +262,7 @@ exports[`ReduxTypes should have specific type properties: specific types 1`] = `
     "PLATFORM_USER_AUTH": "PLATFORM_USER_AUTH",
   },
   "query": {
+    "SET_QUERY": "SET_QUERY",
     "SET_QUERY_CLEAR": "SET_QUERY_CLEAR",
     "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
     "SET_QUERY_CLEAR_INVENTORY_LIST": "SET_QUERY_CLEAR_INVENTORY_LIST",

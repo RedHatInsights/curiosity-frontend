@@ -8,27 +8,27 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "options": [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Daily"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Daily"})",
         "value": "Daily",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Weekly"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Weekly"})",
         "value": "Weekly",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Monthly"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Monthly"})",
         "value": "Monthly",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.granularity, {"context":"Quarterly"})",
+        "title": "t(curiosity-toolbar.label_granularity, {"context":"Quarterly"})",
         "value": "Quarterly",
       },
     ],
     "selected": false,
-    "title": "t(curiosity-toolbar.category, {"context":"granularity"})",
+    "title": "t(curiosity-toolbar.label_category, {"context":"granularity"})",
     "value": "granularity",
   },
   {
@@ -39,7 +39,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
         "_title": "current",
         "isCurrent": true,
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"current"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"current"})",
         "value": {
           "endDate": 2019-07-31T23:59:59.999Z,
           "startDate": 2019-07-01T00:00:00.000Z,
@@ -48,7 +48,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "june",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"June"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"June"})",
         "value": {
           "endDate": 2019-06-30T23:59:59.999Z,
           "startDate": 2019-06-01T00:00:00.000Z,
@@ -57,7 +57,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "may",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"May"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"May"})",
         "value": {
           "endDate": 2019-05-31T23:59:59.999Z,
           "startDate": 2019-05-01T00:00:00.000Z,
@@ -66,7 +66,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "april",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"April"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"April"})",
         "value": {
           "endDate": 2019-04-30T23:59:59.999Z,
           "startDate": 2019-04-01T00:00:00.000Z,
@@ -75,7 +75,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "march",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"March"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"March"})",
         "value": {
           "endDate": 2019-03-31T23:59:59.999Z,
           "startDate": 2019-03-01T00:00:00.000Z,
@@ -84,7 +84,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "february",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"February"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"February"})",
         "value": {
           "endDate": 2019-02-28T23:59:59.999Z,
           "startDate": 2019-02-01T00:00:00.000Z,
@@ -93,7 +93,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "january",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"January"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"January"})",
         "value": {
           "endDate": 2019-01-31T23:59:59.999Z,
           "startDate": 2019-01-01T00:00:00.000Z,
@@ -102,7 +102,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "december",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"December 2018"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"December 2018"})",
         "value": {
           "endDate": 2018-12-31T23:59:59.999Z,
           "startDate": 2018-12-01T00:00:00.000Z,
@@ -111,7 +111,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "november",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"November 2018"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"November 2018"})",
         "value": {
           "endDate": 2018-11-30T23:59:59.999Z,
           "startDate": 2018-11-01T00:00:00.000Z,
@@ -120,7 +120,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "october",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"October 2018"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"October 2018"})",
         "value": {
           "endDate": 2018-10-31T23:59:59.999Z,
           "startDate": 2018-10-01T00:00:00.000Z,
@@ -129,7 +129,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "september",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"September 2018"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"September 2018"})",
         "value": {
           "endDate": 2018-09-30T23:59:59.999Z,
           "startDate": 2018-09-01T00:00:00.000Z,
@@ -138,7 +138,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       {
         "_title": "august",
         "selected": false,
-        "title": "t(curiosity-toolbar.granularityRangedMonthly, {"context":"August 2018"})",
+        "title": "t(curiosity-toolbar.label_granularityRangedMonthly, {"context":"August 2018"})",
         "value": {
           "endDate": 2018-08-31T23:59:59.999Z,
           "startDate": 2018-08-01T00:00:00.000Z,
@@ -146,7 +146,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
       },
     ],
     "selected": false,
-    "title": "t(curiosity-toolbar.category, {"context":"rangedMonthly"})",
+    "title": "t(curiosity-toolbar.label_category, {"context":"rangedMonthly"})",
     "value": "rangedMonthly",
   },
   {
@@ -155,17 +155,17 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "options": [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.uom, {"context":"cores"})",
+        "title": "t(curiosity-toolbar.label_uom, {"context":"cores"})",
         "value": "cores",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.uom, {"context":"sockets"})",
+        "title": "t(curiosity-toolbar.label_uom, {"context":"sockets"})",
         "value": "sockets",
       },
     ],
     "selected": false,
-    "title": "t(curiosity-toolbar.category, {"context":"uom"})",
+    "title": "t(curiosity-toolbar.label_category, {"context":"uom"})",
     "value": "uom",
   },
   {
@@ -174,17 +174,17 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "options": [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {"context":"red hat"})",
+        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"red hat"})",
         "value": "red hat",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.billing_provider, {"context":"aws"})",
+        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
         "value": "aws",
       },
     ],
     "selected": false,
-    "title": "t(curiosity-toolbar.category_billing, {"context":"provider"})",
+    "title": "t(curiosity-toolbar.label_category_billing, {"context":"provider"})",
     "value": "billing_provider",
   },
   {
@@ -193,27 +193,27 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "options": [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
         "value": "Premium",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
         "value": "Standard",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
         "value": "Self-Support",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.sla, {"context":"none"})",
+        "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
         "value": "",
       },
     ],
     "selected": false,
-    "title": "t(curiosity-toolbar.category, {"context":"sla"})",
+    "title": "t(curiosity-toolbar.label_category, {"context":"sla"})",
     "value": "sla",
   },
   {
@@ -222,28 +222,44 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
     "options": [
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"Production"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
         "value": "Production",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"Development/Test"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
         "value": "Development/Test",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"Disaster Recovery"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
         "value": "Disaster Recovery",
       },
       {
         "selected": false,
-        "title": "t(curiosity-toolbar.usage, {"context":"unspecified"})",
+        "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
         "value": "",
       },
     ],
     "selected": false,
-    "title": "t(curiosity-toolbar.category, {"context":"usage"})",
+    "title": "t(curiosity-toolbar.label_category, {"context":"usage"})",
     "value": "usage",
+  },
+  {
+    "component": [Function],
+    "isClearable": true,
+    "options": [],
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_category, {"context":"variant"})",
+    "value": "variant",
+  },
+  {
+    "component": [Function],
+    "isClearable": true,
+    "options": [],
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_category, {"context":"architecture"})",
+    "value": "architecture",
   },
 ]
 `;
@@ -298,27 +314,27 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "options": [
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
+            "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
             "value": "Premium",
           },
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
+            "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
             "value": "Standard",
           },
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
+            "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
             "value": "Self-Support",
           },
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.sla, {"context":"none"})",
+            "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
             "value": "",
           },
         ],
         "selected": false,
-        "title": "t(curiosity-toolbar.category, {"context":"sla"})",
+        "title": "t(curiosity-toolbar.label_category, {"context":"sla"})",
         "value": "sla",
       },
       {
@@ -327,27 +343,27 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
         "options": [
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.usage, {"context":"Production"})",
+            "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
             "value": "Production",
           },
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.usage, {"context":"Development/Test"})",
+            "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
             "value": "Development/Test",
           },
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.usage, {"context":"Disaster Recovery"})",
+            "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
             "value": "Disaster Recovery",
           },
           {
             "selected": false,
-            "title": "t(curiosity-toolbar.usage, {"context":"unspecified"})",
+            "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
             "value": "",
           },
         ],
         "selected": false,
-        "title": "t(curiosity-toolbar.category, {"context":"usage"})",
+        "title": "t(curiosity-toolbar.label_category, {"context":"usage"})",
         "value": "usage",
       },
     ]
@@ -377,27 +393,27 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "options": [
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"Production"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
           "value": "Production",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"Development/Test"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
           "value": "Development/Test",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"Disaster Recovery"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
           "value": "Disaster Recovery",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"unspecified"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
           "value": "",
         },
       ],
       "selected": false,
-      "title": "t(curiosity-toolbar.category, {"context":"usage"})",
+      "title": "t(curiosity-toolbar.label_category, {"context":"usage"})",
       "value": "usage",
     },
     {
@@ -406,27 +422,27 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "options": [
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
           "value": "Premium",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
           "value": "Standard",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
           "value": "Self-Support",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"none"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
           "value": "",
         },
       ],
       "selected": true,
-      "title": "t(curiosity-toolbar.category, {"context":"sla"})",
+      "title": "t(curiosity-toolbar.label_category, {"context":"sla"})",
       "value": "sla",
     },
   ],
@@ -444,27 +460,27 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "options": [
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"Production"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"Production"})",
           "value": "Production",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"Development/Test"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"Development/Test"})",
           "value": "Development/Test",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"Disaster Recovery"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"Disaster Recovery"})",
           "value": "Disaster Recovery",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.usage, {"context":"unspecified"})",
+          "title": "t(curiosity-toolbar.label_usage, {"context":"none"})",
           "value": "",
         },
       ],
       "selected": true,
-      "title": "t(curiosity-toolbar.category, {"context":"usage"})",
+      "title": "t(curiosity-toolbar.label_category, {"context":"usage"})",
       "value": "usage",
     },
     {
@@ -473,27 +489,27 @@ exports[`ToolbarFieldSelectCategory Component should return options, and an upda
       "options": [
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"Premium"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
           "value": "Premium",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"Standard"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"Standard"})",
           "value": "Standard",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"Self-Support"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"Self-Support"})",
           "value": "Self-Support",
         },
         {
           "selected": false,
-          "title": "t(curiosity-toolbar.sla, {"context":"none"})",
+          "title": "t(curiosity-toolbar.label_sla, {"context":"none"})",
           "value": "",
         },
       ],
       "selected": false,
-      "title": "t(curiosity-toolbar.category, {"context":"sla"})",
+      "title": "t(curiosity-toolbar.label_category, {"context":"sla"})",
       "value": "sla",
     },
   ],

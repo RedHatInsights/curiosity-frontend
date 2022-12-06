@@ -97,7 +97,7 @@ const getRangedMonthDateTime = month => {
 
     startDateUpdated.add(1, 'month');
 
-    dateTime.title = translate('curiosity-toolbar.granularityRangedMonthly', { context: dateTime.title });
+    dateTime.title = translate('curiosity-toolbar.label', { context: ['granularityRangedMonthly', dateTime.title] });
     keyDateTimeRanges[title.toLowerCase()] = { ...dateTime };
     keyDateTimeRanges[titleIndex] = { ...dateTime };
     listDateTimeRanges.push(dateTime);
@@ -108,7 +108,7 @@ const getRangedMonthDateTime = month => {
     ...listDateTimeRanges[0],
     isCurrent: true,
     _title: 'current',
-    title: translate('curiosity-toolbar.granularityRangedMonthly', { context: 'current' })
+    title: translate('curiosity-toolbar.label', { context: ['granularityRangedMonthly', 'current'] })
   };
 
   keyDateTimeRanges.current = { ...listDateTimeRanges[0] };
