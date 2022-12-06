@@ -61,7 +61,9 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
   "children": <Sla
     isFilter={true}
   />,
-  "chips": [],
+  "chips": [
+    "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
+  ],
   "deleteChip": [Function],
   "showToolbarItem": true,
 }
