@@ -16,6 +16,7 @@ exports[`Product OpenShift Metrics config should apply graph configuration: filt
           "isStacked": false,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": false,
           "metric": "Cores",
           "stroke": "#06c",
           "strokeWidth": 2,

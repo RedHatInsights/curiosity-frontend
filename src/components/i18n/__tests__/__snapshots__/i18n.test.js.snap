@@ -376,6 +376,23 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "./src/components/toolbar/toolbarFieldCategory.js",
+    "keys": [
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['category', (category === '' && 'none')",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'category'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'category'] })",
+      },
+    ],
+  },
+  {
     "file": "./src/components/toolbar/toolbarFieldDisplayName.js",
     "keys": [
       {
@@ -423,43 +440,47 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.GRANULARITY] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.GRANULARITY] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', 'rangedMonthly'] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', 'rangedMonthly'] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.UOM] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.UOM] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.SLA] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.SLA] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.USAGE] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.USAGE] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.VARIANT] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.CATEGORY] })",
       },
       {
         "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['category', RHSM_API_QUERY_SET_TYPES.ARCHITECTURE] })",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.VARIANT] })",
       },
       {
-        "key": "curiosity-toolbar.placeholder_filter",
-        "match": "t('curiosity-toolbar.placeholder_filter')",
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.ARCHITECTURE] })",
       },
       {
-        "key": "curiosity-toolbar.placeholder_filter",
-        "match": "t('curiosity-toolbar.placeholder_filter')",
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: ['filter'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: ['filter'] })",
       },
     ],
   },
@@ -790,7 +811,15 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-toolbar.label",
   },
   {
+    "file": "./src/components/toolbar/toolbarFieldCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
     "file": "./src/components/toolbar/toolbarFieldGranularity.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {

@@ -16,6 +16,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
             "category": "physical",
@@ -32,6 +33,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
             "category": "hypervisor",
@@ -48,6 +50,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
             "category": "cloud",
@@ -62,6 +65,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           "isStacked": false,
           "isStandalone": false,
           "isThreshold": true,
+          "isToolbarFilter": false,
           "metric": "Sockets",
           "stroke": "#4cb140",
           "strokeDasharray": "4,3",

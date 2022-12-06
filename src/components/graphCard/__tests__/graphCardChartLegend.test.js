@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@patternfly/react-core';
 import { GraphCardChartLegend } from '../graphCardChartLegend';
+import { ChartIcon } from '../../chart/chartIcon';
 
 describe('GraphCardChartLegend Component', () => {
   it('should render a basic component', async () => {
@@ -15,7 +16,7 @@ describe('GraphCardChartLegend Component', () => {
         ]
       },
       useProduct: () => ({ productLabel: 'mock-product-label' }),
-      useSelector: callback => callback({})
+      useSelectors: () => []
     };
     const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
 
@@ -57,7 +58,7 @@ describe('GraphCardChartLegend Component', () => {
         ]
       },
       useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label' }),
-      useSelector: callback => callback({})
+      useSelectors: () => []
     };
 
     const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
@@ -88,7 +89,7 @@ describe('GraphCardChartLegend Component', () => {
       },
       useDispatch: () => mockDispatch,
       useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label', viewId: 'mock-view-id' }),
-      useSelector: callback => callback({ legend: { 'test-dolorSit': true } })
+      useSelectors: () => [undefined, undefined, true]
     };
 
     const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
@@ -114,6 +115,22 @@ describe('GraphCardChartLegend Component', () => {
             data: [{ y: 0, hasData: true }]
           },
           {
+            stroke: '#000000',
+            id: 'helloWorld_mock-product-id',
+            metric: 'helloWorld',
+            isThreshold: false,
+            isToolbarFilter: true,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
+            stroke: '#000000',
+            id: 'sitAmet_mock-product-id',
+            metric: 'sitAmet',
+            isThreshold: false,
+            isToolbarFilter: true,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
             stroke: '#ff0000',
             id: 'threshold_dolorSit_mock-product-id',
             metric: 'dolorSit',
@@ -124,10 +141,61 @@ describe('GraphCardChartLegend Component', () => {
       },
       useDispatch: () => {},
       useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label', viewId: 'mock-view-id' }),
-      useSelector: callback => callback({ legend: { 'test-dolorSit': true, 'test-loremIpsum': false } })
+      useSelectors: () => [undefined, undefined, undefined, true, true]
     };
 
-    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
-    expect(component).toMatchSnapshot('legend items, data, threshold');
+    const component = await mountHookComponent(<GraphCardChartLegend {...props} />);
+    expect(component.find(ChartIcon).map(element => element.props())).toMatchSnapshot('legend items, data, threshold');
+  });
+
+  it('should handle inverted legend behavior when using an external filter', async () => {
+    const mockHide = jest.fn();
+    const props = {
+      chart: {
+        isToggled: jest.fn(),
+        hide: mockHide
+      },
+      datum: {
+        dataSets: [
+          {
+            stroke: '#000000',
+            id: 'loremIpsum_mock-product-id',
+            metric: 'loremIpsum',
+            isThreshold: false,
+            isToolbarFilter: true,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
+            stroke: '#000000',
+            id: 'helloWorld_mock-product-id',
+            metric: 'helloWorld',
+            isThreshold: false,
+            isToolbarFilter: true,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
+            stroke: '#000000',
+            id: 'sitAmet_mock-product-id',
+            metric: 'sitAmet',
+            isThreshold: false,
+            isToolbarFilter: true,
+            data: [{ y: 0, hasData: true }]
+          },
+          {
+            stroke: '#ff0000',
+            id: 'threshold_dolorSit_mock-product-id',
+            metric: 'dolorSit',
+            isThreshold: true,
+            data: [{ y: 0, isInfinite: false }]
+          }
+        ]
+      },
+      useDispatch: () => {},
+      useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label', viewId: 'mock-view-id' }),
+      useSelectors: () => ['helloWorld_mock-product-id']
+    };
+
+    await mountHookComponent(<GraphCardChartLegend {...props} />);
+    expect(mockHide.mock.calls).toMatchSnapshot('attempt legend invert, hide items');
   });
 });

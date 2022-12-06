@@ -24,83 +24,52 @@ exports[`GraphCardChartLegend Component should handle a click event: keyPress ev
 ]
 `;
 
+exports[`GraphCardChartLegend Component should handle inverted legend behavior when using an external filter: attempt legend invert, hide items 1`] = `
+[
+  [
+    "loremIpsum_mock-product-id",
+  ],
+  [
+    "sitAmet_mock-product-id",
+  ],
+]
+`;
+
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend items, data, threshold 1`] = `
-<Fragment>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-loremIpsum_mock-product-id"
-    position="top"
-  >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill="#000000"
-          size="sm"
-          style={
-            {
-              "visibility": "visible",
-            }
-          }
-          symbol="square"
-          title={null}
-        />
-      }
-      isDisabled={false}
-      key="curiosity-button-loremIpsum_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
-    >
-      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
-  </Tooltip>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_threshold_dolorSit, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-threshold_dolorSit_mock-product-id"
-    position="top"
-  >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill="#ff0000"
-          size="sm"
-          style={
-            {
-              "visibility": "visible",
-            }
-          }
-          symbol="dash"
-          title={null}
-        />
-      }
-      isDisabled={false}
-      key="curiosity-button-threshold_dolorSit_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
-    >
-      t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
-  </Tooltip>
-</Fragment>
+[
+  {
+    "fill": "#000000",
+    "size": "sm",
+    "style": {
+      "color": "#000000",
+      "visibility": "visible",
+    },
+    "symbol": "square",
+    "title": null,
+  },
+  {
+    "fill": "#000000",
+    "size": "sm",
+    "style": {
+      "color": "#000000",
+      "visibility": "visible",
+    },
+    "symbol": "square",
+    "title": null,
+  },
+  {
+    "fill": null,
+    "size": "sm",
+    "symbol": "eyeSlash",
+    "title": null,
+  },
+  {
+    "fill": null,
+    "size": "sm",
+    "symbol": "eyeSlash",
+    "title": null,
+  },
+]
 `;
 
 exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
@@ -116,31 +85,35 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
     key="curiosity-tooltip-loremIpsum_mock-product-id"
     position="top"
   >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill="#000000"
-          size="sm"
-          style={
-            {
-              "visibility": "visible",
-            }
-          }
-          symbol="square"
-          title={null}
-        />
-      }
-      isDisabled={false}
-      key="curiosity-button-loremIpsum_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
+    <span
+      className="pf-c-button pf-m-link"
     >
-      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
+      <Button
+        className="curiosity-usage-graph__legend-item"
+        component="a"
+        icon={
+          <ChartIcon
+            fill="#000000"
+            size="sm"
+            style={
+              {
+                "visibility": "visible",
+              }
+            }
+            symbol="square"
+            title={null}
+          />
+        }
+        isDisabled={false}
+        key="curiosity-button-loremIpsum_mock-product-id"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
+        variant="link"
+      >
+        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+      </Button>
+    </span>
   </Tooltip>
 </Fragment>
 `;
@@ -158,31 +131,35 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     key="curiosity-tooltip-loremIpsum_mock-product-id"
     position="top"
   >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill="#000000"
-          size="sm"
-          style={
-            {
-              "visibility": "visible",
-            }
-          }
-          symbol="square"
-          title={null}
-        />
-      }
-      isDisabled={false}
-      key="curiosity-button-loremIpsum_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
+    <span
+      className="pf-c-button pf-m-link"
     >
-      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
+      <Button
+        className="curiosity-usage-graph__legend-item"
+        component="a"
+        icon={
+          <ChartIcon
+            fill="#000000"
+            size="sm"
+            style={
+              {
+                "visibility": "visible",
+              }
+            }
+            symbol="square"
+            title={null}
+          />
+        }
+        isDisabled={false}
+        key="curiosity-button-loremIpsum_mock-product-id"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
+        variant="link"
+      >
+        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+      </Button>
+    </span>
   </Tooltip>
   <Tooltip
     content={
@@ -195,26 +172,30 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     key="curiosity-tooltip-ametConsectetur_mock-product-id"
     position="top"
   >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill={null}
-          size="sm"
-          symbol="eyeSlash"
-          title={null}
-        />
-      }
-      isDisabled={true}
-      key="curiosity-button-ametConsectetur_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
+    <span
+      className="pf-c-button pf-m-link"
     >
-      t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
+      <Button
+        className="curiosity-usage-graph__legend-item"
+        component="a"
+        icon={
+          <ChartIcon
+            fill={null}
+            size="sm"
+            symbol="eyeSlash"
+            title={null}
+          />
+        }
+        isDisabled={true}
+        key="curiosity-button-ametConsectetur_mock-product-id"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
+        variant="link"
+      >
+        t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+      </Button>
+    </span>
   </Tooltip>
   <Tooltip
     content={
@@ -227,31 +208,35 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     key="curiosity-tooltip-threshold_dolorSit_mock-product-id"
     position="top"
   >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill="#ff0000"
-          size="sm"
-          style={
-            {
-              "visibility": "visible",
-            }
-          }
-          symbol="dash"
-          title={null}
-        />
-      }
-      isDisabled={false}
-      key="curiosity-button-threshold_dolorSit_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
+    <span
+      className="pf-c-button pf-m-link"
     >
-      t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
+      <Button
+        className="curiosity-usage-graph__legend-item"
+        component="a"
+        icon={
+          <ChartIcon
+            fill="#ff0000"
+            size="sm"
+            style={
+              {
+                "visibility": "visible",
+              }
+            }
+            symbol="dash"
+            title={null}
+          />
+        }
+        isDisabled={false}
+        key="curiosity-button-threshold_dolorSit_mock-product-id"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
+        variant="link"
+      >
+        t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+      </Button>
+    </span>
   </Tooltip>
   <Tooltip
     content={
@@ -264,31 +249,35 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     key="curiosity-tooltip-threshold_nonCursus_mock-product-id"
     position="top"
   >
-    <Button
-      className="curiosity-usage-graph__legend-item"
-      component="a"
-      icon={
-        <ChartIcon
-          fill="#ff0000"
-          size="sm"
-          style={
-            {
-              "visibility": "visible",
-            }
-          }
-          symbol="dash"
-          title={null}
-        />
-      }
-      isDisabled={false}
-      key="curiosity-button-threshold_nonCursus_mock-product-id"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      tabIndex={0}
-      variant="link"
+    <span
+      className="pf-c-button pf-m-link"
     >
-      t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-    </Button>
+      <Button
+        className="curiosity-usage-graph__legend-item"
+        component="a"
+        icon={
+          <ChartIcon
+            fill="#ff0000"
+            size="sm"
+            style={
+              {
+                "visibility": "visible",
+              }
+            }
+            symbol="dash"
+            title={null}
+          />
+        }
+        isDisabled={false}
+        key="curiosity-button-threshold_nonCursus_mock-product-id"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
+        variant="link"
+      >
+        t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+      </Button>
+    </span>
   </Tooltip>
 </Fragment>
 `;

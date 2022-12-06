@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldCategory Component should generate select options: toolbarFieldOptions 1`] = `
+[
+  {
+    "metaData": {
+      "metric": "ipsum",
+      "query": {
+        "category": "cloud",
+      },
+    },
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_category, {"context":"cloud"})",
+    "value": "cloud",
+  },
+  {
+    "metaData": {
+      "metric": "dolor",
+      "query": {
+        "category": "virtual",
+      },
+    },
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_category, {"context":"virtual"})",
+    "value": "virtual",
+  },
+  {
+    "metaData": {
+      "metric": "sit",
+      "query": {
+        "category": "hypervisor",
+      },
+    },
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_category, {"context":"hypervisor"})",
+    "value": "hypervisor",
+  },
+]
+`;
+
+exports[`ToolbarFieldCategory Component should handle updating through redux state with component: dispatch, component 1`] = `
+[
+  [
+    [
+      {
+        "id": "undefined-inverted",
+        "type": "SET_GRAPH_LEGEND",
+        "value": "dolor_virtual",
+      },
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": undefined,
+      },
+      {
+        "filter": "category",
+        "type": "SET_QUERY",
+        "value": "virtual",
+        "viewId": undefined,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldCategory Component should handle updating through redux state with hook: dispatch, hook 1`] = `
+[
+  [
+    [
+      {
+        "id": "mock-view-id-inverted",
+        "type": "SET_GRAPH_LEGEND",
+        "value": "hello_dolor sit_mock-product-id",
+      },
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "mock-view-id",
+      },
+      {
+        "filter": "category",
+        "type": "SET_QUERY",
+        "value": "dolor sit",
+        "viewId": "mock-view-id",
+      },
+    ],
+  ],
+  [
+    [
+      {
+        "id": "mock-view-id-inverted",
+        "type": "SET_GRAPH_LEGEND",
+        "value": "lorem ipsum",
+      },
+      {
+        "type": "SET_QUERY_RESET_INVENTORY_LIST",
+        "viewId": "mock-view-id",
+      },
+      {
+        "filter": "category",
+        "type": "SET_QUERY",
+        "value": "lorem ipsum",
+        "viewId": "mock-view-id",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldCategory Component should render a basic component: basic 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {"context":"category"})"
+  ariaLabel="Select option"
+  className=""
+  data-test="toolbarFieldCategory"
+  direction="down"
+  id="generatedid-"
+  isDisabled={false}
+  isFlipEnabled={false}
+  isToggleText={true}
+  maxHeight={null}
+  name={null}
+  onSelect={[Function]}
+  options={[]}
+  placeholder="t(curiosity-toolbar.placeholder, {"context":"category"})"
+  position="left"
+  selectedOptions={null}
+  toggleIcon={null}
+  variant="single"
+/>
+`;
