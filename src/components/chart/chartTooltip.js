@@ -65,7 +65,10 @@ const chartTooltip = ({
       return y > height / 2 ? y - tooltipHeight - padding : y + padding;
     }
 
-    return height * 0.25;
+    const updatedMultiplier = height / tooltipHeight / 10;
+    const heightMultiplier = (updatedMultiplier < 0.25 && updatedMultiplier) || 0.25;
+
+    return height * heightMultiplier;
   };
 
   // ToDo: evaluate using "width" in place of "minWidth" for scenarios where the graph size is smaller

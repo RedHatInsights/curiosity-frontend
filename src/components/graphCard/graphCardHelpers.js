@@ -25,6 +25,15 @@ const generateChartIds = ({ isCapacity, metric, productId, query = {} } = {}) =>
 };
 
 /**
+ * Is metric associated with a toolbar filter
+ *
+ * @param {object} params
+ * @param {object} params.query
+ * @returns {boolean}
+ */
+const generateIsToolbarFilter = ({ query = {} } = {}) => (query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY] && true) || false;
+
+/**
  * Update chart/graph filters with core settings and styling.
  *
  * @param {object} params
@@ -51,7 +60,8 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
       isThreshold,
       isCapacity: isThreshold,
       metric,
-      strokeWidth: 2
+      strokeWidth: 2,
+      isToolbarFilter: generateIsToolbarFilter({ query: filterSettings?.query })
     };
 
     if (isThreshold) {
@@ -266,6 +276,7 @@ const graphCardHelpers = {
   generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
+  generateIsToolbarFilter,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
@@ -278,6 +289,7 @@ export {
   generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
+  generateIsToolbarFilter,
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,

@@ -21,6 +21,7 @@ exports[`GraphCardHelpers generateChartSettings should return base graph setting
           "isStacked": true,
           "isStandalone": false,
           "isThreshold": false,
+          "isToolbarFilter": false,
           "metric": "dolorSit",
           "strokeWidth": 2,
         },
@@ -55,6 +56,10 @@ exports[`GraphCardHelpers generateExtendedChartSettings should return extended g
 }
 `;
 
+exports[`GraphCardHelpers generateIsToolbarFilter should return a consistent check: is NOT a toolbar filter 1`] = `false`;
+
+exports[`GraphCardHelpers generateIsToolbarFilter should return a consistent check: is toolbar filter 1`] = `true`;
+
 exports[`GraphCardHelpers getChartXAxisLabelIncrement should return a x axis tick increment based on granularity: x axis tick increment 1`] = `
 {
   "daily": 5,
@@ -78,6 +83,7 @@ exports[`GraphCardHelpers should have specific functions: graphCardHelpers 1`] =
   "generateChartIds": [Function],
   "generateChartSettings": [Function],
   "generateExtendedChartSettings": [Function],
+  "generateIsToolbarFilter": [Function],
   "getChartXAxisLabelIncrement": [Function],
   "getTooltipDate": [Function],
   "xAxisTickFormat": [Function],
