@@ -4,6 +4,8 @@ import {
   chart_color_blue_300 as chartColorBlueDark,
   chart_color_cyan_100 as chartColorCyanLight,
   chart_color_cyan_300 as chartColorCyanDark,
+  chart_color_orange_100 as chartColorOrangeLight,
+  chart_color_orange_300 as chartColorOrangeDark,
   chart_color_purple_100 as chartColorPurpleLight,
   chart_color_purple_300 as chartColorPurpleDark
 } from '@patternfly/react-tokens';
@@ -88,7 +90,7 @@ const config = {
       stroke: chartColorCyanDark.value,
       color: chartColorCyanDark.value,
       query: {
-        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.HYPERVISOR
+        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.VIRTUAL
       }
     },
     {
@@ -102,10 +104,20 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+      fill: chartColorOrangeLight.value,
+      stroke: chartColorOrangeDark.value,
+      color: chartColorOrangeDark.value,
+      query: {
+        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.HYPERVISOR
+      }
+    },
+    {
+      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
       chartType: ChartTypeVariant.threshold
     }
   ],
   initialGraphSettings: {
+    isDisabledLegendClick: true,
     actions: [
       {
         id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
@@ -291,6 +303,9 @@ const config = {
     {
       id: RHSM_API_QUERY_SET_TYPES.USAGE,
       selected: true
+    },
+    {
+      id: RHSM_API_QUERY_SET_TYPES.CATEGORY
     }
   ]
 };

@@ -28,7 +28,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           "chartType": "area",
           "color": "#009596",
           "fill": "#a2d9d9",
-          "id": "Sockets_hypervisor",
+          "id": "Sockets_virtual",
           "isCapacity": false,
           "isStacked": true,
           "isStandalone": false,
@@ -36,7 +36,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
-            "category": "hypervisor",
+            "category": "virtual",
           },
           "stroke": "#009596",
           "strokeWidth": 2,
@@ -56,6 +56,23 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
             "category": "cloud",
           },
           "stroke": "#5752d1",
+          "strokeWidth": 2,
+        },
+        {
+          "chartType": "area",
+          "color": "#ec7a08",
+          "fill": "#f4b678",
+          "id": "Sockets_hypervisor",
+          "isCapacity": false,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "isToolbarFilter": true,
+          "metric": "Sockets",
+          "query": {
+            "category": "hypervisor",
+          },
+          "stroke": "#ec7a08",
           "strokeWidth": 2,
         },
         {
@@ -86,6 +103,7 @@ exports[`Product RHEL config should apply graph configuration: settings 1`] = `
       "position": "right",
     },
   ],
+  "isDisabledLegendClick": true,
 }
 `;
 
