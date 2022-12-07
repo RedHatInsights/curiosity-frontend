@@ -2556,7 +2556,36 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *     {
  *       "data" : [
  *         {
+ *           "category": "physical",
+ *           "billing_account_id": "xxxxx-xxxx-CCCCC-xxxx-xxxx10",
+ *           "inventory_id": "CCCCC-b344-4778-831c-CCCCCCC",
+ *           "subscription_manager_id": "CCCCC-5b00-42fa-CCCCC-75801d45cc6d",
+ *           "display_name": "lorem.example.com",
+ *           "measurements": [
+ *              200,
+ *              10,
+ *              500.0000345678,
+ *              200
+ *           ],
+ *           "last_seen": "2022-12-03T00:00:00Z"
+ *         },
+ *         {
+ *           "category": "virtual",
+ *           "billing_account_id": "xxxxx-xxxx-FFFFF-xxxx-xxxx40",
+ *           "inventory_id": "FFFFF-b344-4778-831c-FFFFF",
+ *           "subscription_manager_id": "FFFFF-5b00-42fa-FFFFF-75801d45cc6d",
+ *           "display_name": "lorem.example.com",
+ *           "measurements": [
+ *              200,
+ *              10,
+ *              500.0000345678,
+ *              200
+ *           ],
+ *           "last_seen": "2022-10-03T00:00:00Z"
+ *         },
+ *         {
  *           "number_of_guests": 70,
+ *           "category": "cloud",
  *           "billing_provider": "red hat",
  *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx01",
  *           "inventory_id": "d6214a0b-b344-4778-831c-d53dcacb2da3",
@@ -2564,12 +2593,14 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "display_name": "rhv.example.com",
  *           "measurements": [
  *              42,
+ *              10,
  *              0.000003563,
  *              1
  *           ],
- *           "last_seen": "2020-04-01T00:00:00Z"
+ *           "last_seen": "2022-04-01T00:00:00Z"
  *         },
  *         {
+ *           "category": "cloud",
  *           "billing_provider": "azure",
  *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx02",
  *           "inventory_id": "XXXXXX-b344-4778-831c-XXXXXXXX",
@@ -2577,30 +2608,33 @@ const getHostsInventoryGuests = (id, params = {}, options = {}) => {
  *           "display_name": "dolor.example.com",
  *           "measurements": [
  *              20,
+ *              100,
  *              null,
  *              1000
  *           ],
- *           "last_seen": "2020-04-02T00:00:00Z"
+ *           "last_seen": "2022-04-02T00:00:00Z"
  *         },
  *         {
- *           "billing_provider": "Unknown",
+ *           "category": "physical",
  *           "billing_account_id": "xxxxx-xxxx-xxxx-xxxx-xxxx03",
  *           "inventory_id": "BBBBB-b344-4778-831c-BBBBBBB",
  *           "subscription_manager_id": "BBBBB-5b00-42fa-BBBBB-75801d45cc6d",
  *           "display_name": "lorem.example.com",
  *           "measurements": [
  *              4000,
+ *              50,
  *              10000.0000345678,
  *              3000
  *           ],
- *           "last_seen": "2020-04-03T00:00:00Z"
+ *           "last_seen": "2022-04-03T00:00:00Z"
  *         }
  *       ],
  *       "links": {},
  *       "meta": {
- *         "count": 3,
+ *         "count": 5,
  *         "measurements": [
  *           "Instance-hours",
+ *           "Sockets",
  *           "Storage-gibibyte-months",
  *           "Transfer-gibibytes"
  *         ],

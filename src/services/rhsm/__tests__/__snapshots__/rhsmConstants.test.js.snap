@@ -73,11 +73,13 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   },
   "RHSM_API_QUERY_INVENTORY_SORT_TYPES": {
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "CORES": "Cores",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
     "LAST_SEEN": "last_seen",
     "NAME": "display_name",
+    "NUMBER_OF_GUESTS": "number_of_guests",
     "SOCKETS": "Sockets",
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
@@ -195,6 +197,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "DISPLAY_NAME": "display_name",
     "INVENTORY_ID": "inventory_id",
     "LAST_SEEN": "last_seen",
@@ -221,6 +224,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "DISPLAY_NAME": "display_name",
     "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
     "INVENTORY_ID": "inventory_id",
@@ -272,6 +276,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "UNSPECIFIED": "",
   },
   "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": {
+    "CAPACITY": "capacity",
     "DUAL_AXES": "dual-axes",
     "HOURLY": "hourly",
     "LEGACY": "legacy",
@@ -349,11 +354,13 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     },
     "RHSM_API_QUERY_INVENTORY_SORT_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "CORES": "Cores",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
       "LAST_SEEN": "last_seen",
       "NAME": "display_name",
+      "NUMBER_OF_GUESTS": "number_of_guests",
       "SOCKETS": "Sockets",
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
@@ -471,6 +478,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "DISPLAY_NAME": "display_name",
       "INVENTORY_ID": "inventory_id",
       "LAST_SEEN": "last_seen",
@@ -497,6 +505,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "DISPLAY_NAME": "display_name",
       "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
       "INVENTORY_ID": "inventory_id",
@@ -548,6 +557,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "UNSPECIFIED": "",
     },
     "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": {
+      "CAPACITY": "capacity",
       "DUAL_AXES": "dual-axes",
       "HOURLY": "hourly",
       "LEGACY": "legacy",
@@ -626,11 +636,13 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     },
     "RHSM_API_QUERY_INVENTORY_SORT_TYPES": {
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "CORES": "Cores",
       "CORE_SECONDS": "Core-seconds",
       "INSTANCE_HOURS": "Instance-hours",
       "LAST_SEEN": "last_seen",
       "NAME": "display_name",
+      "NUMBER_OF_GUESTS": "number_of_guests",
       "SOCKETS": "Sockets",
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
@@ -748,6 +760,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "DISPLAY_NAME": "display_name",
       "INVENTORY_ID": "inventory_id",
       "LAST_SEEN": "last_seen",
@@ -774,6 +787,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
+      "CATEGORY": "category",
       "DISPLAY_NAME": "display_name",
       "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
       "INVENTORY_ID": "inventory_id",
@@ -825,6 +839,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "UNSPECIFIED": "",
     },
     "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": {
+      "CAPACITY": "capacity",
       "DUAL_AXES": "dual-axes",
       "HOURLY": "hourly",
       "LEGACY": "legacy",
@@ -907,11 +922,13 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   },
   "RHSM_API_QUERY_INVENTORY_SORT_TYPES": {
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "CORES": "Cores",
     "CORE_SECONDS": "Core-seconds",
     "INSTANCE_HOURS": "Instance-hours",
     "LAST_SEEN": "last_seen",
     "NAME": "display_name",
+    "NUMBER_OF_GUESTS": "number_of_guests",
     "SOCKETS": "Sockets",
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
@@ -1029,6 +1046,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_RESPONSE_INSTANCES_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "DISPLAY_NAME": "display_name",
     "INVENTORY_ID": "inventory_id",
     "LAST_SEEN": "last_seen",
@@ -1055,6 +1073,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
+    "CATEGORY": "category",
     "DISPLAY_NAME": "display_name",
     "HAS_INFINITE_QUANTITY": "has_infinite_quantity",
     "INVENTORY_ID": "inventory_id",
@@ -1106,6 +1125,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "UNSPECIFIED": "",
   },
   "RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES": {
+    "CAPACITY": "capacity",
     "DUAL_AXES": "dual-axes",
     "HOURLY": "hourly",
     "LEGACY": "legacy",
