@@ -81,7 +81,7 @@ const config = {
       stroke: chartColorCyanDark.value,
       color: chartColorCyanDark.value,
       query: {
-        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.HYPERVISOR
+        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.VIRTUAL
       }
     },
     {
@@ -95,6 +95,7 @@ const config = {
     }
   ],
   initialGraphSettings: {
+    isDisabledLegendClick: true,
     actions: [
       {
         id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
@@ -227,6 +228,9 @@ const config = {
     {
       id: RHSM_API_QUERY_SET_TYPES.USAGE,
       selected: true
+    },
+    {
+      id: RHSM_API_QUERY_SET_TYPES.CATEGORY
     }
   ]
 };
