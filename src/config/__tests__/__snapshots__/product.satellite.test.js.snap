@@ -28,7 +28,7 @@ exports[`Product Satellite config should apply graph configuration: filters 1`] 
           "chartType": "area",
           "color": "#009596",
           "fill": "#a2d9d9",
-          "id": "Sockets_hypervisor",
+          "id": "Sockets_virtual",
           "isCapacity": false,
           "isStacked": true,
           "isStandalone": false,
@@ -36,7 +36,7 @@ exports[`Product Satellite config should apply graph configuration: filters 1`] 
           "isToolbarFilter": true,
           "metric": "Sockets",
           "query": {
-            "category": "hypervisor",
+            "category": "virtual",
           },
           "stroke": "#009596",
           "strokeWidth": 2,
@@ -73,6 +73,7 @@ exports[`Product Satellite config should apply graph configuration: settings 1`]
       "position": "right",
     },
   ],
+  "isDisabledLegendClick": true,
 }
 `;
 
