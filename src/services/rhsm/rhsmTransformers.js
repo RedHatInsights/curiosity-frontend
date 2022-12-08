@@ -98,10 +98,11 @@ const rhsmInstances = response => {
  *
  * @param {object} response
  * @param {object} config
+ * @param {boolean} config._isCapacity
  * @param {string} config.params
  * @returns {object}
  */
-const rhsmTallyCapacity = (response, { params } = {}) => {
+const rhsmTallyCapacity = (response, { _isCapacity, params } = {}) => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
@@ -130,7 +131,10 @@ const rhsmTallyCapacity = (response, { params } = {}) => {
       return {
         x: index,
         y:
-          (hasData === false && isFutureDate) || (hasData === false && isCurrentDate) || hasInfiniteQuantity === true
+          (_isCapacity === true && isFutureDate) ||
+          (_isCapacity === true && hasInfiniteQuantity === true) ||
+          (!_isCapacity && hasData === false && isFutureDate) ||
+          (!_isCapacity && hasData === false && isCurrentDate)
             ? null
             : value,
         date,

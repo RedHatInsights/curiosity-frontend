@@ -15,7 +15,7 @@ describe('RHSM Transformers', () => {
       [rhsmConstants.RHSM_API_RESPONSE_META]: {}
     };
 
-    expect(rhsmTransformers.tallyCapacity(baseCapacity)).toMatchSnapshot('capacity');
+    expect(rhsmTransformers.tallyCapacity(baseCapacity, { _isCapacity: true })).toMatchSnapshot('capacity');
 
     const dailyCapacityResponse = {
       [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
@@ -83,7 +83,9 @@ describe('RHSM Transformers', () => {
       [rhsmConstants.RHSM_API_RESPONSE_META]: {}
     };
 
-    expect(rhsmTransformers.tallyCapacity(dailyCapacityResponse)).toMatchSnapshot('capacity, daily like granularity');
+    expect(rhsmTransformers.tallyCapacity(dailyCapacityResponse, { _isCapacity: true })).toMatchSnapshot(
+      'capacity, daily like granularity'
+    );
 
     const dailyCapacityFirstMonthResponse = {
       [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
@@ -151,7 +153,9 @@ describe('RHSM Transformers', () => {
       [rhsmConstants.RHSM_API_RESPONSE_META]: {}
     };
 
-    const transformedDailyCapacityFirstMonthResponse = rhsmTransformers.tallyCapacity(dailyCapacityFirstMonthResponse);
+    const transformedDailyCapacityFirstMonthResponse = rhsmTransformers.tallyCapacity(dailyCapacityFirstMonthResponse, {
+      _isCapacity: true
+    });
 
     expect(dailyCapacityFirstMonthResponse[rhsmConstants.RHSM_API_RESPONSE_DATA].length).toBe(12);
     expect(transformedDailyCapacityFirstMonthResponse.data.length).toBe(13);
@@ -205,7 +209,7 @@ describe('RHSM Transformers', () => {
       [rhsmConstants.RHSM_API_RESPONSE_META]: {}
     };
 
-    expect(rhsmTransformers.tallyCapacity(monthlyCapacityResponse)).toMatchSnapshot(
+    expect(rhsmTransformers.tallyCapacity(monthlyCapacityResponse, { _isCapacity: true })).toMatchSnapshot(
       'capacity, monthly like granularity'
     );
   });

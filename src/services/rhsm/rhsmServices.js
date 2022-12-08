@@ -2185,7 +2185,8 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
     cancel,
     cancelId,
     schema,
-    transform
+    transform,
+    _isCapacity: true
   });
 };
 
