@@ -44,7 +44,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 2,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-22T00:00:00Z",
@@ -53,7 +53,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 3,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-23T00:00:00Z",
@@ -62,7 +62,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 4,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-24T00:00:00Z",
@@ -71,7 +71,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 5,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-25T00:00:00Z",
@@ -80,7 +80,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 6,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-26T00:00:00Z",
@@ -89,7 +89,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 7,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-27T00:00:00Z",
@@ -98,7 +98,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 8,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-28T00:00:00Z",
@@ -107,7 +107,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 9,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-29T00:00:00Z",
@@ -116,7 +116,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 10,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-30T00:00:00Z",
@@ -125,7 +125,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 11,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-31T00:00:00Z",
@@ -134,7 +134,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 12,
-      "y": 0,
+      "y": null,
     },
   ],
   "meta": {
@@ -223,7 +223,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 7,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-22T00:00:00Z",
@@ -232,7 +232,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 8,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-23T00:00:00Z",
@@ -241,7 +241,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 9,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-24T00:00:00Z",
@@ -250,7 +250,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 10,
-      "y": 0,
+      "y": null,
     },
     {
       "date": "2019-07-25T00:00:00Z",
@@ -259,7 +259,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 11,
-      "y": 0,
+      "y": null,
     },
   ],
   "meta": {
@@ -348,7 +348,7 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
       "isCurrentDate": false,
       "isFutureDate": true,
       "x": 7,
-      "y": 0,
+      "y": null,
     },
   ],
   "meta": {
