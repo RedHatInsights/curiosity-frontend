@@ -16,7 +16,7 @@ describe('Product OpenShift Metrics config', () => {
     expect(initialGraphSettings).toMatchSnapshot('settings');
 
     expect({
-      productActionDisplay: initialGraphSettings.actionDisplay({
+      productActionDisplay: initialGraphSettings.actions[0].content({
         data: [
           {
             id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
@@ -41,7 +41,7 @@ describe('Product OpenShift Metrics config', () => {
     }).toMatchSnapshot('product action display should display a total value below 1000');
 
     expect({
-      productActionDisplay: initialGraphSettings.actionDisplay({
+      productActionDisplay: initialGraphSettings.actions[0].content({
         data: [
           {
             id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
@@ -66,7 +66,7 @@ describe('Product OpenShift Metrics config', () => {
     }).toMatchSnapshot('product action display should display a total value below 1000000');
 
     expect({
-      productActionDisplay: initialGraphSettings.actionDisplay({
+      productActionDisplay: initialGraphSettings.actions[0].content({
         data: [
           {
             id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
@@ -91,7 +91,7 @@ describe('Product OpenShift Metrics config', () => {
     }).toMatchSnapshot('product action display should display a total value');
 
     expect({
-      productActionDisplay: initialGraphSettings.actionDisplay({
+      productActionDisplay: initialGraphSettings.actions[0].content({
         data: [
           {
             id: generateChartIds({ isCapacity: false, metric: 'loremIpsum', productId: 'Ipsum' }),

@@ -232,6 +232,7 @@ exports[`GraphCardContext should return specific properties: specific properties
     "_threadCount": 0,
   },
   "useGetMetrics": [Function],
+  "useGraphCardActions": [Function],
   "useGraphCardContext": [Function],
   "useMetricsSelector": [Function],
   "useParseFiltersSettings": [Function],

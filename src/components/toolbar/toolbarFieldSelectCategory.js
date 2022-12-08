@@ -161,18 +161,20 @@ const useSelectCategoryOptions = ({
 
   let initialValue;
 
-  const updatedOptions = filters.map(({ id, selected }) => {
-    const option = categoryOptions.find(({ value }) => id === value);
+  const updatedOptions = filters
+    .filter(({ isItem, isSecondary }) => !isItem && !isSecondary)
+    .map(({ id, selected }) => {
+      const option = categoryOptions.find(({ value }) => id === value);
 
-    if (updatedValue === undefined && selected) {
-      initialValue = option.value;
-    }
+      if (updatedValue === undefined && selected) {
+        initialValue = option.value;
+      }
 
-    return {
-      ...option,
-      selected: (updatedValue === undefined && selected) || updatedValue === option.value
-    };
-  });
+      return {
+        ...option,
+        selected: (updatedValue === undefined && selected) || updatedValue === option.value
+      };
+    });
 
   return {
     currentCategory: updatedValue,

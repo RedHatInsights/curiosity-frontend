@@ -23,6 +23,7 @@ import {
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
+import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 /**
@@ -93,7 +94,14 @@ const config = {
       }
     }
   ],
-  initialGraphSettings: {},
+  initialGraphSettings: {
+    actions: [
+      {
+        id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
+        position: SelectPosition.right
+      }
+    ]
+  },
   initialGuestsFilters: [
     {
       id: 'displayName',
@@ -219,11 +227,6 @@ const config = {
     {
       id: RHSM_API_QUERY_SET_TYPES.USAGE,
       selected: true
-    }
-  ],
-  initialSecondaryToolbarFilters: [
-    {
-      id: RHSM_API_QUERY_SET_TYPES.GRANULARITY
     }
   ]
 };

@@ -29,6 +29,7 @@ import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
 import { ChartIcon } from '../components/chart/chartIcon';
 import { ChartTypeVariant } from '../components/chart/chart';
+import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 /**
@@ -104,7 +105,14 @@ const config = {
       chartType: ChartTypeVariant.threshold
     }
   ],
-  initialGraphSettings: {},
+  initialGraphSettings: {
+    actions: [
+      {
+        id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
+        position: SelectPosition.right
+      }
+    ]
+  },
   initialGuestsFilters: [
     {
       id: 'displayName',
@@ -283,11 +291,6 @@ const config = {
     {
       id: RHSM_API_QUERY_SET_TYPES.USAGE,
       selected: true
-    }
-  ],
-  initialSecondaryToolbarFilters: [
-    {
-      id: RHSM_API_QUERY_SET_TYPES.GRANULARITY
     }
   ]
 };

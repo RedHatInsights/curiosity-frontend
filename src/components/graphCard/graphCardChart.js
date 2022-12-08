@@ -1,8 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardActions, CardBody, CardHeader, CardTitle, Title } from '@patternfly/react-core';
+import {
+  Card,
+  CardActions,
+  CardBody,
+  CardHeader,
+  CardTitle,
+  Title,
+  Toolbar,
+  ToolbarContent,
+  ToolbarGroup
+} from '@patternfly/react-core';
 import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
-import { useGraphCardContext, useGetMetrics } from './graphCardContext';
+import { useGraphCardActions, useGraphCardContext, useGetMetrics } from './graphCardContext';
 import { graphCardHelpers } from './graphCardHelpers';
 import { Chart } from '../chart/chart';
 import { GraphCardChartLegend } from './graphCardChartLegend';
@@ -19,6 +29,7 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {Function} props.t
  * @param {Function} props.useGetMetrics
+ * @param {Function} props.useGraphCardActions
  * @param {Function} props.useGraphCardContext
  * @param {Function} props.useProduct
  * @param {Function} props.useProductGraphTallyQuery
@@ -27,22 +38,18 @@ import { translate } from '../i18n/i18n';
 const GraphCardChart = ({
   t,
   useGetMetrics: useAliasGetMetrics,
+  useGraphCardActions: useAliasGraphCardActions,
   useGraphCardContext: useAliasGraphCardContext,
   useProduct: useAliasProduct,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
   const { productId } = useAliasProduct();
+  const updatedActionDisplay = useAliasGraphCardActions();
   const { settings = {} } = useAliasGraphCardContext();
-  const { actionDisplay, isStandalone, metric } = settings;
+  const { isStandalone, metric } = settings;
 
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
   const { pending, error, dataSets = [] } = useAliasGetMetrics();
-
-  let updatedActionDisplay = null;
-
-  if (typeof actionDisplay === 'function') {
-    updatedActionDisplay = actionDisplay({ data: dataSets });
-  }
 
   return (
     <Card className="curiosity-usage-graph">
@@ -55,7 +62,13 @@ const GraphCardChart = ({
             </Title>
           </CardTitle>
           {updatedActionDisplay && (
-            <CardActions className={(error && 'blur') || ''}>{updatedActionDisplay}</CardActions>
+            <CardActions className={(error && 'blur') || ''}>
+              <Toolbar collapseListedFiltersBreakpoint="sm">
+                <ToolbarContent>
+                  <ToolbarGroup alignment={{ default: 'alignRight' }}>{updatedActionDisplay}</ToolbarGroup>
+                </ToolbarContent>
+              </Toolbar>
+            </CardActions>
           )}
         </CardHeader>
       </MinHeight>
@@ -81,12 +94,13 @@ const GraphCardChart = ({
 /**
  * Prop types.
  *
- * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function,
- *     t: Function, useGetMetrics: Function}}
+ * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function, t: Function,
+ *     useGetMetrics: Function, useGraphCardActions: Function}}
  */
 GraphCardChart.propTypes = {
   t: PropTypes.func,
   useGetMetrics: PropTypes.func,
+  useGraphCardActions: PropTypes.func,
   useGraphCardContext: PropTypes.func,
   useProduct: PropTypes.func,
   useProductGraphTallyQuery: PropTypes.func
@@ -95,12 +109,13 @@ GraphCardChart.propTypes = {
 /**
  * Default props.
  *
- * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function,
- *     t: translate, useGetMetrics: Function}}
+ * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function, t: translate,
+ *     useGetMetrics: Function, useGraphCardActions: Function}}
  */
 GraphCardChart.defaultProps = {
   t: translate,
   useGetMetrics,
+  useGraphCardActions,
   useGraphCardContext,
   useProduct,
   useProductGraphTallyQuery

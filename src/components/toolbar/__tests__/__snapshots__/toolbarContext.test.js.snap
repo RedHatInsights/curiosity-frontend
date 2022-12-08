@@ -137,20 +137,23 @@ exports[`ToolbarContext should apply a hook for clearing specific active toolbar
 `;
 
 exports[`ToolbarContext should apply a hook for retrieving secondary toolbar field components: secondary field, rangedMonthly 1`] = `
-[
-  <ToolbarItem>
-    <RangedMonthly
-      isFilter={false}
-      position="right"
-    />
-  </ToolbarItem>,
-]
+{
+  "itemFields": [],
+  "secondaryFields": [
+    <ToolbarItem>
+      <RangedMonthly
+        isFilter={false}
+        isSecondary={true}
+      />
+    </ToolbarItem>,
+  ],
+}
 `;
 
 exports[`ToolbarContext should return specific properties: specific properties 1`] = `
 {
   "useToolbarFieldClear": [Function],
   "useToolbarFieldClearAll": [Function],
-  "useToolbarSecondaryFields": [Function],
+  "useToolbarFields": [Function],
 }
 `;

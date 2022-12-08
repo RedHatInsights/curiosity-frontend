@@ -9,7 +9,6 @@ import { useOnSelect as useCategoryOnSelect } from './toolbarFieldCategory';
 import { useOnSelect as useSlaOnSelect } from './toolbarFieldSla';
 import { useOnSelect as useUsageOnSelect } from './toolbarFieldUsage';
 import { useOnSelect as useVariantOnSelect } from './toolbarFieldVariant';
-import { SelectPosition } from '../form/select';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -137,38 +136,46 @@ const useToolbarFieldClearAll = ({
 };
 
 /**
- * Return list of secondary toolbar fields for display.
+ * Return lists of item and secondary toolbar fields for display.
  *
  * @param {object} options
  * @param {Array} options.categoryOptions
  * @param {Function} options.useProductToolbarConfig
  * @returns {Array}
  */
-const useToolbarSecondaryFields = ({
+const useToolbarFields = ({
   categoryOptions = toolbarFieldOptions,
   useProductToolbarConfig: useAliasProductToolbarConfig = useProductToolbarConfig
 } = {}) => {
-  const { secondaryFilters = [] } = useAliasProductToolbarConfig();
-
-  return secondaryFilters.map(({ id, content }) => {
+  const { filters = [] } = useAliasProductToolbarConfig();
+  const setFilter = ({ id, content, ...filterProps }) => {
     const option = categoryOptions.find(({ value: categoryOptionValue }) => id === categoryOptionValue);
     const { component: OptionComponent } = option || {};
 
     return (
       (OptionComponent && (
         <ToolbarItem key={`option-${id}`}>
-          <OptionComponent isFilter={false} position={SelectPosition.right} />
+          <OptionComponent isFilter={false} {...filterProps} />
         </ToolbarItem>
-      )) || <ToolbarItem key={helpers.generateId()}>{content}</ToolbarItem> ||
+      )) || (
+        <ToolbarItem key={id || helpers.generateId()}>
+          {typeof content === 'function' ? content() : content}
+        </ToolbarItem>
+      ) ||
       null
     );
-  });
+  };
+
+  return {
+    itemFields: filters.filter(({ isItem }) => isItem === true).map(setFilter),
+    secondaryFields: filters.filter(({ isSecondary }) => isSecondary === true).map(setFilter)
+  };
 };
 
 const context = {
   useToolbarFieldClear,
   useToolbarFieldClearAll,
-  useToolbarSecondaryFields
+  useToolbarFields
 };
 
-export { context as default, context, useToolbarFieldClear, useToolbarFieldClearAll, useToolbarSecondaryFields };
+export { context as default, context, useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields };

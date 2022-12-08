@@ -68,7 +68,15 @@ exports[`Product OpenShift Metrics config should apply graph configuration: prod
 
 exports[`Product OpenShift Metrics config should apply graph configuration: settings 1`] = `
 {
-  "actionDisplay": [Function],
+  "actions": [
+    {
+      "content": [Function],
+    },
+    {
+      "id": "rangedMonthly",
+      "position": "right",
+    },
+  ],
   "isCardTitleDescription": true,
 }
 `;

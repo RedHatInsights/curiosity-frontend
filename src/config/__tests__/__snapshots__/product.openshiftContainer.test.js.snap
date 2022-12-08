@@ -74,6 +74,16 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
 
 exports[`Product OpenShift Container config should apply graph configuration: settings 1`] = `
 {
+  "actions": [
+    {
+      "id": "uom",
+      "position": "right",
+    },
+    {
+      "id": "granularity",
+      "position": "right",
+    },
+  ],
   "isCardTitleDescription": true,
 }
 `;

@@ -65,6 +65,16 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         },
       ],
       "initialGraphSettings": {
+        "actions": [
+          {
+            "id": "uom",
+            "position": "right",
+          },
+          {
+            "id": "granularity",
+            "position": "right",
+          },
+        ],
         "isCardTitleDescription": true,
       },
       "initialGuestsFilters": [
@@ -113,14 +123,6 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
       ],
       "initialInventorySettings": {},
       "initialOption": "cores",
-      "initialSecondaryToolbarFilters": [
-        {
-          "id": "uom",
-        },
-        {
-          "id": "granularity",
-        },
-      ],
       "initialSubscriptionsInventoryFilters": [
         {
           "id": "product_name",
@@ -198,7 +200,15 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
         },
       ],
       "initialGraphSettings": {
-        "actionDisplay": [Function],
+        "actions": [
+          {
+            "content": [Function],
+          },
+          {
+            "id": "rangedMonthly",
+            "position": "right",
+          },
+        ],
         "isCardTitleDescription": true,
       },
       "initialInventoryFilters": [
@@ -220,11 +230,6 @@ exports[`Redirect Component should handle existing routes: existing route 1`] = 
           "id": "last_seen",
           "isSortable": true,
           "isWrappable": true,
-        },
-      ],
-      "initialSecondaryToolbarFilters": [
-        {
-          "id": "rangedMonthly",
         },
       ],
       "initialToolbarFilters": undefined,
@@ -299,7 +304,15 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
               },
             ],
             "initialGraphSettings": {
-              "actionDisplay": [Function],
+              "actions": [
+                {
+                  "content": [Function],
+                },
+                {
+                  "id": "rangedMonthly",
+                  "position": "right",
+                },
+              ],
               "isCardTitleDescription": true,
             },
             "initialInventoryFilters": [
@@ -328,11 +341,6 @@ exports[`Redirect Component should render a basic component: basic 1`] = `
                 "id": "last_seen",
                 "isSortable": true,
                 "isWrappable": true,
-              },
-            ],
-            "initialSecondaryToolbarFilters": [
-              {
-                "id": "rangedMonthly",
               },
             ],
             "initialToolbarFilters": undefined,
