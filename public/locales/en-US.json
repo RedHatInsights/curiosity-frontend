@@ -288,7 +288,7 @@
     "label_billing_provider_gcp": "Google Cloud Platform",
     "label_billing_provider_oracle": "Oracle Cloud Infrastructure",
     "label_billing_provider_red hat": "Red Hat Marketplace",
-    "label_category_cloud": "Cloud",
+    "label_category_cloud": "Public cloud",
     "label_category_hypervisor": "Hypervisor",
     "label_category_physical": "Physical",
     "label_category_virtual": "Virtualized",
