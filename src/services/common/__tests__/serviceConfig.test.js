@@ -72,11 +72,11 @@ describe('ServiceConfig', () => {
     // Highlight cancel takes into account url and method
     const responseAll = await returnPromiseAsync(() =>
       Promise.all([
-        serviceConfig.axiosServiceCall({ url: '/test/', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', method: 'post', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', method: 'post', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', cancel: true })
+        serviceConfig.axiosServiceCall({ url: '/test/all', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/all', method: 'post', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/all', method: 'post', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/all', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/all', cancel: true })
       ])
     );
 
@@ -85,11 +85,11 @@ describe('ServiceConfig', () => {
     // Highlight cancel takes into account url and method
     const responseAllSettled = await returnPromiseAsync(() =>
       Promise.allSettled([
-        serviceConfig.axiosServiceCall({ url: '/test/', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', method: 'post', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', method: 'post', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', cancel: true }),
-        serviceConfig.axiosServiceCall({ url: '/test/', cancel: true })
+        serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/allsettled', method: 'post', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/allsettled', method: 'post', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true }),
+        serviceConfig.axiosServiceCall({ url: '/test/allsettled', cancel: true })
       ])
     );
 
@@ -253,7 +253,7 @@ describe('ServiceConfig', () => {
     });
     responses.push(responseThree.data);
 
-    // Fourth, use error
+    // Fourth, use error then return cached response
     const responseFour = await returnPromiseAsync(async () =>
       serviceConfig.axiosServiceCall({
         cache: true,
