@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { useMount } from 'react-use';
-import { useProduct, useProductGraphConfig } from '../productView/productViewContext';
+import { useProduct } from '../productView/productViewContext';
+import { useGraphCardContext } from './graphCardContext';
 import { reduxTypes, storeHooks } from '../../redux';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -22,8 +23,8 @@ import { ChartIcon } from '../chart/chartIcon';
  * @param {object} props.datum
  * @param {Function} props.t
  * @param {Function} props.useDispatch
+ * @param {Function} props.useGraphCardContext
  * @param {Function} props.useProduct
- * @param {Function} props.useProductGraphConfig
  * @param {Function} props.useSelectors
  * @returns {Node}
  */
@@ -32,12 +33,12 @@ const GraphCardChartLegend = ({
   datum,
   t,
   useDispatch: useAliasDispatch,
-  useProductGraphConfig: useAliasProductGraphConfig,
+  useGraphCardContext: useAliasGraphCardContext,
   useSelectors: useAliasSelectors,
   useProduct: useAliasProduct
 }) => {
+  const { settings = {} } = useAliasGraphCardContext();
   const { productLabel, viewId } = useAliasProduct();
-  const { settings = {} } = useAliasProductGraphConfig();
   const { isDisabledLegendClick } = settings;
 
   const dispatch = useAliasDispatch();
@@ -156,7 +157,7 @@ const GraphCardChartLegend = ({
 /**
  * Prop types.
  *
- * @type {{datum: object, useProduct: Function, t: Function, useProductGraphConfig: Function, useDispatch: Function,
+ * @type {{datum: object, useProduct: Function, t: Function, useGraphCardContext: Function, useDispatch: Function,
  *     useSelectors: Function, chart: object}}
  */
 GraphCardChartLegend.propTypes = {
@@ -177,15 +178,15 @@ GraphCardChartLegend.propTypes = {
   }),
   t: PropTypes.func,
   useDispatch: PropTypes.func,
+  useGraphCardContext: PropTypes.func,
   useProduct: PropTypes.func,
-  useProductGraphConfig: PropTypes.func,
   useSelectors: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: *[]}, useProduct: Function, t: Function, useProductGraphConfig: Function, useDispatch: Function,
+ * @type {{datum: {dataSets: *[]}, useProduct: Function, t: Function, useGraphCardContext: Function, useDispatch: Function,
  *     useSelectors: Function, chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
@@ -199,8 +200,8 @@ GraphCardChartLegend.defaultProps = {
   },
   t: translate,
   useDispatch: storeHooks.reactRedux.useDispatch,
+  useGraphCardContext,
   useProduct,
-  useProductGraphConfig,
   useSelectors: storeHooks.reactRedux.useSelectors
 };
 

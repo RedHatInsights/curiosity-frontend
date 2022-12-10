@@ -1,29 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useProduct, useProductGraphConfig } from '../productView/productViewContext';
 import { helpers } from '../../common';
 import { GraphCardMetricTotals } from './graphCardMetricTotals';
 import { GraphCardChart } from './graphCardChart';
-import { GraphCardContext } from './graphCardContext';
-import { graphCardHelpers } from './graphCardHelpers';
+import { GraphCardContext, useParseFiltersSettings } from './graphCardContext';
 
 /**
  * Set up graph cards. Expand filters with base graph settings.
  *
  * @param {object} props
  * @param {boolean} props.isDisabled
- * @param {Function} props.useProduct
- * @param {Function} props.useProductGraphConfig
+ * @param {Function} props.useParseFiltersSettings
  * @returns {Node}
  */
-const GraphCard = ({ isDisabled, useProduct: useAliasProduct, useProductGraphConfig: useAliasProductGraphConfig }) => {
-  const { productId } = useAliasProduct();
-  const { filters, settings } = useAliasProductGraphConfig();
-  const { groupedFiltersSettings, standaloneFiltersSettings } = graphCardHelpers.generateChartSettings({
-    filters,
-    settings,
-    productId
-  });
+const GraphCard = ({ isDisabled, useParseFiltersSettings: useAliasParseFiltersSettings }) => {
+  const { groupedFiltersSettings, standaloneFiltersSettings } = useAliasParseFiltersSettings();
 
   if (isDisabled) {
     return null;
@@ -51,23 +42,21 @@ const GraphCard = ({ isDisabled, useProduct: useAliasProduct, useProductGraphCon
 /**
  * Prop types.
  *
- * @type {{useProduct: Function, useProductGraphConfig: Function, isDisabled: boolean}}
+ * @type {{useParseFiltersSettings: Function, isDisabled: boolean}}
  */
 GraphCard.propTypes = {
   isDisabled: PropTypes.bool,
-  useProduct: PropTypes.func,
-  useProductGraphConfig: PropTypes.func
+  useParseFiltersSettings: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useProduct: Function, useProductGraphConfig: Function, isDisabled: boolean}}
+ * @type {{useParseFiltersSettings: Function, isDisabled: boolean}}
  */
 GraphCard.defaultProps = {
   isDisabled: helpers.UI_DISABLED_GRAPH,
-  useProduct,
-  useProductGraphConfig
+  useParseFiltersSettings
 };
 
 export { GraphCard as default, GraphCard };

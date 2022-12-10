@@ -2,7 +2,9 @@
 
 exports[`GraphCard Component should allow being disabled: disabled 1`] = `""`;
 
-exports[`GraphCard Component should render a basic component: basic 1`] = `
+exports[`GraphCard Component should render a default component: default 1`] = `<Fragment />`;
+
+exports[`GraphCard Component should setup basic settings: settings, grouped 1`] = `
 <Fragment>
   <ContextProvider
     value={
@@ -38,30 +40,10 @@ exports[`GraphCard Component should render a basic component: basic 1`] = `
 </Fragment>
 `;
 
-exports[`GraphCard Component should setup basic settings: settings 1`] = `
+exports[`GraphCard Component should setup basic settings: settings, standalone 1`] = `
 <Fragment>
   <ContextProvider
-    value={
-      {
-        "settings": {
-          "isStandalone": false,
-          "metric": undefined,
-          "metrics": [
-            {
-              "chartType": "area",
-              "id": "Core-seconds",
-              "isCapacity": false,
-              "isStacked": true,
-              "isStandalone": false,
-              "isThreshold": false,
-              "isToolbarFilter": false,
-              "metric": "Core-seconds",
-              "strokeWidth": 2,
-            },
-          ],
-        },
-      }
-    }
+    value={{}}
   >
     <GraphCardChart
       t={[Function]}
