@@ -30,10 +30,51 @@ describe('Helpers', () => {
     expect(helpers.generateId('lorem')).toBe('lorem-');
   });
 
-  it('should support generated consistent hashes from objects', () => {
-    expect(
-      helpers.generateHash({ lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] })
-    ).toMatchSnapshot('hash');
+  it('should support generated consistent hashes from objects, primitive values', () => {
+    expect({
+      valueObject: helpers.generateHash({ lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] }),
+      valueObjectAgain: helpers.generateHash({
+        lorem: 'ipsum',
+        dolor: ['sit', null, undefined, 1, () => 'lorem ipsum']
+      }),
+      valueObjectConfirm:
+        helpers.generateHash({ lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] }) !==
+        helpers.generateHash({
+          lorem: 'ipsum',
+          dolor: ['sit', null, undefined, 1, () => 'lorem ipsum']
+        }),
+      valueObjectConfirmSort:
+        helpers.generateHash({ lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] }) ===
+        helpers.generateHash({
+          dolor: ['sit', null, undefined, 1, () => 'hello world'],
+          lorem: 'ipsum'
+        }),
+      valueObjectConfirmSortDiff:
+        helpers.generateHash({ lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] }) !==
+        helpers.generateHash({
+          dolor: ['sit', null, undefined, 1, () => 'lorem ipsum'],
+          lorem: 'ipsum'
+        }),
+      valueFunctionHelloWorld: helpers.generateHash(() => 'hello world'),
+      valueFunctionLoremIpsum: helpers.generateHash(function loremIpsum() { return 'lorem ipsum'; }), // eslint-disable-line
+      valueFunctionConfirm:
+        helpers.generateHash(() => Promise.reject(new Error('dolor.sit'))) !==
+        helpers.generateHash(() => Promise.reject('dolor.sit')),  // eslint-disable-line
+      valueInt: helpers.generateHash(200),
+      valueFloat: helpers.generateHash(20.000006),
+      valueNull: helpers.generateHash(null),
+      valueUndefined: helpers.generateHash(undefined),
+      valueArray: helpers.generateHash([1, 2, 3]),
+      valueArraySort: helpers.generateHash([3, 2, 1]),
+      valueArrayConfirmSort: helpers.generateHash([1, 2, 3]) !== helpers.generateHash([3, 2, 1]),
+      valueSet: helpers.generateHash(new Set([1, 2, 3])),
+      valueSetSort: helpers.generateHash(new Set([3, 2, 1])),
+      valueSetConfirmSort: helpers.generateHash(new Set([1, 2, 3])) === helpers.generateHash(new Set([3, 2, 1])),
+      valueSymbol: helpers.generateHash(Symbol('lorem ipsum')),
+      valueBoolTrue: helpers.generateHash(true),
+      valueBoolFalse: helpers.generateHash(false)
+    }).toMatchSnapshot('hash, object and primitive values');
+
     expect(
       helpers.generateHash(
         { lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] },
