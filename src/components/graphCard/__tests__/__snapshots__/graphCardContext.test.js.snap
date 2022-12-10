@@ -108,6 +108,81 @@ exports[`GraphCardContext should aggregate metric API calls: aggregated calls, p
 }
 `;
 
+exports[`GraphCardContext should parse configuration: configuration, basic 1`] = `
+{
+  "groupedFiltersSettings": undefined,
+  "standaloneFiltersSettings": [],
+}
+`;
+
+exports[`GraphCardContext should parse configuration: configuration, grouped 1`] = `
+{
+  "groupedFiltersSettings": {
+    "settings": {
+      "isStandalone": false,
+      "metric": undefined,
+      "metrics": [
+        {
+          "chartType": "area",
+          "id": "Core-seconds_loremIpsum",
+          "isCapacity": false,
+          "isStacked": true,
+          "isStandalone": false,
+          "isThreshold": false,
+          "isToolbarFilter": false,
+          "metric": "Core-seconds",
+          "strokeWidth": 2,
+        },
+      ],
+    },
+  },
+  "standaloneFiltersSettings": [],
+}
+`;
+
+exports[`GraphCardContext should parse configuration: configuration, standalone 1`] = `
+{
+  "groupedFiltersSettings": undefined,
+  "standaloneFiltersSettings": [
+    {
+      "settings": {
+        "isStandalone": true,
+        "metric": {
+          "chartType": "area",
+          "id": "Core-seconds_loremIpsum",
+          "isCapacity": false,
+          "isStacked": true,
+          "isStandalone": true,
+          "isThreshold": false,
+          "isToolbarFilter": false,
+          "metric": "Core-seconds",
+          "strokeWidth": 2,
+        },
+        "metrics": [
+          {
+            "chartType": "area",
+            "id": "Core-seconds_loremIpsum",
+            "isCapacity": false,
+            "isStacked": true,
+            "isStandalone": true,
+            "isThreshold": false,
+            "isToolbarFilter": false,
+            "metric": "Core-seconds",
+            "strokeWidth": 2,
+          },
+        ],
+        "padding": {
+          "bottom": 75,
+          "left": 75,
+          "right": 45,
+          "top": 45,
+        },
+      },
+    },
+  ],
+}
+`;
+
 exports[`GraphCardContext should return specific properties: specific properties 1`] = `
 {
   "DEFAULT_CONTEXT": [
@@ -159,5 +234,6 @@ exports[`GraphCardContext should return specific properties: specific properties
   "useGetMetrics": [Function],
   "useGraphCardContext": [Function],
   "useMetricsSelector": [Function],
+  "useParseFiltersSettings": [Function],
 }
 `;

@@ -396,9 +396,7 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
           updateOnResize={true}
         >
           <CardBody>
-            <div>
-              t(curiosity-graph.cardBodyMetric, {"context":"total"}, [object Object])
-            </div>
+            <div />
           </CardBody>
         </MinHeight>
         <MinHeight
@@ -428,9 +426,7 @@ exports[`GraphCardMetricTotals Component should render a basic component: basic 
           updateOnResize={true}
         >
           <CardBody>
-            <div>
-              t(curiosity-graph.cardBodyMetric, {"context":"total"}, [object Object])
-            </div>
+            <div />
           </CardBody>
         </MinHeight>
         <MinHeight
