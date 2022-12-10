@@ -1,40 +1,83 @@
 import React from 'react';
 import { GraphCard } from '../graphCard';
-import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
 describe('GraphCard Component', () => {
-  it('should render a basic component', async () => {
-    const props = {
-      useProductGraphConfig: () => ({
-        filters: [
-          {
-            metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS
-          }
-        ]
-      })
-    };
-    const component = await shallowHookComponent(<GraphCard {...props} />);
-
-    expect(component).toMatchSnapshot('basic');
+  it('should render a default component', async () => {
+    const component = await shallowHookComponent(<GraphCard />);
+    expect(component).toMatchSnapshot('default');
   });
 
   it('should setup basic settings', async () => {
     const props = {
-      useProductGraphConfig: () => ({
-        filters: [
+      useParseFiltersSettings: () => ({
+        groupedFiltersSettings: {},
+        standaloneFiltersSettings: [
           {
-            metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS
-          },
-          {
-            metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-            isStandalone: true
+            settings: {
+              isStandalone: true,
+              metric: {
+                chartType: 'area',
+                id: 'Sockets',
+                isCapacity: false,
+                isStacked: true,
+                isStandalone: true,
+                isThreshold: false,
+                isToolbarFilter: false,
+                metric: 'Sockets',
+                strokeWidth: 2
+              },
+              metrics: [
+                {
+                  chartType: 'area',
+                  id: 'Sockets',
+                  isCapacity: false,
+                  isStacked: true,
+                  isStandalone: true,
+                  isThreshold: false,
+                  isToolbarFilter: false,
+                  metric: 'Sockets',
+                  strokeWidth: 2
+                }
+              ],
+              padding: {
+                bottom: 75,
+                left: 75,
+                right: 45,
+                top: 45
+              }
+            }
           }
         ]
       })
     };
-    const component = await shallowHookComponent(<GraphCard {...props} />);
+    const componentStandalone = await shallowHookComponent(<GraphCard {...props} />);
+    expect(componentStandalone).toMatchSnapshot('settings, standalone');
 
-    expect(component).toMatchSnapshot('settings');
+    props.useParseFiltersSettings = () => ({
+      groupedFiltersSettings: {
+        settings: {
+          isStandalone: false,
+          metric: undefined,
+          metrics: [
+            {
+              chartType: 'area',
+              id: 'Core-seconds',
+              isCapacity: false,
+              isStacked: true,
+              isStandalone: false,
+              isThreshold: false,
+              isToolbarFilter: false,
+              metric: 'Core-seconds',
+              strokeWidth: 2
+            }
+          ]
+        }
+      },
+      standaloneFiltersSettings: []
+    });
+
+    const componentGrouped = await shallowHookComponent(<GraphCard {...props} />);
+    expect(componentGrouped).toMatchSnapshot('settings, grouped');
   });
 
   it('should allow being disabled', async () => {
@@ -42,7 +85,6 @@ describe('GraphCard Component', () => {
       isDisabled: true
     };
     const component = await shallowHookComponent(<GraphCard {...props} />);
-
     expect(component).toMatchSnapshot('disabled');
   });
 });

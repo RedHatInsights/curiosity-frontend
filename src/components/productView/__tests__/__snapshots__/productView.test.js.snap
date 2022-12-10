@@ -59,8 +59,7 @@ exports[`ProductView Component should allow custom inventory displays via config
       >
         <GraphCard
           isDisabled={false}
-          useProduct={[Function]}
-          useProductGraphConfig={[Function]}
+          useParseFiltersSettings={[Function]}
         />
       </PageSection>
       <PageSection
@@ -150,8 +149,7 @@ exports[`ProductView Component should allow custom product views via props: cust
       >
         <GraphCard
           isDisabled={false}
-          useProduct={[Function]}
-          useProductGraphConfig={[Function]}
+          useParseFiltersSettings={[Function]}
         />
       </PageSection>
       <PageSection
@@ -226,8 +224,7 @@ exports[`ProductView Component should allow custom product views via props: cust
       >
         <GraphCard
           isDisabled={false}
-          useProduct={[Function]}
-          useProductGraphConfig={[Function]}
+          useParseFiltersSettings={[Function]}
         />
       </PageSection>
       <PageSection
@@ -302,8 +299,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       >
         <GraphCard
           isDisabled={false}
-          useProduct={[Function]}
-          useProductGraphConfig={[Function]}
+          useParseFiltersSettings={[Function]}
         />
       </PageSection>
       <PageSection
