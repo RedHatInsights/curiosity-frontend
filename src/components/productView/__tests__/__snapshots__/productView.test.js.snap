@@ -51,7 +51,7 @@ exports[`ProductView Component should allow custom inventory displays via config
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarSecondaryFields={[Function]}
+          useToolbarFields={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -141,7 +141,7 @@ exports[`ProductView Component should allow custom product views via props: cust
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarSecondaryFields={[Function]}
+          useToolbarFields={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -216,7 +216,7 @@ exports[`ProductView Component should allow custom product views via props: cust
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarSecondaryFields={[Function]}
+          useToolbarFields={[Function]}
         />
       </PageToolbar>
       <PageSection
@@ -291,7 +291,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
           useSelectCategoryOptions={[Function]}
           useToolbarFieldClear={[Function]}
           useToolbarFieldClearAll={[Function]}
-          useToolbarSecondaryFields={[Function]}
+          useToolbarFields={[Function]}
         />
       </PageToolbar>
       <PageSection

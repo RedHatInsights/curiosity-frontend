@@ -135,8 +135,7 @@ describe('ProductViewContext', () => {
       initialSubscriptionsInventorySettings: {
         sit: 'amet'
       },
-      initialToolbarFilters: [{ ipsum: 'dolor' }],
-      initialSecondaryToolbarFilters: [{ hello: 'world' }],
+      initialToolbarFilters: [{ ipsum: 'dolor' }, { hello: 'world' }],
       initialToolbarSettings: {
         ipsum: 'dolor'
       }

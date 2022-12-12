@@ -10,7 +10,7 @@ import {
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 import { useProductToolbarQuery } from '../productView/productViewContext';
-import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarSecondaryFields } from './toolbarContext';
+import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from './toolbarContext';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -28,7 +28,7 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.useSelectCategoryOptions
  * @param {Function} props.useToolbarFieldClear
  * @param {Function} props.useToolbarFieldClearAll
- * @param {Function} props.useToolbarSecondaryFields
+ * @param {Function} props.useToolbarFields
  * @returns {Node}
  */
 const Toolbar = ({
@@ -39,13 +39,13 @@ const Toolbar = ({
   useSelectCategoryOptions: useAliasSelectCategoryOptions,
   useToolbarFieldClear: useAliasToolbarFieldClear,
   useToolbarFieldClearAll: useAliasToolbarFieldClearAll,
-  useToolbarSecondaryFields: useAliasToolbarSecondaryFields
+  useToolbarFields: useAliasToolbarFields
 }) => {
   const toolbarFieldQueries = useAliasProductToolbarQuery();
   const { currentCategory, options } = useAliasSelectCategoryOptions();
   const clearField = useAliasToolbarFieldClear();
   const clearAllFields = useAliasToolbarFieldClearAll();
-  const secondaryFields = useAliasToolbarSecondaryFields();
+  const { itemFields, secondaryFields } = useAliasToolbarFields();
 
   if (isDisabled || (!options?.length && !secondaryFields?.length)) {
     return null;
@@ -122,7 +122,10 @@ const Toolbar = ({
             })}
           </ToolbarGroup>
         </ToolbarToggleGroup>
-        <ToolbarGroup alignment={{ default: 'alignRight' }}>{secondaryFields}</ToolbarGroup>
+        <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
+        <ToolbarGroup key="secondaryFields" alignment={{ default: 'alignRight' }}>
+          {secondaryFields}
+        </ToolbarGroup>
       </ToolbarContent>
     </PfToolbar>
   );
@@ -132,7 +135,7 @@ const Toolbar = ({
  * Prop types
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarSecondaryFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
  *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.propTypes = {
@@ -143,14 +146,14 @@ Toolbar.propTypes = {
   useSelectCategoryOptions: PropTypes.func,
   useToolbarFieldClear: PropTypes.func,
   useToolbarFieldClearAll: PropTypes.func,
-  useToolbarSecondaryFields: PropTypes.func
+  useToolbarFields: PropTypes.func
 };
 
 /**
  * Default props.
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarSecondaryFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
  *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.defaultProps = {
@@ -161,7 +164,7 @@ Toolbar.defaultProps = {
   useSelectCategoryOptions,
   useToolbarFieldClear,
   useToolbarFieldClearAll,
-  useToolbarSecondaryFields
+  useToolbarFields
 };
 
 export { Toolbar as default, Toolbar };

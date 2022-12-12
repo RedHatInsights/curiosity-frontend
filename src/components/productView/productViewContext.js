@@ -350,14 +350,9 @@ const useProductInventorySubscriptionsConfig = ({
  * @returns {{settings: object, filters: Array}}
  */
 const useProductToolbarConfig = ({ useProductContext: useAliasProductContext = useProductContext } = {}) => {
-  const {
-    initialToolbarFilters,
-    initialToolbarSettings = {},
-    initialSecondaryToolbarFilters
-  } = useAliasProductContext();
+  const { initialToolbarFilters, initialToolbarSettings = {} } = useAliasProductContext();
   return {
     filters: initialToolbarFilters,
-    secondaryFilters: initialSecondaryToolbarFilters,
     settings: initialToolbarSettings
   };
 };

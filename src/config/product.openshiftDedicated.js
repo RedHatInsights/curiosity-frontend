@@ -19,6 +19,7 @@ import {
 } from '../services/rhsm/rhsmConstants';
 import { ChartTypeVariant } from '../components/chart/chart';
 import { dateHelpers, helpers } from '../common';
+import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 const productGroup = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
@@ -68,23 +69,31 @@ const config = {
   ],
   initialGraphSettings: {
     isCardTitleDescription: true,
-    actionDisplay: ({ data = [] } = {}) => {
-      const { id, meta = {} } = data.find(({ metric }) => metric === RHSM_API_PATH_METRIC_TYPES.CORES) || {};
-      const { totalMonthlyValue } = meta;
-      let displayContent;
+    actions: [
+      {
+        content: ({ data = [] } = {}) => {
+          const { id, meta = {} } = data.find(({ metric }) => metric === RHSM_API_PATH_METRIC_TYPES.CORES) || {};
+          const { totalMonthlyValue } = meta;
+          let displayContent;
 
-      if (totalMonthlyValue) {
-        displayContent = translate('curiosity-graph.cardActionTotal', {
-          context: id,
-          total: helpers
-            .numberDisplay(totalMonthlyValue)
-            ?.format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
-            ?.toUpperCase()
-        });
+          if (totalMonthlyValue) {
+            displayContent = translate('curiosity-graph.cardActionTotal', {
+              context: id,
+              total: helpers
+                .numberDisplay(totalMonthlyValue)
+                ?.format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
+                ?.toUpperCase()
+            });
+          }
+
+          return <div className="curiosity-usage-graph__total">{displayContent || null}</div>;
+        }
+      },
+      {
+        id: 'rangedMonthly',
+        position: SelectPosition.right
       }
-
-      return <div className="curiosity-usage-graph__total">{displayContent || null}</div>;
-    }
+    ]
   },
   initialInventoryFilters: [
     {
@@ -140,12 +149,7 @@ const config = {
       cellWidth: 15
     }
   ],
-  initialToolbarFilters: undefined,
-  initialSecondaryToolbarFilters: [
-    {
-      id: 'rangedMonthly'
-    }
-  ]
+  initialToolbarFilters: undefined
 };
 
 export { config as default, config, productGroup, productId };

@@ -26,12 +26,12 @@ describe('Toolbar Component', () => {
     component.setProps({
       isDisabled: false,
       useSelectCategoryOptions: () => ({ options: [] }),
-      useToolbarSecondaryFields: () => []
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [] })
     });
     expect(component).toMatchSnapshot('missing filters');
 
     component.setProps({
-      useToolbarSecondaryFields: () => [<span key="lorem">lorem ipsum</span>]
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
     });
     expect(component).toMatchSnapshot('missing primary, has secondary filters');
   });
@@ -64,7 +64,7 @@ describe('Toolbar Component', () => {
   it('should handle displaying secondary components, fields', () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
-      useToolbarSecondaryFields: () => [<span key="lorem">lorem ipsum</span>]
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
     };
     const component = shallow(<Toolbar {...props} />);
 

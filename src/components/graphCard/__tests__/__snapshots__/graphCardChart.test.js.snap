@@ -1,6 +1,185 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphCardChart Component should render a basic component: basic 1`] = `
+exports[`GraphCardChart Component should handle API response states: error 1`] = `
+<Card
+  className="curiosity-usage-graph"
+>
+  <MinHeight
+    key="headerMinHeight"
+    minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        >
+          t(curiosity-graph.cardHeading, {})
+          <GraphCardChartTitleTooltip
+            t={[Function]}
+            useGraphCardContext={[Function]}
+            useProduct={[Function]}
+          />
+        </Title>
+      </CardTitle>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    key="bodyMinHeight"
+    minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
+  >
+    <CardBody>
+      <div
+        className="blur"
+      >
+        <Chart
+          chartLegend={[Function]}
+          chartTooltip={[Function]}
+          dataSets={[]}
+          padding={
+            {
+              "bottom": 75,
+              "left": 55,
+              "right": 55,
+              "top": 50,
+            }
+          }
+          themeColor="blue"
+          xAxisChartLabel={null}
+          xAxisFixLabelOverlap={true}
+          xAxisLabelIncrement={1}
+          xAxisTickFormat={[Function]}
+          xValueFormat={null}
+          yAxisChartLabel={null}
+          yAxisTickFormat={[Function]}
+          yValueFormat={null}
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+</Card>
+`;
+
+exports[`GraphCardChart Component should handle API response states: fulfilled 1`] = `
+<Card
+  className="curiosity-usage-graph"
+>
+  <MinHeight
+    key="headerMinHeight"
+    minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        >
+          t(curiosity-graph.cardHeading, {})
+          <GraphCardChartTitleTooltip
+            t={[Function]}
+            useGraphCardContext={[Function]}
+            useProduct={[Function]}
+          />
+        </Title>
+      </CardTitle>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    key="bodyMinHeight"
+    minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
+  >
+    <CardBody>
+      <div
+        className=""
+      >
+        <Chart
+          chartLegend={[Function]}
+          chartTooltip={[Function]}
+          dataSets={[]}
+          padding={
+            {
+              "bottom": 75,
+              "left": 55,
+              "right": 55,
+              "top": 50,
+            }
+          }
+          themeColor="blue"
+          xAxisChartLabel={null}
+          xAxisFixLabelOverlap={true}
+          xAxisLabelIncrement={1}
+          xAxisTickFormat={[Function]}
+          xValueFormat={null}
+          yAxisChartLabel={null}
+          yAxisTickFormat={[Function]}
+          yValueFormat={null}
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+</Card>
+`;
+
+exports[`GraphCardChart Component should handle API response states: pending 1`] = `
+<Card
+  className="curiosity-usage-graph"
+>
+  <MinHeight
+    key="headerMinHeight"
+    minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
+  >
+    <CardHeader>
+      <CardTitle>
+        <Title
+          headingLevel="h2"
+          size="lg"
+        >
+          t(curiosity-graph.cardHeading, {})
+          <GraphCardChartTitleTooltip
+            t={[Function]}
+            useGraphCardContext={[Function]}
+            useProduct={[Function]}
+          />
+        </Title>
+      </CardTitle>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    key="bodyMinHeight"
+    minHeight={0}
+    updateOnContent={false}
+    updateOnResize={true}
+  >
+    <CardBody>
+      <div
+        className="fadein"
+      >
+        <Loader
+          skeletonProps={
+            {
+              "size": "sm",
+            }
+          }
+          tableProps={{}}
+          variant="graph"
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+</Card>
+`;
+
+exports[`GraphCardChart Component should render a default component: default 1`] = `
 <Card
   className="curiosity-usage-graph"
 >

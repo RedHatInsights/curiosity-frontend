@@ -23,6 +23,7 @@ import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
 import { ChartTypeVariant } from '../components/chart/chart';
 import { ChartIcon } from '../components/chart/chartIcon';
+import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 // ToDo: evaluate the need for "productLabel" or using productId
@@ -90,7 +91,17 @@ const config = {
     }
   ],
   initialGraphSettings: {
-    isCardTitleDescription: true
+    isCardTitleDescription: true,
+    actions: [
+      {
+        id: RHSM_API_QUERY_SET_TYPES.UOM,
+        position: SelectPosition.right
+      },
+      {
+        id: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
+        position: SelectPosition.right
+      }
+    ]
   },
   initialGuestsFilters: [
     {
@@ -255,14 +266,6 @@ const config = {
   initialToolbarFilters: [
     {
       id: RHSM_API_QUERY_SET_TYPES.SLA
-    }
-  ],
-  initialSecondaryToolbarFilters: [
-    {
-      id: RHSM_API_QUERY_SET_TYPES.UOM
-    },
-    {
-      id: RHSM_API_QUERY_SET_TYPES.GRANULARITY
     }
   ]
 };

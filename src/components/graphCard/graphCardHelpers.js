@@ -46,7 +46,7 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
   const standaloneFiltersSettings = [];
   const groupedFiltersSettings = [];
 
-  filters.forEach(({ metric, isStandalone = false, ...filterSettings }) => {
+  filters.forEach(({ metric, isStandalone = false, actions, ...filterSettings }) => {
     if (!metric) {
       return;
     }
@@ -80,6 +80,7 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
             top: 45
           },
           ...graphCardSettings,
+          actions,
           isStandalone: true,
           metric: {
             ...baseFilterSettings,

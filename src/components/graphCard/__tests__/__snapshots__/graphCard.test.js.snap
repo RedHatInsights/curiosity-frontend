@@ -32,6 +32,7 @@ exports[`GraphCard Component should setup basic settings: settings, grouped 1`] 
     <GraphCardChart
       t={[Function]}
       useGetMetrics={[Function]}
+      useGraphCardActions={[Function]}
       useGraphCardContext={[Function]}
       useProduct={[Function]}
       useProductGraphTallyQuery={[Function]}
@@ -48,6 +49,7 @@ exports[`GraphCard Component should setup basic settings: settings, standalone 1
     <GraphCardChart
       t={[Function]}
       useGetMetrics={[Function]}
+      useGraphCardActions={[Function]}
       useGraphCardContext={[Function]}
       useProduct={[Function]}
       useProductGraphTallyQuery={[Function]}
@@ -101,6 +103,7 @@ exports[`GraphCard Component should setup basic settings: settings, standalone 1
       <GraphCardChart
         t={[Function]}
         useGetMetrics={[Function]}
+        useGraphCardActions={[Function]}
         useGraphCardContext={[Function]}
         useProduct={[Function]}
         useProductGraphTallyQuery={[Function]}
