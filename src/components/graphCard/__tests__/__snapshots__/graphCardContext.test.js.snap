@@ -146,6 +146,7 @@ exports[`GraphCardContext should parse configuration: configuration, standalone 
   "standaloneFiltersSettings": [
     {
       "settings": {
+        "actions": undefined,
         "isStandalone": true,
         "metric": {
           "chartType": "area",

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useShallowCompareEffect } from 'react-use';
 import { ToolbarItem } from '@patternfly/react-core';
 import { reduxActions, storeHooks } from '../../redux';
@@ -148,7 +148,8 @@ const useGetMetrics = ({
 };
 
 /**
- * Return a component list for a configurable graphCard action toolbar
+ * Return a component list for a configurable graphCard action toolbar.
+ * Allow the "content" prop to receive graph data for display via callback.
  *
  * @param {object} params
  * @param {Array} params.categoryOptions
@@ -161,14 +162,13 @@ const useGraphCardActions = ({
   useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
   useGraphCardContext: useAliasGraphCardContext = useGraphCardContext
 } = {}) => {
-  const [updatedActions, setUpdatedActions] = useState();
   const { pending, dataSets } = useAliasMetricsSelector();
   const { settings = {} } = useAliasGraphCardContext();
-  const { actionDisplay, actions = [] } = settings;
+  const { actions } = settings;
 
-  useShallowCompareEffect(() => {
-    if (!pending && dataSets) {
-      const tempActions = actions.map(({ id, content, ...actionProps }) => {
+  return useMemo(
+    () =>
+      actions?.map(({ id, content, ...actionProps }) => {
         const option = categoryOptions.find(({ value: categoryOptionValue }) => id === categoryOptionValue);
         const { component: OptionComponent } = option || {};
 
@@ -178,20 +178,16 @@ const useGraphCardActions = ({
               <OptionComponent isFilter={false} {...actionProps} />
             </ToolbarItem>
           )) ||
-          (content && (
+          (content && !pending && dataSets.length && (
             <ToolbarItem key={id || helpers.generateId()}>
               {typeof content === 'function' ? content({ data: dataSets }) : content}
             </ToolbarItem>
           )) ||
           null
         );
-      });
-
-      setUpdatedActions(() => tempActions);
-    }
-  }, [actions, actionDisplay, categoryOptions, pending]);
-
-  return updatedActions;
+      }),
+    [actions, categoryOptions, dataSets, pending]
+  );
 };
 
 const context = {

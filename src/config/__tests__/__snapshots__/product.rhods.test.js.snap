@@ -135,6 +135,7 @@ exports[`Product RHODS config should apply graph configuration: filters 1`] = `
   "standaloneFiltersSettings": [
     {
       "settings": {
+        "actions": undefined,
         "isStandalone": true,
         "metric": {
           "chartType": "line",
