@@ -78,7 +78,16 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
 }
 `;
 
-exports[`Product RHEL config should apply graph configuration: settings 1`] = `{}`;
+exports[`Product RHEL config should apply graph configuration: settings 1`] = `
+{
+  "actions": [
+    {
+      "id": "granularity",
+      "position": "right",
+    },
+  ],
+}
+`;
 
 exports[`Product RHEL config should apply guest inventory configuration: filtered 1`] = `
 {

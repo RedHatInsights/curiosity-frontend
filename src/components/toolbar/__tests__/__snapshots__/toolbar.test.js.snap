@@ -39,11 +39,15 @@ exports[`Toolbar Component should handle displaying secondary components, fields
       </ForwardRef>
     </ToolbarToggleGroup>
     <ForwardRef
+      key="itemFields"
+    />
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
+      key="secondaryFields"
     >
       <span
         key="lorem"
@@ -119,11 +123,15 @@ exports[`Toolbar Component should hide categories when a single filter is availa
       </ForwardRef>
     </ToolbarToggleGroup>
     <ForwardRef
+      key="itemFields"
+    />
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
+      key="secondaryFields"
     />
   </ToolbarContent>
 </Toolbar>
@@ -186,11 +194,15 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
       </ForwardRef>
     </ToolbarToggleGroup>
     <ForwardRef
+      key="itemFields"
+    />
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
+      key="secondaryFields"
     />
   </ToolbarContent>
 </Toolbar>
@@ -227,11 +239,15 @@ exports[`Toolbar Component should return an empty render when disabled or missin
       />
     </ToolbarToggleGroup>
     <ForwardRef
+      key="itemFields"
+    />
+    <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
+      key="secondaryFields"
     >
       <span
         key="lorem"

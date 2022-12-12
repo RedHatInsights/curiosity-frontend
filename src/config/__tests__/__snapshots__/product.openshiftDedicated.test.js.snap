@@ -84,7 +84,15 @@ exports[`Product OpenShift Dedicated config should apply graph configuration: pr
 
 exports[`Product OpenShift Dedicated config should apply graph configuration: settings 1`] = `
 {
-  "actionDisplay": [Function],
+  "actions": [
+    {
+      "content": [Function],
+    },
+    {
+      "id": "rangedMonthly",
+      "position": "right",
+    },
+  ],
   "isCardTitleDescription": true,
 }
 `;

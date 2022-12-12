@@ -1,7 +1,9 @@
 import React, { useContext, useMemo } from 'react';
 import { useShallowCompareEffect } from 'react-use';
+import { ToolbarItem } from '@patternfly/react-core';
 import { reduxActions, storeHooks } from '../../redux';
 import { useProduct, useProductGraphConfig, useProductGraphTallyQuery } from '../productView/productViewContext';
+import { toolbarFieldOptions } from '../toolbar/toolbarFieldSelectCategory';
 import { helpers } from '../../common/helpers';
 import { graphCardHelpers } from './graphCardHelpers';
 
@@ -145,10 +147,54 @@ const useGetMetrics = ({
   return response;
 };
 
+/**
+ * Return a component list for a configurable graphCard action toolbar.
+ * Allow the "content" prop to receive graph data for display via callback.
+ *
+ * @param {object} params
+ * @param {Array} params.categoryOptions
+ * @param {Function} params.useMetricsSelector
+ * @param {Function} params.useGraphCardContext
+ * @returns {*[]}
+ */
+const useGraphCardActions = ({
+  categoryOptions = toolbarFieldOptions,
+  useMetricsSelector: useAliasMetricsSelector = useMetricsSelector,
+  useGraphCardContext: useAliasGraphCardContext = useGraphCardContext
+} = {}) => {
+  const { pending, dataSets } = useAliasMetricsSelector();
+  const { settings = {} } = useAliasGraphCardContext();
+  const { actions } = settings;
+
+  return useMemo(
+    () =>
+      actions?.map(({ id, content, ...actionProps }) => {
+        const option = categoryOptions.find(({ value: categoryOptionValue }) => id === categoryOptionValue);
+        const { component: OptionComponent } = option || {};
+
+        return (
+          (OptionComponent && (
+            <ToolbarItem key={`option-${id}`}>
+              <OptionComponent isFilter={false} {...actionProps} />
+            </ToolbarItem>
+          )) ||
+          (content && !pending && dataSets.length && (
+            <ToolbarItem key={id || helpers.generateId()}>
+              {typeof content === 'function' ? content({ data: dataSets }) : content}
+            </ToolbarItem>
+          )) ||
+          null
+        );
+      }),
+    [actions, categoryOptions, dataSets, pending]
+  );
+};
+
 const context = {
   GraphCardContext,
   DEFAULT_CONTEXT,
   useGetMetrics,
+  useGraphCardActions,
   useGraphCardContext,
   useMetricsSelector,
   useParseFiltersSettings
@@ -160,6 +206,7 @@ export {
   GraphCardContext,
   DEFAULT_CONTEXT,
   useGetMetrics,
+  useGraphCardActions,
   useGraphCardContext,
   useMetricsSelector,
   useParseFiltersSettings

@@ -227,6 +227,7 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
   "standaloneFiltersSettings": [
     {
       "settings": {
+        "actions": undefined,
         "isStandalone": true,
         "metric": {
           "chartType": "line",
@@ -270,6 +271,7 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
     },
     {
       "settings": {
+        "actions": undefined,
         "isStandalone": true,
         "metric": {
           "chartType": "line",
@@ -313,6 +315,7 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
     },
     {
       "settings": {
+        "actions": undefined,
         "isStandalone": true,
         "metric": {
           "chartType": "line",

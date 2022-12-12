@@ -1,5 +1,15 @@
 .curiosity {
   .curiosity-usage-graph {
+    .pf-c-toolbar {
+      padding-bottom: inherit;
+      padding-top: inherit;
+
+      &__content {
+        padding-left: inherit;
+        padding-right: inherit;
+      }
+    }
+
     .pf-c-card {
       &__header {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
