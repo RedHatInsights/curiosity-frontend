@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ToolbarItem } from '@patternfly/react-core';
 import { useProductQuery, useProductToolbarConfig } from '../productView/productViewContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
@@ -148,28 +148,31 @@ const useToolbarFields = ({
   useProductToolbarConfig: useAliasProductToolbarConfig = useProductToolbarConfig
 } = {}) => {
   const { filters = [] } = useAliasProductToolbarConfig();
-  const setFilter = ({ id, content, ...filterProps }) => {
-    const option = categoryOptions.find(({ value: categoryOptionValue }) => id === categoryOptionValue);
-    const { component: OptionComponent } = option || {};
 
-    return (
-      (OptionComponent && (
-        <ToolbarItem key={`option-${id}`}>
-          <OptionComponent isFilter={false} {...filterProps} />
-        </ToolbarItem>
-      )) || (
-        <ToolbarItem key={id || helpers.generateId()}>
-          {typeof content === 'function' ? content() : content}
-        </ToolbarItem>
-      ) ||
-      null
-    );
-  };
+  return useMemo(() => {
+    const setFilter = ({ id, content, ...filterProps }) => {
+      const option = categoryOptions.find(({ value: categoryOptionValue }) => id === categoryOptionValue);
+      const { component: OptionComponent } = option || {};
 
-  return {
-    itemFields: filters.filter(({ isItem }) => isItem === true).map(setFilter),
-    secondaryFields: filters.filter(({ isSecondary }) => isSecondary === true).map(setFilter)
-  };
+      return (
+        (OptionComponent && (
+          <ToolbarItem key={`option-${id}`}>
+            <OptionComponent isFilter={false} {...filterProps} />
+          </ToolbarItem>
+        )) || (
+          <ToolbarItem key={id || helpers.generateId()}>
+            {typeof content === 'function' ? content() : content}
+          </ToolbarItem>
+        ) ||
+        null
+      );
+    };
+
+    return {
+      itemFields: filters.filter(({ isItem }) => isItem === true).map(setFilter),
+      secondaryFields: filters.filter(({ isSecondary }) => isSecondary === true).map(setFilter)
+    };
+  }, [categoryOptions, filters]);
 };
 
 const context = {
