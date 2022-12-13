@@ -123,11 +123,14 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={250}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -244,6 +247,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   position="left"
   selectedOptions={null}
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />
@@ -314,11 +318,14 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={250}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -435,6 +442,7 @@ exports[`ToolbarFieldRangedMonthly Component should render a basic component: ba
   placeholder="t(curiosity-toolbar.placeholder, {"context":"rangedMonthly"})"
   position="left"
   selectedOptions={null}
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />
