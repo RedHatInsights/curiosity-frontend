@@ -1,5 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: expected covered, missing routes 1`] = `
+[
+  {
+    "coverage": "TRUE",
+    "path": "/rhel",
+    "productParameter": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/openshift-container",
+    "productParameter": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/openshift-dedicated",
+    "productParameter": [
+      "OpenShift-dedicated-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/rhacs",
+    "productParameter": [
+      "rhacs",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/rhods",
+    "productParameter": [
+      "rhods",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/streams",
+    "productParameter": [
+      "rhosak",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/satellite",
+    "productParameter": [
+      "Satellite",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/optin",
+    "productParameter": null,
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/",
+    "productParameter": null,
+  },
+]
+`;
+
 exports[`Build distribution should match a specific file output 1`] = `
 [
   "",
