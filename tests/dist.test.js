@@ -1,3 +1,4 @@
+import { routes } from '../src/config/routes';
 const { execSync } = require('child_process');
 
 describe('Build distribution', () => {
@@ -23,5 +24,25 @@ describe('Build distribution', () => {
     const output = execSync(`grep -roi "localhost:" ./${outputDir} | wc -l`).toString();
 
     expect(Number.parseInt(output.trim(), 10)).toBe(0);
+  });
+
+  it('should have a predictable ephemeral navigation based on route configuration', () => {
+    const yamlFile = `./deploy/frontend.yaml`;
+    const output = execSync(`yaml2json ${yamlFile}`);
+    const yamlObj = JSON.parse(output.toString());
+    const yamlRoutes = yamlObj.objects[0].spec.navItems[0].routes;
+
+    expect(
+      routes.map(({ path, productParameter }) => {
+        const updatedRoute = { path, productParameter, coverage: 'FALSE' };
+        const match = yamlRoutes.find(({ href }) => href.split('subscriptions')[1] === path);
+
+        if (match) {
+          updatedRoute.coverage = 'TRUE';
+        }
+
+        return updatedRoute;
+      })
+    ).toMatchSnapshot('expected covered, missing routes');
   });
 });
