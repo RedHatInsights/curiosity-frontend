@@ -143,7 +143,7 @@ const GraphCardChartLegend = ({
               enableFlip
               distance={5}
             >
-              <span className="pf-c-button pf-m-link">{button}</span>
+              <span className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper">{button}</span>
             </Tooltip>
           );
         }
