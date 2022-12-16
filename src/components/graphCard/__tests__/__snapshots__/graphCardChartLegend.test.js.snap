@@ -86,7 +86,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link"
+      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
         className="curiosity-usage-graph__legend-item"
@@ -132,7 +132,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link"
+      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
         className="curiosity-usage-graph__legend-item"
@@ -173,7 +173,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link"
+      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
         className="curiosity-usage-graph__legend-item"
@@ -209,7 +209,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link"
+      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
         className="curiosity-usage-graph__legend-item"
@@ -250,7 +250,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link"
+      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
         className="curiosity-usage-graph__legend-item"

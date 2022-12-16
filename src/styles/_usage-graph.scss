@@ -47,14 +47,23 @@
       word-break: break-word;
     }
 
-    &__legend-item {
-      &:first-child {
+    &__legend-item-wrapper {
+      > .pf-c-button {
         padding-left: 0;
-      }
-      &:last-child {
         padding-right: 0;
       }
-    };
+    }
+
+    @media (min-width: $pf-global--breakpoint--lg) {
+      &__legend-item-wrapper {
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
 
     &__tooltip {
       color: var(--pf-global--Color--light-100);
