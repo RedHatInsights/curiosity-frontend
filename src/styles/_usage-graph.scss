@@ -1,15 +1,8 @@
 .curiosity {
-  .curiosity-usage-graph {
-    .pf-c-toolbar {
-      padding-bottom: inherit;
-      padding-top: inherit;
-
-      &__content {
-        padding-left: inherit;
-        padding-right: inherit;
-      }
-    }
-
+  /**
+   * Styling for graphCard component
+   */
+  &-usage-graph {
     .pf-c-card {
       &__header {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
@@ -21,7 +14,6 @@
       &__title {
         flex-grow: 1;
         padding: 0;
-        padding-right: var(--pf-c-card__actions--PaddingLeft);
       }
 
       &__actions {
@@ -36,31 +28,6 @@
 
         & > .curiosity-select {
           width: auto;
-        }
-      }
-    }
-
-    &__total {
-      padding-right: var(--pf-global--spacer--sm);
-      text-align: right;
-      white-space: normal;
-      word-break: break-word;
-    }
-
-    &__legend-item-wrapper {
-      > .pf-c-button {
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
-
-    @media (min-width: $pf-global--breakpoint--lg) {
-      &__legend-item-wrapper {
-        &:first-child {
-          padding-left: 0;
-        }
-        &:last-child {
-          padding-right: 0;
         }
       }
     }
@@ -96,81 +63,158 @@
       }
     }
 
+    &__legend-item-wrapper {
+      > .pf-c-button {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      @media (min-width: $pf-global--breakpoint--lg) {
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
     &__totals {
-      /**
-       * ToDo: consider relocating margin into page-layout once margin is restored to all product layouts
-       */
+      background-color: var(--pf-global--BackgroundColor--100);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       margin-left: var(--pf-global--spacer--md);
       margin-right: var(--pf-global--spacer--md);
       margin-top: var(--pf-global--spacer--md);
+
+      @media (min-width: $pf-global--breakpoint--md) {
+        flex-direction: row;
+        justify-content: start;
+      }
 
       &:last-child {
         margin-bottom: var(--pf-global--spacer--md);
       };
 
-      &-column {
-        height: 100%;
+      > div {
+        display: flex;
 
-        > :first-child {
-          margin-bottom: var(--pf-global--spacer--md);
+        &:first-child {
+          @media (max-width: $pf-global--breakpoint--md) {
+            align-self: stretch;
+          }
+          @media (min-width: $pf-global--breakpoint--md) {
+            width: 25%;
+            min-width: 260px;
+          }
         }
 
-        &-card {
-          min-height: calc(50% - var(--pf-global--spacer--md) / 2);
-          overflow: hidden;
+        &:last-child {
+          @media (min-width: $pf-global--breakpoint--md) {
+            flex: 3;
+          }
+        }
+      }
+
+      &-column {
+        margin-left: var(--pf-global--spacer--sm);
+        margin-right: var(--pf-global--spacer--sm);
+        margin-top: var(--pf-global--spacer--lg);
+        margin-bottom: var(--pf-global--spacer--lg);
+        width: 100%;
+
+        .pf-c-card {
+          height: calc(50%);
           text-align: center;
+          width: 100%;
 
-          .ins-c-skeleton {
-            width: 100%;
+          &:first-child {
+            border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+            padding-bottom: calc(var(--pf-global--spacer--lg) / 2);
           }
 
-          .pf-c-card__title {
-            padding: var(--pf-global--spacer--md);
-            padding-bottom: 0;
+          &:last-child {
+            padding-top: calc(var(--pf-global--spacer--lg) / 2);
           }
 
-          .pf-c-card__body {
-            padding: var(--pf-global--spacer--md);
+          &__header {
+            display: block;
+            padding-top: inherit;
+          }
 
+          &__title {
+            h2, h3 {
+              line-height: var(--pf-global--FontSize--3xl);
+            }
+          }
+
+          &__body {
             strong {
               display: block;
               font-size: var(--pf-global--FontSize--3xl);
             }
           }
 
-          .pf-c-card__footer {
+          &__footer {
             color: var(--pf-global--palette--black-500);
             font-size: var(--pf-global--FontSize--xs);
-            padding: var(--pf-global--spacer--md);
-            padding-top: 0;
           }
         }
       }
 
       &-graph-column {
-        height: 100%;
+        margin-bottom: var(--pf-global--spacer--lg);
+        margin-right: var(--pf-global--spacer--sm);
+        margin-top: var(--pf-global--spacer--lg);
+        padding-left: var(--pf-global--spacer--sm);
+        width: 100%;
 
-        .curiosity-usage-graph {
-          height: 100%;
+        @media (min-width: $pf-global--breakpoint--md) {
+          padding-left: var(--pf-global--spacer--lg);
+          border-left: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
         }
 
         .pf-c-card {
           &__header {
+            align-items: flex-start;
             border-bottom-width: 0;
-            padding-bottom: 0;
+            padding: inherit;
+          }
+
+          &__title {
+          }
+
+          &__actions {
           }
 
           &__body {
-            padding-top: 0;
+            padding: inherit;
           }
         }
       }
     }
+
+    .pf-c-toolbar {
+      padding-bottom: inherit;
+      padding-top: inherit;
+
+      &__content {
+        padding-left: inherit;
+        padding-right: inherit;
+      }
+    }
   }
 
-  .curiosity-chartarea {
+
+  /**
+   * Styling for general chart component Victory wrapper.
+   * Pixels are used as related to SVG display dimensions.
+   */
+  &-chartarea {
     &__legend {
-      background-color: var(--pf-global--BackgroundColor--100);;
+      background-color: var(--pf-global--BackgroundColor--100);
       margin-top: -35px;
       position: relative;
 
@@ -209,7 +253,8 @@
       }
 
       transition: width 1s ease-in-out, left 1s ease-in-out;
-      background-color: #000;
+      background-color: var(--pf-global--palette--black-1000);
+      color: var(--pf-global--Color--light-100);
       margin-left: 10px;
       margin-right: 15px;
 
@@ -217,7 +262,7 @@
       &-right:after {
         border-width: 10px;
         border-style: solid;
-        border-color: transparent #000 transparent transparent;
+        border-color: transparent var(--pf-global--palette--black-1000) transparent transparent;
         content: "";
         left: -9px;  //-10px Compensate for Firefox pixel diff, match margin-left
         margin-left: 0;
@@ -227,7 +272,7 @@
       }
 
       &-right:after {
-        border-color: transparent transparent transparent #000;
+        border-color: transparent transparent transparent var(--pf-global--palette--black-1000);
         left: calc(100% - 16px); //-15px Compensate for Firefox pixel diff, match margin-right
         margin-left: 0;
       }

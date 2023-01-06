@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardBody, CardFooter, CardTitle, Flex, FlexItem } from '@patternfly/react-core';
+import { Card, CardBody, CardFooter, CardHeader, CardTitle, Title } from '@patternfly/react-core';
 import moment from 'moment';
 import _camelCase from 'lodash/camelCase';
 import { useProductGraphTallyQuery } from '../productView/productViewContext';
 import { useMetricsSelector } from './graphCardContext';
-import { MinHeight } from '../minHeight/minHeight';
 import { Loader, SkeletonSize } from '../loader/loader';
 import { dateHelpers, helpers } from '../../common';
 import { toolbarFieldOptions } from '../toolbar/toolbarFieldRangedMonthly';
@@ -50,102 +49,110 @@ const GraphCardMetricTotals = ({
   const dailyValue = isCurrent ? currentValue : lastValue;
 
   return (
-    <Flex data-test={`graphMetricTotals-${_camelCase(metricId)}`} className="curiosity-usage-graph__totals">
-      <Flex flex={{ default: 'flex_1' }} direction={{ default: 'column' }} alignSelf={{ default: 'alignSelfStretch' }}>
-        <FlexItem className="curiosity-usage-graph__totals-column">
+    <div data-test={`graphMetricTotals-${_camelCase(metricId)}`} className="curiosity-usage-graph__totals">
+      <div>
+        <div className="curiosity-usage-graph__totals-column">
           <Card
+            isPlain
             data-test="graphDailyTotalCard"
             className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
           >
-            <CardTitle>
-              {t('curiosity-graph.cardHeadingMetric', {
-                context: ['dailyTotal', id],
-                month: selectedMonth
-              })}
-            </CardTitle>
-            <MinHeight key="currentBody">
-              <CardBody>
-                <div>
+            <CardHeader>
+              <CardTitle>
+                <Title headingLevel="h2" size="md">
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
-                    t(
-                      'curiosity-graph.cardBodyMetric',
-                      {
-                        context: ['total', dailyHasData && id],
-                        total: helpers
-                          .numberDisplay(dailyValue)
-                          ?.format({
-                            average: true,
-                            mantissa: 5,
-                            trimMantissa: true,
-                            lowPrecision: false
-                          })
-                          ?.toUpperCase()
-                      },
-                      [<strong title={dailyValue} aria-label={dailyValue} />]
-                    )}
-                </div>
-              </CardBody>
-            </MinHeight>
-            <MinHeight key="currentFooter">
-              <CardFooter>
-                <div className={(!dailyHasData && 'hidden') || ''}>
-                  {fulfilled &&
-                    dailyDate &&
-                    t('curiosity-graph.cardFooterMetric', {
-                      date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort)
+                    t('curiosity-graph.cardHeadingMetric', {
+                      context: ['dailyTotal', id],
+                      month: selectedMonth
                     })}
-                </div>
-              </CardFooter>
-            </MinHeight>
+                </Title>
+              </CardTitle>
+            </CardHeader>
+            <CardBody>
+              <div>
+                {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg, height: '60px' }} />}
+                {fulfilled &&
+                  t(
+                    'curiosity-graph.cardBodyMetric',
+                    {
+                      context: ['total', dailyHasData && id],
+                      total: helpers
+                        .numberDisplay(dailyValue)
+                        ?.format({
+                          average: true,
+                          mantissa: 5,
+                          trimMantissa: true,
+                          lowPrecision: false
+                        })
+                        ?.toUpperCase()
+                    },
+                    [<strong title={dailyValue} aria-label={dailyValue} />]
+                  )}
+              </div>
+            </CardBody>
+            <CardFooter>
+              <div>
+                {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
+                {fulfilled &&
+                  dailyDate &&
+                  t('curiosity-graph.cardFooterMetric', {
+                    date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort)
+                  })}
+              </div>
+            </CardFooter>
           </Card>
           <Card
+            isPlain
             data-test="graphMonthlyTotalCard"
             className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
           >
-            <CardTitle>
-              {t('curiosity-graph.cardHeadingMetric', {
-                context: ['monthlyTotal', id],
-                month: selectedMonth
-              })}
-            </CardTitle>
-            <MinHeight key="totalMonthlyBody">
-              <CardBody>
-                <div>
+            <CardHeader>
+              <CardTitle>
+                <Title headingLevel="h2" size="md">
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
-                    t(
-                      'curiosity-graph.cardBodyMetric',
-                      {
-                        context: ['total', monthlyHasData && id],
-                        total: helpers
-                          .numberDisplay(monthlyValue)
-                          ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
-                          ?.toUpperCase()
-                      },
-                      [<strong title={monthlyValue} aria-label={monthlyValue} />]
-                    )}
-                </div>
-              </CardBody>
-            </MinHeight>
-            <MinHeight key="totalMonthlyFooter">
-              <CardFooter>
-                <div className={(!monthlyHasData && 'hidden') || ''}>
-                  {fulfilled &&
-                    monthlyDate &&
-                    t('curiosity-graph.cardFooterMetric', {
-                      date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort)
+                    t('curiosity-graph.cardHeadingMetric', {
+                      context: ['monthlyTotal', id],
+                      month: selectedMonth
                     })}
-                </div>
-              </CardFooter>
-            </MinHeight>
+                </Title>
+              </CardTitle>
+            </CardHeader>
+            <CardBody>
+              <div>
+                {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg, height: '60px' }} />}
+                {fulfilled &&
+                  t(
+                    'curiosity-graph.cardBodyMetric',
+                    {
+                      context: ['total', monthlyHasData && id],
+                      total: helpers
+                        .numberDisplay(monthlyValue)
+                        ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
+                        ?.toUpperCase()
+                    },
+                    [<strong title={monthlyValue} aria-label={monthlyValue} />]
+                  )}
+              </div>
+            </CardBody>
+            <CardFooter>
+              <div>
+                {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
+                {fulfilled &&
+                  monthlyDate &&
+                  t('curiosity-graph.cardFooterMetric', {
+                    date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort)
+                  })}
+              </div>
+            </CardFooter>
           </Card>
-        </FlexItem>
-      </Flex>
-      <Flex flex={{ default: 'flex_3' }} direction={{ default: 'column' }} alignSelf={{ default: 'alignSelfStretch' }}>
-        <FlexItem className="curiosity-usage-graph__totals-graph-column">{children}</FlexItem>
-      </Flex>
-    </Flex>
+        </div>
+      </div>
+      <div>
+        <div className="curiosity-usage-graph__totals-graph-column">{children}</div>
+      </div>
+    </div>
   );
 };
 
