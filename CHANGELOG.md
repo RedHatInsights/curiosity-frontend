@@ -4,6 +4,44 @@ All notable changes to this project will be documented in this file.
 
 
 
+## [2.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/21c9752705228d20b5992cf1e04a77aaecfb6f88...01971f447cc99126234524768d2f09c3ef4c4f63) (2023-01-17)
+
+### Features
+* **graphCardChart** sw-690 config, action toolbar  ([#1020](https://github.com/RedHatInsights/curiosity-frontend/pull/1020)) ([01971f4](https://github.com/RedHatInsights/curiosity-frontend/commit/01971f447cc99126234524768d2f09c3ef4c4f63))
+* **toolbarFieldCategory** sw-235 category type filter  ([#1017](https://github.com/RedHatInsights/curiosity-frontend/pull/1017)) ([1a66624](https://github.com/RedHatInsights/curiosity-frontend/commit/1a66624b826b9dc1dbda4c538bc9661c733aa932))
+* **inventoryCardHosts** sw-223 deprecated move  ([#999](https://github.com/RedHatInsights/curiosity-frontend/pull/999)) ([fc0d361](https://github.com/RedHatInsights/curiosity-frontend/commit/fc0d36172763e04e849a7ae5825f2e2f38270b2c))
+* **rhsmServices,redux** sw-223 metric capacity  ([#997](https://github.com/RedHatInsights/curiosity-frontend/pull/997)) ([996d68e](https://github.com/RedHatInsights/curiosity-frontend/commit/996d68e42dcc2cf123ae4f3f7b15c37a6fc673f9))
+* **serviceConfig** sw-630 hash for cache, cancel  ([#996](https://github.com/RedHatInsights/curiosity-frontend/pull/996)) ([9e86401](https://github.com/RedHatInsights/curiosity-frontend/commit/9e86401c4c8dacfdaeda792799e90a61df96a941))
+
+### Code Refactoring
+* **rhsmServices** sw-690 metric capacity  ([#1017](https://github.com/RedHatInsights/curiosity-frontend/pull/1017)) ([dff44ce](https://github.com/RedHatInsights/curiosity-frontend/commit/dff44cef94362346808da6f0e5093ff48d8f11e3))
+* **config** sw-630 architectures, variants as filters  ([#1006](https://github.com/RedHatInsights/curiosity-frontend/pull/1006)) ([7afe464](https://github.com/RedHatInsights/curiosity-frontend/commit/7afe4645f9c5e86bcc9d43d857e7fa59f1244e8e))
+* **components,redux** sw-690 unused, deprecated removal  ([#1004](https://github.com/RedHatInsights/curiosity-frontend/pull/1004)) ([9ae280c](https://github.com/RedHatInsights/curiosity-frontend/commit/9ae280c777d3d322963e3ce4061ecb966b884d03))
+* **config** sw-690 rhel, satellite, openshift inventory  ([#1002](https://github.com/RedHatInsights/curiosity-frontend/pull/1002)) ([885f3c2](https://github.com/RedHatInsights/curiosity-frontend/commit/885f3c250c6332c1da99a786a65bb3b910e745c3))
+* **config** sw-690 rhel, satellite, openshift metric graph  ([#1002](https://github.com/RedHatInsights/curiosity-frontend/pull/1002)) ([d5b27d1](https://github.com/RedHatInsights/curiosity-frontend/commit/d5b27d12c2f8013bcb3f8ed0e5ae7b48ef09f78d))
+* **rhsmConstants** sw-690 remove rhsmApiTypes  ([#1002](https://github.com/RedHatInsights/curiosity-frontend/pull/1002)) ([99ef4ef](https://github.com/RedHatInsights/curiosity-frontend/commit/99ef4ef46fab19f3da2f085ab65f85ce1424abe6))
+* **rhsmConstants** sw-690 rhel, satellite, openshift  ([#1002](https://github.com/RedHatInsights/curiosity-frontend/pull/1002)) ([3a10b5e](https://github.com/RedHatInsights/curiosity-frontend/commit/3a10b5e70b08e76d43bdd7fac80dbe21e6285e02))
+* **graphCard** sw-235 metric capacity  ([#1000](https://github.com/RedHatInsights/curiosity-frontend/pull/1000)) ([e32f062](https://github.com/RedHatInsights/curiosity-frontend/commit/e32f062a3accdf495032b2f5f77c9a6c5b4e5f0d))
+
+### Chores
+* **deps-dev** eslint-plugin-react from 7.31.10 to 7.31.11  ([#1015](https://github.com/RedHatInsights/curiosity-frontend/pull/1015)) ([0ebf716](https://github.com/RedHatInsights/curiosity-frontend/commit/0ebf7168a6a7803edc8407c18f1f60fff6438726))
+* **build** nodejs 14 to 16  ([#1019](https://github.com/RedHatInsights/curiosity-frontend/pull/1019)) ([d8fe5df](https://github.com/RedHatInsights/curiosity-frontend/commit/d8fe5df123fedc118ce607457506da9e62c942c7))
+* **deps-dev** bump @babel/core from 7.19.6 to 7.20.2  ([#998](https://github.com/RedHatInsights/curiosity-frontend/pull/998)) ([28fe569](https://github.com/RedHatInsights/curiosity-frontend/commit/28fe569b79a894dd8f3974a813efb28822e3afbc))
+
+### Bug Fixes
+* **graphCard,Context** sw-690 graph card loading  ([#1023](https://github.com/RedHatInsights/curiosity-frontend/pull/1023)) ([42b2782](https://github.com/RedHatInsights/curiosity-frontend/commit/42b2782defb11ad513c0727e6d710d3ab9e105e7))
+* **serviceConfig** sw-690 consistent cancel id  ([#1023](https://github.com/RedHatInsights/curiosity-frontend/pull/1023)) ([37970c4](https://github.com/RedHatInsights/curiosity-frontend/commit/37970c42f47eb3d4e9b8f13ca2f0787583e10fc0))
+* **helpers** sw-630 generateHash, funcs to str  ([#1023](https://github.com/RedHatInsights/curiosity-frontend/pull/1023)) ([56dacf0](https://github.com/RedHatInsights/curiosity-frontend/commit/56dacf0830df2088c0b213b3801f3e03be03b584))
+* **rhsmTransformers,services** sw-726 restore capacity logic  ([#1022](https://github.com/RedHatInsights/curiosity-frontend/pull/1022)) ([c061829](https://github.com/RedHatInsights/curiosity-frontend/commit/c06182971b4a8159ca941ec525f20c8de4bd43af))
+* **graphCardContext** sw-690 duplicate api calls  ([#1012](https://github.com/RedHatInsights/curiosity-frontend/pull/1012)) ([64d8831](https://github.com/RedHatInsights/curiosity-frontend/commit/64d8831ba34ae1c7c2e83acd199cb34177df60fa))
+* **build** npm updates  ([#1011](https://github.com/RedHatInsights/curiosity-frontend/pull/1011)) ([ca91f11](https://github.com/RedHatInsights/curiosity-frontend/commit/ca91f1101ee09452cf7da0b6110444ea449dbb88))
+* **inventoryCard** sw-703 reset columns, rows  ([#1010](https://github.com/RedHatInsights/curiosity-frontend/pull/1010)) ([3513756](https://github.com/RedHatInsights/curiosity-frontend/commit/35137568f082ea20149059f9acdf652f7e5d4b6a))
+* **config** sw-707 openshift-metrics graph x-axis  ([#1009](https://github.com/RedHatInsights/curiosity-frontend/pull/1009)) ([e2081b3](https://github.com/RedHatInsights/curiosity-frontend/commit/e2081b38d56cdc44bda4e6a1c3c60ac11fd9aa9e))
+* **locale** sw-689 graph legend, rhel arch  ([#1005](https://github.com/RedHatInsights/curiosity-frontend/pull/1005)) ([bef2200](https://github.com/RedHatInsights/curiosity-frontend/commit/bef2200c84099edcbf79ebef94319b937c6678e9))
+* **chartHelpers** sw-702 undefined api response  ([#1005](https://github.com/RedHatInsights/curiosity-frontend/pull/1005)) ([966c258](https://github.com/RedHatInsights/curiosity-frontend/commit/966c2584d5bc0015414500b7bdd13814ee721642))
+* **inventoryGuests** sw-235 close on redraw  ([#1002](https://github.com/RedHatInsights/curiosity-frontend/pull/1002)) ([3bec8a3](https://github.com/RedHatInsights/curiosity-frontend/commit/3bec8a3392a72f3141eef79559b2a28f10e7ee6d))
+* **graphCardHelpers** sw-235 generateChartId threshold  ([#1001](https://github.com/RedHatInsights/curiosity-frontend/pull/1001)) ([3d77d6f](https://github.com/RedHatInsights/curiosity-frontend/commit/3d77d6f26f12e2397c6ff14bf8e40b2dd132d554))
+
 ## [2.7.1](https://github.com/RedHatInsights/curiosity-frontend/compare/0f68906b34368e8616e3284c5123ee7d995ba728...26b7866246034d614a551401298172e728e2227c) (2022-12-05)
 
 ### Performance Improvements
