@@ -1,6 +1,5 @@
 .curiosity-select {
   position: relative;
-  display: inline-block;
 
   &-pf__no-toggle-text {
     span.pf-c-select__toggle-arrow {
@@ -16,5 +15,13 @@
     > .pf-c-select__menu {
       right: 0;
     }
+  }
+
+  &__inline {
+    display: inline-block;
+  }
+
+  &__not-inline {
+    width: 100%;
   }
 }

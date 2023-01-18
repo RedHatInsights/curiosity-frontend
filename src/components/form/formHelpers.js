@@ -5,7 +5,7 @@ import { helpers } from '../../common/helpers';
  *
  * @param {object} event
  * @param {boolean} persistEvent
- * @returns {{keyCode, currentTarget, name, id: *, persist: Function, value, target}}
+ * @returns {{keyCode, currentTarget: {}, name, checked: *, id: *, persist: Function, value, target: {}}}
  */
 const createMockEvent = (event, persistEvent = false) => {
   const { checked, currentTarget = {}, keyCode, persist = helpers.noop, target = {} } = { ...event };
@@ -14,7 +14,7 @@ const createMockEvent = (event, persistEvent = false) => {
   }
 
   return {
-    checked,
+    checked: checked ?? currentTarget?.checked,
     currentTarget,
     keyCode,
     id: currentTarget.id || currentTarget.name,
