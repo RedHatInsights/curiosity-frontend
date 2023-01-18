@@ -61,7 +61,8 @@ const SelectPosition = DropdownPosition;
 
 /**
  * FixMe: attributes on PF select and dropdown components do not allow data- attributes being passed
- * Bypass pf with refs and apply the attributes.
+ * FixMe: PF dropdown, select attempt to break the ref attribute?
+ * Moving from a class to func wrapper exposes a PF "special props warning", https://bit.ly/2n0hzWo
  */
 /**
  * Format options into a consumable array of objects.
@@ -138,8 +139,8 @@ const formatOptions = ({ selectField = { current: null }, options, selectedOptio
     updateSelected = updatedOptions.filter(opt => opt.selected === true).map(opt => opt.title);
   }
 
-  if (domElement?.parentRef?.current) {
-    dataAttributes.forEach(([key, value]) => domElement?.parentRef?.current.setAttribute(key, value));
+  if (domElement?.firstChild) {
+    dataAttributes.forEach(([key, value]) => domElement?.firstChild.setAttribute(key, value));
   }
 
   return {
@@ -415,7 +416,6 @@ const Select = ({
    */
   const renderDropdownButton = () => (
     <Dropdown
-      ref={selectField}
       direction={direction}
       isFlipEnabled={isFlipEnabled}
       isOpen={isExpanded}
@@ -462,7 +462,6 @@ const Select = ({
    */
   const renderSelect = () => (
     <PfSelect
-      ref={selectField}
       className={`curiosity-select-pf${(!isToggleText && '__no-toggle-text') || ''} ${
         (direction === SelectDirection.down && 'curiosity-select-pf__position-down') || ''
       } ${(position === SelectPosition.right && 'curiosity-select-pf__position-right') || ''} ${className}`}
@@ -500,7 +499,10 @@ const Select = ({
   );
 
   return (
-    <div className={`curiosity-select${(isInline && ' curiosity-select__inline') || ' curiosity-select__not-inline'}`}>
+    <div
+      ref={selectField}
+      className={`curiosity-select${(isInline && ' curiosity-select__inline') || ' curiosity-select__not-inline'}`}
+    >
       {(isDropdownButton && renderDropdownButton()) || renderSelect()}
     </div>
   );
