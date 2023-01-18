@@ -60,11 +60,14 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -82,6 +85,7 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
   placeholder="t(curiosity-toolbar.placeholder_billing, {"context":"provider"})"
   position="left"
   selectedOptions="aws"
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />

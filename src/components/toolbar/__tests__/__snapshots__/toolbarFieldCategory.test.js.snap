@@ -114,15 +114,19 @@ exports[`ToolbarFieldCategory Component should render a basic component: basic 1
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={[]}
   placeholder="t(curiosity-toolbar.placeholder, {"context":"category"})"
   position="left"
   selectedOptions={null}
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />

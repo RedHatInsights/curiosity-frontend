@@ -90,11 +90,14 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -122,6 +125,7 @@ exports[`ToolbarFieldGranularity Component should render a basic component: basi
   placeholder="t(curiosity-toolbar.placeholder, {"context":"granularity"})"
   position="left"
   selectedOptions="Weekly"
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />

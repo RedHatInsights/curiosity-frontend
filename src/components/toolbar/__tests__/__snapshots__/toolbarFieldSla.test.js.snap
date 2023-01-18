@@ -70,11 +70,14 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -102,6 +105,7 @@ exports[`ToolbarFieldSla Component should render a basic component: basic 1`] = 
   placeholder="t(curiosity-toolbar.placeholder, {"context":"sla"})"
   position="left"
   selectedOptions="Standard"
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />
