@@ -309,11 +309,14 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -379,6 +382,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   placeholder="t(curiosity-toolbar.placeholder, {"context":"filter"})"
   position="left"
   selectedOptions="sla"
+  splitButtonVariant={null}
   toggleIcon={
     <FilterIcon
       color="currentColor"

@@ -60,11 +60,14 @@ exports[`ToolbarFieldUom Component should render a basic component: basic 1`] = 
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={
     [
       {
@@ -82,6 +85,7 @@ exports[`ToolbarFieldUom Component should render a basic component: basic 1`] = 
   placeholder="t(curiosity-toolbar.placeholder, {"context":"uom"})"
   position="left"
   selectedOptions="sockets"
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />

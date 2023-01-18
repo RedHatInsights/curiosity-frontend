@@ -77,15 +77,19 @@ exports[`ToolbarFieldArchitecture Component should render a basic component: bas
   direction="down"
   id="generatedid-"
   isDisabled={false}
+  isDropdownButton={false}
   isFlipEnabled={false}
+  isInline={true}
   isToggleText={true}
   maxHeight={null}
   name={null}
   onSelect={[Function]}
+  onSplitButton={[Function]}
   options={[]}
   placeholder="t(curiosity-toolbar.placeholder, {"context":"architecture"})"
   position="left"
   selectedOptions={null}
+  splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
 />
