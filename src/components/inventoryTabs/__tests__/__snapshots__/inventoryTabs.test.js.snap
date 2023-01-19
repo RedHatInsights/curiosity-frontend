@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryTabs Component should handle updating tabs for redux state: dispatch filter 1`] = `
+exports[`InventoryTabs Component should handle updating through redux state with component: dispatch, component 1`] = `
+[
+  [
+    {
+      "tabs": {
+        "undefined": 1,
+      },
+      "type": "SET_INVENTORY_TAB",
+    },
+  ],
+]
+`;
+
+exports[`InventoryTabs Component should handle updating through redux state with hook: dispatch, hook 1`] = `
 [
   [
     {
@@ -13,7 +26,7 @@ exports[`InventoryTabs Component should handle updating tabs for redux state: di
 ]
 `;
 
-exports[`InventoryTabs Component should render a non-connected component: non-connected 1`] = `
+exports[`InventoryTabs Component should render a basic component: basic 1`] = `
 <Fragment>
   <Title
     className="sr-only"

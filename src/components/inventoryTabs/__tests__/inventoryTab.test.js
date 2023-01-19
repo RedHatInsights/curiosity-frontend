@@ -3,14 +3,14 @@ import { mount, shallow } from 'enzyme';
 import { InventoryTab } from '../inventoryTab';
 
 describe('InventoryTab Component', () => {
-  it('should output a non-connected component', () => {
+  it('should output a basic component', () => {
     const props = {
       children: <div>lorem ipsum</div>,
       title: 'lorem ipsum'
     };
 
     const component = shallow(<InventoryTab {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should have accessible props', () => {

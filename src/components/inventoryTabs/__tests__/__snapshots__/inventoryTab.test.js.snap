@@ -12,7 +12,7 @@ exports[`InventoryTab Component should have accessible props: component props 1`
 ]
 `;
 
-exports[`InventoryTab Component should output a non-connected component: non-connected 1`] = `
+exports[`InventoryTab Component should output a basic component: basic 1`] = `
 <div>
   lorem ipsum
 </div>

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Tabs } from '../tabs';
 
 describe('Tabs Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a basic component', () => {
     const props = {
       tabs: [
         { title: 'lorem', content: 'ipsum' },
@@ -12,7 +12,7 @@ describe('Tabs Component', () => {
     };
 
     const component = shallow(<Tabs {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should handle no tabs', () => {
