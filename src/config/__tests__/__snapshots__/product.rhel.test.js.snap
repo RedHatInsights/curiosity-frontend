@@ -247,7 +247,7 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       </React.Fragment>,
     },
     {
-      "title": "",
+      "title": "--",
     },
     {
       "title": <DateFormat
@@ -343,7 +343,7 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       </React.Fragment>,
     },
     {
-      "title": "",
+      "title": "--",
     },
     {
       "title": "",
