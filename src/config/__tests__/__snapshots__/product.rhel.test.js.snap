@@ -234,21 +234,20 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
 {
   "cells": [
     {
-      "title": <React.Fragment>
-        lorem
-         
-        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-      </React.Fragment>,
+      "title": "lorem",
+    },
+    {
+      "title": 3,
     },
     {
       "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
+        t(curiosity-inventory.label, {"context":"category"})
          
         
       </React.Fragment>,
     },
     {
-      "title": 10,
+      "title": "",
     },
     {
       "title": <DateFormat
@@ -262,13 +261,19 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
       "transforms": [
         [Function],
       ],
@@ -328,18 +333,17 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       "title": "lorem",
     },
     {
+      "title": 3,
+    },
+    {
       "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
+        t(curiosity-inventory.label, {"context":"category"})
          
-        <Label
-          color="purple"
-        >
-          t(curiosity-inventory.cloudProvider, {"context":"dolor sit"})
-        </Label>
+        
       </React.Fragment>,
     },
     {
-      "title": 10,
+      "title": "",
     },
     {
       "title": "",
@@ -351,13 +355,19 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
       "transforms": [
         [Function],
       ],

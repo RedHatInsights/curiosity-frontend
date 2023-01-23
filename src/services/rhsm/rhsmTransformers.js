@@ -67,7 +67,9 @@ const rhsmInstances = response => {
       ...dataResponse
     }) => {
       const updatedData = {
+        [INSTANCES_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
         numberOfGuests,
+        [INSTANCES_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
         subscriptionManagerId,
         ...dataResponse
       };

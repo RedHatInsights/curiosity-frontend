@@ -123,7 +123,7 @@ const config = {
     {
       id: INVENTORY_TYPES.BILLING_PROVIDER,
       cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
-        translate(`curiosity-inventory.measurement_${INVENTORY_TYPES.BILLING_PROVIDER}`, {
+        translate(`curiosity-inventory.label_${INVENTORY_TYPES.BILLING_PROVIDER}`, {
           context: provider?.value || 'none'
         }),
       isSortable: true,
@@ -159,8 +159,8 @@ const config = {
     {
       id: SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER,
       cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER]: provider }) =>
-        translate(`curiosity-inventory.measurement_${SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER}`, {
-          context: provider?.value || 'none'
+        translate(`curiosity-inventory.label`, {
+          context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider?.value || 'none']
         }),
       isSortable: true,
       isWrappable: false,

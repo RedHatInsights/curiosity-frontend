@@ -49,16 +49,21 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
           >
-            {!helpers.UI_DISABLED_TABLE_HOSTS && productDisplay !== DISPLAY_TYPES.HOURLY && initialInventoryFilters && (
-              <InventoryTab
-                key={`inventory_hosts_${productId}`}
-                title={t('curiosity-inventory.tabHosts', { context: [productId] })}
-              >
-                <InventoryCardHosts />
-              </InventoryTab>
-            )}
+            {!helpers.UI_DISABLED_TABLE_HOSTS &&
+              productDisplay !== DISPLAY_TYPES.HOURLY &&
+              productDisplay !== DISPLAY_TYPES.CAPACITY &&
+              initialInventoryFilters && (
+                <InventoryTab
+                  key={`inventory_hosts_${productId}`}
+                  title={t('curiosity-inventory.tabHosts', { context: [productId] })}
+                >
+                  <InventoryCardHosts />
+                </InventoryTab>
+              )}
             {!helpers.UI_DISABLED_TABLE_INSTANCES &&
-              productDisplay === DISPLAY_TYPES.HOURLY &&
+              productDisplay !== DISPLAY_TYPES.DUAL_AXES &&
+              productDisplay !== DISPLAY_TYPES.LEGACY &&
+              productDisplay !== DISPLAY_TYPES.PARTIAL &&
               initialInventoryFilters && (
                 <InventoryTab
                   key={`inventory_instances_${productId}`}
