@@ -217,12 +217,13 @@ const config = {
             ''}
         </React.Fragment>
       ),
-      isSortable: true,
+      isSortable: false,
       cellWidth: 20
     },
     {
       id: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      isSortable: true,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: sockets } = {}) => sockets?.value || '--',
+      isSortable: false,
       isWrappable: true,
       cellWidth: 15
     },
