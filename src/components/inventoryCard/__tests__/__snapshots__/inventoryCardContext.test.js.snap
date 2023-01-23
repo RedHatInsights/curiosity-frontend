@@ -3,11 +3,13 @@
 exports[`InventoryCardContext should expect specific sort properties: sort properties 1`] = `
 {
   "BILLING_PROVIDER": "billing_provider",
+  "CATEGORY": "category",
   "CORES": "Cores",
   "CORE_SECONDS": "Core-seconds",
   "INSTANCE_HOURS": "Instance-hours",
   "LAST_SEEN": "last_seen",
   "NAME": "display_name",
+  "NUMBER_OF_GUESTS": "number_of_guests",
   "SOCKETS": "Sockets",
   "STORAGE_GIBIBYTES": "Storage-gibibytes",
   "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",

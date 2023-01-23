@@ -7,7 +7,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
       "title": "lorem ipsum",
     },
     {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
+      "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
     },
     {
       "title": "t(curiosity-inventory.measurement, {"context":"Transfer-gibibytes","total":"0.00035"})",
@@ -119,7 +119,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
       </Button>,
     },
     {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
+      "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
     },
     {
       "title": "t(curiosity-inventory.measurement, {"context":"Transfer-gibibytes","total":"0.00035"})",
@@ -376,7 +376,7 @@ exports[`Product RHOSAK config should apply subscriptions inventory configuratio
       "title": "lorem",
     },
     {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
+      "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
     },
     {
       "title": "hello world",
@@ -459,7 +459,7 @@ exports[`Product RHOSAK config should apply subscriptions inventory configuratio
       "title": "lorem",
     },
     {
-      "title": "t(curiosity-inventory.measurement_billing_provider, {"context":"none"})",
+      "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
     },
     {
       "title": "",

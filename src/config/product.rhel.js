@@ -23,7 +23,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_QUERY_UOM_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
@@ -49,7 +49,7 @@ const config = {
   productGroup,
   productId,
   productLabel,
-  productDisplay: DISPLAY_TYPES.PARTIAL,
+  productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}`,
   productArchitectures: [...Object.values(RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES)],
   query: {
@@ -167,11 +167,7 @@ const config = {
     {
       id: INVENTORY_TYPES.DISPLAY_NAME,
       cell: (
-        {
-          [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-          [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {},
-          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
-        } = {},
+        { [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {}, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {} },
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
@@ -195,30 +191,27 @@ const config = {
           );
         }
 
-        return (
-          <React.Fragment>
-            {updatedDisplayName}{' '}
-            {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
-                <PfLabel color="blue" />
-              ])) ||
-              ''}
-          </React.Fragment>
-        );
+        return updatedDisplayName;
       },
       isSortable: true
     },
     {
-      id: INVENTORY_TYPES.MEASUREMENT_TYPE,
-      cell: ({
-        [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider,
-        [INVENTORY_TYPES.MEASUREMENT_TYPE]: measurementType
-      } = {}) => (
+      id: INVENTORY_TYPES.NUMBER_OF_GUESTS,
+      cell: ({ [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests } = {}) => numberOfGuests?.value || '--',
+      isSortable: true,
+      isWrappable: true,
+      cellWidth: 15
+    },
+    {
+      id: INVENTORY_TYPES.CATEGORY,
+      cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: billingProvider, [INVENTORY_TYPES.CATEGORY]: category } = {}) => (
         <React.Fragment>
-          {translate('curiosity-inventory.measurementType', { context: measurementType?.value })}{' '}
-          {(cloudProvider?.value && (
+          {translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category?.value] })}{' '}
+          {(billingProvider?.value && (
             <PfLabel color="purple">
-              {translate('curiosity-inventory.cloudProvider', { context: cloudProvider?.value })}
+              {translate('curiosity-inventory.label', {
+                context: [INVENTORY_TYPES.BILLING_PROVIDER, billingProvider?.value]
+              })}
             </PfLabel>
           )) ||
             ''}
@@ -228,7 +221,7 @@ const config = {
       cellWidth: 20
     },
     {
-      id: INVENTORY_TYPES.SOCKETS,
+      id: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
