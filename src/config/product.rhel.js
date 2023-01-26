@@ -217,7 +217,7 @@ const config = {
             ''}
         </React.Fragment>
       ),
-      isSortable: false,
+      isSortable: true,
       cellWidth: 20
     },
     {
