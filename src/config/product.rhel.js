@@ -223,7 +223,7 @@ const config = {
     {
       id: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: sockets } = {}) => sockets?.value || '--',
-      isSortable: false,
+      isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
