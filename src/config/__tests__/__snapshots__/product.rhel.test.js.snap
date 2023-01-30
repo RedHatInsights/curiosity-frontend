@@ -339,7 +339,11 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
       "title": <React.Fragment>
         t(curiosity-inventory.label, {"context":"category"})
          
-        
+        <Label
+          color="purple"
+        >
+          t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
+        </Label>
       </React.Fragment>,
     },
     {
