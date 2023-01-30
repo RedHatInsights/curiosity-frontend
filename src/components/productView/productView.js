@@ -43,8 +43,6 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
         </PageSection>
         <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
           <InventoryTabs
-            key={`inventory_${productId}`}
-            productId={productId}
             isDisabled={
               (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
             }
