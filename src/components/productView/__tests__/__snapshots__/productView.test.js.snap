@@ -65,10 +65,14 @@ exports[`ProductView Component should allow custom inventory displays via config
       <PageSection
         className=""
       >
-        <Connect(InventoryTabs)
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
           isDisabled={false}
-          key="inventory_lorem"
-          productId="lorem"
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
         >
           <InventoryTab
             active={false}
@@ -84,7 +88,7 @@ exports[`ProductView Component should allow custom inventory displays via config
               useProductInventoryQuery={[Function]}
             />
           </InventoryTab>
-        </Connect(InventoryTabs)>
+        </InventoryTabs>
       </PageSection>
     </ContextProvider>
   </PageColumns>
@@ -155,10 +159,14 @@ exports[`ProductView Component should allow custom product views via props: cust
       <PageSection
         className=""
       >
-        <Connect(InventoryTabs)
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
           isDisabled={true}
-          key="inventory_lorem"
-          productId="lorem"
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
         />
       </PageSection>
     </ContextProvider>
@@ -230,10 +238,14 @@ exports[`ProductView Component should allow custom product views via props: cust
       <PageSection
         className=""
       >
-        <Connect(InventoryTabs)
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
           isDisabled={true}
-          key="inventory_lorem"
-          productId="lorem"
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
         />
       </PageSection>
     </ContextProvider>
@@ -305,10 +317,14 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
       <PageSection
         className=""
       >
-        <Connect(InventoryTabs)
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
           isDisabled={true}
-          key="inventory_lorem"
-          productId="lorem"
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
         />
       </PageSection>
     </ContextProvider>

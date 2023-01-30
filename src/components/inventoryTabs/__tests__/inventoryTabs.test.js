@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { InventoryTabs, InventoryTab } from '../inventoryTabs';
+import { shallow } from 'enzyme';
+import { InventoryTabs, InventoryTab, useOnTab } from '../inventoryTabs';
 import { store } from '../../../redux';
 
 describe('InventoryTabs Component', () => {
@@ -14,7 +14,7 @@ describe('InventoryTabs Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a non-connected component', () => {
+  it('should render a basic component', () => {
     const GenericComponent = () => (
       <div>
         <strong>world</strong>
@@ -35,7 +35,7 @@ describe('InventoryTabs Component', () => {
     };
 
     const component = shallow(<InventoryTabs {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should return an empty render when disabled', () => {
@@ -56,22 +56,32 @@ describe('InventoryTabs Component', () => {
     expect(component).toMatchSnapshot('disabled component');
   });
 
-  it('should handle updating tabs for redux state', () => {
+  it('should handle updating through redux state with component', async () => {
     const props = {
-      productId: 'lorem',
-      children: [
-        <InventoryTab key="lorem" title="lorem">
-          ipsum
-        </InventoryTab>,
-        <InventoryTab key="sit" title="sit">
-          amet
-        </InventoryTab>
-      ]
+      useProduct: () => ({ productId: 'lorem' })
     };
-    const component = mount(<InventoryTabs {...props} />);
-    const componentInstance = component.instance();
 
-    componentInstance.onTab({ index: 1 });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch filter');
+    const component = await mountHookComponent(
+      <InventoryTabs {...props}>
+        <InventoryTab title="loremIpsum">lorem ipsum</InventoryTab>
+        <InventoryTab title="dolorSit">dolor sit</InventoryTab>
+      </InventoryTabs>
+    );
+    component.find('button.pf-c-tabs__link').last().simulate('click');
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
+  });
+
+  it('should handle updating through redux state with hook', () => {
+    const options = {
+      useProduct: () => ({ productId: 'lorem' })
+    };
+
+    const onTab = useOnTab(options);
+    onTab({
+      index: 1
+    });
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 });
