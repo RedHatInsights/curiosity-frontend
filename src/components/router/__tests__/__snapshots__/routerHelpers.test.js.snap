@@ -8,30 +8,6 @@ exports[`RouterHelpers should apply a simple pathJoin helper: single forward sla
 
 exports[`RouterHelpers should apply a simple pathJoin helper: triple forward slash 1`] = `"//hello/world/lorem/ipsum/dolor"`;
 
-exports[`RouterHelpers should handle location search and hash passthrough values: NO search and hash 1`] = `
-{
-  "routeHref": "/rhel",
-}
-`;
-
-exports[`RouterHelpers should handle location search and hash passthrough values: hash 1`] = `
-{
-  "routeHref": "/rhel#lorem",
-}
-`;
-
-exports[`RouterHelpers should handle location search and hash passthrough values: search 1`] = `
-{
-  "routeHref": "/rhel?dolor=sit",
-}
-`;
-
-exports[`RouterHelpers should handle location search and hash passthrough values: search and hash 1`] = `
-{
-  "routeHref": "/rhel?dolor=sit#lorem",
-}
-`;
-
 exports[`RouterHelpers should return a generated baseName using NO path prefix: app lorem route name 1`] = `"/appName"`;
 
 exports[`RouterHelpers should return a generated baseName using NO path prefix: empty pathPrefix: app base name 1`] = `"/appName"`;
@@ -56,230 +32,113 @@ exports[`RouterHelpers should return a generated basePath: insights, beta app ba
 
 exports[`RouterHelpers should return a generated basePath: insights, beta app lorem route name base path 1`] = `"/beta/insights/"`;
 
-exports[`RouterHelpers should return an error route: error route 1`] = `
+exports[`RouterHelpers should return parse search parameters into unique key, value pairs: unique pairs 1`] = `
 {
-  "activateOnError": true,
-  "component": "optinView/optinView",
-  "disabled": false,
-  "exact": true,
-  "id": "optin",
-  "path": "/optin",
-  "redirect": null,
+  "dolor": "sit",
+  "lorem": "hello world",
 }
 `;
 
-exports[`RouterHelpers should return default navigation and route details: detail: defaults 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: NO search and hash 1`] = `
 {
-  "configs": [],
-  "configsById": {},
-  "firstMatch": undefined,
+  "productId": "RHEL",
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details from a path: detail: match specific path 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: alias insights 1`] = `
 {
-  "id": "rhel",
+  "productId": "RHEL",
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details from a path: detail: missing parameters 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: match specific path 1`] = `
 {
-  "id": undefined,
+  "productId": "RHEL",
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details from a path: detail: missing pathName 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: missing parameters 1`] = `
 {
-  "id": undefined,
+  "productId": undefined,
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details from a path: detail: specific product path 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: missing pathName 1`] = `
 {
-  "id": "rhods",
+  "productId": undefined,
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details from a related name: detail: match related name 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: specific navigation ID 1`] = `
 {
-  "id": "rhods",
+  "productId": "rhods",
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details that align to location: detail: match specific path navigation 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: specific product path 1`] = `
 {
-  "id": "rhel",
+  "productId": "rhods",
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details that align to location: detail: missing ID, specific path 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: search 1`] = `
 {
-  "id": "rhel",
+  "productId": "RHEL",
 }
 `;
 
-exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathName and default 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: search and hash 1`] = `
 {
-  "id": undefined,
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: missing id and pathName, default 1`] = `
-{
-  "id": "missing",
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: missing parameters 1`] = `
-{
-  "id": undefined,
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: specific navigation ID 1`] = `
-{
-  "id": "rhods",
-}
-`;
-
-exports[`RouterHelpers should return navigation and route details that align to location: detail: specific route ID 1`] = `
-{
-  "id": "optin",
+  "productId": "RHEL",
 }
 `;
 
 exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
 {
   "appName": "subscriptions",
-  "baseName": "/",
-  "basePath": "/",
   "dynamicBaseName": [Function],
   "dynamicBasePath": [Function],
-  "generateProductGroups": [Function],
-  "generateRoutes": [Function],
-  "getErrorRoute": {
+  "errorRoute": {
     "activateOnError": true,
     "component": "optinView/optinView",
+    "default": false,
     "disabled": false,
-    "exact": true,
     "id": "optin",
     "path": "/optin",
     "redirect": null,
   },
-  "getRouteConfig": [Function],
   "getRouteConfigByPath": [Function],
   "importView": [Function],
+  "parseSearchParams": [Function],
   "pathJoin": [Function],
-  "platformLandingRedirect": "/",
-  "platformModalRedirect": "/?not_entitled=subscriptions",
-  "productGroups": {
-    "viewOpenShift Container Platform": [
-      "OpenShift Container Platform",
-    ],
-    "viewOpenShift-dedicated-metrics": [
-      "OpenShift-dedicated-metrics",
-    ],
-    "viewOpenShift-metrics": [
-      "OpenShift-metrics",
-    ],
-    "viewRHEL": [
-      "RHEL",
-    ],
-    "viewSatellite": [
-      "Satellite",
-    ],
-    "viewrhacs": [
-      "rhacs",
-    ],
-    "viewrhods": [
-      "rhods",
-    ],
-    "viewrhosak": [
-      "rhosak",
-    ],
+  "redirectRoute": {
+    "activateOnError": false,
+    "component": "productView/productViewMissing",
+    "default": true,
+    "disabled": false,
+    "id": "missing",
+    "path": "/",
+    "redirect": "./",
   },
-  "routes": [
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhel",
-      "path": "/rhel",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "openshift-container",
-      "path": "/openshift-container",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "openshift-dedicated",
-      "path": "/openshift-dedicated",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhacs",
-      "path": "/rhacs",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhods",
-      "path": "/rhods",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "rhosak",
-      "path": "/streams",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productView",
-      "disabled": false,
-      "exact": true,
-      "id": "satellite",
-      "path": "/satellite",
-      "redirect": null,
-    },
-    {
-      "activateOnError": true,
-      "component": "optinView/optinView",
-      "disabled": false,
-      "exact": true,
-      "id": "optin",
-      "path": "/optin",
-      "redirect": null,
-    },
-    {
-      "activateOnError": false,
-      "component": "productView/productViewMissing",
-      "disabled": false,
-      "exact": true,
-      "id": "missing",
-      "path": "/",
-      "redirect": "/",
-    },
-  ],
 }
+`;
+
+exports[`RouterHelpers should return specific properties: routerHelpers: routes 1`] = `
+[
+  "/openshift-container",
+  "/OpenShift Container Platform",
+  "/openshift",
+  "/OpenShift-metrics",
+  "/openshift-dedicated-metrics",
+  "/openshift-dedicated",
+  "/rhacs",
+  "/rhel",
+  "/insights",
+  "/rhods",
+  "/rhosak",
+  "/streams",
+  "/satellite",
+  "/optin",
+  "/",
+]
 `;

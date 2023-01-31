@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-dom';
@@ -39,32 +38,17 @@ const Router = ({ routes } = {}) => {
             path={item.path}
             strict={item.strict}
             render={({ location, ...routeProps }) => {
-              const routeConfig = item.id && routerHelpers.getRouteConfig({ id: item.id });
-              const { URLSearchParams, decodeURIComponent } = window;
-              const parsedSearch = {};
-
-              [
-                ...new Set(
-                  [...new URLSearchParams(decodeURIComponent(location.search))].map(
-                    ([param, value]) => `${param}~${value}`
-                  )
-                )
-              ].forEach(v => {
-                const [param, value] = v.split('~');
-                parsedSearch[param] = value;
-              });
-
               const updatedLocation = {
                 ...location,
-                parsedSearch
+                parsedSearch: routerHelpers.parseSearchParams(location.search)
               };
 
               const routeDetail = {
+                ...item,
                 baseName: routerHelpers.dynamicBaseName(),
                 errorRoute: activateOnErrorRoute,
                 routes,
-                routeItem: { ...item },
-                ...routeConfig
+                routeItem: { ...item }
               };
 
               return (
@@ -104,7 +88,6 @@ Router.propTypes = {
       component: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
       exact: PropTypes.bool,
-      id: PropTypes.string,
       path: PropTypes.string.isRequired,
       redirect: PropTypes.string,
       render: PropTypes.bool,

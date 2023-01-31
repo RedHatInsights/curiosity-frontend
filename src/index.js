@@ -10,10 +10,7 @@ window.insights = {
   chrome: {
     appNavClick: ({ id, ...rest }) => {
       console.log(`Emulated appNavClick: ${JSON.stringify({ id, ...rest })}`);
-      document.location.href = routerHelpers.pathJoin(
-        document.location.pathname,
-        routerHelpers.getRouteConfig({ id }).path
-      );
+      document.location.href = routerHelpers.pathJoin(routerHelpers.dynamicBaseName(), id);
     },
     auth: {
       getUser: () =>
