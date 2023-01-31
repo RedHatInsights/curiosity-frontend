@@ -277,7 +277,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: routeProductLabel })",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: updatedRouteProductLabel })",
       },
     ],
   },
@@ -290,11 +290,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-view.title",
-        "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: (Array.isArray(product.pathParameter)",
+        "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: product.productId })",
       },
       {
         "key": "curiosity-view.description",
-        "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: (Array.isArray(product.productParameter)",
+        "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: product.productId })",
       },
     ],
   },

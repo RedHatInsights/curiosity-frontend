@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product configurations should return sorted product configs: sorted 1`] = `
+{
+  "byGroupIdConfigs": {
+    "dolor": [
+      {
+        "productGroup": "dolor",
+        "productId": "dolor sit",
+        "viewId": "view-dolor",
+      },
+    ],
+    "hello world": [
+      {
+        "productGroup": "hello world",
+        "productId": "hello world",
+        "viewId": "view-hello world",
+      },
+    ],
+    "lorem": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "viewId": "view-lorem",
+      },
+    ],
+  },
+  "byGroupIds": {
+    "dolor": [
+      "dolor sit",
+    ],
+    "hello world": [
+      "hello world",
+    ],
+    "lorem": [
+      "lorem-ipsum",
+      "lorem-dolor",
+    ],
+  },
+  "byProductIdConfigs": {
+    "dolor sit": {
+      "productGroup": "dolor",
+      "productId": "dolor sit",
+      "viewId": "view-dolor",
+    },
+    "hello world": {
+      "productGroup": "hello world",
+      "productId": "hello world",
+      "viewId": "view-hello world",
+    },
+    "lorem-dolor": {
+      "productGroup": "lorem",
+      "productId": "lorem-dolor",
+      "viewId": "view-lorem",
+    },
+    "lorem-ipsum": {
+      "productGroup": "lorem",
+      "productId": "lorem-ipsum",
+      "viewId": "view-lorem",
+    },
+  },
+  "byProductIds": [
+    "lorem-ipsum",
+    "lorem-dolor",
+    "dolor sit",
+    "hello world",
+  ],
+  "byViewIdConfigs": {
+    "view-dolor": [
+      {
+        "productGroup": "dolor",
+        "productId": "dolor sit",
+        "viewId": "view-dolor",
+      },
+    ],
+    "view-hello world": [
+      {
+        "productGroup": "hello world",
+        "productId": "hello world",
+        "viewId": "view-hello world",
+      },
+    ],
+    "view-lorem": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "viewId": "view-lorem",
+      },
+    ],
+  },
+  "byViewIds": {
+    "view-dolor": [
+      "dolor sit",
+    ],
+    "view-hello world": [
+      "hello world",
+    ],
+    "view-lorem": [
+      "lorem-ipsum",
+      "lorem-dolor",
+    ],
+  },
+}
+`;
+
+exports[`Product configurations should return specific methods and properties: products 1`] = `
+{
+  "configs": [
+    "OpenShift Container Platform",
+    "OpenShift-dedicated-metrics",
+    "OpenShift-metrics",
+    "rhacs",
+    "RHEL",
+    "rhods",
+    "rhosak",
+    "Satellite",
+  ],
+  "sortedConfigs": [
+    "byGroupIdConfigs",
+    "byGroupIds",
+    "byProductIdConfigs",
+    "byProductIds",
+    "byViewIdConfigs",
+    "byViewIds",
+  ],
+}
+`;

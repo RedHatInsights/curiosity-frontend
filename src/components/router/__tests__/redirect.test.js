@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Redirect } from '../redirect';
-import { Router } from '../router';
 
 describe('Redirect Component', () => {
   it('should render a basic component', () => {
@@ -14,24 +13,17 @@ describe('Redirect Component', () => {
 
   it('should handle a forced redirect', () => {
     const props = {
-      isForced: true,
       route: '/dolor'
     };
+    const mockReplace = jest.fn();
+    const { mockClear } = mockObjectProperty(window, 'location', { replace: mockReplace });
+    const component = shallow(<Redirect {...props} />);
 
-    mockWindowLocation(
-      () => {
-        const mockReplace = jest.spyOn(window.location, 'replace').mockImplementation((type, data) => ({ type, data }));
-        const component = shallow(<Redirect {...props} />);
+    expect(mockReplace.mock.calls).toMatchSnapshot('forced route, replace');
+    expect(component).toMatchSnapshot('forced route');
 
-        expect(mockReplace.mock.calls).toMatchSnapshot('forced route, replace');
-        expect(component).toMatchSnapshot('forced route');
-
-        mockReplace.mockClear();
-      },
-      {
-        url: 'http://lorem/subscriptions/ipsum?dolor=sit'
-      }
-    );
+    mockReplace.mockClear();
+    mockClear();
   });
 
   it('should handle a redirect with a url', () => {
@@ -51,14 +43,14 @@ describe('Redirect Component', () => {
     expect(component).toMatchSnapshot('missing route, component');
   });
 
-  it('should handle existing routes', () => {
+  it('should handle forwarding paths', () => {
     const props = {
+      isReplace: false,
       route: '/openshift-container'
     };
 
     const component = shallow(<Redirect {...props} />);
-    const { routes } = component.find(Router).props();
 
-    expect(routes[0]).toMatchSnapshot('existing route');
+    expect(component).toMatchSnapshot('forward path');
   });
 });

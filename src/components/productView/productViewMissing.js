@@ -16,7 +16,7 @@ import { translate } from '../i18n/i18n';
  */
 const filterAvailableProducts = () => {
   const { configs, allConfigs } = routerHelpers.getRouteConfigByPath();
-  return (configs.length && configs) || allConfigs.filter(({ isSearchable }) => isSearchable === true);
+  return (configs.length && configs) || allConfigs;
 };
 
 /**
@@ -35,7 +35,7 @@ const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAlias
 
   useMount(() => {
     if (availableProducts.length <= availableProductsRedirect) {
-      history.push(availableProducts[0].path);
+      history.push(availableProducts?.[0]?.productPath);
     }
   });
 
@@ -43,10 +43,10 @@ const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAlias
    * On click, update history.
    *
    * @event onNavigate
-   * @param {string} id
+   * @param {string} path
    * @returns {void}
    */
-  const onNavigate = id => history.push(id);
+  const onNavigate = path => history.push(path);
 
   return (
     <PageLayout className="curiosity-missing-view">
@@ -54,29 +54,30 @@ const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAlias
       <PageSection isFilled>
         <Gallery hasGutter>
           {availableProducts.map(product => (
-            <Card key={`missingViewCard-${product.id}`} isHoverable onClick={() => onNavigate(product.id)}>
+            <Card
+              key={`missingViewCard-${product.productId}-${helpers.generateId()}`}
+              isHoverable
+              onClick={() => onNavigate(product.productPath)}
+            >
               <CardTitle>
                 <Title headingLevel="h2" size="lg">
                   {t('curiosity-view.title', {
                     appName: helpers.UI_DISPLAY_NAME,
-                    context:
-                      (Array.isArray(product.pathParameter) && product.pathParameter?.[0]) || product.pathParameter
+                    context: product.productId
                   })}
                 </Title>
               </CardTitle>
               <CardBody className="curiosity-missing-view__card-description">
                 {t('curiosity-view.description', {
                   appName: helpers.UI_DISPLAY_NAME,
-                  context:
-                    (Array.isArray(product.productParameter) && product.productParameter?.[0]) ||
-                    product.productParameter
+                  context: product.productId
                 })}
               </CardBody>
               <CardFooter>
                 <Button
                   variant="link"
                   isInline
-                  onClick={() => onNavigate(product.id)}
+                  onClick={() => onNavigate(product.productPath)}
                   icon={<ArrowRightIcon />}
                   iconPosition="right"
                 >

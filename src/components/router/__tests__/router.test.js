@@ -32,6 +32,20 @@ describe('Router Component', () => {
           activateOnError: true,
           exact: false,
           disabled: false
+        },
+        {
+          path: '/hello',
+          component: 'helloWorld',
+          activateOnError: false,
+          exact: false,
+          disabled: true
+        },
+        {
+          path: '/loremDolorHello',
+          component: 'loremDolorHello',
+          activateOnError: false,
+          exact: false,
+          disabled: false
         }
       ]
     };

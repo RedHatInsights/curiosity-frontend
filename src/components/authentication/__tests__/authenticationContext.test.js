@@ -6,7 +6,7 @@ describe('AuthenticationContext', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should apply a hook for retrieving auth data from multiple selectors', () => {
+  it('should apply a hook for retrieving auth data from multiple selectors', async () => {
     const { result: errorResponse } = shallowHook(() =>
       useGetAuthorization({
         useSelectorsResponse: () => ({
@@ -29,8 +29,10 @@ describe('AuthenticationContext', () => {
 
     expect(errorResponse).toMatchSnapshot('error response');
 
-    const { result: successResponse } = shallowHook(() =>
+    const mockDispatch = jest.fn();
+    const { result: successResponse } = await mountHook(() =>
       useGetAuthorization({
+        useDispatch: () => mockDispatch,
         useSelectorsResponse: () => ({
           fulfilled: true,
           data: {
@@ -47,6 +49,7 @@ describe('AuthenticationContext', () => {
       })
     );
 
+    expect(mockDispatch.mock.calls).toMatchSnapshot('success dispatch');
     expect(successResponse).toMatchSnapshot('success response');
 
     const { result: mockStoreSuccessResponse } = shallowHook(() => useGetAuthorization(), {
