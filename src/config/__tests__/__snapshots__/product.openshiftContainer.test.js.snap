@@ -761,3 +761,77 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   },
 }
 `;
+
+exports[`Product OpenShift Container config should apply subscriptions inventory configuration: filtered, infinite 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "hello world",
+    },
+    {
+      "title": "",
+    },
+    {
+      "title": 2000,
+    },
+    {
+      "title": "2022-01-01",
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "value": false,
+    },
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "product_name": {
+      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "value": "lorem",
+    },
+    "service_level": {
+      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "value": "hello world",
+    },
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "value": 2000,
+    },
+  },
+}
+`;

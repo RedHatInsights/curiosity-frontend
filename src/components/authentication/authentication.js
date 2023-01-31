@@ -47,7 +47,7 @@ const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization:
       (errorCodes && errorCodes.includes(rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN)) ||
       errorStatus === 418
     ) {
-      return <Redirect route={routerHelpers.getErrorRoute.path} />;
+      return <Redirect route={routerHelpers.errorRoute.path} />;
     }
 
     return (

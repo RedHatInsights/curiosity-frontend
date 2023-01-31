@@ -20,7 +20,7 @@ describe('Product Satellite config', () => {
 
     const inventoryData = {
       [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
-      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.INVENTORY_ID]: undefined,
       [INVENTORY_TYPES.HARDWARE_TYPE]: 'ipsum',
       [INVENTORY_TYPES.MEASUREMENT_TYPE]: null,
       [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 3,

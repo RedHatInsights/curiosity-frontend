@@ -63,6 +63,38 @@ exports[`AuthenticationContext should apply a hook for retrieving auth data from
 }
 `;
 
+exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: success dispatch 1`] = `
+[
+  [
+    [Function],
+  ],
+  [
+    [
+      {
+        "payload": Promise {},
+        "type": "PLATFORM_INIT",
+      },
+      {
+        "meta": {
+          "data": {
+            "name": "subscriptions",
+          },
+        },
+        "payload": Promise {},
+        "type": "PLATFORM_APP_NAME",
+      },
+      {
+        "payload": Promise {},
+        "type": "PLATFORM_GLOBAL_FILTER_HIDE",
+      },
+    ],
+  ],
+  [
+    [Function],
+  ],
+]
+`;
+
 exports[`AuthenticationContext should apply a hook for retrieving auth data from multiple selectors: success response 1`] = `
 {
   "data": {

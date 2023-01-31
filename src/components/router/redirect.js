@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Router } from './router';
 import { pathJoin, routerHelpers } from './routerHelpers';
 import { helpers } from '../../common';
 /**
  * A routing redirect.
  *
  * @param {object} props
- * @param {boolean} props.isForced
+ * @param {boolean} props.isReplace
  * @param {string} props.route
- * @param {string} props.routes
  * @param {string} props.url
  * @returns {Node}
  */
-const Redirect = ({ isForced, route, routes, url }) => {
+const Redirect = ({ isReplace, route, url }) => {
   const baseName = routerHelpers.dynamicBaseName();
 
   /**
@@ -23,43 +21,44 @@ const Redirect = ({ isForced, route, routes, url }) => {
     const { hash = '', search = '' } = window.location;
     const forcePath = url || (route && `${pathJoin(baseName, route)}${search}${hash}`);
 
-    window.location.replace(forcePath);
+    if (isReplace) {
+      window.location.replace(forcePath);
+    } else {
+      window.location.href = forcePath;
+    }
   };
-
-  const { path: matchedRoutePath, ...matchedRoute } = routerHelpers.getRouteConfig({ pathName: route, id: route });
-
-  if (!isForced && matchedRoutePath) {
-    return <Router routes={[{ ...matchedRoute, path: '*' }, ...routes]} />;
-  }
 
   forceNavigation();
 
-  return (helpers.TEST_MODE && <React.Fragment>Redirected towards {url || route}</React.Fragment>) || null;
+  return (
+    (helpers.TEST_MODE && (
+      <React.Fragment>
+        {(isReplace && 'Replaced') || 'Redirected'} towards {url || route}
+      </React.Fragment>
+    )) ||
+    null
+  );
 };
 
 /**
  * Prop types.
  *
- * @type {{isRedirect: boolean, route: string, routes: Array, isReplace: boolean, url: string,
- *    isForced: boolean}}
+ * @type {{route: string, isReplace: boolean, url: string}}
  */
 Redirect.propTypes = {
-  isForced: PropTypes.bool,
+  isReplace: PropTypes.bool,
   route: PropTypes.string,
-  routes: PropTypes.array,
   url: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{isRedirect: boolean, route: string, routes: Array, isReplace: boolean, url: string,
- *    isForced: boolean}}
+ * @type {{route: string, isReplace: boolean, url: string}}
  */
 Redirect.defaultProps = {
-  isForced: false,
+  isReplace: true,
   route: null,
-  routes: routerHelpers.routes,
   url: null
 };
 

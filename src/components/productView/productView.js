@@ -24,6 +24,7 @@ import { translate } from '../i18n/i18n';
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
   const { productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
+  const updatedRouteProductLabel = (Array.isArray(routeProductLabel) && routeProductLabel?.[0]) || routeProductLabel;
 
   const renderProduct = config => {
     const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productDisplay, productId, viewId } = config;
@@ -86,8 +87,8 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
 
   return (
     <PageLayout>
-      <PageHeader productLabel={routeProductLabel}>
-        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: routeProductLabel })}
+      <PageHeader productLabel={updatedRouteProductLabel}>
+        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: updatedRouteProductLabel })}
       </PageHeader>
       <PageColumns>{productConfig.map(config => renderProduct(config))}</PageColumns>
     </PageLayout>

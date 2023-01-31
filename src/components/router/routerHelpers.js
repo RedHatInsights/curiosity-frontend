@@ -1,6 +1,7 @@
 import React from 'react';
+import _memoize from 'lodash/memoize';
 import { helpers } from '../../common/helpers';
-import { routesConfig } from '../../config';
+import { routesConfig, productConfig } from '../../config';
 
 /**
  * Platform name/id.
@@ -10,21 +11,7 @@ import { routesConfig } from '../../config';
 const appName = helpers.UI_NAME;
 
 /**
- * Return a string that describes a platform redirect.
- *
- * @returns {Array}
- */
-const platformLandingRedirect = `${helpers.UI_DEPLOY_PATH_PREFIX || ''}/`;
-
-/**
- * Return a string that describes a platform redirect.
- *
- * @returns {Array}
- */
-const platformModalRedirect = `${helpers.UI_DEPLOY_PATH_PREFIX || ''}/?not_entitled=subscriptions`;
-
-/**
- * Return an assumed route baseName directory based on existing app name.
+ * The app baseName. Return an assumed route baseName directory based on existing app name.
  * App name is defined in dotenv and package.json/insights.appname
  * [environment]/[OPTIONAL]/[OPTIONAL]/[APP NAME]
  *
@@ -37,14 +24,7 @@ const dynamicBaseName = ({ pathName = window.location.pathname, appName: applica
   `${pathName.split(applicationName)[0]}${applicationName}`;
 
 /**
- * The app baseName.
- *
- * @type {string}
- */
-const baseName = (helpers.TEST_MODE && '/') || dynamicBaseName();
-
-/**
- * Return a base path.
+ * App basePath. Return a base path.
  *
  * @param {object} params
  * @param {string} params.pathName
@@ -55,11 +35,124 @@ const dynamicBasePath = ({ pathName = window.location.pathname, appName: applica
   pathName.split(applicationName)[0];
 
 /**
- * App basePath.
+ * The first error route.
  *
- * @type {string}
+ * @type {object}
  */
-const basePath = (helpers.TEST_MODE && '/') || dynamicBasePath();
+const errorRoute = routesConfig.find(route => route.activateOnError === true) || {};
+
+/**
+ * The first redirect route.
+ *
+ * @type {object}
+ */
+const redirectRoute = routesConfig.find(({ disabled, redirect }) => !disabled && redirect);
+
+/**
+ * Return array of objects that describes routing.
+ *
+ * @returns {Array}
+ */
+const routes = routesConfig;
+
+/**
+ * Match route config entries by path.
+ *
+ * @param {object} params
+ * @param {string} params.pathName
+ * @param {Array} params.config
+ * @returns {{configs: Array, configFirstMatch: object, configsById: object}}
+ */
+const getRouteConfigByPath = _memoize(
+  ({ pathName = window.location.pathname, configs = productConfig.configs } = {}) => {
+    const updatedPathName = (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName;
+    const basePathDirs = updatedPathName
+      ?.split('#')?.[0]
+      ?.split('?')?.[0]
+      ?.split('/')
+      .filter(str => str.length > 0)
+      ?.reverse();
+    const filteredConfigs = [];
+    const filteredConfigsById = {};
+    const filteredConfigsByGroup = {};
+    const allConfigs = configs;
+
+    const findConfig = dir => {
+      configs.forEach(configItem => {
+        const { productId, productGroup, aliases } = configItem;
+
+        if (
+          !(productId in filteredConfigsById) &&
+          dir &&
+          (new RegExp(dir, 'i').test(aliases?.toString()) ||
+            new RegExp(dir, 'i').test(productGroup?.toString()) ||
+            new RegExp(dir, 'i').test(productId?.toString()))
+        ) {
+          filteredConfigsByGroup[productGroup] ??= [];
+          filteredConfigsByGroup[productGroup].push(configItem);
+
+          filteredConfigsById[productId] = configItem;
+          filteredConfigs.push(configItem);
+        }
+      });
+    };
+
+    if (basePathDirs?.length) {
+      basePathDirs.forEach(dir => {
+        if (dir) {
+          const decodedDir = window.decodeURI(dir);
+          findConfig(decodedDir);
+        }
+      });
+    } else {
+      findConfig();
+    }
+
+    return {
+      allConfigs,
+      configs: filteredConfigs,
+      configsById: filteredConfigsById,
+      configsByGroup: filteredConfigsByGroup,
+      firstMatch: filteredConfigs?.[0]
+    };
+  }
+);
+
+/**
+ * Import a route component.
+ *
+ * @param {Node} component
+ * @returns {Node}
+ */
+const importView = component => {
+  if (!helpers.TEST_MODE) {
+    return React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
+  }
+
+  return p => <React.Fragment>{JSON.stringify({ ...p, component }, null, 2)}</React.Fragment>;
+};
+
+/**
+ * Parse search parameters from a string, using a set
+ *
+ * @param {string} currentPathAndOrSearch
+ * @returns {{}}
+ */
+const parseSearchParams = _memoize((currentPathAndOrSearch = window.location.search) => {
+  const { decodeURIComponent, URLSearchParams } = window;
+  const parsedSearch = {};
+
+  [
+    ...new Set(
+      [...new URLSearchParams(decodeURIComponent(currentPathAndOrSearch))].map(([param, value]) => `${param}~${value}`)
+    )
+  ].forEach(v => {
+    const [param, value] = v.split('~');
+    parsedSearch[param] = value;
+  });
+
+  return parsedSearch;
+});
 
 /**
  * Basic path join, minor emulation for path.join.
@@ -83,224 +176,30 @@ const pathJoin = (...paths) => {
   return updatedPath;
 };
 
-/**
- * Generate product groups for applying query filter resets.
- *
- * @param {Array} config
- * @returns {Array}
- */
-const generateProductGroups = (config = routesConfig) => {
-  const productGroups = {};
-
-  config.forEach(({ pathParameter, productParameter }) => {
-    const viewIds = ((Array.isArray(productParameter) && productParameter) || [productParameter]).map(
-      id => (id && `view${id}`) || id
-    );
-
-    viewIds.forEach((id, index) => {
-      if (id) {
-        if (!productGroups[id]) {
-          productGroups[id] = [];
-        }
-
-        if (pathParameter) {
-          productGroups[id].push((Array.isArray(pathParameter) && pathParameter?.[index]) || pathParameter);
-        }
-      }
-    });
-  });
-
-  return productGroups;
-};
-
-/**
- * Reference for products grouped by view.
- */
-const productGroups = generateProductGroups();
-
-/**
- * Generate routes to be consumed by router.
- *
- * @param {Array} config
- * @returns {Array}
- */
-const generateRoutes = (config = routesConfig) =>
-  config.map(({ activateOnError, component, disabled, id, path: routePath, redirect }) => ({
-    activateOnError,
-    component,
-    disabled,
-    exact: true,
-    id,
-    path: routePath,
-    redirect
-  }));
-
-/**
- * Return array of objects that describes routing.
- *
- * @returns {Array}
- */
-const routes = generateRoutes();
-
-/**
- * The first error route.
- *
- * @type {object}
- */
-const getErrorRoute = routes.find(route => route.activateOnError === true) || {};
-
-/**
- * Match route config entries by path.
- *
- * @param {object} params
- * @param {string} params.pathName
- * @param {Array} params.config
- * @returns {{configs: Array, configFirstMatch: object, configsById: object}}
- */
-const getRouteConfigByPath = ({ pathName = dynamicBasePath(), config = routesConfig } = {}) => {
-  const basePathDirs = pathName?.split('/').filter(str => str.length > 0);
-  const configs = [];
-  const allConfigs = [];
-  const configsById = {};
-  const allConfigsById = {};
-
-  const findConfig = dir => {
-    config.forEach(({ id, path: configPath, pathParameter, productParameter, aliases, ...configItem }) => {
-      const updatedConfigItem = {
-        aliases,
-        id,
-        path: configPath,
-        pathParameter,
-        productParameter,
-        ...configItem
-      };
-
-      if (
-        dir &&
-        (new RegExp(dir, 'i').test(configPath) ||
-          new RegExp(dir, 'i').test(productParameter?.toString()) ||
-          new RegExp(dir, 'i').test(pathParameter?.toString()) ||
-          new RegExp(dir, 'i').test(aliases?.toString()))
-      ) {
-        if (!configsById[id]) {
-          configsById[id] = { ...updatedConfigItem };
-          configs.push({ ...updatedConfigItem });
-        }
-      }
-
-      if (!allConfigsById[id]) {
-        allConfigsById[id] = { ...updatedConfigItem };
-        allConfigs.push({ ...updatedConfigItem });
-      }
-    });
-  };
-
-  if (basePathDirs?.length) {
-    basePathDirs.forEach(dir => {
-      if (dir) {
-        const decodedDir = window.decodeURI(dir);
-        findConfig(decodedDir);
-      }
-    });
-  } else {
-    findConfig();
-  }
-
-  return { allConfigs, allConfigsById, configs, configsById, firstMatch: configs?.[0] };
-};
-
-/**
- * Return a route config object.
- *
- * @param {object} params
- * @param {string} params.id
- * @param {string} params.pathName
- * @param {boolean} params.returnDefault
- * @param {Array} params.config
- * @returns {object}
- */
-const getRouteConfig = ({ id = null, pathName, returnDefault = false, config = routesConfig } = {}) => {
-  let navRouteItem;
-
-  if (id) {
-    navRouteItem = config.find(item => item.id === id);
-  }
-
-  if ((!navRouteItem && pathName) || (!navRouteItem && !pathName && !returnDefault)) {
-    navRouteItem = getRouteConfigByPath({ pathName, config }).firstMatch;
-  }
-
-  if (!navRouteItem && returnDefault) {
-    navRouteItem = config.find(item => item.default === true);
-  }
-
-  if (navRouteItem) {
-    const { search = '', hash = '' } = window.location;
-    navRouteItem.routeHref = `${navRouteItem.path}${search}${hash}`;
-
-    const { pathParameter, productParameter } = navRouteItem;
-    navRouteItem.pathParameter = (Array.isArray(pathParameter) && pathParameter[0]) || pathParameter;
-    navRouteItem.productParameter = (Array.isArray(productParameter) && productParameter[0]) || productParameter;
-    navRouteItem.viewParameter =
-      (productParameter && `view${(Array.isArray(productParameter) && productParameter[0]) || productParameter}`) ||
-      productParameter;
-  }
-
-  return { ...(navRouteItem || {}) };
-};
-
-/**
- * Import a route component.
- *
- * @param {Node} component
- * @returns {Node}
- */
-const importView = component => {
-  if (!helpers.TEST_MODE) {
-    return React.lazy(() => import(/* webpackExclude: /\.test\.js$/ */ `../${component}.js`));
-  }
-
-  return p => <React.Fragment>{JSON.stringify({ ...p, component }, null, 2)}</React.Fragment>;
-};
-
 const routerHelpers = {
   appName,
-  baseName,
-  basePath,
   dynamicBaseName,
   dynamicBasePath,
-  generateProductGroups,
-  generateRoutes,
-  getErrorRoute,
-  getRouteConfig,
+  redirectRoute,
+  errorRoute,
   getRouteConfigByPath,
   importView,
+  parseSearchParams,
   pathJoin,
-  platformLandingRedirect,
-  platformModalRedirect,
-  productGroups,
-  routes,
-  routesConfig
+  routes
 };
 
 export {
   routerHelpers as default,
   routerHelpers,
   appName,
-  baseName,
-  basePath,
   dynamicBaseName,
   dynamicBasePath,
-  generateProductGroups,
-  generateRoutes,
-  getErrorRoute,
-  getRouteConfig,
+  redirectRoute,
+  errorRoute,
   getRouteConfigByPath,
   importView,
+  parseSearchParams,
   pathJoin,
-  platformLandingRedirect,
-  platformModalRedirect,
-  productGroups,
-  routes,
-  routesConfig
+  routes
 };
