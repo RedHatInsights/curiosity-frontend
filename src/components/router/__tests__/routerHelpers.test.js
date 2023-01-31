@@ -2,18 +2,16 @@ import {
   routerHelpers,
   dynamicBaseName,
   dynamicBasePath,
-  getErrorRoute,
-  getRouteConfig,
   getRouteConfigByPath,
+  parseSearchParams,
   pathJoin
 } from '../routerHelpers';
-import { routes } from '../../../config/routes';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
-    const { routesConfig, ...helpers } = routerHelpers;
-    expect(routesConfig).toBeDefined();
-    expect({ ...helpers }).toMatchSnapshot('routerHelpers');
+    const { routes, ...rest } = routerHelpers;
+    expect(routes.map(value => value.path)).toMatchSnapshot('routerHelpers: routes');
+    expect(rest).toMatchSnapshot('routerHelpers');
   });
 
   it('should return a generated baseName using NO path prefix', () => {
@@ -117,122 +115,46 @@ describe('RouterHelpers', () => {
     );
   });
 
-  it('should return an error route', () => {
-    expect(getErrorRoute).toMatchSnapshot('error route');
-  });
-
-  it('should return navigation and route details that align to location', () => {
+  it('should return product configuration details from a url, path, or path-like id, or alias', () => {
     expect({
-      id: getRouteConfig({ id: 'optin' })?.id
-    }).toMatchSnapshot('detail: specific route ID');
-
-    expect({
-      id: getRouteConfig({ id: 'rhods' })?.id
+      productId: getRouteConfigByPath({ pathName: 'rhods' }).firstMatch?.productId
     }).toMatchSnapshot('detail: specific navigation ID');
 
     expect({
-      id: getRouteConfig({ pathName: '/rhel' })?.id
-    }).toMatchSnapshot('detail: match specific path navigation');
+      productId: getRouteConfigByPath({ pathName: 'insights' }).firstMatch?.productId
+    }).toMatchSnapshot('detail: alias insights');
 
     expect({
-      id: getRouteConfig({ id: 'lorem-missing', pathName: '/rhel' })?.id
-    }).toMatchSnapshot('detail: missing ID, specific path');
-
-    expect({
-      id: getRouteConfig({ id: 'lorem', pathName: '/lorem-ipsum-missing', returnDefault: true })?.id
-    }).toMatchSnapshot('detail: missing id and pathName, default');
-
-    expect({
-      id: getRouteConfig({ id: 'lorem', pathName: '/lorem-ipsum-missing', returnDefault: false })?.id
-    }).toMatchSnapshot('detail: missing id and pathName and default');
-
-    expect({
-      id: getRouteConfig({})?.id
-    }).toMatchSnapshot('detail: missing parameters');
-  });
-
-  it('should return default navigation and route details', () => {
-    mockWindowLocation(
-      () => {
-        const { allConfigs, allConfigsById, ...matchingConfigs } = getRouteConfigByPath();
-
-        expect(allConfigs.length).toBe(routes.length);
-        expect(Object.entries(allConfigsById).length).toBe(routes.length);
-        expect(matchingConfigs).toMatchSnapshot('detail: defaults');
-      },
-      {
-        url: 'https://ci.foo.redhat.com/loremIpsum/dolorSit/'
-      }
-    );
-  });
-
-  it('should return navigation and route details from a path', () => {
-    expect({
-      id: getRouteConfigByPath({ pathName: '/rhel' }).firstMatch?.id
+      productId: getRouteConfigByPath({ pathName: '/rhel' }).firstMatch?.productId
     }).toMatchSnapshot('detail: match specific path');
 
     expect({
-      id: getRouteConfigByPath({ pathName: '/rhods' }).firstMatch?.id
+      productId: getRouteConfigByPath({ pathName: '/lorem-ipsum/RHODS' }).firstMatch?.productId
     }).toMatchSnapshot('detail: specific product path');
 
     expect({
-      id: getRouteConfigByPath({ pathName: '/lorem-ipsum-missing' }).firstMatch?.id
+      productId: getRouteConfigByPath({ pathName: '/lorem-ipsum-missing' }).firstMatch?.productId
     }).toMatchSnapshot('detail: missing pathName');
 
     expect({
-      id: getRouteConfigByPath({}).firstMatch?.id
+      productId: getRouteConfigByPath({}).firstMatch?.productId
     }).toMatchSnapshot('detail: missing parameters');
-  });
 
-  it('should return navigation and route details from a related name', () => {
     expect({
-      id: getRouteConfigByPath({ pathName: '/lorem-ipsum/RHODS' }).firstMatch?.id
-    }).toMatchSnapshot('detail: match related name');
+      productId: getRouteConfigByPath({ pathName: 'https://ci.foo.redhat.com/subscriptions/rhel' }).firstMatch
+        ?.productId
+    }).toMatchSnapshot('NO search and hash');
+
+    expect({
+      productId: getRouteConfigByPath({ pathName: '/rhel?dolor=sit' }).firstMatch?.productId
+    }).toMatchSnapshot('search');
+
+    expect({
+      productId: getRouteConfigByPath({ pathName: '/subscriptions/rhel?dolor=sit#lorem' }).firstMatch?.productId
+    }).toMatchSnapshot('search and hash');
   });
 
-  it('should handle location search and hash passthrough values', () => {
-    mockWindowLocation(
-      () => {
-        expect({
-          routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
-        }).toMatchSnapshot('NO search and hash');
-      },
-      {
-        url: 'https://ci.foo.redhat.com/subscriptions/rhel'
-      }
-    );
-
-    mockWindowLocation(
-      () => {
-        expect({
-          routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
-        }).toMatchSnapshot('search');
-      },
-      {
-        url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit'
-      }
-    );
-
-    mockWindowLocation(
-      () => {
-        expect({
-          routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
-        }).toMatchSnapshot('hash');
-      },
-      {
-        url: 'https://ci.foo.redhat.com/subscriptions/rhel#lorem'
-      }
-    );
-
-    mockWindowLocation(
-      () => {
-        expect({
-          routeHref: getRouteConfig({ pathName: '/rhel' }).routeHref
-        }).toMatchSnapshot('search and hash');
-      },
-      {
-        url: 'https://ci.foo.redhat.com/subscriptions/rhel?dolor=sit#lorem'
-      }
-    );
+  it('should return parse search parameters into unique key, value pairs', () => {
+    expect(parseSearchParams('?lorem=ipsum&dolor=sit&lorem=hello%20world')).toMatchSnapshot('unique pairs');
   });
 });

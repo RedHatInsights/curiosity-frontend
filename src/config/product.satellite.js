@@ -33,14 +33,24 @@ import { translate } from '../components/i18n/i18n';
 
 const productGroup = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE;
 
-const productId = null;
+const productId = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE;
 
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE;
 
+/**
+ * Satellite product config
+ *
+ * @type {{aliases: string[], productGroup: string, productId: string, productLabel: string, productDisplay: string, viewId: string,
+ *     productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object,
+ *     inventorySubscriptionsQuery: object, initialGraphFilters: {}[], initialGraphSettings: object, initialGuestsFilters: {}[],
+ *     initialInventoryFilters: {}[], initialToolbarFilters: {}[], }[]}
+ */
 const config = {
+  aliases: [],
   productGroup,
   productId,
   productLabel,
+  productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.PARTIAL,
   viewId: `view${productGroup}`,
   productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES)],

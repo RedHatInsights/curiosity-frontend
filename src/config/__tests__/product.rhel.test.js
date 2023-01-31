@@ -101,6 +101,16 @@ describe('Product RHEL config', () => {
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
 
+    const filteredInventoryDataInfinite = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: false
+      }
+    });
+
+    expect(filteredInventoryDataInfinite).toMatchSnapshot('filtered, infinite');
+
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
 
