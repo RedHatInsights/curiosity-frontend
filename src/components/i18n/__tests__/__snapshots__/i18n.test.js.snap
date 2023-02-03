@@ -641,7 +641,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.BILLING_PROVIDER, billingProvider?.value] })",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider?.value] })",
       },
       {
         "key": "curiosity-inventory.header",
