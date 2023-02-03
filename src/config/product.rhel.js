@@ -204,13 +204,13 @@ const config = {
     },
     {
       id: INVENTORY_TYPES.CATEGORY,
-      cell: ({ [INVENTORY_TYPES.BILLING_PROVIDER]: billingProvider, [INVENTORY_TYPES.CATEGORY]: category } = {}) => (
+      cell: ({ [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider, [INVENTORY_TYPES.CATEGORY]: category } = {}) => (
         <React.Fragment>
           {translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category?.value] })}{' '}
-          {(billingProvider?.value && (
+          {(cloudProvider?.value && (
             <PfLabel color="purple">
               {translate('curiosity-inventory.label', {
-                context: [INVENTORY_TYPES.BILLING_PROVIDER, billingProvider?.value]
+                context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider?.value]
               })}
             </PfLabel>
           )) ||
