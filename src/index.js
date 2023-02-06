@@ -3,7 +3,7 @@
  */
 import './styles/standalone.scss';
 import '@patternfly/react-core/dist/styles/base.css';
-import('./bootstrap');
+import('./index.bootstrap');
 import { routerHelpers } from './components/router';
 
 window.insights = {
