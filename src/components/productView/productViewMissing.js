@@ -4,8 +4,7 @@ import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSect
 import { ArrowRightIcon } from '@patternfly/react-icons';
 import { useMount } from 'react-use';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
-import { routerHelpers } from '../router';
-import { routerHooks } from '../../hooks/useRouter';
+import { routerContext, routerHelpers } from '../router';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
@@ -111,7 +110,7 @@ ProductViewMissing.propTypes = {
 ProductViewMissing.defaultProps = {
   availableProductsRedirect: 4,
   t: translate,
-  useHistory: routerHooks.useHistory
+  useHistory: routerContext.useHistory
 };
 
 export { ProductViewMissing as default, ProductViewMissing };
