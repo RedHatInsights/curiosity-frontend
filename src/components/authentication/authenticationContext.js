@@ -31,7 +31,7 @@ const useAuthContext = () => useContext(AuthenticationContext);
  * @param {Function} options.onNavigation
  * @param {Function} options.setAppName
  * @param {Function} options.useDispatch
- * @param {Function} options.useHistory
+ * @param {Function} options.useNavigate
  * @param {Function} options.useSelectorsResponse
  * @returns {{data: {errorCodes, errorStatus: *, locale}, pending: boolean, fulfilled: boolean, error: boolean}}
  */
@@ -43,11 +43,11 @@ const useGetAuthorization = ({
   onNavigation = reduxActions.platform.onNavigation,
   setAppName = reduxActions.platform.setAppName,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useHistory: useAliasHistory = routerContext.useHistory,
+  useNavigate: useAliasNavigate = routerContext.useNavigate,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const [unregister, setUnregister] = useState(() => helpers.noop);
-  const history = useAliasHistory();
+  const navigate = useAliasNavigate();
   const dispatch = useAliasDispatch();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
     { id: 'auth', selector: ({ user }) => user?.auth },
@@ -61,7 +61,7 @@ const useGetAuthorization = ({
   useMount(async () => {
     await dispatch(authorizeUser());
     dispatch([initializeChrome(), setAppName(appName), hideGlobalFilter()]);
-    setUnregister(() => dispatch(onNavigation(event => history.push(event.navId))));
+    setUnregister(() => dispatch(onNavigation(event => navigate(event.navId, { isLeftNav: true }))));
   });
 
   useUnmount(() => {

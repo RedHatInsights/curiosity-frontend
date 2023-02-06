@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
@@ -23,9 +23,15 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
-  const { productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
-  const updatedRouteProductLabel = (Array.isArray(routeProductLabel) && routeProductLabel?.[0]) || routeProductLabel;
+  const { productGroup, productConfig } = useAliasRouteDetail() || {};
+  const [updatedContext] = useState(productConfig);
 
+  /**
+   * Render a product with a context provider
+   *
+   * @param {object} config
+   * @returns {React.ReactNode|null}
+   */
   const renderProduct = config => {
     const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productDisplay, productId, viewId } = config;
 
@@ -86,12 +92,15 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
   };
 
   return (
-    <PageLayout>
-      <PageHeader productLabel={updatedRouteProductLabel}>
-        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: updatedRouteProductLabel })}
-      </PageHeader>
-      <PageColumns>{productConfig.map(config => renderProduct(config))}</PageColumns>
-    </PageLayout>
+    (productGroup && (
+      <PageLayout>
+        <PageHeader productLabel={productGroup}>
+          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
+        </PageHeader>
+        <PageColumns>{updatedContext?.map(config => renderProduct(config))}</PageColumns>
+      </PageLayout>
+    )) ||
+    null
   );
 };
 
