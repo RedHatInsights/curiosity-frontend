@@ -6,6 +6,23 @@ exports[`RouterContext should apply a hook for return routeDetail: route details
 }
 `;
 
+exports[`RouterContext should apply a hook for useHistory: history push 1`] = `
+[
+  [
+    "/dolor/sit",
+    undefined,
+  ],
+  [
+    "/rhel",
+    undefined,
+  ],
+  [
+    "/rhel",
+    undefined,
+  ],
+]
+`;
+
 exports[`RouterContext should return specific properties: specific properties 1`] = `
 {
   "DEFAULT_CONTEXT": [
@@ -57,7 +74,11 @@ exports[`RouterContext should return specific properties: specific properties 1`
     ],
     "_threadCount": 0,
   },
+  "useHistory": [Function],
+  "useLocation": [Function],
+  "useParams": [Function],
   "useRouteDetail": [Function],
+  "useRouteMatch": [Function],
   "useRouterContext": [Function],
 }
 `;

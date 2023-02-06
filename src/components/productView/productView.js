@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useRouteDetail } from '../../hooks/useRouter';
+import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
 import { GraphCard } from '../graphCard/graphCard';
@@ -112,7 +112,7 @@ ProductView.propTypes = {
  */
 ProductView.defaultProps = {
   t: translate,
-  useRouteDetail
+  useRouteDetail: routerContext.useRouteDetail
 };
 
 export { ProductView as default, ProductView };
