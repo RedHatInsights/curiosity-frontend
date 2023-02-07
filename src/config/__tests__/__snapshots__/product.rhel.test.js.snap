@@ -543,6 +543,64 @@ exports[`Product RHEL config should apply guest inventory configuration: filtere
 }
 `;
 
+exports[`Product RHEL config should apply guest inventory configuration: filtered, missing inventory id 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "value": "lorem",
+    },
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "value": "",
+    },
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscriptionManagerId": {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
 exports[`Product RHEL config should apply subscriptions inventory configuration: filtered 1`] = `
 {
   "cells": [

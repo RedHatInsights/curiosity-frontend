@@ -122,6 +122,16 @@ describe('Product RHEL config', () => {
 
     expect(filteredGuestsData).toMatchSnapshot('filtered');
 
+    const filteredGuestsDataMissing = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...guestsData,
+        inventoryId: undefined
+      }
+    });
+
+    expect(filteredGuestsDataMissing).toMatchSnapshot('filtered, missing inventory id');
+
     const filteredGuestsDataAuthorized = parseRowCellsListData({
       filters: initialFilters,
       cellData: guestsData,
