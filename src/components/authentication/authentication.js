@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
-import { routerHelpers, Redirect } from '../router';
+import { routerHelpers } from '../router';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
-import MessageView from '../messageView/messageView';
+import { MessageView } from '../messageView/messageView';
+import { OptinView } from '../optinView/optinView';
 import { translate } from '../i18n/i18n';
 import { AuthenticationContext, useGetAuthorization } from './authenticationContext';
 
@@ -47,7 +48,7 @@ const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization:
       (errorCodes && errorCodes.includes(rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN)) ||
       errorStatus === 418
     ) {
-      return <Redirect route={routerHelpers.errorRoute.path} />;
+      return <OptinView />;
     }
 
     return (

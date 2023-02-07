@@ -23,15 +23,6 @@ const routes = [
     return [...acc, ...updatedConfig, ...aliasedConfigs];
   }, []),
   {
-    id: 'optin',
-    path: '/optin',
-    redirect: null,
-    activateOnError: true,
-    disabled: helpers.UI_DISABLED,
-    default: false,
-    component: 'optinView/optinView'
-  },
-  {
     id: 'missing',
     path: '/',
     redirect: './',

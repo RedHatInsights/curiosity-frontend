@@ -15,7 +15,6 @@ exports[`Routes configuration should return generated routes: expected paths 1`]
   "/rhosak",
   "/streams",
   "/satellite",
-  "/optin",
   "/",
 ]
 `;
