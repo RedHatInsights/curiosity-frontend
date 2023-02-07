@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "test_id": {
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": {
+      "test_id": {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "test_id": {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "product": {
+      "config": "lorem ipsum product",
+    },
+    "query": {},
+  },
+  "type": "SET_PRODUCT",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY 1`] = `
 {
   "result": {

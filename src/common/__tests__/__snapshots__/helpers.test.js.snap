@@ -42,10 +42,12 @@ exports[`Helpers should expose a window object: limited window object 1`] = `
   "isDate": [Function],
   "isPromise": [Function],
   "lorem": "ipsum",
+  "memo": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],
   "numberDisplay": [Function],
+  "objFreeze": [Function],
 }
 `;
 
@@ -85,10 +87,12 @@ exports[`Helpers should expose a window object: window object 1`] = `
   "isDate": [Function],
   "isPromise": [Function],
   "lorem": "ipsum",
+  "memo": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],
   "numberDisplay": [Function],
+  "objFreeze": [Function],
 }
 `;
 
@@ -139,12 +143,43 @@ exports[`Helpers should have specific functions: helpers 1`] = `
   "generateId": [Function],
   "isDate": [Function],
   "isPromise": [Function],
+  "memo": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
   "noopTranslate": [Function],
   "numberDisplay": [Function],
+  "objFreeze": [Function],
 }
 `;
+
+exports[`Helpers should produce an immutable like object: clone 1`] = `
+{
+  "dolor": {
+    "hello": [
+      "world",
+      "clone",
+    ],
+    "sit": {
+      "lorem": "ipsum",
+    },
+  },
+  "lorem": "ipsum",
+}
+`;
+
+exports[`Helpers should produce an immutable like object: delete property 1`] = `"Cannot delete property 'sit' of #<Object>"`;
+
+exports[`Helpers should produce an immutable like object: set nested property 1`] = `"Cannot assign to read only property 'lorem' of object '#<Object>'"`;
+
+exports[`Helpers should produce an immutable like object: set property 1`] = `"Cannot assign to read only property 'lorem' of object '#<Object>'"`;
+
+exports[`Helpers should produce an immutable like object: shallow clone 1`] = `"Cannot add property 1, object is not extensible"`;
+
+exports[`Helpers should produce an immutable like object: update nested property list 1`] = `"Cannot add property 1, object is not extensible"`;
+
+exports[`Helpers should produce an immutable like object: update nested property list length 1`] = `"Cannot assign to read only property 'length' of object '[object Array]'"`;
+
+exports[`Helpers should produce an immutable like object: update nested property list values 1`] = `"Cannot delete property '0' of [object Array]"`;
 
 exports[`Helpers should support generated consistent hashes from objects, primitive values: hash, object and primitive values 1`] = `
 {

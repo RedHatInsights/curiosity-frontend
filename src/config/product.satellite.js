@@ -46,7 +46,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE;
  *     initialInventoryFilters: {}[], initialToolbarFilters: {}[], }[]}
  */
 const config = {
-  aliases: [],
+  aliases: ['sat', 'capsule'],
   productGroup,
   productId,
   productLabel,

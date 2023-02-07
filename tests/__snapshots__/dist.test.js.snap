@@ -5,7 +5,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "TRUE",
     "path": "/openshift-container",
-    "productParameter": [
+    "productId": [
       "OpenShift Container Platform",
       "OpenShift-metrics",
     ],
@@ -13,7 +13,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "FALSE",
     "path": "/OpenShift Container Platform",
-    "productParameter": [
+    "productId": [
       "OpenShift Container Platform",
       "OpenShift-metrics",
     ],
@@ -21,7 +21,31 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "FALSE",
     "path": "/openshift",
-    "productParameter": [
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/container",
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/platform",
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/shift",
+    "productId": [
       "OpenShift Container Platform",
       "OpenShift-metrics",
     ],
@@ -29,7 +53,15 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "FALSE",
     "path": "/OpenShift-metrics",
-    "productParameter": [
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/metrics",
+    "productId": [
       "OpenShift Container Platform",
       "OpenShift-metrics",
     ],
@@ -37,70 +69,191 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "FALSE",
     "path": "/openshift-dedicated-metrics",
-    "productParameter": [
+    "productId": [
       "OpenShift-dedicated-metrics",
     ],
   },
   {
     "coverage": "TRUE",
     "path": "/openshift-dedicated",
-    "productParameter": [
+    "productId": [
+      "OpenShift-dedicated-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/dedicated",
+    "productId": [
       "OpenShift-dedicated-metrics",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/rhacs",
-    "productParameter": [
+    "productId": [
+      "rhacs",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/advanced",
+    "productId": [
+      "rhacs",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/cluster",
+    "productId": [
+      "rhacs",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/security",
+    "productId": [
+      "rhacs",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/kubernetes",
+    "productId": [
+      "rhacs",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/acs",
+    "productId": [
       "rhacs",
     ],
   },
   {
     "coverage": "TRUE",
     "path": "/rhel",
-    "productParameter": [
+    "productId": [
       "RHEL",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/insights",
-    "productParameter": [
+    "productId": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/enterprise",
+    "productId": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/linux",
+    "productId": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/el",
+    "productId": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/x86",
+    "productId": [
       "RHEL",
     ],
   },
   {
     "coverage": "TRUE",
     "path": "/rhods",
-    "productParameter": [
+    "productId": [
+      "rhods",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/openshift",
+    "productId": [
+      "rhods",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/data",
+    "productId": [
+      "rhods",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/science",
+    "productId": [
+      "rhods",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/ods",
+    "productId": [
       "rhods",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/rhosak",
-    "productParameter": [
+    "productId": [
       "rhosak",
     ],
   },
   {
     "coverage": "TRUE",
     "path": "/streams",
-    "productParameter": [
+    "productId": [
+      "rhosak",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/apache",
+    "productId": [
+      "rhosak",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/kafka",
+    "productId": [
       "rhosak",
     ],
   },
   {
     "coverage": "TRUE",
     "path": "/satellite",
-    "productParameter": [
+    "productId": [
       "Satellite",
     ],
   },
   {
     "coverage": "FALSE",
-    "path": "/",
-    "productParameter": undefined,
+    "path": "/sat",
+    "productId": [
+      "Satellite",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/capsule",
+    "productId": [
+      "Satellite",
+    ],
   },
 ]
 `;
@@ -127,13 +280,15 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/136*js",
   "./dist/js/160*js",
   "./dist/js/1663*js",
+  "./dist/js/1707*js",
+  "./dist/js/1707*txt",
   "./dist/js/1799*js",
   "./dist/js/1824*js",
   "./dist/js/1858*js",
+  "./dist/js/2185*js",
   "./dist/js/2217*js",
   "./dist/js/2227*js",
   "./dist/js/2243*js",
-  "./dist/js/2293*js",
   "./dist/js/2622*js",
   "./dist/js/2701*js",
   "./dist/js/2738*js",
@@ -141,17 +296,15 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/286*js",
   "./dist/js/2881*js",
   "./dist/js/2896*js",
-  "./dist/js/2913*js",
-  "./dist/js/2914*js",
   "./dist/js/2948*js",
   "./dist/js/31*js",
   "./dist/js/3128*js",
   "./dist/js/3267*js",
   "./dist/js/3280*js",
+  "./dist/js/3385*js",
   "./dist/js/353*js",
   "./dist/js/3557*js",
   "./dist/js/3597*js",
-  "./dist/js/3722*js",
   "./dist/js/384*js",
   "./dist/js/3914*js",
   "./dist/js/3935*js",
@@ -166,25 +319,24 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/5020*js",
   "./dist/js/5068*js",
   "./dist/js/5242*js",
-  "./dist/js/5250*js",
-  "./dist/js/5250*txt",
   "./dist/js/5394*js",
+  "./dist/js/5426*js",
+  "./dist/js/5704*js",
+  "./dist/js/5704*txt",
   "./dist/js/5876*js",
   "./dist/js/5925*js",
   "./dist/js/5993*js",
+  "./dist/js/6362*js",
   "./dist/js/6402*js",
-  "./dist/js/6706*js",
-  "./dist/js/6706*txt",
   "./dist/js/6816*js",
   "./dist/js/7235*js",
   "./dist/js/7276*js",
   "./dist/js/7294*js",
   "./dist/js/7294*txt",
-  "./dist/js/7382*js",
-  "./dist/js/7382*txt",
   "./dist/js/7585*js",
   "./dist/js/7745*js",
   "./dist/js/8007*js",
+  "./dist/js/8446*js",
   "./dist/js/8485*js",
   "./dist/js/8710*js",
   "./dist/js/8900*js",
@@ -198,6 +350,8 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/js/9517*js",
   "./dist/js/9669*js",
   "./dist/js/9669*txt",
+  "./dist/js/9818*js",
+  "./dist/js/9818*txt",
   "./dist/js/9928*js",
   "./dist/js/App*js",
   "./dist/locales/en-US.json",
@@ -210,13 +364,14 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/sourcemaps/136*map",
   "./dist/sourcemaps/160*map",
   "./dist/sourcemaps/1663*map",
+  "./dist/sourcemaps/1707*map",
   "./dist/sourcemaps/1799*map",
   "./dist/sourcemaps/1824*map",
   "./dist/sourcemaps/1858*map",
+  "./dist/sourcemaps/2185*map",
   "./dist/sourcemaps/2217*map",
   "./dist/sourcemaps/2227*map",
   "./dist/sourcemaps/2243*map",
-  "./dist/sourcemaps/2293*map",
   "./dist/sourcemaps/2622*map",
   "./dist/sourcemaps/2701*map",
   "./dist/sourcemaps/2738*map",
@@ -224,17 +379,15 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/sourcemaps/286*map",
   "./dist/sourcemaps/2881*map",
   "./dist/sourcemaps/2896*map",
-  "./dist/sourcemaps/2913*map",
-  "./dist/sourcemaps/2914*map",
   "./dist/sourcemaps/2948*map",
   "./dist/sourcemaps/31*map",
   "./dist/sourcemaps/3128*map",
   "./dist/sourcemaps/3267*map",
   "./dist/sourcemaps/3280*map",
+  "./dist/sourcemaps/3385*map",
   "./dist/sourcemaps/353*map",
   "./dist/sourcemaps/3557*map",
   "./dist/sourcemaps/3597*map",
-  "./dist/sourcemaps/3722*map",
   "./dist/sourcemaps/384*map",
   "./dist/sourcemaps/3914*map",
   "./dist/sourcemaps/3935*map",
@@ -246,19 +399,20 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/sourcemaps/5020*map",
   "./dist/sourcemaps/5068*map",
   "./dist/sourcemaps/5242*map",
-  "./dist/sourcemaps/5250*map",
   "./dist/sourcemaps/5394*map",
+  "./dist/sourcemaps/5426*map",
+  "./dist/sourcemaps/5704*map",
   "./dist/sourcemaps/5876*map",
   "./dist/sourcemaps/5925*map",
   "./dist/sourcemaps/5993*map",
+  "./dist/sourcemaps/6362*map",
   "./dist/sourcemaps/6402*map",
-  "./dist/sourcemaps/6706*map",
   "./dist/sourcemaps/6816*map",
   "./dist/sourcemaps/7235*map",
   "./dist/sourcemaps/7276*map",
   "./dist/sourcemaps/7294*map",
-  "./dist/sourcemaps/7382*map",
   "./dist/sourcemaps/7585*map",
+  "./dist/sourcemaps/8446*map",
   "./dist/sourcemaps/8485*map",
   "./dist/sourcemaps/8710*map",
   "./dist/sourcemaps/8900*map",
@@ -271,6 +425,7 @@ exports[`Build distribution should match a specific file output 1`] = `
   "./dist/sourcemaps/9407*map",
   "./dist/sourcemaps/9517*map",
   "./dist/sourcemaps/9669*map",
+  "./dist/sourcemaps/9818*map",
   "./dist/sourcemaps/9928*map",
   "./dist/sourcemaps/App*map",
   "./dist/subscriptions*js",
