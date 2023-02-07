@@ -35,13 +35,6 @@ const dynamicBasePath = ({ pathName = window.location.pathname, appName: applica
   pathName.split(applicationName)[0];
 
 /**
- * The first error route.
- *
- * @type {object}
- */
-const errorRoute = routesConfig.find(route => route.activateOnError === true) || {};
-
-/**
  * The first redirect route.
  *
  * @type {object}
@@ -181,7 +174,6 @@ const routerHelpers = {
   dynamicBaseName,
   dynamicBasePath,
   redirectRoute,
-  errorRoute,
   getRouteConfigByPath,
   importView,
   parseSearchParams,
@@ -196,7 +188,6 @@ export {
   dynamicBaseName,
   dynamicBasePath,
   redirectRoute,
-  errorRoute,
   getRouteConfigByPath,
   importView,
   parseSearchParams,

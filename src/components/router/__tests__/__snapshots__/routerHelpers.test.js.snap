@@ -98,15 +98,6 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
   "appName": "subscriptions",
   "dynamicBaseName": [Function],
   "dynamicBasePath": [Function],
-  "errorRoute": {
-    "activateOnError": true,
-    "component": "optinView/optinView",
-    "default": false,
-    "disabled": false,
-    "id": "optin",
-    "path": "/optin",
-    "redirect": null,
-  },
   "getRouteConfigByPath": [Function],
   "importView": [Function],
   "parseSearchParams": [Function],
@@ -138,7 +129,6 @@ exports[`RouterHelpers should return specific properties: routerHelpers: routes 
   "/rhosak",
   "/streams",
   "/satellite",
-  "/optin",
   "/",
 ]
 `;

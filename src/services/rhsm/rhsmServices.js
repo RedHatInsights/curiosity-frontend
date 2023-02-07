@@ -941,6 +941,20 @@ const getGraphReports = (id, params = {}, options = {}) => {
  *         "usage": ""
  *       }
  *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 403 Forbidden
+ *     {
+ *        "errors": [
+ *          {
+ *            "code": "SUBSCRIPTIONS1004",
+ *            "detail": "Opt-in required.",
+ *            "status": "403",
+ *            "title": "Access Denied"
+ *          }
+ *        ]
+ *     }
  */
 /**
  * @apiMock {DelayResponse} 250
@@ -1856,6 +1870,20 @@ const getGraphReports = (id, params = {}, options = {}) => {
  *         },
  *         "usage": ""
  *       }
+ *     }
+ *
+ * @apiError {Array} errors
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 403 Forbidden
+ *     {
+ *        "errors": [
+ *          {
+ *            "code": "SUBSCRIPTIONS1004",
+ *            "detail": "Opt-in required.",
+ *            "status": "403",
+ *            "title": "Access Denied"
+ *          }
+ *        ]
  *     }
  */
 /* Get RHSM API reporting/tally graph/chart data.
