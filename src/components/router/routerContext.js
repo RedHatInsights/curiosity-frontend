@@ -3,39 +3,9 @@ import {
   useLocation as useLocationRRD,
   useNavigate as useRRDNavigate,
   useParams,
-  useResolvedPath,
   useSearchParams as useRRDSearchParams
 } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
-
-/**
- * Pass useHistory methods. Proxy useHistory push with Platform specific navigation update.
- *
- * @param {object} options
- * @param {Function} options.useHistory
- * @returns {object}
- */
-/*
-const useHistory = ({ useHistory: useAliasHistory = useHistoryRRD } = {}) => {
-  const history = useAliasHistory();
-
-  return {
-    ...history,
-    push: (pathLocation, historyState) => {
-      const pathName = (typeof pathLocation === 'string' && pathLocation) || pathLocation?.pathname;
-      const { firstMatch } = routerHelpers.getRouteConfigByPath({ pathName });
-      const { hash, search } = window.location;
-
-      return history?.push(
-        (firstMatch?.productPath && `${routerHelpers.pathJoin('/', firstMatch?.productPath)}${search}${hash}`) ||
-          (pathName && `${pathName}${search}${hash}`) ||
-          pathLocation,
-        historyState
-      );
-    }
-  };
-};
- */
 
 /**
  * Combine react-router-dom useLocation with actual window location.
@@ -107,21 +77,12 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
  * Get a route detail from router context.
  *
  * @param {object} options
- * @param {Function} options.useRedirect
  * @param {Function} options.useParams
  * @returns {{baseName: string, errorRoute: object}}
  */
-const useRouteDetail = ({
-  useRedirect: useAliasRedirect = useRedirect,
-  useParams: useAliasParams = useParams
-} = {}) => {
-  const redirect = useAliasRedirect();
+const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
   const { productPath } = useAliasParams();
   const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
-
-  if (!firstMatch) {
-    redirect(routerHelpers.redirectRoute.redirect);
-  }
 
   return {
     allProductConfigs: allConfigs,
@@ -132,43 +93,34 @@ const useRouteDetail = ({
   };
 };
 
-// ToDo: align useNavigate with updates from the useHistory proxy
 /**
  * useNavigate wrapper, apply application config context routing
  *
  * @param {object} options
  * @param {Function} options.useLocation
  * @param {Function} options.useNavigate
- * @param {Function} options.useResolvedPath
  * @returns {Function}
  */
 const useNavigate = ({
   useLocation: useAliasLocation = useLocation,
-  useNavigate: useAliasNavigate = useRRDNavigate,
-  useResolvedPath: useAliasResolvedPath = useResolvedPath
+  useNavigate: useAliasNavigate = useRRDNavigate
 } = {}) => {
   const { search, hash } = useAliasLocation();
   const navigate = useAliasNavigate();
-  const { pathname } = useAliasResolvedPath();
 
   return useCallback(
-    (path, { isLeftNav = false, isPassSearchHash = true, ...options } = {}) => {
-      if (isLeftNav) {
-        return undefined;
-      }
+    (pathLocation, options) => {
+      const pathName = (typeof pathLocation === 'string' && pathLocation) || pathLocation?.pathname;
+      const { firstMatch } = routerHelpers.getRouteConfigByPath({ pathName });
 
-      const { firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: path });
-
-      if (firstMatch) {
-        const dynamicBaseName = routerHelpers.dynamicBaseName({ pathName: pathname });
-        const updatedPath = `${dynamicBaseName}/${firstMatch.productPath}`;
-
-        return navigate((isPassSearchHash && `${updatedPath}${search}${hash}`) || updatedPath, options);
-      }
-
-      return navigate((isPassSearchHash && `${path}${search}${hash}`) || path, options);
+      return navigate(
+        (firstMatch?.productPath && `${routerHelpers.pathJoin('.', firstMatch?.productPath)}${search}${hash}`) ||
+          (pathName && `${pathName}${search}${hash}`) ||
+          pathLocation,
+        options
+      );
     },
-    [hash, navigate, pathname, search]
+    [hash, navigate, search]
   );
 };
 

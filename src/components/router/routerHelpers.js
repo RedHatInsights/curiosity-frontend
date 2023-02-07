@@ -63,60 +63,60 @@ const routes = routesConfig;
  * @param {Array} params.config
  * @returns {{configs: Array, configFirstMatch: object, configsById: object}}
  */
-const getRouteConfigByPath = _memoize(
-  ({ pathName = window.location.pathname, configs = productConfig.configs } = {}) => {
-    const updatedPathName = (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName;
-    const basePathDirs = updatedPathName
-      ?.split('#')?.[0]
-      ?.split('?')?.[0]
-      ?.split('/')
-      .filter(str => str.length > 0)
-      ?.reverse();
-    const filteredConfigs = [];
-    const filteredConfigsById = {};
-    const filteredConfigsByGroup = {};
-    const allConfigs = configs;
+const getRouteConfigByPath = _memoize(({ pathName, configs = productConfig.configs } = {}) => {
+  const updatedPathName =
+    (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName || window.location.pathname;
 
-    const findConfig = dir => {
-      configs.forEach(configItem => {
-        const { productId, productGroup, aliases } = configItem;
+  const basePathDirs = updatedPathName
+    ?.split('#')?.[0]
+    ?.split('?')?.[0]
+    ?.split('/')
+    .filter(str => str.length > 0)
+    ?.reverse();
+  const filteredConfigs = [];
+  const filteredConfigsById = {};
+  const filteredConfigsByGroup = {};
+  const allConfigs = configs;
 
-        if (
-          !(productId in filteredConfigsById) &&
-          dir &&
-          (new RegExp(dir, 'i').test(aliases?.toString()) ||
-            new RegExp(dir, 'i').test(productGroup?.toString()) ||
-            new RegExp(dir, 'i').test(productId?.toString()))
-        ) {
-          filteredConfigsByGroup[productGroup] ??= [];
-          filteredConfigsByGroup[productGroup].push(configItem);
+  const findConfig = dir => {
+    configs.forEach(configItem => {
+      const { productId, productGroup, aliases } = configItem;
 
-          filteredConfigsById[productId] = configItem;
-          filteredConfigs.push(configItem);
-        }
-      });
-    };
+      if (
+        !(productId in filteredConfigsById) &&
+        dir &&
+        (new RegExp(dir, 'i').test(aliases?.toString()) ||
+          new RegExp(dir, 'i').test(productGroup?.toString()) ||
+          new RegExp(dir, 'i').test(productId?.toString()))
+      ) {
+        filteredConfigsByGroup[productGroup] ??= [];
+        filteredConfigsByGroup[productGroup].push(configItem);
 
-    if (basePathDirs?.length) {
-      basePathDirs.forEach(dir => {
-        if (dir) {
-          const decodedDir = window.decodeURI(dir);
-          findConfig(decodedDir);
-        }
-      });
-    } else {
-      findConfig();
-    }
+        filteredConfigsById[productId] = configItem;
+        filteredConfigs.push(configItem);
+      }
+    });
+  };
 
-    return {
-      allConfigs,
-      configs: filteredConfigs,
-      configsById: filteredConfigsById,
-      configsByGroup: filteredConfigsByGroup,
-      firstMatch: filteredConfigs?.[0]
-    };
+  if (basePathDirs?.length) {
+    basePathDirs.forEach(dir => {
+      if (dir) {
+        const decodedDir = window.decodeURI(dir);
+        findConfig(decodedDir);
+      }
+    });
+  } else {
+    findConfig();
   }
-);
+
+  return {
+    allConfigs,
+    configs: filteredConfigs,
+    configsById: filteredConfigsById,
+    configsByGroup: filteredConfigsByGroup,
+    firstMatch: filteredConfigs?.[0]
+  };
+});
 
 /**
  * Import a route component.
@@ -160,7 +160,7 @@ const parseSearchParams = _memoize((currentPathAndOrSearch = window.location.sea
  * @param {object} paths
  * @returns {string}
  */
-const pathJoin = (...paths) => {
+const pathJoin = _memoize((...paths) => {
   let updatedPath = Array.from(paths);
   const hasLead = /^\/\//.test(updatedPath[0]);
   updatedPath = updatedPath
@@ -174,7 +174,7 @@ const pathJoin = (...paths) => {
   }
 
   return updatedPath;
-};
+});
 
 const routerHelpers = {
   appName,
