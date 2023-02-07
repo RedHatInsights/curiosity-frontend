@@ -89,7 +89,7 @@ const OptinView = ({
       return (
         <Form>
           <ActionGroup>
-            <Button variant="primary" isDisabled>
+            <Button data-test="optinButtonSubmitDisabled" variant="primary" isDisabled>
               {t('curiosity-optin.buttonIsActive', { appName: helpers.UI_DISPLAY_NAME })}
             </Button>
           </ActionGroup>
@@ -101,7 +101,7 @@ const OptinView = ({
     return (
       <Form>
         <ActionGroup>
-          <Button variant="primary" onClick={onSubmitOptIn}>
+          <Button data-test="optinButtonSubmit" variant="primary" onClick={onSubmitOptIn}>
             {t('curiosity-optin.buttonActivate', { appName: helpers.UI_DISPLAY_NAME })}
           </Button>
         </ActionGroup>
@@ -134,7 +134,7 @@ const OptinView = ({
       </CardTitle>
       <CardBody>{t('curiosity-optin.tourDescription')}</CardBody>
       <CardFooter>
-        <Button variant="secondary" className="uxui-curiosity__button-tour">
+        <Button data-test="optinButtonTour" variant="secondary" className="uxui-curiosity__button-tour">
           {t('curiosity-optin.buttonTour')}
         </Button>
       </CardFooter>
@@ -143,7 +143,7 @@ const OptinView = ({
 
   return (
     <PageLayout>
-      <Card>
+      <Card data-test="optinView">
         <Flex>
           <Flex flex={{ default: 'flex_2' }}>
             <FlexItem>

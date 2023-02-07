@@ -317,10 +317,12 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
     }
   }
 >
-  <Redirect
-    isReplace={true}
-    route="/optin"
-    url={null}
+  <OptinView
+    t={[Function]}
+    updateAccountOptIn={[Function]}
+    useDispatch={[Function]}
+    useSelectorsResponse={[Function]}
+    useSession={[Function]}
   />
 </ContextProvider>
 `;
@@ -337,10 +339,12 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     }
   }
 >
-  <Redirect
-    isReplace={true}
-    route="/optin"
-    url={null}
+  <OptinView
+    t={[Function]}
+    updateAccountOptIn={[Function]}
+    useDispatch={[Function]}
+    useSelectorsResponse={[Function]}
+    useSession={[Function]}
   />
 </ContextProvider>
 `;
@@ -357,10 +361,12 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     }
   }
 >
-  <Redirect
-    isReplace={true}
-    route="/optin"
-    url={null}
+  <OptinView
+    t={[Function]}
+    updateAccountOptIn={[Function]}
+    useDispatch={[Function]}
+    useSelectorsResponse={[Function]}
+    useSession={[Function]}
   />
 </ContextProvider>
 `;

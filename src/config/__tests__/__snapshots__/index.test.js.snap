@@ -3,20 +3,7 @@
 exports[`Configuration should have a consistent route configuration: inconsistent entries 1`] = `
 [
   {
-    "Entry 13, /optin inconsistent": {
-      "activateOnError": "PASS",
-      "component": "PASS",
-      "default": "PASS",
-      "disabled": "PASS",
-      "path": "PASS",
-      "pathParameter": "FAIL",
-      "productConfig": "FAIL",
-      "productParameter": "FAIL",
-      "redirect": "PASS",
-    },
-  },
-  {
-    "Entry 14, / inconsistent": {
+    "Entry 13, / inconsistent": {
       "activateOnError": "PASS",
       "component": "PASS",
       "default": "PASS",

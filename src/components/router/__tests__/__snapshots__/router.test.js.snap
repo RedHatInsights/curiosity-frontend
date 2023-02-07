@@ -2444,15 +2444,6 @@ exports[`Router Component should render a basic component: basic 1`] = `
         "redirect": null,
       },
       {
-        "activateOnError": true,
-        "component": "optinView/optinView",
-        "default": false,
-        "disabled": false,
-        "id": "optin",
-        "path": "/optin",
-        "redirect": null,
-      },
-      {
         "activateOnError": false,
         "component": "productView/productViewMissing",
         "default": true,

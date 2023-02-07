@@ -4,7 +4,9 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
 <PageLayout
   className=""
 >
-  <Card>
+  <Card
+    data-test="optinView"
+  >
     <Flex>
       <Flex
         flex={
@@ -78,6 +80,7 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
             <Form>
               <ActionGroup>
                 <Button
+                  data-test="optinButtonSubmitDisabled"
                   isDisabled={true}
                   variant="primary"
                 >
@@ -130,6 +133,7 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
               <CardFooter>
                 <Button
                   className="uxui-curiosity__button-tour"
+                  data-test="optinButtonTour"
                   variant="secondary"
                 >
                   t(curiosity-optin.buttonTour)
@@ -149,6 +153,7 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmitDisabled"
         isDisabled={true}
         variant="primary"
       >
@@ -164,6 +169,7 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmitDisabled"
         isDisabled={true}
         variant="primary"
       >
@@ -179,6 +185,7 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmitDisabled"
         isDisabled={true}
         variant="primary"
       >
@@ -194,6 +201,7 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmit"
         onClick={[Function]}
         variant="primary"
       >
@@ -209,6 +217,7 @@ exports[`OptinView Component should render an API state driven view: 500 view 1`
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmitDisabled"
         isDisabled={true}
         variant="primary"
       >
@@ -232,6 +241,7 @@ exports[`OptinView Component should render an API state driven view: fulfilled v
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmitDisabled"
         isDisabled={true}
         variant="primary"
       >
@@ -249,7 +259,9 @@ exports[`OptinView Component should render an API state driven view: initial vie
 <PageLayout
   className=""
 >
-  <Card>
+  <Card
+    data-test="optinView"
+  >
     <Flex>
       <Flex
         flex={
@@ -323,6 +335,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
             <Form>
               <ActionGroup>
                 <Button
+                  data-test="optinButtonSubmitDisabled"
                   isDisabled={true}
                   variant="primary"
                 >
@@ -375,6 +388,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
               <CardFooter>
                 <Button
                   className="uxui-curiosity__button-tour"
+                  data-test="optinButtonTour"
                   variant="secondary"
                 >
                   t(curiosity-optin.buttonTour)
@@ -394,6 +408,7 @@ exports[`OptinView Component should render an API state driven view: null or und
   <Form>
     <ActionGroup>
       <Button
+        data-test="optinButtonSubmitDisabled"
         isDisabled={true}
         variant="primary"
       >
