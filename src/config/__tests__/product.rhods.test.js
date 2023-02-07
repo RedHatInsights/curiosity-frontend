@@ -52,7 +52,7 @@ describe('Product RHODS config', () => {
   /**
    * FixMe: this test needs to be updated as part of the refactor towards instances vs hosts
    */
-  it('should apply an instances inventory configuration under hosts', () => {
+  it('should apply an inventory configuration', () => {
     const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
 
     const inventoryData = {
