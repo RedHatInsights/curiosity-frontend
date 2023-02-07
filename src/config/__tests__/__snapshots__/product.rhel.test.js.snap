@@ -1,5 +1,318 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product RHEL config should apply an inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "--",
+    },
+    {
+      "title": <React.Fragment>
+        t(curiosity-inventory.label, {"context":"category"})
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product RHEL config should apply an inventory configuration: filtered, authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <Button
+        component="a"
+        href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+        isInline={true}
+        variant="link"
+      >
+        lorem ipsum
+      </Button>,
+    },
+    {
+      "title": "--",
+    },
+    {
+      "title": <React.Fragment>
+        t(curiosity-inventory.label, {"context":"category"})
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product RHEL config should apply an inventory configuration: filtered, fallback display 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "--",
+    },
+    {
+      "title": <React.Fragment>
+        t(curiosity-inventory.label, {"context":"category"})
+         
+        <Label
+          color="purple"
+        >
+          t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
+        </Label>
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": "",
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "value": 200,
+    },
+    "cloud_provider": {
+      "title": "t(curiosity-inventory.header_cloud, {"context":"provider"})",
+      "value": "dolor sit",
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": null,
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": null,
+    },
+  },
+}
+`;
+
+exports[`Product RHEL config should apply an inventory configuration: filtered, infinite 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "--",
+    },
+    {
+      "title": <React.Fragment>
+        t(curiosity-inventory.label, {"context":"category"})
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "value": false,
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
 exports[`Product RHEL config should apply graph configuration: filters 1`] = `
 {
   "groupedFiltersSettings": {
@@ -230,24 +543,14 @@ exports[`Product RHEL config should apply guest inventory configuration: filtere
 }
 `;
 
-exports[`Product RHEL config should apply hosts inventory configuration: filtered 1`] = `
+exports[`Product RHEL config should apply guest inventory configuration: filtered, missing inventory id 1`] = `
 {
   "cells": [
     {
       "title": "lorem",
     },
     {
-      "title": 3,
-    },
-    {
-      "title": <React.Fragment>
-        t(curiosity-inventory.label, {"context":"category"})
-         
-        
-      </React.Fragment>,
-    },
-    {
-      "title": "--",
+      "title": "",
     },
     {
       "title": <DateFormat
@@ -257,172 +560,42 @@ exports[`Product RHEL config should apply hosts inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "value": 12,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
       "value": "lorem",
     },
-    "hardware_type": {
-      "title": "t(curiosity-inventory.header_hardware, {"context":"type"})",
-      "value": "ipsum",
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "value": "",
     },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
-      "value": "lorem inventory id",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "measurement_type": {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
-      "value": null,
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "value": 10,
-    },
-  },
-}
-`;
-
-exports[`Product RHEL config should apply hosts inventory configuration: filtered, fallback display 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem",
-    },
-    {
-      "title": 3,
-    },
-    {
-      "title": <React.Fragment>
-        t(curiosity-inventory.label, {"context":"category"})
-         
-        <Label
-          color="purple"
-        >
-          t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-        </Label>
-      </React.Fragment>,
-    },
-    {
-      "title": "--",
-    },
-    {
-      "title": "",
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cloud_provider": {
-      "title": "t(curiosity-inventory.header_cloud, {"context":"provider"})",
-      "value": "dolor sit",
-    },
-    "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "value": 12,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem",
-    },
-    "hardware_type": {
-      "title": "t(curiosity-inventory.header_hardware, {"context":"type"})",
-      "value": "ipsum",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
-      "value": null,
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": null,
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
-      "value": "hello world",
-    },
-    "measurement_type": {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
-      "value": null,
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "value": 10,
+    "subscriptionManagerId": {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+      "value": "lorem subscription id",
     },
   },
 }

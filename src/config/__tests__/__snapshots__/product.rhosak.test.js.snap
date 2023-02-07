@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Product RHOSAK config should apply an instances inventory configuration under hosts: filtered 1`] = `
+exports[`Product RHOSAK config should apply an inventory configuration: filtered 1`] = `
 {
   "cells": [
     {
@@ -105,7 +105,7 @@ exports[`Product RHOSAK config should apply an instances inventory configuration
 }
 `;
 
-exports[`Product RHOSAK config should apply an instances inventory configuration under hosts: filtered, authorized 1`] = `
+exports[`Product RHOSAK config should apply an inventory configuration: filtered, authorized 1`] = `
 {
   "cells": [
     {

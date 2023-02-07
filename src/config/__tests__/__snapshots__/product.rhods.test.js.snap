@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Product RHODS config should apply an instances inventory configuration under hosts: filtered 1`] = `
+exports[`Product RHODS config should apply an inventory configuration: filtered 1`] = `
 {
   "cells": [
     {
@@ -59,7 +59,7 @@ exports[`Product RHODS config should apply an instances inventory configuration 
 }
 `;
 
-exports[`Product RHODS config should apply an instances inventory configuration under hosts: filtered, authorized 1`] = `
+exports[`Product RHODS config should apply an inventory configuration: filtered, authorized 1`] = `
 {
   "cells": [
     {
