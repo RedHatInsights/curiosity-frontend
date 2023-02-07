@@ -23,6 +23,32 @@ exports[`RouterContext should apply a hook for useHistory: history push 1`] = `
 ]
 `;
 
+exports[`RouterContext should apply a hook for useLocation: location 1`] = `
+{
+  "assign": [Function],
+  "hash": "",
+  "host": "localhost",
+  "hostname": "localhost",
+  "href": undefined,
+  "origin": "http://localhost",
+  "pathname": "/",
+  "port": "",
+  "protocol": "http:",
+  "reload": [Function],
+  "replace": [Function],
+  "search": "?lorem=ipsum",
+  "toString": [Function],
+}
+`;
+
+exports[`RouterContext should apply a hook for useRedirect: redirect, replace 1`] = `
+[
+  [
+    "/subscriptions/dolor/sit",
+  ],
+]
+`;
+
 exports[`RouterContext should return specific properties: specific properties 1`] = `
 {
   "DEFAULT_CONTEXT": [
@@ -77,6 +103,7 @@ exports[`RouterContext should return specific properties: specific properties 1`
   "useHistory": [Function],
   "useLocation": [Function],
   "useParams": [Function],
+  "useRedirect": [Function],
   "useRouteDetail": [Function],
   "useRouteMatch": [Function],
   "useRouterContext": [Function],

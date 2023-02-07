@@ -52,6 +52,7 @@ exports[`Authentication Component should render a component authorized: authoriz
   isDisabled={false}
   t={[Function]}
   useGetAuthorization={[Function]}
+  useRedirect={[Function]}
 >
   <span
     className="test"
@@ -67,6 +68,7 @@ exports[`Authentication Component should render a component error: error 1`] = `
   isDisabled={false}
   t={[Function]}
   useGetAuthorization={[Function]}
+  useRedirect={[Function]}
 >
   <MessageView
     icon={null}
@@ -316,13 +318,7 @@ exports[`Authentication Component should return a redirect on 418 error: 418 err
       "errorStatus": 418,
     }
   }
->
-  <Redirect
-    isReplace={true}
-    route="/optin"
-    url={null}
-  />
-</ContextProvider>
+/>
 `;
 
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 error 1`] = `
@@ -336,13 +332,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       "errorStatus": 403,
     }
   }
->
-  <Redirect
-    isReplace={true}
-    route="/optin"
-    url={null}
-  />
-</ContextProvider>
+/>
 `;
 
 exports[`Authentication Component should return a redirect on a specific 403 error and error code: 403 redirect error 1`] = `
@@ -356,11 +346,5 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       "errorStatus": 403,
     }
   }
->
-  <Redirect
-    isReplace={true}
-    route="/optin"
-    url={null}
-  />
-</ContextProvider>
+/>
 `;

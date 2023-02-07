@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { BinocularsIcon } from '@patternfly/react-icons';
 import { Maintenance } from '@redhat-cloud-services/frontend-components/Maintenance';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
-import { routerHelpers, Redirect } from '../router';
+import { routerContext, routerHelpers } from '../router';
 import { rhsmConstants } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 import MessageView from '../messageView/messageView';
@@ -19,9 +19,18 @@ import { AuthenticationContext, useGetAuthorization } from './authenticationCont
  * @param {boolean} props.isDisabled
  * @param {Function} props.t
  * @param {Function} props.useGetAuthorization
+ * @param {Function} props.useRedirect
  * @returns {React.ReactNode}
  */
-const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization: useAliasGetAuthorization }) => {
+const Authentication = ({
+  appName,
+  children,
+  isDisabled,
+  t,
+  useGetAuthorization: useAliasGetAuthorization,
+  useRedirect: useAliasRedirect
+}) => {
+  const redirect = useAliasRedirect();
   const { pending, data = {} } = useAliasGetAuthorization();
   const { authorized = {}, errorCodes, errorStatus } = data;
   const { [appName]: isAuthorized } = authorized;
@@ -47,7 +56,7 @@ const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization:
       (errorCodes && errorCodes.includes(rhsmConstants.RHSM_API_RESPONSE_ERRORS_CODE_TYPES.OPTIN)) ||
       errorStatus === 418
     ) {
-      return <Redirect route={routerHelpers.errorRoute.path} />;
+      return redirect(routerHelpers.errorRoute.path);
     }
 
     return (
@@ -63,26 +72,28 @@ const Authentication = ({ appName, children, isDisabled, t, useGetAuthorization:
 /**
  * Prop types.
  *
- * @type {{useGetAuthorization: Function, children: React.ReactNode, appName: string, isDisabled: boolean}}
+ * @type {{useGetAuthorization: Function, children: React.ReactNode, appName: string, useRedirect: Function, isDisabled: boolean}}
  */
 Authentication.propTypes = {
   appName: PropTypes.string,
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
   t: PropTypes.func,
-  useGetAuthorization: PropTypes.func
+  useGetAuthorization: PropTypes.func,
+  useRedirect: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useGetAuthorization: Function, t: Function, appName: string, isDisabled: boolean}}
+ * @type {{useGetAuthorization: Function, t: Function, appName: string, useRedirect: Function, isDisabled: boolean}}
  */
 Authentication.defaultProps = {
   appName: routerHelpers.appName,
   isDisabled: helpers.UI_DISABLED,
   t: translate,
-  useGetAuthorization
+  useGetAuthorization,
+  useRedirect: routerContext.useRedirect
 };
 
 export { Authentication as default, Authentication };
