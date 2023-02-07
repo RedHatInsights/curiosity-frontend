@@ -200,6 +200,64 @@ exports[`Product Satellite config should apply guest inventory configuration: fi
 }
 `;
 
+exports[`Product Satellite config should apply guest inventory configuration: filtered, missing inventory id 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "value": "lorem",
+    },
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "value": "",
+    },
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscriptionManagerId": {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
 exports[`Product Satellite config should apply hosts inventory configuration: filtered 1`] = `
 {
   "cells": [
@@ -266,6 +324,104 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
     "inventory_id": {
       "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "measurement_type": {
+      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
+      "value": null,
+    },
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "value": 3,
+    },
+    "sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "value": 10,
+    },
+  },
+}
+`;
+
+exports[`Product Satellite config should apply hosts inventory configuration: filtered, authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <React.Fragment>
+        <Button
+          component="a"
+          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+          isInline={true}
+          variant="link"
+        >
+          lorem
+        </Button>
+         
+        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
+      </React.Fragment>,
+    },
+    {
+      "title": <React.Fragment>
+        t(curiosity-inventory.measurementType, {"context":null})
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 10,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "cores": {
+      "title": "t(curiosity-inventory.header, {"context":"cores"})",
+      "value": 12,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem",
+    },
+    "hardware_type": {
+      "title": "t(curiosity-inventory.header_hardware, {"context":"type"})",
+      "value": "ipsum",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
     "last_seen": {
       "title": "t(curiosity-inventory.header_last, {"context":"seen"})",

@@ -2,9 +2,10 @@ import { config } from '../product.rhel';
 import { generateChartSettings } from '../../components/graphCard/graphCardHelpers';
 import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
+  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
 } from '../../services/rhsm/rhsmConstants';
 
@@ -16,43 +17,54 @@ describe('Product RHEL config', () => {
     expect(initialGraphSettings).toMatchSnapshot('settings');
   });
 
-  it('should apply hosts inventory configuration', () => {
-    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery, productId } = config;
+  it('should apply an inventory configuration', () => {
+    const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
 
     const inventoryData = {
-      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
-      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
-      [INVENTORY_TYPES.HARDWARE_TYPE]: 'ipsum',
-      [INVENTORY_TYPES.MEASUREMENT_TYPE]: null,
-      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 3,
-      [INVENTORY_TYPES.SOCKETS]: 10,
-      [INVENTORY_TYPES.CORES]: 12,
-      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
-      loremIpsum: 'hello world'
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem ipsum',
+      [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: 200,
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z'
     };
 
     const filteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: inventoryData,
-      productId
+      cellData: inventoryData
     });
 
     expect(filteredInventoryData).toMatchSnapshot('filtered');
 
-    const fallbackInventoryData = {
-      ...inventoryData,
-      [INVENTORY_TYPES.INVENTORY_ID]: null,
-      [INVENTORY_TYPES.LAST_SEEN]: null,
-      [INVENTORY_TYPES.CLOUD_PROVIDER]: 'dolor sit'
-    };
-
     const fallbackFilteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: fallbackInventoryData,
-      productId
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INVENTORY_ID]: null,
+        [INVENTORY_TYPES.LAST_SEEN]: null,
+        [INVENTORY_TYPES.CLOUD_PROVIDER]: 'dolor sit'
+      }
     });
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
+
+    const filteredInventoryDataAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+      },
+      session: { authorized: { inventory: true } }
+    });
+
+    expect(filteredInventoryDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredInventoryDataInfinite = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: false
+      }
+    });
+
+    expect(filteredInventoryDataInfinite).toMatchSnapshot('filtered, infinite');
 
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });

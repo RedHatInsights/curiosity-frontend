@@ -21,7 +21,7 @@ describe('Product OpenShift Container config', () => {
 
     const inventoryData = {
       [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
-      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.INVENTORY_ID]: undefined,
       [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 3,
       [INVENTORY_TYPES.CORES]: 20,
       [INVENTORY_TYPES.SOCKETS]: 100,
@@ -37,22 +37,41 @@ describe('Product OpenShift Container config', () => {
 
     expect(filteredInventoryData).toMatchSnapshot('filtered');
 
-    const fallbackInventoryData = {
-      ...inventoryData,
-      [INVENTORY_TYPES.INVENTORY_ID]: null,
-      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: null,
-      [INVENTORY_TYPES.CORES]: null,
-      [INVENTORY_TYPES.SOCKETS]: null,
-      [INVENTORY_TYPES.LAST_SEEN]: null
-    };
-
     const fallbackFilteredInventoryData = parseRowCellsListData({
       filters: initialFilters,
-      cellData: fallbackInventoryData,
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INVENTORY_ID]: null,
+        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: null,
+        [INVENTORY_TYPES.CORES]: null,
+        [INVENTORY_TYPES.SOCKETS]: null,
+        [INVENTORY_TYPES.LAST_SEEN]: null
+      },
       productId
     });
 
     expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
+
+    const filteredInventoryDataAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+      },
+      session: { authorized: { inventory: true } }
+    });
+
+    expect(filteredInventoryDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredInventoryDataInfinite = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: false
+      }
+    });
+
+    expect(filteredInventoryDataInfinite).toMatchSnapshot('filtered, infinite');
 
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
@@ -109,6 +128,16 @@ describe('Product OpenShift Container config', () => {
     });
 
     expect(filteredGuestsData).toMatchSnapshot('filtered');
+
+    const filteredGuestsDataMissing = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...guestsData,
+        inventoryId: undefined
+      }
+    });
+
+    expect(filteredGuestsDataMissing).toMatchSnapshot('filtered, missing inventory id');
 
     const filteredGuestsDataAuthorized = parseRowCellsListData({
       filters: initialFilters,
