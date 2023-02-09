@@ -11,11 +11,6 @@ node_js:
 cache: yarn
 jobs:
   include:
-    - stage: Test
-      if: NOT branch =~ /^(dependabot\/)/
-      before_script: yarn global add codecov
-      script: yarn test
-      after_success: codecov
     - stage: Beta Deploy
       if: branch IN (master, main, prod, dev) OR tag IS present
       script: yarn build && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh
