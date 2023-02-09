@@ -34,7 +34,7 @@
     "api:dev": "mock -p 5000 -w ./src/services -w ./src/services/rhsm",
     "api:docs": "node ./scripts/openapi.docs.js",
     "api:proxy-hosts": "bash ./scripts/proxy.api.sh",
-    "build": "run-s -l build:pre build:js build:post test:integration",
+    "build": "run-s -l build:pre build:js build:post",
     "build:deps": "bash ./scripts/dependencies.sh --doctor -u --doctorInstall \"yarn\" --doctorTest \"yarn test:deps\" --reject \"@patternfly/*, @redhat-cloud-services/frontend*, react-router, victory*\"",
     "build:deps-core": "bash ./scripts/dependencies.sh --doctor -u --doctorInstall \"yarn\" --doctorTest \"yarn test:deps\" --filter \"@patternfly/*, @redhat-cloud-services/frontend*, victory*\"",
     "build:ephemeral": "run-s -l build:pre build:js build:post test:integration-ephemeral",
