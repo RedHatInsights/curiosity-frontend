@@ -54,6 +54,14 @@ jest.mock('react-redux', () => ({
 }));
 
 /**
+ * Emulate react router dom useLocation
+ */
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: () => ({ hash: '', search: '' })
+}));
+
+/**
  * Add the displayName property to function based components. Makes sure that snapshot tests have named components
  * instead of displaying a generic "<Component.../>".
  *
@@ -258,10 +266,7 @@ global.mockWindowLocation = async (
   { url = 'https://ci.foo.redhat.com/subscriptions/rhel', location: locationProps = {} } = {}
 ) => {
   const updatedUrl = new URL(url);
-  const { location } = window;
-  delete window.location;
-  // mock
-  window.location = {
+  const updatedLocation = {
     href: updatedUrl.href,
     search: updatedUrl.search,
     hash: updatedUrl.hash,
@@ -269,9 +274,13 @@ global.mockWindowLocation = async (
     replace: Function.prototype,
     ...locationProps
   };
-  await callback(window.location);
-  // restore
-  window.location = location;
+
+  const { mockClear } = mockObjectProperty(window, 'location', updatedLocation);
+  await callback(updatedLocation);
+
+  return {
+    mockClear
+  };
 };
 
 // FixMe: revisit squashing log and group messaging, redux leaks log messaging

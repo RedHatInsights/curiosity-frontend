@@ -4,17 +4,41 @@ exports[`Build distribution should have a predictable ephemeral navigation based
 [
   {
     "coverage": "TRUE",
-    "path": "/rhel",
-    "productParameter": [
-      "RHEL",
-    ],
-  },
-  {
-    "coverage": "TRUE",
     "path": "/openshift-container",
     "productParameter": [
       "OpenShift Container Platform",
       "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/OpenShift Container Platform",
+    "productParameter": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/openshift",
+    "productParameter": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/OpenShift-metrics",
+    "productParameter": [
+      "OpenShift Container Platform",
+      "OpenShift-metrics",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/openshift-dedicated-metrics",
+    "productParameter": [
+      "OpenShift-dedicated-metrics",
     ],
   },
   {
@@ -33,9 +57,30 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   },
   {
     "coverage": "TRUE",
+    "path": "/rhel",
+    "productParameter": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/insights",
+    "productParameter": [
+      "RHEL",
+    ],
+  },
+  {
+    "coverage": "TRUE",
     "path": "/rhods",
     "productParameter": [
       "rhods",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/rhosak",
+    "productParameter": [
+      "rhosak",
     ],
   },
   {
@@ -55,12 +100,12 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "FALSE",
     "path": "/optin",
-    "productParameter": null,
+    "productParameter": undefined,
   },
   {
     "coverage": "FALSE",
     "path": "/",
-    "productParameter": null,
+    "productParameter": undefined,
   },
 ]
 `;

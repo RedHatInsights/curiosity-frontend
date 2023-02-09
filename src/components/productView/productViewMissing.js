@@ -4,20 +4,9 @@ import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSect
 import { ArrowRightIcon } from '@patternfly/react-icons';
 import { useMount } from 'react-use';
 import { PageLayout, PageHeader } from '../pageLayout/pageLayout';
-import { routerHelpers } from '../router';
-import { routerHooks } from '../../hooks/useRouter';
+import { routerContext } from '../router';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
-
-/**
- * Return a list of available products.
- *
- * @returns {Array}
- */
-const filterAvailableProducts = () => {
-  const { configs, allConfigs } = routerHelpers.getRouteConfigByPath();
-  return (configs.length && configs) || allConfigs.filter(({ isSearchable }) => isSearchable === true);
-};
 
 /**
  * Render a missing product view.
@@ -26,16 +15,24 @@ const filterAvailableProducts = () => {
  * @param {object} props
  * @param {number} props.availableProductsRedirect
  * @param {Function} props.t
- * @param {Function} props.useHistory
+ * @param {Function} props.useNavigate
+ * @param {Function} props.useRouteDetail
  * @returns {Node}
  */
-const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAliasHistory }) => {
-  const history = useAliasHistory({ isSetAppNav: true });
-  const availableProducts = filterAvailableProducts();
+const ProductViewMissing = ({
+  availableProductsRedirect,
+  t,
+  useNavigate: useAliasNavigate,
+  useRouteDetail: useAliasRouteDetail
+}) => {
+  const navigate = useAliasNavigate();
+  const { productConfig, allProductConfigs } = useAliasRouteDetail();
+  const availableProducts = (productConfig?.length && productConfig) || allProductConfigs;
 
   useMount(() => {
-    if (availableProducts.length <= availableProductsRedirect) {
-      history.push(availableProducts[0].path);
+    if (availableProducts?.length <= availableProductsRedirect) {
+      // navigate(availableProducts[0].productPath);
+      console.log('>>>> MISSING VIEW', navigate);
     }
   });
 
@@ -43,40 +40,44 @@ const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAlias
    * On click, update history.
    *
    * @event onNavigate
-   * @param {string} id
+   * @param {string} path
    * @returns {void}
    */
-  const onNavigate = id => history.push(id);
+  const onNavigate = path => navigate(path);
 
   return (
     <PageLayout className="curiosity-missing-view">
       <PageHeader productLabel="missing">{t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME })}</PageHeader>
       <PageSection isFilled>
         <Gallery hasGutter>
-          {availableProducts.map(product => (
-            <Card key={`missingViewCard-${product.id}`} isHoverable onClick={() => onNavigate(product.id)}>
+          {availableProducts?.map(({ productGroup, productId, productPath }) => (
+            <Card
+              key={`missingViewCard-${productId}-${helpers.generateId()}`}
+              isHoverable
+              onClick={() => onNavigate(productPath)}
+            >
               <CardTitle>
                 <Title headingLevel="h2" size="lg">
                   {t('curiosity-view.title', {
                     appName: helpers.UI_DISPLAY_NAME,
-                    context:
-                      (Array.isArray(product.pathParameter) && product.pathParameter?.[0]) || product.pathParameter
+                    context: productId
                   })}
                 </Title>
               </CardTitle>
               <CardBody className="curiosity-missing-view__card-description">
                 {t('curiosity-view.description', {
                   appName: helpers.UI_DISPLAY_NAME,
-                  context:
-                    (Array.isArray(product.productParameter) && product.productParameter?.[0]) ||
-                    product.productParameter
+                  context: productGroup
                 })}
               </CardBody>
               <CardFooter>
                 <Button
                   variant="link"
                   isInline
-                  onClick={() => onNavigate(product.id)}
+                  onClick={event => {
+                    event.preventDefault();
+                    onNavigate(productPath);
+                  }}
                   icon={<ArrowRightIcon />}
                   iconPosition="right"
                 >
@@ -94,23 +95,25 @@ const ProductViewMissing = ({ availableProductsRedirect, t, useHistory: useAlias
 /**
  * Prop types.
  *
- * @type {{useHistory: Function, availableProductsRedirect: number, t: Function}}
+ * @type {{useNavigate: Function, availableProductsRedirect: number, t: Function, useRouteDetail: Function}}
  */
 ProductViewMissing.propTypes = {
   availableProductsRedirect: PropTypes.number,
   t: PropTypes.func,
-  useHistory: PropTypes.func
+  useNavigate: PropTypes.func,
+  useRouteDetail: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useHistory: Function, availableProductsRedirect: number, t: translate}}
+ * @type {{useNavigate: Function, availableProductsRedirect: number, t: translate, useRouteDetail: Function}}
  */
 ProductViewMissing.defaultProps = {
   availableProductsRedirect: 4,
   t: translate,
-  useHistory: routerHooks.useHistory
+  useNavigate: routerContext.useNavigate,
+  useRouteDetail: routerContext.useRouteDetail
 };
 
 export { ProductViewMissing as default, ProductViewMissing };

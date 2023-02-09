@@ -3,17 +3,14 @@
  */
 import './styles/standalone.scss';
 import '@patternfly/react-core/dist/styles/base.css';
-import('./bootstrap');
+import('./index.bootstrap');
 import { routerHelpers } from './components/router';
 
 window.insights = {
   chrome: {
     appNavClick: ({ id, ...rest }) => {
       console.log(`Emulated appNavClick: ${JSON.stringify({ id, ...rest })}`);
-      document.location.href = routerHelpers.pathJoin(
-        document.location.pathname,
-        routerHelpers.getRouteConfig({ id }).path
-      );
+      document.location.href = routerHelpers.pathJoin(routerHelpers.dynamicBaseName(), id);
     },
     auth: {
       getUser: () =>

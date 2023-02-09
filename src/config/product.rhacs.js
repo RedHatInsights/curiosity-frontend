@@ -36,9 +36,11 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
 const config = {
+  aliases: [],
   productGroup,
   productId,
   productLabel,
+  productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.HOURLY,
   viewId: `view${productGroup}`,
   query: {

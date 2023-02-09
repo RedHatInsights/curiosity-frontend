@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react';
-import { useMount, useUnmount } from 'react-use';
+import React, { useContext } from 'react';
+import { useMount } from 'react-use';
 import { reduxActions, storeHooks } from '../../redux';
-import { routerHooks } from '../../hooks/useRouter';
 import { helpers } from '../../common';
 import { routerHelpers } from '../router';
 
@@ -29,10 +28,8 @@ const useAuthContext = () => useContext(AuthenticationContext);
  * @param {Function} options.authorizeUser
  * @param {Function} options.hideGlobalFilter
  * @param {Function} options.initializeChrome
- * @param {Function} options.onNavigation
  * @param {Function} options.setAppName
  * @param {Function} options.useDispatch
- * @param {Function} options.useHistory
  * @param {Function} options.useSelectorsResponse
  * @returns {{data: {errorCodes, errorStatus: *, locale}, pending: boolean, fulfilled: boolean, error: boolean}}
  */
@@ -41,14 +38,10 @@ const useGetAuthorization = ({
   authorizeUser = reduxActions.platform.authorizeUser,
   hideGlobalFilter = reduxActions.platform.hideGlobalFilter,
   initializeChrome = reduxActions.platform.initializeChrome,
-  onNavigation = reduxActions.platform.onNavigation,
   setAppName = reduxActions.platform.setAppName,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useHistory: useAliasHistory = routerHooks.useHistory,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
-  const [unregister, setUnregister] = useState(() => helpers.noop);
-  const history = useAliasHistory();
   const dispatch = useAliasDispatch();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
     { id: 'auth', selector: ({ user }) => user?.auth },
@@ -62,11 +55,6 @@ const useGetAuthorization = ({
   useMount(async () => {
     await dispatch(authorizeUser());
     dispatch([initializeChrome(), setAppName(appName), hideGlobalFilter()]);
-    setUnregister(() => dispatch(onNavigation(event => history.push(event.navId))));
-  });
-
-  useUnmount(() => {
-    unregister();
   });
 
   const [user = {}, app = {}] = (Array.isArray(data.auth) && data.auth) || [];

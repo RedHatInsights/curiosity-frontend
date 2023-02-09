@@ -11,7 +11,7 @@ describe('Configuration', () => {
 
     const inconsistentEntries = [];
 
-    Object.values(config.products).forEach((value, index) => {
+    Object.values(config.products.configs).forEach((value, index) => {
       const {
         productGroup,
         productId,
@@ -37,7 +37,7 @@ describe('Configuration', () => {
       };
 
       if (Object.values(entryCheck).indexOf('FAIL') > -1) {
-        inconsistentEntries.push({ [`Entry ${index} inconsistent`]: entryCheck });
+        inconsistentEntries.push({ [`Entry ${index}, ${productId} inconsistent`]: entryCheck });
       }
     });
 
@@ -61,21 +61,19 @@ describe('Configuration', () => {
 
     config.routes.forEach((value, index) => {
       const entryCheck = {
-        redirect:
-          typeof config.routes[index].redirect === 'string' || config.routes[index].redirect === null ? 'PASS' : 'FAIL',
-        isSearchable: typeof config.routes[index].isSearchable === 'boolean' ? 'PASS' : 'FAIL',
-        aliases: Array.isArray(config.routes[index].aliases) ? 'PASS' : 'FAIL',
-        activateOnError: typeof config.routes[index].activateOnError === 'boolean' ? 'PASS' : 'FAIL',
-        disabled: typeof config.routes[index].disabled === 'boolean' ? 'PASS' : 'FAIL',
-        default: typeof config.routes[index].default === 'boolean' ? 'PASS' : 'FAIL',
-        component:
-          typeof config.routes[index].component === 'string' || config.routes[index].component === null
-            ? 'PASS'
-            : 'FAIL'
+        path: typeof value.path === 'string' ? 'PASS' : 'FAIL',
+        pathParameter: Array.isArray(value.pathParameter) ? 'PASS' : 'FAIL',
+        productParameter: Array.isArray(value.productParameter) ? 'PASS' : 'FAIL',
+        productConfig: Array.isArray(value.productConfig) ? 'PASS' : 'FAIL',
+        redirect: typeof value.redirect === 'string' || value.redirect === null ? 'PASS' : 'FAIL',
+        activateOnError: typeof value.activateOnError === 'boolean' ? 'PASS' : 'FAIL',
+        disabled: typeof value.disabled === 'boolean' ? 'PASS' : 'FAIL',
+        default: typeof value.default === 'boolean' ? 'PASS' : 'FAIL',
+        component: typeof value.component === 'string' || value.component === null ? 'PASS' : 'FAIL'
       };
 
       if (Object.values(entryCheck).indexOf('FAIL') > -1) {
-        inconsistentEntries.push({ [`Entry ${index} inconsistent`]: entryCheck });
+        inconsistentEntries.push({ [`Entry ${index}, ${value.path} inconsistent`]: entryCheck });
       }
     });
 

@@ -6,6 +6,7 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "components/inventoryCard/inventoryCardContext.js:229:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "components/inventoryCard/inventoryCardHelpers.js:87:          console.warn(\`Warning: Filter "\${id}" not found in "table row" response data.\`, cellData);",
   "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:126:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "config/products.js:28:    console.warn(\`Product configuration failed to load: \${e.message}\`);",
   "index.js:12:      console.log(\`Emulated appNavClick: \${JSON.stringify({ id, ...rest })}\`);",
   "redux/common/reduxHelpers.js:282:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:286:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",

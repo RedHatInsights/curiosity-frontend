@@ -1,4 +1,4 @@
-import { routerHelpers } from '../../components/router';
+import { productConfig } from '../../config';
 import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services/rhsm/rhsmConstants';
@@ -15,7 +15,8 @@ const initialState = {
   graphTallyQuery: {},
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
-  inventorySubscriptionsQuery: {}
+  inventorySubscriptionsQuery: {},
+  product: {}
 };
 
 /**
@@ -29,7 +30,7 @@ const viewReducer = (state = initialState, action) => {
   switch (action.type) {
     case reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST:
       const updateResetQueries = (query = {}, id) => {
-        const queryIds = routerHelpers.productGroups[id] || (query[id] && [id]) || [];
+        const queryIds = productConfig.sortedConfigs().byViewIds[id] || (query[id] && [id]) || [];
         const updatedQuery = { ...query };
 
         queryIds.forEach(queryId => {
@@ -60,7 +61,7 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_LIST:
       const updateClearQueries = (query = {}, id) => {
-        const queryIds = routerHelpers.productGroups[id] || (query[id] && [id]) || [];
+        const queryIds = productConfig.sortedConfigs().byViewIds[id] || (query[id] && [id]) || [];
         const updatedQuery = { ...query };
 
         queryIds.forEach(queryId => {
@@ -88,7 +89,7 @@ const viewReducer = (state = initialState, action) => {
       );
     case reduxTypes.query.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST:
       const updateClearGuestQuery = (query = {}, id) => {
-        const queryIds = routerHelpers.productGroups[id] || (query[id] && [id]) || [];
+        const queryIds = productConfig.sortedConfigs().byViewIds[id] || (query[id] && [id]) || [];
         const updatedQuery = { ...query };
 
         queryIds.forEach(queryId => {
@@ -387,6 +388,18 @@ const viewReducer = (state = initialState, action) => {
             ...state.inventorySubscriptionsQuery[action.viewId],
             [RHSM_API_QUERY_TYPES.SORT]: action[RHSM_API_QUERY_TYPES.SORT]
           }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.app.SET_PRODUCT:
+      return reduxHelpers.setStateProp(
+        'product',
+        {
+          // [action.viewId]: action.product
+          config: action.config
         },
         {
           state,

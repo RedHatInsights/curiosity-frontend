@@ -33,7 +33,10 @@ const setCommonPlugins = () => {
     }),
     fedModulePlugin({
       root: RELATIVE_DIRNAME,
-      shared: [{ 'react-redux': { requiredVersion: dependencies['react-redux'] } }]
+      shared: [
+        { 'react-router-dom': { singleton: true, requiredVersion: '*' } },
+        { 'react-redux': { requiredVersion: dependencies['react-redux'] } }
+      ]
     })
   ];
 

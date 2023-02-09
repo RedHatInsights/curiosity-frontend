@@ -29,9 +29,11 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 
 const config = {
+  aliases: ['openshift-dedicated'],
   productGroup,
   productId,
   productLabel,
+  productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.DUAL_AXES,
   viewId: `view${productGroup}`,
   query: {
