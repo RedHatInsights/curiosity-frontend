@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { routerContext } from '../router';
-import { ProductViewContext } from './productViewContext';
-import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
-import { GraphCard } from '../graphCard/graphCard';
-import { Toolbar } from '../toolbar/toolbar';
-import { InventoryCard } from '../inventoryCard/inventoryCard';
-import { InventoryCardHosts } from '../inventoryCard/inventoryCardHosts';
+import { PageLayout, PageHeader, PageColumns } from '../pageLayout/pageLayout';
+// import { ProductViewContext } from './productViewContext';
+// import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
+// import { GraphCard } from '../graphCard/graphCard';
+// import { Toolbar } from '../toolbar/toolbar';
+// import { InventoryCard } from '../inventoryCard/inventoryCard';
+// import { InventoryCardHosts } from '../inventoryCard/inventoryCardHosts';
 import { helpers } from '../../common';
-import BannerMessages from '../bannerMessages/bannerMessages';
-import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
-import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
-import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../services/rhsm/rhsmConstants';
+// import BannerMessages from '../bannerMessages/bannerMessages';
+// import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
+// import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
+// import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -23,8 +24,8 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
-  const { productGroup, productConfig } = useAliasRouteDetail() || {};
-  const [updatedContext] = useState(productConfig);
+  const { productGroup, productConfig: updatedContext } = useAliasRouteDetail() || {};
+  // const [updatedContext] = useState(productConfig);
 
   /**
    * Render a product with a context provider
@@ -32,6 +33,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
    * @param {object} config
    * @returns {React.ReactNode|null}
    */
+  /*
   const renderProduct = config => {
     const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productDisplay, productId, viewId } = config;
 
@@ -89,6 +91,11 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
         </PageSection>
       </ProductViewContext.Provider>
     );
+  };
+  */
+  const renderProduct = config => {
+    console.log('>>>> PRODUCT VIEW', config);
+    return null;
   };
 
   return (

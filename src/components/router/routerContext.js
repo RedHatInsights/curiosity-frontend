@@ -1,11 +1,80 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
+import _memoize from 'lodash/memoize';
+// import { useShallowCompareEffect } from 'react-use';
 import {
   useLocation as useLocationRRD,
   useNavigate as useRRDNavigate,
-  useParams,
+  // useParams as useRRDParams,
   useSearchParams as useRRDSearchParams
 } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
+
+/**
+ * ToDo: Review react-router-dom useParams once v6 updates are in env
+ * During implementation testing react-router-dom "useParams" was helping spawn multiple
+ * component refreshes so we rolled our own.
+ *
+ * We were unable to tell if this was a combination of
+ * using the proxy combined with v5 of router. The most noticeable double (to sometimes triple)
+ * refresh is jumping between OpenShift Subs and RHEL Subs, unclear if there's some
+ * special left navigation at play here, or simply the lazy load of the component associated with
+ * the path.
+ *
+ * On a personal note...
+ * react-router has always been between the category of "close enough" and "[roll your own router or ... not]"...
+ * this new version doesn't do itself any favors, it tries to do more and ends up just
+ * offsetting some of the odd original loading issues we had. The current goal is to just
+ * get something working close enough.
+ */
+/**
+ * We ignore react router doms useParams.
+ *
+ * @returns {{productPath: string}}
+ */
+const useParams = () => {
+  const productPath = routerHelpers.dynamicProductParameter();
+  console.log('>>>> run set params', productPath);
+  return { productPath };
+};
+
+/*
+const useParams = ({ useParams: useAliasParams = useRRDParams } = {}) => {
+  const { productPath } = useAliasParams();
+  // return { productPath };
+  /*
+  const { productPath } = useAliasParams();
+  const [updatedProductPath, setUpdatedProductPath] = useState(productPath);
+  console.log('>>>> run set params', productPath);
+
+  useEffect(() => {
+    if (productPath !== updatedProductPath) {
+      console.log('>>>> UPDATE SET PARAMS', productPath);
+      setUpdatedProductPath(productPath);
+    }
+  }, [productPath, updatedProductPath]);
+
+  return { productPath: updatedProductPath };
+  * /
+
+  console.log('>>>> run params', productPath);
+
+  return useMemo(() => {
+    console.log('>>>> SET PARAMS', productPath);
+    return { productPath };
+  }, [productPath]);
+
+  /*
+  useShallowCompareEffect(() => {
+    // useShallowCompare
+    // useDeepCompare
+    // if (!_isEqual(updatedParams, params)) {
+    console.log('>>>> UPDATE SET PARAMS', params);
+    setUpdatedParams(params);
+    // }
+  }, [params]);
+  * /
+};
+ */
 
 /**
  * Combine react-router-dom useLocation with actual window location.
@@ -82,7 +151,38 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
  */
 const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
   const { productPath } = useAliasParams();
+  console.log('>>> use route detail', productPath);
+
+  const doIt = _memoize(pp => {
+    const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: pp });
+    console.log('>>> SET ROUTE DETAIL', pp, configs.length, firstMatch?.productGroup);
+    return {
+      allProductConfigs: allConfigs,
+      firstMatch,
+      errorRoute: routerHelpers.errorRoute,
+      productGroup: firstMatch?.productGroup,
+      productConfig: (configs?.length && configs) || []
+    };
+  });
+
+  return doIt(productPath);
+  /*
+  return useMemo(() => {
+    const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+    console.log('>>> SET ROUTE DETAIL', productPath, configs.length, firstMatch?.productGroup);
+    return {
+      allProductConfigs: allConfigs,
+      firstMatch,
+      errorRoute: routerHelpers.errorRoute,
+      productGroup: firstMatch?.productGroup,
+      productConfig: (configs?.length && configs) || []
+    };
+  }, [productPath]);
+  */
+  /*
+  const { productPath } = useAliasParams();
   const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+  console.log('>>> USE ROUTE DETAIL', productPath, configs.length, firstMatch?.productGroup);
 
   return {
     allProductConfigs: allConfigs,
@@ -91,6 +191,7 @@ const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
     productGroup: firstMatch?.productGroup,
     productConfig: (configs?.length && configs) || []
   };
+  */
 };
 
 /**

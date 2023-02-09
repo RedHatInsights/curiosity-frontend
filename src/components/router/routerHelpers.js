@@ -34,6 +34,11 @@ const dynamicBaseName = ({ pathName = window.location.pathname, appName: applica
 const dynamicBasePath = ({ pathName = window.location.pathname, appName: applicationName = helpers.UI_NAME } = {}) =>
   pathName.split(applicationName)[0];
 
+const dynamicProductParameter = ({
+  pathName = window.location.pathname,
+  appName: applicationName = helpers.UI_NAME
+} = {}) => pathName.split(applicationName)[1]?.replace(/\//g, '');
+
 /**
  * The first error route.
  *
@@ -61,62 +66,68 @@ const routes = routesConfig;
  * @param {object} params
  * @param {string} params.pathName
  * @param {Array} params.config
+ * @param {boolean} params.isFailureAcceptable
  * @returns {{configs: Array, configFirstMatch: object, configsById: object}}
  */
-const getRouteConfigByPath = _memoize(({ pathName, configs = productConfig.configs } = {}) => {
-  const updatedPathName =
-    (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName || window.location.pathname;
+const getRouteConfigByPath = _memoize(
+  ({ pathName, configs = productConfig.configs, isFailureAcceptable = false } = {}) => {
+    const updatedPathName =
+      (/^http/i.test(pathName) && new URL(pathName).pathname) ||
+      pathName ||
+      (!isFailureAcceptable && window.location.pathname) ||
+      '';
 
-  const basePathDirs = updatedPathName
-    ?.split('#')?.[0]
-    ?.split('?')?.[0]
-    ?.split('/')
-    .filter(str => str.length > 0)
-    ?.reverse();
-  const filteredConfigs = [];
-  const filteredConfigsById = {};
-  const filteredConfigsByGroup = {};
-  const allConfigs = configs;
+    const basePathDirs = updatedPathName
+      ?.split('#')?.[0]
+      ?.split('?')?.[0]
+      ?.split('/')
+      .filter(str => str.length > 0)
+      ?.reverse();
+    const filteredConfigs = [];
+    const filteredConfigsById = {};
+    const filteredConfigsByGroup = {};
+    const allConfigs = configs;
 
-  const findConfig = dir => {
-    configs.forEach(configItem => {
-      const { productId, productGroup, aliases } = configItem;
+    const findConfig = dir => {
+      configs.forEach(configItem => {
+        const { productId, productGroup, aliases } = configItem;
 
-      if (
-        !(productId in filteredConfigsById) &&
-        dir &&
-        (new RegExp(dir, 'i').test(aliases?.toString()) ||
-          new RegExp(dir, 'i').test(productGroup?.toString()) ||
-          new RegExp(dir, 'i').test(productId?.toString()))
-      ) {
-        filteredConfigsByGroup[productGroup] ??= [];
-        filteredConfigsByGroup[productGroup].push(configItem);
+        if (
+          !(productId in filteredConfigsById) &&
+          dir &&
+          (new RegExp(dir, 'i').test(aliases?.toString()) ||
+            new RegExp(dir, 'i').test(productGroup?.toString()) ||
+            new RegExp(dir, 'i').test(productId?.toString()))
+        ) {
+          filteredConfigsByGroup[productGroup] ??= [];
+          filteredConfigsByGroup[productGroup].push(configItem);
 
-        filteredConfigsById[productId] = configItem;
-        filteredConfigs.push(configItem);
-      }
-    });
-  };
+          filteredConfigsById[productId] = configItem;
+          filteredConfigs.push(configItem);
+        }
+      });
+    };
 
-  if (basePathDirs?.length) {
-    basePathDirs.forEach(dir => {
-      if (dir) {
-        const decodedDir = window.decodeURI(dir);
-        findConfig(decodedDir);
-      }
-    });
-  } else {
-    findConfig();
+    if (basePathDirs?.length) {
+      basePathDirs.forEach(dir => {
+        if (dir) {
+          const decodedDir = window.decodeURI(dir);
+          findConfig(decodedDir);
+        }
+      });
+    } else {
+      findConfig();
+    }
+
+    return {
+      allConfigs,
+      configs: filteredConfigs,
+      configsById: filteredConfigsById,
+      configsByGroup: filteredConfigsByGroup,
+      firstMatch: filteredConfigs?.[0]
+    };
   }
-
-  return {
-    allConfigs,
-    configs: filteredConfigs,
-    configsById: filteredConfigsById,
-    configsByGroup: filteredConfigsByGroup,
-    firstMatch: filteredConfigs?.[0]
-  };
-});
+);
 
 /**
  * Import a route component.
@@ -180,6 +191,7 @@ const routerHelpers = {
   appName,
   dynamicBaseName,
   dynamicBasePath,
+  dynamicProductParameter,
   redirectRoute,
   errorRoute,
   getRouteConfigByPath,
@@ -195,6 +207,7 @@ export {
   appName,
   dynamicBaseName,
   dynamicBasePath,
+  dynamicProductParameter,
   redirectRoute,
   errorRoute,
   getRouteConfigByPath,

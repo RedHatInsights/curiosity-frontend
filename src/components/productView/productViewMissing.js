@@ -31,7 +31,8 @@ const ProductViewMissing = ({
 
   useMount(() => {
     if (availableProducts.length <= availableProductsRedirect) {
-      navigate(availableProducts[0].productPath);
+      // navigate(availableProducts[0].productPath);
+      console.log('>>>> MISSING VIEW', navigate);
     }
   });
 

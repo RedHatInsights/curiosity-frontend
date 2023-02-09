@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Navigate, Routes, Route } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
+import { helpers } from '../../common';
 
 // ToDo: consider moving the filter for disabled routes towards routerHelpers
 /**
@@ -14,16 +15,12 @@ import { Loader } from '../loader/loader';
  * @returns {React.ReactNode}
  */
 const Router = ({ redirectRoute, routes } = {}) => {
-  const updatedRoutes = useMemo(
-    () =>
-      routes
-        .filter(item => !item.disabled)
-        .map(item => {
-          const View = routerHelpers.importView(item.component);
-          return <Route key={item.path} path={item.path} element={<View />} />;
-        }),
-    [routes]
-  );
+  const updatedRoutes = routes
+    .filter(item => !item.disabled)
+    .map(item => {
+      const View = routerHelpers.importView(item.component);
+      return <Route key={helpers.generateId()} path={item.path} element={<View />} />;
+    });
 
   return (
     <React.Suspense fallback={<Loader variant="title" />}>
