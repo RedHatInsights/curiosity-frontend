@@ -1,13 +1,15 @@
-import { useCallback, useMemo } from 'react';
-import _memoize from 'lodash/memoize';
+import { useCallback, useEffect, useState } from 'react';
+// import _memoize from 'lodash/memoize';
 // import { useShallowCompareEffect } from 'react-use';
 import {
   useLocation as useLocationRRD,
   useNavigate as useRRDNavigate,
+  // useParams,
   // useParams as useRRDParams,
   useSearchParams as useRRDSearchParams
 } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
+import { helpers } from '../../common/helpers';
 
 /**
  * ToDo: Review react-router-dom useParams once v6 updates are in env
@@ -31,10 +33,48 @@ import { routerHelpers } from './routerHelpers';
  *
  * @returns {{productPath: string}}
  */
+/*
 const useParams = () => {
   const productPath = routerHelpers.dynamicProductParameter();
   console.log('>>>> run set params', productPath);
   return { productPath };
+};
+*/
+/* using the outside cache busts the reload...
+const testParamsCache = {};
+const useParams = () => {
+  // const productPath = routerHelpers.dynamicProductParameter();
+  // console.log('>>>> run set params', productPath);
+  // return { productPath };
+  const [params, setParams] = useState({});
+  const productPath = routerHelpers.dynamicProductParameter();
+
+  useEffect(() => {
+    if (testParamsCache.productPath !== productPath) {
+      console.log('>>>> run set params', testParamsCache.productPath, productPath);
+      setParams({ productPath });
+      testParamsCache.productPath = productPath;
+    }
+  }, [productPath]);
+
+  return params;
+};
+*/
+const useParams = () => {
+  // const productPath = routerHelpers.dynamicProductParameter();
+  // console.log('>>>> run set params', productPath);
+  // return { productPath };
+  const [params, setParams] = useState({});
+  const productPath = routerHelpers.dynamicProductParameter();
+
+  useEffect(() => {
+    if (params.productPath !== productPath) {
+      console.log('>>>> run set params', params.productPath, productPath);
+      setParams({ productPath });
+    }
+  }, [params.productPath, productPath]);
+
+  return params;
 };
 
 /*
@@ -84,8 +124,31 @@ const useParams = ({ useParams: useAliasParams = useRRDParams } = {}) => {
  * @returns {{search, replace: Function, href, hash}}
  */
 const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) => {
-  // const location = useAliasLocation();
-  // const location = {};
+  const location = useAliasLocation();
+  const { location: windowLocation } = window;
+  const [updatedLocation, setUpdatedLocation] = useState();
+
+  useEffect(() => {
+    const _id = helpers.generateHash(windowLocation);
+    if (updatedLocation?._id !== _id) {
+      console.log('>>>> set use location', _id);
+      setUpdatedLocation({
+        ...location,
+        ...windowLocation,
+        _id,
+        replace: path => windowLocation.replace(path),
+        hash: location?.hash || '',
+        set href(path) {
+          windowLocation.href = path;
+        },
+        search: location?.search || ''
+      });
+    }
+  }, [location, updatedLocation?._id, windowLocation]);
+
+  return updatedLocation;
+
+  /*
   const { location: windowLocation } = window;
   console.log('>>>> set use location', useAliasLocation.toString());
   return useMemo(
@@ -98,6 +161,7 @@ const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) =>
     }),
     [windowLocation]
   );
+  */
   /*
   return useMemo(
     () => ({
@@ -125,6 +189,7 @@ const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) =>
  */
 const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
   const { hash = '', search = '', ...location } = useAliasLocation() || {};
+
   /**
    * redirect
    *
@@ -133,6 +198,7 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
    */
   return useCallback(
     (route, { isReplace = true } = {}) => {
+      console.log('>>> use redirect fired', route);
       const baseName = routerHelpers.dynamicBaseName();
       let isUrl;
 
@@ -164,8 +230,28 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
  */
 const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
   const { productPath } = useAliasParams();
+  const [detail, setDetail] = useState();
   console.log('>>> use route detail', productPath);
 
+  useEffect(() => {
+    if (detail?.productPath !== productPath) {
+      const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+      console.log('>>> SET ROUTE DETAIL', productPath, configs.length, firstMatch?.productGroup);
+      const updateDetail = {
+        allProductConfigs: allConfigs,
+        firstMatch,
+        errorRoute: routerHelpers.errorRoute,
+        productGroup: firstMatch?.productGroup,
+        productConfig: (configs?.length && configs) || [],
+        productPath
+      };
+      setDetail(updateDetail);
+    }
+  }, [detail?.productPath, productPath]);
+
+  return detail;
+
+  /*
   const doIt = _memoize(pp => {
     const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: pp });
     console.log('>>> SET ROUTE DETAIL', pp, configs.length, firstMatch?.productGroup);
@@ -179,6 +265,7 @@ const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
   });
 
   return doIt(productPath);
+  */
   /*
   return useMemo(() => {
     const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });

@@ -24,35 +24,38 @@ const I18n = ({ children, fallbackLng, loadPath, locale }) => {
    * Initialize i18next
    */
   useMount(async () => {
-    try {
-      await i18next
-        .use(XHR)
-        .use(initReactI18next)
-        .init({
-          backend: {
-            loadPath
-          },
-          fallbackLng,
-          lng: undefined,
-          debug: !helpers.PROD_MODE,
-          ns: ['default'],
-          defaultNS: 'default',
-          react: {
-            useSuspense: false
-          }
-        });
-    } catch (e) {
-      //
-    }
+    console.log('>>> mount i18n');
+    if (!initialized) {
+      try {
+        await i18next
+          .use(XHR)
+          .use(initReactI18next)
+          .init({
+            backend: {
+              loadPath
+            },
+            fallbackLng,
+            lng: undefined,
+            debug: !helpers.PROD_MODE,
+            ns: ['default'],
+            defaultNS: 'default',
+            react: {
+              useSuspense: false
+            }
+          });
+      } catch (e) {
+        //
+      }
 
-    setInitialized(true);
+      setInitialized(true);
+    }
   });
 
   /**
    * Update locale.
    */
   useEffect(() => {
-    if (initialized) {
+    if (initialized && locale) {
       try {
         i18next.changeLanguage(locale);
       } catch (e) {

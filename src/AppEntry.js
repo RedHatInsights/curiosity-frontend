@@ -5,10 +5,13 @@ import App from './app';
 import './styles/index.scss';
 import '@patternfly/react-styles/css/components/Select/select.css';
 
-const AppEntry = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+const AppEntry = () => {
+  console.log('>>> APP ENTRY LOAD >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
 
 export { AppEntry as default, AppEntry };

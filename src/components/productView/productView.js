@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useMount } from 'react-use';
 import { routerContext } from '../router';
 import { PageLayout, PageHeader, PageColumns } from '../pageLayout/pageLayout';
 // import { ProductViewContext } from './productViewContext';
@@ -24,8 +25,12 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
-  const { productGroup, productConfig: updatedContext } = useAliasRouteDetail() || {};
-  // const [updatedContext] = useState(productConfig);
+  const { productGroup, productConfig } = useAliasRouteDetail() || {};
+  // const { productGroup, productConfig } = detail || {};
+
+  useMount(() => {
+    console.log('>>>> PRODUCT VIEW MOUNTED', productGroup);
+  });
 
   /**
    * Render a product with a context provider
@@ -93,10 +98,14 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
     );
   };
   */
-  const renderProduct = config => {
-    console.log('>>>> PRODUCT VIEW', config);
-    return null;
-  };
+  const renderProduct = useCallback(() => {
+    const updated = config => {
+      console.log('>>>> PRODUCT VIEW', config);
+      return null;
+    };
+
+    return productConfig?.map(config => updated(config));
+  }, [productConfig]);
 
   return (
     (productGroup && (
@@ -104,7 +113,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
         <PageHeader productLabel={productGroup}>
           {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
         </PageHeader>
-        <PageColumns>{updatedContext?.map(config => renderProduct(config))}</PageColumns>
+        <PageColumns>{renderProduct()}</PageColumns>
       </PageLayout>
     )) ||
     null
