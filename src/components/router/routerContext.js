@@ -256,6 +256,100 @@ const useRouteDetail = ({ useSelector: useAliasSelector = storeHooks.reactRedux.
   console.log('>>> use route detail', productPath);
 
   useEffect(() => {
+    if (productPath && detail?._passed !== productPath) {
+      const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+      console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, detail?._passed, productPath);
+      const updateDetail = {
+        _passed: productPath,
+        allProductConfigs: allConfigs,
+        firstMatch,
+        errorRoute: routerHelpers.errorRoute,
+        productGroup: firstMatch?.productGroup,
+        productConfig: (configs?.length && configs) || [],
+        productPath
+      };
+      setDetail(updateDetail);
+    }
+  }, [detail?._passed, productPath]);
+
+  return detail;
+
+  /* 3x same
+  const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
+
+  return useMemo(() => {
+    const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+    console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, firstMatch?.productId);
+    return {
+      allProductConfigs: allConfigs,
+      firstMatch,
+      errorRoute: routerHelpers.errorRoute,
+      productGroup: firstMatch?.productGroup,
+      productConfig: (configs?.length && configs) || [],
+      productPath
+    };
+  }, [productPath]);
+   */
+
+  /* 3x, possibly more due to set state
+  const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
+  const [detail, setDetail] = useState({});
+  console.log('>>> use route detail', productPath);
+
+  useEffect(() => {
+    if (productPath && detail?._passed !== productPath) {
+      const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+      console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, detail?._passed, productPath);
+      const updateDetail = {
+        _passed: productPath,
+        allProductConfigs: allConfigs,
+        firstMatch,
+        errorRoute: routerHelpers.errorRoute,
+        productGroup: firstMatch?.productGroup,
+        productConfig: (configs?.length && configs) || [],
+        productPath
+      };
+      setDetail(updateDetail);
+    }
+  }, [detail?._passed, productPath]);
+
+  return detail;
+  */
+  /* same 3x redraw
+  const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
+  const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+  console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, firstMatch?.productId);
+  const [detail] = useState({
+    allProductConfigs: allConfigs,
+    firstMatch,
+    errorRoute: routerHelpers.errorRoute,
+    productGroup: firstMatch?.productGroup,
+    productConfig: (configs?.length && configs) || [],
+    productPath
+  });
+
+  return detail;
+  */
+  /* same 3x redraw
+  const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
+  const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+  console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, firstMatch?.productId);
+  const detail = {
+    allProductConfigs: allConfigs,
+    firstMatch,
+    errorRoute: routerHelpers.errorRoute,
+    productGroup: firstMatch?.productGroup,
+    productConfig: (configs?.length && configs) || [],
+    productPath
+  };
+
+  return { ...detail };
+  */
+  /*
+  const [detail, setDetail] = useState({});
+  console.log('>>> use route detail', productPath);
+
+  useEffect(() => {
     if (productPath && detail?.productPath !== productPath) {
       const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
       console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, firstMatch?.productId);
@@ -270,8 +364,7 @@ const useRouteDetail = ({ useSelector: useAliasSelector = storeHooks.reactRedux.
       setDetail(updateDetail);
     }
   }, [detail?.productPath, productPath]);
-
-  return detail;
+  */
 };
 
 const useRouteDetailWorkingish = ({

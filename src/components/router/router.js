@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navigate, Routes, Route, } from 'react-router-dom';
+import { Navigate, Routes, Route } from 'react-router-dom';
 import { useSetRouteDetail } from './routerContext';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
@@ -16,6 +16,7 @@ import { helpers } from '../../common';
  * @returns {React.ReactNode}
  */
 const Router = ({ redirectRoute, routes } = {}) => {
+  // this bypasses react router all together, its like we don't even need a router
   useSetRouteDetail();
   // const params = useParams();
   // const location = useLocation();
