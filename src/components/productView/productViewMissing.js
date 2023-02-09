@@ -30,7 +30,7 @@ const ProductViewMissing = ({
   const availableProducts = (productConfig?.length && productConfig) || allProductConfigs;
 
   useMount(() => {
-    if (availableProducts.length <= availableProductsRedirect) {
+    if (availableProducts?.length <= availableProductsRedirect) {
       // navigate(availableProducts[0].productPath);
       console.log('>>>> MISSING VIEW', navigate);
     }
@@ -50,7 +50,7 @@ const ProductViewMissing = ({
       <PageHeader productLabel="missing">{t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME })}</PageHeader>
       <PageSection isFilled>
         <Gallery hasGutter>
-          {availableProducts.map(({ productGroup, productId, productPath }) => (
+          {availableProducts?.map(({ productGroup, productId, productPath }) => (
             <Card
               key={`missingViewCard-${productId}-${helpers.generateId()}`}
               isHoverable

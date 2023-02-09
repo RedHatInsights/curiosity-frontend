@@ -69,7 +69,7 @@ const useParams = () => {
   const productPath = routerHelpers.dynamicProductParameter();
 
   useEffect(() => {
-    if (params.productPath !== productPath) {
+    if (productPath && params.productPath !== productPath) {
       console.log('>>>> run set params', params.productPath, productPath);
       setParams({ productPath });
     }
@@ -127,7 +127,7 @@ const useParams = ({ useParams: useAliasParams = useRRDParams } = {}) => {
 const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) => {
   const location = useAliasLocation();
   const { location: windowLocation } = window;
-  const [updatedLocation, setUpdatedLocation] = useState();
+  const [updatedLocation, setUpdatedLocation] = useState({});
 
   useEffect(() => {
     const _id = helpers.generateHash(windowLocation);
@@ -189,7 +189,7 @@ const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) =>
  * @returns {(function(*): void)|*}
  */
 const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
-  const { hash = '', search = '', ...location } = useAliasLocation() || {};
+  const { hash = '', search = '', ...location } = useAliasLocation();
 
   /**
    * redirect
@@ -233,19 +233,25 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
  */
 const useRouteDetail = ({
   useParams: useAliasParams = useParams,
-  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch
 } = {}) => {
   const dispatch = useAliasDispatch();
   const { productPath } = useAliasParams();
-  const detail = useAliasSelector(({ view }) => view?.product?.config, {});
+  const [detail = {}] = useAliasSelector([({ view }) => view?.product?.config]);
   // const [detail, setDetail] = useState();
   console.log('>>> use route detail', productPath);
 
   useEffect(() => {
-    if (detail?.productPath !== productPath) {
+    if (productPath && detail?.productPath !== productPath) {
       const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
-      console.log('>>> SET ROUTE DETAIL', productPath, configs.length, firstMatch?.productGroup);
+      console.log(
+        '>>> SET ROUTE DETAIL',
+        `det.prodPath=${detail?.productPath}`,
+        `prodPath=${productPath}`,
+        configs.length,
+        firstMatch?.productGroup
+      );
       const updateDetail = {
         allProductConfigs: allConfigs,
         firstMatch,
