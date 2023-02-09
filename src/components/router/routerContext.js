@@ -222,16 +222,59 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
   );
 };
 
+const useSetRouteDetail = ({
+  useParams: useAliasParams = useParams,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch
+} = {}) => {
+  const dispatch = useAliasDispatch();
+  const { productPath } = useAliasParams();
+  const [updatedPath] = useAliasSelector([({ view }) => view?.product?.config]);
+
+  useEffect(() => {
+    if (productPath && updatedPath !== productPath) {
+      dispatch({
+        type: reduxTypes.app.SET_PRODUCT,
+        config: productPath
+      });
+    }
+  }, [updatedPath, dispatch, productPath]);
+
+  return updatedPath;
+};
+
 /**
  * Get a route detail from router context.
  *
  * @param {object} options
- * @param {Function} options.useParams
- * @param options.useSelector
- * @param options.useDispatch
+ * @param {Function} options.useSelector
  * @returns {{baseName: string, errorRoute: object}}
  */
-const useRouteDetail = ({
+const useRouteDetail = ({ useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors } = {}) => {
+  const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
+  const [detail, setDetail] = useState({});
+  console.log('>>> use route detail', productPath);
+
+  useEffect(() => {
+    if (productPath && detail?.productPath !== productPath) {
+      const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
+      console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, firstMatch?.productId);
+      const updateDetail = {
+        allProductConfigs: allConfigs,
+        firstMatch,
+        errorRoute: routerHelpers.errorRoute,
+        productGroup: firstMatch?.productGroup,
+        productConfig: (configs?.length && configs) || [],
+        productPath
+      };
+      setDetail(updateDetail);
+    }
+  }, [detail?.productPath, productPath]);
+
+  return detail;
+};
+
+const useRouteDetailWorkingish = ({
   useParams: useAliasParams = useParams,
   useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch
@@ -391,6 +434,8 @@ const context = {
   useNavigate,
   useParams,
   useRedirect,
+  useSetRouteDetail,
+  useRouteDetailWorkingish,
   useRouteDetail,
   useSearchParams
 };
@@ -402,6 +447,7 @@ export {
   useNavigate,
   useParams,
   useRedirect,
+  useSetRouteDetail,
   useRouteDetail,
   useSearchParams
 };

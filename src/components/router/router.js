@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navigate, Routes, Route } from 'react-router-dom';
+import { Navigate, Routes, Route, } from 'react-router-dom';
+import { useSetRouteDetail } from './routerContext';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
 import { helpers } from '../../common';
@@ -15,6 +16,11 @@ import { helpers } from '../../common';
  * @returns {React.ReactNode}
  */
 const Router = ({ redirectRoute, routes } = {}) => {
+  useSetRouteDetail();
+  // const params = useParams();
+  // const location = useLocation();
+  // console.log('>>>>> ROUTER PARAMS', params);
+
   const updatedRoutes = routes
     .filter(item => !item.disabled)
     .map(item => {

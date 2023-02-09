@@ -16,7 +16,7 @@ const initialState = {
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
   inventorySubscriptionsQuery: {},
-  products: {}
+  product: {}
 };
 
 /**
