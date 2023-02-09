@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState, useEffect } from 'react';
+import { useCallback, useMemo } from 'react';
 import _memoize from 'lodash/memoize';
 // import { useShallowCompareEffect } from 'react-use';
 import {
@@ -84,9 +84,21 @@ const useParams = ({ useParams: useAliasParams = useRRDParams } = {}) => {
  * @returns {{search, replace: Function, href, hash}}
  */
 const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) => {
-  const location = useAliasLocation();
+  // const location = useAliasLocation();
+  // const location = {};
   const { location: windowLocation } = window;
-
+  console.log('>>>> set use location', useAliasLocation.toString());
+  return useMemo(
+    () => ({
+      ...windowLocation,
+      replace: path => windowLocation.replace(path),
+      set href(path) {
+        windowLocation.href = path;
+      }
+    }),
+    [windowLocation]
+  );
+  /*
   return useMemo(
     () => ({
       ...location,
@@ -100,6 +112,7 @@ const useLocation = ({ useLocation: useAliasLocation = useLocationRRD } = {}) =>
     }),
     [location, windowLocation]
   );
+  */
 };
 
 /**
