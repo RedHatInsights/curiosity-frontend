@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import { routerHelpers } from './routerHelpers';
 import { helpers } from '../../common/helpers';
+import { storeHooks, reduxTypes } from '../../redux';
 
 /**
  * ToDo: Review react-router-dom useParams once v6 updates are in env
@@ -226,11 +227,19 @@ const useRedirect = ({ useLocation: useAliasLocation = useLocation } = {}) => {
  *
  * @param {object} options
  * @param {Function} options.useParams
+ * @param options.useSelector
+ * @param options.useDispatch
  * @returns {{baseName: string, errorRoute: object}}
  */
-const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
+const useRouteDetail = ({
+  useParams: useAliasParams = useParams,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector,
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch
+} = {}) => {
+  const dispatch = useAliasDispatch();
   const { productPath } = useAliasParams();
-  const [detail, setDetail] = useState();
+  const detail = useAliasSelector(({ view }) => view?.product?.config, {});
+  // const [detail, setDetail] = useState();
   console.log('>>> use route detail', productPath);
 
   useEffect(() => {
@@ -245,9 +254,13 @@ const useRouteDetail = ({ useParams: useAliasParams = useParams } = {}) => {
         productConfig: (configs?.length && configs) || [],
         productPath
       };
-      setDetail(updateDetail);
+      // setDetail(updateDetail);
+      dispatch({
+        type: reduxTypes.app.SET_PRODUCT,
+        config: updateDetail
+      });
     }
-  }, [detail?.productPath, productPath]);
+  }, [detail?.productPath, dispatch, productPath]);
 
   return detail;
 

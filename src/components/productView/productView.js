@@ -15,6 +15,7 @@ import { helpers } from '../../common';
 // import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
 // import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
+import { storeHooks } from '../../redux';
 
 /**
  * Display product columns.
@@ -24,12 +25,14 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.useRouteDetail
  * @returns {Node}
  */
-const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
+const ProductView = ({ t, useRouteDetail: useAliasRouteDetail, useSelector: useAliasSelector }) => {
   const { productGroup, productConfig } = useAliasRouteDetail() || {};
   // const { productGroup, productConfig } = detail || {};
+  // useAliasRouteDetail();
+  // const { productGroup, productConfig } = useAliasSelector(({ view }) => view?.product?.config, {});
 
   useMount(() => {
-    console.log('>>>> PRODUCT VIEW MOUNTED', productGroup);
+    console.log('>>>> PRODUCT VIEW MOUNTED', useAliasSelector, productGroup);
   });
 
   /**
@@ -127,7 +130,8 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
  */
 ProductView.propTypes = {
   t: PropTypes.func,
-  useRouteDetail: PropTypes.func
+  useRouteDetail: PropTypes.func,
+  useSelector: PropTypes.func
 };
 
 /**
@@ -137,7 +141,8 @@ ProductView.propTypes = {
  */
 ProductView.defaultProps = {
   t: translate,
-  useRouteDetail: routerContext.useRouteDetail
+  useRouteDetail: routerContext.useRouteDetail,
+  useSelector: storeHooks.reactRedux.useSelector
 };
 
 export { ProductView as default, ProductView };
