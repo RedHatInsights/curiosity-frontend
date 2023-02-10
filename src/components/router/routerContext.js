@@ -8,9 +8,11 @@ import {
   // useParams as useRRDParams,
   useSearchParams as useRRDSearchParams
 } from 'react-router-dom';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { routerHelpers } from './routerHelpers';
 import { helpers } from '../../common/helpers';
 import { storeHooks, reduxTypes } from '../../redux';
+import { translate } from '../i18n/i18n';
 
 /**
  * ToDo: Review react-router-dom useParams once v6 updates are in env
@@ -247,10 +249,17 @@ const useSetRouteDetail = ({
  * Get a route detail from router context.
  *
  * @param {object} options
+ * @param {Function} options.t
+ * @param {Function} options.useChrome
  * @param {Function} options.useSelector
  * @returns {{baseName: string, errorRoute: object}}
  */
-const useRouteDetail = ({ useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors } = {}) => {
+const useRouteDetail = ({
+  t = translate,
+  useChrome: useAliasChrome = useChrome,
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors
+} = {}) => {
+  const { updateDocumentTitle } = useAliasChrome();
   const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
   const [detail, setDetail] = useState({});
   console.log('>>> use route detail', productPath);
@@ -268,9 +277,15 @@ const useRouteDetail = ({ useSelector: useAliasSelector = storeHooks.reactRedux.
         productConfig: (configs?.length && configs) || [],
         productPath
       };
+      updateDocumentTitle(
+        `${helpers.UI_DISPLAY_NAME}: ${t(`curiosity-view.title`, {
+          appName: helpers.UI_DISPLAY_NAME,
+          context: firstMatch?.productGroup
+        })}`
+      );
       setDetail(updateDetail);
     }
-  }, [detail?._passed, productPath]);
+  }, [detail?._passed, productPath, t, updateDocumentTitle]);
 
   return detail;
 
