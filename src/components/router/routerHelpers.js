@@ -37,7 +37,7 @@ const dynamicBasePath = ({ pathName = window.location.pathname, appName: applica
 const dynamicProductParameter = ({
   pathName = window.location.pathname,
   appName: applicationName = helpers.UI_NAME
-} = {}) => pathName.split(applicationName)[1]?.replace(/\//g, '');
+} = {}) => pathName.split(applicationName)[1];
 
 /**
  * The first error route.
