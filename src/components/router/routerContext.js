@@ -265,6 +265,7 @@ const useRouteDetail = ({
   console.log('>>> use route detail', productPath);
 
   useEffect(() => {
+    console.log('>>> ATTEMPT TO SET ROUTE DETAIL', detail?._passed !== productPath, detail?._passed, productPath);
     if (productPath && detail?._passed !== productPath) {
       const { allConfigs, configs, firstMatch } = routerHelpers.getRouteConfigByPath({ pathName: productPath });
       console.log('>>> SET ROUTE DETAIL', firstMatch?.productGroup, detail?._passed, productPath);
