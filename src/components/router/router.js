@@ -4,7 +4,6 @@ import { Navigate, Routes, Route } from 'react-router-dom';
 import { useSetRouteDetail } from './routerContext';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
-import { helpers } from '../../common';
 
 // ToDo: consider moving the filter for disabled routes towards routerHelpers
 /**
@@ -26,7 +25,7 @@ const Router = ({ redirectRoute, routes } = {}) => {
     .filter(item => !item.disabled)
     .map(item => {
       const View = routerHelpers.importView(item.component);
-      return <Route key={helpers.generateId()} path={item.path} element={<View />} />;
+      return <Route key={item.path} path={item.path} element={<View />} />;
     });
 
   return (
