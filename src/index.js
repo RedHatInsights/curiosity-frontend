@@ -26,7 +26,6 @@ window.insights = {
     getUserPermissions: () => [],
     hideGlobalFilter: Function.prototype,
     identifyApp: Function.prototype,
-    init: Function.prototype,
     isBeta: Function.prototype,
     on: Function.prototype
   }

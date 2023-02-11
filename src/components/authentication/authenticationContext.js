@@ -27,7 +27,6 @@ const useAuthContext = () => useContext(AuthenticationContext);
  * @param {string} options.appName
  * @param {Function} options.authorizeUser
  * @param {Function} options.hideGlobalFilter
- * @param {Function} options.initializeChrome
  * @param {Function} options.onNavigation
  * @param {Function} options.setAppName
  * @param {Function} options.useDispatch
@@ -39,7 +38,6 @@ const useGetAuthorization = ({
   appName = routerHelpers.appName,
   authorizeUser = reduxActions.platform.authorizeUser,
   hideGlobalFilter = reduxActions.platform.hideGlobalFilter,
-  initializeChrome = reduxActions.platform.initializeChrome,
   onNavigation = reduxActions.platform.onNavigation,
   setAppName = reduxActions.platform.setAppName,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
@@ -60,7 +58,7 @@ const useGetAuthorization = ({
 
   useMount(async () => {
     await dispatch(authorizeUser());
-    dispatch([initializeChrome(), setAppName(appName), hideGlobalFilter()]);
+    dispatch([setAppName(appName), hideGlobalFilter()]);
     setUnregister(() => dispatch(onNavigation(event => history.push(event.navId))));
   });
 
