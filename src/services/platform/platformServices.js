@@ -102,20 +102,6 @@ const hideGlobalFilter = async (isHidden = true) => {
 };
 
 /**
- * Help initialize global platform methods.
- *
- * @returns {Promise<*>}
- */
-const initializeChrome = async () => {
-  const { insights } = window;
-  try {
-    await insights.chrome.init();
-  } catch (e) {
-    throw new Error(`{ init } = insights.chrome, ${e.message}`);
-  }
-};
-
-/**
  * Apply on "app_navigation" event. Return an un-listener.
  *
  * @param {Function} callback
@@ -171,7 +157,6 @@ const platformServices = {
   getUser,
   getUserPermissions,
   hideGlobalFilter,
-  initializeChrome,
   onNavigation,
   setAppName,
   setAppNav
@@ -183,7 +168,6 @@ export {
   getUser,
   getUserPermissions,
   hideGlobalFilter,
-  initializeChrome,
   onNavigation,
   setAppName,
   setAppNav

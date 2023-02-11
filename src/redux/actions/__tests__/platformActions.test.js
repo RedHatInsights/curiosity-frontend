@@ -29,10 +29,6 @@ describe('PlatformActions', () => {
     expect(platformActions.hideGlobalFilter()).toMatchSnapshot('dispatch object');
   });
 
-  it('Should return a dispatch object for the initializeChrome method', () => {
-    expect(platformActions.initializeChrome()).toMatchSnapshot('dispatch object');
-  });
-
   it('Should return a function for the onNavigation method', () => {
     expect(platformActions.onNavigation()).toMatchSnapshot('function');
 

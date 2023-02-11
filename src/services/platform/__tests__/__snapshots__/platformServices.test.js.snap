@@ -20,8 +20,6 @@ exports[`PlatformServices should return a failed getUserPermissions: failed user
 
 exports[`PlatformServices should return a failed hideGlobalFilter: failed hideGlobalFilter 1`] = `[Error: { on } = insights.chrome, insights.chrome.hideGlobalFilter is not a function]`;
 
-exports[`PlatformServices should return a failed initializeChrome: failed initializeChrome 1`] = `[Error: { init } = insights.chrome, insights.chrome.init is not a function]`;
-
 exports[`PlatformServices should return a failed setAppName: failed setAppName 1`] = `
 {
   "data": undefined,
