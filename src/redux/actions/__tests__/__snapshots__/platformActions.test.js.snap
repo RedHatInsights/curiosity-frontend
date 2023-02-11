@@ -7,13 +7,6 @@ exports[`PlatformActions Should return a dispatch object for the hideGlobalFilte
 }
 `;
 
-exports[`PlatformActions Should return a dispatch object for the initializeChrome method: dispatch object 1`] = `
-{
-  "payload": Promise {},
-  "type": "PLATFORM_INIT",
-}
-`;
-
 exports[`PlatformActions Should return a dispatch object for the setAppName method: dispatch object 1`] = `
 {
   "meta": {

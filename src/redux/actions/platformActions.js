@@ -53,16 +53,6 @@ const hideGlobalFilter = isHidden => ({
 });
 
 /**
- * Apply platform method for initializing chrome, i.e. header, left-nav.
- *
- * @returns {{payload: Promise<void>, type: string}}
- */
-const initializeChrome = () => ({
-  type: platformTypes.PLATFORM_INIT,
-  payload: platformServices.initializeChrome()
-});
-
-/**
  * Apply platform method for updating routing history on "navigating" with the left-nav.
  *
  * @param {Function} callback
@@ -117,7 +107,6 @@ const platformActions = {
   clearNotifications,
   authorizeUser,
   hideGlobalFilter,
-  initializeChrome,
   onNavigation,
   setAppName,
   setAppNav
@@ -131,7 +120,6 @@ export {
   clearNotifications,
   authorizeUser,
   hideGlobalFilter,
-  initializeChrome,
   onNavigation,
   setAppName,
   setAppNav
