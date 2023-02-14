@@ -286,7 +286,7 @@
     "label_category_physical": "Physical",
     "label_category_virtual": "Virtualized",
     "label_filter": "Filter by",
-    "label_filter_architecture": "Architecture",
+    "label_filter_architecture": "Variant",
     "label_filter_billing_provider": "Purchased through",
     "label_filter_category": "Type",
     "label_filter_granularity": "Granularity",
@@ -294,7 +294,7 @@
     "label_filter_sla": "SLA",
     "label_filter_uom": "Unit of measure",
     "label_filter_usage": "Usage",
-    "label_filter_variant": "Product",
+    "label_filter_variant": "Variant",
     "label_granularity": "",
     "label_granularity_Daily": "Daily",
     "label_granularity_Weekly": "Weekly",
@@ -328,7 +328,7 @@
     "placeholder_uom": "Select unit",
     "placeholder_usage": "Select usage",
     "placeholder_filter": "Filter by",
-    "placeholder_filter_architecture": "Filter by architecture",
+    "placeholder_filter_architecture": "Filter by variant",
     "placeholder_filter_billing_provider": "Filter by purchased through",
     "placeholder_filter_category": "Filter by type",
     "placeholder_filter_displayName": "Filter by name",
@@ -337,7 +337,7 @@
     "placeholder_filter_sla": "Filter by SLA",
     "placeholder_filter_uom": "Filter by unit",
     "placeholder_filter_usage": "Filter by usage",
-    "placeholder_filter_variant": "Filter by product"
+    "placeholder_filter_variant": "Filter by variant"
   },
   "curiosity-optin": {
     "buttonActivate": "Activate {{appName}}",
