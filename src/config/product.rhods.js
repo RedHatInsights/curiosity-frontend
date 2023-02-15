@@ -87,16 +87,16 @@ const config = {
     {
       id: INVENTORY_TYPES.DISPLAY_NAME,
       cell: (
-        { [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {}, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {} },
+        { [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {}, [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {} },
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!inventoryId.value) {
+        if (!instanceId.value) {
           return displayName.value;
         }
 
-        let updatedDisplayName = displayName.value || inventoryId.value;
+        let updatedDisplayName = displayName.value || instanceId.value;
 
         if (authorized) {
           updatedDisplayName = (
@@ -104,9 +104,9 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${instanceId.value}/`}
             >
-              {displayName.value || inventoryId.value}
+              {displayName.value || instanceId.value}
             </Button>
           );
         }
