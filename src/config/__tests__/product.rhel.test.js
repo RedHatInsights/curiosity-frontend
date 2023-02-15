@@ -37,7 +37,7 @@ describe('Product RHEL config', () => {
       filters: initialFilters,
       cellData: {
         ...inventoryData,
-        [INVENTORY_TYPES.INVENTORY_ID]: null,
+        [INVENTORY_TYPES.INSTANCE_ID]: null,
         [INVENTORY_TYPES.LAST_SEEN]: null,
         [INVENTORY_TYPES.CLOUD_PROVIDER]: 'dolor sit'
       }
@@ -49,7 +49,7 @@ describe('Product RHEL config', () => {
       filters: initialFilters,
       cellData: {
         ...inventoryData,
-        [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+        [INVENTORY_TYPES.INSTANCE_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
       },
       session: { authorized: { inventory: true } }
     });

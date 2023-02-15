@@ -72,7 +72,7 @@ describe('Product RHODS config', () => {
       filters: initialFilters,
       cellData: {
         ...inventoryData,
-        [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+        [INVENTORY_TYPES.INSTANCE_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
       },
       session: { authorized: { inventory: true } }
     });
