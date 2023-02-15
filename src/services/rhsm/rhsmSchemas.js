@@ -167,7 +167,7 @@ const instancesMetaSchema = metaResponseSchema
  * @type {*} Joi schema
  */
 const instancesItem = Joi.object({
-  inventory_id: Joi.string().optional().allow(null),
+  instance_id: Joi.string().optional().allow(null),
   category: Joi.string().lowercase().optional().allow(null),
   cloud_provider: Joi.string().lowercase().optional().allow(null, ''),
   display_name: Joi.string().optional().allow(null),

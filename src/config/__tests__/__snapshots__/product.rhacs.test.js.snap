@@ -117,8 +117,8 @@ exports[`Product RHACS config should apply an inventory configuration: filtered,
       "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem ipsum",
     },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
       "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
     "last_seen": {
