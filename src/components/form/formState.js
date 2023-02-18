@@ -5,6 +5,13 @@ import _isEqual from 'lodash/isEqual';
 import helpers from '../../common/helpers';
 
 /**
+ * Internal form state tracking for submitting forms.
+ *
+ * @memberof Form
+ * @module FormState
+ */
+
+/**
  * Initial component state values.
  *
  * @type {{submitCount: number, isValid: null, isUpdating: boolean, isSubmitting: boolean, isValidating: boolean}}
@@ -345,7 +352,7 @@ class FormState extends React.Component {
   /**
    * Pass child components, integrate and apply form context.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   render() {
     const { checked, errors, values, touched } = this;

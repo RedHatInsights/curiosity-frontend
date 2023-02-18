@@ -7,6 +7,13 @@ import { Select, SelectPosition } from '../form/select';
 import { translate } from '../i18n/i18n';
 
 /**
+ * A standalone Variant select filter.
+ *
+ * @memberof Toolbar
+ * @module ToolbarFieldVariant
+ */
+
+/**
  * Generate select field options from config
  *
  * @param {object} options
@@ -74,7 +81,7 @@ const useOnSelect = ({
  * @param {Function} props.useOnSelect
  * @param {Function} props.useProductToolbarQuery
  * @param {Function} props.useToolbarFieldOptions
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ToolbarFieldVariant = ({
   isFilter,

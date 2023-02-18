@@ -5,21 +5,28 @@ import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
 /**
+ * A checkbox with state.
+ *
+ * @memberof Form
+ * @module Checkbox
+ */
+
+/**
  * Render a checkbox form element. Provides restructured event data.
  *
  * @fires onCheckboxChange
  * @param {object} props
  * @param {string} props.ariaLabel
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {string} props.id
  * @param {*} props.isChecked
  * @param {boolean} props.isDisabled
  * @param {boolean} props.isReadOnly
- * @param {Node} props.label
+ * @param {React.ReactNode} props.label
  * @param {string} props.name
  * @param {Function} props.onChange
  * @param {*} props.value
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const Checkbox = ({
   ariaLabel,
@@ -79,7 +86,7 @@ const Checkbox = ({
 /**
  * Prop types.
  *
- * @type {{isReadOnly: boolean, onChange: Function, children: Node, name: string, id: string,
+ * @type {{isReadOnly: boolean, onChange: Function, children: React.ReactNode, name: string, id: string,
  *     isDisabled: boolean, label: string, isChecked: boolean, value: *, ariaLabel: string}}
  */
 Checkbox.propTypes = {
@@ -98,7 +105,7 @@ Checkbox.propTypes = {
 /**
  * Default props.
  *
- * @type {{isReadOnly: boolean, onChange: Function, children: Node, name: string, id: string,
+ * @type {{isReadOnly: boolean, onChange: Function, children: React.ReactNode, name: string, id: string,
  *     isDisabled: boolean, label: string, isChecked: boolean, value: *, ariaLabel: string}}
  */
 Checkbox.defaultProps = {

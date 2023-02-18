@@ -1,3 +1,8 @@
+/**
+ * @memberof Types
+ * @module GraphTypes
+ */
+
 const SET_GRAPH_LEGEND = 'SET_GRAPH_LEGEND';
 
 /**

@@ -7,6 +7,13 @@ import { platformTypes } from '../types';
 import { platformServices } from '../../services/platform/platformServices';
 
 /**
+ * Platform service wrappers for dispatch, state update.
+ *
+ * @memberof Actions
+ * @module PlatformActions
+ */
+
+/**
  * Add a platform plugin toast notification.
  *
  * @param {object} data

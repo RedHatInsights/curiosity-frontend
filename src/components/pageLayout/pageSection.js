@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 import { Section } from '@redhat-cloud-services/frontend-components/Section';
 
 /**
+ * @memberof PageLayout
+ * @module PageSection
+ */
+
+/**
  * Render a platform page section.
  *
  * @param {object} props
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {string} props.className
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const PageSection = ({ children, className, ...props }) => (
   <Section className={`curiosity-page-section ${className}`} {...props}>
@@ -19,7 +24,7 @@ const PageSection = ({ children, className, ...props }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node, className: string}}
+ * @type {{children: React.ReactNode, className: string}}
  */
 PageSection.propTypes = {
   children: PropTypes.node.isRequired,

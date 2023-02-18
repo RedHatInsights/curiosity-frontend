@@ -3,6 +3,11 @@ import cryptoSha1 from 'crypto-js/sha1';
 import _isPlainObject from 'lodash/isPlainObject';
 
 /**
+ * @memberof Helpers
+ * @module General
+ */
+
+/**
  * Fill for AggregatedError
  *
  * @param {Array|*} errors An array of errors
@@ -411,8 +416,8 @@ const UI_WINDOW_ID = process.env.REACT_APP_UI_WINDOW_ID || 'GUI';
  *
  * @param {object} obj
  * @param {object} options
- * @property {boolean} limit
- * @property {string} id
+ * @param {boolean} options.limit
+ * @param {string} options.id
  */
 const browserExpose = (obj = {}, options) => {
   const { limit = PROD_MODE, id = UI_WINDOW_ID } = options || {};

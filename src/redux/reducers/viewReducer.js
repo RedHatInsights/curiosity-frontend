@@ -4,6 +4,13 @@ import { reduxHelpers } from '../common/reduxHelpers';
 import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services/rhsm/rhsmConstants';
 
 /**
+ * View query related user state reducer.
+ *
+ * @memberof Reducers
+ * @module ViewReducer
+ */
+
+/**
  * Initial state.
  *
  * @private

@@ -10,6 +10,13 @@ import {
 } from './platformConstants';
 
 /**
+ * Emulated service calls for platform globals.
+ *
+ * @memberof Platform
+ * @module PlatformServices
+ */
+
+/**
  * Basic user authentication.
  *
  * @param {object} options

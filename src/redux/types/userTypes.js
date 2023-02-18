@@ -1,3 +1,8 @@
+/**
+ * @memberof Types
+ * @module UserTypes
+ */
+
 const DELETE_USER_OPTIN = 'DELETE_USER_OPTIN';
 const GET_USER_OPTIN = 'GET_USER_OPTIN';
 const UPDATE_USER_OPTIN = 'UPDATE_USER_OPTIN';

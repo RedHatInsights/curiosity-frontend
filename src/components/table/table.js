@@ -16,6 +16,15 @@ import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
+ * PF table wrapper, normalize table use.
+ *
+ * @memberof Components
+ * @module Table
+ * @property {module} TableEmpty
+ * @property {module} TableSkeleton
+ */
+
+/**
  * FixMe: PF tables uses sequentially ordered lists/arrays to denote expandable sections
  * Ideal solution is to nest expandable sections within their respective parents. There
  * are scenarios where manipulating a sequentially ordered list/array can, and will,
@@ -249,7 +258,7 @@ class Table extends React.Component {
   /**
    * Apply props to table.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   renderTable() {
     const { isCollapsible, isSortable, sortBy, updatedColumnHeaders, updatedRows } = this.state;
@@ -299,7 +308,7 @@ class Table extends React.Component {
   /**
    * Render a table.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   render() {
     return (
@@ -313,7 +322,7 @@ class Table extends React.Component {
 /**
  * Prop types.
  *
- * @type {{summary: string, columnHeaders: Array, t: Function, borders: boolean, children: Node,
+ * @type {{summary: string, columnHeaders: Array, t: Function, borders: boolean, children: React.ReactNode,
  *     isHeader: boolean, variant: string, className: string, rows: Array, ariaLabel: string}}
  */
 Table.propTypes = {

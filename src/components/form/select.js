@@ -22,6 +22,13 @@ import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
 /**
+ * A bundled wrapper for PF Select, Dropdown.
+ *
+ * @memberof Form
+ * @module Select
+ */
+
+/**
  * Dropdown split button variants
  *
  * @type {{action: string, checkbox: string}}
@@ -76,7 +83,7 @@ const SelectPosition = DropdownPosition;
  * @param {string|number|Array} params.selectedOptions
  * @param {string} params.variant
  * @param {object} params.props
- * @returns {{options: *[]|*, selected: *[]}}
+ * @returns {{options: Array|any, selected: Array}}
  */
 const formatOptions = ({ selectField = { current: null }, options, selectedOptions, variant, ...props } = {}) => {
   const { current: domElement = {} } = selectField;
@@ -565,7 +572,7 @@ Select.propTypes = {
  * Default props.
  *
  * @type {{isFlipEnabled: boolean, toggleIcon: null, className: string, onSplitButton: Function, ariaLabel: string, onSelect: Function,
- *     isToggleText: boolean, isDropdownButton: boolean, maxHeight: null, buttonVariant: string, name: null, options: *[],
+ *     isToggleText: boolean, isDropdownButton: boolean, maxHeight: null, buttonVariant: string, name: null, options: Array,
  *     selectedOptions: null, variant: SelectVariant.single, isInline: boolean, id: string, isDisabled: boolean, placeholder: string,
  *     position: string, splitButtonVariant: null, direction: string}}
  */

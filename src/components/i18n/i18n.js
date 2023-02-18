@@ -8,6 +8,14 @@ import { helpers } from '../../common/helpers';
 import { EMPTY_CONTEXT, translate, translateComponent } from './i18nHelpers';
 
 /**
+ * Populate, load, remote locale strings.
+ *
+ * @memberof Components
+ * @module i18n
+ * @property {module} i18nHelpers
+ */
+
+/**
  * Load I18n.
  *
  * @param {object} props

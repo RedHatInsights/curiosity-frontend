@@ -25,6 +25,13 @@ import graphPng2x from '../../images/graph2x.png';
 import graphPng4x from '../../images/graph4x.png';
 
 /**
+ * Opt-in view
+ *
+ * @memberof Components
+ * @module OptinView
+ */
+
+/**
  * An account opt-in view.
  *
  * @param {object} props
@@ -34,7 +41,7 @@ import graphPng4x from '../../images/graph4x.png';
  * @param {Function} props.useSelectorsResponse
  * @param {Function} props.useSession
  * @fires onSubmitOptIn
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const OptinView = ({
   t,
@@ -58,7 +65,7 @@ const OptinView = ({
   /**
    * Render opt-in form states.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   const renderOptinForm = () => {
     const disableButton = errorStatus !== 403;
@@ -112,7 +119,7 @@ const OptinView = ({
   /**
    * Render tour copy and button.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   const renderTour = () => (
     <Card className="curiosity-optin-tour">

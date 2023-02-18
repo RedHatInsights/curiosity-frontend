@@ -1,4 +1,9 @@
 /**
+ * @memberof Pagination
+ * @module PaginationHelpers
+ */
+
+/**
  * Calculate offset from page and perPage/limit.
  *
  * @param {number} page

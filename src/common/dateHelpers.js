@@ -4,6 +4,11 @@ import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../servic
 import { translate } from '../components/i18n/i18n';
 
 /**
+ * @memberof Helpers
+ * @module Dates
+ */
+
+/**
  * Return a date.
  *
  * @returns {string|Date}
@@ -68,7 +73,7 @@ const getRangedDateTime = granularity => {
  * Generate a list of months for use in a select list.
  *
  * @param {string} month
- * @returns {{keyDateTimeRanges: {}, listDateTimeRanges: *[]}|*}
+ * @returns {{keyDateTimeRanges: {}, listDateTimeRanges: Array}|*|undefined}
  */
 const getRangedMonthDateTime = month => {
   const currentYear = Number.parseInt(moment.utc(getCurrentDate()).year(), 10);

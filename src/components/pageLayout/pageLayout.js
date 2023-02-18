@@ -8,6 +8,18 @@ import { PageSection } from './pageSection';
 import { PageToolbar } from './pageToolbar';
 
 /**
+ * Page layout, organize header, columns, messages, sections, and toolbar.
+ *
+ * @memberof Components
+ * @module PageLayout
+ * @property {module} PageColumns
+ * @property {module} PageHeader
+ * @property {module} PageMessages
+ * @property {module} PageSection
+ * @property {module} PageToolbar
+ */
+
+/**
  * ToDo: Reevaluate, import for Main component from @redhat-cloud-services/frontend-components
  * Fallback towards PF PageSection. Named export for Main is overridden by default connected export.
  */
@@ -15,9 +27,9 @@ import { PageToolbar } from './pageToolbar';
  * Render a platform page layout.
  *
  * @param {object} props
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {string} props.className
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const PageLayout = ({ children, className }) => (
   <React.Fragment>
@@ -35,7 +47,7 @@ const PageLayout = ({ children, className }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node, className: string}}
+ * @type {{children: React.ReactNode, className: string}}
  */
 PageLayout.propTypes = {
   children: PropTypes.node.isRequired,

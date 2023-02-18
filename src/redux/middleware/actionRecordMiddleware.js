@@ -1,6 +1,11 @@
 import { platformConstants as platformApiTypes } from '../../services/platform/platformConstants';
 
 /**
+ * @memberof Middleware
+ * @module ActionRecordMiddleware
+ */
+
+/**
  * Modify actions' payload for privacy.
  *
  * @param {object} action

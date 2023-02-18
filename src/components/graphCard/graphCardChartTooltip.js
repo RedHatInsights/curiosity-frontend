@@ -9,13 +9,18 @@ import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
 
 /**
+ * @memberof GraphCard
+ * @module GraphCardChartTooltip
+ */
+
+/**
  * A custom chart tooltip.
  *
  * @param {object} props
  * @param {object} props.datum
  * @param {Function} props.t
  * @param {Function} props.useProduct
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const GraphCardChartTooltip = ({
   datum,

@@ -5,18 +5,25 @@ import { PageLayout, PageHeader, PageSection } from '../pageLayout/pageLayout';
 import { helpers } from '../../common';
 
 /**
+ * Page empty state message display.
+ *
+ * @memberof Components
+ * @module MessageView
+ */
+
+/**
  * FixMe: Patternfly EmptyStateIcon PropType registers as function?
  */
 /**
- * Render a message view.
+ * Render a message view, page empty state.
  *
  * @param {object} props
- * @param {Node} props.children
- * @param {Node|Function} props.icon
+ * @param {React.ReactNode} props.children
+ * @param {React.ReactNode|Function} props.icon
  * @param {string} props.message
  * @param {string} props.pageTitle
  * @param {string} props.title
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const MessageView = ({ children, icon, message, pageTitle, title }) => (
   <PageLayout>
@@ -40,7 +47,7 @@ const MessageView = ({ children, icon, message, pageTitle, title }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node, icon: Node|Function, message: string, pageTitle: string, title: string}}
+ * @type {{children: React.ReactNode, icon: React.ReactNode|Function, message: string, pageTitle: string, title: string}}
  */
 MessageView.propTypes = {
   children: PropTypes.node,

@@ -5,6 +5,11 @@ import InventoryCard from './inventoryCard';
 import { helpers } from '../../common';
 
 /**
+ * @memberof InventoryCard
+ * @module InventoryCardHosts
+ */
+
+/**
  * A hosts' system inventory component.
  *
  * @param {object} props

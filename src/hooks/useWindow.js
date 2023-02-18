@@ -2,6 +2,13 @@ import { useEffect, useState } from 'react';
 import { helpers } from '../common';
 
 /**
+ * Global window related hooks.
+ *
+ * @memberof Hooks
+ * @module UseWindow
+ */
+
+/**
  * Apply a resize observer to an element.
  *
  * @param {*} target

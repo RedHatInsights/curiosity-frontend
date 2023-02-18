@@ -2,6 +2,14 @@ import { axiosServiceCall } from './common/serviceConfig';
 import { platformServices } from './platform/platformServices';
 
 /**
+ * @namespace Services
+ * @property {module} Helpers
+ * @property {module} Platform
+ * @property {module} Rhsm
+ * @property {module} User
+ */
+
+/**
  * Apply a global custom service configuration.
  *
  * @param {object} passedConfig

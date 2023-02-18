@@ -4,6 +4,13 @@ import { serviceCall } from '../config';
 import { helpers } from '../../common';
 
 /**
+ * User, and RHSM, calls for locale and Opt-In.
+ *
+ * @memberof User
+ * @module UserServices
+ */
+
+/**
  * ToDo: Review moving the getLocale function under platformServices.
  * Also review using window.navigator.language as the primary pull for language.
  */

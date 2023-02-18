@@ -7,13 +7,18 @@ import { useGraphCardContext } from './graphCardContext';
 import { translate } from '../i18n/i18n';
 
 /**
+ * @memberof GraphCard
+ * @module GraphCardChartTitleTooltip
+ */
+
+/**
  * Graph card title tooltip.
  *
  * @param {object} props
  * @param {Function} props.t
  * @param {Function} props.useGraphCardContext
  * @param {Function} props.useProduct
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const GraphCardChartTitleTooltip = ({
   t,

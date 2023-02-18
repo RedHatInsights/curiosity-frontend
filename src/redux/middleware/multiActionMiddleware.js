@@ -1,4 +1,9 @@
 /**
+ * @memberof Middleware
+ * @module MultiActionMiddleware
+ */
+
+/**
  * Allow passing an array of actions for batch dispatch.
  *
  * @param {object} store
