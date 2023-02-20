@@ -1,271 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphCardMetricTotals Component should handle multiple display states: error 1`] = `
-<Flex
+<div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-"
 >
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_1",
-      }
-    }
-  >
-    <FlexItem
+  <div>
+    <div
       className="curiosity-usage-graph__totals-column"
     >
       <Card
         className="curiosity-usage-graph__totals-column-card blur"
         data-test="graphDailyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="currentBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div />
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="currentFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
             />
-          </CardFooter>
-        </MinHeight>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div />
+        </CardBody>
+        <CardFooter>
+          <div />
+        </CardFooter>
       </Card>
       <Card
         className="curiosity-usage-graph__totals-column-card blur"
         data-test="graphMonthlyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="totalMonthlyBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div />
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="totalMonthlyFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
             />
-          </CardFooter>
-        </MinHeight>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div />
+        </CardBody>
+        <CardFooter>
+          <div />
+        </CardFooter>
       </Card>
-    </FlexItem>
-  </Flex>
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_3",
-      }
-    }
-  >
-    <FlexItem
+    </div>
+  </div>
+  <div>
+    <div
       className="curiosity-usage-graph__totals-graph-column"
     />
-  </Flex>
-</Flex>
+  </div>
+</div>
 `;
 
 exports[`GraphCardMetricTotals Component should handle multiple display states: fulfilled 1`] = `
-<Flex
+<div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-"
 >
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_1",
-      }
-    }
-  >
-    <FlexItem
+  <div>
+    <div
       className="curiosity-usage-graph__totals-column"
     >
       <Card
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphDailyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="currentBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div>
-              t(curiosity-graph.cardBodyMetric, {"context":"total"}, [object Object])
-            </div>
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="currentFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
-            />
-          </CardFooter>
-        </MinHeight>
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
+            >
+              t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal"})
+            </Title>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div>
+            t(curiosity-graph.cardBodyMetric, {"context":"total"}, [object Object])
+          </div>
+        </CardBody>
+        <CardFooter>
+          <div />
+        </CardFooter>
       </Card>
       <Card
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMonthlyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="totalMonthlyBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div>
-              t(curiosity-graph.cardBodyMetric, {"context":"total"}, [object Object])
-            </div>
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="totalMonthlyFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
-            />
-          </CardFooter>
-        </MinHeight>
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
+            >
+              t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal"})
+            </Title>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div>
+            t(curiosity-graph.cardBodyMetric, {"context":"total"}, [object Object])
+          </div>
+        </CardBody>
+        <CardFooter>
+          <div />
+        </CardFooter>
       </Card>
-    </FlexItem>
-  </Flex>
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_3",
-      }
-    }
-  >
-    <FlexItem
+    </div>
+  </div>
+  <div>
+    <div
       className="curiosity-usage-graph__totals-graph-column"
     />
-  </Flex>
-</Flex>
+  </div>
+</div>
 `;
 
 exports[`GraphCardMetricTotals Component should handle multiple display states: pending 1`] = `
-<Flex
+<div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-"
 >
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_1",
-      }
-    }
-  >
-    <FlexItem
+  <div>
+    <div
       className="curiosity-usage-graph__totals-column"
     >
       <Card
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphDailyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="currentBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div>
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
+            >
               <Loader
                 skeletonProps={
                   {
@@ -275,37 +155,48 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
                 tableProps={{}}
                 variant="skeleton"
               />
-            </div>
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="currentFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
+            </Title>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div>
+            <Loader
+              skeletonProps={
+                {
+                  "height": "60px",
+                  "size": "lg",
+                }
+              }
+              tableProps={{}}
+              variant="skeleton"
             />
-          </CardFooter>
-        </MinHeight>
+          </div>
+        </CardBody>
+        <CardFooter>
+          <div>
+            <Loader
+              skeletonProps={
+                {
+                  "size": "lg",
+                }
+              }
+              tableProps={{}}
+              variant="skeleton"
+            />
+          </div>
+        </CardFooter>
       </Card>
       <Card
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMonthlyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="totalMonthlyBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div>
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
+            >
               <Loader
                 skeletonProps={
                   {
@@ -315,155 +206,102 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
                 tableProps={{}}
                 variant="skeleton"
               />
-            </div>
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="totalMonthlyFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
+            </Title>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div>
+            <Loader
+              skeletonProps={
+                {
+                  "height": "60px",
+                  "size": "lg",
+                }
+              }
+              tableProps={{}}
+              variant="skeleton"
             />
-          </CardFooter>
-        </MinHeight>
+          </div>
+        </CardBody>
+        <CardFooter>
+          <div>
+            <Loader
+              skeletonProps={
+                {
+                  "size": "lg",
+                }
+              }
+              tableProps={{}}
+              variant="skeleton"
+            />
+          </div>
+        </CardFooter>
       </Card>
-    </FlexItem>
-  </Flex>
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_3",
-      }
-    }
-  >
-    <FlexItem
+    </div>
+  </div>
+  <div>
+    <div
       className="curiosity-usage-graph__totals-graph-column"
     />
-  </Flex>
-</Flex>
+  </div>
+</div>
 `;
 
 exports[`GraphCardMetricTotals Component should render a basic component: basic 1`] = `
-<Flex
+<div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-"
 >
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_1",
-      }
-    }
-  >
-    <FlexItem
+  <div>
+    <div
       className="curiosity-usage-graph__totals-column"
     >
       <Card
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphDailyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="currentBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div />
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="currentFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
             />
-          </CardFooter>
-        </MinHeight>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div />
+        </CardBody>
+        <CardFooter>
+          <div />
+        </CardFooter>
       </Card>
       <Card
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMonthlyTotalCard"
+        isPlain={true}
       >
-        <CardTitle>
-          t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal"})
-        </CardTitle>
-        <MinHeight
-          key="totalMonthlyBody"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardBody>
-            <div />
-          </CardBody>
-        </MinHeight>
-        <MinHeight
-          key="totalMonthlyFooter"
-          minHeight={0}
-          updateOnContent={false}
-          updateOnResize={true}
-        >
-          <CardFooter>
-            <div
-              className="hidden"
+        <CardHeader>
+          <CardTitle>
+            <Title
+              headingLevel="h2"
+              size="md"
             />
-          </CardFooter>
-        </MinHeight>
+          </CardTitle>
+        </CardHeader>
+        <CardBody>
+          <div />
+        </CardBody>
+        <CardFooter>
+          <div />
+        </CardFooter>
       </Card>
-    </FlexItem>
-  </Flex>
-  <Flex
-    alignSelf={
-      {
-        "default": "alignSelfStretch",
-      }
-    }
-    direction={
-      {
-        "default": "column",
-      }
-    }
-    flex={
-      {
-        "default": "flex_3",
-      }
-    }
-  >
-    <FlexItem
+    </div>
+  </div>
+  <div>
+    <div
       className="curiosity-usage-graph__totals-graph-column"
     />
-  </Flex>
-</Flex>
+  </div>
+</div>
 `;
