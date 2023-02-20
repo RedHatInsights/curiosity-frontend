@@ -4,7 +4,42 @@ All notable changes to this project will be documented in this file.
 
 
 
-## [2.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/21c9752705228d20b5992cf1e04a77aaecfb6f88...01971f447cc99126234524768d2f09c3ef4c4f63) (2023-01-17)
+
+## [2.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6edeedbf7ddd8f3d72541df55340d47d369becb8...8252f5149efda14d7c6549425949bdafd46ea2ad) (2023-02-20)
+
+### Code Refactoring
+* **config** sw-828 rhel, billing to cloud provider  ([#1044](https://github.com/RedHatInsights/curiosity-frontend/pull/1044)) ([2170ae6](https://github.com/RedHatInsights/curiosity-frontend/commit/2170ae61510f18ba4f9f86346aaea8c54e6169b9))
+* **inventoryTabs** sw-625 class to function, hooks  ([#1039](https://github.com/RedHatInsights/curiosity-frontend/pull/1039)) ([34f67f5](https://github.com/RedHatInsights/curiosity-frontend/commit/34f67f59f89cb6ccf7b536db38bedb78090b541d))
+* **config** sw-820 rhel, enable sockets sort  ([#1043](https://github.com/RedHatInsights/curiosity-frontend/pull/1043)) ([d45003d](https://github.com/RedHatInsights/curiosity-frontend/commit/d45003d6b41a3da1e3da22fd4f0d65af3537b66d))
+* **config** sw-106 rhel, enable category sort  ([#1041](https://github.com/RedHatInsights/curiosity-frontend/pull/1041)) ([2049c6a](https://github.com/RedHatInsights/curiosity-frontend/commit/2049c6af230e13dc479604ab8a531bb70183694f))
+* **config** sw-106 rhel, instances inventory  ([#1018](https://github.com/RedHatInsights/curiosity-frontend/pull/1018)) ([beb8fd0](https://github.com/RedHatInsights/curiosity-frontend/commit/beb8fd02bc9f586f05da73b3db3c1498e8421a68))
+* **select** sw-746 select wrapper class to func  ([#1027](https://github.com/RedHatInsights/curiosity-frontend/pull/1027)) ([1d4a3d1](https://github.com/RedHatInsights/curiosity-frontend/commit/1d4a3d1a8fde7c65f49f04a2d31674a2b887e82f))
+* **config** sw-722 activate satellite variant filter  ([#1014](https://github.com/RedHatInsights/curiosity-frontend/pull/1014)) ([241d614](https://github.com/RedHatInsights/curiosity-frontend/commit/241d6145105847fc27116dbb8ab8cead9d61fe04))
+* **config** sw-722 activate rhel archs filter  ([#1014](https://github.com/RedHatInsights/curiosity-frontend/pull/1014)) ([b68aae6](https://github.com/RedHatInsights/curiosity-frontend/commit/b68aae6a019d8bf6e4dc90eb2f902d89440b4863))
+* **config** sw-235 activate rhel category filter  ([#1013](https://github.com/RedHatInsights/curiosity-frontend/pull/1013)) ([8657e7c](https://github.com/RedHatInsights/curiosity-frontend/commit/8657e7c6c53f0553fed988378781cee50f5438e8))
+
+### Chores
+* **deps-dev** bump prettier from 2.8.0 to 2.8.4  ([#1059](https://github.com/RedHatInsights/curiosity-frontend/pull/1059)) ([5564a4c](https://github.com/RedHatInsights/curiosity-frontend/commit/5564a4c2842eb1e6fc85264d530c27061c7d59fb))
+* **deps-dev** bump babel-jest from 29.3.1 to 29.4.1  ([#1047](https://github.com/RedHatInsights/curiosity-frontend/pull/1047)) ([9b17e9d](https://github.com/RedHatInsights/curiosity-frontend/commit/9b17e9da50a20d4bfd3ae6eec9343893ff2dec49))
+* **deps-dev** bump glob from 8.0.3 to 8.1.0  ([#1042](https://github.com/RedHatInsights/curiosity-frontend/pull/1042)) ([322213e](https://github.com/RedHatInsights/curiosity-frontend/commit/322213ebdc0fb443d00fa60652ad8a2cc7cd6a15))
+* **deps-dev** eslint-config-prettier from 8.5.0 to 8.6.0  ([#1037](https://github.com/RedHatInsights/curiosity-frontend/pull/1037)) ([7565d36](https://github.com/RedHatInsights/curiosity-frontend/commit/7565d36b107658f93dbb5f41c6a66080a6cc4d85))
+* **deps-dev** eslint-plugin-jest from 27.1.6 to 27.2.1  ([#1033](https://github.com/RedHatInsights/curiosity-frontend/pull/1033)) ([c271373](https://github.com/RedHatInsights/curiosity-frontend/commit/c271373f6ba88d0131f6211b3a28af775f4a3540))
+* **deps-dev** bump cspell from 6.15.0 to 6.18.1  ([#1031](https://github.com/RedHatInsights/curiosity-frontend/pull/1031)) ([7ddb08d](https://github.com/RedHatInsights/curiosity-frontend/commit/7ddb08d83dceb6b5ef679f22ddf0d3748d80eb61))
+* **deps-dev** bump eslint from 8.28.0 to 8.29.0  ([#1024](https://github.com/RedHatInsights/curiosity-frontend/pull/1024)) ([dffa28a](https://github.com/RedHatInsights/curiosity-frontend/commit/dffa28aa270c08596fa0a23f6a5f9fcafb164b8f))
+* **testing** sw-722 dist route checks for ephemeral  ([#1026](https://github.com/RedHatInsights/curiosity-frontend/pull/1026)) ([0c4d56f](https://github.com/RedHatInsights/curiosity-frontend/commit/0c4d56f7c067f7d9b558faef2d0489a6fee80456))
+* **build** sw-722 mirror cloud-services-config  ([#1014](https://github.com/RedHatInsights/curiosity-frontend/pull/1014)) ([cc0b907](https://github.com/RedHatInsights/curiosity-frontend/commit/cc0b907f711fd3df86926c5c5c842ebf9c95f9b0))
+
+### Bug Fixes
+* **locale** sw-728 virtualized to virtual  ([#1062](https://github.com/RedHatInsights/curiosity-frontend/pull/1062)) ([8252f51](https://github.com/RedHatInsights/curiosity-frontend/commit/8252f5149efda14d7c6549425949bdafd46ea2ad))
+* **locale** sw-728 rhel, satellite variant filters  ([#1061](https://github.com/RedHatInsights/curiosity-frontend/pull/1061)) ([7a928c4](https://github.com/RedHatInsights/curiosity-frontend/commit/7a928c4efd5c824593772b6038ebbb39d6076765))
+* **config** align product filter tests  ([#1049](https://github.com/RedHatInsights/curiosity-frontend/pull/1049)) ([f891111](https://github.com/RedHatInsights/curiosity-frontend/commit/f8911113a4c06b1fa417221be18c94c5df231d4c))
+* **locale** sw-728 rhel, graph legend tooltips  ([#1046](https://github.com/RedHatInsights/curiosity-frontend/pull/1046)) ([2c12b53](https://github.com/RedHatInsights/curiosity-frontend/commit/2c12b53af58cd7375579fb574521d32e9454bdf0))
+* **config** sw-106 disable category, metric sort  ([#1038](https://github.com/RedHatInsights/curiosity-frontend/pull/1038)) ([dd8e3e3](https://github.com/RedHatInsights/curiosity-frontend/commit/dd8e3e33390cb5de89d2d7d2ed949316349e59a6))
+* **locale** sw-728 graph legend, product desc  ([#1034](https://github.com/RedHatInsights/curiosity-frontend/pull/1034)) ([9de79e0](https://github.com/RedHatInsights/curiosity-frontend/commit/9de79e07188c71d2333ef659497e04af11e45667))
+* **graphCardChartLegend** sw-235 style, spacing  ([#1028](https://github.com/RedHatInsights/curiosity-frontend/pull/1028)) ([3e247a6](https://github.com/RedHatInsights/curiosity-frontend/commit/3e247a6c1c97b0fbd46f859aca4a142a6a010074))
+* **locale** sw-728 minor string, public cloud  ([#1013](https://github.com/RedHatInsights/curiosity-frontend/pull/1013)) ([e3b4af1](https://github.com/RedHatInsights/curiosity-frontend/commit/e3b4af18c1eb6ef15e593c7b44ec67f4f329868f))
+
+##  [2.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/21c9752705228d20b5992cf1e04a77aaecfb6f88...01971f447cc99126234524768d2f09c3ef4c4f63) (2023-01-17)
 
 ### Features
 * **graphCardChart** sw-690 config, action toolbar  ([#1020](https://github.com/RedHatInsights/curiosity-frontend/pull/1020)) ([01971f4](https://github.com/RedHatInsights/curiosity-frontend/commit/01971f447cc99126234524768d2f09c3ef4c4f63))
