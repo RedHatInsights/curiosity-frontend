@@ -7,6 +7,7 @@ exports[`GraphCard Component should render a default component: default 1`] = `<
 exports[`GraphCard Component should setup basic settings: settings, grouped 1`] = `
 <Fragment>
   <ContextProvider
+    key="graphCard_grouped-Core-seconds"
     value={
       {
         "settings": {
@@ -44,19 +45,7 @@ exports[`GraphCard Component should setup basic settings: settings, grouped 1`] 
 exports[`GraphCard Component should setup basic settings: settings, standalone 1`] = `
 <Fragment>
   <ContextProvider
-    value={{}}
-  >
-    <GraphCardChart
-      t={[Function]}
-      useGetMetrics={[Function]}
-      useGraphCardActions={[Function]}
-      useGraphCardContext={[Function]}
-      useProduct={[Function]}
-      useProductGraphTallyQuery={[Function]}
-    />
-  </ContextProvider>
-  <ContextProvider
-    key="graphCard_Sockets"
+    key="graphCard_standalone-Sockets"
     value={
       {
         "settings": {

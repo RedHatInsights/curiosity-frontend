@@ -4,28 +4,21 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
 <Card
   className="curiosity-usage-graph"
 >
-  <MinHeight
-    key="headerMinHeight"
-    minHeight={0}
-    updateOnContent={false}
-    updateOnResize={true}
-  >
-    <CardHeader>
-      <CardTitle>
-        <Title
-          headingLevel="h2"
-          size="lg"
-        >
-          t(curiosity-graph.cardHeading, {})
-          <GraphCardChartTitleTooltip
-            t={[Function]}
-            useGraphCardContext={[Function]}
-            useProduct={[Function]}
-          />
-        </Title>
-      </CardTitle>
-    </CardHeader>
-  </MinHeight>
+  <CardHeader>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      >
+        t(curiosity-graph.cardHeading, {})
+        <GraphCardChartTitleTooltip
+          t={[Function]}
+          useGraphCardContext={[Function]}
+          useProduct={[Function]}
+        />
+      </Title>
+    </CardTitle>
+  </CardHeader>
   <MinHeight
     key="bodyMinHeight"
     minHeight={0}
@@ -68,28 +61,21 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
 <Card
   className="curiosity-usage-graph"
 >
-  <MinHeight
-    key="headerMinHeight"
-    minHeight={0}
-    updateOnContent={false}
-    updateOnResize={true}
-  >
-    <CardHeader>
-      <CardTitle>
-        <Title
-          headingLevel="h2"
-          size="lg"
-        >
-          t(curiosity-graph.cardHeading, {})
-          <GraphCardChartTitleTooltip
-            t={[Function]}
-            useGraphCardContext={[Function]}
-            useProduct={[Function]}
-          />
-        </Title>
-      </CardTitle>
-    </CardHeader>
-  </MinHeight>
+  <CardHeader>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      >
+        t(curiosity-graph.cardHeading, {})
+        <GraphCardChartTitleTooltip
+          t={[Function]}
+          useGraphCardContext={[Function]}
+          useProduct={[Function]}
+        />
+      </Title>
+    </CardTitle>
+  </CardHeader>
   <MinHeight
     key="bodyMinHeight"
     minHeight={0}
@@ -132,28 +118,21 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
 <Card
   className="curiosity-usage-graph"
 >
-  <MinHeight
-    key="headerMinHeight"
-    minHeight={0}
-    updateOnContent={false}
-    updateOnResize={true}
-  >
-    <CardHeader>
-      <CardTitle>
-        <Title
-          headingLevel="h2"
-          size="lg"
-        >
-          t(curiosity-graph.cardHeading, {})
-          <GraphCardChartTitleTooltip
-            t={[Function]}
-            useGraphCardContext={[Function]}
-            useProduct={[Function]}
-          />
-        </Title>
-      </CardTitle>
-    </CardHeader>
-  </MinHeight>
+  <CardHeader>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      >
+        t(curiosity-graph.cardHeading, {})
+        <GraphCardChartTitleTooltip
+          t={[Function]}
+          useGraphCardContext={[Function]}
+          useProduct={[Function]}
+        />
+      </Title>
+    </CardTitle>
+  </CardHeader>
   <MinHeight
     key="bodyMinHeight"
     minHeight={0}
@@ -183,28 +162,21 @@ exports[`GraphCardChart Component should render a default component: default 1`]
 <Card
   className="curiosity-usage-graph"
 >
-  <MinHeight
-    key="headerMinHeight"
-    minHeight={0}
-    updateOnContent={false}
-    updateOnResize={true}
-  >
-    <CardHeader>
-      <CardTitle>
-        <Title
-          headingLevel="h2"
-          size="lg"
-        >
-          t(curiosity-graph.cardHeading, {})
-          <GraphCardChartTitleTooltip
-            t={[Function]}
-            useGraphCardContext={[Function]}
-            useProduct={[Function]}
-          />
-        </Title>
-      </CardTitle>
-    </CardHeader>
-  </MinHeight>
+  <CardHeader>
+    <CardTitle>
+      <Title
+        headingLevel="h2"
+        size="lg"
+      >
+        t(curiosity-graph.cardHeading, {})
+        <GraphCardChartTitleTooltip
+          t={[Function]}
+          useGraphCardContext={[Function]}
+          useProduct={[Function]}
+        />
+      </Title>
+    </CardTitle>
+  </CardHeader>
   <MinHeight
     key="bodyMinHeight"
     minHeight={0}
