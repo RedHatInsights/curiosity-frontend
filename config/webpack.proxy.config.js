@@ -10,7 +10,7 @@ const { _BUILD_RELATIVE_DIRNAME, DEV_BRANCH, DEV_PORT } = setupDotenvFilesForEnv
 let BETA_PREFIX = '';
 
 if (/(prod|stage|qa|ci)-beta/.test(DEV_BRANCH)) {
-  BETA_PREFIX = '/beta';
+  BETA_PREFIX = '/preview';
 }
 
 const { config: webpackConfig, plugins } = config({
@@ -21,7 +21,7 @@ const { config: webpackConfig, plugins } = config({
   ],
   client: { overlay: false },
   debug: true,
-  deployment: (/beta/.test(BETA_PREFIX) && 'beta/apps') || 'apps',
+  deployment: (/preview/.test(BETA_PREFIX) && 'preview/apps') || 'apps',
   env: (/(prod|stage|qa|ci)(-stable|-beta)$/.test(DEV_BRANCH) && DEV_BRANCH) || 'stage-stable',
   port: Number.parseInt(DEV_PORT, 10),
   rootFolder: _BUILD_RELATIVE_DIRNAME,
