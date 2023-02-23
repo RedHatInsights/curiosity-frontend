@@ -744,15 +744,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category?.value] })",
       },
       {
-        "key": "curiosity-inventory.measurementType",
-        "match": "translate('curiosity-inventory.measurementType', { context: measurementType?.value })",
-      },
-      {
-        "key": "curiosity-inventory.cloudProvider",
-        "match": "translate('curiosity-inventory.cloudProvider', { context: cloudProvider?.value })",
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider?.value] })",
       },
     ],
   },
@@ -948,6 +944,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "./src/config/product.rhosak.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "./src/config/product.satellite.js",
     "key": "curiosity-inventory.label",
   },
   {

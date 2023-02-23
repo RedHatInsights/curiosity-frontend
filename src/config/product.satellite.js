@@ -19,7 +19,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as INVENTORY_SORT_TYPES,
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
@@ -51,7 +51,7 @@ const config = {
   productId,
   productLabel,
   productPath: productGroup.toLowerCase(),
-  productDisplay: DISPLAY_TYPES.PARTIAL,
+  productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}`,
   productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES)],
   query: {
@@ -155,20 +155,16 @@ const config = {
     {
       id: INVENTORY_TYPES.DISPLAY_NAME,
       cell: (
-        {
-          [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-          [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {},
-          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
-        } = {},
+        { [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {}, [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {} },
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!inventoryId.value) {
+        if (!instanceId.value) {
           return displayName.value;
         }
 
-        let updatedDisplayName = displayName.value || inventoryId.value;
+        let updatedDisplayName = displayName.value || instanceId.value;
 
         if (authorized) {
           updatedDisplayName = (
@@ -176,37 +172,34 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${inventoryId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_PREFIX}/insights/inventory/${instanceId.value}/`}
             >
-              {displayName.value || inventoryId.value}
+              {displayName.value || instanceId.value}
             </Button>
           );
         }
 
-        return (
-          <React.Fragment>
-            {updatedDisplayName}{' '}
-            {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
-                <PfLabel color="blue" />
-              ])) ||
-              ''}
-          </React.Fragment>
-        );
+        return updatedDisplayName;
       },
       isSortable: true
     },
     {
-      id: INVENTORY_TYPES.MEASUREMENT_TYPE,
-      cell: ({
-        [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider,
-        [INVENTORY_TYPES.MEASUREMENT_TYPE]: measurementType
-      } = {}) => (
+      id: INVENTORY_TYPES.NUMBER_OF_GUESTS,
+      cell: ({ [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests } = {}) => numberOfGuests?.value || '--',
+      isSortable: true,
+      isWrappable: true,
+      cellWidth: 15
+    },
+    {
+      id: INVENTORY_TYPES.CATEGORY,
+      cell: ({ [INVENTORY_TYPES.CLOUD_PROVIDER]: cloudProvider, [INVENTORY_TYPES.CATEGORY]: category } = {}) => (
         <React.Fragment>
-          {translate('curiosity-inventory.measurementType', { context: measurementType?.value })}{' '}
+          {translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category?.value] })}{' '}
           {(cloudProvider?.value && (
             <PfLabel color="purple">
-              {translate('curiosity-inventory.cloudProvider', { context: cloudProvider?.value })}
+              {translate('curiosity-inventory.label', {
+                context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider?.value]
+              })}
             </PfLabel>
           )) ||
             ''}
@@ -216,14 +209,15 @@ const config = {
       cellWidth: 20
     },
     {
-      id: INVENTORY_TYPES.SOCKETS,
+      id: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: sockets } = {}) => sockets?.value || '--',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
     {
       id: INVENTORY_TYPES.LAST_SEEN,
-      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen }) =>
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
         (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
       isSortable: true,
       isWrappable: true,
