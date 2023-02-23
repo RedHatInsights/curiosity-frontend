@@ -265,14 +265,17 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
       "title": "lorem",
     },
     {
+      "title": 3,
+    },
+    {
       "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
+        t(curiosity-inventory.label, {"context":"category"})
          
         
       </React.Fragment>,
     },
     {
-      "title": 10,
+      "title": "--",
     },
     {
       "title": <DateFormat
@@ -286,13 +289,19 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_measurement_type, {"context":"Satellite"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_sockets, {"context":"Satellite"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"Satellite"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite"})",
       "transforms": [
         [Function],
       ],
@@ -349,28 +358,20 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
 {
   "cells": [
     {
-      "title": <React.Fragment>
-        <Button
-          component="a"
-          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-          isInline={true}
-          variant="link"
-        >
-          lorem
-        </Button>
-         
-        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-      </React.Fragment>,
+      "title": "lorem",
+    },
+    {
+      "title": 3,
     },
     {
       "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
+        t(curiosity-inventory.label, {"context":"category"})
          
         
       </React.Fragment>,
     },
     {
-      "title": 10,
+      "title": "--",
     },
     {
       "title": <DateFormat
@@ -384,111 +385,19 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "value": 12,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem",
-    },
-    "hardware_type": {
-      "title": "t(curiosity-inventory.header_hardware, {"context":"type"})",
-      "value": "ipsum",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
-      "value": "XXXX-XXXX-XXXXX-XXXXX",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": "2022-01-01T00:00:00.000Z",
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
-      "value": "hello world",
-    },
-    "measurement_type": {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
-      "value": null,
-    },
-    "number_of_guests": {
       "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "value": 10,
-    },
-  },
-}
-`;
-
-exports[`Product Satellite config should apply hosts inventory configuration: filtered, authorized 1`] = `
-{
-  "cells": [
-    {
-      "title": <React.Fragment>
-        <Button
-          component="a"
-          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-          isInline={true}
-          variant="link"
-        >
-          lorem
-        </Button>
-         
-        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-      </React.Fragment>,
-    },
-    {
-      "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
-         
-        
-      </React.Fragment>,
-    },
-    {
-      "title": 10,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_measurement, {"context":"type"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
       "transforms": [
         [Function],
       ],
@@ -548,18 +457,21 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
       "title": "lorem",
     },
     {
+      "title": 3,
+    },
+    {
       "title": <React.Fragment>
-        t(curiosity-inventory.measurementType, {"context":null})
+        t(curiosity-inventory.label, {"context":"category"})
          
         <Label
           color="purple"
         >
-          t(curiosity-inventory.cloudProvider, {"context":"dolor sit"})
+          t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
         </Label>
       </React.Fragment>,
     },
     {
-      "title": 10,
+      "title": "--",
     },
     {
       "title": "",
@@ -571,13 +483,19 @@ exports[`Product Satellite config should apply hosts inventory configuration: fi
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_measurement_type, {"context":"Satellite"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_sockets, {"context":"Satellite"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"Satellite"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite"})",
       "transforms": [
         [Function],
       ],
