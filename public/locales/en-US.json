@@ -157,6 +157,7 @@
     "tabHosts_OpenShift-dedicated-metrics_other": "{{count}} instances",
     "tabInstances": "Current monthly instances",
     "tabInstances_RHEL": "Current systems",
+    "tabInstances_Satellite": "Current systems",
     "tabSubscriptions": "Current subscriptions",
     "tab_disabled": "The inventory display is currently disabled.",
     "tableAriaLabel": "{{appName}} systems inventory table.",
