@@ -2,19 +2,7 @@
 
 exports[`Routes configuration should return generated routes: expected paths 1`] = `
 [
-  "/openshift-container",
-  "/OpenShift Container Platform",
-  "/openshift",
-  "/OpenShift-metrics",
-  "/openshift-dedicated-metrics",
-  "/openshift-dedicated",
-  "/rhacs",
-  "/rhel",
-  "/insights",
-  "/rhods",
-  "/rhosak",
-  "/streams",
-  "/satellite",
-  "/",
+  ":productPath",
+  "*",
 ]
 `;

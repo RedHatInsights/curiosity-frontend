@@ -1,4 +1,4 @@
-import { routes } from '../src/config/routes';
+import { products } from '../src/config/products';
 const { execSync } = require('child_process');
 
 describe('Build distribution', () => {
@@ -32,9 +32,27 @@ describe('Build distribution', () => {
     const yamlObj = JSON.parse(output.toString());
     const yamlRoutes = yamlObj.objects[0].spec.navItems[0].routes;
 
+    const guiRoutes = [
+      ...Object.entries(products.sortedConfigs().byGroupIdConfigs).reduce((acc, [, groupedConfigs]) => {
+        const updatedConfig = [
+          {
+            path: `/${groupedConfigs?.[0]?.productPath}`,
+            productId: [...groupedConfigs.map(({ productId }) => productId)]
+          }
+        ];
+
+        const flatAliases = groupedConfigs.map(({ aliases }) => [...aliases]).flat(1);
+        const aliasedConfigs = [
+          ...[...new Set(flatAliases)].map(alias => ({ ...updatedConfig[0], path: `/${alias}` }))
+        ];
+
+        return [...acc, ...updatedConfig, ...aliasedConfigs];
+      }, [])
+    ];
+
     expect(
-      routes.map(({ path, productParameter }) => {
-        const updatedRoute = { path, productParameter, coverage: 'FALSE' };
+      guiRoutes.map(({ path, productId }) => {
+        const updatedRoute = { path, productId, coverage: 'FALSE' };
         const match = yamlRoutes.find(({ href }) => href.split('subscriptions')[1] === path);
 
         if (match) {

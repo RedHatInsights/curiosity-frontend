@@ -1,22 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Configuration should have a consistent route configuration: inconsistent entries 1`] = `
-[
-  {
-    "Entry 13, / inconsistent": {
-      "activateOnError": "PASS",
-      "component": "PASS",
-      "default": "PASS",
-      "disabled": "PASS",
-      "path": "PASS",
-      "pathParameter": "FAIL",
-      "productConfig": "FAIL",
-      "productParameter": "FAIL",
-      "redirect": "PASS",
-    },
-  },
-]
-`;
+exports[`Configuration should have a consistent route configuration: inconsistent entries 1`] = `[]`;
 
 exports[`Configuration should have consistent product configuration: inconsistent entries 1`] = `[]`;
 

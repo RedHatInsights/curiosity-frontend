@@ -36,7 +36,7 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
 const config = {
-  aliases: [],
+  aliases: ['advanced', 'cluster', 'security', 'kubernetes', 'acs'],
   productGroup,
   productId,
   productLabel,

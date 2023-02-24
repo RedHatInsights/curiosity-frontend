@@ -28,7 +28,7 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 
 const config = {
-  aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS, 'openshift'],
+  aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS, 'openshift', 'metrics'],
   productGroup,
   productId,
   productLabel,

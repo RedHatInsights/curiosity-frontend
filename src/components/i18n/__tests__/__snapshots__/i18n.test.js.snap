@@ -277,7 +277,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-view.title",
-        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: updatedRouteProductLabel })",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: productGroup })",
       },
     ],
   },
@@ -290,11 +290,20 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-view.title",
-        "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: product.productId })",
+        "match": "t('curiosity-view.title', { appName: helpers.UI_DISPLAY_NAME, context: productId })",
       },
       {
         "key": "curiosity-view.description",
-        "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: product.productId })",
+        "match": "t('curiosity-view.description', { appName: helpers.UI_DISPLAY_NAME, context: productGroup })",
+      },
+    ],
+  },
+  {
+    "file": "./src/components/router/routerContext.js",
+    "keys": [
+      {
+        "key": "curiosity-view.title",
+        "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: firstMatch?.productGroup })",
       },
     ],
   },

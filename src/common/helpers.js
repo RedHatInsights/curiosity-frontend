@@ -81,6 +81,37 @@ const generateHash = (anyValue, { method = cryptoSha1 } = {}) =>
   ).toString();
 
 /**
+ * Simple memoize, cache based arguments with adjustable limit.
+ *
+ * @param {Function} func
+ * @param {object} options
+ * @param {number} options.cacheLimit
+ * @returns {Function}
+ */
+const memo = (func, { cacheLimit = 1 } = {}) => {
+  // eslint-disable-next-line func-names
+  const ized = function () {
+    const cache = [];
+
+    return (...args) => {
+      const key = JSON.stringify({ value: [...args].map(arg => (typeof arg === 'function' && arg.toString()) || arg) });
+      const keyIndex = cache.indexOf(key);
+
+      if (keyIndex < 0) {
+        const result = func.call(null, ...args);
+        cache.unshift(key, result);
+        cache.length = cacheLimit * 2;
+        return cache[1];
+      }
+
+      return cache[keyIndex + 1];
+    };
+  };
+
+  return ized();
+};
+
+/**
  * An empty function.
  * Typically used as a default prop.
  */
@@ -132,6 +163,35 @@ const numberDisplay = value => {
     return value;
   }
   return numbro(value);
+};
+
+/**
+ * Recursive object and props freeze/immutable.
+ * Used from deep-freeze-strict, an older npm package, license - public domain
+ * https://bit.ly/3HR4XWP and https://bit.ly/3Ye4S6B
+ *
+ * @param {object} obj
+ * @returns {*}
+ */
+const objFreeze = obj => {
+  Object.freeze(obj);
+
+  const oIsFunction = typeof obj === 'function';
+  const hasOwnProp = Object.prototype.hasOwnProperty;
+
+  Object.getOwnPropertyNames(obj).forEach(prop => {
+    if (
+      hasOwnProp.call(obj, prop) &&
+      (oIsFunction ? prop !== 'caller' && prop !== 'callee' && prop !== 'arguments' : true) &&
+      obj[prop] !== null &&
+      (typeof obj[prop] === 'object' || typeof obj[prop] === 'function') &&
+      !Object.isFrozen(obj[prop])
+    ) {
+      objFreeze(obj[prop]);
+    }
+  });
+
+  return obj;
 };
 
 /**
@@ -366,10 +426,12 @@ const helpers = {
   generateId,
   isDate,
   isPromise,
+  memo,
   noop,
   noopPromise,
   noopTranslate,
   numberDisplay,
+  objFreeze,
   DEV_MODE,
   PROD_MODE,
   REVIEW_MODE,

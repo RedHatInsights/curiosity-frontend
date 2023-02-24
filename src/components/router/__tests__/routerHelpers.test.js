@@ -6,6 +6,7 @@ import {
   parseSearchParams,
   pathJoin
 } from '../routerHelpers';
+import { helpers } from '../../../common';
 
 describe('RouterHelpers', () => {
   it('should return specific properties', () => {
@@ -133,16 +134,21 @@ describe('RouterHelpers', () => {
     }).toMatchSnapshot('detail: specific product path');
 
     expect({
+      productId: getRouteConfigByPath({ pathName: `insights/${helpers.UI_DISPLAY_NAME}/lorem-ipsum-missing` })
+        .firstMatch?.productId
+    }).toMatchSnapshot('detail: closest match');
+
+    expect({
       productId: getRouteConfigByPath({ pathName: '/lorem-ipsum-missing' }).firstMatch?.productId
-    }).toMatchSnapshot('detail: missing pathName');
+    }).toMatchSnapshot('detail: missing pathName, closest match');
 
     expect({
       productId: getRouteConfigByPath({}).firstMatch?.productId
     }).toMatchSnapshot('detail: missing parameters');
 
     expect({
-      productId: getRouteConfigByPath({ pathName: 'https://ci.foo.redhat.com/subscriptions/rhel' }).firstMatch
-        ?.productId
+      productId: getRouteConfigByPath({ pathName: `https://ci.foo.redhat.com/${helpers.UI_DISPLAY_NAME}/rhel` })
+        .firstMatch?.productId
     }).toMatchSnapshot('NO search and hash');
 
     expect({
@@ -150,7 +156,8 @@ describe('RouterHelpers', () => {
     }).toMatchSnapshot('search');
 
     expect({
-      productId: getRouteConfigByPath({ pathName: '/subscriptions/rhel?dolor=sit#lorem' }).firstMatch?.productId
+      productId: getRouteConfigByPath({ pathName: `/${helpers.UI_DISPLAY_NAME}/rhel?dolor=sit#lorem` }).firstMatch
+        ?.productId
     }).toMatchSnapshot('search and hash');
   });
 

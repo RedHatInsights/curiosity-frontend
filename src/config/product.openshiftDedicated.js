@@ -29,7 +29,7 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 
 const config = {
-  aliases: ['openshift-dedicated'],
+  aliases: ['openshift-dedicated', 'dedicated'],
   productGroup,
   productId,
   productLabel,

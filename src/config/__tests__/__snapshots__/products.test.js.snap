@@ -2,6 +2,64 @@
 
 exports[`Product configurations should return sorted product configs: sorted 1`] = `
 {
+  "byAlias": {},
+  "byAliasGroupProductPathIds": [
+    "dolor",
+    "dolor sit",
+    "hello world",
+    "lorem",
+    "lorem-dolor",
+    "lorem-ipsum",
+  ],
+  "byGroup": {
+    "dolor": [
+      {
+        "productGroup": "dolor",
+        "productId": "dolor sit",
+        "viewId": "view-dolor",
+      },
+    ],
+    "dolor sit": [
+      {
+        "productGroup": "dolor",
+        "productId": "dolor sit",
+        "viewId": "view-dolor",
+      },
+    ],
+    "hello world": [
+      {
+        "productGroup": "hello world",
+        "productId": "hello world",
+        "viewId": "view-hello world",
+      },
+    ],
+    "lorem": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "viewId": "view-lorem",
+      },
+    ],
+    "lorem-dolor": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "viewId": "view-lorem",
+      },
+    ],
+    "lorem-ipsum": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+    ],
+  },
   "byGroupIdConfigs": {
     "dolor": [
       {
@@ -70,6 +128,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "dolor sit",
     "hello world",
   ],
+  "byProductPathConfigs": {},
   "byViewIdConfigs": {
     "view-dolor": [
       {
@@ -126,8 +185,12 @@ exports[`Product configurations should return specific methods and properties: p
     "Satellite",
   ],
   "sortedConfigs": [
+    "byAlias",
+    "byGroup",
+    "byAliasGroupProductPathIds",
     "byGroupIdConfigs",
     "byGroupIds",
+    "byProductPathConfigs",
     "byProductIdConfigs",
     "byProductIds",
     "byViewIdConfigs",

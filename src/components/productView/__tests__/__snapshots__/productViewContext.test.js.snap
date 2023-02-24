@@ -27,6 +27,9 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "aliases": [
     "OpenShift Container Platform",
     "openshift",
+    "container",
+    "platform",
+    "shift",
   ],
   "graphTallyQuery": {
     "granularity": "Daily",
@@ -167,6 +170,9 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   "aliases": [
     "OpenShift Container Platform",
     "openshift",
+    "container",
+    "platform",
+    "shift",
   ],
   "graphTallyQuery": {
     "granularity": "Daily",

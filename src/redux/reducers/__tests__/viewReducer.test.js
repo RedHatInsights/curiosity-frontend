@@ -1,5 +1,5 @@
 import viewReducer from '../viewReducer';
-import { queryTypes as types } from '../../types';
+import { appTypes, queryTypes as types } from '../../types';
 import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../../services/rhsm/rhsmConstants';
 
 describe('ViewReducer', () => {
@@ -17,7 +17,8 @@ describe('ViewReducer', () => {
       types.SET_QUERY_CLEAR_INVENTORY_LIST,
       types.SET_QUERY_RESET_INVENTORY_LIST,
       types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST,
-      types.SET_QUERY
+      types.SET_QUERY,
+      appTypes.SET_PRODUCT
     ];
 
     specificTypes.forEach(value => {
@@ -47,6 +48,7 @@ describe('ViewReducer', () => {
 
       const dispatched = {
         type: value,
+        config: 'lorem ipsum product',
         [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: 'dolor provider',
         [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem asc direction',
         [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem name',

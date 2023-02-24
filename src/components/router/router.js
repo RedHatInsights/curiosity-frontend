@@ -1,77 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect as ReactRouterDomRedirect, Route, Switch } from 'react-router-dom';
-import { useMount } from 'react-use';
-import { RouterContext } from './routerContext';
+import { Navigate, Routes, Route } from 'react-router-dom';
+import { useSetRouteDetail } from './routerContext';
 import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
 
 /**
- * Load routes.
+ * Create and load routes. Start cycle for loading product configuration via hook by setting route details.
  *
  * @param {object} props
+ * @param {object} props.redirectRoute
  * @param {Array} props.routes
- * @returns {Node}
+ * @param {Function} props.useSetRouteDetail
+ * @returns {React.ReactNode}
  */
-const Router = ({ routes } = {}) => {
-  const [updatedRoutes, setUpdatedRoutes] = useState([]);
-  const [redirectDefault, setRedirectDefault] = useState(null);
+const Router = ({ redirectRoute, routes, useSetRouteDetail: useAliasSetRouteDetail } = {}) => {
+  useAliasSetRouteDetail();
 
-  /**
-   * Initialize routes.
-   */
-  useMount(async () => {
-    const activateOnErrorRoute = routes.find(route => route.activateOnError === true);
-
-    const results = await Promise.all(
-      routes.map(async item => {
-        if (item.disabled) {
-          return null;
-        }
-
-        const View = await routerHelpers.importView(item.component);
-
-        return (
-          <Route
-            exact={item.exact}
-            key={item.path}
-            path={item.path}
-            strict={item.strict}
-            render={({ location, ...routeProps }) => {
-              const updatedLocation = {
-                ...location,
-                parsedSearch: routerHelpers.parseSearchParams(location.search)
-              };
-
-              const routeDetail = {
-                ...item,
-                baseName: routerHelpers.dynamicBaseName(),
-                errorRoute: activateOnErrorRoute,
-                routes,
-                routeItem: { ...item }
-              };
-
-              return (
-                <RouterContext.Provider value={{ routeDetail }}>
-                  <View routeDetail={routeDetail} location={updatedLocation} {...routeProps} />
-                </RouterContext.Provider>
-              );
-            }}
-          />
-        );
-      })
-    );
-
-    setUpdatedRoutes(results);
-    setRedirectDefault(routes.find(({ disabled, redirect }) => !disabled && redirect) ?? null);
+  const updatedRoutes = routes.map(item => {
+    const View = routerHelpers.importView(item.component);
+    return <Route key={item.path} path={item.path} element={<View />} />;
   });
 
   return (
     <React.Suspense fallback={<Loader variant="title" />}>
-      <Switch>
+      <Routes>
         {updatedRoutes}
-        {redirectDefault && <ReactRouterDomRedirect to={redirectDefault.redirect} />}
-      </Switch>
+        {redirectRoute?.path && redirectRoute?.redirect && (
+          <Route key="redirect" path={redirectRoute.path} element={<Navigate replace to={redirectRoute.redirect} />} />
+        )}
+      </Routes>
     </React.Suspense>
   );
 };
@@ -79,30 +37,33 @@ const Router = ({ routes } = {}) => {
 /**
  * Prop types.
  *
- * @type {{routes: Array}}
+ * @type {{routes: Array<{component: string, path: string}>, redirectRoute: { path: string, redirect: string },
+ *     useSetRouteDetail: Function}}
  */
 Router.propTypes = {
+  redirectRoute: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    redirect: PropTypes.string.isRequired
+  }),
   routes: PropTypes.arrayOf(
     PropTypes.shape({
-      activateOnError: PropTypes.bool,
       component: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
-      exact: PropTypes.bool,
-      path: PropTypes.string.isRequired,
-      redirect: PropTypes.string,
-      render: PropTypes.bool,
-      strict: PropTypes.bool
+      path: PropTypes.string.isRequired
     })
-  )
+  ),
+  useSetRouteDetail: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{routes: Array}}
+ * @type {{routes: Array, redirectRoute: object, useSetRouteDetail: Function}}
  */
 Router.defaultProps = {
-  routes: routerHelpers.routes
+  redirectRoute: routerHelpers.redirectRoute,
+  routes: routerHelpers.routes,
+  useSetRouteDetail
 };
 
 export { Router as default, Router };
