@@ -15,7 +15,8 @@ const initialState = {
   graphTallyQuery: {},
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
-  inventorySubscriptionsQuery: {}
+  inventorySubscriptionsQuery: {},
+  product: {}
 };
 
 /**
@@ -387,6 +388,17 @@ const viewReducer = (state = initialState, action) => {
             ...state.inventorySubscriptionsQuery[action.viewId],
             [RHSM_API_QUERY_TYPES.SORT]: action[RHSM_API_QUERY_TYPES.SORT]
           }
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.app.SET_PRODUCT:
+      return reduxHelpers.setStateProp(
+        'product',
+        {
+          config: action.config
         },
         {
           state,

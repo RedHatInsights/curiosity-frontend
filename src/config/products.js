@@ -1,4 +1,4 @@
-import _memoize from 'lodash/memoize';
+import { helpers } from '../common/helpers';
 
 /**
  * IIFE for generating a product configs listing via webpack
@@ -32,53 +32,141 @@ const productConfigs = (() => {
 
 /**
  * Sorted/organized/grouped product configs.
+ * - byProductPathConfigs, object configurations associated with productPaths
+ * - byGroup, object configurations associated with all productGroups, productIds, productPaths, and aliases
  * - byGroupIdConfigs, object of productGroup properties against an array of associated product configs
  * - byViewIds, object of viewId properties against an array of associated productId strings. "viewId" was created because of the
  *     overlap with productIds and productGroups, this may be refactored in the future
  * - byProductIds, a unique array of all productId strings
+ * - byAlias,object configurations associated with product aliases
+ * - byAliasGroupProductPathIds, list of identifiers associated with all productGroups, productIds, productPaths, and aliases
  * - byGroupIds, object of productGroup properties against an array of associated productId strings.
  * - byViewIdConfigs, object of viewId properties against an array of associated product configs
  * - byProductIdConfigs, object of productId properties against a product config
  *
  * @param {productConfigs} configs
- * @returns {{byGroupIdConfigs: {}, byViewIds: {}, byProductIds: any[], byGroupIds: {}, byViewIdConfigs: {}, byProductIdConfigs: {}}}
+ * @returns {{byProductPathConfigs: {}, byGroup: {}, byGroupIdConfigs: {}, byViewIds: {}, byProductIds: any[], byAlias: {}, byAliasGroupProductPathIds: string[], byGroupIds: {}, byViewIdConfigs: {}, byProductIdConfigs: {}}}
  */
-const sortedProductConfigs = _memoize((configs = productConfigs) => {
+const sortedProductConfigs = helpers.memo((configs = productConfigs) => {
+  const viewIdConfigs = {};
+  const productAliases = {};
   const productIds = new Set();
   const productIdConfigs = {};
+  const productPathConfigs = {};
+  const grouped = {};
   const groupIdConfigs = {};
   const groupedGroupIds = {};
-  const viewIdConfigs = {};
   const groupedViewIds = {};
 
   configs?.forEach(config => {
-    Object.freeze(config);
+    const {
+      aliases,
+      productArchitectures,
+      productGroup,
+      productId,
+      productLabel,
+      productPath,
+      productVariants,
+      viewId
+    } = config;
 
-    const { productGroup, productId, viewId } = config;
-    productIdConfigs[productId] = config;
-    productIds.add(productId);
+    if (productGroup && productId) {
+      grouped[productGroup] ??= {};
+      grouped[productGroup][productId] = config;
+    }
 
-    groupIdConfigs[productGroup] ??= [];
-    groupIdConfigs[productGroup].push(config);
+    if (productId) {
+      grouped[productId] ??= {};
+      grouped[productId][productId] = config;
+    }
 
-    groupedGroupIds[productGroup] ??= [];
-    groupedGroupIds[productGroup].push(productId);
+    if (productLabel && productId) {
+      grouped[productLabel] ??= {};
+      grouped[productLabel][productId] = config;
+    }
 
-    viewIdConfigs[viewId] ??= [];
-    viewIdConfigs[viewId].push(config);
+    if (productPath && productId) {
+      grouped[productPath] ??= {};
+      grouped[productPath][productId] = config;
+    }
 
-    groupedViewIds[viewId] ??= [];
-    groupedViewIds[viewId].push(productId);
+    aliases?.forEach(alias => {
+      if (productId) {
+        grouped[alias] ??= {};
+        grouped[alias][productId] = config;
+      }
+
+      productAliases[alias] ??= [];
+      productAliases[alias].push(config);
+    });
+
+    productArchitectures?.forEach(architecture => {
+      if (productId) {
+        grouped[architecture] ??= {};
+        grouped[architecture][productId] = config;
+      }
+
+      productAliases[architecture] ??= [];
+      productAliases[architecture].push(config);
+    });
+
+    productVariants?.forEach(variant => {
+      if (productId) {
+        grouped[variant] ??= {};
+        grouped[variant][productId] = config;
+      }
+
+      productAliases[variant] ??= [];
+      productAliases[variant].push(config);
+    });
+
+    if (productId) {
+      productIdConfigs[productId] = config;
+      productIds.add(productId);
+    }
+
+    if (productPath) {
+      productPathConfigs[productPath] ??= [];
+      productPathConfigs[productPath].push(config);
+    }
+
+    if (productGroup) {
+      groupIdConfigs[productGroup] ??= [];
+      groupIdConfigs[productGroup].push(config);
+    }
+
+    if (productGroup && productId) {
+      groupedGroupIds[productGroup] ??= [];
+      groupedGroupIds[productGroup].push(productId);
+    }
+
+    if (viewId) {
+      viewIdConfigs[viewId] ??= [];
+      viewIdConfigs[viewId].push(config);
+    }
+
+    if (viewId && productId) {
+      groupedViewIds[viewId] ??= [];
+      groupedViewIds[viewId].push(productId);
+    }
   });
 
-  return {
+  Object.entries(grouped).forEach(([key, value]) => {
+    grouped[key] = Object.values(value);
+  });
+
+  return helpers.objFreeze({
+    byAlias: productAliases,
+    byGroup: grouped,
+    byAliasGroupProductPathIds: Object.keys(grouped).sort(),
     byGroupIdConfigs: groupIdConfigs,
     byGroupIds: groupedGroupIds,
+    byProductPathConfigs: productPathConfigs,
     byProductIdConfigs: productIdConfigs,
     byProductIds: Array.from(productIds),
     byViewIdConfigs: viewIdConfigs,
     byViewIds: groupedViewIds
-  };
+  });
 });
 
 const products = {

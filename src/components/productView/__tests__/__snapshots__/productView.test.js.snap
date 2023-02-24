@@ -5,10 +5,10 @@ exports[`ProductView Component should allow custom inventory displays via config
   className=""
 >
   <PageHeader
-    productLabel="lorem ipsum product label"
+    productLabel="lorem ipsum"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns
     className=""
@@ -95,15 +95,15 @@ exports[`ProductView Component should allow custom inventory displays via config
 </PageLayout>
 `;
 
-exports[`ProductView Component should allow custom product views via props: custom graphCard, descriptions 1`] = `
+exports[`ProductView Component should allow custom product views via productDisplay types: custom view, capacity 1`] = `
 <PageLayout
   className=""
 >
   <PageHeader
-    productLabel="lorem ipsum product label"
+    productLabel="lorem ipsum"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns
     className=""
@@ -113,6 +113,7 @@ exports[`ProductView Component should allow custom product views via props: cust
       value={
         {
           "lorem": "ipsum",
+          "productDisplay": "capacity",
           "productId": "lorem",
           "viewId": "viewIpsum",
         }
@@ -174,15 +175,15 @@ exports[`ProductView Component should allow custom product views via props: cust
 </PageLayout>
 `;
 
-exports[`ProductView Component should allow custom product views via props: custom toolbar, toolbarGraph 1`] = `
+exports[`ProductView Component should allow custom product views via productDisplay types: custom view, dual axes 1`] = `
 <PageLayout
   className=""
 >
   <PageHeader
-    productLabel="lorem ipsum product label"
+    productLabel="lorem ipsum"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns
     className=""
@@ -192,6 +193,234 @@ exports[`ProductView Component should allow custom product views via props: cust
       value={
         {
           "lorem": "ipsum",
+          "productDisplay": "dual-axes",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
+        }
+      }
+    >
+      <PageMessages
+        className=""
+      >
+        <BannerMessages
+          messages={
+            [
+              {
+                "id": "cloudigradeMismatch",
+                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
+                "title": "t(curiosity-banner.dataMismatchTitle)",
+              },
+            ]
+          }
+          useGetAppMessages={[Function]}
+        />
+      </PageMessages>
+      <PageToolbar
+        className=""
+      >
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useProductToolbarQuery={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFields={[Function]}
+        />
+      </PageToolbar>
+      <PageSection
+        className=""
+      >
+        <GraphCard
+          isDisabled={false}
+          useParseFiltersSettings={[Function]}
+        />
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
+          isDisabled={true}
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
+        />
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
+</PageLayout>
+`;
+
+exports[`ProductView Component should allow custom product views via productDisplay types: custom view, hourly 1`] = `
+<PageLayout
+  className=""
+>
+  <PageHeader
+    productLabel="lorem ipsum"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
+  </PageHeader>
+  <PageColumns
+    className=""
+  >
+    <ContextProvider
+      key="product_lorem"
+      value={
+        {
+          "lorem": "ipsum",
+          "productDisplay": "hourly",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
+        }
+      }
+    >
+      <PageMessages
+        className=""
+      />
+      <PageToolbar
+        className=""
+      >
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useProductToolbarQuery={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFields={[Function]}
+        />
+      </PageToolbar>
+      <PageSection
+        className=""
+      >
+        <GraphCard
+          isDisabled={false}
+          useParseFiltersSettings={[Function]}
+        />
+      </PageSection>
+      <PageSection
+        className="curiosity-page-section__tabs"
+      >
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
+          isDisabled={true}
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
+        />
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
+</PageLayout>
+`;
+
+exports[`ProductView Component should allow custom product views via productDisplay types: custom view, legacy 1`] = `
+<PageLayout
+  className=""
+>
+  <PageHeader
+    productLabel="lorem ipsum"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
+  </PageHeader>
+  <PageColumns
+    className=""
+  >
+    <ContextProvider
+      key="product_lorem"
+      value={
+        {
+          "lorem": "ipsum",
+          "productDisplay": "legacy",
+          "productId": "lorem",
+          "viewId": "viewIpsum",
+        }
+      }
+    >
+      <PageMessages
+        className=""
+      >
+        <BannerMessages
+          messages={
+            [
+              {
+                "id": "cloudigradeMismatch",
+                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
+                "title": "t(curiosity-banner.dataMismatchTitle)",
+              },
+            ]
+          }
+          useGetAppMessages={[Function]}
+        />
+      </PageMessages>
+      <PageToolbar
+        className=""
+      >
+        <Toolbar
+          hardFilterReset={false}
+          isDisabled={false}
+          t={[Function]}
+          useProductToolbarQuery={[Function]}
+          useSelectCategoryOptions={[Function]}
+          useToolbarFieldClear={[Function]}
+          useToolbarFieldClearAll={[Function]}
+          useToolbarFields={[Function]}
+        />
+      </PageToolbar>
+      <PageSection
+        className=""
+      >
+        <GraphCard
+          isDisabled={false}
+          useParseFiltersSettings={[Function]}
+        />
+      </PageSection>
+      <PageSection
+        className=""
+      >
+        <InventoryTabs
+          activeTab={0}
+          defaultActiveTab={0}
+          isDisabled={true}
+          t={[Function]}
+          useOnTab={[Function]}
+          useProduct={[Function]}
+          useSelector={[Function]}
+        />
+      </PageSection>
+    </ContextProvider>
+  </PageColumns>
+</PageLayout>
+`;
+
+exports[`ProductView Component should allow custom product views via productDisplay types: custom view, partial 1`] = `
+<PageLayout
+  className=""
+>
+  <PageHeader
+    productLabel="lorem ipsum"
+    t={[Function]}
+  >
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
+  </PageHeader>
+  <PageColumns
+    className=""
+  >
+    <ContextProvider
+      key="product_lorem"
+      value={
+        {
+          "lorem": "ipsum",
+          "productDisplay": "partial",
           "productId": "lorem",
           "viewId": "viewIpsum",
         }
@@ -258,10 +487,10 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
   className=""
 >
   <PageHeader
-    productLabel="lorem ipsum product label"
+    productLabel="lorem ipsum"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum product label"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns
     className=""
@@ -332,49 +561,20 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
 </PageLayout>
 `;
 
-exports[`ProductView Component should render nothing if path and product parameters are empty: empty 1`] = `
+exports[`ProductView Component should render nothing if productGroup, and product parameters are empty: empty, productGroup 1`] = `""`;
+
+exports[`ProductView Component should render nothing if productGroup, and product parameters are empty: empty, productId and viewId 1`] = `
 <PageLayout
   className=""
 >
   <PageHeader
-    productLabel={null}
+    productLabel="lorem ipsum"
     t={[Function]}
   >
-    t(curiosity-view.title, {"appName":"Subscriptions"})
+    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
   </PageHeader>
   <PageColumns
     className=""
   />
 </PageLayout>
-`;
-
-exports[`ProductView Component should use an instances inventory for rhosak: custom inventory, instances table 1`] = `
-<InventoryTab
-  active={false}
-  key="inventory_instances_rhosak"
-  title="t(curiosity-inventory.tabInstances, {"context":"rhosak"})"
->
-  <InventoryCard
-    cardActions={
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-    }
-    isDisabled={false}
-    perPageDefault={10}
-    t={[Function]}
-    useGetInventory={[Function]}
-    useOnColumnSort={[Function]}
-    useOnPage={[Function]}
-    useProduct={[Function]}
-    useProductInventoryConfig={[Function]}
-    useProductInventoryQuery={[Function]}
-    useSession={[Function]}
-  />
-</InventoryTab>
 `;

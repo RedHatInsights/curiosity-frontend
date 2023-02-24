@@ -1,4 +1,5 @@
 import cryptoMd5 from 'crypto-js/md5';
+import _cloneDeep from 'lodash/cloneDeep';
 import { helpers } from '../helpers';
 
 describe('Helpers', () => {
@@ -96,11 +97,77 @@ describe('Helpers', () => {
     expect(helpers.isPromise(() => 'lorem')).toBe(false);
   });
 
+  it('should memoize function return values with memo', () => {
+    const testArr = [];
+    const testMemoReturnValue = helpers.memo(
+      str => {
+        const arr = ['lorem', 'ipsum', 'dolor', 'sit'];
+        const randomStr = Math.floor(Math.random() * arr.length);
+        const genStr = `${arr[randomStr]}-${str}`;
+        testArr.push(genStr);
+        return genStr;
+      },
+      { cacheLimit: 3 }
+    );
+
+    testMemoReturnValue('one');
+    testMemoReturnValue('one');
+    testMemoReturnValue('one');
+    testMemoReturnValue('two');
+    testMemoReturnValue('three');
+
+    expect(testArr[0] === testMemoReturnValue('one')).toBe(true);
+    expect(testArr[1] === testMemoReturnValue('two')).toBe(true);
+    expect(testArr[2] === testMemoReturnValue('three')).toBe(true);
+    expect(testArr[2] === testMemoReturnValue('three')).toBe(true);
+
+    testMemoReturnValue('four');
+    expect(testArr[3] === testMemoReturnValue('four')).toBe(true);
+  });
+
   it('should apply a number display function', () => {
     expect(helpers.numberDisplay(null)).toBe(null);
     expect(helpers.numberDisplay(undefined)).toBe(undefined);
     expect(helpers.numberDisplay(NaN)).toBe(NaN);
     expect(helpers.numberDisplay(11)).toMatchSnapshot('number display function result');
+  });
+
+  it('should produce an immutable like object', () => {
+    const mockObj = {};
+
+    mockObj.lorem = 'ipsum';
+    mockObj.dolor = {
+      sit: {
+        lorem: 'ipsum'
+      },
+      hello: ['world']
+    };
+
+    helpers.objFreeze(mockObj);
+
+    expect(() => delete mockObj.dolor.sit).toThrowErrorMatchingSnapshot('delete property');
+    expect(() => {
+      mockObj.lorem = 'hello world';
+    }).toThrowErrorMatchingSnapshot('set property');
+    expect(() => {
+      mockObj.dolor.sit.lorem = 'hello world';
+    }).toThrowErrorMatchingSnapshot('set nested property');
+    expect(() => {
+      mockObj.dolor.hello.push('hello');
+    }).toThrowErrorMatchingSnapshot('update nested property list');
+    expect(() => {
+      mockObj.dolor.hello.pop();
+    }).toThrowErrorMatchingSnapshot('update nested property list values');
+    expect(() => {
+      mockObj.dolor.hello.length = 0;
+    }).toThrowErrorMatchingSnapshot('update nested property list length');
+    expect(() => {
+      ({ ...mockObj }).dolor.hello.push('shallow clone');
+    }).toThrowErrorMatchingSnapshot('shallow clone');
+
+    const clone = _cloneDeep(mockObj);
+    clone.dolor.hello.push('clone');
+    expect(clone).toMatchSnapshot('clone');
   });
 
   it('should expose a window object', () => {

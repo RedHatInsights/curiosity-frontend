@@ -1,21 +1,32 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { ProductViewMissing } from '../productViewMissing';
+import { store } from '../../../redux';
 
 describe('ProductViewMissing Component', () => {
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       availableProductsRedirect: 1
     };
-    const component = shallow(<ProductViewMissing {...props} />);
-    expect(component).toMatchSnapshot('basic');
+
+    const component = await mountHookComponent(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/']}>
+          <ProductViewMissing {...props} />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    expect(component.find(ProductViewMissing)).toMatchSnapshot('basic');
   });
 
   it('should redirect when there are limited product cards', async () => {
     const mockPush = jest.fn();
     const props = {
       availableProductsRedirect: 200,
-      useHistory: () => ({ push: mockPush })
+      useNavigate: () => mockPush,
+      useRouteDetail: () => ({ firstMatch: { productPath: 'lorem-ipsum' } })
     };
 
     await mountHookComponent(<ProductViewMissing {...props} />);

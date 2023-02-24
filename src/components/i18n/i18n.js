@@ -52,7 +52,7 @@ const I18n = ({ children, fallbackLng, loadPath, locale }) => {
    * Update locale.
    */
   useEffect(() => {
-    if (initialized) {
+    if (initialized && locale) {
       try {
         i18next.changeLanguage(locale);
       } catch (e) {

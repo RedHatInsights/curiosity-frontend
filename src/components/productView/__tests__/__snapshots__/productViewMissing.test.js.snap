@@ -3,316 +3,105 @@
 exports[`ProductViewMissing Component should redirect when there are limited product cards: redirect action 1`] = `
 [
   [
-    "openshift-container",
+    "lorem-ipsum",
   ],
 ]
 `;
 
 exports[`ProductViewMissing Component should render a basic component: basic 1`] = `
-<PageLayout
-  className="curiosity-missing-view"
+<ProductViewMissing
+  availableProductsRedirect={1}
+  t={[Function]}
+  useNavigate={[Function]}
+  useRouteDetail={[Function]}
 >
-  <PageHeader
-    productLabel="missing"
-    t={[Function]}
+  <PageLayout
+    className="curiosity-missing-view"
   >
-    t(curiosity-view.title, {"appName":"Subscriptions"})
-  </PageHeader>
-  <PageSection
-    isFilled={true}
-  >
-    <Gallery
-      hasGutter={true}
+    <PageHeader
+      key=".0"
+      productLabel="missing"
+      t={[Function]}
     >
-      <Card
-        isHoverable={true}
-        key="missingViewCard-OpenShift Container Platform-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"OpenShift Container Platform"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
+      <PageHeader>
+        <section
+          className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+          widget-type="InsightsPageHeader"
         >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"OpenShift Container Platform"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
+          <Flex
+            justifyContent={
+              {
+                "sm": "justifyContentSpaceBetween",
+              }
             }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
           >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-OpenShift-dedicated-metrics-generatedid-"
-        onClick={[Function]}
+            <div
+              className="pf-l-flex pf-m-justify-content-space-between-on-sm"
+            >
+              <FlexItem>
+                <div
+                  className=""
+                >
+                  <PageHeaderTitle
+                    className="pf-u-mb-sm"
+                    title="t(curiosity-view.title, {"appName":"Subscriptions"})"
+                  >
+                    <Title
+                      className="pf-u-mb-sm"
+                      headingLevel="h1"
+                      size="2xl"
+                      widget-type="InsightsPageHeaderTitle"
+                    >
+                      <h1
+                        className="pf-c-title pf-m-2xl pf-u-mb-sm"
+                        data-ouia-component-id="OUIA-Generated-Title-1"
+                        data-ouia-component-type="PF4/Title"
+                        data-ouia-safe={true}
+                        widget-type="InsightsPageHeaderTitle"
+                      >
+                        t(curiosity-view.title, {"appName":"Subscriptions"})
+                      </h1>
+                    </Title>
+                  </PageHeaderTitle>
+                </div>
+              </FlexItem>
+            </div>
+          </Flex>
+          <p>
+            t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"missing"}, [object Object])
+          </p>
+        </section>
+      </PageHeader>
+    </PageHeader>
+    <PageSection
+      className="curiosity curiosity-missing-view"
+      padding={
+        {
+          "default": "noPadding",
+        }
+      }
+    >
+      <section
+        className="pf-c-page__main-section pf-m-no-padding curiosity curiosity-missing-view"
       >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"OpenShift-dedicated-metrics"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
+        <PageSection
+          isFilled={true}
+          key=".1"
         >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"OpenShift-dedicated-metrics"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
+          <section
+            className="pf-c-page__main-section pf-m-fill"
+          >
+            <Gallery
+              hasGutter={true}
+            >
+              <div
+                className="pf-l-gallery pf-m-gutter"
               />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-OpenShift-metrics-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"OpenShift-metrics"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"OpenShift-metrics"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-rhacs-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"rhacs"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"rhacs"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-RHEL-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"RHEL"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"RHEL"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-rhods-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"rhods"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"rhods"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-rhosak-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"rhosak"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"rhosak"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-      <Card
-        isHoverable={true}
-        key="missingViewCard-Satellite-generatedid-"
-        onClick={[Function]}
-      >
-        <CardTitle>
-          <Title
-            headingLevel="h2"
-            size="lg"
-          >
-            t(curiosity-view.title, {"appName":"Subscriptions","context":"Satellite"})
-          </Title>
-        </CardTitle>
-        <CardBody
-          className="curiosity-missing-view__card-description"
-        >
-          t(curiosity-view.description, {"appName":"Subscriptions","context":"Satellite"})
-        </CardBody>
-        <CardFooter>
-          <Button
-            icon={
-              <ArrowRightIcon
-                color="currentColor"
-                noVerticalAlign={false}
-                size="sm"
-              />
-            }
-            iconPosition="right"
-            isInline={true}
-            onClick={[Function]}
-            variant="link"
-          >
-            Open
-          </Button>
-        </CardFooter>
-      </Card>
-    </Gallery>
-  </PageSection>
-</PageLayout>
+            </Gallery>
+          </section>
+        </PageSection>
+      </section>
+    </PageSection>
+  </PageLayout>
+</ProductViewMissing>
 `;

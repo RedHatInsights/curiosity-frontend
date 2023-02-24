@@ -1,5 +1,5 @@
 import React from 'react';
-import _memoize from 'lodash/memoize';
+import { closest } from 'fastest-levenshtein';
 import { helpers } from '../../common/helpers';
 import { routesConfig, productConfig } from '../../config';
 
@@ -46,70 +46,45 @@ const redirectRoute = routesConfig.find(({ disabled, redirect }) => !disabled &&
  *
  * @returns {Array}
  */
-const routes = routesConfig;
+const routes = routesConfig.filter(item => !item.disabled);
 
 /**
- * Match route config entries by path.
+ * Match pre-sorted route config entries with a path, or match with a fallback.
+ * This is the primary engine for curiosity routing. It can account for a full window.location.pathname
+ * given the appropriate alias, group, product, and/or path identifiers provided with product configuration.
  *
  * @param {object} params
  * @param {string} params.pathName
- * @param {Array} params.config
- * @returns {{configs: Array, configFirstMatch: object, configsById: object}}
+ * @param {Array} params.configs
+ * @returns {{configs: *, firstMatch: *, isClosest: boolean, allConfigs: Array}}
  */
-const getRouteConfigByPath = _memoize(
-  ({ pathName = window.location.pathname, configs = productConfig.configs } = {}) => {
-    const updatedPathName = (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName;
-    const basePathDirs = updatedPathName
-      ?.split('#')?.[0]
-      ?.split('?')?.[0]
-      ?.split('/')
-      .filter(str => str.length > 0)
-      ?.reverse();
-    const filteredConfigs = [];
-    const filteredConfigsById = {};
-    const filteredConfigsByGroup = {};
-    const allConfigs = configs;
+const getRouteConfigByPath = helpers.memo(({ pathName, configs = productConfig.sortedConfigs } = {}) => {
+  const { byGroup, byAliasGroupProductPathIds, byProductIdConfigs } = configs();
+  const updatedPathName = (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName;
+  const trimmedPathName = updatedPathName
+    ?.toLowerCase()
+    ?.split('#')?.[0]
+    ?.split('?')?.[0]
+    ?.replace(/^\/*|\/*$/g, '')
+    ?.replace(new RegExp(helpers.UI_DISPLAY_NAME, 'i'), '')
+    ?.replace(/\/\//g, '/');
 
-    const findConfig = dir => {
-      configs.forEach(configItem => {
-        const { productId, productGroup, aliases } = configItem;
+  // Do a known comparison against alias, group, product, path identifiers
+  const focusedStr = byAliasGroupProductPathIds.find(
+    value => value.toLowerCase() === trimmedPathName?.split('/')?.pop()
+  );
 
-        if (
-          !(productId in filteredConfigsById) &&
-          dir &&
-          (new RegExp(dir, 'i').test(aliases?.toString()) ||
-            new RegExp(dir, 'i').test(productGroup?.toString()) ||
-            new RegExp(dir, 'i').test(productId?.toString()))
-        ) {
-          filteredConfigsByGroup[productGroup] ??= [];
-          filteredConfigsByGroup[productGroup].push(configItem);
+  // Fallback attempt, match pathName with the closest string
+  const closestStr = trimmedPathName && closest(trimmedPathName, byAliasGroupProductPathIds);
+  const configsByGroup = byGroup?.[focusedStr || closestStr];
 
-          filteredConfigsById[productId] = configItem;
-          filteredConfigs.push(configItem);
-        }
-      });
-    };
-
-    if (basePathDirs?.length) {
-      basePathDirs.forEach(dir => {
-        if (dir) {
-          const decodedDir = window.decodeURI(dir);
-          findConfig(decodedDir);
-        }
-      });
-    } else {
-      findConfig();
-    }
-
-    return {
-      allConfigs,
-      configs: filteredConfigs,
-      configsById: filteredConfigsById,
-      configsByGroup: filteredConfigsByGroup,
-      firstMatch: filteredConfigs?.[0]
-    };
-  }
-);
+  return {
+    isClosest: !focusedStr,
+    allConfigs: Object.values(byProductIdConfigs),
+    configs: configsByGroup,
+    firstMatch: configsByGroup?.[0]
+  };
+});
 
 /**
  * Import a route component.
@@ -126,12 +101,12 @@ const importView = component => {
 };
 
 /**
- * Parse search parameters from a string, using a set
+ * Parse search parameters from a string, using a set for "uniqueness"
  *
  * @param {string} currentPathAndOrSearch
  * @returns {{}}
  */
-const parseSearchParams = _memoize((currentPathAndOrSearch = window.location.search) => {
+const parseSearchParams = helpers.memo((currentPathAndOrSearch = window.location.search) => {
   const { decodeURIComponent, URLSearchParams } = window;
   const parsedSearch = {};
 
@@ -148,12 +123,12 @@ const parseSearchParams = _memoize((currentPathAndOrSearch = window.location.sea
 });
 
 /**
- * Basic path join, minor emulation for path.join.
+ * Basic path join, minor emulation for path.join. Related to the webpack 5 migration.
  *
  * @param {object} paths
  * @returns {string}
  */
-const pathJoin = (...paths) => {
+const pathJoin = helpers.memo((...paths) => {
   let updatedPath = Array.from(paths);
   const hasLead = /^\/\//.test(updatedPath[0]);
   updatedPath = updatedPath
@@ -167,7 +142,7 @@ const pathJoin = (...paths) => {
   }
 
   return updatedPath;
-};
+});
 
 const routerHelpers = {
   appName,

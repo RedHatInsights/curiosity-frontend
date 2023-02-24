@@ -51,6 +51,12 @@ exports[`RouterHelpers should return product configuration details from a url, p
 }
 `;
 
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: closest match 1`] = `
+{
+  "productId": "RHEL",
+}
+`;
+
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: match specific path 1`] = `
 {
   "productId": "RHEL",
@@ -63,9 +69,9 @@ exports[`RouterHelpers should return product configuration details from a url, p
 }
 `;
 
-exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: missing pathName 1`] = `
+exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: missing pathName, closest match 1`] = `
 {
-  "productId": undefined,
+  "productId": "OpenShift-metrics",
 }
 `;
 
@@ -108,7 +114,7 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
     "default": true,
     "disabled": false,
     "id": "missing",
-    "path": "/",
+    "path": "*",
     "redirect": "./",
   },
 }
@@ -116,19 +122,7 @@ exports[`RouterHelpers should return specific properties: routerHelpers 1`] = `
 
 exports[`RouterHelpers should return specific properties: routerHelpers: routes 1`] = `
 [
-  "/openshift-container",
-  "/OpenShift Container Platform",
-  "/openshift",
-  "/OpenShift-metrics",
-  "/openshift-dedicated-metrics",
-  "/openshift-dedicated",
-  "/rhacs",
-  "/rhel",
-  "/insights",
-  "/rhods",
-  "/rhosak",
-  "/streams",
-  "/satellite",
-  "/",
+  ":productPath",
+  "*",
 ]
 `;

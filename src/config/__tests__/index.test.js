@@ -16,6 +16,7 @@ describe('Configuration', () => {
         productGroup,
         productId,
         productLabel,
+        productPath,
         viewId,
         query,
         graphTallyQuery,
@@ -28,6 +29,7 @@ describe('Configuration', () => {
         productGroup: typeof productGroup === 'string' ? 'PASS' : 'FAIL',
         productId: typeof productId === 'string' || productId === null ? 'PASS' : 'FAIL',
         productLabel: typeof productLabel === 'string' || productLabel === null ? 'PASS' : 'FAIL',
+        productPath: typeof productPath === 'string' ? 'PASS' : 'FAIL',
         viewId: typeof viewId === 'string' ? 'PASS' : 'FAIL',
         query: _isPlainObject(query) ? 'PASS' : 'FAIL',
         graphTallyQuery: _isPlainObject(graphTallyQuery) ? 'PASS' : 'FAIL',
@@ -62,9 +64,6 @@ describe('Configuration', () => {
     config.routes.forEach((value, index) => {
       const entryCheck = {
         path: typeof value.path === 'string' ? 'PASS' : 'FAIL',
-        pathParameter: Array.isArray(value.pathParameter) ? 'PASS' : 'FAIL',
-        productParameter: Array.isArray(value.productParameter) ? 'PASS' : 'FAIL',
-        productConfig: Array.isArray(value.productConfig) ? 'PASS' : 'FAIL',
         redirect: typeof value.redirect === 'string' || value.redirect === null ? 'PASS' : 'FAIL',
         activateOnError: typeof value.activateOnError === 'boolean' ? 'PASS' : 'FAIL',
         disabled: typeof value.disabled === 'boolean' ? 'PASS' : 'FAIL',

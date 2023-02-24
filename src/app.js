@@ -27,7 +27,9 @@ const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSe
   let platformNotifications = null;
 
   useMount(() => {
-    dispatch(getLocale());
+    if (!locale) {
+      dispatch(getLocale());
+    }
   });
 
   if (!helpers.UI_DISABLED_NOTIFICATIONS) {
@@ -35,7 +37,7 @@ const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSe
   }
 
   return (
-    <I18n locale={locale || null}>
+    <I18n locale={locale}>
       {platformNotifications}
       <Authentication>
         <Router />

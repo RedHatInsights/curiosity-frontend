@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { routerContext } from '../router';
 import { ProductViewContext } from './productViewContext';
@@ -15,6 +15,9 @@ import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../serv
 import { translate } from '../i18n/i18n';
 
 /**
+ * ToDo: review removing the "useCallback" once the routing updates are in place
+ */
+/**
  * Display product columns.
  *
  * @param {object} props
@@ -23,75 +26,82 @@ import { translate } from '../i18n/i18n';
  * @returns {Node}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
-  const { productParameter: routeProductLabel, productConfig } = useAliasRouteDetail();
-  const updatedRouteProductLabel = (Array.isArray(routeProductLabel) && routeProductLabel?.[0]) || routeProductLabel;
+  const { productGroup, productConfig } = useAliasRouteDetail();
 
-  const renderProduct = config => {
-    const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productDisplay, productId, viewId } = config;
+  const renderProduct = useCallback(() => {
+    const updated = config => {
+      const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productDisplay, productId, viewId } =
+        config;
 
-    if (!productId || !viewId) {
-      return null;
-    }
+      if (!productId || !viewId) {
+        return null;
+      }
 
-    return (
-      <ProductViewContext.Provider value={config} key={`product_${productId}`}>
-        <PageMessages>{productDisplay !== DISPLAY_TYPES.HOURLY && <BannerMessages />}</PageMessages>
-        <PageToolbar>
-          <Toolbar />
-        </PageToolbar>
-        <PageSection>
-          <GraphCard />
-        </PageSection>
-        <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
-          <InventoryTabs
-            isDisabled={
-              (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
-            }
-          >
-            {!helpers.UI_DISABLED_TABLE_HOSTS &&
-              productDisplay !== DISPLAY_TYPES.HOURLY &&
-              productDisplay !== DISPLAY_TYPES.CAPACITY &&
-              initialInventoryFilters && (
+      return (
+        <ProductViewContext.Provider value={config} key={`product_${productId}`}>
+          <PageMessages>{productDisplay !== DISPLAY_TYPES.HOURLY && <BannerMessages />}</PageMessages>
+          <PageToolbar>
+            <Toolbar />
+          </PageToolbar>
+          <PageSection>
+            <GraphCard />
+          </PageSection>
+          <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
+            <InventoryTabs
+              isDisabled={
+                (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
+              }
+            >
+              {!helpers.UI_DISABLED_TABLE_HOSTS &&
+                productDisplay !== DISPLAY_TYPES.HOURLY &&
+                productDisplay !== DISPLAY_TYPES.CAPACITY &&
+                initialInventoryFilters && (
+                  <InventoryTab
+                    key={`inventory_hosts_${productId}`}
+                    title={t('curiosity-inventory.tabHosts', { context: [productId] })}
+                  >
+                    <InventoryCardHosts />
+                  </InventoryTab>
+                )}
+              {!helpers.UI_DISABLED_TABLE_INSTANCES &&
+                productDisplay !== DISPLAY_TYPES.DUAL_AXES &&
+                productDisplay !== DISPLAY_TYPES.LEGACY &&
+                productDisplay !== DISPLAY_TYPES.PARTIAL &&
+                initialInventoryFilters && (
+                  <InventoryTab
+                    key={`inventory_instances_${productId}`}
+                    title={t('curiosity-inventory.tabInstances', { context: [productId] })}
+                  >
+                    <InventoryCard />
+                  </InventoryTab>
+                )}
+              {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
                 <InventoryTab
-                  key={`inventory_hosts_${productId}`}
-                  title={t('curiosity-inventory.tabHosts', { context: [productId] })}
+                  key={`inventory_subs_${productId}`}
+                  title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
                 >
-                  <InventoryCardHosts />
+                  <InventoryCardSubscriptions />
                 </InventoryTab>
               )}
-            {!helpers.UI_DISABLED_TABLE_INSTANCES &&
-              productDisplay !== DISPLAY_TYPES.DUAL_AXES &&
-              productDisplay !== DISPLAY_TYPES.LEGACY &&
-              productDisplay !== DISPLAY_TYPES.PARTIAL &&
-              initialInventoryFilters && (
-                <InventoryTab
-                  key={`inventory_instances_${productId}`}
-                  title={t('curiosity-inventory.tabInstances', { context: [productId] })}
-                >
-                  <InventoryCard />
-                </InventoryTab>
-              )}
-            {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
-              <InventoryTab
-                key={`inventory_subs_${productId}`}
-                title={t('curiosity-inventory.tabSubscriptions', { context: [productId] })}
-              >
-                <InventoryCardSubscriptions />
-              </InventoryTab>
-            )}
-          </InventoryTabs>
-        </PageSection>
-      </ProductViewContext.Provider>
-    );
-  };
+            </InventoryTabs>
+          </PageSection>
+        </ProductViewContext.Provider>
+      );
+    };
+
+    return productConfig?.map(config => updated(config));
+  }, [productConfig, t]);
 
   return (
-    <PageLayout>
-      <PageHeader productLabel={updatedRouteProductLabel}>
-        {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: updatedRouteProductLabel })}
-      </PageHeader>
-      <PageColumns>{productConfig.map(config => renderProduct(config))}</PageColumns>
-    </PageLayout>
+    (productGroup && (
+      <PageLayout>
+        <PageHeader productLabel={productGroup}>
+          {t(`curiosity-view.title`, { appName: helpers.UI_DISPLAY_NAME, context: productGroup })}
+        </PageHeader>
+        <PageColumns>{renderProduct()}</PageColumns>
+      </PageLayout>
+    )) ||
+    null
   );
 };
 

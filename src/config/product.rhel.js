@@ -54,7 +54,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
  *     initialSubscriptionsInventoryFilters: {}[], initialToolbarFilters: {}[], }}
  */
 const config = {
-  aliases: ['insights'],
+  aliases: ['insights', 'enterprise', 'linux', 'el', 'x86'],
   productGroup,
   productId,
   productLabel,
