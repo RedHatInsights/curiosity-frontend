@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useMount } from 'react-use';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { reduxActions, storeHooks } from '../../redux';
 import { helpers } from '../../common';
 import { routerHelpers } from '../router';
@@ -27,7 +28,7 @@ const useAuthContext = () => useContext(AuthenticationContext);
  * @param {string} options.appName
  * @param {Function} options.authorizeUser
  * @param {Function} options.hideGlobalFilter
- * @param {Function} options.setAppName
+ * @param {Function} options.useChrome
  * @param {Function} options.useDispatch
  * @param {Function} options.useSelectorsResponse
  * @returns {{data: {errorCodes, errorStatus: *, locale}, pending: boolean, fulfilled: boolean, error: boolean}}
@@ -36,11 +37,12 @@ const useGetAuthorization = ({
   appName = routerHelpers.appName,
   authorizeUser = reduxActions.platform.authorizeUser,
   hideGlobalFilter = reduxActions.platform.hideGlobalFilter,
-  setAppName = reduxActions.platform.setAppName,
+  useChrome: useAliasChrome = useChrome,
   useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
 } = {}) => {
   const dispatch = useAliasDispatch();
+  const { updateDocumentTitle = helpers.noop } = useAliasChrome();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
     { id: 'auth', selector: ({ user }) => user?.auth },
     { id: 'locale', selector: ({ user }) => user?.locale },
@@ -52,7 +54,8 @@ const useGetAuthorization = ({
 
   useMount(async () => {
     await dispatch(authorizeUser());
-    dispatch([setAppName(appName), hideGlobalFilter()]);
+    updateDocumentTitle(appName);
+    dispatch([hideGlobalFilter()]);
   });
 
   const [user = {}, app = {}] = (Array.isArray(data.auth) && data.auth) || [];
