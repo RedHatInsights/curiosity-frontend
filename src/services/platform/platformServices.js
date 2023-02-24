@@ -101,74 +101,10 @@ const hideGlobalFilter = async (isHidden = true) => {
   }
 };
 
-/**
- * Apply on "app_navigation" event. Return an un-listener.
- *
- * @param {Function} callback
- * @returns {Function}
- */
-const onNavigation = callback => {
-  const { insights } = window;
-  try {
-    return insights.chrome.on('APP_NAVIGATION', callback);
-  } catch (e) {
-    throw new Error(`{ on } = insights.chrome, ${e.message}`);
-  }
-};
-
-/**
- * Set application ID.
- *
- * @param {string} name
- * @returns {Promise<*>}
- */
-const setAppName = (name = null) => {
-  const { insights } = window;
-  return axiosServiceCall({
-    url: async () => {
-      try {
-        await insights.chrome.identifyApp(name);
-      } catch (e) {
-        throw new Error(`{ identifyApp } = insights.chrome, ${e.message}`);
-      }
-    }
-  });
-};
-
-/**
- * Set app routes via the platform left-nav navigation.
- *
- * @param {string} id The navigation ID associated with internal route config, and external platform nav config
- * @param {object} options
- * @param {string} options.appName
- * @param {boolean} options.secondaryNav
- * @returns {Promise<*>}
- */
-const setAppNav = async (id, { appName = helpers.UI_NAME, secondaryNav = true } = {}) => {
-  const { insights } = window;
-  try {
-    return await insights.chrome.appNavClick({ id, secondaryNav, parentId: appName });
-  } catch (e) {
-    throw new Error(`{ appNavClick } = insights.chrome, ${e.message}`);
-  }
-};
-
 const platformServices = {
   getUser,
   getUserPermissions,
-  hideGlobalFilter,
-  onNavigation,
-  setAppName,
-  setAppNav
+  hideGlobalFilter
 };
 
-export {
-  platformServices as default,
-  platformServices,
-  getUser,
-  getUserPermissions,
-  hideGlobalFilter,
-  onNavigation,
-  setAppName,
-  setAppNav
-};
+export { platformServices as default, platformServices, getUser, getUserPermissions, hideGlobalFilter };

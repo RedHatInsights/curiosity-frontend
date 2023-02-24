@@ -20,17 +20,6 @@ exports[`PlatformServices should return a failed getUserPermissions: failed user
 
 exports[`PlatformServices should return a failed hideGlobalFilter: failed hideGlobalFilter 1`] = `[Error: { on } = insights.chrome, insights.chrome.hideGlobalFilter is not a function]`;
 
-exports[`PlatformServices should return a failed setAppName: failed setAppName 1`] = `
-{
-  "data": undefined,
-  "message": "{ identifyApp } = insights.chrome, insights.chrome.identifyApp is not a function",
-  "status": 418,
-  "statusText": undefined,
-}
-`;
-
-exports[`PlatformServices should return a failed setAppNav: failed setAppNav 1`] = `[Error: { appNavClick } = insights.chrome, insights.chrome.appNavClick is not a function]`;
-
 exports[`PlatformServices should return a successful getUser with a specific response: specific success for authorized user 1`] = `
 {
   "data": {

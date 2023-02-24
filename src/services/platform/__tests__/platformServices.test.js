@@ -15,16 +15,13 @@ describe('PlatformServices', () => {
   };
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(platformServices)).toHaveLength(6);
+    expect(Object.keys(platformServices)).toHaveLength(3);
   });
 
   it('should have specific methods', () => {
     expect(platformServices.getUser).toBeDefined();
     expect(platformServices.getUserPermissions).toBeDefined();
     expect(platformServices.hideGlobalFilter).toBeDefined();
-    expect(platformServices.onNavigation).toBeDefined();
-    expect(platformServices.setAppName).toBeDefined();
-    expect(platformServices.setAppNav).toBeDefined();
   });
 
   /**
@@ -70,24 +67,5 @@ describe('PlatformServices', () => {
     const response = await returnPromiseAsync(platformServices.hideGlobalFilter);
 
     expect(response).toMatchSnapshot('failed hideGlobalFilter');
-  });
-
-  it('should return a failed onNavigation', () => {
-    window.insights.chrome.on = undefined;
-    expect(platformServices.onNavigation).toThrow('{ on } = insights.chrome, insights.chrome.on is not a function');
-  });
-
-  it('should return a failed setAppName', async () => {
-    window.insights.chrome.identifyApp = undefined;
-    const { status, statusText, data, message } = await returnPromiseAsync(platformServices.setAppName);
-
-    expect({ status, statusText, data, message }).toMatchSnapshot('failed setAppName');
-  });
-
-  it('should return a failed setAppNav', async () => {
-    window.insights.chrome.appNavClick = undefined;
-    const response = await returnPromiseAsync(platformServices.setAppNav);
-
-    expect(response).toMatchSnapshot('failed setAppNav');
   });
 });

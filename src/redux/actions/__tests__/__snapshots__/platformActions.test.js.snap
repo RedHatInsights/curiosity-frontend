@@ -6,33 +6,3 @@ exports[`PlatformActions Should return a dispatch object for the hideGlobalFilte
   "type": "PLATFORM_GLOBAL_FILTER_HIDE",
 }
 `;
-
-exports[`PlatformActions Should return a dispatch object for the setAppName method: dispatch object 1`] = `
-{
-  "meta": {
-    "data": {
-      "name": undefined,
-    },
-  },
-  "payload": Promise {},
-  "type": "PLATFORM_APP_NAME",
-}
-`;
-
-exports[`PlatformActions Should return a function for the onNavigation method: expected process 1`] = `"lorem ipsum"`;
-
-exports[`PlatformActions Should return a function for the onNavigation method: function 1`] = `[Function]`;
-
-exports[`PlatformActions Should return a function for the setAppNav method: expected process 1`] = `
-{
-  "meta": {
-    "appName": undefined,
-    "id": "lorem",
-    "secondaryNav": undefined,
-  },
-  "payload": Promise {},
-  "type": "PLATFORM_SET_NAV",
-}
-`;
-
-exports[`PlatformActions Should return a function for the setAppNav method: function 1`] = `[Function]`;
