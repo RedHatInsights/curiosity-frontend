@@ -9,6 +9,13 @@ import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
+ * A standalone Display Name input filter.
+ *
+ * @memberof Toolbar
+ * @module ToolbarFieldDisplayName
+ */
+
+/**
  * ToDo: evaluate the debounce milliseconds, currently based off platforms default 800 ms
  */
 /**
@@ -22,7 +29,7 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.useDispatch
  * @param {Function} props.useProduct
  * @param {Function} props.useProductInventoryHostsQuery
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ToolbarFieldDisplayName = ({
   t,

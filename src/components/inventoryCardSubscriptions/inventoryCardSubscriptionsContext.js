@@ -11,6 +11,11 @@ import {
 import { helpers } from '../../common';
 
 /**
+ * @memberof InventoryCardSubscriptions
+ * @module InventoryCardSubscriptionsContext
+ */
+
+/**
  * Combined Redux RHSM Actions, getSubscriptionsInventory, and inventory selector response.
  *
  * @param {object} options

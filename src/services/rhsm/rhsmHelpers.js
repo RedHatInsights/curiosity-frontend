@@ -1,6 +1,11 @@
 import { RHSM_API_QUERY_SET_TYPES } from './rhsmConstants';
 
 /**
+ * @memberof Rhsm
+ * @module RhsmHelpers
+ */
+
+/**
  * ToDo: remove filterArchitectureVariant when the API supports architecture, variant params
  */
 /**

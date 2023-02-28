@@ -2,6 +2,13 @@ import { rhsmTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
+ * Banner messages related API state reducer.
+ *
+ * @memberof Reducers
+ * @module MessagesReducer
+ */
+
+/**
  * Initial state.
  *
  * @private

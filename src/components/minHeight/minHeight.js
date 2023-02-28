@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import { helpers } from '../../common';
 
 /**
+ * Normalize component height on page loads and updates.
+ *
+ * @memberof Components
+ * @module MinHeight
+ */
+
+/**
  * Set a min-height to prevent page jump component.
  *
  * @augments React.Component
@@ -96,7 +103,7 @@ class MinHeight extends React.Component {
   /**
    * Render a min-height div with children.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   render() {
     const { children } = this.props;
@@ -112,7 +119,7 @@ class MinHeight extends React.Component {
 /**
  * Prop types.
  *
- * @type {{minHeight: number, children: Node, updateOnContent: boolean, updateOnResize: boolean}}
+ * @type {{minHeight: number, children: React.ReactNode, updateOnContent: boolean, updateOnResize: boolean}}
  */
 MinHeight.propTypes = {
   updateOnContent: PropTypes.bool,

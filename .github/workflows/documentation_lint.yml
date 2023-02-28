@@ -1,0 +1,48 @@
+name: Documentation lint
+on:
+  push:
+  pull_request:
+
+jobs:
+  Documentation:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - name: Node.js modules cache
+        uses: actions/cache@v3
+        id: modules-cache
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-modules
+      - name: Install Node.js packages
+        if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
+        run: yarn install
+      - name: Build
+        run: yarn build:docs
+      - name: Git modified files
+        if: ${{ success() }}
+        run: |
+          echo 'GIT_MODIFIED<<EOF' >> $GITHUB_ENV
+          git ls-files -m >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - name: Lint
+        if: ${{ success() }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const actionCommit = require(`${process.env.GITHUB_WORKSPACE}/scripts/actions.documentation.js`)
+            const { resultsArray, resultsString } = actionCommit(process.env.GIT_MODIFIED)
+
+            if (resultsArray.length) {
+              core.setFailed(resultsString)
+            }

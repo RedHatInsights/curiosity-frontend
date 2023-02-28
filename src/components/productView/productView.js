@@ -15,15 +15,24 @@ import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../serv
 import { translate } from '../i18n/i18n';
 
 /**
+ * Primary product display component, and config context provider.
+ *
+ * @memberof Components
+ * @module ProductView
+ * @property {module} ProductViewContext
+ * @property {module} ProductViewMissing
+ */
+
+/**
  * ToDo: review removing the "useCallback" once the routing updates are in place
  */
 /**
- * Display product columns.
+ * Display products.
  *
  * @param {object} props
  * @param {Function} props.t
  * @param {Function} props.useRouteDetail
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
   const { productGroup, productConfig } = useAliasRouteDetail();

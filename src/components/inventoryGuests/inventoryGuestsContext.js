@@ -5,6 +5,11 @@ import { useProductInventoryGuestsQuery } from '../productView/productViewContex
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 
 /**
+ * @memberof InventoryGuests
+ * @module InventoryGuestsContext
+ */
+
+/**
  * Guests inventory selector response.
  *
  * @param {string} id

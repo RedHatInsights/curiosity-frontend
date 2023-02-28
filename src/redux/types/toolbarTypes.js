@@ -1,3 +1,8 @@
+/**
+ * @memberof Types
+ * @module ToolbarTypes
+ */
+
 const SET_ACTIVE_FILTERS = 'SET_ACTIVE_FILTERS';
 const SET_FILTER_TYPE = 'SET_FILTER_TYPE';
 

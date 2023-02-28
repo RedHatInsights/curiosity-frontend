@@ -5,6 +5,13 @@ import _isEqualWith from 'lodash/isEqualWith';
 import { helpers } from '../../common';
 
 /**
+ * PF tabs with state.
+ *
+ * @memberof Components
+ * @module Tabs
+ */
+
+/**
  * FixMe: PF tabs misinterprets "isElementInView" when tab title nodes are loaded dynamically
  * It appears the use of isElementInView within PF tabs is trying to be predicative in using
  * "getBoundingClientRect" but produces questionable results in scenarios where content is
@@ -103,7 +110,7 @@ class Tabs extends React.Component {
   /**
    * Apply props to tabs.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   renderTabs() {
     const { updatedActiveTab, updatedTabs } = this.state;
@@ -129,7 +136,7 @@ class Tabs extends React.Component {
   /**
    * Render tabs.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   render() {
     return (

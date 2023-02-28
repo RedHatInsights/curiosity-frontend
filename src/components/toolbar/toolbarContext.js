@@ -12,6 +12,11 @@ import { useOnSelect as useVariantOnSelect } from './toolbarFieldVariant';
 import { helpers } from '../../common/helpers';
 
 /**
+ * @memberof Toolbar
+ * @module ToolbarContext
+ */
+
+/**
  * Clear a specific toolbar category using a select component's OnSelect hook.
  *
  * @param {object} options

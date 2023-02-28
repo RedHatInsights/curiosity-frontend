@@ -9,11 +9,16 @@ import { chartAxisLabel } from './chartAxisLabel';
 import { ChartTypeVariant } from './chartHelpers';
 
 /**
- * Generate a compatible Victory chart element/facet component.
+ * @memberof Chart
+ * @module ChartElements
+ */
+
+/**
+ * Aggregate, generate, a compatible Victory chart element/facet component.
  *
  * @param {object} props
  * @param {object} props.chartTypeDefaults
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ChartElements = ({ chartTypeDefaults }) => {
   const { chartSettings = {}, chartContainerRef, chartTooltipRef } = useChartContext();
@@ -120,6 +125,11 @@ const ChartElements = ({ chartTypeDefaults }) => {
   );
 };
 
+/**
+ * Prop types
+ *
+ * @type {{chartTypeDefaults:{}}}
+ */
 ChartElements.propTypes = {
   chartTypeDefaults: PropTypes.objectOf(
     PropTypes.shape({
@@ -130,6 +140,11 @@ ChartElements.propTypes = {
   )
 };
 
+/**
+ * Default props
+ *
+ * @type {{chartTypeDefaults:{}}}
+ */
 ChartElements.defaultProps = {
   chartTypeDefaults: {
     [ChartTypeVariant.area]: {

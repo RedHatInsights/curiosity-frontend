@@ -11,6 +11,11 @@ import {
 import { helpers } from '../../common';
 
 /**
+ * @memberof InventoryCard
+ * @module InventoryCardHelpers
+ */
+
+/**
  * ToDo: review setting up a transformed cell cache for already transformed cells.
  * - review using a simple state and key memoized component
  * - review using lru cache in a inventoryCardContext custom hook
@@ -21,7 +26,7 @@ import { helpers } from '../../common';
  *
  * @param {Function|string|number} prop
  * @param {object} options
- * @param {*[]|*} options.params
+ * @param {Array|*} options.params
  * @returns {React.ReactNode}
  */
 const applyConfigProperty = (prop, { params = [] } = {}) => {
@@ -42,14 +47,14 @@ const applyConfigProperty = (prop, { params = [] } = {}) => {
  * Generate header and row cell configuration from filters.
  *
  * @param {object} params
- * @param {Array<{id: string, isStandalone: boolean, cell:React.ReactNode|{ title: string }, cellWidth: number,
- *     header:React.ReactNode|{ title: string }, onSort: Function, showEmptyCell: boolean, sortId: string,
+ * @param {Array<{id: string, isStandalone: boolean, cell:(React.ReactNode|{ title: string }), cellWidth: number,
+ *     header:(React.ReactNode|{ title: string }), onSort: Function, showEmptyCell: boolean, sortId: string,
  *     sortActive: boolean, sortDirection: string, transforms: Array}>} params.filters
  * @param {object} params.cellData
  * @param {object} params.meta
  * @param {string} params.productId
  * @param {object} params.session
- * @returns {{bodyCells: { title: React.ReactNode }[], headerCells: { title: React.ReactNode }[]}}
+ * @returns {{bodyCells: Array<{ title: React.ReactNode }>, headerCells: Array<{ title: React.ReactNode }>}}
  */
 const applyHeaderRowCellFilters = ({ filters = [], cellData = {}, meta = {}, productId, session = {} } = {}) => {
   const headerCells = [];
@@ -256,7 +261,7 @@ const applyWrappableFilters = ({ filter = {} } = {}) => {
  *     sortDefaultInitialDirection: string}>} params.filters
  * @param {Function} params.onSort
  * @param {object} params.query
- * @returns {*[]}
+ * @returns {Array}
  */
 const parseInventoryFilters = ({ filters = [], onSort, query = {} } = {}) =>
   [...filters].map(filter => {
@@ -277,15 +282,15 @@ const parseInventoryFilters = ({ filters = [], onSort, query = {} } = {}) =>
  * Parse and return formatted/filtered table cells, and apply table filters.
  *
  * @param {object} params
- * @param {Array<{id: string, cell:React.ReactNode|{ title: string }, cellWidth: number,
- *     header:React.ReactNode|{ title: string }, onSort: Function, showEmptyCell: boolean,
+ * @param {Array<{id: string, cell:(React.ReactNode|{ title: string }), cellWidth: number,
+ *     header:(React.ReactNode|{ title: string }), onSort: Function, showEmptyCell: boolean,
  *     sortId: string, sortActive: boolean, sortDirection: string,
  *     transforms: Array}>} params.filters
  * @param {object} params.cellData
  * @param {object} params.meta
  * @param {string} params.productId
  * @param {object} params.session
- * @returns {{columnHeaders: { title: React.ReactNode }[], cells: { title: React.ReactNode }[], data: {}}}
+ * @returns {{columnHeaders: Array<{ title: React.ReactNode }>, cells: Array<{ title: React.ReactNode }>, data: {}}}
  */
 const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, productId, session = {} } = {}) => {
   const updatedColumnHeaders = [];

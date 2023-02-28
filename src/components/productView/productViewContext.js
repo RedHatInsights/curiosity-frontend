@@ -5,6 +5,11 @@ import { rhsmConstants, RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhs
 import { helpers } from '../../common/helpers';
 
 /**
+ * @memberof ProductView
+ * @module ProductViewContext
+ */
+
+/**
  * Route context.
  *
  * @type {React.Context<{}>}

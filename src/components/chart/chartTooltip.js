@@ -2,6 +2,11 @@ import React from 'react';
 import { helpers } from '../../common';
 
 /**
+ * @memberof Chart
+ * @module ChartTooltip
+ */
+
+/**
  * Note: Victory Charts components require a form of extended "something" applied by the consuming component.
  * This leads to odd implementations, like returning a function component.
  */
@@ -13,7 +18,7 @@ import { helpers } from '../../common';
  * bottom, left.
  */
 /**
- * Return a compatible Victory tooltip component.
+ * Allow, and return, SVG compatible HTML for in graph tooltip.
  *
  * @param {object} params
  * @param {object} params.chartSettings

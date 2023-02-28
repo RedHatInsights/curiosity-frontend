@@ -4,6 +4,11 @@ import {
   CLEAR_NOTIFICATIONS
 } from '@redhat-cloud-services/frontend-components-notifications';
 
+/**
+ * @memberof Types
+ * @module PlatformTypes
+ */
+
 const PLATFORM_ADD_NOTIFICATION = ADD_NOTIFICATION;
 const PLATFORM_REMOVE_NOTIFICATION = REMOVE_NOTIFICATION;
 const PLATFORM_CLEAR_NOTIFICATIONS = CLEAR_NOTIFICATIONS;

@@ -13,6 +13,12 @@ import InventoryCard from '../inventoryCard/inventoryCard';
 import { helpers } from '../../common';
 
 /**
+ * @memberof Components
+ * @module InventoryCardSubscriptions
+ * @property {module} InventoryCardSubscriptionsContext
+ */
+
+/**
  * A subscriptions' system inventory component.
  *
  * @param {object} props
@@ -24,8 +30,7 @@ import { helpers } from '../../common';
  * @param {Function} props.useProductInventoryQuery
  * @fires onColumnSort
  * @fires onPage
- * @fires onUpdateInventoryData
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const InventoryCardSubscriptions = ({ ...props }) => <InventoryCard cardActions={null} {...props} />;
 

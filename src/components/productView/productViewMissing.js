@@ -8,6 +8,11 @@ import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
+ * @memberof ProductView
+ * @module ProductViewMissing
+ */
+
+/**
  * Render a missing product view.
  *
  * @fires onNavigate
@@ -16,7 +21,7 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.t
  * @param {Function} props.useNavigate
  * @param {Function} props.useRouteDetail
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ProductViewMissing = ({
   availableProductsRedirect,

@@ -4,6 +4,11 @@ import { Trans } from 'react-i18next';
 import { helpers } from '../../common/helpers';
 
 /**
+ * @memberof i18n
+ * @module i18nHelpers
+ */
+
+/**
  * Check to help provide an empty context.
  *
  * @type {string}

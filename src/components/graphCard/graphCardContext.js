@@ -8,6 +8,11 @@ import { helpers } from '../../common/helpers';
 import { graphCardHelpers } from './graphCardHelpers';
 
 /**
+ * @memberof GraphCard
+ * @module GraphCardContext
+ */
+
+/**
  * Chart context.
  *
  * @type {React.Context<{}>}
@@ -29,7 +34,7 @@ const useGraphCardContext = () => useContext(GraphCardContext);
  * @param {object} options
  * @param {Function} options.useProduct
  * @param {Function} options.useProductGraphConfig
- * @returns {{standaloneFiltersSettings: { settings: {} }[], groupedFiltersSettings: { settings: {} }}}
+ * @returns {{standaloneFiltersSettings: Array<{ settings: object }>, groupedFiltersSettings: { settings: object }}}
  */
 const useParseFiltersSettings = ({
   useProduct: useAliasProduct = useProduct,
@@ -59,8 +64,8 @@ const useParseFiltersSettings = ({
  * @param {object} options
  * @param {Function} options.useGraphCardContext
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
- *     id: {}, list: *[]}, cancelled: boolean, dataSets: unknown[], message: null, error: boolean}}
+ * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
+ *     id: {}, list: Array}, cancelled: boolean, dataSets: Array, message: null, error: boolean}}
  */
 const useMetricsSelector = ({
   useGraphCardContext: useAliasGraphCardContext = useGraphCardContext,
@@ -116,8 +121,8 @@ const useMetricsSelector = ({
  * @param {Function} params.useMetricsSelector
  * @param {Function} params.useProduct
  * @param {Function} params.useProductGraphTallyQuery
- * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
- *     id: {}, list: *[]}, cancelled: boolean, dataSets: *[], message: null, error: boolean}}
+ * @returns {{data: {}, pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
+ *     id: {}, list: Array}, cancelled: boolean, dataSets: Array, message: null, error: boolean}}
  */
 const useGetMetrics = ({
   getGraphMetrics = reduxActions.rhsm.getGraphMetrics,
@@ -155,7 +160,7 @@ const useGetMetrics = ({
  * @param {Array} params.categoryOptions
  * @param {Function} params.useMetricsSelector
  * @param {Function} params.useGraphCardContext
- * @returns {*[]}
+ * @returns {Array}
  */
 const useGraphCardActions = ({
   categoryOptions = toolbarFieldOptions,

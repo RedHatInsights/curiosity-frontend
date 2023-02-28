@@ -4,12 +4,17 @@ import { Flex, FlexItem } from '@patternfly/react-core';
 import { helpers } from '../../common';
 
 /**
+ * @memberof PageLayout
+ * @module PageColumns
+ */
+
+/**
  * Render page columns based on children.
  *
  * @param {object} props
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {string} props.className
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const PageColumns = ({ children, className }) => (
   <Flex
@@ -34,7 +39,7 @@ const PageColumns = ({ children, className }) => (
 /**
  * Prop types.
  *
- * @type {{children: Node, className: string}}
+ * @type {{children: React.ReactNode, className: string}}
  */
 PageColumns.propTypes = {
   children: PropTypes.node.isRequired,

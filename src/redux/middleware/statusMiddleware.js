@@ -1,15 +1,20 @@
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
+ * @memberof Middleware
+ * @module StatusMiddleware
+ */
+
+/**
  * Apply a status type based on actions, such as those generated from redux-promise-middleware.
  *
  * @param {object} config
- * @property {string} statusSuffix
- * @property {string} rangeSuffix
- * @property {string} rangeFiller
- * @property {string} statusDelimiter
- * @property {boolean} statusRange
- * @property {boolean} dispatchStatus
+ * @param {string} config.statusSuffix
+ * @param {string} config.rangeSuffix
+ * @param {string} config.rangeFiller
+ * @param {string} config.statusDelimiter
+ * @param {boolean} config.statusRange
+ * @param {boolean} config.dispatchStatus
  * @returns {Function}
  */
 const statusMiddleware = (config = {}) => {

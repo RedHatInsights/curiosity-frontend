@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { EyeIcon, EyeSlashIcon, SquareIcon, IconSize } from '@patternfly/react-icons';
 
 /**
+ * @memberof Chart
+ * @module ChartIcon
+ */
+
+/**
  * Emulate pf icon sizing for custom SVGs
  *
  * @param {string} size

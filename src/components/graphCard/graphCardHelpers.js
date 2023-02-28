@@ -8,6 +8,11 @@ import {
 import { dateHelpers, helpers } from '../../common';
 
 /**
+ * @memberof GraphCard
+ * @module GraphCardHelpers
+ */
+
+/**
  * Generate a consistent chart identifier from API.
  *
  * @param {object} params

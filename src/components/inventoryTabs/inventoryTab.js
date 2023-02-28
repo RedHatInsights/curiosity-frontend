@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
+ * @memberof InventoryTabs
+ * @module InventoryTab
+ */
+
+/**
  * A tab pass-through component for passing props to InventoryTabs.
  *
  * @param {object} props

@@ -3,6 +3,11 @@ import _isPlainObject from 'lodash/isPlainObject';
 import { helpers } from '../../common';
 
 /**
+ * @memberof Helpers
+ * @module ServiceHelpers
+ */
+
+/**
  * Pass through generate hash
  */
 const { generateHash } = helpers;

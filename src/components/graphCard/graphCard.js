@@ -6,12 +6,27 @@ import { GraphCardChart } from './graphCardChart';
 import { GraphCardContext, useParseFiltersSettings } from './graphCardContext';
 
 /**
+ * Configurable graph, chart, cards. Consumes Charts.
+ *
+ * @see Charts
+ * @memberof Components
+ * @module GraphCard
+ * @property {module} GraphCardChart
+ * @property {module} GraphCardChartLegend
+ * @property {module} GraphCardChartTitleTooltip
+ * @property {module} GraphCardChartTooltip
+ * @property {module} GraphCardContext
+ * @property {module} GraphCardHelpers
+ * @property {module} GraphCardMetricTotals
+ */
+
+/**
  * Set up graph cards. Expand filters with base graph settings.
  *
  * @param {object} props
  * @param {boolean} props.isDisabled
  * @param {Function} props.useParseFiltersSettings
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const GraphCard = ({ isDisabled, useParseFiltersSettings: useAliasParseFiltersSettings }) => {
   const { groupedFiltersSettings, standaloneFiltersSettings } = useAliasParseFiltersSettings();
