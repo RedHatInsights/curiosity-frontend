@@ -10,6 +10,11 @@ import { translate } from '../i18n/i18n';
 import { ChartIcon } from '../chart/chartIcon';
 
 /**
+ * @memberof GraphCard
+ * @module GraphCardChartLegend
+ */
+
+/**
  * FixMe: PF button disabled borks events on immediate parent nodes, such as tooltip wrappers
  * PF is using "pointer-events: none" styling when disabled is activated. This
  * currently affects events on immediate parent nodes.
@@ -26,7 +31,7 @@ import { ChartIcon } from '../chart/chartIcon';
  * @param {Function} props.useGraphCardContext
  * @param {Function} props.useProduct
  * @param {Function} props.useSelectors
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const GraphCardChartLegend = ({
   chart,
@@ -186,7 +191,7 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: *[]}, useProduct: Function, t: Function, useGraphCardContext: Function, useDispatch: Function,
+ * @type {{datum: {dataSets: Array}, useProduct: Function, t: Function, useGraphCardContext: Function, useDispatch: Function,
  *     useSelectors: Function, chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {

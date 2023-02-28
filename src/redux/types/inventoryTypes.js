@@ -1,3 +1,8 @@
+/**
+ * @memberof Types
+ * @module InventoryTypes
+ */
+
 const CLEAR_INVENTORY_GUESTS = 'CLEAR_INVENTORY_GUESTS';
 const SET_INVENTORY_TAB = 'SET_INVENTORY_TAB';
 

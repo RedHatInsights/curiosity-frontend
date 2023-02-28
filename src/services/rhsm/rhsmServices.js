@@ -5,6 +5,13 @@ import { rhsmTransformers } from './rhsmTransformers';
 import { rhsmHelpers } from './rhsmHelpers';
 
 /**
+ * RHSM API service calls.
+ *
+ * @memberof Rhsm
+ * @module RhsmServices
+ */
+
+/**
  * ToDo: remove rhsmHelpers.filterArchitectureVariant
  * We're using a temporary helper to emulate a param for architectures and/or variants.
  * When the api supports architecture and variant query params this needs to be refactored.

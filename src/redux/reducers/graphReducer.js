@@ -2,6 +2,13 @@ import { rhsmTypes, graphTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
+ * Graph/Chart related API and user state reducer.
+ *
+ * @memberof Reducers
+ * @module GraphReducer
+ */
+
+/**
  * Initial state.
  *
  * @private

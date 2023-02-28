@@ -7,13 +7,20 @@ import { PageHeader, PageLayout } from '../pageLayout/pageLayout';
 import { TableSkeleton } from '../table/tableSkeleton';
 
 /**
+ * Loading display for charts, copy, tables, etc.
+ *
+ * @memberof Components
+ * @module Loader
+ */
+
+/**
  * Render skeleton and spinner loaders.
  *
  * @param {object} props
  * @param {string} props.skeletonProps
  * @param {object} props.tableProps
  * @param {string} props.variant
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const Loader = ({ skeletonProps, tableProps, variant }) => {
   switch (variant) {

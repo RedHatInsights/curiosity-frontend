@@ -9,17 +9,24 @@ import Authentication from './components/authentication/authentication';
 import { helpers } from './common';
 
 /**
+ * @memberof Base
+ * @module App
+ */
+
+/**
  * ToDo: Investigate replacing NotificationsPortal
  * NotificationsPortal takes down the entire app when the parent Redux store is unavailable.
  */
 /**
- * Application
+ * Curiosity application start.
+ * - Loads locale
+ * - Provides authentication
  *
  * @param {object} props
  * @param {Function} props.getLocale
  * @param {Function} props.useDispatch
  * @param {Function} props.useSelector
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSelector }) => {
   const dispatch = useAliasDispatch();

@@ -9,6 +9,11 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 
 /**
+ * @memberof BannerMessages
+ * @module BannerMessagesContext
+ */
+
+/**
  * ToDo: useGetAppMessages is setup to work with existing Tally response, pre-metrics
  * Banner messages scans the returned Tally listing for the HAS_CLOUDIGRADE_MISMATCH. In the future
  * this may need to be updated to pull from the "meta" object part of the Tally response.
@@ -22,7 +27,7 @@ import {
  * @param {Function} options.useProduct
  * @param {Function} options.useProductQuery
  * @param {Function} options.useSelectorsResponse
- * @returns {object}
+ * @returns {{data: {cloudigradeMismatch: boolean}, pending: boolean, fulfilled: boolean, error: boolean}}
  */
 const useGetAppMessages = ({
   getMessageReports = reduxActions.rhsm.getMessageReports,

@@ -6,6 +6,11 @@ import Table from './table';
 import { translate } from '../i18n/i18n';
 
 /**
+ * @memberof Table
+ * @module TableSkeleton
+ */
+
+/**
  * Render a table with skeleton loaders.
  *
  * @param {object} props
@@ -17,7 +22,7 @@ import { translate } from '../i18n/i18n';
  * @param {number} props.rowCount
  * @param {Function} props.t
  * @param {string} props.variant
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCount, t, variant }) => {
   const updatedColumnHeaders = [...new Array(colCount)].map((value, index) => {

@@ -1,5 +1,10 @@
 import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services/rhsm/rhsmConstants';
 
+/**
+ * @memberof Types
+ * @module QueryTypes
+ */
+
 const SET_QUERY = 'SET_QUERY';
 const SET_QUERY_CLEAR = 'SET_QUERY_CLEAR';
 const SET_QUERY_CLEAR_INVENTORY_LIST = 'SET_QUERY_CLEAR_INVENTORY_LIST';

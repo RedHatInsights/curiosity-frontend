@@ -12,6 +12,11 @@ import {
 import { helpers } from '../../common';
 
 /**
+ * @memberof InventoryCard
+ * @module InventoryCardContext
+ */
+
+/**
  * Combined Redux RHSM Actions, getHostsInventory, and inventory selector response.
  *
  * @param {object} options
@@ -21,7 +26,7 @@ import { helpers } from '../../common';
  * @param {Function} options.useProduct
  * @param {Function} options.useProductInventoryQuery
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: (*|{}|*[]|{}), pending: boolean, fulfilled: boolean, error: boolean}}
+ * @returns {{data: (*|{}|Array|{}), pending: boolean, fulfilled: boolean, error: boolean}}
  */
 const useGetHostsInventory = ({
   isDisabled = false,
@@ -61,7 +66,7 @@ const useGetHostsInventory = ({
  * @param {Function} options.useProduct
  * @param {Function} options.useProductInventoryQuery
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: (*|{}|*[]|{}), pending: boolean, fulfilled: boolean, error: boolean}}
+ * @returns {{data: (*|{}|Array|{}), pending: boolean, fulfilled: boolean, error: boolean}}
  */
 const useGetInstancesInventory = ({
   isDisabled = false,

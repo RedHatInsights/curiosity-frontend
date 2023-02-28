@@ -1,7 +1,14 @@
 import { helpers } from '../../common/helpers';
 
 /**
- * Create a consistent mock event object.
+ * A consistent mock event object to "help" PF.
+ *
+ * @memberof Form
+ * @module FormHelpers
+ */
+
+/**
+ * Create a consistent mock event object modeled on JS behavior.
  *
  * @param {object} event
  * @param {boolean} persistEvent

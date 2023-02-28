@@ -3,6 +3,11 @@ import _cloneDeep from 'lodash/cloneDeep';
 import { helpers } from '../../common';
 
 /**
+ * @memberof Chart
+ * @module ChartHelpers
+ */
+
+/**
  * Available chart types
  *
  * @type {{area: string, line: string, threshold: string}}
@@ -208,7 +213,7 @@ const generateElementsProps = (
  * Preprocess datasets for tooltips.
  *
  * @param {object} params
- * @param {Node|Function} params.content
+ * @param {React.ReactNode|Function} params.content
  * @param {Array} params.dataSets
  * @returns {{}}
  */
@@ -360,8 +365,8 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
  * @param {object} params.individualMaxY
  * @param {number} params.maxX
  * @param {number} params.maxY
- * @param {Node|Function} params.xAxisChartLabel
- * @param {Node|Function} params.yAxisChartLabel
+ * @param {React.ReactNode|Function} params.xAxisChartLabel
+ * @param {React.ReactNode|Function} params.yAxisChartLabel
  * @param {boolean} params.xAxisFixLabelOverlap
  * @param {number} params.xAxisLabelIncrement
  * @param {Function} params.xAxisTickFormat

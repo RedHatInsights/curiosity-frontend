@@ -16,6 +16,25 @@ import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
 
 /**
+ * Primary view toolbar.
+ *
+ * @memberof Components
+ * @module Toolbar
+ * @property {module} ToolbarContext
+ * @property {module} ToolbarFieldArchitecture
+ * @property {module} ToolbarFieldBillingProvider
+ * @property {module} ToolbarFieldCategory
+ * @property {module} ToolbarFieldDisplayName
+ * @property {module} ToolbarFieldGranularity
+ * @property {module} ToolbarFieldRangedMonthly
+ * @property {module} ToolbarFieldSelectCategory
+ * @property {module} ToolbarFieldSla
+ * @property {module} ToolbarFieldUom
+ * @property {module} ToolbarFieldUsage
+ * @property {module} ToolbarFieldVariant
+ */
+
+/**
  * Application filter toolbar.
  *
  * @fires onClearFilter
@@ -29,7 +48,7 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.useToolbarFieldClear
  * @param {Function} props.useToolbarFieldClearAll
  * @param {Function} props.useToolbarFields
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const Toolbar = ({
   hardFilterReset,

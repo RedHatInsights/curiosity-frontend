@@ -12,14 +12,19 @@ import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
+ * @memberof GraphCard
+ * @module GraphCardMetricTotals
+ */
+
+/**
  * Display totals for a single metric.
  *
  * @param {object} props
- * @param {Node} props.children
+ * @param {React.ReactNode} props.children
  * @param {Function} props.t
  * @param {Function} props.useMetricsSelector
  * @param {Function} props.useProductGraphTallyQuery
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const GraphCardMetricTotals = ({
   children,
@@ -159,7 +164,7 @@ const GraphCardMetricTotals = ({
 /**
  * Prop types.
  *
- * @type {{useProductGraphTallyQuery: Function, t: Function, children: Node, useMetricsSelector: Function}}
+ * @type {{useProductGraphTallyQuery: Function, t: Function, children: React.ReactNode, useMetricsSelector: Function}}
  */
 GraphCardMetricTotals.propTypes = {
   children: PropTypes.node,
@@ -171,7 +176,7 @@ GraphCardMetricTotals.propTypes = {
 /**
  * Default props.
  *
- * @type {{useProductGraphTallyQuery: Function, t: Function, children: Node, useMetricsSelector: Function}}
+ * @type {{useProductGraphTallyQuery: Function, t: Function, children: React.ReactNode, useMetricsSelector: Function}}
  */
 GraphCardMetricTotals.defaultProps = {
   children: null,

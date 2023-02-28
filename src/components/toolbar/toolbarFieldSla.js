@@ -7,9 +7,16 @@ import { RHSM_API_QUERY_SLA_TYPES as FIELD_TYPES, RHSM_API_QUERY_SET_TYPES } fro
 import { translate } from '../i18n/i18n';
 
 /**
+ * A standalone SLA select filter.
+ *
+ * @memberof Toolbar
+ * @module ToolbarFieldSla
+ */
+
+/**
  * Select field options.
  *
- * @type {{title: (string|Node), value: string, selected: boolean}[]}
+ * @type {Array<{title: React.ReactNode, value: string, selected: boolean}>}
  */
 const toolbarFieldOptions = Object.values(FIELD_TYPES).map(type => ({
   title: translate('curiosity-toolbar.label', { context: ['sla', (type === '' && 'none') || type] }),
@@ -58,7 +65,7 @@ const useOnSelect = ({
  * @param {Function} props.t
  * @param {Function} props.useOnSelect
  * @param {Function} props.useProductQuery
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ToolbarFieldSla = ({
   isFilter,

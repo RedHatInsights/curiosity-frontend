@@ -4,6 +4,13 @@ import { helpers } from '../../common/helpers';
 import { translate } from '../../components/i18n/i18n';
 
 /**
+ * User, and RHSM, service wrappers for dispatch, state update.
+ *
+ * @memberof Actions
+ * @module UserActions
+ */
+
+/**
  * Get a user's locale.
  *
  * @returns {{payload: Promise<{data: void}>, type: string}}

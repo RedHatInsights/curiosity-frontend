@@ -1,4 +1,9 @@
 /**
+ * @memberof Rhsm
+ * @module RhsmConstants
+ */
+
+/**
  * RHSM path IDs for product RHEL variants.
  *
  * @type {{RHEL_ARM: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string}}

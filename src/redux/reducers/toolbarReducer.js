@@ -2,6 +2,13 @@ import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
+ * Toolbar related user state reducer.
+ *
+ * @memberof Reducers
+ * @module ToolbarReducer
+ */
+
+/**
  * Initial state.
  *
  * @private

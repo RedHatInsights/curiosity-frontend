@@ -6,4 +6,8 @@ import { storeHooks } from './hooks';
 import { reduxReducers } from './reducers';
 import { reduxTypes } from './types';
 
+/**
+ * @memberof Redux State
+ */
+
 export { connect, reduxActions, reduxHelpers, reduxReducers, reduxTypes, store, storeHooks };

@@ -21,10 +21,15 @@ import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolba
 import { ToolbarFieldVariant } from './toolbarFieldVariant';
 
 /**
+ * @memberof Toolbar
+ * @module ToolbarFieldSelectCategory
+ */
+
+/**
  * Select field options. Use function instead of arrow func to help with component
  * display name during testing.
  *
- * @type {{title: (string|Node), value: string, selected: boolean}[]}
+ * @type {Array<{title: React.ReactNode, value: string, selected: boolean}>}
  */
 const toolbarFieldOptions = [
   {
@@ -191,7 +196,7 @@ const useSelectCategoryOptions = ({
  * @param {Function} props.t
  * @param {Function} props.useOnSelect
  * @param {Function} props.useSelectCategoryOptions
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const ToolbarFieldSelectCategory = ({
   t,

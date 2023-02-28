@@ -4,15 +4,20 @@ import { EmptyState, EmptyStateIcon, EmptyStateBody, EmptyStateVariant, Title } 
 import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/frontend-components/EmptyTable';
 
 /**
+ * @memberof Table
+ * @module TableEmpty
+ */
+
+/**
  * Render an empty table.
  *
  * @param {object} props
- * @param {Node|Function} props.icon
- * @param {Node} props.message
+ * @param {React.ReactNode|Function} props.icon
+ * @param {React.ReactNode} props.message
  * @param {string} props.tableHeading
- * @param {Node} props.title
+ * @param {React.ReactNode} props.title
  * @param {string} props.variant
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const TableEmpty = ({ icon, message, tableHeading, title, variant }) => (
   <PlatformEmptyTableWrapper>
@@ -29,7 +34,8 @@ const TableEmpty = ({ icon, message, tableHeading, title, variant }) => (
 /**
  * Prop types.
  *
- * @type {{icon: Node|Function, variant: string, message: Node, title: Node, tableHeading: string}}
+ * @type {{icon: React.ReactNode|Function, variant: string, message: React.ReactNode, title: React.ReactNode,
+ *     tableHeading: string}}
  */
 TableEmpty.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),

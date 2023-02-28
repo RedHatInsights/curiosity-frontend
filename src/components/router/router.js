@@ -6,6 +6,15 @@ import { routerHelpers } from './routerHelpers';
 import { Loader } from '../loader/loader';
 
 /**
+ * Route component loader.
+ *
+ * @memberof Components
+ * @module Router
+ * @property {module} RouterContext
+ * @property {module} RouterHelpers
+ */
+
+/**
  * Create and load routes. Start cycle for loading product configuration via hook by setting route details.
  *
  * @param {object} props

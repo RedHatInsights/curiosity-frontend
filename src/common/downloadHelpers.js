@@ -3,6 +3,11 @@ import { helpers } from './helpers';
 import { dateHelpers } from './dateHelpers';
 
 /**
+ * @memberof Helpers
+ * @module Downloads
+ */
+
+/**
  * Download data to a file
  *
  * @param {object} options

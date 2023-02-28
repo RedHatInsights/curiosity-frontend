@@ -1,3 +1,8 @@
+/**
+ * @memberof Types
+ * @module AppTypes
+ */
+
 const STATUS_4XX = '4XX';
 const STATUS_5XX = '5XX';
 const SET_PRODUCT = 'SET_PRODUCT';

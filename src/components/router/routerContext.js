@@ -11,6 +11,11 @@ import { storeHooks, reduxTypes } from '../../redux';
 import { translate } from '../i18n/i18n';
 
 /**
+ * @memberof Router
+ * @module RouterContext
+ */
+
+/**
  * Combine react-router-dom useLocation with actual window location.
  * Focused on exposing replace and href.
  *

@@ -5,6 +5,13 @@ import { store } from '../store';
 import { helpers } from '../../common';
 
 /**
+ * State hooks for dispatch and selectors.
+ *
+ * @memberof Hooks
+ * @module UseReactRedux
+ */
+
+/**
  * FixMe: Appears to be an issue in trying to use Redux Promise with the default "useDispatch"
  */
 /**
@@ -91,8 +98,8 @@ const useSelectors = (
  * @param {object} options
  * @param {Function} options.useSelectors
  * @param {Function} options.customResponse Callback for customizing your own response
- * @returns {{data: ({}|*[]), pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
- *     id: {}, list: *[]}, cancelled: boolean, error: boolean, message: null}}
+ * @returns {{data: ({}|Array), pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
+ *     id: {}, list: Array}, cancelled: boolean, error: boolean, message: null}}
  */
 const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = useSelectors, customResponse } = {}) => {
   const selectorResponse = useAliasSelectors(selectors, []);
@@ -276,8 +283,8 @@ const useSelectorsResponse = (selectors, { useSelectors: useAliasSelectors = use
  * @param {Array|Function} selectors
  * @param {object} options
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: ({}|*[]), pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
- *     id: {}, list: *[]}, cancelled: boolean, error: boolean, message: null}}
+ * @returns {{data: ({}|Array), pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
+ *     id: {}, list: Array}, cancelled: boolean, error: boolean, message: null}}
  */
 const useSelectorsAllSettledResponse = (
   selectors,
@@ -317,8 +324,8 @@ const useSelectorsAllSettledResponse = (
  * @param {Array|Function} selectors
  * @param {object} options
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: ({}|*[]), pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
- *     id: {}, list: *[]}, cancelled: boolean, error: boolean, message: null}}
+ * @returns {{data: ({}|Array), pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
+ *     id: {}, list: Array}, cancelled: boolean, error: boolean, message: null}}
  */
 const useSelectorsAnyResponse = (
   selectors,
@@ -391,8 +398,8 @@ const useSelectorsAnyResponse = (
  * @param {Array|Function} selectors
  * @param {object} options
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: ({}|*[]), pending: boolean, fulfilled: boolean, responses: {errorList: *[], errorId: {},
- *     id: {}, list: *[]}, cancelled: boolean, error: boolean, message: null}}
+ * @returns {{data: ({}|Array), pending: boolean, fulfilled: boolean, responses: {errorList: Array, errorId: {},
+ *     id: {}, list: Array}, cancelled: boolean, error: boolean, message: null}}
  */
 const useSelectorsRaceResponse = (
   selectors,

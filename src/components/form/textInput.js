@@ -5,6 +5,13 @@ import { createMockEvent } from './formHelpers';
 import { helpers } from '../../common';
 
 /**
+ * Text input with state.
+ *
+ * @memberof Form
+ * @module TextInput
+ */
+
+/**
  * A wrapper for Patternfly TextInput. Provides restructured event data,
  * and an onClear event for the search type.
  *
@@ -71,6 +78,7 @@ class TextInput extends React.Component {
   /**
    * onChange event, provide restructured event.
    *
+   * @event onChange
    * @param {string} value
    * @param {object} event
    */
@@ -86,7 +94,7 @@ class TextInput extends React.Component {
   /**
    * Render a text input.
    *
-   * @returns {Node}
+   * @returns {React.ReactNode}
    */
   render() {
     const { updatedValue } = this.state;

@@ -2,6 +2,16 @@ import JoiBase from 'joi';
 import JoiDate from '@joi/date';
 import { schemaResponse } from '../common/helpers';
 
+/**
+ * @memberof Platform
+ * @module PlatformSchemas
+ */
+
+/**
+ * Extend Joi with date.
+ *
+ * @type {*}
+ */
 const Joi = JoiBase.extend(JoiDate);
 
 /**

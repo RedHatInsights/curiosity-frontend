@@ -24,6 +24,16 @@ import { translate } from '../i18n/i18n';
 import { useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances } from './inventoryCardContext';
 
 /**
+ * Instances, Hosts, and Subscriptions base inventory card.
+ *
+ * @memberof Components
+ * @module InventoryCard
+ * @property {module} InventoryCardContext
+ * @property {module} InventoryCardHelpers
+ * @property {module} InventoryCardHosts
+ */
+
+/**
  * ToDo: Update table component and review the deep comparison use on data
  * The newer table wrapper should remove the need to use the deep comparison,
  * temporarily using to allow the move from the deprecated inventory.
@@ -32,7 +42,7 @@ import { useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances 
  * Set up inventory cards. Expand filters with base settings.
  *
  * @param {object} props
- * @param {Node} props.cardActions
+ * @param {React.ReactNode} props.cardActions
  * @param {boolean} props.isDisabled
  * @param {number} props.perPageDefault
  * @param {Function} props.t
@@ -45,8 +55,7 @@ import { useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances 
  * @param {Function} props.useSession
  * @fires onColumnSort
  * @fires onPage
- * @fires onUpdateInventoryData
- * @returns {Node}
+ * @returns {React.ReactNode}
  */
 const InventoryCard = ({
   cardActions,

@@ -4,6 +4,11 @@ import { helpers } from '../../common/helpers';
 import { routesConfig, productConfig } from '../../config';
 
 /**
+ * @memberof Router
+ * @module RouterHelpers
+ */
+
+/**
  * Platform name/id.
  *
  * @type {string}

@@ -12,6 +12,14 @@ import { translate } from '../i18n/i18n';
 import { AuthenticationContext, useGetAuthorization } from './authenticationContext';
 
 /**
+ * Authentication component wrapper.
+ *
+ * @memberof Components
+ * @module Authentication
+ * @property {module} AuthenticationContext
+ */
+
+/**
  * An authentication pass-through component.
  *
  * @param {object} props
