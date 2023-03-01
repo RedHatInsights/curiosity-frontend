@@ -68,28 +68,32 @@ const config = {
   initialOption: RHSM_API_QUERY_UOM_TYPES.CORES,
   initialGraphFilters: [
     {
-      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      isOptional: true,
-      fill: chartColorBlueLight.value,
-      stroke: chartColorBlueDark.value,
-      color: chartColorBlueDark.value
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      isOptional: true,
-      fill: chartColorBlueLight.value,
-      stroke: chartColorBlueDark.value,
-      color: chartColorBlueDark.value
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      chartType: ChartTypeVariant.threshold,
-      isOptional: true
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      chartType: ChartTypeVariant.threshold,
-      isOptional: true
+      filters: [
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+          isOptional: true,
+          fill: chartColorBlueLight.value,
+          stroke: chartColorBlueDark.value,
+          color: chartColorBlueDark.value
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          isOptional: true,
+          fill: chartColorBlueLight.value,
+          stroke: chartColorBlueDark.value,
+          color: chartColorBlueDark.value
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          chartType: ChartTypeVariant.threshold,
+          isOptional: true
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+          chartType: ChartTypeVariant.threshold,
+          isOptional: true
+        }
+      ]
     }
   ],
   initialGraphSettings: {

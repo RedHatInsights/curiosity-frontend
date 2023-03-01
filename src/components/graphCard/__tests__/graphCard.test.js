@@ -2,37 +2,21 @@ import React from 'react';
 import { GraphCard } from '../graphCard';
 
 describe('GraphCard Component', () => {
-  it('should render a default component', async () => {
-    const component = await shallowHookComponent(<GraphCard />);
-    expect(component).toMatchSnapshot('default');
-  });
-
   it('should setup basic settings', async () => {
     const props = {
       useParseFiltersSettings: () => ({
-        groupedFiltersSettings: {},
-        standaloneFiltersSettings: [
+        filtersSettings: [
           {
             settings: {
-              isStandalone: true,
-              metric: {
-                chartType: 'area',
-                id: 'Sockets',
-                isCapacity: false,
-                isStacked: true,
-                isStandalone: true,
-                isThreshold: false,
-                isToolbarFilter: false,
-                metric: 'Sockets',
-                strokeWidth: 2
-              },
+              loremIpsum: true,
+              metric: undefined,
               metrics: [
                 {
                   chartType: 'area',
                   id: 'Sockets',
                   isCapacity: false,
                   isStacked: true,
-                  isStandalone: true,
+                  loremIpsum: true,
                   isThreshold: false,
                   isToolbarFilter: false,
                   metric: 'Sockets',
@@ -54,26 +38,28 @@ describe('GraphCard Component', () => {
     expect(componentStandalone).toMatchSnapshot('settings, standalone');
 
     props.useParseFiltersSettings = () => ({
-      groupedFiltersSettings: {
-        settings: {
-          isStandalone: false,
-          metric: undefined,
-          metrics: [
-            {
-              chartType: 'area',
-              id: 'Core-seconds',
-              isCapacity: false,
-              isStacked: true,
-              isStandalone: false,
-              isThreshold: false,
-              isToolbarFilter: false,
-              metric: 'Core-seconds',
-              strokeWidth: 2
-            }
-          ]
+      filtersSettings: [
+        {
+          settings: {
+            loremIpsum: false,
+            isMetricDisplay: true,
+            metric: undefined,
+            metrics: [
+              {
+                chartType: 'area',
+                id: 'Core-seconds',
+                isCapacity: false,
+                isStacked: true,
+                loremIpsum: false,
+                isThreshold: false,
+                isToolbarFilter: false,
+                metric: 'Core-seconds',
+                strokeWidth: 2
+              }
+            ]
+          }
         }
-      },
-      standaloneFiltersSettings: []
+      ]
     });
 
     const componentGrouped = await shallowHookComponent(<GraphCard {...props} />);

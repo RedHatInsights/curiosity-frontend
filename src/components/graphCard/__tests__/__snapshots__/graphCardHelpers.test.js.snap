@@ -8,34 +8,42 @@ exports[`GraphCardHelpers generateChartIds should return consistent IDs: thresho
 
 exports[`GraphCardHelpers generateChartSettings should return base graph settings: basic filters 1`] = `
 {
-  "groupedFiltersSettings": {
-    "settings": {
-      "isStandalone": false,
-      "metric": undefined,
-      "metrics": [
-        {
-          "chartType": "area",
-          "dolor": "sit",
-          "id": "dolorSit",
-          "isCapacity": false,
-          "isStacked": true,
-          "isStandalone": false,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "dolorSit",
-          "strokeWidth": 2,
+  "filtersSettings": [
+    {
+      "settings": {
+        "dolor": "sit",
+        "isMultiMetric": false,
+        "isStandalone": undefined,
+        "metric": undefined,
+        "metrics": [
+          {
+            "chartType": "area",
+            "dolor": "sit",
+            "id": "dolorSit",
+            "isCapacity": false,
+            "isStacked": true,
+            "isThreshold": false,
+            "isToolbarFilter": false,
+            "metric": "dolorSit",
+            "strokeWidth": 2,
+          },
+        ],
+        "padding": {
+          "bottom": 75,
+          "left": 75,
+          "right": 45,
+          "top": 45,
         },
-      ],
+        "stringId": "dolorSit",
+      },
     },
-  },
-  "standaloneFiltersSettings": [],
+  ],
 }
 `;
 
 exports[`GraphCardHelpers generateChartSettings should return base graph settings: no filters 1`] = `
 {
-  "groupedFiltersSettings": undefined,
-  "standaloneFiltersSettings": [],
+  "filtersSettings": [],
 }
 `;
 

@@ -74,7 +74,6 @@ const config = {
       color: chartColorBlueDark.value,
       chartType: ChartTypeVariant.line,
       isStacked: false,
-      isStandalone: true,
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
@@ -84,7 +83,6 @@ const config = {
       color: chartColorPurpleDark.value,
       chartType: ChartTypeVariant.line,
       isStacked: false,
-      isStandalone: true,
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
@@ -94,11 +92,11 @@ const config = {
       color: chartColorCyanDark.value,
       chartType: ChartTypeVariant.line,
       isStacked: false,
-      isStandalone: true,
       yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
     }
   ],
   initialGraphSettings: {
+    isMetricDisplay: true,
     isCardTitleDescription: true,
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
     yAxisTickFormat: ({ tick }) => {

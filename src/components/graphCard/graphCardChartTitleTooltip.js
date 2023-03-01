@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
-import { useProduct } from '../productView/productViewContext';
 import { useGraphCardContext } from './graphCardContext';
 import { translate } from '../i18n/i18n';
 
@@ -17,27 +16,19 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {Function} props.t
  * @param {Function} props.useGraphCardContext
- * @param {Function} props.useProduct
  * @returns {React.ReactNode}
  */
-const GraphCardChartTitleTooltip = ({
-  t,
-  useGraphCardContext: useAliasGraphCardContext,
-  useProduct: useAliasProduct
-}) => {
-  const { productId } = useAliasProduct();
+const GraphCardChartTitleTooltip = ({ t, useGraphCardContext: useAliasGraphCardContext }) => {
   const { settings = {} } = useAliasGraphCardContext();
-  const { isCardTitleDescription, isStandalone, metric } = settings;
+  const { isCardTitleDescription, stringId } = settings;
 
-  if (!isCardTitleDescription && !metric?.isCardTitleDescription) {
+  if (!isCardTitleDescription) {
     return null;
   }
 
   return (
     <Tooltip
-      content={
-        <p>{t(`curiosity-graph.cardHeadingDescription`, { context: (isStandalone && metric?.id) || productId })}</p>
-      }
+      content={<p>{t(`curiosity-graph.cardHeadingDescription`, { context: stringId })}</p>}
       position={TooltipPosition.top}
       enableFlip={false}
       distance={5}
@@ -54,22 +45,20 @@ const GraphCardChartTitleTooltip = ({
 /**
  * Prop types.
  *
- * @type {{useGraphCardContext: Function, useProduct: Function, t: Function}}
+ * @type {{useGraphCardContext: Function, t: Function}}
  */
 GraphCardChartTitleTooltip.propTypes = {
   t: PropTypes.func,
-  useProduct: PropTypes.func,
   useGraphCardContext: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useGraphCardContext: Function, useProduct: Function, t: Function}}
+ * @type {{useGraphCardContext: Function, t: Function}}
  */
 GraphCardChartTitleTooltip.defaultProps = {
   t: translate,
-  useProduct,
   useGraphCardContext
 };
 

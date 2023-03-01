@@ -3,6 +3,14 @@
    * Styling for graphCard component
    */
   &-usage-graph {
+    box-shadow: none !important;
+    background-color: var(--pf-global--BackgroundColor--100);
+    margin-top: var(--pf-global--spacer--md);
+
+    &:last-child {
+      margin-bottom: var(--pf-global--spacer--md);
+    }
+
     .pf-c-card {
       &__header {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
@@ -88,6 +96,10 @@
       margin-left: var(--pf-global--spacer--md);
       margin-right: var(--pf-global--spacer--md);
       margin-top: var(--pf-global--spacer--md);
+
+      &:last-child {
+        margin-bottom: var(--pf-global--spacer--md);
+      }
 
       @media (min-width: $pf-global--breakpoint--md) {
         flex-direction: row;

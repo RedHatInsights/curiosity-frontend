@@ -17,7 +17,7 @@ import { graphCardHelpers } from './graphCardHelpers';
  *
  * @type {React.Context<{}>}
  */
-const DEFAULT_CONTEXT = [{ settings: { isStandalone: false, metrics: [], metric: undefined } }, helpers.noop];
+const DEFAULT_CONTEXT = [{ settings: { metrics: [] } }, helpers.noop];
 
 const GraphCardContext = React.createContext(DEFAULT_CONTEXT);
 
@@ -42,7 +42,8 @@ const useParseFiltersSettings = ({
 } = {}) => {
   const { productId } = useAliasProduct();
   const { filters = [], settings = {} } = useAliasProductGraphConfig();
-  const { groupedFiltersSettings, standaloneFiltersSettings = [] } = useMemo(
+
+  return useMemo(
     () =>
       graphCardHelpers.generateChartSettings({
         filters,
@@ -51,11 +52,6 @@ const useParseFiltersSettings = ({
       }),
     [filters, settings, productId]
   );
-
-  return {
-    groupedFiltersSettings,
-    standaloneFiltersSettings
-  };
 };
 
 /**
@@ -152,6 +148,11 @@ const useGetMetrics = ({
   return response;
 };
 
+/**
+ * FixMe: the pending condition for "content" will block subsequent responses from this hook, this is expected.
+ * This current limitation means if we decide to apply the same action to multiple cards the "content" will
+ * not display for all of them.
+ */
 /**
  * Return a component list for a configurable graphCard action toolbar.
  * Allow the "content" prop to receive graph data for display via callback.
