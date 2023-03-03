@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, CardBody, CardFooter, CardTitle, Gallery, Title, PageSection } from '@patternfly/react-core';
 import { ArrowRightIcon } from '@patternfly/react-icons';
@@ -31,10 +31,16 @@ const ProductViewMissing = ({
 }) => {
   const navigate = useAliasNavigate();
   const { firstMatch, allConfigs } = useAliasRouteDetail();
-  const availableProducts = (firstMatch && [firstMatch]) || allConfigs;
+  const availableProducts = (!helpers.DEV_MODE && firstMatch && [firstMatch]) || allConfigs;
+  const isRedirect = availableProducts?.length <= availableProductsRedirect;
 
-  if (availableProducts?.length <= availableProductsRedirect) {
-    navigate(availableProducts[0].productPath);
+  useLayoutEffect(() => {
+    if (isRedirect) {
+      navigate(availableProducts[0].productPath);
+    }
+  });
+
+  if (isRedirect) {
     return null;
   }
 
@@ -55,7 +61,8 @@ const ProductViewMissing = ({
           {availableProducts?.map(({ productGroup, productId, productPath }) => (
             <Card
               key={`missingViewCard-${productId}-${helpers.generateId()}`}
-              isHoverable
+              isSelectable
+              isSelected={firstMatch.productPath === productPath}
               onClick={() => onNavigate(productPath)}
             >
               <CardTitle>
