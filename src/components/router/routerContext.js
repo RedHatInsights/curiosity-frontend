@@ -49,38 +49,47 @@ const useLocation = ({
 };
 
 /**
- * useNavigate wrapper, apply application config context routing
+ * useNavigate wrapper. Leverage useNavigate for a modified router with parallel "state"
+ * update. Dispatches the same type leveraged by the initialize hook, useSetRouteDetail.
  *
  * @param {object} options
+ * @param {Function} options.useDispatch
  * @param {Function} options.useLocation
  * @param {Function} options.useNavigate
  * @returns {Function}
  */
 const useNavigate = ({
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
   useLocation: useAliasLocation = useLocation,
   useNavigate: useAliasNavigate = useRRDNavigate
 } = {}) => {
   const { search = '', hash = '' } = useAliasLocation();
   const navigate = useAliasNavigate();
+  const dispatch = useAliasDispatch();
 
   return useCallback(
     (pathLocation, options) => {
       const pathName = (typeof pathLocation === 'string' && pathLocation) || pathLocation?.pathname;
       const { firstMatch } = routerHelpers.getRouteConfigByPath({ pathName });
 
-      return navigate(
-        (firstMatch?.productPath && `${routerHelpers.pathJoin('.', firstMatch?.productPath)}${search}${hash}`) ||
-          (pathName && `${pathName}${search}${hash}`) ||
-          pathLocation,
-        options
-      );
+      if (firstMatch?.productPath) {
+        dispatch({
+          type: reduxTypes.app.SET_PRODUCT,
+          config: firstMatch?.productPath
+        });
+
+        return navigate(`${routerHelpers.pathJoin('.', firstMatch?.productPath)}${search}${hash}`, options);
+      }
+
+      return navigate((pathName && `${pathName}${search}${hash}`) || pathLocation, options);
     },
-    [hash, navigate, search]
+    [dispatch, hash, navigate, search]
   );
 };
 
 /**
- * Get a route detail configuration from state.
+ * Get a route detail from "state". Consume useSetRouteDetail and set basis for product
+ * configuration context.
  *
  * @param {object} options
  * @param {Function} options.t
@@ -171,8 +180,9 @@ const useSearchParams = ({
 };
 
 /**
- * Store product path, parameter, in state. We're opting to use "window.location.pathname"
- * directly since it appears to be quicker, and returns a similar structured value as useParam.
+ * Initialize and store product path, parameter, in a "state" update parallel to routing.
+ * We're opting to use "window.location.pathname" directly since it appears to be quicker,
+ * and returns a similar structured value as useParam.
  *
  * @param {object} options
  * @param {Function} options.useSelector
@@ -190,7 +200,7 @@ const useSetRouteDetail = ({
   const { pathname: productPath } = aliasWindowLocation;
 
   useEffect(() => {
-    if (productPath && updatedPath !== productPath) {
+    if (productPath && productPath !== updatedPath) {
       dispatch({
         type: reduxTypes.app.SET_PRODUCT,
         config: productPath

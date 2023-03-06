@@ -24,22 +24,26 @@ describe('RouterContext', () => {
   });
 
   it('should apply a hook for useNavigate', () => {
-    const mockLocation = {
-      search: '?lorem=ipsum'
-    };
-
+    const mockDispatch = jest.fn();
     const updatedCalls = [];
     const { result: mockNavigationSet } = shallowHook(() =>
       useNavigate({
-        useLocation: () => mockLocation,
+        useDispatch: () => mockDispatch,
+        useLocation: () => ({
+          search: '?lorem=ipsum'
+        }),
         useNavigate: () => value => updatedCalls.push(value)
       })
     );
 
+    /**
+     * Note: Snapshots for first "mockNavigationSet" are aimed at being what Levenshtein denotes as a "closest match"
+     */
     mockNavigationSet('/dolor/sit');
     mockNavigationSet('rhel');
     mockNavigationSet('insights');
 
+    expect(mockDispatch.mock.calls).toMatchSnapshot('navigation dispatch');
     expect(updatedCalls).toMatchSnapshot('navigation push');
   });
 
