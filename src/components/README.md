@@ -5183,7 +5183,8 @@ Focused on exposing replace and href.
 <a name="Router.module_RouterContext..useNavigate"></a>
 
 ### RouterContext~useNavigate(options) ⇒ <code>function</code>
-useNavigate wrapper, apply application config context routing
+useNavigate wrapper. Leverage useNavigate for a modified router with parallel "state"
+update. Dispatches the same type leveraged by the initialize hook, useSetRouteDetail.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>
@@ -5196,6 +5197,8 @@ useNavigate wrapper, apply application config context routing
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
+    <td>options.useDispatch</td><td><code>function</code></td>
+    </tr><tr>
     <td>options.useLocation</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useNavigate</td><td><code>function</code></td>
@@ -5205,7 +5208,8 @@ useNavigate wrapper, apply application config context routing
 <a name="Router.module_RouterContext..useRouteDetail"></a>
 
 ### RouterContext~useRouteDetail(options) ⇒ <code>Object</code>
-Get a route detail configuration from state.
+Get a route detail from "state". Consume useSetRouteDetail and set basis for product
+configuration context.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>
@@ -5278,8 +5282,9 @@ This hook defaults to merging search objects instead of overwriting them.
 <a name="Router.module_RouterContext..useSetRouteDetail"></a>
 
 ### RouterContext~useSetRouteDetail(options) ⇒ <code>\*</code> \| <code>string</code>
-Store product path, parameter, in state. We're opting to use "window.location.pathname"
-directly since it appears to be quicker, and returns a similar structured value as useParam.
+Initialize and store product path, parameter, in a "state" update parallel to routing.
+We're opting to use "window.location.pathname" directly since it appears to be quicker,
+and returns a similar structured value as useParam.
 
 **Kind**: inner method of [<code>RouterContext</code>](#Router.module_RouterContext)  
 <table>
