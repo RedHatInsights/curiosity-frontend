@@ -77,31 +77,35 @@ const config = {
   },
   initialGraphFilters: [
     {
-      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      fill: chartColorBlueLight.value,
-      stroke: chartColorBlueDark.value,
-      color: chartColorBlueDark.value,
-      query: {
-        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.PHYSICAL
-      }
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      fill: chartColorCyanLight.value,
-      stroke: chartColorCyanDark.value,
-      color: chartColorCyanDark.value,
-      query: {
-        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.VIRTUAL
-      }
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      fill: chartColorPurpleLight.value,
-      stroke: chartColorPurpleDark.value,
-      color: chartColorPurpleDark.value,
-      query: {
-        [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.CLOUD
-      }
+      filters: [
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          fill: chartColorBlueLight.value,
+          stroke: chartColorBlueDark.value,
+          color: chartColorBlueDark.value,
+          query: {
+            [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.PHYSICAL
+          }
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          fill: chartColorCyanLight.value,
+          stroke: chartColorCyanDark.value,
+          color: chartColorCyanDark.value,
+          query: {
+            [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.VIRTUAL
+          }
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
+          fill: chartColorPurpleLight.value,
+          stroke: chartColorPurpleDark.value,
+          color: chartColorPurpleDark.value,
+          query: {
+            [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.CLOUD
+          }
+        }
+      ]
     }
   ],
   initialGraphSettings: {

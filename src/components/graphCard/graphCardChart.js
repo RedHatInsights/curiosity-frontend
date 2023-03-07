@@ -11,7 +11,7 @@ import {
   ToolbarContent,
   ToolbarGroup
 } from '@patternfly/react-core';
-import { useProduct, useProductGraphTallyQuery } from '../productView/productViewContext';
+import { useProductGraphTallyQuery } from '../productView/productViewContext';
 import { useGraphCardActions, useGraphCardContext, useGetMetrics } from './graphCardContext';
 import { graphCardHelpers } from './graphCardHelpers';
 import { Chart } from '../chart/chart';
@@ -36,7 +36,6 @@ import { translate } from '../i18n/i18n';
  * @param {Function} props.useGetMetrics
  * @param {Function} props.useGraphCardActions
  * @param {Function} props.useGraphCardContext
- * @param {Function} props.useProduct
  * @param {Function} props.useProductGraphTallyQuery
  * @returns {React.ReactNode}
  */
@@ -45,23 +44,21 @@ const GraphCardChart = ({
   useGetMetrics: useAliasGetMetrics,
   useGraphCardActions: useAliasGraphCardActions,
   useGraphCardContext: useAliasGraphCardContext,
-  useProduct: useAliasProduct,
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
-  const { productId } = useAliasProduct();
   const updatedActionDisplay = useAliasGraphCardActions();
   const { settings = {} } = useAliasGraphCardContext();
-  const { isStandalone, metric } = settings;
+  const { stringId } = settings;
 
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
   const { pending, error, dataSets = [] } = useAliasGetMetrics();
 
   return (
-    <Card isPlain={isStandalone} className="curiosity-usage-graph">
+    <Card isPlain className="curiosity-usage-graph">
       <CardHeader>
         <CardTitle>
           <Title headingLevel="h2" size="lg">
-            {t('curiosity-graph.cardHeading', { context: (isStandalone && metric?.id) || productId })}
+            {t('curiosity-graph.cardHeading', { context: stringId })}
             <GraphCardChartTitleTooltip />
           </Title>
         </CardTitle>
@@ -97,7 +94,7 @@ const GraphCardChart = ({
 /**
  * Prop types.
  *
- * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function, t: Function,
+ * @type {{useGraphCardContext: Function, useProductGraphTallyQuery: Function, t: Function,
  *     useGetMetrics: Function, useGraphCardActions: Function}}
  */
 GraphCardChart.propTypes = {
@@ -105,14 +102,13 @@ GraphCardChart.propTypes = {
   useGetMetrics: PropTypes.func,
   useGraphCardActions: PropTypes.func,
   useGraphCardContext: PropTypes.func,
-  useProduct: PropTypes.func,
   useProductGraphTallyQuery: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{useGraphCardContext: Function, useProduct: Function, useProductGraphTallyQuery: Function, t: translate,
+ * @type {{useGraphCardContext: Function, useProductGraphTallyQuery: Function, t: translate,
  *     useGetMetrics: Function, useGraphCardActions: Function}}
  */
 GraphCardChart.defaultProps = {
@@ -120,7 +116,6 @@ GraphCardChart.defaultProps = {
   useGetMetrics,
   useGraphCardActions,
   useGraphCardContext,
-  useProduct,
   useProductGraphTallyQuery
 };
 
