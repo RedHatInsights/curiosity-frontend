@@ -2049,8 +2049,6 @@ A chart/graph card.
     </tr><tr>
     <td>props.useGraphCardContext</td><td><code>function</code></td>
     </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td>
-    </tr><tr>
     <td>props.useProductGraphTallyQuery</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
@@ -2178,8 +2176,6 @@ Graph card title tooltip.
     <td>props.t</td><td><code>function</code></td>
     </tr><tr>
     <td>props.useGraphCardContext</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useProduct</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -2467,7 +2463,7 @@ Update chart/graph filters with core settings and styling.
 <a name="GraphCard.module_GraphCardHelpers..getChartXAxisLabelIncrement"></a>
 
 ### GraphCardHelpers~getChartXAxisLabelIncrement(granularity) ⇒ <code>number</code>
-Returns x axis ticks/intervals array for the xAxisTickInterval
+Returns x-axis ticks/intervals array for the xAxisTickInterval
 
 **Kind**: inner method of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
 <table>
@@ -2509,7 +2505,7 @@ Return a formatted date string.
 <a name="GraphCard.module_GraphCardHelpers..xAxisTickFormat"></a>
 
 ### GraphCardHelpers~xAxisTickFormat(params) ⇒ <code>string</code> \| <code>undefined</code>
-Format x axis ticks.
+Format x-axis ticks.
 
 **Kind**: inner method of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
 <table>
@@ -2538,7 +2534,7 @@ Format x axis ticks.
 <a name="GraphCard.module_GraphCardHelpers..yAxisTickFormat"></a>
 
 ### GraphCardHelpers~yAxisTickFormat(params) ⇒ <code>string</code>
-Format y axis ticks.
+Format y-axis ticks.
 
 **Kind**: inner method of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
 <table>
@@ -6250,7 +6246,7 @@ A standalone Category select filter.
 <a name="Toolbar.module_ToolbarFieldCategory..useToolbarFieldOptions"></a>
 
 ### ToolbarFieldCategory~useToolbarFieldOptions(options) ⇒ <code>function</code>
-Generate select field options from config
+Generate select field options from nested product graph configuration.
 
 **Kind**: inner method of [<code>ToolbarFieldCategory</code>](#Toolbar.module_ToolbarFieldCategory)  
 <table>

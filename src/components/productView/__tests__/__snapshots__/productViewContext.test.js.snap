@@ -36,16 +36,21 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   },
   "initialGraphFilters": [
     {
-      "color": "#06c",
-      "fill": "#8bc1f7",
-      "isOptional": true,
-      "metric": "Cores",
-      "stroke": "#06c",
-    },
-    {
-      "chartType": "threshold",
-      "isOptional": true,
-      "metric": "Cores",
+      "filters": [
+        {
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "isOptional": true,
+          "metric": "Cores",
+          "stroke": "#06c",
+        },
+        {
+          "chartType": "threshold",
+          "isOptional": true,
+          "metric": "Cores",
+        },
+      ],
+      "isOptional": false,
     },
   ],
   "initialGraphSettings": {
@@ -179,16 +184,21 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
   },
   "initialGraphFilters": [
     {
-      "color": "#06c",
-      "fill": "#8bc1f7",
-      "isOptional": true,
-      "metric": "Sockets",
-      "stroke": "#06c",
-    },
-    {
-      "chartType": "threshold",
-      "isOptional": true,
-      "metric": "Sockets",
+      "filters": [
+        {
+          "color": "#06c",
+          "fill": "#8bc1f7",
+          "isOptional": true,
+          "metric": "Sockets",
+          "stroke": "#06c",
+        },
+        {
+          "chartType": "threshold",
+          "isOptional": true,
+          "metric": "Sockets",
+        },
+      ],
+      "isOptional": false,
     },
   ],
   "initialGraphSettings": {

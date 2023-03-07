@@ -51,22 +51,26 @@ const config = {
   },
   initialGraphFilters: [
     {
-      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      fill: chartColorBlueLight.value,
-      stroke: chartColorBlueDark.value,
-      color: chartColorBlueDark.value,
-      chartType: ChartTypeVariant.line,
-      isStacked: false,
-      yAxisUseDataSet: true
-    },
-    {
-      metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
-      fill: chartColorCyanLight.value,
-      stroke: chartColorCyanDark.value,
-      color: chartColorCyanDark.value,
-      chartType: ChartTypeVariant.line,
-      isStacked: false,
-      yAxisUseDataSet: true
+      filters: [
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+          fill: chartColorBlueLight.value,
+          stroke: chartColorBlueDark.value,
+          color: chartColorBlueDark.value,
+          chartType: ChartTypeVariant.line,
+          isStacked: false,
+          yAxisUseDataSet: true
+        },
+        {
+          metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+          fill: chartColorCyanLight.value,
+          stroke: chartColorCyanDark.value,
+          color: chartColorCyanDark.value,
+          chartType: ChartTypeVariant.line,
+          isStacked: false,
+          yAxisUseDataSet: true
+        }
+      ]
     }
   ],
   initialGraphSettings: {

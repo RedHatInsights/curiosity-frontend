@@ -2,45 +2,58 @@
 
 exports[`Product OpenShift Dedicated config should apply graph configuration: filters 1`] = `
 {
-  "groupedFiltersSettings": {
-    "settings": {
-      "isStandalone": false,
-      "metric": undefined,
-      "metrics": [
-        {
-          "chartType": "line",
-          "color": "#06c",
-          "fill": "#8bc1f7",
-          "id": "Cores",
-          "isCapacity": false,
-          "isStacked": false,
-          "isStandalone": false,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Cores",
-          "stroke": "#06c",
-          "strokeWidth": 2,
-          "yAxisUseDataSet": true,
+  "filtersSettings": [
+    {
+      "settings": {
+        "chartType": "line",
+        "color": "#06c",
+        "fill": "#8bc1f7",
+        "isMultiMetric": true,
+        "isStacked": false,
+        "isStandalone": undefined,
+        "metric": undefined,
+        "metrics": [
+          {
+            "chartType": "line",
+            "color": "#06c",
+            "fill": "#8bc1f7",
+            "id": "Cores",
+            "isCapacity": false,
+            "isStacked": false,
+            "isThreshold": false,
+            "isToolbarFilter": false,
+            "metric": "Cores",
+            "stroke": "#06c",
+            "strokeWidth": 2,
+            "yAxisUseDataSet": true,
+          },
+          {
+            "chartType": "line",
+            "color": "#009596",
+            "fill": "#a2d9d9",
+            "id": "Instance-hours",
+            "isCapacity": false,
+            "isStacked": false,
+            "isThreshold": false,
+            "isToolbarFilter": false,
+            "metric": "Instance-hours",
+            "stroke": "#009596",
+            "strokeWidth": 2,
+            "yAxisUseDataSet": true,
+          },
+        ],
+        "padding": {
+          "bottom": 75,
+          "left": 75,
+          "right": 45,
+          "top": 45,
         },
-        {
-          "chartType": "line",
-          "color": "#009596",
-          "fill": "#a2d9d9",
-          "id": "Instance-hours",
-          "isCapacity": false,
-          "isStacked": false,
-          "isStandalone": false,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Instance-hours",
-          "stroke": "#009596",
-          "strokeWidth": 2,
-          "yAxisUseDataSet": true,
-        },
-      ],
+        "stringId": "Cores",
+        "stroke": "#06c",
+        "yAxisUseDataSet": true,
+      },
     },
-  },
-  "standaloneFiltersSettings": [],
+  ],
 }
 `;
 

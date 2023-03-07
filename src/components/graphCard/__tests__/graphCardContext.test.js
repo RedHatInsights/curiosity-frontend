@@ -33,7 +33,7 @@ describe('GraphCardContext', () => {
           filters: [
             {
               metric: rhsmConstants.RHSM_API_PATH_METRIC_TYPES.CORE_SECONDS,
-              isStandalone: true
+              loremIpsum: true
             }
           ]
         })

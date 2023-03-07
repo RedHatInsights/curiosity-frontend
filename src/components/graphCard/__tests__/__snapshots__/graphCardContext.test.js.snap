@@ -110,62 +110,24 @@ exports[`GraphCardContext should aggregate metric API calls: aggregated calls, p
 
 exports[`GraphCardContext should parse configuration: configuration, basic 1`] = `
 {
-  "groupedFiltersSettings": undefined,
-  "standaloneFiltersSettings": [],
+  "filtersSettings": [],
 }
 `;
 
 exports[`GraphCardContext should parse configuration: configuration, grouped 1`] = `
 {
-  "groupedFiltersSettings": {
-    "settings": {
-      "isStandalone": false,
-      "metric": undefined,
-      "metrics": [
-        {
-          "chartType": "area",
-          "id": "Core-seconds_loremIpsum",
-          "isCapacity": false,
-          "isStacked": true,
-          "isStandalone": false,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Core-seconds",
-          "strokeWidth": 2,
-        },
-      ],
-    },
-  },
-  "standaloneFiltersSettings": [],
-}
-`;
-
-exports[`GraphCardContext should parse configuration: configuration, standalone 1`] = `
-{
-  "groupedFiltersSettings": undefined,
-  "standaloneFiltersSettings": [
+  "filtersSettings": [
     {
       "settings": {
-        "actions": undefined,
-        "isStandalone": true,
-        "metric": {
-          "chartType": "area",
-          "id": "Core-seconds_loremIpsum",
-          "isCapacity": false,
-          "isStacked": true,
-          "isStandalone": true,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Core-seconds",
-          "strokeWidth": 2,
-        },
+        "isMultiMetric": false,
+        "isStandalone": undefined,
+        "metric": undefined,
         "metrics": [
           {
             "chartType": "area",
             "id": "Core-seconds_loremIpsum",
             "isCapacity": false,
             "isStacked": true,
-            "isStandalone": true,
             "isThreshold": false,
             "isToolbarFilter": false,
             "metric": "Core-seconds",
@@ -178,6 +140,42 @@ exports[`GraphCardContext should parse configuration: configuration, standalone 
           "right": 45,
           "top": 45,
         },
+        "stringId": "Core-seconds_loremIpsum",
+      },
+    },
+  ],
+}
+`;
+
+exports[`GraphCardContext should parse configuration: configuration, standalone 1`] = `
+{
+  "filtersSettings": [
+    {
+      "settings": {
+        "isMultiMetric": false,
+        "isStandalone": undefined,
+        "loremIpsum": true,
+        "metric": undefined,
+        "metrics": [
+          {
+            "chartType": "area",
+            "id": "Core-seconds_loremIpsum",
+            "isCapacity": false,
+            "isStacked": true,
+            "isThreshold": false,
+            "isToolbarFilter": false,
+            "loremIpsum": true,
+            "metric": "Core-seconds",
+            "strokeWidth": 2,
+          },
+        ],
+        "padding": {
+          "bottom": 75,
+          "left": 75,
+          "right": 45,
+          "top": 45,
+        },
+        "stringId": "Core-seconds_loremIpsum",
       },
     },
   ],
@@ -189,8 +187,6 @@ exports[`GraphCardContext should return specific properties: specific properties
   "DEFAULT_CONTEXT": [
     {
       "settings": {
-        "isStandalone": false,
-        "metric": undefined,
         "metrics": [],
       },
     },
@@ -213,8 +209,6 @@ exports[`GraphCardContext should return specific properties: specific properties
     "_currentValue": [
       {
         "settings": {
-          "isStandalone": false,
-          "metric": undefined,
           "metrics": [],
         },
       },
@@ -223,8 +217,6 @@ exports[`GraphCardContext should return specific properties: specific properties
     "_currentValue2": [
       {
         "settings": {
-          "isStandalone": false,
-          "metric": undefined,
           "metrics": [],
         },
       },

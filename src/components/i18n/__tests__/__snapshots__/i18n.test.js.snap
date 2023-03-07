@@ -55,7 +55,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.cardHeading",
-        "match": "t('curiosity-graph.cardHeading', { context: (isStandalone && metric?.id)",
+        "match": "t('curiosity-graph.cardHeading', { context: stringId })",
       },
     ],
   },
@@ -77,7 +77,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.cardHeadingDescription",
-        "match": "t(\`curiosity-graph.cardHeadingDescription\`, { context: (isStandalone && metric?.id)",
+        "match": "t(\`curiosity-graph.cardHeadingDescription\`, { context: stringId })",
       },
     ],
   },
@@ -119,11 +119,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "t('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', id], month: selectedMonth })",
+        "match": "t('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', chartId], month: selectedMonth })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "t( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && id], total: helpers .numberDisplay(dailyValue)",
+        "match": "t( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && chartId], total: helpers .numberDisplay(dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
@@ -131,11 +131,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "t('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', id], month: selectedMonth })",
+        "match": "t('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', chartId], month: selectedMonth })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "t( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && id], total: helpers .numberDisplay(monthlyValue)",
+        "match": "t( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && chartId], total: helpers .numberDisplay(monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",

@@ -34,7 +34,7 @@ describe('ToolbarFieldCategory Component', () => {
         useProductGraphConfig: () => ({
           filters: [
             { metric: 'lorem', query: {} },
-            { metric: 'ipsum', query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.CLOUD } },
+            { filters: [{ metric: 'ipsum', query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.CLOUD } }] },
             { metric: 'dolor', query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.VIRTUAL } },
             { metric: 'sit', query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.HYPERVISOR } }
           ]

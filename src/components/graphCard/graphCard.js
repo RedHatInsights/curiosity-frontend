@@ -29,34 +29,24 @@ import { GraphCardContext, useParseFiltersSettings } from './graphCardContext';
  * @returns {React.ReactNode}
  */
 const GraphCard = ({ isDisabled, useParseFiltersSettings: useAliasParseFiltersSettings }) => {
-  const { groupedFiltersSettings, standaloneFiltersSettings } = useAliasParseFiltersSettings();
+  const { filtersSettings } = useAliasParseFiltersSettings();
 
   if (isDisabled) {
     return null;
   }
 
   return (
-    <React.Fragment>
-      {(groupedFiltersSettings?.settings?.metrics?.length && (
-        <GraphCardContext.Provider
-          key={`graphCard_grouped-${groupedFiltersSettings?.settings?.metrics?.[0]?.id}`}
-          value={groupedFiltersSettings}
-        >
-          <GraphCardChart />
+    (filtersSettings?.length &&
+      filtersSettings?.map(filterSetting => (
+        <GraphCardContext.Provider key={`graphCard-${filterSetting?.settings?.metrics?.[0]?.id}`} value={filterSetting}>
+          {(filterSetting?.settings?.isMetricDisplay && (
+            <GraphCardMetricTotals>
+              <GraphCardChart />
+            </GraphCardMetricTotals>
+          )) || <GraphCardChart />}
         </GraphCardContext.Provider>
-      )) ||
-        null}
-      {standaloneFiltersSettings?.map(filtersSettings => (
-        <GraphCardContext.Provider
-          key={`graphCard_standalone-${filtersSettings?.settings?.metric?.id}`}
-          value={filtersSettings}
-        >
-          <GraphCardMetricTotals>
-            <GraphCardChart />
-          </GraphCardMetricTotals>
-        </GraphCardContext.Provider>
-      ))}
-    </React.Fragment>
+      ))) ||
+    null
   );
 };
 
