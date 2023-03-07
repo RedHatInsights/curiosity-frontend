@@ -131,27 +131,16 @@ exports[`Product RHACS config should apply an inventory configuration: filtered,
 
 exports[`Product RHACS config should apply graph configuration: filters 1`] = `
 {
-  "groupedFiltersSettings": undefined,
-  "standaloneFiltersSettings": [
+  "filtersSettings": [
     {
       "settings": {
-        "actions": undefined,
-        "isStandalone": true,
-        "metric": {
-          "chartType": "line",
-          "color": "#06c",
-          "fill": "#8bc1f7",
-          "id": "Cores",
-          "isCapacity": false,
-          "isStacked": false,
-          "isStandalone": true,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Cores",
-          "stroke": "#06c",
-          "strokeWidth": 2,
-          "yAxisChartLabel": [Function],
-        },
+        "chartType": "line",
+        "color": "#06c",
+        "fill": "#8bc1f7",
+        "isMultiMetric": false,
+        "isStacked": false,
+        "isStandalone": undefined,
+        "metric": undefined,
         "metrics": [
           {
             "chartType": "line",
@@ -160,7 +149,6 @@ exports[`Product RHACS config should apply graph configuration: filters 1`] = `
             "id": "Cores",
             "isCapacity": false,
             "isStacked": false,
-            "isStandalone": true,
             "isThreshold": false,
             "isToolbarFilter": false,
             "metric": "Cores",
@@ -175,6 +163,9 @@ exports[`Product RHACS config should apply graph configuration: filters 1`] = `
           "right": 45,
           "top": 45,
         },
+        "stringId": "Cores",
+        "stroke": "#06c",
+        "yAxisChartLabel": [Function],
       },
     },
   ],
@@ -184,6 +175,7 @@ exports[`Product RHACS config should apply graph configuration: filters 1`] = `
 exports[`Product RHACS config should apply graph configuration: settings 1`] = `
 {
   "isCardTitleDescription": true,
+  "isMetricDisplay": true,
   "xAxisChartLabel": [Function],
   "yAxisTickFormat": [Function],
 }

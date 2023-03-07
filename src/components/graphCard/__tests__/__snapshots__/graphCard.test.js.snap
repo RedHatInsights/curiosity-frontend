@@ -2,102 +2,85 @@
 
 exports[`GraphCard Component should allow being disabled: disabled 1`] = `""`;
 
-exports[`GraphCard Component should render a default component: default 1`] = `<Fragment />`;
-
 exports[`GraphCard Component should setup basic settings: settings, grouped 1`] = `
-<Fragment>
-  <ContextProvider
-    key="graphCard_grouped-Core-seconds"
-    value={
-      {
-        "settings": {
-          "isStandalone": false,
-          "metric": undefined,
-          "metrics": [
-            {
-              "chartType": "area",
-              "id": "Core-seconds",
-              "isCapacity": false,
-              "isStacked": true,
-              "isStandalone": false,
-              "isThreshold": false,
-              "isToolbarFilter": false,
-              "metric": "Core-seconds",
-              "strokeWidth": 2,
-            },
-          ],
-        },
-      }
+<ContextProvider
+  key="graphCard-Core-seconds"
+  value={
+    {
+      "settings": {
+        "isMetricDisplay": true,
+        "loremIpsum": false,
+        "metric": undefined,
+        "metrics": [
+          {
+            "chartType": "area",
+            "id": "Core-seconds",
+            "isCapacity": false,
+            "isStacked": true,
+            "isThreshold": false,
+            "isToolbarFilter": false,
+            "loremIpsum": false,
+            "metric": "Core-seconds",
+            "strokeWidth": 2,
+          },
+        ],
+      },
     }
+  }
+>
+  <GraphCardMetricTotals
+    t={[Function]}
+    useMetricsSelector={[Function]}
+    useProductGraphTallyQuery={[Function]}
   >
     <GraphCardChart
       t={[Function]}
       useGetMetrics={[Function]}
       useGraphCardActions={[Function]}
       useGraphCardContext={[Function]}
-      useProduct={[Function]}
       useProductGraphTallyQuery={[Function]}
     />
-  </ContextProvider>
-</Fragment>
+  </GraphCardMetricTotals>
+</ContextProvider>
 `;
 
 exports[`GraphCard Component should setup basic settings: settings, standalone 1`] = `
-<Fragment>
-  <ContextProvider
-    key="graphCard_standalone-Sockets"
-    value={
-      {
-        "settings": {
-          "isStandalone": true,
-          "metric": {
+<ContextProvider
+  key="graphCard-Sockets"
+  value={
+    {
+      "settings": {
+        "loremIpsum": true,
+        "metric": undefined,
+        "metrics": [
+          {
             "chartType": "area",
             "id": "Sockets",
             "isCapacity": false,
             "isStacked": true,
-            "isStandalone": true,
             "isThreshold": false,
             "isToolbarFilter": false,
+            "loremIpsum": true,
             "metric": "Sockets",
             "strokeWidth": 2,
           },
-          "metrics": [
-            {
-              "chartType": "area",
-              "id": "Sockets",
-              "isCapacity": false,
-              "isStacked": true,
-              "isStandalone": true,
-              "isThreshold": false,
-              "isToolbarFilter": false,
-              "metric": "Sockets",
-              "strokeWidth": 2,
-            },
-          ],
-          "padding": {
-            "bottom": 75,
-            "left": 75,
-            "right": 45,
-            "top": 45,
-          },
+        ],
+        "padding": {
+          "bottom": 75,
+          "left": 75,
+          "right": 45,
+          "top": 45,
         },
-      }
+      },
     }
-  >
-    <GraphCardMetricTotals
-      t={[Function]}
-      useMetricsSelector={[Function]}
-      useProductGraphTallyQuery={[Function]}
-    >
-      <GraphCardChart
-        t={[Function]}
-        useGetMetrics={[Function]}
-        useGraphCardActions={[Function]}
-        useGraphCardContext={[Function]}
-        useProduct={[Function]}
-        useProductGraphTallyQuery={[Function]}
-      />
-    </GraphCardMetricTotals>
-  </ContextProvider>
-</Fragment>
+  }
+>
+  <GraphCardChart
+    t={[Function]}
+    useGetMetrics={[Function]}
+    useGraphCardActions={[Function]}
+    useGraphCardContext={[Function]}
+    useProductGraphTallyQuery={[Function]}
+  />
+</ContextProvider>
 `;

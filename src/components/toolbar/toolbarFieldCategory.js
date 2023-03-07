@@ -15,7 +15,7 @@ import { translate } from '../i18n/i18n';
  */
 
 /**
- * Generate select field options from config
+ * Generate select field options from nested product graph configuration.
  *
  * @param {object} options
  * @param {Function} options.useProductGraphConfig
@@ -26,27 +26,33 @@ const useToolbarFieldOptions = ({ useProductGraphConfig: useAliasProductGraphCon
   const options = [];
 
   if (Array.isArray(filters)) {
-    const updatedFilters = filters
-      ?.map(({ metric, query }) => {
-        const category = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY];
+    const updatedFilters = [];
+    const update = ({ metric, query }) => {
+      const category = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY];
+      const isDuplicate = updatedFilters.find(({ value }) => value === category);
 
-        if (category !== undefined) {
-          return {
-            title: translate('curiosity-toolbar.label', {
-              context: ['category', (category === '' && 'none') || category]
-            }),
-            value: category,
-            metaData: {
-              metric,
-              query
-            },
-            selected: false
-          };
-        }
+      if (category !== undefined && !isDuplicate) {
+        updatedFilters.push({
+          title: translate('curiosity-toolbar.label', {
+            context: ['category', (category === '' && 'none') || category]
+          }),
+          value: category,
+          metaData: {
+            metric,
+            query
+          },
+          selected: false
+        });
+      }
+    };
 
-        return undefined;
-      })
-      .filter(value => value !== undefined);
+    filters?.forEach(({ filters: groupedFilters, ...restFilters }) => {
+      if (Array.isArray(groupedFilters)) {
+        groupedFilters.forEach(group => update(group));
+      } else {
+        update(restFilters);
+      }
+    });
 
     if (updatedFilters?.length) {
       options.push(...updatedFilters);

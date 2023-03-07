@@ -5,7 +5,7 @@ describe('GraphCardChartTitleTooltip Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useGraphCardContext: () => ({
-        settings: { isCardTitleDescription: true, isStandalone: true, metric: { id: 'loremIpsum' } }
+        settings: { isCardTitleDescription: true, loremIpsum: true, stringId: 'loremIpsum' }
       })
     };
     const component = await shallowHookComponent(<GraphCardChartTitleTooltip {...props} />);

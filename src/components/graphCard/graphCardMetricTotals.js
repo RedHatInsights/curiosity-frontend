@@ -34,8 +34,9 @@ const GraphCardMetricTotals = ({
 }) => {
   const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate } = useAliasProductGraphTallyQuery();
   const { pending, error, fulfilled, dataSets = [] } = useAliasMetricsSelector();
-  const { data = [], id, metric: metricId, meta = {} } = dataSets[0] || {};
+  const { data = [], id: chartId, metric: metricId, meta = {} } = dataSets[0] || {};
   const { date: lastDate, hasData: lastHasData, y: lastValue } = data[data.length - 1] || {};
+
   const {
     date: currentDate,
     hasData: currentHasData,
@@ -68,7 +69,7 @@ const GraphCardMetricTotals = ({
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
                     t('curiosity-graph.cardHeadingMetric', {
-                      context: ['dailyTotal', id],
+                      context: ['dailyTotal', chartId],
                       month: selectedMonth
                     })}
                 </Title>
@@ -81,7 +82,7 @@ const GraphCardMetricTotals = ({
                   t(
                     'curiosity-graph.cardBodyMetric',
                     {
-                      context: ['total', dailyHasData && id],
+                      context: ['total', dailyHasData && chartId],
                       total: helpers
                         .numberDisplay(dailyValue)
                         ?.format({
@@ -118,7 +119,7 @@ const GraphCardMetricTotals = ({
                   {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                   {fulfilled &&
                     t('curiosity-graph.cardHeadingMetric', {
-                      context: ['monthlyTotal', id],
+                      context: ['monthlyTotal', chartId],
                       month: selectedMonth
                     })}
                 </Title>
@@ -131,7 +132,7 @@ const GraphCardMetricTotals = ({
                   t(
                     'curiosity-graph.cardBodyMetric',
                     {
-                      context: ['total', monthlyHasData && id],
+                      context: ['total', monthlyHasData && chartId],
                       total: helpers
                         .numberDisplay(monthlyValue)
                         ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })

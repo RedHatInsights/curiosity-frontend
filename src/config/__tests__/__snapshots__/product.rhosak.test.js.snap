@@ -223,27 +223,16 @@ exports[`Product RHOSAK config should apply an inventory configuration: filtered
 
 exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
 {
-  "groupedFiltersSettings": undefined,
-  "standaloneFiltersSettings": [
+  "filtersSettings": [
     {
       "settings": {
-        "actions": undefined,
-        "isStandalone": true,
-        "metric": {
-          "chartType": "line",
-          "color": "#06c",
-          "fill": "#8bc1f7",
-          "id": "Transfer-gibibytes",
-          "isCapacity": false,
-          "isStacked": false,
-          "isStandalone": true,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Transfer-gibibytes",
-          "stroke": "#06c",
-          "strokeWidth": 2,
-          "yAxisChartLabel": [Function],
-        },
+        "chartType": "line",
+        "color": "#06c",
+        "fill": "#8bc1f7",
+        "isMultiMetric": false,
+        "isStacked": false,
+        "isStandalone": undefined,
+        "metric": undefined,
         "metrics": [
           {
             "chartType": "line",
@@ -252,7 +241,6 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
             "id": "Transfer-gibibytes",
             "isCapacity": false,
             "isStacked": false,
-            "isStandalone": true,
             "isThreshold": false,
             "isToolbarFilter": false,
             "metric": "Transfer-gibibytes",
@@ -267,27 +255,20 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
           "right": 45,
           "top": 45,
         },
+        "stringId": "Transfer-gibibytes",
+        "stroke": "#06c",
+        "yAxisChartLabel": [Function],
       },
     },
     {
       "settings": {
-        "actions": undefined,
-        "isStandalone": true,
-        "metric": {
-          "chartType": "line",
-          "color": "#5752d1",
-          "fill": "#b2b0ea",
-          "id": "Storage-gibibyte-months",
-          "isCapacity": false,
-          "isStacked": false,
-          "isStandalone": true,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Storage-gibibyte-months",
-          "stroke": "#5752d1",
-          "strokeWidth": 2,
-          "yAxisChartLabel": [Function],
-        },
+        "chartType": "line",
+        "color": "#5752d1",
+        "fill": "#b2b0ea",
+        "isMultiMetric": false,
+        "isStacked": false,
+        "isStandalone": undefined,
+        "metric": undefined,
         "metrics": [
           {
             "chartType": "line",
@@ -296,7 +277,6 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
             "id": "Storage-gibibyte-months",
             "isCapacity": false,
             "isStacked": false,
-            "isStandalone": true,
             "isThreshold": false,
             "isToolbarFilter": false,
             "metric": "Storage-gibibyte-months",
@@ -311,27 +291,20 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
           "right": 45,
           "top": 45,
         },
+        "stringId": "Storage-gibibyte-months",
+        "stroke": "#5752d1",
+        "yAxisChartLabel": [Function],
       },
     },
     {
       "settings": {
-        "actions": undefined,
-        "isStandalone": true,
-        "metric": {
-          "chartType": "line",
-          "color": "#009596",
-          "fill": "#a2d9d9",
-          "id": "Instance-hours",
-          "isCapacity": false,
-          "isStacked": false,
-          "isStandalone": true,
-          "isThreshold": false,
-          "isToolbarFilter": false,
-          "metric": "Instance-hours",
-          "stroke": "#009596",
-          "strokeWidth": 2,
-          "yAxisChartLabel": [Function],
-        },
+        "chartType": "line",
+        "color": "#009596",
+        "fill": "#a2d9d9",
+        "isMultiMetric": false,
+        "isStacked": false,
+        "isStandalone": undefined,
+        "metric": undefined,
         "metrics": [
           {
             "chartType": "line",
@@ -340,7 +313,6 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
             "id": "Instance-hours",
             "isCapacity": false,
             "isStacked": false,
-            "isStandalone": true,
             "isThreshold": false,
             "isToolbarFilter": false,
             "metric": "Instance-hours",
@@ -355,6 +327,9 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
           "right": 45,
           "top": 45,
         },
+        "stringId": "Instance-hours",
+        "stroke": "#009596",
+        "yAxisChartLabel": [Function],
       },
     },
   ],
@@ -364,6 +339,7 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
 exports[`Product RHOSAK config should apply graph configuration: settings 1`] = `
 {
   "isCardTitleDescription": true,
+  "isMetricDisplay": true,
   "xAxisChartLabel": [Function],
   "yAxisTickFormat": [Function],
 }
