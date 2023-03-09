@@ -42,16 +42,17 @@ const PageColumns = ({ children, className }) => (
  * @type {{children: React.ReactNode, className: string}}
  */
 PageColumns.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string
 };
 
 /**
  * Default props.
  *
- * @type {{className: string}}
+ * @type {{children: React.ReactNode, className: string}}
  */
 PageColumns.defaultProps = {
+  children: [],
   className: ''
 };
 

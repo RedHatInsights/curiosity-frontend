@@ -5,8 +5,24 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
   "filtersSettings": [
     {
       "settings": {
+        "actions": [
+          {
+            "id": "uom",
+            "position": "right",
+          },
+          {
+            "id": "granularity",
+            "position": "right",
+          },
+        ],
         "color": "#06c",
         "fill": "#8bc1f7",
+        "groupMetric": [
+          "Cores",
+          "Sockets",
+        ],
+        "isCardTitleDescription": true,
+        "isMetricDisplay": false,
         "isMultiMetric": true,
         "isOptional": true,
         "isStandalone": undefined,

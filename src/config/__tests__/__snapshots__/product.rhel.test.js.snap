@@ -318,8 +318,19 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
   "filtersSettings": [
     {
       "settings": {
+        "actions": [
+          {
+            "id": "granularity",
+            "position": "right",
+          },
+        ],
         "color": "#06c",
         "fill": "#8bc1f7",
+        "groupMetric": [
+          "Sockets",
+        ],
+        "isDisabledLegendClick": true,
+        "isMetricDisplay": false,
         "isMultiMetric": true,
         "isStandalone": undefined,
         "metric": undefined,

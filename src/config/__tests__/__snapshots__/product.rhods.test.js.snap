@@ -134,9 +134,26 @@ exports[`Product RHODS config should apply graph configuration: filters 1`] = `
   "filtersSettings": [
     {
       "settings": {
+        "cards": [
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+        ],
         "chartType": "line",
         "color": "#06c",
         "fill": "#8bc1f7",
+        "groupMetric": [
+          "Cores",
+        ],
+        "isCardTitleDescription": true,
+        "isMetricDisplay": true,
         "isMultiMetric": false,
         "isStacked": false,
         "isStandalone": undefined,
@@ -165,7 +182,9 @@ exports[`Product RHODS config should apply graph configuration: filters 1`] = `
         },
         "stringId": "Cores",
         "stroke": "#06c",
+        "xAxisChartLabel": [Function],
         "yAxisChartLabel": [Function],
+        "yAxisTickFormat": [Function],
       },
     },
   ],
@@ -174,8 +193,19 @@ exports[`Product RHODS config should apply graph configuration: filters 1`] = `
 
 exports[`Product RHODS config should apply graph configuration: settings 1`] = `
 {
+  "cards": [
+    {
+      "body": [Function],
+      "footer": [Function],
+      "header": [Function],
+    },
+    {
+      "body": [Function],
+      "footer": [Function],
+      "header": [Function],
+    },
+  ],
   "isCardTitleDescription": true,
-  "isMetricDisplay": true,
   "xAxisChartLabel": [Function],
   "yAxisTickFormat": [Function],
 }
@@ -583,4 +613,15 @@ exports[`Product RHODS config should handle a custom yAxisTickFormat for floatin
   "900000000000": "900B",
   "9000000000000": "9T",
 }
+`;
+
+exports[`Product RHODS config should handle metric card display for graphs: cards 1`] = `
+[
+  "t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal","testId":"graphDailyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphDailyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphDailyTotalCard-footer"})",
+  "t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal","testId":"graphMonthlyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphMonthlyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphMonthlyTotalCard-footer"})",
+]
 `;
