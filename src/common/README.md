@@ -204,7 +204,6 @@ Download the debug log file.
     * [~isPromise(obj)](#Helpers.module_General..isPromise) ⇒ <code>boolean</code>
     * [~generateHash(anyValue, options)](#Helpers.module_General..generateHash) ⇒ <code>\*</code> \| <code>string</code>
     * [~memo(func, options)](#Helpers.module_General..memo) ⇒ <code>function</code>
-    * [~noopTranslate(key, value, components)](#Helpers.module_General..noopTranslate) ⇒ <code>string</code>
     * [~numberDisplay(value)](#Helpers.module_General..numberDisplay) ⇒ <code>numbro.Numbro</code> \| <code>\*</code>
     * [~objFreeze(obj)](#Helpers.module_General..objFreeze) ⇒ <code>\*</code>
     * [~browserExpose(obj, options)](#Helpers.module_General..browserExpose)
@@ -526,29 +525,6 @@ Simple memoize, cache based arguments with adjustable limit.
     <td>options</td><td><code>object</code></td>
     </tr><tr>
     <td>options.cacheLimit</td><td><code>number</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Helpers.module_General..noopTranslate"></a>
-
-### General~noopTranslate(key, value, components) ⇒ <code>string</code>
-A placeholder for "t", translation method.
-Associated with the i18n package, and typically used as a default prop.
-
-**Kind**: inner method of [<code>General</code>](#Helpers.module_General)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>key</td><td><code>string</code> | <code>Array</code></td>
-    </tr><tr>
-    <td>value</td><td><code>string</code> | <code>object</code> | <code>Array</code></td>
-    </tr><tr>
-    <td>components</td><td><code>Array</code></td>
     </tr>  </tbody>
 </table>
 

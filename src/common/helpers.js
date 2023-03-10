@@ -131,29 +131,6 @@ const noop = Function.prototype;
 const noopPromise = Promise.resolve({});
 
 /**
- * A placeholder for "t", translation method.
- * Associated with the i18n package, and typically used as a default prop.
- *
- * @param {string|Array} key
- * @param {string|object|Array} value
- * @param {Array} components
- * @returns {string}
- */
-const noopTranslate = (key, value, components) => {
-  const updatedKey = (Array.isArray(key) && `[${key}]`) || key;
-  const updatedValue =
-    (typeof value === 'string' && value) ||
-    (Array.isArray(value) && `[${value}]`) ||
-    (Object.keys(value || '').length && JSON.stringify(value)) ||
-    '';
-  const updatedComponents = (components && `${components}`) || '';
-
-  return `t(${updatedKey}${(updatedValue && `, ${updatedValue}`) || ''}${
-    (updatedComponents && `, ${updatedComponents}`) || ''
-  })`;
-};
-
-/**
  * ToDo: review adding "locale" for numbro
  */
 /**
@@ -434,7 +411,6 @@ const helpers = {
   memo,
   noop,
   noopPromise,
-  noopTranslate,
   numberDisplay,
   objFreeze,
   DEV_MODE,

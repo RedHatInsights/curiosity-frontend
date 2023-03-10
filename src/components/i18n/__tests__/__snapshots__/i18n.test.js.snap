@@ -16,15 +16,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/common/helpers.js",
-    "keys": [
-      {
-        "key": "",
-        "match": "t(\${updatedKey}\${(updatedValue && \`, \${updatedValue}\`)",
-      },
-    ],
-  },
-  {
     "file": "./src/components/authentication/authentication.js",
     "keys": [
       {
@@ -140,6 +131,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-graph.cardFooterMetric",
         "match": "t('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+      },
+    ],
+  },
+  {
+    "file": "./src/components/i18n/i18nHelpers.js",
+    "keys": [
+      {
+        "key": "",
+        "match": "t(\${updatedKey}\${(updatedValue && \`, \${updatedValue}\`)",
       },
     ],
   },

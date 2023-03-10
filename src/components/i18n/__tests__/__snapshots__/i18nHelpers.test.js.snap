@@ -22,6 +22,10 @@ exports[`I18nHelpers should attempt to perform translate with a node: translated
 exports[`I18nHelpers should have specific functions: i18nHelpers 1`] = `
 {
   "EMPTY_CONTEXT": "LOCALE_EMPTY_CONTEXT",
+  "noopTranslate": [Function],
+  "parseContext": [Function],
+  "parseTranslateKey": [Function],
+  "splitContext": [Function],
   "translate": [Function],
   "translateComponent": [Function],
 }
