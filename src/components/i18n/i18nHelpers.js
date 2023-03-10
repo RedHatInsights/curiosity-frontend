@@ -125,9 +125,13 @@ const parseTranslateKey = translateKey => {
  * See, https://react.i18next.com/
  *
  * @param {string|Array} translateKey A key reference, or an array of a primary key with fallback keys.
- * @param {string|object|Array} values A default string if the key can't be found. An object with i18next settings. Or an array of objects (key/value) pairs used to replace string tokes. i.e. "[{ hello: 'world' }]"
+ * @param {string|object|Array} values
+ *     - A default string if the key can't be found.
+ *     - An object with i18next settings. i.e. "{ context: Array|string, testId: boolean|string }"
+ *     - An array of objects (key/value) pairs used to replace string tokens. i.e. "[{ hello: 'world' }]"
  * @param {Array} components An array of HTML/React nodes used to replace string tokens. i.e. "[<span />, <React.Fragment />]"
  * @param {object} settings
+ * @param {*} settings.i18next
  * @param {Function} settings.isDebug
  * @param {Function} settings.noopTranslate
  * @param {Function} settings.parseContext
@@ -139,6 +143,7 @@ const translate = (
   values = null,
   components,
   {
+    i18next: aliasI18next = i18next,
     isDebug = helpers.TEST_MODE,
     noopTranslate: aliasNoopTranslate = noopTranslate,
     parseContext: aliasParseContext = parseContext,
@@ -146,7 +151,8 @@ const translate = (
   } = {}
 ) => {
   const updatedValues = values || {};
-  let updatedTranslateKey = aliasParseTranslateKey(translateKey);
+  const baseUpdatedTranslateKey = aliasParseTranslateKey(translateKey);
+  let updatedTranslateKey = baseUpdatedTranslateKey;
 
   if (updatedValues?.context) {
     const { context: parsedContext, translateKey: parsedAgainTranslateKey } = aliasParseContext(
@@ -163,13 +169,28 @@ const translate = (
 
   if (components) {
     return (
-      (i18next.store && <Trans i18nKey={updatedTranslateKey} values={updatedValues} components={components} />) || (
-        <React.Fragment>t({updatedTranslateKey})</React.Fragment>
-      )
+      (aliasI18next.store && (
+        <Trans i18nKey={updatedTranslateKey} values={updatedValues} components={components} />
+      )) || <React.Fragment>t({updatedTranslateKey})</React.Fragment>
     );
   }
 
-  return (i18next.store && i18next.t(updatedTranslateKey, updatedValues)) || `t([${updatedTranslateKey}])`;
+  if (aliasI18next.store) {
+    if (updatedValues?.testId) {
+      const updatedTestId =
+        (typeof updatedValues?.testId === 'string' && updatedValues?.testId.length > 0 && updatedValues?.testId) ||
+        baseUpdatedTranslateKey;
+      return (
+        <span className="curiosity-translate__test-id" data-test={updatedTestId}>
+          {aliasI18next.t(updatedTranslateKey, updatedValues)}
+        </span>
+      );
+    }
+
+    return aliasI18next.t(updatedTranslateKey, updatedValues);
+  }
+
+  return `t([${updatedTranslateKey}])`;
 };
 
 /**
@@ -177,15 +198,19 @@ const translate = (
  *
  * @param {React.ReactNode} Component
  * @param {object} settings
+ * @param {*} settings.i18next
  * @param {Function} settings.noopTranslate
  * @returns {React.ReactNode}
  */
-const translateComponent = (Component, { noopTranslate: aliasNoopTranslate = noopTranslate } = {}) => {
+const translateComponent = (
+  Component,
+  { i18next: aliasI18next = i18next, noopTranslate: aliasNoopTranslate = noopTranslate } = {}
+) => {
   const withTranslation = ({ ...props }) => (
     <Component
       {...props}
-      t={(i18next.store && translate) || aliasNoopTranslate}
-      i18n={(i18next.store && i18next) || helpers.noop}
+      t={(aliasI18next.store && translate) || aliasNoopTranslate}
+      i18n={(aliasI18next.store && aliasI18next) || helpers.noop}
     />
   );
 

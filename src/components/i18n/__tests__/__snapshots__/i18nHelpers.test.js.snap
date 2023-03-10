@@ -19,6 +19,43 @@ exports[`I18nHelpers should attempt to perform a string replace: translate 1`] =
 
 exports[`I18nHelpers should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, {&quot;hello&quot;:&quot;world&quot;}, [object Object])</div>"`;
 
+exports[`I18nHelpers should attempt to place a test identifier around copy: test id 1`] = `
+{
+  "basic": <span
+    className="curiosity-translate__test-id"
+    data-test="lorem.ipsum"
+  />,
+  "basicString": <span
+    className="curiosity-translate__test-id"
+    data-test="dolor-sit"
+  />,
+  "emptyContext": <span
+    className="curiosity-translate__test-id"
+    data-test="lorem.ipsum"
+  />,
+  "emptyContextString": <span
+    className="curiosity-translate__test-id"
+    data-test="dolor-sit"
+  />,
+  "emptyPartialContext": <span
+    className="curiosity-translate__test-id"
+    data-test="lorem.ipsum"
+  />,
+  "emptyPartialContextString": <span
+    className="curiosity-translate__test-id"
+    data-test="dolor-sit"
+  />,
+  "stringContextNested": <span
+    className="curiosity-translate__test-id"
+    data-test="lorem.ipsum"
+  />,
+  "stringContextNestedString": <span
+    className="curiosity-translate__test-id"
+    data-test="dolor-sit"
+  />,
+}
+`;
+
 exports[`I18nHelpers should have specific functions: i18nHelpers 1`] = `
 {
   "EMPTY_CONTEXT": "LOCALE_EMPTY_CONTEXT",
