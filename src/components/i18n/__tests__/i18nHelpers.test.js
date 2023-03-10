@@ -56,4 +56,65 @@ describe('I18nHelpers', () => {
       multiKey
     }).toMatchSnapshot('translate');
   });
+
+  it('should attempt to place a test identifier around copy', () => {
+    const mockI18next = { store: jest.fn(), t: jest.fn() };
+
+    const basic = translate('lorem.ipsum', { testId: true }, undefined, { i18next: mockI18next, isDebug: false });
+    const basicString = translate('lorem.ipsum', { testId: 'dolor-sit' }, undefined, {
+      i18next: mockI18next,
+      isDebug: false
+    });
+    const emptyContext = translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: true }, undefined, {
+      i18next: mockI18next,
+      isDebug: false
+    });
+    const emptyContextString = translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: 'dolor-sit' }, undefined, {
+      i18next: mockI18next,
+      isDebug: false
+    });
+    const emptyPartialContext = translate(
+      'lorem.ipsum',
+      { context: ['hello', EMPTY_CONTEXT], testId: true },
+      undefined,
+      { i18next: mockI18next, isDebug: false }
+    );
+    const emptyPartialContextString = translate(
+      'lorem.ipsum',
+      { context: ['hello', EMPTY_CONTEXT], testId: 'dolor-sit' },
+      undefined,
+      { i18next: mockI18next, isDebug: false }
+    );
+    const stringContextNested = translate(
+      'lorem.ipsum',
+      {
+        context: 'hello_world_lorem_ipsum_dolor_sit',
+        i18next: mockI18next,
+        testId: true
+      },
+      undefined,
+      { i18next: mockI18next, isDebug: false }
+    );
+    const stringContextNestedString = translate(
+      'lorem.ipsum',
+      {
+        context: 'hello_world_lorem_ipsum_dolor_sit',
+        i18next: mockI18next,
+        testId: 'dolor-sit'
+      },
+      undefined,
+      { i18next: mockI18next, isDebug: false }
+    );
+
+    expect({
+      basic,
+      basicString,
+      emptyContext,
+      emptyContextString,
+      emptyPartialContext,
+      emptyPartialContextString,
+      stringContextNested,
+      stringContextNestedString
+    }).toMatchSnapshot('test id');
+  });
 });
