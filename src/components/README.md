@@ -2821,13 +2821,21 @@ See, https://react.i18next.com/
     <td>translateKey</td><td><code>string</code> | <code>Array</code></td><td></td><td><p>A key reference, or an array of a primary key with fallback keys.</p>
 </td>
     </tr><tr>
-    <td>values</td><td><code>string</code> | <code>object</code> | <code>Array</code></td><td><code>null</code></td><td><p>A default string if the key can&#39;t be found. An object with i18next settings. Or an array of objects (key/value) pairs used to replace string tokes. i.e. &quot;[{ hello: &#39;world&#39; }]&quot;</p>
+    <td>values</td><td><code>string</code> | <code>object</code> | <code>Array</code></td><td><code>null</code></td><td><ul>
+<li>A default string if the key can&#39;t be found.<ul>
+<li>An object with i18next settings. i.e. &quot;{ context: Array|string, testId: boolean|string }&quot;</li>
+<li>An array of objects (key/value) pairs used to replace string tokens. i.e. &quot;[{ hello: &#39;world&#39; }]&quot;</li>
+</ul>
+</li>
+</ul>
 </td>
     </tr><tr>
     <td>components</td><td><code>Array</code></td><td></td><td><p>An array of HTML/React nodes used to replace string tokens. i.e. &quot;[<span />, &lt;React.Fragment /&gt;]&quot;</p>
 </td>
     </tr><tr>
     <td>settings</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.i18next</td><td><code>*</code></td><td></td><td></td>
     </tr><tr>
     <td>settings.isDebug</td><td><code>function</code></td><td></td><td></td>
     </tr><tr>
@@ -2856,6 +2864,8 @@ Apply string replacements against a component, HOC.
     <td>Component</td><td><code>React.ReactNode</code></td>
     </tr><tr>
     <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.i18next</td><td><code>*</code></td>
     </tr><tr>
     <td>settings.noopTranslate</td><td><code>function</code></td>
     </tr>  </tbody>

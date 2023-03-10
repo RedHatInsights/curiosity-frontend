@@ -216,12 +216,22 @@ This project makes use of reserved CSS class prefixes used by external resources
    CSS classes with the prefix `uxui-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
 
 ### Reserved QE testing attributes
-This project makes use of reserved DOM attributes used by the QE team.
-> Updating elements with these attributes should be done with the knowledge "you are affecting" QE's ability to test.
+This project makes use of reserved DOM attributes and string identifiers used by the QE team.
+> Updating elements with these attributes, or settings, should be done with the knowledge "you are affecting" QE's ability to test.
+> And it is recommended you coordinate with QE before altering these attributes, settings.
 
 1. Attribute `data-test`
 
-   DOM attributes with `data-test=""` are used by QE as a means to identify specific DOM elements.
+   - DOM attributes with `data-test=""` are used by QE as a means to identify specific DOM elements.
+   - To use simply place `data-test="[your-id-coordinated-with-QE]`" onto a DOM element.
+
+2. `testId` used with i18next `translate` or `t`
+
+   - The i18next `translate` or `t` function supports the use of a `testId` setting. This `testId` wraps a
+   `<span data-test=[testId|locale string id]>[locale string]</span>` around copy content.
+   - To use add the `testId` to your locale string function call use
+      - `t('locale.string.id', { testId: true })`. In this example, this would populate `locale.string.id` as the testId.
+      - or `t('locale.string.id', { testId: 'custom-id-coordinated-with-QE' })`
 
 ### Reserved Files
 #### Spandx Config
