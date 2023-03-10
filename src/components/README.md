@@ -2701,8 +2701,12 @@ Default props.
 
 * [i18nHelpers](#i18n.module_i18nHelpers)
     * [~EMPTY_CONTEXT](#i18n.module_i18nHelpers..EMPTY_CONTEXT) : <code>string</code>
-    * [~translate(translateKey, values, components, options)](#i18n.module_i18nHelpers..translate) ⇒ <code>string</code> \| <code>React.ReactNode</code>
-    * [~translateComponent(Component)](#i18n.module_i18nHelpers..translateComponent) ⇒ <code>React.ReactNode</code>
+    * [~noopTranslate(key, value, components)](#i18n.module_i18nHelpers..noopTranslate) ⇒ <code>string</code>
+    * [~splitContext(value, settings)](#i18n.module_i18nHelpers..splitContext) ⇒ <code>string</code> \| <code>Array.&lt;string&gt;</code>
+    * [~parseContext(translateKey, context, settings)](#i18n.module_i18nHelpers..parseContext) ⇒ <code>Object</code>
+    * [~parseTranslateKey(translateKey)](#i18n.module_i18nHelpers..parseTranslateKey) ⇒ <code>\*</code>
+    * [~translate(translateKey, values, components, settings)](#i18n.module_i18nHelpers..translate) ⇒ <code>string</code> \| <code>React.ReactNode</code>
+    * [~translateComponent(Component, settings)](#i18n.module_i18nHelpers..translateComponent) ⇒ <code>React.ReactNode</code>
 
 <a name="i18n.module_i18nHelpers..EMPTY_CONTEXT"></a>
 
@@ -2710,9 +2714,98 @@ Default props.
 Check to help provide an empty context.
 
 **Kind**: inner constant of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
+<a name="i18n.module_i18nHelpers..noopTranslate"></a>
+
+### i18nHelpers~noopTranslate(key, value, components) ⇒ <code>string</code>
+A placeholder for "t", translation method.
+Associated with the i18n package, and typically used as a default prop.
+
+**Kind**: inner method of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>key</td><td><code>string</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>value</td><td><code>string</code> | <code>object</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>components</td><td><code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="i18n.module_i18nHelpers..splitContext"></a>
+
+### i18nHelpers~splitContext(value, settings) ⇒ <code>string</code> \| <code>Array.&lt;string&gt;</code>
+Split a string on underscore.
+
+**Kind**: inner method of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>value</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.emptyContextValue</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="i18n.module_i18nHelpers..parseContext"></a>
+
+### i18nHelpers~parseContext(translateKey, context, settings) ⇒ <code>Object</code>
+Parse extend context arrays/lists, and apply values to a concatenated translate key.
+
+**Kind**: inner method of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>translateKey</td><td><code>string</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>context</td><td><code>*</code> | <code>string</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.emptyContextValue</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.splitContext</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="i18n.module_i18nHelpers..parseTranslateKey"></a>
+
+### i18nHelpers~parseTranslateKey(translateKey) ⇒ <code>\*</code>
+Parse a translation key. If an array, filter for defined strings.
+
+**Kind**: inner method of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>translateKey</td><td><code>*</code> | <code>string</code> | <code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="i18n.module_i18nHelpers..translate"></a>
 
-### i18nHelpers~translate(translateKey, values, components, options) ⇒ <code>string</code> \| <code>React.ReactNode</code>
+### i18nHelpers~translate(translateKey, values, components, settings) ⇒ <code>string</code> \| <code>React.ReactNode</code>
 Apply a string towards a key. Optional replacement values and component/nodes.
 See, https://react.i18next.com/
 
@@ -2734,16 +2827,21 @@ See, https://react.i18next.com/
     <td>components</td><td><code>Array</code></td><td></td><td><p>An array of HTML/React nodes used to replace string tokens. i.e. &quot;[<span />, &lt;React.Fragment /&gt;]&quot;</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td><td></td>
+    <td>settings</td><td><code>object</code></td><td></td><td></td>
     </tr><tr>
-    <td>options.emptyContextValue</td><td><code>string</code></td><td></td><td><p>Check to allow an empty context value.</p>
-</td>
+    <td>settings.isDebug</td><td><code>function</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.noopTranslate</td><td><code>function</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.parseContext</td><td><code>function</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.parseTranslateKey</td><td><code>function</code></td><td></td><td></td>
     </tr>  </tbody>
 </table>
 
 <a name="i18n.module_i18nHelpers..translateComponent"></a>
 
-### i18nHelpers~translateComponent(Component) ⇒ <code>React.ReactNode</code>
+### i18nHelpers~translateComponent(Component, settings) ⇒ <code>React.ReactNode</code>
 Apply string replacements against a component, HOC.
 
 **Kind**: inner method of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
@@ -2756,6 +2854,10 @@ Apply string replacements against a component, HOC.
   <tbody>
 <tr>
     <td>Component</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.noopTranslate</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

@@ -45,7 +45,6 @@ exports[`Helpers should expose a window object: limited window object 1`] = `
   "memo": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
-  "noopTranslate": [Function],
   "numberDisplay": [Function],
   "objFreeze": [Function],
 }
@@ -90,7 +89,6 @@ exports[`Helpers should expose a window object: window object 1`] = `
   "memo": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
-  "noopTranslate": [Function],
   "numberDisplay": [Function],
   "objFreeze": [Function],
 }
@@ -146,7 +144,6 @@ exports[`Helpers should have specific functions: helpers 1`] = `
   "memo": [Function],
   "noop": [Function],
   "noopPromise": Promise {},
-  "noopTranslate": [Function],
   "numberDisplay": [Function],
   "objFreeze": [Function],
 }
