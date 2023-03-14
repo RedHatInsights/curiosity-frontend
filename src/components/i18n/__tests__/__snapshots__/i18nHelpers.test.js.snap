@@ -22,35 +22,55 @@ exports[`I18nHelpers should attempt to perform translate with a node: translated
 exports[`I18nHelpers should attempt to place a test identifier around copy: test id 1`] = `
 {
   "basic": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
+  "basicNode": <TestElementNode>
+    <dolor-sit
+      data-test="dolor-sit"
+    />
+  </TestElementNode>,
   "basicString": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="dolor-sit"
   />,
   "emptyContext": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
+  "emptyContextNode": <TestElementNode>
+    <dolor-sit
+      data-test="dolor-sit"
+    />
+  </TestElementNode>,
   "emptyContextString": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="dolor-sit"
   />,
   "emptyPartialContext": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
+  "emptyPartialContextNode": <TestElementNode>
+    <dolor-sit
+      data-test="dolor-sit"
+    />
+  </TestElementNode>,
   "emptyPartialContextString": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="dolor-sit"
   />,
   "stringContextNested": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
+  "stringContextNestedNode": <TestElementNode>
+    <dolor-sit
+      data-test="dolor-sit"
+    />
+  </TestElementNode>,
   "stringContextNestedString": <span
-    className="curiosity-translate__test-id"
+    class="curiosity-translate__test-id"
     data-test="dolor-sit"
   />,
 }
