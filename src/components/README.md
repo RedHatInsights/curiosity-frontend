@@ -2705,6 +2705,7 @@ Default props.
     * [~splitContext(value, settings)](#i18n.module_i18nHelpers..splitContext) ⇒ <code>string</code> \| <code>Array.&lt;string&gt;</code>
     * [~parseContext(translateKey, context, settings)](#i18n.module_i18nHelpers..parseContext) ⇒ <code>Object</code>
     * [~parseTranslateKey(translateKey)](#i18n.module_i18nHelpers..parseTranslateKey) ⇒ <code>\*</code>
+    * [~setI18nTestElement(params)](#i18n.module_i18nHelpers..setI18nTestElement) ⇒ <code>null</code> \| <code>React.ReactNode</code>
     * [~translate(translateKey, values, components, settings)](#i18n.module_i18nHelpers..translate) ⇒ <code>string</code> \| <code>React.ReactNode</code>
     * [~translateComponent(Component, settings)](#i18n.module_i18nHelpers..translateComponent) ⇒ <code>React.ReactNode</code>
 
@@ -2803,6 +2804,28 @@ Parse a translation key. If an array, filter for defined strings.
     </tr>  </tbody>
 </table>
 
+<a name="i18n.module_i18nHelpers..setI18nTestElement"></a>
+
+### i18nHelpers~setI18nTestElement(params) ⇒ <code>null</code> \| <code>React.ReactNode</code>
+Return a test element wrapper;
+
+**Kind**: inner method of [<code>i18nHelpers</code>](#i18n.module_i18nHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.defaultTestId</td><td><code>string</code> | <code>Array</code></td>
+    </tr><tr>
+    <td>params.testId</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="i18n.module_i18nHelpers..translate"></a>
 
 ### i18nHelpers~translate(translateKey, values, components, settings) ⇒ <code>string</code> \| <code>React.ReactNode</code>
@@ -2823,7 +2846,7 @@ See, https://react.i18next.com/
     </tr><tr>
     <td>values</td><td><code>string</code> | <code>object</code> | <code>Array</code></td><td><code>null</code></td><td><ul>
 <li>A default string if the key can&#39;t be found.<ul>
-<li>An object with i18next settings. i.e. &quot;{ context: Array|string, testId: boolean|string }&quot;</li>
+<li>An object with i18next settings. i.e. &quot;{ context: Array|string, testId: boolean|string|React.ReactNode }&quot;</li>
 <li>An array of objects (key/value) pairs used to replace string tokens. i.e. &quot;[{ hello: &#39;world&#39; }]&quot;</li>
 </ul>
 </li>
