@@ -36,6 +36,7 @@ const RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES = {
 const RHSM_API_PATH_PRODUCT_TYPES = {
   ...RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES,
   ...RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES,
+  HCP: 'BASILISK',
   RHACS: 'rhacs',
   RHEL: 'RHEL',
   RHEL_COMPUTE_NODE: 'RHEL Compute Node',
@@ -317,12 +318,14 @@ const RHSM_API_RESPONSE_USAGE_TYPES = {
 /**
  * RHSM query/search parameter CATEGORY type values for TALLY/CAPACITY.
  *
- * @type {{CLOUD: string, PHYSICAL: string, HYPERVISOR: string, VIRTUAL: string}}
+ * @type {{CLOUD: string, PHYSICAL: string, ON_DEMAND: string, HYPERVISOR: string, PREPAID: string, VIRTUAL: string}}
  */
 const RHSM_API_QUERY_CATEGORY_TYPES = {
   CLOUD: 'cloud',
   HYPERVISOR: 'hypervisor',
+  ON_DEMAND: 'on-demand',
   PHYSICAL: 'physical',
+  PREPAID: 'prepaid',
   VIRTUAL: 'virtual'
 };
 
@@ -428,8 +431,8 @@ const RHSM_API_QUERY_SET_INVENTORY_TYPES = {
 /**
  * RHSM query parameter options for TALLY, CAPACITY endpoints.
  *
- * @type {{GRANULARITY: string, USAGE: string, CATEGORY: string, END_DATE: string, SLA: string, START_DATE: string,
- *     BILLING_PROVIDER: string}}
+ * @type {{GRANULARITY: string, USAGE: string, CATEGORY: string, ARCHITECTURE: string, END_DATE: string, SLA: string,
+ *     START_DATE: string, BILLING_PROVIDER: string, VARIANT: string, USE_RUNNING_TOTALS_FORMAT: string}}
  */
 const RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES = {
   ARCHITECTURE: 'architecture',
@@ -440,14 +443,17 @@ const RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES = {
   SLA: 'sla',
   START_DATE: 'beginning',
   USAGE: 'usage',
+  USE_RUNNING_TOTALS_FORMAT: 'use_running_totals_format',
   VARIANT: 'variant'
 };
 
 /**
  * Aggregate all query set types.
  *
- * @type {{UOM: string, GRANULARITY: string, USAGE: string, DIRECTION: string, SORT: string, END_DATE: string,
- *     OFFSET: string, SLA: string, LIMIT: string, START_DATE: string, DISPLAY_NAME: string}}
+ * @type {{GRANULARITY: string, BILLING_ACCOUNT_ID: string, DIRECTION: string, END_DATE: string, SLA: string,
+ *     LIMIT: string, START_DATE: string, VARIANT: string, DISPLAY_NAME: string, USE_RUNNING_TOTALS_FORMAT: string,
+ *     UOM: string, USAGE: string, CATEGORY: string, ARCHITECTURE: string, SORT: string, OFFSET: string,
+ *     BILLING_PROVIDER: string}}
  */
 const RHSM_API_QUERY_SET_TYPES = {
   ...RHSM_API_QUERY_SET_INVENTORY_TYPES,

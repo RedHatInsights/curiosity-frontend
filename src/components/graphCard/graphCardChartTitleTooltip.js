@@ -20,7 +20,7 @@ import { translate } from '../i18n/i18n';
  */
 const GraphCardChartTitleTooltip = ({ t, useGraphCardContext: useAliasGraphCardContext }) => {
   const { settings = {} } = useAliasGraphCardContext();
-  const { isCardTitleDescription, stringId } = settings;
+  const { groupMetric, isCardTitleDescription, stringId } = settings;
 
   if (!isCardTitleDescription) {
     return null;
@@ -28,7 +28,7 @@ const GraphCardChartTitleTooltip = ({ t, useGraphCardContext: useAliasGraphCardC
 
   return (
     <Tooltip
-      content={<p>{t(`curiosity-graph.cardHeadingDescription`, { context: stringId })}</p>}
+      content={<p>{t(`curiosity-graph.cardHeadingDescription`, { context: [stringId, groupMetric.join('-')] })}</p>}
       position={TooltipPosition.top}
       enableFlip={false}
       distance={5}
