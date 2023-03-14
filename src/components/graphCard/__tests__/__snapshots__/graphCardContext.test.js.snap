@@ -119,6 +119,10 @@ exports[`GraphCardContext should parse configuration: configuration, grouped 1`]
   "filtersSettings": [
     {
       "settings": {
+        "groupMetric": [
+          "Core-seconds",
+        ],
+        "isMetricDisplay": false,
         "isMultiMetric": false,
         "isStandalone": undefined,
         "metric": undefined,
@@ -152,6 +156,10 @@ exports[`GraphCardContext should parse configuration: configuration, standalone 
   "filtersSettings": [
     {
       "settings": {
+        "groupMetric": [
+          "Core-seconds",
+        ],
+        "isMetricDisplay": false,
         "isMultiMetric": false,
         "isStandalone": undefined,
         "loremIpsum": true,

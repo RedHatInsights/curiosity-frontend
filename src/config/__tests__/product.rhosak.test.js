@@ -14,8 +14,42 @@ describe('Product RHOSAK config', () => {
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
-    expect(generateChartSettings({ filters: initialGraphFilters })).toMatchSnapshot('filters');
+    expect(generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings })).toMatchSnapshot(
+      'filters'
+    );
     expect(initialGraphSettings).toMatchSnapshot('settings');
+  });
+
+  it('should handle metric card display for graphs', () => {
+    const { initialGraphFilters, initialGraphSettings } = config;
+    const { filtersSettings } = generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings });
+    const cardOutput = [];
+
+    filtersSettings.forEach(({ settings }) => {
+      if (Array.isArray(settings.cards)) {
+        settings.cards.forEach(({ header, body, footer }) => {
+          if (typeof header === 'function') {
+            cardOutput.push(header());
+          } else {
+            cardOutput.push(header);
+          }
+
+          if (typeof body === 'function') {
+            cardOutput.push(body());
+          } else {
+            cardOutput.push(body);
+          }
+
+          if (typeof footer === 'function') {
+            cardOutput.push(footer({ dailyDate: '09 Mar 2023', monthlyDate: '09 Mar 2023' }));
+          } else {
+            cardOutput.push(footer);
+          }
+        });
+      }
+    });
+
+    expect(cardOutput).toMatchSnapshot('cards');
   });
 
   it('should handle a custom yAxisTickFormat for floating points', () => {

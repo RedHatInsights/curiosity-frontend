@@ -171,6 +171,7 @@ Download the debug log file.
 * [General](#Helpers.module_General)
     * [~noop](#Helpers.module_General..noop)
     * [~noopPromise](#Helpers.module_General..noopPromise) : <code>Promise.&lt;{}&gt;</code>
+    * [~setImmutableData](#Helpers.module_General..setImmutableData) ⇒ <code>\*</code>
     * [~DEV_MODE](#Helpers.module_General..DEV_MODE) : <code>boolean</code>
     * [~PROD_MODE](#Helpers.module_General..PROD_MODE) : <code>boolean</code>
     * [~REVIEW_MODE](#Helpers.module_General..REVIEW_MODE) : <code>boolean</code>
@@ -222,6 +223,24 @@ An empty promise.
 Typically used as a default prop, or during testing.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..setImmutableData"></a>
+
+### General~setImmutableData ⇒ <code>\*</code>
+Quick set data as "immutable-like". Used to pass object and array data through configuration callbacks.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>data</td><td><code>*</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Helpers.module_General..DEV_MODE"></a>
 
 ### General~DEV\_MODE : <code>boolean</code>
