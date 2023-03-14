@@ -69,7 +69,63 @@ const config = {
     }
   ],
   initialGraphSettings: {
-    isMetricDisplay: true,
+    cards: [
+      {
+        header: ({ metricId } = {}) =>
+          translate('curiosity-graph.cardHeadingMetric', {
+            context: ['dailyTotal', metricId],
+            testId: 'graphDailyTotalCard-header'
+          }),
+        body: ({ dailyHasData, dailyValue, metricId } = {}) =>
+          translate(
+            'curiosity-graph.cardBodyMetric',
+            {
+              context: ['total', dailyHasData && metricId],
+              testId: 'graphDailyTotalCard-body',
+              total: helpers
+                .numberDisplay(dailyValue)
+                ?.format({
+                  average: true,
+                  mantissa: 5,
+                  trimMantissa: true,
+                  lowPrecision: false
+                })
+                ?.toUpperCase()
+            },
+            [<strong title={dailyValue} aria-label={dailyValue} />]
+          ),
+        footer: ({ dailyDate } = {}) =>
+          translate('curiosity-graph.cardFooterMetric', {
+            date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            testId: 'graphDailyTotalCard-footer'
+          })
+      },
+      {
+        header: ({ metricId } = {}) =>
+          translate('curiosity-graph.cardHeadingMetric', {
+            context: ['monthlyTotal', metricId],
+            testId: 'graphMonthlyTotalCard-header'
+          }),
+        body: ({ metricId, monthlyHasData, monthlyValue } = {}) =>
+          translate(
+            'curiosity-graph.cardBodyMetric',
+            {
+              context: ['total', monthlyHasData && metricId],
+              testId: 'graphMonthlyTotalCard-body',
+              total: helpers
+                .numberDisplay(monthlyValue)
+                ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
+                ?.toUpperCase()
+            },
+            [<strong title={monthlyValue} aria-label={monthlyValue} />]
+          ),
+        footer: ({ monthlyDate } = {}) =>
+          translate('curiosity-graph.cardFooterMetric', {
+            date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            testId: 'graphMonthlyTotalCard-footer'
+          })
+      }
+    ],
     isCardTitleDescription: true,
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
     yAxisTickFormat: ({ tick }) => {

@@ -13,7 +13,9 @@ describe('Product RHEL config', () => {
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
-    expect(generateChartSettings({ filters: initialGraphFilters })).toMatchSnapshot('filters');
+    expect(generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings })).toMatchSnapshot(
+      'filters'
+    );
     expect(initialGraphSettings).toMatchSnapshot('settings');
   });
 

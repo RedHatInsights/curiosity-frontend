@@ -5,8 +5,22 @@ exports[`Product OpenShift Metrics config should apply graph configuration: filt
   "filtersSettings": [
     {
       "settings": {
+        "actions": [
+          {
+            "content": [Function],
+          },
+          {
+            "id": "rangedMonthly",
+            "position": "right",
+          },
+        ],
         "color": "#06c",
         "fill": "#8bc1f7",
+        "groupMetric": [
+          "Cores",
+        ],
+        "isCardTitleDescription": true,
+        "isMetricDisplay": false,
         "isMultiMetric": false,
         "isStacked": false,
         "isStandalone": undefined,

@@ -43,6 +43,13 @@ describe('GraphCard Component', () => {
           settings: {
             loremIpsum: false,
             isMetricDisplay: true,
+            cards: [
+              {
+                header: 'lorem',
+                body: 'ipsum',
+                footer: 'dolor sit'
+              }
+            ],
             metric: undefined,
             metrics: [
               {

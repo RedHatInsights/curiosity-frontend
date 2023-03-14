@@ -2598,7 +2598,7 @@ Display totals for a single metric.
     </tr><tr>
     <td>props.children</td><td><code>React.ReactNode</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>props.useGraphCardContext</td><td><code>function</code></td>
     </tr><tr>
     <td>props.useMetricsSelector</td><td><code>function</code></td>
     </tr><tr>
