@@ -47,6 +47,7 @@ exports[`Helpers should expose a window object: limited window object 1`] = `
   "noopPromise": Promise {},
   "numberDisplay": [Function],
   "objFreeze": [Function],
+  "setImmutableData": [Function],
 }
 `;
 
@@ -91,6 +92,7 @@ exports[`Helpers should expose a window object: window object 1`] = `
   "noopPromise": Promise {},
   "numberDisplay": [Function],
   "objFreeze": [Function],
+  "setImmutableData": [Function],
 }
 `;
 
@@ -146,6 +148,7 @@ exports[`Helpers should have specific functions: helpers 1`] = `
   "noopPromise": Promise {},
   "numberDisplay": [Function],
   "objFreeze": [Function],
+  "setImmutableData": [Function],
 }
 `;
 

@@ -226,9 +226,26 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
   "filtersSettings": [
     {
       "settings": {
+        "cards": [
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+        ],
         "chartType": "line",
         "color": "#06c",
         "fill": "#8bc1f7",
+        "groupMetric": [
+          "Transfer-gibibytes",
+        ],
+        "isCardTitleDescription": true,
+        "isMetricDisplay": true,
         "isMultiMetric": false,
         "isStacked": false,
         "isStandalone": undefined,
@@ -257,14 +274,33 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
         },
         "stringId": "Transfer-gibibytes",
         "stroke": "#06c",
+        "xAxisChartLabel": [Function],
         "yAxisChartLabel": [Function],
+        "yAxisTickFormat": [Function],
       },
     },
     {
       "settings": {
+        "cards": [
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+        ],
         "chartType": "line",
         "color": "#5752d1",
         "fill": "#b2b0ea",
+        "groupMetric": [
+          "Storage-gibibyte-months",
+        ],
+        "isCardTitleDescription": true,
+        "isMetricDisplay": true,
         "isMultiMetric": false,
         "isStacked": false,
         "isStandalone": undefined,
@@ -293,14 +329,33 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
         },
         "stringId": "Storage-gibibyte-months",
         "stroke": "#5752d1",
+        "xAxisChartLabel": [Function],
         "yAxisChartLabel": [Function],
+        "yAxisTickFormat": [Function],
       },
     },
     {
       "settings": {
+        "cards": [
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+          {
+            "body": [Function],
+            "footer": [Function],
+            "header": [Function],
+          },
+        ],
         "chartType": "line",
         "color": "#009596",
         "fill": "#a2d9d9",
+        "groupMetric": [
+          "Instance-hours",
+        ],
+        "isCardTitleDescription": true,
+        "isMetricDisplay": true,
         "isMultiMetric": false,
         "isStacked": false,
         "isStandalone": undefined,
@@ -329,7 +384,9 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
         },
         "stringId": "Instance-hours",
         "stroke": "#009596",
+        "xAxisChartLabel": [Function],
         "yAxisChartLabel": [Function],
+        "yAxisTickFormat": [Function],
       },
     },
   ],
@@ -338,8 +395,19 @@ exports[`Product RHOSAK config should apply graph configuration: filters 1`] = `
 
 exports[`Product RHOSAK config should apply graph configuration: settings 1`] = `
 {
+  "cards": [
+    {
+      "body": [Function],
+      "footer": [Function],
+      "header": [Function],
+    },
+    {
+      "body": [Function],
+      "footer": [Function],
+      "header": [Function],
+    },
+  ],
   "isCardTitleDescription": true,
-  "isMetricDisplay": true,
   "xAxisChartLabel": [Function],
   "yAxisTickFormat": [Function],
 }
@@ -747,4 +815,27 @@ exports[`Product RHOSAK config should handle a custom yAxisTickFormat for floati
   "900000000000": "900B",
   "9000000000000": "9T",
 }
+`;
+
+exports[`Product RHOSAK config should handle metric card display for graphs: cards 1`] = `
+[
+  "t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal","testId":"graphDailyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphDailyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphDailyTotalCard-footer"})",
+  "t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal","testId":"graphMonthlyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphMonthlyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphMonthlyTotalCard-footer"})",
+  "t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal","testId":"graphDailyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphDailyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphDailyTotalCard-footer"})",
+  "t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal","testId":"graphMonthlyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphMonthlyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphMonthlyTotalCard-footer"})",
+  "t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal","testId":"graphDailyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphDailyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphDailyTotalCard-footer"})",
+  "t(curiosity-graph.cardHeadingMetric, {"context":"monthlyTotal","testId":"graphMonthlyTotalCard-header"})",
+  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphMonthlyTotalCard-body"}, [object Object])",
+  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphMonthlyTotalCard-footer"})",
+]
 `;

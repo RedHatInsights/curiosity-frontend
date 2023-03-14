@@ -31,23 +31,17 @@ import { GraphCardContext, useParseFiltersSettings } from './graphCardContext';
 const GraphCard = ({ isDisabled, useParseFiltersSettings: useAliasParseFiltersSettings }) => {
   const { filtersSettings } = useAliasParseFiltersSettings();
 
-  if (isDisabled) {
+  if (isDisabled || !filtersSettings?.length) {
     return null;
   }
 
-  return (
-    (filtersSettings?.length &&
-      filtersSettings?.map(filterSetting => (
-        <GraphCardContext.Provider key={`graphCard-${filterSetting?.settings?.metrics?.[0]?.id}`} value={filterSetting}>
-          {(filterSetting?.settings?.isMetricDisplay && (
-            <GraphCardMetricTotals>
-              <GraphCardChart />
-            </GraphCardMetricTotals>
-          )) || <GraphCardChart />}
-        </GraphCardContext.Provider>
-      ))) ||
-    null
-  );
+  return filtersSettings?.map(filterSetting => (
+    <GraphCardContext.Provider key={`graphCard-${filterSetting?.settings?.metrics?.[0]?.id}`} value={filterSetting}>
+      <GraphCardMetricTotals>
+        <GraphCardChart />
+      </GraphCardMetricTotals>
+    </GraphCardContext.Provider>
+  ));
 };
 
 /**

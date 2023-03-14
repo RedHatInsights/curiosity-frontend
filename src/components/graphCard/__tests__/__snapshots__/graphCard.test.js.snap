@@ -8,6 +8,13 @@ exports[`GraphCard Component should setup basic settings: settings, grouped 1`] 
   value={
     {
       "settings": {
+        "cards": [
+          {
+            "body": "ipsum",
+            "footer": "dolor sit",
+            "header": "lorem",
+          },
+        ],
         "isMetricDisplay": true,
         "loremIpsum": false,
         "metric": undefined,
@@ -29,7 +36,7 @@ exports[`GraphCard Component should setup basic settings: settings, grouped 1`] 
   }
 >
   <GraphCardMetricTotals
-    t={[Function]}
+    useGraphCardContext={[Function]}
     useMetricsSelector={[Function]}
     useProductGraphTallyQuery={[Function]}
   >
@@ -75,12 +82,18 @@ exports[`GraphCard Component should setup basic settings: settings, standalone 1
     }
   }
 >
-  <GraphCardChart
-    t={[Function]}
-    useGetMetrics={[Function]}
-    useGraphCardActions={[Function]}
+  <GraphCardMetricTotals
     useGraphCardContext={[Function]}
+    useMetricsSelector={[Function]}
     useProductGraphTallyQuery={[Function]}
-  />
+  >
+    <GraphCardChart
+      t={[Function]}
+      useGetMetrics={[Function]}
+      useGraphCardActions={[Function]}
+      useGraphCardContext={[Function]}
+      useProductGraphTallyQuery={[Function]}
+    />
+  </GraphCardMetricTotals>
 </ContextProvider>
 `;

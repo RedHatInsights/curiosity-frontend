@@ -177,6 +177,14 @@ const objFreeze = obj => {
 };
 
 /**
+ * Quick set data as "immutable-like". Used to pass object and array data through configuration callbacks.
+ *
+ * @param {*} data
+ * @returns {*}
+ */
+const setImmutableData = memo(data => objFreeze(data));
+
+/**
  * Is dev mode active.
  * Associated with using the NPM script "start". See dotenv config files for activation.
  *
@@ -413,6 +421,7 @@ const helpers = {
   noopPromise,
   numberDisplay,
   objFreeze,
+  setImmutableData,
   DEV_MODE,
   PROD_MODE,
   REVIEW_MODE,
