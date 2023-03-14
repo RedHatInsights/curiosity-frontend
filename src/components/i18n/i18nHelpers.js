@@ -121,13 +121,55 @@ const parseTranslateKey = translateKey => {
 };
 
 /**
+ * Return a test element wrapper;
+ *
+ * @param {object} params
+ * @param {string|Array} params.defaultTestId
+ * @param {string} params.testId
+ * @returns {null|React.ReactNode}
+ */
+const setI18nTestElement = ({ defaultTestId, testId }) => {
+  if (typeof testId === 'boolean' && defaultTestId) {
+    const updatedDataTest = (Array.isArray(defaultTestId) && defaultTestId[0]) || defaultTestId;
+    // eslint-disable-next-line
+    return function TestElementBool({ children }) {
+      return (
+        <span key={updatedDataTest} className="curiosity-translate__test-id" data-test={updatedDataTest}>
+          {children}
+        </span>
+      );
+    };
+  }
+
+  if (typeof testId === 'string' && testId.length > 0) {
+    // eslint-disable-next-line
+    return function TestElementString({ children }) {
+      return (
+        <span key={testId} className="curiosity-translate__test-id" data-test={testId}>
+          {children}
+        </span>
+      );
+    };
+  }
+
+  if (React.isValidElement(testId)) {
+    // eslint-disable-next-line
+    return function TestElementNode({ children }) {
+      return React.cloneElement(testId, {}, children);
+    };
+  }
+
+  return null;
+};
+
+/**
  * Apply a string towards a key. Optional replacement values and component/nodes.
  * See, https://react.i18next.com/
  *
  * @param {string|Array} translateKey A key reference, or an array of a primary key with fallback keys.
  * @param {string|object|Array} values
  *     - A default string if the key can't be found.
- *     - An object with i18next settings. i.e. "{ context: Array|string, testId: boolean|string }"
+ *     - An object with i18next settings. i.e. "{ context: Array|string, testId: boolean|string|React.ReactNode }"
  *     - An array of objects (key/value) pairs used to replace string tokens. i.e. "[{ hello: 'world' }]"
  * @param {Array} components An array of HTML/React nodes used to replace string tokens. i.e. "[<span />, <React.Fragment />]"
  * @param {object} settings
@@ -153,6 +195,7 @@ const translate = (
   const updatedValues = values || {};
   const baseUpdatedTranslateKey = aliasParseTranslateKey(translateKey);
   let updatedTranslateKey = baseUpdatedTranslateKey;
+  let TestElement;
 
   if (updatedValues?.context) {
     const { context: parsedContext, translateKey: parsedAgainTranslateKey } = aliasParseContext(
@@ -167,24 +210,25 @@ const translate = (
     return aliasNoopTranslate(updatedTranslateKey, updatedValues, components);
   }
 
-  if (components) {
-    return (
-      (aliasI18next.store && (
-        <Trans i18nKey={updatedTranslateKey} values={updatedValues} components={components} />
-      )) || <React.Fragment>t({updatedTranslateKey})</React.Fragment>
-    );
+  if (updatedValues?.testId) {
+    TestElement = setI18nTestElement({ defaultTestId: baseUpdatedTranslateKey, testId: updatedValues.testId });
+  }
+
+  if (components && aliasI18next.store) {
+    if (TestElement) {
+      return (
+        <TestElement>
+          <Trans i18nKey={updatedTranslateKey} values={updatedValues} components={components} />
+        </TestElement>
+      );
+    }
+
+    return <Trans i18nKey={updatedTranslateKey} values={updatedValues} components={components} />;
   }
 
   if (aliasI18next.store) {
-    if (updatedValues?.testId) {
-      const updatedTestId =
-        (typeof updatedValues?.testId === 'string' && updatedValues?.testId.length > 0 && updatedValues?.testId) ||
-        baseUpdatedTranslateKey;
-      return (
-        <span className="curiosity-translate__test-id" data-test={updatedTestId}>
-          {aliasI18next.t(updatedTranslateKey, updatedValues)}
-        </span>
-      );
+    if (TestElement) {
+      return <TestElement>{aliasI18next.t(updatedTranslateKey, updatedValues)}</TestElement>;
     }
 
     return aliasI18next.t(updatedTranslateKey, updatedValues);

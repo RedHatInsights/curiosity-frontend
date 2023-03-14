@@ -1,4 +1,5 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import PropTypes from 'prop-types';
 import { i18nHelpers, EMPTY_CONTEXT, translate, translateComponent } from '../i18nHelpers';
 
@@ -60,61 +61,112 @@ describe('I18nHelpers', () => {
   it('should attempt to place a test identifier around copy', () => {
     const mockI18next = { store: jest.fn(), t: jest.fn() };
 
-    const basic = translate('lorem.ipsum', { testId: true }, undefined, { i18next: mockI18next, isDebug: false });
-    const basicString = translate('lorem.ipsum', { testId: 'dolor-sit' }, undefined, {
-      i18next: mockI18next,
-      isDebug: false
-    });
-    const emptyContext = translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: true }, undefined, {
-      i18next: mockI18next,
-      isDebug: false
-    });
-    const emptyContextString = translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: 'dolor-sit' }, undefined, {
-      i18next: mockI18next,
-      isDebug: false
-    });
-    const emptyPartialContext = translate(
-      'lorem.ipsum',
-      { context: ['hello', EMPTY_CONTEXT], testId: true },
-      undefined,
-      { i18next: mockI18next, isDebug: false }
+    const basic = mount(
+      translate('lorem.ipsum', { testId: true }, undefined, { i18next: mockI18next, isDebug: false })
     );
-    const emptyPartialContextString = translate(
-      'lorem.ipsum',
-      { context: ['hello', EMPTY_CONTEXT], testId: 'dolor-sit' },
-      undefined,
-      { i18next: mockI18next, isDebug: false }
-    );
-    const stringContextNested = translate(
-      'lorem.ipsum',
-      {
-        context: 'hello_world_lorem_ipsum_dolor_sit',
+    const basicString = mount(
+      translate('lorem.ipsum', { testId: 'dolor-sit' }, undefined, {
         i18next: mockI18next,
-        testId: true
-      },
-      undefined,
-      { i18next: mockI18next, isDebug: false }
+        isDebug: false
+      })
     );
-    const stringContextNestedString = translate(
-      'lorem.ipsum',
-      {
-        context: 'hello_world_lorem_ipsum_dolor_sit',
+    const basicNode = mount(
+      translate('lorem.ipsum', { testId: <dolor-sit data-test="dolor-sit" /> }, undefined, {
         i18next: mockI18next,
-        testId: 'dolor-sit'
-      },
-      undefined,
-      { i18next: mockI18next, isDebug: false }
+        isDebug: false
+      })
+    );
+    const emptyContext = mount(
+      translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: true }, undefined, {
+        i18next: mockI18next,
+        isDebug: false
+      })
+    );
+    const emptyContextString = mount(
+      translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: 'dolor-sit' }, undefined, {
+        i18next: mockI18next,
+        isDebug: false
+      })
+    );
+    const emptyContextNode = mount(
+      translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: <dolor-sit data-test="dolor-sit" /> }, undefined, {
+        i18next: mockI18next,
+        isDebug: false
+      })
+    );
+    const emptyPartialContext = mount(
+      translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT], testId: true }, undefined, {
+        i18next: mockI18next,
+        isDebug: false
+      })
+    );
+    const emptyPartialContextString = mount(
+      translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT], testId: 'dolor-sit' }, undefined, {
+        i18next: mockI18next,
+        isDebug: false
+      })
+    );
+    const emptyPartialContextNode = mount(
+      translate(
+        'lorem.ipsum',
+        { context: ['hello', EMPTY_CONTEXT], testId: <dolor-sit data-test="dolor-sit" /> },
+        undefined,
+        {
+          i18next: mockI18next,
+          isDebug: false
+        }
+      )
+    );
+    const stringContextNested = mount(
+      translate(
+        'lorem.ipsum',
+        {
+          context: 'hello_world_lorem_ipsum_dolor_sit',
+          i18next: mockI18next,
+          testId: true
+        },
+        undefined,
+        { i18next: mockI18next, isDebug: false }
+      )
+    );
+    const stringContextNestedString = mount(
+      translate(
+        'lorem.ipsum',
+        {
+          context: 'hello_world_lorem_ipsum_dolor_sit',
+          i18next: mockI18next,
+          testId: 'dolor-sit'
+        },
+        undefined,
+        { i18next: mockI18next, isDebug: false }
+      )
+    );
+    const stringContextNestedNode = mount(
+      translate(
+        'lorem.ipsum',
+        {
+          context: 'hello_world_lorem_ipsum_dolor_sit',
+          i18next: mockI18next,
+          testId: <dolor-sit data-test="dolor-sit" />
+        },
+        undefined,
+        { i18next: mockI18next, isDebug: false }
+      )
     );
 
     expect({
-      basic,
-      basicString,
-      emptyContext,
-      emptyContextString,
-      emptyPartialContext,
-      emptyPartialContextString,
-      stringContextNested,
-      stringContextNestedString
+      basic: basic.render(),
+      basicString: basicString.render(),
+      basicNode,
+      emptyContext: emptyContext.render(),
+      emptyContextString: emptyContextString.render(),
+      emptyContextNode,
+      emptyPartialContext: emptyPartialContext.render(),
+      emptyPartialContextString: emptyPartialContextString.render(),
+      emptyPartialContextNode,
+      stringContextNested: stringContextNested.render(),
+      stringContextNestedString: stringContextNestedString.render(),
+      stringContextNestedNode
     }).toMatchSnapshot('test id');
   });
 });
