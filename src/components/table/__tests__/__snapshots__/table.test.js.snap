@@ -8,6 +8,7 @@ exports[`Table Component should allow expandable content: expandable content 1`]
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
@@ -83,6 +84,7 @@ exports[`Table Component should allow expandable content: expanded row 1`] = `
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
@@ -158,6 +160,7 @@ exports[`Table Component should allow sortable content: sortable content 1`] = `
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
@@ -227,6 +230,7 @@ exports[`Table Component should allow sortable content: sorted column callback 1
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
@@ -317,6 +321,7 @@ exports[`Table Component should allow variations in table layout: ariaLabel and 
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="lorem ipsum aria-label"
       borders={false}
       canCollapseAll={false}
@@ -379,6 +384,7 @@ exports[`Table Component should allow variations in table layout: borders and ta
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={false}
       canCollapseAll={false}
@@ -441,6 +447,7 @@ exports[`Table Component should allow variations in table layout: className and 
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="lorem ipsum aria-label"
       borders={false}
       canCollapseAll={false}
@@ -503,6 +510,7 @@ exports[`Table Component should allow variations in table layout: generated rows
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
@@ -566,6 +574,7 @@ exports[`Table Component should pass child components, nodes when there are no r
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
@@ -613,6 +622,7 @@ exports[`Table Component should render a non-connected component: non-connected 
     span={12}
   >
     <Table
+      actionsMenuAppendTo="inline"
       aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
       borders={true}
       canCollapseAll={false}
