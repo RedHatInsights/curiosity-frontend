@@ -232,6 +232,7 @@ This project makes use of reserved DOM attributes and string identifiers used by
    - To use add the `testId` to your locale string function call use
       - `t('locale.string.id', { testId: true })`. In this example, this would populate `locale.string.id` as the testId.
       - or `t('locale.string.id', { testId: 'custom-id-coordinated-with-QE' })`
+      - or `t('locale.string.id', { testId: <div data-test="custom-element-wrapper-and-id" /> })`
 
 ### Reserved Files
 #### Spandx Config
