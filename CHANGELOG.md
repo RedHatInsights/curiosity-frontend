@@ -3,9 +3,33 @@
 All notable changes to this project will be documented in this file.
 
 
+## [2.10.0](https://github.com/RedHatInsights/curiosity-frontend/compare/d508fbd47b263e348740ceffc6bb25cd1c3f7ace...d50d5e603fb8b8f8a31e0db0c03021b9d94cb050) (2023-03-15)
 
+### Documentation
+* **build** sw-817 jsdoc annotations  ([#1063](https://github.com/RedHatInsights/curiosity-frontend/pull/1063)) ([bc1241c](https://github.com/RedHatInsights/curiosity-frontend/commit/bc1241c8b96bb32a0485c8789a8a1edc79787500))
 
-## [2.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6edeedbf7ddd8f3d72541df55340d47d369becb8...8252f5149efda14d7c6549425949bdafd46ea2ad) (2023-02-20)
+### Code Refactoring
+* **platformServices** sw-625 deprecated methods  ([#1060](https://github.com/RedHatInsights/curiosity-frontend/pull/1060)) ([f13c20b](https://github.com/RedHatInsights/curiosity-frontend/commit/f13c20bd99e0e4a30d86d688b3f2c18ccd0c183e))
+* **router** sw-625 move to router v6  ([#989](https://github.com/RedHatInsights/curiosity-frontend/pull/989)) ([285e2b7](https://github.com/RedHatInsights/curiosity-frontend/commit/285e2b7d07874c5750d008b03be7329b22252c9b))
+* **config** sw-933 activate instances for satellite  ([#1067](https://github.com/RedHatInsights/curiosity-frontend/pull/1067)) ([aab70f0](https://github.com/RedHatInsights/curiosity-frontend/commit/aab70f05351cc22ba56b6e006c7d60e7dd991aba))
+* **platformServices** sw-625 remove chrome init  ([#1048](https://github.com/RedHatInsights/curiosity-frontend/pull/1048)) ([0c5c72f](https://github.com/RedHatInsights/curiosity-frontend/commit/0c5c72fcad3c6b37c9b0b2877040f79ab58e82a7))
+* **authentication** sw-625 sw-920 use optinView  ([#1048](https://github.com/RedHatInsights/curiosity-frontend/pull/1048)) ([897dac0](https://github.com/RedHatInsights/curiosity-frontend/commit/897dac0c4b7bcb28e8a564ecfd64b0d44f13c54b))
+* **useRouter** sw-625 combine routerContext  ([#1045](https://github.com/RedHatInsights/curiosity-frontend/pull/1045)) ([1ad9c67](https://github.com/RedHatInsights/curiosity-frontend/commit/1ad9c67d110334b239c4ff1306780fbe3f40b640))
+* **config** sw-625 generate routes  ([#1045](https://github.com/RedHatInsights/curiosity-frontend/pull/1045)) ([32b71b5](https://github.com/RedHatInsights/curiosity-frontend/commit/32b71b5616f361b9d2d5b81d3ac8b4b4d78f4ae5))
+* **redux** sw-625 remove connectRouter  ([#1045](https://github.com/RedHatInsights/curiosity-frontend/pull/1045)) ([bbc199a](https://github.com/RedHatInsights/curiosity-frontend/commit/bbc199a95a3f217d158a9814767112189c795b7e))
+* **graphCard** sw-746 card totals styling  ([#1032](https://github.com/RedHatInsights/curiosity-frontend/pull/1032)) ([debcfb0](https://github.com/RedHatInsights/curiosity-frontend/commit/debcfb0ebc690d8c4a67d1fb449bfb0f92145dcd))
+* **config** sw-860 inventory to instance id  ([#1050](https://github.com/RedHatInsights/curiosity-frontend/pull/1050)) ([beaa7ca](https://github.com/RedHatInsights/curiosity-frontend/commit/beaa7ca8ba393ac939941ad702a2654261f1bf5a))
+
+### Chores
+* **build** npm updates  ([#1068](https://github.com/RedHatInsights/curiosity-frontend/pull/1068)) ([5d4ef80](https://github.com/RedHatInsights/curiosity-frontend/commit/5d4ef802bb0c0903a498507ee5559266b3c7d8bd))
+* **deps-dev** bump eslint-plugin-react from 7.31.11 to 7.32.2  ([#1064](https://github.com/RedHatInsights/curiosity-frontend/pull/1064)) ([3b0772b](https://github.com/RedHatInsights/curiosity-frontend/commit/3b0772b2e7031cc1d89986ce2da6c65562414911))
+
+### Bug Fixes
+* **routerContext** sw-625 useNavigate state update  ([#1075](https://github.com/RedHatInsights/curiosity-frontend/pull/1075)) ([d50d5e6](https://github.com/RedHatInsights/curiosity-frontend/commit/d50d5e603fb8b8f8a31e0db0c03021b9d94cb050))
+* **productViewMissing** sw-625 local dev view, run  ([#1071](https://github.com/RedHatInsights/curiosity-frontend/pull/1071)) ([6950b4a](https://github.com/RedHatInsights/curiosity-frontend/commit/6950b4adfb5dc451ae57392f129f5447f999fb50))
+* **dotenv** learn more link update  ([#1065](https://github.com/RedHatInsights/curiosity-frontend/pull/1065)) ([860348d](https://github.com/RedHatInsights/curiosity-frontend/commit/860348dddda917eaf57cba0ccff4f066e7255c73))
+
+##  [2.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6edeedbf7ddd8f3d72541df55340d47d369becb8...8252f5149efda14d7c6549425949bdafd46ea2ad) (2023-02-20)
 
 ### Code Refactoring
 * **config** sw-828 rhel, billing to cloud provider  ([#1044](https://github.com/RedHatInsights/curiosity-frontend/pull/1044)) ([2170ae6](https://github.com/RedHatInsights/curiosity-frontend/commit/2170ae61510f18ba4f9f86346aaea8c54e6169b9))
