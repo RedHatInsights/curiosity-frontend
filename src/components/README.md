@@ -2226,6 +2226,8 @@ A custom chart tooltip.
     <td>props.t</td><td><code>function</code></td>
     </tr><tr>
     <td>props.useProduct</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.useProductGraphTallyQuery</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

@@ -20,6 +20,7 @@ import { helpers } from '../../common';
  * @param {object} props.datum
  * @param {Function} props.t
  * @param {Function} props.useProduct
+ * @param {Function} props.useProductGraphTallyQuery
  * @returns {React.ReactNode}
  */
 const GraphCardChartTooltip = ({
@@ -65,7 +66,7 @@ const GraphCardChartTooltip = ({
           ]);
         }
 
-        tempDataFacet.label = t('curiosity-graph.label', { context: ['threshold'] });
+        tempDataFacet.label = t('curiosity-graph.label', { context: key });
         tempDataFacet.value = thresholdStringValue;
       } else {
         const dataFactsValue =
