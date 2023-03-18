@@ -55,27 +55,4 @@ describe('Configuration', () => {
       });
     });
   });
-
-  it('should have a consistent route configuration', () => {
-    expect(Array.isArray(config.routes)).toBe(true);
-
-    const inconsistentEntries = [];
-
-    config.routes.forEach((value, index) => {
-      const entryCheck = {
-        path: typeof value.path === 'string' ? 'PASS' : 'FAIL',
-        redirect: typeof value.redirect === 'string' || value.redirect === null ? 'PASS' : 'FAIL',
-        activateOnError: typeof value.activateOnError === 'boolean' ? 'PASS' : 'FAIL',
-        disabled: typeof value.disabled === 'boolean' ? 'PASS' : 'FAIL',
-        default: typeof value.default === 'boolean' ? 'PASS' : 'FAIL',
-        component: typeof value.component === 'string' || value.component === null ? 'PASS' : 'FAIL'
-      };
-
-      if (Object.values(entryCheck).indexOf('FAIL') > -1) {
-        inconsistentEntries.push({ [`Entry ${index}, ${value.path} inconsistent`]: entryCheck });
-      }
-    });
-
-    expect(inconsistentEntries).toMatchSnapshot('inconsistent entries');
-  });
 });

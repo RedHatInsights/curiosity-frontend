@@ -128,23 +128,6 @@ exports[`ViewReducer should handle clearing state with defined types: defined ty
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {},
-    "inventoryHostsQuery": {},
-    "inventorySubscriptionsQuery": {},
-    "product": {
-      "config": "lorem ipsum product",
-    },
-    "productConfig": {},
-    "query": {},
-  },
-  "type": "SET_PRODUCT",
-}
-`;
-
 exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT 1`] = `
 {
   "result": {
@@ -157,7 +140,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
         "test_id": "lorem variant",
       },
     },
-    "productConfig": {},
     "query": {},
   },
   "type": "SET_PRODUCT_VARIANT",
@@ -172,7 +154,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
     "product": {},
-    "productConfig": {},
     "query": {},
   },
   "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
@@ -187,7 +168,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
     "product": {},
-    "productConfig": {},
     "query": {
       "test_id": {
         "dolorFilter": "sit any value",
@@ -210,7 +190,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
     "product": {},
-    "productConfig": {},
     "query": {},
   },
   "type": "SET_QUERY_GRAPH",
@@ -229,7 +208,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
     "product": {},
-    "productConfig": {},
     "query": {},
   },
   "type": "SET_QUERY_INVENTORY_GUESTS",
@@ -248,7 +226,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
     },
     "inventorySubscriptionsQuery": {},
     "product": {},
-    "productConfig": {},
     "query": {},
   },
   "type": "SET_QUERY_INVENTORY_INSTANCES",
@@ -267,7 +244,6 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
       },
     },
     "product": {},
-    "productConfig": {},
     "query": {},
   },
   "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",

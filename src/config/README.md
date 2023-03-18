@@ -34,9 +34,6 @@
 <dt><a href="#Configuration.module_Products">Products</a></dt>
 <dd><p>Pre-parsed product configurations</p>
 </dd>
-<dt><a href="#Configuration.module_Routes">Routes</a></dt>
-<dd><p>Routing configuration</p>
-</dd>
 </dl>
 
 <a name="Products.module_Ansible"></a>
@@ -478,14 +475,3 @@ Sorted/organized/grouped product configs.
     </tr>  </tbody>
 </table>
 
-<a name="Configuration.module_Routes"></a>
-
-## Routes
-Routing configuration
-
-<a name="Configuration.module_Routes..routes"></a>
-
-### Routes~routes : <code>Array.&lt;{redirect: null, path: string, default: boolean, component: string, activateOnError: boolean, disabled: boolean, id: string}, {redirect: string, path: string, default: boolean, component: string, activateOnError: boolean, disabled: boolean, id: string}&gt;</code>
-Route listing
-
-**Kind**: inner constant of [<code>Routes</code>](#Configuration.module_Routes)  

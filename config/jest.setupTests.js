@@ -57,14 +57,6 @@ jest.mock('react-redux', () => ({
 }));
 
 /**
- * Emulate react router dom useLocation
- */
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: () => ({ hash: '', search: '' })
-}));
-
-/**
  * Add the displayName property to function based components. Makes sure that snapshot tests have named components
  * instead of displaying a generic "<Component.../>".
  *

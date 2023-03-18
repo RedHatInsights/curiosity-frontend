@@ -11,6 +11,7 @@ import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { InventoryCardInstances } from '../inventoryCardInstances/inventoryCardInstances';
 import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
 import { translate } from '../i18n/i18n';
+import { ProductViewMissing } from './productViewMissing';
 
 /**
  * Primary product display component, and config context provider.
@@ -33,7 +34,7 @@ import { translate } from '../i18n/i18n';
  * @returns {React.ReactNode}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
-  const { firstMatch, productGroup } = useAliasRouteDetail();
+  const { disableIsClosestMatch, firstMatch, productGroup } = useAliasRouteDetail();
 
   const renderProduct = useCallback(() => {
     const updated = config => {
@@ -84,6 +85,10 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
 
     return updated(firstMatch);
   }, [firstMatch, t]);
+
+  if (disableIsClosestMatch) {
+    return <ProductViewMissing />;
+  }
 
   return (
     (productGroup && (
