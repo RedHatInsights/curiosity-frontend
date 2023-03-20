@@ -9,6 +9,7 @@ describe('AuthenticationContext', () => {
   it('should apply a hook for retrieving auth data from multiple selectors', async () => {
     const { result: errorResponse } = shallowHook(() =>
       useGetAuthorization({
+        useNavigate: () => jest.fn(),
         useSelectorsResponse: () => ({
           error: true,
           data: {
@@ -33,6 +34,7 @@ describe('AuthenticationContext', () => {
     const { result: successResponse } = await mountHook(() =>
       useGetAuthorization({
         useDispatch: () => mockDispatch,
+        useNavigate: () => jest.fn(),
         useSelectorsResponse: () => ({
           fulfilled: true,
           data: {
@@ -52,57 +54,66 @@ describe('AuthenticationContext', () => {
     expect(mockDispatch.mock.calls).toMatchSnapshot('success dispatch');
     expect(successResponse).toMatchSnapshot('success response');
 
-    const { result: mockStoreSuccessResponse } = shallowHook(() => useGetAuthorization(), {
-      state: {
-        user: {
-          auth: {
-            fulfilled: true,
-            data: [
-              { isAdmin: true, isEntitled: true },
-              {
-                permissions: [
-                  {
-                    subscriptions: {
-                      all: true,
-                      resources: {
-                        '*': {
-                          '*': [],
-                          loremCustom: [],
-                          read: []
+    const { result: mockStoreSuccessResponse } = shallowHook(
+      () => useGetAuthorization({ useNavigate: () => jest.fn() }),
+      {
+        state: {
+          user: {
+            auth: {
+              fulfilled: true,
+              data: [
+                { isAdmin: true, isEntitled: true },
+                {
+                  permissions: [
+                    {
+                      subscriptions: {
+                        all: true,
+                        resources: {
+                          '*': {
+                            '*': [],
+                            loremCustom: [],
+                            read: []
+                          }
                         }
                       }
                     }
+                  ],
+                  authorized: {
+                    subscriptions: true
                   }
-                ],
-                authorized: {
-                  subscriptions: true
                 }
-              }
-            ]
-          },
-          locale: { fulfilled: true, data: {} },
-          errors: {}
-        }
-      }
-    });
-
-    expect(mockStoreSuccessResponse).toMatchSnapshot('mock store success response');
-
-    const { result: mockStoreErrorResponse } = shallowHook(() => useGetAuthorization(), {
-      state: {
-        user: {
-          auth: {
-            error: true,
-            data: []
-          },
-          locale: { fulfilled: true, data: {} },
-          errors: {
-            error: true,
-            data: ['lorem', 'ipsum']
+              ]
+            },
+            locale: { fulfilled: true, data: {} },
+            errors: {}
           }
         }
       }
-    });
+    );
+
+    expect(mockStoreSuccessResponse).toMatchSnapshot('mock store success response');
+
+    const { result: mockStoreErrorResponse } = shallowHook(
+      () =>
+        useGetAuthorization({
+          useNavigate: () => jest.fn()
+        }),
+      {
+        state: {
+          user: {
+            auth: {
+              error: true,
+              data: []
+            },
+            locale: { fulfilled: true, data: {} },
+            errors: {
+              error: true,
+              data: ['lorem', 'ipsum']
+            }
+          }
+        }
+      }
+    );
 
     expect(mockStoreErrorResponse).toMatchSnapshot('mock store error response');
   });

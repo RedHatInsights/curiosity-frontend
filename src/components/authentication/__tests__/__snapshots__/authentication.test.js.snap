@@ -4,9 +4,11 @@ exports[`Authentication Component should allow being disabled: disabled 1`] = `
 <ContextProvider
   value={
     {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": {
+        "subscriptions": true,
+      },
+      "errorCodes": [],
+      "errorStatus": undefined,
     }
   }
 >
@@ -27,9 +29,9 @@ exports[`Authentication Component should render a basic component: basic 1`] = `
 <ContextProvider
   value={
     {
-      "errorCodes": undefined,
-      "errorStatus": null,
-      "locale": undefined,
+      "authorized": {},
+      "errorCodes": [],
+      "errorStatus": undefined,
     }
   }
 >

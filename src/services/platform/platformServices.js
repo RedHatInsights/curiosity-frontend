@@ -108,10 +108,26 @@ const hideGlobalFilter = async (isHidden = true) => {
   }
 };
 
+/**
+ * Apply on "app_navigation" event. Return an un-listener.
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+const onNavigation = callback => {
+  const { insights } = window;
+  try {
+    return insights.chrome.on('APP_NAVIGATION', callback);
+  } catch (e) {
+    throw new Error(`{ on } = insights.chrome, ${e.message}`);
+  }
+};
+
 const platformServices = {
   getUser,
   getUserPermissions,
-  hideGlobalFilter
+  hideGlobalFilter,
+  onNavigation
 };
 
-export { platformServices as default, platformServices, getUser, getUserPermissions, hideGlobalFilter };
+export { platformServices as default, platformServices, getUser, getUserPermissions, hideGlobalFilter, onNavigation };

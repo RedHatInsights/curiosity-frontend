@@ -15,13 +15,14 @@ describe('PlatformServices', () => {
   };
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(platformServices)).toHaveLength(3);
+    expect(Object.keys(platformServices)).toHaveLength(4);
   });
 
   it('should have specific methods', () => {
     expect(platformServices.getUser).toBeDefined();
     expect(platformServices.getUserPermissions).toBeDefined();
     expect(platformServices.hideGlobalFilter).toBeDefined();
+    expect(platformServices.onNavigation).toBeDefined();
   });
 
   /**
@@ -67,5 +68,10 @@ describe('PlatformServices', () => {
     const response = await returnPromiseAsync(platformServices.hideGlobalFilter);
 
     expect(response).toMatchSnapshot('failed hideGlobalFilter');
+  });
+
+  it('should return a failed onNavigation', () => {
+    window.insights.chrome.on = undefined;
+    expect(platformServices.onNavigation).toThrow('{ on } = insights.chrome, insights.chrome.on is not a function');
   });
 });
