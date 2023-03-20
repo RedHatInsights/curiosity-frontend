@@ -59,12 +59,26 @@ const hideGlobalFilter = isHidden => ({
   payload: platformServices.hideGlobalFilter(isHidden)
 });
 
+/**
+ * Apply platform method for updating routing history on "navigating" with the left-nav.
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+const onNavigation = callback => dispatch => {
+  dispatch({
+    type: platformTypes.PLATFORM_ON_NAV
+  });
+  return platformServices.onNavigation(callback);
+};
+
 const platformActions = {
   addNotification,
   removeNotification,
   clearNotifications,
   authorizeUser,
-  hideGlobalFilter
+  hideGlobalFilter,
+  onNavigation
 };
 
 export {
@@ -74,5 +88,6 @@ export {
   removeNotification,
   clearNotifications,
   authorizeUser,
-  hideGlobalFilter
+  hideGlobalFilter,
+  onNavigation
 };

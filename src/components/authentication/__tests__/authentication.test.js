@@ -5,8 +5,20 @@ import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 
 describe('Authentication Component', () => {
   it('should render a basic component', async () => {
+    const props = {
+      useGetAuthorization: () => ({
+        error: false,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      })
+    };
+
     const component = await shallowHookComponent(
-      <Authentication>
+      <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
     );
@@ -37,7 +49,18 @@ describe('Authentication Component', () => {
 
   it('should allow being disabled', async () => {
     const props = {
-      isDisabled: true
+      isDisabled: true,
+      useGetAuthorization: () => ({
+        error: false,
+        pending: false,
+        data: {
+          authorized: {
+            [helpers.UI_NAME]: true
+          },
+          errorCodes: [],
+          errorStatus: undefined
+        }
+      })
     };
     const component = await shallowHookComponent(
       <Authentication {...props}>
