@@ -113,7 +113,7 @@
     "victory-create-container": "36.6.8"
   },
   "devDependencies": {
-    "@babel/core": "7.21.0",
+    "@babel/core": "7.21.3",
     "@babel/eslint-parser": "^7.19.1",
     "@redhat-cloud-services/frontend-components-config": "4.7.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
