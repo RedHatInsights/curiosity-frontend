@@ -40,6 +40,14 @@ exports[`RouterContext should apply a hook for useNavigate: navigation push 1`] 
 ]
 `;
 
+exports[`RouterContext should apply a hook for useRouteDetail: document title 1`] = `
+[
+  [
+    "t(curiosity-view.title, {"appName":"Subscriptions","context":"RHEL"}) - Subscriptions",
+  ],
+]
+`;
+
 exports[`RouterContext should apply a hook for useRouteDetail: route details, closest 1`] = `
 {
   "detailProps": [
