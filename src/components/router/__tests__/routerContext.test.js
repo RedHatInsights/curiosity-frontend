@@ -48,7 +48,14 @@ describe('RouterContext', () => {
   });
 
   it('should apply a hook for useRouteDetail', async () => {
-    const { result: exactMatch } = await mountHook(() => useRouteDetail({ useSelector: () => ['rhel'] }));
+    const mockUpdateDocumentTitle = jest.fn();
+    const { result: exactMatch } = await mountHook(() =>
+      useRouteDetail({
+        useChrome: () => ({ updateDocumentTitle: mockUpdateDocumentTitle }),
+        useSelector: () => ['rhel']
+      })
+    );
+    expect(mockUpdateDocumentTitle.mock.calls).toMatchSnapshot('document title');
     expect({
       detailProps: Object.keys(exactMatch),
       isClosest: exactMatch.isClosest,
