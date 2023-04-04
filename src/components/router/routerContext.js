@@ -114,10 +114,10 @@ const useRouteDetail = ({
 
       // Set document title
       updateDocumentTitle(
-        `${helpers.UI_DISPLAY_NAME}: ${t(`curiosity-view.title`, {
+        `${t(`curiosity-view.title`, {
           appName: helpers.UI_DISPLAY_NAME,
           context: firstMatch?.productGroup
-        })}`
+        })} - ${helpers.UI_DISPLAY_NAME}`
       );
 
       // Set route detail
