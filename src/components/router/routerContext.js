@@ -102,7 +102,8 @@ const useRouteDetail = ({
   useChrome: useAliasChrome = useChrome,
   useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors
 } = {}) => {
-  const { updateDocumentTitle = helpers.noop } = useAliasChrome();
+  const { getBundleData = helpers.noop, updateDocumentTitle = helpers.noop } = useAliasChrome();
+  const bundleData = getBundleData();
   const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
   const [detail, setDetail] = useState({});
 
@@ -112,12 +113,13 @@ const useRouteDetail = ({
         pathName: productPath
       });
 
-      // Set document title
+      // Set document title, remove pre-baked suffix
       updateDocumentTitle(
         `${t(`curiosity-view.title`, {
           appName: helpers.UI_DISPLAY_NAME,
           context: firstMatch?.productGroup
-        })} - ${helpers.UI_DISPLAY_NAME}`
+        })} - ${helpers.UI_DISPLAY_NAME}${(bundleData?.bundleTitle && ` | ${bundleData?.bundleTitle}`) || ''}`,
+        true
       );
 
       // Set route detail
@@ -132,7 +134,7 @@ const useRouteDetail = ({
         productPath
       });
     }
-  }, [detail?._passed, productPath, t, updateDocumentTitle]);
+  }, [bundleData?.bundleTitle, detail?._passed, productPath, t, updateDocumentTitle]);
 
   return detail;
 };
