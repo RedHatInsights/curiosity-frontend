@@ -29,19 +29,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/bannerMessages/bannerMessages.js",
-    "keys": [
-      {
-        "key": "curiosity-banner.dataMismatchTitle",
-        "match": "translate('curiosity-banner.dataMismatchTitle')",
-      },
-      {
-        "key": "curiosity-banner.dataMismatchMessage",
-        "match": "translate( 'curiosity-banner.dataMismatchMessage', { context: helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS !== '' && 'cloudigradeMismatch', appName: helpers.UI_DISPLAY_NAME }, [ <Button isInline component="a" variant="link" icon={<ExternalLinkAltIcon />} iconPosition="right" target="_blank" href={helpers.UI_LINK_REPORT_ACCURACY_RECOMMENDATIONS} /> ] )",
-      },
-    ],
-  },
-  {
     "file": "./src/components/graphCard/graphCardChart.js",
     "keys": [
       {

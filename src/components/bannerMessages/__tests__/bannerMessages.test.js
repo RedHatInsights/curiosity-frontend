@@ -5,18 +5,13 @@ import { BannerMessages } from '../bannerMessages';
 describe('BannerMessages Component', () => {
   it('should render a basic component', async () => {
     const props = {
-      messages: [
+      useBannerMessages: () => [
         {
           id: 'loremIpsum',
           title: 'Lorem ipsum title',
           message: 'Lorem ipsum message'
         }
-      ],
-      useGetAppMessages: () => ({
-        data: {
-          loremIpsum: true
-        }
-      })
+      ]
     };
     const component = await mountHookComponent(<BannerMessages {...props} />);
 
@@ -24,15 +19,16 @@ describe('BannerMessages Component', () => {
   });
 
   it('should handle closing messages from state', async () => {
+    const mockRemove = jest.fn();
     const props = {
-      messages: [
+      useBannerMessages: () => [
         {
-          id: 'dolorSit',
-          title: 'Dolor sit title',
-          message: 'Dolor sit message'
+          id: 'loremIpsum',
+          title: 'Lorem ipsum title',
+          message: 'Lorem ipsum message'
         }
       ],
-      useGetAppMessages: () => ({ data: { dolorSit: true } })
+      useRemoveBannerMessages: () => mockRemove
     };
 
     const component = await mountHookComponent(<BannerMessages {...props} />);
@@ -40,6 +36,6 @@ describe('BannerMessages Component', () => {
 
     component.find(AlertActionCloseButton).first().simulate('click');
 
-    expect(component.render()).toMatchSnapshot('state messages, OFF');
+    expect(mockRemove.mock.calls).toMatchSnapshot('state messages, OFF id');
   });
 });
