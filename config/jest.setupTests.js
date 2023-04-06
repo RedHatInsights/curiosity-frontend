@@ -99,6 +99,7 @@ global.window.insights = {
           })
         )
     },
+    getBundleData: Function.prototype,
     getUserPermissions: () => [],
     hideGlobalFilter: Function.prototype,
     identifyApp: Function.prototype,

@@ -23,6 +23,7 @@ window.insights = {
           });
         })
     },
+    getBundleData: () => ({ bundleId: 'insights', bundleTitle: 'Red Hat Insights' }),
     getUserPermissions: () => [],
     hideGlobalFilter: Function.prototype,
     identifyApp: Function.prototype,

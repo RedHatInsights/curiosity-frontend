@@ -44,6 +44,7 @@ exports[`RouterContext should apply a hook for useRouteDetail: document title 1`
 [
   [
     "t(curiosity-view.title, {"appName":"Subscriptions","context":"RHEL"}) - Subscriptions",
+    true,
   ],
 ]
 `;
