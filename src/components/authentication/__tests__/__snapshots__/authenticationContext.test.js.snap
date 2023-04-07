@@ -76,9 +76,6 @@ exports[`AuthenticationContext should apply a hook for retrieving auth data from
       },
     ],
   ],
-  [
-    [Function],
-  ],
 ]
 `;
 

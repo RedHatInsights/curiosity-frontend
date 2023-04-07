@@ -298,13 +298,9 @@ Initialize an app, and return a combined state store that includes authorization
     </tr><tr>
     <td>options.hideGlobalFilter</td><td><code>function</code></td>
     </tr><tr>
-    <td>options.onNavigation</td><td><code>function</code></td>
-    </tr><tr>
     <td>options.useChrome</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useNavigate</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useSelectorsResponse</td><td><code>function</code></td>
     </tr>  </tbody>
