@@ -325,7 +325,6 @@ Emulated service calls for platform globals.
     * [~getUser(options)](#Platform.module_PlatformServices..getUser) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getUserPermissions(appName, options)](#Platform.module_PlatformServices..getUserPermissions) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~hideGlobalFilter(isHidden)](#Platform.module_PlatformServices..hideGlobalFilter) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~onNavigation(callback)](#Platform.module_PlatformServices..onNavigation) ⇒ <code>function</code>
 
 <a name="Platform.module_PlatformServices..getUser"></a>
 
@@ -380,24 +379,6 @@ Disables the Platform's global filter display.
   <tbody>
 <tr>
     <td>isHidden</td><td><code>boolean</code></td><td><code>true</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Platform.module_PlatformServices..onNavigation"></a>
-
-### PlatformServices~onNavigation(callback) ⇒ <code>function</code>
-Apply on "app_navigation" event. Return an un-listener.
-
-**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>callback</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
