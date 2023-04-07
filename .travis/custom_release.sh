@@ -36,8 +36,12 @@ releaseProd()
 {
   local UPDATED_UI_VERSION="$(node -p 'require(`./package.json`).version')";
 
-  if [[ "${TRAVIS_COMMIT_MESSAGE}" = *"chore(release):"* ]]; then
-    if [[ "${TRAVIS_BRANCH}" = "v${UPDATED_UI_VERSION}" || "${TRAVIS_BRANCH}" = "prod" || "${TRAVIS_BRANCH}" = "prod-stable" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]]; then
+  if [[ "${TRAVIS_COMMIT_MESSAGE}" = *"chore(prod):"* ]]; then
+    if [[ "${TRAVIS_BRANCH}" = "main" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]]; then
+      release "prod-stable"
+    fi
+  elif [[ "${TRAVIS_COMMIT_MESSAGE}" = *"chore(release):"* ]]; then
+    if [[ "${TRAVIS_BRANCH}" = "v${UPDATED_UI_VERSION}" || "${TRAVIS_BRANCH}" = "main" ]] && [[ $TRAVIS_BUILD_STAGE_NAME != *"Beta"* ]]; then
       release "ci-stable"
       release "qa-stable"
       release "prod-beta"
