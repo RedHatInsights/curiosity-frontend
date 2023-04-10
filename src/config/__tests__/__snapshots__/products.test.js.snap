@@ -2,17 +2,74 @@
 
 exports[`Product configurations should return sorted product configs: sorted 1`] = `
 {
-  "byAlias": {},
+  "byAlias": {
+    "dolor": [
+      {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+    ],
+    "hello": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
+        "viewId": "view-lorem",
+      },
+    ],
+    "sit": [
+      {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+    ],
+    "world": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
+        "viewId": "view-lorem",
+      },
+    ],
+  },
   "byAliasGroupProductPathIds": [
     "dolor",
     "dolor sit",
+    "hello",
     "hello world",
     "lorem",
     "lorem-dolor",
     "lorem-ipsum",
+    "sit",
+    "world",
   ],
   "byGroup": {
     "dolor": [
+      {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
       {
         "productGroup": "dolor",
         "productId": "dolor sit",
@@ -26,6 +83,17 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
         "viewId": "view-dolor",
       },
     ],
+    "hello": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
+        "viewId": "view-lorem",
+      },
+    ],
     "hello world": [
       {
         "productGroup": "hello world",
@@ -35,6 +103,10 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     ],
     "lorem": [
       {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
         "productGroup": "lorem",
         "productId": "lorem-ipsum",
         "viewId": "view-lorem",
@@ -42,6 +114,10 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
       {
         "productGroup": "lorem",
         "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
         "viewId": "view-lorem",
       },
     ],
@@ -49,13 +125,43 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
       {
         "productGroup": "lorem",
         "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
         "viewId": "view-lorem",
       },
     ],
     "lorem-ipsum": [
       {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
         "productGroup": "lorem",
         "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+    ],
+    "sit": [
+      {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
+        "productGroup": "lorem",
+        "productId": "lorem-ipsum",
+        "viewId": "view-lorem",
+      },
+    ],
+    "world": [
+      {
+        "productGroup": "lorem",
+        "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
         "viewId": "view-lorem",
       },
     ],
@@ -77,6 +183,10 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     ],
     "lorem": [
       {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
         "productGroup": "lorem",
         "productId": "lorem-ipsum",
         "viewId": "view-lorem",
@@ -84,6 +194,10 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
       {
         "productGroup": "lorem",
         "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
         "viewId": "view-lorem",
       },
     ],
@@ -114,9 +228,17 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "lorem-dolor": {
       "productGroup": "lorem",
       "productId": "lorem-dolor",
+      "productVariants": [
+        "hello",
+        "world",
+      ],
       "viewId": "view-lorem",
     },
     "lorem-ipsum": {
+      "productArchitectures": [
+        "dolor",
+        "sit",
+      ],
       "productGroup": "lorem",
       "productId": "lorem-ipsum",
       "viewId": "view-lorem",
@@ -146,6 +268,10 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     ],
     "view-lorem": [
       {
+        "productArchitectures": [
+          "dolor",
+          "sit",
+        ],
         "productGroup": "lorem",
         "productId": "lorem-ipsum",
         "viewId": "view-lorem",
@@ -153,6 +279,10 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
       {
         "productGroup": "lorem",
         "productId": "lorem-dolor",
+        "productVariants": [
+          "hello",
+          "world",
+        ],
         "viewId": "view-lorem",
       },
     ],

@@ -13,7 +13,7 @@ import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import moment from 'moment';
 import {
-  RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES,
+  RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES,
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
   RHSM_API_QUERY_CATEGORY_TYPES as CATEGORY_TYPES,
@@ -49,7 +49,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
  * RHEL product config
  *
  * @type {{aliases: string[], productGroup: string, productId: string, productLabel: string, productDisplay: string, viewId: string,
- *     productArchitectures: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object, inventorySubscriptionsQuery: object,
+ *     productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object, inventorySubscriptionsQuery: object,
  *     initialGraphFilters: {}[], initialGraphSettings: object, initialGuestsFilters: {}[], initialInventoryFilters: {}[],
  *     initialSubscriptionsInventoryFilters: {}[], initialToolbarFilters: {}[], }}
  */
@@ -61,7 +61,7 @@ const config = {
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}`,
-  productArchitectures: [...Object.values(RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES)],
+  productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES)],
   query: {
     [RHSM_API_QUERY_SET_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers
@@ -316,7 +316,7 @@ const config = {
       id: RHSM_API_QUERY_SET_TYPES.CATEGORY
     },
     {
-      id: RHSM_API_QUERY_SET_TYPES.ARCHITECTURE
+      id: RHSM_API_QUERY_SET_TYPES.VARIANT
     }
   ]
 };
