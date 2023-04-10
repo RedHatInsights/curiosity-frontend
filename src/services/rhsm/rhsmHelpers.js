@@ -18,10 +18,6 @@ import { RHSM_API_QUERY_SET_TYPES } from './rhsmConstants';
 const filterArchitectureVariant = (id, params = {}) => {
   const updatedId = id;
 
-  if (params?.[RHSM_API_QUERY_SET_TYPES.ARCHITECTURE]?.length) {
-    return params?.[RHSM_API_QUERY_SET_TYPES.ARCHITECTURE];
-  }
-
   if (params?.[RHSM_API_QUERY_SET_TYPES.VARIANT]?.length) {
     return params?.[RHSM_API_QUERY_SET_TYPES.VARIANT];
   }

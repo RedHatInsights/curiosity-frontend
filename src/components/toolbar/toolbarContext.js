@@ -3,7 +3,6 @@ import { ToolbarItem } from '@patternfly/react-core';
 import { useProductQuery, useProductToolbarConfig } from '../productView/productViewContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { useOnSelect as useSelectCategoryOnSelect, toolbarFieldOptions } from './toolbarFieldSelectCategory';
-import { useOnSelect as useArchitectureOnSelect } from './toolbarFieldArchitecture';
 import { useOnSelect as useBillingProviderOnSelect } from './toolbarFieldBillingProvider';
 import { useOnSelect as useCategoryOnSelect } from './toolbarFieldCategory';
 import { useOnSelect as useSlaOnSelect } from './toolbarFieldSla';
@@ -20,7 +19,6 @@ import { helpers } from '../../common/helpers';
  * Clear a specific toolbar category using a select component's OnSelect hook.
  *
  * @param {object} options
- * @param {Function} options.useArchitectureOnSelect
  * @param {Function} options.useBillingProviderOnSelect
  * @param {Function} options.useCategoryOnSelect
  * @param {Function} options.useSlaOnSelect
@@ -29,14 +27,12 @@ import { helpers } from '../../common/helpers';
  * @returns {Function}
  */
 const useToolbarFieldClear = ({
-  useArchitectureOnSelect: useAliasArchitectureOnSelect = useArchitectureOnSelect,
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
   useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
   useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect,
   useVariantOnSelect: useAliasVariantOnSelect = useVariantOnSelect
 } = {}) => {
-  const architectureOnSelect = useAliasArchitectureOnSelect();
   const billingOnSelect = useAliasBillingProviderOnSelect();
   const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
@@ -45,9 +41,6 @@ const useToolbarFieldClear = ({
 
   return field => {
     switch (field) {
-      case RHSM_API_QUERY_SET_TYPES.ARCHITECTURE:
-        architectureOnSelect();
-        break;
       case RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER:
         billingOnSelect();
         break;
@@ -74,7 +67,6 @@ const useToolbarFieldClear = ({
  *
  * @param {object} options
  * @param {Function} options.useProductQuery
- * @param {Function} options.useArchitectureOnSelect
  * @param {Function} options.useSelectCategoryOnSelect
  * @param {Function} options.useBillingProviderOnSelect
  * @param {Function} options.useCategoryOnSelect
@@ -85,7 +77,6 @@ const useToolbarFieldClear = ({
  */
 const useToolbarFieldClearAll = ({
   useProductQuery: useAliasProductQuery = useProductQuery,
-  useArchitectureOnSelect: useAliasArchitectureOnSelect = useArchitectureOnSelect,
   useSelectCategoryOnSelect: useAliasSelectCategoryOnSelect = useSelectCategoryOnSelect,
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
   useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
@@ -94,14 +85,12 @@ const useToolbarFieldClearAll = ({
   useVariantOnSelect: useAliasVariantOnSelect = useVariantOnSelect
 } = {}) => {
   const {
-    [RHSM_API_QUERY_SET_TYPES.ARCHITECTURE]: architecture,
     [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billingProvider,
     [RHSM_API_QUERY_SET_TYPES.CATEGORY]: category,
     [RHSM_API_QUERY_SET_TYPES.SLA]: sla,
     [RHSM_API_QUERY_SET_TYPES.USAGE]: usage,
     [RHSM_API_QUERY_SET_TYPES.VARIANT]: variant
   } = useAliasProductQuery();
-  const architectureOnSelect = useAliasArchitectureOnSelect();
   const billingOnSelect = useAliasBillingProviderOnSelect();
   const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
@@ -110,10 +99,6 @@ const useToolbarFieldClearAll = ({
   const variantOnSelect = useAliasVariantOnSelect();
 
   return hardFilterReset => {
-    if (typeof architecture === 'string') {
-      architectureOnSelect();
-    }
-
     if (typeof billingProvider === 'string') {
       billingOnSelect();
     }

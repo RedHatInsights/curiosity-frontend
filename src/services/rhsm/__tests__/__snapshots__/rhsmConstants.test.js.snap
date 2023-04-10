@@ -96,7 +96,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
-    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
@@ -113,7 +112,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
-    "ARCHITECTURE": "architecture",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "END_DATE": "ending",
@@ -124,7 +122,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TYPES": {
-    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
@@ -379,7 +376,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
-      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
@@ -396,7 +392,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
-      "ARCHITECTURE": "architecture",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "END_DATE": "ending",
@@ -407,7 +402,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TYPES": {
-      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
@@ -663,7 +657,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "USAGE": "usage",
     },
     "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
-      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
@@ -680,7 +673,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
-      "ARCHITECTURE": "architecture",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "END_DATE": "ending",
@@ -691,7 +683,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TYPES": {
-      "ARCHITECTURE": "architecture",
       "BILLING_ACCOUNT_ID": "billing_account_id",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
@@ -951,7 +942,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "USAGE": "usage",
   },
   "RHSM_API_QUERY_SET_INVENTORY_TYPES": {
-    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
@@ -968,7 +958,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
-    "ARCHITECTURE": "architecture",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "END_DATE": "ending",
@@ -979,7 +968,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TYPES": {
-    "ARCHITECTURE": "architecture",
     "BILLING_ACCOUNT_ID": "billing_account_id",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
