@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.0](https://github.com/RedHatInsights/curiosity-frontend/compare/783ad62fb5bdc9228971006817dd5b044a9bc722...1d05b6dc35e0d6ec73787f449e54a76883f80cbd) (2023-04-11)
+
+### Features
+* **routerContext** sw-1089 enhance page titles  ([#1091](https://github.com/RedHatInsights/curiosity-frontend/pull/1091)) ([1d05b6d](https://github.com/RedHatInsights/curiosity-frontend/commit/1d05b6dc35e0d6ec73787f449e54a76883f80cbd))
+* **config** sw-922 product custom card metrics  ([#1077](https://github.com/RedHatInsights/curiosity-frontend/pull/1077)) ([9ed7519](https://github.com/RedHatInsights/curiosity-frontend/commit/9ed7519a89aa9785f9e704b3e74d605de1c637a8))
+* **i18nHelpers** sw-922 apply testId to copy  ([#1079](https://github.com/RedHatInsights/curiosity-frontend/pull/1079)) ([e5bdd28](https://github.com/RedHatInsights/curiosity-frontend/commit/e5bdd283aa8c5fc7ac7f0c7b8d0c5182fd63745a))
+
+### Code Refactoring
+* **i18nHelpers** sw-922 translate break apart, testing  ([#1079](https://github.com/RedHatInsights/curiosity-frontend/pull/1079)) ([b15fe7d](https://github.com/RedHatInsights/curiosity-frontend/commit/b15fe7d2ec2afa0861721b0f1a240abe681c3e24))
+* **graphCard** sw-923 allow nested graph configs  ([#1073](https://github.com/RedHatInsights/curiosity-frontend/pull/1073)) ([99f4c58](https://github.com/RedHatInsights/curiosity-frontend/commit/99f4c585d190abfbe6b677743227f19ae72de729))
+
+### Chores
+* **deps-dev** npm-check-updates from 16.7.10 to 16.10.0  ([#1088](https://github.com/RedHatInsights/curiosity-frontend/pull/1088)) ([645b525](https://github.com/RedHatInsights/curiosity-frontend/commit/645b5252e1953849276681b165e6b9735493fbe9))
+* **deps-dev** @babel/core from 7.21.0 to 7.21.3  ([#1087](https://github.com/RedHatInsights/curiosity-frontend/pull/1087)) ([cc2a1cc](https://github.com/RedHatInsights/curiosity-frontend/commit/cc2a1ccfa0d75bf93b4e3278b0ff2535de8f6d33))
+* **deps-dev** eslint from 8.34.0 to 8.36.0  ([#1084](https://github.com/RedHatInsights/curiosity-frontend/pull/1084)) ([0cceb62](https://github.com/RedHatInsights/curiosity-frontend/commit/0cceb62ee7c7c91613c3014d6632c61e8b732d7d))
+* **deps-dev** bump jest from 29.4.3 to 29.5.0  ([#1078](https://github.com/RedHatInsights/curiosity-frontend/pull/1078)) ([cbb9354](https://github.com/RedHatInsights/curiosity-frontend/commit/cbb935480e4cf08d6f52ef29c214812fe06e8490))
+* **deps-dev** bump eslint-config-prettier from 8.6.0 to 8.7.0  ([#1076](https://github.com/RedHatInsights/curiosity-frontend/pull/1076)) ([8787d92](https://github.com/RedHatInsights/curiosity-frontend/commit/8787d924e49f1b1a3d8465c64a15c96b27f09b2b))
+
+### Bug Fixes
+* **routerContext** sw-1089 page display titles  ([#1089](https://github.com/RedHatInsights/curiosity-frontend/pull/1089)) ([a3a7d9b](https://github.com/RedHatInsights/curiosity-frontend/commit/a3a7d9bf500629f2a7dcb7b5128be7aa11f40e10))
+* **chartHelpers** sw-1030 expand x axis unit test  ([#1082](https://github.com/RedHatInsights/curiosity-frontend/pull/1082)) ([8c93c13](https://github.com/RedHatInsights/curiosity-frontend/commit/8c93c13eeaa467e76139138ec70fa0f14f23518d))
+* **build** npm updates  ([#1081](https://github.com/RedHatInsights/curiosity-frontend/pull/1081)) ([16dd675](https://github.com/RedHatInsights/curiosity-frontend/commit/16dd67586ace7dbcc02ac3fd0f79ae0ed8adfaa6))
+* **i18nHelpers** sw-922 i18n element wrapping  ([#1080](https://github.com/RedHatInsights/curiosity-frontend/pull/1080)) ([50397b7](https://github.com/RedHatInsights/curiosity-frontend/commit/50397b7f48faa83d295b9a59ea06bd71e4a05821))
+
 ## [2.10.1](https://github.com/RedHatInsights/curiosity-frontend/compare/fe94e573db3eb48ff58bfb4b42262a313b0043b8...68c6101a489a64c587d869c4967b64454b11b88a) (2023-03-21)
 
 ### Bug Fixes
