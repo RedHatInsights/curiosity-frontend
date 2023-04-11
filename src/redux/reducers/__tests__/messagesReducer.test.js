@@ -1,73 +1,24 @@
 import messagesReducer from '../messagesReducer';
-import { rhsmTypes as types } from '../../types';
-import { reduxHelpers } from '../../common/reduxHelpers';
+import { messageTypes as types } from '../../types';
 
 describe('MessagesReducer', () => {
   it('should return the initial state', () => {
     expect(messagesReducer.initialState).toBeDefined();
   });
 
-  it('should handle all defined error types', () => {
-    const specificTypes = [types.GET_MESSAGE_REPORTS_RHSM];
+  it('should handle specific defined types', () => {
+    const specificTypes = [types.SET_BANNER_MESSAGES];
 
     specificTypes.forEach(value => {
       const dispatched = {
-        type: reduxHelpers.REJECTED_ACTION(value),
-        error: true,
-        payload: {
-          message: 'MESSAGE',
-          response: {
-            status: 0,
-            statusText: 'ERROR TEST',
-            data: {
-              detail: 'ERROR'
-            }
-          }
-        }
+        type: value,
+        bannerMessages: ['lorem'],
+        viewId: 'test_id'
       };
 
       const resultState = messagesReducer(undefined, dispatched);
 
-      expect({ type: reduxHelpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot(
-        `rejected types ${value}`
-      );
-    });
-  });
-
-  it('should handle all defined pending types', () => {
-    const specificTypes = [types.GET_MESSAGE_REPORTS_RHSM];
-
-    specificTypes.forEach(value => {
-      const dispatched = {
-        type: reduxHelpers.PENDING_ACTION(value)
-      };
-
-      const resultState = messagesReducer(undefined, dispatched);
-
-      expect({ type: reduxHelpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot(
-        `pending types ${value}`
-      );
-    });
-  });
-
-  it('should handle all defined fulfilled types', () => {
-    const specificTypes = [types.GET_MESSAGE_REPORTS_RHSM];
-
-    specificTypes.forEach(value => {
-      const dispatched = {
-        type: reduxHelpers.FULFILLED_ACTION(value),
-        payload: {
-          data: {
-            test: 'success'
-          }
-        }
-      };
-
-      const resultState = messagesReducer(undefined, dispatched);
-
-      expect({ type: reduxHelpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot(
-        `fulfilled types ${value}`
-      );
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
     });
   });
 });

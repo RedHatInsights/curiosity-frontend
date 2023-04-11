@@ -1,86 +1,60 @@
-import { context, useGetAppMessages } from '../bannerMessagesContext';
-import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
+import { context, useBannerMessages, useRemoveBannerMessages, useSetBannerMessages } from '../bannerMessagesContext';
 
 describe('BannerMessagesContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should apply a hook for retrieving messages data from a selectors', () => {
-    const { result: errorResponse } = shallowHook(() =>
-      useGetAppMessages({
-        useSelectorsResponse: () => ({
-          error: true,
-          data: {
-            messages: {}
+  it('should apply a hook for retrieving messages data from a selector', async () => {
+    const { result } = await shallowHook(() =>
+      useBannerMessages({
+        useSelector: () => [
+          {
+            id: 'lorem',
+            title: 'ipsum'
           }
-        })
+        ]
       })
     );
 
-    expect(errorResponse).toMatchSnapshot('error response');
+    expect(result).toMatchSnapshot('banner messages');
+  });
 
-    const { result: successResponse } = shallowHook(() =>
-      useGetAppMessages({
-        useSelectorsResponse: () => ({
-          fulfilled: true,
-          data: {
-            messages: {}
+  it('should apply a hook for retrieving messages data from a selector and apply new messages', async () => {
+    const mockDispatch = jest.fn();
+    const { result } = await mountHook(() =>
+      useSetBannerMessages({
+        useDispatch: () => mockDispatch,
+        useProduct: () => ({ productId: 'dolorSit' }),
+        useBannerMessages: () => [
+          {
+            id: 'lorem',
+            title: 'ipsum'
           }
-        })
+        ]
       })
     );
 
-    expect(successResponse).toMatchSnapshot('success response');
+    result('new message');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch');
+  });
 
-    const { result: mockStoreSuccessResponse } = shallowHook(
-      () =>
-        useGetAppMessages({
-          useProduct: () => ({ productId: 'loremIpsum' })
-        }),
-      {
-        state: {
-          messages: {
-            report: {
-              loremIpsum: {
-                fulfilled: true,
-                data: {
-                  data: [
-                    {
-                      [rhsmConstants.RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH]: true
-                    }
-                  ]
-                }
-              }
-            }
+  it('should apply a hook for retrieving messages data from a selector and remove messages', async () => {
+    const mockDispatch = jest.fn();
+    const { result } = await mountHook(() =>
+      useRemoveBannerMessages({
+        useDispatch: () => mockDispatch,
+        useProduct: () => ({ productId: 'dolorSit' }),
+        useBannerMessages: () => [
+          {
+            id: 'lorem',
+            title: 'ipsum'
           }
-        }
-      }
+        ]
+      })
     );
 
-    expect(mockStoreSuccessResponse).toMatchSnapshot('mock store success response');
-
-    const { result: mockStoreErrorResponse } = shallowHook(
-      () =>
-        useGetAppMessages({
-          useProduct: () => ({ productId: 'loremIpsum' })
-        }),
-      {
-        state: {
-          messages: {
-            report: {
-              loremIpsum: {
-                error: true,
-                data: {
-                  data: []
-                }
-              }
-            }
-          }
-        }
-      }
-    );
-
-    expect(mockStoreErrorResponse).toMatchSnapshot('mock store error response');
+    result('ipsum');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch');
   });
 });

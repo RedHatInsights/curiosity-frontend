@@ -1,4 +1,4 @@
-import { rhsmTypes } from '../types';
+import { reduxTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
 
 /**
@@ -15,23 +15,34 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * @type {{report: {}}}
  */
 const initialState = {
-  report: {}
+  bannerMessages: {}
 };
 
 /**
- * Generated daily observer/reducer for report to state,
+ * Generated daily observer/reducer for messages to state,
  * against actions.
  *
  * @param {object} state
  * @param {object} action
  * @returns {object|{}}
  */
-const messagesReducer = (state = initialState, action) =>
-  reduxHelpers.generatedPromiseActionReducer(
-    [{ ref: 'report', type: rhsmTypes.GET_MESSAGE_REPORTS_RHSM }],
-    state,
-    action
-  );
+const messagesReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case reduxTypes.message.SET_BANNER_MESSAGES:
+      return reduxHelpers.setStateProp(
+        'bannerMessages',
+        {
+          [action.viewId]: action.bannerMessages
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    default:
+      return state;
+  }
+};
 
 messagesReducer.initialState = initialState;
 

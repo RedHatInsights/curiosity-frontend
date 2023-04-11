@@ -1,12 +1,7 @@
-import { useShallowCompareEffect } from 'react-use';
-import { reduxActions, storeHooks } from '../../redux';
-import { useProduct, useProductQuery } from '../productView/productViewContext';
-import { dateHelpers } from '../../common';
-import {
-  rhsmConstants,
-  RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
-  RHSM_API_QUERY_SET_TYPES
-} from '../../services/rhsm/rhsmConstants';
+import { useCallback } from 'react';
+import { reduxTypes, storeHooks } from '../../redux';
+import { useProduct } from '../productView/productViewContext';
+import { helpers } from '../../common/helpers';
 
 /**
  * @memberof BannerMessages
@@ -14,78 +9,127 @@ import {
  */
 
 /**
- * ToDo: useGetAppMessages is setup to work with existing Tally response, pre-metrics
- * Banner messages scans the returned Tally listing for the HAS_CLOUDIGRADE_MISMATCH. In the future
- * this may need to be updated to pull from the "meta" object part of the Tally response.
- */
-/**
- * Get app messages.
+ * Retrieve, set and remove application banner messages from state.
  *
  * @param {object} options
- * @param {Function} options.getMessageReports
- * @param {Function} options.useDispatch
  * @param {Function} options.useProduct
- * @param {Function} options.useProductQuery
- * @param {Function} options.useSelectorsResponse
- * @returns {{data: {cloudigradeMismatch: boolean}, pending: boolean, fulfilled: boolean, error: boolean}}
+ * @param {Function} options.useSelector
+ * @returns {{ bannerMessages: Array, setBannerMessages: Function, removeBannerMessages: Function }}
  */
-const useGetAppMessages = ({
-  getMessageReports = reduxActions.rhsm.getMessageReports,
-  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+const useBannerMessages = ({
   useProduct: useAliasProduct = useProduct,
-  useProductQuery: useAliasProductQuery = useProductQuery,
-  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
+  useSelector: useAliasSelector = storeHooks.reactRedux.useSelector
 } = {}) => {
   const { productId } = useAliasProduct();
-  const query = useAliasProductQuery();
+  return useAliasSelector(({ messages }) => messages?.bannerMessages?.[productId], []);
+};
+
+/**
+ * Provide a callback for removing application banner messages from state.
+ *
+ * @param {object} options
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useProduct
+ * @param {Function} options.useBannerMessages
+ * @returns {Function}
+ */
+const useRemoveBannerMessages = ({
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct,
+  useBannerMessages: useAliasBannerMessages = useBannerMessages
+} = {}) => {
   const dispatch = useAliasDispatch();
-  const { error, fulfilled, pending, data } = useAliasSelectorsResponse({
-    id: 'messages',
-    selector: ({ messages }) => messages?.report?.[productId]
-  });
+  const { productId } = useAliasProduct();
+  const bannerMessages = useAliasBannerMessages();
 
-  useShallowCompareEffect(() => {
-    if (productId) {
-      const { startDate, endDate } = dateHelpers.getRangedDateTime('CURRENT');
-      const updatedQuery = {
-        ...query,
-        [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY,
-        [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate.toISOString(),
-        [RHSM_API_QUERY_SET_TYPES.END_DATE]: endDate.toISOString()
-      };
+  /**
+   * Remove a banner message from state.
+   *
+   * @callback removeBannerMessages
+   * @param {string} idTitle
+   */
+  return useCallback(
+    idTitle => {
+      if (productId && Array.isArray(bannerMessages) && bannerMessages.length) {
+        const filteredMessages = bannerMessages.filter(({ id, title }) => id !== idTitle && title !== idTitle);
 
-      getMessageReports(productId, updatedQuery)(dispatch);
-    }
-  }, [productId, query]);
+        dispatch({
+          type: reduxTypes.message.SET_BANNER_MESSAGES,
+          viewId: productId,
+          bannerMessages: filteredMessages || []
+        });
+      }
+    },
+    [bannerMessages, dispatch, productId]
+  );
+};
 
-  const updatedData = {
-    cloudigradeMismatch: false
-  };
+/**
+ * Provide a callback for setting application banner messages from state.
+ *
+ * @param {object} options
+ * @param {Function} options.useDispatch
+ * @param {Function} options.useProduct
+ * @param {Function} options.useBannerMessages
+ * @returns {Function}
+ */
+const useSetBannerMessages = ({
+  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
+  useProduct: useAliasProduct = useProduct,
+  useBannerMessages: useAliasBannerMessages = useBannerMessages
+} = {}) => {
+  const dispatch = useAliasDispatch();
+  const { productId } = useAliasProduct();
+  const bannerMessages = useAliasBannerMessages();
 
-  if (fulfilled) {
-    const { messages = {} } = data || {};
+  /**
+   * Set application messages for banner display
+   *
+   * @callback setBannerMessages
+   * @param {Array<{ id: string, message: string, title: string, variant: string }>|{ id: string, message: string, title: string, variant: string }} messages
+   */
+  return useCallback(
+    messages => {
+      if (productId) {
+        const updatedMessages = (Array.isArray(messages) && messages) || [messages];
 
-    updatedData.cloudigradeMismatch =
-      messages?.data
-        ?.reverse()
-        ?.find(
-          ({ [rhsmConstants.RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES.HAS_CLOUDIGRADE_MISMATCH]: mismatch }) =>
-            mismatch === true
-        ) !== undefined;
-  }
+        dispatch({
+          type: reduxTypes.message.SET_BANNER_MESSAGES,
+          viewId: productId,
+          bannerMessages: [
+            ...(bannerMessages || []),
+            ...updatedMessages
+              .map(value => {
+                if (value?.id || value?.title || value?.message || value?.variant) {
+                  return value;
+                }
 
-  return {
-    error,
-    fulfilled,
-    pending,
-    data: {
-      ...updatedData
-    }
-  };
+                if (typeof value === 'string' || typeof value === 'number') {
+                  return {
+                    id: value,
+                    title: value
+                  };
+                }
+
+                return undefined;
+              })
+              .filter(value => value !== undefined)
+          ]
+        });
+      } else if (helpers.DEV_MODE) {
+        console.warn(
+          'Banner messages currently require the use of "product id". Product context is unavailable, try moving your banner message "set" lower in the component order.'
+        );
+      }
+    },
+    [bannerMessages, dispatch, productId]
+  );
 };
 
 const context = {
-  useGetAppMessages
+  useBannerMessages,
+  useRemoveBannerMessages,
+  useSetBannerMessages
 };
 
-export { context as default, context, useGetAppMessages };
+export { context as default, context, useBannerMessages, useRemoveBannerMessages, useSetBannerMessages };

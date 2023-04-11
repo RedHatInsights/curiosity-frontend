@@ -3,11 +3,7 @@
     "pending": "Authenticating...",
     "maintenanceCopy": "We are currently undergoing scheduled maintenance and will be back shortly. Thank you for your patience."
   },
-  "curiosity-banner": {
-    "dataMismatchTitle": "Cloud provider mismatch",
-    "dataMismatchMessage": "There might be inconsistencies between data in the graph and your current systems table. The issue is currently being resolved.",
-    "dataMismatchMessage_cloudigradeMismatch": "<0>View recommended actions</0> to take in order to improve {{appName}} reporting."
-  },
+  "curiosity-banner": {},
   "curiosity-graph": {
     "cardActionTotal": "{{total}} used",
     "cardActionTotal_Cores": "{{total}} core hours used",

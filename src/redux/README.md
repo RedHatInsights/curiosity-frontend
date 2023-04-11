@@ -48,6 +48,8 @@
 <dd></dd>
 <dt><a href="#Types.module_InventoryTypes">InventoryTypes</a></dt>
 <dd></dd>
+<dt><a href="#Types.module_MessageTypes">MessageTypes</a></dt>
+<dd></dd>
 <dt><a href="#Types.module_PlatformTypes">PlatformTypes</a></dt>
 <dd></dd>
 <dt><a href="#Types.module_QueryTypes">QueryTypes</a></dt>
@@ -170,7 +172,6 @@ RHSM service wrappers for dispatch, state update.
     * [~getHostsInventory(id, query)](#Actions.module_RhsmActions..getHostsInventory) ⇒ <code>function</code>
     * [~getHostsInventoryGuests(id, query)](#Actions.module_RhsmActions..getHostsInventoryGuests) ⇒ <code>function</code>
     * [~getInstancesInventory(id, query)](#Actions.module_RhsmActions..getInstancesInventory) ⇒ <code>function</code>
-    * [~getMessageReports(id, query)](#Actions.module_RhsmActions..getMessageReports) ⇒ <code>function</code>
     * [~getSubscriptionsInventory(id, query)](#Actions.module_RhsmActions..getSubscriptionsInventory) ⇒ <code>function</code>
 
 <a name="Actions.module_RhsmActions..getGraphMetrics"></a>
@@ -242,26 +243,6 @@ Get a host's guest response listing from RHSM subscriptions.
 
 ### RhsmActions~getInstancesInventory(id, query) ⇒ <code>function</code>
 Get an instances response listing from RHSM subscriptions.
-
-**Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td><td><code>null</code></td>
-    </tr><tr>
-    <td>query</td><td><code>object</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Actions.module_RhsmActions..getMessageReports"></a>
-
-### RhsmActions~getMessageReports(id, query) ⇒ <code>function</code>
-Get a RHSM response from message reporting.
 
 **Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
 <table>
@@ -1088,7 +1069,7 @@ Banner messages related API state reducer.
 <a name="Reducers.module_MessagesReducer..messagesReducer"></a>
 
 ### MessagesReducer~messagesReducer(state, action) ⇒ <code>object</code> \| <code>Object</code>
-Generated daily observer/reducer for report to state,
+Generated daily observer/reducer for messages to state,
 against actions.
 
 **Kind**: inner method of [<code>MessagesReducer</code>](#Reducers.module_MessagesReducer)  
@@ -1219,6 +1200,15 @@ Graph action, reducer types.
 Inventory action, reducer types.
 
 **Kind**: inner constant of [<code>InventoryTypes</code>](#Types.module_InventoryTypes)  
+<a name="Types.module_MessageTypes"></a>
+
+## MessageTypes
+<a name="Types.module_MessageTypes..messageTypes"></a>
+
+### MessageTypes~messageTypes : <code>Object</code>
+User action, reducer types.
+
+**Kind**: inner constant of [<code>MessageTypes</code>](#Types.module_MessageTypes)  
 <a name="Types.module_PlatformTypes"></a>
 
 ## PlatformTypes
