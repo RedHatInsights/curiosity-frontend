@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.1](https://github.com/RedHatInsights/curiosity-frontend/compare/cf6d3668c7092defd2debb41b2abe055ae24dc28...50e7777124c626cbc6eef618a640ae2367e31402) (2023-04-11)
+
+### Bug Fixes
+* **platformServices** sw-625 remove onNavigate  ([#1092](https://github.com/RedHatInsights/curiosity-frontend/pull/1092)) ([50e7777](https://github.com/RedHatInsights/curiosity-frontend/commit/50e7777124c626cbc6eef618a640ae2367e31402))
+
 ## [2.11.0](https://github.com/RedHatInsights/curiosity-frontend/compare/783ad62fb5bdc9228971006817dd5b044a9bc722...1d05b6dc35e0d6ec73787f449e54a76883f80cbd) (2023-04-11)
 
 ### Features
