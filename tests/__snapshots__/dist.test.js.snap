@@ -207,15 +207,22 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
   },
   {
-    "coverage": "FALSE",
-    "path": "/rhosak",
+    "coverage": "TRUE",
+    "path": "/streams",
     "productId": [
       "rhosak",
     ],
   },
   {
-    "coverage": "TRUE",
-    "path": "/streams",
+    "coverage": "FALSE",
+    "path": "/application-services",
+    "productId": [
+      "rhosak",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/rhosak",
     "productId": [
       "rhosak",
     ],
