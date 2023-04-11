@@ -28,16 +28,8 @@ exports[`ProductView Component should allow custom inventory displays via config
         className=""
       >
         <BannerMessages
-          messages={
-            [
-              {
-                "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
-                "title": "t(curiosity-banner.dataMismatchTitle)",
-              },
-            ]
-          }
-          useGetAppMessages={[Function]}
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
         />
       </PageMessages>
       <PageToolbar
@@ -123,16 +115,8 @@ exports[`ProductView Component should allow custom product views via productDisp
         className=""
       >
         <BannerMessages
-          messages={
-            [
-              {
-                "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
-                "title": "t(curiosity-banner.dataMismatchTitle)",
-              },
-            ]
-          }
-          useGetAppMessages={[Function]}
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
         />
       </PageMessages>
       <PageToolbar
@@ -203,16 +187,8 @@ exports[`ProductView Component should allow custom product views via productDisp
         className=""
       >
         <BannerMessages
-          messages={
-            [
-              {
-                "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
-                "title": "t(curiosity-banner.dataMismatchTitle)",
-              },
-            ]
-          }
-          useGetAppMessages={[Function]}
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
         />
       </PageMessages>
       <PageToolbar
@@ -281,7 +257,12 @@ exports[`ProductView Component should allow custom product views via productDisp
     >
       <PageMessages
         className=""
-      />
+      >
+        <BannerMessages
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
+        />
+      </PageMessages>
       <PageToolbar
         className=""
       >
@@ -350,16 +331,8 @@ exports[`ProductView Component should allow custom product views via productDisp
         className=""
       >
         <BannerMessages
-          messages={
-            [
-              {
-                "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
-                "title": "t(curiosity-banner.dataMismatchTitle)",
-              },
-            ]
-          }
-          useGetAppMessages={[Function]}
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
         />
       </PageMessages>
       <PageToolbar
@@ -430,16 +403,8 @@ exports[`ProductView Component should allow custom product views via productDisp
         className=""
       >
         <BannerMessages
-          messages={
-            [
-              {
-                "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
-                "title": "t(curiosity-banner.dataMismatchTitle)",
-              },
-            ]
-          }
-          useGetAppMessages={[Function]}
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
         />
       </PageMessages>
       <PageToolbar
@@ -509,16 +474,8 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         className=""
       >
         <BannerMessages
-          messages={
-            [
-              {
-                "id": "cloudigradeMismatch",
-                "message": "t(curiosity-banner.dataMismatchMessage, {"context":"cloudigradeMismatch","appName":"Subscriptions"}, [object Object])",
-                "title": "t(curiosity-banner.dataMismatchTitle)",
-              },
-            ]
-          }
-          useGetAppMessages={[Function]}
+          useBannerMessages={[Function]}
+          useRemoveBannerMessages={[Function]}
         />
       </PageMessages>
       <PageToolbar

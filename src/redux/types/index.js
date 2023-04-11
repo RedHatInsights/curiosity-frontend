@@ -1,6 +1,7 @@
 import { appTypes } from './appTypes';
 import { graphTypes } from './graphTypes';
 import { inventoryTypes } from './inventoryTypes';
+import { messageTypes } from './messageTypes';
 import { platformTypes } from './platformTypes';
 import { queryTypes } from './queryTypes';
 import { rhsmTypes } from './rhsmTypes';
@@ -11,6 +12,7 @@ const reduxTypes = {
   app: appTypes,
   graph: graphTypes,
   inventory: inventoryTypes,
+  message: messageTypes,
   platform: platformTypes,
   query: queryTypes,
   rhsm: rhsmTypes,
@@ -24,6 +26,7 @@ export {
   appTypes,
   graphTypes,
   inventoryTypes,
+  messageTypes,
   platformTypes,
   queryTypes,
   rhsmTypes,

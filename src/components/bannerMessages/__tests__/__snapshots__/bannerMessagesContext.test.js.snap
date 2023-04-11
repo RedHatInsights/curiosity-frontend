@@ -1,51 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selectors: error response 1`] = `
-{
-  "data": {
-    "cloudigradeMismatch": false,
-  },
-  "error": true,
-  "fulfilled": undefined,
-  "pending": undefined,
-}
+exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selector and apply new messages: dispatch 1`] = `
+[
+  [
+    {
+      "bannerMessages": [
+        {
+          "id": "lorem",
+          "title": "ipsum",
+        },
+        {
+          "id": "new message",
+          "title": "new message",
+        },
+      ],
+      "type": "SET_BANNER_MESSAGES",
+      "viewId": "dolorSit",
+    },
+  ],
+]
 `;
 
-exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selectors: mock store error response 1`] = `
-{
-  "data": {
-    "cloudigradeMismatch": false,
-  },
-  "error": true,
-  "fulfilled": false,
-  "pending": false,
-}
+exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selector and remove messages: dispatch 1`] = `
+[
+  [
+    {
+      "bannerMessages": [],
+      "type": "SET_BANNER_MESSAGES",
+      "viewId": "dolorSit",
+    },
+  ],
+]
 `;
 
-exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selectors: mock store success response 1`] = `
-{
-  "data": {
-    "cloudigradeMismatch": true,
+exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selector: banner messages 1`] = `
+[
+  {
+    "id": "lorem",
+    "title": "ipsum",
   },
-  "error": false,
-  "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`BannerMessagesContext should apply a hook for retrieving messages data from a selectors: success response 1`] = `
-{
-  "data": {
-    "cloudigradeMismatch": false,
-  },
-  "error": undefined,
-  "fulfilled": true,
-  "pending": undefined,
-}
+]
 `;
 
 exports[`BannerMessagesContext should return specific properties: specific properties 1`] = `
 {
-  "useGetAppMessages": [Function],
+  "useBannerMessages": [Function],
+  "useRemoveBannerMessages": [Function],
+  "useSetBannerMessages": [Function],
 }
 `;

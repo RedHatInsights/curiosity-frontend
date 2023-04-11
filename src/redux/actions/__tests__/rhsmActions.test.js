@@ -2,7 +2,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 import moxios from 'moxios';
 import { multiActionMiddleware } from '../../middleware/multiActionMiddleware';
-import { graphReducer, inventoryReducer, messagesReducer, viewReducer } from '../../reducers';
+import { graphReducer, inventoryReducer, viewReducer } from '../../reducers';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { rhsmActions } from '../rhsmActions';
 
@@ -13,7 +13,6 @@ describe('RhsmActions', () => {
       combineReducers({
         graph: graphReducer,
         inventory: inventoryReducer,
-        messages: messagesReducer,
         view: viewReducer
       }),
       applyMiddleware(...middleware)
@@ -88,17 +87,6 @@ describe('RhsmActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().inventory;
       expect(response.instancesInventory.fulfilled).toBe(true);
-      done();
-    });
-  });
-
-  it('Should return response content for getMessageReports method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getMessageReports();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().messages;
-      expect(response.report.fulfilled).toBe(true);
       done();
     });
   });

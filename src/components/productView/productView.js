@@ -48,7 +48,9 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
 
       return (
         <ProductViewContext.Provider value={config} key={`product_${productId}`}>
-          <PageMessages>{productDisplay !== DISPLAY_TYPES.HOURLY && <BannerMessages />}</PageMessages>
+          <PageMessages>
+            <BannerMessages />
+          </PageMessages>
           <PageToolbar>
             <Toolbar />
           </PageToolbar>

@@ -365,9 +365,9 @@ Render banner messages.
 <tr>
     <td>props</td><td><code>object</code></td>
     </tr><tr>
-    <td>props.messages</td><td><code>Array</code></td>
+    <td>props.useBannerMessages</td><td><code>function</code></td>
     </tr><tr>
-    <td>props.useGetAppMessages</td><td><code>function</code></td>
+    <td>props.useRemoveBannerMessages</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -391,10 +391,18 @@ Default props.
 <a name="BannerMessages.module_BannerMessagesContext"></a>
 
 ## BannerMessagesContext
-<a name="BannerMessages.module_BannerMessagesContext..useGetAppMessages"></a>
 
-### BannerMessagesContext~useGetAppMessages(options) ⇒ <code>Object</code>
-Get app messages.
+* [BannerMessagesContext](#BannerMessages.module_BannerMessagesContext)
+    * [~useBannerMessages(options)](#BannerMessages.module_BannerMessagesContext..useBannerMessages) ⇒ <code>Object</code>
+    * [~useRemoveBannerMessages(options)](#BannerMessages.module_BannerMessagesContext..useRemoveBannerMessages) ⇒ <code>function</code>
+    * [~useSetBannerMessages(options)](#BannerMessages.module_BannerMessagesContext..useSetBannerMessages) ⇒ <code>function</code>
+    * [~removeBannerMessages](#BannerMessages.module_BannerMessagesContext..removeBannerMessages) : <code>function</code>
+    * [~setBannerMessages](#BannerMessages.module_BannerMessagesContext..setBannerMessages) : <code>function</code>
+
+<a name="BannerMessages.module_BannerMessagesContext..useBannerMessages"></a>
+
+### BannerMessagesContext~useBannerMessages(options) ⇒ <code>Object</code>
+Retrieve, set and remove application banner messages from state.
 
 **Kind**: inner method of [<code>BannerMessagesContext</code>](#BannerMessages.module_BannerMessagesContext)  
 <table>
@@ -407,15 +415,93 @@ Get app messages.
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.getMessageReports</td><td><code>function</code></td>
+    <td>options.useProduct</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.useSelector</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="BannerMessages.module_BannerMessagesContext..useRemoveBannerMessages"></a>
+
+### BannerMessagesContext~useRemoveBannerMessages(options) ⇒ <code>function</code>
+Provide a callback for removing application banner messages from state.
+
+**Kind**: inner method of [<code>BannerMessagesContext</code>](#BannerMessages.module_BannerMessagesContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
     </tr><tr>
     <td>options.useDispatch</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useProduct</td><td><code>function</code></td>
     </tr><tr>
-    <td>options.useProductQuery</td><td><code>function</code></td>
+    <td>options.useBannerMessages</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="BannerMessages.module_BannerMessagesContext..useSetBannerMessages"></a>
+
+### BannerMessagesContext~useSetBannerMessages(options) ⇒ <code>function</code>
+Provide a callback for setting application banner messages from state.
+
+**Kind**: inner method of [<code>BannerMessagesContext</code>](#BannerMessages.module_BannerMessagesContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.useSelectorsResponse</td><td><code>function</code></td>
+    <td>options.useDispatch</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.useProduct</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.useBannerMessages</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="BannerMessages.module_BannerMessagesContext..removeBannerMessages"></a>
+
+### BannerMessagesContext~removeBannerMessages : <code>function</code>
+Remove a banner message from state.
+
+**Kind**: inner typedef of [<code>BannerMessagesContext</code>](#BannerMessages.module_BannerMessagesContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>idTitle</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="BannerMessages.module_BannerMessagesContext..setBannerMessages"></a>
+
+### BannerMessagesContext~setBannerMessages : <code>function</code>
+Set application messages for banner display
+
+**Kind**: inner typedef of [<code>BannerMessagesContext</code>](#BannerMessages.module_BannerMessagesContext)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>messages</td><td><code>Array.&lt;{id: string, message: string, title: string, variant: string}&gt;</code> | <code>Object</code></td>
     </tr>  </tbody>
 </table>
 
