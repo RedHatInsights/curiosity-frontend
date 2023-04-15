@@ -1073,7 +1073,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.20.6":
+"@babel/runtime@^7.15.4", "@babel/runtime@^7.20.6":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
@@ -2409,6 +2409,16 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
+"@openshift/dynamic-plugin-sdk@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@openshift/dynamic-plugin-sdk/-/dynamic-plugin-sdk-3.0.0.tgz#9b7f06ef868584e05e145c02a0794bf9c93b5745"
+  integrity sha512-HHVjKxlssDS92DwfPGmeDbnZN+zR96juDTBEJEUluWwvyIqwgopx9GD5YrDGPDv8XvrG5TajJ/yJ9j2Wt4ap4g==
+  dependencies:
+    lodash-es "^4.17.21"
+    semver "^7.3.7"
+    uuid "^8.3.2"
+    yup "^0.32.11"
+
 "@patternfly/patternfly@4.224.2":
   version "4.224.2"
   resolved "https://registry.yarnpkg.com/@patternfly/patternfly/-/patternfly-4.224.2.tgz#9d1b000c3c43457ae47c3556a334412d164fad90"
@@ -2582,11 +2592,12 @@
     webpack-dev-server "4.11.1"
     yargs "^17.6.2"
 
-"@redhat-cloud-services/frontend-components-notifications@3.2.12":
-  version "3.2.12"
-  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components-notifications/-/frontend-components-notifications-3.2.12.tgz#6ce99a031059df15a0f9f6cf0e8f166b0a33b5df"
-  integrity sha512-z9JPGhbZMx8suQh0lVCVIAlpTrDvpYU46YTAbe3Ak3HcBETczsG1rcvT7r6hjuouQG1o6JkKI9y0+Mdke8nebg==
+"@redhat-cloud-services/frontend-components-notifications@3.2.14":
+  version "3.2.14"
+  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components-notifications/-/frontend-components-notifications-3.2.14.tgz#660b6220d429842b5dba270a005f0aec55a012a6"
+  integrity sha512-7ynm6ABvhZwMbehyZ1/zUTOSyi7Q+Xeb7hIcCXH6QeNNbVDXcXMIkfPe0zMsvYsta8gWXoiJZcd+xynYhg/+tw==
   dependencies:
+    "@redhat-cloud-services/frontend-components" "*"
     "@redhat-cloud-services/frontend-components-utilities" "*"
     redux-promise-middleware "6.1.3"
 
@@ -2628,6 +2639,17 @@
     commander "^2.20.3"
     mkdirp "^1.0.4"
     react-content-loader "^6.2.0"
+
+"@redhat-cloud-services/frontend-components@*":
+  version "3.9.34"
+  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components/-/frontend-components-3.9.34.tgz#039e612d7f34934c3ee4236d670c16340347092c"
+  integrity sha512-+JDrYpWdP3+0ILC/QnA6hiDzcx5C/6gEolBrn1F/nWo7Dzy+xxRBlVpGQHuWZEwN0VoJ+cveGTlpFvGvckre5A==
+  dependencies:
+    "@redhat-cloud-services/frontend-components-utilities" "^3.2.25"
+    "@redhat-cloud-services/types" "^0.0.17"
+    "@scalprum/core" "^0.5.1"
+    "@scalprum/react-core" "^0.5.1"
+    sanitize-html "^2.7.2"
 
 "@redhat-cloud-services/frontend-components@3.9.25":
   version "3.9.25"
@@ -2712,12 +2734,28 @@
   resolved "https://registry.yarnpkg.com/@scalprum/core/-/core-0.2.3.tgz#419ad7f9a3e208e0b5379eaa82e94989c39c06e4"
   integrity sha512-bL7YjXWSgtAw44ha+goEF/cCWUu1BELB0qo4Y8hlfmn0+FMnoIHcY0gD1OOotz7Oy74r5+DRxi5Wra40DTG8Qg==
 
+"@scalprum/core@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@scalprum/core/-/core-0.5.1.tgz#c5cf6fa980c834ab2d8461916d5145e72ac78265"
+  integrity sha512-xYj9GRXleYMo2bsbdHN9fJmmwPkUHI9sjEoJU7jWoKzfTZTQWnhHVGjW53XOhtz4NO4lAZGPID7dbuJksNyvuA==
+  dependencies:
+    "@openshift/dynamic-plugin-sdk" "^3.0.0"
+
 "@scalprum/react-core@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@scalprum/react-core/-/react-core-0.2.4.tgz#479a9fb38fd8225357601064cd15d355bceacdc0"
   integrity sha512-90gysvvsS0qeCabgC20s6N9Wd4oQHHxO/Uiyy3gQZRgmTx8MBffjktTtjOj34XuEsvKATfNy0tn2iyNzNc+I6g==
   dependencies:
     "@scalprum/core" "^0.2.3"
+    lodash "^4.17.0"
+
+"@scalprum/react-core@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@scalprum/react-core/-/react-core-0.5.1.tgz#eed3ce75e38f16a091e993b36e18a53c783ec769"
+  integrity sha512-S3R/cSA9Dlrf4REwDIH80d5M+lEzzYhYHCPOFzmt1Zm3v4sFkFAUx9ZARfyrWK0UOYfXUE/L6D6R1lGgTWm54Q==
+  dependencies:
+    "@openshift/dynamic-plugin-sdk" "^3.0.0"
+    "@scalprum/core" "^0.5.1"
     lodash "^4.17.0"
 
 "@sentry/browser@^5.30.0", "@sentry/browser@^5.4.0":
@@ -3260,6 +3298,11 @@
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-3.0.2.tgz#fd2cd2edbaa7eaac7e7f3c1748b52a19143846c9"
   integrity sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==
+
+"@types/lodash@^4.14.175":
+  version "4.14.194"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.194.tgz#b71eb6f7a0ff11bff59fc987134a093029258a76"
+  integrity sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==
 
 "@types/markdown-it@^12.2.3":
   version "12.2.3"
@@ -10317,6 +10360,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -10897,6 +10945,11 @@ nano-css@^5.3.1:
     sourcemap-codec "^1.4.8"
     stacktrace-js "^2.0.2"
     stylis "^4.0.6"
+
+nanoclone@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
+  integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
 nanoid@^3.3.4:
   version "3.3.4"
@@ -12496,6 +12549,11 @@ prop-types@^15.6.2, prop-types@^15.7.0, prop-types@^15.8.1:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.13.1"
+
+property-expr@^2.0.4:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.5.tgz#278bdb15308ae16af3e3b9640024524f4dc02cb4"
+  integrity sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==
 
 proto-list@~1.2.1:
   version "1.2.4"
@@ -14517,6 +14575,11 @@ toidentifier@1.0.1:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.1.tgz#3be34321a88a820ed1bd80dfaa33e479fbb8dd35"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
 
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+  integrity sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==
+
 totalist@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/totalist/-/totalist-1.1.0.tgz#a4d65a3e546517701e3e5c37a47a70ac97fe56df"
@@ -16217,3 +16280,16 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+yup@^0.32.11:
+  version "0.32.11"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.11.tgz#d67fb83eefa4698607982e63f7ca4c5ed3cf18c5"
+  integrity sha512-Z2Fe1bn+eLstG8DRR6FTavGD+MeAwyfmouhHsIUgaADz8jvFKbO/fXc2trJKZg+5EBjh4gGm3iU/t3onKlXHIg==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    "@types/lodash" "^4.14.175"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    nanoclone "^0.2.1"
+    property-expr "^2.0.4"
+    toposort "^2.0.2"
