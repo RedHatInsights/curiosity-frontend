@@ -3,7 +3,7 @@
 exports[`I18n Component should generate a predictable locale key output snapshot: key output 1`] = `
 [
   {
-    "file": "./src/common/dateHelpers.js",
+    "file": "src/common/dateHelpers.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -16,7 +16,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/authentication/authentication.js",
+    "file": "src/components/authentication/authentication.js",
     "keys": [
       {
         "key": "curiosity-auth.maintenanceCopy",
@@ -29,7 +29,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/graphCard/graphCardChart.js",
+    "file": "src/components/graphCard/graphCardChart.js",
     "keys": [
       {
         "key": "curiosity-graph.cardHeading",
@@ -38,7 +38,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/graphCard/graphCardChartLegend.js",
+    "file": "src/components/graphCard/graphCardChartLegend.js",
     "keys": [
       {
         "key": "curiosity-graph.label",
@@ -51,7 +51,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/graphCard/graphCardChartTitleTooltip.js",
+    "file": "src/components/graphCard/graphCardChartTitleTooltip.js",
     "keys": [
       {
         "key": "curiosity-graph.cardHeadingDescription",
@@ -60,7 +60,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/graphCard/graphCardChartTooltip.js",
+    "file": "src/components/graphCard/graphCardChartTooltip.js",
     "keys": [
       {
         "key": "curiosity-graph.label",
@@ -93,7 +93,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/i18n/i18nHelpers.js",
+    "file": "src/components/i18n/i18nHelpers.js",
     "keys": [
       {
         "key": "",
@@ -102,7 +102,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/inventoryCard/inventoryCard.js",
+    "file": "src/components/inventoryCard/inventoryCard.js",
     "keys": [
       {
         "key": "curiosity-inventory.tab",
@@ -111,7 +111,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/inventoryCard/inventoryCardHelpers.js",
+    "file": "src/components/inventoryCard/inventoryCardHelpers.js",
     "keys": [
       {
         "key": "curiosity-inventory.header",
@@ -124,7 +124,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/inventoryTabs/inventoryTabs.js",
+    "file": "src/components/inventoryTabs/inventoryTabs.js",
     "keys": [
       {
         "key": "curiosity-inventory.tabSubHeading",
@@ -137,7 +137,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/optinView/optinView.js",
+    "file": "src/components/optinView/optinView.js",
     "keys": [
       {
         "key": "curiosity-optin.buttonActivate",
@@ -210,7 +210,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/pageLayout/pageHeader.js",
+    "file": "src/components/pageLayout/pageHeader.js",
     "keys": [
       {
         "key": "curiosity-view.subtitle",
@@ -219,7 +219,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/productView/productView.js",
+    "file": "src/components/productView/productView.js",
     "keys": [
       {
         "key": "curiosity-inventory.tabHosts",
@@ -240,7 +240,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/productView/productViewMissing.js",
+    "file": "src/components/productView/productViewMissing.js",
     "keys": [
       {
         "key": "curiosity-view.title",
@@ -257,7 +257,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/router/routerContext.js",
+    "file": "src/components/router/routerContext.js",
     "keys": [
       {
         "key": "curiosity-view.title",
@@ -266,7 +266,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/table/table.js",
+    "file": "src/components/table/table.js",
     "keys": [
       {
         "key": "curiosity-inventory.tableEmptyInventoryTitle",
@@ -287,7 +287,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/table/tableSkeleton.js",
+    "file": "src/components/table/tableSkeleton.js",
     "keys": [
       {
         "key": "curiosity-inventory.tableSkeletonAriaLabel",
@@ -296,7 +296,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbar.js",
+    "file": "src/components/toolbar/toolbar.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -309,7 +309,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldArchitecture.js",
+    "file": "src/components/toolbar/toolbarFieldArchitecture.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -326,7 +326,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
+    "file": "src/components/toolbar/toolbarFieldBillingProvider.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -343,7 +343,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldCategory.js",
+    "file": "src/components/toolbar/toolbarFieldCategory.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -360,7 +360,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldDisplayName.js",
+    "file": "src/components/toolbar/toolbarFieldDisplayName.js",
     "keys": [
       {
         "key": "curiosity-toolbar.placeholder_filter",
@@ -373,7 +373,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldGranularity.js",
+    "file": "src/components/toolbar/toolbarFieldGranularity.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -390,7 +390,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldRangedMonthly.js",
+    "file": "src/components/toolbar/toolbarFieldRangedMonthly.js",
     "keys": [
       {
         "key": "",
@@ -403,7 +403,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -452,7 +452,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSla.js",
+    "file": "src/components/toolbar/toolbarFieldSla.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -469,7 +469,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldUom.js",
+    "file": "src/components/toolbar/toolbarFieldUom.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -486,7 +486,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldUsage.js",
+    "file": "src/components/toolbar/toolbarFieldUsage.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -503,7 +503,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldVariant.js",
+    "file": "src/components/toolbar/toolbarFieldVariant.js",
     "keys": [
       {
         "key": "curiosity-toolbar.label",
@@ -520,7 +520,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.openshiftContainer.js",
+    "file": "src/config/product.openshiftContainer.js",
     "keys": [
       {
         "key": "curiosity-inventory.header",
@@ -541,7 +541,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.openshiftDedicated.js",
+    "file": "src/config/product.openshiftDedicated.js",
     "keys": [
       {
         "key": "curiosity-graph.cardActionTotal",
@@ -554,7 +554,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.openshiftMetrics.js",
+    "file": "src/config/product.openshiftMetrics.js",
     "keys": [
       {
         "key": "curiosity-graph.cardActionTotal",
@@ -567,7 +567,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.rhacs.js",
+    "file": "src/config/product.rhacs.js",
     "keys": [
       {
         "key": "curiosity-graph.label_axisY",
@@ -620,7 +620,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.rhel.js",
+    "file": "src/config/product.rhel.js",
     "keys": [
       {
         "key": "curiosity-inventory.header",
@@ -645,7 +645,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.rhods.js",
+    "file": "src/config/product.rhods.js",
     "keys": [
       {
         "key": "curiosity-graph.label_axisY",
@@ -698,7 +698,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "keys": [
       {
         "key": "curiosity-graph.label_axisY",
@@ -775,7 +775,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/config/product.satellite.js",
+    "file": "src/config/product.satellite.js",
     "keys": [
       {
         "key": "curiosity-inventory.header",
@@ -792,7 +792,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "./src/redux/actions/userActions.js",
+    "file": "src/redux/actions/userActions.js",
     "keys": [
       {
         "key": "curiosity-optin.notificationsErrorTitle",
@@ -818,179 +818,179 @@ exports[`I18n Component should generate a predictable locale key output snapshot
 exports[`I18n Component should have locale keys that exist in the default language JSON: missing locale keys 1`] = `
 [
   {
-    "file": "./src/common/dateHelpers.js",
+    "file": "src/common/dateHelpers.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/common/dateHelpers.js",
+    "file": "src/common/dateHelpers.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/inventoryCard/inventoryCard.js",
+    "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
   },
   {
-    "file": "./src/components/toolbar/toolbar.js",
+    "file": "src/components/toolbar/toolbar.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldArchitecture.js",
+    "file": "src/components/toolbar/toolbarFieldArchitecture.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldBillingProvider.js",
+    "file": "src/components/toolbar/toolbarFieldBillingProvider.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldCategory.js",
+    "file": "src/components/toolbar/toolbarFieldCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldGranularity.js",
+    "file": "src/components/toolbar/toolbarFieldGranularity.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSelectCategory.js",
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldSla.js",
+    "file": "src/components/toolbar/toolbarFieldSla.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldUom.js",
+    "file": "src/components/toolbar/toolbarFieldUom.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldUsage.js",
+    "file": "src/components/toolbar/toolbarFieldUsage.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/components/toolbar/toolbarFieldVariant.js",
+    "file": "src/components/toolbar/toolbarFieldVariant.js",
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "./src/config/product.openshiftContainer.js",
+    "file": "src/config/product.openshiftContainer.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.openshiftDedicated.js",
+    "file": "src/config/product.openshiftDedicated.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.openshiftMetrics.js",
+    "file": "src/config/product.openshiftMetrics.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.rhacs.js",
+    "file": "src/config/product.rhacs.js",
     "key": "curiosity-graph.label_axisY",
   },
   {
-    "file": "./src/config/product.rhacs.js",
+    "file": "src/config/product.rhacs.js",
     "key": "curiosity-graph.label_axisX",
   },
   {
-    "file": "./src/config/product.rhacs.js",
+    "file": "src/config/product.rhacs.js",
     "key": "curiosity-inventory.measurement",
   },
   {
-    "file": "./src/config/product.rhacs.js",
+    "file": "src/config/product.rhacs.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.rhel.js",
+    "file": "src/config/product.rhel.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.rhel.js",
+    "file": "src/config/product.rhel.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.rhods.js",
+    "file": "src/config/product.rhods.js",
     "key": "curiosity-graph.label_axisY",
   },
   {
-    "file": "./src/config/product.rhods.js",
+    "file": "src/config/product.rhods.js",
     "key": "curiosity-graph.label_axisX",
   },
   {
-    "file": "./src/config/product.rhods.js",
+    "file": "src/config/product.rhods.js",
     "key": "curiosity-inventory.measurement",
   },
   {
-    "file": "./src/config/product.rhods.js",
+    "file": "src/config/product.rhods.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisY",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisY",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisY",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-graph.label_axisX",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-inventory.measurement",
   },
   {
-    "file": "./src/config/product.rhosak.js",
+    "file": "src/config/product.rhosak.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.satellite.js",
+    "file": "src/config/product.satellite.js",
     "key": "curiosity-inventory.label",
   },
   {
-    "file": "./src/config/product.satellite.js",
+    "file": "src/config/product.satellite.js",
     "key": "curiosity-inventory.label",
   },
 ]

@@ -105,9 +105,19 @@ global.window.insights = {
     identifyApp: Function.prototype,
     init: Function.prototype,
     isBeta: Function.prototype,
-    on: Function.prototype
+    on: Function.prototype,
+    updateDocumentTitle: Function.prototype
   }
 };
+
+/**
+ * Emulate frontend-components hooks
+ */
+jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
+  useChrome: () => ({
+    ...global.window.insights
+  })
+}));
 
 /**
  * Mock an object property, restore with mockClear.

@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import glob from 'glob';
+import { globSync } from 'glob';
 import React from 'react';
 import _get from 'lodash/get';
 import enLocales from '../../../../public/locales/en-US.json';
@@ -15,9 +15,9 @@ import { I18n } from '../i18n';
  */
 const getTranslationKeys = ({ files = './src/**/!(*.test|*.spec).@(js|jsx)', list = ['t', 'translate'] }) => {
   const keys = [];
-  const updatedFiles = glob.sync(files);
+  const updatedFiles = globSync(files);
 
-  updatedFiles.forEach(file => {
+  updatedFiles.sort().forEach(file => {
     const fileContent = readFileSync(file, 'utf-8');
     const generateRegExp = list.map(f => `\\b${f}\\([\\d\\D]+?\\)`).join('|');
     const matches = fileContent.match(new RegExp(generateRegExp, 'g'));
