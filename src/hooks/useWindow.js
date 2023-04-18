@@ -21,14 +21,17 @@ const useResizeObserver = target => {
     const isElementResize = target && window.ResizeObserver && true;
     const element = target?.current;
     let removeObserver = helpers.noop;
+    let timeout;
 
     if (element) {
       const handler = () => {
         const { clientHeight = 0, clientWidth = 0, innerHeight = 0, innerWidth = 0 } = element || {};
 
-        setDimensions({
-          width: isElementResize ? clientWidth : innerWidth,
-          height: isElementResize ? clientHeight : innerHeight
+        timeout = window.setTimeout(() => {
+          setDimensions({
+            width: isElementResize ? clientWidth : innerWidth,
+            height: isElementResize ? clientHeight : innerHeight
+          });
         });
       };
 
@@ -44,6 +47,7 @@ const useResizeObserver = target => {
     }
 
     return () => {
+      window.clearTimeout(timeout);
       removeObserver();
     };
   }, [target]);
