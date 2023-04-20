@@ -21,8 +21,6 @@ describe('ToolbarContext', () => {
     const { result: onClearField } = shallowHook(() => useToolbarFieldClear());
     onClearField('lorem');
 
-    onClearField(RHSM_API_QUERY_TYPES.ARCHITECTURE);
-
     onClearField(RHSM_API_QUERY_TYPES.BILLING_PROVIDER);
 
     onClearField(RHSM_API_QUERY_TYPES.CATEGORY);
@@ -41,7 +39,6 @@ describe('ToolbarContext', () => {
       useToolbarFieldClearAll({
         useProductQuery: () => ({
           lorem: 'ipsum',
-          [RHSM_API_QUERY_TYPES.ARCHITECTURE]: 'testArchitecture',
           [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: 'testBillingProvider',
           [RHSM_API_QUERY_TYPES.CATEGORY]: 'testCategory',
           [RHSM_API_QUERY_TYPES.SLA]: 'testSla',

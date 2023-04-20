@@ -12,7 +12,7 @@ describe('Product configurations', () => {
     expect(
       products.sortedConfigs([
         {
-          productArchitectures: ['dolor', 'sit'],
+          productVariants: ['dolor', 'sit'],
           productGroup: 'lorem',
           productId: 'lorem-ipsum',
           viewId: `view-lorem`

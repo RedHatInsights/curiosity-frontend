@@ -10,10 +10,6 @@ describe('RHSM Helpers', () => {
     expect(rhsmHelpers.filterArchitectureVariant('passThroughId')).toMatchSnapshot('passed id');
 
     expect(
-      rhsmHelpers.filterArchitectureVariant('passThroughId', { [RHSM_API_QUERY_SET_TYPES.ARCHITECTURE]: 'lorem' })
-    ).toMatchSnapshot('updated id, architecture');
-
-    expect(
       rhsmHelpers.filterArchitectureVariant('passThroughId', { [RHSM_API_QUERY_SET_TYPES.VARIANT]: 'ipsum' })
     ).toMatchSnapshot('updated id, variant');
   });
