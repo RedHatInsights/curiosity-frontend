@@ -309,23 +309,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "src/components/toolbar/toolbarFieldArchitecture.js",
-    "keys": [
-      {
-        "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['architecture', (type === '' && 'none')",
-      },
-      {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'architecture'] })",
-      },
-      {
-        "key": "curiosity-toolbar.placeholder",
-        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'architecture'] })",
-      },
-    ],
-  },
-  {
     "file": "src/components/toolbar/toolbarFieldBillingProvider.js",
     "keys": [
       {
@@ -436,10 +419,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-toolbar.label",
         "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.VARIANT] })",
-      },
-      {
-        "key": "curiosity-toolbar.label",
-        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.ARCHITECTURE] })",
       },
       {
         "key": "curiosity-toolbar.placeholder",
@@ -834,10 +813,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-toolbar.label",
   },
   {
-    "file": "src/components/toolbar/toolbarFieldArchitecture.js",
-    "key": "curiosity-toolbar.label",
-  },
-  {
     "file": "src/components/toolbar/toolbarFieldBillingProvider.js",
     "key": "curiosity-toolbar.label",
   },
@@ -847,10 +822,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/toolbar/toolbarFieldGranularity.js",
-    "key": "curiosity-toolbar.label",
-  },
-  {
-    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {

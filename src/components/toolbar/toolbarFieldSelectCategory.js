@@ -7,7 +7,6 @@ import { useProduct, useProductToolbarConfig } from '../productView/productViewC
 import { Select } from '../form/select';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
-import { ToolbarFieldArchitecture } from './toolbarFieldArchitecture';
 import {
   ToolbarFieldBillingProvider,
   toolbarFieldOptions as billingProviderOptions
@@ -100,15 +99,6 @@ const toolbarFieldOptions = [
     value: RHSM_API_QUERY_SET_TYPES.VARIANT,
     component: function Variant(props) {
       return <ToolbarFieldVariant key="selectCategory_variant" {...props} />;
-    },
-    options: [],
-    isClearable: true
-  },
-  {
-    title: translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.ARCHITECTURE] }),
-    value: RHSM_API_QUERY_SET_TYPES.ARCHITECTURE,
-    component: function Architecture(props) {
-      return <ToolbarFieldArchitecture key="selectCategory_architecture" {...props} />;
     },
     options: [],
     isClearable: true

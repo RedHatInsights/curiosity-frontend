@@ -147,9 +147,6 @@
 </dd>
 <dt><a href="#Toolbar.module_ToolbarContext">ToolbarContext</a></dt>
 <dd></dd>
-<dt><a href="#Toolbar.module_ToolbarFieldArchitecture">ToolbarFieldArchitecture</a></dt>
-<dd><p>A standalone Architecture select filter.</p>
-</dd>
 <dt><a href="#Toolbar.module_ToolbarFieldBillingProvider">ToolbarFieldBillingProvider</a></dt>
 <dd><p>A standalone Billing Provider select filter.</p>
 </dd>
@@ -6023,8 +6020,6 @@ Primary view toolbar.
 <tr>
     <td>ToolbarContext</td><td><code>module</code></td>
     </tr><tr>
-    <td>ToolbarFieldArchitecture</td><td><code>module</code></td>
-    </tr><tr>
     <td>ToolbarFieldBillingProvider</td><td><code>module</code></td>
     </tr><tr>
     <td>ToolbarFieldCategory</td><td><code>module</code></td>
@@ -6185,8 +6180,6 @@ Clear a specific toolbar category using a select component's OnSelect hook.
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.useArchitectureOnSelect</td><td><code>function</code></td>
-    </tr><tr>
     <td>options.useBillingProviderOnSelect</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useCategoryOnSelect</td><td><code>function</code></td>
@@ -6216,8 +6209,6 @@ Clear all available toolbar categories.
     <td>options</td><td><code>object</code></td>
     </tr><tr>
     <td>options.useProductQuery</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useArchitectureOnSelect</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useSelectCategoryOnSelect</td><td><code>function</code></td>
     </tr><tr>
@@ -6255,109 +6246,6 @@ Return lists of item and secondary toolbar fields for display.
     </tr>  </tbody>
 </table>
 
-<a name="Toolbar.module_ToolbarFieldArchitecture"></a>
-
-## ToolbarFieldArchitecture
-A standalone Architecture select filter.
-
-
-* [ToolbarFieldArchitecture](#Toolbar.module_ToolbarFieldArchitecture)
-    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldArchitecture..useToolbarFieldOptions) ⇒ <code>function</code>
-    * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldArchitecture..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldArchitecture(props)](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture) ⇒ <code>React.ReactNode</code>
-        * [.propTypes](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldArchitecture..useToolbarFieldOptions"></a>
-
-### ToolbarFieldArchitecture~useToolbarFieldOptions(options) ⇒ <code>function</code>
-Generate select field options from config
-
-**Kind**: inner method of [<code>ToolbarFieldArchitecture</code>](#Toolbar.module_ToolbarFieldArchitecture)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldArchitecture..useOnSelect"></a>
-
-### ToolbarFieldArchitecture~useOnSelect(options) ⇒ <code>function</code>
-On select update.
-
-**Kind**: inner method of [<code>ToolbarFieldArchitecture</code>](#Toolbar.module_ToolbarFieldArchitecture)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture"></a>
-
-### ToolbarFieldArchitecture~ToolbarFieldArchitecture(props) ⇒ <code>React.ReactNode</code>
-Display an architecture field with generated options.
-
-**Kind**: inner method of [<code>ToolbarFieldArchitecture</code>](#Toolbar.module_ToolbarFieldArchitecture)  
-**Emits**: <code>event:onSelect</code>  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useProductToolbarQuery</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useToolbarFieldOptions</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* [~ToolbarFieldArchitecture(props)](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture) ⇒ <code>React.ReactNode</code>
-    * [.propTypes](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture.propTypes"></a>
-
-#### ToolbarFieldArchitecture.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldArchitecture</code>](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture)  
-<a name="Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture.defaultProps"></a>
-
-#### ToolbarFieldArchitecture.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldArchitecture</code>](#Toolbar.module_ToolbarFieldArchitecture..ToolbarFieldArchitecture)  
 <a name="Toolbar.module_ToolbarFieldBillingProvider"></a>
 
 ## ToolbarFieldBillingProvider

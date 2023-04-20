@@ -21,7 +21,6 @@ import { translate } from '../i18n/i18n';
  * @memberof Components
  * @module Toolbar
  * @property {module} ToolbarContext
- * @property {module} ToolbarFieldArchitecture
  * @property {module} ToolbarFieldBillingProvider
  * @property {module} ToolbarFieldCategory
  * @property {module} ToolbarFieldDisplayName

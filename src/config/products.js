@@ -4,7 +4,7 @@ import { helpers } from '../common/helpers';
  * IIFE for generating a product configs listing via webpack
  *
  * @type {{aliases: string[], productGroup: string, productId: string, productLabel: string, productDisplay: string, viewId: string,
- *     productArchitectures: string[], productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object,
+ *     productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object,
  *     inventorySubscriptionsQuery: object, initialGraphFilters: {}[], initialGraphSettings: object, initialGuestsFilters: {}[],
  *     initialInventoryFilters: {}[], initialSubscriptionsInventoryFilters: {}[], initialToolbarFilters: {}[], }[]}
  */
@@ -59,16 +59,7 @@ const sortedProductConfigs = helpers.memo((configs = productConfigs) => {
   const groupedViewIds = {};
 
   configs?.forEach(config => {
-    const {
-      aliases,
-      productArchitectures,
-      productGroup,
-      productId,
-      productLabel,
-      productPath,
-      productVariants,
-      viewId
-    } = config;
+    const { aliases, productGroup, productId, productLabel, productPath, productVariants, viewId } = config;
 
     if (productGroup && productId) {
       grouped[productGroup] ??= {};
@@ -98,16 +89,6 @@ const sortedProductConfigs = helpers.memo((configs = productConfigs) => {
 
       productAliases[alias] ??= [];
       productAliases[alias].push(config);
-    });
-
-    productArchitectures?.forEach(architecture => {
-      if (productId) {
-        grouped[architecture] ??= {};
-        grouped[architecture][productId] = config;
-      }
-
-      productAliases[architecture] ??= [];
-      productAliases[architecture].push(config);
     });
 
     productVariants?.forEach(variant => {

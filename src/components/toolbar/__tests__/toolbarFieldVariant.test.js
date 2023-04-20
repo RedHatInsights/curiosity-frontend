@@ -20,7 +20,7 @@ describe('ToolbarFieldVariant Component', () => {
 
   it('should render a basic component', () => {
     const props = {
-      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.ARCHITECTURE]: RHEL_TYPES.RHEL_X86 })
+      useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.VARIANT]: RHEL_TYPES.RHEL_X86 })
     };
     const component = shallow(<ToolbarFieldVariant {...props} />);
 
