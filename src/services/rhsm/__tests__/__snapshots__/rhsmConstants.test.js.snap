@@ -11,12 +11,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
-  "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
-    "RHEL_ARM": "RHEL for ARM",
-    "RHEL_IBM_POWER": "RHEL for IBM Power",
-    "RHEL_IBM_Z": "RHEL for IBM z",
-    "RHEL_X86": "RHEL for x86",
-  },
   "RHSM_API_PATH_PRODUCT_TYPES": {
     "OPENSHIFT": "OpenShift Container Platform",
     "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -36,6 +30,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "SATELLITE": "Satellite",
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
+  },
+  "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
+    "RHEL_ARM": "RHEL for ARM",
+    "RHEL_IBM_POWER": "RHEL for IBM Power",
+    "RHEL_IBM_Z": "RHEL for IBM z",
+    "RHEL_X86": "RHEL for x86",
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
     "SATELLITE_CAPSULE": "Satellite Capsule",
@@ -294,12 +294,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
-    "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
-      "RHEL_ARM": "RHEL for ARM",
-      "RHEL_IBM_POWER": "RHEL for IBM Power",
-      "RHEL_IBM_Z": "RHEL for IBM z",
-      "RHEL_X86": "RHEL for x86",
-    },
     "RHSM_API_PATH_PRODUCT_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
       "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -319,6 +313,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "SATELLITE": "Satellite",
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
+    },
+    "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
+      "RHEL_ARM": "RHEL for ARM",
+      "RHEL_IBM_POWER": "RHEL for IBM Power",
+      "RHEL_IBM_Z": "RHEL for IBM z",
+      "RHEL_X86": "RHEL for x86",
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
       "SATELLITE_CAPSULE": "Satellite Capsule",
@@ -578,12 +578,6 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
     },
-    "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
-      "RHEL_ARM": "RHEL for ARM",
-      "RHEL_IBM_POWER": "RHEL for IBM Power",
-      "RHEL_IBM_Z": "RHEL for IBM z",
-      "RHEL_X86": "RHEL for x86",
-    },
     "RHSM_API_PATH_PRODUCT_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
       "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -603,6 +597,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "SATELLITE": "Satellite",
       "SATELLITE_CAPSULE": "Satellite Capsule",
       "SATELLITE_SERVER": "Satellite Server",
+    },
+    "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
+      "RHEL_ARM": "RHEL for ARM",
+      "RHEL_IBM_POWER": "RHEL for IBM Power",
+      "RHEL_IBM_Z": "RHEL for IBM z",
+      "RHEL_X86": "RHEL for x86",
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
       "SATELLITE_CAPSULE": "Satellite Capsule",
@@ -866,12 +866,6 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
   },
-  "RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES": {
-    "RHEL_ARM": "RHEL for ARM",
-    "RHEL_IBM_POWER": "RHEL for IBM Power",
-    "RHEL_IBM_Z": "RHEL for IBM z",
-    "RHEL_X86": "RHEL for x86",
-  },
   "RHSM_API_PATH_PRODUCT_TYPES": {
     "OPENSHIFT": "OpenShift Container Platform",
     "OPENSHIFT_DEDICATED_METRICS": "OpenShift-dedicated-metrics",
@@ -891,6 +885,12 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "SATELLITE": "Satellite",
     "SATELLITE_CAPSULE": "Satellite Capsule",
     "SATELLITE_SERVER": "Satellite Server",
+  },
+  "RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES": {
+    "RHEL_ARM": "RHEL for ARM",
+    "RHEL_IBM_POWER": "RHEL for IBM Power",
+    "RHEL_IBM_Z": "RHEL for IBM z",
+    "RHEL_X86": "RHEL for x86",
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
     "SATELLITE_CAPSULE": "Satellite Capsule",

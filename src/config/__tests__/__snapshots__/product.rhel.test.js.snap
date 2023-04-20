@@ -72,6 +72,82 @@ exports[`Product RHEL config should apply an inventory configuration: filtered 1
 }
 `;
 
+exports[`Product RHEL config should apply an inventory configuration: filtered, NOT authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "--",
+    },
+    {
+      "title": <React.Fragment>
+        t(curiosity-inventory.label, {"context":"category"})
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Sockets": {
+      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
 exports[`Product RHEL config should apply an inventory configuration: filtered, authorized 1`] = `
 {
   "cells": [
@@ -442,6 +518,64 @@ exports[`Product RHEL config should apply graph configuration: settings 1`] = `
 `;
 
 exports[`Product RHEL config should apply guest inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "lorem inventory id",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "displayName": {
+      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+      "value": "lorem",
+    },
+    "inventoryId": {
+      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "value": "lorem inventory id",
+    },
+    "lastSeen": {
+      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscriptionManagerId": {
+      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
+exports[`Product RHEL config should apply guest inventory configuration: filtered, NOT authorized 1`] = `
 {
   "cells": [
     {
@@ -874,4 +1008,22 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
     },
   },
 }
+`;
+
+exports[`Product RHEL config should apply toolbar configuration: filters 1`] = `
+[
+  {
+    "id": "sla",
+  },
+  {
+    "id": "usage",
+    "selected": true,
+  },
+  {
+    "id": "category",
+  },
+  {
+    "id": "variant",
+  },
+]
 `;

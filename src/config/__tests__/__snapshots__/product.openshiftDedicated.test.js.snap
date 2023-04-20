@@ -268,3 +268,5 @@ exports[`Product OpenShift Dedicated config should apply hosts inventory configu
   },
 }
 `;
+
+exports[`Product OpenShift Dedicated config should apply toolbar configuration: filters 1`] = `undefined`;

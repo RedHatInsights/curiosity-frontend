@@ -224,3 +224,5 @@ exports[`Product OpenShift Metrics config should apply hosts inventory configura
   },
 }
 `;
+
+exports[`Product OpenShift Metrics config should apply toolbar configuration: filters 1`] = `undefined`;
