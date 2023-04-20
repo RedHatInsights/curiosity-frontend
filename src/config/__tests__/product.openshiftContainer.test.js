@@ -9,6 +9,12 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Container config', () => {
+  it('should apply toolbar configuration', () => {
+    const { initialToolbarFilters } = config;
+
+    expect(initialToolbarFilters).toMatchSnapshot('filters');
+  });
+
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
@@ -64,6 +70,17 @@ describe('Product OpenShift Container config', () => {
     });
 
     expect(filteredInventoryDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredInventoryDataNotAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INVENTORY_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+      },
+      session: { authorized: { inventory: false } }
+    });
+
+    expect(filteredInventoryDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
 
     const filteredInventoryDataInfinite = parseRowCellsListData({
       filters: initialFilters,
@@ -158,5 +175,13 @@ describe('Product OpenShift Container config', () => {
     });
 
     expect(filteredGuestsDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredGuestsDataNotAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData,
+      session: { authorized: { inventory: false } }
+    });
+
+    expect(filteredGuestsDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
   });
 });

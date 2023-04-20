@@ -579,6 +579,19 @@ exports[`Product RHOSAK config should apply subscriptions inventory configuratio
 }
 `;
 
+exports[`Product RHOSAK config should apply toolbar configuration: filters 1`] = `
+[
+  {
+    "id": "billing_provider",
+  },
+  {
+    "id": "rangedMonthly",
+    "isSecondary": true,
+    "position": "right",
+  },
+]
+`;
+
 exports[`Product RHOSAK config should handle a custom yAxisTickFormat for floating points: yAxisTickFormat 1`] = `
 {
   "0.00001345": "0.00001",

@@ -9,6 +9,12 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product OpenShift Metrics config', () => {
+  it('should apply toolbar configuration', () => {
+    const { initialToolbarFilters } = config;
+
+    expect(initialToolbarFilters).toMatchSnapshot('filters');
+  });
+
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 

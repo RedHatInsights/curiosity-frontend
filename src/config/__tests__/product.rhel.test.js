@@ -10,6 +10,12 @@ import {
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product RHEL config', () => {
+  it('should apply toolbar configuration', () => {
+    const { initialToolbarFilters } = config;
+
+    expect(initialToolbarFilters).toMatchSnapshot('filters');
+  });
+
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
@@ -57,6 +63,17 @@ describe('Product RHEL config', () => {
     });
 
     expect(filteredInventoryDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredInventoryDataNotAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...inventoryData,
+        [INVENTORY_TYPES.INSTANCE_ID]: 'XXXX-XXXX-XXXXX-XXXXX'
+      },
+      session: { authorized: { inventory: false } }
+    });
+
+    expect(filteredInventoryDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
 
     const filteredInventoryDataInfinite = parseRowCellsListData({
       filters: initialFilters,
@@ -151,5 +168,13 @@ describe('Product RHEL config', () => {
     });
 
     expect(filteredGuestsDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredGuestsDataNotAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData,
+      session: { authorized: { inventory: false } }
+    });
+
+    expect(filteredGuestsDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
   });
 });

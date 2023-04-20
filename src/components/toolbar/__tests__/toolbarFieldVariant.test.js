@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { ToolbarFieldVariant, useToolbarFieldOptions, useOnSelect } from '../toolbarFieldVariant';
 import { store } from '../../../redux/store';
 import {
-  RHSM_API_PATH_PRODUCT_ARCHITECTURE_RHEL_TYPES as RHEL_TYPES,
+  RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES as RHEL_TYPES,
   RHSM_API_QUERY_SET_TYPES
 } from '../../../services/rhsm/rhsmConstants';
 
