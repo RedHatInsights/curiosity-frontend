@@ -16,15 +16,18 @@ const setDevRoutes = () => ({
  *
  * @param {object} params
  * @param {string} params.DEV_PORT
- * @param {string} params.BETA_PREFIX
+ * @param {string} params.ENV_PREFIX
  * @returns {object}
  */
-const setProxyRoutes = ({ DEV_PORT, BETA_PREFIX = '' } = {}) => ({
-  routes: {
-    '/locales': {
-      host: `https://localhost:${DEV_PORT}${BETA_PREFIX}/apps/subscriptions`
+const setProxyRoutes = ({ DEV_PORT, ENV_PREFIX = '' } = {}) => {
+  console.log('>>>>> SET PROXY ROUTES', ENV_PREFIX);
+  return {
+    routes: {
+      '/locales': {
+        host: `https://localhost:${DEV_PORT}${ENV_PREFIX}/apps/subscriptions`
+      }
     }
-  }
-});
+  };
+};
 
 module.exports = { setDevRoutes, setProxyRoutes };

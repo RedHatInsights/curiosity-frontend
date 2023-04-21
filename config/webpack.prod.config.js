@@ -5,13 +5,13 @@ const { setupDotenvFilesForEnv } = require('./build.dotenv');
 
 const {
   _BUILD_RELATIVE_DIRNAME,
-  REACT_APP_UI_DEPLOY_PATH_PREFIX: BETA_PREFIX,
+  REACT_APP_UI_DEPLOY_PATH_PREFIX: ENV_PREFIX,
   DEV_ANALYZE
 } = setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
 
 const { config: webpackConfig, plugins } = config({
   rootFolder: _BUILD_RELATIVE_DIRNAME,
-  deployment: (/preview/.test(BETA_PREFIX) && 'preview/apps') || 'apps',
+  deployment: (/preview/.test(ENV_PREFIX) && 'preview/apps') || (/beta/.test(ENV_PREFIX) && 'beta/apps') || 'apps',
   replacePlugin: setReplacePlugin()
 });
 
