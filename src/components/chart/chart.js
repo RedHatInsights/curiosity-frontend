@@ -154,8 +154,8 @@ const Chart = ({
   return (
     <ChartContext.Provider value={context}>
       <div
-        id="curiosity-chartarea"
         className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
+        data-test="curiosity-chartarea"
         ref={containerRef}
       >
         {chartWidth > 0 && (
