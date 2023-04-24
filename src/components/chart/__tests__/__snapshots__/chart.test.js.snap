@@ -4,7 +4,7 @@ exports[`Chart Component should render a basic component: basic 1`] = `
 <ContextProvider>
   <div
     className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
-    id="curiosity-chartarea"
+    data-test="curiosity-chartarea"
   />
 </ContextProvider>
 `;
@@ -15,7 +15,7 @@ exports[`Chart Component should setup basic chart settings: settings 1`] = `
     {
       "children": <div
         className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
-        id="curiosity-chartarea"
+        data-test="curiosity-chartarea"
       />,
       "value": undefined,
     },
@@ -24,7 +24,7 @@ exports[`Chart Component should setup basic chart settings: settings 1`] = `
     {
       "children": <div
         className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
-        id="curiosity-chartarea"
+        data-test="curiosity-chartarea"
       />,
       "value": {
         "chartContainerRef": [Function],
