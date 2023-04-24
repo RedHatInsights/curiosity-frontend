@@ -25,7 +25,10 @@ describe('useWindow', () => {
       current: {}
     };
 
+    jest.useFakeTimers();
     const { unmount, result } = await mountHook(() => useResizeObserver(mockTarget));
+    jest.runAllTimers();
+
     expect(result).toMatchSnapshot('width, height');
     expect(mockObserve).toHaveBeenCalledTimes(1);
     expect(mockSetState).toHaveBeenCalledTimes(1);
