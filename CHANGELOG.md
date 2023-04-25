@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.12.0](https://github.com/RedHatInsights/curiosity-frontend/compare/9e7e0f36f4b2d14a125d84c68d9b8cb16046cf86...8ec75abe31d3b0136597a7e43f803d0e140fc7a2) (2023-04-25)
+
+### Code Refactoring
+* **toolbarFieldArchitecture** sw-748 remove component  ([#1097](https://github.com/RedHatInsights/curiosity-frontend/pull/1097)) ([8ec75ab](https://github.com/RedHatInsights/curiosity-frontend/commit/8ec75abe31d3b0136597a7e43f803d0e140fc7a2))
+* **bannerMessages** sw-884 generic banners  ([#1094](https://github.com/RedHatInsights/curiosity-frontend/pull/1094)) ([dc569f9](https://github.com/RedHatInsights/curiosity-frontend/commit/dc569f9b0cd8eb435f452c8db613ae2385baf75e))
+
+### Chores
+* **deps** bump joi from 17.8.4 to 17.9.1  ([#1095](https://github.com/RedHatInsights/curiosity-frontend/pull/1095)) ([da7e209](https://github.com/RedHatInsights/curiosity-frontend/commit/da7e209cb91b3cdee4cc58b3f498eef27d2b18df))
+
+### Builds
+* **readme** build status badge  ([#1106](https://github.com/RedHatInsights/curiosity-frontend/pull/1106)) ([2fd13cc](https://github.com/RedHatInsights/curiosity-frontend/commit/2fd13cc95bc9cd0aee2fdde1f09aee1ed23f2897))
+
+### Bug Fixes
+* **config** sw-748 rhel products to variant filter  ([#1096](https://github.com/RedHatInsights/curiosity-frontend/pull/1096)) ([88bfcb8](https://github.com/RedHatInsights/curiosity-frontend/commit/88bfcb84e54de57413e7caa0f6f0d4317cc65e1d))
+* **build** npm updates  ([#1100](https://github.com/RedHatInsights/curiosity-frontend/pull/1100)) ([8b62218](https://github.com/RedHatInsights/curiosity-frontend/commit/8b6221807e1852d831079d8066fc263f7626dba6))
+* **notifications** sw-1078 update for redux connect  ([#1101](https://github.com/RedHatInsights/curiosity-frontend/pull/1101)) ([1e8ec21](https://github.com/RedHatInsights/curiosity-frontend/commit/1e8ec21db91266f4219425d22f607dabd6e32603))
+* **config** sw-1136 missing rhosak path alias  ([#1099](https://github.com/RedHatInsights/curiosity-frontend/pull/1099)) ([969f0ac](https://github.com/RedHatInsights/curiosity-frontend/commit/969f0ac3431a5596c9c444f7b6e0931be681c6d8))
+
 ## [2.11.1](https://github.com/RedHatInsights/curiosity-frontend/compare/cf6d3668c7092defd2debb41b2abe055ae24dc28...50e7777124c626cbc6eef618a640ae2367e31402) (2023-04-11)
 
 ### Bug Fixes
