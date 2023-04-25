@@ -1,16 +1,26 @@
 {
-  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true,
-    "es6": true,
-    "node": true,
-    "jest/globals": true
+    "es2022": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "prettier",
+    "plugin:jest/recommended",
+    "plugin:jsdoc/recommended"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2022
   },
   "plugins": [
     "import",
     "jest",
     "jsdoc",
     "json",
+    "node",
     "prettier",
     "react"
   ],
@@ -30,14 +40,6 @@
       }
     }
   },
-  "extends": [
-    "react-app",
-    "airbnb",
-    "airbnb/hooks",
-    "prettier",
-    "plugin:jest/recommended",
-    "plugin:jsdoc/recommended"
-  ],
   "globals": {
     "mockObjectProperty": "readonly",
     "mountHook": "readonly",
@@ -113,7 +115,8 @@
       "always",
       {
         "count": 0,
-        "noEndLines": true
+        "applyToEndTag": false,
+        "startLines": 1
       }
     ],
     "max-len": [
