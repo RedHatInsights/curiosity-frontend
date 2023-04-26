@@ -2419,10 +2419,10 @@
     chalk "^4.1.2"
     node-fetch "2.6.7"
 
-"@redhat-cloud-services/frontend-components-config@4.7.2":
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components-config/-/frontend-components-config-4.7.2.tgz#118b941ca69bba6831eb17a90a274fbeec507b86"
-  integrity sha512-TxvLW6fPHZBhCyb846tFfeviucSVKwLj9ePLzAcdKtwyPsS6b1fh/TIPuSQqLmZqdRRhA1Q2RaYLYbtvjncNvg==
+"@redhat-cloud-services/frontend-components-config@4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@redhat-cloud-services/frontend-components-config/-/frontend-components-config-4.7.3.tgz#d172339579027416313ae97141bb2c1af191b419"
+  integrity sha512-i0ieDCSR7eOM1Nmnm7vFAwk2TMJDSqGq8/E+XxWCZ3lFA2z5sbkrkIPWfPH4CyDU+SmlJxyeTNoHFlF+1g8z4Q==
   dependencies:
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.8"
     "@redhat-cloud-services/frontend-components-config-utilities" "^1.5.31"
