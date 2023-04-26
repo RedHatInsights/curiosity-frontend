@@ -48,6 +48,10 @@ objects:
               title: "OpenShift Data Science"
               href: "/application-services/subscriptions/rhods"
               product: "Subscription Watch"
+            - appId: "subscriptions"
+              title: "Advanced Cluster Security"
+              href: "/application-services/subscriptions/rhacs"
+              product: "Subscription Watch"
       module:
         # this should match chrome/fed-modules.json in cloud-services-config
         manifestLocation: "/apps/subscriptions/fed-mods.json"
