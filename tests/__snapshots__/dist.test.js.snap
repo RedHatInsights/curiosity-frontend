@@ -88,7 +88,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
   },
   {
-    "coverage": "FALSE",
+    "coverage": "TRUE",
     "path": "/rhacs",
     "productId": [
       "rhacs",
