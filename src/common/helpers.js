@@ -225,6 +225,17 @@ const TEST_MODE = process.env.REACT_APP_ENV === 'test';
 const UI_DEPLOY_PATH_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_PREFIX;
 
 /**
+ * FixMe: Replace, or alias towards UI_DEPLOY_PATH_PREFIX, this dotenv parameter if/when "beta" and "preview" are normalized.
+ */
+/**
+ * Patch for compensating for platform updates where a mismatch between "beta" and "preview" for redirects means
+ * that the same prefix can no longer be used for both additional remote resources and links. See build scripts for generated prefix.
+ *
+ * @type {string}
+ */
+const UI_DEPLOY_PATH_LINK_PREFIX = process.env.REACT_APP_UI_DEPLOY_PATH_LINK_PREFIX;
+
+/**
  * Disable an aspect of the UI.
  * Typically associated with disabling views through route settings. See dotenv config files for activation.
  *
@@ -427,6 +438,7 @@ const helpers = {
   REVIEW_MODE,
   TEST_MODE,
   UI_DEPLOY_PATH_PREFIX,
+  UI_DEPLOY_PATH_LINK_PREFIX,
   UI_DISABLED,
   UI_DISABLED_GRAPH,
   UI_DISABLED_NOTIFICATIONS,
