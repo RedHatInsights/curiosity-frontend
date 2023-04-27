@@ -11,7 +11,7 @@ deployPaths()
   DEPLOY_PATH_PREFIX=""
 
   if [[ $DEPLOY_BUILD_STAGE == *"Beta"* ]]; then
-    DEPLOY_PATH_PREFIX=/beta
+    DEPLOY_PATH_PREFIX=/preview
   fi
 
   echo UI_DEPLOY_PATH_PREFIX="$DEPLOY_PATH_PREFIX" >> ./.env.production.local
