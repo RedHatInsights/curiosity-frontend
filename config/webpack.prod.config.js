@@ -11,7 +11,7 @@ const {
 
 const { config: webpackConfig, plugins } = config({
   rootFolder: _BUILD_RELATIVE_DIRNAME,
-  deployment: (/beta|preview/.test(BETA_PREFIX) && 'beta/apps') || 'apps',
+  deployment: (/beta/.test(BETA_PREFIX) && 'beta/apps') || 'apps',
   replacePlugin: setReplacePlugin()
 });
 

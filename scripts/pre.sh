@@ -11,10 +11,12 @@ deployPaths()
   DEPLOY_PATH_PREFIX=""
 
   if [[ $DEPLOY_BUILD_STAGE == *"Beta"* ]]; then
-    DEPLOY_PATH_PREFIX=/preview
+    DEPLOY_PATH_PREFIX=/beta
+    DEPLOY_PATH_LINK_PREFIX=/preview
   fi
 
   echo UI_DEPLOY_PATH_PREFIX="$DEPLOY_PATH_PREFIX" >> ./.env.production.local
+  echo UI_DEPLOY_PATH_LINK_PREFIX="$DEPLOY_PATH_LINK_PREFIX" >> ./.env.production.local
 
   echo "\"${DEPLOY_BUILD_STAGE}\" build stage config for branch \"${DEPLOY_BRANCH}\"..."
   printf "Deploy path prefix ... ${GREEN}UI_DEPLOY_PATH_PREFIX=$DEPLOY_PATH_PREFIX${NOCOLOR}\n"
