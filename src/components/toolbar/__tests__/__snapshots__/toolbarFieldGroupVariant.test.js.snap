@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldGroupVariant Component should generate select options: toolbarFieldOptions 1`] = `
+[
+  {
+    "selected": false,
+    "title": "lorem",
+    "value": "lorem",
+  },
+  {
+    "selected": false,
+    "title": "ipsum",
+    "value": "ipsum",
+  },
+  {
+    "selected": false,
+    "title": "dolor",
+    "value": "dolor",
+  },
+  {
+    "selected": false,
+    "title": "sit",
+    "value": "sit",
+  },
+  {
+    "selected": false,
+    "title": "",
+    "value": "",
+  },
+]
+`;
+
+exports[`ToolbarFieldGroupVariant Component should handle updating through redux state with component: dispatch, component 1`] = `
+[
+  [
+    [
+      {
+        "productGroup": undefined,
+        "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
+      },
+      {
+        "productGroup": undefined,
+        "type": "SET_PRODUCT_VARIANT",
+        "variant": "ipsum",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldGroupVariant Component should handle updating through redux state with hook: dispatch, hook 1`] = `
+[
+  [
+    [
+      {
+        "productGroup": "loremIpsum",
+        "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
+      },
+      {
+        "productGroup": "loremIpsum",
+        "type": "SET_PRODUCT_VARIANT",
+        "variant": "dolor sit",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`ToolbarFieldGroupVariant Component should render a basic component: basic 1`] = `
+<ToolbarContent
+  isExpanded={false}
+  showClearFiltersButton={false}
+>
+  <ToolbarItem
+    variant="label"
+  >
+    t(curiosity-toolbar.label, {"context":"groupVariant"})
+     
+  </ToolbarItem>
+  <Select
+    aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+    ariaLabel="Select option"
+    className=""
+    data-test="toolbarFieldGroupVariant"
+    direction="down"
+    id="generatedid-"
+    isDisabled={false}
+    isDropdownButton={false}
+    isFlipEnabled={false}
+    isInline={true}
+    isToggleText={true}
+    maxHeight={null}
+    name={null}
+    onSelect={[Function]}
+    onSplitButton={[Function]}
+    options={
+      [
+        {
+          "selected": undefined,
+          "title": "lorem",
+          "value": "lorem",
+        },
+        {
+          "selected": undefined,
+          "title": "ipsum",
+          "value": "ipsum",
+        },
+        {
+          "selected": undefined,
+          "title": "dolor",
+          "value": "dolor",
+        },
+        {
+          "selected": undefined,
+          "title": "sit",
+          "value": "sit",
+        },
+      ]
+    }
+    placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+    position="left"
+    selectedOptions={null}
+    splitButtonVariant={null}
+    toggleIcon={null}
+    variant="single"
+  />
+</ToolbarContent>
+`;
+
+exports[`ToolbarFieldGroupVariant Component should return a standalone component with toolbar: standalone toolbar 1`] = `
+<Toolbar
+  className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
+  collapseListedFiltersBreakpoint="sm"
+  id="curiosity-toolbar"
+>
+  <ToolbarContent
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarItem
+      variant="label"
+    >
+      t(curiosity-toolbar.label, {"context":"groupVariant"})
+       
+    </ToolbarItem>
+    <Select
+      aria-label="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+      ariaLabel="Select option"
+      className=""
+      data-test="toolbarFieldGroupVariant"
+      direction="down"
+      id="generatedid-"
+      isDisabled={false}
+      isDropdownButton={false}
+      isFlipEnabled={false}
+      isInline={true}
+      isToggleText={true}
+      maxHeight={null}
+      name={null}
+      onSelect={[Function]}
+      onSplitButton={[Function]}
+      options={
+        [
+          {
+            "selected": undefined,
+            "title": "lorem",
+            "value": "lorem",
+          },
+          {
+            "selected": undefined,
+            "title": "ipsum",
+            "value": "ipsum",
+          },
+        ]
+      }
+      placeholder="t(curiosity-toolbar.placeholder, {"context":"groupVariant"})"
+      position="left"
+      selectedOptions={null}
+      splitButtonVariant={null}
+      toggleIcon={null}
+      variant="single"
+    />
+  </ToolbarContent>
+</Toolbar>
+`;
+
+exports[`ToolbarFieldGroupVariant Component should return null, undefined, or empty if there are one or less options: one or less 1`] = `""`;

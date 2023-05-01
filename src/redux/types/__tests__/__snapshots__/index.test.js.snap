@@ -4,12 +4,16 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
 {
   "appTypes": {
     "SET_PRODUCT": "SET_PRODUCT",
+    "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
+    "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
     "STATUS_4XX": "4XX",
     "STATUS_5XX": "5XX",
   },
   "default": {
     "app": {
       "SET_PRODUCT": "SET_PRODUCT",
+      "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
+      "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
     },
@@ -137,6 +141,8 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
   "reduxTypes": {
     "app": {
       "SET_PRODUCT": "SET_PRODUCT",
+      "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
+      "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
     },
@@ -238,6 +244,8 @@ exports[`ReduxTypes should have specific type properties: specific types 1`] = `
 {
   "app": {
     "SET_PRODUCT": "SET_PRODUCT",
+    "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
+    "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
     "STATUS_4XX": "4XX",
     "STATUS_5XX": "5XX",
   },

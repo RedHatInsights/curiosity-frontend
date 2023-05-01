@@ -373,6 +373,23 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/toolbar/toolbarFieldGroupVariant.js",
+    "keys": [
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "t('curiosity-toolbar.label', { context: ['groupVariant'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })",
+      },
+    ],
+  },
+  {
     "file": "src/components/toolbar/toolbarFieldRangedMonthly.js",
     "keys": [
       {
@@ -822,6 +839,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/toolbar/toolbarFieldGranularity.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/components/toolbar/toolbarFieldGroupVariant.js",
     "key": "curiosity-toolbar.label",
   },
   {

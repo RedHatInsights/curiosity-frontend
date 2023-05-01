@@ -159,6 +159,9 @@
 <dt><a href="#Toolbar.module_ToolbarFieldGranularity">ToolbarFieldGranularity</a></dt>
 <dd><p>A standalone Granularity select filter.</p>
 </dd>
+<dt><a href="#Toolbar.module_ToolbarFieldGroupVariant">ToolbarFieldGroupVariant</a></dt>
+<dd><p>A toolbar product configuration select filter requiring a toolbar component parent.</p>
+</dd>
 <dt><a href="#Toolbar.module_ToolbarFieldRangedMonthly">ToolbarFieldRangedMonthly</a></dt>
 <dd><p>A standalone Ranged Monthly Granularity select filter.</p>
 </dd>
@@ -6075,6 +6078,8 @@ Application filter toolbar.
     </tr><tr>
     <td>props.isDisabled</td><td><code>boolean</code></td><td></td>
     </tr><tr>
+    <td>props.isGroupVariantDisabled</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
     <td>props.t</td><td><code>function</code></td><td></td>
     </tr><tr>
     <td>props.useProductToolbarQuery</td><td><code>function</code></td><td></td>
@@ -6639,6 +6644,113 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>ToolbarFieldGranularity</code>](#Toolbar.module_ToolbarFieldGranularity..ToolbarFieldGranularity)  
+<a name="Toolbar.module_ToolbarFieldGroupVariant"></a>
+
+## ToolbarFieldGroupVariant
+A toolbar product configuration select filter requiring a toolbar component parent.
+
+
+* [ToolbarFieldGroupVariant](#Toolbar.module_ToolbarFieldGroupVariant)
+    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions) ⇒ <code>function</code>
+    * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldGroupVariant..useOnSelect) ⇒ <code>function</code>
+    * [~ToolbarFieldGroupVariant(props)](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant) ⇒ <code>React.ReactNode</code>
+        * [.propTypes](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.propTypes) : <code>Object</code>
+        * [.defaultProps](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.defaultProps) : <code>Object</code>
+
+<a name="Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions"></a>
+
+### ToolbarFieldGroupVariant~useToolbarFieldOptions(options) ⇒ <code>function</code>
+Generate select field options from config
+
+**Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.useRouteDetail</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Toolbar.module_ToolbarFieldGroupVariant..useOnSelect"></a>
+
+### ToolbarFieldGroupVariant~useOnSelect(options) ⇒ <code>function</code>
+On select update.
+
+**Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.useDispatch</td><td><code>function</code></td>
+    </tr><tr>
+    <td>options.useProduct</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant"></a>
+
+### ToolbarFieldGroupVariant~ToolbarFieldGroupVariant(props) ⇒ <code>React.ReactNode</code>
+Display a product configuration field with generated options.
+
+**Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
+**Emits**: <code>event:onSelect</code>  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.isFilter</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.isStandalone</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.position</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.t</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.useOnSelect</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.useProduct</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.useSelector</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.useToolbarFieldOptions</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~ToolbarFieldGroupVariant(props)](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant) ⇒ <code>React.ReactNode</code>
+    * [.propTypes](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.propTypes) : <code>Object</code>
+    * [.defaultProps](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.defaultProps) : <code>Object</code>
+
+<a name="Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.propTypes"></a>
+
+#### ToolbarFieldGroupVariant.propTypes : <code>Object</code>
+Prop types.
+
+**Kind**: static property of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant)  
+<a name="Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant.defaultProps"></a>
+
+#### ToolbarFieldGroupVariant.defaultProps : <code>Object</code>
+Default props.
+
+**Kind**: static property of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant..ToolbarFieldGroupVariant)  
 <a name="Toolbar.module_ToolbarFieldRangedMonthly"></a>
 
 ## ToolbarFieldRangedMonthly
@@ -7113,7 +7225,7 @@ A standalone Variant select filter.
 * [ToolbarFieldVariant](#Toolbar.module_ToolbarFieldVariant)
     * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldVariant..useToolbarFieldOptions) ⇒ <code>function</code>
     * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldVariant..useOnSelect) ⇒ <code>function</code>
-    * [~ToolbarFieldVariant(props)](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant) ⇒ <code>React.ReactNode</code>
+    * <del>[~ToolbarFieldVariant(props)](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant) ⇒ <code>React.ReactNode</code></del>
         * [.propTypes](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.propTypes) : <code>Object</code>
         * [.defaultProps](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.defaultProps) : <code>Object</code>
 
@@ -7161,7 +7273,9 @@ On select update.
 
 <a name="Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant"></a>
 
-### ToolbarFieldVariant~ToolbarFieldVariant(props) ⇒ <code>React.ReactNode</code>
+### <del>ToolbarFieldVariant~ToolbarFieldVariant(props) ⇒ <code>React.ReactNode</code></del>
+***Deprecated***
+
 Display a variant field with generated options.
 
 **Kind**: inner method of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant)  
@@ -7191,7 +7305,7 @@ Display a variant field with generated options.
 </table>
 
 
-* [~ToolbarFieldVariant(props)](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant) ⇒ <code>React.ReactNode</code>
+* <del>[~ToolbarFieldVariant(props)](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant) ⇒ <code>React.ReactNode</code></del>
     * [.propTypes](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.propTypes) : <code>Object</code>
     * [.defaultProps](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.defaultProps) : <code>Object</code>
 
