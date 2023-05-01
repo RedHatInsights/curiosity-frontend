@@ -186,6 +186,7 @@ Download the debug log file.
     * [~UI_DISABLED_TABLE_INSTANCES](#Helpers.module_General..UI_DISABLED_TABLE_INSTANCES) : <code>boolean</code>
     * [~UI_DISABLED_TABLE_SUBSCRIPTIONS](#Helpers.module_General..UI_DISABLED_TABLE_SUBSCRIPTIONS) : <code>boolean</code>
     * [~UI_DISABLED_TOOLBAR](#Helpers.module_General..UI_DISABLED_TOOLBAR) : <code>boolean</code>
+    * [~UI_DISABLED_TOOLBAR_GROUP_VARIANT](#Helpers.module_General..UI_DISABLED_TOOLBAR_GROUP_VARIANT) : <code>boolean</code>
     * [~UI_DISPLAY_NAME](#Helpers.module_General..UI_DISPLAY_NAME) : <code>string</code>
     * [~UI_DISPLAY_CONFIG_NAME](#Helpers.module_General..UI_DISPLAY_CONFIG_NAME) : <code>string</code>
     * [~UI_DISPLAY_START_NAME](#Helpers.module_General..UI_DISPLAY_START_NAME) : <code>string</code>
@@ -337,6 +338,13 @@ See dotenv config files for activation.
 
 ### General~UI\_DISABLED\_TOOLBAR : <code>boolean</code>
 Disable the filter toolbar aspect of the UI.
+See dotenv config files for activation.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<a name="Helpers.module_General..UI_DISABLED_TOOLBAR_GROUP_VARIANT"></a>
+
+### General~UI\_DISABLED\_TOOLBAR\_GROUP\_VARIANT : <code>boolean</code>
+Disable the group variant filter aspect of the toolbar.
 See dotenv config files for activation.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  

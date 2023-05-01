@@ -18,7 +18,9 @@ describe('ViewReducer', () => {
       types.SET_QUERY_RESET_INVENTORY_LIST,
       types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST,
       types.SET_QUERY,
-      appTypes.SET_PRODUCT
+      appTypes.SET_PRODUCT,
+      appTypes.SET_PRODUCT_VARIANT,
+      appTypes.SET_PRODUCT_VARIANT_QUERY_RESET_ALL
     ];
 
     specificTypes.forEach(value => {
@@ -61,7 +63,9 @@ describe('ViewReducer', () => {
         [RHSM_API_QUERY_TYPES.SLA]: 'lorem sla',
         [RHSM_API_QUERY_TYPES.UOM]: 'lorem uom',
         [RHSM_API_QUERY_TYPES.USAGE]: 'ipsum usage',
-        viewId: 'test_id'
+        viewId: 'test_id',
+        productGroup: 'test_id',
+        variant: 'lorem variant'
       };
 
       const resultState = viewReducer(state, dispatched);
