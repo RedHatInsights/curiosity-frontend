@@ -1,25 +1,24 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFilter } from '@patternfly/react-core';
 import { Toolbar } from '../toolbar';
 import { RHSM_API_QUERY_SLA_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 import { toolbarFieldOptions as selectCategoryOptions } from '../toolbarFieldSelectCategory';
 
 describe('Toolbar Component', () => {
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4], selectCategoryOptions[5]] })
     };
-    const component = shallow(<Toolbar {...props} />);
+    const component = await shallowHookComponent(<Toolbar {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should return an empty render when disabled or missing filters', () => {
+  it('should return an empty render when disabled or missing filters', async () => {
     const props = {
       isDisabled: true
     };
-    const component = shallow(<Toolbar {...props} />);
+    const component = await shallowHookComponent(<Toolbar {...props} />);
 
     expect(component).toMatchSnapshot('disabled component');
 
@@ -36,11 +35,11 @@ describe('Toolbar Component', () => {
     expect(component).toMatchSnapshot('missing primary, has secondary filters');
   });
 
-  it('should hide categories when a single filter is available', () => {
+  it('should hide categories when a single filter is available', async () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] })
     };
-    const component = shallow(<Toolbar {...props} />);
+    const component = await shallowHookComponent(<Toolbar {...props} />);
 
     expect(component).toMatchSnapshot('single filter');
   });
@@ -61,13 +60,31 @@ describe('Toolbar Component', () => {
     expect(component.find(ToolbarFilter).props()).toMatchSnapshot('chips, not clearable');
   });
 
-  it('should handle displaying secondary components, fields', () => {
+  it('should handle displaying secondary components, fields', async () => {
     const props = {
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
     };
-    const component = shallow(<Toolbar {...props} />);
+    const component = await shallowHookComponent(<Toolbar {...props} />);
 
     expect(component).toMatchSnapshot('secondary');
+  });
+
+  it('should handle displaying a group variant field', async () => {
+    const props = {
+      isGroupVariantDisabled: false,
+      useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
+    };
+    const component = await shallowHookComponent(<Toolbar {...props} />);
+
+    expect(component).toMatchSnapshot('group variant');
+
+    component.setProps({
+      useSelectCategoryOptions: () => ({ options: [] }),
+      useToolbarFields: () => ({ itemFields: [], secondaryFields: [] })
+    });
+
+    expect(component).toMatchSnapshot('group variant, standalone');
   });
 });

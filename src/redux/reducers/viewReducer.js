@@ -14,8 +14,8 @@ import { RHSM_API_QUERY_SET_TYPES as RHSM_API_QUERY_TYPES } from '../../services
  * Initial state.
  *
  * @private
- * @type {{graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {}, query: {},
- *     inventoryGuestsQuery: {}}}
+ * @type {{product: {}, graphTallyQuery: {}, inventoryHostsQuery: {}, inventorySubscriptionsQuery: {},
+ *     query: {}, productConfig: {}, inventoryGuestsQuery: {}}}
  */
 const initialState = {
   query: {},
@@ -23,7 +23,8 @@ const initialState = {
   inventoryGuestsQuery: {},
   inventoryHostsQuery: {},
   inventorySubscriptionsQuery: {},
-  product: {}
+  product: {},
+  productConfig: {}
 };
 
 /**
@@ -35,6 +36,34 @@ const initialState = {
  */
 const viewReducer = (state = initialState, action) => {
   switch (action.type) {
+    case reduxTypes.app.SET_PRODUCT_VARIANT_QUERY_RESET_ALL:
+      const updateVariantResetQueries = (query = {}, id) => {
+        const queryIds =
+          productConfig.sortedConfigs().byGroupIdConfigs[id]?.map(({ viewId }) => viewId) || (query[id] && [id]) || [];
+        const updatedQuery = { ...query };
+
+        queryIds.forEach(queryId => {
+          delete updatedQuery[queryId];
+        });
+
+        return updatedQuery;
+      };
+
+      return reduxHelpers.setStateProp(
+        null,
+        {
+          ...state,
+          query: updateVariantResetQueries(state.query, action.productGroup),
+          graphTallyQuery: updateVariantResetQueries(state.graphTallyQuery, action.productGroup),
+          inventoryGuestsQuery: updateVariantResetQueries(state.inventoryGuestsQuery, action.productGroup),
+          inventoryHostsQuery: updateVariantResetQueries(state.inventoryHostsQuery, action.productGroup),
+          inventorySubscriptionsQuery: updateVariantResetQueries(state.inventorySubscriptionsQuery, action.productGroup)
+        },
+        {
+          state,
+          reset: false
+        }
+      );
     case reduxTypes.query.SET_QUERY_RESET_INVENTORY_LIST:
       const updateResetQueries = (query = {}, id) => {
         const queryIds = productConfig.sortedConfigs().byViewIds[id] || (query[id] && [id]) || [];
@@ -406,6 +435,20 @@ const viewReducer = (state = initialState, action) => {
         'product',
         {
           config: action.config
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+    case reduxTypes.app.SET_PRODUCT_VARIANT:
+      return reduxHelpers.setStateProp(
+        'product',
+        {
+          variant: {
+            ...state?.product?.variant,
+            [action.productGroup]: action.variant
+          }
         },
         {
           state,

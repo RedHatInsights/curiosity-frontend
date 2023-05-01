@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Toolbar Component should handle displaying a group variant field: group variant 1`] = `
+<Toolbar
+  className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
+  clearAllFilters={[Function]}
+  clearFiltersButtonText="t(curiosity-toolbar.clearFilters)"
+  collapseListedFiltersBreakpoint="sm"
+  id="curiosity-toolbar"
+>
+  <ToolbarFieldGroupVariant
+    isFilter={false}
+    isStandalone={false}
+    position="left"
+    t={[Function]}
+    useOnSelect={[Function]}
+    useProduct={[Function]}
+    useSelector={[Function]}
+    useToolbarFieldOptions={[Function]}
+  />
+  <ToolbarContent
+    isExpanded={false}
+    showClearFiltersButton={false}
+  >
+    <ToolbarToggleGroup
+      breakpoint="md"
+      toggleIcon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
+    >
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarFilter
+          categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+          chips={[]}
+          deleteChip={[Function]}
+          key="sla"
+          showToolbarItem={true}
+        >
+          <Sla
+            isFilter={true}
+          />
+        </ToolbarFilter>
+      </ForwardRef>
+    </ToolbarToggleGroup>
+    <ForwardRef
+      key="itemFields"
+    />
+    <ForwardRef
+      alignment={
+        {
+          "default": "alignRight",
+        }
+      }
+      key="secondaryFields"
+    >
+      <span
+        key="lorem"
+      >
+        lorem ipsum
+      </span>
+    </ForwardRef>
+  </ToolbarContent>
+</Toolbar>
+`;
+
+exports[`Toolbar Component should handle displaying a group variant field: group variant, standalone 1`] = `
+<ToolbarFieldGroupVariant
+  isFilter={false}
+  isStandalone={true}
+  position="left"
+  t={[Function]}
+  useOnSelect={[Function]}
+  useProduct={[Function]}
+  useSelector={[Function]}
+  useToolbarFieldOptions={[Function]}
+/>
+`;
+
 exports[`Toolbar Component should handle displaying secondary components, fields: secondary 1`] = `
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"

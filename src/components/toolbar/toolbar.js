@@ -11,6 +11,7 @@ import {
 import { FilterIcon } from '@patternfly/react-icons';
 import { useProductToolbarQuery } from '../productView/productViewContext';
 import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from './toolbarContext';
+import { ToolbarFieldGroupVariant } from './toolbarFieldGroupVariant';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
 import { helpers } from '../../common';
 import { translate } from '../i18n/i18n';
@@ -41,6 +42,7 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {boolean} props.hardFilterReset On clearing all fields allow the category to reset as well.
  * @param {boolean} props.isDisabled
+ * @param {boolean} props.isGroupVariantDisabled
  * @param {Function} props.t
  * @param {Function} props.useProductToolbarQuery
  * @param {Function} props.useSelectCategoryOptions
@@ -52,6 +54,7 @@ import { translate } from '../i18n/i18n';
 const Toolbar = ({
   hardFilterReset,
   isDisabled,
+  isGroupVariantDisabled,
   t,
   useProductToolbarQuery: useAliasProductToolbarQuery,
   useSelectCategoryOptions: useAliasSelectCategoryOptions,
@@ -65,8 +68,12 @@ const Toolbar = ({
   const clearAllFields = useAliasToolbarFieldClearAll();
   const { itemFields, secondaryFields } = useAliasToolbarFields();
 
-  if (isDisabled || (!options?.length && !secondaryFields?.length)) {
+  if (isDisabled || (isGroupVariantDisabled && !options?.length && !secondaryFields?.length)) {
     return null;
+  }
+
+  if (!isGroupVariantDisabled && !options?.length && !secondaryFields?.length) {
+    return <ToolbarFieldGroupVariant isStandalone />;
   }
 
   /**
@@ -112,6 +119,7 @@ const Toolbar = ({
       clearAllFilters={onClearAll}
       clearFiltersButtonText={t('curiosity-toolbar.clearFilters')}
     >
+      {!isGroupVariantDisabled && <ToolbarFieldGroupVariant />}
       <ToolbarContent>
         <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
           <ToolbarGroup variant="filter-group">
@@ -153,12 +161,13 @@ const Toolbar = ({
  * Prop types
  *
  * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ *     useToolbarFields: Function, isGroupVariantDisabled: boolean, useProductToolbarQuery: Function, isDisabled: boolean,
  *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.propTypes = {
   hardFilterReset: PropTypes.bool,
   isDisabled: PropTypes.bool,
+  isGroupVariantDisabled: PropTypes.bool,
   t: PropTypes.func,
   useProductToolbarQuery: PropTypes.func,
   useSelectCategoryOptions: PropTypes.func,
@@ -170,13 +179,14 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarFields: Function, useProductToolbarQuery: Function, isDisabled: boolean,
+ * @type {{useToolbarFieldClear: Function, t: translate, useSelectCategoryOptions: Function, hardFilterReset: boolean,
+ *     useToolbarFields: Function, isGroupVariantDisabled: boolean, useProductToolbarQuery: Function, isDisabled: boolean,
  *     useToolbarFieldClearAll: Function}}
  */
 Toolbar.defaultProps = {
   hardFilterReset: false,
   isDisabled: helpers.UI_DISABLED_TOOLBAR,
+  isGroupVariantDisabled: helpers.UI_DISABLED_TOOLBAR_GROUP_VARIANT,
   t: translate,
   useProductToolbarQuery,
   useSelectCategoryOptions,

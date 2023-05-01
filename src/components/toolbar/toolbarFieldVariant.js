@@ -73,6 +73,10 @@ const useOnSelect = ({
 /**
  * Display a variant field with generated options.
  *
+ * @deprecated The new ToolbarFieldGroupVariant replaces this filter field, which was used on individual product views.
+ *     ToolbarFieldGroupVariant use is aimed at grouping dissimilar product configurations using "productGroup"s as the base.
+ *     The new ToolbarFieldGroupVariant is automatically created when a product config has "productVariants" listed, or multiple
+ *     "productIds" fall under the same "productGroup", and it is unnecessary to call it directly.
  * @fires onSelect
  * @param {object} props
  * @param {boolean} props.isFilter

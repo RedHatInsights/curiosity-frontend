@@ -1,13 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { ToolbarFieldVariant, useToolbarFieldOptions, useOnSelect } from '../toolbarFieldVariant';
+import { ToolbarFieldGroupVariant, useToolbarFieldOptions, useOnSelect } from '../toolbarFieldGroupVariant';
 import { store } from '../../../redux/store';
-import {
-  RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES as RHEL_TYPES,
-  RHSM_API_QUERY_SET_TYPES
-} from '../../../services/rhsm/rhsmConstants';
 
-describe('ToolbarFieldVariant Component', () => {
+describe('ToolbarFieldGroupVariant Component', () => {
   let mockDispatch;
 
   beforeEach(() => {
@@ -18,20 +13,47 @@ describe('ToolbarFieldVariant Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
-      useProductToolbarQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.VARIANT]: RHEL_TYPES.RHEL_X86 })
+      useToolbarFieldOptions: () => [
+        { title: 'lorem', value: 'lorem' },
+        { title: 'ipsum', value: 'ipsum' },
+        { title: 'dolor', value: 'dolor' },
+        { title: 'sit', value: 'sit' }
+      ]
     };
-    const component = shallow(<ToolbarFieldVariant {...props} />);
+    const component = await shallowHookComponent(<ToolbarFieldGroupVariant {...props} />);
 
     expect(component).toMatchSnapshot('basic');
+  });
+
+  it('should return a standalone component with toolbar', async () => {
+    const props = {
+      isStandalone: true,
+      useToolbarFieldOptions: () => [
+        { title: 'lorem', value: 'lorem' },
+        { title: 'ipsum', value: 'ipsum' }
+      ]
+    };
+    const component = await shallowHookComponent(<ToolbarFieldGroupVariant {...props} />);
+
+    expect(component).toMatchSnapshot('standalone toolbar');
+  });
+
+  it('should return null, undefined, or empty if there are one or less options', async () => {
+    const props = {
+      useToolbarFieldOptions: () => [{ title: 'lorem', value: 'lorem' }]
+    };
+    const component = await shallowHookComponent(<ToolbarFieldGroupVariant {...props} />);
+
+    expect(component).toMatchSnapshot('one or less');
   });
 
   it('should generate select options', () => {
     const { result: toolbarFieldOptions } = shallowHook(() =>
       useToolbarFieldOptions({
-        useProduct: () => ({
-          productVariants: ['lorem', 'ipsum', 'dolor', 'sit', '']
+        useRouteDetail: () => ({
+          availableVariants: ['lorem', 'ipsum', 'dolor', 'sit', '']
         })
       })
     );
@@ -55,7 +77,7 @@ describe('ToolbarFieldVariant Component', () => {
       ]
     };
 
-    const component = await mountHookComponent(<ToolbarFieldVariant {...props} />);
+    const component = await mountHookComponent(<ToolbarFieldGroupVariant {...props} />);
     component.find('button').simulate('click');
     component.update();
     component.find('button.pf-c-select__menu-item').first().simulate('click');
@@ -65,7 +87,7 @@ describe('ToolbarFieldVariant Component', () => {
 
   it('should handle updating through redux state with hook', () => {
     const options = {
-      useProduct: () => ({ viewId: 'loremIpsum' })
+      useProduct: () => ({ productGroup: 'loremIpsum' })
     };
 
     const onSelect = useOnSelect(options);

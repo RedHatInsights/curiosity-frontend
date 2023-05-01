@@ -300,6 +300,14 @@ const UI_DISABLED_TABLE_SUBSCRIPTIONS = process.env.REACT_APP_UI_DISABLED_TABLE_
 const UI_DISABLED_TOOLBAR = process.env.REACT_APP_UI_DISABLED_TOOLBAR === 'true';
 
 /**
+ * Disable the group variant filter aspect of the toolbar.
+ * See dotenv config files for activation.
+ *
+ * @type {boolean}
+ */
+const UI_DISABLED_TOOLBAR_GROUP_VARIANT = process.env.REACT_APP_UI_DISABLED_TOOLBAR_GROUP_VARIANT === 'true';
+
+/**
  * UI application name.
  * See dotenv config files for updating.
  *
@@ -447,6 +455,7 @@ const helpers = {
   UI_DISABLED_TABLE_INSTANCES,
   UI_DISABLED_TABLE_SUBSCRIPTIONS,
   UI_DISABLED_TOOLBAR,
+  UI_DISABLED_TOOLBAR_GROUP_VARIANT,
   UI_DISPLAY_NAME,
   UI_DISPLAY_CONFIG_NAME,
   UI_DISPLAY_START_NAME,

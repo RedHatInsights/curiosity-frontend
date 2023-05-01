@@ -32,6 +32,53 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
 }
 `;
 
+exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "test_id": {
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": {
+      "test_id": {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "test_id": {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "product": {
+      "variant": {
+        "test_id": "lorem variant",
+      },
+    },
+    "query": {},
+  },
+  "type": "SET_PRODUCT_VARIANT",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT_VARIANT_QUERY_RESET_ALL 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "query": {},
+  },
+  "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
+}
+`;
+
 exports[`ViewReducer should handle specific defined types: defined type SET_QUERY 1`] = `
 {
   "result": {

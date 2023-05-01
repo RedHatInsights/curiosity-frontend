@@ -38,6 +38,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
@@ -125,6 +126,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
@@ -197,6 +199,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
@@ -269,6 +272,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
@@ -341,6 +345,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
@@ -413,6 +418,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}
@@ -484,6 +490,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         <Toolbar
           hardFilterReset={false}
           isDisabled={false}
+          isGroupVariantDisabled={true}
           t={[Function]}
           useProductToolbarQuery={[Function]}
           useSelectCategoryOptions={[Function]}

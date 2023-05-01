@@ -88,7 +88,7 @@ exports[`ToolbarFieldVariant Component should render a basic component: basic 1`
   options={[]}
   placeholder="t(curiosity-toolbar.placeholder, {"context":"variant"})"
   position="left"
-  selectedOptions={null}
+  selectedOptions="RHEL for x86"
   splitButtonVariant={null}
   toggleIcon={null}
   variant="single"
