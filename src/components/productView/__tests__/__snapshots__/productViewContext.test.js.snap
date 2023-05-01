@@ -26,7 +26,7 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
 {
   "aliases": [
     "OpenShift Container Platform",
-    "openshift",
+    "openshift-container",
     "container",
     "platform",
     "shift",
@@ -157,16 +157,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     "sort": "next_event_date",
   },
   "productDisplay": "partial",
-  "productGroup": "openshift-container",
+  "productGroup": "openshift",
   "productId": "OpenShift Container Platform",
   "productLabel": "OpenShift Container Platform",
-  "productPath": "openshift-container",
+  "productPath": "openshift",
   "query": {
     "beginning": "2019-06-20T00:00:00.000Z",
     "ending": "2019-07-20T23:59:59.999Z",
     "uom": "cores",
   },
-  "viewId": "viewopenshift-container",
+  "viewId": "viewopenshift",
 }
 `;
 
@@ -174,7 +174,7 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
 {
   "aliases": [
     "OpenShift Container Platform",
-    "openshift",
+    "openshift-container",
     "container",
     "platform",
     "shift",
@@ -305,16 +305,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     "sort": "next_event_date",
   },
   "productDisplay": "partial",
-  "productGroup": "openshift-container",
+  "productGroup": "openshift",
   "productId": "OpenShift Container Platform",
   "productLabel": "OpenShift Container Platform",
-  "productPath": "openshift-container",
+  "productPath": "openshift",
   "query": {
     "beginning": "2019-06-20T00:00:00.000Z",
     "ending": "2019-07-20T23:59:59.999Z",
     "uom": "cores",
   },
-  "viewId": "viewopenshift-container",
+  "viewId": "viewopenshift",
 }
 `;
 

@@ -52,7 +52,7 @@ describe('RouterContext', () => {
     const { result: exactMatch } = await mountHook(() =>
       useRouteDetail({
         useChrome: () => ({ updateDocumentTitle: mockUpdateDocumentTitle }),
-        useSelector: () => ['rhel']
+        useSelectors: () => ['rhel']
       })
     );
     expect(mockUpdateDocumentTitle.mock.calls).toMatchSnapshot('document title');
@@ -64,7 +64,7 @@ describe('RouterContext', () => {
       firstMatch: Object.keys(exactMatch.firstMatch)
     }).toMatchSnapshot('route details, match');
 
-    const { result: closestMatch } = await mountHook(() => useRouteDetail({ useSelector: () => ['l'] }));
+    const { result: closestMatch } = await mountHook(() => useRouteDetail({ useSelectors: () => ['l'] }));
     expect({
       detailProps: Object.keys(closestMatch),
       isClosest: closestMatch.isClosest,

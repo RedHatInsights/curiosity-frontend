@@ -39,9 +39,9 @@ import { translate } from '../components/i18n/i18n';
  * or using anArray/List then generating "routes.js"
  */
 
-const productGroup = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
+const productGroup = 'rhel';
 
-const productId = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
+const productId = RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86;
 
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
 
@@ -54,7 +54,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
  *     initialSubscriptionsInventoryFilters: {}[], initialToolbarFilters: {}[], }}
  */
 const config = {
-  aliases: ['insights', 'enterprise', 'linux', 'el', 'x86'],
+  aliases: ['insights', 'enterprise', 'linux', 'el', 'x86', 'ibm', 'power'],
   productGroup,
   productId,
   productLabel,
@@ -314,9 +314,6 @@ const config = {
     },
     {
       id: RHSM_API_QUERY_SET_TYPES.CATEGORY
-    },
-    {
-      id: RHSM_API_QUERY_SET_TYPES.VARIANT
     }
   ]
 };

@@ -14,7 +14,7 @@ describe('Toolbar Component', () => {
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should return an empty render when disabled or missing filters', async () => {
+  it('should return an empty render, or variant filter, when disabled or missing filters', async () => {
     const props = {
       isDisabled: true
     };
@@ -27,7 +27,7 @@ describe('Toolbar Component', () => {
       useSelectCategoryOptions: () => ({ options: [] }),
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [] })
     });
-    expect(component).toMatchSnapshot('missing filters');
+    expect(component).toMatchSnapshot('missing filters, has variant filter');
 
     component.setProps({
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
@@ -72,15 +72,16 @@ describe('Toolbar Component', () => {
 
   it('should handle displaying a group variant field', async () => {
     const props = {
-      isGroupVariantDisabled: false,
+      isGroupVariantDisabled: true,
       useSelectCategoryOptions: () => ({ options: [selectCategoryOptions[4]] }),
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [<span key="lorem">lorem ipsum</span>] })
     };
     const component = await shallowHookComponent(<Toolbar {...props} />);
 
-    expect(component).toMatchSnapshot('group variant');
+    expect(component).toMatchSnapshot('group variant, disabled');
 
     component.setProps({
+      isGroupVariantDisabled: false,
       useSelectCategoryOptions: () => ({ options: [] }),
       useToolbarFields: () => ({ itemFields: [], secondaryFields: [] })
     });

@@ -4,27 +4,27 @@ exports[`ToolbarFieldGroupVariant Component should generate select options: tool
 [
   {
     "selected": false,
-    "title": "lorem",
-    "value": "lorem",
-  },
-  {
-    "selected": false,
-    "title": "ipsum",
-    "value": "ipsum",
-  },
-  {
-    "selected": false,
-    "title": "dolor",
+    "title": "t(curiosity-toolbar.label_groupVariant, {"context":"dolor"})",
     "value": "dolor",
   },
   {
     "selected": false,
-    "title": "sit",
+    "title": "t(curiosity-toolbar.label_groupVariant, {"context":"ipsum"})",
+    "value": "ipsum",
+  },
+  {
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_groupVariant, {"context":"lorem"})",
+    "value": "lorem",
+  },
+  {
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_groupVariant, {"context":"sit"})",
     "value": "sit",
   },
   {
     "selected": false,
-    "title": "",
+    "title": "t(curiosity-toolbar.label, {"context":"groupVariant"})",
     "value": "",
   },
 ]

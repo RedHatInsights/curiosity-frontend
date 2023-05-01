@@ -64,8 +64,9 @@ const routes = routesConfig.filter(item => !item.disabled);
  * @returns {{configs: *, firstMatch: *, isClosest: boolean, allConfigs: Array}}
  */
 const getRouteConfigByPath = helpers.memo(({ pathName, configs = productConfig.sortedConfigs } = {}) => {
-  const { byGroup, byAliasGroupProductPathIds, byProductIdConfigs } = configs();
-  const updatedPathName = (/^http/i.test(pathName) && new URL(pathName).pathname) || pathName;
+  const { byAnything, byAnythingPathIds, byAnythingVariants, byProductIdConfigs } = configs();
+  const updatedPathName =
+    (/^http/i.test(pathName) && new URL(pathName).pathname) || (typeof pathName === 'string' && pathName) || undefined;
   const trimmedPathName = updatedPathName
     ?.toLowerCase()
     ?.split('#')?.[0]
@@ -75,19 +76,19 @@ const getRouteConfigByPath = helpers.memo(({ pathName, configs = productConfig.s
     ?.replace(/\/\//g, '/');
 
   // Do a known comparison against alias, group, product, path identifiers
-  const focusedStr = byAliasGroupProductPathIds.find(
-    value => value.toLowerCase() === trimmedPathName?.split('/')?.pop()
-  );
+  const focusedStr = byAnythingPathIds.find(value => value.toLowerCase() === trimmedPathName?.split('/')?.pop());
 
   // Fallback attempt, match pathName with the closest string
-  const closestStr = trimmedPathName && closest(trimmedPathName, byAliasGroupProductPathIds);
-  const configsByGroup = byGroup?.[focusedStr || closestStr];
+  const closestStr = trimmedPathName && closest(trimmedPathName, byAnythingPathIds);
+  const configsByAnything = byAnything?.[focusedStr || closestStr];
+  const availableVariants = byAnythingVariants?.[focusedStr || closestStr];
 
   return {
     isClosest: !focusedStr,
     allConfigs: Object.values(byProductIdConfigs),
-    configs: configsByGroup,
-    firstMatch: configsByGroup?.[0]
+    availableVariants,
+    configs: configsByAnything,
+    firstMatch: configsByAnything?.[0]
   };
 });
 

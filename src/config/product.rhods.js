@@ -31,7 +31,7 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.RHODS;
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHODS;
 
 const config = {
-  aliases: ['openshift', 'data', 'science', 'ods'],
+  aliases: ['data', 'science', 'ods'],
   productGroup,
   productId,
   productLabel,
