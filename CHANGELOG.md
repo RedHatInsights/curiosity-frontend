@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.12.1](https://github.com/RedHatInsights/curiosity-frontend/compare/09be465f54e0a559f39b62e2d06ad521e7c26529...0321d5312fc97d373adf62c2e3be450b41264832) (2023-05-02)
+
+### Chores
+* **build** sw-538 rhacs ephemeral routing  ([#1111](https://github.com/RedHatInsights/curiosity-frontend/pull/1111)) ([a915a92](https://github.com/RedHatInsights/curiosity-frontend/commit/a915a929ee2ccce82ac95f447b3af36cfb0635be))
+* **deps-dev** changelog-light from 0.3.1 to 0.4.0  ([#1108](https://github.com/RedHatInsights/curiosity-frontend/pull/1108)) ([e39a7c3](https://github.com/RedHatInsights/curiosity-frontend/commit/e39a7c31799fa55e8f5c1e5e1df9259b68478dde))
+* **build** nodejs 16 to 18  ([#1107](https://github.com/RedHatInsights/curiosity-frontend/pull/1107)) ([38ea08a](https://github.com/RedHatInsights/curiosity-frontend/commit/38ea08ad5e5e8a8951cb0cac78dbebbda3dafc29))
+
+### Builds
+* **prod,stage** sw-917 dotenv config for preview urls  ([#1113](https://github.com/RedHatInsights/curiosity-frontend/pull/1113)) ([0321d53](https://github.com/RedHatInsights/curiosity-frontend/commit/0321d5312fc97d373adf62c2e3be450b41264832))
+* **proxy** sw-917 add preview to appUrl  ([#1109](https://github.com/RedHatInsights/curiosity-frontend/pull/1109)) ([13a597f](https://github.com/RedHatInsights/curiosity-frontend/commit/13a597f93e29145466a7df7b761032dda2e671f7))
+* **eslint** restructure linting  ([#1103](https://github.com/RedHatInsights/curiosity-frontend/pull/1103)) ([9b8e0a4](https://github.com/RedHatInsights/curiosity-frontend/commit/9b8e0a4cae795ff92c368e47c3fa08b4fd6c0069))
+
+### Bug Fixes
+* **chart,useWindow** conflicting ids, timing  ([#1104](https://github.com/RedHatInsights/curiosity-frontend/pull/1104)) ([1f6b6f2](https://github.com/RedHatInsights/curiosity-frontend/commit/1f6b6f24c68f58270f713a2cb38638fd6a4eb42d))
+
 ## [2.12.0](https://github.com/RedHatInsights/curiosity-frontend/compare/9e7e0f36f4b2d14a125d84c68d9b8cb16046cf86...8ec75abe31d3b0136597a7e43f803d0e140fc7a2) (2023-04-25)
 
 ### Code Refactoring
