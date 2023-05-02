@@ -41,25 +41,25 @@ exports[`RouterHelpers should return parse search parameters into unique key, va
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: NO search and hash 1`] = `
 {
-  "productId": "RHEL",
+  "productId": "RHEL for x86",
 }
 `;
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: alias insights 1`] = `
 {
-  "productId": "RHEL",
+  "productId": "RHEL for x86",
 }
 `;
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: closest match 1`] = `
 {
-  "productId": "RHEL",
+  "productId": "RHEL for x86",
 }
 `;
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: detail: match specific path 1`] = `
 {
-  "productId": "RHEL",
+  "productId": "RHEL for x86",
 }
 `;
 
@@ -89,13 +89,13 @@ exports[`RouterHelpers should return product configuration details from a url, p
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: search 1`] = `
 {
-  "productId": "RHEL",
+  "productId": "RHEL for x86",
 }
 `;
 
 exports[`RouterHelpers should return product configuration details from a url, path, or path-like id, or alias: search and hash 1`] = `
 {
-  "productId": "RHEL",
+  "productId": "RHEL for x86",
 }
 `;
 

@@ -35,7 +35,7 @@ import { translate } from '../i18n/i18n';
  * @returns {React.ReactNode}
  */
 const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
-  const { productGroup, productConfig } = useAliasRouteDetail();
+  const { firstMatch, productGroup } = useAliasRouteDetail();
 
   const renderProduct = useCallback(() => {
     const updated = config => {
@@ -100,8 +100,8 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
       );
     };
 
-    return productConfig?.map(config => updated(config));
-  }, [productConfig, t]);
+    return updated(firstMatch);
+  }, [firstMatch, t]);
 
   return (
     (productGroup && (

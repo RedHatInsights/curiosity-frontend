@@ -6,8 +6,8 @@ describe('ProductView Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useRouteDetail: () => ({
-        productGroup: 'lorem ipsum',
-        productConfig: [{ lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum' }]
+        firstMatch: { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum' },
+        productGroup: 'lorem ipsum'
       })
     };
 
@@ -18,8 +18,8 @@ describe('ProductView Component', () => {
   it('should render nothing if productGroup, and product parameters are empty', async () => {
     const props = {
       useRouteDetail: () => ({
-        productGroup: null,
-        productConfig: []
+        firstMatch: {},
+        productGroup: null
       })
     };
 
@@ -27,6 +27,7 @@ describe('ProductView Component', () => {
     expect(componentProductGroup).toMatchSnapshot('empty, productGroup');
 
     props.useRouteDetail = () => ({
+      firstMatch: {},
       productGroup: 'lorem ipsum',
       productId: null,
       viewId: null
@@ -39,10 +40,8 @@ describe('ProductView Component', () => {
   it('should allow custom product views via productDisplay types', async () => {
     const props = {
       useRouteDetail: () => ({
-        productGroup: 'lorem ipsum',
-        productConfig: [
-          { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.HOURLY }
-        ]
+        firstMatch: { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.HOURLY },
+        productGroup: 'lorem ipsum'
       })
     };
 
@@ -50,35 +49,29 @@ describe('ProductView Component', () => {
     expect(componentTypeOne).toMatchSnapshot('custom view, hourly');
 
     props.useRouteDetail = () => ({
-      productGroup: 'lorem ipsum',
-      productConfig: [
-        { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.CAPACITY }
-      ]
+      firstMatch: { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.CAPACITY },
+      productGroup: 'lorem ipsum'
     });
     const componentTypeTwo = await shallowHookComponent(<ProductView {...props} />);
     expect(componentTypeTwo).toMatchSnapshot('custom view, capacity');
 
     props.useRouteDetail = () => ({
-      productGroup: 'lorem ipsum',
-      productConfig: [
-        { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.DUAL_AXES }
-      ]
+      firstMatch: { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.DUAL_AXES },
+      productGroup: 'lorem ipsum'
     });
     const componentTypeThree = await shallowHookComponent(<ProductView {...props} />);
     expect(componentTypeThree).toMatchSnapshot('custom view, dual axes');
 
     props.useRouteDetail = () => ({
-      productGroup: 'lorem ipsum',
-      productConfig: [{ lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.LEGACY }]
+      firstMatch: { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.LEGACY },
+      productGroup: 'lorem ipsum'
     });
     const componentTypeFour = await shallowHookComponent(<ProductView {...props} />);
     expect(componentTypeFour).toMatchSnapshot('custom view, legacy');
 
     props.useRouteDetail = () => ({
-      productGroup: 'lorem ipsum',
-      productConfig: [
-        { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.PARTIAL }
-      ]
+      firstMatch: { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', productDisplay: DISPLAY_TYPES.PARTIAL },
+      productGroup: 'lorem ipsum'
     });
     const componentTypeFive = await shallowHookComponent(<ProductView {...props} />);
     expect(componentTypeFive).toMatchSnapshot('custom view, partial');
@@ -88,10 +81,13 @@ describe('ProductView Component', () => {
     const props = {
       toolbarGraphDescription: true,
       useRouteDetail: () => ({
-        productGroup: 'lorem ipsum',
-        productConfig: [
-          { lorem: 'ipsum', productId: 'lorem', viewId: 'viewIpsum', initialSubscriptionsInventoryFilters: [] }
-        ]
+        firstMatch: {
+          lorem: 'ipsum',
+          productId: 'lorem',
+          viewId: 'viewIpsum',
+          initialSubscriptionsInventoryFilters: []
+        },
+        productGroup: 'lorem ipsum'
       })
     };
 

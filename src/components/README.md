@@ -5443,7 +5443,7 @@ configuration context.
     </tr><tr>
     <td>options.useChrome</td><td><code>function</code></td>
     </tr><tr>
-    <td>options.useSelector</td><td><code>function</code></td>
+    <td>options.useSelectors</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6660,7 +6660,7 @@ A toolbar product configuration select filter requiring a toolbar component pare
 <a name="Toolbar.module_ToolbarFieldGroupVariant..useToolbarFieldOptions"></a>
 
 ### ToolbarFieldGroupVariant~useToolbarFieldOptions(options) ⇒ <code>function</code>
-Generate select field options from config
+Generate select field options from config. Sorted by title string.
 
 **Kind**: inner method of [<code>ToolbarFieldGroupVariant</code>](#Toolbar.module_ToolbarFieldGroupVariant)  
 <table>
@@ -6672,6 +6672,8 @@ Generate select field options from config
   <tbody>
 <tr>
     <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.t</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useRouteDetail</td><td><code>function</code></td>
     </tr>  </tbody>

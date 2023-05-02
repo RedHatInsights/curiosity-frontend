@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toolbar Component should handle displaying a group variant field: group variant 1`] = `
+exports[`Toolbar Component should handle displaying a group variant field: group variant, disabled 1`] = `
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
@@ -8,16 +8,6 @@ exports[`Toolbar Component should handle displaying a group variant field: group
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
-  <ToolbarFieldGroupVariant
-    isFilter={false}
-    isStandalone={false}
-    position="left"
-    t={[Function]}
-    useOnSelect={[Function]}
-    useProduct={[Function]}
-    useSelector={[Function]}
-    useToolbarFieldOptions={[Function]}
-  />
   <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}
@@ -90,6 +80,16 @@ exports[`Toolbar Component should handle displaying secondary components, fields
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
+  <ToolbarFieldGroupVariant
+    isFilter={false}
+    isStandalone={false}
+    position="left"
+    t={[Function]}
+    useOnSelect={[Function]}
+    useProduct={[Function]}
+    useSelector={[Function]}
+    useToolbarFieldOptions={[Function]}
+  />
   <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}
@@ -174,6 +174,16 @@ exports[`Toolbar Component should hide categories when a single filter is availa
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
+  <ToolbarFieldGroupVariant
+    isFilter={false}
+    isStandalone={false}
+    position="left"
+    t={[Function]}
+    useOnSelect={[Function]}
+    useProduct={[Function]}
+    useSelector={[Function]}
+    useToolbarFieldOptions={[Function]}
+  />
   <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}
@@ -227,6 +237,16 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
+  <ToolbarFieldGroupVariant
+    isFilter={false}
+    isStandalone={false}
+    position="left"
+    t={[Function]}
+    useOnSelect={[Function]}
+    useProduct={[Function]}
+    useSelector={[Function]}
+    useToolbarFieldOptions={[Function]}
+  />
   <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}
@@ -290,11 +310,22 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
 </Toolbar>
 `;
 
-exports[`Toolbar Component should return an empty render when disabled or missing filters: disabled component 1`] = `""`;
+exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: disabled component 1`] = `""`;
 
-exports[`Toolbar Component should return an empty render when disabled or missing filters: missing filters 1`] = `""`;
+exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: missing filters, has variant filter 1`] = `
+<ToolbarFieldGroupVariant
+  isFilter={false}
+  isStandalone={true}
+  position="left"
+  t={[Function]}
+  useOnSelect={[Function]}
+  useProduct={[Function]}
+  useSelector={[Function]}
+  useToolbarFieldOptions={[Function]}
+/>
+`;
 
-exports[`Toolbar Component should return an empty render when disabled or missing filters: missing primary, has secondary filters 1`] = `
+exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: missing primary, has secondary filters 1`] = `
 <Toolbar
   className="curiosity-toolbar pf-m-toggle-group-container ins-c-primary-toolbar"
   clearAllFilters={[Function]}
@@ -302,6 +333,16 @@ exports[`Toolbar Component should return an empty render when disabled or missin
   collapseListedFiltersBreakpoint="sm"
   id="curiosity-toolbar"
 >
+  <ToolbarFieldGroupVariant
+    isFilter={false}
+    isStandalone={false}
+    position="left"
+    t={[Function]}
+    useOnSelect={[Function]}
+    useProduct={[Function]}
+    useSelector={[Function]}
+    useToolbarFieldOptions={[Function]}
+  />
   <ToolbarContent
     isExpanded={false}
     showClearFiltersButton={false}

@@ -1,266 +1,580 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: expected covered, missing routes 1`] = `
+exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: GUI routes expected covered, missing routes 1`] = `
 [
   {
     "coverage": "TRUE",
-    "path": "/openshift-container",
+    "path": "/openshift",
+    "productGroup": [
+      "openshift",
+    ],
     "productId": [
       "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
       "OpenShift-metrics",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/OpenShift Container Platform",
+    "productGroup": [
+      "openshift",
+    ],
     "productId": [
       "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
       "OpenShift-metrics",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
-    "path": "/openshift",
+    "path": "/openshift-container",
+    "productGroup": [
+      "openshift",
+    ],
     "productId": [
       "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
       "OpenShift-metrics",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/container",
+    "productGroup": [
+      "openshift",
+    ],
     "productId": [
       "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
       "OpenShift-metrics",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/platform",
+    "productGroup": [
+      "openshift",
+    ],
     "productId": [
       "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
       "OpenShift-metrics",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/shift",
+    "productGroup": [
+      "openshift",
+    ],
     "productId": [
       "OpenShift Container Platform",
-      "OpenShift-metrics",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/OpenShift-metrics",
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-metrics",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/metrics",
-    "productId": [
-      "OpenShift Container Platform",
-      "OpenShift-metrics",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/openshift-dedicated-metrics",
-    "productId": [
       "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
     ],
+    "productVariants": [],
   },
   {
-    "coverage": "TRUE",
+    "coverage": "FALSE",
     "path": "/openshift-dedicated",
-    "productId": [
-      "OpenShift-dedicated-metrics",
+    "productGroup": [
+      "openshift",
     ],
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
+    ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/dedicated",
-    "productId": [
-      "OpenShift-dedicated-metrics",
+    "productGroup": [
+      "openshift",
     ],
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/OpenShift-metrics",
+    "productGroup": [
+      "openshift",
+    ],
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/metrics",
+    "productGroup": [
+      "openshift",
+    ],
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
+    ],
+    "productVariants": [],
   },
   {
     "coverage": "TRUE",
     "path": "/rhacs",
+    "productGroup": [
+      "rhacs",
+    ],
     "productId": [
       "rhacs",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/advanced",
+    "productGroup": [
+      "rhacs",
+    ],
     "productId": [
       "rhacs",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/cluster",
+    "productGroup": [
+      "rhacs",
+    ],
     "productId": [
       "rhacs",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/security",
+    "productGroup": [
+      "rhacs",
+    ],
     "productId": [
       "rhacs",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/kubernetes",
+    "productGroup": [
+      "rhacs",
+    ],
     "productId": [
       "rhacs",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "FALSE",
     "path": "/acs",
+    "productGroup": [
+      "rhacs",
+    ],
     "productId": [
       "rhacs",
     ],
+    "productVariants": [],
   },
   {
     "coverage": "TRUE",
     "path": "/rhel",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "RHEL",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/insights",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "RHEL",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/enterprise",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "RHEL",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/linux",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "RHEL",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/el",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "RHEL",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/x86",
-    "productId": [
-      "RHEL",
+    "productGroup": [
+      "rhel",
     ],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/rhods",
     "productId": [
-      "rhods",
+      "RHEL for x86",
+      "Satellite Server",
     ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/openshift",
-    "productId": [
-      "rhods",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/data",
-    "productId": [
-      "rhods",
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
-    "path": "/science",
+    "path": "/ibm",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "rhods",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
-    "path": "/ods",
-    "productId": [
-      "rhods",
+    "path": "/power",
+    "productGroup": [
+      "rhel",
     ],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/streams",
     "productId": [
-      "rhosak",
+      "RHEL for x86",
+      "Satellite Server",
     ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/application-services",
-    "productId": [
-      "rhosak",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/rhosak",
-    "productId": [
-      "rhosak",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/apache",
-    "productId": [
-      "rhosak",
-    ],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/kafka",
-    "productId": [
-      "rhosak",
-    ],
-  },
-  {
-    "coverage": "TRUE",
-    "path": "/satellite",
-    "productId": [
-      "Satellite",
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/sat",
+    "productGroup": [
+      "rhel",
+    ],
     "productId": [
-      "Satellite",
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
+    ],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/server",
+    "productGroup": [
+      "rhel",
+    ],
+    "productId": [
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
     ],
   },
   {
     "coverage": "FALSE",
     "path": "/capsule",
-    "productId": [
-      "Satellite",
+    "productGroup": [
+      "rhel",
     ],
+    "productId": [
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/rhods",
+    "productGroup": [
+      "rhods",
+    ],
+    "productId": [
+      "rhods",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/data",
+    "productGroup": [
+      "rhods",
+    ],
+    "productId": [
+      "rhods",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/science",
+    "productGroup": [
+      "rhods",
+    ],
+    "productId": [
+      "rhods",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/ods",
+    "productGroup": [
+      "rhods",
+    ],
+    "productId": [
+      "rhods",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/streams",
+    "productGroup": [
+      "rhosak",
+    ],
+    "productId": [
+      "rhosak",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/application-services",
+    "productGroup": [
+      "rhosak",
+    ],
+    "productId": [
+      "rhosak",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/rhosak",
+    "productGroup": [
+      "rhosak",
+    ],
+    "productId": [
+      "rhosak",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/apache",
+    "productGroup": [
+      "rhosak",
+    ],
+    "productId": [
+      "rhosak",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
+    "path": "/kafka",
+    "productGroup": [
+      "rhosak",
+    ],
+    "productId": [
+      "rhosak",
+    ],
+    "productVariants": [],
+  },
+]
+`;
+
+exports[`Build distribution should have a predictable ephemeral navigation based on route configuration: YAML routes expected covered, missing routes 1`] = `
+[
+  {
+    "coverage": "TRUE",
+    "path": "/rhel",
+    "productGroup": [
+      "rhel",
+    ],
+    "productId": [
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/openshift",
+    "productGroup": [
+      "openshift",
+    ],
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/streams",
+    "productGroup": [
+      "rhosak",
+    ],
+    "productId": [
+      "rhosak",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/rhods",
+    "productGroup": [
+      "rhods",
+    ],
+    "productId": [
+      "rhods",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/rhacs",
+    "productGroup": [
+      "rhacs",
+    ],
+    "productId": [
+      "rhacs",
+    ],
+    "productVariants": [],
   },
 ]
 `;

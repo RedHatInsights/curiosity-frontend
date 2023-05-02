@@ -37,7 +37,11 @@ describe('Build distribution', () => {
         const updatedConfig = [
           {
             path: `/${groupedConfigs?.[0]?.productPath}`,
-            productId: [...groupedConfigs.map(({ productId }) => productId)]
+            productId: [...groupedConfigs.map(({ productId }) => productId)],
+            productGroup: Array.from(new Set([...groupedConfigs.map(({ productGroup }) => productGroup)])),
+            productVariants: Array.from(new Set([...groupedConfigs.map(({ productVariants }) => productVariants)]))
+              .flat()
+              .filter(value => value !== undefined)
           }
         ];
 
@@ -51,8 +55,27 @@ describe('Build distribution', () => {
     ];
 
     expect(
-      guiRoutes.map(({ path, productId }) => {
-        const updatedRoute = { path, productId, coverage: 'FALSE' };
+      yamlRoutes.map(({ href }) => {
+        const updatedRoute = { coverage: 'FALSE' };
+        const match = guiRoutes.find(({ path }) => href.split('subscriptions')[1] === path);
+
+        if (match) {
+          updatedRoute.coverage = 'TRUE';
+        }
+
+        return {
+          path: match?.path,
+          productId: match?.productId,
+          productGroup: match?.productGroup,
+          productVariants: match?.productVariants,
+          ...updatedRoute
+        };
+      })
+    ).toMatchSnapshot('YAML routes expected covered, missing routes');
+
+    expect(
+      guiRoutes.map(({ path, productGroup, productId, productVariants }) => {
+        const updatedRoute = { path, productId, productGroup, productVariants, coverage: 'FALSE' };
         const match = yamlRoutes.find(({ href }) => href.split('subscriptions')[1] === path);
 
         if (match) {
@@ -61,6 +84,6 @@ describe('Build distribution', () => {
 
         return updatedRoute;
       })
-    ).toMatchSnapshot('expected covered, missing routes');
+    ).toMatchSnapshot('GUI routes expected covered, missing routes');
   });
 });
