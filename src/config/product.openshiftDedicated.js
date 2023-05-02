@@ -22,7 +22,7 @@ import { dateHelpers, helpers } from '../common';
 import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
-const productGroup = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
+const productGroup = 'openshift';
 
 const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 
@@ -35,7 +35,7 @@ const config = {
   productLabel,
   productPath: productGroup.toLowerCase(),
   productDisplay: DISPLAY_TYPES.DUAL_AXES,
-  viewId: `view${productGroup}`,
+  viewId: `view${productGroup}-${productId}`,
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
     [RHSM_API_QUERY_SET_TYPES.END_DATE]: dateHelpers.getRangedMonthDateTime('current').value.endDate.toISOString()

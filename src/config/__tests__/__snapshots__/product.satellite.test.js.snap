@@ -740,8 +740,5 @@ exports[`Product Satellite config should apply toolbar configuration: filters 1`
   {
     "id": "category",
   },
-  {
-    "id": "variant",
-  },
 ]
 `;

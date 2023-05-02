@@ -377,6 +377,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-toolbar.label",
+        "match": "t('curiosity-toolbar.label', { context: ['groupVariant', variant] })",
+      },
+      {
+        "key": "curiosity-toolbar.label",
         "match": "t('curiosity-toolbar.label', { context: ['groupVariant'] })",
       },
       {
@@ -839,6 +843,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/toolbar/toolbarFieldGranularity.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/components/toolbar/toolbarFieldGroupVariant.js",
     "key": "curiosity-toolbar.label",
   },
   {

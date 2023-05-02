@@ -6,7 +6,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "dolor": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-ipsum",
+        "productId": "dolor",
         "productVariants": [
           "dolor",
           "sit",
@@ -17,7 +17,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "hello": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-dolor",
+        "productId": "hello",
         "productVariants": [
           "hello",
           "world",
@@ -28,7 +28,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "sit": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-ipsum",
+        "productId": "sit",
         "productVariants": [
           "dolor",
           "sit",
@@ -39,7 +39,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "world": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-dolor",
+        "productId": "world",
         "productVariants": [
           "hello",
           "world",
@@ -48,22 +48,11 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
       },
     ],
   },
-  "byAliasGroupProductPathIds": [
-    "dolor",
-    "dolor sit",
-    "hello",
-    "hello world",
-    "lorem",
-    "lorem-dolor",
-    "lorem-ipsum",
-    "sit",
-    "world",
-  ],
-  "byGroup": {
+  "byAnything": {
     "dolor": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-ipsum",
+        "productId": "dolor",
         "productVariants": [
           "dolor",
           "sit",
@@ -86,7 +75,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "hello": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-dolor",
+        "productId": "hello",
         "productVariants": [
           "hello",
           "world",
@@ -146,7 +135,7 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "sit": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-ipsum",
+        "productId": "sit",
         "productVariants": [
           "dolor",
           "sit",
@@ -157,13 +146,89 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
     "world": [
       {
         "productGroup": "lorem",
-        "productId": "lorem-dolor",
+        "productId": "world",
         "productVariants": [
           "hello",
           "world",
         ],
         "viewId": "view-lorem",
       },
+    ],
+  },
+  "byAnythingPathIds": [
+    "dolor",
+    "dolor sit",
+    "hello",
+    "hello world",
+    "lorem",
+    "lorem-dolor",
+    "lorem-ipsum",
+    "sit",
+    "world",
+  ],
+  "byAnythingVariants": {
+    "dolor": [
+      "dolor",
+      "dolor sit",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
+    ],
+    "dolor sit": [
+      "dolor sit",
+    ],
+    "hello": [
+      "dolor",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
+    ],
+    "hello world": [
+      "hello world",
+    ],
+    "lorem": [
+      "dolor",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
+    ],
+    "lorem-dolor": [
+      "dolor",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
+    ],
+    "lorem-ipsum": [
+      "dolor",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
+    ],
+    "sit": [
+      "dolor",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
+    ],
+    "world": [
+      "dolor",
+      "hello",
+      "lorem-dolor",
+      "lorem-ipsum",
+      "sit",
+      "world",
     ],
   },
   "byGroupIdConfigs": {
@@ -200,6 +265,22 @@ exports[`Product configurations should return sorted product configs: sorted 1`]
         ],
         "viewId": "view-lorem",
       },
+    ],
+  },
+  "byGroupIdVariants": {
+    "dolor": [
+      "dolor sit",
+    ],
+    "hello world": [
+      "hello world",
+    ],
+    "lorem": [
+      "dolor",
+      "sit",
+      "lorem-ipsum",
+      "hello",
+      "world",
+      "lorem-dolor",
     ],
   },
   "byGroupIds": {
@@ -309,17 +390,19 @@ exports[`Product configurations should return specific methods and properties: p
     "OpenShift-dedicated-metrics",
     "OpenShift-metrics",
     "rhacs",
-    "RHEL",
+    "RHEL for x86",
     "rhods",
     "rhosak",
-    "Satellite",
+    "Satellite Server",
   ],
   "sortedConfigs": [
     "byAlias",
-    "byGroup",
-    "byAliasGroupProductPathIds",
+    "byAnything",
+    "byAnythingPathIds",
+    "byAnythingVariants",
     "byGroupIdConfigs",
     "byGroupIds",
+    "byGroupIdVariants",
     "byProductPathConfigs",
     "byProductIdConfigs",
     "byProductIds",

@@ -28,14 +28,14 @@ import { translate } from '../components/i18n/i18n';
 
 // ToDo: evaluate the need for "productLabel" or using productId
 
-const productGroup = 'openshift-container';
+const productGroup = 'openshift';
 
 const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 
 const config = {
-  aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT, 'openshift', 'container', 'platform', 'shift'],
+  aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT, 'openshift-container', 'container', 'platform', 'shift'],
   productGroup,
   productId,
   productLabel,

@@ -94,24 +94,44 @@ const useNavigate = ({
  * @param {object} options
  * @param {Function} options.t
  * @param {Function} options.useChrome
- * @param {Function} options.useSelector
+ * @param {Function} options.useSelectors
  * @returns {{baseName: string, errorRoute: object}}
  */
 const useRouteDetail = ({
   t = translate,
   useChrome: useAliasChrome = useChrome,
-  useSelector: useAliasSelector = storeHooks.reactRedux.useSelectors
+  useSelectors: useAliasSelectors = storeHooks.reactRedux.useSelectors
 } = {}) => {
   const { getBundleData = helpers.noop, updateDocumentTitle = helpers.noop } = useAliasChrome();
   const bundleData = getBundleData();
-  const [productPath] = useAliasSelector([({ view }) => view?.product?.config]);
+  const [productPath, productVariant] = useAliasSelectors([
+    ({ view }) => view?.product?.config,
+    ({ view }) => view?.product?.variant
+  ]);
   const [detail, setDetail] = useState({});
 
   useEffect(() => {
-    if (productPath && detail?._passed !== productPath) {
-      const { allConfigs, configs, firstMatch, isClosest } = routerHelpers.getRouteConfigByPath({
-        pathName: productPath
+    const updatedVariantPath = productPath;
+    const hashPath = helpers.generateHash({ productPath, productVariant });
+
+    if (updatedVariantPath && detail?._passed !== hashPath) {
+      // Get base configuration match
+      let routeConfig = routerHelpers.getRouteConfigByPath({
+        pathName: updatedVariantPath
       });
+
+      // Determine variant to display, if any
+      if (productVariant) {
+        const selectedVariant = productVariant?.[routeConfig?.firstMatch?.productGroup];
+
+        if (selectedVariant) {
+          routeConfig = routerHelpers.getRouteConfigByPath({
+            pathName: selectedVariant
+          });
+        }
+      }
+
+      const { allConfigs, availableVariants, configs, firstMatch, isClosest } = routeConfig;
 
       // Set document title, remove pre-baked suffix
       updateDocumentTitle(
@@ -124,17 +144,19 @@ const useRouteDetail = ({
 
       // Set route detail
       setDetail({
-        _passed: productPath,
+        _passed: hashPath,
         allConfigs,
+        availableVariants,
         firstMatch,
         errorRoute: routerHelpers.errorRoute,
         isClosest,
         productGroup: firstMatch?.productGroup,
         productConfig: (configs?.length && configs) || [],
-        productPath
+        productPath,
+        productVariant
       });
     }
-  }, [bundleData?.bundleTitle, detail?._passed, productPath, t, updateDocumentTitle]);
+  }, [bundleData?.bundleTitle, detail?._passed, productPath, productVariant, t, updateDocumentTitle]);
 
   return detail;
 };
