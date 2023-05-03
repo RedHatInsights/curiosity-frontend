@@ -1,5 +1,234 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product OpenShift Metrics config should apply an inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "100.00",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "value": 100,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "value": "lorem ipsum",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Metrics config should apply an inventory configuration: filtered, NOT authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <React.Fragment>
+        lorem ipsum
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": "100.00",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "value": 100,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"OpenShift-metrics"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Metrics config should apply an inventory configuration: filtered, authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <React.Fragment>
+        <Button
+          component="a"
+          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+          isInline={true}
+          variant="link"
+        >
+          lorem ipsum
+        </Button>
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": "100.00",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "value": 100,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"OpenShift-metrics"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Metrics config should apply an inventory configuration: filtered, fallback display 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "100.00",
+    },
+    {
+      "title": "",
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
+      "value": 100,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"OpenShift-metrics"})",
+      "value": null,
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
+      "value": null,
+    },
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"OpenShift-metrics"})",
+      "value": null,
+    },
+  },
+}
+`;
+
 exports[`Product OpenShift Metrics config should apply graph configuration: filters 1`] = `
 {
   "filtersSettings": [
@@ -104,124 +333,6 @@ exports[`Product OpenShift Metrics config should apply graph configuration: sett
     },
   ],
   "isCardTitleDescription": true,
-}
-`;
-
-exports[`Product OpenShift Metrics config should apply hosts inventory configuration: filtered 1`] = `
-{
-  "cells": [
-    {
-      "title": <React.Fragment>
-        lorem
-         
-        
-      </React.Fragment>,
-    },
-    {
-      "title": "12.53",
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "core_hours": {
-      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
-      "value": 12.53,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
-      "value": "lorem",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-metrics"})",
-      "value": "lorem inventory id",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-      "value": "2022-01-01T00:00:00.000Z",
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift-metrics"})",
-      "value": "hello world",
-    },
-  },
-}
-`;
-
-exports[`Product OpenShift Metrics config should apply hosts inventory configuration: filtered, fallback display 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem",
-    },
-    {
-      "title": "0.00",
-    },
-    {
-      "title": "",
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "core_hours": {
-      "title": "t(curiosity-inventory.header_core_hours, {"context":"OpenShift-metrics"})",
-      "value": null,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
-      "value": "lorem",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-metrics"})",
-      "value": null,
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-      "value": null,
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift-metrics"})",
-      "value": "hello world",
-    },
-  },
 }
 `;
 

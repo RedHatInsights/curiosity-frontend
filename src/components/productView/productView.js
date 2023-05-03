@@ -6,12 +6,10 @@ import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageCol
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
 import { InventoryCard } from '../inventoryCard/inventoryCard';
-import { InventoryCardHosts } from '../inventoryCard/inventoryCardHosts';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
-import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../services/rhsm/rhsmConstants';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -39,8 +37,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
 
   const renderProduct = useCallback(() => {
     const updated = config => {
-      const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productDisplay, productId, viewId } =
-        config;
+      const { initialInventoryFilters, initialSubscriptionsInventoryFilters, productId, viewId } = config;
 
       if (!productId || !viewId) {
         return null;
@@ -57,35 +54,20 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
           <PageSection>
             <GraphCard />
           </PageSection>
-          <PageSection className={(productDisplay === DISPLAY_TYPES.HOURLY && 'curiosity-page-section__tabs') || ''}>
+          <PageSection className="curiosity-page-section__tabs">
             <InventoryTabs
               isDisabled={
                 (!initialInventoryFilters && !initialSubscriptionsInventoryFilters) || helpers.UI_DISABLED_TABLE
               }
             >
-              {!helpers.UI_DISABLED_TABLE_HOSTS &&
-                productDisplay !== DISPLAY_TYPES.HOURLY &&
-                productDisplay !== DISPLAY_TYPES.CAPACITY &&
-                initialInventoryFilters && (
-                  <InventoryTab
-                    key={`inventory_hosts_${productId}`}
-                    title={t('curiosity-inventory.tabHosts', { context: [productId] })}
-                  >
-                    <InventoryCardHosts />
-                  </InventoryTab>
-                )}
-              {!helpers.UI_DISABLED_TABLE_INSTANCES &&
-                productDisplay !== DISPLAY_TYPES.DUAL_AXES &&
-                productDisplay !== DISPLAY_TYPES.LEGACY &&
-                productDisplay !== DISPLAY_TYPES.PARTIAL &&
-                initialInventoryFilters && (
-                  <InventoryTab
-                    key={`inventory_instances_${productId}`}
-                    title={t('curiosity-inventory.tabInstances', { context: [productId] })}
-                  >
-                    <InventoryCard />
-                  </InventoryTab>
-                )}
+              {!helpers.UI_DISABLED_TABLE_INSTANCES && initialInventoryFilters && (
+                <InventoryTab
+                  key={`inventory_instances_${productId}`}
+                  title={t('curiosity-inventory.tabInstances', { context: [productId] })}
+                >
+                  <InventoryCard />
+                </InventoryTab>
+              )}
               {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (
                 <InventoryTab
                   key={`inventory_subs_${productId}`}

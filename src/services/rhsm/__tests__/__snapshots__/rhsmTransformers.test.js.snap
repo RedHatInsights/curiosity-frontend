@@ -788,6 +788,7 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
+    "uom": undefined,
   },
 }
 `;
@@ -798,6 +799,70 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
   "meta": {
     "count": undefined,
     "productId": undefined,
+    "uom": undefined,
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse an instances response: instances, uom cores 1`] = `
+{
+  "data": [
+    {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+      "numberOfGuests": undefined,
+      "number_of_guests": undefined,
+      "subscriptionManagerId": undefined,
+      "subscription_manager_id": undefined,
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Cores",
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse an instances response: instances, uom cores as parameter 1`] = `
+{
+  "data": [
+    {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+      "numberOfGuests": undefined,
+      "number_of_guests": undefined,
+      "subscriptionManagerId": undefined,
+      "subscription_manager_id": undefined,
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Cores",
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse an instances response: instances, uom sockets 1`] = `
+{
+  "data": [
+    {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+      "numberOfGuests": undefined,
+      "number_of_guests": undefined,
+      "subscriptionManagerId": undefined,
+      "subscription_manager_id": undefined,
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Sockets",
   },
 }
 `;

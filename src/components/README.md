@@ -3440,13 +3440,15 @@ Parse and return formatted/filtered table cells, and apply table filters.
 ## InventoryCardHosts
 
 * [InventoryCardHosts](#InventoryCard.module_InventoryCardHosts)
-    * [~InventoryCardHosts(props)](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts) ⇒ <code>React.ReactNode</code>
+    * <del>[~InventoryCardHosts(props)](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts) ⇒ <code>React.ReactNode</code></del>
         * [.propTypes](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.propTypes) : <code>Object</code>
         * [.defaultProps](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.defaultProps) : <code>Object</code>
 
 <a name="InventoryCard.module_InventoryCardHosts..InventoryCardHosts"></a>
 
-### InventoryCardHosts~InventoryCardHosts(props) ⇒ <code>React.ReactNode</code>
+### <del>InventoryCardHosts~InventoryCardHosts(props) ⇒ <code>React.ReactNode</code></del>
+***Deprecated***
+
 A hosts' system inventory component.
 
 **Kind**: inner method of [<code>InventoryCardHosts</code>](#InventoryCard.module_InventoryCardHosts)  
@@ -3469,7 +3471,7 @@ A hosts' system inventory component.
 </table>
 
 
-* [~InventoryCardHosts(props)](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts) ⇒ <code>React.ReactNode</code>
+* <del>[~InventoryCardHosts(props)](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts) ⇒ <code>React.ReactNode</code></del>
     * [.propTypes](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.propTypes) : <code>Object</code>
     * [.defaultProps](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.defaultProps) : <code>Object</code>
 

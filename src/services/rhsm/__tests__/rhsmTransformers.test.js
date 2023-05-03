@@ -235,18 +235,55 @@ describe('RHSM Transformers', () => {
   it('should attempt to parse an instances response', () => {
     expect(rhsmTransformers.instances(undefined)).toMatchSnapshot('instances, failed');
 
+    const response = {
+      [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
+        {
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
+        }
+      ],
+      [rhsmConstants.RHSM_API_RESPONSE_META]: {
+        [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b']
+      }
+    };
+
+    expect(rhsmTransformers.instances(response)).toMatchSnapshot('instances');
+
     expect(
       rhsmTransformers.instances({
-        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
-          {
-            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_DATA_TYPES.MEASUREMENTS]: [1000, 0.0003456, 2]
-          }
-        ],
+        ...response,
         [rhsmConstants.RHSM_API_RESPONSE_META]: {
-          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.MEASUREMENTS]: ['c', 'a', 'b']
+          ...response[rhsmConstants.RHSM_API_RESPONSE_META],
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'sockets'
         }
       })
-    ).toMatchSnapshot('instances');
+    ).toMatchSnapshot('instances, uom sockets');
+
+    expect(
+      rhsmTransformers.instances({
+        ...response,
+        [rhsmConstants.RHSM_API_RESPONSE_META]: {
+          ...response[rhsmConstants.RHSM_API_RESPONSE_META],
+          [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'cores'
+        }
+      })
+    ).toMatchSnapshot('instances, uom cores');
+
+    expect(
+      rhsmTransformers.instances(
+        {
+          ...response,
+          [rhsmConstants.RHSM_API_RESPONSE_META]: {
+            ...response[rhsmConstants.RHSM_API_RESPONSE_META],
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: undefined
+          }
+        },
+        {
+          params: {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'cores'
+          }
+        }
+      )
+    ).toMatchSnapshot('instances, uom cores as parameter');
   });
 
   it('should attempt to parse a tally response', () => {

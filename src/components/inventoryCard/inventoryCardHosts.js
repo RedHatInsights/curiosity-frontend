@@ -12,6 +12,8 @@ import { helpers } from '../../common';
 /**
  * A hosts' system inventory component.
  *
+ * @deprecated The Hosts API response is deprecated. New product inventory displays should be using Instances
+ *     and/or Subscriptions.
  * @param {object} props
  * @param {boolean} props.isDisabled
  * @param {Function} props.useGetInventory

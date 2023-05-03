@@ -1,6 +1,7 @@
 import moment from 'moment';
 import {
   RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_RESPONSE_HOSTS_DATA_TYPES as HOSTS_DATA_TYPES,
   RHSM_API_RESPONSE_HOSTS_META_TYPES as HOSTS_META_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INSTANCES_DATA_TYPES,
@@ -52,15 +53,19 @@ const rhsmHosts = response => {
 };
 
 /**
- * FixMe: If RHSM Instances is deprecating Hosts we're missing a property, number_of_guests
+ * ToDO: remove the UOM fallback if/when the API supports returning some form of the UOM in the response
+ * This is a temporary fix that passes the selected _uom from params in the event the API doesn't
+ * include it.
  */
 /**
  * Parse RHSM instances response for caching.
  *
  * @param {object} response
+ * @param {object} config
+ * @param {object} config.params
  * @returns {object}
  */
-const rhsmInstances = response => {
+const rhsmInstances = (response, { params } = {}) => {
   const updatedResponse = {};
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
@@ -89,8 +94,17 @@ const rhsmInstances = response => {
     }
   );
 
+  let normalizedUom = meta?.[INSTANCES_META_TYPES.UOM] ?? params?.[INSTANCES_META_TYPES.UOM];
+
+  if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.SOCKETS.toLowerCase()) {
+    normalizedUom = RHSM_API_PATH_METRIC_TYPES.SOCKETS;
+  } else if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.CORES.toLowerCase()) {
+    normalizedUom = RHSM_API_PATH_METRIC_TYPES.CORES;
+  }
+
   updatedResponse.meta = {
     count: meta[INSTANCES_META_TYPES.COUNT],
+    uom: normalizedUom,
     productId: meta[INSTANCES_META_TYPES.PRODUCT]
   };
 
@@ -108,7 +122,7 @@ const rhsmInstances = response => {
  * @param {object} response
  * @param {object} config
  * @param {boolean} config._isCapacity
- * @param {string} config.params
+ * @param {object} config.params
  * @returns {object}
  */
 const rhsmTallyCapacity = (response, { _isCapacity, params } = {}) => {

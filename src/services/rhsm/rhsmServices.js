@@ -749,6 +749,7 @@ const getApiVersion = (options = {}) => {
 /**
  * Get RHSM API reporting/tally graph/chart data.
  *
+ * @deprecated The graph reports Tally call is replaced by independent Tally and Capacity metric calls.
  * @param {string} id Product ID
  * @param {object} params Query/search params
  * @param {object} options
@@ -2412,6 +2413,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
 /**
  * Get RHSM API hosts table/inventory data.
  *
+ * @deprecated The Hosts inventory response is being replaced in favor of the Instances inventory response.
  * @param {string} id Product ID
  * @param {object} params Query/search params
  * @param {object} options

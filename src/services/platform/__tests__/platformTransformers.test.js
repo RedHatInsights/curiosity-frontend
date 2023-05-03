@@ -50,6 +50,9 @@ describe('Platform Transformers', () => {
         },
         {
           [USER_PERMISSION_TYPES.PERMISSION]: `ipsum:${RESOURCE_TYPES.ALL}:${OPERATION_TYPES.READ}`
+        },
+        {
+          [USER_PERMISSION_TYPES.PERMISSION]: `broken`
         }
       ])
     ).toMatchSnapshot('permissions, parsed');

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProductView } from '../productView';
 import { RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES } from '../../../services/rhsm/rhsmConstants';
+import { InventoryTabs } from '../../inventoryTabs/inventoryTabs';
 
 describe('ProductView Component', () => {
   it('should render a basic component', async () => {
@@ -85,6 +86,7 @@ describe('ProductView Component', () => {
           lorem: 'ipsum',
           productId: 'lorem',
           viewId: 'viewIpsum',
+          initialInventoryFilters: [],
           initialSubscriptionsInventoryFilters: []
         },
         productGroup: 'lorem ipsum'
@@ -92,6 +94,38 @@ describe('ProductView Component', () => {
     };
 
     const component = await shallowHookComponent(<ProductView {...props} />);
-    expect(component).toMatchSnapshot('custom tabs, subscriptions table');
+    expect(component.find(InventoryTabs)).toMatchSnapshot('custom tabs, basic inventory tables');
+
+    component.setProps({
+      ...props,
+      useRouteDetail: () => ({
+        firstMatch: {
+          lorem: 'ipsum',
+          productId: 'lorem',
+          viewId: 'viewIpsum',
+          initialInventoryFilters: undefined,
+          initialSubscriptionsInventoryFilters: []
+        },
+        productGroup: 'lorem ipsum'
+      })
+    });
+
+    expect(component.find(InventoryTabs)).toMatchSnapshot('custom tabs, missing inventory');
+
+    component.setProps({
+      ...props,
+      useRouteDetail: () => ({
+        firstMatch: {
+          lorem: 'ipsum',
+          productId: 'lorem',
+          viewId: 'viewIpsum',
+          initialInventoryFilters: [],
+          initialSubscriptionsInventoryFilters: undefined
+        },
+        productGroup: 'lorem ipsum'
+      })
+    });
+
+    expect(component.find(InventoryTabs)).toMatchSnapshot('custom tabs, missing subscriptions inventory');
   });
 });

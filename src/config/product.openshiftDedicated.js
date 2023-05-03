@@ -5,7 +5,7 @@ import {
   chart_color_cyan_100 as chartColorCyanLight,
   chart_color_cyan_300 as chartColorCyanDark
 } from '@patternfly/react-tokens';
-import { Label as PfLabel } from '@patternfly/react-core';
+import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
 import {
   RHSM_API_PATH_METRIC_TYPES,
@@ -14,7 +14,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_TYPES as INVENTORY_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { ChartTypeVariant } from '../components/chart/chart';
@@ -28,13 +28,21 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 
+/**
+ * OpenShift Dedicated product config
+ *
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object,
+ *     viewId: string, initialToolbarFilters: undefined, productGroup: string, graphTallyQuery: object,
+ *     inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: {}[], initialGraphSettings: object,
+ *     initialInventoryFilters: {}[]}}
+ */
 const config = {
   aliases: ['openshift-dedicated', 'dedicated'],
   productGroup,
   productId,
   productLabel,
   productPath: productGroup.toLowerCase(),
-  productDisplay: DISPLAY_TYPES.DUAL_AXES,
+  productDisplay: DISPLAY_TYPES.HOURLY,
   viewId: `view${productGroup}-${productId}`,
   query: {
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers.getRangedMonthDateTime('current').value.startDate.toISOString(),
@@ -104,26 +112,42 @@ const config = {
   initialInventoryFilters: [
     {
       id: INVENTORY_TYPES.DISPLAY_NAME,
-      cell: ({
-        [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-        [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {},
-        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
-      } = {}) => {
-        if (!inventoryId.value) {
+      cell: (
+        {
+          [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
+          [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {},
+          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
+        } = {},
+        session
+      ) => {
+        const { inventory: authorized } = session?.authorized || {};
+
+        if (!instanceId.value) {
           return displayName.value;
         }
 
-        const updatedDisplayName = displayName.value || inventoryId.value;
+        let updatedDisplayName = displayName.value || instanceId.value;
+
+        if (authorized) {
+          updatedDisplayName = (
+            <Button
+              isInline
+              component="a"
+              variant="link"
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId.value}/`}
+            >
+              {displayName.value || instanceId.value}
+            </Button>
+          );
+        }
 
         return (
           <React.Fragment>
             {updatedDisplayName}{' '}
             {(numberOfGuests.value &&
-              translate(
-                'curiosity-inventory.label',
-                { context: INVENTORY_TYPES.NUMBER_OF_GUESTS, count: numberOfGuests.value },
-                [<PfLabel color="blue" />]
-              )) ||
+              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [
+                <PfLabel color="blue" />
+              ])) ||
               ''}
           </React.Fragment>
         );
@@ -131,17 +155,17 @@ const config = {
       isSortable: true
     },
     {
-      id: INVENTORY_TYPES.CORE_HOURS,
-      cell: ({ [INVENTORY_TYPES.CORE_HOURS]: coreHours }) =>
-        (typeof coreHours?.value === 'number' && Number.parseFloat(coreHours?.value).toFixed(2)) || `0.00`,
+      id: RHSM_API_PATH_METRIC_TYPES.CORES,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: cores }) =>
+        (typeof cores?.value === 'number' && Number.parseFloat(cores?.value).toFixed(2)) || '--',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
     },
     {
-      id: INVENTORY_TYPES.INSTANCE_HOURS,
-      cell: ({ [INVENTORY_TYPES.INSTANCE_HOURS]: instanceHours } = {}) =>
-        (typeof instanceHours?.value === 'number' && Number.parseFloat(instanceHours?.value).toFixed(2)) || `0.00`,
+      id: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: instanceHours } = {}) =>
+        (typeof instanceHours?.value === 'number' && Number.parseFloat(instanceHours?.value).toFixed(2)) || '--',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15
