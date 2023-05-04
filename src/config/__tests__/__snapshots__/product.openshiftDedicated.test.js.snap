@@ -338,12 +338,6 @@ exports[`Product OpenShift Dedicated config should apply graph configuration: fi
             "yAxisUseDataSet": true,
           },
         ],
-        "padding": {
-          "bottom": 75,
-          "left": 75,
-          "right": 45,
-          "top": 45,
-        },
         "stringId": "Cores",
         "stroke": "#06c",
         "yAxisUseDataSet": true,

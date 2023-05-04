@@ -328,12 +328,6 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
             "strokeWidth": 3,
           },
         ],
-        "padding": {
-          "bottom": 75,
-          "left": 75,
-          "right": 45,
-          "top": 45,
-        },
         "stringId": "Cores",
         "stroke": "#06c",
       },

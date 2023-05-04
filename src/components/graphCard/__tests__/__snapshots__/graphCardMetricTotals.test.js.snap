@@ -261,4 +261,11 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 </div>
 `;
 
-exports[`GraphCardMetricTotals Component should render a basic component: basic 1`] = `"lorem ipsum"`;
+exports[`GraphCardMetricTotals Component should render a basic component: basic 1`] = `
+<div
+  className="curiosity-usage-graph__standalone"
+  data-test="graphStandalone"
+>
+  lorem ipsum
+</div>
+`;

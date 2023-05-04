@@ -269,12 +269,6 @@ exports[`Product OpenShift Metrics config should apply graph configuration: filt
             "strokeWidth": 2,
           },
         ],
-        "padding": {
-          "bottom": 75,
-          "left": 75,
-          "right": 45,
-          "top": 45,
-        },
         "stringId": "Cores",
         "stroke": "#06c",
       },

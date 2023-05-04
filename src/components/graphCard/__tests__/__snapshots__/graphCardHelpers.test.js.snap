@@ -32,12 +32,6 @@ exports[`GraphCardHelpers generateChartSettings should return base graph setting
             "strokeWidth": 2,
           },
         ],
-        "padding": {
-          "bottom": 75,
-          "left": 75,
-          "right": 45,
-          "top": 45,
-        },
         "stringId": "dolorSit",
       },
     },
