@@ -113,7 +113,11 @@ const GraphCardMetricTotals = ({
     );
   }
 
-  return children;
+  return (
+    <div data-test="graphStandalone" className="curiosity-usage-graph__standalone">
+      {children}
+    </div>
+  );
 };
 
 /**

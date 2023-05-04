@@ -384,12 +384,6 @@ exports[`Product Satellite config should apply graph configuration: filters 1`] 
             "strokeWidth": 2,
           },
         ],
-        "padding": {
-          "bottom": 75,
-          "left": 75,
-          "right": 45,
-          "top": 45,
-        },
         "query": {
           "category": "physical",
         },
