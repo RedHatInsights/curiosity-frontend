@@ -1,5 +1,250 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product OpenShift Container config should apply an inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift Container Platform"})",
+      "value": 100,
+    },
+    "Sockets": {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "value": "lorem ipsum",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Container config should apply an inventory configuration: filtered, NOT authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <React.Fragment>
+        lorem ipsum
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift Container Platform"})",
+      "value": 100,
+    },
+    "Sockets": {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"OpenShift Container Platform"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Container config should apply an inventory configuration: filtered, authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <React.Fragment>
+        <Button
+          component="a"
+          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+          isInline={true}
+          variant="link"
+        >
+          lorem ipsum
+        </Button>
+         
+        
+      </React.Fragment>,
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift Container Platform"})",
+      "value": 100,
+    },
+    "Sockets": {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"OpenShift Container Platform"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Container config should apply an inventory configuration: filtered, fallback display 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": 200,
+    },
+    {
+      "title": "",
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift Container Platform"})",
+      "value": 100,
+    },
+    "Sockets": {
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"OpenShift Container Platform"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"OpenShift Container Platform"})",
+      "value": null,
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
+      "value": null,
+    },
+    "number_of_guests": {
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"OpenShift Container Platform"})",
+      "value": null,
+    },
+  },
+}
+`;
+
 exports[`Product OpenShift Container config should apply graph configuration: filters 1`] = `
 {
   "filtersSettings": [
@@ -352,398 +597,6 @@ exports[`Product OpenShift Container config should apply guest inventory configu
 }
 `;
 
-exports[`Product OpenShift Container config should apply hosts inventory configuration: filtered 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem",
-    },
-    {
-      "title": 100,
-    },
-    {
-      "title": 20,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
-      "value": 20,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
-      "value": "lorem",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift Container Platform"})",
-      "value": "",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-      "value": "2022-01-01T00:00:00.000Z",
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift Container Platform"})",
-      "value": "hello world",
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"OpenShift Container Platform"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
-      "value": 100,
-    },
-  },
-}
-`;
-
-exports[`Product OpenShift Container config should apply hosts inventory configuration: filtered, NOT authorized 1`] = `
-{
-  "cells": [
-    {
-      "title": <React.Fragment>
-        lorem
-         
-        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-      </React.Fragment>,
-    },
-    {
-      "title": 100,
-    },
-    {
-      "title": 20,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "value": 20,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
-      "value": "XXXX-XXXX-XXXXX-XXXXX",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": "2022-01-01T00:00:00.000Z",
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
-      "value": "hello world",
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "value": 100,
-    },
-  },
-}
-`;
-
-exports[`Product OpenShift Container config should apply hosts inventory configuration: filtered, authorized 1`] = `
-{
-  "cells": [
-    {
-      "title": <React.Fragment>
-        <Button
-          component="a"
-          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-          isInline={true}
-          variant="link"
-        >
-          lorem
-        </Button>
-         
-        t(curiosity-inventory.label, {"context":"numberOfGuests","count":3}, [object Object])
-      </React.Fragment>,
-    },
-    {
-      "title": 100,
-    },
-    {
-      "title": 20,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "value": 20,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
-      "value": "XXXX-XXXX-XXXXX-XXXXX",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": "2022-01-01T00:00:00.000Z",
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
-      "value": "hello world",
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "value": 100,
-    },
-  },
-}
-`;
-
-exports[`Product OpenShift Container config should apply hosts inventory configuration: filtered, fallback display 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem",
-    },
-    {
-      "title": "",
-    },
-    {
-      "title": "",
-    },
-    {
-      "title": "",
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header_cores, {"context":"OpenShift Container Platform"})",
-      "value": null,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
-      "value": "lorem",
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift Container Platform"})",
-      "value": null,
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-      "value": null,
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header_loremIpsum, {"context":"OpenShift Container Platform"})",
-      "value": "hello world",
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"OpenShift Container Platform"})",
-      "value": null,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header_sockets, {"context":"OpenShift Container Platform"})",
-      "value": null,
-    },
-  },
-}
-`;
-
-exports[`Product OpenShift Container config should apply hosts inventory configuration: filtered, infinite 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem",
-    },
-    {
-      "title": 100,
-    },
-    {
-      "title": 20,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "cores": {
-      "title": "t(curiosity-inventory.header, {"context":"cores"})",
-      "value": 20,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem",
-    },
-    "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
-      "value": false,
-    },
-    "inventory_id": {
-      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
-      "value": "",
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": "2022-01-01T00:00:00.000Z",
-    },
-    "loremIpsum": {
-      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
-      "value": "hello world",
-    },
-    "number_of_guests": {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "value": 3,
-    },
-    "sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"sockets"})",
-      "value": 100,
-    },
-  },
-}
-`;
-
 exports[`Product OpenShift Container config should apply subscriptions inventory configuration: filtered 1`] = `
 {
   "cells": [
@@ -781,17 +634,17 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_quantity, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -803,7 +656,7 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -811,23 +664,23 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"OpenShift Container Platform"})",
       "value": true,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
       "value": "hello world",
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"OpenShift Container Platform"})",
       "value": 2000,
     },
   },
@@ -871,17 +724,17 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_quantity, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -893,7 +746,7 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -901,23 +754,23 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"OpenShift Container Platform"})",
       "value": true,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
       "value": null,
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"OpenShift Container Platform"})",
       "value": 2000,
     },
   },
@@ -945,17 +798,17 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_quantity, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -967,7 +820,7 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
       "transforms": [
         [Function],
       ],
@@ -975,23 +828,23 @@ exports[`Product OpenShift Container config should apply subscriptions inventory
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"OpenShift Container Platform"})",
       "value": false,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
       "value": "hello world",
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"OpenShift Container Platform"})",
       "value": 2000,
     },
   },

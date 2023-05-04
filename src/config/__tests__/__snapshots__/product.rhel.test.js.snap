@@ -27,29 +27,29 @@ exports[`Product RHEL config should apply an inventory configuration: filtered 1
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -57,15 +57,15 @@ exports[`Product RHEL config should apply an inventory configuration: filtered 1
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "value": 200,
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "value": "lorem ipsum",
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -99,29 +99,29 @@ exports[`Product RHEL config should apply an inventory configuration: filtered, 
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -129,19 +129,19 @@ exports[`Product RHEL config should apply an inventory configuration: filtered, 
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "value": 200,
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "value": "lorem ipsum",
     },
     "instance_id": {
-      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"RHEL for x86"})",
       "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -182,29 +182,29 @@ exports[`Product RHEL config should apply an inventory configuration: filtered, 
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -212,19 +212,19 @@ exports[`Product RHEL config should apply an inventory configuration: filtered, 
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "value": 200,
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "value": "lorem ipsum",
     },
     "instance_id": {
-      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"RHEL for x86"})",
       "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -260,29 +260,29 @@ exports[`Product RHEL config should apply an inventory configuration: filtered, 
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -290,100 +290,24 @@ exports[`Product RHEL config should apply an inventory configuration: filtered, 
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
       "value": 200,
     },
     "cloud_provider": {
-      "title": "t(curiosity-inventory.header_cloud, {"context":"provider"})",
+      "title": "t(curiosity-inventory.header_cloud_provider, {"context":"RHEL for x86"})",
       "value": "dolor sit",
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
       "value": "lorem ipsum",
     },
     "instance_id": {
-      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"RHEL for x86"})",
       "value": null,
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
       "value": null,
-    },
-  },
-}
-`;
-
-exports[`Product RHEL config should apply an inventory configuration: filtered, infinite 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem ipsum",
-    },
-    {
-      "title": "--",
-    },
-    {
-      "title": <React.Fragment>
-        t(curiosity-inventory.label, {"context":"category"})
-         
-        
-      </React.Fragment>,
-    },
-    {
-      "title": 200,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
-      "value": 200,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem ipsum",
-    },
-    "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
-      "value": false,
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": "2022-01-01T00:00:00.000Z",
     },
   },
 }
@@ -793,17 +717,17 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_quantity, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -815,7 +739,7 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -823,23 +747,23 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"RHEL for x86"})",
       "value": true,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
       "value": "hello world",
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"RHEL for x86"})",
       "value": 2000,
     },
   },
@@ -883,17 +807,17 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_quantity, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -905,7 +829,7 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -913,23 +837,23 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"RHEL for x86"})",
       "value": true,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
       "value": null,
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
       "value": null,
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"RHEL for x86"})",
       "value": 2000,
     },
   },
@@ -957,17 +881,17 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_quantity, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -979,7 +903,7 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
       "transforms": [
         [Function],
       ],
@@ -987,23 +911,23 @@ exports[`Product RHEL config should apply subscriptions inventory configuration:
   ],
   "data": {
     "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"RHEL for x86"})",
       "value": false,
     },
     "next_event_date": {
-      "title": "t(curiosity-inventory.header_next_event, {"context":"date"})",
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "product_name": {
-      "title": "t(curiosity-inventory.header_product, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
       "value": "lorem",
     },
     "service_level": {
-      "title": "t(curiosity-inventory.header_service, {"context":"level"})",
+      "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
       "value": "hello world",
     },
     "total_capacity": {
-      "title": "t(curiosity-inventory.header_total, {"context":"capacity"})",
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"RHEL for x86"})",
       "value": 2000,
     },
   },

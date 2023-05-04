@@ -207,6 +207,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "COUNT": "count",
     "MEASUREMENTS": "measurements",
     "PRODUCT": "product",
+    "UOM": "uom",
   },
   "RHSM_API_RESPONSE_META": "meta",
   "RHSM_API_RESPONSE_META_TYPES": {
@@ -487,6 +488,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "COUNT": "count",
       "MEASUREMENTS": "measurements",
       "PRODUCT": "product",
+      "UOM": "uom",
     },
     "RHSM_API_RESPONSE_META": "meta",
     "RHSM_API_RESPONSE_META_TYPES": {
@@ -768,6 +770,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "COUNT": "count",
       "MEASUREMENTS": "measurements",
       "PRODUCT": "product",
+      "UOM": "uom",
     },
     "RHSM_API_RESPONSE_META": "meta",
     "RHSM_API_RESPONSE_META_TYPES": {
@@ -1053,6 +1056,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "COUNT": "count",
     "MEASUREMENTS": "measurements",
     "PRODUCT": "product",
+    "UOM": "uom",
   },
   "RHSM_API_RESPONSE_META": "meta",
   "RHSM_API_RESPONSE_META_TYPES": {

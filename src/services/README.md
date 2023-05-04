@@ -868,9 +868,9 @@ RHSM API service calls.
 
 * [RhsmServices](#Rhsm.module_RhsmServices)
     * [~getApiVersion(options)](#Rhsm.module_RhsmServices..getApiVersion) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~getGraphReports(id, params, options)](#Rhsm.module_RhsmServices..getGraphReports) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * <del>[~getGraphReports(id, params, options)](#Rhsm.module_RhsmServices..getGraphReports) ⇒ <code>Promise.&lt;\*&gt;</code></del>
     * [~getGraphCapacity(id, params, options)](#Rhsm.module_RhsmServices..getGraphCapacity) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~getHostsInventory(id, params, options)](#Rhsm.module_RhsmServices..getHostsInventory) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * <del>[~getHostsInventory(id, params, options)](#Rhsm.module_RhsmServices..getHostsInventory) ⇒ <code>Promise.&lt;\*&gt;</code></del>
     * [~getHostsInventoryGuests(id, params, options)](#Rhsm.module_RhsmServices..getHostsInventoryGuests) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getInstancesInventory(id, params, options)](#Rhsm.module_RhsmServices..getInstancesInventory) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getSubscriptionsInventory(id, params, options)](#Rhsm.module_RhsmServices..getSubscriptionsInventory) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -899,7 +899,9 @@ Get RHSM API version information.
 
 <a name="Rhsm.module_RhsmServices..getGraphReports"></a>
 
-### RhsmServices~getGraphReports(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+### <del>RhsmServices~getGraphReports(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code></del>
+***Deprecated***
+
 Get RHSM API reporting/tally graph/chart data.
 
 **Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
@@ -955,7 +957,9 @@ Get RHSM API capacity/threshold graph/chart data.
 
 <a name="Rhsm.module_RhsmServices..getHostsInventory"></a>
 
-### RhsmServices~getHostsInventory(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+### <del>RhsmServices~getHostsInventory(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code></del>
+***Deprecated***
+
 Get RHSM API hosts table/inventory data.
 
 **Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
@@ -1097,7 +1101,7 @@ Transform RHSM responses. Replaces selector usage.
 
 * [RhsmTransformers](#Rhsm.module_RhsmTransformers)
     * [~rhsmHosts(response)](#Rhsm.module_RhsmTransformers..rhsmHosts) ⇒ <code>object</code>
-    * [~rhsmInstances(response)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
+    * [~rhsmInstances(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
     * [~rhsmTallyCapacity(response, config)](#Rhsm.module_RhsmTransformers..rhsmTallyCapacity) ⇒ <code>object</code>
 
 <a name="Rhsm.module_RhsmTransformers..rhsmHosts"></a>
@@ -1120,7 +1124,7 @@ Parse RHSM hosts response for caching.
 
 <a name="Rhsm.module_RhsmTransformers..rhsmInstances"></a>
 
-### RhsmTransformers~rhsmInstances(response) ⇒ <code>object</code>
+### RhsmTransformers~rhsmInstances(response, config) ⇒ <code>object</code>
 Parse RHSM instances response for caching.
 
 **Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
@@ -1133,6 +1137,10 @@ Parse RHSM instances response for caching.
   <tbody>
 <tr>
     <td>response</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config.params</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
@@ -1156,7 +1164,7 @@ Parse RHSM tally response for caching.
     </tr><tr>
     <td>config._isCapacity</td><td><code>boolean</code></td>
     </tr><tr>
-    <td>config.params</td><td><code>string</code></td>
+    <td>config.params</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 

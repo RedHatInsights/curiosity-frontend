@@ -1,91 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductView Component should allow custom inventory displays via config: custom tabs, subscriptions table 1`] = `
-<PageLayout
-  className=""
+exports[`ProductView Component should allow custom inventory displays via config: custom tabs, basic inventory tables 1`] = `
+<InventoryTabs
+  activeTab={0}
+  defaultActiveTab={0}
+  isDisabled={false}
+  t={[Function]}
+  useOnTab={[Function]}
+  useProduct={[Function]}
+  useSelector={[Function]}
 >
-  <PageHeader
-    productLabel="lorem ipsum"
-    t={[Function]}
+  <InventoryTab
+    active={false}
+    key="inventory_instances_lorem"
+    title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
   >
-    t(curiosity-view.title, {"appName":"Subscriptions","context":"lorem ipsum"})
-  </PageHeader>
-  <PageColumns
-    className=""
-  >
-    <ContextProvider
-      key="product_lorem"
-      value={
-        {
-          "initialSubscriptionsInventoryFilters": [],
-          "lorem": "ipsum",
-          "productId": "lorem",
-          "viewId": "viewIpsum",
-        }
+    <InventoryCard
+      cardActions={
+        <CardHeaderMain>
+          <ToolbarFieldDisplayName
+            t={[Function]}
+            useDispatch={[Function]}
+            useProduct={[Function]}
+            useProductInventoryHostsQuery={[Function]}
+          />
+        </CardHeaderMain>
       }
-    >
-      <PageMessages
-        className=""
-      >
-        <BannerMessages
-          useBannerMessages={[Function]}
-          useRemoveBannerMessages={[Function]}
-        />
-      </PageMessages>
-      <PageToolbar
-        className=""
-      >
-        <Toolbar
-          hardFilterReset={false}
-          isDisabled={false}
-          isGroupVariantDisabled={false}
-          t={[Function]}
-          useProductToolbarQuery={[Function]}
-          useSelectCategoryOptions={[Function]}
-          useToolbarFieldClear={[Function]}
-          useToolbarFieldClearAll={[Function]}
-          useToolbarFields={[Function]}
-        />
-      </PageToolbar>
-      <PageSection
-        className=""
-      >
-        <GraphCard
-          isDisabled={false}
-          useParseFiltersSettings={[Function]}
-        />
-      </PageSection>
-      <PageSection
-        className=""
-      >
-        <InventoryTabs
-          activeTab={0}
-          defaultActiveTab={0}
-          isDisabled={false}
-          t={[Function]}
-          useOnTab={[Function]}
-          useProduct={[Function]}
-          useSelector={[Function]}
-        >
-          <InventoryTab
-            active={false}
-            key="inventory_subs_lorem"
-            title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
-          >
-            <InventoryCardSubscriptions
-              isDisabled={false}
-              useGetInventory={[Function]}
-              useOnColumnSort={[Function]}
-              useOnPage={[Function]}
-              useProductInventoryConfig={[Function]}
-              useProductInventoryQuery={[Function]}
-            />
-          </InventoryTab>
-        </InventoryTabs>
-      </PageSection>
-    </ContextProvider>
-  </PageColumns>
-</PageLayout>
+      isDisabled={false}
+      perPageDefault={10}
+      t={[Function]}
+      useGetInventory={[Function]}
+      useOnColumnSort={[Function]}
+      useOnPage={[Function]}
+      useProduct={[Function]}
+      useProductInventoryConfig={[Function]}
+      useProductInventoryQuery={[Function]}
+      useSession={[Function]}
+    />
+  </InventoryTab>
+  <InventoryTab
+    active={false}
+    key="inventory_subs_lorem"
+    title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
+  >
+    <InventoryCardSubscriptions
+      isDisabled={false}
+      useGetInventory={[Function]}
+      useOnColumnSort={[Function]}
+      useOnPage={[Function]}
+      useProductInventoryConfig={[Function]}
+      useProductInventoryQuery={[Function]}
+    />
+  </InventoryTab>
+</InventoryTabs>
+`;
+
+exports[`ProductView Component should allow custom inventory displays via config: custom tabs, missing inventory 1`] = `
+<InventoryTabs
+  activeTab={0}
+  defaultActiveTab={0}
+  isDisabled={false}
+  t={[Function]}
+  useOnTab={[Function]}
+  useProduct={[Function]}
+  useSelector={[Function]}
+>
+  <InventoryTab
+    active={false}
+    key="inventory_subs_lorem"
+    title="t(curiosity-inventory.tabSubscriptions, {"context":"lorem"})"
+  >
+    <InventoryCardSubscriptions
+      isDisabled={false}
+      useGetInventory={[Function]}
+      useOnColumnSort={[Function]}
+      useOnPage={[Function]}
+      useProductInventoryConfig={[Function]}
+      useProductInventoryQuery={[Function]}
+    />
+  </InventoryTab>
+</InventoryTabs>
+`;
+
+exports[`ProductView Component should allow custom inventory displays via config: custom tabs, missing subscriptions inventory 1`] = `
+<InventoryTabs
+  activeTab={0}
+  defaultActiveTab={0}
+  isDisabled={false}
+  t={[Function]}
+  useOnTab={[Function]}
+  useProduct={[Function]}
+  useSelector={[Function]}
+>
+  <InventoryTab
+    active={false}
+    key="inventory_instances_lorem"
+    title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
+  >
+    <InventoryCard
+      cardActions={
+        <CardHeaderMain>
+          <ToolbarFieldDisplayName
+            t={[Function]}
+            useDispatch={[Function]}
+            useProduct={[Function]}
+            useProductInventoryHostsQuery={[Function]}
+          />
+        </CardHeaderMain>
+      }
+      isDisabled={false}
+      perPageDefault={10}
+      t={[Function]}
+      useGetInventory={[Function]}
+      useOnColumnSort={[Function]}
+      useOnPage={[Function]}
+      useProduct={[Function]}
+      useProductInventoryConfig={[Function]}
+      useProductInventoryQuery={[Function]}
+      useSession={[Function]}
+    />
+  </InventoryTab>
+</InventoryTabs>
 `;
 
 exports[`ProductView Component should allow custom product views via productDisplay types: custom view, capacity 1`] = `
@@ -144,7 +179,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageSection>
       <PageSection
-        className=""
+        className="curiosity-page-section__tabs"
       >
         <InventoryTabs
           activeTab={0}
@@ -217,7 +252,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageSection>
       <PageSection
-        className=""
+        className="curiosity-page-section__tabs"
       >
         <InventoryTabs
           activeTab={0}
@@ -363,7 +398,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageSection>
       <PageSection
-        className=""
+        className="curiosity-page-section__tabs"
       >
         <InventoryTabs
           activeTab={0}
@@ -436,7 +471,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageSection>
       <PageSection
-        className=""
+        className="curiosity-page-section__tabs"
       >
         <InventoryTabs
           activeTab={0}
@@ -508,7 +543,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         />
       </PageSection>
       <PageSection
-        className=""
+        className="curiosity-page-section__tabs"
       >
         <InventoryTabs
           activeTab={0}
