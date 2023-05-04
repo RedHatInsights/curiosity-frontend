@@ -222,10 +222,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/components/productView/productView.js",
     "keys": [
       {
-        "key": "curiosity-inventory.tabHosts",
-        "match": "t('curiosity-inventory.tabHosts', { context: [productId] })",
-      },
-      {
         "key": "curiosity-inventory.tabInstances",
         "match": "t('curiosity-inventory.tabInstances', { context: [productId] })",
       },
@@ -528,7 +524,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
+      },
+      {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: [uom, productId] })",
       },
       {
         "key": "curiosity-inventory.header",
@@ -549,7 +549,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate( 'curiosity-inventory.label', { context: INVENTORY_TYPES.NUMBER_OF_GUESTS, count: numberOfGuests.value }, [<PfLabel color="blue" />] )",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
       },
     ],
   },
@@ -562,7 +562,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
       },
     ],
   },

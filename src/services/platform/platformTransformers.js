@@ -70,11 +70,13 @@ const userPermissions = (response, { config = rbacConfig } = {}) => {
         updatedResponse.permissions[app].all = true;
       }
 
-      if (!updatedResponse.permissions[app].resources[resource]) {
-        updatedResponse.permissions[app].resources[resource] = {};
-      }
+      if (resource) {
+        updatedResponse.permissions[app].resources[resource] ??= {};
 
-      updatedResponse.permissions[app].resources[resource][operation] = definitions;
+        if (operation) {
+          updatedResponse.permissions[app].resources[resource][operation] = definitions;
+        }
+      }
     }
   );
 

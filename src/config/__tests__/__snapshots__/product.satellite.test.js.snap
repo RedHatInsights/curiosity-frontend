@@ -27,29 +27,29 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
@@ -57,15 +57,15 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "value": 200,
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "value": "lorem ipsum",
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -99,29 +99,29 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
@@ -129,19 +129,19 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "value": 200,
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "value": "lorem ipsum",
     },
     "instance_id": {
-      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"Satellite Server"})",
       "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -182,29 +182,29 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
@@ -212,19 +212,19 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "value": 200,
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "value": "lorem ipsum",
     },
     "instance_id": {
-      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"Satellite Server"})",
       "value": "XXXX-XXXX-XXXXX-XXXXX",
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
   },
@@ -260,29 +260,29 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
+      "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
+      "title": "t(curiosity-inventory.header_category, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "transforms": [
         [Function],
       ],
@@ -290,100 +290,24 @@ exports[`Product Satellite config should apply an inventory configuration: filte
   ],
   "data": {
     "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
+      "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
       "value": 200,
     },
     "cloud_provider": {
-      "title": "t(curiosity-inventory.header_cloud, {"context":"provider"})",
+      "title": "t(curiosity-inventory.header_cloud_provider, {"context":"Satellite Server"})",
       "value": "dolor sit",
     },
     "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
       "value": "lorem ipsum",
     },
     "instance_id": {
-      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "title": "t(curiosity-inventory.header_instance_id, {"context":"Satellite Server"})",
       "value": null,
     },
     "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
       "value": null,
-    },
-  },
-}
-`;
-
-exports[`Product Satellite config should apply an inventory configuration: filtered, infinite 1`] = `
-{
-  "cells": [
-    {
-      "title": "lorem ipsum",
-    },
-    {
-      "title": "--",
-    },
-    {
-      "title": <React.Fragment>
-        t(curiosity-inventory.label, {"context":"category"})
-         
-        
-      </React.Fragment>,
-    },
-    {
-      "title": 200,
-    },
-    {
-      "title": <DateFormat
-        date="2022-01-01T00:00:00.000Z"
-      />,
-    },
-  ],
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "transforms": [],
-    },
-    {
-      "title": "t(curiosity-inventory.header_number_of, {"context":"guests"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"category"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-    {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "transforms": [
-        [Function],
-      ],
-    },
-  ],
-  "data": {
-    "Sockets": {
-      "title": "t(curiosity-inventory.header, {"context":"Sockets"})",
-      "value": 200,
-    },
-    "display_name": {
-      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
-      "value": "lorem ipsum",
-    },
-    "has_infinite_quantity": {
-      "title": "t(curiosity-inventory.header_has_infinite, {"context":"quantity"})",
-      "value": false,
-    },
-    "last_seen": {
-      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
-      "value": "2022-01-01T00:00:00.000Z",
     },
   },
 }

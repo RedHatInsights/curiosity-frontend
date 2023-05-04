@@ -15,7 +15,8 @@ import {
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_QUERY_UOM_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_META_TYPES as INVENTORY_META_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
@@ -34,13 +35,22 @@ const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 
+/**
+ * OpenShift Container product config
+ *
+ * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string,
+ *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: {}[],
+ *     initialInventorySettings: {}, viewId: string, initialToolbarFilters: {}[], productGroup: string,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
+ *     initialGraphFilters: {}[], initialGuestsFilters: {}[], initialGraphSettings: object, initialInventoryFilters: {}[]}}
+ */
 const config = {
   aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT, 'openshift-container', 'container', 'platform', 'shift'],
   productGroup,
   productId,
   productLabel,
   productPath: productGroup.toLowerCase(),
-  productDisplay: DISPLAY_TYPES.PARTIAL,
+  productDisplay: DISPLAY_TYPES.CAPACITY,
   viewId: `view${productGroup}`,
   productContextFilterUom: true,
   query: {
@@ -153,18 +163,18 @@ const config = {
       cell: (
         {
           [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-          [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {},
+          [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {},
           [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
         } = {},
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!inventoryId.value) {
+        if (!instanceId.value) {
           return displayName.value;
         }
 
-        let updatedDisplayName = displayName.value || inventoryId.value;
+        let updatedDisplayName = displayName.value || instanceId.value;
 
         if (authorized) {
           updatedDisplayName = (
@@ -172,9 +182,9 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId.value}/`}
             >
-              {displayName.value || inventoryId.value}
+              {displayName.value || instanceId.value}
             </Button>
           );
         }
@@ -183,7 +193,7 @@ const config = {
           <React.Fragment>
             {updatedDisplayName}{' '}
             {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests.value }, [
+              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [
                 <PfLabel color="blue" />
               ])) ||
               ''}
@@ -193,15 +203,10 @@ const config = {
       isSortable: true
     },
     {
-      id: INVENTORY_TYPES.SOCKETS,
-      isOptional: true,
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
-    },
-    {
-      id: INVENTORY_TYPES.CORES,
-      isOptional: true,
+      id: RHSM_API_PATH_METRIC_TYPES.CORES,
+      header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
+        translate('curiosity-inventory.header', { context: [uom, productId] }),
+      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => data?.[uom]?.value || '--',
       isSortable: true,
       isWrappable: true,
       cellWidth: 15

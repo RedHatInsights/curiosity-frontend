@@ -43,7 +43,7 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE;
  * @type {{aliases: string[], productGroup: string, productId: string, productLabel: string, productDisplay: string, viewId: string,
  *     productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object,
  *     inventorySubscriptionsQuery: object, initialGraphFilters: {}[], initialGraphSettings: object, initialGuestsFilters: {}[],
- *     initialInventoryFilters: {}[], initialToolbarFilters: {}[], }[]}
+ *     initialInventoryFilters: {}[], initialToolbarFilters: {}[]}}
  */
 const config = {
   aliases: ['sat', 'server', 'capsule'],
