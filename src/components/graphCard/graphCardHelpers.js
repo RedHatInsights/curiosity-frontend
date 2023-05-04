@@ -63,6 +63,11 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
     const { isMultiMetric, isFirst, isLast, ...remainingCombinedSettings } = combinedSettings;
     const updatedChartType = filterSettings?.chartType || ChartTypeVariant.area;
     const isThreshold = filterSettings?.chartType === ChartTypeVariant.threshold;
+    const isAxisLabel =
+      remainingCombinedSettings?.yAxisChartLabel ||
+      remainingCombinedSettings?.xAxisChartLabel ||
+      filterSettings?.yAxisChartLabel ||
+      filterSettings?.xAxisChartLabel;
     const baseFilterSettings = {
       chartType: updatedChartType,
       id: generateChartIds({ isCapacity: isThreshold, metric, productId, query: filterSettings?.query }),
@@ -83,12 +88,14 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
     if (isFirst) {
       filtersSettings.push({
         settings: {
-          padding: {
-            bottom: 75,
-            left: 75,
-            right: 45,
-            top: 45
-          },
+          ...(isAxisLabel && {
+            padding: {
+              bottom: 75,
+              left: 75,
+              right: 45,
+              top: 45
+            }
+          }),
           ...remainingCombinedSettings,
           isMetricDisplay: remainingCombinedSettings?.isMetricDisplay ?? remainingCombinedSettings?.cards?.length > 0,
           isMultiMetric,

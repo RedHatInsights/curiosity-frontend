@@ -87,6 +87,12 @@
       }
     }
 
+    &__standalone {
+      margin-left: var(--pf-global--spacer--md);
+      margin-right: var(--pf-global--spacer--md);
+      margin-top: var(--pf-global--spacer--md);
+    }
+
     &__totals {
       background-color: var(--pf-global--BackgroundColor--100);
       display: flex;
