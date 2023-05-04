@@ -19,7 +19,9 @@ exports[`Platform Transformers should attempt to parse a permissions response: p
   "permissions": {
     "broken": {
       "all": false,
-      "resources": {},
+      "resources": {
+        "partially": {},
+      },
     },
     "ipsum": {
       "all": false,

@@ -259,6 +259,23 @@ describe('RHSM Transformers', () => {
     ).toMatchSnapshot('instances, uom sockets');
 
     expect(
+      rhsmTransformers.instances(
+        {
+          ...response,
+          [rhsmConstants.RHSM_API_RESPONSE_META]: {
+            ...response[rhsmConstants.RHSM_API_RESPONSE_META],
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: undefined
+          }
+        },
+        {
+          params: {
+            [rhsmConstants.RHSM_API_RESPONSE_INSTANCES_META_TYPES.UOM]: 'sockets'
+          }
+        }
+      )
+    ).toMatchSnapshot('instances, uom sockets as parameter');
+
+    expect(
       rhsmTransformers.instances({
         ...response,
         [rhsmConstants.RHSM_API_RESPONSE_META]: {

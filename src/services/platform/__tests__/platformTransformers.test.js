@@ -53,6 +53,9 @@ describe('Platform Transformers', () => {
         },
         {
           [USER_PERMISSION_TYPES.PERMISSION]: `broken`
+        },
+        {
+          [USER_PERMISSION_TYPES.PERMISSION]: `broken:partially`
         }
       ])
     ).toMatchSnapshot('permissions, parsed');

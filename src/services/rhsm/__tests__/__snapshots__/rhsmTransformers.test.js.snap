@@ -867,6 +867,27 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse an instances response: instances, uom sockets as parameter 1`] = `
+{
+  "data": [
+    {
+      "a": 0.0003456,
+      "b": 2,
+      "c": 1000,
+      "numberOfGuests": undefined,
+      "number_of_guests": undefined,
+      "subscriptionManagerId": undefined,
+      "subscription_manager_id": undefined,
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Sockets",
+  },
+}
+`;
+
 exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
 {
   "hosts": [Function],
