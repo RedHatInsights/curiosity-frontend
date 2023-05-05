@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product ROSA config should apply an inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem ipsum",
+    },
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Cores","total":"200"})",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Cores"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header, {"context":"Cores"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
+
+exports[`Product ROSA config should apply an inventory configuration: filtered, authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": <Button
+        component="a"
+        href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+        isInline={true}
+        variant="link"
+      >
+        lorem ipsum
+      </Button>,
+    },
+    {
+      "title": "t(curiosity-inventory.measurement, {"context":"Cores","total":"200"})",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header, {"context":"Cores"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "Cores": {
+      "title": "t(curiosity-inventory.header, {"context":"Cores"})",
+      "value": 200,
+    },
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem ipsum",
+    },
+    "instance_id": {
+      "title": "t(curiosity-inventory.header_instance, {"context":"id"})",
+      "value": "XXXX-XXXX-XXXXX-XXXXX",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+  },
+}
+`;
