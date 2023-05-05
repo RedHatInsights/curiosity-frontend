@@ -775,6 +775,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/config/product.rosa.js",
+    "keys": [
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total?.value)",
+      },
+    ],
+  },
+  {
     "file": "src/config/product.satellite.js",
     "keys": [
       {
@@ -984,6 +993,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.rhosak.js",
     "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rosa.js",
+    "key": "curiosity-inventory.measurement",
   },
   {
     "file": "src/config/product.satellite.js",

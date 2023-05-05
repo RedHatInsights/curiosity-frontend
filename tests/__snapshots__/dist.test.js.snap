@@ -506,6 +506,17 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productVariants": [],
   },
+  {
+    "coverage": "FALSE",
+    "path": "/rosa",
+    "productGroup": [
+      "rosa",
+    ],
+    "productId": [
+      "rosa",
+    ],
+    "productVariants": [],
+  },
 ]
 `;
 
