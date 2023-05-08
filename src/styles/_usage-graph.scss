@@ -137,6 +137,10 @@
       }
 
       &-column {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
         margin-left: var(--pf-global--spacer--sm);
         margin-right: var(--pf-global--spacer--sm);
         margin-top: var(--pf-global--spacer--lg);
@@ -144,16 +148,15 @@
         width: 100%;
 
         .pf-c-card {
-          height: calc(50%);
+          display: flex;
+          flex-basis: 100%;
+          flex-direction: column;
+          align-self: center;
           text-align: center;
-          width: 100%;
 
-          &:first-child {
-            border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
-            padding-bottom: calc(var(--pf-global--spacer--lg) / 2);
-          }
-
-          &:last-child {
+          &:not(:first-child) {
+            flex: 1;
+            border-top: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
             padding-top: calc(var(--pf-global--spacer--lg) / 2);
           }
 
