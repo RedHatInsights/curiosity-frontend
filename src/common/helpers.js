@@ -1,5 +1,6 @@
 import numbro from 'numbro';
 import cryptoSha1 from 'crypto-js/sha1';
+import _cloneDeep from 'lodash/cloneDeep';
 import _isPlainObject from 'lodash/isPlainObject';
 
 /**
@@ -177,12 +178,16 @@ const objFreeze = obj => {
 };
 
 /**
- * Quick set data as "immutable-like". Used to pass object and array data through configuration callbacks.
+ * Quick set data as "immutable-like". Typically used to pass object and array data through configuration callbacks.
  *
  * @param {*} data
+ * @param {object} options
+ * @param {boolean} options.isClone Clone your data before mutating it.
  * @returns {*}
  */
-const setImmutableData = memo(data => objFreeze(data));
+const setImmutableData = memo(
+  (data, { isClone = false } = {}) => (isClone && objFreeze(_cloneDeep(data))) || objFreeze(data)
+);
 
 /**
  * Is dev mode active.

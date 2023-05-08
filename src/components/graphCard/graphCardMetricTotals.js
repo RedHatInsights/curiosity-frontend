@@ -54,18 +54,21 @@ const GraphCardMetricTotals = ({
   const dailyValue = isCurrent ? currentValue : lastValue;
 
   if (settings?.isMetricDisplay && settings?.cards?.length) {
-    const metricDisplayPassedData = helpers.setImmutableData({
-      chartId: firstChartId,
-      dailyDate,
-      dailyHasData,
-      dailyValue,
-      metricId: firstMetricId,
-      groupMetricId: [...settings.groupMetric],
-      monthlyDate,
-      monthlyHasData,
-      monthlyValue,
-      selectedValue: selectedMonth
-    });
+    const metricDisplayPassedData = helpers.setImmutableData(
+      {
+        chartId: firstChartId,
+        dailyDate,
+        dailyHasData,
+        dailyValue,
+        metricId: firstMetricId,
+        groupMetricId: settings.groupMetric,
+        monthlyDate,
+        monthlyHasData,
+        monthlyValue,
+        selectedValue: selectedMonth
+      },
+      { isClone: true }
+    );
 
     return (
       <div

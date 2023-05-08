@@ -170,6 +170,42 @@ describe('Helpers', () => {
     expect(clone).toMatchSnapshot('clone');
   });
 
+  it('should produce an immutable value', () => {
+    const mockObj = { lorem: 'ipsum' };
+    const mockArray = ['hello', 'world'];
+    const mockString = 'dolor sit';
+    const mockNumber = 1;
+    // eslint-disable-next-line func-names
+    const mockFunction = function () {
+      return 'hello world';
+    };
+
+    const clonedObject = helpers.setImmutableData(mockObj, { isClone: true });
+    const sameObject = helpers.setImmutableData(mockObj);
+    expect(sameObject === mockObj).toBe(true);
+    expect(clonedObject === sameObject).toBe(false);
+
+    const clonedArray = helpers.setImmutableData(mockArray, { isClone: true });
+    const sameArray = helpers.setImmutableData(mockArray);
+    expect(sameArray === mockArray).toBe(true);
+    expect(clonedArray === sameArray).toBe(false);
+
+    const clonedString = helpers.setImmutableData(mockString, { isClone: true });
+    const sameString = helpers.setImmutableData(mockString);
+    expect(sameString === mockString).toBe(true);
+    expect(clonedString === sameString).toBe(true);
+
+    const clonedNumber = helpers.setImmutableData(mockNumber, { isClone: true });
+    const sameNumber = helpers.setImmutableData(mockNumber);
+    expect(sameNumber === mockNumber).toBe(true);
+    expect(clonedNumber === sameNumber).toBe(true);
+
+    const clonedFunction = helpers.setImmutableData(mockFunction, { isClone: true });
+    const sameFunction = helpers.setImmutableData(mockFunction);
+    expect(sameFunction === mockFunction).toBe(true);
+    expect(clonedFunction === sameFunction).toBe(false);
+  });
+
   it('should expose a window object', () => {
     helpers.browserExpose({ lorem: 'ipsum' });
     expect(window[helpers.UI_WINDOW_ID]).toMatchSnapshot('window object');

@@ -228,18 +228,23 @@ Typically used as a default prop, or during testing.
 <a name="Helpers.module_General..setImmutableData"></a>
 
 ### General~setImmutableData ⇒ <code>\*</code>
-Quick set data as "immutable-like". Used to pass object and array data through configuration callbacks.
+Quick set data as "immutable-like". Typically used to pass object and array data through configuration callbacks.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>data</td><td><code>*</code></td>
+    <td>data</td><td><code>*</code></td><td></td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.isClone</td><td><code>boolean</code></td><td><p>Clone your data before mutating it.</p>
+</td>
     </tr>  </tbody>
 </table>
 
