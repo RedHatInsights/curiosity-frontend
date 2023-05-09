@@ -544,8 +544,40 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/config/product.openshiftDedicated.js",
     "keys": [
       {
-        "key": "curiosity-graph.cardActionTotal",
-        "match": "translate('curiosity-graph.cardActionTotal', { context: id, total: helpers .numberDisplay(totalMonthlyValue)",
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', chartId], testId: 'graphDailyTotalCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+      },
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', chartId], testId: 'graphMonthlyTotalCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+      },
+      {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
       {
         "key": "curiosity-inventory.label",
@@ -557,8 +589,36 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/config/product.openshiftMetrics.js",
     "keys": [
       {
-        "key": "curiosity-graph.cardActionTotal",
-        "match": "translate('curiosity-graph.cardActionTotal', { context: id, total: helpers .numberDisplay(totalMonthlyValue)",
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', chartId], testId: 'graphDailyTotalCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+      },
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', chartId], testId: 'graphMonthlyTotalCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+      },
+      {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
       {
         "key": "curiosity-inventory.label",
@@ -916,7 +976,27 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.openshiftDedicated.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  {
+    "file": "src/config/product.openshiftDedicated.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  {
+    "file": "src/config/product.openshiftDedicated.js",
+    "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "src/config/product.openshiftDedicated.js",
     "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.openshiftMetrics.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  {
+    "file": "src/config/product.openshiftMetrics.js",
+    "key": "curiosity-graph.label_axisX",
   },
   {
     "file": "src/config/product.openshiftMetrics.js",

@@ -7,6 +7,7 @@ import {
 } from '@patternfly/react-tokens';
 import { Button, Label as PfLabel } from '@patternfly/react-core';
 import { DateFormat } from '@redhat-cloud-services/frontend-components/DateFormat';
+import moment from 'moment/moment';
 import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_PATH_PRODUCT_TYPES,
@@ -59,55 +60,96 @@ const config = {
   },
   initialGraphFilters: [
     {
-      filters: [
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-          fill: chartColorBlueLight.value,
-          stroke: chartColorBlueDark.value,
-          color: chartColorBlueDark.value,
-          chartType: ChartTypeVariant.line,
-          isStacked: false,
-          yAxisUseDataSet: true
-        },
-        {
-          metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
-          fill: chartColorCyanLight.value,
-          stroke: chartColorCyanDark.value,
-          color: chartColorCyanDark.value,
-          chartType: ChartTypeVariant.line,
-          isStacked: false,
-          yAxisUseDataSet: true
-        }
-      ]
+      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
+      fill: chartColorBlueLight.value,
+      stroke: chartColorBlueDark.value,
+      color: chartColorBlueDark.value,
+      chartType: ChartTypeVariant.line,
+      isStacked: false,
+      yAxisChartLabel: ({ id } = {}) => translate('curiosity-graph.label_axisY', { context: id })
+    },
+    {
+      metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+      fill: chartColorCyanLight.value,
+      stroke: chartColorCyanDark.value,
+      color: chartColorCyanDark.value,
+      chartType: ChartTypeVariant.line,
+      isStacked: false,
+      yAxisChartLabel: ({ id } = {}) => translate('curiosity-graph.label_axisY', { context: id })
     }
   ],
   initialGraphSettings: {
-    isCardTitleDescription: true,
-    actions: [
+    cards: [
       {
-        content: ({ data = [] } = {}) => {
-          const { id, meta = {} } = data.find(({ metric }) => metric === RHSM_API_PATH_METRIC_TYPES.CORES) || {};
-          const { totalMonthlyValue } = meta;
-          let displayContent;
-
-          if (totalMonthlyValue) {
-            displayContent = translate('curiosity-graph.cardActionTotal', {
-              context: id,
+        header: ({ chartId } = {}) =>
+          translate('curiosity-graph.cardHeadingMetric', {
+            context: ['dailyTotal', chartId],
+            testId: 'graphDailyTotalCard-header'
+          }),
+        body: ({ chartId, dailyHasData, dailyValue } = {}) =>
+          translate(
+            'curiosity-graph.cardBodyMetric',
+            {
+              context: ['total', dailyHasData && chartId],
+              testId: 'graphDailyTotalCard-body',
               total: helpers
-                .numberDisplay(totalMonthlyValue)
-                ?.format({ average: true, mantissa: 2, trimMantissa: true, lowPrecision: false })
+                .numberDisplay(dailyValue)
+                ?.format({
+                  average: true,
+                  mantissa: 5,
+                  trimMantissa: true,
+                  lowPrecision: false
+                })
                 ?.toUpperCase()
-            });
-          }
-
-          return <div className="curiosity-usage-graph__total">{displayContent || null}</div>;
-        }
+            },
+            [<strong title={dailyValue} aria-label={dailyValue} />]
+          ),
+        footer: ({ dailyDate } = {}) =>
+          translate('curiosity-graph.cardFooterMetric', {
+            date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            testId: 'graphDailyTotalCard-footer'
+          })
       },
       {
-        id: 'rangedMonthly',
-        position: SelectPosition.right
+        header: ({ chartId } = {}) =>
+          translate('curiosity-graph.cardHeadingMetric', {
+            context: ['monthlyTotal', chartId],
+            testId: 'graphMonthlyTotalCard-header'
+          }),
+        body: ({ chartId, monthlyHasData, monthlyValue } = {}) =>
+          translate(
+            'curiosity-graph.cardBodyMetric',
+            {
+              context: ['total', monthlyHasData && chartId],
+              testId: 'graphMonthlyTotalCard-body',
+              total: helpers
+                .numberDisplay(monthlyValue)
+                ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
+                ?.toUpperCase()
+            },
+            [<strong title={monthlyValue} aria-label={monthlyValue} />]
+          ),
+        footer: ({ monthlyDate } = {}) =>
+          translate('curiosity-graph.cardFooterMetric', {
+            date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            testId: 'graphMonthlyTotalCard-footer'
+          })
       }
-    ]
+    ],
+    isCardTitleDescription: true,
+    xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
+    yAxisTickFormat: ({ tick } = {}) => {
+      if (tick > 1) {
+        return helpers
+          .numberDisplay(tick)
+          ?.format({ average: true, mantissa: 1, trimMantissa: true, lowPrecision: false })
+          ?.toUpperCase();
+      }
+      return helpers
+        .numberDisplay(tick)
+        ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: true })
+        ?.toUpperCase();
+    }
   },
   initialInventoryFilters: [
     {
@@ -179,7 +221,13 @@ const config = {
       cellWidth: 15
     }
   ],
-  initialToolbarFilters: undefined
+  initialToolbarFilters: [
+    {
+      id: 'rangedMonthly',
+      isSecondary: true,
+      position: SelectPosition.right
+    }
+  ]
 };
 
 export { config as default, config, productGroup, productId };

@@ -74,7 +74,7 @@ const config = {
       color: chartColorBlueDark.value,
       chartType: ChartTypeVariant.line,
       isStacked: false,
-      yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
+      yAxisChartLabel: ({ id } = {}) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.STORAGE_GIBIBYTE_MONTHS,
@@ -83,7 +83,7 @@ const config = {
       color: chartColorPurpleDark.value,
       chartType: ChartTypeVariant.line,
       isStacked: false,
-      yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
+      yAxisChartLabel: ({ id } = {}) => translate('curiosity-graph.label_axisY', { context: id })
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
@@ -92,7 +92,7 @@ const config = {
       color: chartColorCyanDark.value,
       chartType: ChartTypeVariant.line,
       isStacked: false,
-      yAxisChartLabel: ({ id }) => translate('curiosity-graph.label_axisY', { context: id })
+      yAxisChartLabel: ({ id } = {}) => translate('curiosity-graph.label_axisY', { context: id })
     }
   ],
   initialGraphSettings: {
@@ -155,7 +155,7 @@ const config = {
     ],
     isCardTitleDescription: true,
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),
-    yAxisTickFormat: ({ tick }) => {
+    yAxisTickFormat: ({ tick } = {}) => {
       if (tick > 1) {
         return helpers
           .numberDisplay(tick)
