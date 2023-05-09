@@ -1,5 +1,5 @@
 import { config } from '../product.openshiftMetrics';
-import { generateChartIds, generateChartSettings } from '../../components/graphCard/graphCardHelpers';
+import { generateChartSettings } from '../../components/graphCard/graphCardHelpers';
 import { parseRowCellsListData } from '../../components/inventoryCard/inventoryCardHelpers';
 import {
   RHSM_API_PATH_METRIC_TYPES,
@@ -22,106 +22,83 @@ describe('Product OpenShift Metrics config', () => {
       'filters'
     );
     expect(initialGraphSettings).toMatchSnapshot('settings');
+  });
 
-    expect({
-      productActionDisplay: initialGraphSettings.actions[0].content({
-        data: [
-          {
-            id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
-            metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-            data: [
-              {
-                y: 0
-              },
-              {
-                y: 400
-              },
-              {
-                y: 100
-              }
-            ],
-            meta: {
-              totalMonthlyValue: 500
-            }
-          }
-        ]
-      })
-    }).toMatchSnapshot('product action display should display a total value below 1000');
+  it('should handle metric card display for graphs', () => {
+    const { initialGraphFilters, initialGraphSettings } = config;
+    const { filtersSettings } = generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings });
+    const cardOutput = [];
 
-    expect({
-      productActionDisplay: initialGraphSettings.actions[0].content({
-        data: [
-          {
-            id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
-            metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-            data: [
-              {
-                y: 0
-              },
-              {
-                y: 800000
-              },
-              {
-                y: 100000
-              }
-            ],
-            meta: {
-              totalMonthlyValue: 900000
-            }
+    filtersSettings.forEach(({ settings }) => {
+      if (Array.isArray(settings.cards)) {
+        settings.cards.forEach(({ header, body, footer }) => {
+          if (typeof header === 'function') {
+            cardOutput.push(header());
+          } else {
+            cardOutput.push(header);
           }
-        ]
-      })
-    }).toMatchSnapshot('product action display should display a total value below 1000000');
 
-    expect({
-      productActionDisplay: initialGraphSettings.actions[0].content({
-        data: [
-          {
-            id: generateChartIds({ isCapacity: false, metric: RHSM_API_PATH_METRIC_TYPES.CORES, productId: 'Ipsum' }),
-            metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-            data: [
-              {
-                y: 0
-              },
-              {
-                y: 1000
-              },
-              {
-                y: 100
-              }
-            ],
-            meta: {
-              totalMonthlyValue: 1100
-            }
+          if (typeof body === 'function') {
+            cardOutput.push(body());
+          } else {
+            cardOutput.push(body);
           }
-        ]
-      })
-    }).toMatchSnapshot('product action display should display a total value');
 
-    expect({
-      productActionDisplay: initialGraphSettings.actions[0].content({
-        data: [
-          {
-            id: generateChartIds({ isCapacity: false, metric: 'loremIpsum', productId: 'Ipsum' }),
-            metric: 'loremIpsum',
-            data: [
-              {
-                y: 0
-              },
-              {
-                y: 1000
-              },
-              {
-                y: 100
-              }
-            ],
-            meta: {
-              totalMonthlyValue: undefined
-            }
+          if (typeof footer === 'function') {
+            cardOutput.push(footer({ dailyDate: '09 Mar 2023', monthlyDate: '09 Mar 2023' }));
+          } else {
+            cardOutput.push(footer);
           }
-        ]
+        });
+      }
+    });
+
+    expect(cardOutput).toMatchSnapshot('cards');
+  });
+
+  it('should handle a custom axis settings', () => {
+    const axisMethod = method => method();
+    expect(axisMethod(config.initialGraphSettings.xAxisChartLabel)).toMatchSnapshot('xAxisChartLabel');
+
+    const yAxisChartLabels = [];
+    config.initialGraphFilters?.forEach(({ metric, yAxisChartLabel }) =>
+      yAxisChartLabels.push({
+        metric,
+        yAxisChartLabel: axisMethod(yAxisChartLabel)
       })
-    }).toMatchSnapshot('product action display should NOT display a total value');
+    );
+    expect(yAxisChartLabels).toMatchSnapshot('yAxisChartLabel');
+  });
+
+  it('should handle a custom yAxisTickFormat for floating points', () => {
+    const generateTicks = (method = config.initialGraphSettings.yAxisTickFormat) => {
+      const ticks = {};
+
+      for (let i = 0.00001345; i < 1; i++) {
+        for (let k = 1; k < 26; k++) {
+          const incrementMultiplier = k * i;
+          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+        }
+      }
+
+      for (let i = 0.001; i < 1; i++) {
+        for (let k = 1; k < 26; k++) {
+          const incrementMultiplier = k * i;
+          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+        }
+      }
+
+      for (let i = 0; i < 13; i++) {
+        const multiplier = Math.pow(10, i);
+        for (let k = 1; k < 16; k++) {
+          const incrementMultiplier = k * multiplier;
+          ticks[incrementMultiplier] = method({ tick: incrementMultiplier });
+        }
+      }
+      return ticks;
+    };
+
+    expect(generateTicks()).toMatchSnapshot('yAxisTickFormat');
   });
 
   it('should apply an inventory configuration', () => {

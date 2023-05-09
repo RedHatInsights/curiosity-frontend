@@ -58,6 +58,20 @@ describe('Product RHODS config', () => {
     expect(cardOutput).toMatchSnapshot('cards');
   });
 
+  it('should handle a custom axis settings', () => {
+    const axisMethod = method => method();
+    expect(axisMethod(config.initialGraphSettings.xAxisChartLabel)).toMatchSnapshot('xAxisChartLabel');
+
+    const yAxisChartLabels = [];
+    config.initialGraphFilters?.forEach(({ metric, yAxisChartLabel }) =>
+      yAxisChartLabels.push({
+        metric,
+        yAxisChartLabel: axisMethod(yAxisChartLabel)
+      })
+    );
+    expect(yAxisChartLabels).toMatchSnapshot('yAxisChartLabel');
+  });
+
   it('should handle a custom yAxisTickFormat for floating points', () => {
     const generateTicks = (method = config.initialGraphSettings.yAxisTickFormat) => {
       const ticks = {};

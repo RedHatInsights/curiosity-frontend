@@ -390,6 +390,17 @@ exports[`Product RHODS config should apply toolbar configuration: filters 1`] = 
 ]
 `;
 
+exports[`Product RHODS config should handle a custom axis settings: xAxisChartLabel 1`] = `"t(curiosity-graph.label_axisX, {"context":"Daily"})"`;
+
+exports[`Product RHODS config should handle a custom axis settings: yAxisChartLabel 1`] = `
+[
+  {
+    "metric": "Cores",
+    "yAxisChartLabel": "t(curiosity-graph.label_axisY, {})",
+  },
+]
+`;
+
 exports[`Product RHODS config should handle a custom yAxisTickFormat for floating points: yAxisTickFormat 1`] = `
 {
   "0.00001345": "0.00001",
