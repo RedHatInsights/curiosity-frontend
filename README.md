@@ -14,7 +14,7 @@ Before developing for Curiosity Frontend
    * Alternatively, you can try [Podman](https://github.com/containers/podman).
  * And [Yarn](https://yarnpkg.com) for dependency and script management.
 
-For in-depth tooling install guidance see the [contribution guidelines](./CONTRIBUTING.md#Development)
+For in-depth tooling install guidance see the [contribution guidelines](./CONTRIBUTING.md#install-tooling)
 
 ### Install
   1. Clone the repository
@@ -43,7 +43,7 @@ This is the base context for running a local UI against a mock API and styling.
      ```
   1. Start developing against files in `./src`. Linting feedback will be automatically enabled through the terminal output
 
-For in-depth local run guidance review the [contribution guidelines](./CONTRIBUTING.md#Serving%20Content) 
+For in-depth local run guidance review the [contribution guidelines](./CONTRIBUTING.md#local-and-proxy-development) 
 
 ### Unit testing
 Run and update unit tests while developing instead of after-the-fact. In a new terminal instance
@@ -55,7 +55,7 @@ Run and update unit tests while developing instead of after-the-fact. In a new t
   2. Test files can be accessed, and edited, under `__test__` directories parallel to the files you're editing. Test failures for
      recently edited files will be available in the terminal output along with basic testing framework use directions.
 
-For in-depth testing guidance review the [contribution guidelines](./CONTRIBUTING.md#Testing) 
+For in-depth testing guidance review the [contribution guidelines](./CONTRIBUTING.md#testing) 
 
 ## Contributing
 Contributing encompasses [repository specific requirements](./CONTRIBUTING.md).
