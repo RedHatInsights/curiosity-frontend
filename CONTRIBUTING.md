@@ -60,7 +60,7 @@ to provide consistent history and help generate [CHANGELOG.md](./CHANGELOG.md) u
 
 Commit messages follow three basic guidelines
 - No more than `65` characters for the first line
-- If your pull request has more than a single commit you should include the pull request number in your message using the format. This additional copy is not counted towards the `65` character limit.
+- If your pull request has more than a single commit you should include the pull request number in your message using the below format. This additional copy is not counted towards the `65` character limit.
   ```
   [message] (#1234)
   ```
@@ -152,11 +152,11 @@ To merge code into stage stable
 
 #### Release for production preview
 To merge code into production preview
-1. tag the most recent commit on `main` as a release candidate using the format, where `rc.0` index is a typical starting point.
-`v[x].[x].[x]-rc.[x]`
+1. tag the most recent commit on `main` as a release candidate using the format `v[x].[x].[x]-rc.[x]`
    ```
    main -> release candidate tag -> production preview
    ```
+   > `rc.0` zero index is a typical starting point for release candidates
 
 #### Release for production stable
 To merge code into production stable a maintainer must run the release commit process locally.
@@ -165,7 +165,7 @@ To merge code into production stable a maintainer must run the release commit pr
    local main repo, main branch -> release commit -> origin main -> tag -> production stable
    ```
 
-1. clone the main repository, within the repo confirm you're on the `main` branch and synced with `origin` `main`
+1. clone the main repository, within the repo confirm you're on the `main` branch and **SYNCED** with `origin` `main`
 1. run
    1. `$ git checkout main`
    1. `$ yarn`
@@ -177,8 +177,8 @@ To merge code into production stable a maintainer must run the release commit pr
       >  $ yarn release --override X.X.X
       >  ``` 
 1. Confirm you now have a release commit with the format `chore(release): X.X.X` and there are updates to
-   - `package.json`
-   - `CHANGELOG.md`
+   - [`package.json`](./package.json)
+   - [`CHANGELOG.md`](./CHANGELOG.md)
 
    If there are issues with the file updates you can correct them and squish any fixes into the `chore(release): X.X.X` commit
 1. Push the **SINGLE** commit to `origin` `main`
@@ -233,7 +233,7 @@ To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
          ```
       > Proxy run is reserved for internal uses, if you do not have access you can skip this part of the process and provide a reviewer note in your pull request 
 1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `yarn.lock`, then open a pull request towards the development branch.
-> If any part of the "advanced path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
+> If any part of the "basic path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
 > since future updates will be affected by skipping potentially any package update.
 > A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ yarn build:deps` this should contain a listing of the skipped packages.
 
@@ -258,7 +258,7 @@ To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
          ```
       > Proxy run is reserved for internal uses, if you do not have access you can skip this part of the process and provide a reviewer note in your pull request
 1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `yarn.lock`, then open a pull request towards the development branch.
-> If any part of the "advanced path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
+> If any part of the "core path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
 > since future updates will be affected by skipping potentially any package update.
 > A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ yarn build:deps-core` this should contain a listing of the skipped packages.
 
@@ -271,15 +271,17 @@ This is the slowest part of package updates. If any packages are skipped during 
    $ yarn
    ```
    To re-install the baseline packages.
-1. Start working your way down the list of `dependencies` and `devDependencies` in [`package.json`](./package.json). We normally start on the `dev-dependencies` since they support build process and that tends to update on a regular cadence.
+1. Start working your way down the list of `dependencies` and `devDependencies` in [`package.json`](./package.json). It is normal to start on the `dev-dependencies` since the related NPMs support build process. Build process updates at more consistent interval without breaking the application.
    > Some text editors fill in the next available NPM package version when you go to modify the package version. If this isn't available you can always use [NPM directly](https://www.npmjs.com/)... start searching =).
 1. After each package version update in [`package.json`](./package.json) you'll run the follow scripts
    - `$ yarn test`, if it fails you'll need to run `$ yarn test:dev` and update the related tests
    - `$ yarn build`, if it fails you'll need to run `$ yarn test:integration-dev` and update the related tests
    - `$ yarn start`, confirm that local run is still accessible and that no design alterations have happened. Fix accordingly.
-   - Makes sure Docker/Podman is running and `$ yarn start:proxy`, confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
+   - Make sure VPN is active, and Docker/Podman is running, then type `$ yarn start:proxy`. Confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
 1. If the package is now working commit the change and move on to the next package.
-   - If the package fails, or you want to skip the update, you'll need to minimally reset `node_modules` and `yarn.lock` **BEFORE** you run the next package update.
+   - If the package fails, or you want to skip the update, take the minimally easy path and remove/delete `node_modules` then rollback `yarn.lock` **BEFORE** you run the next package update.
+> There are alternatives to resetting `node_modules`, we're providing the most direct path.
+>
 > Not updating a package is not the end-of-the-world. A package is not going to randomly break because you haven't updated to the latest version.
 
 > Security warnings on NPM packages should be reviewed on a "per-alert basis" since **they generally do not make a distinction between build resources and what is within the applications compiled output**. Blindly following a security
@@ -454,9 +456,9 @@ The dotenv files are structured to cascade each additional dotenv file settings 
 #### Start writing code with local run
 This is a non-networked local run designed to function with minimal resources and a mock API.
 
-1. Confirm you've installed all recommended tooling, and it's running
+1. Confirm you've installed all recommended tooling
 1. Confirm you've installed resources through yarn
-1. Create a local dotenv file called `.env.local` and add the following contents
+1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
     ```
     REACT_APP_DEBUG_MIDDLEWARE=true
     REACT_APP_DEBUG_ORG_ADMIN=true
@@ -480,7 +482,7 @@ This is a networked run that has the ability to proxy prod and stage with a live
 1. Confirm you've installed all recommended tooling
 1. Confirm the repository name has no blank spaces in it. If it does replace that blank with a dash or underscore, Docker has issues with unescaped parameter strings.
 1. Confirm you've installed resources through yarn
-1. Create a local dotenv file called `.env.local` and add the following contents
+1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
     ```
     REACT_APP_DEBUG_MIDDLEWARE=true
     ```
@@ -494,7 +496,8 @@ This is a networked run that has the ability to proxy prod and stage with a live
     ```
     $ yarn test:dev
     ```
-1. Make sure your browser opened around the domain `https://*.foo.redhat.com/`
+1. Make sure you open your browser around the domain `https://*.foo.redhat.com/`
+   > You may have to scroll, but the terminal output will have some available domains for you to pick from.
 1. Start developing...
 
 </details>
@@ -512,15 +515,15 @@ The code makes use of reserved CSS class prefixes used by external resources.
 
    CSS classes with the prefix `uxui-` are used by external resources to identify elements for use in 3rd party tooling. Changes to the class name or element should be broadcast towards our UI/UX team members. 
 
-#### Reserved QE testing attributes
-This project makes use of reserved DOM attributes and string identifiers used by the QE team.
-> Updating elements with these attributes, or settings, should be done with the knowledge "you are affecting" QE's ability to test.
-> And it is recommended you coordinate with QE before altering these attributes, settings.
+#### Reserved testing attributes
+This project makes use of reserved DOM attributes and string identifiers used by the testing team.
+> Updating elements with these attributes, or settings, should be done with the knowledge "you are affecting" the testing team's ability to test.
+> And it is recommended you coordinate with the testing team before altering these attributes, settings.
 
 1. Attribute `data-test`
 
-   - DOM attributes with `data-test=""` are used by QE as a means to identify specific DOM elements.
-   - To use simply place `data-test="[your-id-coordinated-with-QE]`" onto a DOM element.
+   - DOM attributes with `data-test=""` are used by the testing team as a means to identify specific DOM elements.
+   - To use simply place `data-test="[your-id-coordinated-with-testing-team]`" onto a DOM element.
 
 2. `testId` used with i18next `translate` or `t`
 
@@ -528,7 +531,7 @@ This project makes use of reserved DOM attributes and string identifiers used by
    `<span data-test=[testId|locale string id]>[locale string]</span>` around copy content.
    - To use add the `testId` to your locale string function call use
       - `t('locale.string.id', { testId: true })`. In this example, this would populate `locale.string.id` as the testId.
-      - or `t('locale.string.id', { testId: 'custom-id-coordinated-with-QE' })`
+      - or `t('locale.string.id', { testId: 'custom-id-coordinated-with-testing-team' })`
       - or `t('locale.string.id', { testId: <div data-test="custom-element-wrapper-and-id" /> })`
 </details>
 
@@ -585,7 +588,7 @@ To update snapshots from the terminal run
   $ yarn test:dev
   ```
 
-From there you'll be presented with a few choices, one of them is "update", you can then hit the "u" key. Once the update script has run you should see additional changed files within Git, make sure to commit them along with your changes or testing will fail.
+From there you'll be presented with a few choices, one of them is "update", you can then hit the "u" key. Once the update script has run you should see additional changed files within Git, make sure to commit them along with your changes or continuous integration testing will fail.
 
 ##### Checking code coverage
 To check the coverage report from the terminal run
