@@ -63,14 +63,7 @@ exports[`Product RHODS config should apply an inventory configuration: filtered,
 {
   "cells": [
     {
-      "title": <Button
-        component="a"
-        href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-        isInline={true}
-        variant="link"
-      >
-        lorem ipsum
-      </Button>,
+      "title": "lorem ipsum",
     },
     {
       "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
