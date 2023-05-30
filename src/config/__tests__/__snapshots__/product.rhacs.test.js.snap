@@ -65,7 +65,7 @@ exports[`Product RHACS config should apply an inventory configuration: filtered,
     {
       "title": <Button
         component="a"
-        href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+        href="/application-services/acs/instances/instance/XXXX-XXXX-XXXXX-XXXXX"
         isInline={true}
         variant="link"
       >

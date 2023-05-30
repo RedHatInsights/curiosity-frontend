@@ -167,7 +167,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/application-services/acs/instances/instance/${instanceId.value}`}
             >
               {displayName.value || instanceId.value}
             </Button>
