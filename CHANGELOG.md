@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/063a65cf5da6a4ef20cf1508ff5a49c91780e7f6...2d2180af785afe5e4306c4dab297c834edf3125f) (2023-05-31)
+
+### Features
+* **config** sw-924 activate rosa inventory  ([#1122](https://github.com/RedHatInsights/curiosity-frontend/pull/1122)) ([0c56980](https://github.com/RedHatInsights/curiosity-frontend/commit/0c5698097e550a29cedb6b810335ca98f68d70f4))
+* **config** sw-747, sw-748 activate group variant filter  ([#1098](https://github.com/RedHatInsights/curiosity-frontend/pull/1098)) ([514090f](https://github.com/RedHatInsights/curiosity-frontend/commit/514090f01afb3ea8728a0e7dd18963fd85adc0dd))
+* **toolbarFieldGroupVariant** sw-747, sw-748 select config  ([#1117](https://github.com/RedHatInsights/curiosity-frontend/pull/1117)) ([58cc61c](https://github.com/RedHatInsights/curiosity-frontend/commit/58cc61c9e5598b950cffeb987c59ad2072aacb95))
+
+### Documentation
+* **readme,contributing** sw-817 in-depth workflows  ([#1125](https://github.com/RedHatInsights/curiosity-frontend/pull/1125)) ([58aca96](https://github.com/RedHatInsights/curiosity-frontend/commit/58aca9661791e4c7a01b0a76ab152ec26e3d3d74))
+
+### Code Refactoring
+* **graphCardMetricTotals** sw-922 data for callbacks  ([#1123](https://github.com/RedHatInsights/curiosity-frontend/pull/1123)) ([3ca4da0](https://github.com/RedHatInsights/curiosity-frontend/commit/3ca4da0d8a060422d8f7bfd0cf1f7bd96778f582))
+* **graphCard** sw-922 flex styling for metric cards  ([#1123](https://github.com/RedHatInsights/curiosity-frontend/pull/1123)) ([00a28dd](https://github.com/RedHatInsights/curiosity-frontend/commit/00a28dd7cd1fd44e4d44b2dc9b8f163725556997))
+* **config** sw-747 dedicated and metrics on-demand displays  ([#1120](https://github.com/RedHatInsights/curiosity-frontend/pull/1120)) ([ef7ecea](https://github.com/RedHatInsights/curiosity-frontend/commit/ef7ecea6ecb960a8c79f1f3637cb6c113ed30475))
+* **toolbarFieldGranularity** sw-747, sw-748 label update  ([#1121](https://github.com/RedHatInsights/curiosity-frontend/pull/1121)) ([f2d9313](https://github.com/RedHatInsights/curiosity-frontend/commit/f2d93132551fce8b9097d6a592defb7783d7dbc4))
+* **config** sw-747 migrate OpenShift hosts to instances  ([#1118](https://github.com/RedHatInsights/curiosity-frontend/pull/1118)) ([fab2f03](https://github.com/RedHatInsights/curiosity-frontend/commit/fab2f03d1e8b25811977314b51740ac8df8506d7))
+
+### Chores
+* **deps** codecov/codecov-action from 3.1.1 to 3.1.3  ([#1115](https://github.com/RedHatInsights/curiosity-frontend/pull/1115)) ([b12f648](https://github.com/RedHatInsights/curiosity-frontend/commit/b12f648fea369f328f31929cf9f67957004d9782))
+
+### Builds
+* **testing** jest, relax branch coverage  ([#1122](https://github.com/RedHatInsights/curiosity-frontend/pull/1122)) ([6ec21b0](https://github.com/RedHatInsights/curiosity-frontend/commit/6ec21b00c1f09efec52d4c154886a9e8dad80b08))
+
+### Bug Fixes
+* **config** sw-1294 rhacs, rhods inventory links  ([#1129](https://github.com/RedHatInsights/curiosity-frontend/pull/1129)) ([2d2180a](https://github.com/RedHatInsights/curiosity-frontend/commit/2d2180af785afe5e4306c4dab297c834edf3125f))
+* **locales** sw-748 rhel, satellite copy  ([#1127](https://github.com/RedHatInsights/curiosity-frontend/pull/1127)) ([654eb1e](https://github.com/RedHatInsights/curiosity-frontend/commit/654eb1e1f86c77d715b3f8cb1452fa620b3def6f))
+* **locale** sw-1256, rhel, sat, openshift instances copy  ([#1124](https://github.com/RedHatInsights/curiosity-frontend/pull/1124)) ([a6e3f95](https://github.com/RedHatInsights/curiosity-frontend/commit/a6e3f9509ca4f7eba385967a96a14dfba96c180e))
+* **graphCard** sw-747, sw-748 styling, copy  ([#1119](https://github.com/RedHatInsights/curiosity-frontend/pull/1119)) ([ee403b6](https://github.com/RedHatInsights/curiosity-frontend/commit/ee403b664f40facb9676ac38a8720e765d69b888))
+
 ## [2.12.1](https://github.com/RedHatInsights/curiosity-frontend/compare/09be465f54e0a559f39b62e2d06ad521e7c26529...0321d5312fc97d373adf62c2e3be450b41264832) (2023-05-02)
 
 ### Chores
