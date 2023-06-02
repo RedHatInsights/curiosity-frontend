@@ -145,15 +145,13 @@ const config = {
   initialInventoryFilters: [
     {
       id: INVENTORY_TYPES.DISPLAY_NAME,
-      cell: (
-        {
-          [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-          [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {},
-          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
-        } = {},
-        session
-      ) => {
-        const { inventory: authorized } = session?.authorized || {};
+      cell: ({
+        [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
+        [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {},
+        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
+      } = {}) => {
+        // FixMe: Disabled, see SWATCH-1209 for resolution
+        const { inventory: authorized = false } = {};
 
         if (!instanceId.value) {
           return displayName.value;
