@@ -113,14 +113,7 @@ exports[`Product OpenShift Metrics config should apply an inventory configuratio
   "cells": [
     {
       "title": <React.Fragment>
-        <Button
-          component="a"
-          href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-          isInline={true}
-          variant="link"
-        >
-          lorem ipsum
-        </Button>
+        lorem ipsum
          
         
       </React.Fragment>,
