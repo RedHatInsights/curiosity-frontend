@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip as PfTooltip, TooltipProps, TooltipPosition } from '@patternfly/react-core';
+import { Tooltip as PfTooltip, TooltipPosition } from '@patternfly/react-core';
 
 /**
  * PF tooltip wrapper.
@@ -16,7 +16,7 @@ import { Tooltip as PfTooltip, TooltipProps, TooltipPosition } from '@patternfly
  * @param {React.ReactNode} props.children
  * @param {React.ReactNode} props.content
  * @param {boolean} props.isNoWrap
- * @param {TooltipProps} props.props
+ * @param {object} props.props
  * @returns {React.ReactNode}
  */
 const Tooltip = ({ children, content, isNoWrap, ...props }) => (

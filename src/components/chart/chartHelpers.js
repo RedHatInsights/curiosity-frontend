@@ -260,7 +260,7 @@ const generateTooltipData = ({ content = helpers.noop, dataSets = [] } = {}) => 
  * @param {number} params.xAxisLabelIncrement
  * @param {object} params.xAxisPropDefaults
  * @param {Function} params.xAxisTickFormat
- * @returns {{tickFormat: (function(*)), tickValues: *}}
+ * @returns {{tickFormat: Function, tickValues: *}}
  */
 const generateXAxisProps = ({
   dataSet = {},
