@@ -7358,7 +7358,7 @@ PF tooltip wrapper component.
     </tr><tr>
     <td>props.isNoWrap</td><td><code>boolean</code></td>
     </tr><tr>
-    <td>props.props</td><td><code>TooltipProps</code></td>
+    <td>props.props</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
