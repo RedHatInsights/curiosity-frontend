@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1](https://github.com/RedHatInsights/curiosity-frontend/compare/497e2dfa759d4d1818dbe539cf60451551f5598f...22e6136911b70a72d71cd8bbe7d4b4c6bdb4f4d3) (2023-06-06)
+
+### Chores
+* **deps** codecov/codecov-action from 3.1.3 to 3.1.4  ([#1130](https://github.com/RedHatInsights/curiosity-frontend/pull/1130)) ([51d5cba](https://github.com/RedHatInsights/curiosity-frontend/commit/51d5cbad360c603085b7be1b81e609e3245aa0d7))
+
+### Bug Fixes
+* **config** sw-1335 openshift on-demand inventory links  ([#1131](https://github.com/RedHatInsights/curiosity-frontend/pull/1131)) ([22e6136](https://github.com/RedHatInsights/curiosity-frontend/commit/22e6136911b70a72d71cd8bbe7d4b4c6bdb4f4d3))
+
 ## [3.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/063a65cf5da6a4ef20cf1508ff5a49c91780e7f6...2d2180af785afe5e4306c4dab297c834edf3125f) (2023-05-31)
 
 ### Features
