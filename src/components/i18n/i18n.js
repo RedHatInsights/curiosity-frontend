@@ -69,6 +69,7 @@ const I18n = ({ children, fallbackLng, loadPath, locale }) => {
     }
   }, [initialized, locale]);
 
+  // eslint-disable-next-line react/jsx-no-useless-fragment
   return (initialized && children) || <React.Fragment />;
 };
 
