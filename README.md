@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/RedHatInsights/curiosity-frontend/branch/main/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/curiosity-frontend)
 [![License](https://img.shields.io/github/license/RedHatInsights/curiosity-frontend.svg)](https://github.com/RedHatInsights/curiosity-frontend/blob/main/LICENSE)
 
-A web user interface for subscription reporting, based on [Patternfly](https://www.patternfly.org/)
+A web user interface for subscription reporting and metering, based on [Patternfly](https://www.patternfly.org/)
 
 ## Development, Quick Start
 
