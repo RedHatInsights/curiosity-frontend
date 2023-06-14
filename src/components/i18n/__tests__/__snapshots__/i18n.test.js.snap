@@ -553,27 +553,27 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', chartId], testId: 'graphDailyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', chartId], testId: 'graphMonthlyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.monthlyDate)",
       },
       {
         "key": "curiosity-graph.label_axisX",
@@ -594,27 +594,27 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', chartId], testId: 'graphDailyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', chartId], testId: 'graphMonthlyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.monthlyDate)",
       },
       {
         "key": "curiosity-graph.label_axisX",
@@ -635,27 +635,27 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', metricId], testId: 'graphDailyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && metricId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', metricId], testId: 'graphMonthlyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && metricId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.monthlyDate)",
       },
       {
         "key": "curiosity-graph.label_axisX",
@@ -713,27 +713,27 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', metricId], testId: 'graphDailyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && metricId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', metricId], testId: 'graphMonthlyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && metricId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.monthlyDate)",
       },
       {
         "key": "curiosity-graph.label_axisX",
@@ -774,27 +774,27 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', metricId], testId: 'graphDailyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dailyHasData && metricId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dailyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(dailyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
       },
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', metricId], testId: 'graphMonthlyTotalCard-header' })",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-header' })",
       },
       {
         "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', monthlyHasData && metricId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(monthlyValue)",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.monthlyValue)",
       },
       {
         "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment.utc(monthlyDate)",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.monthlyDate)",
       },
       {
         "key": "curiosity-graph.label_axisX",
