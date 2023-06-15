@@ -7,6 +7,7 @@ import { useGraphCardContext, useMetricsSelector } from './graphCardContext';
 import { Loader, SkeletonSize } from '../loader/loader';
 import { toolbarFieldOptions } from '../toolbar/toolbarFieldRangedMonthly';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
+import { graphCardHelpers } from './graphCardHelpers';
 import { helpers } from '../../common';
 
 /**
@@ -31,41 +32,37 @@ const GraphCardMetricTotals = ({
   useProductGraphTallyQuery: useAliasProductGraphTallyQuery
 }) => {
   const { settings = {} } = useAliasGraphCardContext();
-  const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate } = useAliasProductGraphTallyQuery();
-  const { pending, error, fulfilled, dataSets = [] } = useAliasMetricsSelector();
-  const { data = [], id: firstChartId, metric: firstMetricId, meta = {} } = dataSets[0] || {};
-  const { date: lastDate, hasData: lastHasData, y: lastValue } = data[data.length - 1] || {};
+  const query = useAliasProductGraphTallyQuery();
+  const { pending, error, fulfilled, dataSets: dataByList = [] } = useAliasMetricsSelector();
 
-  const {
-    date: currentDate,
-    hasData: currentHasData,
-    y: currentValue
-  } = data.find(({ isCurrentDate }) => isCurrentDate === true) || {};
-
-  const { totalMonthlyDate: monthlyDate, totalMonthlyHasData: monthlyHasData, totalMonthlyValue: monthlyValue } = meta;
-
-  const { title: selectedMonth, isCurrent } =
+  const { [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate } = query;
+  const { isCurrent: isSelectedMonthCurrent } =
     toolbarFieldOptions.find(
       option => option.title === startDate || option.value.startDate.toISOString() === startDate
     ) || {};
 
-  const dailyDate = isCurrent ? currentDate : lastDate;
-  const dailyHasData = isCurrent ? currentHasData : lastHasData;
-  const dailyValue = isCurrent ? currentValue : lastValue;
-
   if (settings?.isMetricDisplay && settings?.cards?.length) {
     const metricDisplayPassedData = helpers.setImmutableData(
       {
-        chartId: firstChartId,
-        dailyDate,
-        dailyHasData,
-        dailyValue,
-        metricId: firstMetricId,
-        groupMetricId: settings.groupMetric,
-        monthlyDate,
-        monthlyHasData,
-        monthlyValue,
-        selectedValue: selectedMonth
+        dataSets: dataByList.map(dataSet => {
+          const { id: chartId, metric: metricId } = dataSet || {};
+          return {
+            ...dataSet,
+            display: {
+              ...graphCardHelpers.getDailyMonthlyTotals({ dataSet, isCurrent: isSelectedMonthCurrent }),
+              ...graphCardHelpers.getRemainingCapacity({
+                ...graphCardHelpers.getPrepaidTallyCapacity({ data: dataByList }),
+                isCurrent: isSelectedMonthCurrent
+              }),
+              ...graphCardHelpers.getRemainingOverage({
+                ...graphCardHelpers.getPrepaidTallyCapacity({ data: dataByList }),
+                isCurrent: isSelectedMonthCurrent
+              }),
+              chartId,
+              metricId
+            }
+          };
+        })
       },
       { isClone: true }
     );
