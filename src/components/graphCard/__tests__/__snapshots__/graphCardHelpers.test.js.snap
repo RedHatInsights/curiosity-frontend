@@ -75,6 +75,52 @@ exports[`GraphCardHelpers getChartXAxisLabelIncrement should return a x axis tic
 }
 `;
 
+exports[`GraphCardHelpers getDailyMonthlyTotals should return total values: base 1`] = `
+{
+  "dailyDate": "2023-06-13T00:00:00.000Z",
+  "dailyHasData": false,
+  "dailyValue": 0,
+  "monthlyDate": "2023-06-13T00:00:00.000Z",
+  "monthlyHasData": true,
+  "monthlyValue": 100,
+}
+`;
+
+exports[`GraphCardHelpers getPrepaidTallyCapacity should return tally, capacity dataSets: base 1`] = `
+{
+  "capacityData": "mock threshold data",
+  "tallyData": "mock area chart data",
+}
+`;
+
+exports[`GraphCardHelpers getRemainingCapacity should return capacity values: base 1`] = `
+{
+  "remainingCapacity": 50,
+  "remainingCapacityHasData": true,
+}
+`;
+
+exports[`GraphCardHelpers getRemainingCapacity should return capacity values: fallback 1`] = `
+{
+  "remainingCapacity": 0,
+  "remainingCapacityHasData": true,
+}
+`;
+
+exports[`GraphCardHelpers getRemainingOverage should return overage values: base 1`] = `
+{
+  "remainingOverage": 50,
+  "remainingOverageHasData": true,
+}
+`;
+
+exports[`GraphCardHelpers getRemainingOverage should return overage values: fallback 1`] = `
+{
+  "remainingOverage": 0,
+  "remainingOverageHasData": true,
+}
+`;
+
 exports[`GraphCardHelpers getTooltipDate should return a formatted date based on granularity: granularity based date 1`] = `
 {
   "daily": "June 1",
@@ -91,6 +137,11 @@ exports[`GraphCardHelpers should have specific functions: graphCardHelpers 1`] =
   "generateExtendedChartSettings": [Function],
   "generateIsToolbarFilter": [Function],
   "getChartXAxisLabelIncrement": [Function],
+  "getDailyMonthlyTotals": [Function],
+  "getMetricTotalCurrentOrLastData": [Function],
+  "getPrepaidTallyCapacity": [Function],
+  "getRemainingCapacity": [Function],
+  "getRemainingOverage": [Function],
   "getTooltipDate": [Function],
   "xAxisTickFormat": [Function],
   "yAxisTickFormat": [Function],

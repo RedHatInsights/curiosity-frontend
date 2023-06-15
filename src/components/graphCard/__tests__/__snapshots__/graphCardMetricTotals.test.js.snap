@@ -4,7 +4,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
 <div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-hello-world"
-  data-test-data="{"groupMetricId":["hello","world"]}"
+  data-test-data="{"dataSets":[]}"
 >
   <div>
     <div
@@ -14,7 +14,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMetricTotalsCard-0"
         isPlain={true}
-        key="3409dd31007d6ac3d52cd7bf810296df8201c75d"
+        key="8bc6051e1fb7af8abe3961cf01164e8c21581c0d"
       >
         <CardHeader>
           <CardTitle>
@@ -28,7 +28,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
         </CardHeader>
         <CardBody>
           <div>
-            t(ipsum-{{data}}, {"testId":"custom test id","data":"{\\"groupMetricId\\":[\\"hello\\",\\"world\\"]}"})
+            t(ipsum-{{data}}, {"testId":"custom test id","data":"{\\"dataSets\\":[]}"})
           </div>
         </CardBody>
         <CardFooter>
@@ -49,7 +49,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
               headingLevel="h2"
               size="md"
             >
-              hello-{"groupMetricId":["hello","world"]}
+              hello-{"dataSets":[]}
             </Title>
           </CardTitle>
         </CardHeader>
@@ -68,7 +68,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMetricTotalsCard-2"
         isPlain={true}
-        key="b21615e1e1be06472b2fd681bd40525fbfbe223d"
+        key="182e08467df6e09deafb7731c4a239e272128187"
       >
         <CardHeader>
           <CardTitle>
@@ -87,7 +87,7 @@ exports[`GraphCardMetricTotals Component should handle custom card displays: ful
         </CardBody>
         <CardFooter>
           <div>
-            dolor sit timestamp-{"groupMetricId":["hello","world"]}
+            dolor sit timestamp-{"dataSets":[]}
           </div>
         </CardFooter>
       </Card>
@@ -105,7 +105,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 <div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-hello-world"
-  data-test-data="{"groupMetricId":["hello","world"]}"
+  data-test-data="{"dataSets":[]}"
 >
   <div>
     <div
@@ -115,7 +115,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         className="curiosity-usage-graph__totals-column-card blur"
         data-test="graphMetricTotalsCard-0"
         isPlain={true}
-        key="3409dd31007d6ac3d52cd7bf810296df8201c75d"
+        key="8bc6051e1fb7af8abe3961cf01164e8c21581c0d"
       >
         <CardHeader>
           <CardTitle>
@@ -146,7 +146,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 <div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-hello-world"
-  data-test-data="{"groupMetricId":["hello","world"]}"
+  data-test-data="{"dataSets":[]}"
 >
   <div>
     <div
@@ -156,7 +156,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMetricTotalsCard-0"
         isPlain={true}
-        key="3409dd31007d6ac3d52cd7bf810296df8201c75d"
+        key="8bc6051e1fb7af8abe3961cf01164e8c21581c0d"
       >
         <CardHeader>
           <CardTitle>
@@ -193,7 +193,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
 <div
   className="curiosity-usage-graph__totals"
   data-test="graphMetricTotals-hello-world"
-  data-test-data="{"groupMetricId":["hello","world"]}"
+  data-test-data="{"dataSets":[]}"
 >
   <div>
     <div
@@ -203,7 +203,7 @@ exports[`GraphCardMetricTotals Component should handle multiple display states: 
         className="curiosity-usage-graph__totals-column-card "
         data-test="graphMetricTotalsCard-0"
         isPlain={true}
-        key="3409dd31007d6ac3d52cd7bf810296df8201c75d"
+        key="8bc6051e1fb7af8abe3961cf01164e8c21581c0d"
       >
         <CardHeader>
           <CardTitle>

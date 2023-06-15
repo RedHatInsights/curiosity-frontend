@@ -8,13 +8,19 @@ import {
   getChartXAxisLabelIncrement,
   getTooltipDate,
   xAxisTickFormat,
-  yAxisTickFormat
+  yAxisTickFormat,
+  getDailyMonthlyTotals,
+  getRemainingCapacity,
+  getRemainingOverage,
+  getPrepaidTallyCapacity
 } from '../graphCardHelpers';
 import { dateHelpers } from '../../../common';
 import {
+  RHSM_API_QUERY_CATEGORY_TYPES as CATEGORY_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SET_TYPES
 } from '../../../services/rhsm/rhsmConstants';
+import { ChartTypeVariant } from '../../chart/chartHelpers';
 
 describe('GraphCardHelpers', () => {
   it('should have specific functions', () => {
@@ -142,5 +148,184 @@ describe('GraphCardHelpers', () => {
         query: { [RHSM_API_QUERY_SET_TYPES.CATEGORY]: 'dolor-sir' }
       })
     ).toMatchSnapshot('category id');
+  });
+
+  it('getDailyMonthlyTotals should return total values', () => {
+    expect(
+      getDailyMonthlyTotals({
+        dataSet: {
+          data: [
+            {
+              date: '2023-06-12T00:00:00.000Z',
+              hasData: true,
+              y: 100
+            },
+            {
+              date: '2023-06-13T00:00:00.000Z',
+              hasData: false,
+              y: 0
+            }
+          ],
+          meta: {
+            totalMonthlyDate: '2023-06-13T00:00:00.000Z',
+            totalMonthlyHasData: true,
+            totalMonthlyValue: 100
+          }
+        }
+      })
+    ).toMatchSnapshot('base');
+  });
+
+  it('getPrepaidTallyCapacity should return tally, capacity dataSets', () => {
+    expect(
+      getPrepaidTallyCapacity({
+        data: [
+          {
+            chartType: ChartTypeVariant.threshold,
+            data: 'mock threshold data'
+          },
+          {
+            chartType: ChartTypeVariant.area,
+            id: `lorem-ipsum-${CATEGORY_TYPES.PREPAID}`,
+            data: 'mock area chart data'
+          },
+          {
+            chartType: ChartTypeVariant.line
+          }
+        ]
+      })
+    ).toMatchSnapshot('base');
+  });
+
+  it('getRemainingCapacity should return capacity values', () => {
+    expect(
+      getRemainingCapacity({
+        capacityData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 100
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        tallyData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 50
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        isCurrent: true
+      })
+    ).toMatchSnapshot('base');
+
+    expect(
+      getRemainingCapacity({
+        capacityData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 50
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        tallyData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 100
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        isCurrent: true
+      })
+    ).toMatchSnapshot('fallback');
+  });
+
+  it('getRemainingOverage should return overage values', () => {
+    expect(
+      getRemainingOverage({
+        capacityData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 50
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        tallyData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 100
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        isCurrent: true
+      })
+    ).toMatchSnapshot('base');
+
+    expect(
+      getRemainingOverage({
+        capacityData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 100
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        tallyData: [
+          {
+            date: '2023-06-12T00:00:00.000Z',
+            hasData: true,
+            isCurrentDate: true,
+            y: 50
+          },
+          {
+            date: '2023-06-13T00:00:00.000Z',
+            hasData: false,
+            y: 0
+          }
+        ],
+        isCurrent: true
+      })
+    ).toMatchSnapshot('fallback');
   });
 });
