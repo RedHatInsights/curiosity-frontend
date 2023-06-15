@@ -84,84 +84,7 @@ const config = {
           metric: RHSM_API_PATH_METRIC_TYPES.CORES,
           chartType: ChartTypeVariant.threshold
         }
-      ],
-      settings: {
-        stringId: `${RHSM_API_PATH_METRIC_TYPES.CORES}_${productId}`,
-        cards: [
-          {
-            header: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardHeadingMetric', {
-                context: ['dailyTotal', dataSets?.[0]?.display?.chartId],
-                testId: 'graphDailyTotalCard-header'
-              }),
-            body: ({ dataSets = [] } = {}) =>
-              translate(
-                'curiosity-graph.cardBodyMetric',
-                {
-                  context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId],
-                  testId: 'graphDailyTotalCard-body',
-                  total: helpers
-                    .numberDisplay(dataSets?.[0]?.display?.dailyValue)
-                    ?.format({
-                      average: true,
-                      mantissa: 5,
-                      trimMantissa: true,
-                      lowPrecision: false
-                    })
-                    ?.toUpperCase()
-                },
-                [<strong title={dataSets?.[0]?.display?.dailyValue} aria-label={dataSets?.[0]?.display?.dailyValue} />]
-              ),
-            footer: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardFooterMetric', {
-                date: moment
-                  .utc(dataSets?.[0]?.display?.dailyDate)
-                  .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
-                testId: 'graphDailyTotalCard-footer'
-              })
-          },
-          {
-            header: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardHeadingMetric', {
-                context: ['remainingCapacity', dataSets?.[0]?.display?.chartId],
-                testId: 'graphRemainingCapacityCard-header'
-              }),
-            body: ({ dataSets = [] } = {}) =>
-              translate(
-                'curiosity-graph.cardBodyMetric',
-                {
-                  context: [
-                    'total',
-                    dataSets?.[0]?.display?.remainingCapacityHasData && dataSets?.[0]?.display?.chartId
-                  ],
-                  testId: 'graphRemainingCapacityCard-body',
-                  total: helpers
-                    .numberDisplay(dataSets?.[0]?.display?.remainingCapacity)
-                    ?.format({
-                      average: true,
-                      mantissa: 5,
-                      trimMantissa: true,
-                      lowPrecision: false
-                    })
-                    ?.toUpperCase()
-                },
-                [
-                  <strong
-                    title={dataSets?.[0]?.display?.remainingCapacity}
-                    aria-label={dataSets?.[0]?.display?.remainingCapacity}
-                  />
-                ]
-              ),
-            footer: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardFooterMetric', {
-                date: moment
-                  .utc(dataSets?.[0]?.display?.dailyDate)
-                  .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
-                testId: 'graphRemainingCapacityCard-footer'
-              })
-          }
-        ]
-      }
+      ]
     },
     {
       filters: [
@@ -187,86 +110,81 @@ const config = {
           metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
           chartType: ChartTypeVariant.threshold
         }
-      ],
-      settings: {
-        cards: [
-          {
-            header: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardHeadingMetric', {
-                context: ['dailyTotal', dataSets?.[0]?.display?.chartId],
-                testId: 'graphDailyTotalCard-header'
-              }),
-            body: ({ dataSets = [] } = {}) =>
-              translate(
-                'curiosity-graph.cardBodyMetric',
-                {
-                  context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId],
-                  testId: 'graphDailyTotalCard-body',
-                  total: helpers
-                    .numberDisplay(dataSets?.[0]?.display?.dailyValue)
-                    ?.format({
-                      average: true,
-                      mantissa: 5,
-                      trimMantissa: true,
-                      lowPrecision: false
-                    })
-                    ?.toUpperCase()
-                },
-                [<strong title={dataSets?.[0]?.display?.dailyValue} aria-label={dataSets?.[0]?.display?.dailyValue} />]
-              ),
-            footer: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardFooterMetric', {
-                date: moment
-                  .utc(dataSets?.[0]?.display?.dailyDate)
-                  .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
-                testId: 'graphDailyTotalCard-footer'
-              })
-          },
-          {
-            header: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardHeadingMetric', {
-                context: ['remainingCapacity', dataSets?.[0]?.display?.chartId],
-                testId: 'graphRemainingCapacityCard-header'
-              }),
-            body: ({ dataSets = [] } = {}) =>
-              translate(
-                'curiosity-graph.cardBodyMetric',
-                {
-                  context: [
-                    'total',
-                    dataSets?.[0]?.display?.remainingCapacityHasData && dataSets?.[0]?.display?.chartId
-                  ],
-                  testId: 'graphRemainingCapacityCard-body',
-                  total: helpers
-                    .numberDisplay(dataSets?.[0]?.display?.remainingCapacity)
-                    ?.format({
-                      average: true,
-                      mantissa: 5,
-                      trimMantissa: true,
-                      lowPrecision: false
-                    })
-                    ?.toUpperCase()
-                },
-                [
-                  <strong
-                    title={dataSets?.[0]?.display?.remainingCapacity}
-                    aria-label={dataSets?.[0]?.display?.remainingCapacity}
-                  />
-                ]
-              ),
-            footer: ({ dataSets = [] } = {}) =>
-              translate('curiosity-graph.cardFooterMetric', {
-                date: moment
-                  .utc(dataSets?.[0]?.display?.dailyDate)
-                  .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
-                testId: 'graphRemainingCapacityCard-footer'
-              })
-          }
-        ]
-      }
+      ]
     }
   ],
   initialGraphSettings: {
+    cards: [
+      {
+        header: ({ dataSets = [] } = {}) =>
+          translate('curiosity-graph.cardHeadingMetric', {
+            context: ['dailyTotal', dataSets?.[0]?.display?.chartId],
+            testId: 'graphDailyTotalCard-header'
+          }),
+        body: ({ dataSets = [] } = {}) =>
+          translate(
+            'curiosity-graph.cardBodyMetric',
+            {
+              context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId],
+              testId: 'graphDailyTotalCard-body',
+              total: helpers
+                .numberDisplay(dataSets?.[0]?.display?.dailyValue)
+                ?.format({
+                  average: true,
+                  mantissa: 5,
+                  trimMantissa: true,
+                  lowPrecision: false
+                })
+                ?.toUpperCase()
+            },
+            [<strong title={dataSets?.[0]?.display?.dailyValue} aria-label={dataSets?.[0]?.display?.dailyValue} />]
+          ),
+        footer: ({ dataSets = [] } = {}) =>
+          translate('curiosity-graph.cardFooterMetric', {
+            date: moment
+              .utc(dataSets?.[0]?.display?.dailyDate)
+              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            testId: 'graphDailyTotalCard-footer'
+          })
+      },
+      {
+        header: ({ dataSets = [] } = {}) =>
+          translate('curiosity-graph.cardHeadingMetric', {
+            context: ['remainingCapacity', dataSets?.[0]?.display?.chartId],
+            testId: 'graphRemainingCapacityCard-header'
+          }),
+        body: ({ dataSets = [] } = {}) =>
+          translate(
+            'curiosity-graph.cardBodyMetric',
+            {
+              context: ['total', dataSets?.[0]?.display?.remainingCapacityHasData && dataSets?.[0]?.display?.chartId],
+              testId: 'graphRemainingCapacityCard-body',
+              total: helpers
+                .numberDisplay(dataSets?.[0]?.display?.remainingCapacity)
+                ?.format({
+                  average: true,
+                  mantissa: 5,
+                  trimMantissa: true,
+                  lowPrecision: false
+                })
+                ?.toUpperCase()
+            },
+            [
+              <strong
+                title={dataSets?.[0]?.display?.remainingCapacity}
+                aria-label={dataSets?.[0]?.display?.remainingCapacity}
+              />
+            ]
+          ),
+        footer: ({ dataSets = [] } = {}) =>
+          translate('curiosity-graph.cardFooterMetric', {
+            date: moment
+              .utc(dataSets?.[0]?.display?.dailyDate)
+              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            testId: 'graphRemainingCapacityCard-footer'
+          })
+      }
+    ],
     isCardTitleDescription: true,
     xAxisLabelIncrement: 1,
     xAxisChartLabel: () => translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY }),

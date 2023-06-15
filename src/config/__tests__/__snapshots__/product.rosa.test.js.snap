@@ -451,6 +451,18 @@ exports[`Product ROSA config should apply graph configuration: filters 1`] = `
 
 exports[`Product ROSA config should apply graph configuration: settings 1`] = `
 {
+  "cards": [
+    {
+      "body": [Function],
+      "footer": [Function],
+      "header": [Function],
+    },
+    {
+      "body": [Function],
+      "footer": [Function],
+      "header": [Function],
+    },
+  ],
   "isCardTitleDescription": true,
   "xAxisChartLabel": [Function],
   "xAxisLabelIncrement": 1,
