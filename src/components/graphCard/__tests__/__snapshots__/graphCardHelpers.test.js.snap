@@ -23,7 +23,7 @@ exports[`GraphCardHelpers generateChartSettings should return base graph setting
           {
             "chartType": "area",
             "dolor": "sit",
-            "id": "dolorSit",
+            "id": "dolorSit_loremIpsumTest",
             "isCapacity": false,
             "isStacked": true,
             "isThreshold": false,
@@ -32,7 +32,8 @@ exports[`GraphCardHelpers generateChartSettings should return base graph setting
             "strokeWidth": 2,
           },
         ],
-        "stringId": "dolorSit",
+        "productId": "loremIpsumTest",
+        "stringId": "dolorSit_loremIpsumTest",
       },
     },
   ],
