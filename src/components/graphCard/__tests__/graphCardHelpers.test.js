@@ -115,7 +115,10 @@ describe('GraphCardHelpers', () => {
     expect(generateChartSettings()).toMatchSnapshot('no filters');
 
     expect(
-      generateChartSettings({ filters: [{ lorem: 'ipsum' }, { metric: 'dolorSit', dolor: 'sit' }] })
+      generateChartSettings({
+        filters: [{ lorem: 'ipsum' }, { metric: 'dolorSit', dolor: 'sit' }],
+        productId: 'loremIpsumTest'
+      })
     ).toMatchSnapshot('basic filters');
   });
 

@@ -25,9 +25,10 @@ import { dateHelpers, helpers } from '../../common';
  */
 const generateChartIds = ({ isCapacity, metric, productId, query = {} } = {}) => {
   const metricCategory = query?.[RHSM_API_QUERY_SET_TYPES.CATEGORY] || undefined;
-  return `${(isCapacity && 'threshold_') || ''}${metric}${(metricCategory && `_${metricCategory}`) || ''}${
-    (productId && `_${productId}`) || ''
-  }`;
+  const billingCategory = query?.[RHSM_API_QUERY_SET_TYPES.BILLING_CATEGORY] || undefined;
+  return `${(isCapacity && 'threshold_') || ''}${metric}${(billingCategory && `_${billingCategory}`) || ''}${
+    (metricCategory && `_${metricCategory}`) || ''
+  }${(productId && `_${productId}`) || ''}`;
 };
 
 /**
@@ -109,7 +110,8 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
               ...filterSettings
             }
           ],
-          stringId: (isMultiMetric && productId) || baseFilterSettings.id
+          productId,
+          stringId: baseFilterSettings.id
         }
       });
     } else {
@@ -127,6 +129,12 @@ const generateChartSettings = ({ filters = [], settings: graphCardSettings = {},
     if (isLast) {
       const lastFiltersSettingsEntry = filtersSettings?.[filtersSettings.length - 1]?.settings;
       lastFiltersSettingsEntry.groupMetric = Array.from(lastFiltersSettingsEntry?.groupMetric).sort();
+
+      if (lastFiltersSettingsEntry.isMultiMetric) {
+        lastFiltersSettingsEntry.stringId = `${lastFiltersSettingsEntry.groupMetric.join('_')}_${
+          lastFiltersSettingsEntry.productId
+        }`;
+      }
     }
   };
 
@@ -305,7 +313,7 @@ const yAxisTickFormat = ({ callback, tick } = {}) => {
  */
 const generateExtendedChartSettings = ({ settings, granularity } = {}) => ({
   ...settings,
-  xAxisLabelIncrement: getChartXAxisLabelIncrement(granularity),
+  xAxisLabelIncrement: settings?.xAxisLabelIncrement ?? getChartXAxisLabelIncrement(granularity),
   xAxisTickFormat: ({ item, previousItem, tick }) =>
     xAxisTickFormat({
       callback: settings?.xAxisTickFormat,
