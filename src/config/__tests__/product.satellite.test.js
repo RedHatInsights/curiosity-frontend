@@ -18,9 +18,13 @@ describe('Product Satellite config', () => {
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
-    expect(generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings })).toMatchSnapshot(
-      'filters'
-    );
+    expect(
+      generateChartSettings({
+        filters: initialGraphFilters,
+        settings: initialGraphSettings,
+        productId: 'loremIpsumTest'
+      })
+    ).toMatchSnapshot('filters');
     expect(initialGraphSettings).toMatchSnapshot('settings');
   });
 
