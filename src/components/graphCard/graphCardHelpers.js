@@ -2,6 +2,7 @@ import moment from 'moment';
 import { chart_color_green_300 as chartColorGreenDark } from '@patternfly/react-tokens';
 import { ChartTypeVariant } from '../chart/chart';
 import {
+  RHSM_API_QUERY_CATEGORY_TYPES as CATEGORY_TYPES,
   RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES,
   RHSM_API_QUERY_SET_TYPES
 } from '../../services/rhsm/rhsmConstants';
@@ -320,12 +321,172 @@ const generateExtendedChartSettings = ({ settings, granularity } = {}) => ({
     })
 });
 
+/**
+ * Get either the current or last date available data.
+ *
+ * @param {object} params
+ * @param {Array} params.data
+ * @param {boolean} params.isCurrent
+ * @returns {{date: string, hasData: boolean, value: number}}
+ */
+const getMetricTotalCurrentOrLastData = helpers.memo(
+  ({ data, isCurrent = false } = {}) => {
+    const {
+      date: currentDate,
+      hasData: currentHasData,
+      y: currentValue
+    } = data.find(({ isCurrentDate }) => isCurrentDate === true) || {};
+    const { date: lastDate, hasData: lastHasData, y: lastValue } = data[data.length - 1] || {};
+
+    const date = isCurrent ? currentDate : lastDate;
+    const hasData = isCurrent ? currentHasData : lastHasData;
+    const value = isCurrent ? currentValue : lastValue;
+
+    return {
+      date,
+      hasData,
+      value
+    };
+  },
+  { cacheLimit: 3 }
+);
+
+/**
+ * Get daily and monthly totals from a data set. A metric totals helper.
+ *
+ * @param {object} params
+ * @param {object} params.dataSet
+ * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through "graphCardMetricTotals"
+ * @returns {{chartId: string, metricId: string, monthlyHasData: boolean, dailyValue: number, dailyDate: string,
+ *     monthlyValue: number, monthlyDate: string, dailyHasData: boolean}}
+ */
+const getDailyMonthlyTotals = helpers.memo(
+  ({ dataSet, isCurrent = false } = {}) => {
+    const { data = [], meta = {} } = dataSet || {};
+    const {
+      totalMonthlyDate: monthlyDate,
+      totalMonthlyHasData: monthlyHasData,
+      totalMonthlyValue: monthlyValue
+    } = meta;
+
+    const {
+      date: dailyDate,
+      hasData: dailyHasData,
+      value: dailyValue
+    } = getMetricTotalCurrentOrLastData({ data, isCurrent });
+
+    return {
+      dailyDate,
+      dailyHasData,
+      dailyValue,
+      monthlyDate,
+      monthlyHasData,
+      monthlyValue
+    };
+  },
+  { cacheLimit: 3 }
+);
+
+/**
+ * Get the first available prepaid Tally, Capacity data sets
+ *
+ * @param {object} params
+ * @param {Array} params.data
+ * @returns {{capacityData: object, tallyData: object}}
+ */
+const getPrepaidTallyCapacity = helpers.memo(
+  ({ data = [] } = {}) => ({
+    capacityData: data.find(({ chartType }) => new RegExp(ChartTypeVariant.threshold, 'i').test(chartType))?.data,
+    tallyData: data.find(({ id }) => new RegExp(CATEGORY_TYPES.PREPAID, 'i').test(id))?.data
+  }),
+  { cacheLimit: 3 }
+);
+
+/**
+ * Get a remaining capacity from data sets. A metric totals helper.
+ *
+ * @param {object} params
+ * @param {Array} params.capacityData
+ * @param {Array} params.tallyData
+ * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through "graphCardMetricTotals"
+ * @returns {{remainingCapacityHasData: boolean, remainingCapacity: number}}
+ */
+const getRemainingCapacity = helpers.memo(
+  ({ capacityData = [], tallyData = [], isCurrent = false } = {}) => {
+    const { hasData: capacityHasData, value: capacityValue } = getMetricTotalCurrentOrLastData({
+      data: capacityData,
+      isCurrent
+    });
+    const { hasData: tallyHasData, value: tallyValue } = getMetricTotalCurrentOrLastData({
+      data: tallyData,
+      isCurrent
+    });
+    const response = {
+      remainingCapacityHasData: capacityHasData && tallyHasData,
+      remainingCapacity: null
+    };
+
+    if (response.remainingCapacityHasData) {
+      response.remainingCapacity = Number.parseInt(capacityValue, 10) - Number.parseInt(tallyValue, 10) || 0;
+
+      if (!(response.remainingCapacity >= 0)) {
+        response.remainingCapacity = 0;
+      }
+    }
+
+    return response;
+  },
+  { cacheLimit: 3 }
+);
+
+/**
+ * Get a remaining overage from data sets. A metric totals helper.
+ *
+ * @param {object} params
+ * @param {Array} params.capacityData
+ * @param {Array} params.tallyData
+ * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through "graphCardMetricTotals"
+ * @returns {{remainingOverage: number, remainingOverageHasData: boolean}}
+ */
+const getRemainingOverage = helpers.memo(
+  ({ capacityData = [], tallyData = [], isCurrent = false } = {}) => {
+    const { hasData: capacityHasData, value: capacityValue } = getMetricTotalCurrentOrLastData({
+      data: capacityData,
+      isCurrent
+    });
+    const { hasData: tallyHasData, value: tallyValue } = getMetricTotalCurrentOrLastData({
+      data: tallyData,
+      isCurrent
+    });
+    const response = {
+      remainingOverageHasData: capacityHasData && tallyHasData,
+      remainingOverage: null
+    };
+
+    if (response.remainingOverageHasData) {
+      response.remainingOverage = Number.parseInt(tallyValue, 10) - Number.parseInt(capacityValue, 10) || 0;
+
+      if (!(response.remainingOverage >= 0)) {
+        response.remainingOverage = 0;
+      }
+    }
+
+    return response;
+  },
+  { cacheLimit: 3 }
+);
+
 const graphCardHelpers = {
   generateChartIds,
   generateChartSettings,
   generateExtendedChartSettings,
   generateIsToolbarFilter,
   getChartXAxisLabelIncrement,
+  getDailyMonthlyTotals,
+  getMetricTotalCurrentOrLastData,
+  getPrepaidTallyCapacity,
+  getRemainingCapacity,
+  getRemainingOverage,
   getTooltipDate,
   xAxisTickFormat,
   yAxisTickFormat
@@ -339,6 +500,11 @@ export {
   generateExtendedChartSettings,
   generateIsToolbarFilter,
   getChartXAxisLabelIncrement,
+  getDailyMonthlyTotals,
+  getMetricTotalCurrentOrLastData,
+  getPrepaidTallyCapacity,
+  getRemainingCapacity,
+  getRemainingOverage,
   getTooltipDate,
   xAxisTickFormat,
   yAxisTickFormat

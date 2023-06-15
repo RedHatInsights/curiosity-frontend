@@ -45,7 +45,18 @@ describe('Product OpenShift Metrics config', () => {
           }
 
           if (typeof footer === 'function') {
-            cardOutput.push(footer({ dailyDate: '09 Mar 2023', monthlyDate: '09 Mar 2023' }));
+            cardOutput.push(
+              footer({
+                dataSets: [
+                  {
+                    display: {
+                      dailyDate: '09 Mar 2023',
+                      monthlyDate: '09 Mar 2023'
+                    }
+                  }
+                ]
+              })
+            );
           } else {
             cardOutput.push(footer);
           }

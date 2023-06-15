@@ -49,7 +49,9 @@ exports[`RHSM Constants should have specific properties: all exported constants 
   "RHSM_API_QUERY_CATEGORY_TYPES": {
     "CLOUD": "cloud",
     "HYPERVISOR": "hypervisor",
+    "ON_DEMAND": "on-demand",
     "PHYSICAL": "physical",
+    "PREPAID": "prepaid",
     "VIRTUAL": "virtual",
   },
   "RHSM_API_QUERY_GRANULARITY_TYPES": {
@@ -113,6 +115,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+    "BILLING_CATEGORY": "billing_category",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "END_DATE": "ending",
@@ -120,10 +123,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "SLA": "sla",
     "START_DATE": "beginning",
     "USAGE": "usage",
+    "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
+    "BILLING_CATEGORY": "billing_category",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "DIRECTION": "dir",
@@ -137,6 +142,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "START_DATE": "beginning",
     "UOM": "uom",
     "USAGE": "usage",
+    "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SLA_TYPES": {
@@ -331,7 +337,9 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_QUERY_CATEGORY_TYPES": {
       "CLOUD": "cloud",
       "HYPERVISOR": "hypervisor",
+      "ON_DEMAND": "on-demand",
       "PHYSICAL": "physical",
+      "PREPAID": "prepaid",
       "VIRTUAL": "virtual",
     },
     "RHSM_API_QUERY_GRANULARITY_TYPES": {
@@ -395,6 +403,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+      "BILLING_CATEGORY": "billing_category",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "END_DATE": "ending",
@@ -402,10 +411,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "SLA": "sla",
       "START_DATE": "beginning",
       "USAGE": "usage",
+      "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
+      "BILLING_CATEGORY": "billing_category",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "DIRECTION": "dir",
@@ -419,6 +430,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "START_DATE": "beginning",
       "UOM": "uom",
       "USAGE": "usage",
+      "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SLA_TYPES": {
@@ -614,7 +626,9 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHSM_API_QUERY_CATEGORY_TYPES": {
       "CLOUD": "cloud",
       "HYPERVISOR": "hypervisor",
+      "ON_DEMAND": "on-demand",
       "PHYSICAL": "physical",
+      "PREPAID": "prepaid",
       "VIRTUAL": "virtual",
     },
     "RHSM_API_QUERY_GRANULARITY_TYPES": {
@@ -678,6 +692,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+      "BILLING_CATEGORY": "billing_category",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "END_DATE": "ending",
@@ -685,10 +700,12 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "SLA": "sla",
       "START_DATE": "beginning",
       "USAGE": "usage",
+      "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SET_TYPES": {
       "BILLING_ACCOUNT_ID": "billing_account_id",
+      "BILLING_CATEGORY": "billing_category",
       "BILLING_PROVIDER": "billing_provider",
       "CATEGORY": "category",
       "DIRECTION": "dir",
@@ -702,6 +719,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "START_DATE": "beginning",
       "UOM": "uom",
       "USAGE": "usage",
+      "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
       "VARIANT": "variant",
     },
     "RHSM_API_QUERY_SLA_TYPES": {
@@ -901,7 +919,9 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
   "RHSM_API_QUERY_CATEGORY_TYPES": {
     "CLOUD": "cloud",
     "HYPERVISOR": "hypervisor",
+    "ON_DEMAND": "on-demand",
     "PHYSICAL": "physical",
+    "PREPAID": "prepaid",
     "VIRTUAL": "virtual",
   },
   "RHSM_API_QUERY_GRANULARITY_TYPES": {
@@ -965,6 +985,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES": {
+    "BILLING_CATEGORY": "billing_category",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "END_DATE": "ending",
@@ -972,10 +993,12 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "SLA": "sla",
     "START_DATE": "beginning",
     "USAGE": "usage",
+    "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SET_TYPES": {
     "BILLING_ACCOUNT_ID": "billing_account_id",
+    "BILLING_CATEGORY": "billing_category",
     "BILLING_PROVIDER": "billing_provider",
     "CATEGORY": "category",
     "DIRECTION": "dir",
@@ -989,6 +1012,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "START_DATE": "beginning",
     "UOM": "uom",
     "USAGE": "usage",
+    "USE_RUNNING_TOTALS_FORMAT": "use_running_totals_format",
     "VARIANT": "variant",
   },
   "RHSM_API_QUERY_SLA_TYPES": {

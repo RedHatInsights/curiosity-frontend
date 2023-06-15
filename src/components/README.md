@@ -2463,6 +2463,11 @@ Allow the "content" prop to receive graph data for display via callback.
 ## GraphCardHelpers
 
 * [GraphCardHelpers](#GraphCard.module_GraphCardHelpers)
+    * [~getMetricTotalCurrentOrLastData](#GraphCard.module_GraphCardHelpers..getMetricTotalCurrentOrLastData) ⇒ <code>Object</code>
+    * [~getDailyMonthlyTotals](#GraphCard.module_GraphCardHelpers..getDailyMonthlyTotals) ⇒ <code>Object</code>
+    * [~getPrepaidTallyCapacity](#GraphCard.module_GraphCardHelpers..getPrepaidTallyCapacity) ⇒ <code>Object</code>
+    * [~getRemainingCapacity](#GraphCard.module_GraphCardHelpers..getRemainingCapacity) ⇒ <code>Object</code>
+    * [~getRemainingOverage](#GraphCard.module_GraphCardHelpers..getRemainingOverage) ⇒ <code>Object</code>
     * [~generateChartIds(params)](#GraphCard.module_GraphCardHelpers..generateChartIds) ⇒ <code>string</code>
     * [~generateIsToolbarFilter(params)](#GraphCard.module_GraphCardHelpers..generateIsToolbarFilter) ⇒ <code>boolean</code>
     * [~generateChartSettings(params)](#GraphCard.module_GraphCardHelpers..generateChartSettings) ⇒ <code>Object</code>
@@ -2471,6 +2476,121 @@ Allow the "content" prop to receive graph data for display via callback.
     * [~xAxisTickFormat(params)](#GraphCard.module_GraphCardHelpers..xAxisTickFormat) ⇒ <code>string</code> \| <code>undefined</code>
     * [~yAxisTickFormat(params)](#GraphCard.module_GraphCardHelpers..yAxisTickFormat) ⇒ <code>string</code>
     * [~generateExtendedChartSettings(params)](#GraphCard.module_GraphCardHelpers..generateExtendedChartSettings) ⇒ <code>object</code>
+
+<a name="GraphCard.module_GraphCardHelpers..getMetricTotalCurrentOrLastData"></a>
+
+### GraphCardHelpers~getMetricTotalCurrentOrLastData ⇒ <code>Object</code>
+Get either the current or last date available data.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getDailyMonthlyTotals"></a>
+
+### GraphCardHelpers~getDailyMonthlyTotals ⇒ <code>Object</code>
+Get daily and monthly totals from a data set. A metric totals helper.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.dataSet</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getPrepaidTallyCapacity"></a>
+
+### GraphCardHelpers~getPrepaidTallyCapacity ⇒ <code>Object</code>
+Get the first available prepaid Tally, Capacity data sets
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getRemainingCapacity"></a>
+
+### GraphCardHelpers~getRemainingCapacity ⇒ <code>Object</code>
+Get a remaining capacity from data sets. A metric totals helper.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.capacityData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.tallyData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getRemainingOverage"></a>
+
+### GraphCardHelpers~getRemainingOverage ⇒ <code>Object</code>
+Get a remaining overage from data sets. A metric totals helper.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.capacityData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.tallyData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+</td>
+    </tr>  </tbody>
+</table>
 
 <a name="GraphCard.module_GraphCardHelpers..generateChartIds"></a>
 
