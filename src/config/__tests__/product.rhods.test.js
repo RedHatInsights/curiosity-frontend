@@ -78,7 +78,7 @@ describe('Product RHODS config', () => {
   });
 
   it('should handle a custom axis settings', () => {
-    const axisMethod = method => method();
+    const axisMethod = method => (typeof method === 'function' && method()) || method;
     expect(axisMethod(config.initialGraphSettings.xAxisChartLabel)).toMatchSnapshot('xAxisChartLabel');
 
     const yAxisChartLabels = [];
