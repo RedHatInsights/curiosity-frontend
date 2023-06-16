@@ -2,24 +2,7 @@
 
 exports[`Configuration should have a consistent route configuration: inconsistent entries 1`] = `[]`;
 
-exports[`Configuration should have consistent product configuration: inconsistent entries 1`] = `
-[
-  {
-    "Entry 7, rosa inconsistent": {
-      "graphTallyQuery": "PASS",
-      "initialGraphFilters": "FAIL",
-      "initialInventoryFilters": "PASS",
-      "inventoryHostsQuery": "PASS",
-      "productGroup": "PASS",
-      "productId": "PASS",
-      "productLabel": "PASS",
-      "productPath": "PASS",
-      "query": "PASS",
-      "viewId": "PASS",
-    },
-  },
-]
-`;
+exports[`Configuration should have consistent product configuration: inconsistent entries 1`] = `[]`;
 
 exports[`Configuration should have consistent product configuration: products 1`] = `
 [
