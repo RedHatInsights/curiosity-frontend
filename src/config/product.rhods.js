@@ -86,7 +86,7 @@ const config = {
                 .numberDisplay(dataSets?.[0]?.display?.dailyValue)
                 ?.format({
                   average: true,
-                  mantissa: 1,
+                  mantissa: 2,
                   trimMantissa: true,
                   lowPrecision: false
                 })
@@ -118,7 +118,7 @@ const config = {
                 .numberDisplay(dataSets?.[0]?.display?.monthlyValue)
                 ?.format({
                   average: true,
-                  mantissa: 1,
+                  mantissa: 2,
                   trimMantissa: true,
                   lowPrecision: false
                 })
