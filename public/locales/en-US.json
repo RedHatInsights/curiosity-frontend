@@ -315,6 +315,7 @@
     "label_groupVariant_RHEL for IBM Power": "RHEL for IBM Power",
     "label_groupVariant_RHEL for IBM z": "RHEL for IBM z",
     "label_groupVariant_RHEL for x86": "RHEL for x86",
+    "label_groupVariant_rosa": "Hosted control plane",
     "label_groupVariant_Satellite Capsule": "Satellite Capsule",
     "label_groupVariant_Satellite Server": "Satellite Server",
     "label_sla": "",
