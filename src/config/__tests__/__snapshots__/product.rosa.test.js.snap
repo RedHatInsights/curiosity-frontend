@@ -471,6 +471,118 @@ exports[`Product ROSA config should apply graph configuration: settings 1`] = `
 }
 `;
 
+exports[`Product ROSA config should apply subscriptions inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "",
+    },
+    {
+      "title": "2022-01-01",
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_product_name, {"context":"rosa"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_quantity, {"context":"rosa"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"rosa"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"rosa"})",
+      "value": true,
+    },
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"rosa"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "product_name": {
+      "title": "t(curiosity-inventory.header_product_name, {"context":"rosa"})",
+      "value": "lorem",
+    },
+    "service_level": {
+      "title": "t(curiosity-inventory.header_service_level, {"context":"rosa"})",
+      "value": "hello world",
+    },
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"rosa"})",
+      "value": 2000,
+    },
+  },
+}
+`;
+
+exports[`Product ROSA config should apply subscriptions inventory configuration: filtered, fallback display 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "",
+    },
+    {
+      "title": "",
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_product_name, {"context":"rosa"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_quantity, {"context":"rosa"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"rosa"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "has_infinite_quantity": {
+      "title": "t(curiosity-inventory.header_has_infinite_quantity, {"context":"rosa"})",
+      "value": true,
+    },
+    "next_event_date": {
+      "title": "t(curiosity-inventory.header_next_event_date, {"context":"rosa"})",
+      "value": null,
+    },
+    "product_name": {
+      "title": "t(curiosity-inventory.header_product_name, {"context":"rosa"})",
+      "value": "lorem",
+    },
+    "service_level": {
+      "title": "t(curiosity-inventory.header_service_level, {"context":"rosa"})",
+      "value": null,
+    },
+    "total_capacity": {
+      "title": "t(curiosity-inventory.header_total_capacity, {"context":"rosa"})",
+      "value": 2000,
+    },
+  },
+}
+`;
+
 exports[`Product ROSA config should apply toolbar configuration: filters 1`] = `
 [
   {
