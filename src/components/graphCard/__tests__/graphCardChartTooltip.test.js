@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { GraphCardChartTooltip } from '../graphCardChartTooltip';
 import { ChartTypeVariant } from '../../chart/chart';
 import {
@@ -12,7 +11,7 @@ describe('GraphCardChartTooltip Component', () => {
     const props = {
       useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY })
     };
-    const component = shallow(<GraphCardChartTooltip {...props} />);
+    const component = renderComponent(<GraphCardChartTooltip {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -43,7 +42,7 @@ describe('GraphCardChartTooltip Component', () => {
       useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY })
     };
 
-    const component = shallow(<GraphCardChartTooltip {...props} />);
+    const component = renderComponent(<GraphCardChartTooltip {...props} />);
     expect(component).toMatchSnapshot('data');
   });
 
@@ -51,28 +50,28 @@ describe('GraphCardChartTooltip Component', () => {
     const itemsByKey = {};
 
     const daily = () =>
-      shallow(
+      renderComponent(
         <GraphCardChartTooltip
           datum={{ itemsByKey }}
           useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY })}
         />
       ).find('td');
     const weekly = () =>
-      shallow(
+      renderComponent(
         <GraphCardChartTooltip
           datum={{ itemsByKey }}
           useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.WEEKLY })}
         />
       ).find('td');
     const monthly = () =>
-      shallow(
+      renderComponent(
         <GraphCardChartTooltip
           datum={{ itemsByKey }}
           useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.MONTHLY })}
         />
       ).find('td');
     const quarterly = () =>
-      shallow(
+      renderComponent(
         <GraphCardChartTooltip
           datum={{ itemsByKey }}
           useProductGraphTallyQuery={() => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.QUARTERLY })}

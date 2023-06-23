@@ -9,99 +9,65 @@ exports[`ProductViewMissing Component should redirect when there are limited pro
 `;
 
 exports[`ProductViewMissing Component should render a basic component: basic 1`] = `
-<ProductViewMissing
-  availableProductsRedirect={1}
-  t={[Function]}
-  useNavigate={[Function]}
-  useRouteDetail={[Function]}
->
-  <PageLayout
-    className="curiosity-missing-view"
-  >
-    <PageHeader
-      key=".0"
-      productLabel="missing"
-      t={[Function]}
-    >
-      <PageHeader>
-        <section
-          className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-          widget-type="InsightsPageHeader"
-        >
-          <Flex
-            justifyContent={
-              {
-                "sm": "justifyContentSpaceBetween",
-              }
-            }
-          >
-            <div
-              className="pf-l-flex pf-m-justify-content-space-between-on-sm"
-            >
-              <FlexItem>
-                <div
-                  className=""
-                >
-                  <PageHeaderTitle
-                    className="pf-u-mb-sm"
-                    title="t(curiosity-view.title, {"appName":"Subscriptions"})"
-                  >
-                    <Title
-                      className="pf-u-mb-sm"
-                      headingLevel="h1"
-                      size="2xl"
-                      widget-type="InsightsPageHeaderTitle"
-                    >
-                      <h1
-                        className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-1"
-                        data-ouia-component-type="PF4/Title"
-                        data-ouia-safe={true}
-                        widget-type="InsightsPageHeaderTitle"
-                      >
-                        t(curiosity-view.title, {"appName":"Subscriptions"})
-                      </h1>
-                    </Title>
-                  </PageHeaderTitle>
-                </div>
-              </FlexItem>
-            </div>
-          </Flex>
-          <p>
-            t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"missing"}, [object Object])
-          </p>
-        </section>
-      </PageHeader>
-    </PageHeader>
-    <PageSection
-      className="curiosity curiosity-missing-view"
-      padding={
-        {
-          "default": "noPadding",
+<provider
+  props="{
+  "store": {},
+  "children": [
+    {
+      "displayName": "MemoryRouter",
+      "props": {
+        "initialEntries": [
+          "/"
+        ],
+        "children": {
+          "key": null,
+          "ref": null,
+          "props": {
+            "availableProductsRedirect": 1
+          },
+          "_owner": null,
+          "_store": {}
         }
       }
+    }
+  ]
+}"
+>
+  <section
+    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+    widget-type="InsightsPageHeader"
+  >
+    <div
+      class="pf-l-flex pf-m-justify-content-space-between-on-sm"
     >
-      <section
-        className="pf-c-page__main-section pf-m-no-padding curiosity curiosity-missing-view"
+      <div
+        class=""
       >
-        <PageSection
-          isFilled={true}
-          key=".1"
+        <h1
+          class="pf-c-title pf-m-2xl pf-u-mb-sm"
+          data-ouia-component-id="OUIA-Generated-Title-1"
+          data-ouia-component-type="PF4/Title"
+          data-ouia-safe="true"
+          widget-type="InsightsPageHeaderTitle"
         >
-          <section
-            className="pf-c-page__main-section pf-m-fill"
-          >
-            <Gallery
-              hasGutter={true}
-            >
-              <div
-                className="pf-l-gallery pf-m-gutter"
-              />
-            </Gallery>
-          </section>
-        </PageSection>
-      </section>
-    </PageSection>
-  </PageLayout>
-</ProductViewMissing>
+          t(curiosity-view.title, {"appName":"Subscriptions"})
+        </h1>
+      </div>
+    </div>
+    <p>
+      t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"missing"}, [object Object])
+    </p>
+  </section>
+  <section
+    class="pf-c-page__main-section pf-m-no-padding curiosity curiosity-missing-view"
+  >
+    <section
+      class="pf-c-page__main-section pf-m-fill"
+    >
+      <div
+        class="pf-l-gallery pf-m-gutter"
+      />
+    </section>
+  </section>
+</provider>
 `;

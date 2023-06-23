@@ -1,37 +1,36 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
 import { Pagination } from '../pagination';
 
 describe('Pagination Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a basic component', async () => {
     const props = {
       perPage: 20
     };
 
-    const component = shallow(<Pagination {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    const component = await shallowComponent(<Pagination {...props} />);
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle per-page limit, and page offset updates through props', () => {
+  it('should handle per-page limit, and page offset updates through props', async () => {
     const props = {
       itemCount: 39,
       offset: 0,
       perPage: 20
     };
 
-    const component = shallow(<Pagination {...props} />);
-    const { offset: perPageOffset, page: perPagePage, perPage: perPagePerPage } = component.props();
+    const component = await shallowComponent(<Pagination {...props} />);
+    const { offset: perPageOffset, page: perPagePage, perPage: perPagePerPage } = component.render().props;
     expect({
       perPageOffset,
       perPagePage,
       perPagePerPage
     }).toMatchSnapshot('per-page, limit');
 
-    component.setProps({
+    const componentOffset = await component.setProps({
       offset: 20
     });
 
-    const { offset: pageOffset, page: pagePage, perPage: pagePerPage } = component.props();
+    const { offset: pageOffset, page: pagePage, perPage: pagePerPage } = componentOffset.render().props;
     expect({
       pageOffset,
       pagePage,
@@ -51,14 +50,18 @@ describe('Pagination Component', () => {
       onPerPage: updatedOnPerPage
     };
 
-    const component = mount(<Pagination {...props} />);
+    const component = renderComponent(<Pagination {...props} />);
+    const inputNext = component.find('button[data-action="next"]');
+    component.fireEvent.click(inputNext);
 
-    component.find('button[data-action="next"]').simulate('click');
     expect(updatedOnPage).toHaveBeenCalledTimes(1);
 
-    component.find('button.pf-c-options-menu__toggle-button').simulate('click');
-    component.update();
-    component.find('button[data-action="per-page-10"]').first().simulate('click');
+    const inputToggle = component.find('button.pf-c-options-menu__toggle-button');
+    component.fireEvent.click(inputToggle);
+
+    const inputPerPage = component.find('button[data-action="per-page-10"]');
+    component.fireEvent.click(inputPerPage);
+
     expect(updatedOnPerPage).toHaveBeenCalledTimes(1);
   });
 });

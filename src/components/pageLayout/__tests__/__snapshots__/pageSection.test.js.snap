@@ -1,23 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageSection Component should render a basic component: basic 1`] = `
-<PageSection
-  className="lorem"
+<pagesection
+  props="{
+  "className": "lorem",
+  "children": [
+    {
+      "props": {
+        "className": "test",
+        "children": "lorem"
+      },
+      "type": "span"
+    }
+  ]
+}"
 >
-  <Section
-    className="curiosity-page-section lorem"
+  <section
+    class="curiosity-page-section lorem"
   >
-    <section
-      className="curiosity-page-section lorem"
+     
+    <span
+      class="test"
     >
-       
-      <span
-        className="test"
-      >
-        lorem
-      </span>
-       
-    </section>
-  </Section>
-</PageSection>
+      lorem
+    </span>
+     
+  </section>
+</pagesection>
 `;

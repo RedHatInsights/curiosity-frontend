@@ -21,25 +21,16 @@ exports[`TableSkeleton Component should allow variations in table layout: border
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
     ]
   }
@@ -76,7 +67,7 @@ exports[`TableSkeleton Component should allow variations in table layout: border
 exports[`TableSkeleton Component should allow variations in table layout: className and variant 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={false}
+  borders={true}
   className="curiosity-skeleton-table lorem-ipsum-class"
   columnHeaders={
     [
@@ -94,29 +85,20 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
     ]
   }
-  isHeader={false}
+  isHeader={true}
   rows={
     [
       {
@@ -213,8 +195,8 @@ exports[`TableSkeleton Component should allow variations in table layout: column
 exports[`TableSkeleton Component should allow variations in table layout: no table header and zero rows 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={false}
-  className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows lorem-ipsum-class"
+  borders={true}
+  className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows "
   columnHeaders={
     [
       {
@@ -231,29 +213,20 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
     ]
   }
-  isHeader={false}
+  isHeader={true}
   rows={
     [
       {
@@ -279,7 +252,7 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
   }
   summary={null}
   t={[Function]}
-  variant="compact"
+  variant={null}
 />
 `;
 
@@ -359,8 +332,8 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
 exports[`TableSkeleton Component should allow variations in table layout: table header and zero rows 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={false}
-  className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows lorem-ipsum-class"
+  borders={true}
+  className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows "
   columnHeaders={
     [
       {
@@ -377,25 +350,16 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
       {
         "title": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
       },
     ]
   }
@@ -425,7 +389,7 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
   }
   summary={null}
   t={[Function]}
-  variant="compact"
+  variant={null}
 />
 `;
 

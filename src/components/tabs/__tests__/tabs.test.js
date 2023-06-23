@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { Tabs } from '../tabs';
 
 describe('Tabs Component', () => {
@@ -11,7 +10,7 @@ describe('Tabs Component', () => {
       ]
     };
 
-    const component = shallow(<Tabs {...props} />);
+    const component = renderComponent(<Tabs {...props} />);
     expect(component).toMatchSnapshot('basic');
   });
 
@@ -20,7 +19,7 @@ describe('Tabs Component', () => {
       tabs: []
     };
 
-    const component = shallow(<Tabs {...props} />);
+    const component = renderComponent(<Tabs {...props} />);
     expect(component).toMatchSnapshot('no tabs');
   });
 });

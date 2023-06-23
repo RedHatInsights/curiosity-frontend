@@ -1,7 +1,6 @@
 import React from 'react';
 import * as reactRedux from 'react-redux';
-import { configure, mount, shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { fireEvent, queries, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import * as pfReactCoreComponents from '@patternfly/react-core';
 import * as pfReactChartComponents from '@patternfly/react-charts';
@@ -11,11 +10,6 @@ import { setupDotenvFilesForEnv } from './build.dotenv';
  * Set dotenv params.
  */
 setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
-
-/**
- * Set enzyme adapter.
- */
-configure({ adapter: new Adapter() });
 
 /**
  * Conditionally skip "it" test statements.
@@ -141,62 +135,84 @@ global.mockObjectProperty = (object = {}, property, mockValue) => {
 };
 
 /**
- * Enzyme for components using hooks.
+ * React testing for components.
+ * try "shallowComponent" if results are not expected... see "shallowComponent"
  *
- * @param {React.ReactNode} component
+ * try "renderComponent" if
+ * - hooks are used, and are not being passed in as mock props, and/or you want to skip writing mocks for hooks
+ * - html output is required
+ * - events are involved
+ *
+ * @param {React.ReactNode} testComponent
  * @param {object} options
- * @param {Function} options.callback
- * @param {object} options.options
- *
- * @returns {Promise<null>}
+ * @returns {HTMLElement}
  */
-global.mountHookComponent = async (component, { callback, ...options } = {}) => {
-  let mountedComponent = null;
-  await act(async () => {
-    mountedComponent = mount(component, options);
-  });
-  mountedComponent?.update();
+global.renderComponent = (testComponent, options = {}) => {
+  const getDisplayName = reactComponent =>
+    reactComponent?.displayName ||
+    reactComponent?.$$typeof?.displayName ||
+    reactComponent?.$$typeof?.name ||
+    reactComponent?.name ||
+    reactComponent?.type?.displayName ||
+    reactComponent?.type?.name;
 
-  if (typeof callback === 'function') {
-    await act(async () => {
-      await callback({ component: mountedComponent });
-    });
-    mountedComponent?.update();
+  const componentInfo = {
+    displayName: getDisplayName(testComponent),
+    props: {
+      ...testComponent?.props,
+      children: React.Children.toArray(testComponent?.props?.children).map(child => ({
+        displayName: getDisplayName(child),
+        props: child?.props,
+        type: child?.type
+      }))
+    }
+  };
+
+  const containerElement = document.createElement(componentInfo?.displayName || 'element');
+  try {
+    containerElement.setAttribute('props', JSON.stringify(componentInfo?.props || {}, null, 2));
+  } catch (e) {
+    //
   }
+  containerElement.props = componentInfo.props;
 
-  return mountedComponent;
-};
-
-global.mountHookWrapper = global.mountHookComponent;
-
-/**
- * Enzyme for components using hooks.
- *
- * @param {React.ReactNode} component
- * @param {object} options
- * @param {Function} options.callback
- * @param {object} options.options
- *
- * @returns {Promise<null>}
- */
-global.shallowHookComponent = async (component, { callback, ...options } = {}) => {
-  let mountedComponent = null;
-  await act(async () => {
-    mountedComponent = shallow(component, options);
+  const { container, ...renderRest } = render(testComponent, {
+    container: containerElement,
+    queries,
+    ...options
   });
-  mountedComponent?.update();
 
-  if (typeof callback === 'function') {
-    await act(async () => {
-      await callback({ component: mountedComponent });
+  const appendProps = obj => {
+    Object.entries(renderRest).forEach(([key, value]) => {
+      obj[key] = value; // eslint-disable-line
     });
-    mountedComponent?.update();
-  }
+  };
 
-  return mountedComponent;
+  const updatedContainer = container;
+  updatedContainer.find = selector => container?.querySelector(selector);
+  updatedContainer.fireEvent = fireEvent;
+  updatedContainer.setProps = updatedProps => {
+    const updatedComponent = { ...testComponent, props: { ...testComponent?.props, ...updatedProps } };
+    let rerender = renderRest.rerender(updatedComponent);
+
+    if (rerender === undefined) {
+      rerender = global.renderComponent(updatedComponent, { queries, ...options });
+    }
+
+    if (rerender) {
+      rerender.find = selector => rerender?.querySelector(selector);
+      rerender.fireEvent = fireEvent;
+      rerender.setProps = updatedContainer.setProps;
+      appendProps(rerender);
+    }
+
+    return rerender;
+  };
+
+  appendProps(updatedContainer);
+
+  return updatedContainer;
 };
-
-global.shallowHookWrapper = global.shallowHookComponent;
 
 /**
  * Fire a hook, return the result.
@@ -206,24 +222,26 @@ global.shallowHookWrapper = global.shallowHookComponent;
  * @param {object} options.state An object representing a mock Redux store's state.
  * @returns {*}
  */
-global.mountHook = async (useHook = Function.prototype, { state } = {}) => {
+global.renderHook = async (useHook = Function.prototype, { state } = {}) => {
   let result;
-  let mountedHook;
   let spyUseSelector;
+  let unmountHook;
+
   const Hook = () => {
     result = useHook();
     return null;
   };
+
   await act(async () => {
     if (state) {
       spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(state));
     }
-    mountedHook = mount(<Hook />);
+    const { unmount } = await render(<Hook />);
+    unmountHook = unmount;
   });
-  mountedHook?.update();
 
   const unmount = async () => {
-    await act(async () => mountedHook.unmount());
+    await act(async () => unmountHook());
   };
 
   if (state) {
@@ -234,71 +252,84 @@ global.mountHook = async (useHook = Function.prototype, { state } = {}) => {
 };
 
 /**
- * Fire a hook, return the result.
+ * Quick React function component results testing. Results may not be helpful.
+ * try "renderComponent" if results are not expected... see "renderComponent"
  *
- * @param {Function} useHook
- * @param {object} options
- * @param {object} options.state An object representing a mock Redux store's state.
+ * use "shallowComponent" if
+ * - the component is a function, class results may not be expected
+ * - all hooks are passed in as props
+ * - you want a quick component response typically determined by a condition
+ * - snapshot size needs to be reduced
+ *
+ * @param {React.ReactNode} testComponent
  * @returns {*}
  */
-global.shallowHook = (useHook = Function.prototype, { state } = {}) => {
-  let result;
-  let spyUseSelector;
-  const Hook = () => {
-    result = useHook();
-    return null;
+global.shallowComponent = async testComponent => {
+  const localRenderHook = async (component, updatedProps) => {
+    if (typeof component?.type === 'function') {
+      try {
+        const { result } = await global.renderHook(() =>
+          component.type({ ...component.type.defaultProps, ...component.props, ...updatedProps })
+        );
+
+        if (!result || typeof result === 'string' || typeof result === 'number') {
+          return result;
+        }
+
+        const querySelector = (sel, _internalRender = result) => {
+          const { container } = render(_internalRender);
+          return container.querySelector(sel);
+        };
+
+        const querySelectorAll = (sel, _internalRender = result) => {
+          const { container } = render(_internalRender);
+          return container.querySelectorAll(sel);
+        };
+
+        const setProps = async p => localRenderHook(component, p);
+
+        const renderResult = () => global.renderComponent(result);
+
+        if (Array.isArray(result)) {
+          const updatedR = result;
+          updatedR.render = renderResult;
+          updatedR.find = querySelector;
+          updatedR.querySelector = querySelector;
+          updatedR.querySelectorAll = querySelectorAll;
+          updatedR.setProps = setProps;
+          return updatedR;
+        }
+
+        return {
+          ...result,
+          render: renderResult,
+          find: querySelector,
+          querySelector,
+          querySelectorAll,
+          setProps
+        };
+      } catch (e) {
+        //
+      }
+    }
+
+    return component;
   };
 
-  if (state) {
-    spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(state));
-  }
-
-  const shallowHook = shallow(<Hook />);
-  const unmount = () => shallowHook.unmount();
-
-  if (state) {
-    spyUseSelector.mockClear();
-  }
-
-  return { unmount, result };
+  return localRenderHook(testComponent);
 };
 
-/**
- * Generate a mock window location object, allow async.
- *
- * @param {Function} callback
- * @param {object} options
- * @param {string} options.url
- * @param {object} options.location
- * @returns {Promise<void>}
- */
-global.mockWindowLocation = async (
-  callback = Function.prototype,
-  { url = 'https://ci.foo.redhat.com/subscriptions/rhel', location: locationProps = {} } = {}
-) => {
-  const updatedUrl = new URL(url);
-  const updatedLocation = {
-    href: updatedUrl.href,
-    search: updatedUrl.search,
-    hash: updatedUrl.hash,
-    pathname: updatedUrl.pathname,
-    replace: Function.prototype,
-    ...locationProps
-  };
-
-  const { mockClear } = mockObjectProperty(window, 'location', updatedLocation);
-  await callback(updatedLocation);
-
-  return {
-    mockClear
-  };
-};
-
-// FixMe: revisit squashing log and group messaging, redux leaks log messaging
-// ToDo: revisit squashing "popper" alerts
+// ToDo: revisit squashing log and group messaging, redux leaks log messaging
+// ToDo: revisit squashing PF4 "popper" alerts
+// ToDo: revisit squashing PF4 "validateDOMNesting" select alerts
+// ToDo: revisit squashing PF4 "validateDOMNesting" table alerts
 /*
  * For applying a global Jest "beforeAll", based on
- * jest-prop-type-error, https://www.npmjs.com/package/jest-prop-type-error
+ * - consoledot/platform console messaging
+ * - jest-prop-type-error, https://www.npmjs.com/package/jest-prop-type-error
+ * - renderComponent, test function testComponent messaging
+ * - SVG syntax
+ * - PF4 popper alerts and validateDOMNesting for select, table
  */
 beforeAll(() => {
   const { error, group, log } = console;
@@ -319,6 +350,20 @@ beforeAll(() => {
   interceptConsoleMessaging(error, (message, ...args) => {
     if (/(Invalid prop|Failed prop type)/gi.test(message)) {
       throw new Error(message);
+    }
+
+    // ignore SVG and other xml
+    if (
+      /<testComponent/gi.test(message) ||
+      args?.[0] === 'testComponent' ||
+      /<foreignObject/gi.test(message) ||
+      args?.[0] === 'foreignObject' ||
+      /<g/gi.test(message) ||
+      args?.[0] === 'g' ||
+      (/validateDOMNesting/gi.test(message) && args?.[0] === '<div>' && args?.[1] === 'select') ||
+      (/validateDOMNesting/gi.test(message) && args?.[0] === '<div>' && args?.[1] === 'table')
+    ) {
+      return false;
     }
 
     return !/(Not implemented: navigation)/gi.test(message) && !/Popper/gi.test(args?.[0]);

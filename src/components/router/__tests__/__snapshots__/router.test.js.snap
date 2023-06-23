@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Router Component should handle unique route settings: settings 1`] = `
-<Suspense
+<React.Suspense
   fallback={
     <Loader
       skeletonProps={
@@ -13,70 +13,22 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
       variant="title"
     />
   }
-  redirectRoute={
-    {
-      "activateOnError": false,
-      "component": "productView/productViewMissing",
-      "default": true,
-      "disabled": false,
-      "id": "missing",
-      "path": "*",
-      "redirect": "./",
-    }
-  }
-  routes={
-    [
-      {
-        "component": "loremComponent",
-        "disabled": false,
-        "exact": false,
-        "path": "/lorem",
-        "redirect": "/loremIpsum",
-      },
-      {
-        "activateOnError": true,
-        "component": "ipsumComponent",
-        "disabled": false,
-        "exact": false,
-        "path": "/ipsum",
-      },
-      {
-        "activateOnError": false,
-        "component": "helloWorld",
-        "disabled": true,
-        "exact": false,
-        "path": "/hello",
-      },
-      {
-        "activateOnError": false,
-        "component": "loremDolorHello",
-        "disabled": false,
-        "exact": false,
-        "path": "/loremDolorHello",
-      },
-    ]
-  }
-  useSetRouteDetail={[Function]}
 >
   <Routes>
     <Route
       element={<Unknown />}
-      key="/lorem"
       path="/lorem"
     />
     <Route
       element={<Unknown />}
-      key="/ipsum"
       path="/ipsum"
     />
     <Route
       element={<Unknown />}
-      key="/hello"
       path="/hello"
     />
     <Route
       element={<Unknown />}
-      key="/loremDolorHello"
       path="/loremDolorHello"
     />
     <Route
@@ -86,15 +38,14 @@ exports[`Router Component should handle unique route settings: settings 1`] = `
           to="./"
         />
       }
-      key="redirect"
       path="*"
     />
   </Routes>
-</Suspense>
+</React.Suspense>
 `;
 
 exports[`Router Component should render a basic component: basic 1`] = `
-<Suspense
+<React.Suspense
   fallback={
     <Loader
       skeletonProps={
@@ -106,50 +57,14 @@ exports[`Router Component should render a basic component: basic 1`] = `
       variant="title"
     />
   }
-  redirectRoute={
-    {
-      "activateOnError": false,
-      "component": "productView/productViewMissing",
-      "default": true,
-      "disabled": false,
-      "id": "missing",
-      "path": "*",
-      "redirect": "./",
-    }
-  }
-  routes={
-    [
-      {
-        "activateOnError": false,
-        "component": "productView/productView",
-        "default": false,
-        "disabled": false,
-        "id": "any",
-        "path": ":productPath",
-        "redirect": null,
-      },
-      {
-        "activateOnError": false,
-        "component": "productView/productViewMissing",
-        "default": true,
-        "disabled": false,
-        "id": "missing",
-        "path": "*",
-        "redirect": "./",
-      },
-    ]
-  }
-  useSetRouteDetail={[Function]}
 >
   <Routes>
     <Route
       element={<Unknown />}
-      key=":productPath"
       path=":productPath"
     />
     <Route
       element={<Unknown />}
-      key="*"
       path="*"
     />
     <Route
@@ -159,9 +74,8 @@ exports[`Router Component should render a basic component: basic 1`] = `
           to="./"
         />
       }
-      key="redirect"
       path="*"
     />
   </Routes>
-</Suspense>
+</React.Suspense>
 `;

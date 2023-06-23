@@ -2,18 +2,18 @@ import React from 'react';
 import { MinHeight } from '../minHeight';
 
 describe('MinHeight Component', () => {
-  it('should render a basic component', async () => {
+  it('should render a basic component', () => {
     const props = {};
 
-    const component = await mountHookComponent(<MinHeight {...props}>lorem ipsum</MinHeight>);
-    expect(component.html()).toMatchSnapshot('basic');
+    const component = renderComponent(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should allow override of minHeight', async () => {
+  it('should allow override of minHeight', () => {
     const props = {
       minHeight: 1001
     };
-    const component = await mountHookComponent(<MinHeight {...props}>lorem ipsum</MinHeight>);
-    expect(component.html()).toMatchSnapshot('override');
+    const component = renderComponent(<MinHeight {...props}>lorem ipsum</MinHeight>);
+    expect(component).toMatchSnapshot('override');
   });
 });

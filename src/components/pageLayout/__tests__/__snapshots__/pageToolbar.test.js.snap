@@ -1,23 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageToolbar Component should render a basic component: basic 1`] = `
-<PageToolbar
-  className="lorem"
+<pagetoolbar
+  props="{
+  "className": "lorem",
+  "children": [
+    {
+      "props": {
+        "className": "test",
+        "children": "lorem"
+      },
+      "type": "span"
+    }
+  ]
+}"
 >
-  <Section
-    className="curiosity-page-toolbar lorem"
+  <section
+    class="curiosity-page-toolbar lorem"
   >
-    <section
-      className="curiosity-page-toolbar lorem"
+     
+    <span
+      class="test"
     >
-       
-      <span
-        className="test"
-      >
-        lorem
-      </span>
-       
-    </section>
-  </Section>
-</PageToolbar>
+      lorem
+    </span>
+     
+  </section>
+</pagetoolbar>
 `;

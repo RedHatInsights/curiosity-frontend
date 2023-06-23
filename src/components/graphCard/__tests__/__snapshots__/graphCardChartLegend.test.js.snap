@@ -6,7 +6,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
     {
       "id": "mock-view-id-loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
-      "value": "mock boolean, loremIpsum_mock-product-id",
+      "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },
   ],
 ]
@@ -18,7 +18,14 @@ exports[`GraphCardChartLegend Component should handle a click event: keyPress ev
     {
       "id": "mock-view-id-loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
-      "value": "mock boolean, loremIpsum_mock-product-id",
+      "value": "mock toggle boolean, loremIpsum_mock-product-id",
+    },
+  ],
+  [
+    {
+      "id": "mock-view-id-loremIpsum_mock-product-id",
+      "type": "SET_GRAPH_LEGEND",
+      "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },
   ],
 ]
@@ -37,247 +44,310 @@ exports[`GraphCardChartLegend Component should handle inverted legend behavior w
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend items, data, threshold 1`] = `
 [
-  {
-    "fill": "#000000",
-    "size": "sm",
-    "style": {
-      "color": "#000000",
-      "visibility": "visible",
-    },
-    "symbol": "square",
-    "title": null,
-  },
-  {
-    "fill": "#000000",
-    "size": "sm",
-    "style": {
-      "color": "#000000",
-      "visibility": "visible",
-    },
-    "symbol": "square",
-    "title": null,
-  },
-  {
-    "fill": null,
-    "size": "sm",
-    "symbol": "eyeSlash",
-    "title": null,
-  },
-  {
-    "fill": null,
-    "size": "sm",
-    "symbol": "eyeSlash",
-    "title": null,
-  },
+  "curiosity-chartarea__icon curiosity-chartarea__icon-square",
+  "curiosity-chartarea__icon curiosity-chartarea__icon-square",
+  "curiosity-chartarea__icon curiosity-chartarea__icon-eyeSlash",
+  "curiosity-chartarea__icon curiosity-chartarea__icon-dash",
 ]
 `;
 
 exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
-<Fragment>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-loremIpsum_mock-product-id"
-    position="top"
+<graphcardchartlegend
+  props="{
+  "datum": {
+    "dataSets": [
+      {
+        "stroke": "#000000",
+        "id": "loremIpsum_mock-product-id",
+        "data": [
+          {
+            "y": 0,
+            "hasData": true
+          }
+        ]
+      }
+    ]
+  },
+  "chart": {},
+  "children": []
+}"
+>
+  <span
+    class="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
   >
-    <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+    <a
+      aria-disabled="false"
+      class="pf-c-button pf-m-link curiosity-usage-graph__legend-item"
+      data-ouia-component-id="OUIA-Generated-Button-link-1"
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe="true"
+      tabindex="0"
     >
-      <Button
-        className="curiosity-usage-graph__legend-item"
-        component="a"
-        icon={
-          <ChartIcon
-            fill="#000000"
-            size="sm"
-            style={
-              {
-                "visibility": "visible",
-              }
-            }
-            symbol="square"
-            title={null}
-          />
-        }
-        isDisabled={false}
-        key="curiosity-button-loremIpsum_mock-product-id"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        tabIndex={0}
-        variant="link"
+      <span
+        class="pf-c-button__icon pf-m-start"
       >
-        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-      </Button>
-    </span>
-  </Tooltip>
-</Fragment>
+        <span
+          class="curiosity-chartarea__icon curiosity-chartarea__icon-square"
+        >
+          <svg
+            aria-hidden="true"
+            fill="#000000"
+            height="1em"
+            role="img"
+            style="visibility: visible; color: rgb(0, 0, 0);"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </span>
+      </span>
+      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+    </a>
+  </span>
+</graphcardchartlegend>
 `;
 
 exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
-<Fragment>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_loremIpsum, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-loremIpsum_mock-product-id"
-    position="top"
+<graphcardchartlegend
+  props="{
+  "datum": {
+    "dataSets": [
+      {
+        "stroke": "#000000",
+        "id": "loremIpsum_mock-product-id",
+        "metric": "loremIpsum",
+        "isThreshold": false,
+        "data": [
+          {
+            "y": 0,
+            "hasData": true
+          }
+        ]
+      },
+      {
+        "stroke": "#000000",
+        "id": "ametConsectetur_mock-product-id",
+        "metric": "ametConsectetur",
+        "isThreshold": false,
+        "data": [
+          {
+            "y": 0,
+            "hasData": false
+          }
+        ]
+      },
+      {
+        "stroke": "#ff0000",
+        "id": "threshold_dolorSit_mock-product-id",
+        "metric": "dolorSit",
+        "isThreshold": true,
+        "data": [
+          {
+            "y": 0,
+            "isInfinite": false
+          }
+        ]
+      },
+      {
+        "stroke": "#ff0000",
+        "id": "threshold_nonCursus_mock-product-id",
+        "metric": "nonCursus",
+        "isThreshold": true,
+        "data": [
+          {
+            "y": 0,
+            "isInfinite": true
+          }
+        ]
+      }
+    ]
+  },
+  "chart": {},
+  "children": []
+}"
+>
+  <span
+    class="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
   >
-    <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+    <a
+      aria-disabled="false"
+      class="pf-c-button pf-m-link curiosity-usage-graph__legend-item"
+      data-ouia-component-id="OUIA-Generated-Button-link-2"
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe="true"
+      tabindex="0"
     >
-      <Button
-        className="curiosity-usage-graph__legend-item"
-        component="a"
-        icon={
-          <ChartIcon
+      <span
+        class="pf-c-button__icon pf-m-start"
+      >
+        <span
+          class="curiosity-chartarea__icon curiosity-chartarea__icon-square"
+        >
+          <svg
+            aria-hidden="true"
             fill="#000000"
-            size="sm"
-            style={
-              {
-                "visibility": "visible",
-              }
-            }
-            symbol="square"
-            title={null}
-          />
-        }
-        isDisabled={false}
-        key="curiosity-button-loremIpsum_mock-product-id"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        tabIndex={0}
-        variant="link"
-      >
-        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-      </Button>
-    </span>
-  </Tooltip>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_ametConsectetur, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-ametConsectetur_mock-product-id"
-    position="top"
+            height="1em"
+            role="img"
+            style="visibility: visible; color: rgb(0, 0, 0);"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+            />
+          </svg>
+        </span>
+      </span>
+      t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+    </a>
+  </span>
+  <span
+    class="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
   >
-    <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+    <a
+      aria-disabled="true"
+      class="pf-c-button pf-m-link pf-m-disabled curiosity-usage-graph__legend-item"
+      data-ouia-component-id="OUIA-Generated-Button-link-3"
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe="true"
+      tabindex="0"
     >
-      <Button
-        className="curiosity-usage-graph__legend-item"
-        component="a"
-        icon={
-          <ChartIcon
-            fill={null}
-            size="sm"
-            symbol="eyeSlash"
-            title={null}
-          />
-        }
-        isDisabled={true}
-        key="curiosity-button-ametConsectetur_mock-product-id"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        tabIndex={0}
-        variant="link"
+      <span
+        class="pf-c-button__icon pf-m-start"
       >
-        t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-      </Button>
-    </span>
-  </Tooltip>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_threshold_dolorSit, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-threshold_dolorSit_mock-product-id"
-    position="top"
+        <span
+          class="curiosity-chartarea__icon curiosity-chartarea__icon-eyeSlash"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 640 512"
+            width="1em"
+          >
+            <path
+              d="M320 400c-75.85 0-137.25-58.71-142.9-133.11L72.2 185.82c-13.79 17.3-26.48 35.59-36.72 55.59a32.35 32.35 0 0 0 0 29.19C89.71 376.41 197.07 448 320 448c26.91 0 52.87-4 77.89-10.46L346 397.39a144.13 144.13 0 0 1-26 2.61zm313.82 58.1l-110.55-85.44a331.25 331.25 0 0 0 81.25-102.07 32.35 32.35 0 0 0 0-29.19C550.29 135.59 442.93 64 320 64a308.15 308.15 0 0 0-147.32 37.7L45.46 3.37A16 16 0 0 0 23 6.18L3.37 31.45A16 16 0 0 0 6.18 53.9l588.36 454.73a16 16 0 0 0 22.46-2.81l19.64-25.27a16 16 0 0 0-2.82-22.45zm-183.72-142l-39.3-30.38A94.75 94.75 0 0 0 416 256a94.76 94.76 0 0 0-121.31-92.21A47.65 47.65 0 0 1 304 192a46.64 46.64 0 0 1-1.54 10l-73.61-56.89A142.31 142.31 0 0 1 320 112a143.92 143.92 0 0 1 144 144c0 21.63-5.29 41.79-13.9 60.11z"
+            />
+          </svg>
+        </span>
+      </span>
+      t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+    </a>
+  </span>
+  <span
+    class="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
   >
-    <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+    <a
+      aria-disabled="false"
+      class="pf-c-button pf-m-link curiosity-usage-graph__legend-item"
+      data-ouia-component-id="OUIA-Generated-Button-link-4"
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe="true"
+      tabindex="0"
     >
-      <Button
-        className="curiosity-usage-graph__legend-item"
-        component="a"
-        icon={
-          <ChartIcon
-            fill="#ff0000"
-            size="sm"
-            style={
-              {
-                "visibility": "visible",
-              }
-            }
-            symbol="dash"
-            title={null}
-          />
-        }
-        isDisabled={false}
-        key="curiosity-button-threshold_dolorSit_mock-product-id"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        tabIndex={0}
-        variant="link"
+      <span
+        class="pf-c-button__icon pf-m-start"
       >
-        t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-      </Button>
-    </span>
-  </Tooltip>
-  <Tooltip
-    content={
-      <p>
-        t(curiosity-graph.legendTooltip_threshold_nonCursus, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
-      </p>
-    }
-    distance={5}
-    enableFlip={true}
-    key="curiosity-tooltip-threshold_nonCursus_mock-product-id"
-    position="top"
+        <span
+          class="curiosity-chartarea__icon curiosity-chartarea__icon-dash"
+        >
+          <span
+            style="width: 1em; height: 0.5em;"
+          >
+            <svg
+              aria-hidden="true"
+              height="100%"
+              role="img"
+              style="visibility: visible; color: rgb(255, 0, 0);"
+              viewBox="0 0 38 10"
+              width="100%"
+            >
+              <rect
+                fill="#ff0000"
+                height="10"
+                width="10"
+                y="5"
+              />
+              <rect
+                fill="#ff0000"
+                height="10"
+                width="10"
+                x="14"
+                y="5"
+              />
+              <rect
+                fill="#ff0000"
+                height="10"
+                width="10"
+                x="28"
+                y="5"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+    </a>
+  </span>
+  <span
+    class="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
   >
-    <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+    <a
+      aria-disabled="false"
+      class="pf-c-button pf-m-link curiosity-usage-graph__legend-item"
+      data-ouia-component-id="OUIA-Generated-Button-link-5"
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe="true"
+      tabindex="0"
     >
-      <Button
-        className="curiosity-usage-graph__legend-item"
-        component="a"
-        icon={
-          <ChartIcon
-            fill="#ff0000"
-            size="sm"
-            style={
-              {
-                "visibility": "visible",
-              }
-            }
-            symbol="dash"
-            title={null}
-          />
-        }
-        isDisabled={false}
-        key="curiosity-button-threshold_nonCursus_mock-product-id"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        tabIndex={0}
-        variant="link"
+      <span
+        class="pf-c-button__icon pf-m-start"
       >
-        t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
-      </Button>
-    </span>
-  </Tooltip>
-</Fragment>
+        <span
+          class="curiosity-chartarea__icon curiosity-chartarea__icon-dash"
+        >
+          <span
+            style="width: 1em; height: 0.5em;"
+          >
+            <svg
+              aria-hidden="true"
+              height="100%"
+              role="img"
+              style="visibility: visible; color: rgb(255, 0, 0);"
+              viewBox="0 0 38 10"
+              width="100%"
+            >
+              <rect
+                fill="#ff0000"
+                height="10"
+                width="10"
+                y="5"
+              />
+              <rect
+                fill="#ff0000"
+                height="10"
+                width="10"
+                x="14"
+                y="5"
+              />
+              <rect
+                fill="#ff0000"
+                height="10"
+                width="10"
+                x="28"
+                y="5"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+    </a>
+  </span>
+</graphcardchartlegend>
 `;

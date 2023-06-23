@@ -1,10 +1,9 @@
 import React from 'react';
-import { Button } from '@patternfly/react-core';
 import { GraphCardChartLegend } from '../graphCardChartLegend';
-import { ChartIcon } from '../../chart/chartIcon';
+import { helpers } from '../../../common';
 
 describe('GraphCardChartLegend Component', () => {
-  it('should render a basic component', async () => {
+  it('should render a basic component', () => {
     const props = {
       datum: {
         dataSets: [
@@ -18,12 +17,12 @@ describe('GraphCardChartLegend Component', () => {
       useProduct: () => ({ productLabel: 'mock-product-label' }),
       useSelectors: () => []
     };
-    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
+    const component = renderComponent(<GraphCardChartLegend {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render basic data', async () => {
+  it('should render basic data', () => {
     const props = {
       datum: {
         dataSets: [
@@ -61,14 +60,18 @@ describe('GraphCardChartLegend Component', () => {
       useSelectors: () => []
     };
 
-    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
+    const component = renderComponent(<GraphCardChartLegend {...props} />);
     expect(component).toMatchSnapshot('data');
   });
 
-  it('should handle a click event', async () => {
+  it('should handle a click event', () => {
     const mockDispatch = jest.fn();
     const props = {
-      chart: { toggle: id => `mock boolean, ${id}`, isToggled: () => false },
+      chart: {
+        hide: id => `mock hide boolean, ${id}`,
+        toggle: id => `mock toggle boolean, ${id}`,
+        isToggled: () => false
+      },
       datum: {
         dataSets: [
           {
@@ -92,18 +95,17 @@ describe('GraphCardChartLegend Component', () => {
       useSelectors: () => [undefined, undefined, true]
     };
 
-    const component = await shallowHookComponent(<GraphCardChartLegend {...props} />);
-    component.find(Button).first().simulate('click');
-
+    const component = renderComponent(<GraphCardChartLegend {...props} />);
+    const firstButton = component.find('.curiosity-usage-graph__legend-item');
+    component.fireEvent.click(firstButton, {});
     expect(mockDispatch.mock.calls).toMatchSnapshot('click event, dispatch');
-    mockDispatch.mockClear();
 
-    component.find(Button).first().simulate('keyPress');
+    const mockEvent = { keyCode: 13, which: 13, key: 'Enter', persist: helpers.noop };
+    component.fireEvent.keyPress(firstButton, mockEvent);
     expect(mockDispatch.mock.calls).toMatchSnapshot('keyPress event, dispatch');
-    mockDispatch.mockClear();
   });
 
-  it('should handle variations in data when returning legend items', async () => {
+  it('should handle variations in data when returning legend items', () => {
     const props = {
       datum: {
         dataSets: [
@@ -141,14 +143,16 @@ describe('GraphCardChartLegend Component', () => {
       },
       useDispatch: () => {},
       useProduct: () => ({ productId: 'mock-product-id', productLabel: 'mock-product-label', viewId: 'mock-view-id' }),
-      useSelectors: () => [undefined, undefined, undefined, true, true]
+      useSelectors: () => [undefined, undefined, undefined, true, false]
     };
 
-    const component = await mountHookComponent(<GraphCardChartLegend {...props} />);
-    expect(component.find(ChartIcon).map(element => element.props())).toMatchSnapshot('legend items, data, threshold');
+    const component = renderComponent(<GraphCardChartLegend {...props} />);
+    expect([...component.querySelectorAll('.curiosity-chartarea__icon')].map(elem => elem.className)).toMatchSnapshot(
+      'legend items, data, threshold'
+    );
   });
 
-  it('should handle inverted legend behavior when using an external filter', async () => {
+  it('should handle inverted legend behavior when using an external filter', () => {
     const mockHide = jest.fn();
     const props = {
       chart: {
@@ -195,7 +199,7 @@ describe('GraphCardChartLegend Component', () => {
       useSelectors: () => ['helloWorld_mock-product-id']
     };
 
-    await mountHookComponent(<GraphCardChartLegend {...props} />);
+    renderComponent(<GraphCardChartLegend {...props} />);
     expect(mockHide.mock.calls).toMatchSnapshot('attempt legend invert, hide items');
   });
 });

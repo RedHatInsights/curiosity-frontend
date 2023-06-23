@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldCategory, useToolbarFieldOptions, useOnSelect } from '../toolbarFieldCategory';
 import { store } from '../../../redux/store';
 import {
@@ -18,18 +17,18 @@ describe('ToolbarFieldCategory Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.CATEGORY]: CATEGORY_TYPES.CLOUD })
     };
 
-    const component = shallow(<ToolbarFieldCategory {...props} />);
+    const component = await shallowComponent(<ToolbarFieldCategory {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should generate select options', () => {
-    const { result: toolbarFieldOptions } = shallowHook(() =>
+  it('should generate select options', async () => {
+    const { result: toolbarFieldOptions } = await renderHook(() =>
       useToolbarFieldOptions({
         useProductGraphConfig: () => ({
           filters: [
@@ -45,7 +44,7 @@ describe('ToolbarFieldCategory Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating through redux state with component', async () => {
+  it('should handle updating through redux state with component', () => {
     const props = {
       useToolbarFieldOptions: () => [
         {
@@ -73,10 +72,12 @@ describe('ToolbarFieldCategory Component', () => {
       ]
     };
 
-    const component = await mountHookComponent(<ToolbarFieldCategory {...props} />);
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const component = renderComponent(<ToolbarFieldCategory {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
+
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });

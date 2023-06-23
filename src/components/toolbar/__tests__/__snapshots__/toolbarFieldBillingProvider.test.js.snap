@@ -15,7 +15,7 @@ exports[`ToolbarFieldBillingProvider Component should export select options: too
 ]
 `;
 
-exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with component: dispatch billing provider, component 1`] = `
+exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -33,7 +33,7 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
 ]
 `;
 
-exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with hook: dispatch billing provider, hook 1`] = `
+exports[`ToolbarFieldBillingProvider Component should handle updating sla through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [

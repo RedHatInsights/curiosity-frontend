@@ -5,72 +5,73 @@ describe('OptinView Component', () => {
   it('should render a basic component', async () => {
     const props = {};
 
-    const component = await shallowHookComponent(<OptinView {...props} />);
+    const component = await shallowComponent(<OptinView {...props} />);
     expect(component).toMatchSnapshot('basic');
   });
 
   it('should render an API state driven view', async () => {
     const props = {};
 
-    const component = await shallowHookComponent(<OptinView {...props} />);
+    const component = await shallowComponent(<OptinView {...props} />);
     expect(component).toMatchSnapshot('initial view');
 
-    component.setProps({
+    const component200 = await component.setProps({
       useSession: () => ({})
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('200 view');
+    expect(component200.find('form')).toMatchSnapshot('200 view');
 
-    component.setProps({
+    const component401 = await component.setProps({
       useSession: () => ({ errorStatus: 401 })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('401 view');
+    expect(component401.find('form')).toMatchSnapshot('401 view');
 
-    component.setProps({
+    const component403 = await component.setProps({
       useSession: () => ({ errorStatus: 403 })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('403 view');
+    expect(component403.find('form')).toMatchSnapshot('403 view');
 
-    component.setProps({
+    const component418 = await component.setProps({
       useSession: () => ({ errorStatus: 418 })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('4XX view');
+    expect(component418.find('form')).toMatchSnapshot('4XX view');
 
-    component.setProps({
+    const component500 = await component.setProps({
       useSession: () => ({ errorStatus: 500 })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('500 view');
+    expect(component500.find('form')).toMatchSnapshot('500 view');
 
-    component.setProps({
+    const componentNullUndefined = await component.setProps({
       useSession: () => ({ errorStatus: null })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('null or undefined status view');
+    expect(componentNullUndefined.find('form')).toMatchSnapshot('null or undefined status view');
 
-    component.setProps({
+    const componentPending = await component.setProps({
       useSelectorsResponse: () => ({ pending: true }),
       useSession: () => ({})
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('pending view');
+    expect(componentPending.find('form')).toMatchSnapshot('pending view');
 
-    component.setProps({
+    const componentError = await component.setProps({
       useSelectorsResponse: () => ({ error: true })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('error view');
+    expect(componentError.find('form')).toMatchSnapshot('error view');
 
-    component.setProps({
+    const componentFulfilled = await component.setProps({
       useSelectorsResponse: () => ({ fulfilled: true })
     });
-    expect(component.find('CardFooter').first()).toMatchSnapshot('fulfilled view');
+    expect(componentFulfilled.find('form')).toMatchSnapshot('fulfilled view');
   });
 
-  it('should submit an opt-in form', async () => {
+  it('should submit an opt-in form', () => {
     const mockDispatch = jest.fn();
     const props = {
       useDispatch: () => mockDispatch,
       useSession: () => ({ errorStatus: 403 })
     };
 
-    const component = await mountHookComponent(<OptinView {...props} />);
-    component.find('form button').simulate('click');
+    const component = renderComponent(<OptinView {...props} />);
+    const input = component.find('form button');
+    component.fireEvent.click(input);
 
     expect(mockDispatch).toHaveBeenCalledTimes(1);
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch');

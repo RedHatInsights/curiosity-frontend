@@ -1,54 +1,53 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { Loader } from '../loader';
 
 describe('Loader Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a basic component', async () => {
     const props = {};
 
-    const component = shallow(<Loader {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    const component = await shallowComponent(<Loader {...props} />);
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle variant loader components', () => {
+  it('should handle variant loader components', async () => {
     const props = {};
 
-    const component = shallow(<Loader {...props} />);
+    const component = await shallowComponent(<Loader {...props} />);
     expect(component).toMatchSnapshot('variant: default');
 
-    component.setProps({
+    const componentSkeleton = await component.setProps({
       variant: 'skeleton'
     });
-    expect(component).toMatchSnapshot('variant: skeleton');
+    expect(componentSkeleton).toMatchSnapshot('variant: skeleton');
 
-    component.setProps({
+    const componentSpinner = await component.setProps({
       variant: 'spinner'
     });
-    expect(component).toMatchSnapshot('variant: spinner');
+    expect(componentSpinner).toMatchSnapshot('variant: spinner');
 
-    component.setProps({
+    const componentTitle = await component.setProps({
       variant: 'title'
     });
-    expect(component).toMatchSnapshot('variant: title');
+    expect(componentTitle).toMatchSnapshot('variant: title');
 
-    component.setProps({
+    const componentParagraph = await component.setProps({
       variant: 'paragraph'
     });
-    expect(component).toMatchSnapshot('variant: paragraph');
+    expect(componentParagraph).toMatchSnapshot('variant: paragraph');
 
-    component.setProps({
+    const componentChart = await component.setProps({
       variant: 'chart'
     });
-    expect(component).toMatchSnapshot('variant: chart');
+    expect(componentChart).toMatchSnapshot('variant: chart');
 
-    component.setProps({
+    const componentGraph = await component.setProps({
       variant: 'graph'
     });
-    expect(component).toMatchSnapshot('variant: graph');
+    expect(componentGraph).toMatchSnapshot('variant: graph');
 
-    component.setProps({
+    const componentTable = await component.setProps({
       variant: 'table'
     });
-    expect(component).toMatchSnapshot('variant: table');
+    expect(componentTable).toMatchSnapshot('variant: table');
   });
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import {
   ToolbarFieldSelectCategory,
   toolbarFieldOptions,
@@ -21,14 +20,14 @@ describe('ToolbarFieldSelectCategory Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useSelectCategoryOptions: () => ({
         options: [selectCategoryOptions[4], selectCategoryOptions[5]],
         currentCategory: RHSM_API_QUERY_SET_TYPES.SLA
       })
     };
-    const component = shallow(<ToolbarFieldSelectCategory {...props} />);
+    const component = await shallowComponent(<ToolbarFieldSelectCategory {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -37,20 +36,21 @@ describe('ToolbarFieldSelectCategory Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating categories through redux state with component', async () => {
+  it('should handle updating categories through redux state with component', () => {
     const props = {
       useSelectCategoryOptions: () => ({
         options: [selectCategoryOptions[1]]
       })
     };
 
-    const component = await mountHookComponent(<ToolbarFieldSelectCategory {...props} />);
+    const component = renderComponent(<ToolbarFieldSelectCategory {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
 
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch category, component');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });
 
   it('should handle updating categories through redux state with hook', () => {
@@ -63,10 +63,10 @@ describe('ToolbarFieldSelectCategory Component', () => {
     onSelect({
       value: 'dolor sit'
     });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch category, hook');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 
-  it('should return options, and an updated current category with a hook', () => {
+  it('should return options, and an updated current category with a hook', async () => {
     const options = {
       useProduct: () => ({ viewId: 'loremIpsum' }),
       useProductToolbarConfig: () => ({
@@ -75,11 +75,11 @@ describe('ToolbarFieldSelectCategory Component', () => {
       useSelector: () => ({ currentFilter: undefined })
     };
 
-    const { result: initialResult } = shallowHook(() => useSelectCategoryOptions(options));
+    const { result: initialResult } = await renderHook(() => useSelectCategoryOptions(options));
 
     expect(initialResult).toMatchSnapshot('options, initialCategory, hook');
 
-    const { result: updatedResult } = shallowHook(() =>
+    const { result: updatedResult } = await renderHook(() =>
       useSelectCategoryOptions({ ...options, useSelector: () => ({ currentFilter: RHSM_API_QUERY_SET_TYPES.SLA }) })
     );
 

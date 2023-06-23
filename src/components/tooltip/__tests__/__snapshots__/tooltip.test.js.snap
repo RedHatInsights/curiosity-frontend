@@ -21,23 +21,24 @@ exports[`Tooltip Component should allow custom properties: custom, content 1`] =
 `;
 
 exports[`Tooltip Component should render a basic component: basic 1`] = `
-<Tooltip
-  className="curiosity-tooltip"
-  content={
-    <p>
-      ...
-    </p>
-  }
-  distance={5}
-  enableFlip={false}
-  entryDelay={100}
-  exitDelay={0}
-  position="top"
+<tooltip
+  props="{
+  "children": [
+    {}
+  ],
+  "content": "...",
+  "distance": 5,
+  "enableFlip": false,
+  "entryDelay": 100,
+  "exitDelay": 0,
+  "isNoWrap": false,
+  "position": "top"
+}"
 >
   <span
-    className="curiosity-tooltip-children"
+    class="curiosity-tooltip-children"
   >
     hello world
   </span>
-</Tooltip>
+</tooltip>
 `;

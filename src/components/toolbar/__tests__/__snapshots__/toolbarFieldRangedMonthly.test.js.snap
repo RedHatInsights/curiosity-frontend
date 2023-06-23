@@ -253,7 +253,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle selecting an option d
 />
 `;
 
-exports[`ToolbarFieldRangedMonthly Component should handle updating granularity and date through redux state with component: dispatch date range, component 1`] = `
+exports[`ToolbarFieldRangedMonthly Component should handle updating granularity and date through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -281,7 +281,7 @@ exports[`ToolbarFieldRangedMonthly Component should handle updating granularity 
 ]
 `;
 
-exports[`ToolbarFieldRangedMonthly Component should handle updating granularity and date through redux state with hook: dispatch date range, hook 1`] = `
+exports[`ToolbarFieldRangedMonthly Component should handle updating granularity and date through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [

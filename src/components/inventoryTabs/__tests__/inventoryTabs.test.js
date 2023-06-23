@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { InventoryTabs, InventoryTab, useOnTab } from '../inventoryTabs';
 import { store } from '../../../redux';
 
@@ -14,7 +13,7 @@ describe('InventoryTabs Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const GenericComponent = () => (
       <div>
         <strong>world</strong>
@@ -34,11 +33,11 @@ describe('InventoryTabs Component', () => {
       ]
     };
 
-    const component = shallow(<InventoryTabs {...props} />);
+    const component = await shallowComponent(<InventoryTabs {...props} />);
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should return an empty render when disabled', () => {
+  it('should return an empty render when disabled', async () => {
     const props = {
       productId: 'lorem',
       children: [
@@ -51,23 +50,24 @@ describe('InventoryTabs Component', () => {
       ],
       isDisabled: true
     };
-    const component = shallow(<InventoryTabs {...props} />);
+    const component = await shallowComponent(<InventoryTabs {...props} />);
 
     expect(component).toMatchSnapshot('disabled component');
   });
 
-  it('should handle updating through redux state with component', async () => {
+  it('should handle updating through redux state with component', () => {
     const props = {
       useProduct: () => ({ productId: 'lorem' })
     };
 
-    const component = await mountHookComponent(
+    const component = renderComponent(
       <InventoryTabs {...props}>
         <InventoryTab title="loremIpsum">lorem ipsum</InventoryTab>
         <InventoryTab title="dolorSit">dolor sit</InventoryTab>
       </InventoryTabs>
     );
-    component.find('button.pf-c-tabs__link').last().simulate('click');
+    const input = component.querySelectorAll('button.pf-c-tabs__link')[1];
+    component.fireEvent.click(input);
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });

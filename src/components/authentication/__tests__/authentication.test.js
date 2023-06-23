@@ -17,7 +17,7 @@ describe('Authentication Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(
+    const component = await shallowComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -38,7 +38,7 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await mountHookComponent(
+    const component = await shallowComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -62,7 +62,7 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await shallowHookComponent(
+    const component = await shallowComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -83,7 +83,7 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await shallowHookComponent(
+    const component = await shallowComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -92,7 +92,7 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('418 error');
   });
 
-  it('should return a redirect on a specific 403 error and error code', async () => {
+  it('should return a redirect on a specific 403 error and error code', () => {
     const props = {
       useGetAuthorization: () => ({
         error: true,
@@ -104,7 +104,7 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await shallowHookComponent(
+    const component = renderComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -112,17 +112,22 @@ describe('Authentication Component', () => {
 
     expect(component).toMatchSnapshot('403 redirect error');
 
-    component.setProps({
-      session: {
-        ...props.session,
-        errorCodes: []
-      }
+    const propsUpdated = component.setProps({
+      useGetAuthorization: () => ({
+        error: true,
+        pending: false,
+        data: {
+          authorized: {},
+          errorCodes: [],
+          errorStatus: 403
+        }
+      })
     });
 
-    expect(component).toMatchSnapshot('403 error');
+    expect(propsUpdated).toMatchSnapshot('403 error');
   });
 
-  it('should return a message on 401 error', async () => {
+  it('should return a message on 401 error', () => {
     const props = {
       useGetAuthorization: () => ({
         error: true,
@@ -134,13 +139,13 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await shallowHookComponent(
+    const component = renderComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('401 error');
+    expect(component.getByText('You do not have access to Subscriptions')).toMatchSnapshot('401 error');
   });
 
   it('should render a component pending', async () => {
@@ -155,7 +160,7 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await shallowHookComponent(
+    const component = await shallowComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
@@ -164,7 +169,7 @@ describe('Authentication Component', () => {
     expect(component).toMatchSnapshot('pending');
   });
 
-  it('should render a component authorized', async () => {
+  it('should render a component authorized', () => {
     const props = {
       useGetAuthorization: () => ({
         error: false,
@@ -178,12 +183,12 @@ describe('Authentication Component', () => {
         }
       })
     };
-    const component = await mountHookComponent(
+    const component = renderComponent(
       <Authentication {...props}>
         <span className="test">lorem</span>
       </Authentication>
     );
 
-    expect(component).toMatchSnapshot('authorized');
+    expect(component.find('span')).toMatchSnapshot('authorized');
   });
 });

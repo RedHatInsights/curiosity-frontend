@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { PageToolbar } from '../pageToolbar';
 
 describe('PageToolbar Component', () => {
@@ -7,7 +6,7 @@ describe('PageToolbar Component', () => {
     const props = {
       className: 'lorem'
     };
-    const component = mount(
+    const component = renderComponent(
       <PageToolbar {...props}>
         <span className="test">lorem</span>
       </PageToolbar>

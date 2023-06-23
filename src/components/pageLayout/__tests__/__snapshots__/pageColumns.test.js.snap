@@ -1,66 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageColumns Component should render a basic component: basic 1`] = `
-<PageColumns
-  className="lorem"
->
-  <Flex
-    alignItems={
-      {
-        "sm": "alignItemsStretch",
-      }
+<Flex
+  alignItems={
+    {
+      "sm": "alignItemsStretch",
     }
-    className="curiosity-page-columns lorem"
-    spaceItems={
+  }
+  className="curiosity-page-columns lorem"
+  spaceItems={
+    {
+      "sm": "spaceItemsNone",
+    }
+  }
+>
+  <FlexItem
+    className="curiosity-page-columns-column"
+    grow={
       {
-        "sm": "spaceItemsNone",
+        "sm": "grow",
       }
     }
   >
-    <div
-      className="pf-l-flex pf-m-space-items-none-on-sm pf-m-align-items-stretch-on-sm curiosity-page-columns lorem"
+    <span
+      className="dolor"
     >
-      <FlexItem
-        className="curiosity-page-columns-column"
-        grow={
-          {
-            "sm": "grow",
-          }
-        }
-        key="page-column-.0"
-      >
-        <div
-          className="pf-m-grow-on-sm curiosity-page-columns-column"
-        >
-          <span
-            className="dolor"
-            key=".0"
-          >
-            lorem
-          </span>
-        </div>
-      </FlexItem>
-      <FlexItem
-        className="curiosity-page-columns-column"
-        grow={
-          {
-            "sm": "grow",
-          }
-        }
-        key="page-column-.$hello-world"
-      >
-        <div
-          className="pf-m-grow-on-sm curiosity-page-columns-column"
-        >
-          <span
-            className="sit"
-            key=".$hello-world"
-          >
-            ipsum
-          </span>
-        </div>
-      </FlexItem>
-    </div>
-  </Flex>
-</PageColumns>
+      lorem
+    </span>
+  </FlexItem>
+  <FlexItem
+    className="curiosity-page-columns-column"
+    grow={
+      {
+        "sm": "grow",
+      }
+    }
+  >
+    <span
+      className="sit"
+    >
+      ipsum
+    </span>
+  </FlexItem>
+</Flex>
 `;

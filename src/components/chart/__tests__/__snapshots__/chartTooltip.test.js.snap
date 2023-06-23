@@ -1,111 +1,152 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartTooltip Component should handle tooltip position: left tail 1`] = `
-<g>
-  <foreignObject
-    height="100%"
-    width="100%"
-    x={0}
-    y={45}
-  >
-    <div
-      className="curiosity-chartarea__tooltip-container "
-      style={
-        {
-          "display": "inline-block",
-        }
-      }
-      xmlns="http://www.w3.org/1999/xhtml"
+<element
+  props="{
+  "x": 0,
+  "y": 75,
+  "datum": {
+    "x": 1
+  },
+  "children": []
+}"
+>
+  <g>
+    <foreignobject
+      height="100%"
+      width="100%"
+      x="0"
+      y="45"
     >
       <div
-        className="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-left"
+        class="curiosity-chartarea__tooltip-container "
+        style="display: inline-block;"
+        xmlns="http://www.w3.org/1999/xhtml"
       >
-        lorem ipsum 1
+        <div
+          class="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-left"
+        >
+          lorem ipsum 1
+        </div>
       </div>
-    </div>
-  </foreignObject>
-</g>
+    </foreignobject>
+  </g>
+</element>
 `;
 
 exports[`ChartTooltip Component should handle tooltip position: middle tail 1`] = `
-<g>
-  <foreignObject
-    height="100%"
-    width="100%"
-    x={230}
-    y={45}
-  >
-    <div
-      className="curiosity-chartarea__tooltip-container "
-      style={
-        {
-          "display": "inline-block",
-        }
-      }
-      xmlns="http://www.w3.org/1999/xhtml"
+<element
+  props="{
+  "x": 250,
+  "y": 75,
+  "datum": {
+    "x": 2
+  },
+  "children": []
+}"
+>
+  <g>
+    <foreignobject
+      height="100%"
+      width="100%"
+      x="230"
+      y="45"
     >
       <div
-        className="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-middle"
+        class="curiosity-chartarea__tooltip-container "
+        style="display: inline-block;"
+        xmlns="http://www.w3.org/1999/xhtml"
       >
-        dolor sit 2
+        <div
+          class="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-middle"
+        >
+          dolor sit 2
+        </div>
       </div>
-    </div>
-  </foreignObject>
-</g>
+    </foreignobject>
+  </g>
+</element>
 `;
 
 exports[`ChartTooltip Component should handle tooltip position: right tail 1`] = `
-<g>
-  <foreignObject
-    height="100%"
-    width="100%"
-    x={460}
-    y={45}
-  >
-    <div
-      className="curiosity-chartarea__tooltip-container "
-      style={
-        {
-          "display": "inline-block",
-        }
-      }
-      xmlns="http://www.w3.org/1999/xhtml"
+<element
+  props="{
+  "x": 500,
+  "y": 75,
+  "datum": {
+    "x": 3
+  },
+  "children": []
+}"
+>
+  <g>
+    <foreignobject
+      height="100%"
+      width="100%"
+      x="460"
+      y="45"
     >
       <div
-        className="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-right"
+        class="curiosity-chartarea__tooltip-container "
+        style="display: inline-block;"
+        xmlns="http://www.w3.org/1999/xhtml"
       >
-        hello world 3
+        <div
+          class="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-right"
+        >
+          hello world 3
+        </div>
       </div>
-    </div>
-  </foreignObject>
-</g>
+    </foreignobject>
+  </g>
+</element>
 `;
 
 exports[`ChartTooltip Component should return a basic component: basic 1`] = `
-<g>
-  <foreignObject
-    height="100%"
-    width="100%"
-    x={2}
-    y={-12}
-  >
-    <div
-      className="curiosity-chartarea__tooltip-container fadein"
-      style={
-        {
-          "display": "none",
-        }
-      }
-      xmlns="http://www.w3.org/1999/xhtml"
+<element
+  props="{
+  "x": 2,
+  "y": 3,
+  "datum": {
+    "x": 1
+  },
+  "children": []
+}"
+>
+  <g>
+    <foreignobject
+      height="100%"
+      width="100%"
+      x="2"
+      y="-12"
     >
       <div
-        className="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-middle"
+        class="curiosity-chartarea__tooltip-container fadein"
+        style="display: none;"
+        xmlns="http://www.w3.org/1999/xhtml"
       >
-        lorem ipsum 1
+        <div
+          class="curiosity-chartarea__tooltip curiosity-chartarea__tooltip-middle"
+        >
+          lorem ipsum 1
+        </div>
       </div>
-    </div>
-  </foreignObject>
-</g>
+    </foreignobject>
+  </g>
+</element>
 `;
 
-exports[`ChartTooltip Component should return an empty tooltip when missing content: missing content 1`] = `<g />`;
+exports[`ChartTooltip Component should return an empty tooltip when missing content: missing content 1`] = `
+<element
+  props="{
+  "x": 2,
+  "y": 3,
+  "datum": {
+    "x": 1
+  },
+  "children": []
+}"
+>
+  <g />
+</element>
+`;

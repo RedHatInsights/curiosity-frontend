@@ -6,9 +6,10 @@ describe('InventorySubscriptionsContext', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should handle instances inventory API responses', () => {
-    const { result: errorResponse } = shallowHook(() =>
+  it('should handle instances inventory API responses', async () => {
+    const { result: errorResponse } = await renderHook(() =>
       useGetGuestsInventory('1234567890', {
+        getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
         useSelectorsInventory: () => ({ error: true })
@@ -17,8 +18,9 @@ describe('InventorySubscriptionsContext', () => {
 
     expect(errorResponse).toMatchSnapshot('inventory, error');
 
-    const { result: pendingResponse } = shallowHook(() =>
+    const { result: pendingResponse } = await renderHook(() =>
       useGetGuestsInventory('1234567890', {
+        getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
         useSelectorsInventory: () => ({ pending: true })
@@ -27,8 +29,9 @@ describe('InventorySubscriptionsContext', () => {
 
     expect(pendingResponse).toMatchSnapshot('inventory, pending');
 
-    const { result: cancelledResponse } = shallowHook(() =>
+    const { result: cancelledResponse } = await renderHook(() =>
       useGetGuestsInventory('1234567890', {
+        getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
         useSelectorsInventory: () => ({ cancelled: true })
@@ -37,8 +40,9 @@ describe('InventorySubscriptionsContext', () => {
 
     expect(cancelledResponse).toMatchSnapshot('inventory, cancelled');
 
-    const { result: fulfilledResponse } = shallowHook(() =>
+    const { result: fulfilledResponse } = await renderHook(() =>
       useGetGuestsInventory('1234567890', {
+        getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
         useSelectorsInventory: () => ({ fulfilled: true })
@@ -51,7 +55,7 @@ describe('InventorySubscriptionsContext', () => {
   it('should handle an onScroll event', async () => {
     const mockDispatch = jest.fn();
 
-    const { unmount } = await mountHook(() => {
+    const { unmount } = await renderHook(() => {
       const onScroll = useOnScroll('1234567890', {
         useDispatch: () => mockDispatch,
         useProductInventoryQuery: () => ({
