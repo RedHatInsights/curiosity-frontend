@@ -5,7 +5,8 @@ import {
   RHSM_API_PATH_METRIC_TYPES,
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_SET_TYPES,
-  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES
 } from '../../services/rhsm/rhsmConstants';
 
 describe('Product ROSA config', () => {
@@ -174,6 +175,46 @@ describe('Product ROSA config', () => {
     });
 
     expect(filteredInventoryDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
+
+    expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
+  });
+
+  it('should apply subscriptions inventory configuration', () => {
+    const {
+      initialSubscriptionsInventoryFilters: initialFilters,
+      inventorySubscriptionsQuery: inventoryQuery,
+      productId
+    } = config;
+
+    const inventoryData = {
+      [SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME]: 'lorem',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: 'hello world',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: '2022-01-01T00:00:00.000Z',
+      [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: 2000,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: true
+    };
+
+    const filteredInventoryData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: inventoryData,
+      productId
+    });
+
+    expect(filteredInventoryData).toMatchSnapshot('filtered');
+
+    const fallbackInventoryData = {
+      ...inventoryData,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL]: null,
+      [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: null
+    };
+
+    const fallbackFilteredInventoryData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: fallbackInventoryData,
+      productId
+    });
+
+    expect(fallbackFilteredInventoryData).toMatchSnapshot('filtered, fallback display');
 
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });

@@ -18,6 +18,7 @@ import {
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SUBSCRIPTIONS_SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
   RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
@@ -257,7 +258,27 @@ const config = {
       cellWidth: 15
     }
   ],
-  initialSubscriptionsInventoryFilters: undefined,
+  initialSubscriptionsInventoryFilters: [
+    {
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,
+      isSortable: true,
+      isWrappable: true
+    },
+    {
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
+      isSortable: true,
+      cellWidth: 10,
+      isWrappable: true
+    },
+    {
+      id: SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: nextEventDate } = {}) =>
+        (nextEventDate?.value && moment.utc(nextEventDate?.value).format('YYYY-MM-DD')) || '',
+      isSortable: true,
+      isWrappable: true,
+      cellWidth: 15
+    }
+  ],
   initialToolbarFilters: [
     {
       id: 'rangedMonthly',
