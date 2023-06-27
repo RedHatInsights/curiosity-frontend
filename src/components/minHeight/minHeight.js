@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { helpers } from '../../common';
+import { useResizeObserver } from '../../hooks/useWindow';
 
 /**
  * Normalize component height on page loads and updates.
@@ -12,131 +12,71 @@ import { helpers } from '../../common';
 /**
  * Set a min-height to prevent page jump component.
  *
- * @augments React.Component
- * @fires onResizeContainer
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {boolean} props.isOnLoad
+ * @param {number} props.minHeight
+ * @param {Function} props.useResizeObserver
+ * @returns {React.ReactNode}
  */
-class MinHeight extends React.Component {
-  containerRef = React.createRef();
+const MinHeight = ({ children, isOnLoad, minHeight, useResizeObserver: useAliasResizeObserver }) => {
+  const [tracking, setTracking] = useState({ containerWidth: undefined, isLoaded: false });
+  const containerRef = useRef(null);
+  const innerContainerRef = useRef(null);
+  const { height: containerHeight, width: containerWidth } = useAliasResizeObserver(containerRef);
 
-  innerContainerRef = React.createRef();
+  useEffect(() => {
+    if (!isOnLoad || (isOnLoad && !tracking.isLoaded)) {
+      const { current: domElement = {} } = containerRef;
+      const { current: innerDomElement = {} } = innerContainerRef;
 
-  updatedContainerWidth = 0;
+      if (domElement?.style) {
+        let updatedHeight = innerDomElement?.clientHeight || 0;
 
-  resizeObserver = helpers.noop;
+        if (minHeight > containerHeight) {
+          updatedHeight = minHeight;
+        }
 
-  componentDidMount() {
-    const { updateOnResize } = this.props;
-    window.setTimeout(() => {
-      this.setMinHeight();
-    });
-
-    if (updateOnResize) {
-      this.setResizeObserver();
-    }
-  }
-
-  componentDidUpdate() {
-    const { updateOnContent } = this.props;
-
-    if (updateOnContent) {
-      window.setTimeout(() => {
-        this.setMinHeight();
-      });
-    }
-  }
-
-  componentWillUnmount() {
-    this.resizeObserver();
-  }
-
-  /**
-   * On resize adjust graph display.
-   *
-   * @event onResizeContainer
-   */
-  onResizeContainer = () => {
-    const { updatedContainerWidth } = this;
-    const { updateOnResize } = this.props;
-    const clientWidth = this.containerRef?.current?.clientWidth || 0;
-
-    if (updateOnResize && clientWidth !== updatedContainerWidth) {
-      this.updatedContainerWidth = clientWidth;
-      this.setMinHeight(true);
-    }
-  };
-
-  /**
-   * Set minHeight on mount or update.
-   *
-   * @param {boolean} reset
-   */
-  setMinHeight(reset = false) {
-    const { minHeight: overrideMinHeight } = this.props;
-    const { current: domElement = {} } = this.containerRef;
-    const { current: innerDomElement = {} } = this.innerContainerRef;
-
-    if (domElement?.style) {
-      let clientHeight;
-
-      if (reset) {
-        clientHeight = innerDomElement?.clientHeight || 0;
-      } else {
-        clientHeight = domElement?.clientHeight || 0;
+        domElement.style.minHeight = `${updatedHeight}px`;
+        setTracking(() => ({
+          containerWidth,
+          isLoaded: isOnLoad,
+          updatedHeight
+        }));
       }
-
-      if (overrideMinHeight > clientHeight) {
-        clientHeight = overrideMinHeight;
-      }
-
-      domElement.style.minHeight = `${clientHeight}px`;
     }
-  }
+  }, [containerHeight, containerWidth, containerRef, innerContainerRef, isOnLoad, minHeight, tracking.isLoaded]);
 
-  /**
-   * Set ResizeObserver for scenarios when min-height needs to be updated.
-   */
-  setResizeObserver() {
-    window.addEventListener('resize', this.onResizeContainer);
-    this.resizeObserver = () => window.removeEventListener('resize', this.onResizeContainer);
-  }
-
-  /**
-   * Render a min-height div with children.
-   *
-   * @returns {React.ReactNode}
-   */
-  render() {
-    const { children } = this.props;
-
-    return (
-      <div className="curiosity-minheight" ref={this.containerRef}>
-        <div ref={this.innerContainerRef}>{children}</div>
+  return (
+    <div className="curiosity-minheight" ref={containerRef}>
+      <div className="curiosity-minheight__inner" ref={innerContainerRef}>
+        {children}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 /**
  * Prop types.
  *
- * @type {{minHeight: number, children: React.ReactNode, updateOnContent: boolean, updateOnResize: boolean}}
+ * @type {{minHeight: number, useResizeObserver: Function, children: React.ReactNode, isOnLoad: boolean}}
  */
 MinHeight.propTypes = {
-  updateOnContent: PropTypes.bool,
-  updateOnResize: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  minHeight: PropTypes.number
+  minHeight: PropTypes.number,
+  isOnLoad: PropTypes.bool,
+  useResizeObserver: PropTypes.func
 };
 
 /**
  * Default props.
  *
- * @type {{minHeight: number, updateOnContent: boolean, updateOnResize: boolean}}
+ * @type {{minHeight: number, useResizeObserver: Function, isOnLoad: boolean}}
  */
 MinHeight.defaultProps = {
-  updateOnContent: false,
-  updateOnResize: true,
-  minHeight: 0
+  isOnLoad: false,
+  minHeight: 0,
+  useResizeObserver
 };
 
 export { MinHeight as default, MinHeight };
