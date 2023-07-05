@@ -3,7 +3,7 @@ import { GraphCardChartLegend } from '../graphCardChartLegend';
 import { helpers } from '../../../common';
 
 describe('GraphCardChartLegend Component', () => {
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       datum: {
         dataSets: [
@@ -17,12 +17,12 @@ describe('GraphCardChartLegend Component', () => {
       useProduct: () => ({ productLabel: 'mock-product-label' }),
       useSelectors: () => []
     };
-    const component = renderComponent(<GraphCardChartLegend {...props} />);
+    const component = await shallowComponent(<GraphCardChartLegend {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should render basic data', () => {
+  it('should render basic data', async () => {
     const props = {
       datum: {
         dataSets: [
@@ -60,7 +60,7 @@ describe('GraphCardChartLegend Component', () => {
       useSelectors: () => []
     };
 
-    const component = renderComponent(<GraphCardChartLegend {...props} />);
+    const component = await shallowComponent(<GraphCardChartLegend {...props} />);
     expect(component).toMatchSnapshot('data');
   });
 
