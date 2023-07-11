@@ -5,6 +5,12 @@ pipeline {
     }
 
     stages {
+        stage('Initial Setup') {
+            steps {
+                sh 'printenv'
+            }
+        }
+
         stage('Ephemeral testing stage') {
             steps {
                 sh "echo 'ephemeral testing stage'"
