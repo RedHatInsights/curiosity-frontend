@@ -1,6 +1,9 @@
 import React from 'react';
 import { InventoryCard } from '../inventoryCard';
-import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('InventoryCard Component', () => {
   it('should render a basic component', async () => {
@@ -128,7 +131,7 @@ describe('InventoryCard Component', () => {
       useGetInventory: () => ({
         fulfilled: true,
         data: {
-          data: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1 }],
+          data: [{ lorem: 'sit', dolor: 'amet', [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 0 }],
           meta: {
             count: 1
           }
@@ -137,13 +140,15 @@ describe('InventoryCard Component', () => {
     };
 
     const component = await shallowComponent(<InventoryCard {...props} />);
-    expect(component.find('tbody')).toMatchSnapshot('number of guests');
+    expect(component.find('tbody')).toMatchSnapshot('NO number of guests and NO expandable guests display');
 
     const componentGuests = await component.setProps({
       useGetInventory: () => ({
         fulfilled: true,
         data: {
-          data: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1, subscriptionManagerId: 'loremIpsum' }],
+          data: [
+            { lorem: 'sit', dolor: 'amet', [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 1, subscriptionManagerId: 'loremIpsum' }
+          ],
           meta: {
             count: 1
           }
@@ -151,28 +156,6 @@ describe('InventoryCard Component', () => {
       })
     });
 
-    expect(componentGuests.find('tbody')).toMatchSnapshot('number of guests, and id');
-
-    const componentNoGuests = await component.setProps({
-      useGetInventory: () => ({
-        fulfilled: true,
-        data: {
-          data: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 2, subscriptionManagerId: 'loremIpsum' }],
-          meta: {
-            count: 1
-          }
-        }
-      }),
-      useProductInventoryConfig: () => ({
-        settings: {
-          hasSubTable: data => {
-            const { numberOfGuests = 0, subscriptionManagerId = null } = data;
-            return numberOfGuests > 2 && subscriptionManagerId;
-          }
-        }
-      })
-    });
-
-    expect(componentNoGuests.find('tbody')).toMatchSnapshot('number of guests, id, and NO expandable guests display');
+    expect(componentGuests.find('tbody')).toMatchSnapshot('number of guests, and returned id');
   });
 });

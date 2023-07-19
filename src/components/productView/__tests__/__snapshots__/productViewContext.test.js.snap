@@ -104,7 +104,9 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
       "isWrappable": true,
     },
   ],
-  "initialInventorySettings": {},
+  "initialInventorySettings": {
+    "guestContent": [Function],
+  },
   "initialOption": "cores",
   "initialSubscriptionsInventoryFilters": [
     {
@@ -253,7 +255,9 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
       "isWrappable": true,
     },
   ],
-  "initialInventorySettings": {},
+  "initialInventorySettings": {
+    "guestContent": [Function],
+  },
   "initialOption": "cores",
   "initialSubscriptionsInventoryFilters": [
     {

@@ -228,7 +228,12 @@ const config = {
       cellWidth: 15
     }
   ],
-  initialInventorySettings: {},
+  initialInventorySettings: {
+    guestContent: ({
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
+      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId
+    } = {}) => (numberOfGuests > 0 && subscriptionManagerId) || undefined
+  },
   initialToolbarFilters: [
     {
       id: RHSM_API_QUERY_SET_TYPES.SLA
