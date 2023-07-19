@@ -781,8 +781,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
       "c": 1000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
     },
   ],
   "meta": {
@@ -813,8 +811,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
       "c": 1000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
     },
   ],
   "meta": {
@@ -834,8 +830,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
       "c": 1000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
     },
   ],
   "meta": {
@@ -855,8 +849,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
       "c": 1000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
     },
   ],
   "meta": {
@@ -876,8 +868,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
       "c": 1000,
       "numberOfGuests": undefined,
       "number_of_guests": undefined,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
     },
   ],
   "meta": {

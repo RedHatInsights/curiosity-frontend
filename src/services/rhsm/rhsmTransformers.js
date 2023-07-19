@@ -74,15 +74,12 @@ const rhsmInstances = (response, { params } = {}) => {
   updatedResponse.data = data.map(
     ({
       [INSTANCES_DATA_TYPES.MEASUREMENTS]: measurements,
-      [INSTANCES_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
       [INSTANCES_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
       ...dataResponse
     }) => {
       const updatedData = {
         [INSTANCES_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
         numberOfGuests,
-        [INSTANCES_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
-        subscriptionManagerId,
         ...dataResponse
       };
 

@@ -211,6 +211,12 @@ const config = {
       cellWidth: 20
     }
   ],
+  initialInventorySettings: {
+    guestContent: ({
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
+      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId
+    } = {}) => (numberOfGuests > 0 && subscriptionManagerId) || undefined
+  },
   initialToolbarFilters: [
     {
       id: 'rangedMonthly',

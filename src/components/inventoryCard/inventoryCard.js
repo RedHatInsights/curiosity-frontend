@@ -99,28 +99,21 @@ const InventoryCard = ({
         });
 
         updatedColumnHeaders = columnHeaders;
-        const subscriptionManagerId = cellData?.subscriptionManagerId;
-        const numberOfGuests = cellData?.numberOfGuests;
-        let isSubTable;
+        let expandedContent;
 
-        // Is there a subTable, callback, or attempt to determine, return boolean
-        if (typeof settings?.hasSubTable === 'function') {
-          isSubTable = settings.hasSubTable({ ...cellData }, { ...sessionData });
-        } else {
-          isSubTable = numberOfGuests > 0 && subscriptionManagerId;
+        if (typeof settings?.guestContent === 'function') {
+          const guestId = settings?.guestContent({ ...cellData }, { ...sessionData });
+
+          if (guestId) {
+            expandedContent = (
+              <InventoryGuests key={`guests-${guestId}`} id={guestId} numberOfGuests={cellData.numberOfGuests} />
+            );
+          }
         }
 
         return {
           cells,
-          expandedContent:
-            (isSubTable && (
-              <InventoryGuests
-                key={`guests-${subscriptionManagerId}`}
-                numberOfGuests={numberOfGuests}
-                id={subscriptionManagerId}
-              />
-            )) ||
-            undefined
+          expandedContent
         };
       });
     }
