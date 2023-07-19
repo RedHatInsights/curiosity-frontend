@@ -1,9 +1,10 @@
 import React from 'react';
-import * as reactRedux from 'react-redux';
-import { fireEvent, queries, render } from '@testing-library/react';
+import { fireEvent, queries, render, screen } from '@testing-library/react';
+import { prettyDOM } from '@testing-library/dom';
 import { act } from 'react-dom/test-utils';
 import * as pfReactCoreComponents from '@patternfly/react-core';
 import * as pfReactChartComponents from '@patternfly/react-charts';
+import * as reactRedux from 'react-redux';
 import { setupDotenvFilesForEnv } from './build.dotenv';
 
 /**
@@ -135,6 +136,25 @@ global.mockObjectProperty = (object = {}, property, mockValue) => {
 };
 
 /**
+ * React testing for components. Add a screen render function that outputs HTML.
+ * Used by "renderComponent".
+ *
+ * @type {{render: Function}} The render output allows the use querySelector, querySelectorALl, but the
+ *     caveat is the "found" elements are not usable with other testing methods since they are recreated HTML.
+ */
+global.screenRender = {
+  ...screen,
+  render: (containerElement = screen) => {
+    const screenContainer = document.createElement('screen');
+    screenContainer.innerHTML = prettyDOM(containerElement.innerHTML, undefined, { highlight: false })
+      .replace(/(\s)+/g, ' ')
+      .replace(/>\s</g, '><');
+
+    return screenContainer;
+  }
+};
+
+/**
  * React testing for components.
  * try "shallowComponent" if results are not expected... see "shallowComponent"
  *
@@ -145,9 +165,12 @@ global.mockObjectProperty = (object = {}, property, mockValue) => {
  *
  * @param {React.ReactNode} testComponent
  * @param {object} options
+ * @param {boolean} options.includeInstanceRef The component includes an instance ref for class components. If the component instance
+ *     includes functions, they are wrapped in "act" for convenience.
  * @returns {HTMLElement}
  */
 global.renderComponent = (testComponent, options = {}) => {
+  const updatedOptions = { includeInstanceRef: true, ...options };
   const getDisplayName = reactComponent =>
     reactComponent?.displayName ||
     reactComponent?.$$typeof?.displayName ||
@@ -176,10 +199,39 @@ global.renderComponent = (testComponent, options = {}) => {
   }
   containerElement.props = componentInfo.props;
 
-  const { container, ...renderRest } = render(testComponent, {
+  const updatedTestComponent = { ...testComponent };
+  let elementInstance;
+
+  if (updatedTestComponent?.type?.prototype?.isReactComponent && updatedOptions.includeInstanceRef === true) {
+    updatedTestComponent.ref = element => {
+      const updatedElement = element;
+
+      if (element) {
+        Object.entries(element).forEach(([key, value]) => {
+          if (typeof value === 'function') {
+            try {
+              updatedElement[key] = (...args) => {
+                let output;
+                act(() => {
+                  output = value.call(element, ...args);
+                });
+                return output;
+              };
+            } catch (e) {
+              //
+            }
+          }
+        });
+
+        elementInstance = updatedElement;
+      }
+    };
+  }
+
+  const { container, ...renderRest } = render(updatedTestComponent, {
     container: containerElement,
     queries,
-    ...options
+    ...updatedOptions
   });
 
   const appendProps = obj => {
@@ -189,14 +241,17 @@ global.renderComponent = (testComponent, options = {}) => {
   };
 
   const updatedContainer = container;
+  updatedContainer.act = act;
+  updatedContainer.screen = global.screenRender;
+  updatedContainer.instance = elementInstance;
   updatedContainer.find = selector => container?.querySelector(selector);
   updatedContainer.fireEvent = fireEvent;
   updatedContainer.setProps = updatedProps => {
-    const updatedComponent = { ...testComponent, props: { ...testComponent?.props, ...updatedProps } };
+    const updatedComponent = { ...updatedTestComponent, props: { ...updatedTestComponent?.props, ...updatedProps } };
     let rerender = renderRest.rerender(updatedComponent);
 
     if (rerender === undefined) {
-      rerender = global.renderComponent(updatedComponent, { queries, ...options });
+      rerender = global.renderComponent(updatedComponent, { queries, ...updatedOptions });
     }
 
     if (rerender) {
@@ -219,10 +274,12 @@ global.renderComponent = (testComponent, options = {}) => {
  *
  * @param {Function} useHook
  * @param {object} options
+ * @param {boolean} options.includeInstanceContext The hook result, if it includes functions, is wrapped in "act" for convenience.
  * @param {object} options.state An object representing a mock Redux store's state.
  * @returns {*}
  */
-global.renderHook = async (useHook = Function.prototype, { state } = {}) => {
+global.renderHook = async (useHook = Function.prototype, options = {}) => {
+  const updatedOptions = { includeInstanceContext: true, ...options };
   let result;
   let spyUseSelector;
   let unmountHook;
@@ -232,23 +289,43 @@ global.renderHook = async (useHook = Function.prototype, { state } = {}) => {
     return null;
   };
 
-  await act(async () => {
-    if (state) {
-      spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(state));
-    }
-    const { unmount } = await render(<Hook />);
-    unmountHook = unmount;
-  });
-
   const unmount = async () => {
     await act(async () => unmountHook());
   };
 
-  if (state) {
+  await act(async () => {
+    if (updatedOptions.state) {
+      spyUseSelector = jest.spyOn(reactRedux, 'useSelector').mockImplementation(_ => _(updatedOptions.state));
+    }
+    const { unmount: unmountRender } = await render(<Hook />);
+    unmountHook = unmountRender;
+  });
+
+  if (updatedOptions.state) {
     spyUseSelector.mockClear();
   }
 
-  return { unmount, result };
+  const updatedResult = result;
+
+  if (result && updatedOptions.includeInstanceContext === true) {
+    Object.entries(result).forEach(([key, value]) => {
+      if (typeof value === 'function') {
+        try {
+          updatedResult[key] = (...args) => {
+            let output;
+            act(() => {
+              output = value.call(result, ...args);
+            });
+            return output;
+          };
+        } catch (e) {
+          //
+        }
+      }
+    });
+  }
+
+  return { unmount, result: updatedResult, act };
 };
 
 /**
@@ -268,8 +345,9 @@ global.shallowComponent = async testComponent => {
   const localRenderHook = async (component, updatedProps) => {
     if (typeof component?.type === 'function') {
       try {
-        const { result } = await global.renderHook(() =>
-          component.type({ ...component.type.defaultProps, ...component.props, ...updatedProps })
+        const { unmount, result } = await global.renderHook(
+          () => component.type({ ...component.type.defaultProps, ...component.props, ...updatedProps }),
+          { includeInstanceContext: false }
         );
 
         if (!result || typeof result === 'string' || typeof result === 'number') {
@@ -292,6 +370,7 @@ global.shallowComponent = async testComponent => {
 
         if (Array.isArray(result)) {
           const updatedR = result;
+          updatedR.unmount = unmount;
           updatedR.render = renderResult;
           updatedR.find = querySelector;
           updatedR.querySelector = querySelector;
@@ -302,6 +381,7 @@ global.shallowComponent = async testComponent => {
 
         return {
           ...result,
+          unmount,
           render: renderResult,
           find: querySelector,
           querySelector,
