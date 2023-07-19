@@ -217,6 +217,12 @@ const config = {
       cellWidth: 15
     }
   ],
+  initialInventorySettings: {
+    guestContent: ({
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
+      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId
+    } = {}) => (numberOfGuests > 0 && subscriptionManagerId) || undefined
+  },
   initialSubscriptionsInventoryFilters: [
     {
       id: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,
