@@ -13,12 +13,14 @@ import { inventoryTypes } from '../types';
  * Initial state.
  *
  * @private
- * @type {{subscriptionsInventory: {}, instancesInventory: {}, tabs: {}, hostsInventory: {}, hostsGuests: {}}}
+ * @type {{subscriptionsInventory: {}, instancesGuests: {}, instancesInventory: {}, tabs: {}, hostsInventory: {},
+ *     hostsGuests: {}}}
  */
 const initialState = {
   hostsInventory: {},
   hostsGuests: {},
   instancesInventory: {},
+  instancesGuests: {},
   subscriptionsInventory: {},
   tabs: {}
 };
@@ -46,7 +48,7 @@ const inventoryReducer = (state = initialState, action) => {
       );
     case inventoryTypes.CLEAR_INVENTORY_GUESTS:
       return reduxHelpers.setStateProp(
-        'hostsGuests',
+        'instancesGuests',
         {
           [action.id]: {}
         },
@@ -61,6 +63,7 @@ const inventoryReducer = (state = initialState, action) => {
           { ref: 'hostsInventory', type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM },
           { ref: 'hostsGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM },
           { ref: 'instancesInventory', type: rhsmTypes.GET_INSTANCES_INVENTORY_RHSM },
+          { ref: 'instancesGuests', type: rhsmTypes.GET_INSTANCES_INVENTORY_GUESTS_RHSM },
           { ref: 'subscriptionsInventory', type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM }
         ],
         state,

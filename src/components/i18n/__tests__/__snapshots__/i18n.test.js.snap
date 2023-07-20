@@ -520,7 +520,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
@@ -580,6 +580,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
       {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+      },
+      {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
       },
@@ -619,6 +623,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-graph.label_axisX",
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+      {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
@@ -684,7 +692,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
@@ -788,6 +796,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-graph.label_axisX",
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
+      {
+        "key": "curiosity-inventory.header",
+        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+      },
     ],
   },
   {
@@ -795,7 +807,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: 'guestsDisplayName' })",
+        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",

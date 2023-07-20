@@ -70,16 +70,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     {
       "cell": [Function],
       "header": [Function],
-      "id": "displayName",
+      "id": "display_name",
     },
     {
       "cellWidth": 40,
-      "id": "inventoryId",
+      "id": "inventory_id",
     },
     {
       "cell": [Function],
       "cellWidth": 15,
-      "id": "lastSeen",
+      "id": "last_seen",
     },
   ],
   "initialInventoryFilters": [
@@ -221,16 +221,16 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
     {
       "cell": [Function],
       "header": [Function],
-      "id": "displayName",
+      "id": "display_name",
     },
     {
       "cellWidth": 40,
-      "id": "inventoryId",
+      "id": "inventory_id",
     },
     {
       "cell": [Function],
       "cellWidth": 15,
-      "id": "lastSeen",
+      "id": "last_seen",
     },
   ],
   "initialInventoryFilters": [

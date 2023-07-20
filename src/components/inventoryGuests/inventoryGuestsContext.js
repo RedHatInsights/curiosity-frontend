@@ -22,7 +22,7 @@ const useSelectorsGuestsInventory = (
   { useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse } = {}
 ) => {
   const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
-    ({ inventory }) => inventory?.hostsGuests?.[id]
+    ({ inventory }) => inventory?.instancesGuests?.[id]
   );
 
   return {
@@ -34,7 +34,7 @@ const useSelectorsGuestsInventory = (
 };
 
 /**
- * Combined Redux RHSM Actions, getHostsInventoryGuests, and inventory selector response.
+ * Combined Redux RHSM Actions, getInstancesInventoryGuests, and inventory selector response.
  *
  * @param {string} id
  * @param {object} options
@@ -47,7 +47,7 @@ const useSelectorsGuestsInventory = (
 const useGetGuestsInventory = (
   id,
   {
-    getInventory = reduxActions.rhsm.getHostsInventoryGuests,
+    getInventory = reduxActions.rhsm.getInstancesInventoryGuests,
     useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
     useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventoryGuestsQuery,
     useSelectorsInventory: useAliasSelectorsInventory = useSelectorsGuestsInventory

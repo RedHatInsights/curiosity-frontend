@@ -3681,7 +3681,7 @@ Guests inventory selector response.
 <a name="InventoryGuests.module_InventoryGuestsContext..useGetGuestsInventory"></a>
 
 ### InventoryGuestsContext~useGetGuestsInventory(id, options) ⇒ <code>function</code>
-Combined Redux RHSM Actions, getHostsInventoryGuests, and inventory selector response.
+Combined Redux RHSM Actions, getInstancesInventoryGuests, and inventory selector response.
 
 **Kind**: inner method of [<code>InventoryGuestsContext</code>](#InventoryGuests.module_InventoryGuestsContext)  
 <table>

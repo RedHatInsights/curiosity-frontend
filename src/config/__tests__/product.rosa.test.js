@@ -218,4 +218,49 @@ describe('Product ROSA config', () => {
 
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
   });
+
+  it('should apply guest inventory configuration', () => {
+    const { initialGuestsFilters: initialFilters } = config;
+
+    const guestsData = {
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
+      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: 'lorem subscription id',
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
+      loremIpsum: 'hello world'
+    };
+
+    const filteredGuestsData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData
+    });
+
+    expect(filteredGuestsData).toMatchSnapshot('filtered');
+
+    const filteredGuestsDataMissing = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...guestsData,
+        [INVENTORY_TYPES.INVENTORY_ID]: undefined
+      }
+    });
+
+    expect(filteredGuestsDataMissing).toMatchSnapshot('filtered, missing inventory id');
+
+    const filteredGuestsDataAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData,
+      session: { authorized: { inventory: true } }
+    });
+
+    expect(filteredGuestsDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredGuestsDataNotAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData,
+      session: { authorized: { inventory: false } }
+    });
+
+    expect(filteredGuestsDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
+  });
 });

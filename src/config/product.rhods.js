@@ -213,8 +213,8 @@ const config = {
   initialInventorySettings: {
     guestContent: ({
       [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
-      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId
-    } = {}) => (numberOfGuests > 0 && subscriptionManagerId) || undefined
+      [INVENTORY_TYPES.INSTANCE_ID]: id
+    } = {}) => (numberOfGuests > 0 && id) || undefined
   },
   initialSubscriptionsInventoryFilters: [
     {

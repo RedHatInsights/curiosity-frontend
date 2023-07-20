@@ -169,9 +169,10 @@ RHSM service wrappers for dispatch, state update.
 
 * [RhsmActions](#Actions.module_RhsmActions)
     * [~getGraphMetrics(idMetric, query, options)](#Actions.module_RhsmActions..getGraphMetrics) ⇒ <code>function</code>
-    * [~getHostsInventory(id, query)](#Actions.module_RhsmActions..getHostsInventory) ⇒ <code>function</code>
-    * [~getHostsInventoryGuests(id, query)](#Actions.module_RhsmActions..getHostsInventoryGuests) ⇒ <code>function</code>
+    * <del>[~getHostsInventory(id, query)](#Actions.module_RhsmActions..getHostsInventory) ⇒ <code>function</code></del>
+    * <del>[~getHostsInventoryGuests(id, query)](#Actions.module_RhsmActions..getHostsInventoryGuests) ⇒ <code>function</code></del>
     * [~getInstancesInventory(id, query)](#Actions.module_RhsmActions..getInstancesInventory) ⇒ <code>function</code>
+    * [~getInstancesInventoryGuests(id, query)](#Actions.module_RhsmActions..getInstancesInventoryGuests) ⇒ <code>function</code>
     * [~getSubscriptionsInventory(id, query)](#Actions.module_RhsmActions..getSubscriptionsInventory) ⇒ <code>function</code>
 
 <a name="Actions.module_RhsmActions..getGraphMetrics"></a>
@@ -201,7 +202,9 @@ Get a RHSM response from multiple Tally, or Capacity, IDs and metrics.
 
 <a name="Actions.module_RhsmActions..getHostsInventory"></a>
 
-### RhsmActions~getHostsInventory(id, query) ⇒ <code>function</code>
+### <del>RhsmActions~getHostsInventory(id, query) ⇒ <code>function</code></del>
+***Deprecated***
+
 Get a hosts response listing from RHSM subscriptions.
 
 **Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
@@ -221,7 +224,9 @@ Get a hosts response listing from RHSM subscriptions.
 
 <a name="Actions.module_RhsmActions..getHostsInventoryGuests"></a>
 
-### RhsmActions~getHostsInventoryGuests(id, query) ⇒ <code>function</code>
+### <del>RhsmActions~getHostsInventoryGuests(id, query) ⇒ <code>function</code></del>
+***Deprecated***
+
 Get a host's guest response listing from RHSM subscriptions.
 
 **Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
@@ -243,6 +248,26 @@ Get a host's guest response listing from RHSM subscriptions.
 
 ### RhsmActions~getInstancesInventory(id, query) ⇒ <code>function</code>
 Get an instances response listing from RHSM subscriptions.
+
+**Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><code>null</code></td>
+    </tr><tr>
+    <td>query</td><td><code>object</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Actions.module_RhsmActions..getInstancesInventoryGuests"></a>
+
+### RhsmActions~getInstancesInventoryGuests(id, query) ⇒ <code>function</code>
+Get an instance guest response listing from RHSM subscriptions.
 
 **Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
 <table>
