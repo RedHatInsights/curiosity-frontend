@@ -91,6 +91,17 @@ describe('RhsmActions', () => {
     });
   });
 
+  it('Should return response content for getInstancesInventoryGuests method', done => {
+    const store = generateStore();
+    const dispatcher = rhsmActions.getInstancesInventoryGuests();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().inventory;
+      expect(response.instancesGuests.fulfilled).toBe(true);
+      done();
+    });
+  });
+
   it('Should return response content for getSubscriptionsInventory method', done => {
     const store = generateStore();
     const dispatcher = rhsmActions.getSubscriptionsInventory();
