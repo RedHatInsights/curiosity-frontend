@@ -305,6 +305,238 @@ exports[`Product OpenShift Metrics config should apply graph configuration: sett
 }
 `;
 
+exports[`Product OpenShift Metrics config should apply guest inventory configuration: filtered 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "lorem inventory id",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": "lorem inventory id",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Metrics config should apply guest inventory configuration: filtered, NOT authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "lorem inventory id",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": "lorem inventory id",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Metrics config should apply guest inventory configuration: filtered, authorized 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "lorem inventory id",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": "lorem inventory id",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
+exports[`Product OpenShift Metrics config should apply guest inventory configuration: filtered, missing inventory id 1`] = `
+{
+  "cells": [
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "",
+    },
+    {
+      "title": <DateFormat
+        date="2022-01-01T00:00:00.000Z"
+      />,
+    },
+  ],
+  "columnHeaders": [
+    {
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
+      "transforms": [],
+    },
+    {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+    {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "transforms": [
+        [Function],
+      ],
+    },
+  ],
+  "data": {
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
+      "value": "lorem",
+    },
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
+      "value": "",
+    },
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
+      "value": "2022-01-01T00:00:00.000Z",
+    },
+    "loremIpsum": {
+      "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
+      "value": "hello world",
+    },
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
+      "value": "lorem subscription id",
+    },
+  },
+}
+`;
+
 exports[`Product OpenShift Metrics config should apply toolbar configuration: filters 1`] = `
 [
   {

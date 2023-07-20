@@ -141,10 +141,10 @@ describe('Product RHEL config', () => {
     const { initialGuestsFilters: initialFilters } = config;
 
     const guestsData = {
-      displayName: 'lorem',
-      inventoryId: 'lorem inventory id',
-      subscriptionManagerId: 'lorem subscription id',
-      lastSeen: '2022-01-01T00:00:00.000Z',
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
+      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: 'lorem subscription id',
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
       loremIpsum: 'hello world'
     };
 
@@ -159,7 +159,7 @@ describe('Product RHEL config', () => {
       filters: initialFilters,
       cellData: {
         ...guestsData,
-        inventoryId: undefined
+        [INVENTORY_TYPES.INVENTORY_ID]: undefined
       }
     });
 
