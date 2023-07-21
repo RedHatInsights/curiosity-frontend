@@ -448,8 +448,6 @@ Parse platform getUserPermissions response.
     * [~RHSM_API_RESPONSE_ERRORS](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ERRORS) : <code>string</code>
     * [~RHSM_API_RESPONSE_ERRORS_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ERRORS_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_ERRORS_CODE_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_ERRORS_CODE_TYPES) : <code>Object</code>
-    * [~RHSM_API_RESPONSE_HOSTS_DATA_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_HOSTS_DATA_TYPES) : <code>Object</code>
-    * [~RHSM_API_RESPONSE_HOSTS_META_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_HOSTS_META_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_INSTANCES_DATA_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_DATA_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_INSTANCES_META_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_META_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES) : <code>Object</code>
@@ -463,7 +461,6 @@ Parse platform getUserPermissions response.
     * [~RHSM_API_RESPONSE_UOM_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_UOM_TYPES) : <code>Object</code>
     * [~RHSM_API_RESPONSE_USAGE_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_USAGE_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_CATEGORY_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_CATEGORY_TYPES) : <code>Object</code>
-    * [~RHSM_API_QUERY_INVENTORY_HOSTS_SORT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_HOSTS_SORT_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_INVENTORY_SORT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SORT_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES) : <code>Object</code>
     * [~RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES](#Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES) : <code>Object</code>
@@ -540,22 +537,11 @@ RHSM response errors types.
 RHSM response error codes.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
-<a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_HOSTS_DATA_TYPES"></a>
-
-### RhsmConstants~RHSM\_API\_RESPONSE\_HOSTS\_DATA\_TYPES : <code>Object</code>
-RHSM response Hosts DATA types.
-
-**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
-<a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_HOSTS_META_TYPES"></a>
-
-### RhsmConstants~RHSM\_API\_RESPONSE\_HOSTS\_META\_TYPES : <code>Object</code>
-RHSM response Hosts META types.
-
-**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_DATA_TYPES"></a>
 
 ### RhsmConstants~RHSM\_API\_RESPONSE\_INSTANCES\_DATA\_TYPES : <code>Object</code>
-RHSM response Instance DATA types.
+RHSM combined response Instance and Instance Guests DATA types.
+"INSTANCE_ID" and "SUBSCRIPTION_MANAGER_ID" are associated with instance guests.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_RESPONSE_INSTANCES_META_TYPES"></a>
@@ -628,12 +614,6 @@ RHSM response, query parameters for USAGE.
 
 ### RhsmConstants~RHSM\_API\_QUERY\_CATEGORY\_TYPES : <code>Object</code>
 RHSM query/search parameter CATEGORY type values for TALLY/CAPACITY.
-
-**Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
-<a name="Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_HOSTS_SORT_TYPES"></a>
-
-### RhsmConstants~RHSM\_API\_QUERY\_INVENTORY\_HOSTS\_SORT\_TYPES : <code>Object</code>
-RHSM API query/search parameter SORT type values for HOSTS.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_QUERY_INVENTORY_SORT_TYPES"></a>
@@ -722,9 +702,6 @@ Patch for returning a made up API architecture, variant param as a product ID
     * [~guestsMetaSchema](#Rhsm.module_RhsmSchemas..guestsMetaSchema) : <code>\*</code>
     * [~guestsItem](#Rhsm.module_RhsmSchemas..guestsItem) : <code>\*</code>
     * [~guestsResponseSchema](#Rhsm.module_RhsmSchemas..guestsResponseSchema) : <code>\*</code>
-    * [~hostsMetaSchema](#Rhsm.module_RhsmSchemas..hostsMetaSchema) : <code>\*</code>
-    * [~hostsItem](#Rhsm.module_RhsmSchemas..hostsItem) : <code>\*</code>
-    * [~hostsResponseSchema](#Rhsm.module_RhsmSchemas..hostsResponseSchema) : <code>\*</code>
     * [~instancesMetaSchema](#Rhsm.module_RhsmSchemas..instancesMetaSchema) : <code>\*</code>
     * [~instancesItem](#Rhsm.module_RhsmSchemas..instancesItem) : <code>\*</code>
     * [~instancesResponseSchema](#Rhsm.module_RhsmSchemas..instancesResponseSchema) : <code>\*</code>
@@ -795,24 +772,6 @@ Guests response item.
 Guests response.
 
 **Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
-<a name="Rhsm.module_RhsmSchemas..hostsMetaSchema"></a>
-
-### RhsmSchemas~hostsMetaSchema : <code>\*</code>
-Hosts response meta field.
-
-**Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
-<a name="Rhsm.module_RhsmSchemas..hostsItem"></a>
-
-### RhsmSchemas~hostsItem : <code>\*</code>
-Hosts response item.
-
-**Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
-<a name="Rhsm.module_RhsmSchemas..hostsResponseSchema"></a>
-
-### RhsmSchemas~hostsResponseSchema : <code>\*</code>
-Hosts response.
-
-**Kind**: inner constant of [<code>RhsmSchemas</code>](#Rhsm.module_RhsmSchemas)  
 <a name="Rhsm.module_RhsmSchemas..instancesMetaSchema"></a>
 
 ### RhsmSchemas~instancesMetaSchema : <code>\*</code>
@@ -875,10 +834,7 @@ RHSM API service calls.
 
 * [RhsmServices](#Rhsm.module_RhsmServices)
     * [~getApiVersion(options)](#Rhsm.module_RhsmServices..getApiVersion) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * <del>[~getGraphReports(id, params, options)](#Rhsm.module_RhsmServices..getGraphReports) ⇒ <code>Promise.&lt;\*&gt;</code></del>
     * [~getGraphCapacity(id, params, options)](#Rhsm.module_RhsmServices..getGraphCapacity) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * <del>[~getHostsInventory(id, params, options)](#Rhsm.module_RhsmServices..getHostsInventory) ⇒ <code>Promise.&lt;\*&gt;</code></del>
-    * <del>[~getHostsInventoryGuests(id, params, options)](#Rhsm.module_RhsmServices..getHostsInventoryGuests) ⇒ <code>Promise.&lt;\*&gt;</code></del>
     * [~getInstancesInventoryGuests(id, params, options)](#Rhsm.module_RhsmServices..getInstancesInventoryGuests) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getInstancesInventory(id, params, options)](#Rhsm.module_RhsmServices..getInstancesInventory) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getSubscriptionsInventory(id, params, options)](#Rhsm.module_RhsmServices..getSubscriptionsInventory) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -902,36 +858,6 @@ Get RHSM API version information.
     <td>options.cancel</td><td><code>boolean</code></td>
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Rhsm.module_RhsmServices..getGraphReports"></a>
-
-### <del>RhsmServices~getGraphReports(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code></del>
-***Deprecated***
-
-Get RHSM API reporting/tally graph/chart data.
-
-**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td><td><p>Product ID</p>
-</td>
-    </tr><tr>
-    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
-</td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options.cancel</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -960,74 +886,6 @@ Get RHSM API capacity/threshold graph/chart data.
     <td>options.cancel</td><td><code>boolean</code></td><td></td>
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Rhsm.module_RhsmServices..getHostsInventory"></a>
-
-### <del>RhsmServices~getHostsInventory(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code></del>
-***Deprecated***
-
-Get RHSM API hosts table/inventory data.
-
-**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td><td><p>Product ID</p>
-</td>
-    </tr><tr>
-    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
-</td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options.cancel</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>options.cancelId</td><td><code>string</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Rhsm.module_RhsmServices..getHostsInventoryGuests"></a>
-
-### <del>RhsmServices~getHostsInventoryGuests(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code></del>
-***Deprecated***
-
-Get RHSM API hosts table/inventory guests data.
-
-**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td><td><p>Subscription Manager ID</p>
-</td>
-    </tr><tr>
-    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
-</td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options.cache</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>options.cancel</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>options.cancelId</td><td><code>string</code></td><td></td>
-    </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
-</td>
-    </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
-</td>
     </tr>  </tbody>
 </table>
 
@@ -1146,27 +1004,8 @@ Transform RHSM responses. Replaces selector usage.
 
 
 * [RhsmTransformers](#Rhsm.module_RhsmTransformers)
-    * [~rhsmHosts(response)](#Rhsm.module_RhsmTransformers..rhsmHosts) ⇒ <code>object</code>
     * [~rhsmInstances(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
     * [~rhsmTallyCapacity(response, config)](#Rhsm.module_RhsmTransformers..rhsmTallyCapacity) ⇒ <code>object</code>
-
-<a name="Rhsm.module_RhsmTransformers..rhsmHosts"></a>
-
-### RhsmTransformers~rhsmHosts(response) ⇒ <code>object</code>
-Parse RHSM hosts response for caching.
-
-**Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>response</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
 
 <a name="Rhsm.module_RhsmTransformers..rhsmInstances"></a>
 

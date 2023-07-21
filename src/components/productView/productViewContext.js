@@ -328,7 +328,7 @@ const useProductInventoryGuestsConfig = ({ useProductContext: useAliasProductCon
 };
 
 /**
- * Return hosts inventory configuration.
+ * Return inventory configuration.
  *
  * @param {object} options
  * @param {Function} options.useProductContext

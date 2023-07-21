@@ -13,12 +13,9 @@ import { inventoryTypes } from '../types';
  * Initial state.
  *
  * @private
- * @type {{subscriptionsInventory: {}, instancesGuests: {}, instancesInventory: {}, tabs: {}, hostsInventory: {},
- *     hostsGuests: {}}}
+ * @type {{subscriptionsInventory: {}, instancesGuests: {}, instancesInventory: {}, tabs: {}}}
  */
 const initialState = {
-  hostsInventory: {},
-  hostsGuests: {},
   instancesInventory: {},
   instancesGuests: {},
   subscriptionsInventory: {},
@@ -26,7 +23,7 @@ const initialState = {
 };
 
 /**
- * Apply generated inventory observer/reducer for hosts/system and subscriptions inventory to state,
+ * Apply generated inventory observer/reducer for system and subscriptions inventory to state,
  * against actions.
  *
  * @param {object} state
@@ -60,8 +57,6 @@ const inventoryReducer = (state = initialState, action) => {
     default:
       return reduxHelpers.generatedPromiseActionReducer(
         [
-          { ref: 'hostsInventory', type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM },
-          { ref: 'hostsGuests', type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM },
           { ref: 'instancesInventory', type: rhsmTypes.GET_INSTANCES_INVENTORY_RHSM },
           { ref: 'instancesGuests', type: rhsmTypes.GET_INSTANCES_INVENTORY_GUESTS_RHSM },
           { ref: 'subscriptionsInventory', type: rhsmTypes.GET_SUBSCRIPTIONS_INVENTORY_RHSM }

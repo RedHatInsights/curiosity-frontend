@@ -21,7 +21,7 @@ describe('RhsmActions', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(tally|capacity|hosts|instances|subscriptions|version).*?/, {
+    moxios.stubRequest(/\/(tally|capacity|instances|subscriptions|version).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1,
@@ -54,28 +54,6 @@ describe('RhsmActions', () => {
       expect(response.capacity.threshold_ipsum_lorem.fulfilled).toBe(true);
       expect(response.capacity.threshold_sit_dolor.fulfilled).toBe(true);
       expect(Object.entries(response.capacity).length).toBe(2);
-      done();
-    });
-  });
-
-  it('Should return response content for getHostsInventory method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getHostsInventory();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().inventory;
-      expect(response.hostsInventory.fulfilled).toBe(true);
-      done();
-    });
-  });
-
-  it('Should return response content for getHostsInventoryGuests method', done => {
-    const store = generateStore();
-    const dispatcher = rhsmActions.getHostsInventoryGuests();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().inventory;
-      expect(response.hostsGuests.fulfilled).toBe(true);
       done();
     });
   });

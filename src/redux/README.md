@@ -169,8 +169,6 @@ RHSM service wrappers for dispatch, state update.
 
 * [RhsmActions](#Actions.module_RhsmActions)
     * [~getGraphMetrics(idMetric, query, options)](#Actions.module_RhsmActions..getGraphMetrics) ⇒ <code>function</code>
-    * <del>[~getHostsInventory(id, query)](#Actions.module_RhsmActions..getHostsInventory) ⇒ <code>function</code></del>
-    * <del>[~getHostsInventoryGuests(id, query)](#Actions.module_RhsmActions..getHostsInventoryGuests) ⇒ <code>function</code></del>
     * [~getInstancesInventory(id, query)](#Actions.module_RhsmActions..getInstancesInventory) ⇒ <code>function</code>
     * [~getInstancesInventoryGuests(id, query)](#Actions.module_RhsmActions..getInstancesInventoryGuests) ⇒ <code>function</code>
     * [~getSubscriptionsInventory(id, query)](#Actions.module_RhsmActions..getSubscriptionsInventory) ⇒ <code>function</code>
@@ -197,50 +195,6 @@ Get a RHSM response from multiple Tally, or Capacity, IDs and metrics.
     <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Actions.module_RhsmActions..getHostsInventory"></a>
-
-### <del>RhsmActions~getHostsInventory(id, query) ⇒ <code>function</code></del>
-***Deprecated***
-
-Get a hosts response listing from RHSM subscriptions.
-
-**Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td><td><code>null</code></td>
-    </tr><tr>
-    <td>query</td><td><code>object</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Actions.module_RhsmActions..getHostsInventoryGuests"></a>
-
-### <del>RhsmActions~getHostsInventoryGuests(id, query) ⇒ <code>function</code></del>
-***Deprecated***
-
-Get a host's guest response listing from RHSM subscriptions.
-
-**Kind**: inner method of [<code>RhsmActions</code>](#Actions.module_RhsmActions)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td><td><code>null</code></td>
-    </tr><tr>
-    <td>query</td><td><code>object</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -1068,7 +1022,7 @@ Inventory, and tabs, related API and user state reducer.
 <a name="Reducers.module_InventoryReducer..inventoryReducer"></a>
 
 ### InventoryReducer~inventoryReducer(state, action) ⇒ <code>object</code> \| <code>Object</code>
-Apply generated inventory observer/reducer for hosts/system and subscriptions inventory to state,
+Apply generated inventory observer/reducer for system and subscriptions inventory to state,
 against actions.
 
 **Kind**: inner method of [<code>InventoryReducer</code>](#Reducers.module_InventoryReducer)  
@@ -1269,7 +1223,7 @@ Inventory query types associated with only GUESTS' queries.
 <a name="Types.module_QueryTypes..SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES"></a>
 
 ### QueryTypes~SET\_QUERY\_RHSM\_HOSTS\_INVENTORY\_TYPES
-Inventory query types associated with only HOSTS' and INSTANCES' queries.
+Inventory query types associated with only INSTANCES' queries.
 
 **Kind**: inner constant of [<code>QueryTypes</code>](#Types.module_QueryTypes)  
 <a name="Types.module_QueryTypes..SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES"></a>

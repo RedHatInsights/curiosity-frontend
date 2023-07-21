@@ -33,7 +33,7 @@ const SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES = {
 };
 
 /**
- * Inventory query types associated with only HOSTS' and INSTANCES' queries.
+ * Inventory query types associated with only INSTANCES' queries.
  */
 const SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES = {
   [RHSM_API_QUERY_TYPES.DIRECTION]: `SET_QUERY_RHSM_HOSTS_INVENTORY_${RHSM_API_QUERY_TYPES.DIRECTION}`,

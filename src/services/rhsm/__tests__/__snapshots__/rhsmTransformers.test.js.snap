@@ -744,34 +744,6 @@ exports[`RHSM Transformers should attempt to parse a tally response: tally, mont
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse an hosts response: hosts 1`] = `
-{
-  "data": [
-    {
-      "numberOfGuests": 2,
-      "number_of_guests": 2,
-      "sockets": 1000,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
-    },
-  ],
-  "meta": {
-    "count": 10,
-    "productId": undefined,
-  },
-}
-`;
-
-exports[`RHSM Transformers should attempt to parse an hosts response: hosts, failed 1`] = `
-{
-  "data": [],
-  "meta": {
-    "count": undefined,
-    "productId": undefined,
-  },
-}
-`;
-
 exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
 {
   "data": [
@@ -880,7 +852,6 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 
 exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
 {
-  "hosts": [Function],
   "instances": [Function],
   "tallyCapacity": [Function],
 }
