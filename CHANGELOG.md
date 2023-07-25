@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/9de8dcb131aea806c83c531a1f3b2a7fc0555af3...dfefb0eea1a2f51853d226278609d5907fd29b53) (2023-07-25)
+
+
+### Features
+* **config** sw-925 activate rosa graph  ([#1135](https://github.com/RedHatInsights/curiosity-frontend/pull/1135)) ([d89af74](https://github.com/RedHatInsights/curiosity-frontend/commit/d89af74cbf28825cd2c45d828de32603263fb686))
+* **graphCardHelpers** sw-925 billing category, unique ids  ([#1139](https://github.com/RedHatInsights/curiosity-frontend/pull/1139)) ([57dc018](https://github.com/RedHatInsights/curiosity-frontend/commit/57dc0188628f24d5a819e60b2a7f5e7c416c86e2))
+* **graphCardHelpers** sw-922 capacity, overage helpers  ([#1138](https://github.com/RedHatInsights/curiosity-frontend/pull/1138)) ([18d1d1b](https://github.com/RedHatInsights/curiosity-frontend/commit/18d1d1b339003dfd88d9f41f876b72e9a26d9811))
+
+### Code Refactoring
+* **config** sw-938 activate rosa subscriptions  ([#1143](https://github.com/RedHatInsights/curiosity-frontend/pull/1143)) ([6b185e5](https://github.com/RedHatInsights/curiosity-frontend/commit/6b185e54926619d2948385c795156f5ca00ddb24))
+* **config** sw-1215 reduce metric card mantissa  ([#1142](https://github.com/RedHatInsights/curiosity-frontend/pull/1142)) ([4e21256](https://github.com/RedHatInsights/curiosity-frontend/commit/4e21256b4cc91162ac13aa6270fa761cf6f29be2))
+* **config** sw-926 rosa as openshift variant  ([#1140](https://github.com/RedHatInsights/curiosity-frontend/pull/1140)) ([588f5ae](https://github.com/RedHatInsights/curiosity-frontend/commit/588f5aea7c668ca56672d83bba2ce09fb7e21b06))
+
+### Bug Fixes
+* **config** sw-1001 disable rosa, remove from openshift  ([#1157](https://github.com/RedHatInsights/curiosity-frontend/pull/1157)) ([dfefb0e](https://github.com/RedHatInsights/curiosity-frontend/commit/dfefb0eea1a2f51853d226278609d5907fd29b53))
+* **locale** sw-1471 rosa corrections  ([#1149](https://github.com/RedHatInsights/curiosity-frontend/pull/1149)) ([593b688](https://github.com/RedHatInsights/curiosity-frontend/commit/593b688cdde09fe5b73d48c61ef0067a8b09cc69))
+* **locale** sw-1001 rosa string corrections  ([#1145](https://github.com/RedHatInsights/curiosity-frontend/pull/1145)) ([19adf68](https://github.com/RedHatInsights/curiosity-frontend/commit/19adf6832a8760657056fe72f82d519c5e4f5761))
+* **build** npm updates  ([#1134](https://github.com/RedHatInsights/curiosity-frontend/pull/1134)) ([a53aad6](https://github.com/RedHatInsights/curiosity-frontend/commit/a53aad6dbf069a4486b53c56bdc97477eb5a6227))
+
 ## [3.0.1](https://github.com/RedHatInsights/curiosity-frontend/compare/497e2dfa759d4d1818dbe539cf60451551f5598f...22e6136911b70a72d71cd8bbe7d4b4c6bdb4f4d3) (2023-06-06)
 
 ### Chores
