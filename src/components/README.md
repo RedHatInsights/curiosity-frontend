@@ -4283,64 +4283,41 @@ Normalize component height on page loads and updates.
 
 
 * [MinHeight](#Components.module_MinHeight)
-    * [~MinHeight](#Components.module_MinHeight..MinHeight) ⇐ <code>React.Component</code>
-        * _instance_
-            * [.setMinHeight(reset)](#Components.module_MinHeight..MinHeight+setMinHeight)
-            * [.setResizeObserver()](#Components.module_MinHeight..MinHeight+setResizeObserver)
-            * [.render()](#Components.module_MinHeight..MinHeight+render) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
-            * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
-    * ["onResizeContainer"](#event_onResizeContainer)
-
-<a name="Components.module_MinHeight..MinHeight"></a>
-
-### MinHeight~MinHeight ⇐ <code>React.Component</code>
-Set a min-height to prevent page jump component.
-
-**Kind**: inner class of [<code>MinHeight</code>](#Components.module_MinHeight)  
-**Extends**: <code>React.Component</code>  
-**Emits**: [<code>onResizeContainer</code>](#event_onResizeContainer)  
-
-* [~MinHeight](#Components.module_MinHeight..MinHeight) ⇐ <code>React.Component</code>
-    * _instance_
-        * [.setMinHeight(reset)](#Components.module_MinHeight..MinHeight+setMinHeight)
-        * [.setResizeObserver()](#Components.module_MinHeight..MinHeight+setResizeObserver)
-        * [.render()](#Components.module_MinHeight..MinHeight+render) ⇒ <code>React.ReactNode</code>
-    * _static_
+    * [~MinHeight(props)](#Components.module_MinHeight..MinHeight) ⇒ <code>React.ReactNode</code>
         * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
         * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
 
-<a name="Components.module_MinHeight..MinHeight+setMinHeight"></a>
+<a name="Components.module_MinHeight..MinHeight"></a>
 
-#### minHeight.setMinHeight(reset)
-Set minHeight on mount or update.
+### MinHeight~MinHeight(props) ⇒ <code>React.ReactNode</code>
+Set a min-height to prevent page jump component.
 
-**Kind**: instance method of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
+**Kind**: inner method of [<code>MinHeight</code>](#Components.module_MinHeight)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
+      <th>Param</th><th>Type</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>reset</td><td><code>boolean</code></td><td><code>false</code></td>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>props.isOnLoad</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.minHeight</td><td><code>number</code></td>
+    </tr><tr>
+    <td>props.useResizeObserver</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
-<a name="Components.module_MinHeight..MinHeight+setResizeObserver"></a>
 
-#### minHeight.setResizeObserver()
-Set ResizeObserver for scenarios when min-height needs to be updated.
+* [~MinHeight(props)](#Components.module_MinHeight..MinHeight) ⇒ <code>React.ReactNode</code>
+    * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
+    * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
 
-**Kind**: instance method of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
-<a name="Components.module_MinHeight..MinHeight+render"></a>
-
-#### minHeight.render() ⇒ <code>React.ReactNode</code>
-Render a min-height div with children.
-
-**Kind**: instance method of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
 <a name="Components.module_MinHeight..MinHeight.propTypes"></a>
 
 #### MinHeight.propTypes : <code>Object</code>
@@ -4353,12 +4330,6 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
-<a name="event_onResizeContainer"></a>
-
-### "onResizeContainer"
-On resize adjust graph display.
-
-**Kind**: event emitted by [<code>MinHeight</code>](#Components.module_MinHeight)  
 <a name="Components.module_OptinView"></a>
 
 ## OptinView
