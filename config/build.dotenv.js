@@ -1,7 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
-const Dotenv = require('dotenv-webpack');
 
 /**
  * Setup a webpack dotenv plugin config.
@@ -19,7 +18,15 @@ const setupWebpackDotenvFile = filePath => {
     settings.path = filePath;
   }
 
-  return new Dotenv(settings);
+  try {
+    // eslint-disable-next-line global-require
+    const DotEnv = require('dotenv-webpack');
+    return new DotEnv(settings);
+  } catch (e) {
+    console.warning(`Failed loading dotenv-webpack package: ${e.message}`);
+  }
+
+  return undefined;
 };
 
 /**
@@ -80,14 +87,33 @@ const setupDotenvFilesForEnv = ({
   setupDotenvFile(path.resolve(relativePath, '.env'));
 
   if (setBuildDefaults) {
-    const DEV_MODE = process.env[`${dotenvNamePrefix}_DEV_MODE`] || undefined;
-    const DIST_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_DIST_DIR`] || 'dist');
-    const HOST = process.env[`${dotenvNamePrefix}_HOST`] || 'localhost';
+    // Core Build
+    const DEV_MODE = process.env[`${dotenvNamePrefix}_DEV_MODE`] || process.env.DEV_MODE || undefined;
+    const DIST_DIR = path.resolve(
+      relativePath,
+      process.env[`${dotenvNamePrefix}_DIST_DIR`] || process.env.DIST_DIR || 'dist'
+    );
+    const HOST = process.env[`${dotenvNamePrefix}_HOST`] || process.env.HOST || 'localhost';
     const OUTPUT_ONLY = process.env[`_${dotenvNamePrefix}_OUTPUT_ONLY`] === 'true';
-    const PORT = process.env[`${dotenvNamePrefix}_PORT`] || '3000';
-    const PUBLIC_PATH = process.env[`${dotenvNamePrefix}_PUBLIC_PATH`] || '/';
-    const SRC_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_SRC_DIR`] || 'src');
-    const STATIC_DIR = path.resolve(relativePath, process.env[`${dotenvNamePrefix}_STATIC_DIR`] || 'public');
+    const OPEN_PATH = process.env[`${dotenvNamePrefix}_OPEN_PATH`] || process.env.OPEN_PATH || undefined;
+    const PORT = process.env[`${dotenvNamePrefix}_PORT`] || process.env.PORT || '3000';
+    const PUBLIC_PATH = process.env[`${dotenvNamePrefix}_PUBLIC_PATH`] || process.env.PUBLIC_PATH || '/';
+    const SRC_DIR = path.resolve(
+      relativePath,
+      process.env[`${dotenvNamePrefix}_SRC_DIR`] || process.env.SRC_DIR || 'src'
+    );
+    const STATIC_DIR = path.resolve(
+      relativePath,
+      process.env[`${dotenvNamePrefix}_STATIC_DIR`] || process.env.STATIC_DIR || 'public'
+    );
+
+    // Build Extras - Display name, HTML title
+    const UI_NAME = process.env[`${dotenvNamePrefix}_UI_NAME`] || process.env.UI_NAME || undefined;
+
+    /**
+     * Note: Consider adding dotenv parameters to your dotenv file instead of adding additional
+     * build specific dotenv parameters for webpack here.
+     */
 
     if (!process.env.NODE_ENV) {
       process.env.NODE_ENV = env;
@@ -96,6 +122,7 @@ const setupDotenvFilesForEnv = ({
     process.env[`_${dotenvNamePrefix}_ENV`] = process.env.NODE_ENV;
     process.env[`_${dotenvNamePrefix}_STATIC_DIR`] = STATIC_DIR;
     process.env[`_${dotenvNamePrefix}_RELATIVE_DIRNAME`] = relativePath;
+    process.env[`_${dotenvNamePrefix}_OPEN_PATH`] = OPEN_PATH;
     process.env[`_${dotenvNamePrefix}_PUBLIC_PATH`] = PUBLIC_PATH;
     process.env[`_${dotenvNamePrefix}_SRC_DIR`] = SRC_DIR;
     process.env[`_${dotenvNamePrefix}_DIST_DIR`] = DIST_DIR;
@@ -103,6 +130,7 @@ const setupDotenvFilesForEnv = ({
     process.env[`_${dotenvNamePrefix}_PORT`] = PORT;
     process.env[`_${dotenvNamePrefix}_OUTPUT_ONLY`] = OUTPUT_ONLY;
     process.env[`_${dotenvNamePrefix}_DEV_MODE`] = DEV_MODE;
+    process.env[`_${dotenvNamePrefix}_UI_NAME`] = UI_NAME;
   }
 
   return process.env;

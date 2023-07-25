@@ -347,10 +347,10 @@ exports[`ServiceConfig should handle producing a service call configuration: res
     dolor: sit
   },
   schema: [
-    successResponse => \`\${successResponse}-schema-transform\`
+    successResponse => \\\\.concat(successResponse, \\-schema-transform\\)
   ],
   transform: [
-    successResponse => \`\${successResponse}-transform\`
+    successResponse => \\\\.concat(successResponse, \\-transform\\)
   ],
   cacheResponse: false,
   method: get,
