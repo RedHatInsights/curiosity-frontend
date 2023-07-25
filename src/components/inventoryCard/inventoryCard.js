@@ -155,7 +155,7 @@ const InventoryCard = ({
 
   return (
     <Card className="curiosity-inventory-card">
-      <MinHeight key="headerMinHeight" updateOnContent>
+      <MinHeight key="headerMinHeight">
         <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
           {cardActions}
           <CardActions className={(!itemCount && 'transparent') || ''} aria-hidden={!itemCount || false}>
@@ -171,7 +171,7 @@ const InventoryCard = ({
           </CardActions>
         </CardHeader>
       </MinHeight>
-      <MinHeight key={minHeightContentRefreshKey} updateOnContent>
+      <MinHeight key={minHeightContentRefreshKey}>
         <CardBody>
           <div className={(error && 'blur') || (pending && 'fadein') || ''}>
             {pending && (
@@ -199,7 +199,7 @@ const InventoryCard = ({
           </div>
         </CardBody>
       </MinHeight>
-      <MinHeight key="footerMinHeight" updateOnContent>
+      <MinHeight key="footerMinHeight">
         <CardFooter
           className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
           aria-hidden={error || !itemCount || false}

@@ -102,10 +102,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   className="curiosity-inventory-card"
 >
   <MinHeight
+    isOnLoad={false}
     key="headerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={true}
@@ -138,10 +138,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardHeader>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="bodyMinHeight-10-resize"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -162,10 +162,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardBody>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="footerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={true}
@@ -196,10 +196,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   className="curiosity-inventory-card"
 >
   <MinHeight
+    isOnLoad={false}
     key="headerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={false}
@@ -232,10 +232,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardHeader>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="bodyMinHeight-10-resize"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -256,10 +256,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardBody>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="footerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={false}
@@ -290,10 +290,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   className="curiosity-inventory-card"
 >
   <MinHeight
+    isOnLoad={false}
     key="headerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={false}
@@ -326,10 +326,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardHeader>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="bodyMinHeight-10"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -356,10 +356,10 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardBody>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="footerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={true}
@@ -460,10 +460,10 @@ exports[`InventoryCard Component should render a basic component: basic render 1
   className="curiosity-inventory-card"
 >
   <MinHeight
+    isOnLoad={false}
     key="headerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={false}
@@ -496,10 +496,10 @@ exports[`InventoryCard Component should render a basic component: basic render 1
     </CardHeader>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="bodyMinHeight-10"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -526,10 +526,10 @@ exports[`InventoryCard Component should render a basic component: basic render 1
     </CardBody>
   </MinHeight>
   <MinHeight
+    isOnLoad={false}
     key="footerMinHeight"
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={true}
