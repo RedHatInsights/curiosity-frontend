@@ -1,6 +1,12 @@
 const { setupDotenvFilesForEnv } = require('./config/build.dotenv');
-setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+const { NODE_ENV } = setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+const { browserslist } = require('./package.json');
 
 module.exports = {
-  presets: ['react-app']
+  targets:
+    (NODE_ENV === 'development' && browserslist?.development?.join(', ')) ||
+    browserslist?.production?.join(', ') ||
+    'entry',
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: ['@babel/plugin-transform-runtime']
 };
