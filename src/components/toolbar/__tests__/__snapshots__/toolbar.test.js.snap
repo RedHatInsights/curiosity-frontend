@@ -29,7 +29,6 @@ exports[`Toolbar Component should handle displaying a group variant field: group
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
-          key="sla"
           showToolbarItem={true}
         >
           <Sla
@@ -38,20 +37,15 @@ exports[`Toolbar Component should handle displaying a group variant field: group
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ForwardRef
-      key="itemFields"
-    />
+    <ForwardRef />
     <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
-      key="secondaryFields"
     >
-      <span
-        key="lorem"
-      >
+      <span>
         lorem ipsum
       </span>
     </ForwardRef>
@@ -111,7 +105,6 @@ exports[`Toolbar Component should handle displaying secondary components, fields
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
-          key="sla"
           showToolbarItem={true}
         >
           <Sla
@@ -120,20 +113,15 @@ exports[`Toolbar Component should handle displaying secondary components, fields
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ForwardRef
-      key="itemFields"
-    />
+    <ForwardRef />
     <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
-      key="secondaryFields"
     >
-      <span
-        key="lorem"
-      >
+      <span>
         lorem ipsum
       </span>
     </ForwardRef>
@@ -142,29 +130,47 @@ exports[`Toolbar Component should handle displaying secondary components, fields
 `;
 
 exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
-{
-  "categoryName": "t(curiosity-toolbar.label_filter, {"context":"sla"})",
-  "children": <Sla
-    isFilter={true}
-  />,
-  "chips": [
-    "t(curiosity-toolbar.label_sla, {"context":"Premium"})",
-  ],
-  "deleteChip": [Function],
-  "showToolbarItem": true,
-}
+<div
+  class="pf-c-chip"
+  data-ouia-component-id="OUIA-Generated-Chip-1"
+  data-ouia-component-type="PF4/Chip"
+  data-ouia-safe="true"
+>
+  <span
+    class="pf-c-chip__text"
+    id="pf-random-id-3"
+  >
+    t(curiosity-toolbar.label_sla, {"context":"Premium"})
+  </span>
+  <button
+    aria-disabled="false"
+    aria-label="close"
+    aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
+    class="pf-c-button pf-m-plain"
+    data-ouia-component-id="close"
+    data-ouia-component-type="PF4/Button"
+    data-ouia-safe="true"
+    id="remove_pf-random-id-3"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align: -0.125em;"
+      viewBox="0 0 352 512"
+      width="1em"
+    >
+      <path
+        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+      />
+    </svg>
+  </button>
+</div>
 `;
 
-exports[`Toolbar Component should handle updating toolbar chips: chips, not clearable 1`] = `
-{
-  "categoryName": "t(curiosity-toolbar.label_filter, {"context":"sla"})",
-  "children": <Sla
-    isFilter={true}
-  />,
-  "chips": [],
-  "showToolbarItem": true,
-}
-`;
+exports[`Toolbar Component should handle updating toolbar chips: chips, not clearable 1`] = `null`;
 
 exports[`Toolbar Component should hide categories when a single filter is available: single filter 1`] = `
 <Toolbar
@@ -205,7 +211,6 @@ exports[`Toolbar Component should hide categories when a single filter is availa
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
-          key="sla"
           showToolbarItem={true}
         >
           <Sla
@@ -214,16 +219,13 @@ exports[`Toolbar Component should hide categories when a single filter is availa
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ForwardRef
-      key="itemFields"
-    />
+    <ForwardRef />
     <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
-      key="secondaryFields"
     />
   </ToolbarContent>
 </Toolbar>
@@ -275,7 +277,6 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
           chips={[]}
           deleteChip={[Function]}
-          key="sla"
           showToolbarItem={false}
         >
           <Sla
@@ -286,7 +287,6 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
           categoryName="t(curiosity-toolbar.label_filter, {"context":"usage"})"
           chips={[]}
           deleteChip={[Function]}
-          key="usage"
           showToolbarItem={false}
         >
           <Usage
@@ -295,22 +295,19 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         </ToolbarFilter>
       </ForwardRef>
     </ToolbarToggleGroup>
-    <ForwardRef
-      key="itemFields"
-    />
+    <ForwardRef />
     <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
-      key="secondaryFields"
     />
   </ToolbarContent>
 </Toolbar>
 `;
 
-exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: disabled component 1`] = `""`;
+exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: disabled component 1`] = `null`;
 
 exports[`Toolbar Component should return an empty render, or variant filter, when disabled or missing filters: missing filters, has variant filter 1`] = `
 <ToolbarFieldGroupVariant
@@ -361,20 +358,15 @@ exports[`Toolbar Component should return an empty render, or variant filter, whe
         variant="filter-group"
       />
     </ToolbarToggleGroup>
-    <ForwardRef
-      key="itemFields"
-    />
+    <ForwardRef />
     <ForwardRef
       alignment={
         {
           "default": "alignRight",
         }
       }
-      key="secondaryFields"
     >
-      <span
-        key="lorem"
-      >
+      <span>
         lorem ipsum
       </span>
     </ForwardRef>

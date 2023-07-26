@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageLayout Component should render a basic component: basic 1`] = `
-<PageLayout
-  className=""
->
+<React.Fragment>
   <PageSection
     className="curiosity "
     padding={
@@ -12,104 +10,69 @@ exports[`PageLayout Component should render a basic component: basic 1`] = `
       }
     }
   >
-    <section
-      className="pf-c-page__main-section pf-m-no-padding curiosity "
+    <span
+      className="test"
     >
-      <span
-        className="test"
-        key=".0"
-      >
-        lorem
-      </span>
-    </section>
+      lorem
+    </span>
   </PageSection>
-</PageLayout>
+</React.Fragment>
 `;
 
 exports[`PageLayout Component should render header and section children: multiple children 1`] = `
-<PageLayout
-  className=""
->
-  <PageHeader
-    key=".1"
-    productLabel={null}
-    t={[Function]}
-  >
-    <PageHeader>
-      <section
-        className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-        widget-type="InsightsPageHeader"
-      >
-        <Flex
-          justifyContent={
-            {
-              "sm": "justifyContentSpaceBetween",
-            }
-          }
-        >
-          <div
-            className="pf-l-flex pf-m-justify-content-space-between-on-sm"
-          >
-            <FlexItem>
-              <div
-                className=""
-              >
-                <PageHeaderTitle
-                  className="pf-u-mb-sm"
-                  title="lorem"
-                >
-                  <Title
-                    className="pf-u-mb-sm"
-                    headingLevel="h1"
-                    size="2xl"
-                    widget-type="InsightsPageHeaderTitle"
-                  >
-                    <h1
-                      className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-1"
-                      data-ouia-component-type="PF4/Title"
-                      data-ouia-safe={true}
-                      widget-type="InsightsPageHeaderTitle"
-                    >
-                      lorem
-                    </h1>
-                  </Title>
-                </PageHeaderTitle>
-              </div>
-            </FlexItem>
-          </div>
-        </Flex>
-      </section>
-    </PageHeader>
-  </PageHeader>
-  <PageSection
-    className="curiosity "
-    padding={
-      {
-        "default": "noPadding",
+<pagelayout
+  props="{
+  "children": [
+    {
+      "displayName": "PageSection",
+      "props": {
+        "children": "ipsum",
+        "className": ""
+      }
+    },
+    {
+      "displayName": "PageHeader",
+      "props": {
+        "children": "lorem",
+        "productLabel": null
       }
     }
+  ],
+  "className": ""
+}"
+>
+  <section
+    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+    widget-type="InsightsPageHeader"
+  >
+    <div
+      class="pf-l-flex pf-m-justify-content-space-between-on-sm"
+    >
+      <div
+        class=""
+      >
+        <h1
+          class="pf-c-title pf-m-2xl pf-u-mb-sm"
+          data-ouia-component-id="OUIA-Generated-Title-1"
+          data-ouia-component-type="PF4/Title"
+          data-ouia-safe="true"
+          widget-type="InsightsPageHeaderTitle"
+        >
+          lorem
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section
+    class="pf-c-page__main-section pf-m-no-padding curiosity "
   >
     <section
-      className="pf-c-page__main-section pf-m-no-padding curiosity "
+      class="curiosity-page-section "
     >
-      <PageSection
-        className=""
-        key=".0"
-      >
-        <Section
-          className="curiosity-page-section "
-        >
-          <section
-            className="curiosity-page-section "
-          >
-             
-            ipsum
-             
-          </section>
-        </Section>
-      </PageSection>
+       
+      ipsum
+       
     </section>
-  </PageSection>
-</PageLayout>
+  </section>
+</pagelayout>
 `;

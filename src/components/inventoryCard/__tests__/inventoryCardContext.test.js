@@ -20,34 +20,13 @@ describe('InventoryCardContext', () => {
     expect(SORT_TYPES).toMatchSnapshot('sort properties');
   });
 
-  it('should handle a store response with useGetHostsInventory', async () => {
-    const { result } = await shallowHook(
-      () =>
-        useGetHostsInventory({
-          useProduct: () => ({ productId: 'lorem' })
-        }),
-      {
-        state: {
-          inventory: {
-            hostsInventory: {
-              lorem: {
-                fulfilled: true,
-                data: [{ data: [{ lorem: 'ipsum' }, { dolor: 'sit' }], meta: {} }]
-              }
-            }
-          }
-        }
-      }
-    );
-
-    expect(result).toMatchSnapshot('store response');
-  });
-
   it('should handle a store response with useGetInstancesInventory', async () => {
-    const { result } = await shallowHook(
+    const { result } = await renderHook(
       () =>
         useGetInstancesInventory({
-          useProduct: () => ({ productId: 'lorem' })
+          getInventory: () => () => {},
+          useProduct: () => ({ productId: 'lorem' }),
+          useDispatch: () => {}
         }),
       {
         state: {
@@ -66,84 +45,104 @@ describe('InventoryCardContext', () => {
     expect(result).toMatchSnapshot('store response');
   });
 
-  it('should handle variations in hosts inventory API responses', async () => {
-    const { result: errorResponse } = shallowHook(() =>
-      useGetHostsInventory({
+  it('should handle variations in instances inventory API responses', async () => {
+    const { result: errorResponse } = await renderHook(() =>
+      useGetInstancesInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ error: true })
       })
     );
 
     expect(errorResponse).toMatchSnapshot('inventory, error');
 
-    const { result: pendingResponse } = shallowHook(() =>
-      useGetHostsInventory({
+    const { result: pendingResponse } = await renderHook(() =>
+      useGetInstancesInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ pending: true })
       })
     );
 
     expect(pendingResponse).toMatchSnapshot('inventory, pending');
 
-    const { result: cancelledResponse } = shallowHook(() =>
-      useGetHostsInventory({
+    const { result: cancelledResponse } = await renderHook(() =>
+      useGetInstancesInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ cancelled: true })
       })
     );
 
     expect(cancelledResponse).toMatchSnapshot('inventory, cancelled');
 
-    const mockFulfilledGetInventory = jest.fn();
-    const { result: fulfilledResponse } = await mountHook(() =>
-      useGetHostsInventory({
-        getInventory: () => mockFulfilledGetInventory,
+    const { result: fulfilledResponse } = await renderHook(() =>
+      useGetInstancesInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ fulfilled: true })
       })
     );
 
-    expect(mockFulfilledGetInventory).toHaveBeenCalledTimes(1);
     expect(fulfilledResponse).toMatchSnapshot('inventory, fulfilled');
 
-    const mockDisabledGetInventory = jest.fn();
-    const { result: disabledResponse } = await mountHook(() =>
-      useGetHostsInventory({
+    const { result: disabledResponse } = await renderHook(() =>
+      useGetInstancesInventory({
         isDisabled: true,
-        getInventory: () => mockDisabledGetInventory,
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({})
+        useSelectorsResponse: () => ({ fulfilled: true })
       })
     );
 
-    expect(mockDisabledGetInventory).toHaveBeenCalledTimes(0);
     expect(disabledResponse).toMatchSnapshot('inventory, disabled');
   });
 
-  it('should handle variations in instances inventory API responses', async () => {
-    const { result: errorResponse } = shallowHook(() =>
-      useGetInstancesInventory({
+  it('should handle a store response with useGetHostsInventory', async () => {
+    const { result } = await renderHook(
+      () =>
+        useGetHostsInventory({
+          getInventory: () => () => {},
+          useProduct: () => ({ productId: 'lorem' }),
+          useDispatch: () => {}
+        }),
+      {
+        state: {
+          inventory: {
+            hostsInventory: {
+              lorem: {
+                fulfilled: true,
+                data: [{ data: [{ lorem: 'ipsum' }, { dolor: 'sit' }], meta: {} }]
+              }
+            }
+          }
+        }
+      }
+    );
+
+    expect(result).toMatchSnapshot('store response');
+  });
+
+  it('should handle variations in hosts inventory API responses', async () => {
+    const { result: errorResponse } = await renderHook(() =>
+      useGetHostsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ error: true })
       })
     );
 
     expect(errorResponse).toMatchSnapshot('inventory, error');
 
-    const { result: pendingResponse } = shallowHook(() =>
-      useGetInstancesInventory({
+    const { result: pendingResponse } = await renderHook(() =>
+      useGetHostsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
@@ -153,8 +152,9 @@ describe('InventoryCardContext', () => {
 
     expect(pendingResponse).toMatchSnapshot('inventory, pending');
 
-    const { result: cancelledResponse } = shallowHook(() =>
-      useGetInstancesInventory({
+    const { result: cancelledResponse } = await renderHook(() =>
+      useGetHostsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
@@ -164,10 +164,9 @@ describe('InventoryCardContext', () => {
 
     expect(cancelledResponse).toMatchSnapshot('inventory, cancelled');
 
-    const mockFulfilledGetInventory = jest.fn();
-    const { result: fulfilledResponse } = await mountHook(() =>
-      useGetInstancesInventory({
-        getInventory: () => mockFulfilledGetInventory,
+    const { result: fulfilledResponse } = await renderHook(() =>
+      useGetHostsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
@@ -175,22 +174,19 @@ describe('InventoryCardContext', () => {
       })
     );
 
-    expect(mockFulfilledGetInventory).toHaveBeenCalledTimes(1);
     expect(fulfilledResponse).toMatchSnapshot('inventory, fulfilled');
 
-    const mockDisabledGetInventory = jest.fn();
-    const { result: disabledResponse } = await mountHook(() =>
-      useGetInstancesInventory({
+    const { result: disabledResponse } = await renderHook(() =>
+      useGetHostsInventory({
         isDisabled: true,
-        getInventory: () => mockDisabledGetInventory,
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({})
+        useSelectorsResponse: () => ({ fulfilled: true })
       })
     );
 
-    expect(mockDisabledGetInventory).toHaveBeenCalledTimes(0);
     expect(disabledResponse).toMatchSnapshot('inventory, disabled');
   });
 

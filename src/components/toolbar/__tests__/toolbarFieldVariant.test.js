@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldVariant, useToolbarFieldOptions, useOnSelect } from '../toolbarFieldVariant';
 import { store } from '../../../redux/store';
 import {
@@ -18,17 +17,17 @@ describe('ToolbarFieldVariant Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductToolbarQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.VARIANT]: RHEL_TYPES.RHEL_X86 })
     };
-    const component = shallow(<ToolbarFieldVariant {...props} />);
+    const component = await shallowComponent(<ToolbarFieldVariant {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should generate select options', () => {
-    const { result: toolbarFieldOptions } = shallowHook(() =>
+  it('should generate select options', async () => {
+    const { result: toolbarFieldOptions } = await renderHook(() =>
       useToolbarFieldOptions({
         useProduct: () => ({
           productVariants: ['lorem', 'ipsum', 'dolor', 'sit', '']
@@ -39,7 +38,7 @@ describe('ToolbarFieldVariant Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating through redux state with component', async () => {
+  it('should handle updating through redux state with component', () => {
     const props = {
       useToolbarFieldOptions: () => [
         {
@@ -55,10 +54,12 @@ describe('ToolbarFieldVariant Component', () => {
       ]
     };
 
-    const component = await mountHookComponent(<ToolbarFieldVariant {...props} />);
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const component = renderComponent(<ToolbarFieldVariant {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
+
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });

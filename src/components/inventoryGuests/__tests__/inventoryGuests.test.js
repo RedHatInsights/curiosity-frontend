@@ -9,7 +9,7 @@ describe('GuestsList Component', () => {
       useGetGuestsInventory: () => ({ pending: true })
     };
 
-    const component = await shallowHookComponent(<InventoryGuests {...props} />);
+    const component = await shallowComponent(<InventoryGuests {...props} />);
     expect(component).toMatchSnapshot('basic render');
   });
 
@@ -25,16 +25,16 @@ describe('GuestsList Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryGuests {...props} />);
+    const component = await shallowComponent(<InventoryGuests {...props} />);
     expect(component).toMatchSnapshot('variable data');
 
-    component.setProps({
+    const filteredData = await component.setProps({
       useProductInventoryGuestsConfig: () => ({
         filters: [{ id: 'lorem', cellWidth: 20 }]
       })
     });
 
-    expect(component).toMatchSnapshot('filtered data');
+    expect(filteredData).toMatchSnapshot('filtered data');
   });
 
   it('should handle multiple display states', async () => {
@@ -46,19 +46,19 @@ describe('GuestsList Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryGuests {...props} />);
+    const component = await shallowComponent(<InventoryGuests {...props} />);
     expect(component).toMatchSnapshot('initial pending');
 
-    component.setProps({
+    const componentFulfilled = await component.setProps({
       useGetGuestsInventory: () => ({
         data: [{ lorem: 'ipsum', dolor: 'sit' }]
       })
     });
 
-    expect(component).toMatchSnapshot('fulfilled');
+    expect(componentFulfilled).toMatchSnapshot('fulfilled');
   });
 
-  it('should handle an onScroll event', async () => {
+  it('should handle an onScroll event', () => {
     const mockOnScroll = jest.fn();
     const props = {
       id: 'lorem',
@@ -70,17 +70,9 @@ describe('GuestsList Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryGuests {...props} />);
-    component
-      .find('.curiosity-table-scroll-list')
-      .simulate('scroll', { target: { scrollHeight: 200, scrollTop: 100, clientHeight: 100 } });
-
-    component.setProps({
-      useGetGuestsInventory: () => ({
-        pending: true
-      })
-    });
-
-    expect(mockOnScroll.mock.calls).toMatchSnapshot('scroll event');
+    const component = renderComponent(<InventoryGuests {...props} />);
+    const input = component.find('.curiosity-table-scroll-list');
+    component.fireEvent.scroll(input, { target: { scrollTop: 100 } });
+    expect(mockOnScroll).toHaveBeenCalledTimes(1);
   });
 });

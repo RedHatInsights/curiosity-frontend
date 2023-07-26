@@ -12,7 +12,7 @@ describe('InventoryCardHosts Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryCardHosts {...props} />);
+    const component = await shallowComponent(<InventoryCardHosts {...props} />);
     expect(component).toMatchSnapshot('basic render');
   });
 });

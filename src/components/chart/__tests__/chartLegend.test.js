@@ -1,17 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ChartLegend } from '../chartLegend';
 import * as chartContext from '../chartContext';
 
 describe('ChartLegend Component', () => {
   it('should render a basic component', () => {
     const props = {};
-    const component = shallow(<ChartLegend {...props} />);
+    const component = renderComponent(<ChartLegend {...props} />);
 
-    expect(component.render()).toMatchSnapshot('basic');
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should pass legend props', async () => {
+  it('should pass legend props', () => {
     const props = {};
 
     const mockLegend = jest.fn();
@@ -64,19 +63,19 @@ describe('ChartLegend Component', () => {
 
     const mock = jest.spyOn(chartContext, 'useChartContext').mockImplementation(() => mockContextValue);
 
-    await shallowHookComponent(<ChartLegend {...props} />);
+    renderComponent(<ChartLegend {...props} />);
     expect(mockLegend.mock.calls).toMatchSnapshot('passed props');
 
     mock.mockClear();
   });
 
-  it('should handle legend elements', async () => {
+  it('should handle legend elements', () => {
     const props = {};
 
-    const mockLegend = <div>lorem ipsum</div>;
+    const MockLegend = p => <div data-test={JSON.stringify(p, null, 2)}>lorem ipsum</div>;
     const mockContextValue = {
       chartSettings: {
-        chartLegend: mockLegend,
+        chartLegend: MockLegend,
         dataSets: [
           {
             data: [
@@ -99,7 +98,7 @@ describe('ChartLegend Component', () => {
 
     const mock = jest.spyOn(chartContext, 'useChartContext').mockImplementation(() => mockContextValue);
 
-    const component = await shallowHookComponent(<ChartLegend {...props} />);
+    const component = renderComponent(<ChartLegend {...props} />);
     expect(component).toMatchSnapshot('element');
 
     mock.mockClear();

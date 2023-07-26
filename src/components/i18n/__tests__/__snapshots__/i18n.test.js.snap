@@ -1113,14 +1113,4 @@ exports[`I18n Component should have locale keys that exist in the default langua
 ]
 `;
 
-exports[`I18n Component should pass children: children 1`] = `"lorem ipsum"`;
-
-exports[`I18n Component should render a basic component: basic 1`] = `
-<I18n
-  fallbackLng="en-US"
-  loadPath="./locales/{{lng}}.json"
-  locale="es"
->
-  lorem ipsum
-</I18n>
-`;
+exports[`I18n Component should render a basic component: basic 1`] = `"lorem ipsum"`;

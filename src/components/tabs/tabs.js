@@ -123,6 +123,7 @@ class Tabs extends React.Component {
         onSelect={(event, index) => this.onTab({ event, index })}
         mountOnEnter
         unmountOnExit
+        id={helpers.generateId()}
         inset={{
           default: 'insetNone',
           md: 'insetLg'

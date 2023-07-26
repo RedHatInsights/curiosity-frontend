@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldBillingProvider, toolbarFieldOptions, useOnSelect } from '../toolbarFieldBillingProvider';
 import { store } from '../../../redux/store';
 import {
@@ -18,11 +17,11 @@ describe('ToolbarFieldBillingProvider Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: BILLING_PROVIDER_TYPES.AWS })
     };
-    const component = shallow(<ToolbarFieldBillingProvider {...props} />);
+    const component = await shallowComponent(<ToolbarFieldBillingProvider {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -31,16 +30,18 @@ describe('ToolbarFieldBillingProvider Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating sla through redux state with component', async () => {
+  it('should handle updating sla through redux state with component', () => {
     const props = {};
 
-    const component = await mountHookComponent(<ToolbarFieldBillingProvider {...props} />);
+    const component = renderComponent(<ToolbarFieldBillingProvider {...props} />);
 
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const input = component.find('button');
+    component.fireEvent.click(input);
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch billing provider, component');
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
+
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });
 
   it('should handle updating sla through redux state with hook', () => {
@@ -53,6 +54,6 @@ describe('ToolbarFieldBillingProvider Component', () => {
     onSelect({
       value: 'dolor sit'
     });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch billing provider, hook');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 });

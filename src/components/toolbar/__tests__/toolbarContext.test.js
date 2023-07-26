@@ -17,8 +17,8 @@ describe('ToolbarContext', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should apply a hook for clearing a toolbar field through redux', () => {
-    const { result: onClearField } = shallowHook(() => useToolbarFieldClear());
+  it('should apply a hook for clearing a toolbar field through redux', async () => {
+    const { result: onClearField } = await renderHook(() => useToolbarFieldClear());
     onClearField('lorem');
 
     onClearField(RHSM_API_QUERY_TYPES.BILLING_PROVIDER);
@@ -34,8 +34,8 @@ describe('ToolbarContext', () => {
     expect(mockDispatch.mock.calls).toMatchSnapshot('clear single field');
   });
 
-  it('should apply a hook for clearing specific active toolbar fields through redux', () => {
-    const { result: onClearAllFields } = shallowHook(() =>
+  it('should apply a hook for clearing specific active toolbar fields through redux', async () => {
+    const { result: onClearAllFields } = await renderHook(() =>
       useToolbarFieldClearAll({
         useProductQuery: () => ({
           lorem: 'ipsum',
@@ -56,8 +56,8 @@ describe('ToolbarContext', () => {
     expect(mockDispatch.mock.calls).toMatchSnapshot('clear all fields');
   });
 
-  it('should apply a hook for retrieving secondary toolbar field components', () => {
-    const { result: secondaryFields } = shallowHook(() =>
+  it('should apply a hook for retrieving secondary toolbar field components', async () => {
+    const { result: secondaryFields } = await renderHook(() =>
       useToolbarFields({
         useProductToolbarConfig: () => ({
           filters: [

@@ -42,13 +42,10 @@
   },
   "globals": {
     "mockObjectProperty": "readonly",
-    "mountHook": "readonly",
-    "mountHookComponent": "readonly",
-    "mountHookWrapper": "readonly",
     "mockWindowLocation": "readonly",
-    "shallowHook": "readonly",
-    "shallowHookComponent": "readonly",
-    "shallowHookWrapper": "readonly",
+    "renderHook": "readonly",
+    "renderComponent": "readonly",
+    "shallowComponent": "readonly",
     "skipIt": "readonly"
   },
   "rules": {

@@ -1,16 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ChartIcon } from '../chartIcon';
 
 describe('ChartIcon Component', () => {
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {};
-    const component = shallow(<ChartIcon {...props} />);
+    const component = await shallowComponent(<ChartIcon {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle basic icons, variations in settings', async () => {
+  it('should handle basic icons, variations in settings', () => {
     const iconProps = [
       {
         size: 'md',
@@ -41,9 +40,9 @@ describe('ChartIcon Component', () => {
       }
     ];
 
-    iconProps.forEach(({ symbol, ...props }) => {
-      const component = shallow(<ChartIcon symbol={symbol} {...props} />);
-      expect(component).toMatchSnapshot(symbol);
+    iconProps.forEach(async ({ symbol, ...props }) => {
+      const component = renderComponent(<ChartIcon symbol={symbol} {...props} />);
+      expect(component.find('span')).toMatchSnapshot(symbol);
     });
   });
 });

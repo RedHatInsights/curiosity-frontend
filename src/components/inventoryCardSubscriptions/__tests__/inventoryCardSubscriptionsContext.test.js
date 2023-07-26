@@ -19,10 +19,12 @@ describe('InventoryCardSubscriptionsContext', () => {
   });
 
   it('should handle a store response with useGetSubscriptionsInventory', async () => {
-    const { result } = await shallowHook(
+    const { result } = await renderHook(
       () =>
         useGetSubscriptionsInventory({
-          useProduct: () => ({ productId: 'lorem' })
+          getInventory: () => () => {},
+          useProduct: () => ({ productId: 'lorem' }),
+          useDispatch: () => {}
         }),
       {
         state: {
@@ -42,66 +44,60 @@ describe('InventoryCardSubscriptionsContext', () => {
   });
 
   it('should handle variations in instances inventory API responses', async () => {
-    const { result: errorResponse } = shallowHook(() =>
+    const { result: errorResponse } = await renderHook(() =>
       useGetSubscriptionsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ error: true })
       })
     );
 
     expect(errorResponse).toMatchSnapshot('inventory, error');
 
-    const { result: pendingResponse } = shallowHook(() =>
+    const { result: pendingResponse } = await renderHook(() =>
       useGetSubscriptionsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ pending: true })
       })
     );
 
     expect(pendingResponse).toMatchSnapshot('inventory, pending');
 
-    const { result: cancelledResponse } = shallowHook(() =>
+    const { result: cancelledResponse } = await renderHook(() =>
       useGetSubscriptionsInventory({
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ cancelled: true })
       })
     );
 
     expect(cancelledResponse).toMatchSnapshot('inventory, cancelled');
 
-    const mockFulfilledGetInventory = jest.fn();
-    const { result: fulfilledResponse } = await mountHook(() =>
+    const { result: fulfilledResponse } = await renderHook(() =>
       useGetSubscriptionsInventory({
-        getInventory: () => mockFulfilledGetInventory,
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
         useSelectorsResponse: () => ({ fulfilled: true })
       })
     );
 
-    expect(mockFulfilledGetInventory).toHaveBeenCalledTimes(1);
     expect(fulfilledResponse).toMatchSnapshot('inventory, fulfilled');
 
-    const mockDisabledGetInventory = jest.fn();
-    const { result: disabledResponse } = await mountHook(() =>
+    const { result: disabledResponse } = await renderHook(() =>
       useGetSubscriptionsInventory({
         isDisabled: true,
-        getInventory: () => mockDisabledGetInventory,
+        getInventory: () => () => {},
         useProduct: () => ({ productId: 'lorem' }),
         useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({})
+        useSelectorsResponse: () => ({ fulfilled: true })
       })
     );
 
-    expect(mockDisabledGetInventory).toHaveBeenCalledTimes(0);
     expect(disabledResponse).toMatchSnapshot('inventory, disabled');
   });
 

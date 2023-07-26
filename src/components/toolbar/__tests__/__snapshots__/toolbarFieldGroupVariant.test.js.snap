@@ -184,4 +184,4 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
 </Toolbar>
 `;
 
-exports[`ToolbarFieldGroupVariant Component should return null, undefined, or empty if there are one or less options: one or less 1`] = `""`;
+exports[`ToolbarFieldGroupVariant Component should return null, undefined, or empty if there are one or less options: one or less 1`] = `null`;

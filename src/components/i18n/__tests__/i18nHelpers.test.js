@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import PropTypes from 'prop-types';
 import { i18nHelpers, EMPTY_CONTEXT, translate, translateComponent } from '../i18nHelpers';
 
@@ -8,16 +7,16 @@ describe('I18nHelpers', () => {
     expect(i18nHelpers).toMatchSnapshot('i18nHelpers');
   });
 
-  it('should attempt to perform translate with a node', async () => {
+  it('should attempt to perform translate with a node', () => {
     const ExampleComponent = () => <div>{translate('lorem.ipsum', { hello: 'world' }, [<span id="test" />])}</div>;
     ExampleComponent.propTypes = {};
     ExampleComponent.defaultProps = {};
 
-    const component = await shallowHookComponent(<ExampleComponent />);
-    expect(component.html()).toMatchSnapshot('translated node');
+    const component = renderComponent(<ExampleComponent />);
+    expect(component).toMatchSnapshot('translated node');
   });
 
-  it('should attempt to perform a component translate', async () => {
+  it('should attempt to perform a component translate', () => {
     const ExampleComponent = ({ t }) => <div>{t('lorem.ipsum', 'hello world')}</div>;
     ExampleComponent.propTypes = {
       t: PropTypes.func
@@ -28,8 +27,8 @@ describe('I18nHelpers', () => {
     };
 
     const TranslatedComponent = translateComponent(ExampleComponent);
-    const component = await shallowHookComponent(<TranslatedComponent />);
-    expect(component.html()).toMatchSnapshot('translated component');
+    const component = renderComponent(<TranslatedComponent />);
+    expect(component).toMatchSnapshot('translated component');
   });
 
   it('should attempt to perform a string replace', () => {
@@ -61,52 +60,52 @@ describe('I18nHelpers', () => {
   it('should attempt to place a test identifier around copy', () => {
     const mockI18next = { store: jest.fn(), t: jest.fn() };
 
-    const basic = mount(
+    const basic = renderComponent(
       translate('lorem.ipsum', { testId: true }, undefined, { i18next: mockI18next, isDebug: false })
     );
-    const basicString = mount(
+    const basicString = renderComponent(
       translate('lorem.ipsum', { testId: 'dolor-sit' }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const basicNode = mount(
+    const basicNode = renderComponent(
       translate('lorem.ipsum', { testId: <dolor-sit data-test="dolor-sit" /> }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const emptyContext = mount(
+    const emptyContext = renderComponent(
       translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: true }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const emptyContextString = mount(
+    const emptyContextString = renderComponent(
       translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: 'dolor-sit' }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const emptyContextNode = mount(
+    const emptyContextNode = renderComponent(
       translate('lorem.ipsum', { context: EMPTY_CONTEXT, testId: <dolor-sit data-test="dolor-sit" /> }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const emptyPartialContext = mount(
+    const emptyPartialContext = renderComponent(
       translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT], testId: true }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const emptyPartialContextString = mount(
+    const emptyPartialContextString = renderComponent(
       translate('lorem.ipsum', { context: ['hello', EMPTY_CONTEXT], testId: 'dolor-sit' }, undefined, {
         i18next: mockI18next,
         isDebug: false
       })
     );
-    const emptyPartialContextNode = mount(
+    const emptyPartialContextNode = renderComponent(
       translate(
         'lorem.ipsum',
         { context: ['hello', EMPTY_CONTEXT], testId: <dolor-sit data-test="dolor-sit" /> },
@@ -117,7 +116,7 @@ describe('I18nHelpers', () => {
         }
       )
     );
-    const stringContextNested = mount(
+    const stringContextNested = renderComponent(
       translate(
         'lorem.ipsum',
         {
@@ -129,7 +128,7 @@ describe('I18nHelpers', () => {
         { i18next: mockI18next, isDebug: false }
       )
     );
-    const stringContextNestedString = mount(
+    const stringContextNestedString = renderComponent(
       translate(
         'lorem.ipsum',
         {
@@ -141,7 +140,7 @@ describe('I18nHelpers', () => {
         { i18next: mockI18next, isDebug: false }
       )
     );
-    const stringContextNestedNode = mount(
+    const stringContextNestedNode = renderComponent(
       translate(
         'lorem.ipsum',
         {
@@ -155,17 +154,17 @@ describe('I18nHelpers', () => {
     );
 
     expect({
-      basic: basic.render(),
-      basicString: basicString.render(),
+      basic: basic.find('span'),
+      basicString: basicString.find('span'),
       basicNode,
-      emptyContext: emptyContext.render(),
-      emptyContextString: emptyContextString.render(),
+      emptyContext: emptyContext.find('span'),
+      emptyContextString: emptyContextString.find('span'),
       emptyContextNode,
-      emptyPartialContext: emptyPartialContext.render(),
-      emptyPartialContextString: emptyPartialContextString.render(),
+      emptyPartialContext: emptyPartialContext.find('span'),
+      emptyPartialContextString: emptyPartialContextString.find('span'),
       emptyPartialContextNode,
-      stringContextNested: stringContextNested.render(),
-      stringContextNestedString: stringContextNestedString.render(),
+      stringContextNested: stringContextNested.find('span'),
+      stringContextNestedString: stringContextNestedString.find('span'),
       stringContextNestedNode
     }).toMatchSnapshot('test id');
   });

@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldGranularity, toolbarFieldOptions, useOnSelect } from '../toolbarFieldGranularity';
 import { store } from '../../../redux/store';
 import {
@@ -18,11 +17,11 @@ describe('ToolbarFieldGranularity Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductGraphTallyQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.WEEKLY })
     };
-    const component = shallow(<ToolbarFieldGranularity {...props} />);
+    const component = await shallowComponent(<ToolbarFieldGranularity {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -31,16 +30,17 @@ describe('ToolbarFieldGranularity Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating granularity through redux state with component', async () => {
+  it('should handle updating granularity through redux state with component', () => {
     const props = {};
 
-    const component = await mountHookComponent(<ToolbarFieldGranularity {...props} />);
+    const component = renderComponent(<ToolbarFieldGranularity {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
 
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch granularity, component');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });
 
   it('should handle updating granularity through redux state with hook', () => {
@@ -51,6 +51,6 @@ describe('ToolbarFieldGranularity Component', () => {
     const onSelect = useOnSelect(options);
 
     onSelect({ value: 'dolor sit' });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch granularity, hook');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 });

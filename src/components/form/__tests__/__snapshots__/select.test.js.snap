@@ -91,213 +91,245 @@ exports[`Select Component should allow alternate array and object options: strin
 
 exports[`Select Component should allow alternate array and object options: undefined options 1`] = `[]`;
 
-exports[`Select Component should allow alternate direction and position options: direction up 1`] = `
-{
-  "className": "curiosity-select-pf   ",
-  "direction": "up",
-}
-`;
+exports[`Select Component should allow alternate direction and position options: direction up 1`] = `"pf-c-select pf-m-top curiosity-select-pf   "`;
 
-exports[`Select Component should allow alternate direction and position options: position right 1`] = `
-{
-  "className": "curiosity-select-pf curiosity-select-pf__position-down curiosity-select-pf__position-right ",
-  "direction": "down",
-}
-`;
+exports[`Select Component should allow alternate direction and position options: position right 1`] = `"pf-c-select curiosity-select-pf curiosity-select-pf__position-down curiosity-select-pf__position-right "`;
 
 exports[`Select Component should allow being disabled with missing options: no options 1`] = `
-<div
-  className="curiosity-select curiosity-select__inline"
+<select
+  props="{
+  "id": "test",
+  "options": [],
+  "ariaLabel": "Select option",
+  "className": "",
+  "direction": "down",
+  "isDisabled": false,
+  "isDropdownButton": false,
+  "isFlipEnabled": false,
+  "isInline": true,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "placeholder": "Select option",
+  "position": "left",
+  "selectedOptions": null,
+  "splitButtonVariant": null,
+  "toggleIcon": null,
+  "variant": "single",
+  "children": []
+}"
 >
-  <Select
-    aria-describedby=""
-    aria-invalid={false}
-    aria-label="Select option"
-    aria-labelledby=""
-    chipGroupComponent={null}
-    className="curiosity-select-pf curiosity-select-pf__position-down  "
-    clearSelectionsAriaLabel="Clear all"
-    createText="Create"
-    customBadgeText={null}
-    customContent={null}
-    direction="down"
-    favorites={[]}
-    favoritesLabel="Favorites"
-    hasInlineFilter={false}
-    hasPlaceholderStyle={true}
-    inlineFilterPlaceholderText={null}
-    inputAutoComplete="off"
-    inputIdPrefix=""
-    isCreatable={false}
-    isCreateOptionOnTop={false}
-    isCreateSelectOptionObject={false}
-    isDisabled={true}
-    isFlipEnabled={false}
-    isGrouped={false}
-    isInputFilterPersisted={false}
-    isInputValuePersisted={false}
-    isOpen={false}
-    isPlain={false}
-    maxHeight={null}
-    menuAppendTo="inline"
-    noResultsFoundText="No results found"
-    onClear={[Function]}
-    onCreateOption={[Function]}
-    onFilter={null}
-    onSelect={[Function]}
-    onToggle={[Function]}
-    onTypeaheadInputChanged={null}
-    ouiaSafe={true}
-    placeholderText="Select option"
-    position="left"
-    removeFindDomNode={false}
-    removeSelectionAriaLabel="Remove"
-    selections={[]}
-    shouldResetOnSelect={true}
-    toggleAriaLabel="Options menu"
-    toggleIcon={null}
-    toggleId={null}
-    toggleIndicator={null}
-    typeAheadAriaDescribedby=""
-    typeAheadAriaLabel=""
-    validated="default"
-    variant="single"
-    width=""
-    zIndex={9999}
-  />
-</div>
+  <div
+    class="curiosity-select curiosity-select__inline"
+  >
+    <div
+      class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
+      data-ouia-component-id="OUIA-Generated-Select-single-7"
+      data-ouia-component-type="PF4/Select"
+      data-ouia-safe="true"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-label="Options menu"
+        aria-labelledby=" pf-select-toggle-id-30"
+        class="pf-c-select__toggle pf-m-placeholder pf-m-disabled"
+        disabled=""
+        id="pf-select-toggle-id-30"
+        type="button"
+      >
+        <div
+          class="pf-c-select__toggle-wrapper"
+        >
+          <span
+            class="pf-c-select__toggle-text"
+          >
+            Select option
+          </span>
+        </div>
+        <span
+          class="pf-c-select__toggle-arrow"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 320 512"
+            width="1em"
+          >
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</select>
 `;
 
 exports[`Select Component should allow being disabled with missing options: options, but disabled 1`] = `
-<div
-  className="curiosity-select curiosity-select__inline"
+<select
+  props="{
+  "id": "test",
+  "options": [
+    "lorem",
+    "ipsum",
+    "hello",
+    "world"
+  ],
+  "ariaLabel": "Select option",
+  "className": "",
+  "direction": "down",
+  "isDisabled": true,
+  "isDropdownButton": false,
+  "isFlipEnabled": false,
+  "isInline": true,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "placeholder": "Select option",
+  "position": "left",
+  "selectedOptions": null,
+  "splitButtonVariant": null,
+  "toggleIcon": null,
+  "variant": "single",
+  "children": []
+}"
 >
-  <Select
-    aria-describedby=""
-    aria-invalid={false}
-    aria-label="Select option"
-    aria-labelledby=""
-    chipGroupComponent={null}
-    className="curiosity-select-pf curiosity-select-pf__position-down  "
-    clearSelectionsAriaLabel="Clear all"
-    createText="Create"
-    customBadgeText={null}
-    customContent={null}
-    direction="down"
-    favorites={[]}
-    favoritesLabel="Favorites"
-    hasInlineFilter={false}
-    hasPlaceholderStyle={true}
-    inlineFilterPlaceholderText={null}
-    inputAutoComplete="off"
-    inputIdPrefix=""
-    isCreatable={false}
-    isCreateOptionOnTop={false}
-    isCreateSelectOptionObject={false}
-    isDisabled={true}
-    isFlipEnabled={false}
-    isGrouped={false}
-    isInputFilterPersisted={false}
-    isInputValuePersisted={false}
-    isOpen={false}
-    isPlain={false}
-    maxHeight={null}
-    menuAppendTo="inline"
-    noResultsFoundText="No results found"
-    onClear={[Function]}
-    onCreateOption={[Function]}
-    onFilter={null}
-    onSelect={[Function]}
-    onToggle={[Function]}
-    onTypeaheadInputChanged={null}
-    ouiaSafe={true}
-    placeholderText="Select option"
-    position="left"
-    removeFindDomNode={false}
-    removeSelectionAriaLabel="Remove"
-    selections={[]}
-    shouldResetOnSelect={true}
-    toggleAriaLabel="Options menu"
-    toggleIcon={null}
-    toggleId={null}
-    toggleIndicator={null}
-    typeAheadAriaDescribedby=""
-    typeAheadAriaLabel=""
-    validated="default"
-    variant="single"
-    width=""
-    zIndex={9999}
-  />
-</div>
+  <div
+    class="curiosity-select curiosity-select__inline"
+  >
+    <div
+      class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
+      data-ouia-component-id="OUIA-Generated-Select-single-9"
+      data-ouia-component-type="PF4/Select"
+      data-ouia-safe="true"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-label="Options menu"
+        aria-labelledby=" pf-select-toggle-id-39"
+        class="pf-c-select__toggle pf-m-placeholder pf-m-disabled"
+        disabled=""
+        id="pf-select-toggle-id-39"
+        type="button"
+      >
+        <div
+          class="pf-c-select__toggle-wrapper"
+        >
+          <span
+            class="pf-c-select__toggle-text"
+          >
+            Select option
+          </span>
+        </div>
+        <span
+          class="pf-c-select__toggle-arrow"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 320 512"
+            width="1em"
+          >
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</select>
 `;
 
 exports[`Select Component should allow being disabled with missing options: options, but no content 1`] = `
-<div
-  className="curiosity-select curiosity-select__inline"
+<select
+  props="{
+  "id": "test",
+  "options": [],
+  "ariaLabel": "Select option",
+  "className": "",
+  "direction": "down",
+  "isDisabled": false,
+  "isDropdownButton": false,
+  "isFlipEnabled": false,
+  "isInline": true,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "placeholder": "Select option",
+  "position": "left",
+  "selectedOptions": null,
+  "splitButtonVariant": null,
+  "toggleIcon": null,
+  "variant": "single",
+  "children": []
+}"
 >
-  <Select
-    aria-describedby=""
-    aria-invalid={false}
-    aria-label="Select option"
-    aria-labelledby=""
-    chipGroupComponent={null}
-    className="curiosity-select-pf curiosity-select-pf__position-down  "
-    clearSelectionsAriaLabel="Clear all"
-    createText="Create"
-    customBadgeText={null}
-    customContent={null}
-    direction="down"
-    favorites={[]}
-    favoritesLabel="Favorites"
-    hasInlineFilter={false}
-    hasPlaceholderStyle={true}
-    inlineFilterPlaceholderText={null}
-    inputAutoComplete="off"
-    inputIdPrefix=""
-    isCreatable={false}
-    isCreateOptionOnTop={false}
-    isCreateSelectOptionObject={false}
-    isDisabled={true}
-    isFlipEnabled={false}
-    isGrouped={false}
-    isInputFilterPersisted={false}
-    isInputValuePersisted={false}
-    isOpen={false}
-    isPlain={false}
-    maxHeight={null}
-    menuAppendTo="inline"
-    noResultsFoundText="No results found"
-    onClear={[Function]}
-    onCreateOption={[Function]}
-    onFilter={null}
-    onSelect={[Function]}
-    onToggle={[Function]}
-    onTypeaheadInputChanged={null}
-    ouiaSafe={true}
-    placeholderText="Select option"
-    position="left"
-    removeFindDomNode={false}
-    removeSelectionAriaLabel="Remove"
-    selections={[]}
-    shouldResetOnSelect={true}
-    toggleAriaLabel="Options menu"
-    toggleIcon={null}
-    toggleId={null}
-    toggleIndicator={null}
-    typeAheadAriaDescribedby=""
-    typeAheadAriaLabel=""
-    validated="default"
-    variant="single"
-    width=""
-    zIndex={9999}
-  />
-</div>
+  <div
+    class="curiosity-select curiosity-select__inline"
+  >
+    <div
+      class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
+      data-ouia-component-id="OUIA-Generated-Select-single-8"
+      data-ouia-component-type="PF4/Select"
+      data-ouia-safe="true"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-label="Options menu"
+        aria-labelledby=" pf-select-toggle-id-33"
+        class="pf-c-select__toggle pf-m-placeholder pf-m-disabled"
+        disabled=""
+        id="pf-select-toggle-id-33"
+        type="button"
+      >
+        <div
+          class="pf-c-select__toggle-wrapper"
+        >
+          <span
+            class="pf-c-select__toggle-text"
+          >
+            Select option
+          </span>
+        </div>
+        <span
+          class="pf-c-select__toggle-arrow"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 320 512"
+            width="1em"
+          >
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</select>
 `;
 
 exports[`Select Component should allow data- props: data- attributes 1`] = `
 {
   "ariaLabel": "Select option",
   "buttonVariant": undefined,
+  "children": [],
   "className": "",
   "data-dolor-sit": "dolor sit",
   "data-lorem": "ipsum",
@@ -453,249 +485,620 @@ exports[`Select Component should apply patternfly select props based on wrapper 
 }
 `;
 
-exports[`Select Component should disable toggle text: disabled text 1`] = `"curiosity-select-pf__no-toggle-text curiosity-select-pf__position-down  "`;
+exports[`Select Component should disable toggle text: disabled text 1`] = `"pf-c-select curiosity-select-pf__no-toggle-text curiosity-select-pf__position-down  "`;
 
 exports[`Select Component should emulate pf dropdown: emulated dropdown 1`] = `
-<div
-  class="curiosity-select curiosity-select__inline"
+<select
+  props="{
+  "isDropdownButton": true,
+  "buttonVariant": "secondary",
+  "options": [
+    "lorem",
+    "ipsum",
+    "hello",
+    "world"
+  ],
+  "ariaLabel": "Select option",
+  "className": "",
+  "direction": "down",
+  "id": "generatedid-",
+  "isDisabled": false,
+  "isFlipEnabled": false,
+  "isInline": true,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "placeholder": "Select option",
+  "position": "left",
+  "selectedOptions": null,
+  "splitButtonVariant": null,
+  "toggleIcon": null,
+  "variant": "single",
+  "children": []
+}"
 >
   <div
-    class="pf-c-dropdown"
-    data-ouia-component-id="OUIA-Generated-Dropdown-1"
-    data-ouia-component-type="PF4/Dropdown"
-    data-ouia-safe="true"
-    togglevariant="secondary"
+    class="curiosity-select curiosity-select__inline"
   >
-    <button
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="pf-c-dropdown__toggle pf-m-secondary"
-      data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
-      data-ouia-component-type="PF4/DropdownToggle"
+    <div
+      class="pf-c-dropdown"
+      data-ouia-component-id="OUIA-Generated-Dropdown-1"
+      data-ouia-component-type="PF4/Dropdown"
       data-ouia-safe="true"
-      id="pf-dropdown-toggle-id-1"
-      type="button"
+      togglevariant="secondary"
     >
-      <span
-        class="pf-c-dropdown__toggle-text"
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="pf-c-dropdown__toggle pf-m-secondary"
+        data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+        data-ouia-component-type="PF4/DropdownToggle"
+        data-ouia-safe="true"
+        id="pf-dropdown-toggle-id-1"
+        type="button"
       >
-        Select option
-      </span>
-      <span
-        class="pf-c-dropdown__toggle-icon"
-      >
-        <svg
-          aria-hidden="true"
-          fill="currentColor"
-          height="1em"
-          role="img"
-          style="vertical-align: -0.125em;"
-          viewBox="0 0 320 512"
-          width="1em"
+        <span
+          class="pf-c-dropdown__toggle-text"
         >
-          <path
-            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-          />
-        </svg>
-      </span>
-    </button>
+          Select option
+        </span>
+        <span
+          class="pf-c-dropdown__toggle-icon"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 320 512"
+            width="1em"
+          >
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>
-</div>
+</select>
 `;
 
 exports[`Select Component should render a basic component: basic component 1`] = `
-<div
-  class="curiosity-select curiosity-select__inline"
+<select
+  props="{
+  "id": "test",
+  "options": [
+    {
+      "title": "lorem",
+      "value": "ipsum"
+    },
+    {
+      "title": "hello",
+      "value": "world",
+      "selected": true
+    }
+  ],
+  "ariaLabel": "Select option",
+  "className": "",
+  "direction": "down",
+  "isDisabled": false,
+  "isDropdownButton": false,
+  "isFlipEnabled": false,
+  "isInline": true,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "placeholder": "Select option",
+  "position": "left",
+  "selectedOptions": null,
+  "splitButtonVariant": null,
+  "toggleIcon": null,
+  "variant": "single",
+  "children": []
+}"
 >
   <div
-    class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
-    data-ouia-component-id="OUIA-Generated-Select-single-1"
-    data-ouia-component-type="PF4/Select"
-    data-ouia-safe="true"
+    class="curiosity-select curiosity-select__inline"
   >
-    <button
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-label="Options menu"
-      aria-labelledby=" pf-select-toggle-id-1"
-      class="pf-c-select__toggle"
-      id="pf-select-toggle-id-1"
-      type="button"
+    <div
+      class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
+      data-ouia-component-id="OUIA-Generated-Select-single-1"
+      data-ouia-component-type="PF4/Select"
+      data-ouia-safe="true"
     >
-      <div
-        class="pf-c-select__toggle-wrapper"
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-label="Options menu"
+        aria-labelledby=" pf-select-toggle-id-1"
+        class="pf-c-select__toggle"
+        id="pf-select-toggle-id-1"
+        type="button"
       >
+        <div
+          class="pf-c-select__toggle-wrapper"
+        >
+          <span
+            class="pf-c-select__toggle-text"
+          >
+            hello
+          </span>
+        </div>
         <span
-          class="pf-c-select__toggle-text"
+          class="pf-c-select__toggle-arrow"
         >
-          hello
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 320 512"
+            width="1em"
+          >
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            />
+          </svg>
         </span>
-      </div>
-      <span
-        class="pf-c-select__toggle-arrow"
-      >
-        <svg
-          aria-hidden="true"
-          fill="currentColor"
-          height="1em"
-          role="img"
-          style="vertical-align: -0.125em;"
-          viewBox="0 0 320 512"
-          width="1em"
-        >
-          <path
-            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-          />
-        </svg>
-      </span>
-    </button>
+      </button>
+    </div>
   </div>
-</div>
+</select>
 `;
 
 exports[`Select Component should render a checkbox select: checkbox select 1`] = `
-<div
-  class="curiosity-select curiosity-select__inline"
+<select
+  props="{
+  "id": "test",
+  "options": [
+    {
+      "title": "lorem",
+      "value": "ipsum"
+    },
+    {
+      "title": "hello",
+      "value": "world",
+      "selected": true
+    }
+  ],
+  "selectedOptions": [
+    "world",
+    "ipsum"
+  ],
+  "variant": "checkbox",
+  "placeholder": "multiselect test",
+  "ariaLabel": "Select option",
+  "className": "",
+  "direction": "down",
+  "isDisabled": false,
+  "isDropdownButton": false,
+  "isFlipEnabled": false,
+  "isInline": true,
+  "isToggleText": true,
+  "maxHeight": null,
+  "name": null,
+  "position": "left",
+  "splitButtonVariant": null,
+  "toggleIcon": null,
+  "children": []
+}"
 >
   <div
-    class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
-    data-ouia-component-id="OUIA-Generated-Select-checkbox-1"
-    data-ouia-component-type="PF4/Select"
-    data-ouia-safe="true"
+    class="curiosity-select curiosity-select__inline"
   >
-    <button
-      aria-expanded="false"
-      aria-label="Options menu"
-      aria-labelledby=" pf-select-toggle-id-3"
-      class="pf-c-select__toggle"
-      id="pf-select-toggle-id-3"
-      type="button"
+    <div
+      class="pf-c-select curiosity-select-pf curiosity-select-pf__position-down  "
+      data-ouia-component-id="OUIA-Generated-Select-checkbox-1"
+      data-ouia-component-type="PF4/Select"
+      data-ouia-safe="true"
     >
-      <div
-        class="pf-c-select__toggle-wrapper"
+      <button
+        aria-expanded="false"
+        aria-label="Options menu"
+        aria-labelledby=" pf-select-toggle-id-3"
+        class="pf-c-select__toggle"
+        id="pf-select-toggle-id-3"
+        type="button"
       >
-        <span
-          class="pf-c-select__toggle-text"
-        >
-          multiselect test
-        </span>
         <div
-          class="pf-c-select__toggle-badge"
+          class="pf-c-select__toggle-wrapper"
         >
           <span
-            class="pf-c-badge pf-m-read"
+            class="pf-c-select__toggle-text"
           >
-            2
+            multiselect test
           </span>
+          <div
+            class="pf-c-select__toggle-badge"
+          >
+            <span
+              class="pf-c-badge pf-m-read"
+            >
+              2
+            </span>
+          </div>
         </div>
-      </div>
-      <span
-        class="pf-c-select__toggle-arrow"
-      >
-        <svg
-          aria-hidden="true"
-          fill="currentColor"
-          height="1em"
-          role="img"
-          style="vertical-align: -0.125em;"
-          viewBox="0 0 320 512"
-          width="1em"
+        <span
+          class="pf-c-select__toggle-arrow"
         >
-          <path
-            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-          />
-        </svg>
-      </span>
-    </button>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            role="img"
+            style="vertical-align: -0.125em;"
+            viewBox="0 0 320 512"
+            width="1em"
+          >
+            <path
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>
-</div>
+</select>
 `;
 
 exports[`Select Component should render an expanded select: expanded 1`] = `
-[
-  <button
-    aria-selected={null}
-    className="pf-c-select__menu-item"
-    data-title="lorem"
-    data-value="lorem"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="option"
-    type="button"
+<ul
+  aria-label="Select option"
+  class="pf-c-select__menu"
+  role="listbox"
+>
+  <li
+    class="pf-c-select__menu-wrapper"
+    id="bG9yZW0tbG9yZW0="
+    role="presentation"
   >
-    lorem
-  </button>,
-  <button
-    aria-selected={null}
-    className="pf-c-select__menu-item"
-    data-title="ipsum"
-    data-value="ipsum"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="option"
-    type="button"
+    <button
+      class="pf-c-select__menu-item"
+      data-title="lorem"
+      data-value="lorem"
+      role="option"
+      type="button"
+    >
+      lorem
+    </button>
+  </li>
+  <li
+    class="pf-c-select__menu-wrapper"
+    id="aXBzdW0taXBzdW0="
+    role="presentation"
   >
-    ipsum
-  </button>,
-  <button
-    aria-selected={null}
-    className="pf-c-select__menu-item"
-    data-title="hello"
-    data-value="hello"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="option"
-    type="button"
+    <button
+      class="pf-c-select__menu-item"
+      data-title="ipsum"
+      data-value="ipsum"
+      role="option"
+      type="button"
+    >
+      ipsum
+    </button>
+  </li>
+  <li
+    class="pf-c-select__menu-wrapper"
+    id="aGVsbG8taGVsbG8="
+    role="presentation"
   >
-    hello
-  </button>,
-  <button
-    aria-selected={null}
-    className="pf-c-select__menu-item"
-    data-title="world"
-    data-value="world"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="option"
-    type="button"
+    <button
+      class="pf-c-select__menu-item"
+      data-title="hello"
+      data-value="hello"
+      role="option"
+      type="button"
+    >
+      hello
+    </button>
+  </li>
+  <li
+    class="pf-c-select__menu-wrapper"
+    id="d29ybGQtd29ybGQ="
+    role="presentation"
   >
-    world
-  </button>,
-]
+    <button
+      class="pf-c-select__menu-item"
+      data-title="world"
+      data-value="world"
+      role="option"
+      type="button"
+    >
+      world
+    </button>
+  </li>
+</ul>
 `;
 
-exports[`Select Component should return an emulated onchange event, checklist variant: checklist emulated event 1`] = `
+exports[`Select Component should return an emulated onchange event, checklist variant: checklist emulated event, last item checked 1`] = `
 {
-  "checked": true,
+  "checked": false,
+  "currentTarget": {
+    "checked": false,
+    "id": "test",
+    "name": "test",
+    "options": [
+      {
+        "label": "lorem",
+        "selected": true,
+        "text": "lorem",
+        "textContent": "lorem",
+        "title": "lorem",
+        "value": "lorem",
+      },
+      {
+        "label": "ipsum",
+        "selected": false,
+        "text": "ipsum",
+        "textContent": "ipsum",
+        "title": "ipsum",
+        "value": "ipsum",
+      },
+      {
+        "label": "hello",
+        "selected": false,
+        "text": "hello",
+        "textContent": "hello",
+        "title": "hello",
+        "value": "hello",
+      },
+      {
+        "label": "world",
+        "selected": false,
+        "text": "world",
+        "textContent": "world",
+        "title": "world",
+        "value": "world",
+      },
+    ],
+    "selected": [
+      "lorem",
+    ],
+    "selectedIndex": 1,
+    "type": "select-multiple",
+    "value": "ipsum",
+  },
   "id": "test",
   "name": "test",
+  "options": [
+    {
+      "label": "lorem",
+      "selected": true,
+      "text": "lorem",
+      "textContent": "lorem",
+      "title": "lorem",
+      "value": "lorem",
+    },
+    {
+      "label": "ipsum",
+      "selected": false,
+      "text": "ipsum",
+      "textContent": "ipsum",
+      "title": "ipsum",
+      "value": "ipsum",
+    },
+    {
+      "label": "hello",
+      "selected": false,
+      "text": "hello",
+      "textContent": "hello",
+      "title": "hello",
+      "value": "hello",
+    },
+    {
+      "label": "world",
+      "selected": false,
+      "text": "world",
+      "textContent": "world",
+      "title": "world",
+      "value": "world",
+    },
+  ],
   "persist": [Function],
   "selected": [
-    "ipsum",
-    "hello",
-    "world",
+    "lorem",
   ],
-  "selectedIndex": 2,
+  "selectedIndex": 1,
+  "target": {
+    "checked": false,
+    "id": "test",
+    "name": "test",
+    "options": [
+      {
+        "label": "lorem",
+        "selected": true,
+        "text": "lorem",
+        "textContent": "lorem",
+        "title": "lorem",
+        "value": "lorem",
+      },
+      {
+        "label": "ipsum",
+        "selected": false,
+        "text": "ipsum",
+        "textContent": "ipsum",
+        "title": "ipsum",
+        "value": "ipsum",
+      },
+      {
+        "label": "hello",
+        "selected": false,
+        "text": "hello",
+        "textContent": "hello",
+        "title": "hello",
+        "value": "hello",
+      },
+      {
+        "label": "world",
+        "selected": false,
+        "text": "world",
+        "textContent": "world",
+        "title": "world",
+        "value": "world",
+      },
+    ],
+    "selected": [
+      "lorem",
+    ],
+    "selectedIndex": 1,
+    "type": "select-multiple",
+    "value": "ipsum",
+  },
   "type": "select-multiple",
-  "value": "hello",
+  "value": "ipsum",
 }
 `;
 
 exports[`Select Component should return an emulated onchange event: default emulated event 1`] = `
 {
+  "currentTarget": {
+    "id": "test",
+    "name": "test",
+    "options": [
+      {
+        "label": "lorem",
+        "selected": true,
+        "text": "lorem",
+        "textContent": "lorem",
+        "title": "lorem",
+        "value": "lorem",
+      },
+      {
+        "label": "ipsum",
+        "selected": false,
+        "text": "ipsum",
+        "textContent": "ipsum",
+        "title": "ipsum",
+        "value": "ipsum",
+      },
+      {
+        "label": "hello",
+        "selected": false,
+        "text": "hello",
+        "textContent": "hello",
+        "title": "hello",
+        "value": "hello",
+      },
+      {
+        "label": "world",
+        "selected": false,
+        "text": "world",
+        "textContent": "world",
+        "title": "world",
+        "value": "world",
+      },
+    ],
+    "selected": {
+      "label": "lorem",
+      "selected": true,
+      "text": "lorem",
+      "textContent": "lorem",
+      "title": "lorem",
+      "value": "lorem",
+    },
+    "selectedIndex": 0,
+    "type": "select-one",
+    "value": "lorem",
+  },
   "id": "test",
   "name": "test",
+  "options": [
+    {
+      "label": "lorem",
+      "selected": true,
+      "text": "lorem",
+      "textContent": "lorem",
+      "title": "lorem",
+      "value": "lorem",
+    },
+    {
+      "label": "ipsum",
+      "selected": false,
+      "text": "ipsum",
+      "textContent": "ipsum",
+      "title": "ipsum",
+      "value": "ipsum",
+    },
+    {
+      "label": "hello",
+      "selected": false,
+      "text": "hello",
+      "textContent": "hello",
+      "title": "hello",
+      "value": "hello",
+    },
+    {
+      "label": "world",
+      "selected": false,
+      "text": "world",
+      "textContent": "world",
+      "title": "world",
+      "value": "world",
+    },
+  ],
   "persist": [Function],
   "selected": {
-    "label": "hello",
+    "label": "lorem",
     "selected": true,
-    "text": "hello",
-    "textContent": "hello",
-    "title": "hello",
-    "value": "hello",
+    "text": "lorem",
+    "textContent": "lorem",
+    "title": "lorem",
+    "value": "lorem",
   },
-  "selectedIndex": 2,
+  "selectedIndex": 0,
+  "target": {
+    "id": "test",
+    "name": "test",
+    "options": [
+      {
+        "label": "lorem",
+        "selected": true,
+        "text": "lorem",
+        "textContent": "lorem",
+        "title": "lorem",
+        "value": "lorem",
+      },
+      {
+        "label": "ipsum",
+        "selected": false,
+        "text": "ipsum",
+        "textContent": "ipsum",
+        "title": "ipsum",
+        "value": "ipsum",
+      },
+      {
+        "label": "hello",
+        "selected": false,
+        "text": "hello",
+        "textContent": "hello",
+        "title": "hello",
+        "value": "hello",
+      },
+      {
+        "label": "world",
+        "selected": false,
+        "text": "world",
+        "textContent": "world",
+        "title": "world",
+        "value": "world",
+      },
+    ],
+    "selected": {
+      "label": "lorem",
+      "selected": true,
+      "text": "lorem",
+      "textContent": "lorem",
+      "title": "lorem",
+      "value": "lorem",
+    },
+    "selectedIndex": 0,
+    "type": "select-one",
+    "value": "lorem",
+  },
   "type": "select-one",
-  "value": "hello",
+  "value": "lorem",
 }
 `;

@@ -1,17 +1,17 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ChartElements } from '../chartElements';
 import * as chartContext from '../chartContext';
 
+// ToDo: more useful test
 describe('ChartElements Component', () => {
   it('should render a basic component', () => {
     const props = {};
-    const component = shallow(<ChartElements {...props} />);
+    const component = renderComponent(<ChartElements {...props} />);
 
-    expect(component.render()).toMatchSnapshot('basic');
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle basic element settings from context', async () => {
+  it('should handle basic element settings from context', () => {
     const props = {};
     const mockContextValue = {
       chartSettings: {
@@ -229,9 +229,8 @@ describe('ChartElements Component', () => {
 
     const mock = jest.spyOn(chartContext, 'useChartContext').mockImplementation(() => mockContextValue);
 
-    const component = await shallowHookComponent(<ChartElements {...props} />);
-    expect(component.children()).toMatchSnapshot('chart elements');
-
+    const component = renderComponent(<ChartElements {...props} />);
+    expect(component).toMatchSnapshot('chart elements');
     mock.mockClear();
   });
 });

@@ -21,7 +21,6 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
   </CardHeader>
   <MinHeight
     isOnLoad={false}
-    key="bodyMinHeight"
     minHeight={0}
     useResizeObserver={[Function]}
   >
@@ -78,7 +77,6 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
   </CardHeader>
   <MinHeight
     isOnLoad={false}
-    key="bodyMinHeight"
     minHeight={0}
     useResizeObserver={[Function]}
   >
@@ -135,7 +133,6 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
   </CardHeader>
   <MinHeight
     isOnLoad={false}
-    key="bodyMinHeight"
     minHeight={0}
     useResizeObserver={[Function]}
   >
@@ -158,7 +155,7 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
 </Card>
 `;
 
-exports[`GraphCardChart Component should render a default component: default 1`] = `
+exports[`GraphCardChart Component should render a basic component: basic 1`] = `
 <Card
   className="curiosity-usage-graph"
   isPlain={true}
@@ -179,7 +176,6 @@ exports[`GraphCardChart Component should render a default component: default 1`]
   </CardHeader>
   <MinHeight
     isOnLoad={false}
-    key="bodyMinHeight"
     minHeight={0}
     useResizeObserver={[Function]}
   >

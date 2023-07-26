@@ -18,7 +18,7 @@ exports[`TableEmpty Component should have fallback checks for certain props: fal
 </EmptyTable>
 `;
 
-exports[`TableEmpty Component should render a non-connected component: non-connected 1`] = `
+exports[`TableEmpty Component should render a basic component: basic 1`] = `
 <EmptyTable>
   <EmptyState
     variant="small"

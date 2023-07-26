@@ -1,12 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { Chart } from '../chart';
 import * as chartContext from '../chartContext';
 
 describe('Chart Component', () => {
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {};
-    const component = shallow(<Chart {...props} />);
+    const component = await shallowComponent(<Chart {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -62,7 +61,7 @@ describe('Chart Component', () => {
       return null;
     });
 
-    await mountHookComponent(<Chart {...props} />);
+    renderComponent(<Chart {...props} />);
     expect(mockValue.mock.calls).toMatchSnapshot('settings');
 
     mock.mockClear();

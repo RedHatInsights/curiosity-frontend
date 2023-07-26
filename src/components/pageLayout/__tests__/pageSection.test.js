@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { PageSection } from '../pageSection';
 
 describe('PageSection Component', () => {
@@ -7,7 +6,7 @@ describe('PageSection Component', () => {
     const props = {
       className: 'lorem'
     };
-    const component = mount(
+    const component = renderComponent(
       <PageSection {...props}>
         <span className="test">lorem</span>
       </PageSection>

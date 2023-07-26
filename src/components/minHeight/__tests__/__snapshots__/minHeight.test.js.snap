@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MinHeight Component should allow override of minHeight: override 1`] = `"<div class="curiosity-minheight" style="min-height: 1001px;"><div class="curiosity-minheight__inner">lorem ipsum</div></div>"`;
+exports[`MinHeight Component should allow override of minHeight: override 1`] = `
+<minheight
+  props="{
+  "minHeight": 1001,
+  "children": [
+    {}
+  ],
+  "isOnLoad": false
+}"
+>
+  <div
+    class="curiosity-minheight"
+    style="min-height: 1001px;"
+  >
+    <div
+      class="curiosity-minheight__inner"
+    >
+      lorem ipsum
+    </div>
+  </div>
+</minheight>
+`;
 
-exports[`MinHeight Component should render a basic component: basic 1`] = `"<div class="curiosity-minheight" style="min-height: 0px;"><div class="curiosity-minheight__inner">lorem ipsum</div></div>"`;
+exports[`MinHeight Component should render a basic component: basic 1`] = `
+<minheight
+  props="{
+  "children": [
+    {}
+  ],
+  "isOnLoad": false,
+  "minHeight": 0
+}"
+>
+  <div
+    class="curiosity-minheight"
+    style="min-height: 0px;"
+  >
+    <div
+      class="curiosity-minheight__inner"
+    >
+      lorem ipsum
+    </div>
+  </div>
+</minheight>
+`;
