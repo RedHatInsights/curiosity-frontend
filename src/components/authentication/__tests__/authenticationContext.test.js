@@ -7,7 +7,7 @@ describe('AuthenticationContext', () => {
   });
 
   it('should apply a hook for retrieving auth data from multiple selectors', async () => {
-    const { result: errorResponse } = shallowHook(() =>
+    const { result: errorResponse } = await renderHook(() =>
       useGetAuthorization({
         useSelectorsResponse: () => ({
           error: true,
@@ -30,7 +30,7 @@ describe('AuthenticationContext', () => {
     expect(errorResponse).toMatchSnapshot('error response');
 
     const mockDispatch = jest.fn();
-    const { result: successResponse } = await mountHook(() =>
+    const { result: successResponse } = await renderHook(() =>
       useGetAuthorization({
         useDispatch: () => mockDispatch,
         useSelectorsResponse: () => ({
@@ -52,7 +52,7 @@ describe('AuthenticationContext', () => {
     expect(mockDispatch.mock.calls).toMatchSnapshot('success dispatch');
     expect(successResponse).toMatchSnapshot('success response');
 
-    const { result: mockStoreSuccessResponse } = shallowHook(() => useGetAuthorization(), {
+    const { result: mockStoreSuccessResponse } = await renderHook(() => useGetAuthorization(), {
       state: {
         user: {
           auth: {
@@ -88,7 +88,7 @@ describe('AuthenticationContext', () => {
 
     expect(mockStoreSuccessResponse).toMatchSnapshot('mock store success response');
 
-    const { result: mockStoreErrorResponse } = shallowHook(() => useGetAuthorization(), {
+    const { result: mockStoreErrorResponse } = await renderHook(() => useGetAuthorization(), {
       state: {
         user: {
           auth: {
@@ -107,12 +107,12 @@ describe('AuthenticationContext', () => {
     expect(mockStoreErrorResponse).toMatchSnapshot('mock store error response');
   });
 
-  it('should apply a hook for retrieving auth data results as context for session', () => {
+  it('should apply a hook for retrieving auth data results as context for session', async () => {
     const mockContextValue = {
       lorem: 'ipsum'
     };
 
-    const { result } = shallowHook(() => useSession({ useAuthContext: () => mockContextValue }));
+    const { result } = await renderHook(() => useSession({ useAuthContext: () => mockContextValue }));
     expect(result).toMatchSnapshot('session context, basic');
   });
 });

@@ -264,7 +264,7 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
 ]
 `;
 
-exports[`ToolbarFieldSelectCategory Component should handle updating categories through redux state with component: dispatch category, component 1`] = `
+exports[`ToolbarFieldSelectCategory Component should handle updating categories through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -278,7 +278,7 @@ exports[`ToolbarFieldSelectCategory Component should handle updating categories 
 ]
 `;
 
-exports[`ToolbarFieldSelectCategory Component should handle updating categories through redux state with hook: dispatch category, hook 1`] = `
+exports[`ToolbarFieldSelectCategory Component should handle updating categories through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [

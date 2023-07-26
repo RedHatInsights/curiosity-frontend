@@ -1,16 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { TableVariant, SortByDirection } from '@patternfly/react-table';
+import { TableVariant } from '@patternfly/react-table';
 import { Table } from '../table';
 
 describe('Table Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a basic component', () => {
     const props = {
       columnHeaders: ['lorem', 'ipsum', 'dolor', 'sit']
     };
 
-    const component = shallow(<Table {...props} />);
-    expect(component).toMatchSnapshot('non-connected');
+    const component = renderComponent(<Table {...props} />);
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should allow variations in table layout', () => {
@@ -19,26 +18,26 @@ describe('Table Component', () => {
       rows: [{ cells: ['dolor'] }, { cells: ['sit'] }]
     };
 
-    const component = shallow(<Table {...props} />);
-    expect(component).toMatchSnapshot('generated rows');
+    const component = renderComponent(<Table {...props} />);
+    expect(component.find('table')).toMatchSnapshot('generated rows');
 
-    component.setProps({
+    const componentNoBordersHeader = component.setProps({
       borders: false,
       isHeader: false
     });
-    expect(component).toMatchSnapshot('borders and table header removed');
+    expect(componentNoBordersHeader.find('table')).toMatchSnapshot('borders and table header removed');
 
-    component.setProps({
+    const componentAriaTableSummary = component.setProps({
       ariaLabel: 'lorem ipsum aria-label',
       summary: 'lorem ipsum summary'
     });
-    expect(component).toMatchSnapshot('ariaLabel and summary');
+    expect(componentAriaTableSummary.find('table')).toMatchSnapshot('ariaLabel and summary');
 
-    component.setProps({
+    const componentClassVariant = component.setProps({
       className: 'lorem-ipsum-class',
       variant: TableVariant.compact
     });
-    expect(component).toMatchSnapshot('className and variant');
+    expect(componentClassVariant.find('table')).toMatchSnapshot('className and variant');
   });
 
   it('should allow expandable content', () => {
@@ -47,12 +46,14 @@ describe('Table Component', () => {
       rows: [{ cells: ['dolor'], expandedContent: 'dolor sit expandable content' }, { cells: ['sit'] }]
     };
 
-    const component = shallow(<Table {...props} />);
+    const component = renderComponent(<Table {...props} />);
     expect(component).toMatchSnapshot('expandable content');
+    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('no expanded row');
 
-    const componentInstance = component.instance();
-    componentInstance.onCollapse({ index: 0, isOpen: true });
-    expect(component).toMatchSnapshot('expanded row');
+    const input = component.find('td.pf-c-table__toggle button');
+    component.fireEvent.click(input);
+
+    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('expanded row');
   });
 
   it('should allow sortable content', () => {
@@ -61,12 +62,12 @@ describe('Table Component', () => {
       rows: [{ cells: ['dolor'] }, { cells: ['sit'] }]
     };
 
-    const component = shallow(<Table {...props} />);
-    expect(component).toMatchSnapshot('sortable content');
+    const component = renderComponent(<Table {...props} />);
+    expect(component.find('table')).toMatchSnapshot('sortable content');
 
-    const componentInstance = component.instance();
-    componentInstance.onSort({ index: 0, direction: SortByDirection.asc });
-    expect(component).toMatchSnapshot('sorted column callback');
+    const input = component.find('th button.pf-c-table__button');
+    component.fireEvent.click(input);
+
     expect(props.columnHeaders[0].onSort).toHaveBeenCalledTimes(1);
   });
 
@@ -76,7 +77,7 @@ describe('Table Component', () => {
       rows: []
     };
 
-    const component = shallow(<Table {...props}>Loading...</Table>);
+    const component = renderComponent(<Table {...props}>Loading...</Table>);
     expect(component).toMatchSnapshot('children');
   });
 });

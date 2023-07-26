@@ -198,6 +198,7 @@ exports[`InventoryCardContext should handle variations in hosts inventory API re
 exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, disabled 1`] = `
 {
   "data": {},
+  "fulfilled": true,
   "pending": false,
 }
 `;
@@ -235,6 +236,7 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 exports[`InventoryCardContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
 {
   "data": {},
+  "fulfilled": true,
   "pending": false,
 }
 `;

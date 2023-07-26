@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GuestsList Component should handle an onScroll event: scroll event 1`] = `
-[
-  [
-    {
-      "target": {
-        "clientHeight": 100,
-        "scrollHeight": 200,
-        "scrollTop": 100,
-      },
-    },
-  ],
-]
-`;
-
 exports[`GuestsList Component should handle multiple display states: fulfilled 1`] = `
 <div
   className="fadein"

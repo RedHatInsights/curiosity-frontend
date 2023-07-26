@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InventoryTab Component should have accessible props: component props 1`] = `
-[
-  {
-    "active": true,
-    "children": <div>
-      lorem ipsum
-    </div>,
-    "title": "lorem ipsum",
-  },
-]
+{
+  "active": true,
+  "children": [
+    {
+      "displayName": undefined,
+      "props": {
+        "children": "lorem ipsum",
+      },
+      "type": "div",
+    },
+  ],
+  "title": "lorem ipsum",
+}
 `;
 
 exports[`InventoryTab Component should output a basic component: basic 1`] = `

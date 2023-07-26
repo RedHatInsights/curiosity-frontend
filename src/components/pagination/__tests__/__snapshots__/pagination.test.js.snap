@@ -16,7 +16,7 @@ exports[`Pagination Component should handle per-page limit, and page offset upda
 }
 `;
 
-exports[`Pagination Component should render a non-connected component: non-connected 1`] = `
+exports[`Pagination Component should render a basic component: basic 1`] = `
 <Pagination
   className=""
   defaultToFullPage={false}

@@ -6,7 +6,7 @@ exports[`GraphCardChartLegend Component should handle a click event: click event
     {
       "id": "mock-view-id-loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
-      "value": "mock boolean, loremIpsum_mock-product-id",
+      "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },
   ],
 ]
@@ -18,7 +18,14 @@ exports[`GraphCardChartLegend Component should handle a click event: keyPress ev
     {
       "id": "mock-view-id-loremIpsum_mock-product-id",
       "type": "SET_GRAPH_LEGEND",
-      "value": "mock boolean, loremIpsum_mock-product-id",
+      "value": "mock toggle boolean, loremIpsum_mock-product-id",
+    },
+  ],
+  [
+    {
+      "id": "mock-view-id-loremIpsum_mock-product-id",
+      "type": "SET_GRAPH_LEGEND",
+      "value": "mock toggle boolean, loremIpsum_mock-product-id",
     },
   ],
 ]
@@ -37,43 +44,15 @@ exports[`GraphCardChartLegend Component should handle inverted legend behavior w
 
 exports[`GraphCardChartLegend Component should handle variations in data when returning legend items: legend items, data, threshold 1`] = `
 [
-  {
-    "fill": "#000000",
-    "size": "sm",
-    "style": {
-      "color": "#000000",
-      "visibility": "visible",
-    },
-    "symbol": "square",
-    "title": null,
-  },
-  {
-    "fill": "#000000",
-    "size": "sm",
-    "style": {
-      "color": "#000000",
-      "visibility": "visible",
-    },
-    "symbol": "square",
-    "title": null,
-  },
-  {
-    "fill": null,
-    "size": "sm",
-    "symbol": "eyeSlash",
-    "title": null,
-  },
-  {
-    "fill": null,
-    "size": "sm",
-    "symbol": "eyeSlash",
-    "title": null,
-  },
+  "curiosity-chartarea__icon curiosity-chartarea__icon-square",
+  "curiosity-chartarea__icon curiosity-chartarea__icon-square",
+  "curiosity-chartarea__icon curiosity-chartarea__icon-eyeSlash",
+  "curiosity-chartarea__icon curiosity-chartarea__icon-dash",
 ]
 `;
 
 exports[`GraphCardChartLegend Component should render a basic component: basic 1`] = `
-<Fragment>
+<React.Fragment>
   <Tooltip
     content={
       <p>
@@ -82,7 +61,6 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-loremIpsum_mock-product-id"
     position="top"
   >
     <span
@@ -105,7 +83,6 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
           />
         }
         isDisabled={false}
-        key="curiosity-button-loremIpsum_mock-product-id"
         onClick={[Function]}
         onKeyPress={[Function]}
         tabIndex={0}
@@ -115,11 +92,11 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
       </Button>
     </span>
   </Tooltip>
-</Fragment>
+</React.Fragment>
 `;
 
 exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
-<Fragment>
+<React.Fragment>
   <Tooltip
     content={
       <p>
@@ -128,7 +105,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-loremIpsum_mock-product-id"
     position="top"
   >
     <span
@@ -151,7 +127,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           />
         }
         isDisabled={false}
-        key="curiosity-button-loremIpsum_mock-product-id"
         onClick={[Function]}
         onKeyPress={[Function]}
         tabIndex={0}
@@ -169,7 +144,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-ametConsectetur_mock-product-id"
     position="top"
   >
     <span
@@ -187,7 +161,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           />
         }
         isDisabled={true}
-        key="curiosity-button-ametConsectetur_mock-product-id"
         onClick={[Function]}
         onKeyPress={[Function]}
         tabIndex={0}
@@ -205,7 +178,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-threshold_dolorSit_mock-product-id"
     position="top"
   >
     <span
@@ -228,7 +200,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           />
         }
         isDisabled={false}
-        key="curiosity-button-threshold_dolorSit_mock-product-id"
         onClick={[Function]}
         onKeyPress={[Function]}
         tabIndex={0}
@@ -246,7 +217,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
     }
     distance={5}
     enableFlip={true}
-    key="curiosity-tooltip-threshold_nonCursus_mock-product-id"
     position="top"
   >
     <span
@@ -269,7 +239,6 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
           />
         }
         isDisabled={false}
-        key="curiosity-button-threshold_nonCursus_mock-product-id"
         onClick={[Function]}
         onKeyPress={[Function]}
         tabIndex={0}
@@ -279,5 +248,5 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
       </Button>
     </span>
   </Tooltip>
-</Fragment>
+</React.Fragment>
 `;

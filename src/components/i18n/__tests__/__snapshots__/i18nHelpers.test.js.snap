@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`I18nHelpers should attempt to perform a component translate: translated component 1`] = `"<div>t(lorem.ipsum, hello world)</div>"`;
+exports[`I18nHelpers should attempt to perform a component translate: translated component 1`] = `
+<withtranslation
+  props="{
+  "children": []
+}"
+>
+  <div>
+    t(lorem.ipsum, hello world)
+  </div>
+</withtranslation>
+`;
 
 exports[`I18nHelpers should attempt to perform a string replace: translate 1`] = `
 {
@@ -17,7 +27,17 @@ exports[`I18nHelpers should attempt to perform a string replace: translate 1`] =
 }
 `;
 
-exports[`I18nHelpers should attempt to perform translate with a node: translated node 1`] = `"<div>t(lorem.ipsum, {&quot;hello&quot;:&quot;world&quot;}, [object Object])</div>"`;
+exports[`I18nHelpers should attempt to perform translate with a node: translated node 1`] = `
+<examplecomponent
+  props="{
+  "children": []
+}"
+>
+  <div>
+    t(lorem.ipsum, {"hello":"world"}, [object Object])
+  </div>
+</examplecomponent>
+`;
 
 exports[`I18nHelpers should attempt to place a test identifier around copy: test id 1`] = `
 {
@@ -25,11 +45,15 @@ exports[`I18nHelpers should attempt to place a test identifier around copy: test
     class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
-  "basicNode": <TestElementNode>
+  "basicNode": <testelementnode
+    props="{
+  "children": []
+}"
+  >
     <dolor-sit
       data-test="dolor-sit"
     />
-  </TestElementNode>,
+  </testelementnode>,
   "basicString": <span
     class="curiosity-translate__test-id"
     data-test="dolor-sit"
@@ -38,11 +62,15 @@ exports[`I18nHelpers should attempt to place a test identifier around copy: test
     class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
-  "emptyContextNode": <TestElementNode>
+  "emptyContextNode": <testelementnode
+    props="{
+  "children": []
+}"
+  >
     <dolor-sit
       data-test="dolor-sit"
     />
-  </TestElementNode>,
+  </testelementnode>,
   "emptyContextString": <span
     class="curiosity-translate__test-id"
     data-test="dolor-sit"
@@ -51,11 +79,15 @@ exports[`I18nHelpers should attempt to place a test identifier around copy: test
     class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
-  "emptyPartialContextNode": <TestElementNode>
+  "emptyPartialContextNode": <testelementnode
+    props="{
+  "children": []
+}"
+  >
     <dolor-sit
       data-test="dolor-sit"
     />
-  </TestElementNode>,
+  </testelementnode>,
   "emptyPartialContextString": <span
     class="curiosity-translate__test-id"
     data-test="dolor-sit"
@@ -64,11 +96,15 @@ exports[`I18nHelpers should attempt to place a test identifier around copy: test
     class="curiosity-translate__test-id"
     data-test="lorem.ipsum"
   />,
-  "stringContextNestedNode": <TestElementNode>
+  "stringContextNestedNode": <testelementnode
+    props="{
+  "children": []
+}"
+  >
     <dolor-sit
       data-test="dolor-sit"
     />
-  </TestElementNode>,
+  </testelementnode>,
   "stringContextNestedString": <span
     class="curiosity-translate__test-id"
     data-test="dolor-sit"

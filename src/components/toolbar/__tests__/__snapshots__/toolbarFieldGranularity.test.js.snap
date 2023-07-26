@@ -25,7 +25,7 @@ exports[`ToolbarFieldGranularity Component should export select options: toolbar
 ]
 `;
 
-exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state with component: dispatch granularity, component 1`] = `
+exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -53,7 +53,7 @@ exports[`ToolbarFieldGranularity Component should handle updating granularity th
 ]
 `;
 
-exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state with hook: dispatch granularity, hook 1`] = `
+exports[`ToolbarFieldGranularity Component should handle updating granularity through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphCardChartTitleTooltip Component should hide if there is no description: hide 1`] = `""`;
+exports[`GraphCardChartTitleTooltip Component should hide if there is no description: hide 1`] = `null`;
 
 exports[`GraphCardChartTitleTooltip Component should render a basic component: basic 1`] = `
 <Tooltip

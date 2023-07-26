@@ -1,176 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageHeader Component should render a basic component: basic 1`] = `
-<PageHeader
-  productLabel={null}
-  t={[Function]}
->
-  <PageHeader>
-    <section
-      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-      widget-type="InsightsPageHeader"
-    >
-      <Flex
-        justifyContent={
-          {
-            "sm": "justifyContentSpaceBetween",
-          }
+<PageHeader>
+  <Flex
+    justifyContent={
+      {
+        "sm": "justifyContentSpaceBetween",
+      }
+    }
+  >
+    <FlexItem>
+      <PageHeaderTitle
+        className="pf-u-mb-sm"
+        title={
+          <span
+            className="test"
+          >
+            lorem
+          </span>
         }
-      >
-        <div
-          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
-        >
-          <FlexItem>
-            <div
-              className=""
-            >
-              <PageHeaderTitle
-                className="pf-u-mb-sm"
-                title={
-                  <span
-                    className="test"
-                  >
-                    lorem
-                  </span>
-                }
-              >
-                <Title
-                  className="pf-u-mb-sm"
-                  headingLevel="h1"
-                  size="2xl"
-                  widget-type="InsightsPageHeaderTitle"
-                >
-                  <h1
-                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-1"
-                    data-ouia-component-type="PF4/Title"
-                    data-ouia-safe={true}
-                    widget-type="InsightsPageHeaderTitle"
-                  >
-                    <span
-                      className="test"
-                    >
-                      lorem
-                    </span>
-                  </h1>
-                </Title>
-              </PageHeaderTitle>
-            </div>
-          </FlexItem>
-        </div>
-      </Flex>
-    </section>
-  </PageHeader>
+      />
+    </FlexItem>
+  </Flex>
 </PageHeader>
 `;
 
 exports[`PageHeader Component should render string node types: string 1`] = `
-<PageHeader
-  productLabel={null}
-  t={[Function]}
+<pageheader
+  props="{
+  "children": [
+    {}
+  ],
+  "productLabel": null
+}"
 >
-  <PageHeader>
-    <section
-      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-      widget-type="InsightsPageHeader"
+  <section
+    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+    widget-type="InsightsPageHeader"
+  >
+    <div
+      class="pf-l-flex pf-m-justify-content-space-between-on-sm"
     >
-      <Flex
-        justifyContent={
-          {
-            "sm": "justifyContentSpaceBetween",
-          }
-        }
+      <div
+        class=""
       >
-        <div
-          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
+        <h1
+          class="pf-c-title pf-m-2xl pf-u-mb-sm"
+          data-ouia-component-id="OUIA-Generated-Title-1"
+          data-ouia-component-type="PF4/Title"
+          data-ouia-safe="true"
+          widget-type="InsightsPageHeaderTitle"
         >
-          <FlexItem>
-            <div
-              className=""
-            >
-              <PageHeaderTitle
-                className="pf-u-mb-sm"
-                title="dolor sit"
-              >
-                <Title
-                  className="pf-u-mb-sm"
-                  headingLevel="h1"
-                  size="2xl"
-                  widget-type="InsightsPageHeaderTitle"
-                >
-                  <h1
-                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-2"
-                    data-ouia-component-type="PF4/Title"
-                    data-ouia-safe={true}
-                    widget-type="InsightsPageHeaderTitle"
-                  >
-                    dolor sit
-                  </h1>
-                </Title>
-              </PageHeaderTitle>
-            </div>
-          </FlexItem>
-        </div>
-      </Flex>
-    </section>
-  </PageHeader>
-</PageHeader>
+          dolor sit
+        </h1>
+      </div>
+    </div>
+  </section>
+</pageheader>
 `;
 
 exports[`PageHeader Component should render the subtitle when viewId is provided: with subtitle 1`] = `
-<PageHeader
-  productLabel="RHEL"
-  t={[Function]}
+<pageheader
+  props="{
+  "productLabel": "RHEL",
+  "children": [
+    {}
+  ]
+}"
 >
-  <PageHeader>
-    <section
-      className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-      widget-type="InsightsPageHeader"
+  <section
+    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+    widget-type="InsightsPageHeader"
+  >
+    <div
+      class="pf-l-flex pf-m-justify-content-space-between-on-sm"
     >
-      <Flex
-        justifyContent={
-          {
-            "sm": "justifyContentSpaceBetween",
-          }
-        }
+      <div
+        class=""
       >
-        <div
-          className="pf-l-flex pf-m-justify-content-space-between-on-sm"
+        <h1
+          class="pf-c-title pf-m-2xl pf-u-mb-sm"
+          data-ouia-component-id="OUIA-Generated-Title-2"
+          data-ouia-component-type="PF4/Title"
+          data-ouia-safe="true"
+          widget-type="InsightsPageHeaderTitle"
         >
-          <FlexItem>
-            <div
-              className=""
-            >
-              <PageHeaderTitle
-                className="pf-u-mb-sm"
-                title="lorem"
-              >
-                <Title
-                  className="pf-u-mb-sm"
-                  headingLevel="h1"
-                  size="2xl"
-                  widget-type="InsightsPageHeaderTitle"
-                >
-                  <h1
-                    className="pf-c-title pf-m-2xl pf-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-3"
-                    data-ouia-component-type="PF4/Title"
-                    data-ouia-safe={true}
-                    widget-type="InsightsPageHeaderTitle"
-                  >
-                    lorem
-                  </h1>
-                </Title>
-              </PageHeaderTitle>
-            </div>
-          </FlexItem>
-        </div>
-      </Flex>
-      <p>
-        t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"RHEL"}, [object Object])
-      </p>
-    </section>
-  </PageHeader>
-</PageHeader>
+          lorem
+        </h1>
+      </div>
+    </div>
+    <p>
+      t(curiosity-view.subtitle, {"appName":"Subscriptions","context":"RHEL"}, [object Object])
+    </p>
+  </section>
+</pageheader>
 `;

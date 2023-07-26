@@ -27,7 +27,7 @@ exports[`InventoryTabs Component should handle updating through redux state with
 `;
 
 exports[`InventoryTabs Component should render a basic component: basic 1`] = `
-<Fragment>
+<React.Fragment>
   <Title
     className="sr-only"
     headingLevel="h2"
@@ -60,7 +60,7 @@ exports[`InventoryTabs Component should render a basic component: basic 1`] = `
       ]
     }
   />
-</Fragment>
+</React.Fragment>
 `;
 
-exports[`InventoryTabs Component should return an empty render when disabled: disabled component 1`] = `""`;
+exports[`InventoryTabs Component should return an empty render when disabled: disabled component 1`] = `null`;

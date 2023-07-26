@@ -8,7 +8,7 @@ describe('GraphCardChartTitleTooltip Component', () => {
         settings: { isCardTitleDescription: true, loremIpsum: true, stringId: 'loremIpsum' }
       })
     };
-    const component = await shallowHookComponent(<GraphCardChartTitleTooltip {...props} />);
+    const component = await shallowComponent(<GraphCardChartTitleTooltip {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -17,7 +17,7 @@ describe('GraphCardChartTitleTooltip Component', () => {
     const props = {
       useGraphCardContext: () => ({ settings: { isCardTitleDescription: false } })
     };
-    const component = await shallowHookComponent(<GraphCardChartTitleTooltip {...props} />);
+    const component = await shallowComponent(<GraphCardChartTitleTooltip {...props} />);
 
     expect(component).toMatchSnapshot('hide');
   });

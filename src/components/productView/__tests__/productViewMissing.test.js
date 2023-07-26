@@ -5,12 +5,12 @@ import { ProductViewMissing } from '../productViewMissing';
 import { store } from '../../../redux';
 
 describe('ProductViewMissing Component', () => {
-  it('should render a basic component', async () => {
+  it('should render a basic component', () => {
     const props = {
       availableProductsRedirect: 1
     };
 
-    const component = await mountHookComponent(
+    const component = renderComponent(
       <Provider store={store}>
         <MemoryRouter initialEntries={['/']}>
           <ProductViewMissing {...props} />
@@ -18,7 +18,7 @@ describe('ProductViewMissing Component', () => {
       </Provider>
     );
 
-    expect(component.find(ProductViewMissing)).toMatchSnapshot('basic');
+    expect(component).toMatchSnapshot('basic');
   });
 
   it('should redirect when there are limited product cards', async () => {
@@ -29,7 +29,7 @@ describe('ProductViewMissing Component', () => {
       useRouteDetail: () => ({ firstMatch: { productPath: 'lorem-ipsum' } })
     };
 
-    await mountHookComponent(<ProductViewMissing {...props} />);
+    await shallowComponent(<ProductViewMissing {...props} />);
     expect(mockPush.mock.calls).toMatchSnapshot('redirect action');
   });
 });

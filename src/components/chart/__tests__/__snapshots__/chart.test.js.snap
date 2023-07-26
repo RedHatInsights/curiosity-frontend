@@ -1,12 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chart Component should render a basic component: basic 1`] = `
-<ContextProvider>
+<Context.Provider
+  value={
+    {
+      "chartContainerRef": [Function],
+      "chartSettings": {
+        "chartDomain": {
+          "domain": {
+            "y": [
+              0,
+              10,
+            ],
+          },
+        },
+        "chartElementsProps": {
+          "elements": [],
+          "elementsById": {},
+          "stackedElements": [],
+          "stackedElementsById": {},
+        },
+        "chartLegend": null,
+        "chartWidth": 0,
+        "dataSets": [],
+        "hasData": true,
+        "isMultiYAxis": false,
+        "maxX": 0,
+        "maxY": 0,
+        "padding": {
+          "bottom": 75,
+          "left": 59,
+          "right": 59,
+          "top": 50,
+        },
+        "themeColor": "blue",
+        "tooltipDataSetLookUp": {},
+        "xAxisProps": {
+          "fixLabelOverlap": true,
+          "label": null,
+          "tickFormat": [Function],
+          "tickValues": [],
+        },
+        "yAxisProps": [
+          {
+            "dependentAxis": true,
+            "label": null,
+            "orientation": "left",
+            "showGrid": true,
+            "style": {
+              "axis": {},
+              "tickLabels": {},
+            },
+            "tickFormat": [Function],
+          },
+        ],
+      },
+      "chartTooltipRef": [Function],
+      "dataSetsToggle": [
+        {},
+        [Function],
+      ],
+    }
+  }
+>
   <div
     className="curiosity-chartarea uxui-curiosity__modal uxui-curiosity__modal--loading"
     data-test="curiosity-chartarea"
   />
-</ContextProvider>
+</Context.Provider>
 `;
 
 exports[`Chart Component should setup basic chart settings: settings 1`] = `

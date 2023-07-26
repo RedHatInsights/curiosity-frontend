@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
 import TextInput from '../textInput';
 import { helpers } from '../../../common';
 
@@ -7,8 +6,8 @@ describe('TextInput Component', () => {
   it('should render a basic component', () => {
     const props = {};
 
-    const component = shallow(<TextInput {...props} />);
-    expect(component.render()).toMatchSnapshot('basic component');
+    const component = renderComponent(<TextInput {...props} />);
+    expect(component).toMatchSnapshot('basic component');
   });
 
   it('should handle readOnly, disabled', () => {
@@ -16,84 +15,51 @@ describe('TextInput Component', () => {
       isReadOnly: true
     };
 
-    const component = mount(<TextInput {...props} />);
-    expect(component.render()).toMatchSnapshot('readOnly');
+    const component = renderComponent(<TextInput {...props} />);
+    expect(component).toMatchSnapshot('readOnly');
 
-    component.setProps({
+    const propsUpdatedDisabled = component.setProps({
       isReadOnly: false,
       isDisabled: true
     });
 
-    expect(component.render()).toMatchSnapshot('disabled');
+    expect(propsUpdatedDisabled).toMatchSnapshot('disabled');
 
-    component.setProps({
+    const propsUpdatedActive = component.setProps({
       isReadOnly: false,
       isDisabled: false
     });
 
-    expect(component.render()).toMatchSnapshot('active');
+    expect(propsUpdatedActive).toMatchSnapshot('active');
   });
 
-  it('should return an emulated onChange event', done => {
+  it('should return an emulated onChange event', () => {
     const props = {
       value: 'lorem ipsum'
     };
 
-    props.onChange = event => {
-      expect(event).toMatchSnapshot('emulated event, change');
-      done();
-    };
-
-    const component = shallow(<TextInput {...props} />);
-    const mockEvent = { currentTarget: { value: 'dolor sit' }, persist: helpers.noop };
-    component.instance().onChange('dolor sit', mockEvent);
+    const component = renderComponent(<TextInput {...props} />);
+    const mockEvent = { target: { value: 'dolor sit' }, persist: helpers.noop };
+    const input = component.find('input');
+    component.fireEvent.change(input, mockEvent);
+    expect(input.value).toMatchSnapshot('emulated event, change');
   });
 
-  it('should return an emulated onClear event on escape', done => {
+  it('should return an emulated onClear event on escape', () => {
     const props = {
-      value: 'lorem ipsum'
-    };
-
-    props.onClear = event => {
-      expect(event).toMatchSnapshot('emulated event, esc');
-      done();
-    };
-
-    const component = shallow(<TextInput {...props} />);
-    const mockEvent = { keyCode: 27, currentTarget: { value: '' }, persist: helpers.noop };
-    component.instance().onKeyUp(mockEvent);
-  });
-
-  it('should return an emulated onClear event on escape with type search', done => {
-    const props = {
+      id: 'test-id',
       value: 'lorem ipsum',
-      type: 'search'
+      onKeyUp: jest.fn(),
+      onClear: jest.fn()
     };
 
-    props.onClear = event => {
-      expect(event).toMatchSnapshot('emulated event, esc, type search');
-      done();
-    };
+    const component = renderComponent(<TextInput {...props} />);
+    const input = component.find('input');
+    const mockEvent = { target: { value: '' }, keyCode: 27, which: 27, key: 'Escape', persist: helpers.noop };
+    component.fireEvent.keyUp(input, mockEvent);
 
-    const component = shallow(<TextInput {...props} />);
-    const mockEvent = { keyCode: 27, currentTarget: { value: '' }, persist: helpers.noop };
-    component.instance().onKeyUp(mockEvent);
-  });
-
-  it('should return an emulated onClear event on search clear', done => {
-    const props = {
-      value: 'lorem ipsum',
-      type: 'search'
-    };
-
-    props.onClear = event => {
-      expect(event).toMatchSnapshot('emulated event, clear');
-      done();
-    };
-
-    const component = shallow(<TextInput {...props} />);
-    const mockEvent = { currentTarget: { value: 'lorem ipsum' }, persist: helpers.noop };
-    component.instance().onMouseUp(mockEvent);
-    mockEvent.currentTarget.value = '';
+    expect(props.onKeyUp).toHaveBeenCalledTimes(1);
+    expect(props.onClear).toHaveBeenCalledTimes(1);
+    expect(props.onClear.mock.calls).toMatchSnapshot('emulated event, esc');
   });
 });

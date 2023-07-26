@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../../redux';
@@ -10,12 +9,12 @@ describe('Router Component', () => {
     expect(Router).toBeDefined();
   });
 
-  it('should render a basic component', () => {
-    const component = shallow(<Router />);
+  it('should render a basic component', async () => {
+    const component = await shallowComponent(<Router />);
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle unique route settings', () => {
+  it('should handle unique route settings', async () => {
     const props = {
       routes: [
         {
@@ -49,17 +48,17 @@ describe('Router Component', () => {
       ]
     };
 
-    const component = shallow(<Router {...props} />);
+    const component = await shallowComponent(<Router {...props} />);
     expect(component).toMatchSnapshot('settings');
   });
 
-  it('should attempt to set route details', async () => {
+  it('should attempt to set route details', () => {
     const mockSetRouteDetail = jest.fn();
     const props = {
       useSetRouteDetail: mockSetRouteDetail
     };
 
-    await mountHookComponent(
+    renderComponent(
       <Provider store={store}>
         <MemoryRouter initialEntries={['/rhods']}>
           <Router {...props} />
