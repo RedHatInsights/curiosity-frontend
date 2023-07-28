@@ -18,10 +18,11 @@ const { config: webpackConfig, plugins } = config({
     `${BETA_PREFIX}/insights/subscriptions`,
     `${BETA_PREFIX}/openshift/subscriptions`,
     `${BETA_PREFIX}/application-services/subscriptions`,
+    `${BETA_PREFIX}/subscriptions`,
     `preview/insights/subscriptions`,
     `preview/openshift/subscriptions`,
     `preview/application-services/subscriptions`,
-    `preview/subscriptions/`,
+    `preview/subscriptions`
   ],
   client: { overlay: false },
   debug: true,
