@@ -6,7 +6,12 @@ const { setDevRoutes } = require('./spandx.config');
 const { _BUILD_RELATIVE_DIRNAME, DEV_BRANCH, DEV_PORT } = setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
 
 const { config: webpackConfig, plugins } = config({
-  appUrl: ['/insights/subscriptions', '/openshift/subscriptions', '/application-services/subscriptions'],
+  appUrl: [
+    '/insights/subscriptions',
+    '/openshift/subscriptions',
+    '/application-services/subscriptions',
+    '/subscriptions'
+  ],
   client: { overlay: false },
   debug: true,
   deployment: 'apps',
