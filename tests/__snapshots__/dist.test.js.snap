@@ -420,6 +420,17 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   },
   {
     "coverage": "FALSE",
+    "path": "/application-services",
+    "productGroup": [
+      "rhods",
+    ],
+    "productId": [
+      "rhods",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "FALSE",
     "path": "/data",
     "productGroup": [
       "rhods",
@@ -454,17 +465,6 @@ exports[`Build distribution should have a predictable ephemeral navigation based
   {
     "coverage": "TRUE",
     "path": "/streams",
-    "productGroup": [
-      "rhosak",
-    ],
-    "productId": [
-      "rhosak",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/application-services",
     "productGroup": [
       "rhosak",
     ],
