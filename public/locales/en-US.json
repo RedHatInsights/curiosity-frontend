@@ -428,9 +428,6 @@
     "title_rosa": "ROSA Hosted Control Planes",
     "subtitle_rosa": "Monitor your Red Hat OpenShift Service on AWS Hosted Control Planes usage for monthly pre-paid and On-Demand subscriptions. <0>Learn more about {{appName}} reporting</0>",
     "description_rosa": "Monitor your Red Hat OpenShift Service on AWS Hosted Control Planes usage for monthly pre-paid and On-Demand subscriptions.",
-    "title_rhosak": "Red Hat OpenShift Streams for Apache Kafka",
-    "subtitle_rhosak": "Monitor your Apache Kafka usage for On-Demand subscriptions. <0>Learn more about {{appName}} reporting</0>",
-    "description_rhosak": "Monitor your Apache Kafka usage for On-Demand subscriptions.",
     "title_Satellite": "Red Hat Satellite",
     "title_Satellite Capsule": "$t(curiosity-view.title_Satellite)",
     "title_Satellite Server": "$t(curiosity-view.title_Satellite)"
