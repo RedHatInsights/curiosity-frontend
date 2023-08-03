@@ -26,7 +26,7 @@ import { ChartTypeVariant } from '../components/chart/chartHelpers';
 import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
-const productGroup = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
+const productGroup = 'openshift';
 
 const productId = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
 
