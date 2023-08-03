@@ -28,10 +28,10 @@ const RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES = {
 /**
  * RHSM path IDs for products.
  *
- * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHODS: string, RHOSAK: string,
- *     ROSA: string, RHEL_X86: string, RHEL_COMPUTE_NODE: string, OPENSHIFT: string, SATELLITE_SERVER: string,
- *     OPENSHIFT_DEDICATED_METRICS: string, RHEL_DESKTOP: string, SATELLITE_CAPSULE: string, RHEL: string, RHEL_SERVER: string,
- *     RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS: string}}
+ * @type {{RHEL_ARM: string, OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHODS: string, ROSA: string,
+ *     RHEL_X86: string, RHEL_COMPUTE_NODE: string, OPENSHIFT: string, SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string,
+ *     RHEL_DESKTOP: string, SATELLITE_CAPSULE: string, RHEL: string, RHEL_SERVER: string, RHEL_IBM_Z: string,
+ *     RHEL_IBM_POWER: string, RHACS: string}}
  */
 const RHSM_API_PATH_PRODUCT_TYPES = {
   ...RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES,
@@ -43,7 +43,6 @@ const RHSM_API_PATH_PRODUCT_TYPES = {
   RHEL_SERVER: 'RHEL Server',
   RHEL_WORKSTATION: 'RHEL Workstation',
   RHODS: 'rhods',
-  RHOSAK: 'rhosak',
   ROSA: 'rosa',
   OPENSHIFT: 'OpenShift Container Platform',
   OPENSHIFT_METRICS: 'OpenShift-metrics',
@@ -500,8 +499,8 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     RHSM_API_QUERY_INVENTORY_SORT_TYPES: {CORES: string, STORAGE_GIBIBYTES: string, CATEGORY: string, SOCKETS: string,
  *     INSTANCE_HOURS: string, NUMBER_OF_GUESTS: string, TRANSFER_GIBIBYTES: string, BILLING_PROVIDER: string, CORE_SECONDS: string,
  *     STORAGE_GIBIBYTE_MONTHS: string, LAST_SEEN: string, NAME: string}, RHSM_API_PATH_PRODUCT_TYPES: {RHEL_ARM: string,
- *     OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHODS: string, RHOSAK: string, ROSA: string,
- *     RHEL_X86: string, RHEL_COMPUTE_NODE: string, OPENSHIFT: string, SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string,
+ *     OPENSHIFT_METRICS: string, SATELLITE: string, RHEL_WORKSTATION: string, RHODS: string, ROSA: string, RHEL_X86: string,
+ *     RHEL_COMPUTE_NODE: string, OPENSHIFT: string, SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string,
  *     RHEL_DESKTOP: string, SATELLITE_CAPSULE: string, RHEL: string, RHEL_SERVER: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string,
  *     RHACS: string}, RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS: string,
  *     ORACLE: string}, RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string}, RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES: {DATE: string,

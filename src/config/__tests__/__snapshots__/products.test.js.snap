@@ -392,7 +392,6 @@ exports[`Product configurations should return specific methods and properties: p
     "rhacs",
     "RHEL for x86",
     "rhods",
-    "rhosak",
     "rosa",
     "Satellite Server",
   ],

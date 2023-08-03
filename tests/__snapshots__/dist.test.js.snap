@@ -463,50 +463,6 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     "productVariants": [],
   },
   {
-    "coverage": "TRUE",
-    "path": "/streams",
-    "productGroup": [
-      "rhosak",
-    ],
-    "productId": [
-      "rhosak",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/rhosak",
-    "productGroup": [
-      "rhosak",
-    ],
-    "productId": [
-      "rhosak",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/apache",
-    "productGroup": [
-      "rhosak",
-    ],
-    "productId": [
-      "rhosak",
-    ],
-    "productVariants": [],
-  },
-  {
-    "coverage": "FALSE",
-    "path": "/kafka",
-    "productGroup": [
-      "rhosak",
-    ],
-    "productId": [
-      "rhosak",
-    ],
-    "productVariants": [],
-  },
-  {
     "coverage": "FALSE",
     "path": "/rosa",
     "productGroup": [
@@ -555,15 +511,11 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     "productVariants": [],
   },
   {
-    "coverage": "TRUE",
-    "path": "/streams",
-    "productGroup": [
-      "rhosak",
-    ],
-    "productId": [
-      "rhosak",
-    ],
-    "productVariants": [],
+    "coverage": "FALSE",
+    "path": undefined,
+    "productGroup": undefined,
+    "productId": undefined,
+    "productVariants": undefined,
   },
   {
     "coverage": "TRUE",
