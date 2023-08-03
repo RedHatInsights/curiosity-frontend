@@ -839,18 +839,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-graph.cardHeadingMetric",
-        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
-      },
-      {
-        "key": "curiosity-graph.cardBodyMetric",
-        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
-      },
-      {
-        "key": "curiosity-graph.cardFooterMetric",
-        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
-      },
-      {
-        "key": "curiosity-graph.cardHeadingMetric",
         "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['remainingCapacity', dataSets?.[0]?.display?.chartId], testId: 'graphRemainingCapacityCard-header' })",
       },
       {

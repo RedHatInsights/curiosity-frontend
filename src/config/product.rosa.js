@@ -119,38 +119,6 @@ const config = {
       {
         header: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardHeadingMetric', {
-            context: ['dailyTotal', dataSets?.[0]?.display?.chartId],
-            testId: 'graphDailyTotalCard-header'
-          }),
-        body: ({ dataSets = [] } = {}) =>
-          translate(
-            'curiosity-graph.cardBodyMetric',
-            {
-              context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId],
-              testId: 'graphDailyTotalCard-body',
-              total: helpers
-                .numberDisplay(dataSets?.[0]?.display?.dailyValue)
-                ?.format({
-                  average: true,
-                  mantissa: 2,
-                  trimMantissa: true,
-                  lowPrecision: false
-                })
-                ?.toUpperCase()
-            },
-            [<strong title={dataSets?.[0]?.display?.dailyValue} aria-label={dataSets?.[0]?.display?.dailyValue} />]
-          ),
-        footer: ({ dataSets = [] } = {}) =>
-          translate('curiosity-graph.cardFooterMetric', {
-            date: moment
-              .utc(dataSets?.[0]?.display?.dailyDate)
-              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
-            testId: 'graphDailyTotalCard-footer'
-          })
-      },
-      {
-        header: ({ dataSets = [] } = {}) =>
-          translate('curiosity-graph.cardHeadingMetric', {
             context: ['remainingCapacity', dataSets?.[0]?.display?.chartId],
             testId: 'graphRemainingCapacityCard-header'
           }),
