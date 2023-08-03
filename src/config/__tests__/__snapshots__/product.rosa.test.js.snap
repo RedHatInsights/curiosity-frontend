@@ -277,11 +277,6 @@ exports[`Product ROSA config should apply graph configuration: filters 1`] = `
             "footer": [Function],
             "header": [Function],
           },
-          {
-            "body": [Function],
-            "footer": [Function],
-            "header": [Function],
-          },
         ],
         "color": "#06c",
         "fill": "#8bc1f7",
@@ -360,11 +355,6 @@ exports[`Product ROSA config should apply graph configuration: filters 1`] = `
     {
       "settings": {
         "cards": [
-          {
-            "body": [Function],
-            "footer": [Function],
-            "header": [Function],
-          },
           {
             "body": [Function],
             "footer": [Function],
@@ -452,11 +442,6 @@ exports[`Product ROSA config should apply graph configuration: filters 1`] = `
 exports[`Product ROSA config should apply graph configuration: settings 1`] = `
 {
   "cards": [
-    {
-      "body": [Function],
-      "footer": [Function],
-      "header": [Function],
-    },
     {
       "body": [Function],
       "footer": [Function],
@@ -1080,15 +1065,9 @@ exports[`Product ROSA config should handle a custom yAxisTickFormat for floating
 
 exports[`Product ROSA config should handle metric card display for graphs: cards 1`] = `
 [
-  "t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal","testId":"graphDailyTotalCard-header"})",
-  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphDailyTotalCard-body"}, [object Object])",
-  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphDailyTotalCard-footer"})",
   "t(curiosity-graph.cardHeadingMetric, {"context":"remainingCapacity","testId":"graphRemainingCapacityCard-header"})",
   "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphRemainingCapacityCard-body"}, [object Object])",
   "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphRemainingCapacityCard-footer"})",
-  "t(curiosity-graph.cardHeadingMetric, {"context":"dailyTotal","testId":"graphDailyTotalCard-header"})",
-  "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphDailyTotalCard-body"}, [object Object])",
-  "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphDailyTotalCard-footer"})",
   "t(curiosity-graph.cardHeadingMetric, {"context":"remainingCapacity","testId":"graphRemainingCapacityCard-header"})",
   "t(curiosity-graph.cardBodyMetric, {"context":"total","testId":"graphRemainingCapacityCard-body"}, [object Object])",
   "t(curiosity-graph.cardFooterMetric, {"date":"09 Mar 2023 00:00 UTC","testId":"graphRemainingCapacityCard-footer"})",
