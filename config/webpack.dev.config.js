@@ -10,7 +10,7 @@ const { config: webpackConfig, plugins } = config({
     '/insights/subscriptions',
     '/openshift/subscriptions',
     '/application-services/subscriptions',
-    '/subscriptions'
+    '/subscriptions/usage'
   ],
   client: { overlay: false },
   debug: true,
