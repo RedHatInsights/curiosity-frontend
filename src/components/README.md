@@ -174,6 +174,9 @@
 <dt><a href="#Toolbar.module_ToolbarFieldVariant">ToolbarFieldVariant</a></dt>
 <dd><p>A standalone Variant select filter.</p>
 </dd>
+<dt><a href="#Toolbar.module_ToolbarFilter">ToolbarFilter</a></dt>
+<dd><p>ToolbarFilter, wrapper component for Patternfly ToolbarFilter.</p>
+</dd>
 <dt><a href="#Components.module_Tooltip">Tooltip</a></dt>
 <dd><p>PF tooltip wrapper.</p>
 </dd>
@@ -7013,6 +7016,86 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant)  
+<a name="Toolbar.module_ToolbarFilter"></a>
+
+## ToolbarFilter
+ToolbarFilter, wrapper component for Patternfly ToolbarFilter.
+
+
+* [ToolbarFilter](#Toolbar.module_ToolbarFilter)
+    * [~useToolbarContentContext()](#Toolbar.module_ToolbarFilter..useToolbarContentContext) ⇒ <code>Object</code>
+    * [~useToolbarContext()](#Toolbar.module_ToolbarFilter..useToolbarContext) ⇒ <code>Object</code>
+    * [~ToolbarFilter(props)](#Toolbar.module_ToolbarFilter..ToolbarFilter) ⇒ <code>React.ReactNode</code>
+        * [.propTypes](#Toolbar.module_ToolbarFilter..ToolbarFilter.propTypes) : <code>Object</code>
+        * [.defaultProps](#Toolbar.module_ToolbarFilter..ToolbarFilter.defaultProps) : <code>Object</code>
+
+<a name="Toolbar.module_ToolbarFilter..useToolbarContentContext"></a>
+
+### ToolbarFilter~useToolbarContentContext() ⇒ <code>Object</code>
+Hook for ToolbarContentContext
+
+**Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
+<a name="Toolbar.module_ToolbarFilter..useToolbarContext"></a>
+
+### ToolbarFilter~useToolbarContext() ⇒ <code>Object</code>
+Hook for ToolbarContext
+
+**Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
+<a name="Toolbar.module_ToolbarFilter..ToolbarFilter"></a>
+
+### ToolbarFilter~ToolbarFilter(props) ⇒ <code>React.ReactNode</code>
+Converted PF ToolbarFilter replacement with conditional "firstElementChild".
+
+**Kind**: inner method of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.categoryName</td><td><code>string</code> | <code>object</code></td>
+    </tr><tr>
+    <td>props.chipGroupCollapsedText</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.chipGroupExpandedText</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.chips</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>props.deleteChip</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.deleteChipGroup</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.showToolbarItem</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.useToolbarContentContext</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.useToolbarContext</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~ToolbarFilter(props)](#Toolbar.module_ToolbarFilter..ToolbarFilter) ⇒ <code>React.ReactNode</code>
+    * [.propTypes](#Toolbar.module_ToolbarFilter..ToolbarFilter.propTypes) : <code>Object</code>
+    * [.defaultProps](#Toolbar.module_ToolbarFilter..ToolbarFilter.defaultProps) : <code>Object</code>
+
+<a name="Toolbar.module_ToolbarFilter..ToolbarFilter.propTypes"></a>
+
+#### ToolbarFilter.propTypes : <code>Object</code>
+Prop types.
+
+**Kind**: static property of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter..ToolbarFilter)  
+<a name="Toolbar.module_ToolbarFilter..ToolbarFilter.defaultProps"></a>
+
+#### ToolbarFilter.defaultProps : <code>Object</code>
+Default props.
+
+**Kind**: static property of [<code>ToolbarFilter</code>](#Toolbar.module_ToolbarFilter..ToolbarFilter)  
 <a name="Components.module_Tooltip"></a>
 
 ## Tooltip
