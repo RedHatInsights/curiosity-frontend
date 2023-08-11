@@ -490,6 +490,13 @@ RHSM path IDs for product Satellite variants.
 ### RhsmConstants~RHSM\_API\_PATH\_PRODUCT\_TYPES : <code>Object</code>
 RHSM path IDs for products.
 
+Internally the UI makes a distinction between "variants" and "grouped variants". Variants are considered
+product ids that utilize the exact same graph and inventory display, and typically are assigned to the
+[product configuration property "productVariants"](../config/), i.e. RHEL and Satellite. Grouped
+variants are product ids that have been force grouped together, and are considered separate because they use
+dissimilar graph and inventory displays. Force grouped product ids are grouped with the
+[product configuration property "productGroup"](../config/), i.e. OpenShift et all.
+
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
 <a name="Rhsm.module_RhsmConstants..RHSM_API_PATH_METRIC_TYPES"></a>
 
