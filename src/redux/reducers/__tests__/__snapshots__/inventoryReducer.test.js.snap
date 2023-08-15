@@ -1,52 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
-{
-  "result": {
-    "hostsGuests": {
-      "error": true,
-      "errorMessage": "MESSAGE",
-      "fulfilled": false,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "hostsInventory": {},
-    "instancesGuests": {},
-    "instancesInventory": {},
-    "subscriptionsInventory": {},
-    "tabs": {},
-  },
-  "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_REJECTED",
-}
-`;
-
-exports[`InventoryReducer should handle all defined error types: rejected types GET_HOSTS_INVENTORY_RHSM 1`] = `
-{
-  "result": {
-    "hostsGuests": {},
-    "hostsInventory": {
-      "error": true,
-      "errorMessage": "MESSAGE",
-      "fulfilled": false,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "instancesGuests": {},
-    "instancesInventory": {},
-    "subscriptionsInventory": {},
-    "tabs": {},
-  },
-  "type": "GET_HOSTS_INVENTORY_RHSM_REJECTED",
-}
-`;
-
 exports[`InventoryReducer should handle all defined error types: rejected types GET_INSTANCES_INVENTORY_GUESTS_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -66,8 +22,6 @@ exports[`InventoryReducer should handle all defined error types: rejected types 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_INSTANCES_INVENTORY_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {
       "error": true,
@@ -87,8 +41,6 @@ exports[`InventoryReducer should handle all defined error types: rejected types 
 exports[`InventoryReducer should handle all defined error types: rejected types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {},
     "subscriptionsInventory": {
@@ -105,61 +57,9 @@ exports[`InventoryReducer should handle all defined error types: rejected types 
 }
 `;
 
-exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
-{
-  "result": {
-    "hostsGuests": {
-      "data": {
-        "test": "success",
-      },
-      "date": null,
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "hostsInventory": {},
-    "instancesGuests": {},
-    "instancesInventory": {},
-    "subscriptionsInventory": {},
-    "tabs": {},
-  },
-  "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_FULFILLED",
-}
-`;
-
-exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_HOSTS_INVENTORY_RHSM 1`] = `
-{
-  "result": {
-    "hostsGuests": {},
-    "hostsInventory": {
-      "data": {
-        "test": "success",
-      },
-      "date": null,
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "instancesGuests": {},
-    "instancesInventory": {},
-    "subscriptionsInventory": {},
-    "tabs": {},
-  },
-  "type": "GET_HOSTS_INVENTORY_RHSM_FULFILLED",
-}
-`;
-
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_INSTANCES_INVENTORY_GUESTS_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {
       "data": {
         "test": "success",
@@ -183,8 +83,6 @@ exports[`InventoryReducer should handle all defined fulfilled types: fulfilled t
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_INSTANCES_INVENTORY_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {
       "data": {
@@ -208,8 +106,6 @@ exports[`InventoryReducer should handle all defined fulfilled types: fulfilled t
 exports[`InventoryReducer should handle all defined fulfilled types: fulfilled types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {},
     "subscriptionsInventory": {
@@ -230,51 +126,9 @@ exports[`InventoryReducer should handle all defined fulfilled types: fulfilled t
 }
 `;
 
-exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_GUESTS_RHSM 1`] = `
-{
-  "result": {
-    "hostsGuests": {
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": false,
-      "meta": {},
-      "pending": true,
-    },
-    "hostsInventory": {},
-    "instancesGuests": {},
-    "instancesInventory": {},
-    "subscriptionsInventory": {},
-    "tabs": {},
-  },
-  "type": "GET_HOSTS_INVENTORY_GUESTS_RHSM_PENDING",
-}
-`;
-
-exports[`InventoryReducer should handle all defined pending types: pending types GET_HOSTS_INVENTORY_RHSM 1`] = `
-{
-  "result": {
-    "hostsGuests": {},
-    "hostsInventory": {
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": false,
-      "meta": {},
-      "pending": true,
-    },
-    "instancesGuests": {},
-    "instancesInventory": {},
-    "subscriptionsInventory": {},
-    "tabs": {},
-  },
-  "type": "GET_HOSTS_INVENTORY_RHSM_PENDING",
-}
-`;
-
 exports[`InventoryReducer should handle all defined pending types: pending types GET_INSTANCES_INVENTORY_GUESTS_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {
       "error": false,
       "errorMessage": "",
@@ -293,8 +147,6 @@ exports[`InventoryReducer should handle all defined pending types: pending types
 exports[`InventoryReducer should handle all defined pending types: pending types GET_INSTANCES_INVENTORY_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {
       "error": false,
@@ -313,8 +165,6 @@ exports[`InventoryReducer should handle all defined pending types: pending types
 exports[`InventoryReducer should handle all defined pending types: pending types GET_SUBSCRIPTIONS_INVENTORY_RHSM 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {},
     "subscriptionsInventory": {
@@ -333,8 +183,6 @@ exports[`InventoryReducer should handle all defined pending types: pending types
 exports[`InventoryReducer should handle specific defined types: defined type CLEAR_INVENTORY_GUESTS 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {
       "lorem": {},
     },
@@ -349,8 +197,6 @@ exports[`InventoryReducer should handle specific defined types: defined type CLE
 exports[`InventoryReducer should handle specific defined types: defined type SET_INVENTORY_TAB 1`] = `
 {
   "result": {
-    "hostsGuests": {},
-    "hostsInventory": {},
     "instancesGuests": {},
     "instancesInventory": {},
     "subscriptionsInventory": {},

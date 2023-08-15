@@ -17,49 +17,6 @@ exports[`InventoryCardContext should expect specific sort properties: sort prope
 }
 `;
 
-exports[`InventoryCardContext should handle a store response with useGetHostsInventory: store response 1`] = `
-{
-  "data": [
-    {
-      "data": [
-        {
-          "lorem": "ipsum",
-        },
-        {
-          "dolor": "sit",
-        },
-      ],
-      "meta": {},
-    },
-  ],
-  "error": false,
-  "fulfilled": true,
-  "message": null,
-  "pending": false,
-  "responses": {
-    "id": {},
-    "list": [
-      {
-        "data": [
-          {
-            "data": [
-              {
-                "lorem": "ipsum",
-              },
-              {
-                "dolor": "sit",
-              },
-            ],
-            "meta": {},
-          },
-        ],
-        "fulfilled": true,
-      },
-    ],
-  },
-}
-`;
-
 exports[`InventoryCardContext should handle a store response with useGetInstancesInventory: store response 1`] = `
 {
   "data": [
@@ -101,39 +58,6 @@ exports[`InventoryCardContext should handle a store response with useGetInstance
     ],
   },
 }
-`;
-
-exports[`InventoryCardContext should handle an onColumnSort event for hosts: onColumnSort event, dispatch hosts 1`] = `
-[
-  [
-    [
-      {
-        "dir": "desc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
-        "viewId": "lorem",
-      },
-      {
-        "sort": "loremIpsumColumnOne",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-  [
-    [
-      {
-        "dir": "asc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
-        "viewId": "lorem",
-      },
-      {
-        "sort": "loremIpsumColumnOne",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
-        "viewId": "lorem",
-      },
-    ],
-  ],
-]
 `;
 
 exports[`InventoryCardContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
@@ -188,44 +112,6 @@ exports[`InventoryCardContext should handle an onPage event: onPage event, dispa
 ]
 `;
 
-exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, cancelled 1`] = `
-{
-  "data": {},
-  "pending": true,
-}
-`;
-
-exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, disabled 1`] = `
-{
-  "data": {},
-  "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, error 1`] = `
-{
-  "data": {},
-  "error": true,
-  "pending": false,
-}
-`;
-
-exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, fulfilled 1`] = `
-{
-  "data": {},
-  "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`InventoryCardContext should handle variations in hosts inventory API responses: inventory, pending 1`] = `
-{
-  "data": {},
-  "pending": true,
-}
-`;
-
 exports[`InventoryCardContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
 {
   "data": {},
@@ -266,9 +152,7 @@ exports[`InventoryCardContext should handle variations in instances inventory AP
 
 exports[`InventoryCardContext should return specific properties: specific properties 1`] = `
 {
-  "useGetHostsInventory": [Function],
   "useGetInstancesInventory": [Function],
-  "useOnColumnSortHosts": [Function],
   "useOnColumnSortInstances": [Function],
   "useOnPageInstances": [Function],
 }

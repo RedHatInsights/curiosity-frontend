@@ -27,8 +27,6 @@ describe('InventoryReducer', () => {
 
   it('should handle all defined error types', () => {
     const specificTypes = [
-      types.GET_HOSTS_INVENTORY_RHSM,
-      types.GET_HOSTS_INVENTORY_GUESTS_RHSM,
       types.GET_INSTANCES_INVENTORY_RHSM,
       types.GET_INSTANCES_INVENTORY_GUESTS_RHSM,
       types.GET_SUBSCRIPTIONS_INVENTORY_RHSM
@@ -60,8 +58,6 @@ describe('InventoryReducer', () => {
 
   it('should handle all defined pending types', () => {
     const specificTypes = [
-      types.GET_HOSTS_INVENTORY_RHSM,
-      types.GET_HOSTS_INVENTORY_GUESTS_RHSM,
       types.GET_INSTANCES_INVENTORY_RHSM,
       types.GET_INSTANCES_INVENTORY_GUESTS_RHSM,
       types.GET_SUBSCRIPTIONS_INVENTORY_RHSM
@@ -82,8 +78,6 @@ describe('InventoryReducer', () => {
 
   it('should handle all defined fulfilled types', () => {
     const specificTypes = [
-      types.GET_HOSTS_INVENTORY_RHSM,
-      types.GET_HOSTS_INVENTORY_GUESTS_RHSM,
       types.GET_INSTANCES_INVENTORY_RHSM,
       types.GET_INSTANCES_INVENTORY_GUESTS_RHSM,
       types.GET_SUBSCRIPTIONS_INVENTORY_RHSM

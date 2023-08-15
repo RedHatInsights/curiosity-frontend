@@ -122,9 +122,6 @@ describe('Product RHACS config', () => {
     expect(generateTicks()).toMatchSnapshot('yAxisTickFormat');
   });
 
-  /**
-   * FixMe: this test needs to be updated as part of the refactor towards instances vs hosts
-   */
   it('should apply an inventory configuration', () => {
     const { initialInventoryFilters: initialFilters, inventoryHostsQuery: inventoryQuery } = config;
 

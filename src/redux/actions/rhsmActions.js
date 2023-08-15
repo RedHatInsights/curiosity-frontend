@@ -52,48 +52,6 @@ const getGraphMetrics =
   };
 
 /**
- * Get a hosts response listing from RHSM subscriptions.
- *
- * @deprecated The Hosts API is being replaced in favor of the Instances API response.
- * @param {string} id
- * @param {object} query
- * @returns {Function}
- */
-const getHostsInventory =
-  (id = null, query = {}) =>
-  dispatch =>
-    dispatch({
-      type: rhsmTypes.GET_HOSTS_INVENTORY_RHSM,
-      payload: rhsmServices.getHostsInventory(id, query),
-      meta: {
-        id,
-        query,
-        notifications: {}
-      }
-    });
-
-/**
- * Get a host's guest response listing from RHSM subscriptions.
- *
- * @deprecated The Hosts API is being replaced in favor of the Instances API response.
- * @param {string} id
- * @param {object} query
- * @returns {Function}
- */
-const getHostsInventoryGuests =
-  (id = null, query = {}) =>
-  dispatch =>
-    dispatch({
-      type: rhsmTypes.GET_HOSTS_INVENTORY_GUESTS_RHSM,
-      payload: rhsmServices.getHostsInventoryGuests(id, query),
-      meta: {
-        id,
-        query,
-        notifications: {}
-      }
-    });
-
-/**
  * Get an instances response listing from RHSM subscriptions.
  *
  * @param {string} id
@@ -155,8 +113,6 @@ const getSubscriptionsInventory =
 
 const rhsmActions = {
   getGraphMetrics,
-  getHostsInventory,
-  getHostsInventoryGuests,
   getInstancesInventory,
   getInstancesInventoryGuests,
   getSubscriptionsInventory
@@ -166,8 +122,6 @@ export {
   rhsmActions as default,
   rhsmActions,
   getGraphMetrics,
-  getHostsInventory,
-  getHostsInventoryGuests,
   getInstancesInventory,
   getInstancesInventoryGuests,
   getSubscriptionsInventory

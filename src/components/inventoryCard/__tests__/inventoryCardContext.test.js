@@ -1,9 +1,7 @@
 import {
   context,
-  useGetHostsInventory,
   useGetInstancesInventory,
   useOnPageInstances,
-  useOnColumnSortHosts,
   useOnColumnSortInstances
 } from '../inventoryCardContext';
 import {
@@ -103,93 +101,6 @@ describe('InventoryCardContext', () => {
     expect(disabledResponse).toMatchSnapshot('inventory, disabled');
   });
 
-  it('should handle a store response with useGetHostsInventory', async () => {
-    const { result } = await renderHook(
-      () =>
-        useGetHostsInventory({
-          getInventory: () => () => {},
-          useProduct: () => ({ productId: 'lorem' }),
-          useDispatch: () => {}
-        }),
-      {
-        state: {
-          inventory: {
-            hostsInventory: {
-              lorem: {
-                fulfilled: true,
-                data: [{ data: [{ lorem: 'ipsum' }, { dolor: 'sit' }], meta: {} }]
-              }
-            }
-          }
-        }
-      }
-    );
-
-    expect(result).toMatchSnapshot('store response');
-  });
-
-  it('should handle variations in hosts inventory API responses', async () => {
-    const { result: errorResponse } = await renderHook(() =>
-      useGetHostsInventory({
-        getInventory: () => () => {},
-        useProduct: () => ({ productId: 'lorem' }),
-        useDispatch: () => {},
-        useSelectorsResponse: () => ({ error: true })
-      })
-    );
-
-    expect(errorResponse).toMatchSnapshot('inventory, error');
-
-    const { result: pendingResponse } = await renderHook(() =>
-      useGetHostsInventory({
-        getInventory: () => () => {},
-        useProduct: () => ({ productId: 'lorem' }),
-        useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({ pending: true })
-      })
-    );
-
-    expect(pendingResponse).toMatchSnapshot('inventory, pending');
-
-    const { result: cancelledResponse } = await renderHook(() =>
-      useGetHostsInventory({
-        getInventory: () => () => {},
-        useProduct: () => ({ productId: 'lorem' }),
-        useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({ cancelled: true })
-      })
-    );
-
-    expect(cancelledResponse).toMatchSnapshot('inventory, cancelled');
-
-    const { result: fulfilledResponse } = await renderHook(() =>
-      useGetHostsInventory({
-        getInventory: () => () => {},
-        useProduct: () => ({ productId: 'lorem' }),
-        useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({ fulfilled: true })
-      })
-    );
-
-    expect(fulfilledResponse).toMatchSnapshot('inventory, fulfilled');
-
-    const { result: disabledResponse } = await renderHook(() =>
-      useGetHostsInventory({
-        isDisabled: true,
-        getInventory: () => () => {},
-        useProduct: () => ({ productId: 'lorem' }),
-        useDispatch: () => {},
-        useProductInventoryQuery: () => ({}),
-        useSelectorsResponse: () => ({ fulfilled: true })
-      })
-    );
-
-    expect(disabledResponse).toMatchSnapshot('inventory, disabled');
-  });
-
   it('should handle an onPage event', () => {
     const mockDispatch = jest.fn();
     const onPage = useOnPageInstances({
@@ -199,21 +110,6 @@ describe('InventoryCardContext', () => {
 
     onPage({ offset: 1, perPage: 5 });
     expect(mockDispatch.mock.calls).toMatchSnapshot('onPage event, dispatch');
-    mockDispatch.mockClear();
-  });
-
-  it('should handle an onColumnSort event for hosts', () => {
-    const mockDispatch = jest.fn();
-    const onColumnSort = useOnColumnSortHosts({
-      sortColumns: { LOREM_IPSUM_COLUMN_ONE: 'loremIpsumColumnOne' },
-      useDispatch: () => mockDispatch,
-      useProduct: () => ({ productId: 'lorem' })
-    });
-
-    onColumnSort(null, { direction: SORT_DIRECTION_TYPES.DESCENDING, id: 'loremIpsumColumnOne' });
-    onColumnSort(null, { direction: SORT_DIRECTION_TYPES.ASCENDING, id: 'loremIpsumColumnOne' });
-
-    expect(mockDispatch.mock.calls).toMatchSnapshot('onColumnSort event, dispatch hosts');
     mockDispatch.mockClear();
   });
 
