@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/29bb863f3d0c47b4571e733d18c86cf6783f4054...3efb6f2487ad958f99973c6e88d37db96b1e83d8) (2023-08-15)
+
+
+### Code Refactoring
+* **rhsmServices** sw-870 migrate host to instances guests  ([#1155](https://github.com/RedHatInsights/curiosity-frontend/pull/1155)) ([3efb6f2](https://github.com/RedHatInsights/curiosity-frontend/commit/3efb6f2487ad958f99973c6e88d37db96b1e83d8))
+* **config** sw-870 guest inventory display  ([#1155](https://github.com/RedHatInsights/curiosity-frontend/pull/1155)) ([6ec26ff](https://github.com/RedHatInsights/curiosity-frontend/commit/6ec26ff9a88fed2ef9e3c51762f9767b1b271a0a))
+* **config** sw-1565 remove rhosak  ([#1161](https://github.com/RedHatInsights/curiosity-frontend/pull/1161)) ([43d9009](https://github.com/RedHatInsights/curiosity-frontend/commit/43d90091c4832edeb7e3a85097de70c8522cc0c9))
+* **testing** sw-1348 migrate from enzyme  ([#1144](https://github.com/RedHatInsights/curiosity-frontend/pull/1144)) ([c81687d](https://github.com/RedHatInsights/curiosity-frontend/commit/c81687d9200ea781854e9e4ea1223dc6e50ff404))
+* **minHeight** sw-1348 class to func  ([#1146](https://github.com/RedHatInsights/curiosity-frontend/pull/1146)) ([dd86d1a](https://github.com/RedHatInsights/curiosity-frontend/commit/dd86d1ae619ea67d406fc525b0e1f866d232e455))
+
+### Builds
+* **babel** sw-1348 update presets, targets  ([#1148](https://github.com/RedHatInsights/curiosity-frontend/pull/1148)) ([9ccf31d](https://github.com/RedHatInsights/curiosity-frontend/commit/9ccf31d9c514b6215b3f0dcffe78517ac1cf6afb))
+* **release** adding starter jenkinsfile  ([#1150](https://github.com/RedHatInsights/curiosity-frontend/pull/1150)) ([fad2b25](https://github.com/RedHatInsights/curiosity-frontend/commit/fad2b2519298a22f7b92dbe679d714c983931d8e))
+
+### Bug Fixes
+* **config** rhods, app-services default product  ([#1160](https://github.com/RedHatInsights/curiosity-frontend/pull/1160)) ([2089bf4](https://github.com/RedHatInsights/curiosity-frontend/commit/2089bf48f5dd805ab66f5d03c7b39ce055dc47a3))
+
 ## [3.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/9de8dcb131aea806c83c531a1f3b2a7fc0555af3...dfefb0eea1a2f51853d226278609d5907fd29b53) (2023-07-25)
 
 
