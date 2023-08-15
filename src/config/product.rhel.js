@@ -43,7 +43,7 @@ const productGroup = 'rhel';
 
 const productId = RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86;
 
-const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHEL;
+const productLabel = 'RHEL';
 
 /**
  * RHEL product config

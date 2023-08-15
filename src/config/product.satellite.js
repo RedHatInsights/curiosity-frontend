@@ -35,7 +35,7 @@ const productGroup = 'rhel';
 
 const productId = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER;
 
-const productLabel = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE;
+const productLabel = 'Satellite';
 
 /**
  * Satellite product config
