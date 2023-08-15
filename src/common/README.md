@@ -182,7 +182,6 @@ Download the debug log file.
     * [~UI_DISABLED_GRAPH](#Helpers.module_General..UI_DISABLED_GRAPH) : <code>boolean</code>
     * [~UI_DISABLED_NOTIFICATIONS](#Helpers.module_General..UI_DISABLED_NOTIFICATIONS) : <code>boolean</code>
     * [~UI_DISABLED_TABLE](#Helpers.module_General..UI_DISABLED_TABLE) : <code>boolean</code>
-    * [~UI_DISABLED_TABLE_HOSTS](#Helpers.module_General..UI_DISABLED_TABLE_HOSTS) : <code>boolean</code>
     * [~UI_DISABLED_TABLE_INSTANCES](#Helpers.module_General..UI_DISABLED_TABLE_INSTANCES) : <code>boolean</code>
     * [~UI_DISABLED_TABLE_SUBSCRIPTIONS](#Helpers.module_General..UI_DISABLED_TABLE_SUBSCRIPTIONS) : <code>boolean</code>
     * [~UI_DISABLED_TOOLBAR](#Helpers.module_General..UI_DISABLED_TOOLBAR) : <code>boolean</code>
@@ -315,13 +314,6 @@ See dotenv config files for activation.
 
 ### General~UI\_DISABLED\_TABLE : <code>boolean</code>
 Disable the inventory/table aspect of the UI.
-See dotenv config files for activation.
-
-**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
-<a name="Helpers.module_General..UI_DISABLED_TABLE_HOSTS"></a>
-
-### General~UI\_DISABLED\_TABLE\_HOSTS : <code>boolean</code>
-Disable the current hosts inventory/table aspect of the UI.
 See dotenv config files for activation.
 
 **Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  

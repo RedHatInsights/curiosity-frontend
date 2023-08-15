@@ -2,8 +2,6 @@ import moment from 'moment';
 import {
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_PATH_METRIC_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as HOSTS_DATA_TYPES,
-  RHSM_API_RESPONSE_HOSTS_META_TYPES as HOSTS_META_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INSTANCES_DATA_TYPES,
   RHSM_API_RESPONSE_INSTANCES_META_TYPES as INSTANCES_META_TYPES,
   RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES as TALLY_CAPACITY_DATA_TYPES,
@@ -18,39 +16,6 @@ import { dateHelpers } from '../../common';
  * @memberof Rhsm
  * @module RhsmTransformers
  */
-
-/**
- * Parse RHSM hosts response for caching.
- *
- * @param {object} response
- * @returns {object}
- */
-const rhsmHosts = response => {
-  const updatedResponse = {};
-  const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
-    response || {};
-
-  updatedResponse.data = data.map(
-    ({
-      [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
-      [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
-      ...dataResponse
-    }) => ({
-      [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
-      [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
-      numberOfGuests,
-      subscriptionManagerId,
-      ...dataResponse
-    })
-  );
-
-  updatedResponse.meta = {
-    count: meta[HOSTS_META_TYPES.COUNT],
-    productId: meta[HOSTS_META_TYPES.PRODUCT]
-  };
-
-  return updatedResponse;
-};
 
 /**
  * ToDO: remove the UOM fallback if/when the API supports returning some form of the UOM in the response
@@ -195,9 +160,8 @@ const rhsmTallyCapacity = (response, { _isCapacity, params } = {}) => {
 };
 
 const rhsmTransformers = {
-  hosts: rhsmHosts,
   instances: rhsmInstances,
   tallyCapacity: rhsmTallyCapacity
 };
 
-export { rhsmTransformers as default, rhsmTransformers, rhsmHosts, rhsmInstances, rhsmTallyCapacity };
+export { rhsmTransformers as default, rhsmTransformers, rhsmInstances, rhsmTallyCapacity };

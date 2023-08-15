@@ -273,14 +273,6 @@ const UI_DISABLED_NOTIFICATIONS = process.env.REACT_APP_UI_DISABLED_NOTIFICATION
 const UI_DISABLED_TABLE = process.env.REACT_APP_UI_DISABLED_TABLE === 'true';
 
 /**
- * Disable the current hosts inventory/table aspect of the UI.
- * See dotenv config files for activation.
- *
- * @type {boolean}
- */
-const UI_DISABLED_TABLE_HOSTS = process.env.REACT_APP_UI_DISABLED_TABLE_HOSTS === 'true';
-
-/**
  * Disable the current instances inventory/table aspect of the UI.
  * See dotenv config files for activation.
  *
@@ -456,7 +448,6 @@ const helpers = {
   UI_DISABLED_GRAPH,
   UI_DISABLED_NOTIFICATIONS,
   UI_DISABLED_TABLE,
-  UI_DISABLED_TABLE_HOSTS,
   UI_DISABLED_TABLE_INSTANCES,
   UI_DISABLED_TABLE_SUBSCRIPTIONS,
   UI_DISABLED_TOOLBAR,

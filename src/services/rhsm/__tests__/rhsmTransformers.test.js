@@ -214,24 +214,6 @@ describe('RHSM Transformers', () => {
     );
   });
 
-  it('should attempt to parse an hosts response', () => {
-    expect(rhsmTransformers.hosts(undefined)).toMatchSnapshot('hosts, failed');
-
-    expect(
-      rhsmTransformers.hosts({
-        [rhsmConstants.RHSM_API_RESPONSE_DATA]: [
-          {
-            [rhsmConstants.RHSM_API_RESPONSE_HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: 2,
-            [rhsmConstants.RHSM_API_RESPONSE_HOSTS_DATA_TYPES.SOCKETS]: 1000
-          }
-        ],
-        [rhsmConstants.RHSM_API_RESPONSE_META]: {
-          [rhsmConstants.RHSM_API_RESPONSE_HOSTS_META_TYPES.COUNT]: 10
-        }
-      })
-    ).toMatchSnapshot('hosts');
-  });
-
   it('should attempt to parse an instances response', () => {
     expect(rhsmTransformers.instances(undefined)).toMatchSnapshot('instances, failed');
 

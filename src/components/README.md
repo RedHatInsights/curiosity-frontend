@@ -63,13 +63,11 @@
 <dt><a href="#i18n.module_i18nHelpers">i18nHelpers</a></dt>
 <dd></dd>
 <dt><a href="#Components.module_InventoryCard">InventoryCard</a></dt>
-<dd><p>Instances, Hosts, and Subscriptions base inventory card.</p>
+<dd><p>Instances, and Subscriptions base inventory card.</p>
 </dd>
 <dt><a href="#InventoryCard.module_InventoryCardContext">InventoryCardContext</a></dt>
 <dd></dd>
 <dt><a href="#InventoryCard.module_InventoryCardHelpers">InventoryCardHelpers</a></dt>
-<dd></dd>
-<dt><a href="#InventoryCard.module_InventoryCardHosts">InventoryCardHosts</a></dt>
 <dd></dd>
 <dt><a href="#Components.module_InventoryCardSubscriptions">InventoryCardSubscriptions</a></dt>
 <dd></dd>
@@ -2833,7 +2831,7 @@ Apply string replacements against a component, HOC.
 <a name="Components.module_InventoryCard"></a>
 
 ## InventoryCard
-Instances, Hosts, and Subscriptions base inventory card.
+Instances, and Subscriptions base inventory card.
 
 **Properties**
 
@@ -2848,8 +2846,6 @@ Instances, Hosts, and Subscriptions base inventory card.
     <td>InventoryCardContext</td><td><code>module</code></td>
     </tr><tr>
     <td>InventoryCardHelpers</td><td><code>module</code></td>
-    </tr><tr>
-    <td>InventoryCardHosts</td><td><code>module</code></td>
     </tr>  </tbody>
 </table>
 
@@ -2922,44 +2918,11 @@ Default props.
 ## InventoryCardContext
 
 * [InventoryCardContext](#InventoryCard.module_InventoryCardContext)
-    * [~useGetHostsInventory(options)](#InventoryCard.module_InventoryCardContext..useGetHostsInventory) ⇒ <code>Object</code>
     * [~useGetInstancesInventory(options)](#InventoryCard.module_InventoryCardContext..useGetInstancesInventory) ⇒ <code>Object</code>
     * [~useOnPageInstances(options)](#InventoryCard.module_InventoryCardContext..useOnPageInstances) ⇒ <code>function</code>
-    * [~useOnColumnSortHosts(options)](#InventoryCard.module_InventoryCardContext..useOnColumnSortHosts) ⇒ <code>function</code>
     * [~useOnColumnSortInstances(options)](#InventoryCard.module_InventoryCardContext..useOnColumnSortInstances) ⇒ <code>function</code>
     * ["onPage" (params)](#event_onPage) ⇒ <code>void</code>
     * ["onColumnSort" (_data, params)](#event_onColumnSort) ⇒ <code>void</code>
-    * ["onColumnSort" (_data, params)](#event_onColumnSort) ⇒ <code>void</code>
-
-<a name="InventoryCard.module_InventoryCardContext..useGetHostsInventory"></a>
-
-### InventoryCardContext~useGetHostsInventory(options) ⇒ <code>Object</code>
-Combined Redux RHSM Actions, getHostsInventory, and inventory selector response.
-
-**Kind**: inner method of [<code>InventoryCardContext</code>](#InventoryCard.module_InventoryCardContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.isDisabled</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>options.getInventory</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProductInventoryQuery</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useSelectorsResponse</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
 
 <a name="InventoryCard.module_InventoryCardContext..useGetInstancesInventory"></a>
 
@@ -3013,30 +2976,6 @@ An onPage callback for instances inventory.
     </tr>  </tbody>
 </table>
 
-<a name="InventoryCard.module_InventoryCardContext..useOnColumnSortHosts"></a>
-
-### InventoryCardContext~useOnColumnSortHosts(options) ⇒ <code>function</code>
-An onColumnSort callback for hosts inventory.
-
-**Kind**: inner method of [<code>InventoryCardContext</code>](#InventoryCard.module_InventoryCardContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.sortColumns</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
 <a name="InventoryCard.module_InventoryCardContext..useOnColumnSortInstances"></a>
 
 ### InventoryCardContext~useOnColumnSortInstances(options) ⇒ <code>function</code>
@@ -3080,30 +3019,6 @@ On event update state for instances inventory.
     <td>params.offset</td><td><code>number</code></td>
     </tr><tr>
     <td>params.perPage</td><td><code>number</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="event_onColumnSort"></a>
-
-### "onColumnSort" (_data, params) ⇒ <code>void</code>
-On event update state for hosts inventory.
-
-**Kind**: event emitted by [<code>InventoryCardContext</code>](#InventoryCard.module_InventoryCardContext)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>_data</td><td><code>*</code></td>
-    </tr><tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.direction</td><td><code>string</code></td>
-    </tr><tr>
-    <td>params.id</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 
@@ -3289,58 +3204,6 @@ Parse and return formatted/filtered table cells, and apply table filters.
     </tr>  </tbody>
 </table>
 
-<a name="InventoryCard.module_InventoryCardHosts"></a>
-
-## InventoryCardHosts
-
-* [InventoryCardHosts](#InventoryCard.module_InventoryCardHosts)
-    * <del>[~InventoryCardHosts(props)](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts) ⇒ <code>React.ReactNode</code></del>
-        * [.propTypes](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.propTypes) : <code>Object</code>
-        * [.defaultProps](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.defaultProps) : <code>Object</code>
-
-<a name="InventoryCard.module_InventoryCardHosts..InventoryCardHosts"></a>
-
-### <del>InventoryCardHosts~InventoryCardHosts(props) ⇒ <code>React.ReactNode</code></del>
-***Deprecated***
-
-A hosts' system inventory component.
-
-**Kind**: inner method of [<code>InventoryCardHosts</code>](#InventoryCard.module_InventoryCardHosts)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.isDisabled</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.useGetInventory</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useOnColumnSort</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* <del>[~InventoryCardHosts(props)](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts) ⇒ <code>React.ReactNode</code></del>
-    * [.propTypes](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.propTypes) : <code>Object</code>
-    * [.defaultProps](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts.defaultProps) : <code>Object</code>
-
-<a name="InventoryCard.module_InventoryCardHosts..InventoryCardHosts.propTypes"></a>
-
-#### InventoryCardHosts.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>InventoryCardHosts</code>](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts)  
-<a name="InventoryCard.module_InventoryCardHosts..InventoryCardHosts.defaultProps"></a>
-
-#### InventoryCardHosts.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>InventoryCardHosts</code>](#InventoryCard.module_InventoryCardHosts..InventoryCardHosts)  
 <a name="Components.module_InventoryCardSubscriptions"></a>
 
 ## InventoryCardSubscriptions
@@ -4992,7 +4855,7 @@ Return guests inventory configuration.
 <a name="ProductView.module_ProductViewContext..useProductInventoryHostsConfig"></a>
 
 ### ProductViewContext~useProductInventoryHostsConfig(options) ⇒ <code>Object</code>
-Return hosts inventory configuration.
+Return inventory configuration.
 
 **Kind**: inner method of [<code>ProductViewContext</code>](#ProductView.module_ProductViewContext)  
 <table>

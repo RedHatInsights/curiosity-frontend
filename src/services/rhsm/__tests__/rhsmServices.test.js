@@ -5,7 +5,7 @@ describe('RhsmServices', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(tally|capacity|hosts|instances|subscriptions|version).*?/, {
+    moxios.stubRequest(/\/(tally|capacity|instances|subscriptions|version).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
@@ -17,16 +17,13 @@ describe('RhsmServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(rhsmServices)).toHaveLength(9);
+    expect(Object.keys(rhsmServices)).toHaveLength(6);
   });
 
   it('should have specific methods', () => {
     expect(rhsmServices.getApiVersion).toBeDefined();
     expect(rhsmServices.getGraphCapacity).toBeDefined();
-    expect(rhsmServices.getGraphReports).toBeDefined();
     expect(rhsmServices.getGraphTally).toBeDefined();
-    expect(rhsmServices.getHostsInventory).toBeDefined();
-    expect(rhsmServices.getHostsInventoryGuests).toBeDefined();
     expect(rhsmServices.getInstancesInventory).toBeDefined();
     expect(rhsmServices.getInstancesInventoryGuests).toBeDefined();
     expect(rhsmServices.getSubscriptionsInventory).toBeDefined();

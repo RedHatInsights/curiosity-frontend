@@ -5,7 +5,6 @@ exports[`RHSM Schemas should have specific response schemas: specific schemas 1`
   "capacity": [Function],
   "errors": [Function],
   "guests": [Function],
-  "hosts": [Function],
   "instances": [Function],
   "subscriptions": [Function],
   "tally": [Function],
@@ -27,14 +26,6 @@ exports[`RHSM Schemas should have valid schemas that validate API responses: err
 `;
 
 exports[`RHSM Schemas should have valid schemas that validate API responses: guests response schema 1`] = `
-{
-  "data": [],
-  "links": {},
-  "meta": {},
-}
-`;
-
-exports[`RHSM Schemas should have valid schemas that validate API responses: hosts response schema 1`] = `
 {
   "data": [],
   "links": {},
