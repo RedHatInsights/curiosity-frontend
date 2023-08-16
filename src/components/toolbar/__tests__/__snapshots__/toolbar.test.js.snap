@@ -27,9 +27,14 @@ exports[`Toolbar Component should handle displaying a group variant field: group
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+          chipGroupCollapsedText={null}
+          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
+          deleteChipGroup={null}
           showToolbarItem={true}
+          useToolbarContentContext={[Function]}
+          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -103,9 +108,14 @@ exports[`Toolbar Component should handle displaying secondary components, fields
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+          chipGroupCollapsedText={null}
+          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
+          deleteChipGroup={null}
           showToolbarItem={true}
+          useToolbarContentContext={[Function]}
+          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -138,19 +148,19 @@ exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
 >
   <span
     class="pf-c-chip__text"
-    id="pf-random-id-3"
+    id="pf-random-id-2"
   >
     t(curiosity-toolbar.label_sla, {"context":"Premium"})
   </span>
   <button
     aria-disabled="false"
     aria-label="close"
-    aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
+    aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
     class="pf-c-button pf-m-plain"
     data-ouia-component-id="close"
     data-ouia-component-type="PF4/Button"
     data-ouia-safe="true"
-    id="remove_pf-random-id-3"
+    id="remove_pf-random-id-2"
     type="button"
   >
     <svg
@@ -209,9 +219,14 @@ exports[`Toolbar Component should hide categories when a single filter is availa
       >
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+          chipGroupCollapsedText={null}
+          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
+          deleteChipGroup={null}
           showToolbarItem={true}
+          useToolbarContentContext={[Function]}
+          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -275,9 +290,14 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         </ToolbarItem>
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"sla"})"
+          chipGroupCollapsedText={null}
+          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
+          deleteChipGroup={null}
           showToolbarItem={false}
+          useToolbarContentContext={[Function]}
+          useToolbarContext={[Function]}
         >
           <Sla
             isFilter={true}
@@ -285,9 +305,14 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
         </ToolbarFilter>
         <ToolbarFilter
           categoryName="t(curiosity-toolbar.label_filter, {"context":"usage"})"
+          chipGroupCollapsedText={null}
+          chipGroupExpandedText={null}
           chips={[]}
           deleteChip={[Function]}
+          deleteChipGroup={null}
           showToolbarItem={false}
+          useToolbarContentContext={[Function]}
+          useToolbarContext={[Function]}
         >
           <Usage
             isFilter={true}
