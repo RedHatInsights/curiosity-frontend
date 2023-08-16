@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFilter Component should display basic chips: portal 1`] = `
+[
+  <ToolbarItem
+    variant="chip-group"
+  >
+    <ChipGroup
+      aria-label="Chip group category"
+      categoryName="loremIpsum"
+      closeBtnAriaLabel="Close chip group"
+      collapsedText="\${remaining} more"
+      defaultIsOpen={false}
+      expandedText="Show Less"
+      isClosable={false}
+      numChips={3}
+      onClick={[Function]}
+      onOverflowChipClick={[Function]}
+      tooltipPosition="top"
+    >
+      <Chip
+        className=""
+        closeBtnAriaLabel="close"
+        component="div"
+        isOverflowChip={false}
+        isReadOnly={false}
+        onClick={[Function]}
+        tooltipPosition="top"
+      >
+        lorem
+      </Chip>
+      <Chip
+        className=""
+        closeBtnAriaLabel="close"
+        component="div"
+        isOverflowChip={false}
+        isReadOnly={false}
+        onClick={[Function]}
+        tooltipPosition="top"
+      >
+        hello world
+      </Chip>
+    </ChipGroup>
+  </ToolbarItem>,
+  "dolor sit test",
+]
+`;
+
+exports[`ToolbarFilter Component should export specific context hooks: context hooks 1`] = `
+{
+  "useToolbarContentContext": [Function],
+  "useToolbarContext": [Function],
+}
+`;
+
+exports[`ToolbarFilter Component should render a basic component: basic 1`] = `
+<toolbarfilter
+  props="{
+  "categoryName": "loremIpsum",
+  "chips": [
+    "lorem",
+    {
+      "key": "ipsum",
+      "node": "hello world"
+    }
+  ],
+  "children": [
+    {}
+  ],
+  "chipGroupCollapsedText": null,
+  "chipGroupExpandedText": null,
+  "deleteChipGroup": null,
+  "showToolbarItem": true
+}"
+>
+  <div
+    class="pf-c-toolbar__item"
+  >
+    lorem ipsum
+  </div>
+</toolbarfilter>
+`;
