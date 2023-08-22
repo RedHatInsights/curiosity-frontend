@@ -31,7 +31,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     "productVariants": [],
   },
   {
-    "coverage": "FALSE",
+    "coverage": "TRUE",
     "path": "/openshift-container",
     "productGroup": [
       "openshift",
@@ -511,13 +511,6 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     "productVariants": [],
   },
   {
-    "coverage": "FALSE",
-    "path": undefined,
-    "productGroup": undefined,
-    "productId": undefined,
-    "productVariants": undefined,
-  },
-  {
     "coverage": "TRUE",
     "path": "/rhods",
     "productGroup": [
@@ -536,6 +529,39 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "rhacs",
+    ],
+    "productVariants": [],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/rhel",
+    "productGroup": [
+      "rhel",
+    ],
+    "productId": [
+      "RHEL for x86",
+      "Satellite Server",
+    ],
+    "productVariants": [
+      "RHEL for ARM",
+      "RHEL for IBM Power",
+      "RHEL for IBM z",
+      "RHEL for x86",
+      "Satellite Capsule",
+      "Satellite Server",
+    ],
+  },
+  {
+    "coverage": "TRUE",
+    "path": "/openshift-container",
+    "productGroup": [
+      "openshift",
+    ],
+    "productId": [
+      "OpenShift Container Platform",
+      "OpenShift-dedicated-metrics",
+      "OpenShift-metrics",
+      "rosa",
     ],
     "productVariants": [],
   },
