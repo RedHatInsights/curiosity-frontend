@@ -22,7 +22,7 @@ describe('ToolbarFieldGroupVariant Component', () => {
         { title: 'sit', value: 'sit' }
       ]
     };
-    const component = await shallowHookComponent(<ToolbarFieldGroupVariant {...props} />);
+    const component = await shallowComponent(<ToolbarFieldGroupVariant {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -35,7 +35,7 @@ describe('ToolbarFieldGroupVariant Component', () => {
         { title: 'ipsum', value: 'ipsum' }
       ]
     };
-    const component = await shallowHookComponent(<ToolbarFieldGroupVariant {...props} />);
+    const component = await shallowComponent(<ToolbarFieldGroupVariant {...props} />);
 
     expect(component).toMatchSnapshot('standalone toolbar');
   });
@@ -44,13 +44,13 @@ describe('ToolbarFieldGroupVariant Component', () => {
     const props = {
       useToolbarFieldOptions: () => [{ title: 'lorem', value: 'lorem' }]
     };
-    const component = await shallowHookComponent(<ToolbarFieldGroupVariant {...props} />);
+    const component = await shallowComponent(<ToolbarFieldGroupVariant {...props} />);
 
     expect(component).toMatchSnapshot('one or less');
   });
 
-  it('should generate select options', () => {
-    const { result: toolbarFieldOptions } = shallowHook(() =>
+  it('should generate select options', async () => {
+    const { result: toolbarFieldOptions } = await renderHook(() =>
       useToolbarFieldOptions({
         useRouteDetail: () => ({
           availableVariants: ['lorem', 'ipsum', 'dolor', 'sit', '']
@@ -61,7 +61,7 @@ describe('ToolbarFieldGroupVariant Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating through redux state with component', async () => {
+  it('should handle updating through redux state with component', () => {
     const props = {
       useToolbarFieldOptions: () => [
         {
@@ -77,10 +77,12 @@ describe('ToolbarFieldGroupVariant Component', () => {
       ]
     };
 
-    const component = await mountHookComponent(<ToolbarFieldGroupVariant {...props} />);
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const component = renderComponent(<ToolbarFieldGroupVariant {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
+
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });

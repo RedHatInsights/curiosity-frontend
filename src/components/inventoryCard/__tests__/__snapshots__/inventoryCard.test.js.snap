@@ -1,100 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryCard Component should handle expandable guests data: number of guests 1`] = `
-{
-  "ariaLabel": null,
-  "borders": true,
-  "children": null,
-  "className": "curiosity-inventory-list",
-  "columnHeaders": [
-    "t(curiosity-inventory.header, {"context":"lorem"})",
-    "t(curiosity-inventory.header, {"context":"dolor"})",
-    "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
-  ],
-  "isHeader": true,
-  "rows": [
-    {
-      "cells": [
-        "sit",
-        "amet",
-        1,
-      ],
-      "expandedContent": undefined,
-    },
-  ],
-  "summary": null,
-  "t": [Function],
-  "variant": "compact",
-}
+exports[`InventoryCard Component should handle expandable guests data: NO number of guests and NO expandable guests display 1`] = `
+<tbody
+  class=""
+  role="rowgroup"
+>
+  <tr
+    class=""
+    data-ouia-component-id="OUIA-Generated-TableRow-5"
+    data-ouia-component-type="PF4/TableRow"
+    data-ouia-safe="true"
+  >
+    <td
+      class=""
+      data-key="0"
+      data-label="t(curiosity-inventory.header, {"context":"lorem"})"
+    >
+      sit
+    </td>
+    <td
+      class=""
+      data-key="1"
+      data-label="t(curiosity-inventory.header, {"context":"dolor"})"
+    >
+      amet
+    </td>
+    <td
+      class=""
+      data-key="2"
+      data-label="t(curiosity-inventory.header_number_of, {"context":"guests"})"
+    >
+      ...
+    </td>
+  </tr>
+</tbody>
 `;
 
-exports[`InventoryCard Component should handle expandable guests data: number of guests, and id 1`] = `
-{
-  "ariaLabel": null,
-  "borders": true,
-  "children": null,
-  "className": "curiosity-inventory-list",
-  "columnHeaders": [
-    "t(curiosity-inventory.header, {"context":"lorem"})",
-    "t(curiosity-inventory.header, {"context":"dolor"})",
-    "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
-    "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
-  ],
-  "isHeader": true,
-  "rows": [
-    {
-      "cells": [
-        "sit",
-        "amet",
-        1,
-        "loremIpsum",
-      ],
-      "expandedContent": <InventoryGuests
-        defaultPerPage={5}
-        id="loremIpsum"
-        numberOfGuests={1}
-        useGetGuestsInventory={[Function]}
-        useOnScroll={[Function]}
-        useProductInventoryGuestsConfig={[Function]}
-        useProductInventoryGuestsQuery={[Function]}
-        useSession={[Function]}
-      />,
-    },
-  ],
-  "summary": null,
-  "t": [Function],
-  "variant": "compact",
-}
-`;
-
-exports[`InventoryCard Component should handle expandable guests data: number of guests, id, and NO expandable guests display 1`] = `
-{
-  "ariaLabel": null,
-  "borders": true,
-  "children": null,
-  "className": "curiosity-inventory-list",
-  "columnHeaders": [
-    "t(curiosity-inventory.header, {"context":"lorem"})",
-    "t(curiosity-inventory.header, {"context":"dolor"})",
-    "t(curiosity-inventory.header, {"context":"numberOfGuests"})",
-    "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
-  ],
-  "isHeader": true,
-  "rows": [
-    {
-      "cells": [
-        "sit",
-        "amet",
-        2,
-        "loremIpsum",
-      ],
-      "expandedContent": undefined,
-    },
-  ],
-  "summary": null,
-  "t": [Function],
-  "variant": "compact",
-}
+exports[`InventoryCard Component should handle expandable guests data: number of guests, and returned id 1`] = `
+<tbody
+  class=""
+  role="rowgroup"
+>
+  <tr
+    class=""
+    data-ouia-component-id="OUIA-Generated-TableRow-7"
+    data-ouia-component-type="PF4/TableRow"
+    data-ouia-safe="true"
+  >
+    <td
+      class=""
+      data-key="0"
+      data-label="t(curiosity-inventory.header, {"context":"lorem"})"
+    >
+      sit
+    </td>
+    <td
+      class=""
+      data-key="1"
+      data-label="t(curiosity-inventory.header, {"context":"dolor"})"
+    >
+      amet
+    </td>
+    <td
+      class=""
+      data-key="2"
+      data-label="t(curiosity-inventory.header_number_of, {"context":"guests"})"
+    >
+      1
+    </td>
+    <td
+      class=""
+      data-key="3"
+      data-label="t(curiosity-inventory.header, {"context":"subscriptionManagerId"})"
+    >
+      loremIpsum
+    </td>
+  </tr>
+</tbody>
 `;
 
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
@@ -102,10 +84,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   className="curiosity-inventory-card"
 >
   <MinHeight
-    key="headerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={true}
@@ -138,10 +119,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardHeader>
   </MinHeight>
   <MinHeight
-    key="bodyMinHeight-10-resize"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -162,10 +142,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardBody>
   </MinHeight>
   <MinHeight
-    key="footerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={true}
@@ -196,10 +175,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   className="curiosity-inventory-card"
 >
   <MinHeight
-    key="headerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={false}
@@ -232,10 +210,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardHeader>
   </MinHeight>
   <MinHeight
-    key="bodyMinHeight-10-resize"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -245,9 +222,31 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           ariaLabel={null}
           borders={true}
           className="curiosity-inventory-list"
-          columnHeaders={[]}
+          columnHeaders={
+            [
+              "t(curiosity-inventory.header, {"context":"lorem"})",
+              "t(curiosity-inventory.header, {"context":"dolor"})",
+            ]
+          }
           isHeader={true}
-          rows={[]}
+          rows={
+            [
+              {
+                "cells": [
+                  "ipsum",
+                  "sit",
+                ],
+                "expandedContent": undefined,
+              },
+              {
+                "cells": [
+                  "sit",
+                  "amet",
+                ],
+                "expandedContent": undefined,
+              },
+            ]
+          }
           summary={null}
           t={[Function]}
           variant="compact"
@@ -256,10 +255,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardBody>
   </MinHeight>
   <MinHeight
-    key="footerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={false}
@@ -290,10 +288,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   className="curiosity-inventory-card"
 >
   <MinHeight
-    key="headerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={false}
@@ -326,10 +323,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardHeader>
   </MinHeight>
   <MinHeight
-    key="bodyMinHeight-10"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -356,10 +352,9 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     </CardBody>
   </MinHeight>
   <MinHeight
-    key="footerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={true}
@@ -386,73 +381,181 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 `;
 
 exports[`InventoryCard Component should handle variations in data: filtered data 1`] = `
-{
-  "ariaLabel": null,
-  "borders": true,
-  "children": null,
-  "className": "curiosity-inventory-list",
-  "columnHeaders": [
-    {
-      "title": "t(curiosity-inventory.header, {"context":"lorem"})",
-      "transforms": [],
-    },
-  ],
-  "isHeader": true,
-  "rows": [
-    {
-      "cells": [
-        {
-          "title": "ipsum",
-        },
-      ],
-      "expandedContent": undefined,
-    },
-    {
-      "cells": [
-        {
-          "title": "sit",
-        },
-      ],
-      "expandedContent": undefined,
-    },
-  ],
-  "summary": null,
-  "t": [Function],
-  "variant": "compact",
-}
+<table
+  aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+  class="curiosity-table curiosity-inventory-list pf-c-table pf-m-grid-md pf-m-compact"
+  data-ouia-component-id="OUIA-Generated-Table-2"
+  data-ouia-component-type="PF4/Table"
+  data-ouia-safe="true"
+  role="grid"
+  summary="t(curiosity-inventory.tableSummary)"
+>
+  <thead
+    class=""
+  >
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-1"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <th
+        class=""
+        data-key="0"
+        data-label="t(curiosity-inventory.header, {"context":"lorem"})"
+        scope="col"
+      >
+        t(curiosity-inventory.header, {"context":"lorem"})
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class=""
+    role="rowgroup"
+  >
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-2"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="t(curiosity-inventory.header, {"context":"lorem"})"
+      >
+        ipsum
+      </td>
+    </tr>
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-3"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="t(curiosity-inventory.header, {"context":"lorem"})"
+      >
+        sit
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`InventoryCard Component should handle variations in data: variable data 1`] = `
-{
-  "ariaLabel": null,
-  "borders": true,
-  "children": null,
-  "className": "curiosity-inventory-list",
-  "columnHeaders": [
-    "t(curiosity-inventory.header, {"context":"lorem"})",
-    "t(curiosity-inventory.header, {"context":"dolor"})",
-  ],
-  "isHeader": true,
-  "rows": [
-    {
-      "cells": [
-        "ipsum",
-        "sit",
-      ],
-      "expandedContent": undefined,
-    },
-    {
-      "cells": [
-        "sit",
-        "amet",
-      ],
-      "expandedContent": undefined,
-    },
-  ],
-  "summary": null,
-  "t": [Function],
-  "variant": "compact",
-}
+<Card
+  className="curiosity-inventory-card"
+>
+  <MinHeight
+    isOnLoad={false}
+    minHeight={0}
+    useResizeObserver={[Function]}
+  >
+    <CardHeader
+      aria-hidden={false}
+      className=""
+    >
+      <CardHeaderMain>
+        <ToolbarFieldDisplayName
+          t={[Function]}
+          useDispatch={[Function]}
+          useProduct={[Function]}
+          useProductInventoryHostsQuery={[Function]}
+        />
+      </CardHeaderMain>
+      <CardActions
+        aria-hidden={false}
+        className=""
+      >
+        <Pagination
+          dropDirection="down"
+          isCompact={true}
+          isDisabled={false}
+          itemCount={2}
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
+          variant={null}
+        />
+      </CardActions>
+    </CardHeader>
+  </MinHeight>
+  <MinHeight
+    isOnLoad={false}
+    minHeight={0}
+    useResizeObserver={[Function]}
+  >
+    <CardBody>
+      <div
+        className=""
+      >
+        <Table
+          ariaLabel={null}
+          borders={true}
+          className="curiosity-inventory-list"
+          columnHeaders={
+            [
+              "t(curiosity-inventory.header, {"context":"lorem"})",
+              "t(curiosity-inventory.header, {"context":"dolor"})",
+            ]
+          }
+          isHeader={true}
+          rows={
+            [
+              {
+                "cells": [
+                  "ipsum",
+                  "sit",
+                ],
+                "expandedContent": undefined,
+              },
+              {
+                "cells": [
+                  "sit",
+                  "amet",
+                ],
+                "expandedContent": undefined,
+              },
+            ]
+          }
+          summary={null}
+          t={[Function]}
+          variant="compact"
+        />
+      </div>
+    </CardBody>
+  </MinHeight>
+  <MinHeight
+    isOnLoad={false}
+    minHeight={0}
+    useResizeObserver={[Function]}
+  >
+    <CardFooter
+      aria-hidden={false}
+      className=""
+    >
+      <TableToolbar
+        isFooter={true}
+      >
+        <Pagination
+          dropDirection="up"
+          isCompact={false}
+          isDisabled={false}
+          itemCount={2}
+          offset={0}
+          onPage={[Function]}
+          onPerPage={[Function]}
+          perPage={10}
+          variant={null}
+        />
+      </TableToolbar>
+    </CardFooter>
+  </MinHeight>
+</Card>
 `;
 
 exports[`InventoryCard Component should render a basic component: basic render 1`] = `
@@ -460,10 +563,9 @@ exports[`InventoryCard Component should render a basic component: basic render 1
   className="curiosity-inventory-card"
 >
   <MinHeight
-    key="headerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardHeader
       aria-hidden={false}
@@ -496,10 +598,9 @@ exports[`InventoryCard Component should render a basic component: basic render 1
     </CardHeader>
   </MinHeight>
   <MinHeight
-    key="bodyMinHeight-10"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardBody>
       <div
@@ -526,10 +627,9 @@ exports[`InventoryCard Component should render a basic component: basic render 1
     </CardBody>
   </MinHeight>
   <MinHeight
-    key="footerMinHeight"
+    isOnLoad={false}
     minHeight={0}
-    updateOnContent={true}
-    updateOnResize={true}
+    useResizeObserver={[Function]}
   >
     <CardFooter
       aria-hidden={true}

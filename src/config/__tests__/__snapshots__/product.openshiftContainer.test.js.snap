@@ -277,7 +277,7 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
             "chartType": "area",
             "color": "#06c",
             "fill": "#8bc1f7",
-            "id": "Cores",
+            "id": "Cores_loremIpsumTest",
             "isCapacity": false,
             "isOptional": true,
             "isStacked": true,
@@ -291,7 +291,7 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
             "chartType": "area",
             "color": "#06c",
             "fill": "#8bc1f7",
-            "id": "Sockets",
+            "id": "Sockets_loremIpsumTest",
             "isCapacity": false,
             "isOptional": true,
             "isStacked": true,
@@ -303,7 +303,7 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
           },
           {
             "chartType": "threshold",
-            "id": "threshold_Sockets",
+            "id": "threshold_Sockets_loremIpsumTest",
             "isCapacity": true,
             "isOptional": true,
             "isStacked": false,
@@ -316,7 +316,7 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
           },
           {
             "chartType": "threshold",
-            "id": "threshold_Cores",
+            "id": "threshold_Cores_loremIpsumTest",
             "isCapacity": true,
             "isOptional": true,
             "isStacked": false,
@@ -328,7 +328,8 @@ exports[`Product OpenShift Container config should apply graph configuration: fi
             "strokeWidth": 3,
           },
         ],
-        "stringId": "Cores",
+        "productId": "loremIpsumTest",
+        "stringId": "Cores_Sockets_loremIpsumTest",
         "stroke": "#06c",
       },
     },
@@ -369,41 +370,41 @@ exports[`Product OpenShift Container config should apply guest inventory configu
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },
@@ -427,41 +428,41 @@ exports[`Product OpenShift Container config should apply guest inventory configu
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },
@@ -492,41 +493,41 @@ exports[`Product OpenShift Container config should apply guest inventory configu
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },
@@ -550,41 +551,41 @@ exports[`Product OpenShift Container config should apply guest inventory configu
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },

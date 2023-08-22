@@ -1,7 +1,7 @@
 import { helpers } from '../../common/helpers';
 
 /**
- * A consistent mock event object to "help" PF.
+ * A consistent mock event object to enhance PF and testing.
  *
  * @memberof Form
  * @module FormHelpers
@@ -16,16 +16,21 @@ import { helpers } from '../../common/helpers';
  */
 const createMockEvent = (event, persistEvent = false) => {
   const { checked, currentTarget = {}, keyCode, persist = helpers.noop, target = {} } = { ...event };
+  let updatedCurrentTarget = currentTarget;
   if (persistEvent) {
     persist();
   }
 
+  if (helpers.TEST_MODE) {
+    updatedCurrentTarget = target;
+  }
+
   return {
-    checked: checked ?? currentTarget?.checked,
-    currentTarget,
+    checked: checked ?? updatedCurrentTarget?.checked,
+    currentTarget: updatedCurrentTarget,
     keyCode,
-    id: currentTarget.id || currentTarget.name,
-    name: currentTarget.name,
+    id: updatedCurrentTarget.id || updatedCurrentTarget.name,
+    name: updatedCurrentTarget.name,
     persist,
     value: currentTarget.value,
     target

@@ -1,7 +1,9 @@
 import React from 'react';
-import Table from '../../table/table';
 import { InventoryCard } from '../inventoryCard';
-import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
+import {
+  RHSM_API_QUERY_SET_TYPES,
+  RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES
+} from '../../../services/rhsm/rhsmConstants';
 
 describe('InventoryCard Component', () => {
   it('should render a basic component', async () => {
@@ -16,7 +18,7 @@ describe('InventoryCard Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryCard {...props} />);
+    const component = await shallowComponent(<InventoryCard {...props} />);
     expect(component).toMatchSnapshot('basic render');
   });
 
@@ -40,7 +42,7 @@ describe('InventoryCard Component', () => {
         }
       })
     };
-    const component = await shallowHookComponent(<InventoryCard {...props} />);
+    const component = await shallowComponent(<InventoryCard {...props} />);
 
     expect(component).toMatchSnapshot('disabled component');
   });
@@ -56,19 +58,19 @@ describe('InventoryCard Component', () => {
       })
     };
 
-    const component = await shallowHookComponent(<InventoryCard {...props} />);
+    const component = await shallowComponent(<InventoryCard {...props} />);
     expect(component).toMatchSnapshot('pending');
 
-    component.setProps({
+    const componentError = await component.setProps({
       useGetInventory: () => ({
         pending: false,
         error: true
       })
     });
 
-    expect(component).toMatchSnapshot('error');
+    expect(componentError).toMatchSnapshot('error');
 
-    component.setProps({
+    const componentFulfilled = await component.setProps({
       useGetInventory: () => ({
         pending: false,
         error: false,
@@ -85,7 +87,7 @@ describe('InventoryCard Component', () => {
       })
     });
 
-    expect(component).toMatchSnapshot('fulfilled');
+    expect(componentFulfilled).toMatchSnapshot('fulfilled');
   });
 
   it('should handle variations in data', async () => {
@@ -109,15 +111,14 @@ describe('InventoryCard Component', () => {
       })
     };
 
-    const component = await mountHookComponent(<InventoryCard {...props} />);
-    expect(component.find(Table).props()).toMatchSnapshot('variable data');
+    const component = await shallowComponent(<InventoryCard {...props} />);
+    expect(component).toMatchSnapshot('variable data');
 
-    component.setProps({
+    const componentFiltered = await component.setProps({
       useProductInventoryConfig: () => ({ filters: [{ id: 'lorem' }] })
     });
 
-    component.update();
-    expect(component.find(Table).props()).toMatchSnapshot('filtered data');
+    expect(componentFiltered.find('table')).toMatchSnapshot('filtered data');
   });
 
   it('should handle expandable guests data', async () => {
@@ -130,7 +131,7 @@ describe('InventoryCard Component', () => {
       useGetInventory: () => ({
         fulfilled: true,
         data: {
-          data: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1 }],
+          data: [{ lorem: 'sit', dolor: 'amet', [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 0 }],
           meta: {
             count: 1
           }
@@ -138,15 +139,16 @@ describe('InventoryCard Component', () => {
       })
     };
 
-    const component = await mountHookComponent(<InventoryCard {...props} />);
-    expect(component.find(Table).props()).toMatchSnapshot('number of guests');
+    const component = await shallowComponent(<InventoryCard {...props} />);
+    expect(component.find('tbody')).toMatchSnapshot('NO number of guests and NO expandable guests display');
 
-    component.setProps({
-      ...props,
+    const componentGuests = await component.setProps({
       useGetInventory: () => ({
         fulfilled: true,
         data: {
-          data: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 1, subscriptionManagerId: 'loremIpsum' }],
+          data: [
+            { lorem: 'sit', dolor: 'amet', [INVENTORY_TYPES.NUMBER_OF_GUESTS]: 1, subscriptionManagerId: 'loremIpsum' }
+          ],
           meta: {
             count: 1
           }
@@ -154,31 +156,6 @@ describe('InventoryCard Component', () => {
       })
     });
 
-    component.update();
-    expect(component.find(Table).props()).toMatchSnapshot('number of guests, and id');
-
-    component.setProps({
-      ...props,
-      useGetInventory: () => ({
-        fulfilled: true,
-        data: {
-          data: [{ lorem: 'sit', dolor: 'amet', numberOfGuests: 2, subscriptionManagerId: 'loremIpsum' }],
-          meta: {
-            count: 1
-          }
-        }
-      }),
-      useProductInventoryConfig: () => ({
-        settings: {
-          hasSubTable: data => {
-            const { numberOfGuests = 0, subscriptionManagerId = null } = data;
-            return numberOfGuests > 2 && subscriptionManagerId;
-          }
-        }
-      })
-    });
-
-    component.update();
-    expect(component.find(Table).props()).toMatchSnapshot('number of guests, id, and NO expandable guests display');
+    expect(componentGuests.find('tbody')).toMatchSnapshot('number of guests, and returned id');
   });
 });

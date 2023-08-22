@@ -42,13 +42,10 @@
   },
   "globals": {
     "mockObjectProperty": "readonly",
-    "mountHook": "readonly",
-    "mountHookComponent": "readonly",
-    "mountHookWrapper": "readonly",
     "mockWindowLocation": "readonly",
-    "shallowHook": "readonly",
-    "shallowHookComponent": "readonly",
-    "shallowHookWrapper": "readonly",
+    "renderHook": "readonly",
+    "renderComponent": "readonly",
+    "shallowComponent": "readonly",
     "skipIt": "readonly"
   },
   "rules": {
@@ -97,7 +94,7 @@
         ]
       }
     ],
-    "jsdoc/no-undefined-types": [2, { "definedTypes": ["html"] }],
+    "jsdoc/no-undefined-types": 0,
     "jsdoc/require-jsdoc": 2,
     "jsdoc/require-param": 2,
     "jsdoc/require-param-description": 0,

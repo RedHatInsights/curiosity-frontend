@@ -118,6 +118,7 @@ exports[`InventoryCardSubscriptionsContext should handle variations in instances
 exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
 {
   "data": {},
+  "fulfilled": true,
   "pending": false,
 }
 `;

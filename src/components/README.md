@@ -32,10 +32,7 @@
 <dd><p>A checkbox with state.</p>
 </dd>
 <dt><a href="#Form.module_FormHelpers">FormHelpers</a></dt>
-<dd><p>A consistent mock event object to &quot;help&quot; PF.</p>
-</dd>
-<dt><a href="#Form.module_FormState">FormState</a></dt>
-<dd><p>Internal form state tracking for submitting forms.</p>
+<dd><p>A consistent mock event object to enhance PF and testing.</p>
 </dd>
 <dt><a href="#Form.module_Select">Select</a></dt>
 <dd><p>A bundled wrapper for PF Select, Dropdown.</p>
@@ -1290,7 +1287,7 @@ onChange event, provide restructured event.
 <a name="Form.module_FormHelpers"></a>
 
 ## FormHelpers
-A consistent mock event object to "help" PF.
+A consistent mock event object to enhance PF and testing.
 
 
 * [FormHelpers](#Form.module_FormHelpers)
@@ -1334,269 +1331,6 @@ Confirm a string has minimum length.
     <td>value</td><td><code>string</code></td><td></td>
     </tr><tr>
     <td>characters</td><td><code>number</code></td><td><code>1</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState"></a>
-
-## FormState
-Internal form state tracking for submitting forms.
-
-
-* [FormState](#Form.module_FormState)
-    * [~FormState](#Form.module_FormState..FormState) ⇐ <code>React.Component</code>
-        * _instance_
-            * [.submit(event)](#Form.module_FormState..FormState+submit) ⇒ <code>Promise</code>
-            * [.validate(event)](#Form.module_FormState..FormState+validate) ⇒ <code>Promise</code>
-            * [.validateOnMount(event)](#Form.module_FormState..FormState+validateOnMount)
-            * [.validateOnUpdate(event)](#Form.module_FormState..FormState+validateOnUpdate)
-            * [.updateComponentValues()](#Form.module_FormState..FormState+updateComponentValues)
-            * [.render()](#Form.module_FormState..FormState+render) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Form.module_FormState..FormState.propTypes) : <code>Object</code>
-            * [.defaultProps](#Form.module_FormState..FormState.defaultProps) : <code>Object</code>
-            * [.checkedSetValues(params)](#Form.module_FormState..FormState.checkedSetValues) ⇒ <code>Object</code>
-            * [.isPromise(obj)](#Form.module_FormState..FormState.isPromise) ⇒ <code>boolean</code>
-    * [~initialState](#Form.module_FormState..initialState) : <code>Object</code>
-    * ["onEventCustom" (custom)](#event_onEventCustom)
-    * ["onEvent" (event)](#event_onEvent)
-    * ["onReset" (event)](#event_onReset)
-    * ["onSubmit" (event)](#event_onSubmit)
-
-<a name="Form.module_FormState..FormState"></a>
-
-### FormState~FormState ⇐ <code>React.Component</code>
-Maintain a form's state/context.
-
-**Kind**: inner class of [<code>FormState</code>](#Form.module_FormState)  
-**Extends**: <code>React.Component</code>  
-**Emits**: [<code>onEvent</code>](#event_onEvent), [<code>onEventCustom</code>](#event_onEventCustom), [<code>onReset</code>](#event_onReset), [<code>onSubmit</code>](#event_onSubmit)  
-
-* [~FormState](#Form.module_FormState..FormState) ⇐ <code>React.Component</code>
-    * _instance_
-        * [.submit(event)](#Form.module_FormState..FormState+submit) ⇒ <code>Promise</code>
-        * [.validate(event)](#Form.module_FormState..FormState+validate) ⇒ <code>Promise</code>
-        * [.validateOnMount(event)](#Form.module_FormState..FormState+validateOnMount)
-        * [.validateOnUpdate(event)](#Form.module_FormState..FormState+validateOnUpdate)
-        * [.updateComponentValues()](#Form.module_FormState..FormState+updateComponentValues)
-        * [.render()](#Form.module_FormState..FormState+render) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Form.module_FormState..FormState.propTypes) : <code>Object</code>
-        * [.defaultProps](#Form.module_FormState..FormState.defaultProps) : <code>Object</code>
-        * [.checkedSetValues(params)](#Form.module_FormState..FormState.checkedSetValues) ⇒ <code>Object</code>
-        * [.isPromise(obj)](#Form.module_FormState..FormState.isPromise) ⇒ <code>boolean</code>
-
-<a name="Form.module_FormState..FormState+submit"></a>
-
-#### formState.submit(event) ⇒ <code>Promise</code>
-Handle submitted form, check and return Promise, or emulate for consistency.
-
-**Kind**: instance method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState..FormState+validate"></a>
-
-#### formState.validate(event) ⇒ <code>Promise</code>
-Handle validated form data, check and return Promise, or emulate for consistency.
-
-**Kind**: instance method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState..FormState+validateOnMount"></a>
-
-#### formState.validateOnMount(event)
-Shortcut, activate validation on component mount.
-
-**Kind**: instance method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState..FormState+validateOnUpdate"></a>
-
-#### formState.validateOnUpdate(event)
-Validate on component update.
-
-**Kind**: instance method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState..FormState+updateComponentValues"></a>
-
-#### formState.updateComponentValues()
-On component update, update state.
-
-**Kind**: instance method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<a name="Form.module_FormState..FormState+render"></a>
-
-#### formState.render() ⇒ <code>React.ReactNode</code>
-Pass child components, integrate and apply form context.
-
-**Kind**: instance method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<a name="Form.module_FormState..FormState.propTypes"></a>
-
-#### FormState.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<a name="Form.module_FormState..FormState.defaultProps"></a>
-
-#### FormState.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<a name="Form.module_FormState..FormState.checkedSetValues"></a>
-
-#### FormState.checkedSetValues(params) ⇒ <code>Object</code>
-Infer a field value is "checked" from a boolean value.
-
-**Kind**: static method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.setValuesAssumeBoolIsChecked</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>params.setValues</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState..FormState.isPromise"></a>
-
-#### FormState.isPromise(obj) ⇒ <code>boolean</code>
-Check if "is a promise".
-
-**Kind**: static method of [<code>FormState</code>](#Form.module_FormState..FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>obj</td><td><code>*</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Form.module_FormState..initialState"></a>
-
-### FormState~initialState : <code>Object</code>
-Initial component state values.
-
-**Kind**: inner constant of [<code>FormState</code>](#Form.module_FormState)  
-<a name="event_onEventCustom"></a>
-
-### "onEventCustom" (custom)
-Apply form values with a custom event.
-
-**Kind**: event emitted by [<code>FormState</code>](#Form.module_FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>custom</td><td><code>Array</code> | <code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="event_onEvent"></a>
-
-### "onEvent" (event)
-Generic "on event" for handling returned event objects.
-
-**Kind**: event emitted by [<code>FormState</code>](#Form.module_FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="event_onReset"></a>
-
-### "onReset" (event)
-Reset FormState's form state. Apply prop onReset function.
-
-**Kind**: event emitted by [<code>FormState</code>](#Form.module_FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="event_onSubmit"></a>
-
-### "onSubmit" (event)
-Validate form, then submit.
-
-**Kind**: event emitted by [<code>FormState</code>](#Form.module_FormState)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>event</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
@@ -2463,6 +2197,11 @@ Allow the "content" prop to receive graph data for display via callback.
 ## GraphCardHelpers
 
 * [GraphCardHelpers](#GraphCard.module_GraphCardHelpers)
+    * [~getMetricTotalCurrentOrLastData](#GraphCard.module_GraphCardHelpers..getMetricTotalCurrentOrLastData) ⇒ <code>Object</code>
+    * [~getDailyMonthlyTotals](#GraphCard.module_GraphCardHelpers..getDailyMonthlyTotals) ⇒ <code>Object</code>
+    * [~getPrepaidTallyCapacity](#GraphCard.module_GraphCardHelpers..getPrepaidTallyCapacity) ⇒ <code>Object</code>
+    * [~getRemainingCapacity](#GraphCard.module_GraphCardHelpers..getRemainingCapacity) ⇒ <code>Object</code>
+    * [~getRemainingOverage](#GraphCard.module_GraphCardHelpers..getRemainingOverage) ⇒ <code>Object</code>
     * [~generateChartIds(params)](#GraphCard.module_GraphCardHelpers..generateChartIds) ⇒ <code>string</code>
     * [~generateIsToolbarFilter(params)](#GraphCard.module_GraphCardHelpers..generateIsToolbarFilter) ⇒ <code>boolean</code>
     * [~generateChartSettings(params)](#GraphCard.module_GraphCardHelpers..generateChartSettings) ⇒ <code>Object</code>
@@ -2471,6 +2210,121 @@ Allow the "content" prop to receive graph data for display via callback.
     * [~xAxisTickFormat(params)](#GraphCard.module_GraphCardHelpers..xAxisTickFormat) ⇒ <code>string</code> \| <code>undefined</code>
     * [~yAxisTickFormat(params)](#GraphCard.module_GraphCardHelpers..yAxisTickFormat) ⇒ <code>string</code>
     * [~generateExtendedChartSettings(params)](#GraphCard.module_GraphCardHelpers..generateExtendedChartSettings) ⇒ <code>object</code>
+
+<a name="GraphCard.module_GraphCardHelpers..getMetricTotalCurrentOrLastData"></a>
+
+### GraphCardHelpers~getMetricTotalCurrentOrLastData ⇒ <code>Object</code>
+Get either the current or last date available data.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getDailyMonthlyTotals"></a>
+
+### GraphCardHelpers~getDailyMonthlyTotals ⇒ <code>Object</code>
+Get daily and monthly totals from a data set. A metric totals helper.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.dataSet</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getPrepaidTallyCapacity"></a>
+
+### GraphCardHelpers~getPrepaidTallyCapacity ⇒ <code>Object</code>
+Get the first available prepaid Tally, Capacity data sets
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getRemainingCapacity"></a>
+
+### GraphCardHelpers~getRemainingCapacity ⇒ <code>Object</code>
+Get a remaining capacity from data sets. A metric totals helper.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.capacityData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.tallyData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="GraphCard.module_GraphCardHelpers..getRemainingOverage"></a>
+
+### GraphCardHelpers~getRemainingOverage ⇒ <code>Object</code>
+Get a remaining overage from data sets. A metric totals helper.
+
+**Kind**: inner constant of [<code>GraphCardHelpers</code>](#GraphCard.module_GraphCardHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>params.capacityData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.tallyData</td><td><code>Array</code></td><td></td>
+    </tr><tr>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+</td>
+    </tr>  </tbody>
+</table>
 
 <a name="GraphCard.module_GraphCardHelpers..generateChartIds"></a>
 
@@ -3827,7 +3681,7 @@ Guests inventory selector response.
 <a name="InventoryGuests.module_InventoryGuestsContext..useGetGuestsInventory"></a>
 
 ### InventoryGuestsContext~useGetGuestsInventory(id, options) ⇒ <code>function</code>
-Combined Redux RHSM Actions, getHostsInventoryGuests, and inventory selector response.
+Combined Redux RHSM Actions, getInstancesInventoryGuests, and inventory selector response.
 
 **Kind**: inner method of [<code>InventoryGuestsContext</code>](#InventoryGuests.module_InventoryGuestsContext)  
 <table>
@@ -4163,64 +4017,41 @@ Normalize component height on page loads and updates.
 
 
 * [MinHeight](#Components.module_MinHeight)
-    * [~MinHeight](#Components.module_MinHeight..MinHeight) ⇐ <code>React.Component</code>
-        * _instance_
-            * [.setMinHeight(reset)](#Components.module_MinHeight..MinHeight+setMinHeight)
-            * [.setResizeObserver()](#Components.module_MinHeight..MinHeight+setResizeObserver)
-            * [.render()](#Components.module_MinHeight..MinHeight+render) ⇒ <code>React.ReactNode</code>
-        * _static_
-            * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
-            * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
-    * ["onResizeContainer"](#event_onResizeContainer)
-
-<a name="Components.module_MinHeight..MinHeight"></a>
-
-### MinHeight~MinHeight ⇐ <code>React.Component</code>
-Set a min-height to prevent page jump component.
-
-**Kind**: inner class of [<code>MinHeight</code>](#Components.module_MinHeight)  
-**Extends**: <code>React.Component</code>  
-**Emits**: [<code>onResizeContainer</code>](#event_onResizeContainer)  
-
-* [~MinHeight](#Components.module_MinHeight..MinHeight) ⇐ <code>React.Component</code>
-    * _instance_
-        * [.setMinHeight(reset)](#Components.module_MinHeight..MinHeight+setMinHeight)
-        * [.setResizeObserver()](#Components.module_MinHeight..MinHeight+setResizeObserver)
-        * [.render()](#Components.module_MinHeight..MinHeight+render) ⇒ <code>React.ReactNode</code>
-    * _static_
+    * [~MinHeight(props)](#Components.module_MinHeight..MinHeight) ⇒ <code>React.ReactNode</code>
         * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
         * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
 
-<a name="Components.module_MinHeight..MinHeight+setMinHeight"></a>
+<a name="Components.module_MinHeight..MinHeight"></a>
 
-#### minHeight.setMinHeight(reset)
-Set minHeight on mount or update.
+### MinHeight~MinHeight(props) ⇒ <code>React.ReactNode</code>
+Set a min-height to prevent page jump component.
 
-**Kind**: instance method of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
+**Kind**: inner method of [<code>MinHeight</code>](#Components.module_MinHeight)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Default</th>
+      <th>Param</th><th>Type</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>reset</td><td><code>boolean</code></td><td><code>false</code></td>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>props.isOnLoad</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.minHeight</td><td><code>number</code></td>
+    </tr><tr>
+    <td>props.useResizeObserver</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
-<a name="Components.module_MinHeight..MinHeight+setResizeObserver"></a>
 
-#### minHeight.setResizeObserver()
-Set ResizeObserver for scenarios when min-height needs to be updated.
+* [~MinHeight(props)](#Components.module_MinHeight..MinHeight) ⇒ <code>React.ReactNode</code>
+    * [.propTypes](#Components.module_MinHeight..MinHeight.propTypes) : <code>Object</code>
+    * [.defaultProps](#Components.module_MinHeight..MinHeight.defaultProps) : <code>Object</code>
 
-**Kind**: instance method of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
-<a name="Components.module_MinHeight..MinHeight+render"></a>
-
-#### minHeight.render() ⇒ <code>React.ReactNode</code>
-Render a min-height div with children.
-
-**Kind**: instance method of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
 <a name="Components.module_MinHeight..MinHeight.propTypes"></a>
 
 #### MinHeight.propTypes : <code>Object</code>
@@ -4233,12 +4064,6 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>MinHeight</code>](#Components.module_MinHeight..MinHeight)  
-<a name="event_onResizeContainer"></a>
-
-### "onResizeContainer"
-On resize adjust graph display.
-
-**Kind**: event emitted by [<code>MinHeight</code>](#Components.module_MinHeight)  
 <a name="Components.module_OptinView"></a>
 
 ## OptinView
@@ -7358,7 +7183,7 @@ PF tooltip wrapper component.
     </tr><tr>
     <td>props.isNoWrap</td><td><code>boolean</code></td>
     </tr><tr>
-    <td>props.props</td><td><code>TooltipProps</code></td>
+    <td>props.props</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 

@@ -83,4 +83,4 @@ exports[`Loader Component should handle variant loader components: variant: titl
 </PageLayout>
 `;
 
-exports[`Loader Component should render a non-connected component: non-connected 1`] = `<Spinner />`;
+exports[`Loader Component should render a basic component: basic 1`] = `<Spinner />`;

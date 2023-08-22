@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldSla, toolbarFieldOptions, useOnSelect } from '../toolbarFieldSla';
 import { store } from '../../../redux/store';
 import { RHSM_API_QUERY_SLA_TYPES as SLA_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
@@ -15,11 +14,11 @@ describe('ToolbarFieldSla Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.SLA]: SLA_TYPES.STANDARD })
     };
-    const component = shallow(<ToolbarFieldSla {...props} />);
+    const component = await shallowComponent(<ToolbarFieldSla {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -28,16 +27,17 @@ describe('ToolbarFieldSla Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating sla through redux state with component', async () => {
+  it('should handle updating sla through redux state with component', () => {
     const props = {};
 
-    const component = await mountHookComponent(<ToolbarFieldSla {...props} />);
+    const component = renderComponent(<ToolbarFieldSla {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
 
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch sla, component');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });
 
   it('should handle updating sla through redux state with hook', () => {
@@ -50,6 +50,6 @@ describe('ToolbarFieldSla Component', () => {
     onSelect({
       value: 'dolor sit'
     });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch sla, hook');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 });

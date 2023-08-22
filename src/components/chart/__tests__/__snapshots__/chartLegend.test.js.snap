@@ -1,49 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartLegend Component should handle legend elements: element 1`] = `
-<div
-  className="curiosity-chartarea__legend"
-  style={
-    {
-      "marginLeft": 0,
-      "marginRight": 0,
-    }
-  }
+<chartlegend
+  props="{
+  "children": []
+}"
 >
   <div
-    chart={
-      {
-        "hide": [Function],
-        "isToggled": [Function],
-        "revert": [Function],
-        "toggle": [Function],
-      }
-    }
-    datum={
-      {
-        "dataSets": [
-          {
-            "data": [
-              {
-                "x": 1,
-                "xAxisLabel": "1 x axis label",
-                "y": 1,
-              },
-              {
-                "x": 2,
-                "xAxisLabel": "2 x axis label",
-                "y": 2,
-              },
-            ],
-            "id": "loremGraph",
-          },
-        ],
-      }
-    }
+    class="curiosity-chartarea__legend"
+    style="margin-left: 0px; margin-right: 0px;"
   >
-    lorem ipsum
+    <div
+      data-test="{
+  "datum": {
+    "dataSets": [
+      {
+        "data": [
+          {
+            "x": 1,
+            "xAxisLabel": "1 x axis label",
+            "y": 1
+          },
+          {
+            "x": 2,
+            "xAxisLabel": "2 x axis label",
+            "y": 2
+          }
+        ],
+        "id": "loremGraph"
+      }
+    ]
+  },
+  "chart": {}
+}"
+    >
+      lorem ipsum
+    </div>
   </div>
-</div>
+</chartlegend>
 `;
 
 exports[`ChartLegend Component should pass legend props: passed props 1`] = `
@@ -104,4 +98,10 @@ exports[`ChartLegend Component should pass legend props: passed props 1`] = `
 ]
 `;
 
-exports[`ChartLegend Component should render a basic component: basic 1`] = `null`;
+exports[`ChartLegend Component should render a basic component: basic 1`] = `
+<chartlegend
+  props="{
+  "children": []
+}"
+/>
+`;

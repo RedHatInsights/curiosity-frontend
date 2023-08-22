@@ -25,7 +25,7 @@ exports[`ToolbarFieldSla Component should export select options: toolbarFieldOpt
 ]
 `;
 
-exports[`ToolbarFieldSla Component should handle updating usage through redux state with component: dispatch usage, component 1`] = `
+exports[`ToolbarFieldSla Component should handle updating usage through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -43,7 +43,7 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
 ]
 `;
 
-exports[`ToolbarFieldSla Component should handle updating usage through redux state with hook: dispatch usage, hook 1`] = `
+exports[`ToolbarFieldSla Component should handle updating usage through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [

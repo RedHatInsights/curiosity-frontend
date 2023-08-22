@@ -1,55 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChartAxisLabel Component should handle an undefined coordinate: undefined y 1`] = `
-<g>
-  <foreignObject
-    height="100%"
-    width="100%"
-    x={0}
-    y={0}
-  >
-    <div
-      className="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-1"
-      style={
-        {
-          "top": "0px",
-        }
-      }
-      xmlns="http://www.w3.org/1999/xhtml"
+<element
+  props="{
+  "x": 2,
+  "text": "lorem ipsum",
+  "children": []
+}"
+>
+  <g>
+    <foreignobject
+      height="100%"
+      width="100%"
+      x="0"
+      y="0"
     >
       <div
-        className="curiosity-chartarea__axis-label-container-content"
+        class="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-1"
+        style="top: 0px;"
+        xmlns="http://www.w3.org/1999/xhtml"
       >
-        lorem ipsum
+        <div
+          class="curiosity-chartarea__axis-label-container-content"
+        >
+          lorem ipsum
+        </div>
       </div>
-    </div>
-  </foreignObject>
-</g>
+    </foreignobject>
+  </g>
+</element>
 `;
 
 exports[`ChartAxisLabel Component should return a basic component: basic 1`] = `
-<g>
-  <foreignObject
-    height="100%"
-    width="100%"
-    x={0}
-    y={0}
-  >
-    <div
-      className="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-0"
-      style={
-        {
-          "top": "3px",
-        }
-      }
-      xmlns="http://www.w3.org/1999/xhtml"
+<element
+  props="{
+  "x": 2,
+  "y": 3,
+  "text": {
+    "key": null,
+    "ref": null,
+    "props": {
+      "children": "hello world"
+    },
+    "_owner": null,
+    "_store": {}
+  },
+  "children": []
+}"
+>
+  <g>
+    <foreignobject
+      height="100%"
+      width="100%"
+      x="0"
+      y="0"
     >
       <div
-        className="curiosity-chartarea__axis-label-container-content"
+        class="curiosity-chartarea__axis-label-container curiosity-chartarea__axis-label-container-y curiosity-chartarea__axis-label-container-y-0"
+        style="top: 3px;"
+        xmlns="http://www.w3.org/1999/xhtml"
       >
-        hello world
+        <div
+          class="curiosity-chartarea__axis-label-container-content"
+        >
+          hello world
+        </div>
       </div>
-    </div>
-  </foreignObject>
-</g>
+    </foreignobject>
+  </g>
+</element>
 `;

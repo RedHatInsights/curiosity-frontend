@@ -1,23 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageMessages Component should render a basic component: basic 1`] = `
-<PageMessages
-  className="lorem"
+<pagemessages
+  props="{
+  "className": "lorem",
+  "children": [
+    {
+      "props": {
+        "className": "test",
+        "children": "lorem"
+      },
+      "type": "span"
+    }
+  ]
+}"
 >
-  <Section
-    className="curiosity-page-messages lorem"
+  <section
+    class="curiosity-page-messages lorem"
   >
-    <section
-      className="curiosity-page-messages lorem"
+     
+    <span
+      class="test"
     >
-       
-      <span
-        className="test"
-      >
-        lorem
-      </span>
-       
-    </section>
-  </Section>
-</PageMessages>
+      lorem
+    </span>
+     
+  </section>
+</pagemessages>
 `;

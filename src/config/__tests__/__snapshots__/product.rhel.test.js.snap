@@ -339,7 +339,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
             "chartType": "area",
             "color": "#06c",
             "fill": "#8bc1f7",
-            "id": "Sockets_physical",
+            "id": "Sockets_physical_loremIpsumTest",
             "isCapacity": false,
             "isStacked": true,
             "isThreshold": false,
@@ -355,7 +355,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
             "chartType": "area",
             "color": "#009596",
             "fill": "#a2d9d9",
-            "id": "Sockets_virtual",
+            "id": "Sockets_virtual_loremIpsumTest",
             "isCapacity": false,
             "isStacked": true,
             "isThreshold": false,
@@ -371,7 +371,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
             "chartType": "area",
             "color": "#5752d1",
             "fill": "#b2b0ea",
-            "id": "Sockets_cloud",
+            "id": "Sockets_cloud_loremIpsumTest",
             "isCapacity": false,
             "isStacked": true,
             "isThreshold": false,
@@ -387,7 +387,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
             "chartType": "area",
             "color": "#ec7a08",
             "fill": "#f4b678",
-            "id": "Sockets_hypervisor",
+            "id": "Sockets_hypervisor_loremIpsumTest",
             "isCapacity": false,
             "isStacked": true,
             "isThreshold": false,
@@ -401,7 +401,7 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
           },
           {
             "chartType": "threshold",
-            "id": "threshold_Sockets",
+            "id": "threshold_Sockets_loremIpsumTest",
             "isCapacity": true,
             "isStacked": false,
             "isThreshold": true,
@@ -412,10 +412,11 @@ exports[`Product RHEL config should apply graph configuration: filters 1`] = `
             "strokeWidth": 3,
           },
         ],
+        "productId": "loremIpsumTest",
         "query": {
           "category": "physical",
         },
-        "stringId": "Sockets_physical",
+        "stringId": "Sockets_loremIpsumTest",
         "stroke": "#06c",
       },
     },
@@ -452,41 +453,41 @@ exports[`Product RHEL config should apply guest inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },
@@ -510,41 +511,41 @@ exports[`Product RHEL config should apply guest inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },
@@ -575,41 +576,41 @@ exports[`Product RHEL config should apply guest inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "lorem inventory id",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },
@@ -633,41 +634,41 @@ exports[`Product RHEL config should apply guest inventory configuration: filtere
   ],
   "columnHeaders": [
     {
-      "title": "t(curiosity-inventory.header, {"context":"guestsDisplayName"})",
+      "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
       "transforms": [],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "transforms": [
         [Function],
       ],
     },
     {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "transforms": [
         [Function],
       ],
     },
   ],
   "data": {
-    "displayName": {
-      "title": "t(curiosity-inventory.header, {"context":"displayName"})",
+    "display_name": {
+      "title": "t(curiosity-inventory.header_display, {"context":"name"})",
       "value": "lorem",
     },
-    "inventoryId": {
-      "title": "t(curiosity-inventory.header, {"context":"inventoryId"})",
+    "inventory_id": {
+      "title": "t(curiosity-inventory.header_inventory, {"context":"id"})",
       "value": "",
     },
-    "lastSeen": {
-      "title": "t(curiosity-inventory.header, {"context":"lastSeen"})",
+    "last_seen": {
+      "title": "t(curiosity-inventory.header_last, {"context":"seen"})",
       "value": "2022-01-01T00:00:00.000Z",
     },
     "loremIpsum": {
       "title": "t(curiosity-inventory.header, {"context":"loremIpsum"})",
       "value": "hello world",
     },
-    "subscriptionManagerId": {
-      "title": "t(curiosity-inventory.header, {"context":"subscriptionManagerId"})",
+    "subscription_manager_id": {
+      "title": "t(curiosity-inventory.header_subscription_manager, {"context":"id"})",
       "value": "lorem subscription id",
     },
   },

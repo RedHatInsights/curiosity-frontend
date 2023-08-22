@@ -1,50 +1,50 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { TableVariant } from '@patternfly/react-table';
 import { TableSkeleton } from '../tableSkeleton';
 
 describe('TableSkeleton Component', () => {
-  it('should render a non-connected component', () => {
+  it('should render a non-connected component', async () => {
     const props = {};
 
-    const component = shallow(<TableSkeleton {...props} />);
+    const component = await shallowComponent(<TableSkeleton {...props} />);
     expect(component).toMatchSnapshot('non-connected');
   });
 
-  it('should allow variations in table layout', () => {
+  it('should allow variations in table layout', async () => {
     const props = {
       colCount: 5,
       rowCount: 1
     };
 
-    const component = shallow(<TableSkeleton {...props} />);
+    const component = await shallowComponent(<TableSkeleton {...props} />);
     expect(component).toMatchSnapshot('column and row count ');
 
-    component.setProps({
+    const componentColWidths = await component.setProps({
       colWidth: [null, undefined, 30, 15, 15]
     });
-    expect(component).toMatchSnapshot('table column widths');
+    expect(componentColWidths).toMatchSnapshot('table column widths');
 
-    component.setProps({
+    const componentRowRemoved = await component.setProps({
       borders: false,
       isHeader: false
     });
-    expect(component).toMatchSnapshot('borders and table header row removed');
+    expect(componentRowRemoved).toMatchSnapshot('borders and table header row removed');
 
-    component.setProps({
+    const componentClassNameVariant = await component.setProps({
       className: 'lorem-ipsum-class',
       variant: TableVariant.compact
     });
-    expect(component).toMatchSnapshot('className and variant');
+    expect(componentClassNameVariant).toMatchSnapshot('className and variant');
 
-    component.setProps({
+    const componentNoHeaderNoRows = await component.setProps({
       rowCount: 0
     });
-    expect(component).toMatchSnapshot('no table header and zero rows');
+    expect(componentNoHeaderNoRows).toMatchSnapshot('no table header and zero rows');
 
-    component.setProps({
-      isHeader: true
+    const componentHeaderNoRows = await component.setProps({
+      isHeader: true,
+      rowCount: 0
     });
-    expect(component).toMatchSnapshot('table header and zero rows');
+    expect(componentHeaderNoRows).toMatchSnapshot('table header and zero rows');
   });
 });

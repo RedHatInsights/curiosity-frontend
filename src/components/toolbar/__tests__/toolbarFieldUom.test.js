@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldUom, toolbarFieldOptions, useOnSelect } from '../toolbarFieldUom';
 import { store } from '../../../redux/store';
 import { RHSM_API_QUERY_UOM_TYPES as UOM_TYPES, RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
@@ -15,11 +14,11 @@ describe('ToolbarFieldUom Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.UOM]: UOM_TYPES.SOCKETS })
     };
-    const component = shallow(<ToolbarFieldUom {...props} />);
+    const component = await shallowComponent(<ToolbarFieldUom {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -28,16 +27,17 @@ describe('ToolbarFieldUom Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating uom through redux state with component', async () => {
+  it('should handle updating uom through redux state with component', () => {
     const props = {};
 
-    const component = await mountHookComponent(<ToolbarFieldUom {...props} />);
+    const component = renderComponent(<ToolbarFieldUom {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
 
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch uom, component');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });
 
   it('should handle updating uom through redux state with hook', () => {
@@ -50,6 +50,6 @@ describe('ToolbarFieldUom Component', () => {
     onSelect({
       value: 'dolor sit'
     });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch uom, hook');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 });

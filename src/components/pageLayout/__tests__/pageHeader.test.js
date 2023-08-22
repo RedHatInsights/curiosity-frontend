@@ -1,10 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { PageHeader } from '../pageHeader';
 
 describe('PageHeader Component', () => {
-  it('should render a basic component', () => {
-    const component = mount(
+  it('should render a basic component', async () => {
+    const component = await shallowComponent(
       <PageHeader>
         <span className="test">lorem</span>
       </PageHeader>
@@ -14,12 +13,12 @@ describe('PageHeader Component', () => {
   });
 
   it('should render string node types', () => {
-    const component = mount(<PageHeader>dolor sit</PageHeader>);
+    const component = renderComponent(<PageHeader>dolor sit</PageHeader>);
     expect(component).toMatchSnapshot('string');
   });
 
   it('should render the subtitle when viewId is provided', () => {
-    const component = mount(<PageHeader productLabel="RHEL">lorem</PageHeader>);
+    const component = renderComponent(<PageHeader productLabel="RHEL">lorem</PageHeader>);
     expect(component).toMatchSnapshot('with subtitle');
   });
 });

@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { useSelector as useReactReduxSelector, shallowEqual } from 'react-redux';
 import { createSelector } from 'reselect';
 import _cloneDeep from 'lodash/cloneDeep';

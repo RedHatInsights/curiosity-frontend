@@ -1,678 +1,731 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Component should allow expandable content: expandable content 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  props="{
+  "columnHeaders": [
+    "lorem ipsum"
+  ],
+  "rows": [
+    {
+      "cells": [
+        "dolor"
+      ],
+      "expandedContent": "dolor sit expandable content"
+    },
+    {
+      "cells": [
+        "sit"
+      ]
+    }
+  ],
+  "ariaLabel": null,
+  "borders": true,
+  "children": [],
+  "className": null,
+  "isHeader": true,
+  "summary": null,
+  "variant": null
+}"
 >
-  <GridItem
-    span={12}
+  <div
+    class="pf-l-grid ins-inventory-list"
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      onCollapse={[Function]}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-            "isOpen": false,
-          },
-          {
-            "cells": [
-              {
-                "title": "",
-              },
-            ],
-            "expandedContent": "dolor sit expandable content",
-            "fullWidth": true,
-            "parent": 0,
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <div
+      class="pf-l-grid__item pf-m-12-col"
     >
-      <TableHeader />
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+      <table
+        aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+        class="curiosity-table  pf-c-table pf-m-grid-md"
+        data-ouia-component-id="OUIA-Generated-Table-12"
+        data-ouia-component-type="PF4/Table"
+        data-ouia-safe="true"
+        role="grid"
+        summary="t(curiosity-inventory.tableSummary)"
+      >
+        <thead
+          class=""
+        >
+          <tr
+            class=""
+            data-ouia-component-id="OUIA-Generated-TableRow-14"
+            data-ouia-component-type="PF4/TableRow"
+            data-ouia-safe="true"
+          >
+            <th
+              class=""
+              data-key="0"
+              data-label=""
+            />
+            <th
+              class=""
+              data-key="1"
+              data-label="lorem ipsum"
+              scope="col"
+            >
+              lorem ipsum
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class=""
+          role="rowgroup"
+        >
+          <tr
+            class=""
+            data-ouia-component-id="OUIA-Generated-TableRow-15"
+            data-ouia-component-type="PF4/TableRow"
+            data-ouia-safe="true"
+          >
+            <td
+              class="pf-c-table__toggle"
+              data-key="0"
+            >
+              <button
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-label="Details"
+                aria-labelledby="simple-node0 expandable-toggle0"
+                class="pf-c-button pf-m-plain"
+                data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                data-ouia-component-type="PF4/Button"
+                data-ouia-safe="true"
+                id="expandable-toggle0"
+                type="button"
+              >
+                <div
+                  class="pf-c-table__toggle-icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 320 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </td>
+            <td
+              class=""
+              data-key="1"
+              data-label="lorem ipsum"
+            >
+              dolor
+            </td>
+          </tr>
+          <tr
+            class="pf-c-table__expandable-row"
+            data-ouia-component-id="OUIA-Generated-TableRow-16"
+            data-ouia-component-type="PF4/TableRow"
+            data-ouia-safe="true"
+            hidden=""
+          >
+            <td
+              class=""
+              colspan="3"
+              data-key="0"
+              id="expanded-content1"
+            />
+          </tr>
+        </tbody>
+        <tbody
+          class=""
+          role="rowgroup"
+        >
+          <tr
+            class=""
+            data-ouia-component-id="OUIA-Generated-TableRow-17"
+            data-ouia-component-type="PF4/TableRow"
+            data-ouia-safe="true"
+          >
+            <td
+              class=""
+              data-key="0"
+            />
+            <td
+              class=""
+              data-key="1"
+              data-label="lorem ipsum"
+            >
+              sit
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</table>
 `;
 
 exports[`Table Component should allow expandable content: expanded row 1`] = `
-<Grid
-  className="ins-inventory-list"
+<tr
+  class="pf-c-table__expandable-row pf-m-expanded"
+  data-ouia-component-id="OUIA-Generated-TableRow-16"
+  data-ouia-component-type="PF4/TableRow"
+  data-ouia-safe="true"
 >
-  <GridItem
-    span={12}
+  <td
+    class=""
+    data-key="0"
+  />
+  <td
+    class=""
+    colspan="1"
+    data-key="1"
+    id="expanded-content1-1"
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      onCollapse={[Function]}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-            "isOpen": true,
-          },
-          {
-            "cells": [
-              {
-                "title": "dolor sit expandable content",
-              },
-            ],
-            "expandedContent": "dolor sit expandable content",
-            "fullWidth": false,
-            "parent": 0,
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
-    >
-      <TableHeader />
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+    dolor sit expandable content
+  </td>
+</tr>
+`;
+
+exports[`Table Component should allow expandable content: no expanded row 1`] = `
+<tr
+  class="pf-c-table__expandable-row"
+  data-ouia-component-id="OUIA-Generated-TableRow-16"
+  data-ouia-component-type="PF4/TableRow"
+  data-ouia-safe="true"
+  hidden=""
+>
+  <td
+    class=""
+    colspan="3"
+    data-key="0"
+    id="expanded-content1"
+  />
+</tr>
 `;
 
 exports[`Table Component should allow sortable content: sortable content 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+  class="curiosity-table  pf-c-table pf-m-grid-md"
+  data-ouia-component-id="OUIA-Generated-Table-14"
+  data-ouia-component-type="PF4/Table"
+  data-ouia-safe="true"
+  role="grid"
+  summary="t(curiosity-inventory.tableSummary)"
 >
-  <GridItem
-    span={12}
+  <thead
+    class=""
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "onSort": [MockFunction],
-            "title": "lorem ipsum",
-            "transforms": [
-              [Function],
-            ],
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      onSort={[Function]}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      sortBy={{}}
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-18"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
     >
-      <TableHeader />
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
-`;
-
-exports[`Table Component should allow sortable content: sorted column callback 1`] = `
-<Grid
-  className="ins-inventory-list"
->
-  <GridItem
-    span={12}
+      <th
+        aria-sort="none"
+        class="pf-c-table__sort"
+        data-key="0"
+        data-label="lorem ipsum"
+        scope="col"
+      >
+        <button
+          class="pf-c-table__button"
+          type="button"
+        >
+          <div
+            class="pf-c-table__button-content"
+          >
+            <span
+              class="pf-c-table__text"
+            >
+              lorem ipsum
+            </span>
+            <span
+              class="pf-c-table__sort-indicator"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                role="img"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 256 512"
+                width="1em"
+              >
+                <path
+                  d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                />
+              </svg>
+            </span>
+          </div>
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class=""
+    role="rowgroup"
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "onSort": [MockFunction] {
-              "calls": [
-                [
-                  {
-                    "direction": "asc",
-                    "index": 0,
-                    "label": undefined,
-                  },
-                ],
-              ],
-              "results": [
-                {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            },
-            "title": "lorem ipsum",
-            "transforms": [
-              [Function],
-            ],
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      onSort={[Function]}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      sortBy={
-        {
-          "direction": "asc",
-          "index": 0,
-        }
-      }
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-19"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
     >
-      <TableHeader />
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        dolor
+      </td>
+    </tr>
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-20"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        sit
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Table Component should allow variations in table layout: ariaLabel and summary 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  aria-label="lorem ipsum aria-label"
+  class="curiosity-table  pf-c-table pf-m-grid-md"
+  data-ouia-component-id="OUIA-Generated-Table-8"
+  data-ouia-component-type="PF4/Table"
+  data-ouia-safe="true"
+  role="grid"
+  summary="lorem ipsum summary"
 >
-  <GridItem
-    span={12}
+  <thead
+    class=""
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="lorem ipsum aria-label"
-      borders={false}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table-no-border "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      summary="lorem ipsum summary"
-      variant={null}
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-8"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
     >
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+      <th
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+        scope="col"
+      >
+        lorem ipsum
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class=""
+    role="rowgroup"
+  >
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-9"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        dolor
+      </td>
+    </tr>
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-10"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        sit
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Table Component should allow variations in table layout: borders and table header removed 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+  class="curiosity-table-no-border  pf-c-table pf-m-grid-md pf-m-no-border-rows"
+  data-ouia-component-id="OUIA-Generated-Table-6"
+  data-ouia-component-type="PF4/Table"
+  data-ouia-safe="true"
+  role="grid"
+  summary="t(curiosity-inventory.tableSummary)"
 >
-  <GridItem
-    span={12}
+  <tbody
+    class=""
+    role="rowgroup"
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={false}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table-no-border "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-5"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
     >
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        dolor
+      </td>
+    </tr>
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-6"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        sit
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Table Component should allow variations in table layout: className and variant 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+  class="curiosity-table lorem-ipsum-class pf-c-table pf-m-grid-md pf-m-compact"
+  data-ouia-component-id="OUIA-Generated-Table-10"
+  data-ouia-component-type="PF4/Table"
+  data-ouia-safe="true"
+  role="grid"
+  summary="t(curiosity-inventory.tableSummary)"
 >
-  <GridItem
-    span={12}
+  <thead
+    class=""
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="lorem ipsum aria-label"
-      borders={false}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table-no-border lorem-ipsum-class"
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      summary="lorem ipsum summary"
-      variant="compact"
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-11"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
     >
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+      <th
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+        scope="col"
+      >
+        lorem ipsum
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class=""
+    role="rowgroup"
+  >
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-12"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        dolor
+      </td>
+    </tr>
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-13"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        sit
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Table Component should allow variations in table layout: generated rows 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+  class="curiosity-table  pf-c-table pf-m-grid-md"
+  data-ouia-component-id="OUIA-Generated-Table-4"
+  data-ouia-component-type="PF4/Table"
+  data-ouia-safe="true"
+  role="grid"
+  summary="t(curiosity-inventory.tableSummary)"
 >
-  <GridItem
-    span={12}
+  <thead
+    class=""
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={
-        [
-          {
-            "cells": [
-              {
-                "title": "dolor",
-              },
-            ],
-          },
-          {
-            "cells": [
-              {
-                "title": "sit",
-              },
-            ],
-          },
-        ]
-      }
-      selectVariant="checkbox"
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-2"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
     >
-      <TableHeader />
-      <TableBody />
-    </Table>
-  </GridItem>
-</Grid>
+      <th
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+        scope="col"
+      >
+        lorem ipsum
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class=""
+    role="rowgroup"
+  >
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-3"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        dolor
+      </td>
+    </tr>
+    <tr
+      class=""
+      data-ouia-component-id="OUIA-Generated-TableRow-4"
+      data-ouia-component-type="PF4/TableRow"
+      data-ouia-safe="true"
+    >
+      <td
+        class=""
+        data-key="0"
+        data-label="lorem ipsum"
+      >
+        sit
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Table Component should pass child components, nodes when there are no rows: children 1`] = `
-<Grid
-  className="ins-inventory-list"
+<table
+  props="{
+  "columnHeaders": [
+    "lorem ipsum"
+  ],
+  "rows": [],
+  "children": [
+    {}
+  ],
+  "ariaLabel": null,
+  "borders": true,
+  "className": null,
+  "isHeader": true,
+  "summary": null,
+  "variant": null
+}"
 >
-  <GridItem
-    span={12}
+  <div
+    class="pf-l-grid ins-inventory-list"
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem ipsum",
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={[]}
-      selectVariant="checkbox"
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <div
+      class="pf-l-grid__item pf-m-12-col"
     >
-      <TableHeader />
-      <TableBody />
-    </Table>
-    Loading...
-  </GridItem>
-</Grid>
+      <table
+        aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+        class="curiosity-table  pf-c-table pf-m-grid-md"
+        data-ouia-component-id="OUIA-Generated-Table-16"
+        data-ouia-component-type="PF4/Table"
+        data-ouia-safe="true"
+        role="grid"
+        summary="t(curiosity-inventory.tableSummary)"
+      >
+        <thead
+          class=""
+        >
+          <tr
+            class=""
+            data-ouia-component-id="OUIA-Generated-TableRow-21"
+            data-ouia-component-type="PF4/TableRow"
+            data-ouia-safe="true"
+          >
+            <th
+              class=""
+              data-key="0"
+              data-label="lorem ipsum"
+              scope="col"
+            >
+              lorem ipsum
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class=""
+          role="rowgroup"
+        />
+      </table>
+      Loading...
+    </div>
+  </div>
+</table>
 `;
 
-exports[`Table Component should render a non-connected component: non-connected 1`] = `
-<Grid
-  className="ins-inventory-list"
+exports[`Table Component should render a basic component: basic 1`] = `
+<table
+  props="{
+  "columnHeaders": [
+    "lorem",
+    "ipsum",
+    "dolor",
+    "sit"
+  ],
+  "ariaLabel": null,
+  "borders": true,
+  "children": [],
+  "className": null,
+  "isHeader": true,
+  "rows": [],
+  "summary": null,
+  "variant": null
+}"
 >
-  <GridItem
-    span={12}
+  <div
+    class="pf-l-grid ins-inventory-list"
   >
-    <Table
-      actionsMenuAppendTo="inline"
-      aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-      borders={true}
-      canCollapseAll={false}
-      canSelectAll={true}
-      canSortFavorites={true}
-      cells={
-        [
-          {
-            "title": "lorem",
-          },
-          {
-            "title": "ipsum",
-          },
-          {
-            "title": "dolor",
-          },
-          {
-            "title": "sit",
-          },
-        ]
-      }
-      className="curiosity-table "
-      collapseAllAriaLabel=""
-      contentId="expanded-content"
-      dropdownDirection="down"
-      dropdownPosition="right"
-      expandId="expandable-toggle"
-      gridBreakPoint="grid-md"
-      isHeaderSelectDisabled={false}
-      isNested={false}
-      isStickyHeader={false}
-      isTreeTable={false}
-      ouiaSafe={true}
-      role="grid"
-      rowLabeledBy="simple-node"
-      rows={[]}
-      selectVariant="checkbox"
-      summary="t(curiosity-inventory.tableSummary)"
-      variant={null}
+    <div
+      class="pf-l-grid__item pf-m-12-col"
     >
-      <TableHeader />
-      <TableBody />
-    </Table>
-    <TableEmpty
-      icon={[Function]}
-      message="t(curiosity-inventory.tableEmptyInventoryMessage)"
-      tableHeading="h2"
-      title="t(curiosity-inventory.tableEmptyInventoryTitle)"
-      variant="small"
-    />
-  </GridItem>
-</Grid>
+      <table
+        aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
+        class="curiosity-table  pf-c-table pf-m-grid-md"
+        data-ouia-component-id="OUIA-Generated-Table-2"
+        data-ouia-component-type="PF4/Table"
+        data-ouia-safe="true"
+        role="grid"
+        summary="t(curiosity-inventory.tableSummary)"
+      >
+        <thead
+          class=""
+        >
+          <tr
+            class=""
+            data-ouia-component-id="OUIA-Generated-TableRow-1"
+            data-ouia-component-type="PF4/TableRow"
+            data-ouia-safe="true"
+          >
+            <th
+              class=""
+              data-key="0"
+              data-label="lorem"
+              scope="col"
+            >
+              lorem
+            </th>
+            <th
+              class=""
+              data-key="1"
+              data-label="ipsum"
+              scope="col"
+            >
+              ipsum
+            </th>
+            <th
+              class=""
+              data-key="2"
+              data-label="dolor"
+              scope="col"
+            >
+              dolor
+            </th>
+            <th
+              class=""
+              data-key="3"
+              data-label="sit"
+              scope="col"
+            >
+              sit
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class=""
+          role="rowgroup"
+        />
+      </table>
+      <div
+        class="ins-c-table__empty"
+      >
+         
+        <div
+          class="pf-c-empty-state pf-m-sm"
+        >
+          <div
+            class="pf-c-empty-state__content"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-c-empty-state__icon"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              style="vertical-align: -0.125em;"
+              viewBox="0 0 512 512"
+              width="1em"
+            >
+              <path
+                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+              />
+            </svg>
+            <h2
+              class="pf-c-title pf-m-lg"
+              data-ouia-component-id="OUIA-Generated-Title-1"
+              data-ouia-component-type="PF4/Title"
+              data-ouia-safe="true"
+            >
+              t(curiosity-inventory.tableEmptyInventoryTitle)
+            </h2>
+            <div
+              class="pf-c-empty-state__body"
+            >
+              t(curiosity-inventory.tableEmptyInventoryMessage)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</table>
 `;

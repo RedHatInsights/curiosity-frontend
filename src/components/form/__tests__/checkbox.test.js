@@ -1,6 +1,4 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { Checkbox as PfCheckbox } from '@patternfly/react-core/dist/js/components/Checkbox';
 import Checkbox from '../checkbox';
 import { helpers } from '../../../common/helpers';
 
@@ -8,8 +6,8 @@ describe('Checkbox Component', () => {
   it('should render a basic component', () => {
     const props = {};
 
-    const component = mount(<Checkbox {...props} />);
-    expect(component.render()).toMatchSnapshot('basic component');
+    const component = renderComponent(<Checkbox {...props} />);
+    expect(component).toMatchSnapshot('basic component');
   });
 
   it('should handle readOnly, disabled, checked', () => {
@@ -17,48 +15,49 @@ describe('Checkbox Component', () => {
       isReadOnly: true
     };
 
-    const component = mount(<Checkbox {...props} />);
-    expect(component.render()).toMatchSnapshot('readOnly');
+    const component = renderComponent(<Checkbox {...props} />);
+    expect(component.find('input')).toMatchSnapshot('readOnly');
 
-    component.setProps({
+    const dis = component.setProps({
       isReadOnly: false,
       isDisabled: true
     });
 
-    expect(component.render()).toMatchSnapshot('disabled');
+    expect(dis.find('input')).toMatchSnapshot('disabled');
 
-    component.setProps({
+    const active = component.setProps({
       isReadOnly: false,
       isDisabled: false
     });
 
-    expect(component.render()).toMatchSnapshot('active');
+    expect(active.find('input')).toMatchSnapshot('active');
 
-    component.setProps({
+    const checked = component.setProps({
       isReadOnly: false,
       isDisabled: false,
       isChecked: true
     });
 
-    expect(component.render()).toMatchSnapshot('checked');
+    expect(checked.find('input')).toMatchSnapshot('checked');
   });
 
   it('should handle children as a label', () => {
     const props = {};
-    const component = mount(<Checkbox {...props}>lorem ipsum</Checkbox>);
-    expect(component.render()).toMatchSnapshot('children label checkbox');
+    const component = renderComponent(<Checkbox {...props}>lorem ipsum</Checkbox>);
+    expect(component).toMatchSnapshot('children label checkbox');
   });
 
-  it('should return an emulated onChange event', done => {
-    const props = {};
-
-    props.onChange = event => {
-      expect(event).toMatchSnapshot('emulated event');
-      done();
+  it('should return an emulated onChange event', () => {
+    const props = {
+      onChange: jest.fn()
     };
 
-    const component = shallow(<Checkbox {...props}>lorem ipsum</Checkbox>);
-    const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
-    component.find(PfCheckbox).simulate('change', true, mockEvent);
+    const component = renderComponent(<Checkbox {...props}>lorem ipsum</Checkbox>);
+    const input = component.find('input');
+    const mockEvent = { currentTarget: {}, target: {}, checked: true, persist: helpers.noop };
+    component.fireEvent.click(input, mockEvent);
+
+    expect(props.onChange).toHaveBeenCalledTimes(1);
+    expect(props.onChange.mock.calls).toMatchSnapshot('emulated event, change');
   });
 });

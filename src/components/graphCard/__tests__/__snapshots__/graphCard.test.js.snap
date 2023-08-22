@@ -1,99 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphCard Component should allow being disabled: disabled 1`] = `""`;
+exports[`GraphCard Component should allow being disabled: disabled 1`] = `null`;
 
 exports[`GraphCard Component should setup basic settings: settings, grouped 1`] = `
-<ContextProvider
-  key="graphCard-Core-seconds"
-  value={
-    {
-      "settings": {
-        "cards": [
-          {
-            "body": "ipsum",
-            "footer": "dolor sit",
-            "header": "lorem",
-          },
-        ],
-        "isMetricDisplay": true,
-        "loremIpsum": false,
-        "metric": undefined,
-        "metrics": [
-          {
-            "chartType": "area",
-            "id": "Core-seconds",
-            "isCapacity": false,
-            "isStacked": true,
-            "isThreshold": false,
-            "isToolbarFilter": false,
-            "loremIpsum": false,
-            "metric": "Core-seconds",
-            "strokeWidth": 2,
-          },
-        ],
-      },
+[
+  <Context.Provider
+    value={
+      {
+        "settings": {
+          "cards": [
+            {
+              "body": "ipsum",
+              "footer": "dolor sit",
+              "header": "lorem",
+            },
+          ],
+          "isMetricDisplay": true,
+          "loremIpsum": false,
+          "metric": undefined,
+          "metrics": [
+            {
+              "chartType": "area",
+              "id": "Core-seconds",
+              "isCapacity": false,
+              "isStacked": true,
+              "isThreshold": false,
+              "isToolbarFilter": false,
+              "loremIpsum": false,
+              "metric": "Core-seconds",
+              "strokeWidth": 2,
+            },
+          ],
+        },
+      }
     }
-  }
->
-  <GraphCardMetricTotals
-    useGraphCardContext={[Function]}
-    useMetricsSelector={[Function]}
-    useProductGraphTallyQuery={[Function]}
   >
-    <GraphCardChart
-      t={[Function]}
-      useGetMetrics={[Function]}
-      useGraphCardActions={[Function]}
+    <GraphCardMetricTotals
       useGraphCardContext={[Function]}
+      useMetricsSelector={[Function]}
       useProductGraphTallyQuery={[Function]}
-    />
-  </GraphCardMetricTotals>
-</ContextProvider>
+    >
+      <GraphCardChart
+        t={[Function]}
+        useGetMetrics={[Function]}
+        useGraphCardActions={[Function]}
+        useGraphCardContext={[Function]}
+        useProductGraphTallyQuery={[Function]}
+      />
+    </GraphCardMetricTotals>
+  </Context.Provider>,
+]
 `;
 
 exports[`GraphCard Component should setup basic settings: settings, standalone 1`] = `
-<ContextProvider
-  key="graphCard-Sockets"
-  value={
-    {
-      "settings": {
-        "loremIpsum": true,
-        "metric": undefined,
-        "metrics": [
-          {
-            "chartType": "area",
-            "id": "Sockets",
-            "isCapacity": false,
-            "isStacked": true,
-            "isThreshold": false,
-            "isToolbarFilter": false,
-            "loremIpsum": true,
-            "metric": "Sockets",
-            "strokeWidth": 2,
+[
+  <Context.Provider
+    value={
+      {
+        "settings": {
+          "loremIpsum": true,
+          "metric": undefined,
+          "metrics": [
+            {
+              "chartType": "area",
+              "id": "Sockets",
+              "isCapacity": false,
+              "isStacked": true,
+              "isThreshold": false,
+              "isToolbarFilter": false,
+              "loremIpsum": true,
+              "metric": "Sockets",
+              "strokeWidth": 2,
+            },
+          ],
+          "padding": {
+            "bottom": 75,
+            "left": 75,
+            "right": 45,
+            "top": 45,
           },
-        ],
-        "padding": {
-          "bottom": 75,
-          "left": 75,
-          "right": 45,
-          "top": 45,
         },
-      },
+      }
     }
-  }
->
-  <GraphCardMetricTotals
-    useGraphCardContext={[Function]}
-    useMetricsSelector={[Function]}
-    useProductGraphTallyQuery={[Function]}
   >
-    <GraphCardChart
-      t={[Function]}
-      useGetMetrics={[Function]}
-      useGraphCardActions={[Function]}
+    <GraphCardMetricTotals
       useGraphCardContext={[Function]}
+      useMetricsSelector={[Function]}
       useProductGraphTallyQuery={[Function]}
-    />
-  </GraphCardMetricTotals>
-</ContextProvider>
+    >
+      <GraphCardChart
+        t={[Function]}
+        useGetMetrics={[Function]}
+        useGraphCardActions={[Function]}
+        useGraphCardContext={[Function]}
+        useProductGraphTallyQuery={[Function]}
+      />
+    </GraphCardMetricTotals>
+  </Context.Provider>,
+]
 `;

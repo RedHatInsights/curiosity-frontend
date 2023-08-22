@@ -99,28 +99,21 @@ const InventoryCard = ({
         });
 
         updatedColumnHeaders = columnHeaders;
-        const subscriptionManagerId = cellData?.subscriptionManagerId;
-        const numberOfGuests = cellData?.numberOfGuests;
-        let isSubTable;
+        let expandedContent;
 
-        // Is there a subTable, callback, or attempt to determine, return boolean
-        if (typeof settings?.hasSubTable === 'function') {
-          isSubTable = settings.hasSubTable({ ...cellData }, { ...sessionData });
-        } else {
-          isSubTable = numberOfGuests > 0 && subscriptionManagerId;
+        if (typeof settings?.guestContent === 'function') {
+          const guestId = settings?.guestContent({ ...cellData }, { ...sessionData });
+
+          if (guestId) {
+            expandedContent = (
+              <InventoryGuests key={`guests-${guestId}`} id={guestId} numberOfGuests={cellData.numberOfGuests} />
+            );
+          }
         }
 
         return {
           cells,
-          expandedContent:
-            (isSubTable && (
-              <InventoryGuests
-                key={`guests-${subscriptionManagerId}`}
-                numberOfGuests={numberOfGuests}
-                id={subscriptionManagerId}
-              />
-            )) ||
-            undefined
+          expandedContent
         };
       });
     }
@@ -155,7 +148,7 @@ const InventoryCard = ({
 
   return (
     <Card className="curiosity-inventory-card">
-      <MinHeight key="headerMinHeight" updateOnContent>
+      <MinHeight key="headerMinHeight">
         <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
           {cardActions}
           <CardActions className={(!itemCount && 'transparent') || ''} aria-hidden={!itemCount || false}>
@@ -171,7 +164,7 @@ const InventoryCard = ({
           </CardActions>
         </CardHeader>
       </MinHeight>
-      <MinHeight key={minHeightContentRefreshKey} updateOnContent>
+      <MinHeight key={minHeightContentRefreshKey}>
         <CardBody>
           <div className={(error && 'blur') || (pending && 'fadein') || ''}>
             {pending && (
@@ -199,7 +192,7 @@ const InventoryCard = ({
           </div>
         </CardBody>
       </MinHeight>
-      <MinHeight key="footerMinHeight" updateOnContent>
+      <MinHeight key="footerMinHeight">
         <CardFooter
           className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
           aria-hidden={error || !itemCount || false}

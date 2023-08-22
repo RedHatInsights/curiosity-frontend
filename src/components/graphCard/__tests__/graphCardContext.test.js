@@ -7,10 +7,10 @@ describe('GraphCardContext', () => {
   });
 
   it('should parse configuration', async () => {
-    const { result: basicConfig } = await mountHook(() => useParseFiltersSettings());
+    const { result: basicConfig } = await renderHook(() => useParseFiltersSettings());
     expect(basicConfig).toMatchSnapshot('configuration, basic');
 
-    const { unmount: groupedUnmount, result: groupedConfig } = await mountHook(() =>
+    const { unmount: groupedUnmount, result: groupedConfig } = await renderHook(() =>
       useParseFiltersSettings({
         useProduct: () => ({ productId: 'loremIpsum' }),
         useProductGraphConfig: () => ({
@@ -26,7 +26,7 @@ describe('GraphCardContext', () => {
     await groupedUnmount();
     expect(groupedConfig).toMatchSnapshot('configuration, grouped');
 
-    const { unmount: standaloneUnmount, result: standaloneConfig } = await mountHook(() =>
+    const { unmount: standaloneUnmount, result: standaloneConfig } = await renderHook(() =>
       useParseFiltersSettings({
         useProduct: () => ({ productId: 'loremIpsum' }),
         useProductGraphConfig: () => ({

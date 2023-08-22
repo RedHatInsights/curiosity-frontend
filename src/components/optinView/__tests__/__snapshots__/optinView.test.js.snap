@@ -16,9 +16,7 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
         }
       >
         <FlexItem>
-          <CardTitle
-            key="heading1Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h1"
               size="2xl"
@@ -26,14 +24,10 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
               t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading1Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
           </CardBody>
-          <CardTitle
-            key="heading2Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h2"
               size="xl"
@@ -41,14 +35,10 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
               t(curiosity-optin.cardSeeTitle)
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading2Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardSeeDescription)
           </CardBody>
-          <CardTitle
-            key="heading3Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h2"
               size="xl"
@@ -56,14 +46,10 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
               t(curiosity-optin.cardReportTitle)
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading3Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardReportDescription)
           </CardBody>
-          <CardTitle
-            key="heading4Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h2"
               size="xl"
@@ -71,9 +57,7 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
               t(curiosity-optin.cardFilterTitle)
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading4Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardFilterDescription)
           </CardBody>
           <CardFooter>
@@ -149,110 +133,199 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
 `;
 
 exports[`OptinView Component should render an API state driven view: 4XX view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmitDisabled"
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-4"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmitDisabled"
+          disabled=""
+          type="button"
+        >
+          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`OptinView Component should render an API state driven view: 200 view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmitDisabled"
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-1"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmitDisabled"
+          disabled=""
+          type="button"
+        >
+          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`OptinView Component should render an API state driven view: 401 view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmitDisabled"
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-2"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmitDisabled"
+          disabled=""
+          type="button"
+        >
+          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`OptinView Component should render an API state driven view: 403 view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmit"
-        onClick={[Function]}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="false"
+          class="pf-c-button pf-m-primary"
+          data-ouia-component-id="OUIA-Generated-Button-primary-3"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmit"
+          type="button"
+        >
+          t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`OptinView Component should render an API state driven view: 500 view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmitDisabled"
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-5"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmitDisabled"
+          disabled=""
+          type="button"
+        >
+          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
-exports[`OptinView Component should render an API state driven view: error view 1`] = `
-<CardFooter>
-  <p>
-    t(curiosity-optin.cardIsErrorDescription, {"appName":"Subscriptions"}, [object Object])
-  </p>
-</CardFooter>
-`;
+exports[`OptinView Component should render an API state driven view: error view 1`] = `null`;
 
 exports[`OptinView Component should render an API state driven view: fulfilled view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmitDisabled"
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-    <p>
-      t(curiosity-optin.cardIsActiveDescription)
-    </p>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-8"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmitDisabled"
+          disabled=""
+          type="button"
+        >
+          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+  <p>
+    t(curiosity-optin.cardIsActiveDescription)
+  </p>
+</form>
 `;
 
 exports[`OptinView Component should render an API state driven view: initial view 1`] = `
@@ -271,9 +344,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
         }
       >
         <FlexItem>
-          <CardTitle
-            key="heading1Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h1"
               size="2xl"
@@ -281,14 +352,10 @@ exports[`OptinView Component should render an API state driven view: initial vie
               t(curiosity-optin.cardTitle, {"appName":"Subscriptions"})
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading1Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardDescription, {"appName":"Subscriptions"})
           </CardBody>
-          <CardTitle
-            key="heading2Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h2"
               size="xl"
@@ -296,14 +363,10 @@ exports[`OptinView Component should render an API state driven view: initial vie
               t(curiosity-optin.cardSeeTitle)
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading2Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardSeeDescription)
           </CardBody>
-          <CardTitle
-            key="heading3Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h2"
               size="xl"
@@ -311,14 +374,10 @@ exports[`OptinView Component should render an API state driven view: initial vie
               t(curiosity-optin.cardReportTitle)
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading3Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardReportDescription)
           </CardBody>
-          <CardTitle
-            key="heading4Title"
-          >
+          <CardTitle>
             <Title
               headingLevel="h2"
               size="xl"
@@ -326,9 +385,7 @@ exports[`OptinView Component should render an API state driven view: initial vie
               t(curiosity-optin.cardFilterTitle)
             </Title>
           </CardTitle>
-          <CardBody
-            key="heading4Desc"
-          >
+          <CardBody>
             t(curiosity-optin.cardFilterDescription)
           </CardBody>
           <CardFooter>
@@ -404,38 +461,83 @@ exports[`OptinView Component should render an API state driven view: initial vie
 `;
 
 exports[`OptinView Component should render an API state driven view: null or undefined status view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        data-test="optinButtonSubmitDisabled"
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-6"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          data-test="optinButtonSubmitDisabled"
+          disabled=""
+          type="button"
+        >
+          t(curiosity-optin.buttonIsActive, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`OptinView Component should render an API state driven view: pending view 1`] = `
-<CardFooter>
-  <Form>
-    <ActionGroup>
-      <Button
-        isDisabled={true}
-        variant="primary"
+<form
+  class="pf-c-form"
+  novalidate=""
+>
+  <div
+    class="pf-c-form__group pf-m-action"
+  >
+    <div
+      class="pf-c-form__group-control"
+    >
+      <div
+        class="pf-c-form__actions"
       >
-        <Spinner
-          size="sm"
-        />
-         
-        t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
-      </Button>
-    </ActionGroup>
-  </Form>
-</CardFooter>
+        <button
+          aria-disabled="true"
+          class="pf-c-button pf-m-primary pf-m-disabled"
+          data-ouia-component-id="OUIA-Generated-Button-primary-7"
+          data-ouia-component-type="PF4/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            aria-label="Contents"
+            aria-valuetext="Loading..."
+            class="pf-c-spinner pf-m-sm"
+            role="progressbar"
+          >
+            <span
+              class="pf-c-spinner__clipper"
+            />
+            <span
+              class="pf-c-spinner__lead-ball"
+            />
+            <span
+              class="pf-c-spinner__tail-ball"
+            />
+          </span>
+           
+          t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`OptinView Component should submit an opt-in form: dispatch 1`] = `

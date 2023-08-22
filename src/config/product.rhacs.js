@@ -76,57 +76,66 @@ const config = {
   initialGraphSettings: {
     cards: [
       {
-        header: ({ metricId } = {}) =>
+        header: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardHeadingMetric', {
-            context: ['dailyTotal', metricId],
+            context: ['dailyTotal', dataSets?.[0]?.display?.chartId],
             testId: 'graphDailyTotalCard-header'
           }),
-        body: ({ dailyHasData, dailyValue, metricId } = {}) =>
+        body: ({ dataSets = [] } = {}) =>
           translate(
             'curiosity-graph.cardBodyMetric',
             {
-              context: ['total', dailyHasData && metricId],
+              context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId],
               testId: 'graphDailyTotalCard-body',
               total: helpers
-                .numberDisplay(dailyValue)
+                .numberDisplay(dataSets?.[0]?.display?.dailyValue)
                 ?.format({
                   average: true,
-                  mantissa: 5,
+                  mantissa: 2,
                   trimMantissa: true,
                   lowPrecision: false
                 })
                 ?.toUpperCase()
             },
-            [<strong title={dailyValue} aria-label={dailyValue} />]
+            [<strong title={dataSets?.[0]?.display?.dailyValue} aria-label={dataSets?.[0]?.display?.dailyValue} />]
           ),
-        footer: ({ dailyDate } = {}) =>
+        footer: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardFooterMetric', {
-            date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            date: moment
+              .utc(dataSets?.[0]?.display?.dailyDate)
+              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
             testId: 'graphDailyTotalCard-footer'
           })
       },
       {
-        header: ({ metricId } = {}) =>
+        header: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardHeadingMetric', {
-            context: ['monthlyTotal', metricId],
+            context: ['monthlyTotal', dataSets?.[0]?.display?.chartId],
             testId: 'graphMonthlyTotalCard-header'
           }),
-        body: ({ metricId, monthlyHasData, monthlyValue } = {}) =>
+        body: ({ dataSets = [] } = {}) =>
           translate(
             'curiosity-graph.cardBodyMetric',
             {
-              context: ['total', monthlyHasData && metricId],
+              context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId],
               testId: 'graphMonthlyTotalCard-body',
               total: helpers
-                .numberDisplay(monthlyValue)
-                ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
+                .numberDisplay(dataSets?.[0]?.display?.monthlyValue)
+                ?.format({
+                  average: true,
+                  mantissa: 2,
+                  trimMantissa: true,
+                  lowPrecision: false
+                })
                 ?.toUpperCase()
             },
-            [<strong title={monthlyValue} aria-label={monthlyValue} />]
+            [<strong title={dataSets?.[0]?.display?.monthlyValue} aria-label={dataSets?.[0]?.display?.monthlyValue} />]
           ),
-        footer: ({ monthlyDate } = {}) =>
+        footer: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardFooterMetric', {
-            date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            date: moment
+              .utc(dataSets?.[0]?.display?.monthlyDate)
+              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
             testId: 'graphMonthlyTotalCard-footer'
           })
       }
@@ -208,6 +217,12 @@ const config = {
       cellWidth: 15
     }
   ],
+  initialInventorySettings: {
+    guestContent: ({
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
+      [INVENTORY_TYPES.INSTANCE_ID]: id
+    } = {}) => (numberOfGuests > 0 && id) || undefined
+  },
   initialSubscriptionsInventoryFilters: [
     {
       id: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,

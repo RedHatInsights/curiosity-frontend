@@ -23,7 +23,7 @@ describe('ProductViewContext', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should apply a hook factory for retrieving api queries', () => {
+  it('should apply a hook factory for retrieving api queries', async () => {
     const mockContextValue = {
       lorem: { lorem: 'ipsum' },
       dolor: { dolor: 'sit' },
@@ -31,13 +31,13 @@ describe('ProductViewContext', () => {
       viewId: 'viewIpsum'
     };
 
-    const { result } = shallowHook(() =>
+    const { result } = await renderHook(() =>
       useProductQueryFactory('lorem', { useProductViewContext: () => mockContextValue })
     );
     expect(result).toMatchSnapshot('query factory');
   });
 
-  it('should apply hooks for retrieving specific api queries', () => {
+  it('should apply hooks for retrieving specific api queries', async () => {
     const mockContextValue = {
       query: { lorem: 'ipsum' },
       graphTallyQuery: { [rhsmConstants.RHSM_API_QUERY_SET_TALLY_CAPACITY_TYPES.GRANULARITY]: 'testGranularity' },
@@ -48,38 +48,38 @@ describe('ProductViewContext', () => {
       viewId: 'viewIpsum'
     };
 
-    const { result: productQuery } = shallowHook(() =>
+    const { result: productQuery } = await renderHook(() =>
       useProductQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(productQuery).toMatchSnapshot('query');
 
-    const { result: graphTallyQuery } = shallowHook(() =>
+    const { result: graphTallyQuery } = await renderHook(() =>
       useProductGraphTallyQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(graphTallyQuery).toMatchSnapshot('graphTallyQuery');
 
-    const { result: inventoryGuestsQuery } = shallowHook(() =>
+    const { result: inventoryGuestsQuery } = await renderHook(() =>
       useProductInventoryGuestsQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(inventoryGuestsQuery).toMatchSnapshot('inventoryGuestsQuery');
 
-    const { result: inventoryHostsQuery } = shallowHook(() =>
+    const { result: inventoryHostsQuery } = await renderHook(() =>
       useProductInventoryHostsQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(inventoryHostsQuery).toMatchSnapshot('inventoryHostsQuery');
 
-    const { result: inventorySubscriptionsQuery } = shallowHook(() =>
+    const { result: inventorySubscriptionsQuery } = await renderHook(() =>
       useProductInventorySubscriptionsQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(inventorySubscriptionsQuery).toMatchSnapshot('inventorySubscriptionsQuery');
 
-    const { result: toolbarQuery } = shallowHook(() =>
+    const { result: toolbarQuery } = await renderHook(() =>
       useProductToolbarQuery({ options: { useProductViewContext: () => mockContextValue } })
     );
     expect(toolbarQuery).toMatchSnapshot('toolbarQuery');
   });
 
-  it('should apply a hook for retrieving product context', () => {
+  it('should apply a hook for retrieving product context', async () => {
     const mockContextValue = {
       lorem: { lorem: 'ipsum' },
       dolor: { dolor: 'sit' },
@@ -87,12 +87,12 @@ describe('ProductViewContext', () => {
       viewId: 'viewIpsum'
     };
 
-    const { result } = shallowHook(() =>
+    const { result } = await renderHook(() =>
       useProductContext({ useProductQuery: () => ({}), useProductViewContext: () => mockContextValue })
     );
     expect(result).toMatchSnapshot('product context, basic');
 
-    const { result: openshiftUomCores } = shallowHook(() =>
+    const { result: openshiftUomCores } = await renderHook(() =>
       useProductContext({
         useProductQuery: () => ({
           [rhsmConstants.RHSM_API_QUERY_SET_TYPES.UOM]: rhsmConstants.RHSM_API_QUERY_UOM_TYPES.CORES
@@ -102,7 +102,7 @@ describe('ProductViewContext', () => {
     );
     expect(openshiftUomCores).toMatchSnapshot('product context, uom filtering cores');
 
-    const { result: openshiftUomSockets } = shallowHook(() =>
+    const { result: openshiftUomSockets } = await renderHook(() =>
       useProductContext({
         useProductQuery: () => ({
           [rhsmConstants.RHSM_API_QUERY_SET_TYPES.UOM]: rhsmConstants.RHSM_API_QUERY_UOM_TYPES.SOCKETS
@@ -113,7 +113,7 @@ describe('ProductViewContext', () => {
     expect(openshiftUomSockets).toMatchSnapshot('product context, uom filtering sockets');
   });
 
-  it('should apply hooks for retrieving specific config filters and settings', () => {
+  it('should apply hooks for retrieving specific config filters and settings', async () => {
     const mockContextValue = {
       productGroup: 'loremIpsum',
       productId: 'lorem',
@@ -141,30 +141,32 @@ describe('ProductViewContext', () => {
       }
     };
 
-    const { result: productConfig } = shallowHook(() => useProduct({ useProductViewContext: () => mockContextValue }));
+    const { result: productConfig } = await renderHook(() =>
+      useProduct({ useProductViewContext: () => mockContextValue })
+    );
     expect(productConfig).toMatchSnapshot('productConfig');
 
-    const { result: productGraphConfig } = shallowHook(() =>
+    const { result: productGraphConfig } = await renderHook(() =>
       useProductGraphConfig({ useProductContext: () => mockContextValue })
     );
     expect(productGraphConfig).toMatchSnapshot('productGraphConfig');
 
-    const { result: productInventoryGuestsConfig } = shallowHook(() =>
+    const { result: productInventoryGuestsConfig } = await renderHook(() =>
       useProductInventoryGuestsConfig({ useProductContext: () => mockContextValue })
     );
     expect(productInventoryGuestsConfig).toMatchSnapshot('productInventoryGuestsConfig');
 
-    const { result: productInventoryHostsConfig } = shallowHook(() =>
+    const { result: productInventoryHostsConfig } = await renderHook(() =>
       useProductInventoryHostsConfig({ useProductContext: () => mockContextValue })
     );
     expect(productInventoryHostsConfig).toMatchSnapshot('productInventoryHostsConfig');
 
-    const { result: productInventorySubscriptionsConfig } = shallowHook(() =>
+    const { result: productInventorySubscriptionsConfig } = await renderHook(() =>
       useProductInventorySubscriptionsConfig({ useProductContext: () => mockContextValue })
     );
     expect(productInventorySubscriptionsConfig).toMatchSnapshot('productInventorySubscriptionsConfig');
 
-    const { result: productToolbarConfig } = shallowHook(() =>
+    const { result: productToolbarConfig } = await renderHook(() =>
       useProductToolbarConfig({ useProductContext: () => mockContextValue })
     );
     expect(productToolbarConfig).toMatchSnapshot('productToolbarConfig');

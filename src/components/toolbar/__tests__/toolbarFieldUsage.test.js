@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { ToolbarFieldUsage, toolbarFieldOptions, useOnSelect } from '../toolbarFieldUsage';
 import { store } from '../../../redux/store';
 import {
@@ -18,11 +17,11 @@ describe('ToolbarFieldSla Component', () => {
     jest.clearAllMocks();
   });
 
-  it('should render a basic component', () => {
+  it('should render a basic component', async () => {
     const props = {
       useProductQuery: () => ({ [RHSM_API_QUERY_SET_TYPES.USAGE]: USAGE_TYPES.DEVELOPMENT })
     };
-    const component = shallow(<ToolbarFieldUsage {...props} />);
+    const component = await shallowComponent(<ToolbarFieldUsage {...props} />);
 
     expect(component).toMatchSnapshot('basic');
   });
@@ -31,16 +30,17 @@ describe('ToolbarFieldSla Component', () => {
     expect(toolbarFieldOptions).toMatchSnapshot('toolbarFieldOptions');
   });
 
-  it('should handle updating usage through redux state with component', async () => {
+  it('should handle updating usage through redux state with component', () => {
     const props = {};
 
-    const component = await mountHookComponent(<ToolbarFieldUsage {...props} />);
+    const component = renderComponent(<ToolbarFieldUsage {...props} />);
+    const input = component.find('button');
+    component.fireEvent.click(input);
 
-    component.find('button').simulate('click');
-    component.update();
-    component.find('button.pf-c-select__menu-item').first().simulate('click');
+    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    component.fireEvent.click(inputMenuItem);
 
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch usage, component');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');
   });
 
   it('should handle updating usage through redux state with hook', () => {
@@ -53,6 +53,6 @@ describe('ToolbarFieldSla Component', () => {
     onSelect({
       value: 'dolor sit'
     });
-    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch usage, hook');
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, hook');
   });
 });

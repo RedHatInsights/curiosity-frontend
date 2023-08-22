@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { chartAxisLabel } from '../chartAxisLabel';
 
 describe('ChartAxisLabel Component', () => {
@@ -15,7 +14,7 @@ describe('ChartAxisLabel Component', () => {
     };
 
     const Component = chartAxisLabel(settings);
-    const updatedComponent = shallow(<Component {...props} />);
+    const updatedComponent = renderComponent(<Component {...props} />);
 
     expect(updatedComponent).toMatchSnapshot('basic');
   });
@@ -33,7 +32,7 @@ describe('ChartAxisLabel Component', () => {
     };
 
     const Component = chartAxisLabel(settings);
-    const updatedComponent = shallow(<Component {...props} />);
+    const updatedComponent = renderComponent(<Component {...props} />);
 
     expect(updatedComponent).toMatchSnapshot('undefined y');
   });

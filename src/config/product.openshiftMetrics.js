@@ -72,57 +72,66 @@ const config = {
   initialGraphSettings: {
     cards: [
       {
-        header: ({ chartId } = {}) =>
+        header: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardHeadingMetric', {
-            context: ['dailyTotal', chartId],
+            context: ['dailyTotal', dataSets?.[0]?.display?.chartId],
             testId: 'graphDailyTotalCard-header'
           }),
-        body: ({ chartId, dailyHasData, dailyValue } = {}) =>
+        body: ({ dataSets = [] } = {}) =>
           translate(
             'curiosity-graph.cardBodyMetric',
             {
-              context: ['total', dailyHasData && chartId],
+              context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId],
               testId: 'graphDailyTotalCard-body',
               total: helpers
-                .numberDisplay(dailyValue)
+                .numberDisplay(dataSets?.[0]?.display?.dailyValue)
                 ?.format({
                   average: true,
-                  mantissa: 5,
+                  mantissa: 2,
                   trimMantissa: true,
                   lowPrecision: false
                 })
                 ?.toUpperCase()
             },
-            [<strong title={dailyValue} aria-label={dailyValue} />]
+            [<strong title={dataSets?.[0]?.display?.dailyValue} aria-label={dataSets?.[0]?.display?.dailyValue} />]
           ),
-        footer: ({ dailyDate } = {}) =>
+        footer: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardFooterMetric', {
-            date: moment.utc(dailyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            date: moment
+              .utc(dataSets?.[0]?.display?.dailyDate)
+              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
             testId: 'graphDailyTotalCard-footer'
           })
       },
       {
-        header: ({ chartId } = {}) =>
+        header: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardHeadingMetric', {
-            context: ['monthlyTotal', chartId],
+            context: ['monthlyTotal', dataSets?.[0]?.display?.chartId],
             testId: 'graphMonthlyTotalCard-header'
           }),
-        body: ({ chartId, monthlyHasData, monthlyValue } = {}) =>
+        body: ({ dataSets = [] } = {}) =>
           translate(
             'curiosity-graph.cardBodyMetric',
             {
-              context: ['total', monthlyHasData && chartId],
+              context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId],
               testId: 'graphMonthlyTotalCard-body',
               total: helpers
-                .numberDisplay(monthlyValue)
-                ?.format({ average: true, mantissa: 5, trimMantissa: true, lowPrecision: false })
+                .numberDisplay(dataSets?.[0]?.display?.monthlyValue)
+                ?.format({
+                  average: true,
+                  mantissa: 2,
+                  trimMantissa: true,
+                  lowPrecision: false
+                })
                 ?.toUpperCase()
             },
-            [<strong title={monthlyValue} aria-label={monthlyValue} />]
+            [<strong title={dataSets?.[0]?.display?.monthlyValue} aria-label={dataSets?.[0]?.display?.monthlyValue} />]
           ),
-        footer: ({ monthlyDate } = {}) =>
+        footer: ({ dataSets = [] } = {}) =>
           translate('curiosity-graph.cardFooterMetric', {
-            date: moment.utc(monthlyDate).format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
+            date: moment
+              .utc(dataSets?.[0]?.display?.monthlyDate)
+              .format(dateHelpers.timestampUTCTimeFormats.yearTimeShort),
             testId: 'graphMonthlyTotalCard-footer'
           })
       }
@@ -142,6 +151,50 @@ const config = {
         ?.toUpperCase();
     }
   },
+  initialGuestsFilters: [
+    {
+      id: INVENTORY_TYPES.DISPLAY_NAME,
+      header: () => translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] }),
+      cell: ({
+        [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
+        [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {}
+      } = {}) => {
+        // FixMe: Disabled, see SWATCH-1209 for resolution
+        const { inventory: authorized = false } = {};
+
+        if (!inventoryId?.value) {
+          return displayName?.value;
+        }
+
+        let updatedDisplayName = displayName.value || inventoryId.value;
+
+        if (authorized) {
+          updatedDisplayName = (
+            <Button
+              isInline
+              component="a"
+              variant="link"
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId.value}/`}
+            >
+              {updatedDisplayName}
+            </Button>
+          );
+        }
+
+        return updatedDisplayName;
+      }
+    },
+    {
+      id: INVENTORY_TYPES.INVENTORY_ID,
+      cellWidth: 40
+    },
+    {
+      id: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
+        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
+      cellWidth: 15
+    }
+  ],
   initialInventoryFilters: [
     {
       id: INVENTORY_TYPES.DISPLAY_NAME,
@@ -202,6 +255,12 @@ const config = {
       cellWidth: 20
     }
   ],
+  initialInventorySettings: {
+    guestContent: ({
+      [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
+      [INVENTORY_TYPES.INSTANCE_ID]: id
+    } = {}) => (numberOfGuests > 0 && id) || undefined
+  },
   initialToolbarFilters: [
     {
       id: 'rangedMonthly',

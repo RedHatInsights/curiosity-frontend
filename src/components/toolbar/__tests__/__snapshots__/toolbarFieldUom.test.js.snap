@@ -15,7 +15,7 @@ exports[`ToolbarFieldUom Component should export select options: toolbarFieldOpt
 ]
 `;
 
-exports[`ToolbarFieldUom Component should handle updating uom through redux state with component: dispatch uom, component 1`] = `
+exports[`ToolbarFieldUom Component should handle updating uom through redux state with component: dispatch, component 1`] = `
 [
   [
     [
@@ -33,7 +33,7 @@ exports[`ToolbarFieldUom Component should handle updating uom through redux stat
 ]
 `;
 
-exports[`ToolbarFieldUom Component should handle updating uom through redux state with hook: dispatch uom, hook 1`] = `
+exports[`ToolbarFieldUom Component should handle updating uom through redux state with hook: dispatch, hook 1`] = `
 [
   [
     [

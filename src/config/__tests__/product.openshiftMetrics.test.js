@@ -18,15 +18,23 @@ describe('Product OpenShift Metrics config', () => {
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
-    expect(generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings })).toMatchSnapshot(
-      'filters'
-    );
+    expect(
+      generateChartSettings({
+        filters: initialGraphFilters,
+        settings: initialGraphSettings,
+        productId: 'loremIpsumTest'
+      })
+    ).toMatchSnapshot('filters');
     expect(initialGraphSettings).toMatchSnapshot('settings');
   });
 
   it('should handle metric card display for graphs', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
-    const { filtersSettings } = generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings });
+    const { filtersSettings } = generateChartSettings({
+      filters: initialGraphFilters,
+      settings: initialGraphSettings,
+      productId: 'loremIpsumTest'
+    });
     const cardOutput = [];
 
     filtersSettings.forEach(({ settings }) => {
@@ -45,7 +53,18 @@ describe('Product OpenShift Metrics config', () => {
           }
 
           if (typeof footer === 'function') {
-            cardOutput.push(footer({ dailyDate: '09 Mar 2023', monthlyDate: '09 Mar 2023' }));
+            cardOutput.push(
+              footer({
+                dataSets: [
+                  {
+                    display: {
+                      dailyDate: '09 Mar 2023',
+                      monthlyDate: '09 Mar 2023'
+                    }
+                  }
+                ]
+              })
+            );
           } else {
             cardOutput.push(footer);
           }
@@ -57,7 +76,7 @@ describe('Product OpenShift Metrics config', () => {
   });
 
   it('should handle a custom axis settings', () => {
-    const axisMethod = method => method();
+    const axisMethod = method => (typeof method === 'function' && method()) || method;
     expect(axisMethod(config.initialGraphSettings.xAxisChartLabel)).toMatchSnapshot('xAxisChartLabel');
 
     const yAxisChartLabels = [];
@@ -156,5 +175,50 @@ describe('Product OpenShift Metrics config', () => {
     expect(filteredInventoryDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
 
     expect(inventoryQuery[RHSM_API_QUERY_SET_TYPES.DIRECTION] === SORT_DIRECTION_TYPES.DESCENDING).toBe(true);
+  });
+
+  it('should apply guest inventory configuration', () => {
+    const { initialGuestsFilters: initialFilters } = config;
+
+    const guestsData = {
+      [INVENTORY_TYPES.DISPLAY_NAME]: 'lorem',
+      [INVENTORY_TYPES.INVENTORY_ID]: 'lorem inventory id',
+      [INVENTORY_TYPES.SUBSCRIPTION_MANAGER_ID]: 'lorem subscription id',
+      [INVENTORY_TYPES.LAST_SEEN]: '2022-01-01T00:00:00.000Z',
+      loremIpsum: 'hello world'
+    };
+
+    const filteredGuestsData = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData
+    });
+
+    expect(filteredGuestsData).toMatchSnapshot('filtered');
+
+    const filteredGuestsDataMissing = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: {
+        ...guestsData,
+        [INVENTORY_TYPES.INVENTORY_ID]: undefined
+      }
+    });
+
+    expect(filteredGuestsDataMissing).toMatchSnapshot('filtered, missing inventory id');
+
+    const filteredGuestsDataAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData,
+      session: { authorized: { inventory: true } }
+    });
+
+    expect(filteredGuestsDataAuthorized).toMatchSnapshot('filtered, authorized');
+
+    const filteredGuestsDataNotAuthorized = parseRowCellsListData({
+      filters: initialFilters,
+      cellData: guestsData,
+      session: { authorized: { inventory: false } }
+    });
+
+    expect(filteredGuestsDataNotAuthorized).toMatchSnapshot('filtered, NOT authorized');
   });
 });

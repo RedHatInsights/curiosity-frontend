@@ -20,15 +20,23 @@ describe('Product RHACS config', () => {
   it('should apply graph configuration', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
 
-    expect(generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings })).toMatchSnapshot(
-      'filters'
-    );
+    expect(
+      generateChartSettings({
+        filters: initialGraphFilters,
+        settings: initialGraphSettings,
+        productId: 'loremIpsumTest'
+      })
+    ).toMatchSnapshot('filters');
     expect(initialGraphSettings).toMatchSnapshot('settings');
   });
 
   it('should handle metric card display for graphs', () => {
     const { initialGraphFilters, initialGraphSettings } = config;
-    const { filtersSettings } = generateChartSettings({ filters: initialGraphFilters, settings: initialGraphSettings });
+    const { filtersSettings } = generateChartSettings({
+      filters: initialGraphFilters,
+      settings: initialGraphSettings,
+      productId: 'loremIpsumTest'
+    });
     const cardOutput = [];
 
     filtersSettings.forEach(({ settings }) => {
@@ -47,7 +55,18 @@ describe('Product RHACS config', () => {
           }
 
           if (typeof footer === 'function') {
-            cardOutput.push(footer({ dailyDate: '09 Mar 2023', monthlyDate: '09 Mar 2023' }));
+            cardOutput.push(
+              footer({
+                dataSets: [
+                  {
+                    display: {
+                      dailyDate: '09 Mar 2023',
+                      monthlyDate: '09 Mar 2023'
+                    }
+                  }
+                ]
+              })
+            );
           } else {
             cardOutput.push(footer);
           }
@@ -59,7 +78,7 @@ describe('Product RHACS config', () => {
   });
 
   it('should handle a custom axis settings', () => {
-    const axisMethod = method => method();
+    const axisMethod = method => (typeof method === 'function' && method()) || method;
     expect(axisMethod(config.initialGraphSettings.xAxisChartLabel)).toMatchSnapshot('xAxisChartLabel');
 
     const yAxisChartLabels = [];

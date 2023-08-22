@@ -21,7 +21,7 @@ exports[`MessageView Component should have fallback conditions for all props: fa
 </PageLayout>
 `;
 
-exports[`MessageView Component should render a non-connected component: non-connected 1`] = `
+exports[`MessageView Component should render a basic component: basic 1`] = `
 <PageLayout
   className=""
 >

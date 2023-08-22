@@ -17,16 +17,16 @@ describe('RouterContext', () => {
       search: '?lorem=ipsum'
     };
 
-    const { result: mockUseLocation } = await mountHook(() =>
+    const { result: mockUseLocation } = await renderHook(() =>
       useLocation({ useLocation: () => mockLocation, windowLocation: { lorem: 'ipsum' } })
     );
     expect(mockUseLocation).toMatchSnapshot('location');
   });
 
-  it('should apply a hook for useNavigate', () => {
+  it('should apply a hook for useNavigate', async () => {
     const mockDispatch = jest.fn();
     const updatedCalls = [];
-    const { result: mockNavigationSet } = shallowHook(() =>
+    const { result: mockNavigationSet } = await renderHook(() =>
       useNavigate({
         useDispatch: () => mockDispatch,
         useLocation: () => ({
@@ -49,7 +49,7 @@ describe('RouterContext', () => {
 
   it('should apply a hook for useRouteDetail', async () => {
     const mockUpdateDocumentTitle = jest.fn();
-    const { result: exactMatch } = await mountHook(() =>
+    const { result: exactMatch } = await renderHook(() =>
       useRouteDetail({
         useChrome: () => ({ updateDocumentTitle: mockUpdateDocumentTitle }),
         useSelectors: () => ['rhel']
@@ -64,7 +64,7 @@ describe('RouterContext', () => {
       firstMatch: Object.keys(exactMatch.firstMatch)
     }).toMatchSnapshot('route details, match');
 
-    const { result: closestMatch } = await mountHook(() => useRouteDetail({ useSelectors: () => ['l'] }));
+    const { result: closestMatch } = await renderHook(() => useRouteDetail({ useSelectors: () => ['l'] }));
     expect({
       detailProps: Object.keys(closestMatch),
       isClosest: closestMatch.isClosest,
@@ -76,7 +76,7 @@ describe('RouterContext', () => {
 
   it('should apply a hook for useSearchParams', async () => {
     const mockSetParams = jest.fn();
-    const { result } = await mountHook(() =>
+    const { result } = await renderHook(() =>
       useSearchParams({
         useLocation: () => ({ search: '?lorem=ipsum' }),
         useSearchParams: () => [undefined, mockSetParams]
@@ -92,7 +92,7 @@ describe('RouterContext', () => {
   it('should apply a hook for useSetRouteDetail', async () => {
     const mockDispatch = jest.fn();
 
-    await mountHook(() =>
+    await renderHook(() =>
       useSetRouteDetail({
         useDispatch: () => mockDispatch,
         useSelector: () => ['lorem-ipsum'],
