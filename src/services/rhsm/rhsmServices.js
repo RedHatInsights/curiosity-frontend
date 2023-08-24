@@ -238,7 +238,7 @@ const getApiVersion = (options = {}) => {
  *         "has_cloudigrade_data": false,
  *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Sockets",
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "",
  *         "total_monthly": {
  *           "date": "2020-07-31T00:00:00Z",
@@ -433,7 +433,7 @@ const getApiVersion = (options = {}) => {
  *         "has_cloudigrade_data": false,
  *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Cores",
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "",
  *         "total_monthly": {
  *           "date": "2020-07-31T00:00:00Z",
@@ -617,7 +617,7 @@ const getApiVersion = (options = {}) => {
  *         "has_cloudigrade_data": true,
  *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Transfer-gibibytes",
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "",
  *         "total_monthly": {
  *           "date": "2020-07-31T00:00:00Z",
@@ -801,7 +801,7 @@ const getApiVersion = (options = {}) => {
  *         "has_cloudigrade_data": true,
  *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Storage-gibibyte",
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "",
  *         "total_monthly": {
  *           "date": "2020-07-31T00:00:00Z",
@@ -985,7 +985,7 @@ const getApiVersion = (options = {}) => {
  *         "has_cloudigrade_data": true,
  *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Storage-gibibyte-months",
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "",
  *         "total_monthly": {
  *           "date": "2020-07-31T00:00:00Z",
@@ -1168,7 +1168,7 @@ const getApiVersion = (options = {}) => {
  *         "has_cloudigrade_data": true,
  *         "has_cloudigrade_mismatch": true,
  *         "metric_id": "Instance-hours",
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "",
  *         "total_monthly": {
  *           "date": "2020-07-31T00:00:00Z",
@@ -1434,7 +1434,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
  *       "links": {},
  *       "meta": {
  *         "count": 31,
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "metric_id": "Sockets",
  *         "granularity": "daily",
  *         "service_level": "",
@@ -1759,7 +1759,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "Storage-gibibyte-months",
  *           "Transfer-gibibytes"
  *         ],
- *         "product": "RHEL",
+ *         "product": "RHEL for x86",
  *         "service_level": "Premium",
  *         "usage": "Production"
  *       }
