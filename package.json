@@ -68,7 +68,9 @@
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
     "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
     "test:local": "jest --roots=./src --watch",
-    "verify": "run-s test:ephemeral build:ephemeral"
+    "verify": "run-s test:ephemeral build:ephemeral",
+    "ci:unit-tests": "run-s test",
+    "ci:lint": "run-s test:lint"
   },
   "dependencies": {
     "@joi/date": "^2.1.0",
