@@ -4673,10 +4673,6 @@ Return the inventory query for guests. Use fallback/defaults for guests offset, 
 <tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.defaultLimit</td><td><code>number</code></td>
-    </tr><tr>
-    <td>options.defaultOffset</td><td><code>number</code></td>
-    </tr><tr>
     <td>options.queryType</td><td><code>string</code></td>
     </tr><tr>
     <td>options.schemaCheck</td><td><code>object</code></td>

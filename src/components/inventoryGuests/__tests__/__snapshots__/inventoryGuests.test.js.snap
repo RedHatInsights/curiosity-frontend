@@ -74,10 +74,10 @@ exports[`GuestsList Component should handle multiple display states: initial pen
           tableProps={
             {
               "borders": false,
-              "className": "curiosity-guests-list",
+              "className": undefined,
               "colCount": 1,
               "colWidth": [],
-              "rowCount": 1,
+              "rowCount": 0,
               "variant": "compact",
             }
           }
@@ -227,7 +227,7 @@ exports[`GuestsList Component should render a basic component: basic render 1`] 
           tableProps={
             {
               "borders": false,
-              "className": "curiosity-guests-list",
+              "className": undefined,
               "colCount": 1,
               "colWidth": [],
               "rowCount": 0,
