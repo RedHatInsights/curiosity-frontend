@@ -23,6 +23,7 @@ pipeline {
     options {
         timestamps()
     }
+
     environment {
         PROJECT_NAME="curiosity-frontend"
 
