@@ -31,7 +31,6 @@ pipeline {
 
         CICD_URL="https://raw.githubusercontent.com/RedHatInsights/cicd-tools/main"
     }
-
     stages {
         stage('Tests/Build for Frontends') {
             agent { label 'insights' }
