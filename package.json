@@ -62,7 +62,7 @@
     "test:deps": "run-s test build",
     "test:docs": "run-s test:spell test:lint",
     "test:integration": "jest ./tests",
-    "test:integration-ephemeral": "TZ=UTC jest ./tests --no-cache --testPathIgnorePatterns ./tests/dist.test.js",
+    "test:integration-ephemeral": "TZ=UTC jest ./tests --no-cache --testPathIgnorePatterns ./tests/dist.test.js --testPathIgnorePatterns ./tests/code.test.js",
     "test:integration-dev": "jest --roots=./tests --watch",
     "test:lint": "eslint --ext=json --ext=js --ext=jsx ./src",
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
