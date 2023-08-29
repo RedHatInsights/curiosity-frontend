@@ -16,6 +16,9 @@ export APP_ROOT=$(pwd)
 export NODE_BUILD_VERSION=`node -e 'console.log(require("./package.json").engines.node.match(/(\d+)\.\d+\.\d+/)[1])'`
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
 export COMPONENT_NAME="curiosity-frontend"
+export IQE_RP_ARGS="true"
+export IQE_PARALLEL_ENABLED="false"
+
 # --------------------------------------------
 # Run unit tests, build container and push it to quay
 # --------------------------------------------
@@ -40,12 +43,12 @@ export DEPLOY_TIMEOUT="1800"
 # Keep that in sync with rhsm-subscriptions pr_check.sh
 export OPTIONAL_DEPS_METHOD=none
 export COMPONENTS_W_RESOURCES="rhsm swatch-api swatch-contracts swatch-producer-aws swatch-producer-red-hat-marketplace swatch-metrics swatch-subscription-sync swatch-system-conduit swatch-tally"
+export IQE_IBUTSU_SOURCE="curiosity-ephemeral-${IMAGE_TAG}"
 
 # no idea why we need this while backend doesn't, but without this EE fails to deploy
 for EXTRA_COMPONENT_NAME in $COMPONENTS_W_RESOURCES; do
   export EXTRA_DEPLOY_ARGS="${EXTRA_DEPLOY_ARGS} --no-remove-resources ${EXTRA_COMPONENT_NAME}"
 done
-
 
 # Deploy to an ephemeral namespace for testing
 source $CICD_ROOT/deploy_ephemeral_env.sh
