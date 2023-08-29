@@ -12,20 +12,23 @@ Curiosity makes use of
 > Working directly on the main repository is highly discouraged. Continuous Integration is dependent on branch structure.
 
 #### Main repository branches and continuous integration
-Curiosity makes use of the branches `dev`, `main`.
-- `dev` branch is a representation of development and `stage-beta`.
-   - When a branch push happens the `dev` branch is automatically deployed for `https://console.stage.redhat.com/preview`
-- `main` branch is a representation of 3 environments `stage-stable`, `prod-beta`, and `prod-stable`.
-   - When a branch push happens the `main` branch is automatically deployed for `https://console.stage.redhat.com/`
-   - When a release candidate tag is created for the latest commit in `main` branch it will automatically be deployed for `https://console.redhat.com/preview`
-   - When the latest commit message uses the form `chore(release): [version number]` and a release tag with the same release version is created in `main` branch it will automatically be deployed for `https://console.redhat.com/`
+Curiosity makes use of the branches `main`, `stable`.
+- `main` branch is a representation of development and `stage-beta/preview`.
+   - When a branch push happens the `main` branch is automatically deployed for `https://console.stage.redhat.com/preview`
+- `stable` branch is a representation of 3 environments `stage-stable`, `prod-beta/preview`, and `prod-stable`.
+   - When a branch push happens the `stable` branch is automatically deployed for `https://console.stage.redhat.com/`
+   - To release to `prod-beta/preview` a Git hash is submitted with a GitLab Merge Request within the `app-interface` repository. This will be deployed to `https://console.redhat.com/preview`
+      - It is preferable if ONLY releasing to `prod-beta/preview` that a release candidate tag is created for the latest commit.
+   - To release to `prod-stable` a Git hash is submitted with a GitLab Merge Request within the `app-interface` repository. This will be deployed to `https://console.redhat.com/`
+      - It is preferable if releasing to `prod-stable` that a tag is created for the latest commit. The commit message should use
+        the form `chore(release): [version number]`
 
 #### Branch syncing
 Linear commit history for Curiosity makes syncing concise
-- `dev` is always rebased from `main`
+- `main` is always rebased from `stable`
    - typically after a release
-   - or in prep for a fast-forward of `main`
-- `main` is fast-forwarded from `dev`
+   - or in prep for a fast-forward of `stable`
+- `stable` is fast-forwarded from `main`
    - typically when commits are prepared for release
 
 </details>
@@ -36,13 +39,13 @@ Linear commit history for Curiosity makes syncing concise
 All development work should be handled through GitHub's fork and pull workflow.
 
 #### Setting up a pull request
-Development pull requests (PRs) should be opened against the `dev` branch. PRs directly to `main` are discouraged since branch structure
-represents environment. However, exceptions are allowed, as long those updates are also rebased against the `dev` branch, for...
+Development pull requests (PRs) should be opened against the `main` branch. Development PRs directly to `stable` are discouraged since branch structure
+represents environment. However, exceptions are allowed, as long those updates are also rebased against the `stable` branch, for...
 - bug fixes
 - build updates
 
 > If your pull request work contains any of the following warning signs 
->  - out of sync commits (is not rebased against the `dev` branch)
+>  - out of sync commits (is not rebased against the `main` branch)
 >  - poorly structured commits and messages
 >  - any one commit relies on other commits to work at all, in the same pull request
 >  - dramatic file restructures that attempt complex behavior
@@ -117,7 +120,7 @@ clicking the `checks` tab on the related pull request.
 > Occasionally test failures can occur after recent NPM package updates either in the pull request
 > itself or in a prior commit to the pull request. The most common reason for this failure presents when
 > a NPM package has changed its support for different versions of NodeJS and those packages are updated
-> in the `dev` branch. 
+> in the `main` branch. 
 > 
 > If test failures are happening shortly after a NPM package update you may need to clear the
 > GitHub actions cache and restart the related tests.
@@ -138,23 +141,23 @@ Curiosity releases code to the following environments
 
 #### Release for stage preview
 Merging code into stage preview is simplistic
-1. merge a pull request into `dev`
+1. merge a pull request into `main`
    ```
-   pull-request -> dev -> stage preview
+   pull-request -> main -> stage preview
    ```
 
 #### Release for stage stable
 To merge code into stage stable
-1. open a pull request from `dev` to `main` and merge using the `rebase` button.
+1. open a pull request from `main` to `stable` and merge using the `rebase` button.
    ```
-   dev -> pull-request -> main -> stage stable
+   main -> pull-request -> stable -> stage stable
    ```
 
 #### Release for production preview
 To merge code into production preview
 1. tag the most recent commit on `main` as a release candidate using the format `v[x].[x].[x]-rc.[x]`
    ```
-   main -> release candidate tag -> production preview
+   stable -> release candidate tag -> `app-interface` merge request -> production preview
    ```
    > `rc.0` zero index is a typical starting point for release candidates
 
@@ -162,12 +165,12 @@ To merge code into production preview
 To merge code into production stable a maintainer must run the release commit process locally.
 
    ```
-   local main repo, main branch -> release commit -> origin main -> tag -> production stable
+   local main repo, stable branch -> release commit -> push to stable -> release tag -> `app-interface` merge request -> production stable
    ```
 
-1. clone the main repository, within the repo confirm you're on the `main` branch and **SYNCED** with `origin` `main`
+1. clone the main repository, within the repo confirm you're on the `stable` branch and **SYNCED** with `origin` `stable`
 1. run
-   1. `$ git checkout main`
+   1. `$ git checkout stable`
    1. `$ yarn`
    1. `$ yarn release --dry-run` to confirm the release output version and commits.
    1. `$ yarn release` to generate the commit and file changes.
@@ -181,9 +184,9 @@ To merge code into production stable a maintainer must run the release commit pr
    - [`CHANGELOG.md`](./CHANGELOG.md)
 
    If there are issues with the file updates you can correct them and squish any fixes into the `chore(release): X.X.X` commit
-1. Push the **SINGLE** commit to `origin` `main`
+1. Push the **SINGLE** commit to `origin` `stable`
 1. Using the [Curiosity GitHub releases interface](https://github.com/RedHatInsights/curiosity-frontend/releases)
-   1. Draft a new release from `main` confirming you are aligned with the `chore(release): X.X.X` commit hash
+   1. Draft a new release from `stable` confirming you are aligned with the `chore(release): X.X.X` commit hash
    1. Create the new tag using the **SAME** semver version created by the release commit but add a `v` prefix to it, i.e. `vX.X.X`, for consistency.
    
    > To avoid issues with inconsistent Git tagging use it is recommended you use the GitHub releases interface.
