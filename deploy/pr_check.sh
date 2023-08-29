@@ -10,12 +10,14 @@ export IQE_FILTER_EXPRESSION=""
 export IQE_ENV="ephemeral"
 export IQE_SELENIUM="true"
 export IQE_CJI_TIMEOUT="30m"
-export IQE_PARALLEL_WORKER_COUNT="1"
 export WORKSPACE=${WORKSPACE:-$APP_ROOT} # if running in jenkins, use the build's workspace
 export APP_ROOT=$(pwd)
 export NODE_BUILD_VERSION=`node -e 'console.log(require("./package.json").engines.node.match(/(\d+)\.\d+\.\d+/)[1])'`
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
 export COMPONENT_NAME="curiosity-frontend"
+export IQE_IBUTSU_SOURCE="curiosity-ephemeral-${IMAGE_TAG}"
+export IQE_RP_ARGS="true"
+export IQE_PARALLEL_ENABLED="false"
 # --------------------------------------------
 # Run unit tests, build container and push it to quay
 # --------------------------------------------
