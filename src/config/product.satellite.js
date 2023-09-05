@@ -40,10 +40,10 @@ const productLabel = 'Satellite';
 /**
  * Satellite product config
  *
- * @type {{aliases: string[], productGroup: string, productId: string, productLabel: string, productDisplay: string, viewId: string,
- *     productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object,
- *     inventorySubscriptionsQuery: object, initialGraphFilters: {}[], initialGraphSettings: object, initialGuestsFilters: {}[],
- *     initialInventoryFilters: {}[], initialToolbarFilters: {}[]}}
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: {}[], productGroup: string, graphTallyQuery: object,
+ *     inventoryHostsQuery: object, productDisplay: string, productVariants: Array, initialGraphFilters: {}[],
+ *     initialGuestsFilters: {}[], inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: {}[]}}
  */
 const config = {
   aliases: ['sat', 'server', 'capsule'],
@@ -62,6 +62,10 @@ const config = {
   },
   graphTallyQuery: {
     [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
+  },
+  inventoryGuestsQuery: {
+    [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
+    [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   inventoryHostsQuery: {
     [RHSM_API_QUERY_SET_TYPES.SORT]: INVENTORY_SORT_TYPES.LAST_SEEN,
