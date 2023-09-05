@@ -104,8 +104,6 @@ const useProductGraphTallyQuery = ({
  * Return the inventory query for guests. Use fallback/defaults for guests offset, limit.
  *
  * @param {object} options
- * @param {number} options.defaultLimit
- * @param {number} options.defaultOffset
  * @param {string} options.queryType
  * @param {object} options.schemaCheck
  * @param {Function} options.useProductQuery
@@ -114,8 +112,6 @@ const useProductGraphTallyQuery = ({
  * @returns {object}
  */
 const useProductInventoryGuestsQuery = ({
-  defaultLimit = 100,
-  defaultOffset = 0,
   queryType = 'inventoryGuestsQuery',
   schemaCheck = rhsmConstants.RHSM_API_QUERY_SET_INVENTORY_TYPES,
   useProductQuery: useAliasProductQuery = useProductQuery,
@@ -124,8 +120,6 @@ const useProductInventoryGuestsQuery = ({
 } = {}) =>
   reduxHelpers.setApiQuery(
     {
-      [RHSM_API_QUERY_SET_TYPES.LIMIT]: defaultLimit,
-      [RHSM_API_QUERY_SET_TYPES.OFFSET]: defaultOffset,
       ...useAliasProductQuery(),
       ...useAliasProductQueryFactory(queryType, options)
     },
