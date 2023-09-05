@@ -88,7 +88,7 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
         tabIndex={0}
         variant="link"
       >
-        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no_loremIpsum], {"product":"mock-product-label","context":"mock-product-id"})
       </Button>
     </span>
   </Tooltip>
@@ -132,7 +132,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         tabIndex={0}
         variant="link"
       >
-        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+        t([curiosity-graph.label_loremIpsum,curiosity-graph.label_no_loremIpsum], {"product":"mock-product-label","context":"mock-product-id"})
       </Button>
     </span>
   </Tooltip>
@@ -166,7 +166,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         tabIndex={0}
         variant="link"
       >
-        t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+        t([curiosity-graph.label_ametConsectetur,curiosity-graph.label_no_ametConsectetur], {"product":"mock-product-label","context":"mock-product-id"})
       </Button>
     </span>
   </Tooltip>
@@ -205,7 +205,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         tabIndex={0}
         variant="link"
       >
-        t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+        t([curiosity-graph.label_threshold_dolorSit,curiosity-graph.label_no_threshold_dolorSit], {"product":"mock-product-label","context":"mock-product-id"})
       </Button>
     </span>
   </Tooltip>
@@ -244,7 +244,7 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         tabIndex={0}
         variant="link"
       >
-        t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no], {"product":"mock-product-label","context":"mock-product-id"})
+        t([curiosity-graph.label_threshold_nonCursus,curiosity-graph.label_no_threshold_nonCursus], {"product":"mock-product-label","context":"mock-product-id"})
       </Button>
     </span>
   </Tooltip>
