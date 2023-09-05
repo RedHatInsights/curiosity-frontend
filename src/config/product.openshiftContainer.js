@@ -38,11 +38,10 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 /**
  * OpenShift Container product config
  *
- * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string,
- *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: {}[],
- *     initialInventorySettings: {}, viewId: string, initialToolbarFilters: {}[], productGroup: string,
- *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
- *     initialGraphFilters: {}[], initialGuestsFilters: {}[], initialGraphSettings: object, initialInventoryFilters: {}[]}}
+ * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
+ *     query: object, initialSubscriptionsInventoryFilters: {}[], initialInventorySettings: object, viewId: string, initialToolbarFilters: {}[],
+ *     productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
+ *     initialGraphFilters: {}[], initialGuestsFilters: {}[], inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: {}[]}}
  */
 const config = {
   aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT, 'openshift-container', 'container', 'platform', 'shift'],
@@ -62,6 +61,10 @@ const config = {
   },
   graphTallyQuery: {
     [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
+  },
+  inventoryGuestsQuery: {
+    [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
+    [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   inventoryHostsQuery: {
     [RHSM_API_QUERY_SET_TYPES.SORT]: INVENTORY_SORT_TYPES.LAST_SEEN,

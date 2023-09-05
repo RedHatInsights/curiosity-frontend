@@ -147,6 +147,10 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
       "id": "sla",
     },
   ],
+  "inventoryGuestsQuery": {
+    "limit": 100,
+    "offset": 0,
+  },
   "inventoryHostsQuery": {
     "dir": "desc",
     "limit": 100,
@@ -298,6 +302,10 @@ exports[`ProductViewContext should apply a hook for retrieving product context: 
       "id": "sla",
     },
   ],
+  "inventoryGuestsQuery": {
+    "limit": 100,
+    "offset": 0,
+  },
   "inventoryHostsQuery": {
     "dir": "desc",
     "limit": 100,
@@ -332,7 +340,6 @@ exports[`ProductViewContext should apply hooks for retrieving specific api queri
 
 exports[`ProductViewContext should apply hooks for retrieving specific api queries: inventoryGuestsQuery 1`] = `
 {
-  "limit": 100,
   "offset": "testOffset",
 }
 `;
