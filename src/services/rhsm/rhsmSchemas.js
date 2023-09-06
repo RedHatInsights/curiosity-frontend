@@ -129,6 +129,7 @@ const guestsResponseSchema = Joi.object().keys({
  */
 const instancesMetaSchema = metaResponseSchema
   .keys({
+    count: Joi.number().integer().default(0),
     measurements: Joi.array()
       .items(Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES)))
       .default([])
