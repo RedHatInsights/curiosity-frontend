@@ -1004,13 +1004,72 @@ Transform RHSM responses. Replaces selector usage.
 
 
 * [RhsmTransformers](#Rhsm.module_RhsmTransformers)
+    * [~rhsmInstancesGuestsCache](#Rhsm.module_RhsmTransformers..rhsmInstancesGuestsCache) : <code>Object</code>
     * [~rhsmInstances(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstances) ⇒ <code>object</code>
+    * [~rhsmInstancesGuests(response, config)](#Rhsm.module_RhsmTransformers..rhsmInstancesGuests) ⇒ <code>object</code>
+    * [~rhsmSubscriptions(response, config)](#Rhsm.module_RhsmTransformers..rhsmSubscriptions) ⇒ <code>object</code>
     * [~rhsmTallyCapacity(response, config)](#Rhsm.module_RhsmTransformers..rhsmTallyCapacity) ⇒ <code>object</code>
 
+<a name="Rhsm.module_RhsmTransformers..rhsmInstancesGuestsCache"></a>
+
+### RhsmTransformers~rhsmInstancesGuestsCache : <code>Object</code>
+Temporary guests response cache.
+
+**Kind**: inner constant of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
 <a name="Rhsm.module_RhsmTransformers..rhsmInstances"></a>
 
 ### RhsmTransformers~rhsmInstances(response, config) ⇒ <code>object</code>
 Parse RHSM instances response for caching.
+
+**Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>response</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config.params</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmTransformers..rhsmInstancesGuests"></a>
+
+### RhsmTransformers~rhsmInstancesGuests(response, config) ⇒ <code>object</code>
+Parse RHSM guests instances response. Return an infinite list at the transformer level.
+
+**Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>response</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config.params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>config._id</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmTransformers..rhsmSubscriptions"></a>
+
+### RhsmTransformers~rhsmSubscriptions(response, config) ⇒ <code>object</code>
+Parse RHSM subscriptions response for caching.
+The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We attempt to
+normalize this for both casing, similar to the Instances meta response, BUT we also add a concatenated string uom for responses
+without the uom query parameter in the form of "Sockets", "Sockets-Cores", or "Cores", dependent on the returned response
+data.
 
 **Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
 <table>
