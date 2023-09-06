@@ -12,6 +12,7 @@ import {
   toolbarFieldOptions as billingProviderOptions
 } from './toolbarFieldBillingProvider';
 import { ToolbarFieldCategory } from './toolbarFieldCategory';
+import { ToolbarFieldDisplayName } from './toolbarFieldDisplayName';
 import { ToolbarFieldGranularity, toolbarFieldOptions as granularityOptions } from './toolbarFieldGranularity';
 import { ToolbarFieldRangedMonthly, toolbarFieldOptions as rangedMonthlyOptions } from './toolbarFieldRangedMonthly';
 import { ToolbarFieldSla, toolbarFieldOptions as slaOptions } from './toolbarFieldSla';
@@ -101,6 +102,15 @@ const toolbarFieldOptions = [
       return <ToolbarFieldVariant key="selectCategory_variant" {...props} />;
     },
     options: [],
+    isClearable: true
+  },
+  {
+    title: translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME] }),
+    value: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME,
+    component: function DisplayName(props) {
+      return <ToolbarFieldDisplayName key="selectCategory_variant" {...props} />;
+    },
+    options: null,
     isClearable: true
   }
 ].map(option => ({
