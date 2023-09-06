@@ -438,6 +438,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.VARIANT] })",
       },
       {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME] })",
+      },
+      {
         "key": "curiosity-toolbar.placeholder",
         "match": "t('curiosity-toolbar.placeholder', { context: ['filter'] })",
       },
@@ -867,6 +871,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/toolbar/toolbarFieldGroupVariant.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/components/toolbar/toolbarFieldSelectCategory.js",
     "key": "curiosity-toolbar.label",
   },
   {
