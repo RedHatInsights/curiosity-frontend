@@ -655,6 +655,7 @@ State hooks for dispatch and selectors.
 
 
 * [UseReactRedux](#Hooks.module_UseReactRedux)
+    * [~deepEqual](#Hooks.module_UseReactRedux..deepEqual) ⇒ <code>boolean</code>
     * [~useDispatch()](#Hooks.module_UseReactRedux..useDispatch) ⇒ <code>function</code>
     * [~useSelector(selector, value, options)](#Hooks.module_UseReactRedux..useSelector) ⇒ <code>\*</code>
     * [~useSelectors(selectors, value, options)](#Hooks.module_UseReactRedux..useSelectors) ⇒ <code>Array</code> \| <code>object</code>
@@ -662,6 +663,28 @@ State hooks for dispatch and selectors.
     * [~useSelectorsAllSettledResponse(selectors, options)](#Hooks.module_UseReactRedux..useSelectorsAllSettledResponse) ⇒ <code>Object</code>
     * [~useSelectorsAnyResponse(selectors, options)](#Hooks.module_UseReactRedux..useSelectorsAnyResponse) ⇒ <code>Object</code>
     * [~useSelectorsRaceResponse(selectors, options)](#Hooks.module_UseReactRedux..useSelectorsRaceResponse) ⇒ <code>Object</code>
+
+<a name="Hooks.module_UseReactRedux..deepEqual"></a>
+
+### UseReactRedux~deepEqual ⇒ <code>boolean</code>
+Deep equal comparison with extended memoized cache. Is argument A equal to argument B.
+
+**Kind**: inner constant of [<code>UseReactRedux</code>](#Hooks.module_UseReactRedux)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>args</td><td><code>object</code></td>
+    </tr><tr>
+    <td>args.A</td><td><code>object</code> | <code>any</code></td>
+    </tr><tr>
+    <td>args.B</td><td><code>object</code> | <code>any</code></td>
+    </tr>  </tbody>
+</table>
 
 <a name="Hooks.module_UseReactRedux..useDispatch"></a>
 

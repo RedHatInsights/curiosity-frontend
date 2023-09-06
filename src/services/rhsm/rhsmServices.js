@@ -1661,7 +1661,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
     cancel,
     cancelId,
     schema,
-    transform
+    transform,
+    _id: updatedId
   });
 };
 
