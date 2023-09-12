@@ -3,9 +3,8 @@
 exports[`General code checks should only have specific console.[warn|log|info|error] methods: console methods 1`] = `
 [
   "components/bannerMessages/bannerMessagesContext.js:120:        console.warn(",
-  "components/inventoryCard/inventoryCardContext.js:131:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
-  "components/inventoryCard/inventoryCardHelpers.js:92:          console.warn(\`Warning: Filter "\${id}" not found in "table row" response data.\`, cellData);",
-  "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:131:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/inventoryCardInstances/inventoryCardInstancesContext.js:266:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
+  "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:189:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "config/products.js:28:    console.warn(\`Product configuration failed to load: \${e.message}\`);",
   "index.js:12:      console.log(\`Emulated appNavClick: \${JSON.stringify({ id, ...rest })}\`);",
   "redux/common/reduxHelpers.js:287:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",

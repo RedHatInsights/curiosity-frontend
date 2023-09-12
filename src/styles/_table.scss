@@ -15,8 +15,7 @@
 
   /**
    * FixMe: PF CSS, appears nested tables within expandable tables can't have borders disabled?
-   * Also appears expandable tables can't have borders removed. If this is a set of bugs,
-   * remove this block once PF has a fix.
+   * Also appears expandable tables can't have borders removed. Remove this block once PF has a fix.
    */
   table.curiosity-table-no-border,
   table.curiosity-table-no-border > thead > tr,
@@ -25,6 +24,18 @@
   table.pf-m-no-border-rows > thead > tr,
   table.pf-m-no-border-rows > tbody > tr {
     border-width: 0
+  }
+
+  .curiosity-table {
+    @media (min-width: $pf-global--breakpoint--md) {
+      &__td.pf-m-width {
+        @for $tdWidth from 0 through 100 {
+          &-#{$tdWidth} {
+            width: percentage(div($tdWidth, 100));
+          }
+        }
+      }
+    }
   }
 
   .curiosity-table-scroll {

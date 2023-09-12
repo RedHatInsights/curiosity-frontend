@@ -64,7 +64,7 @@ const useSelector = (
 const useSelectors = (
   selectors,
   value,
-  { equality = shallowEqual, useSelector: useAliasSelector = useReactReduxSelector } = {}
+  { equality = deepEqual, useSelector: useAliasSelector = useReactReduxSelector } = {}
 ) => {
   let updatedSelectors = Array.isArray(selectors) ? selectors : [selectors];
   const selectorIds = new Set();

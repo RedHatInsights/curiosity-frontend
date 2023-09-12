@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InventoryCardInstancesContext should apply custom actions: custom actions 1`] = `
+[
+  <ToolbarItem>
+    <DisplayName
+      isFilter={false}
+    />
+  </ToolbarItem>,
+  <ToolbarItem>
+    hello world
+  </ToolbarItem>,
+]
+`;
+
+exports[`InventoryCardInstancesContext should expect specific sort properties: sort properties 1`] = `
+{
+  "BILLING_PROVIDER": "billing_provider",
+  "CATEGORY": "category",
+  "CORES": "Cores",
+  "CORE_SECONDS": "Core-seconds",
+  "INSTANCE_HOURS": "Instance-hours",
+  "LAST_SEEN": "last_seen",
+  "NAME": "display_name",
+  "NUMBER_OF_GUESTS": "number_of_guests",
+  "SOCKETS": "Sockets",
+  "STORAGE_GIBIBYTES": "Storage-gibibytes",
+  "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
+  "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+}
+`;
+
+exports[`InventoryCardInstancesContext should handle a store response using selectors: store response 1`] = `
+{
+  "dataSetColumnHeaders": [
+    {
+      "cell": [Function],
+      "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"lorem"})",
+      "label": [Function],
+      "metric": "display_name",
+      "width": undefined,
+    },
+  ],
+  "dataSetRows": [
+    {
+      "cells": [
+        {
+          "content": "lorem-ipsum",
+          "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"lorem"})",
+          "header": [Function],
+          "metric": "display_name",
+          "width": undefined,
+        },
+      ],
+      "expandedContent": undefined,
+      "row": {
+        "display_name": "lorem-ipsum",
+      },
+    },
+    {
+      "cells": [
+        {
+          "content": "dolor-sit",
+          "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"lorem"})",
+          "header": [Function],
+          "metric": "display_name",
+          "width": undefined,
+        },
+      ],
+      "expandedContent": undefined,
+      "row": {
+        "display_name": "dolor-sit",
+      },
+    },
+  ],
+  "error": false,
+  "fulfilled": true,
+  "message": null,
+  "pending": false,
+  "responses": {
+    "id": {},
+    "list": [
+      {
+        "data": {
+          "data": [
+            {
+              "display_name": "lorem-ipsum",
+            },
+            {
+              "display_name": "dolor-sit",
+            },
+          ],
+          "meta": {},
+        },
+        "fulfilled": true,
+      },
+    ],
+  },
+  "resultsColumnCountAndWidths": {
+    "count": 1,
+    "widths": [
+      undefined,
+    ],
+  },
+  "resultsCount": undefined,
+  "resultsOffset": undefined,
+  "resultsPerPage": undefined,
+}
+`;
+
+exports[`InventoryCardInstancesContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
+[
+  [
+    [
+      {
+        "dir": "desc",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "viewId": "lorem",
+      },
+      {
+        "sort": "loremIpsumColumnOne",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+  [
+    [
+      {
+        "dir": "asc",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "viewId": "lorem",
+      },
+      {
+        "sort": "loremIpsumColumnOne",
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`InventoryCardInstancesContext should handle an onPage event: onPage event, dispatch 1`] = `
+[
+  [
+    [
+      {
+        "offset": 1,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+        "viewId": "lorem",
+      },
+      {
+        "limit": 5,
+        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+        "viewId": "lorem",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`InventoryCardInstancesContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
+{
+  "cancelled": true,
+}
+`;
+
+exports[`InventoryCardInstancesContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
+{
+  "data": {},
+  "error": false,
+  "fulfilled": false,
+  "pending": false,
+}
+`;
+
+exports[`InventoryCardInstancesContext should handle variations in instances inventory API responses: inventory, error 1`] = `
+{
+  "error": true,
+}
+`;
+
+exports[`InventoryCardInstancesContext should handle variations in instances inventory API responses: inventory, fulfilled 1`] = `
+{
+  "fulfilled": true,
+}
+`;
+
+exports[`InventoryCardInstancesContext should handle variations in instances inventory API responses: inventory, pending 1`] = `
+{
+  "pending": true,
+}
+`;
+
+exports[`InventoryCardInstancesContext should parse filters and settings: parsed 1`] = `
+{
+  "columnCountAndWidths": {
+    "count": 1,
+    "widths": [
+      undefined,
+    ],
+  },
+  "filters": [
+    {
+      "cell": [Function],
+      "header": [Function],
+      "label": [Function],
+      "metric": "lorem ipsum",
+      "width": undefined,
+    },
+  ],
+  "isGuestFiltersDisabled": true,
+  "settings": {},
+}
+`;
+
+exports[`InventoryCardInstancesContext should return specific properties: specific properties 1`] = `
+{
+  "useGetInstancesInventory": [Function],
+  "useInventoryCardActionsInstances": [Function],
+  "useOnColumnSortInstances": [Function],
+  "useOnPageInstances": [Function],
+  "useParseInstancesFiltersSettings": [Function],
+  "useSelectorInstances": [Function],
+}
+`;
