@@ -1,14 +1,7 @@
 import React from 'react';
-import { cellWidth as PfCellWidth, SortByDirection, wrappable } from '@patternfly/react-table';
-import _camelCase from 'lodash/camelCase';
-import _isPlainObject from 'lodash/isPlainObject';
-import { Tooltip } from '../tooltip/tooltip';
 import { translate } from '../i18n/i18n';
-import {
-  RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
-  RHSM_API_QUERY_SET_TYPES
-} from '../../services/rhsm/rhsmConstants';
-import { helpers } from '../../common';
+import { RHSM_API_QUERY_SET_TYPES, RHSM_API_RESPONSE_META_TYPES } from '../../services/rhsm/rhsmConstants';
+import { tableHelpers } from '../table/table';
 
 /**
  * @memberof InventoryCard
@@ -16,338 +9,159 @@ import { helpers } from '../../common';
  */
 
 /**
- * ToDo: review setting up a transformed cell cache for already transformed cells.
- * - review using a simple state and key memoized component
- * - review using lru cache in a inventoryCardContext custom hook
- */
-
-/**
- * Apply product inventory config properties consistently.
- *
- * @param {Function|string|number} prop
- * @param {object} options
- * @param {Array|*} options.params
- * @returns {React.ReactNode}
- */
-const applyConfigProperty = (prop, { params = [] } = {}) => {
-  let updatedProp = prop;
-
-  if (typeof prop === 'function') {
-    updatedProp = prop(...((Array.isArray(params) && params) || [params]));
-  }
-
-  if (typeof updatedProp === 'string' || typeof updatedProp === 'number' || React.isValidElement(updatedProp)) {
-    return updatedProp;
-  }
-
-  return undefined;
-};
-
-/**
- * Generate header and row cell configuration from filters.
+ * Normalize inventory filters, settings into a consistent format.
  *
  * @param {object} params
- * @param {Array<{id: string, isStandalone: boolean, cell:(React.ReactNode|{ title: string }), cellWidth: number,
- *     header:(React.ReactNode|{ title: string }), onSort: Function, showEmptyCell: boolean, sortId: string,
- *     sortActive: boolean, sortDirection: string, transforms: Array}>} params.filters
- * @param {object} params.cellData
- * @param {object} params.meta
+ * @param {Array} params.filters
+ * @param {Array} params.guestFilters
+ * @param {object} params.settings
  * @param {string} params.productId
- * @param {object} params.session
- * @returns {{bodyCells: Array<{ title: React.ReactNode }>, headerCells: Array<{ title: React.ReactNode }>}}
+ * @returns {{settings: {}, columnCountAndWidths: {count: number, widths: Array}, filters: Array}}
  */
-const applyHeaderRowCellFilters = ({ filters = [], cellData = {}, meta = {}, productId, session = {} } = {}) => {
-  const headerCells = [];
-  const bodyCells = [];
+const normalizeInventorySettings = ({ filters = [], guestFilters = [], settings = {}, productId } = {}) => {
+  const updatedFilters = [];
+  const columnCountAndWidths = { count: filters.length, widths: [] };
 
-  filters.forEach(
-    ({
-      isStandalone,
-      id,
-      cell,
-      cellWidth,
-      header,
-      onSort,
-      showEmptyCell = true,
-      sortId,
-      sortActive,
-      sortDirection,
-      transforms
-    }) => {
-      const headerCellUpdated = {
-        title: translate('curiosity-inventory.header', { context: [id, productId] }),
-        transforms: []
-      };
-      const bodyCellUpdated = { title: '' };
+  filters.forEach(({ metric, header, cell, width, ...rest }) => {
+    let updatedHeader;
+    let updatedCell;
+    let updatedWidth;
 
-      // set filtered base header and body cells, or if filter doesn't exist skip
-      if (cellData[id]) {
-        headerCellUpdated.title = cellData[id]?.title ?? id;
-        bodyCellUpdated.title = cellData[id]?.value ?? '';
-      } else if (isStandalone === true) {
-        headerCellUpdated.title = '';
-        bodyCellUpdated.title = '';
-      } else {
-        if (helpers.DEV_MODE || helpers.REVIEW_MODE) {
-          console.warn(`Warning: Filter "${id}" not found in "table row" response data.`, cellData);
-        }
-        if (showEmptyCell === false) {
-          return;
-        }
-      }
-
-      // set header cell title
-      if (header) {
-        const updatedHeaderCellTitle = applyConfigProperty(header, {
-          params: [{ ...cellData }, { ...session }, { ...meta }]
+    if (typeof header === 'function' && header) {
+      updatedHeader = header;
+    } else if (header) {
+      updatedHeader = () => header;
+    } else {
+      updatedHeader = () =>
+        translate([`curiosity-inventory.header`, `curiosity-inventory.guestsHeader`], {
+          context: [metric, productId]
         });
-        if (updatedHeaderCellTitle) {
-          headerCellUpdated.title = updatedHeaderCellTitle;
-        } else if (_isPlainObject(header)) {
-          Object.assign(headerCellUpdated, { ...header });
-        }
-
-        // set header cell tooltip
-        if (header.tooltip && headerCellUpdated.title) {
-          const updatedHeaderCellTooltip = applyConfigProperty(header.tooltip, {
-            params: [{ ...cellData }, { ...session }, { ...meta }]
-          });
-          if (updatedHeaderCellTooltip) {
-            headerCellUpdated.title = <Tooltip content={updatedHeaderCellTooltip}>{headerCellUpdated.title}</Tooltip>;
-          }
-
-          delete headerCellUpdated.tooltip;
-        }
-      }
-
-      // set header cell transforms
-      if (Array.isArray(headerCellUpdated.transforms)) {
-        if (Array.isArray(transforms)) {
-          headerCellUpdated.transforms = headerCellUpdated.transforms.concat([...transforms]);
-        }
-
-        if (typeof cellWidth === 'number') {
-          headerCellUpdated.transforms.push(PfCellWidth(cellWidth));
-        }
-      }
-
-      // set header cell onSort
-      if (typeof onSort === 'function') {
-        headerCellUpdated.onSort = obj => onSort({ ...cellData }, { ...obj, id: sortId || id });
-        headerCellUpdated.sortActive = sortActive;
-        headerCellUpdated.sortDirection = sortDirection;
-      }
-
-      // set body cell title
-      if (cell) {
-        const updatedBodyCellTitle = applyConfigProperty(cell, {
-          params: [{ ...cellData }, { ...session }, { ...meta }]
-        });
-        if (updatedBodyCellTitle) {
-          bodyCellUpdated.title = updatedBodyCellTitle;
-        } else if (_isPlainObject(cell)) {
-          Object.assign(bodyCellUpdated, { ...cell });
-        }
-
-        // set body cell tooltip
-        if (cell.tooltip && bodyCellUpdated.title) {
-          const updatedBodyCellTooltip = applyConfigProperty(cell.tooltip, {
-            params: [{ ...cellData }, { ...session }, { ...meta }]
-          });
-          if (updatedBodyCellTooltip) {
-            bodyCellUpdated.title = <Tooltip content={updatedBodyCellTooltip}>{bodyCellUpdated.title}</Tooltip>;
-          }
-
-          delete bodyCellUpdated.tooltip;
-        }
-      }
-
-      headerCells.push(headerCellUpdated);
-      bodyCells.push(bodyCellUpdated);
     }
-  );
+
+    if (typeof cell === 'function' && cell) {
+      updatedCell = cell;
+    } else if (cell) {
+      updatedCell = () => cell;
+    } else {
+      updatedCell = ({ [metric]: displayValue }) => displayValue;
+    }
+
+    if (typeof width === 'number' && !Number.isNaN(width)) {
+      updatedWidth = width;
+    }
+
+    columnCountAndWidths.widths.push(updatedWidth);
+
+    updatedFilters.push({
+      label: updatedHeader,
+      metric,
+      width,
+      ...rest,
+      header: updatedHeader,
+      cell: updatedCell
+    });
+  });
 
   return {
-    headerCells,
-    bodyCells
+    isGuestFiltersDisabled: !guestFilters || !guestFilters?.length,
+    columnCountAndWidths,
+    filters: updatedFilters,
+    settings
   };
 };
 
+// ToDo: evaluate moving isWrap logic under the table component helpers
+// ToDo: evaluate a fallback "perPageDefault = 10" defined here
 /**
- * Shallow clone filter, and apply a column sort filter.
+ * Parse an inventory API response against available filters, query parameters, and session values.
  *
  * @param {object} params
- * @param {{onSort: Function, sortActive: boolean, sortDirection: string, isSortDefault: boolean,
- *     sortDefaultInitialDirection: string}} params.filter
- * @param {Function} params.onSort
+ * @param {object} params.data
+ * @param {Array} params.filters
+ * @param {React.ReactNode} params.GuestComponent
+ * @param {boolean} params.isGuestFiltersDisabled
  * @param {object} params.query
- * @returns {{}}
- */
-const applySortFilters = ({ filter = {}, onSort, query = {} } = {}) => {
-  const { id, sortId } = filter;
-  const updatedId = sortId || id;
-  const updatedFilter = { ...filter };
-  const hasSort = updatedFilter.onSort || onSort;
-
-  if (!updatedFilter.onSort && onSort) {
-    updatedFilter.onSort = onSort;
-  }
-
-  // set fallback for the active sorted column based on query
-  if (
-    hasSort &&
-    typeof updatedFilter.sortActive !== 'boolean' &&
-    query?.[RHSM_API_QUERY_SET_TYPES.SORT] &&
-    (query?.[RHSM_API_QUERY_SET_TYPES.SORT] === updatedId ||
-      _camelCase(query?.[RHSM_API_QUERY_SET_TYPES.SORT]) === updatedId)
-  ) {
-    updatedFilter.sortActive = true;
-  }
-
-  // set sort direction
-  if (hasSort && !updatedFilter.sortDirection && query?.[RHSM_API_QUERY_SET_TYPES.DIRECTION]) {
-    switch (query?.[RHSM_API_QUERY_SET_TYPES.DIRECTION]) {
-      case SORT_DIRECTION_TYPES.DESCENDING:
-        updatedFilter.sortDirection = SortByDirection.desc;
-        break;
-      default:
-        updatedFilter.sortDirection = SortByDirection.asc;
-        break;
-    }
-  }
-
-  if (
-    hasSort &&
-    !updatedFilter.sortActive &&
-    !query?.[RHSM_API_QUERY_SET_TYPES.SORT] &&
-    updatedFilter.isSortDefault === true
-  ) {
-    updatedFilter.sortActive = true;
-
-    if (updatedFilter.sortDefaultInitialDirection) {
-      updatedFilter.sortDirection = updatedFilter.sortDefaultInitialDirection;
-    }
-  }
-
-  return updatedFilter;
-};
-
-/**
- * Shallow clone and apply a consistent PF "wrappable" transformation config allowing column content to wrap.
- *
- * @param {object} params
- * @param {object} params.filter
- * @returns {{}}
- */
-const applyWrappableFilters = ({ filter = {} } = {}) => {
-  const updatedFilter = { ...filter };
-
-  if (Array.isArray(updatedFilter.transforms)) {
-    updatedFilter.transforms.push(wrappable);
-  } else {
-    updatedFilter.transforms = [wrappable];
-  }
-
-  return updatedFilter;
-};
-
-/**
- * Shallow clone and apply, sequence specific, additional properties to filters.
- *
- * @param {object} params
- * @param {Array<{id: string, cell:*, cellWidth: number, header:*, onSort: Function,
- *     showEmptyCell: boolean, sortId: string, sortActive: boolean,
- *     sortDirection: string, transforms: Array, isSortDefault: boolean,
- *     sortDefaultInitialDirection: string}>} params.filters
- * @param {Function} params.onSort
- * @param {object} params.query
- * @returns {Array}
- */
-const parseInventoryFilters = ({ filters = [], onSort, query = {} } = {}) =>
-  [...filters].map(filter => {
-    const updatedFilter = { ...filter };
-
-    if (updatedFilter.isSortable) {
-      Object.assign(updatedFilter, applySortFilters({ filter: updatedFilter, onSort, query }));
-    }
-
-    if (updatedFilter.isWrappable) {
-      Object.assign(updatedFilter, applyWrappableFilters({ filter: updatedFilter }));
-    }
-
-    return updatedFilter;
-  });
-
-/**
- * Parse and return formatted/filtered table cells, and apply table filters.
- *
- * @param {object} params
- * @param {Array<{id: string, cell:(React.ReactNode|{ title: string }), cellWidth: number,
- *     header:(React.ReactNode|{ title: string }), onSort: Function, showEmptyCell: boolean,
- *     sortId: string, sortActive: boolean, sortDirection: string,
- *     transforms: Array}>} params.filters
- * @param {object} params.cellData
- * @param {object} params.meta
- * @param {string} params.productId
  * @param {object} params.session
- * @returns {{columnHeaders: Array<{ title: React.ReactNode }>, cells: Array<{ title: React.ReactNode }>, data: {}}}
+ * @param {object} params.settings
+ * @returns {{dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array, resultsCount: number}}
  */
-const parseRowCellsListData = ({ filters = [], cellData = {}, meta = {}, productId, session = {} } = {}) => {
-  const updatedColumnHeaders = [];
-  const updatedCells = [];
-  const allCells = {};
+const parseInventoryResponse = ({
+  data = {},
+  filters = [],
+  GuestComponent,
+  isGuestFiltersDisabled = true,
+  query = {},
+  session = {},
+  settings = {}
+} = {}) => {
+  const { data: listData = [], meta = {} } = data;
+  const resultsCount = meta[RHSM_API_RESPONSE_META_TYPES.COUNT];
+  const {
+    [RHSM_API_QUERY_SET_TYPES.OFFSET]: resultsOffset,
+    [RHSM_API_QUERY_SET_TYPES.LIMIT]: resultsPerPage,
+    [RHSM_API_QUERY_SET_TYPES.SORT]: sortColumn,
+    [RHSM_API_QUERY_SET_TYPES.DIRECTION]: sortDirection
+  } = query;
 
-  // Apply basic translation and value
-  Object.entries(cellData).forEach(([key, value = '']) => {
-    allCells[key] = {
-      title: translate('curiosity-inventory.header', { context: [key, productId] }),
-      value
-    };
+  const dataSetColumnHeaders = [];
+  const dataSetRows = [];
+  const columnData = {};
 
-    updatedColumnHeaders.push(allCells[key].title);
-    updatedCells.push(value || '...');
-  });
+  listData.forEach(rowData => {
+    const dataSetRow = [];
+    let expandedContent;
 
-  // Apply filters to header and cell values
-  if (filters?.length && Object.keys(allCells).length) {
-    updatedColumnHeaders.length = 0;
-    updatedCells.length = 0;
+    filters.forEach(({ metric, label, cell, ...rest }) => {
+      const updatedCell = cell({ ...rowData }, { ...session }, { ...meta });
+      const updatedLabel = label({ columnData: [] }, { ...session }, { ...meta });
+      dataSetRow.push({ metric, ...rest, dataLabel: updatedLabel, content: updatedCell });
 
-    const { headerCells = [], bodyCells = [] } = applyHeaderRowCellFilters({
-      filters,
-      cellData: allCells,
-      meta,
-      productId,
-      session
+      columnData[metric] ??= [];
+      columnData[metric].push(updatedCell);
     });
 
-    updatedColumnHeaders.push(...headerCells);
-    updatedCells.push(...bodyCells);
-  }
+    if (typeof settings?.guestContent === 'function') {
+      const guestContentResults = settings.guestContent({ ...rowData }, { ...session }, { ...meta });
+      const { id: guestId, numberOfGuests } = guestContentResults || {};
+
+      if (isGuestFiltersDisabled === false && guestId && numberOfGuests && GuestComponent) {
+        expandedContent = () => (
+          <GuestComponent key={`guests-${guestId}`} id={guestId} numberOfGuests={numberOfGuests} />
+        );
+      }
+    }
+
+    dataSetRows.push({ cells: dataSetRow, row: rowData, expandedContent });
+  });
+
+  filters.forEach(({ metric, header, ...rest }) => {
+    const updatedHeader = header({ columnData: columnData[metric] }, { ...session }, { ...meta });
+    const updatedRest = { ...rest };
+
+    if (updatedRest.isSort === true && sortDirection && sortColumn === metric) {
+      updatedRest.isSortActive = true;
+      updatedRest.sortDirection = sortDirection;
+    }
+
+    if (updatedRest.isWrap === true) {
+      updatedRest.modifier = tableHelpers.WrapModifierVariant.wrap;
+    }
+
+    dataSetColumnHeaders.push({ metric, ...updatedRest, content: updatedHeader });
+  });
 
   return {
-    columnHeaders: updatedColumnHeaders,
-    cells: updatedCells,
-    data: { ...allCells }
+    dataSetColumnHeaders,
+    dataSetRows,
+    resultsCount,
+    resultsOffset,
+    resultsPerPage
   };
 };
 
 const inventoryCardHelpers = {
-  applyConfigProperty,
-  applyHeaderRowCellFilters,
-  applySortFilters,
-  applyWrappableFilters,
-  parseInventoryFilters,
-  parseRowCellsListData
+  normalizeInventorySettings,
+  parseInventoryResponse
 };
 
-export {
-  inventoryCardHelpers as default,
-  inventoryCardHelpers,
-  applyConfigProperty,
-  applyHeaderRowCellFilters,
-  applySortFilters,
-  applyWrappableFilters,
-  parseInventoryFilters,
-  parseRowCellsListData
-};
+export { inventoryCardHelpers as default, inventoryCardHelpers, normalizeInventorySettings, parseInventoryResponse };

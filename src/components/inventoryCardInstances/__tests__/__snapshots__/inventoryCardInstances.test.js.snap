@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryCardSubscriptions Component should render a basic component: basic 1`] = `
+exports[`InventoryCardInstances Component should render a basic component: basic 1`] = `
 <InventoryCard
   isDisabled={false}
   t={[Function]}

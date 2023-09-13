@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { useDeepCompareEffect, useUnmount, useShallowCompareEffect } from 'react-use';
+import { useUnmount, useShallowCompareEffect } from 'react-use';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
-import { useProductInventoryGuestsQuery } from '../productView/productViewContext';
+import { useProductInventoryGuestsQuery, useProductInventoryGuestsConfig } from '../productView/productViewContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
+import { useSession } from '../authentication/authenticationContext';
+import { useParseInstancesFiltersSettings } from '../inventoryCardInstances/inventoryCardInstancesContext'; // eslint-disable-line
+import { inventoryCardHelpers } from '../inventoryCard/inventoryCardHelpers';
 
 /**
  * @memberof InventoryGuests
@@ -10,39 +12,84 @@ import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
  */
 
 /**
- * Guests inventory selector response.
+ * Parse filters settings for context.
+ * See @module InventoryCardInstancesContext
+ *
+ * @param {object} options
+ * @param {boolean} options.isDisabled
+ * @param {Function} options.useParseFiltersSettings
+ * @param {Function} options.useProductConfig
+ * @returns {{settings: {}, columnCountAndWidths: {count: number, widths: Array}, filters: Array}}
+ */
+const useParseGuestsFiltersSettings = ({
+  isDisabled = false,
+  useParseFiltersSettings: useAliasParseFiltersSettings = useParseInstancesFiltersSettings,
+  useProductConfig: useAliasProductConfig = useProductInventoryGuestsConfig
+} = {}) => useAliasParseFiltersSettings({ isDisabled, useProductConfig: useAliasProductConfig });
+
+/**
+ * Parse selector response for consuming components.
  *
  * @param {string} id
  * @param {object} options
+ * @param {string} options.storeRef
+ * @param {Function} options.useParseFiltersSettings
+ * @param {Function} options.useProductInventoryQuery
  * @param {Function} options.useSelectorsResponse
- * @returns {{data: (*|{}), pending: (*|boolean), fulfilled, error}}
+ * @param {Function} options.useSession
+ * @returns {{pending: boolean, fulfilled: boolean, error: boolean, resultsColumnCountAndWidths: {count: number,
+ *     widths: Array}, dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array,
+ *     resultsCount: number}}
  */
-const useSelectorsGuestsInventory = (
+const useSelectorGuests = (
   id,
-  { useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse } = {}
+  {
+    storeRef = 'instancesGuests',
+    useParseFiltersSettings: useAliasParseFiltersSettings = useParseGuestsFiltersSettings,
+    useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventoryGuestsQuery,
+    useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse,
+    useSession: useAliasSession = useSession
+  } = {}
 ) => {
-  const { error, cancelled, fulfilled, pending, data } = useAliasSelectorsResponse(
-    ({ inventory }) => inventory?.instancesGuests?.[id]
-  );
+  const session = useAliasSession();
+  const query = useAliasProductInventoryQuery({ options: { overrideId: id } });
+  const { columnCountAndWidths, filters, settings } = useAliasParseFiltersSettings();
+  const response = useAliasSelectorsResponse(({ inventory }) => inventory?.[storeRef]?.[id]);
+  const { pending, cancelled, data, ...restResponse } = response;
+  const updatedPending = pending || cancelled || false;
+  let parsedData;
+
+  if (response?.fulfilled) {
+    const updatedData = (data?.length === 1 && data[0]) || data || {};
+    parsedData = inventoryCardHelpers.parseInventoryResponse({
+      data: updatedData,
+      filters,
+      query,
+      session,
+      settings
+    });
+  }
 
   return {
-    error,
-    fulfilled,
-    pending: pending || cancelled || false,
-    data: (data?.length === 1 && data[0]) || data || {}
+    ...restResponse,
+    pending: updatedPending,
+    resultsColumnCountAndWidths: columnCountAndWidths,
+    ...parsedData
   };
 };
 
 /**
- * Combined Redux RHSM Actions, getInstancesInventoryGuests, and inventory selector response.
+ * Combine service call, Redux, and inventory selector response.
  *
  * @param {string} id
  * @param {object} options
  * @param {Function} options.getInventory
  * @param {Function} options.useDispatch
  * @param {Function} options.useProductInventoryQuery
- * @param {Function} options.useSelectorsInventory
- * @returns {Function}
+ * @param {Function} options.useSelector
+ * @returns {{pending: boolean, fulfilled: boolean, error: boolean, resultsColumnCountAndWidths: {count: number,
+ *     widths: Array}, dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array,
+ *     resultsCount: number}}
  */
 const useGetGuestsInventory = (
   id,
@@ -50,56 +97,44 @@ const useGetGuestsInventory = (
     getInventory = reduxActions.rhsm.getInstancesInventoryGuests,
     useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
     useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventoryGuestsQuery,
-    useSelectorsInventory: useAliasSelectorsInventory = useSelectorsGuestsInventory
+    useSelector: useAliasSelector = useSelectorGuests
   } = {}
 ) => {
-  const [updatedData, setUpdatedData] = useState([]);
   const query = useAliasProductInventoryQuery({ options: { overrideId: id } });
   const dispatch = useAliasDispatch();
-  const { data = {}, fulfilled = false, ...response } = useAliasSelectorsInventory(id);
-  const { data: listData = [] } = data;
+  const response = useAliasSelector(id);
 
   useShallowCompareEffect(() => {
     getInventory(id, query)(dispatch);
-  }, [dispatch, id, query]);
+  }, [id, query]);
 
-  useDeepCompareEffect(() => {
-    if (fulfilled) {
-      setUpdatedData(prevState => [...prevState, ...listData]);
-    }
-  }, [fulfilled, listData]);
-
-  return {
-    data: updatedData,
-    fulfilled,
-    ...response
-  };
+  return response;
 };
 
 /**
  * Use paging as onScroll event for guests inventory.
  *
- * @param {string} id
+ * @param {object} params
+ * @param {string} params.id
+ * @param {number} params.numberOfGuests
  * @param {object} options
  * @param {Function} options.useDispatch
- * @param {Function} options.useSelectorsInventory
+ * @param {Function} options.useSelector
  * @param {Function} options.useProductInventoryQuery
  * @returns {Function}
  */
 const useOnScroll = (
-  id,
+  { id, numberOfGuests } = {},
   {
     useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-    useSelectorsInventory: useAliasSelectorsInventory = useSelectorsGuestsInventory,
+    useSelector: useAliasSelector = useSelectorGuests,
     useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventoryGuestsQuery
   } = {}
 ) => {
   const dispatch = useAliasDispatch();
-  const { pending, data = {} } = useAliasSelectorsInventory(id);
-  const { count: numberOfGuests } = data?.meta || {};
-
-  const query = useAliasProductInventoryQuery({ options: { overrideId: id } });
-  const { [RHSM_API_QUERY_SET_TYPES.LIMIT]: limit, [RHSM_API_QUERY_SET_TYPES.OFFSET]: currentPage } = query;
+  const { pending } = useAliasSelector(id);
+  const { [RHSM_API_QUERY_SET_TYPES.LIMIT]: limit, [RHSM_API_QUERY_SET_TYPES.OFFSET]: currentPage } =
+    useAliasProductInventoryQuery({ options: { overrideId: id } });
 
   /**
    * Reset paging in scenarios where inventory is filtered, or guests is collapsed.
@@ -147,8 +182,7 @@ const useOnScroll = (
 
 const context = {
   useGetGuestsInventory,
-  useOnScroll,
-  useSelectorsGuestsInventory
+  useOnScroll
 };
 
-export { context as default, context, useGetGuestsInventory, useOnScroll, useSelectorsGuestsInventory };
+export { context as default, context, useGetGuestsInventory, useOnScroll };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { EmptyState, EmptyStateIcon, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
 import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/frontend-components/EmptyTable';
+import { translate } from '../i18n/i18n';
 
 /**
  * @memberof Table
@@ -14,19 +15,22 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
  * @param {object} props
  * @param {React.ReactNode|Function} props.icon
  * @param {React.ReactNode} props.message
+ * @param {Function} props.t
  * @param {string} props.tableHeading
  * @param {React.ReactNode} props.title
  * @param {string} props.variant
  * @returns {React.ReactNode}
  */
-const TableEmpty = ({ icon, message, tableHeading, title, variant }) => (
+const TableEmpty = ({ icon, message, t, tableHeading, title, variant }) => (
   <PlatformEmptyTableWrapper>
     <EmptyState variant={variant}>
       {icon && <EmptyStateIcon icon={icon} />}
       <Title headingLevel={tableHeading} size="lg">
-        {title}
+        {title || t('table.empty-state_title', 'No results found')}
       </Title>
-      <EmptyStateBody>{message}</EmptyStateBody>
+      <EmptyStateBody>
+        {message || t('table.empty-state_description', 'Clear all filters and try again.')}
+      </EmptyStateBody>
     </EmptyState>
   </PlatformEmptyTableWrapper>
 );
@@ -39,9 +43,10 @@ const TableEmpty = ({ icon, message, tableHeading, title, variant }) => (
  */
 TableEmpty.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  message: PropTypes.node.isRequired,
+  message: PropTypes.node,
+  t: PropTypes.func,
   tableHeading: PropTypes.string,
-  title: PropTypes.node.isRequired,
+  title: PropTypes.node,
   variant: PropTypes.oneOf(Object.keys(EmptyStateVariant))
 };
 
@@ -52,7 +57,10 @@ TableEmpty.propTypes = {
  */
 TableEmpty.defaultProps = {
   icon: null,
+  message: null,
+  t: translate,
   tableHeading: 'h2',
+  title: null,
   variant: EmptyStateVariant.small
 };
 
