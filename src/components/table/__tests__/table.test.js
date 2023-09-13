@@ -5,6 +5,7 @@ import { Table } from '../table';
 describe('Table Component', () => {
   it('should render a basic component', () => {
     const props = {
+      isHeader: true,
       columnHeaders: ['lorem', 'ipsum', 'dolor', 'sit']
     };
 
@@ -14,6 +15,7 @@ describe('Table Component', () => {
 
   it('should allow variations in table layout', () => {
     const props = {
+      isHeader: true,
       columnHeaders: ['lorem ipsum'],
       rows: [{ cells: ['dolor'] }, { cells: ['sit'] }]
     };
@@ -40,10 +42,14 @@ describe('Table Component', () => {
     expect(componentClassVariant.find('table')).toMatchSnapshot('className and variant');
   });
 
-  it('should allow expandable content', () => {
+  it('should allow expandable row content', () => {
+    const mockOnExpand = jest.fn();
     const props = {
-      columnHeaders: ['lorem ipsum'],
-      rows: [{ cells: ['dolor'], expandedContent: 'dolor sit expandable content' }, { cells: ['sit'] }]
+      onExpand: mockOnExpand,
+      rows: [
+        { cells: ['dolor'], expandedContent: 'dolor sit expandable content', data: { hello: 'world' } },
+        { cells: ['sit'] }
+      ]
     };
 
     const component = renderComponent(<Table {...props} />);
@@ -53,12 +59,36 @@ describe('Table Component', () => {
     const input = component.find('td.pf-c-table__toggle button');
     component.fireEvent.click(input);
 
+    expect(mockOnExpand.mock.calls).toMatchSnapshot('expand row event');
     expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('expanded row');
   });
 
-  it('should allow sortable content', () => {
+  it('should allow expandable cell content', () => {
+    const mockOnExpand = jest.fn();
     const props = {
-      columnHeaders: [{ title: 'lorem ipsum', onSort: jest.fn() }],
+      onExpand: mockOnExpand,
+      rows: [
+        { cells: [{ content: 'dolor', expandedContent: 'dolor sit expandable content' }], data: { hello: 'world' } },
+        { cells: ['sit'] }
+      ]
+    };
+
+    const component = renderComponent(<Table {...props} />);
+    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('no expanded cell');
+
+    const input = component.find('button');
+    component.fireEvent.click(input);
+
+    expect(mockOnExpand.mock.calls).toMatchSnapshot('expand cell event');
+    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('expanded cell');
+  });
+
+  it('should allow sortable content', () => {
+    const mockSort = jest.fn();
+    const props = {
+      isHeader: true,
+      onSort: mockSort,
+      columnHeaders: [{ content: 'lorem ipsum', isSort: true }],
       rows: [{ cells: ['dolor'] }, { cells: ['sit'] }]
     };
 
@@ -68,11 +98,33 @@ describe('Table Component', () => {
     const input = component.find('th button.pf-c-table__button');
     component.fireEvent.click(input);
 
-    expect(props.columnHeaders[0].onSort).toHaveBeenCalledTimes(1);
+    expect(mockSort).toHaveBeenCalledTimes(1);
+  });
+
+  it('should allow selectable row content', () => {
+    const mockOnSelect = jest.fn();
+    const props = {
+      isHeader: true,
+      columnHeaders: ['lorem ipsum'],
+      onSelect: mockOnSelect,
+      rows: [
+        { cells: [{ content: 'dolor' }], dataLabel: 'testing' },
+        { cells: ['sit'], dolorSit: 'hello world' }
+      ]
+    };
+
+    const component = renderComponent(<Table {...props} />);
+    expect(component.find('tbody tr')).toMatchSnapshot('select row content');
+
+    const input = component.find('input[name="checkrow1"]');
+    component.fireEvent.click(input, { currentTarget: {}, target: { checked: true }, checked: true });
+
+    expect(mockOnSelect.mock.calls).toMatchSnapshot('select row input');
   });
 
   it('should pass child components, nodes when there are no rows', () => {
     const props = {
+      isHeader: true,
       columnHeaders: ['lorem ipsum'],
       rows: []
     };

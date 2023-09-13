@@ -61,7 +61,7 @@ exports[`Loader Component should handle variant loader components: variant: tabl
   className={null}
   colCount={1}
   colWidth={[]}
-  isHeader={true}
+  isHeader={false}
   rowCount={5}
   t={[Function]}
   variant={null}

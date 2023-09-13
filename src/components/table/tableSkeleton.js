@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cellWidth, TableVariant } from '@patternfly/react-table';
+import { TableVariant } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/Skeleton';
-import Table from './table';
+import { Table } from './table';
 import { translate } from '../i18n/i18n';
 
 /**
@@ -26,10 +26,10 @@ import { translate } from '../i18n/i18n';
  */
 const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCount, t, variant }) => {
   const updatedColumnHeaders = [...new Array(colCount)].map((value, index) => {
-    const updatedHeader = { title: <Skeleton size={SkeletonSize.md} /> };
+    const updatedHeader = { content: <Skeleton size={SkeletonSize.md} /> };
 
     if (typeof colWidth[index] === 'number') {
-      updatedHeader.transforms = [cellWidth(colWidth[index])];
+      updatedHeader.width = colWidth[index];
     }
 
     return updatedHeader;
@@ -38,13 +38,21 @@ const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCo
   const updatedRowCount = rowCount || 1;
 
   const updatedRows = [...new Array(updatedRowCount)].map(() => ({
-    cells: [...new Array(colCount)].map(() => <Skeleton size={SkeletonSize.md} />)
+    cells: [...new Array(colCount)].map((value, index) => {
+      const updatedCell = { content: <Skeleton size={SkeletonSize.md} /> };
+
+      if (typeof colWidth[index] === 'number') {
+        updatedCell.width = colWidth[index];
+      }
+
+      return updatedCell;
+    })
   }));
 
   return (
     <Table
       ariaLabel={t('curiosity-inventory.tableSkeletonAriaLabel')}
-      borders={borders}
+      isBorders={borders}
       className={`curiosity-skeleton-table${(!rowCount && ' curiosity-skeleton-table__hidden-rows') || ''} ${
         className || ''
       }`}
@@ -84,7 +92,7 @@ TableSkeleton.defaultProps = {
   className: null,
   colCount: 1,
   colWidth: [],
-  isHeader: true,
+  isHeader: false,
   rowCount: 5,
   t: translate,
   variant: null

@@ -1,78 +1,46 @@
 import React from 'react';
 import { InventoryGuests } from '../inventoryGuests';
 
-describe('GuestsList Component', () => {
+describe('InventoryGuests Component', () => {
   it('should render a basic component', async () => {
     const props = {
       id: 'lorem',
       numberOfGuests: 0,
-      useGetGuestsInventory: () => ({ pending: true })
+      useGetInventory: () => ({ pending: true })
     };
 
     const component = await shallowComponent(<InventoryGuests {...props} />);
-    expect(component).toMatchSnapshot('basic render');
+    expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle variations in data', async () => {
+  it('should handle multiple display states, error, pending, fulfilled', async () => {
     const props = {
       id: 'lorem',
-      numberOfGuests: 2,
-      useGetGuestsInventory: () => ({
-        data: [
-          { lorem: 'ipsum', dolor: 'sit' },
-          { lorem: 'amet', dolor: 'amet' }
-        ]
+      numberOfGuests: 10,
+      useGetInventory: () => ({
+        error: true
       })
     };
 
     const component = await shallowComponent(<InventoryGuests {...props} />);
-    expect(component).toMatchSnapshot('variable data');
+    expect(component).toMatchSnapshot('error');
 
-    const filteredData = await component.setProps({
-      useProductInventoryGuestsConfig: () => ({
-        filters: [{ id: 'lorem', cellWidth: 20 }]
+    const componentPending = await component.setProps({
+      useGetInventory: () => ({
+        pending: true
       })
     });
 
-    expect(filteredData).toMatchSnapshot('filtered data');
-  });
-
-  it('should handle multiple display states', async () => {
-    const props = {
-      id: 'lorem',
-      numberOfGuests: 1,
-      useGetGuestsInventory: () => ({
-        pending: true
-      })
-    };
-
-    const component = await shallowComponent(<InventoryGuests {...props} />);
-    expect(component).toMatchSnapshot('initial pending');
+    expect(componentPending).toMatchSnapshot('pending');
 
     const componentFulfilled = await component.setProps({
-      useGetGuestsInventory: () => ({
-        data: [{ lorem: 'ipsum', dolor: 'sit' }]
+      useGetInventory: () => ({
+        fulfilled: true,
+        dataSetColumnHeaders: ['lorem', 'dolor'],
+        dataSetRows: [{ cells: ['ipsum', 'sit'] }]
       })
     });
 
     expect(componentFulfilled).toMatchSnapshot('fulfilled');
-  });
-
-  it('should handle an onScroll event', () => {
-    const mockOnScroll = jest.fn();
-    const props = {
-      id: 'lorem',
-      numberOfGuests: 200,
-      useOnScroll: () => mockOnScroll,
-      useGetGuestsInventory: () => ({
-        fulfilled: true,
-        data: [{ lorem: 'ipsum', dolor: 'sit' }]
-      })
-    };
-
-    const component = renderComponent(<InventoryGuests {...props} />);
-    const input = component.find('.curiosity-table-scroll-list');
-    component.fireEvent.scroll(input, { target: { scrollTop: 100 } });
-    expect(mockOnScroll).toHaveBeenCalledTimes(1);
   });
 });

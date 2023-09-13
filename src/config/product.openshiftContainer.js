@@ -124,19 +124,19 @@ const config = {
   },
   initialGuestsFilters: [
     {
-      id: INVENTORY_TYPES.DISPLAY_NAME,
-      header: () => translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] }),
+      metric: INVENTORY_TYPES.DISPLAY_NAME,
+      header: () => translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] }),
       cell: (
-        { [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {}, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {} } = {},
+        { [INVENTORY_TYPES.DISPLAY_NAME]: displayName, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId } = {},
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!inventoryId?.value) {
-          return displayName?.value;
+        if (!inventoryId) {
+          return displayName;
         }
 
-        let updatedDisplayName = displayName.value || inventoryId.value;
+        let updatedDisplayName = displayName || inventoryId;
 
         if (authorized) {
           updatedDisplayName = (
@@ -144,7 +144,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}/`}
             >
               {updatedDisplayName}
             </Button>
@@ -155,34 +155,33 @@ const config = {
       }
     },
     {
-      id: INVENTORY_TYPES.INVENTORY_ID,
-      cellWidth: 40
+      metric: INVENTORY_TYPES.INVENTORY_ID,
+      width: 40
     },
     {
-      id: INVENTORY_TYPES.LAST_SEEN,
-      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
-        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
-      cellWidth: 15
+      metric: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) => (lastSeen && <DateFormat date={lastSeen} />) || '',
+      width: 15
     }
   ],
   initialInventoryFilters: [
     {
-      id: INVENTORY_TYPES.DISPLAY_NAME,
+      metric: INVENTORY_TYPES.DISPLAY_NAME,
       cell: (
         {
-          [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-          [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {},
-          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
+          [INVENTORY_TYPES.DISPLAY_NAME]: displayName,
+          [INVENTORY_TYPES.INSTANCE_ID]: instanceId,
+          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests
         } = {},
         session
       ) => {
         const { inventory: authorized } = session?.authorized || {};
 
-        if (!instanceId.value) {
-          return displayName.value;
+        if (!instanceId) {
+          return displayName;
         }
 
-        let updatedDisplayName = displayName.value || instanceId.value;
+        let updatedDisplayName = displayName || instanceId;
 
         if (authorized) {
           updatedDisplayName = (
@@ -190,7 +189,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId}/`}
             >
               {updatedDisplayName}
             </Button>
@@ -200,91 +199,94 @@ const config = {
         return (
           <React.Fragment>
             {updatedDisplayName}{' '}
-            {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [
+            {(numberOfGuests &&
+              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [
                 <PfLabel color="blue" />
               ])) ||
               ''}
           </React.Fragment>
         );
       },
-      isSortable: true
+      isSort: true
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.CORES,
+      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
         translate('curiosity-inventory.header', { context: [uom, productId] }),
-      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => data?.[uom]?.value || '--',
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
+      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => data?.[uom] || '--',
+      isSort: true,
+      isWrap: true,
+      width: 15
     },
     {
-      id: INVENTORY_TYPES.LAST_SEEN,
-      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
-        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 20
+      metric: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) => (lastSeen && <DateFormat date={lastSeen} />) || '',
+      isSort: true,
+      isWrap: true,
+      width: 15
     }
   ],
   initialInventorySettings: {
+    actions: [
+      {
+        id: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME
+      }
+    ],
     guestContent: ({
       [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
       [INVENTORY_TYPES.INSTANCE_ID]: id
-    } = {}) => (numberOfGuests > 0 && id) || undefined
+    } = {}) => (numberOfGuests > 0 && id && { id, numberOfGuests }) || undefined
   },
   initialSubscriptionsInventoryFilters: [
     {
-      id: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,
-      isSortable: true,
-      isWrappable: true
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.PRODUCT_NAME,
+      isSort: true,
+      isWrap: true
     },
     {
-      id: SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL,
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.SERVICE_LEVEL,
+      isSort: true,
+      isWrap: true,
+      width: 15
     },
     {
-      id: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
-      isSortable: true,
-      cellWidth: 20,
-      isWrappable: true
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
+      isSort: true,
+      isWrap: true,
+      width: 20
     },
     {
-      id: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
-      header: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom } = {}) =>
-        translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] }),
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
+      header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
+        translate('curiosity-inventory.header', { context: ['subscriptions', uom] }),
       cell: ({
         [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
         [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: totalCapacity,
         [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom
       } = {}) => {
-        if (hasInfiniteQuantity?.value === true) {
-          const content = translate(
-            `curiosity-inventory.label_${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}`,
-            { context: uom?.value }
-          );
+        if (hasInfiniteQuantity === true) {
+          const content = translate(`curiosity-inventory.label`, {
+            context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, uom]
+          });
           return (
             <Tooltip content={content}>
               <ChartIcon symbol="infinity" aria-label={content} />
             </Tooltip>
           );
         }
-        return totalCapacity?.value;
+        return totalCapacity;
       },
-      isSortable: true,
-      cellWidth: 15,
-      isWrappable: true
+      isSort: true,
+      isWrap: true,
+      width: 15
     },
     {
-      id: SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE,
+      metric: SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE,
       cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE]: nextEventDate } = {}) =>
-        (nextEventDate?.value && moment.utc(nextEventDate?.value).format('YYYY-MM-DD')) || '',
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
+        (nextEventDate && moment.utc(nextEventDate).format('YYYY-MM-DD')) || '',
+      isSort: true,
+      isWrap: true,
+      width: 15
     }
   ],
   initialToolbarFilters: [

@@ -152,36 +152,27 @@ describe('Product specific configurations', () => {
    * @param {object} data
    * @param {object} options
    * @param {Array} options.filters
+   * @param {Array} options.settings
    * @param {string} options.productId
    * @param {object} options.query
    * @param {object} options.session
    * @returns {object}
    */
-  const setInventoryFiltersSettings = (data, { filters, productId, query = {}, session = {} } = {}) => {
-    const { data: listData = [], meta } = data;
-    let dataSetColumnHeaders;
-
-    const dataSetRows = listData.map(({ ...cellData }) => {
-      const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
-        filters: inventoryCardHelpers.parseInventoryFilters({
-          filters,
-          query
-        }),
-        cellData,
-        meta,
-        session,
-        productId
-      });
-
-      dataSetColumnHeaders = columnHeaders;
-      return cells;
+  const setInventoryFiltersSettings = (data, { filters, settings, productId, query = {}, session = {} } = {}) => {
+    const normalize = inventoryCardHelpers.normalizeInventorySettings({
+      filters,
+      settings,
+      productId
     });
 
     return {
-      [productId]: {
-        dataSetColumnHeaders,
-        dataSetRows
-      }
+      [productId]: inventoryCardHelpers.parseInventoryResponse({
+        data,
+        filters: normalize.filters,
+        query,
+        session,
+        settings: normalize.settings
+      })
     };
   };
 
@@ -212,6 +203,7 @@ describe('Product specific configurations', () => {
     const guests = {
       filterLabel: 'guests',
       filterProp: 'initialGuestsFilters',
+      settingsProp: 'initialGuestsSettings',
       inventoryData: {
         data: [
           {
@@ -228,6 +220,7 @@ describe('Product specific configurations', () => {
     const inventory = {
       filterLabel: 'inventory',
       filterProp: 'initialInventoryFilters',
+      settingsProp: 'initialInventorySettings',
       inventoryData: {
         data: [
           {
@@ -244,6 +237,7 @@ describe('Product specific configurations', () => {
     const subscriptions = {
       filterLabel: 'subscriptions',
       filterProp: 'initialSubscriptionsInventoryFilters',
+      settingsProp: 'initialSubscriptionsInventorySettings',
       inventoryData: {
         data: [
           {
@@ -261,7 +255,7 @@ describe('Product specific configurations', () => {
       }
     };
 
-    [guests, inventory, subscriptions].forEach(({ filterLabel, filterProp, inventoryData }) => {
+    [guests, inventory, subscriptions].forEach(({ filterLabel, filterProp, settingsProp, inventoryData }) => {
       const availableProducts = products.configs.filter(({ [filterProp]: filters }) => !!filters?.length);
 
       expect(availableProducts.map(({ productId }) => productId)).toMatchSnapshot(
@@ -269,16 +263,16 @@ describe('Product specific configurations', () => {
       );
 
       expect(
-        availableProducts.map(({ productId, [filterProp]: filters }) => ({
-          ...setInventoryFiltersSettings(inventoryData, { filters, productId })
+        availableProducts.map(({ productId, [filterProp]: filters, [settingsProp]: settings }) => ({
+          ...setInventoryFiltersSettings(inventoryData, { filters, settings, productId })
         }))
       ).toMatchSnapshot(`${filterLabel} filters, settings`);
 
       const session = { authorized: { inventory: true } };
 
       expect(
-        availableProducts.map(({ productId, [filterProp]: filters }) => ({
-          ...setInventoryFiltersSettings(inventoryData, { filters, productId, session })
+        availableProducts.map(({ productId, [filterProp]: filters, [settingsProp]: settings }) => ({
+          ...setInventoryFiltersSettings(inventoryData, { filters, settings, productId, session })
         }))
       ).toMatchSnapshot(`${filterLabel} authorized filters, settings`);
     });

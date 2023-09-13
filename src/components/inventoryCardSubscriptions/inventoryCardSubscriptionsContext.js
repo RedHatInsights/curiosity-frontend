@@ -1,14 +1,22 @@
-import { useShallowCompareEffect } from 'react-use';
-import _camelCase from 'lodash/camelCase';
-import { SortByDirection } from '@patternfly/react-table';
 import { reduxActions, reduxTypes, storeHooks } from '../../redux';
-import { useProduct, useProductInventorySubscriptionsQuery } from '../productView/productViewContext';
+import {
+  useProduct,
+  useProductInventorySubscriptionsConfig,
+  useProductInventorySubscriptionsQuery
+} from '../productView/productViewContext';
 import {
   RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES as SORT_DIRECTION_TYPES,
   RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES as SORT_TYPES,
   RHSM_API_QUERY_SET_TYPES
 } from '../../services/rhsm/rhsmConstants';
 import { helpers } from '../../common';
+import {
+  useGetInstancesInventory,
+  useInventoryCardActionsInstances,
+  useParseInstancesFiltersSettings,
+  useSelectorInstances
+} from '../inventoryCardInstances/inventoryCardInstancesContext';
+import { tableHelpers } from '../table/table';
 
 /**
  * @memberof InventoryCardSubscriptions
@@ -16,47 +24,97 @@ import { helpers } from '../../common';
  */
 
 /**
- * Combined Redux RHSM Actions, getSubscriptionsInventory, and inventory selector response.
+ * Parse filters settings for context.
+ * See @module InventoryCardInstancesContext
+ *
+ * @param {object} options
+ * @param {boolean} options.isDisabled
+ * @param {Function} options.useParseFiltersSettings
+ * @param {Function} options.useProductConfig
+ * @returns {{settings: {}, columnCountAndWidths: {count: number, widths: Array}, filters: Array}}
+ */
+const useParseSubscriptionsFiltersSettings = ({
+  isDisabled = false,
+  useParseFiltersSettings: useAliasParseFiltersSettings = useParseInstancesFiltersSettings,
+  useProductConfig: useAliasProductConfig = useProductInventorySubscriptionsConfig
+} = {}) =>
+  useAliasParseFiltersSettings({
+    isDisabled,
+    useProductConfig: useAliasProductConfig
+  });
+
+/**
+ * Parse selector response for consuming components.
+ * See @module InventoryCardInstancesContext
+ *
+ * @param {object} options
+ * @param {string} options.storeRef
+ * @param {Function} options.useParseFiltersSettings
+ * @param {Function} options.useProductInventoryQuery
+ * @param {Function} options.useSelector
+ * @returns {{pending: boolean, fulfilled: boolean, error: boolean, resultsColumnCountAndWidths: {count: number,
+ *     widths: Array}, dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array,
+ *     resultsCount: number}}
+ */
+const useSelectorSubscriptions = ({
+  storeRef = 'subscriptionsInventory',
+  useParseFiltersSettings: useAliasParseFiltersSettings = useParseSubscriptionsFiltersSettings,
+  useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventorySubscriptionsQuery,
+  useSelector: useAliasSelector = useSelectorInstances
+} = {}) =>
+  useAliasSelector({
+    storeRef,
+    useParseFiltersSettings: useAliasParseFiltersSettings,
+    useProductInventoryQuery: useAliasProductInventoryQuery
+  });
+
+/**
+ * Combine service call, Redux, and inventory selector response.
+ * See @module InventoryCardInstancesContext
  *
  * @param {object} options
  * @param {boolean} options.isDisabled
  * @param {Function} options.getInventory
- * @param {Function} options.useDispatch
- * @param {Function} options.useProduct
+ * @param {Function} options.useGetInventory
  * @param {Function} options.useProductInventoryQuery
- * @param {Function} options.useSelectorsResponse
- * @returns {Function}
+ * @param {Function} options.useSelector
+ * @returns {{pending: boolean, fulfilled: boolean, error: boolean, resultsColumnCountAndWidths: {count: number,
+ *     widths: Array}, dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array,
+ *     resultsCount: number}}
  */
 const useGetSubscriptionsInventory = ({
   isDisabled = false,
   getInventory = reduxActions.rhsm.getSubscriptionsInventory,
-  useDispatch: useAliasDispatch = storeHooks.reactRedux.useDispatch,
-  useProduct: useAliasProduct = useProduct,
+  useGetInventory: useAliasGetInventory = useGetInstancesInventory,
   useProductInventoryQuery: useAliasProductInventoryQuery = useProductInventorySubscriptionsQuery,
-  useSelectorsResponse: useAliasSelectorsResponse = storeHooks.reactRedux.useSelectorsResponse
-} = {}) => {
-  const { productId } = useAliasProduct();
-  const query = useAliasProductInventoryQuery();
-  const dispatch = useAliasDispatch();
-  const { cancelled, pending, data, ...response } = useAliasSelectorsResponse(
-    ({ inventory }) => inventory?.subscriptionsInventory?.[productId]
-  );
-
-  useShallowCompareEffect(() => {
-    if (!isDisabled) {
-      getInventory(productId, query)(dispatch);
-    }
-  }, [dispatch, isDisabled, productId, query]);
-
-  return {
-    ...response,
-    pending: pending || cancelled || false,
-    data: (data?.length === 1 && data[0]) || data || {}
-  };
-};
+  useSelector: useAliasSelector = useSelectorSubscriptions
+} = {}) =>
+  useAliasGetInventory({
+    isDisabled,
+    getInventory,
+    useProductInventoryQuery: useAliasProductInventoryQuery,
+    useSelector: useAliasSelector
+  });
 
 /**
- * An onPage callback for subscriptions inventory.
+ * Return a component list for a configurable inventoryCard action toolbar.
+ * Allow the "content" prop to receive inventory data for display via callback.
+ * See @module InventoryCardInstancesContext
+ *
+ * @param {object} options
+ * @param {Function} options.useInventoryCardActions
+ * @param {Function} options.useSelector
+ * @param {Function} options.useProductConfig
+ * @returns {Array}
+ */
+const useInventoryCardActionsSubscriptions = ({
+  useInventoryCardActions: useAliasInventoryCardActions = useInventoryCardActionsInstances,
+  useSelector: useAliasSelector = useSelectorSubscriptions,
+  useProductConfig: useAliasProductConfig = useProductInventorySubscriptionsConfig
+} = {}) => useAliasInventoryCardActions({ useSelector: useAliasSelector, useProductConfig: useAliasProductConfig });
+
+/**
+ * An onPage callback for inventory.
  *
  * @param {object} options
  * @param {Function} options.useDispatch
@@ -71,7 +129,7 @@ const useOnPageSubscriptions = ({
   const dispatch = useAliasDispatch();
 
   /**
-   * On event update state for subscriptions inventory.
+   * On event update state for inventory.
    *
    * @event onPage
    * @param {object} params
@@ -96,7 +154,7 @@ const useOnPageSubscriptions = ({
 };
 
 /**
- * An onColumnSort callback for subscriptions inventory.
+ * An onColumnSort callback for inventory.
  *
  * @param {object} options
  * @param {object} options.sortColumns
@@ -113,17 +171,17 @@ const useOnColumnSortSubscriptions = ({
   const dispatch = useAliasDispatch();
 
   /**
-   * On event update state for subscriptions inventory.
+   * On event update state for inventory.
    *
    * @event onColumnSort
-   * @param {*} _data
    * @param {object} params
    * @param {string} params.direction
-   * @param {string} params.id
+   * @param {object} params.data
    * @returns {void}
    */
-  return (_data, { direction, id }) => {
-    const updatedSortColumn = Object.values(sortColumns).find(value => value === id || _camelCase(value) === id);
+  return ({ direction, data = {} }) => {
+    const { metric: id } = data;
+    const updatedSortColumn = Object.values(sortColumns).find(value => value === id);
     let updatedDirection;
 
     if (!updatedSortColumn) {
@@ -134,7 +192,7 @@ const useOnColumnSortSubscriptions = ({
     }
 
     switch (direction) {
-      case SortByDirection.desc:
+      case tableHelpers.SortByDirectionVariant.desc:
         updatedDirection = SORT_DIRECTION_TYPES.DESCENDING;
         break;
       default:
@@ -159,14 +217,20 @@ const useOnColumnSortSubscriptions = ({
 
 const context = {
   useGetSubscriptionsInventory,
+  useInventoryCardActionsSubscriptions,
   useOnPageSubscriptions,
-  useOnColumnSortSubscriptions
+  useOnColumnSortSubscriptions,
+  useParseSubscriptionsFiltersSettings,
+  useSelectorSubscriptions
 };
 
 export {
   context as default,
   context,
   useGetSubscriptionsInventory,
+  useInventoryCardActionsSubscriptions,
   useOnPageSubscriptions,
-  useOnColumnSortSubscriptions
+  useOnColumnSortSubscriptions,
+  useParseSubscriptionsFiltersSettings,
+  useSelectorSubscriptions
 };
