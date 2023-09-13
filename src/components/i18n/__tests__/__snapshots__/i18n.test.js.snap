@@ -115,11 +115,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "keys": [
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: [id, productId] })",
-      },
-      {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: [key, productId] })",
+        "match": "translate([\`curiosity-inventory.header\`, \`curiosity-inventory.guestsHeader\`], { context: [metric, productId] })",
       },
     ],
   },
@@ -262,23 +258,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
-    "file": "src/components/table/table.js",
+    "file": "src/components/table/tableEmpty.js",
     "keys": [
       {
-        "key": "curiosity-inventory.tableEmptyInventoryTitle",
-        "match": "t('curiosity-inventory.tableEmptyInventoryTitle')",
+        "key": "table.empty-state_title",
+        "match": "t('table.empty-state_title', 'No results found')",
       },
       {
-        "key": "curiosity-inventory.tableEmptyInventoryMessage",
-        "match": "t('curiosity-inventory.tableEmptyInventoryMessage')",
-      },
-      {
-        "key": "curiosity-inventory.tableAriaLabel",
-        "match": "t('curiosity-inventory.tableAriaLabel', { appName: helpers.UI_DISPLAY_NAME })",
-      },
-      {
-        "key": "curiosity-inventory.tableSummary",
-        "match": "t('curiosity-inventory.tableSummary')",
+        "key": "table.empty-state_description",
+        "match": "t('table.empty-state_description', 'Clear all filters and try again.')",
       },
     ],
   },
@@ -523,12 +511,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/config/product.openshiftContainer.js",
     "keys": [
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [ <PfLabel color="blue" /> ])",
       },
       {
         "key": "curiosity-inventory.header",
@@ -536,11 +524,11 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
       },
       {
-        "key": "",
-        "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom?.value } )",
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, uom] })",
       },
     ],
   },
@@ -584,12 +572,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [ <PfLabel color="blue" /> ])",
       },
     ],
   },
@@ -629,12 +617,12 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [ <PfLabel color="blue" /> ])",
+        "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [ <PfLabel color="blue" /> ])",
       },
     ],
   },
@@ -675,19 +663,19 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "",
-        "match": "translate(\`curiosity-inventory.label_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
+        "match": "translate(\`curiosity-inventory.label_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider || 'none' })",
       },
       {
         "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total?.value)",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total)",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider?.value || 'none'] })",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
       },
       {
-        "key": "",
-        "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE, subscriptionType || EMPTY_CONTEXT] })",
       },
     ],
   },
@@ -695,24 +683,24 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/config/product.rhel.js",
     "keys": [
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category?.value] })",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider?.value] })",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider] })",
       },
       {
         "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom?.value] })",
+        "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
       },
       {
         "key": "",
-        "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom?.value } )",
+        "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom } )",
       },
     ],
   },
@@ -753,15 +741,15 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "",
-        "match": "translate(\`curiosity-inventory.label_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider?.value || 'none' })",
+        "match": "translate(\`curiosity-inventory.label_\${INVENTORY_TYPES.BILLING_PROVIDER}\`, { context: provider || 'none' })",
       },
       {
         "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total?.value)",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total)",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider?.value || 'none'] })",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
       },
       {
         "key": "",
@@ -789,8 +777,8 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
       },
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
     ],
   },
@@ -798,16 +786,16 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     "file": "src/config/product.satellite.js",
     "keys": [
       {
-        "key": "curiosity-inventory.header",
-        "match": "translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] })",
+        "key": "curiosity-inventory.guestsHeader",
+        "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category?.value] })",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })",
       },
       {
         "key": "curiosity-inventory.label",
-        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider?.value] })",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider] })",
       },
     ],
   },
@@ -848,6 +836,14 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/components/inventoryCard/inventoryCard.js",
     "key": "curiosity-inventory.tab",
+  },
+  {
+    "file": "src/components/table/tableEmpty.js",
+    "key": "table.empty-state_title",
+  },
+  {
+    "file": "src/components/table/tableEmpty.js",
+    "key": "table.empty-state_description",
   },
   {
     "file": "src/components/toolbar/toolbar.js",
@@ -927,6 +923,14 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.openshiftContainer.js",
+    "key": "curiosity-inventory.guestsHeader",
+  },
+  {
+    "file": "src/config/product.openshiftContainer.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.openshiftContainer.js",
     "key": "curiosity-inventory.label",
   },
   {
@@ -943,6 +947,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.openshiftDedicated.js",
+    "key": "curiosity-inventory.guestsHeader",
+  },
+  {
+    "file": "src/config/product.openshiftDedicated.js",
     "key": "curiosity-inventory.label",
   },
   {
@@ -952,6 +960,10 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.openshiftMetrics.js",
     "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "src/config/product.openshiftMetrics.js",
+    "key": "curiosity-inventory.guestsHeader",
   },
   {
     "file": "src/config/product.openshiftMetrics.js",
@@ -972,6 +984,14 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.rhacs.js",
     "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rhacs.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rhel.js",
+    "key": "curiosity-inventory.guestsHeader",
   },
   {
     "file": "src/config/product.rhel.js",
@@ -1000,6 +1020,14 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.rosa.js",
     "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "src/config/product.rosa.js",
+    "key": "curiosity-inventory.guestsHeader",
+  },
+  {
+    "file": "src/config/product.satellite.js",
+    "key": "curiosity-inventory.guestsHeader",
   },
   {
     "file": "src/config/product.satellite.js",

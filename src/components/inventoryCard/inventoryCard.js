@@ -1,129 +1,77 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useDeepCompareEffect } from 'react-use';
 import { TableVariant } from '@patternfly/react-table';
-import { Bullseye, Card, CardActions, CardBody, CardFooter, CardHeader, CardHeaderMain } from '@patternfly/react-core';
-import { TableToolbar } from '@redhat-cloud-services/frontend-components/TableToolbar';
-import { useSession } from '../authentication/authenticationContext';
 import {
-  useProduct,
-  useProductInventoryHostsConfig,
-  useProductInventoryHostsQuery
-} from '../productView/productViewContext';
-import { helpers } from '../../common';
-import Table from '../table/table';
+  Bullseye,
+  Card,
+  CardActions,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Toolbar,
+  ToolbarContent,
+  ToolbarGroup
+} from '@patternfly/react-core';
+import { TableToolbar } from '@redhat-cloud-services/frontend-components/TableToolbar';
+import { Table } from '../table/table';
 import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
-import { InventoryGuests } from '../inventoryGuests/inventoryGuests';
-import { inventoryCardHelpers } from './inventoryCardHelpers';
-import Pagination from '../pagination/pagination';
-import { ToolbarFieldDisplayName } from '../toolbar/toolbarFieldDisplayName';
-import { paginationHelpers } from '../pagination/paginationHelpers';
-import { RHSM_API_QUERY_SET_TYPES } from '../../services/rhsm/rhsmConstants';
+import { Pagination } from '../pagination/pagination';
 import { translate } from '../i18n/i18n';
-import { useGetInstancesInventory, useOnPageInstances, useOnColumnSortInstances } from './inventoryCardContext';
 
 /**
- * Instances, and Subscriptions base inventory card.
+ * Base inventory table card.
+ *
+ *     The InventoryCard pattern is purposefully different when compared to the current GraphCard component
+ *     for the specific purpose of using hook dependency injection. Minor lifecycle hook alterations
+ *     allow the InventoryCard to be used against multiple inventory API endpoints without the need to
+ *     recreate the core component.
  *
  * @memberof Components
  * @module InventoryCard
- * @property {module} InventoryCardContext
  * @property {module} InventoryCardHelpers
  */
 
 /**
- * ToDo: Update table component and review the deep comparison use on data
- * The newer table wrapper should remove the need to use the deep comparison,
- * temporarily using to allow the move from the deprecated inventory.
- */
-/**
  * Set up inventory cards. Expand filters with base settings.
  *
  * @param {object} props
- * @param {React.ReactNode} props.cardActions
  * @param {boolean} props.isDisabled
- * @param {number} props.perPageDefault
  * @param {Function} props.t
  * @param {Function} props.useGetInventory
+ * @param {Function} props.useInventoryCardActions
+ * @param {Function} props.useParseFiltersSettings
  * @param {Function} props.useOnPage
  * @param {Function} props.useOnColumnSort
- * @param {Function} props.useProduct
- * @param {Function} props.useProductInventoryConfig
- * @param {Function} props.useProductInventoryQuery
- * @param {Function} props.useSession
  * @fires onColumnSort
  * @fires onPage
  * @returns {React.ReactNode}
  */
 const InventoryCard = ({
-  cardActions,
   isDisabled,
-  perPageDefault,
   t,
   useGetInventory: useAliasGetInventory,
+  useInventoryCardActions: useAliasInventoryCardActions,
   useOnPage: useAliasOnPage,
   useOnColumnSort: useAliasOnColumnSort,
-  useProduct: useAliasProduct,
-  useProductInventoryConfig: useAliasProductInventoryConfig,
-  useProductInventoryQuery: useAliasProductInventoryQuery,
-  useSession: useAliasSession
+  useParseFiltersSettings: useAliasParseFiltersSettings
 }) => {
-  const [updatedColumnsRows, setUpdatedColumnsRows] = useState({ columnHeaders: [], rows: [] });
-  const sessionData = useAliasSession();
-  const query = useAliasProductInventoryQuery();
+  const updatedActionDisplay = useAliasInventoryCardActions();
   const onPage = useAliasOnPage();
   const onColumnSort = useAliasOnColumnSort();
-  const { productId } = useAliasProduct();
-  const { filters: filterInventoryData, settings } = useAliasProductInventoryConfig();
-  const { error, fulfilled, pending, data = {} } = useAliasGetInventory({ isDisabled });
-  const { data: listData = [], meta = {} } = data;
+  const { filters } = useAliasParseFiltersSettings({ isDisabled });
+  const {
+    error,
+    pending,
+    dataSetColumnHeaders = [],
+    dataSetRows = [],
+    resultsColumnCountAndWidths = { count: 1, widths: [] },
+    resultsCount,
+    resultsOffset,
+    resultsPerPage
+  } = useAliasGetInventory({ isDisabled });
 
-  useDeepCompareEffect(() => {
-    let updatedColumnHeaders = [];
-    let updatedRows = [];
-
-    if (fulfilled && listData.length) {
-      updatedRows = listData.map(({ ...cellData }) => {
-        const { columnHeaders, cells } = inventoryCardHelpers.parseRowCellsListData({
-          filters: inventoryCardHelpers.parseInventoryFilters({
-            filters: filterInventoryData,
-            onSort: onColumnSort,
-            query
-          }),
-          cellData,
-          meta,
-          session: sessionData,
-          productId
-        });
-
-        updatedColumnHeaders = columnHeaders;
-        let expandedContent;
-
-        if (typeof settings?.guestContent === 'function') {
-          const guestId = settings?.guestContent({ ...cellData }, { ...sessionData });
-
-          if (guestId) {
-            expandedContent = (
-              <InventoryGuests key={`guests-${guestId}`} id={guestId} numberOfGuests={cellData.numberOfGuests} />
-            );
-          }
-        }
-
-        return {
-          cells,
-          expandedContent
-        };
-      });
-    }
-
-    setUpdatedColumnsRows(() => ({
-      columnHeaders: updatedColumnHeaders,
-      rows: updatedRows
-    }));
-  }, [filterInventoryData, fulfilled, listData]);
-
-  if (isDisabled) {
+  if (isDisabled || !filters?.length) {
     return (
       <Card className="curiosity-inventory-card__disabled">
         <CardBody>
@@ -133,37 +81,40 @@ const InventoryCard = ({
     );
   }
 
-  const itemCount = meta?.count;
-  const updatedPerPage = query[RHSM_API_QUERY_SET_TYPES.LIMIT] || perPageDefault;
-  const updatedOffset = query[RHSM_API_QUERY_SET_TYPES.OFFSET];
-  const isLastPage = paginationHelpers.isLastPage(updatedOffset, updatedPerPage, itemCount);
-
-  // Set an updated key to force refresh minHeight
-  const minHeightContentRefreshKey =
-    (fulfilled === true && itemCount < updatedPerPage && `bodyMinHeight-${updatedPerPage}-resize`) ||
-    (fulfilled === true && isLastPage && `bodyMinHeight-${updatedPerPage}-resize`) ||
-    (error === true && `bodyMinHeight-${updatedPerPage}-resize`) ||
-    `bodyMinHeight-${updatedPerPage}`;
-
   return (
     <Card className="curiosity-inventory-card">
       <MinHeight key="headerMinHeight">
         <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
-          {cardActions}
-          <CardActions className={(!itemCount && 'transparent') || ''} aria-hidden={!itemCount || false}>
-            <Pagination
-              isCompact
-              isDisabled={pending || error}
-              itemCount={itemCount}
-              offset={updatedOffset}
-              onPage={onPage}
-              onPerPage={onPage}
-              perPage={updatedPerPage}
-            />
+          <CardActions>
+            <Toolbar collapseListedFiltersBreakpoint="sm">
+              <ToolbarContent>
+                {updatedActionDisplay && (
+                  <ToolbarGroup key="inventory-actions" alignment={{ default: 'alignLeft' }}>
+                    {updatedActionDisplay}
+                  </ToolbarGroup>
+                )}
+                <ToolbarGroup
+                  key="inventory-paging"
+                  alignment={{ default: 'alignRight' }}
+                  className={(!resultsCount && 'transparent') || ''}
+                  aria-hidden={!resultsCount || false}
+                >
+                  <Pagination
+                    isCompact
+                    isDisabled={pending || error}
+                    itemCount={resultsCount}
+                    offset={resultsOffset}
+                    onPage={onPage}
+                    onPerPage={onPage}
+                    perPage={resultsPerPage}
+                  />
+                </ToolbarGroup>
+              </ToolbarContent>
+            </Toolbar>
           </CardActions>
         </CardHeader>
       </MinHeight>
-      <MinHeight key={minHeightContentRefreshKey}>
+      <MinHeight key="bodyMinHeight">
         <CardBody>
           <div className={(error && 'blur') || (pending && 'fadein') || ''}>
             {pending && (
@@ -171,21 +122,23 @@ const InventoryCard = ({
                 variant="table"
                 tableProps={{
                   className: 'curiosity-inventory-list',
-                  colCount: filterInventoryData?.length || (listData?.[0] && Object.keys(listData[0]).length) || 1,
-                  colWidth:
-                    (filterInventoryData?.length && filterInventoryData.map(({ cellWidth }) => cellWidth)) || [],
-                  rowCount: listData?.length || updatedPerPage,
-                  variant: TableVariant.compact
+                  colCount: resultsColumnCountAndWidths.count,
+                  colWidth: resultsColumnCountAndWidths.widths,
+                  rowCount: dataSetRows?.length || resultsPerPage,
+                  variant: TableVariant.compact,
+                  isHeader: true
                 }}
               />
             )}
             {!pending && (
               <Table
-                borders
-                variant={TableVariant.compact}
+                key="inventory-table"
                 className="curiosity-inventory-list"
-                columnHeaders={updatedColumnsRows.columnHeaders}
-                rows={updatedColumnsRows.rows}
+                isBorders
+                isHeader
+                onSort={onColumnSort}
+                columnHeaders={dataSetColumnHeaders}
+                rows={dataSetRows}
               />
             )}
           </div>
@@ -193,18 +146,18 @@ const InventoryCard = ({
       </MinHeight>
       <MinHeight key="footerMinHeight">
         <CardFooter
-          className={(error && 'hidden') || (!itemCount && 'transparent') || ''}
-          aria-hidden={error || !itemCount || false}
+          className={(error && 'hidden') || (!resultsCount && 'transparent') || ''}
+          aria-hidden={error || !resultsCount || false}
         >
           <TableToolbar isFooter>
             <Pagination
               dropDirection="up"
               isDisabled={pending || error}
-              itemCount={itemCount}
-              offset={updatedOffset}
+              itemCount={resultsCount}
+              offset={resultsOffset}
               onPage={onPage}
               onPerPage={onPage}
-              perPage={updatedPerPage}
+              perPage={resultsPerPage}
             />
           </TableToolbar>
         </CardFooter>
@@ -216,47 +169,27 @@ const InventoryCard = ({
 /**
  * Prop types.
  *
- * @type {{cardActions: React.ReactNode, useSession: Function, useOnPage: Function, useProduct: Function, t: Function,
- *     perPageDefault: number, isDisabled: boolean, useProductInventoryConfig: Function, useGetInventory: Function,
- *     useOnColumnSort: Function, useProductInventoryQuery: Function}}
+ * @type {{useOnPage: Function, useParseFiltersSettings: Function, t: Function, useInventoryCardActions: Function,
+ *     isDisabled: boolean, useGetInventory: Function, useOnColumnSort: Function}}
  */
 InventoryCard.propTypes = {
-  cardActions: PropTypes.node,
   isDisabled: PropTypes.bool,
-  perPageDefault: PropTypes.number,
   t: PropTypes.func,
-  useGetInventory: PropTypes.func,
-  useOnPage: PropTypes.func,
-  useOnColumnSort: PropTypes.func,
-  useProduct: PropTypes.func,
-  useProductInventoryConfig: PropTypes.func,
-  useProductInventoryQuery: PropTypes.func,
-  useSession: PropTypes.func
+  useGetInventory: PropTypes.func.isRequired,
+  useInventoryCardActions: PropTypes.func.isRequired,
+  useOnPage: PropTypes.func.isRequired,
+  useOnColumnSort: PropTypes.func.isRequired,
+  useParseFiltersSettings: PropTypes.func.isRequired
 };
 
 /**
  * Default props.
  *
- * @type {{cardActions: React.ReactNode, useSession: Function, useOnPage: Function, useProduct: Function, t: translate,
- *     perPageDefault: number, isDisabled: boolean, useProductInventoryConfig: Function, useGetInventory: Function,
- *     useOnColumnSort: Function, useProductInventoryQuery: Function}}
+ * @type {{t: translate, isDisabled: boolean}}
  */
 InventoryCard.defaultProps = {
-  cardActions: (
-    <CardHeaderMain>
-      <ToolbarFieldDisplayName />
-    </CardHeaderMain>
-  ),
-  isDisabled: helpers.UI_DISABLED_TABLE_INSTANCES,
-  perPageDefault: 10,
-  t: translate,
-  useGetInventory: useGetInstancesInventory,
-  useOnPage: useOnPageInstances,
-  useOnColumnSort: useOnColumnSortInstances,
-  useProduct,
-  useProductInventoryConfig: useProductInventoryHostsConfig,
-  useProductInventoryQuery: useProductInventoryHostsQuery,
-  useSession
+  isDisabled: false,
+  t: translate
 };
 
 export { InventoryCard as default, InventoryCard };

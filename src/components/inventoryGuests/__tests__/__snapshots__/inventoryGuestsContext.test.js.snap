@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventorySubscriptionsContext should handle an onScroll event: onPage event, dispatch 1`] = `
+exports[`InventoryGuestsContext should handle an onScroll event: onPage event, dispatch 1`] = `
 [
   [
     [
@@ -31,41 +31,42 @@ exports[`InventorySubscriptionsContext should handle an onScroll event: onPage e
 ]
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, cancelled 1`] = `
+exports[`InventoryGuestsContext should handle variations in guests inventory API responses: inventory, cancelled 1`] = `
 {
   "cancelled": true,
-  "data": [],
-  "fulfilled": false,
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, error 1`] = `
+exports[`InventoryGuestsContext should handle variations in guests inventory API responses: inventory, disabled 1`] = `
 {
-  "data": [],
+  "data": {},
+  "error": false,
+  "fulfilled": false,
+  "pending": false,
+}
+`;
+
+exports[`InventoryGuestsContext should handle variations in guests inventory API responses: inventory, error 1`] = `
+{
   "error": true,
-  "fulfilled": false,
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, fulfilled 1`] = `
+exports[`InventoryGuestsContext should handle variations in guests inventory API responses: inventory, fulfilled 1`] = `
 {
-  "data": [],
   "fulfilled": true,
 }
 `;
 
-exports[`InventorySubscriptionsContext should handle instances inventory API responses: inventory, pending 1`] = `
+exports[`InventoryGuestsContext should handle variations in guests inventory API responses: inventory, pending 1`] = `
 {
-  "data": [],
-  "fulfilled": false,
   "pending": true,
 }
 `;
 
-exports[`InventorySubscriptionsContext should return specific properties: specific properties 1`] = `
+exports[`InventoryGuestsContext should return specific properties: specific properties 1`] = `
 {
   "useGetGuestsInventory": [Function],
   "useOnScroll": [Function],
-  "useSelectorsGuestsInventory": [Function],
 }
 `;

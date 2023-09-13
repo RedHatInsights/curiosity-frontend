@@ -1,0 +1,613 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHelpers parseContent should return a consistent output from multiple types: multiple types 1`] = `
+{
+  "func": "lorem ipsum",
+  "node": <React.Fragment>
+    dolor sit
+  </React.Fragment>,
+  "null": "null",
+  "obj": "[object Object]",
+  "undefined": "",
+}
+`;
+
+exports[`TableHelpers should have specific functions: tableHelpers 1`] = `
+{
+  "SortByDirectionVariant": {
+    "asc": "asc",
+    "desc": "desc",
+  },
+  "WrapModifierVariant": {
+    "breakWord": "breakWord",
+    "fitContent": "fitContent",
+    "noWrap": "nowrap",
+    "truncate": "truncate",
+    "wrap": "wrap",
+  },
+  "parseContent": [Function],
+  "tableHeader": [Function],
+  "tableRows": [Function],
+}
+`;
+
+exports[`TableHelpers tableHeader should return parsed table header settings, props: tableHeader 1`] = `
+{
+  "basic": {
+    "headerRow": [],
+    "headerSelectProps": {},
+  },
+  "columnHeaders": {
+    "headerRow": [
+      {
+        "content": "lorem",
+        "key": "bG9yZW0=-0",
+      },
+      {
+        "content": "dolor",
+        "data": {},
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "props": {
+          "dataLabel": undefined,
+          "info": undefined,
+          "modifier": undefined,
+          "tooltip": undefined,
+        },
+      },
+      {
+        "content": "hello world",
+        "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2",
+      },
+      {
+        "content": <React.Fragment>
+          hello world
+        </React.Fragment>,
+        "key": "W29iamVjdCBPYmplY3Rd-3",
+      },
+    ],
+    "headerSelectProps": {},
+  },
+  "isAllSelected": {
+    "headerRow": [],
+    "headerSelectProps": {},
+  },
+  "isRowExpand": {
+    "headerRow": [
+      {
+        "content": "lorem",
+        "key": "bG9yZW0=-0",
+      },
+      {
+        "content": "dolor",
+        "data": {},
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "props": {
+          "dataLabel": undefined,
+          "info": undefined,
+          "modifier": undefined,
+          "sort": {
+            "columnIndex": 2,
+            "onSort": [Function],
+            "sortBy": {
+              "direction": "asc",
+            },
+          },
+          "tooltip": undefined,
+        },
+      },
+      {
+        "content": "hello world",
+        "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2",
+      },
+    ],
+    "headerSelectProps": {},
+  },
+  "onSelect": {
+    "headerRow": [
+      {
+        "content": "lorem",
+        "key": "bG9yZW0=-0",
+      },
+      {
+        "content": "dolor",
+        "data": {},
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "props": {
+          "dataLabel": undefined,
+          "info": undefined,
+          "modifier": undefined,
+          "tooltip": undefined,
+        },
+      },
+      {
+        "content": "hello world",
+        "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2",
+      },
+    ],
+    "headerSelectProps": {
+      "isSelected": false,
+      "onSelect": [Function],
+    },
+  },
+  "onSort": {
+    "headerRow": [
+      {
+        "content": "lorem",
+        "key": "bG9yZW0=-0",
+      },
+      {
+        "content": "dolor",
+        "data": {},
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "props": {
+          "dataLabel": undefined,
+          "info": undefined,
+          "modifier": undefined,
+          "sort": {
+            "columnIndex": 1,
+            "onSort": [Function],
+            "sortBy": {
+              "direction": "asc",
+            },
+          },
+          "tooltip": undefined,
+        },
+      },
+      {
+        "content": "hello world",
+        "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2",
+      },
+    ],
+    "headerSelectProps": {},
+  },
+}
+`;
+
+exports[`TableHelpers tableRows should return parsed table body settings, props: tableRows 1`] = `
+{
+  "basic": {
+    "isAllSelected": true,
+    "isExpandableCell": false,
+    "isExpandableRow": false,
+    "isSelectTable": false,
+    "rows": [],
+  },
+  "onExpandCells": {
+    "isAllSelected": false,
+    "isExpandableCell": true,
+    "isExpandableRow": false,
+    "isSelectTable": false,
+    "rows": [
+      {
+        "cells": [
+          {
+            "content": "lorem",
+            "key": "bG9yZW0=-0-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-0",
+        "rowIndex": 0,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "dolor",
+            "expandedContent": "sit",
+            "isExpanded": true,
+            "key": "W29iamVjdCBPYmplY3Rd-1-0",
+            "props": {
+              "className": "",
+              "compoundExpand": {
+                "isExpanded": true,
+                "onToggle": [Function],
+              },
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {},
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "rowIndex": 1,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "hello world",
+            "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-2",
+        "rowIndex": 2,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": <React.Fragment>
+              hello world
+            </React.Fragment>,
+            "key": "W29iamVjdCBPYmplY3Rd-3-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-3",
+        "rowIndex": 3,
+        "select": undefined,
+      },
+    ],
+  },
+  "onExpandRows": {
+    "isAllSelected": false,
+    "isExpandableCell": false,
+    "isExpandableRow": true,
+    "isSelectTable": false,
+    "rows": [
+      {
+        "cells": [
+          {
+            "content": "lorem",
+            "key": "bG9yZW0=-0-0",
+          },
+        ],
+        "data": {},
+        "expand": {
+          "isExpanded": true,
+          "onToggle": [Function],
+          "rowIndex": 0,
+        },
+        "expandedContent": "ipsum",
+        "key": "W29iamVjdCBPYmplY3Rd-0",
+        "rowIndex": 0,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "dolor",
+            "key": "W29iamVjdCBPYmplY3Rd-1-0",
+            "props": {
+              "className": "",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {},
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "rowIndex": 1,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "hello world",
+            "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-2",
+        "rowIndex": 2,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": <React.Fragment>
+              hello world
+            </React.Fragment>,
+            "key": "W29iamVjdCBPYmplY3Rd-3-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-3",
+        "rowIndex": 3,
+        "select": undefined,
+      },
+    ],
+  },
+  "onSelect": {
+    "isAllSelected": false,
+    "isExpandableCell": false,
+    "isExpandableRow": false,
+    "isSelectTable": true,
+    "rows": [
+      {
+        "cells": [
+          {
+            "content": "lorem",
+            "key": "bG9yZW0=-0-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-0",
+        "rowIndex": 0,
+        "select": {
+          "cells": [
+            "lorem",
+          ],
+          "disable": false,
+          "isSelected": true,
+          "onSelect": [Function],
+          "rowIndex": 0,
+        },
+      },
+      {
+        "cells": [
+          {
+            "content": "dolor",
+            "key": "W29iamVjdCBPYmplY3Rd-1-0",
+            "props": {
+              "className": "",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {},
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "rowIndex": 1,
+        "select": {
+          "cells": [
+            {
+              "content": "dolor",
+            },
+          ],
+          "disable": true,
+          "isSelected": false,
+          "onSelect": [Function],
+          "rowIndex": 1,
+        },
+      },
+      {
+        "cells": [
+          {
+            "content": "hello world",
+            "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-2",
+        "rowIndex": 2,
+        "select": {
+          "cells": [
+            [Function],
+          ],
+          "disable": false,
+          "isSelected": false,
+          "onSelect": [Function],
+          "rowIndex": 2,
+        },
+      },
+      {
+        "cells": [
+          {
+            "content": <React.Fragment>
+              hello world
+            </React.Fragment>,
+            "key": "W29iamVjdCBPYmplY3Rd-3-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-3",
+        "rowIndex": 3,
+        "select": {
+          "cells": [
+            <React.Fragment>
+              hello world
+            </React.Fragment>,
+          ],
+          "disable": false,
+          "isSelected": false,
+          "onSelect": [Function],
+          "rowIndex": 3,
+        },
+      },
+    ],
+  },
+  "rows": {
+    "isAllSelected": false,
+    "isExpandableCell": false,
+    "isExpandableRow": false,
+    "isSelectTable": false,
+    "rows": [
+      {
+        "cells": [
+          {
+            "content": "lorem",
+            "key": "bG9yZW0=-0-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-0",
+        "rowIndex": 0,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "dolor",
+            "key": "W29iamVjdCBPYmplY3Rd-1-0",
+            "props": {
+              "className": "",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {},
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "rowIndex": 1,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "hello world",
+            "key": "KCkgPT4gJ2hlbGxvIHdvcmxkJw==-2-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-2",
+        "rowIndex": 2,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": <React.Fragment>
+              hello world
+            </React.Fragment>,
+            "key": "W29iamVjdCBPYmplY3Rd-3-0",
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-3",
+        "rowIndex": 3,
+        "select": undefined,
+      },
+    ],
+  },
+  "styling": {
+    "isAllSelected": false,
+    "isExpandableCell": false,
+    "isExpandableRow": false,
+    "isSelectTable": false,
+    "rows": [
+      {
+        "cells": [
+          {
+            "content": "lorem",
+            "key": "W29iamVjdCBPYmplY3Rd-0-0",
+            "props": {
+              "className": "",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {
+                "width": "9px",
+              },
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-0",
+        "rowIndex": 0,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "dolor",
+            "key": "W29iamVjdCBPYmplY3Rd-1-0",
+            "props": {
+              "className": "",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {
+                "backgroundColor": "red",
+                "width": "50em",
+              },
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-1",
+        "rowIndex": 1,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": "hello world",
+            "key": "W29iamVjdCBPYmplY3Rd-2-0",
+            "props": {
+              "className": " pf-m-width-1",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {},
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-2",
+        "rowIndex": 2,
+        "select": undefined,
+      },
+      {
+        "cells": [
+          {
+            "content": <React.Fragment>
+              hello world
+            </React.Fragment>,
+            "key": "W29iamVjdCBPYmplY3Rd-3-0",
+            "props": {
+              "className": " pf-m-width-11",
+              "dataLabel": undefined,
+              "isActionCell": undefined,
+              "noPadding": undefined,
+              "style": {},
+            },
+          },
+        ],
+        "data": {},
+        "expand": undefined,
+        "expandedContent": undefined,
+        "key": "W29iamVjdCBPYmplY3Rd-3",
+        "rowIndex": 3,
+        "select": undefined,
+      },
+    ],
+  },
+}
+`;

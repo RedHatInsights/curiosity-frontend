@@ -71,27 +71,14 @@ exports[`ProductView Component should allow custom inventory displays via config
             active={false}
             title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
           >
-            <InventoryCard
-              cardActions={
-                <CardHeaderMain>
-                  <ToolbarFieldDisplayName
-                    t={[Function]}
-                    useDispatch={[Function]}
-                    useProduct={[Function]}
-                    useProductInventoryHostsQuery={[Function]}
-                  />
-                </CardHeaderMain>
-              }
+            <InventoryCardInstances
               isDisabled={false}
-              perPageDefault={10}
               t={[Function]}
               useGetInventory={[Function]}
+              useInventoryCardActions={[Function]}
               useOnColumnSort={[Function]}
               useOnPage={[Function]}
-              useProduct={[Function]}
-              useProductInventoryConfig={[Function]}
-              useProductInventoryQuery={[Function]}
-              useSession={[Function]}
+              useParseFiltersSettings={[Function]}
             />
           </InventoryTab>
           <InventoryTab
@@ -100,11 +87,12 @@ exports[`ProductView Component should allow custom inventory displays via config
           >
             <InventoryCardSubscriptions
               isDisabled={false}
+              t={[Function]}
               useGetInventory={[Function]}
+              useInventoryCardActions={[Function]}
               useOnColumnSort={[Function]}
               useOnPage={[Function]}
-              useProductInventoryConfig={[Function]}
-              useProductInventoryQuery={[Function]}
+              useParseFiltersSettings={[Function]}
             />
           </InventoryTab>
         </InventoryTabs>
@@ -187,11 +175,12 @@ exports[`ProductView Component should allow custom inventory displays via config
           >
             <InventoryCardSubscriptions
               isDisabled={false}
+              t={[Function]}
               useGetInventory={[Function]}
+              useInventoryCardActions={[Function]}
               useOnColumnSort={[Function]}
               useOnPage={[Function]}
-              useProductInventoryConfig={[Function]}
-              useProductInventoryQuery={[Function]}
+              useParseFiltersSettings={[Function]}
             />
           </InventoryTab>
         </InventoryTabs>
@@ -272,27 +261,14 @@ exports[`ProductView Component should allow custom inventory displays via config
             active={false}
             title="t(curiosity-inventory.tabInstances, {"context":"lorem"})"
           >
-            <InventoryCard
-              cardActions={
-                <CardHeaderMain>
-                  <ToolbarFieldDisplayName
-                    t={[Function]}
-                    useDispatch={[Function]}
-                    useProduct={[Function]}
-                    useProductInventoryHostsQuery={[Function]}
-                  />
-                </CardHeaderMain>
-              }
+            <InventoryCardInstances
               isDisabled={false}
-              perPageDefault={10}
               t={[Function]}
               useGetInventory={[Function]}
+              useInventoryCardActions={[Function]}
               useOnColumnSort={[Function]}
               useOnPage={[Function]}
-              useProduct={[Function]}
-              useProductInventoryConfig={[Function]}
-              useProductInventoryQuery={[Function]}
-              useSession={[Function]}
+              useParseFiltersSettings={[Function]}
             />
           </InventoryTab>
         </InventoryTabs>
