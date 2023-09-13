@@ -5,10 +5,10 @@ import { ProductViewContext } from './productViewContext';
 import { PageLayout, PageHeader, PageSection, PageToolbar, PageMessages, PageColumns } from '../pageLayout/pageLayout';
 import { GraphCard } from '../graphCard/graphCard';
 import { Toolbar } from '../toolbar/toolbar';
-import { InventoryCard } from '../inventoryCard/inventoryCard';
 import { helpers } from '../../common';
 import BannerMessages from '../bannerMessages/bannerMessages';
 import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
+import { InventoryCardInstances } from '../inventoryCardInstances/inventoryCardInstances';
 import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
 import { translate } from '../i18n/i18n';
 
@@ -65,7 +65,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
                   key={`inventory_instances_${productId}`}
                   title={t('curiosity-inventory.tabInstances', { context: [productId] })}
                 >
-                  <InventoryCard />
+                  <InventoryCardInstances />
                 </InventoryTab>
               )}
               {!helpers.UI_DISABLED_TABLE_SUBSCRIPTIONS && initialSubscriptionsInventoryFilters && (

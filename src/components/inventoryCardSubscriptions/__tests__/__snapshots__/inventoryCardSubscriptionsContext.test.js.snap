@@ -13,49 +13,6 @@ exports[`InventoryCardSubscriptionsContext should expect specific sort propertie
 }
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle a store response with useGetSubscriptionsInventory: store response 1`] = `
-{
-  "data": [
-    {
-      "data": [
-        {
-          "lorem": "ipsum",
-        },
-        {
-          "dolor": "sit",
-        },
-      ],
-      "meta": {},
-    },
-  ],
-  "error": false,
-  "fulfilled": true,
-  "message": null,
-  "pending": false,
-  "responses": {
-    "id": {},
-    "list": [
-      {
-        "data": [
-          {
-            "data": [
-              {
-                "lorem": "ipsum",
-              },
-              {
-                "dolor": "sit",
-              },
-            ],
-            "meta": {},
-          },
-        ],
-        "fulfilled": true,
-      },
-    ],
-  },
-}
-`;
-
 exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: onColumnSort event, dispatch 1`] = `
 [
   [
@@ -108,48 +65,13 @@ exports[`InventoryCardSubscriptionsContext should handle an onPage event: onPage
 ]
 `;
 
-exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, cancelled 1`] = `
-{
-  "data": {},
-  "pending": true,
-}
-`;
-
-exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, disabled 1`] = `
-{
-  "data": {},
-  "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, error 1`] = `
-{
-  "data": {},
-  "error": true,
-  "pending": false,
-}
-`;
-
-exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, fulfilled 1`] = `
-{
-  "data": {},
-  "fulfilled": true,
-  "pending": false,
-}
-`;
-
-exports[`InventoryCardSubscriptionsContext should handle variations in instances inventory API responses: inventory, pending 1`] = `
-{
-  "data": {},
-  "pending": true,
-}
-`;
-
 exports[`InventoryCardSubscriptionsContext should return specific properties: specific properties 1`] = `
 {
   "useGetSubscriptionsInventory": [Function],
+  "useInventoryCardActionsSubscriptions": [Function],
   "useOnColumnSortSubscriptions": [Function],
   "useOnPageSubscriptions": [Function],
+  "useParseSubscriptionsFiltersSettings": [Function],
+  "useSelectorSubscriptions": [Function],
 }
 `;

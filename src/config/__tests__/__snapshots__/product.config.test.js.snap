@@ -2230,243 +2230,423 @@ exports[`Product specific configurations should apply variations in inventory fi
     "OpenShift Container Platform": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift Container Platform"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <Button
-              component="a"
-              href="/insights/inventory/lorem inventory id/"
-              isInline={true}
-              variant="link"
-            >
-              lorem
-            </Button>,
+        {
+          "cells": [
+            {
+              "content": <Button
+                component="a"
+                href="/insights/inventory/lorem inventory id/"
+                isInline={true}
+                variant="link"
+              >
+                lorem
+              </Button>,
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-dedicated-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-dedicated-metrics"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-metrics"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "RHEL for x86": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"RHEL for x86"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <Button
-              component="a"
-              href="/insights/inventory/lorem inventory id/"
-              isInline={true}
-              variant="link"
-            >
-              lorem
-            </Button>,
+        {
+          "cells": [
+            {
+              "content": <Button
+                component="a"
+                href="/insights/inventory/lorem inventory id/"
+                isInline={true}
+                variant="link"
+              >
+                lorem
+              </Button>,
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rosa": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"rosa"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"rosa"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "Satellite Server": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"Satellite Server"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <Button
-              component="a"
-              href="/insights/inventory/lorem inventory id/"
-              isInline={true}
-              variant="link"
-            >
-              lorem
-            </Button>,
+        {
+          "cells": [
+            {
+              "content": <Button
+                component="a"
+                href="/insights/inventory/lorem inventory id/"
+                isInline={true}
+                variant="link"
+              >
+                lorem
+              </Button>,
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"Satellite Server"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
 ]
@@ -2489,222 +2669,402 @@ exports[`Product specific configurations should apply variations in inventory fi
     "OpenShift Container Platform": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift Container Platform"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-dedicated-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-dedicated-metrics"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-metrics"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "RHEL for x86": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"RHEL for x86"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rosa": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"rosa"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"rosa"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "Satellite Server": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_guests_display, {"context":"name"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_inventory_id, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"Satellite Server"})",
+          "label": [Function],
+          "metric": "inventory_id",
+          "width": 40,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+          "label": [Function],
+          "metric": "last_seen",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t(curiosity-inventory.guestsHeader_display, {"context":"name"})",
+              "header": [Function],
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "lorem inventory id",
+              "dataLabel": "t([curiosity-inventory.header_inventory_id,curiosity-inventory.guestsHeader_inventory_id], {"context":"Satellite Server"})",
+              "header": [Function],
+              "metric": "inventory_id",
+              "width": 40,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+              "header": [Function],
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "display_name": "lorem",
+            "inventory_id": "lorem inventory id",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
+            "subscription_manager_id": "XXXX-XXXX-XXXXX-XXXXX",
           },
-          {
-            "title": "lorem inventory id",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
 ]
@@ -2716,444 +3076,834 @@ exports[`Product specific configurations should apply variations in inventory fi
     "OpenShift Container Platform": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <React.Fragment>
-              <Button
-                component="a"
-                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-                isInline={true}
-                variant="link"
-              >
-                lorem
-              </Button>
-               
-              
-            </React.Fragment>,
+        {
+          "cells": [
+            {
+              "content": <React.Fragment>
+                <Button
+                  component="a"
+                  href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+                  isInline={true}
+                  variant="link"
+                >
+                  lorem
+                </Button>
+                 
+                
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-dedicated-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Instance-hours, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Instance-hours",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <React.Fragment>
-              lorem
-               
-              
-            </React.Fragment>,
+        {
+          "cells": [
+            {
+              "content": <React.Fragment>
+                lorem
+                 
+                
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Instance-hours",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-metrics"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <React.Fragment>
-              lorem
-               
-              
-            </React.Fragment>,
+        {
+          "cells": [
+            {
+              "content": <React.Fragment>
+                lorem
+                 
+                
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhacs": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"rhacs"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhacs"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "billing_provider",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <Button
-              component="a"
-              href="/application-services/acs/instances/instance/XXXX-XXXX-XXXXX-XXXXX"
-              isInline={true}
-              variant="link"
-            >
-              lorem
-            </Button>,
+        {
+          "cells": [
+            {
+              "content": <Button
+                component="a"
+                href="/application-services/acs/instances/instance/XXXX-XXXX-XXXXX-XXXXX"
+                isInline={true}
+                variant="link"
+              >
+                lorem
+              </Button>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
-          },
-          {
-            "title": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "RHEL for x86": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_number_of_guests, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "number_of_guests",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_category, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "category",
+          "width": 20,
         },
         {
-          "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <Button
-              component="a"
-              href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-              isInline={true}
-              variant="link"
-            >
-              lorem
-            </Button>,
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <React.Fragment>
-              t(curiosity-inventory.label, {"context":"category"})
-               
-              <Label
-                color="purple"
+        {
+          "cells": [
+            {
+              "content": <Button
+                component="a"
+                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+                isInline={true}
+                variant="link"
               >
-                t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-              </Label>
-            </React.Fragment>,
+                lorem
+              </Button>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "number_of_guests",
+              "width": 15,
+            },
+            {
+              "content": <React.Fragment>
+                t(curiosity-inventory.label, {"context":"category"})
+                 
+                <Label
+                  color="purple"
+                >
+                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
+                </Label>
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "category",
+              "width": 20,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhods": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"rhods"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhods"})",
+          "isSortable": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "billing_provider",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhods"})",
+              "header": [Function],
+              "isSortable": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
-          },
-          {
-            "title": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rosa": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"rosa"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rosa"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Instance-hours, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Instance-hours",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Instance-hours",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "Satellite Server": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"Satellite Server"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"Satellite Server"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "number_of_guests",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_category, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"Satellite Server"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "category",
+          "width": 20,
         },
         {
-          "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"Satellite Server"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <Button
-              component="a"
-              href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
-              isInline={true}
-              variant="link"
-            >
-              lorem
-            </Button>,
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <React.Fragment>
-              t(curiosity-inventory.label, {"context":"category"})
-               
-              <Label
-                color="purple"
+        {
+          "cells": [
+            {
+              "content": <Button
+                component="a"
+                href="/insights/inventory/XXXX-XXXX-XXXXX-XXXXX/"
+                isInline={true}
+                variant="link"
               >
-                t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-              </Label>
-            </React.Fragment>,
+                lorem
+              </Button>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "number_of_guests",
+              "width": 15,
+            },
+            {
+              "content": <React.Fragment>
+                t(curiosity-inventory.label, {"context":"category"})
+                 
+                <Label
+                  color="purple"
+                >
+                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
+                </Label>
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "category",
+              "width": 20,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
 ]
@@ -3178,416 +3928,806 @@ exports[`Product specific configurations should apply variations in inventory fi
     "OpenShift Container Platform": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift Container Platform"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <React.Fragment>
-              lorem
-               
-              
-            </React.Fragment>,
+        {
+          "cells": [
+            {
+              "content": <React.Fragment>
+                lorem
+                 
+                
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-dedicated-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Instance-hours, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Instance-hours",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-dedicated-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <React.Fragment>
-              lorem
-               
-              
-            </React.Fragment>,
+        {
+          "cells": [
+            {
+              "content": <React.Fragment>
+                lorem
+                 
+                
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Instance-hours",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-dedicated-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "OpenShift-metrics": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"OpenShift-metrics"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-metrics"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"OpenShift-metrics"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": <React.Fragment>
-              lorem
-               
-              
-            </React.Fragment>,
+        {
+          "cells": [
+            {
+              "content": <React.Fragment>
+                lorem
+                 
+                
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"OpenShift-metrics"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhacs": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"rhacs"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhacs"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "billing_provider",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
-          },
-          {
-            "title": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "RHEL for x86": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"RHEL for x86"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_number_of_guests, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "number_of_guests",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_category, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "category",
+          "width": 20,
         },
         {
-          "title": "t(curiosity-inventory.header_Sockets, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "number_of_guests",
+              "width": 15,
+            },
+            {
+              "content": <React.Fragment>
+                t(curiosity-inventory.label, {"context":"category"})
+                 
+                <Label
+                  color="purple"
+                >
+                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
+                </Label>
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "category",
+              "width": 20,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <React.Fragment>
-              t(curiosity-inventory.label, {"context":"category"})
-               
-              <Label
-                color="purple"
-              >
-                t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-              </Label>
-            </React.Fragment>,
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhods": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"rhods"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhods"})",
+          "isSortable": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "billing_provider",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rhods"})",
+              "header": [Function],
+              "isSortable": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"none"})",
-          },
-          {
-            "title": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rosa": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"rosa"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rosa"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_Cores, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Cores",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_Instance-hours, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Instance-hours",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Cores",
+              "width": 15,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Instance-hours",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "Satellite Server": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_display_name, {"context":"Satellite Server"})",
-          "transforms": [],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"Satellite Server"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "display_name",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_number_of_guests, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"Satellite Server"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "number_of_guests",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_category, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"Satellite Server"})",
+          "isSort": true,
+          "label": [Function],
+          "metric": "category",
+          "width": 20,
         },
         {
-          "title": "t(curiosity-inventory.header_Sockets, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"Satellite Server"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "Sockets",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_last_seen, {"context":"Satellite Server"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "last_seen",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "display_name",
+              "width": undefined,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "number_of_guests",
+              "width": 15,
+            },
+            {
+              "content": <React.Fragment>
+                t(curiosity-inventory.label, {"context":"category"})
+                 
+                <Label
+                  color="purple"
+                >
+                  t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
+                </Label>
+              </React.Fragment>,
+              "dataLabel": "t([curiosity-inventory.header_category,curiosity-inventory.guestsHeader_category], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "metric": "category",
+              "width": 20,
+            },
+            {
+              "content": "--",
+              "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "Sockets",
+              "width": 15,
+            },
+            {
+              "content": <DateFormat
+                date="2022-01-01T00:00:00.000Z"
+              />,
+              "dataLabel": "t([curiosity-inventory.header_last_seen,curiosity-inventory.guestsHeader_last_seen], {"context":"Satellite Server"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "last_seen",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "cloud_provider": "dolor sit",
+            "display_name": "lorem",
+            "instance_id": "XXXX-XXXX-XXXXX-XXXXX",
+            "last_seen": "2022-01-01T00:00:00.000Z",
+            "loremIpsum": "hello world",
           },
-          {
-            "title": "--",
-          },
-          {
-            "title": <React.Fragment>
-              t(curiosity-inventory.label, {"context":"category"})
-               
-              <Label
-                color="purple"
-              >
-                t(curiosity-inventory.label_cloud_provider, {"context":"dolor sit"})
-              </Label>
-            </React.Fragment>,
-          },
-          {
-            "title": "--",
-          },
-          {
-            "title": <DateFormat
-              date="2022-01-01T00:00:00.000Z"
-            />,
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
 ]
@@ -3599,325 +4739,640 @@ exports[`Product specific configurations should apply variations in inventory fi
     "OpenShift Container Platform": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 20,
         },
         {
-          "title": "t(curiosity-inventory.header_subscriptions, {"context":"cores"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "total_capacity",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 20,
+            },
+            {
+              "content": <Tooltip
+                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                distance={5}
+                enableFlip={false}
+                entryDelay={100}
+                exitDelay={0}
+                isNoWrap={false}
+                position="top"
+              >
+                <ChartIcon
+                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                  fill={null}
+                  size="sm"
+                  symbol="infinity"
+                  title={null}
+                />
+              </Tooltip>,
+              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "total_capacity",
+              "width": 15,
+            },
+            {
+              "content": "2022-01-01",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": <Tooltip
-              content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-              distance={5}
-              enableFlip={false}
-              entryDelay={100}
-              exitDelay={0}
-              isNoWrap={false}
-              position="top"
-            >
-              <ChartIcon
-                aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                fill={null}
-                size="sm"
-                symbol="infinity"
-                title={null}
-              />
-            </Tooltip>,
-          },
-          {
-            "title": "2022-01-01",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhacs": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": false,
+          "label": [Function],
+          "metric": "billing_provider",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_subscription_type, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhacs"})",
+          "isSort": false,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "subscription_type",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": false,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
+              "dataLabel": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": false,
+              "isWrap": true,
+              "metric": "subscription_type",
+              "width": 15,
+            },
+            {
+              "content": "",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
-          },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
-          },
-          {
-            "title": "2022-01-01T00:00:00.000Z",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "RHEL for x86": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_subscriptions, {"context":"cores"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "total_capacity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": <Tooltip
+                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                distance={5}
+                enableFlip={false}
+                entryDelay={100}
+                exitDelay={0}
+                isNoWrap={false}
+                position="top"
+              >
+                <ChartIcon
+                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                  fill={null}
+                  size="sm"
+                  symbol="infinity"
+                  title={null}
+                />
+              </Tooltip>,
+              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "total_capacity",
+              "width": 10,
+            },
+            {
+              "content": "2022-01-01",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": <Tooltip
-              content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-              distance={5}
-              enableFlip={false}
-              entryDelay={100}
-              exitDelay={0}
-              isNoWrap={false}
-              position="top"
-            >
-              <ChartIcon
-                aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                fill={null}
-                size="sm"
-                symbol="infinity"
-                title={null}
-              />
-            </Tooltip>,
-          },
-          {
-            "title": "2022-01-01",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhods": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+          "isSort": false,
+          "isWrap": false,
+          "label": [Function],
+          "metric": "billing_provider",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_subscription_type, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhods"})",
+          "isSort": false,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "subscription_type",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": false,
+              "isWrap": false,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
+              "dataLabel": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": false,
+              "isWrap": true,
+              "metric": "subscription_type",
+              "width": 15,
+            },
+            {
+              "content": "",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
-          },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
-          },
-          {
-            "title": "2022-01-01T00:00:00.000Z",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rosa": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": "2022-01-01",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": 1,
-          },
-          {
-            "title": "2022-01-01",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
 ]
@@ -3939,325 +5394,640 @@ exports[`Product specific configurations should apply variations in inventory fi
     "OpenShift Container Platform": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 20,
         },
         {
-          "title": "t(curiosity-inventory.header_subscriptions, {"context":"cores"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "total_capacity",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"OpenShift Container Platform"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"OpenShift Container Platform"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 20,
+            },
+            {
+              "content": <Tooltip
+                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                distance={5}
+                enableFlip={false}
+                entryDelay={100}
+                exitDelay={0}
+                isNoWrap={false}
+                position="top"
+              >
+                <ChartIcon
+                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                  fill={null}
+                  size="sm"
+                  symbol="infinity"
+                  title={null}
+                />
+              </Tooltip>,
+              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "total_capacity",
+              "width": 15,
+            },
+            {
+              "content": "2022-01-01",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"OpenShift Container Platform"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": <Tooltip
-              content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-              distance={5}
-              enableFlip={false}
-              entryDelay={100}
-              exitDelay={0}
-              isNoWrap={false}
-              position="top"
-            >
-              <ChartIcon
-                aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                fill={null}
-                size="sm"
-                symbol="infinity"
-                title={null}
-              />
-            </Tooltip>,
-          },
-          {
-            "title": "2022-01-01",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhacs": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": false,
+          "label": [Function],
+          "metric": "billing_provider",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_subscription_type, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhacs"})",
+          "isSort": false,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "subscription_type",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"rhacs"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhacs"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": false,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
+              "dataLabel": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": false,
+              "isWrap": true,
+              "metric": "subscription_type",
+              "width": 15,
+            },
+            {
+              "content": "",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhacs"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
-          },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
-          },
-          {
-            "title": "2022-01-01T00:00:00.000Z",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "RHEL for x86": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_subscriptions, {"context":"cores"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "total_capacity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"RHEL for x86"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"RHEL for x86"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": <Tooltip
+                content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                distance={5}
+                enableFlip={false}
+                entryDelay={100}
+                exitDelay={0}
+                isNoWrap={false}
+                position="top"
+              >
+                <ChartIcon
+                  aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
+                  fill={null}
+                  size="sm"
+                  symbol="infinity"
+                  title={null}
+                />
+              </Tooltip>,
+              "dataLabel": "t(curiosity-inventory.header, {"context":"subscriptions"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "total_capacity",
+              "width": 10,
+            },
+            {
+              "content": "2022-01-01",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"RHEL for x86"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": <Tooltip
-              content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-              distance={5}
-              enableFlip={false}
-              entryDelay={100}
-              exitDelay={0}
-              isNoWrap={false}
-              position="top"
-            >
-              <ChartIcon
-                aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                fill={null}
-                size="sm"
-                symbol="infinity"
-                title={null}
-              />
-            </Tooltip>,
-          },
-          {
-            "title": "2022-01-01",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rhods": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_billing_provider, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+          "isSort": false,
+          "isWrap": false,
+          "label": [Function],
+          "metric": "billing_provider",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_service_level, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "service_level",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_subscription_type, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhods"})",
+          "isSort": false,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "subscription_type",
+          "modifier": "wrap",
+          "width": 15,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"rhods"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhods"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
+              "dataLabel": "t([curiosity-inventory.header_billing_provider,curiosity-inventory.guestsHeader_billing_provider], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": false,
+              "isWrap": false,
+              "metric": "billing_provider",
+              "width": 15,
+            },
+            {
+              "content": "hello world",
+              "dataLabel": "t([curiosity-inventory.header_service_level,curiosity-inventory.guestsHeader_service_level], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "service_level",
+              "width": 15,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
+              "dataLabel": "t([curiosity-inventory.header_subscription_type,curiosity-inventory.guestsHeader_subscription_type], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": false,
+              "isWrap": true,
+              "metric": "subscription_type",
+              "width": 15,
+            },
+            {
+              "content": "",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rhods"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": "t(curiosity-inventory.label_billing_provider, {"context":"dolor sit"})",
-          },
-          {
-            "title": "hello world",
-          },
-          {
-            "title": 1,
-          },
-          {
-            "title": "t(curiosity-inventory.label_subscription_type, {"context":" "})",
-          },
-          {
-            "title": "2022-01-01T00:00:00.000Z",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
   {
     "rosa": {
       "dataSetColumnHeaders": [
         {
-          "title": "t(curiosity-inventory.header_product_name, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "product_name",
+          "modifier": "wrap",
+          "width": undefined,
         },
         {
-          "title": "t(curiosity-inventory.header_quantity, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "quantity",
+          "modifier": "wrap",
+          "width": 10,
         },
         {
-          "title": "t(curiosity-inventory.header_next_event_date, {"context":"rosa"})",
-          "transforms": [
-            [Function],
-            [Function],
-          ],
+          "cell": [Function],
+          "content": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rosa"})",
+          "isSort": true,
+          "isWrap": true,
+          "label": [Function],
+          "metric": "next_event_date",
+          "modifier": "wrap",
+          "width": 15,
         },
       ],
       "dataSetRows": [
-        [
-          {
-            "title": "lorem",
+        {
+          "cells": [
+            {
+              "content": "lorem",
+              "dataLabel": "t([curiosity-inventory.header_product_name,curiosity-inventory.guestsHeader_product_name], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "product_name",
+              "width": undefined,
+            },
+            {
+              "content": 1,
+              "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "quantity",
+              "width": 10,
+            },
+            {
+              "content": "2022-01-01",
+              "dataLabel": "t([curiosity-inventory.header_next_event_date,curiosity-inventory.guestsHeader_next_event_date], {"context":"rosa"})",
+              "header": [Function],
+              "isSort": true,
+              "isWrap": true,
+              "metric": "next_event_date",
+              "width": 15,
+            },
+          ],
+          "expandedContent": undefined,
+          "row": {
+            "billing_provider": "dolor sit",
+            "has_infinite_quantity": true,
+            "loremIpsum": "hello world",
+            "next_event_date": "2022-01-01T00:00:00.000Z",
+            "product_name": "lorem",
+            "quantity": 1,
+            "service_level": "hello world",
+            "total_capacity": 2000,
+            "uom": "cores",
           },
-          {
-            "title": 1,
-          },
-          {
-            "title": "2022-01-01",
-          },
-        ],
+        },
       ],
+      "resultsCount": undefined,
+      "resultsOffset": undefined,
+      "resultsPerPage": undefined,
     },
   },
 ]

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GuestsList Component should handle multiple display states: fulfilled 1`] = `
+exports[`InventoryGuests Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <div
   className="fadein"
 >
@@ -8,25 +8,66 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
     className="curiosity-table-scroll"
     style={
       {
-        "height": "84px",
+        "height": "275px",
       }
     }
   >
     <div
-      className="curiosity-table-scroll-list__no-scroll"
+      className="curiosity-table-scroll-list"
+      onScroll={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`InventoryGuests Component should handle multiple display states, error, pending, fulfilled: fulfilled 1`] = `
+<div
+  className="fadein"
+>
+  <div
+    className="curiosity-table-scroll"
+    style={
+      {
+        "height": "275px",
+      }
+    }
+  >
+    <div
+      className="curiosity-table-scroll-list"
       onScroll={[Function]}
     >
       <Table
         ariaLabel={null}
-        borders={false}
         className="curiosity-guests-list"
         columnHeaders={
           [
-            "t(curiosity-inventory.header, {"context":"lorem"})",
-            "t(curiosity-inventory.header, {"context":"dolor"})",
+            "lorem",
+            "dolor",
           ]
         }
+        componentClassNames={
+          {
+            "table": "curiosity-table",
+            "td": "curiosity-table__td",
+            "tdAction": "curiosity-table__td-action",
+            "tdExpand": "curiosity-table__td-expand",
+            "tdExpanded": "curiosity-table__td-expand-expanded",
+            "tdExpandedContent": "curiosity-table__td-expand-content",
+            "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+            "tdSelect": "curiosity-table__td-select",
+            "th": "curiosity-table__th",
+            "tr": "curiosity-table__tr",
+            "trExpand": "curiosity-table__tr-expand",
+            "trExpanded": "curiosity-table__tr-expand-expanded",
+            "trExpandedContent": "curiosity-table__tr-expand-content",
+          }
+        }
+        isBorders={false}
         isHeader={true}
+        isStriped={false}
+        onExpand={null}
+        onSelect={null}
+        onSort={null}
         rows={
           [
             {
@@ -38,7 +79,6 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
           ]
         }
         summary={null}
-        t={[Function]}
         variant="compact"
       />
     </div>
@@ -46,7 +86,7 @@ exports[`GuestsList Component should handle multiple display states: fulfilled 1
 </div>
 `;
 
-exports[`GuestsList Component should handle multiple display states: initial pending 1`] = `
+exports[`InventoryGuests Component should handle multiple display states, error, pending, fulfilled: pending 1`] = `
 <div
   className="fadein"
 >
@@ -54,12 +94,12 @@ exports[`GuestsList Component should handle multiple display states: initial pen
     className="curiosity-table-scroll"
     style={
       {
-        "height": "84px",
+        "height": "275px",
       }
     }
   >
     <div
-      className="curiosity-table-scroll-list__no-scroll"
+      className="curiosity-table-scroll-list"
       onScroll={[Function]}
     >
       <div
@@ -74,10 +114,11 @@ exports[`GuestsList Component should handle multiple display states: initial pen
           tableProps={
             {
               "borders": false,
-              "className": undefined,
+              "className": "curiosity-guests-list",
               "colCount": 1,
               "colWidth": [],
-              "rowCount": 0,
+              "isHeader": false,
+              "rowCount": 1,
               "variant": "compact",
             }
           }
@@ -89,117 +130,7 @@ exports[`GuestsList Component should handle multiple display states: initial pen
 </div>
 `;
 
-exports[`GuestsList Component should handle variations in data: filtered data 1`] = `
-<div
-  className="fadein"
->
-  <div
-    className="curiosity-table-scroll"
-    style={
-      {
-        "height": "126px",
-      }
-    }
-  >
-    <div
-      className="curiosity-table-scroll-list__no-scroll"
-      onScroll={[Function]}
-    >
-      <Table
-        ariaLabel={null}
-        borders={false}
-        className="curiosity-guests-list"
-        columnHeaders={
-          [
-            {
-              "title": "t(curiosity-inventory.header, {"context":"lorem"})",
-              "transforms": [
-                [Function],
-              ],
-            },
-          ]
-        }
-        isHeader={true}
-        rows={
-          [
-            {
-              "cells": [
-                {
-                  "title": "ipsum",
-                },
-              ],
-            },
-            {
-              "cells": [
-                {
-                  "title": "amet",
-                },
-              ],
-            },
-          ]
-        }
-        summary={null}
-        t={[Function]}
-        variant="compact"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`GuestsList Component should handle variations in data: variable data 1`] = `
-<div
-  className="fadein"
->
-  <div
-    className="curiosity-table-scroll"
-    style={
-      {
-        "height": "126px",
-      }
-    }
-  >
-    <div
-      className="curiosity-table-scroll-list__no-scroll"
-      onScroll={[Function]}
-    >
-      <Table
-        ariaLabel={null}
-        borders={false}
-        className="curiosity-guests-list"
-        columnHeaders={
-          [
-            "t(curiosity-inventory.header, {"context":"lorem"})",
-            "t(curiosity-inventory.header, {"context":"dolor"})",
-          ]
-        }
-        isHeader={true}
-        rows={
-          [
-            {
-              "cells": [
-                "ipsum",
-                "sit",
-              ],
-            },
-            {
-              "cells": [
-                "amet",
-                "amet",
-              ],
-            },
-          ]
-        }
-        summary={null}
-        t={[Function]}
-        variant="compact"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`GuestsList Component should render a basic component: basic render 1`] = `
+exports[`InventoryGuests Component should render a basic component: basic 1`] = `
 <div
   className="fadein"
 >
@@ -227,10 +158,11 @@ exports[`GuestsList Component should render a basic component: basic render 1`] 
           tableProps={
             {
               "borders": false,
-              "className": undefined,
+              "className": "curiosity-guests-list",
               "colCount": 1,
               "colWidth": [],
-              "rowCount": 0,
+              "isHeader": false,
+              "rowCount": 1,
               "variant": "compact",
             }
           }
