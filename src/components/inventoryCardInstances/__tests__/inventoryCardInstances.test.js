@@ -1,8 +1,8 @@
 import React from 'react';
-import { InventoryCardHosts } from '../inventoryCardHosts';
+import { InventoryCardInstances } from '../inventoryCardInstances';
 import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
-describe('InventoryCardHosts Component', () => {
+describe('InventoryCardInstances Component', () => {
   it('should render a basic component', async () => {
     const props = {
       useProductInventoryConfig: () => ({ filters: [], settings: {} }),
@@ -12,7 +12,7 @@ describe('InventoryCardHosts Component', () => {
       })
     };
 
-    const component = await shallowComponent(<InventoryCardHosts {...props} />);
-    expect(component).toMatchSnapshot('basic render');
+    const component = await shallowComponent(<InventoryCardInstances {...props} />);
+    expect(component).toMatchSnapshot('basic');
   });
 });

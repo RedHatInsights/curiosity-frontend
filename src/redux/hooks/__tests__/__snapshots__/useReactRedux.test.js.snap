@@ -764,6 +764,7 @@ exports[`useReactRedux should return a list or object with ID for multiple selec
 
 exports[`useReactRedux should return specific properties: specific properties 1`] = `
 {
+  "deepEqual": [Function],
   "shallowEqual": [Function],
   "useDispatch": [Function],
   "useSelector": [Function],

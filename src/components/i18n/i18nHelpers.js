@@ -85,7 +85,7 @@ const parseContext = (
       const lastContext = tempContext.pop();
 
       if (Array.isArray(updatedTranslateKey)) {
-        updatedTranslateKey[0] = `${updatedTranslateKey[0]}_${tempContext.join('_')}`;
+        updatedTranslateKey = updatedTranslateKey.map(value => `${value}_${tempContext.join('_')}`);
       } else {
         updatedTranslateKey = `${updatedTranslateKey}_${tempContext.join('_')}`;
       }

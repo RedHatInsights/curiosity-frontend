@@ -2,10 +2,10 @@ import moment from 'moment';
 import {
   RHSM_API_QUERY_SET_TYPES,
   RHSM_API_PATH_METRIC_TYPES,
-  RHSM_API_RESPONSE_HOSTS_DATA_TYPES as HOSTS_DATA_TYPES,
-  RHSM_API_RESPONSE_HOSTS_META_TYPES as HOSTS_META_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INSTANCES_DATA_TYPES,
   RHSM_API_RESPONSE_INSTANCES_META_TYPES as INSTANCES_META_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_DATA_TYPES,
+  RHSM_API_RESPONSE_SUBSCRIPTIONS_META_TYPES as SUBSCRIPTIONS_META_TYPES,
   RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES as TALLY_CAPACITY_DATA_TYPES,
   RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES as TALLY_CAPACITY_META_TYPES,
   rhsmConstants
@@ -18,39 +18,6 @@ import { dateHelpers } from '../../common';
  * @memberof Rhsm
  * @module RhsmTransformers
  */
-
-/**
- * Parse RHSM hosts response for caching.
- *
- * @param {object} response
- * @returns {object}
- */
-const rhsmHosts = response => {
-  const updatedResponse = {};
-  const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
-    response || {};
-
-  updatedResponse.data = data.map(
-    ({
-      [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
-      [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
-      ...dataResponse
-    }) => ({
-      [HOSTS_DATA_TYPES.NUMBER_OF_GUESTS]: numberOfGuests,
-      [HOSTS_DATA_TYPES.SUBSCRIPTION_MANAGER_ID]: subscriptionManagerId,
-      numberOfGuests,
-      subscriptionManagerId,
-      ...dataResponse
-    })
-  );
-
-  updatedResponse.meta = {
-    count: meta[HOSTS_META_TYPES.COUNT],
-    productId: meta[HOSTS_META_TYPES.PRODUCT]
-  };
-
-  return updatedResponse;
-};
 
 /**
  * ToDO: remove the UOM fallback if/when the API supports returning some form of the UOM in the response
@@ -103,6 +70,110 @@ const rhsmInstances = (response, { params } = {}) => {
     count: meta[INSTANCES_META_TYPES.COUNT],
     uom: normalizedUom,
     productId: meta[INSTANCES_META_TYPES.PRODUCT]
+  };
+
+  return updatedResponse;
+};
+
+/**
+ * Temporary guests response cache.
+ *
+ * @type {{}}
+ */
+const rhsmInstancesGuestsCache = {};
+
+/**
+ * Parse RHSM guests instances response. Return an infinite list at the transformer level.
+ *
+ * @param {object} response
+ * @param {object} config
+ * @param {object} config.params
+ * @param {object} config._id
+ * @returns {object}
+ */
+const rhsmInstancesGuests = (response, { params, _id } = {}) => {
+  const updatedResponse = {};
+  const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
+    response || {};
+
+  updatedResponse.data = data;
+  updatedResponse.meta = meta;
+
+  if (_id) {
+    let cacheIndex =
+      Number.parseInt(params?.[RHSM_API_QUERY_SET_TYPES.OFFSET], 10) /
+      Number.parseInt(params?.[RHSM_API_QUERY_SET_TYPES.LIMIT], 10);
+
+    // Note: null is considered "finite"
+    cacheIndex = (!Number.isNaN(cacheIndex) && Number.isFinite(cacheIndex) && cacheIndex) || 0;
+
+    if (cacheIndex <= 0) {
+      rhsmInstancesGuestsCache[_id] = [];
+    }
+
+    rhsmInstancesGuestsCache[_id][cacheIndex] = data;
+
+    updatedResponse.data = rhsmInstancesGuestsCache[_id].flat();
+  }
+
+  return updatedResponse;
+};
+
+/**
+ * Parse RHSM subscriptions response for caching.
+ * The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We attempt to
+ * normalize this for both casing, similar to the Instances meta response, BUT we also add a concatenated string uom for responses
+ * without the uom query parameter in the form of "Sockets", "Sockets-Cores", or "Cores", dependent on the returned response
+ * data.
+ *
+ * @param {object} response
+ * @param {object} config
+ * @param {object} config.params
+ * @returns {object}
+ */
+const rhsmSubscriptions = (response, { params } = {}) => {
+  const updatedResponse = {};
+  const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
+    response || {};
+
+  updatedResponse.data = data;
+
+  let normalizedUom = params?.[RHSM_API_QUERY_SET_TYPES.UOM];
+
+  if (!normalizedUom) {
+    const tempUom = [];
+
+    const isSocketsUom =
+      data.find(({ [SUBSCRIPTIONS_DATA_TYPES.UOM]: uom }) =>
+        new RegExp(RHSM_API_PATH_METRIC_TYPES.SOCKETS, 'i').test(uom)
+      ) !== undefined;
+
+    if (isSocketsUom) {
+      tempUom.push(RHSM_API_PATH_METRIC_TYPES.SOCKETS);
+    }
+
+    const isCoresUom =
+      data.find(({ [SUBSCRIPTIONS_DATA_TYPES.UOM]: uom }) =>
+        new RegExp(RHSM_API_PATH_METRIC_TYPES.CORES, 'i').test(uom)
+      ) !== undefined;
+
+    if (isCoresUom) {
+      tempUom.push(RHSM_API_PATH_METRIC_TYPES.CORES);
+    }
+
+    normalizedUom = tempUom.join('-');
+  }
+  if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.SOCKETS.toLowerCase()) {
+    normalizedUom = RHSM_API_PATH_METRIC_TYPES.SOCKETS;
+  } else if (normalizedUom?.toLowerCase() === RHSM_API_PATH_METRIC_TYPES.CORES.toLowerCase()) {
+    normalizedUom = RHSM_API_PATH_METRIC_TYPES.CORES;
+  }
+
+  updatedResponse.meta = {
+    ...meta,
+    count: meta[SUBSCRIPTIONS_META_TYPES.COUNT],
+    uom: normalizedUom,
+    productId: meta[SUBSCRIPTIONS_META_TYPES.PRODUCT]
   };
 
   return updatedResponse;
@@ -195,9 +266,17 @@ const rhsmTallyCapacity = (response, { _isCapacity, params } = {}) => {
 };
 
 const rhsmTransformers = {
-  hosts: rhsmHosts,
+  guests: rhsmInstancesGuests,
   instances: rhsmInstances,
+  subscriptions: rhsmSubscriptions,
   tallyCapacity: rhsmTallyCapacity
 };
 
-export { rhsmTransformers as default, rhsmTransformers, rhsmHosts, rhsmInstances, rhsmTallyCapacity };
+export {
+  rhsmTransformers as default,
+  rhsmTransformers,
+  rhsmInstances,
+  rhsmInstancesGuests,
+  rhsmSubscriptions,
+  rhsmTallyCapacity
+};

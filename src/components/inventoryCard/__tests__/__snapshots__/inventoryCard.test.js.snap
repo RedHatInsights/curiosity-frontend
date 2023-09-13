@@ -1,84 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InventoryCard Component should handle expandable guests data: NO number of guests and NO expandable guests display 1`] = `
-<tbody
-  class=""
-  role="rowgroup"
->
-  <tr
-    class=""
-    data-ouia-component-id="OUIA-Generated-TableRow-5"
-    data-ouia-component-type="PF4/TableRow"
-    data-ouia-safe="true"
-  >
-    <td
-      class=""
-      data-key="0"
-      data-label="t(curiosity-inventory.header, {"context":"lorem"})"
-    >
-      sit
-    </td>
-    <td
-      class=""
-      data-key="1"
-      data-label="t(curiosity-inventory.header, {"context":"dolor"})"
-    >
-      amet
-    </td>
-    <td
-      class=""
-      data-key="2"
-      data-label="t(curiosity-inventory.header_number_of, {"context":"guests"})"
-    >
-      ...
-    </td>
-  </tr>
-</tbody>
-`;
-
-exports[`InventoryCard Component should handle expandable guests data: number of guests, and returned id 1`] = `
-<tbody
-  class=""
-  role="rowgroup"
->
-  <tr
-    class=""
-    data-ouia-component-id="OUIA-Generated-TableRow-7"
-    data-ouia-component-type="PF4/TableRow"
-    data-ouia-safe="true"
-  >
-    <td
-      class=""
-      data-key="0"
-      data-label="t(curiosity-inventory.header, {"context":"lorem"})"
-    >
-      sit
-    </td>
-    <td
-      class=""
-      data-key="1"
-      data-label="t(curiosity-inventory.header, {"context":"dolor"})"
-    >
-      amet
-    </td>
-    <td
-      class=""
-      data-key="2"
-      data-label="t(curiosity-inventory.header_number_of, {"context":"guests"})"
-    >
-      1
-    </td>
-    <td
-      class=""
-      data-key="3"
-      data-label="t(curiosity-inventory.header, {"context":"subscriptionManagerId"})"
-    >
-      loremIpsum
-    </td>
-  </tr>
-</tbody>
-`;
-
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <Card
   className="curiosity-inventory-card"
@@ -92,29 +13,37 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       aria-hidden={true}
       className="hidden"
     >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={true}
-        className="transparent"
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={true}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
+      <CardActions>
+        <Toolbar
+          collapseListedFiltersBreakpoint="sm"
+        >
+          <ToolbarContent
+            isExpanded={false}
+            showClearFiltersButton={false}
+          >
+            <ForwardRef
+              alignment={
+                {
+                  "default": "alignRight",
+                }
+              }
+              aria-hidden={true}
+              className="transparent"
+            >
+              <Pagination
+                dropDirection="down"
+                isCompact={true}
+                isDisabled={true}
+                itemCount={0}
+                offset={0}
+                onPage={[Function]}
+                onPerPage={[Function]}
+                perPage={10}
+                variant={null}
+              />
+            </ForwardRef>
+          </ToolbarContent>
+        </Toolbar>
       </CardActions>
     </CardHeader>
   </MinHeight>
@@ -129,13 +58,33 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Table
           ariaLabel={null}
-          borders={true}
           className="curiosity-inventory-list"
           columnHeaders={[]}
+          componentClassNames={
+            {
+              "table": "curiosity-table",
+              "td": "curiosity-table__td",
+              "tdAction": "curiosity-table__td-action",
+              "tdExpand": "curiosity-table__td-expand",
+              "tdExpanded": "curiosity-table__td-expand-expanded",
+              "tdExpandedContent": "curiosity-table__td-expand-content",
+              "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+              "tdSelect": "curiosity-table__td-select",
+              "th": "curiosity-table__th",
+              "tr": "curiosity-table__tr",
+              "trExpand": "curiosity-table__tr-expand",
+              "trExpanded": "curiosity-table__tr-expand-expanded",
+              "trExpandedContent": "curiosity-table__tr-expand-content",
+            }
+          }
+          isBorders={true}
           isHeader={true}
+          isStriped={false}
+          onExpand={null}
+          onSelect={null}
+          onSort={null}
           rows={[]}
           summary={null}
-          t={[Function]}
           variant="compact"
         />
       </div>
@@ -183,29 +132,37 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       aria-hidden={false}
       className=""
     >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={false}
-        className=""
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={false}
-          itemCount={2}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
+      <CardActions>
+        <Toolbar
+          collapseListedFiltersBreakpoint="sm"
+        >
+          <ToolbarContent
+            isExpanded={false}
+            showClearFiltersButton={false}
+          >
+            <ForwardRef
+              alignment={
+                {
+                  "default": "alignRight",
+                }
+              }
+              aria-hidden={true}
+              className="transparent"
+            >
+              <Pagination
+                dropDirection="down"
+                isCompact={true}
+                isDisabled={false}
+                itemCount={0}
+                offset={0}
+                onPage={[Function]}
+                onPerPage={[Function]}
+                perPage={10}
+                variant={null}
+              />
+            </ForwardRef>
+          </ToolbarContent>
+        </Toolbar>
       </CardActions>
     </CardHeader>
   </MinHeight>
@@ -220,35 +177,33 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       >
         <Table
           ariaLabel={null}
-          borders={true}
           className="curiosity-inventory-list"
-          columnHeaders={
-            [
-              "t(curiosity-inventory.header, {"context":"lorem"})",
-              "t(curiosity-inventory.header, {"context":"dolor"})",
-            ]
+          columnHeaders={[]}
+          componentClassNames={
+            {
+              "table": "curiosity-table",
+              "td": "curiosity-table__td",
+              "tdAction": "curiosity-table__td-action",
+              "tdExpand": "curiosity-table__td-expand",
+              "tdExpanded": "curiosity-table__td-expand-expanded",
+              "tdExpandedContent": "curiosity-table__td-expand-content",
+              "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+              "tdSelect": "curiosity-table__td-select",
+              "th": "curiosity-table__th",
+              "tr": "curiosity-table__tr",
+              "trExpand": "curiosity-table__tr-expand",
+              "trExpanded": "curiosity-table__tr-expand-expanded",
+              "trExpandedContent": "curiosity-table__tr-expand-content",
+            }
           }
+          isBorders={true}
           isHeader={true}
-          rows={
-            [
-              {
-                "cells": [
-                  "ipsum",
-                  "sit",
-                ],
-                "expandedContent": undefined,
-              },
-              {
-                "cells": [
-                  "sit",
-                  "amet",
-                ],
-                "expandedContent": undefined,
-              },
-            ]
-          }
+          isStriped={false}
+          onExpand={null}
+          onSelect={null}
+          onSort={null}
+          rows={[]}
           summary={null}
-          t={[Function]}
           variant="compact"
         />
       </div>
@@ -260,8 +215,8 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     useResizeObserver={[Function]}
   >
     <CardFooter
-      aria-hidden={false}
-      className=""
+      aria-hidden={true}
+      className="transparent"
     >
       <TableToolbar
         isFooter={true}
@@ -270,7 +225,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           dropDirection="up"
           isCompact={false}
           isDisabled={false}
-          itemCount={2}
+          itemCount={0}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -296,29 +251,37 @@ exports[`InventoryCard Component should handle multiple display states, error, p
       aria-hidden={false}
       className=""
     >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={true}
-        className="transparent"
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={true}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
+      <CardActions>
+        <Toolbar
+          collapseListedFiltersBreakpoint="sm"
+        >
+          <ToolbarContent
+            isExpanded={false}
+            showClearFiltersButton={false}
+          >
+            <ForwardRef
+              alignment={
+                {
+                  "default": "alignRight",
+                }
+              }
+              aria-hidden={true}
+              className="transparent"
+            >
+              <Pagination
+                dropDirection="down"
+                isCompact={true}
+                isDisabled={true}
+                itemCount={0}
+                offset={0}
+                onPage={[Function]}
+                onPerPage={[Function]}
+                perPage={10}
+                variant={null}
+              />
+            </ForwardRef>
+          </ToolbarContent>
+        </Toolbar>
       </CardActions>
     </CardHeader>
   </MinHeight>
@@ -342,7 +305,8 @@ exports[`InventoryCard Component should handle multiple display states, error, p
               "className": "curiosity-inventory-list",
               "colCount": 1,
               "colWidth": [],
-              "rowCount": 10,
+              "isHeader": true,
+              "rowCount": undefined,
               "variant": "compact",
             }
           }
@@ -368,184 +332,6 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           isCompact={false}
           isDisabled={true}
           itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
-      </TableToolbar>
-    </CardFooter>
-  </MinHeight>
-</Card>
-`;
-
-exports[`InventoryCard Component should handle variations in data: filtered data 1`] = `
-<table
-  aria-label="t(curiosity-inventory.tableAriaLabel, {"appName":"Subscriptions"})"
-  class="curiosity-table curiosity-inventory-list pf-c-table pf-m-grid-md pf-m-compact"
-  data-ouia-component-id="OUIA-Generated-Table-2"
-  data-ouia-component-type="PF4/Table"
-  data-ouia-safe="true"
-  role="grid"
-  summary="t(curiosity-inventory.tableSummary)"
->
-  <thead
-    class=""
-  >
-    <tr
-      class=""
-      data-ouia-component-id="OUIA-Generated-TableRow-1"
-      data-ouia-component-type="PF4/TableRow"
-      data-ouia-safe="true"
-    >
-      <th
-        class=""
-        data-key="0"
-        data-label="t(curiosity-inventory.header, {"context":"lorem"})"
-        scope="col"
-      >
-        t(curiosity-inventory.header, {"context":"lorem"})
-      </th>
-    </tr>
-  </thead>
-  <tbody
-    class=""
-    role="rowgroup"
-  >
-    <tr
-      class=""
-      data-ouia-component-id="OUIA-Generated-TableRow-2"
-      data-ouia-component-type="PF4/TableRow"
-      data-ouia-safe="true"
-    >
-      <td
-        class=""
-        data-key="0"
-        data-label="t(curiosity-inventory.header, {"context":"lorem"})"
-      >
-        ipsum
-      </td>
-    </tr>
-    <tr
-      class=""
-      data-ouia-component-id="OUIA-Generated-TableRow-3"
-      data-ouia-component-type="PF4/TableRow"
-      data-ouia-safe="true"
-    >
-      <td
-        class=""
-        data-key="0"
-        data-label="t(curiosity-inventory.header, {"context":"lorem"})"
-      >
-        sit
-      </td>
-    </tr>
-  </tbody>
-</table>
-`;
-
-exports[`InventoryCard Component should handle variations in data: variable data 1`] = `
-<Card
-  className="curiosity-inventory-card"
->
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
-    <CardHeader
-      aria-hidden={false}
-      className=""
-    >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={false}
-        className=""
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={false}
-          itemCount={2}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
-      </CardActions>
-    </CardHeader>
-  </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
-    <CardBody>
-      <div
-        className=""
-      >
-        <Table
-          ariaLabel={null}
-          borders={true}
-          className="curiosity-inventory-list"
-          columnHeaders={
-            [
-              "t(curiosity-inventory.header, {"context":"lorem"})",
-              "t(curiosity-inventory.header, {"context":"dolor"})",
-            ]
-          }
-          isHeader={true}
-          rows={
-            [
-              {
-                "cells": [
-                  "ipsum",
-                  "sit",
-                ],
-                "expandedContent": undefined,
-              },
-              {
-                "cells": [
-                  "sit",
-                  "amet",
-                ],
-                "expandedContent": undefined,
-              },
-            ]
-          }
-          summary={null}
-          t={[Function]}
-          variant="compact"
-        />
-      </div>
-    </CardBody>
-  </MinHeight>
-  <MinHeight
-    isOnLoad={false}
-    minHeight={0}
-    useResizeObserver={[Function]}
-  >
-    <CardFooter
-      aria-hidden={false}
-      className=""
-    >
-      <TableToolbar
-        isFooter={true}
-      >
-        <Pagination
-          dropDirection="up"
-          isCompact={false}
-          isDisabled={false}
-          itemCount={2}
           offset={0}
           onPage={[Function]}
           onPerPage={[Function]}
@@ -571,29 +357,37 @@ exports[`InventoryCard Component should render a basic component: basic render 1
       aria-hidden={false}
       className=""
     >
-      <CardHeaderMain>
-        <ToolbarFieldDisplayName
-          t={[Function]}
-          useDispatch={[Function]}
-          useProduct={[Function]}
-          useProductInventoryHostsQuery={[Function]}
-        />
-      </CardHeaderMain>
-      <CardActions
-        aria-hidden={true}
-        className="transparent"
-      >
-        <Pagination
-          dropDirection="down"
-          isCompact={true}
-          isDisabled={true}
-          itemCount={0}
-          offset={0}
-          onPage={[Function]}
-          onPerPage={[Function]}
-          perPage={10}
-          variant={null}
-        />
+      <CardActions>
+        <Toolbar
+          collapseListedFiltersBreakpoint="sm"
+        >
+          <ToolbarContent
+            isExpanded={false}
+            showClearFiltersButton={false}
+          >
+            <ForwardRef
+              alignment={
+                {
+                  "default": "alignRight",
+                }
+              }
+              aria-hidden={true}
+              className="transparent"
+            >
+              <Pagination
+                dropDirection="down"
+                isCompact={true}
+                isDisabled={true}
+                itemCount={0}
+                offset={0}
+                onPage={[Function]}
+                onPerPage={[Function]}
+                perPage={10}
+                variant={null}
+              />
+            </ForwardRef>
+          </ToolbarContent>
+        </Toolbar>
       </CardActions>
     </CardHeader>
   </MinHeight>
@@ -617,7 +411,8 @@ exports[`InventoryCard Component should render a basic component: basic render 1
               "className": "curiosity-inventory-list",
               "colCount": 1,
               "colWidth": [],
-              "rowCount": 10,
+              "isHeader": true,
+              "rowCount": undefined,
               "variant": "compact",
             }
           }
@@ -655,7 +450,19 @@ exports[`InventoryCard Component should render a basic component: basic render 1
 </Card>
 `;
 
-exports[`InventoryCard Component should return an empty render when disabled: disabled component 1`] = `
+exports[`InventoryCard Component should return an empty render when disabled: disabled 1`] = `
+<Card
+  className="curiosity-inventory-card__disabled"
+>
+  <CardBody>
+    <Bullseye>
+      t(curiosity-inventory.tab, {"context":"disabled"})
+    </Bullseye>
+  </CardBody>
+</Card>
+`;
+
+exports[`InventoryCard Component should return an empty render when disabled: missing filters 1`] = `
 <Card
   className="curiosity-inventory-card__disabled"
 >

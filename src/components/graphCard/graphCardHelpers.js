@@ -241,7 +241,7 @@ const xAxisTickFormat = ({ callback, date, granularity, tick, previousDate } = {
     return undefined;
   }
 
-  if (callback) {
+  if (typeof callback === 'function') {
     return callback({ callback, date, granularity, tick, previousDate });
   }
 
@@ -288,7 +288,7 @@ const xAxisTickFormat = ({ callback, date, granularity, tick, previousDate } = {
  * @returns {string}
  */
 const yAxisTickFormat = ({ callback, tick } = {}) => {
-  if (callback) {
+  if (typeof callback === 'function') {
     return callback({ tick });
   }
 

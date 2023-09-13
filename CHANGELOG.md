@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/8dac0cb6ee771cb557f22a38f735ae23c62450af...fe6062e0278db9e4722d432fc9798ef3be3c28b8) (2023-08-29)
+
+
+### Code Refactoring
+* **rhsmServices** sw-870 remove, replace hosts refs  ([#1156](https://github.com/RedHatInsights/curiosity-frontend/pull/1156)) ([4395e4c](https://github.com/RedHatInsights/curiosity-frontend/commit/4395e4ccdd53981f305d5d7d765b05a3c22936de))
+
+### Chores
+* **build** run QE tests during PR workflow  ([#1072](https://github.com/RedHatInsights/curiosity-frontend/pull/1072)) ([8f382e1](https://github.com/RedHatInsights/curiosity-frontend/commit/8f382e15bb77e25fa4f231d1b3a07cd750bfcd57))
+* **build** ephemeral rename, nav items  ([#1051](https://github.com/RedHatInsights/curiosity-frontend/pull/1051)) ([dad5e66](https://github.com/RedHatInsights/curiosity-frontend/commit/dad5e66741ea28e2a3bf3624d753910dee6c8401))
+* **deps-dev** bump eslint from 8.42.0 to 8.47.0  ([#1167](https://github.com/RedHatInsights/curiosity-frontend/pull/1167)) ([86d7a2e](https://github.com/RedHatInsights/curiosity-frontend/commit/86d7a2ea1c3cfb50fa8deb24137f9cfd59600fd8))
+
+### Builds
+* **webpack** rhcloud-25607 url for new subs bundle  ([#1163](https://github.com/RedHatInsights/curiosity-frontend/pull/1163)) ([0cbd565](https://github.com/RedHatInsights/curiosity-frontend/commit/0cbd56547f4be883fdd5cd3702710b32f0460ad0))
+
+### Bug Fixes
+* **config** sw-926 disable rosa, remove from openshift  ([#1174](https://github.com/RedHatInsights/curiosity-frontend/pull/1174)) ([fe6062e](https://github.com/RedHatInsights/curiosity-frontend/commit/fe6062e0278db9e4722d432fc9798ef3be3c28b8))
+* **services** sw-1605 mock update for deprecated ids  ([#1170](https://github.com/RedHatInsights/curiosity-frontend/pull/1170)) ([00683e4](https://github.com/RedHatInsights/curiosity-frontend/commit/00683e4d2e9b3ef10836b883628e8e70ecbf2f43))
+* **toolbarFilter** rhcloud-25607 pf wrapper, expand checks  ([#1165](https://github.com/RedHatInsights/curiosity-frontend/pull/1165)) ([12e5248](https://github.com/RedHatInsights/curiosity-frontend/commit/12e524801b407f0fdce90160002b6ad0820ac8dc))
+* **services** sw-1605 remove deprecated product ids  ([#1166](https://github.com/RedHatInsights/curiosity-frontend/pull/1166)) ([b8c1a1d](https://github.com/RedHatInsights/curiosity-frontend/commit/b8c1a1dbc915ac292f75bd42d7ee0baaaa9cc6fe))
+* **config** sw-1570 disable rosa daily totals  ([#1162](https://github.com/RedHatInsights/curiosity-frontend/pull/1162)) ([cd0ed1e](https://github.com/RedHatInsights/curiosity-frontend/commit/cd0ed1eb8ac6f2cb177c0427c6ddb1bcd67ee935))
+* **config** sw-1570 reactivate rosa, add to openshift  ([#1162](https://github.com/RedHatInsights/curiosity-frontend/pull/1162)) ([1b0d724](https://github.com/RedHatInsights/curiosity-frontend/commit/1b0d72427e496b611677d2cc0befc4ed3f9610fc))
+
 ## [3.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/29bb863f3d0c47b4571e733d18c86cf6783f4054...3efb6f2487ad958f99973c6e88d37db96b1e83d8) (2023-08-15)
 
 

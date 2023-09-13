@@ -1,18 +1,18 @@
 import { context, useGetGuestsInventory, useOnScroll } from '../inventoryGuestsContext';
 import { RHSM_API_QUERY_SET_TYPES } from '../../../services/rhsm/rhsmConstants';
 
-describe('InventorySubscriptionsContext', () => {
+describe('InventoryGuestsContext', () => {
   it('should return specific properties', () => {
     expect(context).toMatchSnapshot('specific properties');
   });
 
-  it('should handle instances inventory API responses', async () => {
+  it('should handle variations in guests inventory API responses', async () => {
     const { result: errorResponse } = await renderHook(() =>
       useGetGuestsInventory('1234567890', {
         getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
-        useSelectorsInventory: () => ({ error: true })
+        useSelector: () => ({ error: true })
       })
     );
 
@@ -23,7 +23,7 @@ describe('InventorySubscriptionsContext', () => {
         getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
-        useSelectorsInventory: () => ({ pending: true })
+        useSelector: () => ({ pending: true })
       })
     );
 
@@ -34,7 +34,7 @@ describe('InventorySubscriptionsContext', () => {
         getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
-        useSelectorsInventory: () => ({ cancelled: true })
+        useSelector: () => ({ cancelled: true })
       })
     );
 
@@ -45,25 +45,40 @@ describe('InventorySubscriptionsContext', () => {
         getInventory: () => () => {},
         useDispatch: () => {},
         useProductInventoryQuery: () => ({}),
-        useSelectorsInventory: () => ({ fulfilled: true })
+        useSelector: () => ({ fulfilled: true })
       })
     );
 
     expect(fulfilledResponse).toMatchSnapshot('inventory, fulfilled');
+
+    const { result: disabledResponse } = await renderHook(() =>
+      useGetGuestsInventory('1234567890', {
+        isDisabled: true,
+        getInventory: () => () => {},
+        useDispatch: () => {},
+        useProductInventoryQuery: () => ({}),
+        useSelector: () => ({ data: {}, fulfilled: false, pending: false, error: false })
+      })
+    );
+
+    expect(disabledResponse).toMatchSnapshot('inventory, disabled');
   });
 
   it('should handle an onScroll event', async () => {
     const mockDispatch = jest.fn();
 
     const { unmount } = await renderHook(() => {
-      const onScroll = useOnScroll('1234567890', {
-        useDispatch: () => mockDispatch,
-        useProductInventoryQuery: () => ({
-          [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0,
-          [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100
-        }),
-        useSelectorsInventory: () => ({ pending: false, data: { meta: { count: 200 } } })
-      });
+      const onScroll = useOnScroll(
+        { id: '1234567890', numberOfGuests: 200 },
+        {
+          useDispatch: () => mockDispatch,
+          useProductInventoryQuery: () => ({
+            [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0,
+            [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100
+          }),
+          useSelector: () => ({ pending: false })
+        }
+      );
 
       onScroll({ target: { scrollHeight: 200, scrollTop: 100, clientHeight: 100 } });
     });

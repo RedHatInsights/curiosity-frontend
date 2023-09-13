@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Toolbar as PfToolbar,
   ToolbarContent,
-  ToolbarFilter,
   ToolbarGroup,
   ToolbarItem,
   ToolbarToggleGroup
@@ -11,6 +10,7 @@ import {
 import { FilterIcon } from '@patternfly/react-icons';
 import { useProductToolbarQuery } from '../productView/productViewContext';
 import { useToolbarFieldClear, useToolbarFieldClearAll, useToolbarFields } from './toolbarContext';
+import { ToolbarFilter } from './toolbarFilter';
 import { ToolbarFieldGroupVariant } from './toolbarFieldGroupVariant';
 import { ToolbarFieldSelectCategory, useSelectCategoryOptions } from './toolbarFieldSelectCategory';
 import { helpers } from '../../common';

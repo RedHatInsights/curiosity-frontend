@@ -32,10 +32,10 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 /**
  * OpenShift Dedicated product config
  *
- * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object,
- *     viewId: string, initialToolbarFilters: undefined, productGroup: string, graphTallyQuery: object,
- *     inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: {}[], initialGraphSettings: object,
- *     initialInventoryFilters: {}[]}}
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object, initialInventorySettings: object,
+ *     viewId: string, initialToolbarFilters: {}[], productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object,
+ *     productDisplay: string, initialGraphFilters: {}[], initialGuestsFilters: {}[], inventoryGuestsQuery: object,
+ *     initialGraphSettings: object, initialInventoryFilters: {}[]}}
  */
 const config = {
   aliases: ['openshift-dedicated', 'dedicated'],
@@ -51,6 +51,10 @@ const config = {
   },
   graphTallyQuery: {
     [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: GRANULARITY_TYPES.DAILY
+  },
+  inventoryGuestsQuery: {
+    [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
+    [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   inventoryHostsQuery: {
     [RHSM_API_QUERY_SET_TYPES.SORT]: INVENTORY_SORT_TYPES.LAST_SEEN,
@@ -162,20 +166,17 @@ const config = {
   },
   initialGuestsFilters: [
     {
-      id: INVENTORY_TYPES.DISPLAY_NAME,
-      header: () => translate('curiosity-inventory.header', { context: ['guests', INVENTORY_TYPES.DISPLAY_NAME] }),
-      cell: ({
-        [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-        [INVENTORY_TYPES.INVENTORY_ID]: inventoryId = {}
-      } = {}) => {
+      metric: INVENTORY_TYPES.DISPLAY_NAME,
+      header: () => translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] }),
+      cell: ({ [INVENTORY_TYPES.DISPLAY_NAME]: displayName, [INVENTORY_TYPES.INVENTORY_ID]: inventoryId } = {}) => {
         // FixMe: Disabled, see SWATCH-1209 for resolution
         const { inventory: authorized = false } = {};
 
-        if (!inventoryId?.value) {
-          return displayName?.value;
+        if (!inventoryId) {
+          return displayName;
         }
 
-        let updatedDisplayName = displayName.value || inventoryId.value;
+        let updatedDisplayName = displayName || inventoryId;
 
         if (authorized) {
           updatedDisplayName = (
@@ -183,7 +184,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${inventoryId}/`}
             >
               {updatedDisplayName}
             </Button>
@@ -194,32 +195,31 @@ const config = {
       }
     },
     {
-      id: INVENTORY_TYPES.INVENTORY_ID,
-      cellWidth: 40
+      metric: INVENTORY_TYPES.INVENTORY_ID,
+      width: 40
     },
     {
-      id: INVENTORY_TYPES.LAST_SEEN,
-      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
-        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
-      cellWidth: 15
+      metric: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) => (lastSeen && <DateFormat date={lastSeen} />) || '',
+      width: 15
     }
   ],
   initialInventoryFilters: [
     {
-      id: INVENTORY_TYPES.DISPLAY_NAME,
+      metric: INVENTORY_TYPES.DISPLAY_NAME,
       cell: ({
-        [INVENTORY_TYPES.DISPLAY_NAME]: displayName = {},
-        [INVENTORY_TYPES.INSTANCE_ID]: instanceId = {},
-        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {}
+        [INVENTORY_TYPES.DISPLAY_NAME]: displayName,
+        [INVENTORY_TYPES.INSTANCE_ID]: instanceId,
+        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests
       } = {}) => {
         // FixMe: Disabled, see SWATCH-1209 for resolution
         const { inventory: authorized = false } = {};
 
-        if (!instanceId.value) {
-          return displayName.value;
+        if (!instanceId) {
+          return displayName;
         }
 
-        let updatedDisplayName = displayName.value || instanceId.value;
+        let updatedDisplayName = displayName || instanceId;
 
         if (authorized) {
           updatedDisplayName = (
@@ -227,9 +227,9 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId.value}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId}/`}
             >
-              {displayName.value || instanceId.value}
+              {updatedDisplayName}
             </Button>
           );
         }
@@ -237,46 +237,50 @@ const config = {
         return (
           <React.Fragment>
             {updatedDisplayName}{' '}
-            {(numberOfGuests.value &&
-              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests?.value }, [
+            {(numberOfGuests &&
+              translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [
                 <PfLabel color="blue" />
               ])) ||
               ''}
           </React.Fragment>
         );
       },
-      isSortable: true
+      isSort: true
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.CORES,
+      metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: cores }) =>
-        (typeof cores?.value === 'number' && Number.parseFloat(cores?.value).toFixed(2)) || '--',
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
+        (typeof cores === 'number' && Number.parseFloat(cores).toFixed(2)) || '--',
+      isSort: true,
+      isWrap: true,
+      width: 15
     },
     {
-      id: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
+      metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: instanceHours } = {}) =>
-        (typeof instanceHours?.value === 'number' && Number.parseFloat(instanceHours?.value).toFixed(2)) || '--',
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
+        (typeof instanceHours === 'number' && Number.parseFloat(instanceHours).toFixed(2)) || '--',
+      isSort: true,
+      isWrap: true,
+      width: 15
     },
     {
-      id: INVENTORY_TYPES.LAST_SEEN,
-      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) =>
-        (lastSeen?.value && <DateFormat date={lastSeen?.value} />) || '',
-      isSortable: true,
-      isWrappable: true,
-      cellWidth: 15
+      metric: INVENTORY_TYPES.LAST_SEEN,
+      cell: ({ [INVENTORY_TYPES.LAST_SEEN]: lastSeen } = {}) => (lastSeen && <DateFormat date={lastSeen} />) || '',
+      isSort: true,
+      isWrap: true,
+      width: 15
     }
   ],
   initialInventorySettings: {
+    actions: [
+      {
+        id: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME
+      }
+    ],
     guestContent: ({
       [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests = {},
       [INVENTORY_TYPES.INSTANCE_ID]: id
-    } = {}) => (numberOfGuests > 0 && id) || undefined
+    } = {}) => (numberOfGuests > 0 && id && { id, numberOfGuests }) || undefined
   },
   initialToolbarFilters: [
     {

@@ -2,6 +2,7 @@
 import { useSelector as useReactReduxSelector, shallowEqual } from 'react-redux';
 import { createSelector } from 'reselect';
 import _cloneDeep from 'lodash/cloneDeep';
+import _isEqual from 'lodash/isEqual';
 import { store } from '../store';
 import { helpers } from '../../common';
 
@@ -11,6 +12,16 @@ import { helpers } from '../../common';
  * @memberof Hooks
  * @module UseReactRedux
  */
+
+/**
+ * Deep equal comparison with extended memoized cache. Is argument A equal to argument B.
+ *
+ * @param {object} args
+ * @param {object|any} args.A
+ * @param {object|any} args.B
+ * @returns {boolean}
+ */
+const deepEqual = helpers.memo((...args) => _isEqual(...args), { cacheLimit: 50 });
 
 /**
  * FixMe: Appears to be an issue in trying to use Redux Promise with the default "useDispatch"
@@ -53,7 +64,7 @@ const useSelector = (
 const useSelectors = (
   selectors,
   value,
-  { equality = shallowEqual, useSelector: useAliasSelector = useReactReduxSelector } = {}
+  { equality = deepEqual, useSelector: useAliasSelector = useReactReduxSelector } = {}
 ) => {
   let updatedSelectors = Array.isArray(selectors) ? selectors : [selectors];
   const selectorIds = new Set();
@@ -480,6 +491,7 @@ const useSelectorsRaceResponse = (
 };
 
 const reactReduxHooks = {
+  deepEqual,
   shallowEqual,
   useDispatch,
   useSelector,
@@ -493,6 +505,7 @@ const reactReduxHooks = {
 export {
   reactReduxHooks as default,
   reactReduxHooks,
+  deepEqual,
   shallowEqual,
   useDispatch,
   useSelector,

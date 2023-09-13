@@ -3,63 +3,93 @@
 exports[`TableSkeleton Component should allow variations in table layout: borders and table header row removed 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={false}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
     ]
   }
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={false}
   isHeader={false}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant={null}
 />
 `;
@@ -67,63 +97,93 @@ exports[`TableSkeleton Component should allow variations in table layout: border
 exports[`TableSkeleton Component should allow variations in table layout: className and variant 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={true}
   className="curiosity-skeleton-table lorem-ipsum-class"
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
     ]
   }
-  isHeader={true}
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={true}
+  isHeader={false}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant="compact"
 />
 `;
@@ -131,63 +191,93 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
 exports[`TableSkeleton Component should allow variations in table layout: column and row count  1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
     ]
   }
-  isHeader={true}
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={true}
+  isHeader={false}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant={null}
 />
 `;
@@ -195,63 +285,93 @@ exports[`TableSkeleton Component should allow variations in table layout: column
 exports[`TableSkeleton Component should allow variations in table layout: no table header and zero rows 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={true}
   className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows "
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
     ]
   }
-  isHeader={true}
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={true}
+  isHeader={false}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant={null}
 />
 `;
@@ -259,72 +379,99 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
 exports[`TableSkeleton Component should allow variations in table layout: table column widths 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
+        "width": 30,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
+        "width": 15,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
-        "transforms": [
-          [Function],
-        ],
+        "width": 15,
       },
     ]
   }
-  isHeader={true}
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={true}
+  isHeader={false}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+            "width": 30,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+            "width": 15,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+            "width": 15,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant={null}
 />
 `;
@@ -332,63 +479,93 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
 exports[`TableSkeleton Component should allow variations in table layout: table header and zero rows 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={true}
   className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows "
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
     ]
   }
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={true}
   isHeader={true}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant={null}
 />
 `;
@@ -396,59 +573,89 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
 exports[`TableSkeleton Component should render a non-connected component: non-connected 1`] = `
 <Table
   ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
-  borders={true}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
       {
-        "title": <Skeleton
+        "content": <Skeleton
           size="md"
         />,
       },
     ]
   }
-  isHeader={true}
+  componentClassNames={
+    {
+      "table": "curiosity-table",
+      "td": "curiosity-table__td",
+      "tdAction": "curiosity-table__td-action",
+      "tdExpand": "curiosity-table__td-expand",
+      "tdExpanded": "curiosity-table__td-expand-expanded",
+      "tdExpandedContent": "curiosity-table__td-expand-content",
+      "tdExpandedWrapper": "curiosity-table__td-expand-wrapper",
+      "tdSelect": "curiosity-table__td-select",
+      "th": "curiosity-table__th",
+      "tr": "curiosity-table__tr",
+      "trExpand": "curiosity-table__tr-expand",
+      "trExpanded": "curiosity-table__tr-expand-expanded",
+      "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  isBorders={true}
+  isHeader={false}
+  isStriped={false}
+  onExpand={null}
+  onSelect={null}
+  onSort={null}
   rows={
     [
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
       {
         "cells": [
-          <Skeleton
-            size="md"
-          />,
+          {
+            "content": <Skeleton
+              size="md"
+            />,
+          },
         ],
       },
     ]
   }
   summary={null}
-  t={[Function]}
   variant={null}
 />
 `;

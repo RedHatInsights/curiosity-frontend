@@ -4,17 +4,30 @@
       box-shadow: none;
     }
 
-    .pf-c-card__header {
-      padding-bottom: 0;
-    }
+    .pf-c-card__header {}
 
     .pf-c-card__title {
       padding: 0;
     }
 
     .pf-c-card__actions {
-      margin: inherit;
-      margin-left: auto;
+      padding-left: 0;
+      width: 100%;
+
+      .pf-c-toolbar {
+        padding-bottom: 0;
+        padding-top: 0;
+        width: 100%;
+
+        .pf-c-toolbar__content {
+          padding-left: 0;
+          padding-right: 0;
+
+          .pf-c-toolbar__group:nth-child(2) {
+            margin-left: auto;
+          }
+        }
+      }
     }
 
     .pf-c-card__body {
@@ -49,7 +62,6 @@
     }
   }
 
-  // ToDo: reevaluate this fix periodically, originally for non-expandable table rows to aid in alignment with heading
   .curiosity-inventory-list {
     // FixMe: an unknown border-top-width appears?
     &.pf-c-table.pf-m-compact tbody {
@@ -85,16 +97,12 @@
   }
 
   .curiosity-guests-list {
-    &.pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
-      padding-left: 20px;
-    }
-
-    &.pf-c-table.pf-m-compact tr > *:last-child {
-      padding-right: var(--pf-c-table--m-compact--cell--first-last-child--PaddingRight);
+    .curiosity-table__tr > :first-child {
+      padding-left: calc(var(--pf-c-table--m-compact--cell--first-last-child--xl--PaddingLeft) * 2);
     }
 
     @media (max-width: $pf-global--breakpoint--md) {
-      &.pf-c-table.pf-m-compact tr:not(.pf-c-table__expandable-row) > :first-child {
+      .curiosity-table__tr > :first-child {
         padding-left: 0;
       }
 

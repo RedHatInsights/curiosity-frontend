@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useShallowCompareEffect } from 'react-use';
+import { useShallowCompareEffect, useUnmount } from 'react-use';
 import {
   ButtonVariant as PfButtonVariant,
   Dropdown,
@@ -312,22 +312,28 @@ const Select = ({
   variant,
   ...props
 }) => {
+  const [isMounted, setIsMounted] = useState();
   const [isExpanded, setIsExpanded] = useState(false);
   const [options, setOptions] = useState(baseOptions);
   const [selected, setSelected] = useState([]);
   const selectField = useRef();
 
-  useShallowCompareEffect(() => {
-    const { options: updatedOptions, selected: updatedSelected } = formatOptions({
-      selectField,
-      options: baseOptions,
-      selectedOptions,
-      variant,
-      ...props
-    });
+  useUnmount(() => {
+    setIsMounted(false);
+  });
 
-    setOptions(updatedOptions);
-    setSelected(updatedSelected);
+  useShallowCompareEffect(() => {
+    if (isMounted !== false) {
+      const { options: updatedOptions, selected: updatedSelected } = formatOptions({
+        selectField,
+        options: baseOptions,
+        selectedOptions,
+        variant,
+        ...props
+      });
+      setOptions(updatedOptions);
+      setSelected(updatedSelected);
+    }
   }, [baseOptions, props, selectField, selectedOptions, variant]);
 
   /**

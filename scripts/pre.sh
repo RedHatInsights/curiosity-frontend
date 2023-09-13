@@ -7,10 +7,15 @@ deployPaths()
 {
   local DEPLOY_BRANCH=$1
   local DEPLOY_BUILD_STAGE=$2
+  local CONTAINER_BUILD_ENV=$3
 
   DEPLOY_PATH_PREFIX=""
 
-  if [[ $DEPLOY_BUILD_STAGE == *"Beta"* ]]; then
+  # Note: allow Container build, fallback to Travis build
+  if [[ $CONTAINER_BUILD_ENV == "true" ]]; then
+    DEPLOY_PATH_PREFIX=/preview
+    DEPLOY_PATH_LINK_PREFIX=/preview
+  elif [[ $DEPLOY_BUILD_STAGE == *"Beta"* ]]; then
     DEPLOY_PATH_PREFIX=/beta
     DEPLOY_PATH_LINK_PREFIX=/preview
   fi
@@ -57,6 +62,8 @@ clean()
   clean
   version
 
-  # see .travis.yml globals
-  deployPaths "${BRANCH:-local}" "${BUILD_STAGE:-Local Deploy}"
+  # Note: See .travis.yml globals, GitHub actions, and Container Build environment variables
+  # - Travis, GitHub actions: BRANCH, BUILD_STAGE
+  # - Container Build: BETA
+  deployPaths "${BRANCH:-local}" "${BUILD_STAGE:-Local Deploy}" "${BETA:-local env}"
 }

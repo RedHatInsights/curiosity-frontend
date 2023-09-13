@@ -123,48 +123,13 @@ const guestsResponseSchema = Joi.object().keys({
 });
 
 /**
- * Hosts response meta field.
- *
- * @type {*} Joi schema
- */
-const hostsMetaSchema = metaResponseSchema;
-
-/**
- * Hosts response item.
- *
- * @type {*} Joi schema
- */
-const hostsItem = Joi.object({
-  cloud_provider: Joi.string().lowercase().optional().allow(null),
-  display_name: Joi.string().optional().allow(null),
-  hardware_type: Joi.string().lowercase().optional().allow(null),
-  inventory_id: Joi.string().optional().allow(null),
-  measurement_type: Joi.string().lowercase().optional().allow(null),
-  number_of_guests: Joi.number().integer().default(0),
-  subscription_manager_id: Joi.string().optional().allow(null),
-  last_seen: Joi.date().utc().allow(null)
-})
-  .unknown(true)
-  .default();
-
-/**
- * Hosts response.
- *
- * @type {*} Joi schema
- */
-const hostsResponseSchema = Joi.object().keys({
-  data: Joi.array().items(hostsItem).default([]),
-  links: linksSchema.default({}),
-  meta: hostsMetaSchema.default({})
-});
-
-/**
  * Instances response meta field.
  *
  * @type {*} Joi schema
  */
 const instancesMetaSchema = metaResponseSchema
   .keys({
+    count: Joi.number().integer().default(0),
     measurements: Joi.array()
       .items(Joi.string().valid(...Object.values(rhsmConstants.RHSM_API_PATH_METRIC_TYPES)))
       .default([])
@@ -285,7 +250,6 @@ const rhsmSchemas = {
   capacity: response => schemaResponse({ response, schema: capacityResponseSchema, id: 'RHSM capacity' }),
   errors: response => schemaResponse({ response, schema: errorResponseSchema, id: 'RHSM errors' }),
   guests: response => schemaResponse({ response, schema: guestsResponseSchema, id: 'RHSM guests' }),
-  hosts: response => schemaResponse({ response, schema: hostsResponseSchema, id: 'RHSM hosts' }),
   instances: response => schemaResponse({ response, schema: instancesResponseSchema, id: 'RHSM instances' }),
   subscriptions: response =>
     schemaResponse({ response, schema: subscriptionsResponseSchema, id: 'RHSM subscriptions' }),

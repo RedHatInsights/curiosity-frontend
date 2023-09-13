@@ -13,6 +13,6 @@ describe('InventoryCardSubscriptions Component', () => {
     };
 
     const component = await shallowComponent(<InventoryCardSubscriptions {...props} />);
-    expect(component).toMatchSnapshot('basic render');
+    expect(component).toMatchSnapshot('basic');
   });
 });

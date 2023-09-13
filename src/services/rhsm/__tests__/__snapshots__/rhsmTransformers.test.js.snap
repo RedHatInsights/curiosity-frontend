@@ -364,6 +364,100 @@ exports[`RHSM Transformers should attempt to parse a capacity response: capacity
 }
 `;
 
+exports[`RHSM Transformers should attempt to parse a guests response: guests 1`] = `
+{
+  "data": [
+    {
+      "lorem": "ipsum",
+    },
+  ],
+  "meta": {},
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a guests response: guests, cache 1`] = `
+{
+  "data": [
+    {
+      "lorem": "ipsum",
+    },
+    {
+      "dolor": "sit",
+    },
+    {
+      "hello": "world",
+    },
+  ],
+  "meta": {},
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a guests response: guests, failed 1`] = `
+{
+  "data": [],
+  "meta": {},
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, failed 1`] = `
+{
+  "data": [],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "",
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, uom cores 1`] = `
+{
+  "data": [
+    {
+      "uom": "Cores",
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Cores",
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, uom sockets as parameter 1`] = `
+{
+  "data": [
+    {
+      "uom": "Cores",
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Sockets",
+  },
+}
+`;
+
+exports[`RHSM Transformers should attempt to parse a subscriptions response: subscriptions, uom sockets, cores response 1`] = `
+{
+  "data": [
+    {
+      "uom": "Cores",
+    },
+    {
+      "uom": "Sockets",
+    },
+  ],
+  "meta": {
+    "count": undefined,
+    "productId": undefined,
+    "uom": "Sockets-Cores",
+  },
+}
+`;
+
 exports[`RHSM Transformers should attempt to parse a tally response: tally 1`] = `
 {
   "data": [],
@@ -744,34 +838,6 @@ exports[`RHSM Transformers should attempt to parse a tally response: tally, mont
 }
 `;
 
-exports[`RHSM Transformers should attempt to parse an hosts response: hosts 1`] = `
-{
-  "data": [
-    {
-      "numberOfGuests": 2,
-      "number_of_guests": 2,
-      "sockets": 1000,
-      "subscriptionManagerId": undefined,
-      "subscription_manager_id": undefined,
-    },
-  ],
-  "meta": {
-    "count": 10,
-    "productId": undefined,
-  },
-}
-`;
-
-exports[`RHSM Transformers should attempt to parse an hosts response: hosts, failed 1`] = `
-{
-  "data": [],
-  "meta": {
-    "count": undefined,
-    "productId": undefined,
-  },
-}
-`;
-
 exports[`RHSM Transformers should attempt to parse an instances response: instances 1`] = `
 {
   "data": [
@@ -880,8 +946,9 @@ exports[`RHSM Transformers should attempt to parse an instances response: instan
 
 exports[`RHSM Transformers should have specific response transformers: specific transformers 1`] = `
 {
-  "hosts": [Function],
+  "guests": [Function],
   "instances": [Function],
+  "subscriptions": [Function],
   "tallyCapacity": [Function],
 }
 `;
