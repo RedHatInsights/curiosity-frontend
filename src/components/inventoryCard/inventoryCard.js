@@ -18,6 +18,7 @@ import { Loader } from '../loader/loader';
 import { MinHeight } from '../minHeight/minHeight';
 import { Pagination } from '../pagination/pagination';
 import { translate } from '../i18n/i18n';
+import { helpers } from '../../common';
 
 /**
  * Base inventory table card.
@@ -81,6 +82,17 @@ const InventoryCard = ({
     );
   }
 
+  const tableClassName = 'curiosity-inventory-list';
+
+  const tableAriaLabel = translate('curiosity-inventory.table', {
+    context: ['ariaLabel'],
+    appName: helpers.UI_DISPLAY_NAME
+  });
+
+  const tableSummary = translate('curiosity-inventory.table', {
+    context: ['summary']
+  });
+
   return (
     <Card className="curiosity-inventory-card">
       <MinHeight key="headerMinHeight">
@@ -121,10 +133,12 @@ const InventoryCard = ({
               <Loader
                 variant="table"
                 tableProps={{
-                  className: 'curiosity-inventory-list',
+                  ariaLabel: tableAriaLabel,
+                  className: tableClassName,
                   colCount: resultsColumnCountAndWidths.count,
                   colWidth: resultsColumnCountAndWidths.widths,
                   rowCount: dataSetRows?.length || resultsPerPage,
+                  summary: tableSummary,
                   variant: TableVariant.compact,
                   isHeader: true
                 }}
@@ -133,12 +147,21 @@ const InventoryCard = ({
             {!pending && (
               <Table
                 key="inventory-table"
-                className="curiosity-inventory-list"
+                ariaLabel={tableAriaLabel}
+                className={tableClassName}
+                emptyTable={{
+                  ariaLabel: tableAriaLabel,
+                  className: tableClassName,
+                  summary: tableSummary,
+                  title: translate('curiosity-inventory.table', { context: ['emptyState', 'title'] }),
+                  message: translate('curiosity-inventory.table', { context: ['emptyState', 'description'] })
+                }}
                 isBorders
                 isHeader
                 onSort={onColumnSort}
                 columnHeaders={dataSetColumnHeaders}
                 rows={dataSetRows}
+                summary={tableSummary}
               />
             )}
           </div>

@@ -18,6 +18,16 @@ import { TableEmpty } from './tableEmpty';
 import { tableHelpers } from './tableHelpers';
 
 /**
+ * PF table wrapper, normalize table use.
+ *
+ * @memberof Components
+ * @module Table
+ * @property {module} TableEmpty
+ * @property {module} TableHelpers
+ * @property {module} TableSkeleton
+ */
+
+/**
  * FixMe: PF bug for select column. PF requires a Th used for select field in the primary Thead...
  * BUT also allows a partially working Td. Any attempt to update the Td selected object props is
  * met with a partially-functioning field, hair pulling, and the question "is my state working?"
@@ -30,12 +40,16 @@ import { tableHelpers } from './tableHelpers';
 /**
  * A PF Composable table wrapper
  *
+ * @fires onExpandTable
+ * @fires onSelectTable
+ * @fires onSortTable
  * @param {object} props
  * @param {string} props.ariaLabel
  * @param {React.ReactNode} props.children
  * @param {string} props.className
  * @param {Array} props.columnHeaders
  * @param {object} props.componentClassNames
+ * @param {object} props.emptyTable
  * @param {boolean} props.isBorders
  * @param {boolean} props.isHeader
  * @param {boolean} props.isStriped
@@ -53,6 +67,7 @@ const Table = ({
   className,
   columnHeaders,
   componentClassNames,
+  emptyTable,
   isBorders,
   isHeader,
   isStriped,
@@ -71,6 +86,7 @@ const Table = ({
   /**
    * Apply an onExpand handler.
    *
+   * @event onExpandTable
    * @param {object} params
    * @param {string} params.type
    * @param {boolean} params.isExpanded
@@ -126,6 +142,7 @@ const Table = ({
   /**
    * Apply an onSelect handler.
    *
+   * @event onSelectTable
    * @param {object} params
    * @param {string} params.type
    * @param {boolean} params.isSelected
@@ -177,6 +194,7 @@ const Table = ({
   /**
    * Apply an onSort handler.
    *
+   * @event onSortTable
    * @param {object} params
    * @param {number} params.cellIndex
    * @param {string} params.direction
@@ -367,7 +385,8 @@ const Table = ({
    *
    * @returns {React.ReactNode}
    */
-  const renderEmpty = () => children || <TableEmpty />;
+  const renderEmpty = () =>
+    children || <TableEmpty aria-label={ariaLabel} className={className} summary={summary} {...emptyTable} />;
 
   return (
     <Grid>
@@ -396,7 +415,7 @@ const Table = ({
  *
  * @type {{componentClassNames: object, summary: string, onSort: Function, onExpand: Function, className: string, isStriped: boolean,
  *     rows: Array, isBorders: boolean, ariaLabel: string, onSelect: Function, columnHeaders: Array, children: React.ReactNode,
- *     isHeader: boolean, variant: string}}
+ *     isHeader: boolean, variant: string, emptyTable: {className: string, title: React.ReactNode, message: React.ReactNode}}}
  */
 Table.propTypes = {
   ariaLabel: PropTypes.string,
@@ -428,6 +447,11 @@ Table.propTypes = {
     tdExpanded: PropTypes.string,
     tdExpandedWrapper: PropTypes.string,
     tdExpandedContent: PropTypes.string
+  }),
+  emptyTable: PropTypes.shape({
+    className: PropTypes.string,
+    title: PropTypes.node,
+    message: PropTypes.node
   }),
   isBorders: PropTypes.bool,
   isHeader: PropTypes.bool,
@@ -467,7 +491,7 @@ Table.propTypes = {
  *     tdAction: string, tdExpand: string, td: string, trExpanded: string, th: string, tdSelect: string, tdExpandedContent: string,
  *     table: string, tr: string}, summary: null, onSort: null, onExpand: null, className: string, isStriped: boolean, rows: any[],
  *     isBorders: boolean, ariaLabel: null, onSelect: null, columnHeaders: any[], children: null, isHeader: boolean,
- *     variant: TableVariant.compact}}
+ *     variant: TableVariant.compact, emptyTable: {title: string, message: string}}}
  */
 Table.defaultProps = {
   ariaLabel: null,
@@ -489,6 +513,7 @@ Table.defaultProps = {
     tdExpandedWrapper: 'curiosity-table__td-expand-wrapper',
     tdExpandedContent: 'curiosity-table__td-expand-content'
   },
+  emptyTable: { title: 'No results found', message: 'Clear all filters and try again' },
   isBorders: true,
   isHeader: false,
   isStriped: false,

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { TableVariant } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components/Skeleton';
 import { Table } from './table';
-import { translate } from '../i18n/i18n';
 
 /**
  * @memberof Table
@@ -14,17 +13,18 @@ import { translate } from '../i18n/i18n';
  * Render a table with skeleton loaders.
  *
  * @param {object} props
- * @param {string} props.className
+ * @param {string} props.ariaLabel
  * @param {boolean} props.borders
+ * @param {string} props.className
  * @param {number} props.colCount
  * @param {Array} props.colWidth
  * @param {boolean} props.isHeader
  * @param {number} props.rowCount
- * @param {Function} props.t
+ * @param {string} props.summary
  * @param {string} props.variant
  * @returns {React.ReactNode}
  */
-const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCount, t, variant }) => {
+const TableSkeleton = ({ ariaLabel, borders, className, colCount, colWidth, isHeader, rowCount, summary, variant }) => {
   const updatedColumnHeaders = [...new Array(colCount)].map((value, index) => {
     const updatedHeader = { content: <Skeleton size={SkeletonSize.md} /> };
 
@@ -51,7 +51,7 @@ const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCo
 
   return (
     <Table
-      ariaLabel={t('curiosity-inventory.tableSkeletonAriaLabel')}
+      ariaLabel={ariaLabel}
       isBorders={borders}
       className={`curiosity-skeleton-table${(!rowCount && ' curiosity-skeleton-table__hidden-rows') || ''} ${
         className || ''
@@ -59,6 +59,7 @@ const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCo
       columnHeaders={updatedColumnHeaders}
       isHeader={isHeader}
       rows={updatedRows}
+      summary={summary}
       variant={variant}
     />
   );
@@ -67,34 +68,36 @@ const TableSkeleton = ({ className, borders, colCount, colWidth, isHeader, rowCo
 /**
  * Prop types.
  *
- * @type {{borders: boolean, isHeader: boolean, colCount: number, colWidth: Array, variant: string,
- *     className: string, rowCount: number}}
+ * @type {{summary: string, borders: boolean, isHeader: boolean, colCount: number, colWidth: Array, variant: string,
+ *     className: string, rowCount: string, ariaLabel: string}}
  */
 TableSkeleton.propTypes = {
+  ariaLabel: PropTypes.string,
   borders: PropTypes.bool,
   className: PropTypes.string,
   colCount: PropTypes.number,
   colWidth: PropTypes.arrayOf(PropTypes.number),
   isHeader: PropTypes.bool,
   rowCount: PropTypes.number,
-  t: PropTypes.func,
+  summary: PropTypes.string,
   variant: PropTypes.oneOf([...Object.values(TableVariant)])
 };
 
 /**
  * Default props.
  *
- * @type {{t: translate, borders: boolean, isHeader: boolean, colCount: number, colWidth: Array, variant: null,
- *     className: null, rowCount: number}}
+ * @type {{summary: null, borders: boolean, isHeader: boolean, colCount: number, colWidth: any[], variant: null,
+ *     className: null, rowCount: number, ariaLabel: null}}
  */
 TableSkeleton.defaultProps = {
+  ariaLabel: null,
   borders: true,
   className: null,
   colCount: 1,
   colWidth: [],
   isHeader: false,
   rowCount: 5,
-  t: translate,
+  summary: null,
   variant: null
 };
 
