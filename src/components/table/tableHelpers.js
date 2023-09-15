@@ -2,6 +2,11 @@ import React from 'react';
 import { SortByDirection } from '@patternfly/react-table';
 
 /**
+ * @memberof Table
+ * @module TableHelpers
+ */
+
+/**
  * Table sorting directions.
  *
  * @type {{asc: SortByDirection.asc, desc: SortByDirection.desc}}

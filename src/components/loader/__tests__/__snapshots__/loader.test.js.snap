@@ -57,13 +57,14 @@ exports[`Loader Component should handle variant loader components: variant: spin
 
 exports[`Loader Component should handle variant loader components: variant: table 1`] = `
 <TableSkeleton
+  ariaLabel={null}
   borders={true}
   className={null}
   colCount={1}
   colWidth={[]}
   isHeader={false}
   rowCount={5}
-  t={[Function]}
+  summary={null}
   variant={null}
 />
 `;

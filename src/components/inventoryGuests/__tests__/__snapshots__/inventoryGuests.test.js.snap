@@ -62,6 +62,12 @@ exports[`InventoryGuests Component should handle multiple display states, error,
             "trExpandedContent": "curiosity-table__tr-expand-content",
           }
         }
+        emptyTable={
+          {
+            "message": "Clear all filters and try again",
+            "title": "No results found",
+          }
+        }
         isBorders={false}
         isHeader={true}
         isStriped={false}

@@ -2,7 +2,7 @@
 
 exports[`TableSkeleton Component should allow variations in table layout: borders and table header row removed 1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
@@ -48,6 +48,12 @@ exports[`TableSkeleton Component should allow variations in table layout: border
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={false}
@@ -96,7 +102,7 @@ exports[`TableSkeleton Component should allow variations in table layout: border
 
 exports[`TableSkeleton Component should allow variations in table layout: className and variant 1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table lorem-ipsum-class"
   columnHeaders={
     [
@@ -142,6 +148,12 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={true}
@@ -190,7 +202,7 @@ exports[`TableSkeleton Component should allow variations in table layout: classN
 
 exports[`TableSkeleton Component should allow variations in table layout: column and row count  1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
@@ -236,6 +248,12 @@ exports[`TableSkeleton Component should allow variations in table layout: column
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={true}
@@ -284,7 +302,7 @@ exports[`TableSkeleton Component should allow variations in table layout: column
 
 exports[`TableSkeleton Component should allow variations in table layout: no table header and zero rows 1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows "
   columnHeaders={
     [
@@ -330,6 +348,12 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={true}
@@ -378,7 +402,7 @@ exports[`TableSkeleton Component should allow variations in table layout: no tab
 
 exports[`TableSkeleton Component should allow variations in table layout: table column widths 1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
@@ -427,6 +451,12 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={true}
@@ -478,7 +508,7 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
 
 exports[`TableSkeleton Component should allow variations in table layout: table header and zero rows 1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table curiosity-skeleton-table__hidden-rows "
   columnHeaders={
     [
@@ -524,6 +554,12 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={true}
@@ -572,7 +608,7 @@ exports[`TableSkeleton Component should allow variations in table layout: table 
 
 exports[`TableSkeleton Component should render a non-connected component: non-connected 1`] = `
 <Table
-  ariaLabel="t(curiosity-inventory.tableSkeletonAriaLabel)"
+  ariaLabel={null}
   className="curiosity-skeleton-table "
   columnHeaders={
     [
@@ -598,6 +634,12 @@ exports[`TableSkeleton Component should render a non-connected component: non-co
       "trExpand": "curiosity-table__tr-expand",
       "trExpanded": "curiosity-table__tr-expand-expanded",
       "trExpandedContent": "curiosity-table__tr-expand-content",
+    }
+  }
+  emptyTable={
+    {
+      "message": "Clear all filters and try again",
+      "title": "No results found",
     }
   }
   isBorders={true}

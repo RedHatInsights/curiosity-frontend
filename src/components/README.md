@@ -134,7 +134,12 @@ recreate the core component.
 <dd></dd>
 <dt><a href="#Router.module_RouterHelpers">RouterHelpers</a></dt>
 <dd></dd>
+<dt><a href="#Components.module_Table">Table</a></dt>
+<dd><p>PF table wrapper, normalize table use.</p>
+</dd>
 <dt><a href="#Table.module_TableEmpty">TableEmpty</a></dt>
+<dd></dd>
+<dt><a href="#Table.module_TableHelpers">TableHelpers</a></dt>
 <dd></dd>
 <dt><a href="#Table.module_TableSkeleton">TableSkeleton</a></dt>
 <dd></dd>
@@ -183,34 +188,6 @@ recreate the core component.
 </dd>
 <dt><a href="#Components.module_Tooltip">Tooltip</a></dt>
 <dd><p>PF tooltip wrapper.</p>
-</dd>
-</dl>
-
-## Constants
-
-<dl>
-<dt><a href="#SortByDirectionVariant">SortByDirectionVariant</a> : <code>Object</code></dt>
-<dd><p>Table sorting directions.</p>
-</dd>
-<dt><a href="#WrapModifierVariant">WrapModifierVariant</a> : <code>Object</code></dt>
-<dd><p>Table header copy wrapping modifier.</p>
-</dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#Table">Table(props)</a> ⇒ <code>React.ReactNode</code></dt>
-<dd><p>A PF Composable table wrapper</p>
-</dd>
-<dt><a href="#parseContent">parseContent(content)</a> ⇒ <code>*</code> | <code>string</code></dt>
-<dd><p>Allow additional content to display in cells.</p>
-</dd>
-<dt><a href="#tableHeader">tableHeader(params)</a> ⇒ <code>Object</code></dt>
-<dd><p>Parse table header settings, props.</p>
-</dd>
-<dt><a href="#tableRows">tableRows(params)</a> ⇒ <code>Object</code></dt>
-<dd><p>Parse table body settings, props.</p>
 </dd>
 </dl>
 
@@ -5540,6 +5517,212 @@ Import a route component.
     </tr>  </tbody>
 </table>
 
+<a name="Components.module_Table"></a>
+
+## Table
+PF table wrapper, normalize table use.
+
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>TableEmpty</td><td><code>module</code></td>
+    </tr><tr>
+    <td>TableHelpers</td><td><code>module</code></td>
+    </tr><tr>
+    <td>TableSkeleton</td><td><code>module</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [Table](#Components.module_Table)
+    * [~Table(props)](#Components.module_Table..Table) ⇒ <code>React.ReactNode</code>
+        * _static_
+            * [.propTypes](#Components.module_Table..Table.propTypes) : <code>Object</code>
+            * [.defaultProps](#Components.module_Table..Table.defaultProps) : <code>Object</code>
+        * _inner_
+            * [~renderHeader()](#Components.module_Table..Table..renderHeader) ⇒ <code>React.ReactNode</code>
+            * [~renderBody()](#Components.module_Table..Table..renderBody) ⇒ <code>React.ReactNode</code>
+            * [~renderEmpty()](#Components.module_Table..Table..renderEmpty) ⇒ <code>React.ReactNode</code>
+    * ["onExpandTable" (params)](#event_onExpandTable)
+    * ["onSelectTable" (params)](#event_onSelectTable)
+    * ["onSortTable" (params)](#event_onSortTable)
+
+<a name="Components.module_Table..Table"></a>
+
+### Table~Table(props) ⇒ <code>React.ReactNode</code>
+A PF Composable table wrapper
+
+**Kind**: inner method of [<code>Table</code>](#Components.module_Table)  
+**Emits**: [<code>onExpandTable</code>](#event_onExpandTable), [<code>onSelectTable</code>](#event_onSelectTable), [<code>onSortTable</code>](#event_onSortTable)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>props</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.ariaLabel</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.children</td><td><code>React.ReactNode</code></td>
+    </tr><tr>
+    <td>props.className</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.columnHeaders</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>props.componentClassNames</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.emptyTable</td><td><code>object</code></td>
+    </tr><tr>
+    <td>props.isBorders</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.isHeader</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.isStriped</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.onSelect</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.onSort</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.onExpand</td><td><code>function</code></td>
+    </tr><tr>
+    <td>props.rows</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>props.summary</td><td><code>string</code></td>
+    </tr><tr>
+    <td>props.variant</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+
+* [~Table(props)](#Components.module_Table..Table) ⇒ <code>React.ReactNode</code>
+    * _static_
+        * [.propTypes](#Components.module_Table..Table.propTypes) : <code>Object</code>
+        * [.defaultProps](#Components.module_Table..Table.defaultProps) : <code>Object</code>
+    * _inner_
+        * [~renderHeader()](#Components.module_Table..Table..renderHeader) ⇒ <code>React.ReactNode</code>
+        * [~renderBody()](#Components.module_Table..Table..renderBody) ⇒ <code>React.ReactNode</code>
+        * [~renderEmpty()](#Components.module_Table..Table..renderEmpty) ⇒ <code>React.ReactNode</code>
+
+<a name="Components.module_Table..Table.propTypes"></a>
+
+#### Table.propTypes : <code>Object</code>
+Prop types
+
+**Kind**: static property of [<code>Table</code>](#Components.module_Table..Table)  
+<a name="Components.module_Table..Table.defaultProps"></a>
+
+#### Table.defaultProps : <code>Object</code>
+Default props
+
+**Kind**: static property of [<code>Table</code>](#Components.module_Table..Table)  
+<a name="Components.module_Table..Table..renderHeader"></a>
+
+#### Table~renderHeader() ⇒ <code>React.ReactNode</code>
+Apply settings, return primary thead.
+
+**Kind**: inner method of [<code>Table</code>](#Components.module_Table..Table)  
+<a name="Components.module_Table..Table..renderBody"></a>
+
+#### Table~renderBody() ⇒ <code>React.ReactNode</code>
+Apply settings, return tbody(s).
+
+**Kind**: inner method of [<code>Table</code>](#Components.module_Table..Table)  
+<a name="Components.module_Table..Table..renderEmpty"></a>
+
+#### Table~renderEmpty() ⇒ <code>React.ReactNode</code>
+Return empty results display.
+
+**Kind**: inner method of [<code>Table</code>](#Components.module_Table..Table)  
+<a name="event_onExpandTable"></a>
+
+### "onExpandTable" (params)
+Apply an onExpand handler.
+
+**Kind**: event emitted by [<code>Table</code>](#Components.module_Table)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.type</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.isExpanded</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.rowIndex</td><td><code>number</code></td>
+    </tr><tr>
+    <td>params.cellIndex</td><td><code>number</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>*</code> | <code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="event_onSelectTable"></a>
+
+### "onSelectTable" (params)
+Apply an onSelect handler.
+
+**Kind**: event emitted by [<code>Table</code>](#Components.module_Table)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.type</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.isSelected</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.rowIndex</td><td><code>number</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>*</code> | <code>object</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="event_onSortTable"></a>
+
+### "onSortTable" (params)
+Apply an onSort handler.
+
+**Kind**: event emitted by [<code>Table</code>](#Components.module_Table)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.cellIndex</td><td><code>number</code></td>
+    </tr><tr>
+    <td>params.direction</td><td><code>string</code></td>
+    </tr><tr>
+    <td>params.originalIndex</td><td><code>number</code></td>
+    </tr><tr>
+    <td>params.data</td><td><code>*</code> | <code>object</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Table.module_TableEmpty"></a>
 
 ## TableEmpty
@@ -5569,8 +5752,6 @@ Render an empty table.
     </tr><tr>
     <td>props.message</td><td><code>React.ReactNode</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
-    </tr><tr>
     <td>props.tableHeading</td><td><code>string</code></td>
     </tr><tr>
     <td>props.title</td><td><code>React.ReactNode</code></td>
@@ -5596,6 +5777,101 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>TableEmpty</code>](#Table.module_TableEmpty..TableEmpty)  
+<a name="Table.module_TableHelpers"></a>
+
+## TableHelpers
+
+* [TableHelpers](#Table.module_TableHelpers)
+    * [~SortByDirectionVariant](#Table.module_TableHelpers..SortByDirectionVariant) : <code>Object</code>
+    * [~WrapModifierVariant](#Table.module_TableHelpers..WrapModifierVariant) : <code>Object</code>
+    * [~parseContent(content)](#Table.module_TableHelpers..parseContent) ⇒ <code>\*</code> \| <code>string</code>
+    * [~tableHeader(params)](#Table.module_TableHelpers..tableHeader) ⇒ <code>Object</code>
+    * [~tableRows(params)](#Table.module_TableHelpers..tableRows) ⇒ <code>Object</code>
+
+<a name="Table.module_TableHelpers..SortByDirectionVariant"></a>
+
+### TableHelpers~SortByDirectionVariant : <code>Object</code>
+Table sorting directions.
+
+**Kind**: inner constant of [<code>TableHelpers</code>](#Table.module_TableHelpers)  
+<a name="Table.module_TableHelpers..WrapModifierVariant"></a>
+
+### TableHelpers~WrapModifierVariant : <code>Object</code>
+Table header copy wrapping modifier.
+
+**Kind**: inner constant of [<code>TableHelpers</code>](#Table.module_TableHelpers)  
+<a name="Table.module_TableHelpers..parseContent"></a>
+
+### TableHelpers~parseContent(content) ⇒ <code>\*</code> \| <code>string</code>
+Allow additional content to display in cells.
+
+**Kind**: inner method of [<code>TableHelpers</code>](#Table.module_TableHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>content</td><td><code>React.ReactNode</code> | <code>function</code> | <code>object</code> | <code>*</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Table.module_TableHelpers..tableHeader"></a>
+
+### TableHelpers~tableHeader(params) ⇒ <code>Object</code>
+Parse table header settings, props.
+
+**Kind**: inner method of [<code>TableHelpers</code>](#Table.module_TableHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.columnHeaders</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.isAllSelected</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.isRowExpand</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>params.parsedRows</td><td><code>Array</code></td>
+    </tr><tr>
+    <td>params.onSelect</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.onSort</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Table.module_TableHelpers..tableRows"></a>
+
+### TableHelpers~tableRows(params) ⇒ <code>Object</code>
+Parse table body settings, props.
+
+**Kind**: inner method of [<code>TableHelpers</code>](#Table.module_TableHelpers)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td>
+    </tr><tr>
+    <td>params.onExpand</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.onSelect</td><td><code>function</code></td>
+    </tr><tr>
+    <td>params.rows</td><td><code>Array</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Table.module_TableSkeleton"></a>
 
 ## TableSkeleton
@@ -5621,9 +5897,11 @@ Render a table with skeleton loaders.
 <tr>
     <td>props</td><td><code>object</code></td>
     </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
+    <td>props.ariaLabel</td><td><code>string</code></td>
     </tr><tr>
     <td>props.borders</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>props.className</td><td><code>string</code></td>
     </tr><tr>
     <td>props.colCount</td><td><code>number</code></td>
     </tr><tr>
@@ -5633,7 +5911,7 @@ Render a table with skeleton loaders.
     </tr><tr>
     <td>props.rowCount</td><td><code>number</code></td>
     </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
+    <td>props.summary</td><td><code>string</code></td>
     </tr><tr>
     <td>props.variant</td><td><code>string</code></td>
     </tr>  </tbody>
@@ -7192,256 +7470,3 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>Tooltip</code>](#Components.module_Tooltip..Tooltip)  
-<a name="SortByDirectionVariant"></a>
-
-## SortByDirectionVariant : <code>Object</code>
-Table sorting directions.
-
-**Kind**: global constant  
-<a name="WrapModifierVariant"></a>
-
-## WrapModifierVariant : <code>Object</code>
-Table header copy wrapping modifier.
-
-**Kind**: global constant  
-<a name="Table"></a>
-
-## Table(props) ⇒ <code>React.ReactNode</code>
-A PF Composable table wrapper
-
-**Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.ariaLabel</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.children</td><td><code>React.ReactNode</code></td>
-    </tr><tr>
-    <td>props.className</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.columnHeaders</td><td><code>Array</code></td>
-    </tr><tr>
-    <td>props.componentClassNames</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.isBorders</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.isHeader</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.isStriped</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.onSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.onSort</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.onExpand</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.rows</td><td><code>Array</code></td>
-    </tr><tr>
-    <td>props.summary</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.variant</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* [Table(props)](#Table) ⇒ <code>React.ReactNode</code>
-    * _static_
-        * [.propTypes](#Table.propTypes) : <code>Object</code>
-        * [.defaultProps](#Table.defaultProps) : <code>Object</code>
-    * _inner_
-        * [~onExpandTable(params)](#Table..onExpandTable)
-        * [~onSelectTable(params)](#Table..onSelectTable)
-        * [~onSortTable(params)](#Table..onSortTable)
-        * [~renderHeader()](#Table..renderHeader) ⇒ <code>React.ReactNode</code>
-        * [~renderBody()](#Table..renderBody) ⇒ <code>React.ReactNode</code>
-        * [~renderEmpty()](#Table..renderEmpty) ⇒ <code>React.ReactNode</code>
-
-<a name="Table.propTypes"></a>
-
-### Table.propTypes : <code>Object</code>
-Prop types
-
-**Kind**: static property of [<code>Table</code>](#Table)  
-<a name="Table.defaultProps"></a>
-
-### Table.defaultProps : <code>Object</code>
-Default props
-
-**Kind**: static property of [<code>Table</code>](#Table)  
-<a name="Table..onExpandTable"></a>
-
-### Table~onExpandTable(params)
-Apply an onExpand handler.
-
-**Kind**: inner method of [<code>Table</code>](#Table)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.type</td><td><code>string</code></td>
-    </tr><tr>
-    <td>params.isExpanded</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>params.rowIndex</td><td><code>number</code></td>
-    </tr><tr>
-    <td>params.cellIndex</td><td><code>number</code></td>
-    </tr><tr>
-    <td>params.data</td><td><code>*</code> | <code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Table..onSelectTable"></a>
-
-### Table~onSelectTable(params)
-Apply an onSelect handler.
-
-**Kind**: inner method of [<code>Table</code>](#Table)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.type</td><td><code>string</code></td>
-    </tr><tr>
-    <td>params.isSelected</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>params.rowIndex</td><td><code>number</code></td>
-    </tr><tr>
-    <td>params.data</td><td><code>*</code> | <code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Table..onSortTable"></a>
-
-### Table~onSortTable(params)
-Apply an onSort handler.
-
-**Kind**: inner method of [<code>Table</code>](#Table)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.cellIndex</td><td><code>number</code></td>
-    </tr><tr>
-    <td>params.direction</td><td><code>string</code></td>
-    </tr><tr>
-    <td>params.originalIndex</td><td><code>number</code></td>
-    </tr><tr>
-    <td>params.data</td><td><code>*</code> | <code>object</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Table..renderHeader"></a>
-
-### Table~renderHeader() ⇒ <code>React.ReactNode</code>
-Apply settings, return primary thead.
-
-**Kind**: inner method of [<code>Table</code>](#Table)  
-<a name="Table..renderBody"></a>
-
-### Table~renderBody() ⇒ <code>React.ReactNode</code>
-Apply settings, return tbody(s).
-
-**Kind**: inner method of [<code>Table</code>](#Table)  
-<a name="Table..renderEmpty"></a>
-
-### Table~renderEmpty() ⇒ <code>React.ReactNode</code>
-Return empty results display.
-
-**Kind**: inner method of [<code>Table</code>](#Table)  
-<a name="parseContent"></a>
-
-## parseContent(content) ⇒ <code>\*</code> \| <code>string</code>
-Allow additional content to display in cells.
-
-**Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>content</td><td><code>React.ReactNode</code> | <code>function</code> | <code>object</code> | <code>*</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="tableHeader"></a>
-
-## tableHeader(params) ⇒ <code>Object</code>
-Parse table header settings, props.
-
-**Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.columnHeaders</td><td><code>Array</code></td>
-    </tr><tr>
-    <td>params.isAllSelected</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>params.isRowExpand</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>params.parsedRows</td><td><code>Array</code></td>
-    </tr><tr>
-    <td>params.onSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>params.onSort</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="tableRows"></a>
-
-## tableRows(params) ⇒ <code>Object</code>
-Parse table body settings, props.
-
-**Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>params</td><td><code>object</code></td>
-    </tr><tr>
-    <td>params.onExpand</td><td><code>function</code></td>
-    </tr><tr>
-    <td>params.onSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>params.rows</td><td><code>Array</code></td>
-    </tr>  </tbody>
-</table>
-

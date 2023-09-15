@@ -124,12 +124,20 @@ describe('Table Component', () => {
 
   it('should pass child components, nodes when there are no rows', () => {
     const props = {
+      children: 'Loading...',
       isHeader: true,
       columnHeaders: ['lorem ipsum'],
       rows: []
     };
 
-    const component = renderComponent(<Table {...props}>Loading...</Table>);
+    const component = renderComponent(<Table {...props} />);
     expect(component).toMatchSnapshot('children');
+
+    const componentEmptyDefault = component.setProps({
+      ariaLabel: 'Dolor sit label',
+      children: null,
+      summary: 'Lorem ipsum summary'
+    });
+    expect(componentEmptyDefault).toMatchSnapshot('default');
   });
 });

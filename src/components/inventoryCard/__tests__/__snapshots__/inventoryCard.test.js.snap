@@ -57,7 +57,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         className="blur"
       >
         <Table
-          ariaLabel={null}
+          ariaLabel="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
           className="curiosity-inventory-list"
           columnHeaders={[]}
           componentClassNames={
@@ -77,6 +77,15 @@ exports[`InventoryCard Component should handle multiple display states, error, p
               "trExpandedContent": "curiosity-table__tr-expand-content",
             }
           }
+          emptyTable={
+            {
+              "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",
+              "className": "curiosity-inventory-list",
+              "message": "t(curiosity-inventory.table_emptyState, {"context":"description"})",
+              "summary": "t(curiosity-inventory.table, {"context":"summary"})",
+              "title": "t(curiosity-inventory.table_emptyState, {"context":"title"})",
+            }
+          }
           isBorders={true}
           isHeader={true}
           isStriped={false}
@@ -84,7 +93,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           onSelect={null}
           onSort={null}
           rows={[]}
-          summary={null}
+          summary="t(curiosity-inventory.table, {"context":"summary"})"
           variant="compact"
         />
       </div>
@@ -176,7 +185,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
         className=""
       >
         <Table
-          ariaLabel={null}
+          ariaLabel="t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})"
           className="curiosity-inventory-list"
           columnHeaders={[]}
           componentClassNames={
@@ -196,6 +205,15 @@ exports[`InventoryCard Component should handle multiple display states, error, p
               "trExpandedContent": "curiosity-table__tr-expand-content",
             }
           }
+          emptyTable={
+            {
+              "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",
+              "className": "curiosity-inventory-list",
+              "message": "t(curiosity-inventory.table_emptyState, {"context":"description"})",
+              "summary": "t(curiosity-inventory.table, {"context":"summary"})",
+              "title": "t(curiosity-inventory.table_emptyState, {"context":"title"})",
+            }
+          }
           isBorders={true}
           isHeader={true}
           isStriped={false}
@@ -203,7 +221,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           onSelect={null}
           onSort={null}
           rows={[]}
-          summary={null}
+          summary="t(curiosity-inventory.table, {"context":"summary"})"
           variant="compact"
         />
       </div>
@@ -302,11 +320,13 @@ exports[`InventoryCard Component should handle multiple display states, error, p
           }
           tableProps={
             {
+              "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",
               "className": "curiosity-inventory-list",
               "colCount": 1,
               "colWidth": [],
               "isHeader": true,
               "rowCount": undefined,
+              "summary": "t(curiosity-inventory.table, {"context":"summary"})",
               "variant": "compact",
             }
           }
@@ -408,11 +428,13 @@ exports[`InventoryCard Component should render a basic component: basic render 1
           }
           tableProps={
             {
+              "ariaLabel": "t(curiosity-inventory.table, {"context":"ariaLabel","appName":"Subscriptions"})",
               "className": "curiosity-inventory-list",
               "colCount": 1,
               "colWidth": [],
               "isHeader": true,
               "rowCount": undefined,
+              "summary": "t(curiosity-inventory.table, {"context":"summary"})",
               "variant": "compact",
             }
           }

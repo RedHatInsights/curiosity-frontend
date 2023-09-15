@@ -108,6 +108,22 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-inventory.tab",
         "match": "t('curiosity-inventory.tab', { context: 'disabled' })",
       },
+      {
+        "key": "curiosity-inventory.table",
+        "match": "translate('curiosity-inventory.table', { context: ['ariaLabel'], appName: helpers.UI_DISPLAY_NAME })",
+      },
+      {
+        "key": "curiosity-inventory.table",
+        "match": "translate('curiosity-inventory.table', { context: ['summary'] })",
+      },
+      {
+        "key": "curiosity-inventory.table",
+        "match": "translate('curiosity-inventory.table', { context: ['emptyState', 'title'] })",
+      },
+      {
+        "key": "curiosity-inventory.table",
+        "match": "translate('curiosity-inventory.table', { context: ['emptyState', 'description'] })",
+      },
     ],
   },
   {
@@ -254,28 +270,6 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-view.title",
         "match": "t(\`curiosity-view.title\`, { appName: helpers.UI_DISPLAY_NAME, context: firstMatch?.productGroup })",
-      },
-    ],
-  },
-  {
-    "file": "src/components/table/tableEmpty.js",
-    "keys": [
-      {
-        "key": "table.empty-state_title",
-        "match": "t('table.empty-state_title', 'No results found')",
-      },
-      {
-        "key": "table.empty-state_description",
-        "match": "t('table.empty-state_description', 'Clear all filters and try again.')",
-      },
-    ],
-  },
-  {
-    "file": "src/components/table/tableSkeleton.js",
-    "keys": [
-      {
-        "key": "curiosity-inventory.tableSkeletonAriaLabel",
-        "match": "t('curiosity-inventory.tableSkeletonAriaLabel')",
       },
     ],
   },
@@ -838,12 +832,20 @@ exports[`I18n Component should have locale keys that exist in the default langua
     "key": "curiosity-inventory.tab",
   },
   {
-    "file": "src/components/table/tableEmpty.js",
-    "key": "table.empty-state_title",
+    "file": "src/components/inventoryCard/inventoryCard.js",
+    "key": "curiosity-inventory.table",
   },
   {
-    "file": "src/components/table/tableEmpty.js",
-    "key": "table.empty-state_description",
+    "file": "src/components/inventoryCard/inventoryCard.js",
+    "key": "curiosity-inventory.table",
+  },
+  {
+    "file": "src/components/inventoryCard/inventoryCard.js",
+    "key": "curiosity-inventory.table",
+  },
+  {
+    "file": "src/components/inventoryCard/inventoryCard.js",
+    "key": "curiosity-inventory.table",
   },
   {
     "file": "src/components/toolbar/toolbar.js",
