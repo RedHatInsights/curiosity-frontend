@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import { EmptyState, EmptyStateIcon, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
 import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/frontend-components/EmptyTable';
-import { translate } from '../i18n/i18n';
 
 /**
  * @memberof Table
@@ -15,22 +15,20 @@ import { translate } from '../i18n/i18n';
  * @param {object} props
  * @param {React.ReactNode|Function} props.icon
  * @param {React.ReactNode} props.message
- * @param {Function} props.t
  * @param {string} props.tableHeading
  * @param {React.ReactNode} props.title
  * @param {string} props.variant
  * @returns {React.ReactNode}
  */
-const TableEmpty = ({ icon, message, t, tableHeading, title, variant }) => (
+const TableEmpty = ({ icon, message, tableHeading, title, variant, ...props }) => (
   <PlatformEmptyTableWrapper>
+    <table {...props} />
     <EmptyState variant={variant}>
       {icon && <EmptyStateIcon icon={icon} />}
       <Title headingLevel={tableHeading} size="lg">
-        {title || t('table.empty-state_title', 'No results found')}
+        {title}
       </Title>
-      <EmptyStateBody>
-        {message || t('table.empty-state_description', 'Clear all filters and try again.')}
-      </EmptyStateBody>
+      <EmptyStateBody>{message}</EmptyStateBody>
     </EmptyState>
   </PlatformEmptyTableWrapper>
 );
@@ -43,10 +41,9 @@ const TableEmpty = ({ icon, message, t, tableHeading, title, variant }) => (
  */
 TableEmpty.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  message: PropTypes.node,
-  t: PropTypes.func,
+  message: PropTypes.node.isRequired,
   tableHeading: PropTypes.string,
-  title: PropTypes.node,
+  title: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(Object.keys(EmptyStateVariant))
 };
 
@@ -56,11 +53,8 @@ TableEmpty.propTypes = {
  * @type {{icon: null, variant: EmptyStateVariant.small, tableHeading: string}}
  */
 TableEmpty.defaultProps = {
-  icon: null,
-  message: null,
-  t: translate,
+  icon: SearchIcon,
   tableHeading: 'h2',
-  title: null,
   variant: EmptyStateVariant.small
 };
 

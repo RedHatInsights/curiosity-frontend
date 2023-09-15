@@ -169,11 +169,6 @@
     "tabInstances_Satellite Server": "$t(curiosity-inventory.tabInstances_RHEL)",
     "tabSubscriptions": "Current subscriptions",
     "tab_disabled": "The inventory display is currently disabled.",
-    "tableAriaLabel": "{{appName}} systems inventory table.",
-    "tableSummary": "A generated table with one level of column headers.",
-    "tableEmptyInventoryTitle": "No results found",
-    "tableEmptyInventoryMessage": "To show more results, clear some or all filters.",
-    "tableSkeletonAriaLabel": "Loading",
     "label_billing_provider": "$t(curiosity-inventory.label_cloud_provider)",
     "label_billing_provider_aws": "$t(curiosity-inventory.label_cloud_provider_aws)",
     "label_billing_provider_azure": "$t(curiosity-inventory.label_cloud_provider_azure)",
@@ -261,7 +256,12 @@
     "measurementType_hypervisor": "Hypervisor",
     "measurementType_physical": "Physical",
     "measurementType_virtual": "Virtual",
-    "measurementType_virtualized": "Virtual"
+    "measurementType_virtualized": "Virtual",
+    "table_ariaLabel": "{{appName}} systems inventory table.",
+    "table_ariaLabel_skeleton": "Loading",
+    "table_summary": "A generated table with one level of column headers.",
+    "table_emptyState_description": "To show more results, clear some or all filters.",
+    "table_emptyState_title": "No results found"
   },
   "curiosity-toolbar": {
     "button_displayName": "Search button for name",

@@ -2,9 +2,13 @@
 
 exports[`TableEmpty Component should have fallback checks for certain props: fallback display 1`] = `
 <EmptyTable>
+  <table />
   <EmptyState
     variant="small"
   >
+    <EmptyStateIcon
+      icon={[Function]}
+    />
     <Title
       headingLevel="h1"
       size="lg"
@@ -20,6 +24,7 @@ exports[`TableEmpty Component should have fallback checks for certain props: fal
 
 exports[`TableEmpty Component should render a basic component: basic 1`] = `
 <EmptyTable>
+  <table />
   <EmptyState
     variant="small"
   >
