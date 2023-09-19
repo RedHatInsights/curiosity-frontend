@@ -1,5 +1,5 @@
 import axios, { CancelToken } from 'axios';
-import LruCache from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 import { serviceHelpers } from './helpers';
 
 /**
@@ -28,7 +28,7 @@ const globalCancelTokens = {};
  *
  * @type {object}
  */
-const globalResponseCache = new LruCache({
+const globalResponseCache = new LRUCache({
   ttl: Number.parseInt(process.env.REACT_APP_AJAX_CACHE, 10) || 30000,
   max: 100,
   updateAgeOnGet: true
