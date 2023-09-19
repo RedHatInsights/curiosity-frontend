@@ -17,7 +17,7 @@ import React from 'react';
  * @param {object} params
  * @param {string} params.axis
  * @param {number} params.index
- * @returns {Function}s
+ * @returns {Function}
  */
 const chartAxisLabel =
   ({ axis, index = 0 } = {}) =>
