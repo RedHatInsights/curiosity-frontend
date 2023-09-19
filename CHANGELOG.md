@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/ff210b25b4ff83bd37b87db7f8b378a3ada3851b...af057b4a34178b5c4041f892ac10708c32a167fe) (2023-09-19)
+
+
+### Features
+* **rhsmTransformers** sw-1537 subs, guest responses  ([#1185](https://github.com/RedHatInsights/curiosity-frontend/pull/1185)) ([aa10c98](https://github.com/RedHatInsights/curiosity-frontend/commit/aa10c988c5ec2c7679be942bce524b2b6322f7cf))
+
+### Code Refactoring
+* **testing** sw-1537 bulk product config tests  ([#1187](https://github.com/RedHatInsights/curiosity-frontend/pull/1187)) ([b674d7f](https://github.com/RedHatInsights/curiosity-frontend/commit/b674d7f9735f97f773a215bff5e91b374a06d57f))
+* **toolbarField** sw-1537 expose display name for config  ([#1186](https://github.com/RedHatInsights/curiosity-frontend/pull/1186)) ([77ef52d](https://github.com/RedHatInsights/curiosity-frontend/commit/77ef52d458fa9818bcad1739c7f978f412ef8304))
+* **config** sw-1537 default guests query  ([#1172](https://github.com/RedHatInsights/curiosity-frontend/pull/1172)) ([a0c4bbd](https://github.com/RedHatInsights/curiosity-frontend/commit/a0c4bbd50478d410d9673a2ce4bd0cf47313f5b5))
+
+### Chores
+* **build** sw-1647 deployment env variable  ([#1180](https://github.com/RedHatInsights/curiosity-frontend/pull/1180)) ([28be265](https://github.com/RedHatInsights/curiosity-frontend/commit/28be2652a24ecbdbb971b58ce6a74d4eec6f279f))
+* **build** sw-1647 branch updates for workflows  ([#1177](https://github.com/RedHatInsights/curiosity-frontend/pull/1177)) ([5e3fb32](https://github.com/RedHatInsights/curiosity-frontend/commit/5e3fb32e78d73c9087ff75cae73e109315bb52fe))
+* **deps-dev** changelog-light from 0.4.1 to 0.5.0  ([#1173](https://github.com/RedHatInsights/curiosity-frontend/pull/1173)) ([b378e04](https://github.com/RedHatInsights/curiosity-frontend/commit/b378e040dc4e336ec8f077b4f8c2899ce6f19f65))
+* **build** update pr_checks with rp and ibutsu options  ([#1176](https://github.com/RedHatInsights/curiosity-frontend/pull/1176)) ([088afce](https://github.com/RedHatInsights/curiosity-frontend/commit/088afce903652d324ce7f53c25ba2110ec6ab363))
+
+### Bug Fixes
+* **graphCardHelpers** sw-1537 confirm callback is func  ([#1187](https://github.com/RedHatInsights/curiosity-frontend/pull/1187)) ([af057b4](https://github.com/RedHatInsights/curiosity-frontend/commit/af057b4a34178b5c4041f892ac10708c32a167fe))
+* **select** sw-1537 mount check  ([#1184](https://github.com/RedHatInsights/curiosity-frontend/pull/1184)) ([5d23e9b](https://github.com/RedHatInsights/curiosity-frontend/commit/5d23e9b05d50ca69d73ebb70ff0c097428dc0107))
+* **i18nHelpers** sw-1537 apply multicontext to all keys  ([#1183](https://github.com/RedHatInsights/curiosity-frontend/pull/1183)) ([a4015b2](https://github.com/RedHatInsights/curiosity-frontend/commit/a4015b2ad121fc7a5c65317069210228d02f05f7))
+
 ## [3.3.0](https://github.com/RedHatInsights/curiosity-frontend/compare/8dac0cb6ee771cb557f22a38f735ae23c62450af...fe6062e0278db9e4722d432fc9798ef3be3c28b8) (2023-08-29)
 
 
