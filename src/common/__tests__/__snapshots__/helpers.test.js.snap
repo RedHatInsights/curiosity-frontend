@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Helpers should apply a number display function: number display function result 1`] = `
-t {
+R {
   "_value": 11,
 }
 `;
