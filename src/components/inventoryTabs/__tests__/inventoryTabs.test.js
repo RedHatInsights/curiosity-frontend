@@ -66,7 +66,7 @@ describe('InventoryTabs Component', () => {
         <InventoryTab title="dolorSit">dolor sit</InventoryTab>
       </InventoryTabs>
     );
-    const input = component.querySelectorAll('button.pf-c-tabs__link')[1];
+    const input = component.querySelectorAll('button.pf-v5-c-tabs__link')[1];
     component.fireEvent.click(input);
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');

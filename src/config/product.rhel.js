@@ -301,7 +301,7 @@ const config = {
           );
           return (
             <Tooltip content={content}>
-              <ChartIcon symbol="infinity" aria-label={content} />
+              <ChartIcon symbol="infinity" size="md" aria-label={content} />
             </Tooltip>
           );
         }

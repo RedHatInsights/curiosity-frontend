@@ -92,17 +92,19 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
             <Card
               className="curiosity-optin-tour"
             >
-              <CardHeader>
-                <CardHeaderMain>
-                  <Brand
-                    alt="t(curiosity-optin.tourTitleImageAlt)"
-                    aria-hidden={true}
-                    className="curiosity-optin-image"
-                    src="graph4x.png"
-                    srcSet="graph4x.png 1064w, graph2x.png 600w"
-                  />
-                </CardHeaderMain>
-              </CardHeader>
+              <CardHeader
+                actions={
+                  {
+                    "actions": <Brand
+                      alt="t(curiosity-optin.tourTitleImageAlt)"
+                      aria-hidden={true}
+                      className="curiosity-optin-image"
+                      src="graph4x.png"
+                      srcSet="graph4x.png 1064w, graph2x.png 600w"
+                    />,
+                  }
+                }
+              />
               <CardTitle>
                 <Title
                   headingLevel="h3"
@@ -134,23 +136,23 @@ exports[`OptinView Component should render a basic component: basic 1`] = `
 
 exports[`OptinView Component should render an API state driven view: 4XX view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-4"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
@@ -166,23 +168,23 @@ exports[`OptinView Component should render an API state driven view: 4XX view 1`
 
 exports[`OptinView Component should render an API state driven view: 200 view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-1"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
@@ -198,23 +200,23 @@ exports[`OptinView Component should render an API state driven view: 200 view 1`
 
 exports[`OptinView Component should render an API state driven view: 401 view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-2"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
@@ -230,23 +232,23 @@ exports[`OptinView Component should render an API state driven view: 401 view 1`
 
 exports[`OptinView Component should render an API state driven view: 403 view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="false"
-          class="pf-c-button pf-m-primary"
+          class="pf-v5-c-button pf-m-primary"
           data-ouia-component-id="OUIA-Generated-Button-primary-3"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmit"
           type="button"
@@ -261,23 +263,23 @@ exports[`OptinView Component should render an API state driven view: 403 view 1`
 
 exports[`OptinView Component should render an API state driven view: 500 view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-5"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
@@ -295,23 +297,23 @@ exports[`OptinView Component should render an API state driven view: error view 
 
 exports[`OptinView Component should render an API state driven view: fulfilled view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-8"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
@@ -420,17 +422,19 @@ exports[`OptinView Component should render an API state driven view: initial vie
             <Card
               className="curiosity-optin-tour"
             >
-              <CardHeader>
-                <CardHeaderMain>
-                  <Brand
-                    alt="t(curiosity-optin.tourTitleImageAlt)"
-                    aria-hidden={true}
-                    className="curiosity-optin-image"
-                    src="graph4x.png"
-                    srcSet="graph4x.png 1064w, graph2x.png 600w"
-                  />
-                </CardHeaderMain>
-              </CardHeader>
+              <CardHeader
+                actions={
+                  {
+                    "actions": <Brand
+                      alt="t(curiosity-optin.tourTitleImageAlt)"
+                      aria-hidden={true}
+                      className="curiosity-optin-image"
+                      src="graph4x.png"
+                      srcSet="graph4x.png 1064w, graph2x.png 600w"
+                    />,
+                  }
+                }
+              />
               <CardTitle>
                 <Title
                   headingLevel="h3"
@@ -462,23 +466,23 @@ exports[`OptinView Component should render an API state driven view: initial vie
 
 exports[`OptinView Component should render an API state driven view: null or undefined status view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-6"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           data-test="optinButtonSubmitDisabled"
           disabled=""
@@ -494,43 +498,42 @@ exports[`OptinView Component should render an API state driven view: null or und
 
 exports[`OptinView Component should render an API state driven view: pending view 1`] = `
 <form
-  class="pf-c-form"
+  class="pf-v5-c-form"
   novalidate=""
 >
   <div
-    class="pf-c-form__group pf-m-action"
+    class="pf-v5-c-form__group pf-m-action"
   >
     <div
-      class="pf-c-form__group-control"
+      class="pf-v5-c-form__group-control"
     >
       <div
-        class="pf-c-form__actions"
+        class="pf-v5-c-form__actions"
       >
         <button
           aria-disabled="true"
-          class="pf-c-button pf-m-primary pf-m-disabled"
+          class="pf-v5-c-button pf-m-primary pf-m-disabled"
           data-ouia-component-id="OUIA-Generated-Button-primary-7"
-          data-ouia-component-type="PF4/Button"
+          data-ouia-component-type="PF5/Button"
           data-ouia-safe="true"
           disabled=""
           type="button"
         >
-          <span
+          <svg
             aria-label="Contents"
             aria-valuetext="Loading..."
-            class="pf-c-spinner pf-m-sm"
+            class="pf-v5-c-spinner pf-m-sm"
             role="progressbar"
+            viewBox="0 0 100 100"
           >
-            <span
-              class="pf-c-spinner__clipper"
+            <circle
+              class="pf-v5-c-spinner__path"
+              cx="50"
+              cy="50"
+              fill="none"
+              r="45"
             />
-            <span
-              class="pf-c-spinner__lead-ball"
-            />
-            <span
-              class="pf-c-spinner__tail-ball"
-            />
-          </span>
+          </svg>
            
           t(curiosity-optin.buttonActivate, {"appName":"Subscriptions"})
         </button>

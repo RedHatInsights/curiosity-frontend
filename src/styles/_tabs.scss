@@ -1,20 +1,19 @@
 .curiosity {
-  .curiosity-tabs-container {
-    background-color: var(--pf-global--BackgroundColor--100);
-    min-height: 775px;
+  .curiosity-tabs {
+    &-container {
+      background-color: var(--pf-global--BackgroundColor--100);
+      min-height: 775px;
 
-    section.pf-c-tab-content:focus {
-      outline: none;
+      // section.pf-v5-c-tab-content:focus {
+      //  outline: none;
+      // }
     }
-  }
 
-  .curiosity-tabs {}
-
-  .curiosity-tabs__no-scroll {
-    @extend .curiosity-tabs;
-
-    > .pf-c-tabs__scroll-button {
-      display: none;
+    &__no-scroll {
+      // @extend .curiosity-tabs;
+      // > .pf-v5-c-tabs__scroll-button {
+      //   display: none;
+      // }
     }
   }
 }

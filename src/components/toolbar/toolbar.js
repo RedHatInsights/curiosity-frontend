@@ -120,7 +120,7 @@ const Toolbar = ({
       clearFiltersButtonText={t('curiosity-toolbar.clearFilters')}
     >
       {!isGroupVariantDisabled && <ToolbarFieldGroupVariant />}
-      <ToolbarContent>
+      <ToolbarContent className="curiosity-toolbar__content">
         <ToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
           <ToolbarGroup variant="filter-group">
             {options.length > 1 && (
@@ -149,7 +149,7 @@ const Toolbar = ({
           </ToolbarGroup>
         </ToolbarToggleGroup>
         <ToolbarGroup key="itemFields">{itemFields}</ToolbarGroup>
-        <ToolbarGroup key="secondaryFields" alignment={{ default: 'alignRight' }}>
+        <ToolbarGroup key="secondaryFields" align={{ default: 'alignRight' }}>
           {secondaryFields}
         </ToolbarGroup>
       </ToolbarContent>

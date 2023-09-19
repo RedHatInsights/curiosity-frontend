@@ -1,5 +1,5 @@
 .curiosity {
-  &.pf-c-page__main-section {}
+  &.pf-v5-c-page__main-section {}
 }
 
 .curiosity-page-messages,
@@ -11,10 +11,23 @@
 }
 
 .curiosity-page-section {
-  &__tabs {
+  &__tabs, &__graphs {
     margin-bottom: var(--pf-global--spacer--md);
     margin-left: var(--pf-global--spacer--md);
     margin-right: var(--pf-global--spacer--md);
+  }
+
+  &__graphs .curiosity-graph__standalone,
+  &__graphs .curiosity-graph__totals {
+   // margin-bottom: var(--pf-global--spacer--md);
+
+    &:first-child {
+      margin-top: var(--pf-global--spacer--md);
+    }
+
+    &:last-child {
+    //  margin-bottom: 0;
+    }
   }
 }
 

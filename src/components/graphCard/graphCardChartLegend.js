@@ -119,7 +119,7 @@ const GraphCardChartLegend = ({
         const button = (
           <Button
             {...buttonActionProps}
-            className="curiosity-usage-graph__legend-item"
+            className="curiosity-graph__legend-item curiosity-usage-graph__legend-item"
             tabIndex={0}
             key={`curiosity-button-${id}`}
             variant="link"
@@ -146,9 +146,10 @@ const GraphCardChartLegend = ({
               content={<p>{tooltipContent}</p>}
               position={TooltipPosition.top}
               enableFlip
-              distance={5}
             >
-              <span className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper">{button}</span>
+              <span className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper">
+                {button}
+              </span>
             </Tooltip>
           );
         }

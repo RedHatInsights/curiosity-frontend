@@ -9,7 +9,6 @@ exports[`GraphCardChartTitleTooltip Component should render a basic component: b
       t(curiosity-graph.cardHeadingDescription, {"context":"loremIpsum"})
     </p>
   }
-  distance={5}
   enableFlip={false}
   entryDelay={100}
   exitDelay={0}
@@ -18,11 +17,7 @@ exports[`GraphCardChartTitleTooltip Component should render a basic component: b
   <span
     className="curiosity-icon__question"
   >
-    <OutlinedQuestionCircleIcon
-      color="currentColor"
-      noVerticalAlign={false}
-      size="sm"
-    />
+    <OutlinedQuestionCircleIcon />
   </span>
 </Tooltip>
 `;

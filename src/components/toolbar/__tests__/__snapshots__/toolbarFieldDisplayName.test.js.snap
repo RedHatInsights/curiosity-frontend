@@ -56,23 +56,25 @@ exports[`ToolbarFieldDisplayName Component should handle updating display name u
 
 exports[`ToolbarFieldDisplayName Component should render a basic component: basic 1`] = `
 <InputGroup>
-  <TextInput
-    aria-label="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
-    className="curiosity-input__display-name"
-    data-test="toolbarFieldDisplayName"
-    iconVariant="search"
-    id={null}
-    isDisabled={false}
-    isReadOnly={false}
-    maxLength={255}
-    name={null}
-    onChange={[Function]}
-    onClear={[Function]}
-    onKeyUp={[Function]}
-    onMouseUp={[Function]}
-    placeholder="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
-    type="text"
-    value="lorem ipsum"
-  />
+  <InputGroupItem>
+    <TextInput
+      aria-label="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
+      className="curiosity-input__display-name"
+      customIcon={<SearchIcon />}
+      data-test="toolbarFieldDisplayName"
+      id={null}
+      isDisabled={false}
+      isReadOnly={false}
+      maxLength={255}
+      name={null}
+      onChange={[Function]}
+      onClear={[Function]}
+      onKeyUp={[Function]}
+      onMouseUp={[Function]}
+      placeholder="t(curiosity-toolbar.placeholder_filter, {"context":"displayName"})"
+      type="text"
+      value="lorem ipsum"
+    />
+  </InputGroupItem>
 </InputGroup>
 `;

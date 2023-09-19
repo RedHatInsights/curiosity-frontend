@@ -96,7 +96,7 @@ describe('GraphCardChartLegend Component', () => {
     };
 
     const component = renderComponent(<GraphCardChartLegend {...props} />);
-    const firstButton = component.find('.curiosity-usage-graph__legend-item');
+    const firstButton = component.find('.curiosity-graph__legend-item');
     component.fireEvent.click(firstButton, {});
     expect(mockDispatch.mock.calls).toMatchSnapshot('click event, dispatch');
 

@@ -31,7 +31,6 @@ const GraphCardChartTitleTooltip = ({ t, useGraphCardContext: useAliasGraphCardC
       content={<p>{t(`curiosity-graph.cardHeadingDescription`, { context: stringId })}</p>}
       position={TooltipPosition.top}
       enableFlip={false}
-      distance={5}
       entryDelay={100}
       exitDelay={0}
     >

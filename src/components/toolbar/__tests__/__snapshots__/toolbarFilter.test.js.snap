@@ -74,7 +74,7 @@ exports[`ToolbarFilter Component should render a basic component: basic 1`] = `
 }"
 >
   <div
-    class="pf-c-toolbar__item"
+    class="pf-v5-c-toolbar__item"
   >
     lorem ipsum
   </div>

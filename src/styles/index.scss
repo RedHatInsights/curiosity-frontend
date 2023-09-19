@@ -2,18 +2,60 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/index';
 @import '~@patternfly/patternfly/sass-utilities/all';
 
-// App
-@import 'page-layout';
-@import 'fade';
-@import 'tooltip';
-@import 'product-view';
-@import 'optin';
-@import 'usage-graph';
-@import 'skeleton';
-@import 'table';
-@import 'form';
-@import 'toolbar';
-@import 'inventory-list';
-@import 'banner-messages';
+// Remap variables, avoid search and replaces.
+$pf-global--breakpoint--sm: $pf-v5-global--breakpoint--sm;
+$pf-global--breakpoint--md: $pf-v5-global--breakpoint--md;
+$pf-global--breakpoint--lg: $pf-v5-global--breakpoint--lg;
+
+/**
+ * ToDo: Review importing PF Table component css variables directly
+ * We had trouble remapping table component variables, so instead we used
+ * the original "global" variable for spacing.
+ */
+:root {
+  --pf-global--BackgroundColor--100: var(--pf-v5-global--BackgroundColor--100);
+
+  --pf-global--Color--light-100: var(--pf-v5-global--Color--light-100);
+
+  --pf-global--palette--blue-300: var(--pf-v5-global--palette--blue-300);
+
+  --pf-global--palette--black-500: var(--pf-v5-global--palette--black-500);
+  --pf-global--palette--black-900: var(--pf-v5-global--palette--black-900);
+  --pf-global--palette--black-1000: var(--pf-v5-global--palette--black-1000);
+  // --pf-c-select__toggle-arrow--MarginRight: var(--pf-v5-c-select__toggle-arrow--MarginRight);
+  --pf-c-card--child--PaddingBottom: var(--pf-v5-c-card--child--PaddingBottom);
+
+  --pf-c-page__main-section--PaddingLeft: var(--pf-v5-c-page__main-section--PaddingLeft);
+  --pf-c-page__main-section--PaddingRight: var(--pf-v5-c-page__main-section--PaddingRight);
+
+  --pf-global--spacer--sm: var(--pf-v5-global--spacer--sm);
+  --pf-global--spacer--md: var(--pf-v5-global--spacer--md);
+  --pf-global--spacer--lg: var(--pf-v5-global--spacer--lg);
+
+  --pf-global--BorderWidth--sm: var(--pf-v5-global--BorderWidth--sm);
+  --pf-global--BorderColor--100: var(--pf-v5-global--BorderColor--100);
+
+  --pf-global--FontSize--md: var(--pf-v5-global--FontSize--md);
+  --pf-global--FontSize--xs: var(--pf-v5-global--FontSize--xs);
+  --pf-global--FontSize--3xl: var(--pf-v5-global--FontSize--3xl);
+}
+
+// Component tweaks, nice to have, overlooked styles
+@import 'card';
 @import 'tabs';
-@import 'icons';
+@import 'select'; // deprecated component tweaks
+@import 'table';
+@import 'toolbar';
+@import 'tooltip';
+
+// App and enhancements
+@import 'banner-messages';
+@import 'fade';
+@import 'icon';
+@import 'skeleton';
+@import 'page-layout';
+@import 'graph';
+@import 'inventory';
+@import 'optin';
+
+// @import 'product-view';

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Card,
-  CardActions,
   CardBody,
   CardHeader,
   CardTitle,
@@ -53,27 +52,33 @@ const GraphCardChart = ({
   const { [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: granularity } = useAliasProductGraphTallyQuery();
   const { pending, error, dataSets = [] } = useAliasGetMetrics();
 
+  const cardHeaderProps = {};
+
+  if (updatedActionDisplay) {
+    cardHeaderProps.actions = {
+      className: `curiosity-card__actions ${(error && 'blur') || ''}`,
+      actions: (
+        <Toolbar className="curiosity-toolbar" collapseListedFiltersBreakpoint="sm">
+          <ToolbarContent className="curiosity-toolbar__content">
+            <ToolbarGroup align={{ default: 'alignRight' }}>{updatedActionDisplay}</ToolbarGroup>
+          </ToolbarContent>
+        </Toolbar>
+      )
+    };
+  }
+
   return (
-    <Card isPlain className="curiosity-usage-graph">
-      <CardHeader>
-        <CardTitle>
+    <Card isPlain className="curiosity-card curiosity-graph-card curiosity-usage-graph">
+      <CardHeader className="curiosity-card__header" {...cardHeaderProps}>
+        <CardTitle className="curiosity-card__title">
           <Title headingLevel="h2" size="lg">
             {t('curiosity-graph.cardHeading', { context: stringId })}
             <GraphCardChartTitleTooltip />
           </Title>
         </CardTitle>
-        {updatedActionDisplay && (
-          <CardActions className={(error && 'blur') || ''}>
-            <Toolbar collapseListedFiltersBreakpoint="sm">
-              <ToolbarContent>
-                <ToolbarGroup alignment={{ default: 'alignRight' }}>{updatedActionDisplay}</ToolbarGroup>
-              </ToolbarContent>
-            </Toolbar>
-          </CardActions>
-        )}
       </CardHeader>
       <MinHeight key="bodyMinHeight">
-        <CardBody>
+        <CardBody className="curiosity-card__body">
           <div className={(error && 'blur') || (pending && 'fadein') || ''}>
             {pending && <Loader variant="graph" />}
             {!pending && (

@@ -1,0 +1,42 @@
+.curiosity-select {
+  position: relative;
+
+  &-pf__no-toggle-text {
+    > button {
+      div {
+        display: none;
+      }
+      span {
+        // margin-left: var(--pf-c-select__toggle-arrow--MarginRight);
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+      }
+    }
+    /*
+    > button span {
+      // span.pf-v5-c-select__toggle-arrow {
+      margin-left: var(--pf-c-select__toggle-arrow--MarginRight);
+    }
+
+    > button div {
+    // span.pf-v5-c-select__toggle-text {
+      display: none;
+    }
+    */
+  }
+
+  &-pf__position-right {
+    > button + ul {
+    // > .pf-v5-c-select__menu {
+      right: 0;
+    }
+  }
+
+  &__inline {
+    display: inline-block;
+  }
+
+  &__not-inline {
+    width: 100%;
+  }
+}

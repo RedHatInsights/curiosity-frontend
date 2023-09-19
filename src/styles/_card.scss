@@ -1,0 +1,28 @@
+.curiosity {
+  &-card {
+    background-color: var(--pf-global--BackgroundColor--100);
+
+    &__selected {
+      // :before {
+      // border-top-width: 1em !important;
+      // border-top-color: red !important;
+      // content: ''
+      // }
+
+      .curiosity-card__title {
+        // box-shadow: var(--pf-c-card--m-selectable--m-selected--BoxShadow) !important;
+      }
+    }
+
+    &__header {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 1em;
+    }
+
+    &__title {
+      flex-grow: 1;
+      padding: 0;
+    }
+  }
+}
