@@ -76,13 +76,13 @@ Application entry.
 ## Bootstrap
 
 * [Bootstrap](#Base.module_Bootstrap)
-    * [~root](#Base.module_Bootstrap..root) : <code>HTMLElement</code>
+    * [~element](#Base.module_Bootstrap..element) : <code>HTMLElement</code>
     * [~Render](#Base.module_Bootstrap..Render) : <code>function</code>
 
-<a name="Base.module_Bootstrap..root"></a>
+<a name="Base.module_Bootstrap..element"></a>
 
-### Bootstrap~root : <code>HTMLElement</code>
-Root element within HTML template.
+### Bootstrap~element : <code>HTMLElement</code>
+Find root element within HTML template.
 
 **Kind**: inner constant of [<code>Bootstrap</code>](#Base.module_Bootstrap)  
 <a name="Base.module_Bootstrap..Render"></a>

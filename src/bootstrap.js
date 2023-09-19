@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import AppEntry from './AppEntry';
 
 /**
@@ -8,15 +8,18 @@ import AppEntry from './AppEntry';
  */
 
 /**
- * Root element within HTML template.
+ * Find root element within HTML template.
  *
  * @type {HTMLElement}
  */
-const root = document.getElementById('root');
+const element = document.getElementById('root');
 
 /**
  * Attach application to the root element, html
  *
  * @callback Render
  */
-ReactDOM.render(<AppEntry />, root, () => root.setAttribute('data-ouia-safe', true));
+if (element) {
+  element.setAttribute('data-ouia-safe', true);
+  createRoot(element).render(<AppEntry />);
+}
