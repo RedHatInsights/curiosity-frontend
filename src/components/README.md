@@ -5748,6 +5748,8 @@ Render an empty table.
 <tr>
     <td>props</td><td><code>object</code></td>
     </tr><tr>
+    <td>props.ariaLabel</td><td><code>string</code></td>
+    </tr><tr>
     <td>props.icon</td><td><code>React.ReactNode</code> | <code>function</code></td>
     </tr><tr>
     <td>props.message</td><td><code>React.ReactNode</code></td>
