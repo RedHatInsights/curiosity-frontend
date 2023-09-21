@@ -13,6 +13,7 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
  * Render an empty table.
  *
  * @param {object} props
+ * @param {string} props.ariaLabel
  * @param {React.ReactNode|Function} props.icon
  * @param {React.ReactNode} props.message
  * @param {string} props.tableHeading
@@ -20,9 +21,9 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
  * @param {string} props.variant
  * @returns {React.ReactNode}
  */
-const TableEmpty = ({ icon, message, tableHeading, title, variant, ...props }) => (
+const TableEmpty = ({ ariaLabel, icon, message, tableHeading, title, variant, ...props }) => (
   <PlatformEmptyTableWrapper>
-    <table {...props} />
+    <table aria-label={ariaLabel} {...props} />
     <EmptyState variant={variant}>
       {icon && <EmptyStateIcon icon={icon} />}
       <Title headingLevel={tableHeading} size="lg">
@@ -37,9 +38,10 @@ const TableEmpty = ({ icon, message, tableHeading, title, variant, ...props }) =
  * Prop types.
  *
  * @type {{icon: React.ReactNode|Function, variant: string, message: React.ReactNode, title: React.ReactNode,
- *     tableHeading: string}}
+ *     tableHeading: string, ariaLabel: string}}
  */
 TableEmpty.propTypes = {
+  ariaLabel: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   message: PropTypes.node.isRequired,
   tableHeading: PropTypes.string,
@@ -50,9 +52,10 @@ TableEmpty.propTypes = {
 /**
  * Default props.
  *
- * @type {{icon: null, variant: EmptyStateVariant.small, tableHeading: string}}
+ * @type {{icon: null, variant: EmptyStateVariant.small, tableHeading: string, ariaLabel: null}}
  */
 TableEmpty.defaultProps = {
+  ariaLabel: null,
   icon: SearchIcon,
   tableHeading: 'h2',
   variant: EmptyStateVariant.small
