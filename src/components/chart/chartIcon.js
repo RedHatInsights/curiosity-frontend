@@ -118,7 +118,7 @@ const ChartIcon = ({ fill, symbol, size, title, ...props }) => {
  */
 ChartIcon.propTypes = {
   fill: PropTypes.string,
-  size: PropTypes.oneOf([...Object.keys(IconSize)]),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([...Object.keys(IconSize)])]),
   symbol: PropTypes.oneOf(['dash', 'eye', 'eyeSlash', 'infinity', 'square', 'threshold']),
   title: PropTypes.string
 };
