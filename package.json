@@ -42,6 +42,8 @@
     "build:post": "bash ./scripts/post.sh",
     "build:pre": "bash ./scripts/pre.sh",
     "build:prod": "run-s build:ephemeral",
+    "ci:lint": "run-s test:lint",
+    "ci:unit-tests": "run-s test",
     "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
     "docs:md": "node ./scripts/readme.docs.js",
     "release": "changelog",
