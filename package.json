@@ -42,6 +42,8 @@
     "build:post": "bash ./scripts/post.sh",
     "build:pre": "bash ./scripts/pre.sh",
     "build:prod": "run-s build:ephemeral",
+    "ci:lint": "run-s test:lint",
+    "ci:unit-tests": "run-s test",
     "dev:chrome": "bash ./scripts/dev.chrome.sh -b prod-stable",
     "docs:md": "node ./scripts/readme.docs.js",
     "release": "changelog",
@@ -68,9 +70,7 @@
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
     "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
     "test:local": "jest --roots=./src --watch",
-    "verify": "run-s test:ephemeral build:ephemeral",
-    "ci:unit-tests": "run-s test",
-    "ci:lint": "run-s test:lint"
+    "verify": "run-s test:ephemeral build:ephemeral"
   },
   "dependencies": {
     "@joi/date": "^2.1.0",
