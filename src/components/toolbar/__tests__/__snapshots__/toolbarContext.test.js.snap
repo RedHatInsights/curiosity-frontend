@@ -60,20 +60,6 @@ exports[`ToolbarContext should apply a hook for clearing a toolbar field through
       },
     ],
   ],
-  [
-    [
-      {
-        "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": undefined,
-      },
-      {
-        "filter": "variant",
-        "type": "SET_QUERY",
-        "value": null,
-        "viewId": undefined,
-      },
-    ],
-  ],
 ]
 `;
 
@@ -144,20 +130,6 @@ exports[`ToolbarContext should apply a hook for clearing specific active toolbar
         "viewId": undefined,
       },
       {
-        "filter": "variant",
-        "type": "SET_QUERY",
-        "value": null,
-        "viewId": undefined,
-      },
-    ],
-  ],
-  [
-    [
-      {
-        "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": undefined,
-      },
-      {
         "billing_provider": null,
         "type": "SET_QUERY_RHSM_billing_provider",
         "viewId": undefined,
@@ -205,20 +177,6 @@ exports[`ToolbarContext should apply a hook for clearing specific active toolbar
       {
         "type": "SET_QUERY_RHSM_usage",
         "usage": null,
-        "viewId": undefined,
-      },
-    ],
-  ],
-  [
-    [
-      {
-        "type": "SET_QUERY_RESET_INVENTORY_LIST",
-        "viewId": undefined,
-      },
-      {
-        "filter": "variant",
-        "type": "SET_QUERY",
-        "value": null,
         "viewId": undefined,
       },
     ],

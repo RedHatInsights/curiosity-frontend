@@ -2,19 +2,12 @@ import { serviceCall } from '../config';
 import { rhsmSchemas } from './rhsmSchemas';
 import { helpers } from '../../common';
 import { rhsmTransformers } from './rhsmTransformers';
-import { rhsmHelpers } from './rhsmHelpers';
 
 /**
  * RHSM API service calls.
  *
  * @memberof Rhsm
  * @module RhsmServices
- */
-
-/**
- * ToDo: remove rhsmHelpers.filterArchitectureVariant
- * We're using a temporary helper to emulate a param for architectures and/or variants.
- * When the api supports architecture and variant query params this needs to be refactored.
  */
 
 /**
@@ -1217,12 +1210,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
 
   let url = `${process.env.REACT_APP_SERVICES_RHSM_TALLY}`;
   updatedId.forEach((value, index) => {
-    let updatedValue = value;
-    if (index === 0) {
-      updatedValue = rhsmHelpers.filterArchitectureVariant(value, params);
-    }
-
-    url = url.replace(`{${index}}`, updatedValue);
+    url = url.replace(`{${index}}`, value);
   });
 
   return serviceCall({
@@ -1505,12 +1493,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
 
   let url = `${process.env.REACT_APP_SERVICES_RHSM_CAPACITY}`;
   updatedId.forEach((value, index) => {
-    let updatedValue = value;
-    if (index === 0) {
-      updatedValue = rhsmHelpers.filterArchitectureVariant(value, params);
-    }
-
-    url = url.replace(`{${index}}`, updatedValue);
+    url = url.replace(`{${index}}`, value);
   });
 
   return serviceCall({
@@ -1653,7 +1636,7 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
     schema = [rhsmSchemas.guests, rhsmSchemas.errors],
     transform = [rhsmTransformers.guests]
   } = options;
-  const updatedId = rhsmHelpers.filterArchitectureVariant(id, params);
+  const updatedId = id;
   return serviceCall({
     url: process.env.REACT_APP_SERVICES_RHSM_INVENTORY_INSTANCES_GUESTS.replace('{0}', updatedId),
     params,
@@ -1801,9 +1784,8 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
     schema = [rhsmSchemas.instances, rhsmSchemas.errors],
     transform = [rhsmTransformers.instances]
   } = options;
-  const updatedId = rhsmHelpers.filterArchitectureVariant(id, params);
   return serviceCall({
-    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_INSTANCES}${updatedId}`,
+    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_INSTANCES}${id}`,
     params,
     cache,
     cancel,
@@ -1921,9 +1903,8 @@ const getSubscriptionsInventory = (id, params = {}, options = {}) => {
     schema = [rhsmSchemas.subscriptions, rhsmSchemas.errors],
     transform = [rhsmTransformers.subscriptions]
   } = options;
-  const updatedId = rhsmHelpers.filterArchitectureVariant(id, params);
   return serviceCall({
-    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_SUBSCRIPTIONS}${updatedId}`,
+    url: `${process.env.REACT_APP_SERVICES_RHSM_INVENTORY_SUBSCRIPTIONS}${id}`,
     params,
     cache,
     cancel,

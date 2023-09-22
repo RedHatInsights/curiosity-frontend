@@ -7,7 +7,6 @@ import { useOnSelect as useBillingProviderOnSelect } from './toolbarFieldBilling
 import { useOnSelect as useCategoryOnSelect } from './toolbarFieldCategory';
 import { useOnSelect as useSlaOnSelect } from './toolbarFieldSla';
 import { useOnSelect as useUsageOnSelect } from './toolbarFieldUsage';
-import { useOnSelect as useVariantOnSelect } from './toolbarFieldVariant';
 import { helpers } from '../../common/helpers';
 
 /**
@@ -23,21 +22,18 @@ import { helpers } from '../../common/helpers';
  * @param {Function} options.useCategoryOnSelect
  * @param {Function} options.useSlaOnSelect
  * @param {Function} options.useUsageOnSelect
- * @param {Function} options.useVariantOnSelect
  * @returns {Function}
  */
 const useToolbarFieldClear = ({
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
   useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
-  useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect,
-  useVariantOnSelect: useAliasVariantOnSelect = useVariantOnSelect
+  useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect
 } = {}) => {
   const billingOnSelect = useAliasBillingProviderOnSelect();
   const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
   const usageOnSelect = useAliasUsageOnSelect();
-  const variantOnSelect = useAliasVariantOnSelect();
 
   return field => {
     switch (field) {
@@ -52,9 +48,6 @@ const useToolbarFieldClear = ({
         break;
       case RHSM_API_QUERY_SET_TYPES.USAGE:
         usageOnSelect();
-        break;
-      case RHSM_API_QUERY_SET_TYPES.VARIANT:
-        variantOnSelect();
         break;
       default:
         break;
@@ -72,7 +65,6 @@ const useToolbarFieldClear = ({
  * @param {Function} options.useCategoryOnSelect
  * @param {Function} options.useSlaOnSelect
  * @param {Function} options.useUsageOnSelect
- * @param {Function} options.useVariantOnSelect
  * @returns {Function}
  */
 const useToolbarFieldClearAll = ({
@@ -81,22 +73,19 @@ const useToolbarFieldClearAll = ({
   useBillingProviderOnSelect: useAliasBillingProviderOnSelect = useBillingProviderOnSelect,
   useCategoryOnSelect: useAliasCategoryOnSelect = useCategoryOnSelect,
   useSlaOnSelect: useAliasSlaOnSelect = useSlaOnSelect,
-  useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect,
-  useVariantOnSelect: useAliasVariantOnSelect = useVariantOnSelect
+  useUsageOnSelect: useAliasUsageOnSelect = useUsageOnSelect
 } = {}) => {
   const {
     [RHSM_API_QUERY_SET_TYPES.BILLING_PROVIDER]: billingProvider,
     [RHSM_API_QUERY_SET_TYPES.CATEGORY]: category,
     [RHSM_API_QUERY_SET_TYPES.SLA]: sla,
-    [RHSM_API_QUERY_SET_TYPES.USAGE]: usage,
-    [RHSM_API_QUERY_SET_TYPES.VARIANT]: variant
+    [RHSM_API_QUERY_SET_TYPES.USAGE]: usage
   } = useAliasProductQuery();
   const billingOnSelect = useAliasBillingProviderOnSelect();
   const categoryOnSelect = useAliasCategoryOnSelect();
   const slaOnSelect = useAliasSlaOnSelect();
   const usageOnSelect = useAliasUsageOnSelect();
   const selectCategoryOnSelect = useAliasSelectCategoryOnSelect();
-  const variantOnSelect = useAliasVariantOnSelect();
 
   return hardFilterReset => {
     if (typeof billingProvider === 'string') {
@@ -113,10 +102,6 @@ const useToolbarFieldClearAll = ({
 
     if (typeof usage === 'string') {
       usageOnSelect();
-    }
-
-    if (typeof variant === 'string') {
-      variantOnSelect();
     }
 
     if (hardFilterReset) {

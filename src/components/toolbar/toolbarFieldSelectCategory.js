@@ -18,7 +18,6 @@ import { ToolbarFieldRangedMonthly, toolbarFieldOptions as rangedMonthlyOptions 
 import { ToolbarFieldSla, toolbarFieldOptions as slaOptions } from './toolbarFieldSla';
 import { ToolbarFieldUom, toolbarFieldOptions as uomOptions } from './toolbarFieldUom';
 import { ToolbarFieldUsage, toolbarFieldOptions as usageOptions } from './toolbarFieldUsage';
-import { ToolbarFieldVariant } from './toolbarFieldVariant';
 
 /**
  * @memberof Toolbar
@@ -91,15 +90,6 @@ const toolbarFieldOptions = [
     value: RHSM_API_QUERY_SET_TYPES.CATEGORY,
     component: function Variant(props) {
       return <ToolbarFieldCategory key="selectCategory_category" {...props} />;
-    },
-    options: [],
-    isClearable: true
-  },
-  {
-    title: translate('curiosity-toolbar.label', { context: ['filter', RHSM_API_QUERY_SET_TYPES.VARIANT] }),
-    value: RHSM_API_QUERY_SET_TYPES.VARIANT,
-    component: function Variant(props) {
-      return <ToolbarFieldVariant key="selectCategory_variant" {...props} />;
     },
     options: [],
     isClearable: true
