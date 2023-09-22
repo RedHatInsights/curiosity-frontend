@@ -256,14 +256,6 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
   {
     "component": [Function],
     "isClearable": true,
-    "options": [],
-    "selected": false,
-    "title": "t(curiosity-toolbar.label_filter, {"context":"variant"})",
-    "value": "variant",
-  },
-  {
-    "component": [Function],
-    "isClearable": true,
     "options": null,
     "selected": false,
     "title": "t(curiosity-toolbar.label_filter_display_name, {"context":"contains"})",
