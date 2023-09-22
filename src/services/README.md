@@ -18,8 +18,6 @@
 </dd>
 <dt><a href="#Rhsm.module_RhsmConstants">RhsmConstants</a></dt>
 <dd></dd>
-<dt><a href="#Rhsm.module_RhsmHelpers">RhsmHelpers</a></dt>
-<dd></dd>
 <dt><a href="#Rhsm.module_RhsmSchemas">RhsmSchemas</a></dt>
 <dd></dd>
 <dt><a href="#Rhsm.module_RhsmServices">RhsmServices</a></dt>
@@ -664,29 +662,6 @@ Product display types.
 RHSM constants.
 
 **Kind**: inner constant of [<code>RhsmConstants</code>](#Rhsm.module_RhsmConstants)  
-<a name="Rhsm.module_RhsmHelpers"></a>
-
-## RhsmHelpers
-<a name="Rhsm.module_RhsmHelpers..filterArchitectureVariant"></a>
-
-### RhsmHelpers~filterArchitectureVariant(id, params) ⇒ <code>string</code>
-Patch for returning a made up API architecture, variant param as a product ID
-
-**Kind**: inner method of [<code>RhsmHelpers</code>](#Rhsm.module_RhsmHelpers)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>string</code></td>
-    </tr><tr>
-    <td>params</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
 <a name="Rhsm.module_RhsmSchemas"></a>
 
 ## RhsmSchemas

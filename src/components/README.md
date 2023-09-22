@@ -180,9 +180,6 @@ recreate the core component.
 <dt><a href="#Toolbar.module_ToolbarFieldUsage">ToolbarFieldUsage</a></dt>
 <dd><p>A standalone Usage select filter.</p>
 </dd>
-<dt><a href="#Toolbar.module_ToolbarFieldVariant">ToolbarFieldVariant</a></dt>
-<dd><p>A standalone Variant select filter.</p>
-</dd>
 <dt><a href="#Toolbar.module_ToolbarFilter">ToolbarFilter</a></dt>
 <dd><p>ToolbarFilter, wrapper component for Patternfly ToolbarFilter.</p>
 </dd>
@@ -6207,8 +6204,6 @@ Clear a specific toolbar category using a select component's OnSelect hook.
     <td>options.useSlaOnSelect</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useUsageOnSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useVariantOnSelect</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -6239,8 +6234,6 @@ Clear all available toolbar categories.
     <td>options.useSlaOnSelect</td><td><code>function</code></td>
     </tr><tr>
     <td>options.useUsageOnSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useVariantOnSelect</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -7233,111 +7226,6 @@ Prop types.
 Default props.
 
 **Kind**: static property of [<code>ToolbarFieldUsage</code>](#Toolbar.module_ToolbarFieldUsage..ToolbarFieldUsage)  
-<a name="Toolbar.module_ToolbarFieldVariant"></a>
-
-## ToolbarFieldVariant
-A standalone Variant select filter.
-
-
-* [ToolbarFieldVariant](#Toolbar.module_ToolbarFieldVariant)
-    * [~useToolbarFieldOptions(options)](#Toolbar.module_ToolbarFieldVariant..useToolbarFieldOptions) ⇒ <code>function</code>
-    * [~useOnSelect(options)](#Toolbar.module_ToolbarFieldVariant..useOnSelect) ⇒ <code>function</code>
-    * <del>[~ToolbarFieldVariant(props)](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant) ⇒ <code>React.ReactNode</code></del>
-        * [.propTypes](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.propTypes) : <code>Object</code>
-        * [.defaultProps](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldVariant..useToolbarFieldOptions"></a>
-
-### ToolbarFieldVariant~useToolbarFieldOptions(options) ⇒ <code>function</code>
-Generate select field options from config
-
-**Kind**: inner method of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldVariant..useOnSelect"></a>
-
-### ToolbarFieldVariant~useOnSelect(options) ⇒ <code>function</code>
-On select update.
-
-**Kind**: inner method of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.useDispatch</td><td><code>function</code></td>
-    </tr><tr>
-    <td>options.useProduct</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant"></a>
-
-### <del>ToolbarFieldVariant~ToolbarFieldVariant(props) ⇒ <code>React.ReactNode</code></del>
-***Deprecated***
-
-Display a variant field with generated options.
-
-**Kind**: inner method of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant)  
-**Emits**: <code>event:onSelect</code>  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>props</td><td><code>object</code></td>
-    </tr><tr>
-    <td>props.isFilter</td><td><code>boolean</code></td>
-    </tr><tr>
-    <td>props.position</td><td><code>string</code></td>
-    </tr><tr>
-    <td>props.t</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useOnSelect</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useProductToolbarQuery</td><td><code>function</code></td>
-    </tr><tr>
-    <td>props.useToolbarFieldOptions</td><td><code>function</code></td>
-    </tr>  </tbody>
-</table>
-
-
-* <del>[~ToolbarFieldVariant(props)](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant) ⇒ <code>React.ReactNode</code></del>
-    * [.propTypes](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.propTypes) : <code>Object</code>
-    * [.defaultProps](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.defaultProps) : <code>Object</code>
-
-<a name="Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.propTypes"></a>
-
-#### ToolbarFieldVariant.propTypes : <code>Object</code>
-Prop types.
-
-**Kind**: static property of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant)  
-<a name="Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant.defaultProps"></a>
-
-#### ToolbarFieldVariant.defaultProps : <code>Object</code>
-Default props.
-
-**Kind**: static property of [<code>ToolbarFieldVariant</code>](#Toolbar.module_ToolbarFieldVariant..ToolbarFieldVariant)  
 <a name="Toolbar.module_ToolbarFilter"></a>
 
 ## ToolbarFilter
