@@ -13,7 +13,7 @@ const RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES = {
   RHEL_IBM_POWER: 'RHEL for IBM Power',
   RHEL_IBM_Z: 'RHEL for IBM z',
   RHEL_X86: 'RHEL for x86',
-  RHEL_X86_SAP: 'rhel-for-x86-sap'
+  RHEL_X86_SAP: 'rhel-for-sap-x86'
 };
 
 /**
