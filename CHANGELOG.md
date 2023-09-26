@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/07de4a2f6806e1a912e6b6fac3aced67f708fa35...56ca22cfe6de6ba87a50efbfc7f3f3f5cde92cd7) (2023-09-26)
+
+
+### Code Refactoring
+* **toolbarFieldVariant** sw-1689 deprecated removal  ([#1195](https://github.com/RedHatInsights/curiosity-frontend/pull/1195)) ([56ca22c](https://github.com/RedHatInsights/curiosity-frontend/commit/56ca22cfe6de6ba87a50efbfc7f3f3f5cde92cd7))
+* **table** sw-1537 migrate to pf composable table  ([#1168](https://github.com/RedHatInsights/curiosity-frontend/pull/1168)) ([1ed4e7b](https://github.com/RedHatInsights/curiosity-frontend/commit/1ed4e7bfbb3800275acc67edc47dc5d55d0acef8))
+
+### Builds
+* **release** adding npm aliases for pipline  ([#1197](https://github.com/RedHatInsights/curiosity-frontend/pull/1197)) ([81b5bee](https://github.com/RedHatInsights/curiosity-frontend/commit/81b5bee22cba589499b3b479d44d90a7c17410b3))
+* **deps** migrate to react 18  ([#1189](https://github.com/RedHatInsights/curiosity-frontend/pull/1189)) ([35fce4b](https://github.com/RedHatInsights/curiosity-frontend/commit/35fce4b7ebd9580a38537d19d466f6a355579db2))
+
+### Bug Fixes
+* **chartIcon** sw-1689 size prop type warning  ([#1196](https://github.com/RedHatInsights/curiosity-frontend/pull/1196)) ([e979f2f](https://github.com/RedHatInsights/curiosity-frontend/commit/e979f2ff9023f8979fb25e3eba051796fad7f11b))
+* **tableEmpty** sw-1537 aria-label attribute format  ([#1196](https://github.com/RedHatInsights/curiosity-frontend/pull/1196)) ([b660762](https://github.com/RedHatInsights/curiosity-frontend/commit/b660762d2ec107b7fa77fe7d7376678bfa2e9aff))
+* **build** npm updates  ([#1191](https://github.com/RedHatInsights/curiosity-frontend/pull/1191)) ([6f3f00c](https://github.com/RedHatInsights/curiosity-frontend/commit/6f3f00c003a8984630dd6a907aea18ce44d02749))
+* **table** sw-1537 tableEmpty, apply empty table  ([#1192](https://github.com/RedHatInsights/curiosity-frontend/pull/1192)) ([4302850](https://github.com/RedHatInsights/curiosity-frontend/commit/4302850320640fcace6b86e0efa58758423a13c4))
+
 ## [3.4.0](https://github.com/RedHatInsights/curiosity-frontend/compare/ff210b25b4ff83bd37b87db7f8b378a3ada3851b...af057b4a34178b5c4041f892ac10708c32a167fe) (2023-09-19)
 
 
