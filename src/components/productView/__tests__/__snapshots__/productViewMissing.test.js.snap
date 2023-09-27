@@ -34,7 +34,7 @@ exports[`ProductViewMissing Component should render a basic component: basic 1`]
 }"
 >
   <section
-    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+    class="pf-v5-l-page-header pf-v5-c-page-header pf-v5-l-page__main-section pf-v5-c-page__main-section pf-m-light"
     widget-type="InsightsPageHeader"
   >
     <div
