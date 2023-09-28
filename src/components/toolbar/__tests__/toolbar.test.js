@@ -51,13 +51,13 @@ describe('Toolbar Component', () => {
     };
     const component = await shallowComponent(<Toolbar {...props} />);
 
-    expect(component.find('.pf-c-chip')).toMatchSnapshot('chips');
+    expect(component.find('.pf-v5-c-chip')).toMatchSnapshot('chips');
 
     const componentNotClearable = await component.setProps({
       useSelectCategoryOptions: () => ({ options: [{ ...selectCategoryOptions[4], isClearable: false }] })
     });
 
-    expect(componentNotClearable.find('.pf-c-chip')).toMatchSnapshot('chips, not clearable');
+    expect(componentNotClearable.find('.pf-v5-c-chip')).toMatchSnapshot('chips, not clearable');
   });
 
   it('should handle displaying secondary components, fields', async () => {

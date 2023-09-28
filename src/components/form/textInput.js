@@ -79,10 +79,10 @@ class TextInput extends React.Component {
    * onChange event, provide restructured event.
    *
    * @event onChange
-   * @param {string} value
    * @param {object} event
+   * @param {string} value
    */
-  onChange = (value, event) => {
+  onChange = (event, value) => {
     const { onChange } = this.props;
     const clonedEvent = { ...event };
 
@@ -124,7 +124,7 @@ class TextInput extends React.Component {
         onChange={this.onChange}
         onKeyUp={this.onKeyUp}
         onMouseUp={this.onMouseUp}
-        isReadOnly={isReadOnly || false}
+        readOnlyVariant={(isReadOnly && 'default') || undefined}
         type={type}
         value={updatedValue ?? value ?? ''}
         {...props}

@@ -2,7 +2,7 @@
 
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: error 1`] = `
 <Card
-  className="curiosity-inventory-card"
+  className="curiosity-card curiosity-inventory-card"
 >
   <MinHeight
     isOnLoad={false}
@@ -10,49 +10,55 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     useResizeObserver={[Function]}
   >
     <CardHeader
-      aria-hidden={true}
-      className="hidden"
-    >
-      <CardActions>
-        <Toolbar
-          collapseListedFiltersBreakpoint="sm"
-        >
-          <ToolbarContent
-            isExpanded={false}
-            showClearFiltersButton={false}
+      actions={
+        {
+          "actions": <Toolbar
+            className="curiosity-toolbar"
+            collapseListedFiltersBreakpoint="sm"
           >
-            <ForwardRef
-              alignment={
-                {
-                  "default": "alignRight",
-                }
-              }
-              aria-hidden={true}
-              className="transparent"
+            <ToolbarContent
+              className="curiosity-toolbar__content"
+              isExpanded={false}
+              showClearFiltersButton={false}
             >
-              <Pagination
-                dropDirection="down"
-                isCompact={true}
-                isDisabled={true}
-                itemCount={0}
-                offset={0}
-                onPage={[Function]}
-                onPerPage={[Function]}
-                perPage={10}
-                variant={null}
-              />
-            </ForwardRef>
-          </ToolbarContent>
-        </Toolbar>
-      </CardActions>
-    </CardHeader>
+              <ForwardRef
+                align={
+                  {
+                    "default": "alignRight",
+                  }
+                }
+                aria-hidden={true}
+                className="curiosity-toolbar__group transparent"
+              >
+                <Pagination
+                  dropDirection="down"
+                  isCompact={true}
+                  isDisabled={true}
+                  itemCount={0}
+                  offset={0}
+                  onPage={[Function]}
+                  onPerPage={[Function]}
+                  perPage={10}
+                  variant={null}
+                />
+              </ForwardRef>
+            </ToolbarContent>
+          </Toolbar>,
+          "className": "curiosity-card__actions",
+        }
+      }
+      aria-hidden={true}
+      className="curiosity-card__header hidden"
+    />
   </MinHeight>
   <MinHeight
     isOnLoad={false}
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className="blur"
       >
@@ -106,7 +112,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   >
     <CardFooter
       aria-hidden={true}
-      className="hidden"
+      className="curiosity-card__footer hidden"
     >
       <TableToolbar
         isFooter={true}
@@ -130,7 +136,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: fulfilled 1`] = `
 <Card
-  className="curiosity-inventory-card"
+  className="curiosity-card curiosity-inventory-card"
 >
   <MinHeight
     isOnLoad={false}
@@ -138,49 +144,55 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     useResizeObserver={[Function]}
   >
     <CardHeader
-      aria-hidden={false}
-      className=""
-    >
-      <CardActions>
-        <Toolbar
-          collapseListedFiltersBreakpoint="sm"
-        >
-          <ToolbarContent
-            isExpanded={false}
-            showClearFiltersButton={false}
+      actions={
+        {
+          "actions": <Toolbar
+            className="curiosity-toolbar"
+            collapseListedFiltersBreakpoint="sm"
           >
-            <ForwardRef
-              alignment={
-                {
-                  "default": "alignRight",
-                }
-              }
-              aria-hidden={true}
-              className="transparent"
+            <ToolbarContent
+              className="curiosity-toolbar__content"
+              isExpanded={false}
+              showClearFiltersButton={false}
             >
-              <Pagination
-                dropDirection="down"
-                isCompact={true}
-                isDisabled={false}
-                itemCount={0}
-                offset={0}
-                onPage={[Function]}
-                onPerPage={[Function]}
-                perPage={10}
-                variant={null}
-              />
-            </ForwardRef>
-          </ToolbarContent>
-        </Toolbar>
-      </CardActions>
-    </CardHeader>
+              <ForwardRef
+                align={
+                  {
+                    "default": "alignRight",
+                  }
+                }
+                aria-hidden={true}
+                className="curiosity-toolbar__group transparent"
+              >
+                <Pagination
+                  dropDirection="down"
+                  isCompact={true}
+                  isDisabled={false}
+                  itemCount={0}
+                  offset={0}
+                  onPage={[Function]}
+                  onPerPage={[Function]}
+                  perPage={10}
+                  variant={null}
+                />
+              </ForwardRef>
+            </ToolbarContent>
+          </Toolbar>,
+          "className": "curiosity-card__actions",
+        }
+      }
+      aria-hidden={false}
+      className="curiosity-card__header "
+    />
   </MinHeight>
   <MinHeight
     isOnLoad={false}
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className=""
       >
@@ -234,7 +246,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   >
     <CardFooter
       aria-hidden={true}
-      className="transparent"
+      className="curiosity-card__footer transparent"
     >
       <TableToolbar
         isFooter={true}
@@ -258,7 +270,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 
 exports[`InventoryCard Component should handle multiple display states, error, pending, fulfilled: pending 1`] = `
 <Card
-  className="curiosity-inventory-card"
+  className="curiosity-card curiosity-inventory-card"
 >
   <MinHeight
     isOnLoad={false}
@@ -266,49 +278,55 @@ exports[`InventoryCard Component should handle multiple display states, error, p
     useResizeObserver={[Function]}
   >
     <CardHeader
-      aria-hidden={false}
-      className=""
-    >
-      <CardActions>
-        <Toolbar
-          collapseListedFiltersBreakpoint="sm"
-        >
-          <ToolbarContent
-            isExpanded={false}
-            showClearFiltersButton={false}
+      actions={
+        {
+          "actions": <Toolbar
+            className="curiosity-toolbar"
+            collapseListedFiltersBreakpoint="sm"
           >
-            <ForwardRef
-              alignment={
-                {
-                  "default": "alignRight",
-                }
-              }
-              aria-hidden={true}
-              className="transparent"
+            <ToolbarContent
+              className="curiosity-toolbar__content"
+              isExpanded={false}
+              showClearFiltersButton={false}
             >
-              <Pagination
-                dropDirection="down"
-                isCompact={true}
-                isDisabled={true}
-                itemCount={0}
-                offset={0}
-                onPage={[Function]}
-                onPerPage={[Function]}
-                perPage={10}
-                variant={null}
-              />
-            </ForwardRef>
-          </ToolbarContent>
-        </Toolbar>
-      </CardActions>
-    </CardHeader>
+              <ForwardRef
+                align={
+                  {
+                    "default": "alignRight",
+                  }
+                }
+                aria-hidden={true}
+                className="curiosity-toolbar__group transparent"
+              >
+                <Pagination
+                  dropDirection="down"
+                  isCompact={true}
+                  isDisabled={true}
+                  itemCount={0}
+                  offset={0}
+                  onPage={[Function]}
+                  onPerPage={[Function]}
+                  perPage={10}
+                  variant={null}
+                />
+              </ForwardRef>
+            </ToolbarContent>
+          </Toolbar>,
+          "className": "curiosity-card__actions",
+        }
+      }
+      aria-hidden={false}
+      className="curiosity-card__header "
+    />
   </MinHeight>
   <MinHeight
     isOnLoad={false}
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className="fadein"
       >
@@ -342,7 +360,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
   >
     <CardFooter
       aria-hidden={true}
-      className="transparent"
+      className="curiosity-card__footer transparent"
     >
       <TableToolbar
         isFooter={true}
@@ -366,7 +384,7 @@ exports[`InventoryCard Component should handle multiple display states, error, p
 
 exports[`InventoryCard Component should render a basic component: basic render 1`] = `
 <Card
-  className="curiosity-inventory-card"
+  className="curiosity-card curiosity-inventory-card"
 >
   <MinHeight
     isOnLoad={false}
@@ -374,49 +392,55 @@ exports[`InventoryCard Component should render a basic component: basic render 1
     useResizeObserver={[Function]}
   >
     <CardHeader
-      aria-hidden={false}
-      className=""
-    >
-      <CardActions>
-        <Toolbar
-          collapseListedFiltersBreakpoint="sm"
-        >
-          <ToolbarContent
-            isExpanded={false}
-            showClearFiltersButton={false}
+      actions={
+        {
+          "actions": <Toolbar
+            className="curiosity-toolbar"
+            collapseListedFiltersBreakpoint="sm"
           >
-            <ForwardRef
-              alignment={
-                {
-                  "default": "alignRight",
-                }
-              }
-              aria-hidden={true}
-              className="transparent"
+            <ToolbarContent
+              className="curiosity-toolbar__content"
+              isExpanded={false}
+              showClearFiltersButton={false}
             >
-              <Pagination
-                dropDirection="down"
-                isCompact={true}
-                isDisabled={true}
-                itemCount={0}
-                offset={0}
-                onPage={[Function]}
-                onPerPage={[Function]}
-                perPage={10}
-                variant={null}
-              />
-            </ForwardRef>
-          </ToolbarContent>
-        </Toolbar>
-      </CardActions>
-    </CardHeader>
+              <ForwardRef
+                align={
+                  {
+                    "default": "alignRight",
+                  }
+                }
+                aria-hidden={true}
+                className="curiosity-toolbar__group transparent"
+              >
+                <Pagination
+                  dropDirection="down"
+                  isCompact={true}
+                  isDisabled={true}
+                  itemCount={0}
+                  offset={0}
+                  onPage={[Function]}
+                  onPerPage={[Function]}
+                  perPage={10}
+                  variant={null}
+                />
+              </ForwardRef>
+            </ToolbarContent>
+          </Toolbar>,
+          "className": "curiosity-card__actions",
+        }
+      }
+      aria-hidden={false}
+      className="curiosity-card__header "
+    />
   </MinHeight>
   <MinHeight
     isOnLoad={false}
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className="fadein"
       >
@@ -450,7 +474,7 @@ exports[`InventoryCard Component should render a basic component: basic render 1
   >
     <CardFooter
       aria-hidden={true}
-      className="transparent"
+      className="curiosity-card__footer transparent"
     >
       <TableToolbar
         isFooter={true}

@@ -1,0 +1,20 @@
+.curiosity {
+  &-card {
+    background-color: var(--pf-global--BackgroundColor--100);
+
+    &__selected {
+      .curiosity-card__title {}
+    }
+
+    &__header {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 1em;
+    }
+
+    &__title {
+      flex-grow: 1;
+      padding: 0;
+    }
+  }
+}

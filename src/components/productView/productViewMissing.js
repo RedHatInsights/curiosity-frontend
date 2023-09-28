@@ -60,6 +60,9 @@ const ProductViewMissing = ({
         <Gallery hasGutter>
           {availableProducts?.map(({ productGroup, productId, productPath }) => (
             <Card
+              className={`curiosity-card ${
+                (firstMatch.productPath === productPath && 'curiosity-card__selected') || ''
+              }`}
               key={`missingViewCard-${productId}-${helpers.generateId()}`}
               isSelectable
               isSelected={firstMatch.productPath === productPath}

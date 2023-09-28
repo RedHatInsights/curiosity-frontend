@@ -54,13 +54,13 @@ describe('Table Component', () => {
 
     const component = renderComponent(<Table {...props} />);
     expect(component).toMatchSnapshot('expandable content');
-    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('no expanded row');
+    expect(component.find('tr.pf-v5-c-table__expandable-row')).toMatchSnapshot('no expanded row');
 
-    const input = component.find('td.pf-c-table__toggle button');
+    const input = component.find('td.pf-v5-c-table__toggle button');
     component.fireEvent.click(input);
 
     expect(mockOnExpand.mock.calls).toMatchSnapshot('expand row event');
-    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('expanded row');
+    expect(component.find('tr.pf-v5-c-table__expandable-row')).toMatchSnapshot('expanded row');
   });
 
   it('should allow expandable cell content', () => {
@@ -74,13 +74,13 @@ describe('Table Component', () => {
     };
 
     const component = renderComponent(<Table {...props} />);
-    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('no expanded cell');
+    expect(component.find('tr.pf-v5-c-table__expandable-row')).toMatchSnapshot('no expanded cell');
 
     const input = component.find('button');
     component.fireEvent.click(input);
 
     expect(mockOnExpand.mock.calls).toMatchSnapshot('expand cell event');
-    expect(component.find('tr.pf-c-table__expandable-row')).toMatchSnapshot('expanded cell');
+    expect(component.find('tr.pf-v5-c-table__expandable-row')).toMatchSnapshot('expanded cell');
   });
 
   it('should allow sortable content', () => {
@@ -95,7 +95,7 @@ describe('Table Component', () => {
     const component = renderComponent(<Table {...props} />);
     expect(component.find('table')).toMatchSnapshot('sortable content');
 
-    const input = component.find('th button.pf-c-table__button');
+    const input = component.find('th button.pf-v5-c-table__button');
     component.fireEvent.click(input);
 
     expect(mockSort).toHaveBeenCalledTimes(1);

@@ -20,25 +20,25 @@ exports[`BannerMessages Component should handle closing messages from state: sta
     <ul
       aria-atomic="false"
       aria-live="polite"
-      class="pf-c-alert-group"
+      class="pf-v5-c-alert-group"
+      role="list"
     >
       <li>
         <div
-          aria-label="Info Alert"
-          class="pf-c-alert pf-m-inline pf-m-info"
+          class="pf-v5-c-alert pf-m-inline pf-m-info"
           data-ouia-component-id="OUIA-Generated-Alert-info-1"
-          data-ouia-component-type="PF4/Alert"
+          data-ouia-component-type="PF5/Alert"
           data-ouia-safe="true"
         >
           <div
-            class="pf-c-alert__icon"
+            class="pf-v5-c-alert__icon"
           >
             <svg
               aria-hidden="true"
+              class="pf-v5-svg"
               fill="currentColor"
               height="1em"
               role="img"
-              style="vertical-align: -0.125em;"
               viewBox="0 0 512 512"
               width="1em"
             >
@@ -48,33 +48,33 @@ exports[`BannerMessages Component should handle closing messages from state: sta
             </svg>
           </div>
           <h4
-            class="pf-c-alert__title"
+            class="pf-v5-c-alert__title"
           >
             <span
-              class="pf-u-screen-reader"
+              class="pf-v5-u-screen-reader"
             >
               Info alert:
             </span>
             Lorem ipsum title
           </h4>
           <div
-            class="pf-c-alert__action"
+            class="pf-v5-c-alert__action"
           >
             <button
               aria-disabled="false"
               aria-label="Close Info alert: alert: Lorem ipsum title"
-              class="pf-c-button pf-m-plain"
+              class="pf-v5-c-button pf-m-plain"
               data-ouia-component-id="OUIA-Generated-Button-plain-1"
-              data-ouia-component-type="PF4/Button"
+              data-ouia-component-type="PF5/Button"
               data-ouia-safe="true"
               type="button"
             >
               <svg
                 aria-hidden="true"
+                class="pf-v5-svg"
                 fill="currentColor"
                 height="1em"
                 role="img"
-                style="vertical-align: -0.125em;"
                 viewBox="0 0 352 512"
                 width="1em"
               >
@@ -85,7 +85,7 @@ exports[`BannerMessages Component should handle closing messages from state: sta
             </button>
           </div>
           <div
-            class="pf-c-alert__description"
+            class="pf-v5-c-alert__description"
           >
             Lorem ipsum message
           </div>

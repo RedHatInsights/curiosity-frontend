@@ -9,18 +9,13 @@ exports[`Toolbar Component should handle displaying a group variant field: group
   id="curiosity-toolbar"
 >
   <ToolbarContent
+    className="curiosity-toolbar__content"
     isExpanded={false}
     showClearFiltersButton={false}
   >
     <ToolbarToggleGroup
       breakpoint="md"
-      toggleIcon={
-        <FilterIcon
-          color="currentColor"
-          noVerticalAlign={false}
-          size="sm"
-        />
-      }
+      toggleIcon={<FilterIcon />}
     >
       <ForwardRef
         variant="filter-group"
@@ -44,7 +39,7 @@ exports[`Toolbar Component should handle displaying a group variant field: group
     </ToolbarToggleGroup>
     <ForwardRef />
     <ForwardRef
-      alignment={
+      align={
         {
           "default": "alignRight",
         }
@@ -90,18 +85,13 @@ exports[`Toolbar Component should handle displaying secondary components, fields
     useToolbarFieldOptions={[Function]}
   />
   <ToolbarContent
+    className="curiosity-toolbar__content"
     isExpanded={false}
     showClearFiltersButton={false}
   >
     <ToolbarToggleGroup
       breakpoint="md"
-      toggleIcon={
-        <FilterIcon
-          color="currentColor"
-          noVerticalAlign={false}
-          size="sm"
-        />
-      }
+      toggleIcon={<FilterIcon />}
     >
       <ForwardRef
         variant="filter-group"
@@ -125,7 +115,7 @@ exports[`Toolbar Component should handle displaying secondary components, fields
     </ToolbarToggleGroup>
     <ForwardRef />
     <ForwardRef
-      alignment={
+      align={
         {
           "default": "alignRight",
         }
@@ -141,42 +131,50 @@ exports[`Toolbar Component should handle displaying secondary components, fields
 
 exports[`Toolbar Component should handle updating toolbar chips: chips 1`] = `
 <div
-  class="pf-c-chip"
+  class="pf-v5-c-chip"
   data-ouia-component-id="OUIA-Generated-Chip-1"
-  data-ouia-component-type="PF4/Chip"
+  data-ouia-component-type="PF5/Chip"
   data-ouia-safe="true"
 >
   <span
-    class="pf-c-chip__text"
-    id="pf-random-id-2"
+    class="pf-v5-c-chip__content"
   >
-    t(curiosity-toolbar.label_sla, {"context":"Premium"})
-  </span>
-  <button
-    aria-disabled="false"
-    aria-label="close"
-    aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
-    class="pf-c-button pf-m-plain"
-    data-ouia-component-id="close"
-    data-ouia-component-type="PF4/Button"
-    data-ouia-safe="true"
-    id="remove_pf-random-id-2"
-    type="button"
-  >
-    <svg
-      aria-hidden="true"
-      fill="currentColor"
-      height="1em"
-      role="img"
-      style="vertical-align: -0.125em;"
-      viewBox="0 0 352 512"
-      width="1em"
+    <span
+      class="pf-v5-c-chip__text"
+      id="pf-random-id-2"
     >
-      <path
-        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-      />
-    </svg>
-  </button>
+      t(curiosity-toolbar.label_sla, {"context":"Premium"})
+    </span>
+  </span>
+  <span
+    class="pf-v5-c-chip__actions"
+  >
+    <button
+      aria-disabled="false"
+      aria-label="close"
+      aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
+      class="pf-v5-c-button pf-m-plain"
+      data-ouia-component-id="close"
+      data-ouia-component-type="PF5/Button"
+      data-ouia-safe="true"
+      id="remove_pf-random-id-2"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="pf-v5-svg"
+        fill="currentColor"
+        height="1em"
+        role="img"
+        viewBox="0 0 352 512"
+        width="1em"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+        />
+      </svg>
+    </button>
+  </span>
 </div>
 `;
 
@@ -201,18 +199,13 @@ exports[`Toolbar Component should hide categories when a single filter is availa
     useToolbarFieldOptions={[Function]}
   />
   <ToolbarContent
+    className="curiosity-toolbar__content"
     isExpanded={false}
     showClearFiltersButton={false}
   >
     <ToolbarToggleGroup
       breakpoint="md"
-      toggleIcon={
-        <FilterIcon
-          color="currentColor"
-          noVerticalAlign={false}
-          size="sm"
-        />
-      }
+      toggleIcon={<FilterIcon />}
     >
       <ForwardRef
         variant="filter-group"
@@ -236,7 +229,7 @@ exports[`Toolbar Component should hide categories when a single filter is availa
     </ToolbarToggleGroup>
     <ForwardRef />
     <ForwardRef
-      alignment={
+      align={
         {
           "default": "alignRight",
         }
@@ -265,18 +258,13 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
     useToolbarFieldOptions={[Function]}
   />
   <ToolbarContent
+    className="curiosity-toolbar__content"
     isExpanded={false}
     showClearFiltersButton={false}
   >
     <ToolbarToggleGroup
       breakpoint="md"
-      toggleIcon={
-        <FilterIcon
-          color="currentColor"
-          noVerticalAlign={false}
-          size="sm"
-        />
-      }
+      toggleIcon={<FilterIcon />}
     >
       <ForwardRef
         variant="filter-group"
@@ -322,7 +310,7 @@ exports[`Toolbar Component should render a basic component: basic 1`] = `
     </ToolbarToggleGroup>
     <ForwardRef />
     <ForwardRef
-      alignment={
+      align={
         {
           "default": "alignRight",
         }
@@ -366,18 +354,13 @@ exports[`Toolbar Component should return an empty render, or variant filter, whe
     useToolbarFieldOptions={[Function]}
   />
   <ToolbarContent
+    className="curiosity-toolbar__content"
     isExpanded={false}
     showClearFiltersButton={false}
   >
     <ToolbarToggleGroup
       breakpoint="md"
-      toggleIcon={
-        <FilterIcon
-          color="currentColor"
-          noVerticalAlign={false}
-          size="sm"
-        />
-      }
+      toggleIcon={<FilterIcon />}
     >
       <ForwardRef
         variant="filter-group"
@@ -385,7 +368,7 @@ exports[`Toolbar Component should return an empty render, or variant filter, whe
     </ToolbarToggleGroup>
     <ForwardRef />
     <ForwardRef
-      alignment={
+      align={
         {
           "default": "alignRight",
         }

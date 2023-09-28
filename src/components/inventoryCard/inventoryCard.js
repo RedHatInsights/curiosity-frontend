@@ -4,7 +4,6 @@ import { TableVariant } from '@patternfly/react-table';
 import {
   Bullseye,
   Card,
-  CardActions,
   CardBody,
   CardFooter,
   CardHeader,
@@ -94,40 +93,45 @@ const InventoryCard = ({
   });
 
   return (
-    <Card className="curiosity-inventory-card">
+    <Card className="curiosity-card curiosity-inventory-card">
       <MinHeight key="headerMinHeight">
-        <CardHeader className={(error && 'hidden') || ''} aria-hidden={error || false}>
-          <CardActions>
-            <Toolbar collapseListedFiltersBreakpoint="sm">
-              <ToolbarContent>
-                {updatedActionDisplay && (
-                  <ToolbarGroup key="inventory-actions" alignment={{ default: 'alignLeft' }}>
-                    {updatedActionDisplay}
+        <CardHeader
+          className={`curiosity-card__header ${(error && 'hidden') || ''}`}
+          aria-hidden={error || false}
+          actions={{
+            className: 'curiosity-card__actions',
+            actions: (
+              <Toolbar className="curiosity-toolbar" collapseListedFiltersBreakpoint="sm">
+                <ToolbarContent className="curiosity-toolbar__content">
+                  {updatedActionDisplay && (
+                    <ToolbarGroup key="inventory-actions" align={{ default: 'alignLeft' }}>
+                      {updatedActionDisplay}
+                    </ToolbarGroup>
+                  )}
+                  <ToolbarGroup
+                    key="inventory-paging"
+                    align={{ default: 'alignRight' }}
+                    className={`curiosity-toolbar__group ${(!resultsCount && 'transparent') || ''}`}
+                    aria-hidden={!resultsCount || false}
+                  >
+                    <Pagination
+                      isCompact
+                      isDisabled={pending || error}
+                      itemCount={resultsCount}
+                      offset={resultsOffset}
+                      onPage={onPage}
+                      onPerPage={onPage}
+                      perPage={resultsPerPage}
+                    />
                   </ToolbarGroup>
-                )}
-                <ToolbarGroup
-                  key="inventory-paging"
-                  alignment={{ default: 'alignRight' }}
-                  className={(!resultsCount && 'transparent') || ''}
-                  aria-hidden={!resultsCount || false}
-                >
-                  <Pagination
-                    isCompact
-                    isDisabled={pending || error}
-                    itemCount={resultsCount}
-                    offset={resultsOffset}
-                    onPage={onPage}
-                    onPerPage={onPage}
-                    perPage={resultsPerPage}
-                  />
-                </ToolbarGroup>
-              </ToolbarContent>
-            </Toolbar>
-          </CardActions>
-        </CardHeader>
+                </ToolbarContent>
+              </Toolbar>
+            )
+          }}
+        />
       </MinHeight>
       <MinHeight key="bodyMinHeight">
-        <CardBody>
+        <CardBody className="curiosity-card__body">
           <div className={(error && 'blur') || (pending && 'fadein') || ''}>
             {pending && (
               <Loader
@@ -169,7 +173,7 @@ const InventoryCard = ({
       </MinHeight>
       <MinHeight key="footerMinHeight">
         <CardFooter
-          className={(error && 'hidden') || (!resultsCount && 'transparent') || ''}
+          className={`curiosity-card__footer ${(error && 'hidden') || (!resultsCount && 'transparent') || ''}`}
           aria-hidden={error || !resultsCount || false}
         >
           <TableToolbar isFooter>

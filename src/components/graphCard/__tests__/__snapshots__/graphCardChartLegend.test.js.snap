@@ -59,15 +59,14 @@ exports[`GraphCardChartLegend Component should render a basic component: basic 1
         t(curiosity-graph.legendTooltip_loremIpsum, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
       </p>
     }
-    distance={5}
     enableFlip={true}
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+      className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
-        className="curiosity-usage-graph__legend-item"
+        className="curiosity-graph__legend-item curiosity-usage-graph__legend-item"
         component="a"
         icon={
           <ChartIcon
@@ -103,15 +102,14 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.legendTooltip_loremIpsum, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
       </p>
     }
-    distance={5}
     enableFlip={true}
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+      className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
-        className="curiosity-usage-graph__legend-item"
+        className="curiosity-graph__legend-item curiosity-usage-graph__legend-item"
         component="a"
         icon={
           <ChartIcon
@@ -142,15 +140,14 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.legendTooltip_ametConsectetur, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
       </p>
     }
-    distance={5}
     enableFlip={true}
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+      className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
-        className="curiosity-usage-graph__legend-item"
+        className="curiosity-graph__legend-item curiosity-usage-graph__legend-item"
         component="a"
         icon={
           <ChartIcon
@@ -176,15 +173,14 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.legendTooltip_threshold_dolorSit, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
       </p>
     }
-    distance={5}
     enableFlip={true}
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+      className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
-        className="curiosity-usage-graph__legend-item"
+        className="curiosity-graph__legend-item curiosity-usage-graph__legend-item"
         component="a"
         icon={
           <ChartIcon
@@ -215,15 +211,14 @@ exports[`GraphCardChartLegend Component should render basic data: data 1`] = `
         t(curiosity-graph.legendTooltip_threshold_nonCursus, {"product":"mock-product-label","context":"mock-product-id"}, [object Object])
       </p>
     }
-    distance={5}
     enableFlip={true}
     position="top"
   >
     <span
-      className="pf-c-button pf-m-link curiosity-usage-graph__legend-item-wrapper"
+      className="pf-c-button pf-m-link curiosity-graph__legend-item-wrapper curiosity-usage-graph__legend-item-wrapper"
     >
       <Button
-        className="curiosity-usage-graph__legend-item"
+        className="curiosity-graph__legend-item curiosity-usage-graph__legend-item"
         component="a"
         icon={
           <ChartIcon

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SelectVariant } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 import {
   ButtonVariant,
@@ -9,7 +8,8 @@ import {
   formatSelectProps,
   SelectDirection,
   SelectPosition,
-  SplitButtonVariant
+  SplitButtonVariant,
+  SelectVariant
 } from '../select';
 import { helpers } from '../../../common';
 
@@ -145,7 +145,7 @@ describe('Select Component', () => {
     const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
     component.fireEvent.click(firstButton, mockEvent);
 
-    const anotherButton = component.find('ul.pf-c-select__menu button');
+    const anotherButton = component.find('ul.pf-v5-c-select__menu button');
     component.fireEvent.click(anotherButton, mockEvent);
 
     expect(mockOnSelect).toHaveBeenCalledTimes(1);
@@ -167,12 +167,12 @@ describe('Select Component', () => {
     const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
     component.fireEvent.click(firstButton, mockEvent);
 
-    const firstCheckbox = component.find('ul.pf-c-select__menu input.pf-c-check__input');
+    const firstCheckbox = component.find('ul.pf-v5-c-select__menu input.pf-v5-c-check__input');
     component.fireEvent.click(firstCheckbox, { target: { checked: true } });
 
     expect(mockOnSelect).toHaveBeenCalledTimes(1);
 
-    const secondCheckbox = component.querySelectorAll('ul.pf-c-select__menu input.pf-c-check__input')?.[1];
+    const secondCheckbox = component.querySelectorAll('ul.pf-v5-c-select__menu input.pf-v5-c-check__input')?.[1];
     component.fireEvent.click(secondCheckbox, { target: { checked: true } });
 
     expect(mockOnSelect).toHaveBeenCalledTimes(2);
@@ -190,7 +190,7 @@ describe('Select Component', () => {
     const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
     component.fireEvent.click(firstButton, mockEvent);
 
-    expect(component.find('ul.pf-c-select__menu')).toMatchSnapshot('expanded');
+    expect(component.find('ul.pf-v5-c-select__menu')).toMatchSnapshot('expanded');
   });
 
   it('should disable toggle text', () => {

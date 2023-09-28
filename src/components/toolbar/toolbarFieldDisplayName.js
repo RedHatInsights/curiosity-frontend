@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputGroup } from '@patternfly/react-core';
+import { InputGroup, InputGroupItem } from '@patternfly/react-core';
+import { SearchIcon } from '@patternfly/react-icons';
 import _debounce from 'lodash/debounce';
 import { reduxTypes, storeHooks } from '../../redux';
 import { useProduct, useProductInventoryHostsQuery } from '../productView/productViewContext';
@@ -111,17 +112,19 @@ const ToolbarFieldDisplayName = ({
 
   return (
     <InputGroup>
-      <TextInput
-        aria-label={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
-        className="curiosity-input__display-name"
-        iconVariant="search"
-        maxLength={255}
-        onClear={onClear}
-        onKeyUp={onKeyUp}
-        value={currentValue}
-        placeholder={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
-        data-test="toolbarFieldDisplayName"
-      />
+      <InputGroupItem>
+        <TextInput
+          customIcon={<SearchIcon />}
+          aria-label={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
+          className="curiosity-input__display-name"
+          maxLength={255}
+          onClear={onClear}
+          onKeyUp={onKeyUp}
+          value={currentValue}
+          placeholder={t('curiosity-toolbar.placeholder_filter', { context: 'displayName' })}
+          data-test="toolbarFieldDisplayName"
+        />
+      </InputGroupItem>
     </InputGroup>
   );
 };

@@ -51,7 +51,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
           <PageToolbar>
             <Toolbar />
           </PageToolbar>
-          <PageSection>
+          <PageSection className="curiosity-page-section__graphs">
             <GraphCard />
           </PageSection>
           <PageSection className="curiosity-page-section__tabs">
