@@ -6,15 +6,9 @@
     .curiosity-card {
       &__header {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
-        // flex-wrap: wrap;
-        // justify-content: space-between;
-        // padding-bottom: 1em;
       }
 
-      &__title {
-        // flex-grow: 1;
-        // padding: 0;
-      }
+      &__title {}
     }
   }
 
@@ -180,28 +174,6 @@
       margin-top: -20px;
     }
   }
-
-  /*
-  &__icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-
-    &-dash {
-      vertical-align: middle;
-
-      > span {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-
-        > svg {}
-      }
-    }
-
-    &-threshold {}
-  }
-  */
 
   &__tooltip {
     &-container {

@@ -4,36 +4,18 @@
    * This is related to responsive table headers on browser widths below 800px. Remove this
    * block once PF has a fix exposed via the platform.
    */
-  tr.pf-v5-c-table__expandable-row.pf-v5-m-expanded > td:before {
-    content: '';
-  }
+  // tr.pf-v5-c-table__expandable-row.pf-v5-m-expanded > td:before {
+  //  content: '';
+  // }
 
   .curiosity-table__td-expand-expanded.curiosity-table__td-expand-wrapper {
-    // tr.pf-v5-c-table__expandable-row.pf-v5-m-expanded > td {
     padding: 0;
-    padding-bottom: var(--pf-v5-c-table--m-compact-th--PaddingBottom);
-
-    // > table thead tr {
-    // border-width: 0;
-    // }
-  }
-
-  /**
-   * FixMe: PF CSS, appears nested tables within expandable tables can't have borders disabled?
-   * Also appears expandable tables can't have borders removed. Remove this block once PF has a fix.
-   */
-  table.curiosity-table-no-border,
-  table.curiosity-table-no-border > thead > tr,
-  table.curiosity-table-no-border > tbody > tr,
-  table.pf-v5-m-no-border-rows,
-  table.pf-v5-m-no-border-rows > thead > tr,
-  table.pf-v5-m-no-border-rows > tbody > tr {
-    border-width: 0
   }
 
   .curiosity-table {
-    @media (min-width: $pf-v5-global--breakpoint--md) {
-      &__td.pf-v5-m-width {
+    @media (min-width: $pf-global--breakpoint--md) {
+      // Class defined in "components/table/tableHelpers.js"
+      &__td.pf-m-width {
         @for $tdWidth from 0 through 100 {
           &-#{$tdWidth} {
             width: percentage(div($tdWidth, 100));
@@ -50,7 +32,7 @@
 
   .curiosity-table-scroll-loader__custom,
   .curiosity-table-scroll-loader__spinner {
-    background: var(--pf-v5-global--BackgroundColor--100);
+    background: var(--pf-global--BackgroundColor--100);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -79,7 +61,7 @@
     overflow-y: hidden;
     padding-bottom: inherit;
 
-    @media (max-width: $pf-v5-global--breakpoint--md) {
+    @media (max-width: $pf-global--breakpoint--md) {
       overflow-y: auto;
     }
   }

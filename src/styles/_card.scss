@@ -3,15 +3,7 @@
     background-color: var(--pf-global--BackgroundColor--100);
 
     &__selected {
-      // :before {
-      // border-top-width: 1em !important;
-      // border-top-color: red !important;
-      // content: ''
-      // }
-
-      .curiosity-card__title {
-        // box-shadow: var(--pf-c-card--m-selectable--m-selected--BoxShadow) !important;
-      }
+      .curiosity-card__title {}
     }
 
     &__header {

@@ -3,17 +3,13 @@
     &-container {
       background-color: var(--pf-global--BackgroundColor--100);
       min-height: 775px;
-
-      // section.pf-v5-c-tab-content:focus {
-      //  outline: none;
-      // }
     }
 
     &__no-scroll {
-      // @extend .curiosity-tabs;
-      // > .pf-v5-c-tabs__scroll-button {
-      //   display: none;
-      // }
+      @extend .curiosity-tabs;
+      > .pf-v5-c-tabs__scroll-button {
+        display: none;
+      }
     }
   }
 }
