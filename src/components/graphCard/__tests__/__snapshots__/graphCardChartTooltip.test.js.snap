@@ -8,7 +8,7 @@ exports[`GraphCardChartTooltip Component should render a basic component: basic 
 }"
 >
   <div
-    class="curiosity-usage-graph__tooltip"
+    class="curiosity-graph__tooltip curiosity-usage-graph__tooltip"
   >
     <table
       summary="t(curiosity-graph.tooltipSummary)"
@@ -46,7 +46,7 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
 }"
 >
   <div
-    class="curiosity-usage-graph__tooltip"
+    class="curiosity-graph__tooltip curiosity-usage-graph__tooltip"
   >
     <table
       summary="t(curiosity-graph.tooltipSummary)"
@@ -68,10 +68,11 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             >
               <svg
                 aria-hidden="true"
-                fill="transparent"
+                class="pf-v5-svg"
+                color="transparent"
+                fill="currentColor"
                 height="1em"
                 role="img"
-                style="vertical-align: -0.125em;"
                 viewBox="0 0 448 512"
                 width="1em"
               >
@@ -94,10 +95,11 @@ exports[`GraphCardChartTooltip Component should render basic data: data 1`] = `
             >
               <svg
                 aria-hidden="true"
-                fill="#ffffff"
+                class="pf-v5-svg"
+                color="#ffffff"
+                fill="currentColor"
                 height="1em"
                 role="img"
-                style="vertical-align: -0.125em;"
                 viewBox="0 0 448 512"
                 width="1em"
               >

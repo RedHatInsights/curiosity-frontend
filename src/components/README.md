@@ -349,10 +349,17 @@ Banner alert messages for a product view.
 
 
 * [BannerMessages](#Components.module_BannerMessages)
+    * [~BannerMessageVariant](#Components.module_BannerMessages..BannerMessageVariant) : <code>Object</code>
     * [~BannerMessages(props)](#Components.module_BannerMessages..BannerMessages) ⇒ <code>React.ReactNode</code>
         * [.propTypes](#Components.module_BannerMessages..BannerMessages.propTypes) : <code>Object</code>
         * [.defaultProps](#Components.module_BannerMessages..BannerMessages.defaultProps) : <code>Object</code>
 
+<a name="Components.module_BannerMessages..BannerMessageVariant"></a>
+
+### BannerMessages~BannerMessageVariant : <code>Object</code>
+Banner message variants.
+
+**Kind**: inner constant of [<code>BannerMessages</code>](#Components.module_BannerMessages)  
 <a name="Components.module_BannerMessages..BannerMessages"></a>
 
 ### BannerMessages~BannerMessages(props) ⇒ <code>React.ReactNode</code>
@@ -976,11 +983,18 @@ Generate x,y props.
 ## ChartIcon
 
 * [ChartIcon](#Chart.module_ChartIcon)
+    * [~IconSize](#Chart.module_ChartIcon..IconSize) : <code>Object</code>
     * [~getSize(size)](#Chart.module_ChartIcon..getSize) ⇒ <code>string</code>
     * [~ChartIcon(props)](#Chart.module_ChartIcon..ChartIcon) ⇒ <code>React.ReactNode</code>
         * [.propTypes](#Chart.module_ChartIcon..ChartIcon.propTypes) : <code>Object</code>
         * [.defaultProps](#Chart.module_ChartIcon..ChartIcon.defaultProps) : <code>Object</code>
 
+<a name="Chart.module_ChartIcon..IconSize"></a>
+
+### ChartIcon~IconSize : <code>Object</code>
+Consistent icon sizing.
+
+**Kind**: inner constant of [<code>ChartIcon</code>](#Chart.module_ChartIcon)  
 <a name="Chart.module_ChartIcon..getSize"></a>
 
 ### ChartIcon~getSize(size) ⇒ <code>string</code>
@@ -1353,6 +1367,7 @@ A bundled wrapper for PF Select, Dropdown.
     * [~SelectButtonVariant](#Form.module_Select..SelectButtonVariant) : <code>Object</code>
     * [~SelectDirection](#Form.module_Select..SelectDirection) : <code>Object</code>
     * [~SelectPosition](#Form.module_Select..SelectPosition) : <code>Object</code>
+    * [~SelectVariant](#Form.module_Select..SelectVariant) : <code>Object</code>
     * [~formatSelectProps](#Form.module_Select..formatSelectProps) ⇒ <code>Object</code>
     * [~formatButtonProps](#Form.module_Select..formatButtonProps) ⇒ <code>\*</code>
     * [~formatOptions(params)](#Form.module_Select..formatOptions) ⇒ <code>Object</code>
@@ -1396,6 +1411,12 @@ Pass direction as select component variant option.
 
 ### Select~SelectPosition : <code>Object</code>
 Pass position as select component variant option.
+
+**Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
+<a name="Form.module_Select..SelectVariant"></a>
+
+### Select~SelectVariant : <code>Object</code>
+Pass select variants as a select component variant option.
 
 **Kind**: inner constant of [<code>Select</code>](#Form.module_Select)  
 <a name="Form.module_Select..formatSelectProps"></a>
@@ -1669,7 +1690,7 @@ Text input with state.
             * [.defaultProps](#Form.module_TextInput..TextInput.defaultProps) : <code>Object</code>
     * ["onKeyUp" (event)](#event_onKeyUp)
     * ["onMouseUp" (event)](#event_onMouseUp)
-    * ["onChange" (value, event)](#event_onChange)
+    * ["onChange" (event, value)](#event_onChange)
 
 <a name="Form.module_TextInput..TextInput"></a>
 
@@ -1744,7 +1765,7 @@ onMouseUp event, provide additional functionality for onClear event.
 
 <a name="event_onChange"></a>
 
-### "onChange" (value, event)
+### "onChange" (event, value)
 onChange event, provide restructured event.
 
 **Kind**: event emitted by [<code>TextInput</code>](#Form.module_TextInput)  
@@ -1756,9 +1777,9 @@ onChange event, provide restructured event.
   </thead>
   <tbody>
 <tr>
-    <td>value</td><td><code>string</code></td>
-    </tr><tr>
     <td>event</td><td><code>object</code></td>
+    </tr><tr>
+    <td>value</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 

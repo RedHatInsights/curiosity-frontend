@@ -8,7 +8,7 @@ exports[`Tooltip Component should allow custom properties: custom, content 1`] =
       tooltip content
     </span>
   }
-  distance={5}
+  distance={15}
   enableFlip={false}
   entryDelay={100}
   exitDelay={0}
@@ -27,7 +27,7 @@ exports[`Tooltip Component should render a basic component: basic 1`] = `
     {}
   ],
   "content": "...",
-  "distance": 5,
+  "distance": 15,
   "enableFlip": false,
   "entryDelay": 100,
   "exitDelay": 0,
@@ -35,10 +35,14 @@ exports[`Tooltip Component should render a basic component: basic 1`] = `
   "position": "top"
 }"
 >
-  <span
-    class="curiosity-tooltip-children"
+  <div
+    style="display: contents;"
   >
-    hello world
-  </span>
+    <span
+      class="curiosity-tooltip-children"
+    >
+      hello world
+    </span>
+  </div>
 </tooltip>
 `;

@@ -4822,7 +4822,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Tooltip
                 content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                distance={5}
+                distance={15}
                 enableFlip={false}
                 entryDelay={100}
                 exitDelay={0}
@@ -4832,7 +4832,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
                   fill={null}
-                  size="sm"
+                  size="md"
                   symbol="infinity"
                   title={null}
                 />
@@ -5100,7 +5100,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Tooltip
                 content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                distance={5}
+                distance={15}
                 enableFlip={false}
                 entryDelay={100}
                 exitDelay={0}
@@ -5110,7 +5110,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
                   fill={null}
-                  size="sm"
+                  size="md"
                   symbol="infinity"
                   title={null}
                 />
@@ -5477,7 +5477,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Tooltip
                 content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                distance={5}
+                distance={15}
                 enableFlip={false}
                 entryDelay={100}
                 exitDelay={0}
@@ -5487,7 +5487,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
                   fill={null}
-                  size="sm"
+                  size="md"
                   symbol="infinity"
                   title={null}
                 />
@@ -5755,7 +5755,7 @@ exports[`Product specific configurations should apply variations in inventory fi
             {
               "content": <Tooltip
                 content="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
-                distance={5}
+                distance={15}
                 enableFlip={false}
                 entryDelay={100}
                 exitDelay={0}
@@ -5765,7 +5765,7 @@ exports[`Product specific configurations should apply variations in inventory fi
                 <ChartIcon
                   aria-label="t(curiosity-inventory.label_has_infinite_quantity, {"context":"cores"})"
                   fill={null}
-                  size="sm"
+                  size="md"
                   symbol="infinity"
                   title={null}
                 />

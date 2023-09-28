@@ -39,15 +39,15 @@ exports[`PageHeader Component should render string node types: string 1`] = `
     widget-type="InsightsPageHeader"
   >
     <div
-      class="pf-l-flex pf-m-justify-content-space-between-on-sm"
+      class="pf-v5-l-flex pf-m-justify-content-space-between-on-sm"
     >
       <div
         class=""
       >
         <h1
-          class="pf-c-title pf-m-2xl pf-u-mb-sm"
+          class="pf-v5-c-title pf-m-2xl pf-u-mb-sm"
           data-ouia-component-id="OUIA-Generated-Title-1"
-          data-ouia-component-type="PF4/Title"
+          data-ouia-component-type="PF5/Title"
           data-ouia-safe="true"
           widget-type="InsightsPageHeaderTitle"
         >
@@ -73,15 +73,15 @@ exports[`PageHeader Component should render the subtitle when viewId is provided
     widget-type="InsightsPageHeader"
   >
     <div
-      class="pf-l-flex pf-m-justify-content-space-between-on-sm"
+      class="pf-v5-l-flex pf-m-justify-content-space-between-on-sm"
     >
       <div
         class=""
       >
         <h1
-          class="pf-c-title pf-m-2xl pf-u-mb-sm"
+          class="pf-v5-c-title pf-m-2xl pf-u-mb-sm"
           data-ouia-component-id="OUIA-Generated-Title-2"
-          data-ouia-component-type="PF4/Title"
+          data-ouia-component-type="PF5/Title"
           data-ouia-safe="true"
           widget-type="InsightsPageHeaderTitle"
         >

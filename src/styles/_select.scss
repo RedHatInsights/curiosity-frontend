@@ -2,17 +2,19 @@
   position: relative;
 
   &-pf__no-toggle-text {
-    span.pf-c-select__toggle-arrow {
-      margin-left: var(--pf-c-select__toggle-arrow--MarginRight);
-    }
-
-    span.pf-c-select__toggle-text {
-      display: none;
+    > button {
+      div {
+        display: none;
+      }
+      span {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+      }
     }
   }
 
   &-pf__position-right {
-    > .pf-c-select__menu {
+    > button + ul {
       right: 0;
     }
   }

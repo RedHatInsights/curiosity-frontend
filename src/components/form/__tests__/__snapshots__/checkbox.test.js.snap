@@ -16,14 +16,14 @@ exports[`Checkbox Component should handle children as a label: children label ch
 }"
 >
   <div
-    class="pf-c-check"
+    class="pf-v5-c-check"
   >
     <input
       aria-invalid="false"
       aria-label="lorem ipsum"
-      class="pf-c-check__input"
+      class="pf-v5-c-check__input"
       data-ouia-component-id="OUIA-Generated-Checkbox-6"
-      data-ouia-component-type="PF4/Checkbox"
+      data-ouia-component-type="PF5/Checkbox"
       data-ouia-safe="true"
       id="generatedid-"
       name="generatedid-"
@@ -31,7 +31,7 @@ exports[`Checkbox Component should handle children as a label: children label ch
       value=""
     />
     <label
-      class="pf-c-check__label"
+      class="pf-v5-c-check__label"
       for="generatedid-"
     >
       lorem ipsum
@@ -44,9 +44,9 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: active 1`
 <input
   aria-invalid="false"
   aria-label=""
-  class="pf-c-check__input"
+  class="pf-v5-c-check__input"
   data-ouia-component-id="OUIA-Generated-Checkbox-4"
-  data-ouia-component-type="PF4/Checkbox"
+  data-ouia-component-type="PF5/Checkbox"
   data-ouia-safe="true"
   id="generatedid-"
   name="generatedid-"
@@ -60,9 +60,9 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: checked 1
   aria-invalid="false"
   aria-label=""
   checked=""
-  class="pf-c-check__input"
+  class="pf-v5-c-check__input"
   data-ouia-component-id="OUIA-Generated-Checkbox-5"
-  data-ouia-component-type="PF4/Checkbox"
+  data-ouia-component-type="PF5/Checkbox"
   data-ouia-safe="true"
   id="generatedid-"
   name="generatedid-"
@@ -75,9 +75,9 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: disabled 
 <input
   aria-invalid="false"
   aria-label=""
-  class="pf-c-check__input"
+  class="pf-v5-c-check__input"
   data-ouia-component-id="OUIA-Generated-Checkbox-3"
-  data-ouia-component-type="PF4/Checkbox"
+  data-ouia-component-type="PF5/Checkbox"
   data-ouia-safe="true"
   disabled=""
   id="generatedid-"
@@ -91,9 +91,9 @@ exports[`Checkbox Component should handle readOnly, disabled, checked: readOnly 
 <input
   aria-invalid="false"
   aria-label=""
-  class="pf-c-check__input"
+  class="pf-v5-c-check__input"
   data-ouia-component-id="OUIA-Generated-Checkbox-2"
-  data-ouia-component-type="PF4/Checkbox"
+  data-ouia-component-type="PF5/Checkbox"
   data-ouia-safe="true"
   id="generatedid-"
   name="generatedid-"
@@ -117,14 +117,14 @@ exports[`Checkbox Component should render a basic component: basic component 1`]
 }"
 >
   <div
-    class="pf-c-check pf-m-standalone"
+    class="pf-v5-c-check pf-m-standalone"
   >
     <input
       aria-invalid="false"
       aria-label=""
-      class="pf-c-check__input"
+      class="pf-v5-c-check__input"
       data-ouia-component-id="OUIA-Generated-Checkbox-1"
-      data-ouia-component-type="PF4/Checkbox"
+      data-ouia-component-type="PF5/Checkbox"
       data-ouia-safe="true"
       id="generatedid-"
       name="generatedid-"
@@ -143,9 +143,9 @@ exports[`Checkbox Component should return an emulated onChange event: emulated e
       "currentTarget": <input
         aria-invalid="false"
         aria-label="lorem ipsum"
-        class="pf-c-check__input"
+        class="pf-v5-c-check__input"
         data-ouia-component-id="OUIA-Generated-Checkbox-7"
-        data-ouia-component-type="PF4/Checkbox"
+        data-ouia-component-type="PF5/Checkbox"
         data-ouia-safe="true"
         id="generatedid-"
         name="generatedid-"
@@ -159,9 +159,9 @@ exports[`Checkbox Component should return an emulated onChange event: emulated e
       "target": <input
         aria-invalid="false"
         aria-label="lorem ipsum"
-        class="pf-c-check__input"
+        class="pf-v5-c-check__input"
         data-ouia-component-id="OUIA-Generated-Checkbox-7"
-        data-ouia-component-type="PF4/Checkbox"
+        data-ouia-component-type="PF5/Checkbox"
         data-ouia-safe="true"
         id="generatedid-"
         name="generatedid-"

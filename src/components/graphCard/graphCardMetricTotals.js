@@ -71,18 +71,20 @@ const GraphCardMetricTotals = ({
       <div
         data-test={`graphMetricTotals-${settings?.groupMetric?.map(metricId => _camelCase(metricId))?.join('-')}`}
         data-test-data={JSON.stringify(metricDisplayPassedData)}
-        className="curiosity-usage-graph__totals"
+        className="curiosity-graph__totals curiosity-usage-graph__totals"
       >
         <div>
-          <div className="curiosity-usage-graph__totals-column">
+          <div className="curiosity-graph__totals-column curiosity-usage-graph__totals-column">
             {settings?.cards?.map(({ key, header, body, footer }, index) => (
               <Card
                 key={key || helpers.generateHash({ metricDisplayPassedData, index })}
                 isPlain
                 data-test={`graphMetricTotalsCard-${index}`}
-                className={`curiosity-usage-graph__totals-column-card ${(error && 'blur') || ''}`}
+                className={`curiosity-graph__totals-column-card curiosity-usage-graph__totals-column-card ${
+                  (error && 'blur') || ''
+                }`}
               >
-                <CardHeader>
+                <CardHeader className="curiosity-graph__totals-column-card-header">
                   <CardTitle>
                     <Title headingLevel="h2" size="md">
                       {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
@@ -90,13 +92,13 @@ const GraphCardMetricTotals = ({
                     </Title>
                   </CardTitle>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="curiosity-graph__totals-column-card-body">
                   <div>
                     {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg, height: '60px' }} />}
                     {fulfilled && ((typeof body === 'function' && body(metricDisplayPassedData)) || body)}
                   </div>
                 </CardBody>
-                <CardFooter>
+                <CardFooter className="curiosity-graph__totals-column-card-footer">
                   <div>
                     {pending && <Loader variant="skeleton" skeletonProps={{ size: SkeletonSize.lg }} />}
                     {fulfilled && ((typeof footer === 'function' && footer(metricDisplayPassedData)) || footer)}
@@ -107,14 +109,16 @@ const GraphCardMetricTotals = ({
           </div>
         </div>
         <div>
-          <div className="curiosity-usage-graph__totals-graph-column">{children}</div>
+          <div className="curiosity-graph__totals-graph-column curiosity-usage-graph__totals-graph-column">
+            {children}
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div data-test="graphStandalone" className="curiosity-usage-graph__standalone">
+    <div data-test="graphStandalone" className="curiosity-graph__standalone curiosity-usage-graph__standalone">
       {children}
     </div>
   );

@@ -2,9 +2,9 @@
   padding-left: var(--pf-c-page__main-section--PaddingLeft);
   padding-right: var(--pf-c-page__main-section--PaddingRight);
 
-  .pf-c-toolbar__content {
-    padding-left: 0;
-    padding-right: 0;
+  &__content, &__content + div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -17,14 +17,54 @@
   }
 }
 
-.curiosity-input__display-name {
-  &.pf-c-form-control.pf-m-search {
-    /**
-     * ToDo: review removing this once we update PF
-     * Appears PF has a cascade issue once the bundle gets generated for search bg-image
-     */
-    background-image: var(--pf-c-form-control--m-search--BackgroundUrl);
-    background-position: var(--pf-c-form-control--m-icon--BackgroundPositionX) var(--pf-c-form-control--m-icon--BackgroundPositionY);
-    padding-left: var(--pf-global--spacer--sm);
+.curiosity-card {
+  .curiosity-toolbar {
+    padding-bottom: inherit;
+    padding-top: inherit;
+
+    &__content {
+      padding-left: inherit;
+      padding-right: inherit;
+    }
+  }
+
+  // graph toolbar
+  &.curiosity-graph-card {
+    .curiosity-card__actions {
+      display: flex;
+      margin: inherit;
+      margin-left: auto;
+      padding-left: 0;
+
+      @media (max-width: $pf-global--breakpoint--sm) {
+        margin-left: inherit;
+      }
+
+      & > .curiosity-select {
+        width: auto;
+      }
+    }
+  }
+
+  &.curiosity-inventory-card {
+    .curiosity-card__actions {
+      padding-left: 0;
+      width: 100%;
+
+      .curiosity-toolbar {
+        padding-bottom: 0;
+        padding-top: 0;
+        width: 100%;
+
+        &__content {
+          padding-left: 0;
+          padding-right: 0;
+
+          .curiosity-toolbar__group:nth-child(2) {
+            margin-left: auto;
+          }
+        }
+      }
+    }
   }
 }

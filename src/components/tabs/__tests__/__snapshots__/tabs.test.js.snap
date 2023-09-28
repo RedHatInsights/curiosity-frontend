@@ -12,20 +12,20 @@ exports[`Tabs Component should handle no tabs: no tabs 1`] = `
 }"
 >
   <div
-    class="pf-l-grid curiosity-tabs-container"
+    class="pf-v5-l-grid curiosity-tabs-container"
   >
     <div
-      class="pf-l-grid__item pf-m-12-col"
+      class="pf-v5-l-grid__item pf-m-12-col"
     >
       <div
-        class="pf-c-tabs pf-m-inset-none pf-m-inset-lg-on-md curiosity-tabs__no-scroll "
+        class="pf-v5-c-tabs pf-m-inset-none pf-m-inset-lg-on-md curiosity-tabs__no-scroll "
         data-ouia-component-id="OUIA-Generated-Tabs-2"
-        data-ouia-component-type="PF4/Tabs"
+        data-ouia-component-type="PF5/Tabs"
         data-ouia-safe="true"
         id="generatedid-"
       >
         <ul
-          class="pf-c-tabs__list"
+          class="pf-v5-c-tabs__list"
           role="tablist"
         />
       </div>
@@ -55,58 +55,58 @@ exports[`Tabs Component should render a basic component: basic 1`] = `
 }"
 >
   <div
-    class="pf-l-grid curiosity-tabs-container"
+    class="pf-v5-l-grid curiosity-tabs-container"
   >
     <div
-      class="pf-l-grid__item pf-m-12-col"
+      class="pf-v5-l-grid__item pf-m-12-col"
     >
       <div
-        class="pf-c-tabs pf-m-inset-none pf-m-inset-lg-on-md curiosity-tabs__no-scroll "
+        class="pf-v5-c-tabs pf-m-inset-none pf-m-inset-lg-on-md curiosity-tabs__no-scroll "
         data-ouia-component-id="OUIA-Generated-Tabs-1"
-        data-ouia-component-type="PF4/Tabs"
+        data-ouia-component-type="PF5/Tabs"
         data-ouia-safe="true"
         id="generatedid-"
       >
         <ul
-          class="pf-c-tabs__list"
+          class="pf-v5-c-tabs__list"
           role="tablist"
         >
           <li
-            class="pf-c-tabs__item pf-m-current"
+            class="pf-v5-c-tabs__item pf-m-current"
             role="presentation"
           >
             <button
               aria-controls="pf-tab-section-0-generatedid-"
               aria-selected="true"
-              class="pf-c-tabs__link"
-              data-ouia-component-type="PF4/TabButton"
+              class="pf-v5-c-tabs__link"
+              data-ouia-component-type="PF5/TabButton"
               data-ouia-safe="true"
               id="pf-tab-0-generatedid-"
               role="tab"
               type="button"
             >
               <span
-                class="pf-c-tabs__item-text"
+                class="pf-v5-c-tabs__item-text"
               >
                 lorem
               </span>
             </button>
           </li>
           <li
-            class="pf-c-tabs__item"
+            class="pf-v5-c-tabs__item"
             role="presentation"
           >
             <button
               aria-selected="false"
-              class="pf-c-tabs__link"
-              data-ouia-component-type="PF4/TabButton"
+              class="pf-v5-c-tabs__link"
+              data-ouia-component-type="PF5/TabButton"
               data-ouia-safe="true"
               id="pf-tab-1-generatedid-"
               role="tab"
               type="button"
             >
               <span
-                class="pf-c-tabs__item-text"
+                class="pf-v5-c-tabs__item-text"
               >
                 dolor
               </span>
@@ -116,8 +116,8 @@ exports[`Tabs Component should render a basic component: basic 1`] = `
       </div>
       <section
         aria-labelledby="pf-tab-0-generatedid-"
-        class="pf-c-tab-content"
-        data-ouia-component-type="PF4/TabContent"
+        class="pf-v5-c-tab-content"
+        data-ouia-component-type="PF5/TabContent"
         data-ouia-safe="true"
         id="pf-tab-section-0-generatedid-"
         role="tabpanel"

@@ -2,11 +2,15 @@
 
 exports[`GraphCardChart Component should handle API response states: error 1`] = `
 <Card
-  className="curiosity-usage-graph"
+  className="curiosity-card curiosity-graph-card curiosity-usage-graph"
   isPlain={true}
 >
-  <CardHeader>
-    <CardTitle>
+  <CardHeader
+    className="curiosity-card__header"
+  >
+    <CardTitle
+      className="curiosity-card__title"
+    >
       <Title
         headingLevel="h2"
         size="lg"
@@ -24,7 +28,9 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className="blur"
       >
@@ -58,11 +64,15 @@ exports[`GraphCardChart Component should handle API response states: error 1`] =
 
 exports[`GraphCardChart Component should handle API response states: fulfilled 1`] = `
 <Card
-  className="curiosity-usage-graph"
+  className="curiosity-card curiosity-graph-card curiosity-usage-graph"
   isPlain={true}
 >
-  <CardHeader>
-    <CardTitle>
+  <CardHeader
+    className="curiosity-card__header"
+  >
+    <CardTitle
+      className="curiosity-card__title"
+    >
       <Title
         headingLevel="h2"
         size="lg"
@@ -80,7 +90,9 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className=""
       >
@@ -114,11 +126,15 @@ exports[`GraphCardChart Component should handle API response states: fulfilled 1
 
 exports[`GraphCardChart Component should handle API response states: pending 1`] = `
 <Card
-  className="curiosity-usage-graph"
+  className="curiosity-card curiosity-graph-card curiosity-usage-graph"
   isPlain={true}
 >
-  <CardHeader>
-    <CardTitle>
+  <CardHeader
+    className="curiosity-card__header"
+  >
+    <CardTitle
+      className="curiosity-card__title"
+    >
       <Title
         headingLevel="h2"
         size="lg"
@@ -136,7 +152,9 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className="fadein"
       >
@@ -157,11 +175,15 @@ exports[`GraphCardChart Component should handle API response states: pending 1`]
 
 exports[`GraphCardChart Component should render a basic component: basic 1`] = `
 <Card
-  className="curiosity-usage-graph"
+  className="curiosity-card curiosity-graph-card curiosity-usage-graph"
   isPlain={true}
 >
-  <CardHeader>
-    <CardTitle>
+  <CardHeader
+    className="curiosity-card__header"
+  >
+    <CardTitle
+      className="curiosity-card__title"
+    >
       <Title
         headingLevel="h2"
         size="lg"
@@ -179,7 +201,9 @@ exports[`GraphCardChart Component should render a basic component: basic 1`] = `
     minHeight={0}
     useResizeObserver={[Function]}
   >
-    <CardBody>
+    <CardBody
+      className="curiosity-card__body"
+    >
       <div
         className=""
       >

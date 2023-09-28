@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EyeIcon, EyeSlashIcon, SquareIcon, IconSize } from '@patternfly/react-icons';
+import { EyeIcon, EyeSlashIcon, SquareIcon } from '@patternfly/react-icons';
 
 /**
  * @memberof Chart
  * @module ChartIcon
  */
+
+/**
+ * Consistent icon sizing.
+ *
+ * @type {{xl, md: string, sm: string, lg: string}}
+ */
+const IconSize = { sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' };
 
 /**
  * Emulate pf icon sizing for custom SVGs
@@ -63,6 +70,7 @@ const ChartIcon = ({ fill, symbol, size, title, ...props }) => {
       case 'dash':
         return (
           <span
+            className="curiosity-icon__dash"
             style={{
               width: emSvgSize,
               height: `${Number.parseFloat(emSvgSize) / 2}em`
@@ -77,7 +85,10 @@ const ChartIcon = ({ fill, symbol, size, title, ...props }) => {
         );
       case 'threshold':
         return (
-          <span style={{ width: `${Number.parseFloat(emSvgSize) * 2}em`, height: emSvgSize }}>
+          <span
+            className="curiosity-icon__threshold"
+            style={{ width: `${Number.parseFloat(emSvgSize) * 2}em`, height: emSvgSize }}
+          >
             <svg width="100%" height="100%" viewBox="0 0 18 10" role="img" {...svgProps}>
               <line
                 x1={0}
@@ -130,9 +141,9 @@ ChartIcon.propTypes = {
  */
 ChartIcon.defaultProps = {
   fill: null,
-  size: 'sm',
+  size: IconSize.sm,
   symbol: 'square',
   title: null
 };
 
-export { ChartIcon as default, ChartIcon };
+export { ChartIcon as default, ChartIcon, IconSize };

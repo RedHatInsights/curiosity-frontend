@@ -34,7 +34,7 @@ describe('ToolbarFieldUom Component', () => {
     const input = component.find('button');
     component.fireEvent.click(input);
 
-    const inputMenuItem = component.find('button.pf-c-select__menu-item');
+    const inputMenuItem = component.find('button.pf-v5-c-select__menu-item');
     component.fireEvent.click(inputMenuItem);
 
     expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch, component');

@@ -4,7 +4,6 @@ import {
   Brand,
   Button,
   Card,
-  CardHeaderMain,
   CardHeader,
   CardBody,
   CardFooter,
@@ -123,17 +122,19 @@ const OptinView = ({
    */
   const renderTour = () => (
     <Card className="curiosity-optin-tour">
-      <CardHeader>
-        <CardHeaderMain>
-          <Brand
-            srcSet={`${graphPng4x} 1064w, ${graphPng2x} 600w`}
-            src={graphPng4x}
-            alt={t('curiosity-optin.tourTitleImageAlt')}
-            aria-hidden
-            className="curiosity-optin-image"
-          />
-        </CardHeaderMain>
-      </CardHeader>
+      <CardHeader
+        actions={{
+          actions: (
+            <Brand
+              srcSet={`${graphPng4x} 1064w, ${graphPng2x} 600w`}
+              src={graphPng4x}
+              alt={t('curiosity-optin.tourTitleImageAlt')}
+              aria-hidden
+              className="curiosity-optin-image"
+            />
+          )
+        }}
+      />
       <CardTitle>
         <Title headingLevel="h3" size="2xl">
           {t('curiosity-optin.tourTitle')}

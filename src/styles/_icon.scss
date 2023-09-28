@@ -10,9 +10,22 @@
     }
 
     &__f-infinity {
-      font-weight: 500;
-      font-size: 0.9rem;
       cursor: default;
+      line-height: 1rem;
+    }
+
+    &__dash {
+      width: 1rem;
+      height: 1rem;
+
+      vertical-align: baseline;
+      display: inline-block;
+
+      > svg {
+        position: relative;
+        display: block;
+        top: -0.25em;
+      }
     }
   }
 
