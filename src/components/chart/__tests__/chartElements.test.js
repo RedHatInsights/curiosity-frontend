@@ -11,7 +11,7 @@ describe('ChartElements Component', () => {
     expect(component).toMatchSnapshot('basic');
   });
 
-  it('should handle basic element settings from context', () => {
+  it('should handle basic element settings from context', async () => {
     const props = {};
     const mockContextValue = {
       chartSettings: {
@@ -229,7 +229,7 @@ describe('ChartElements Component', () => {
 
     const mock = jest.spyOn(chartContext, 'useChartContext').mockImplementation(() => mockContextValue);
 
-    const component = renderComponent(<ChartElements {...props} />);
+    const component = await shallowComponent(<ChartElements {...props} />);
     expect(component).toMatchSnapshot('chart elements');
     mock.mockClear();
   });

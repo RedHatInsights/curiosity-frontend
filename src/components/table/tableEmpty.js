@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
-import { EmptyState, EmptyStateIcon, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
+import {
+  EmptyState,
+  EmptyStateIcon,
+  EmptyStateBody,
+  EmptyStateVariant,
+  EmptyStateHeader
+} from '@patternfly/react-core';
 import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/frontend-components/EmptyTable';
 
 /**
@@ -26,9 +32,7 @@ const TableEmpty = ({ ariaLabel, icon, message, tableHeading, title, variant, ..
     <table aria-label={ariaLabel} {...props} />
     <EmptyState variant={variant}>
       {icon && <EmptyStateIcon icon={icon} />}
-      <Title headingLevel={tableHeading} size="lg">
-        {title}
-      </Title>
+      <EmptyStateHeader titleText={title} headingLevel={tableHeading} />
       <EmptyStateBody>{message}</EmptyStateBody>
     </EmptyState>
   </PlatformEmptyTableWrapper>
@@ -58,7 +62,7 @@ TableEmpty.defaultProps = {
   ariaLabel: null,
   icon: SearchIcon,
   tableHeading: 'h2',
-  variant: EmptyStateVariant.small
+  variant: EmptyStateVariant.sm
 };
 
 export { TableEmpty as default, TableEmpty };

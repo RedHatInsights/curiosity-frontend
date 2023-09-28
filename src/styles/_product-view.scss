@@ -1,16 +1,3 @@
 .curiosity {
-  &.curiosity-missing-view {
-    box-shadow: none;
-    padding: 1em;
-
-    .pf-c-card {
-      &.pf-m-hoverable {
-        cursor: pointer;
-
-        .curiosity-missing-view__card-description {
-          color: var(--pf-global--Color--200);
-        }
-      }
-    }
-  }
+  &.curiosity-missing-view {}
 }

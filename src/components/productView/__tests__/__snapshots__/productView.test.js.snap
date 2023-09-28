@@ -48,7 +48,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -150,7 +150,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -238,7 +238,7 @@ exports[`ProductView Component should allow custom inventory displays via config
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -325,7 +325,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -397,7 +397,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -469,7 +469,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -541,7 +541,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -613,7 +613,7 @@ exports[`ProductView Component should allow custom product views via productDisp
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}
@@ -684,7 +684,7 @@ exports[`ProductView Component should render a basic component: basic 1`] = `
         />
       </PageToolbar>
       <PageSection
-        className=""
+        className="curiosity-page-section__graphs"
       >
         <GraphCard
           isDisabled={false}

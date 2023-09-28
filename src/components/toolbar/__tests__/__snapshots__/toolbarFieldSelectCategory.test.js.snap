@@ -375,13 +375,7 @@ exports[`ToolbarFieldSelectCategory Component should render a basic component: b
   position="left"
   selectedOptions="sla"
   splitButtonVariant={null}
-  toggleIcon={
-    <FilterIcon
-      color="currentColor"
-      noVerticalAlign={false}
-      size="sm"
-    />
-  }
+  toggleIcon={<FilterIcon />}
   variant="single"
 />
 `;

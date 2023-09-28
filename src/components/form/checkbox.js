@@ -75,7 +75,7 @@ const Checkbox = ({
       isDisabled={isDisabled || false}
       label={children || label}
       name={updatedName}
-      onChange={onCheckboxChange}
+      onChange={(event, checked) => onCheckboxChange(checked, event)}
       value={value}
       readOnly={isReadOnly || false}
       {...props}

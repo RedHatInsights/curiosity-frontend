@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useShallowCompareEffect, useUnmount } from 'react-use';
+import { ButtonVariant as PfButtonVariant } from '@patternfly/react-core';
 import {
-  ButtonVariant as PfButtonVariant,
   Dropdown,
   DropdownDirection,
   DropdownItem,
@@ -12,8 +12,8 @@ import {
   DropdownToggleCheckbox,
   Select as PfSelect,
   SelectOption as PfSelectOption,
-  SelectVariant
-} from '@patternfly/react-core';
+  SelectVariant as PfSelectVariant
+} from '@patternfly/react-core/deprecated';
 import _cloneDeep from 'lodash/cloneDeep';
 import _findIndex from 'lodash/findIndex';
 import _isPlainObject from 'lodash/isPlainObject';
@@ -50,21 +50,29 @@ const ButtonVariant = PfButtonVariant;
  *
  * @type {{secondary: string, default: string, plain: string, text: string, primary: string}}
  */
-const SelectButtonVariant = ButtonVariant;
+const SelectButtonVariant = { ...ButtonVariant };
 
 /**
  * Pass direction as select component variant option.
  *
- * @type {{down: string, up: string}}
+ * @type {{up: DropdownDirection.up, down: DropdownDirection.down}}
  */
-const SelectDirection = DropdownDirection;
+const SelectDirection = { ...DropdownDirection };
 
 /**
  * Pass position as select component variant option.
  *
- * @type {{left: string, right: string}}
+ * @type {{left: DropdownPosition.left, right: DropdownPosition.right}}
  */
-const SelectPosition = DropdownPosition;
+const SelectPosition = { ...DropdownPosition };
+
+/**
+ * Pass select variants as a select component variant option.
+ *
+ * @type {{single: SelectVariant.single, checkbox: SelectVariant.checkbox, typeahead: SelectVariant.typeahead,
+ *     typeaheadMulti: SelectVariant.typeaheadMulti}}
+ */
+const SelectVariant = { ...PfSelectVariant };
 
 /**
  * FixMe: attributes on PF select and dropdown components do not allow data- attributes being passed
@@ -435,7 +443,7 @@ const Select = ({
       position={position}
       toggle={
         <DropdownToggle
-          onToggle={onToggle}
+          onToggle={(_event, expanded) => onToggle(expanded)}
           {...formatButtonProps({
             isDisabled,
             onSplitButton: onUpdatedSplitButton,
@@ -480,7 +488,7 @@ const Select = ({
       } ${(position === SelectPosition.right && 'curiosity-select-pf__position-right') || ''} ${className}`}
       variant={variant}
       aria-label={ariaLabel}
-      onToggle={onToggle}
+      onToggle={(_event, expanded) => onToggle(expanded)}
       onSelect={onDropdownSelect}
       selections={selected}
       isFlipEnabled={isFlipEnabled}

@@ -52,7 +52,7 @@ Tooltip.propTypes = {
  */
 Tooltip.defaultProps = {
   content: '...',
-  distance: 5,
+  distance: 15,
   enableFlip: false,
   entryDelay: 100,
   exitDelay: 0,

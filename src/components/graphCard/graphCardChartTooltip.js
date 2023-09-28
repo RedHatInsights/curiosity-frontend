@@ -58,6 +58,7 @@ const GraphCardChartTooltip = ({
             tempDataFacet.color && (
               <ChartIcon
                 symbol="infinity"
+                size="1.1rem"
                 fill="#ffffff"
                 title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })}
               />
@@ -82,7 +83,7 @@ const GraphCardChartTooltip = ({
     });
 
   return (
-    <div className="curiosity-usage-graph__tooltip">
+    <div className="curiosity-graph__tooltip curiosity-usage-graph__tooltip">
       <table summary={t('curiosity-graph.tooltipSummary')}>
         {(data.length && header && (
           <thead>

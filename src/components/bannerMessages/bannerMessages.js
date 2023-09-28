@@ -12,6 +12,14 @@ import { useBannerMessages, useRemoveBannerMessages } from './bannerMessagesCont
  */
 
 /**
+ * Banner message variants.
+ *
+ * @type {{success: AlertVariant.success, custom: AlertVariant.custom, warning: AlertVariant.warning,
+ *     danger: AlertVariant.danger, info: AlertVariant.info}}
+ */
+const BannerMessageVariant = { ...AlertVariant };
+
+/**
  * Render banner messages.
  *
  * @param {object} props
@@ -30,7 +38,7 @@ const BannerMessages = ({
     return (
       <div className="curiosity-banner-messages">
         <AlertGroup isLiveRegion>
-          {bannerMessages?.map(({ id, message, title, variant = AlertVariant.info }) => {
+          {bannerMessages?.map(({ id, message, title, variant = BannerMessageVariant.info }) => {
             const actionClose = <AlertActionCloseButton onClose={() => removeBannerMessages(id || title)} />;
 
             return (
@@ -67,4 +75,4 @@ BannerMessages.defaultProps = {
   useRemoveBannerMessages
 };
 
-export { BannerMessages as default, BannerMessages };
+export { BannerMessages as default, BannerMessages, BannerMessageVariant };

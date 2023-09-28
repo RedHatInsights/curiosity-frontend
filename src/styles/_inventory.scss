@@ -1,0 +1,51 @@
+.curiosity-inventory-card {
+  box-shadow: none;
+
+  .curiosity-card__body {
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 300px;
+  }
+
+  /**
+   * FixMe: PF5 still hides paging functionality
+   * Paging functionality is hidden below 768px, this restores it.
+   */
+  @media (max-width: $pf-global--breakpoint--md) {
+    .pf-v5-c-pagination {
+      button,
+      .pf-v5-c-pagination__nav {
+        display: inherit;
+        visibility: inherit;
+      }
+
+      button .pf-v5-c-menu-toggle__controls {
+        display: none;
+      }
+    }
+  }
+
+  .curiosity-inventory-list {
+    .curiosity-table__td-expand {
+      button {
+        padding-left: 0;
+        padding-right: inherit;
+      }
+    }
+
+    .curiosity-table__td-expand-content {
+      padding-left: var(--pf-global--spacer--lg);
+    }
+  }
+
+  .curiosity-guests-list {
+    /**
+     * FixMe: PF5 styling for Tables is difficult to override using centralized styles
+     * This comes across as related to component loaded styling, and needing to access the table styling directly.
+     * Overriding the PF variable was the only way to modify the border on a nested table thead > tr.
+     * Attempting to access the class or elements & classes or subsequent chained classes & even "important"
+     * failed to modify the border width.
+     */
+    --pf-v5-c-table--border-width--base: 0;
+  }
+}

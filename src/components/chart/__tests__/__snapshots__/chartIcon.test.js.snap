@@ -5,6 +5,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   class="curiosity-chartarea__icon curiosity-chartarea__icon-dash"
 >
   <span
+    class="curiosity-icon__dash"
     style="width: 2em; height: 1em;"
   >
     <svg
@@ -43,12 +44,12 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   <svg
     aria-label="hello world"
     aria-labelledby="icon-title-0"
+    class="pf-v5-svg"
     fill="currentColor"
-    height="1.5em"
+    height="1em"
     role="img"
-    style="vertical-align: -0.1875em;"
     viewBox="0 0 576 512"
-    width="1.5em"
+    width="1em"
   >
     <title
       id="icon-title-0"
@@ -68,12 +69,12 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
 >
   <svg
     aria-labelledby="icon-title-1"
+    class="pf-v5-svg"
     fill="currentColor"
-    height="1.5em"
+    height="1em"
     role="img"
-    style="vertical-align: -0.1875em;"
     viewBox="0 0 640 512"
-    width="1.5em"
+    width="1em"
   >
     <title
       id="icon-title-1"
@@ -110,6 +111,7 @@ exports[`ChartIcon Component should handle basic icons, variations in settings: 
   class="curiosity-chartarea__icon curiosity-chartarea__icon-threshold"
 >
   <span
+    class="curiosity-icon__threshold"
     style="width: 6em; height: 3em;"
   >
     <svg
@@ -138,8 +140,6 @@ exports[`ChartIcon Component should render a basic component: basic 1`] = `
   className="curiosity-chartarea__icon curiosity-chartarea__icon-square"
 >
   <SquareIcon
-    color="currentColor"
-    noVerticalAlign={false}
     size="sm"
     title={null}
   />

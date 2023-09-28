@@ -56,10 +56,10 @@ describe('Pagination Component', () => {
 
     expect(updatedOnPage).toHaveBeenCalledTimes(1);
 
-    const inputToggle = component.find('button.pf-c-options-menu__toggle-button');
+    const inputToggle = component.find('button');
     component.fireEvent.click(inputToggle);
 
-    const inputPerPage = component.find('button[data-action="per-page-10"]');
+    const inputPerPage = component.find('button[role="menuitem"]');
     component.fireEvent.click(inputPerPage);
 
     expect(updatedOnPerPage).toHaveBeenCalledTimes(1);

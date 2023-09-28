@@ -6,17 +6,15 @@ exports[`TableEmpty Component should have fallback checks for certain props: fal
     aria-label={null}
   />
   <EmptyState
-    variant="small"
+    variant="sm"
   >
     <EmptyStateIcon
       icon={[Function]}
     />
-    <Title
+    <EmptyStateHeader
       headingLevel="h1"
-      size="lg"
-    >
-      Lorem ipsum title
-    </Title>
+      titleText="Lorem ipsum title"
+    />
     <EmptyStateBody>
       Lorem ipsum message.
     </EmptyStateBody>
@@ -30,17 +28,15 @@ exports[`TableEmpty Component should render a basic component: basic 1`] = `
     aria-label={null}
   />
   <EmptyState
-    variant="small"
+    variant="sm"
   >
     <EmptyStateIcon
       icon={[Function]}
     />
-    <Title
+    <EmptyStateHeader
       headingLevel="h2"
-      size="lg"
-    >
-      Lorem ipsum title
-    </Title>
+      titleText="Lorem ipsum title"
+    />
     <EmptyStateBody>
       Lorem ipsum message.
     </EmptyStateBody>

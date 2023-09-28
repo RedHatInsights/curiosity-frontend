@@ -109,7 +109,7 @@ const ToolbarFieldGroupVariant = ({
   }
 
   const element = (
-    <ToolbarContent>
+    <ToolbarContent className="curiosity-toolbar__content">
       <ToolbarItem variant={ToolbarItemVariant.label}>
         {t('curiosity-toolbar.label', { context: ['groupVariant'] })}{' '}
       </ToolbarItem>

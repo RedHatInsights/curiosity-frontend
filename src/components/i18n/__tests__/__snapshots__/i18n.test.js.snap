@@ -68,7 +68,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-graph.label",
-        "match": "t('curiosity-graph.label', { context: ['threshold', 'infinite'] }, [ tempDataFacet.color && ( <ChartIcon symbol="infinity" fill="#ffffff" title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })",
+        "match": "t('curiosity-graph.label', { context: ['threshold', 'infinite'] }, [ tempDataFacet.color && ( <ChartIcon symbol="infinity" size="1.1rem" fill="#ffffff" title={t('curiosity-graph.label', { context: ['threshold', 'infinite'] })",
       },
       {
         "key": "curiosity-graph.label",
