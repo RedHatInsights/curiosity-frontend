@@ -100,10 +100,7 @@ exports[`Authentication Component should render a component pending: pending 1`]
 
 exports[`Authentication Component should return a message on 401 error: 401 error 1`] = `
 <h5
-  class="pf-v5-c-title pf-m-lg"
-  data-ouia-component-id="OUIA-Generated-Title-11"
-  data-ouia-component-type="PF5/Title"
-  data-ouia-safe="true"
+  class="pf-v5-c-empty-state__title-text"
 >
   You do not have access to Subscriptions
 </h5>
@@ -146,7 +143,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
 }"
 >
   <section
-    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+    class="pf-v5-l-page-header pf-v5-c-page-header pf-v5-l-page__main-section pf-v5-c-page__main-section pf-m-light"
     widget-type="InsightsPageHeader"
   >
     <div
@@ -157,7 +154,7 @@ exports[`Authentication Component should return a redirect on a specific 403 err
       >
         <h1
           class="pf-v5-c-title pf-m-2xl pf-u-mb-sm"
-          data-ouia-component-id="OUIA-Generated-Title-8"
+          data-ouia-component-id="OUIA-Generated-Title-7"
           data-ouia-component-type="PF5/Title"
           data-ouia-safe="true"
           widget-type="InsightsPageHeaderTitle"
@@ -175,57 +172,70 @@ exports[`Authentication Component should return a redirect on a specific 403 err
     >
        
       <div
-        class="pf-v5-c-empty-state ins-c-not-authorized "
+        class="pf-v5-c-empty-state"
       >
         <div
           class="pf-v5-c-empty-state__content"
         >
           <div
-            class="pf-v5-c-empty-state__icon"
+            class="pf-v5-c-empty-state__header"
           >
-            <svg
-              aria-hidden="true"
-              class="pf-v5-svg"
-              fill="currentColor"
-              height="1em"
-              role="img"
-              viewBox="0 0 448 512"
-              width="1em"
+            <div
+              class="pf-v5-c-empty-state__icon"
             >
-              <path
-                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                class="pf-v5-svg"
+                fill="currentColor"
+                height="1em"
+                role="img"
+                viewBox="0 0 448 512"
+                width="1em"
+              >
+                <path
+                  d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                />
+              </svg>
+            </div>
+            <div
+              class="pf-v5-c-empty-state__title"
+            >
+              <h5
+                class="pf-v5-c-empty-state__title-text"
+              >
+                You do not have access to Subscriptions
+              </h5>
+            </div>
           </div>
-          <h5
-            class="pf-v5-c-title pf-m-lg"
-            data-ouia-component-id="OUIA-Generated-Title-9"
-            data-ouia-component-type="PF5/Title"
-            data-ouia-safe="true"
-          >
-            You do not have access to Subscriptions
-          </h5>
           <div
             class="pf-v5-c-empty-state__body"
           >
             Contact your organization administrator(s) for more information or visit 
             <a
-              href="./settings/my-user-access"
+              href="./iam/my-user-access"
             >
               My User Access
             </a>
-              to learn more about your permissions.
+             to learn more about your permissions.
           </div>
-          <a
-            aria-disabled="false"
-            class="pf-v5-c-button pf-m-primary"
-            data-ouia-component-id="OUIA-Generated-Button-primary-3"
-            data-ouia-component-type="PF5/Button"
-            data-ouia-safe="true"
-            href="."
+          <div
+            class="pf-v5-c-empty-state__footer"
           >
-            Go to landing page
-          </a>
+            <div
+              class="pf-v5-c-empty-state__actions"
+            >
+              <a
+                aria-disabled="false"
+                class="pf-v5-c-button pf-m-primary"
+                data-ouia-component-id="OUIA-Generated-Button-primary-3"
+                data-ouia-component-type="PF5/Button"
+                data-ouia-safe="true"
+                href="."
+              >
+                Go to landing page
+              </a>
+            </div>
+          </div>
         </div>
       </div>
        
