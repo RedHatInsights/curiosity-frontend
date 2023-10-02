@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/fff75a64eafcf5812977ded877698848812c670d...5267af002885ef30040662dafea3f2ba339ebe72) (2023-10-02)
+
+
+### Features
+* **config** sw-1695 activate rhel for sap x86  ([#1200](https://github.com/RedHatInsights/curiosity-frontend/pull/1200)) ([5267af0](https://github.com/RedHatInsights/curiosity-frontend/commit/5267af002885ef30040662dafea3f2ba339ebe72))
+
 ## [3.5.0](https://github.com/RedHatInsights/curiosity-frontend/compare/07de4a2f6806e1a912e6b6fac3aced67f708fa35...56ca22cfe6de6ba87a50efbfc7f3f3f5cde92cd7) (2023-09-26)
 
 
