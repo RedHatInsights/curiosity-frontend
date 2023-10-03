@@ -1,8 +1,12 @@
-name: Pull request
+name: Build
 on:
+  push:
+    tags:
+      - "*"
   pull_request:
-    branches: [ master, main, prod, stable, stage, test**, qa**, dev**, ci** ]
+    branches: [ main, stable, stage, dev** ]
 env:
+  COV_NODE_VERSION: 18
   BRANCH: ${{ github.base_ref }}
 
 jobs:
@@ -30,41 +34,15 @@ jobs:
         if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
         run: yarn install
       - name: Lint and test
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { execSync } = require('child_process');
-            try {
-              console.log(`${execSync('yarn test', { stdio: 'pipe' })}`);
-            } catch ({ stdout, stderr }) {
-              core.setFailed(`${stdout}\n${stderr}`);
-            }
+        run: yarn test
       - name: Code coverage
-        if: ${{ success() }}
+        if: ${{ success() && contains(matrix.node-version, env.COV_NODE_VERSION) }}
         uses: codecov/codecov-action@v3.1.4
-      - name: Confirm beta integration
+      - name: Confirm preview integration
         if: ${{ success() }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { execSync } = require('child_process');
-            try {
-              console.log(`${execSync('yarn build', { stdio: 'pipe' })}`);
-            } catch ({ stdout, stderr }) {
-              core.setFailed(`${stdout}\n${stderr}`);
-            }
+        run: yarn build
         env:
-          BUILD_STAGE: Beta
+          BETA: true
       - name: Confirm stable integration
         if: ${{ success() }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { execSync } = require('child_process');
-            try {
-              console.log(`${execSync('yarn build', { stdio: 'pipe' })}`);
-            } catch ({ stdout, stderr }) {
-              core.setFailed(`${stdout}\n${stderr}`);
-            }
-        env:
-          BUILD_STAGE: Stable
+        run: yarn build

@@ -1,5 +1,4 @@
 # Curiosity Frontend
-[![Build Status](https://app.travis-ci.com/RedHatInsights/curiosity-frontend.svg?branch=main)](https://app.travis-ci.com/RedHatInsights/curiosity-frontend)
 [![codecov](https://codecov.io/gh/RedHatInsights/curiosity-frontend/branch/main/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/curiosity-frontend)
 [![License](https://img.shields.io/github/license/RedHatInsights/curiosity-frontend.svg)](https://github.com/RedHatInsights/curiosity-frontend/blob/main/LICENSE)
 
