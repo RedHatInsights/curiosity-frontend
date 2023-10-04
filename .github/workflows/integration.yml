@@ -1,0 +1,48 @@
+name: Build
+on:
+  push:
+    branches: [ main, stable, stage, dev** ]
+    tags:
+      - "*"
+  pull_request:
+env:
+  COV_NODE_VERSION: 18
+  BRANCH: ${{ github.base_ref }}
+
+jobs:
+  Integration-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - name: Node.js modules cache
+        uses: actions/cache@v3
+        id: modules-cache
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-modules
+      - name: Install Node.js packages
+        if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
+        run: yarn install
+      - name: Lint and test
+        run: yarn test
+      - name: Code coverage
+        if: ${{ success() && contains(matrix.node-version, env.COV_NODE_VERSION) }}
+        uses: codecov/codecov-action@v3.1.4
+      - name: Confirm preview integration
+        if: ${{ success() }}
+        run: yarn build
+        env:
+          BETA: true
+      - name: Confirm stable integration
+        if: ${{ success() }}
+        run: yarn build
