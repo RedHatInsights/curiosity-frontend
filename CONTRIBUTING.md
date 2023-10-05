@@ -141,25 +141,27 @@ Curiosity releases code to the following environments
 
 #### Release for stage preview
 Merging code into stage preview is simplistic
-1. merge a pull request into `main`
+1. Merge a pull request into `main`
    ```
    pull-request -> main -> stage preview
    ```
 
 #### Release for stage stable
 To merge code into stage stable
-1. open a pull request from `main` to `stable` and merge using the `rebase` button.
+1. Open a pull request from `main` to `stable` and merge using the `rebase` button.
    ```
    main -> pull-request -> stable -> stage stable
    ```
 
 #### Release for production preview
 To merge code into production preview
-1. tag the most recent commit on `main` as a release candidate using the format `v[x].[x].[x]-rc.[x]`
+1. Tag the most recent commit on `main` as a release candidate using the format `v[x].[x].[x]-rc.[x]`
    ```
    stable -> release candidate tag -> `app-interface` merge request -> production preview
    ```
    > `rc.0` zero index is a typical starting point for release candidates
+1. Finally, submit a merge request to update the `app-interface` deployment yaml
+   - Copy the tagged Git hash and update the `app-interface` configuration hash within `[app-interface-insights-rhsm]/deploy-clowder.yml`
 
 #### Release for production stable
 To merge code into production stable a maintainer must run the release commit process locally.
@@ -168,8 +170,8 @@ To merge code into production stable a maintainer must run the release commit pr
    local main repo, stable branch -> release commit -> push to stable -> release tag -> `app-interface` merge request -> production stable
    ```
 
-1. clone the main repository, within the repo confirm you're on the `stable` branch and **SYNCED** with `origin` `stable`
-1. run
+1. Clone the main repository, within the repo confirm you're on the `stable` branch and **SYNCED** with `origin` `stable`
+1. Run
    1. `$ git checkout stable`
    1. `$ yarn`
    1. `$ yarn release --dry-run` to confirm the release output version and commits.
@@ -190,7 +192,8 @@ To merge code into production stable a maintainer must run the release commit pr
    1. Create the new tag using the **SAME** semver version created by the release commit but add a `v` prefix to it, i.e. `vX.X.X`, for consistency.
    
    > To avoid issues with inconsistent Git tagging use it is recommended you use the GitHub releases interface.
-
+1. Finally, submit a merge request to update the `app-interface` deployment yaml
+   - Copy the tagged Git hash and update the `app-interface` configuration hash within `[app-interface-insights-rhsm]/deploy-clowder.yml`
 </details>
 
 <details>
