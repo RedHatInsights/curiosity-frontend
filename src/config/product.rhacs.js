@@ -25,16 +25,41 @@ import { SelectPosition } from '../components/form/select';
 import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
 
 /**
- * ToDo: evaluate separating products/product tags into individual configs...
- * or using anArray/List then generating "routes.js"
+ * RHACS
+ *
+ * @memberof Products
+ * @module RHACS
  */
 
+/**
+ * Product group
+ *
+ * @type {string}
+ */
 const productGroup = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
+/**
+ * Product ID
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
+/**
+ * Product label
+ *
+ * @type {string}
+ */
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
+/**
+ * Product configuration
+ *
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
+ *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string,
+ *     initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object,
+ *     productDisplay: string, initialGraphFilters: Array, initialGraphSettings: object, initialInventoryFilters: Array}}
+ */
 const config = {
   aliases: ['advanced', 'cluster', 'security', 'kubernetes', 'acs'],
   productGroup,

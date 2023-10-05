@@ -36,24 +36,41 @@ import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 /**
- * ToDo: evaluate separating products/product tags into individual configs...
- * or using anArray/List then generating "routes.js"
+ * RHEL
+ *
+ * @memberof Products
+ * @module RHEL
  */
 
+/**
+ * Product group
+ *
+ * @type {string}
+ */
 const productGroup = 'rhel';
 
+/**
+ * Product ID
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.RHEL_X86;
 
+/**
+ * Product label
+ *
+ * @type {string}
+ */
 const productLabel = 'RHEL';
 
 /**
  * RHEL product config
  *
  * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
- *     query: object, initialSubscriptionsInventoryFilters: {}[], initialInventorySettings: object, viewId: string,
- *     initialToolbarFilters: {}[], productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string,
- *     productVariants: Array, initialGraphFilters: {}[], initialGuestsFilters: {}[], inventoryGuestsQuery: object,
- *     initialGraphSettings: object, initialInventoryFilters: {}[]}}
+ *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string,
+ *     initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string,
+ *     productVariants: Array, initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object,
+ *     initialGraphSettings: object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: ['insights', 'enterprise', 'linux', 'el', 'x86', 'ibm', 'power'],

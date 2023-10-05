@@ -5,7 +5,7 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "components/bannerMessages/bannerMessagesContext.js:120:        console.warn(",
   "components/inventoryCardInstances/inventoryCardInstancesContext.js:266:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
   "components/inventoryCardSubscriptions/inventoryCardSubscriptionsContext.js:189:        console.warn(\`Sorting can only be performed on select fields, confirm field \${id} is allowed.\`);",
-  "config/products.js:28:    console.warn(\`Product configuration failed to load: \${e.message}\`);",
+  "config/products.js:33:    console.warn(\`Product configuration failed to load: \${e.message}\`);",
   "index.js:12:      console.log(\`Emulated appNavClick: \${JSON.stringify({ id, ...rest })}\`);",
   "redux/common/reduxHelpers.js:287:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:291:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",

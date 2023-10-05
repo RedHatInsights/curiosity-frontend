@@ -21,22 +21,44 @@ import { dateHelpers, helpers } from '../common';
 import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
+/**
+ * OpenShift Metrics
+ *
+ * @memberof Products
+ * @module OpenShift Metrics
+ */
+
 // ToDo: evaluate the need for "productLabel" or using productId
 
+/**
+ * Product group
+ *
+ * @type {string}
+ */
 const productGroup = 'openshift';
 
+/**
+ * Product ID
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 
+/**
+ * Product label
+ *
+ * @type {string}
+ */
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS;
 
 /**
- * OpenShift Metrics product config
+ * Product configuration
  *
  * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object,
- *     initialInventorySettings: object, viewId: string, initialToolbarFilters: {}[], productGroup: string,
- *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: {}[],
- *     initialGuestsFilters: {}[], inventoryGuestsQuery: object, initialGraphSettings: object,
- *     initialInventoryFilters: {}[]}}
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: Array,
+ *     initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object,
+ *     initialInventoryFilters: Array}}
  */
 const config = {
   aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_METRICS, 'metrics'],

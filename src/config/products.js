@@ -1,12 +1,17 @@
 import { helpers } from '../common/helpers';
 
 /**
- * IIFE for generating a product configs listing via webpack
+ * Pre-parsed product configurations
  *
- * @type {{aliases: string[], productGroup: string, productId: string, productLabel: string, productDisplay: string, viewId: string,
- *     productVariants: string[], query: object, graphTallyQuery: object, inventoryHostQuery: object,
- *     inventorySubscriptionsQuery: object, initialGraphFilters: {}[], initialGraphSettings: object, initialGuestsFilters: {}[],
- *     initialInventoryFilters: {}[], initialSubscriptionsInventoryFilters: {}[], initialToolbarFilters: {}[], }[]}
+ * @memberof Configuration
+ * @module Products
+ */
+
+/**
+ * IIFE for generating a product configs listing via webpack.
+ * - Uses webpack compiler to group all configuration files within the directory.
+ *
+ * @type {Array}
  */
 const productConfigs = (() => {
   try {
