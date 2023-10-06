@@ -1,13 +1,13 @@
 ## Modules
 
 <dl>
-<dt><a href="#Products.module_OpenShift Container">OpenShift Container</a></dt>
+<dt><a href="#Products.module_OpenShiftContainer">OpenShiftContainer</a></dt>
 <dd><p>OpenShift Container</p>
 </dd>
-<dt><a href="#Products.module_OpenShift Dedicated">OpenShift Dedicated</a></dt>
+<dt><a href="#Products.module_OpenShiftDedicated">OpenShiftDedicated</a></dt>
 <dd><p>OpenShift Dedicated</p>
 </dd>
-<dt><a href="#Products.module_OpenShift Metrics">OpenShift Metrics</a></dt>
+<dt><a href="#Products.module_OpenShiftMetrics">OpenShiftMetrics</a></dt>
 <dd><p>OpenShift Metrics</p>
 </dd>
 <dt><a href="#Products.module_RHACS">RHACS</a></dt>
@@ -33,114 +33,114 @@
 </dd>
 </dl>
 
-<a name="Products.module_OpenShift Container"></a>
+<a name="Products.module_OpenShiftContainer"></a>
 
-## OpenShift Container
+## OpenShiftContainer
 OpenShift Container
 
 
-* [OpenShift Container](#Products.module_OpenShift Container)
-    * [~productGroup](#Products.module_OpenShift Container..productGroup) : <code>string</code>
-    * [~productId](#Products.module_OpenShift Container..productId) : <code>string</code>
-    * [~productLabel](#Products.module_OpenShift Container..productLabel) : <code>string</code>
-    * [~config](#Products.module_OpenShift Container..config) : <code>Object</code>
+* [OpenShiftContainer](#Products.module_OpenShiftContainer)
+    * [~productGroup](#Products.module_OpenShiftContainer..productGroup) : <code>string</code>
+    * [~productId](#Products.module_OpenShiftContainer..productId) : <code>string</code>
+    * [~productLabel](#Products.module_OpenShiftContainer..productLabel) : <code>string</code>
+    * [~config](#Products.module_OpenShiftContainer..config) : <code>Object</code>
 
-<a name="Products.module_OpenShift Container..productGroup"></a>
+<a name="Products.module_OpenShiftContainer..productGroup"></a>
 
-### OpenShift Container~productGroup : <code>string</code>
+### OpenShiftContainer~productGroup : <code>string</code>
 Product group
 
-**Kind**: inner constant of [<code>OpenShift Container</code>](#Products.module_OpenShift Container)  
-<a name="Products.module_OpenShift Container..productId"></a>
+**Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
+<a name="Products.module_OpenShiftContainer..productId"></a>
 
-### OpenShift Container~productId : <code>string</code>
+### OpenShiftContainer~productId : <code>string</code>
 Product ID
 
-**Kind**: inner constant of [<code>OpenShift Container</code>](#Products.module_OpenShift Container)  
-<a name="Products.module_OpenShift Container..productLabel"></a>
+**Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
+<a name="Products.module_OpenShiftContainer..productLabel"></a>
 
-### OpenShift Container~productLabel : <code>string</code>
+### OpenShiftContainer~productLabel : <code>string</code>
 Product label
 
-**Kind**: inner constant of [<code>OpenShift Container</code>](#Products.module_OpenShift Container)  
-<a name="Products.module_OpenShift Container..config"></a>
+**Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
+<a name="Products.module_OpenShiftContainer..config"></a>
 
-### OpenShift Container~config : <code>Object</code>
+### OpenShiftContainer~config : <code>Object</code>
 Product configuration
 
-**Kind**: inner constant of [<code>OpenShift Container</code>](#Products.module_OpenShift Container)  
-<a name="Products.module_OpenShift Dedicated"></a>
+**Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
+<a name="Products.module_OpenShiftDedicated"></a>
 
-## OpenShift Dedicated
+## OpenShiftDedicated
 OpenShift Dedicated
 
 
-* [OpenShift Dedicated](#Products.module_OpenShift Dedicated)
-    * [~productGroup](#Products.module_OpenShift Dedicated..productGroup) : <code>string</code>
-    * [~productId](#Products.module_OpenShift Dedicated..productId) : <code>string</code>
-    * [~productLabel](#Products.module_OpenShift Dedicated..productLabel) : <code>string</code>
-    * [~config](#Products.module_OpenShift Dedicated..config) : <code>Object</code>
+* [OpenShiftDedicated](#Products.module_OpenShiftDedicated)
+    * [~productGroup](#Products.module_OpenShiftDedicated..productGroup) : <code>string</code>
+    * [~productId](#Products.module_OpenShiftDedicated..productId) : <code>string</code>
+    * [~productLabel](#Products.module_OpenShiftDedicated..productLabel) : <code>string</code>
+    * [~config](#Products.module_OpenShiftDedicated..config) : <code>Object</code>
 
-<a name="Products.module_OpenShift Dedicated..productGroup"></a>
+<a name="Products.module_OpenShiftDedicated..productGroup"></a>
 
-### OpenShift Dedicated~productGroup : <code>string</code>
+### OpenShiftDedicated~productGroup : <code>string</code>
 Product group
 
-**Kind**: inner constant of [<code>OpenShift Dedicated</code>](#Products.module_OpenShift Dedicated)  
-<a name="Products.module_OpenShift Dedicated..productId"></a>
+**Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
+<a name="Products.module_OpenShiftDedicated..productId"></a>
 
-### OpenShift Dedicated~productId : <code>string</code>
+### OpenShiftDedicated~productId : <code>string</code>
 Product ID
 
-**Kind**: inner constant of [<code>OpenShift Dedicated</code>](#Products.module_OpenShift Dedicated)  
-<a name="Products.module_OpenShift Dedicated..productLabel"></a>
+**Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
+<a name="Products.module_OpenShiftDedicated..productLabel"></a>
 
-### OpenShift Dedicated~productLabel : <code>string</code>
+### OpenShiftDedicated~productLabel : <code>string</code>
 Product label
 
-**Kind**: inner constant of [<code>OpenShift Dedicated</code>](#Products.module_OpenShift Dedicated)  
-<a name="Products.module_OpenShift Dedicated..config"></a>
+**Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
+<a name="Products.module_OpenShiftDedicated..config"></a>
 
-### OpenShift Dedicated~config : <code>Object</code>
+### OpenShiftDedicated~config : <code>Object</code>
 Product configuration
 
-**Kind**: inner constant of [<code>OpenShift Dedicated</code>](#Products.module_OpenShift Dedicated)  
-<a name="Products.module_OpenShift Metrics"></a>
+**Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
+<a name="Products.module_OpenShiftMetrics"></a>
 
-## OpenShift Metrics
+## OpenShiftMetrics
 OpenShift Metrics
 
 
-* [OpenShift Metrics](#Products.module_OpenShift Metrics)
-    * [~productGroup](#Products.module_OpenShift Metrics..productGroup) : <code>string</code>
-    * [~productId](#Products.module_OpenShift Metrics..productId) : <code>string</code>
-    * [~productLabel](#Products.module_OpenShift Metrics..productLabel) : <code>string</code>
-    * [~config](#Products.module_OpenShift Metrics..config) : <code>Object</code>
+* [OpenShiftMetrics](#Products.module_OpenShiftMetrics)
+    * [~productGroup](#Products.module_OpenShiftMetrics..productGroup) : <code>string</code>
+    * [~productId](#Products.module_OpenShiftMetrics..productId) : <code>string</code>
+    * [~productLabel](#Products.module_OpenShiftMetrics..productLabel) : <code>string</code>
+    * [~config](#Products.module_OpenShiftMetrics..config) : <code>Object</code>
 
-<a name="Products.module_OpenShift Metrics..productGroup"></a>
+<a name="Products.module_OpenShiftMetrics..productGroup"></a>
 
-### OpenShift Metrics~productGroup : <code>string</code>
+### OpenShiftMetrics~productGroup : <code>string</code>
 Product group
 
-**Kind**: inner constant of [<code>OpenShift Metrics</code>](#Products.module_OpenShift Metrics)  
-<a name="Products.module_OpenShift Metrics..productId"></a>
+**Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
+<a name="Products.module_OpenShiftMetrics..productId"></a>
 
-### OpenShift Metrics~productId : <code>string</code>
+### OpenShiftMetrics~productId : <code>string</code>
 Product ID
 
-**Kind**: inner constant of [<code>OpenShift Metrics</code>](#Products.module_OpenShift Metrics)  
-<a name="Products.module_OpenShift Metrics..productLabel"></a>
+**Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
+<a name="Products.module_OpenShiftMetrics..productLabel"></a>
 
-### OpenShift Metrics~productLabel : <code>string</code>
+### OpenShiftMetrics~productLabel : <code>string</code>
 Product label
 
-**Kind**: inner constant of [<code>OpenShift Metrics</code>](#Products.module_OpenShift Metrics)  
-<a name="Products.module_OpenShift Metrics..config"></a>
+**Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
+<a name="Products.module_OpenShiftMetrics..config"></a>
 
-### OpenShift Metrics~config : <code>Object</code>
+### OpenShiftMetrics~config : <code>Object</code>
 Product configuration
 
-**Kind**: inner constant of [<code>OpenShift Metrics</code>](#Products.module_OpenShift Metrics)  
+**Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
 <a name="Products.module_RHACS"></a>
 
 ## RHACS
@@ -325,6 +325,34 @@ Product configuration
 
 ## Products
 Pre-parsed product configurations
+
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>OpenShiftContainer</td><td><code>module</code></td>
+    </tr><tr>
+    <td>OpenShiftDedicated</td><td><code>module</code></td>
+    </tr><tr>
+    <td>OpenShiftMetrics</td><td><code>module</code></td>
+    </tr><tr>
+    <td>RHACS</td><td><code>module</code></td>
+    </tr><tr>
+    <td>RHEL</td><td><code>module</code></td>
+    </tr><tr>
+    <td>RHODS</td><td><code>module</code></td>
+    </tr><tr>
+    <td>ROSA</td><td><code>module</code></td>
+    </tr><tr>
+    <td>Satellite</td><td><code>module</code></td>
+    </tr>  </tbody>
+</table>
 
 
 * [Products](#Configuration.module_Products)

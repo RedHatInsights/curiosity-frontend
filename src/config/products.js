@@ -5,6 +5,14 @@ import { helpers } from '../common/helpers';
  *
  * @memberof Configuration
  * @module Products
+ * @property {module} OpenShiftContainer
+ * @property {module} OpenShiftDedicated
+ * @property {module} OpenShiftMetrics
+ * @property {module} RHACS
+ * @property {module} RHEL
+ * @property {module} RHODS
+ * @property {module} ROSA
+ * @property {module} Satellite
  */
 
 /**

@@ -31,7 +31,7 @@ import { translate } from '../components/i18n/i18n';
  * OpenShift Container
  *
  * @memberof Products
- * @module OpenShift Container
+ * @module OpenShiftContainer
  */
 
 // ToDo: evaluate the need for "productLabel" or using productId

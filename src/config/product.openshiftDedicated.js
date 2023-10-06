@@ -27,7 +27,7 @@ import { translate } from '../components/i18n/i18n';
  * OpenShift Dedicated
  *
  * @memberof Products
- * @module OpenShift Dedicated
+ * @module OpenShiftDedicated
  */
 
 /**

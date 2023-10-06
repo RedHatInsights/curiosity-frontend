@@ -25,7 +25,7 @@ import { translate } from '../components/i18n/i18n';
  * OpenShift Metrics
  *
  * @memberof Products
- * @module OpenShift Metrics
+ * @module OpenShiftMetrics
  */
 
 // ToDo: evaluate the need for "productLabel" or using productId
