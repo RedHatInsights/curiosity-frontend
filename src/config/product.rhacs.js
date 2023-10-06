@@ -32,21 +32,21 @@ import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
  */
 
 /**
- * Product group
+ * Product group. A variant and dissimilar product configuration grouping identifier.
  *
  * @type {string}
  */
 const productGroup = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
 /**
- * Product ID
+ * Product ID. The identifier used when querying the API.
  *
  * @type {string}
  */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.RHACS;
 
 /**
- * Product label
+ * Product label. An identifier used for display strings.
  *
  * @type {string}
  */

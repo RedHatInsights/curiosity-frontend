@@ -48,19 +48,19 @@ OpenShift Container
 <a name="Products.module_OpenShiftContainer..productGroup"></a>
 
 ### OpenShiftContainer~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
 <a name="Products.module_OpenShiftContainer..productId"></a>
 
 ### OpenShiftContainer~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
 <a name="Products.module_OpenShiftContainer..productLabel"></a>
 
 ### OpenShiftContainer~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>OpenShiftContainer</code>](#Products.module_OpenShiftContainer)  
 <a name="Products.module_OpenShiftContainer..config"></a>
@@ -84,19 +84,19 @@ OpenShift Dedicated
 <a name="Products.module_OpenShiftDedicated..productGroup"></a>
 
 ### OpenShiftDedicated~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
 <a name="Products.module_OpenShiftDedicated..productId"></a>
 
 ### OpenShiftDedicated~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
 <a name="Products.module_OpenShiftDedicated..productLabel"></a>
 
 ### OpenShiftDedicated~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>OpenShiftDedicated</code>](#Products.module_OpenShiftDedicated)  
 <a name="Products.module_OpenShiftDedicated..config"></a>
@@ -120,19 +120,19 @@ OpenShift Metrics
 <a name="Products.module_OpenShiftMetrics..productGroup"></a>
 
 ### OpenShiftMetrics~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
 <a name="Products.module_OpenShiftMetrics..productId"></a>
 
 ### OpenShiftMetrics~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
 <a name="Products.module_OpenShiftMetrics..productLabel"></a>
 
 ### OpenShiftMetrics~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>OpenShiftMetrics</code>](#Products.module_OpenShiftMetrics)  
 <a name="Products.module_OpenShiftMetrics..config"></a>
@@ -156,19 +156,19 @@ RHACS
 <a name="Products.module_RHACS..productGroup"></a>
 
 ### RHACS~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>RHACS</code>](#Products.module_RHACS)  
 <a name="Products.module_RHACS..productId"></a>
 
 ### RHACS~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>RHACS</code>](#Products.module_RHACS)  
 <a name="Products.module_RHACS..productLabel"></a>
 
 ### RHACS~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>RHACS</code>](#Products.module_RHACS)  
 <a name="Products.module_RHACS..config"></a>
@@ -192,19 +192,19 @@ RHEL
 <a name="Products.module_RHEL..productGroup"></a>
 
 ### RHEL~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>RHEL</code>](#Products.module_RHEL)  
 <a name="Products.module_RHEL..productId"></a>
 
 ### RHEL~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>RHEL</code>](#Products.module_RHEL)  
 <a name="Products.module_RHEL..productLabel"></a>
 
 ### RHEL~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>RHEL</code>](#Products.module_RHEL)  
 <a name="Products.module_RHEL..config"></a>
@@ -228,19 +228,19 @@ RHODS
 <a name="Products.module_RHODS..productGroup"></a>
 
 ### RHODS~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>RHODS</code>](#Products.module_RHODS)  
 <a name="Products.module_RHODS..productId"></a>
 
 ### RHODS~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>RHODS</code>](#Products.module_RHODS)  
 <a name="Products.module_RHODS..productLabel"></a>
 
 ### RHODS~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>RHODS</code>](#Products.module_RHODS)  
 <a name="Products.module_RHODS..config"></a>
@@ -264,19 +264,19 @@ ROSA
 <a name="Products.module_ROSA..productGroup"></a>
 
 ### ROSA~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>ROSA</code>](#Products.module_ROSA)  
 <a name="Products.module_ROSA..productId"></a>
 
 ### ROSA~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>ROSA</code>](#Products.module_ROSA)  
 <a name="Products.module_ROSA..productLabel"></a>
 
 ### ROSA~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>ROSA</code>](#Products.module_ROSA)  
 <a name="Products.module_ROSA..config"></a>
@@ -300,19 +300,19 @@ Satellite
 <a name="Products.module_Satellite..productGroup"></a>
 
 ### Satellite~productGroup : <code>string</code>
-Product group
+Product group. A variant and dissimilar product configuration grouping identifier.
 
 **Kind**: inner constant of [<code>Satellite</code>](#Products.module_Satellite)  
 <a name="Products.module_Satellite..productId"></a>
 
 ### Satellite~productId : <code>string</code>
-Product ID
+Product ID. The identifier used when querying the API.
 
 **Kind**: inner constant of [<code>Satellite</code>](#Products.module_Satellite)  
 <a name="Products.module_Satellite..productLabel"></a>
 
 ### Satellite~productLabel : <code>string</code>
-Product label
+Product label. An identifier used for display strings.
 
 **Kind**: inner constant of [<code>Satellite</code>](#Products.module_Satellite)  
 <a name="Products.module_Satellite..config"></a>
