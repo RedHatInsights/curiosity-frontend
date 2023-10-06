@@ -27,23 +27,40 @@ import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
 /**
- * ToDo: evaluate separating products/product tags into individual configs...
- * or using anArray/List then generating "routes.js"
+ * Satellite
+ *
+ * @memberof Products
+ * @module Satellite
  */
 
+/**
+ * Product group. A variant and dissimilar product configuration grouping identifier.
+ *
+ * @type {string}
+ */
 const productGroup = 'rhel';
 
+/**
+ * Product ID. The identifier used when querying the API.
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.SATELLITE_SERVER;
 
+/**
+ * Product label. An identifier used for display strings.
+ *
+ * @type {string}
+ */
 const productLabel = 'Satellite';
 
 /**
- * Satellite product config
+ * Product configuration
  *
  * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
- *     initialInventorySettings: object, viewId: string, initialToolbarFilters: {}[], productGroup: string, graphTallyQuery: object,
- *     inventoryHostsQuery: object, productDisplay: string, productVariants: Array, initialGraphFilters: {}[],
- *     initialGuestsFilters: {}[], inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: {}[]}}
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object,
+ *     inventoryHostsQuery: object, productDisplay: string, productVariants: Array, initialGraphFilters: Array,
+ *     initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: ['sat', 'server', 'capsule'],

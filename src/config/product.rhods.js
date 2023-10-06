@@ -24,12 +24,42 @@ import { dateHelpers, helpers } from '../common';
 import { SelectPosition } from '../components/form/select';
 import { translate, EMPTY_CONTEXT } from '../components/i18n/i18n';
 
+/**
+ * RHODS
+ *
+ * @memberof Products
+ * @module RHODS
+ */
+
+/**
+ * Product group. A variant and dissimilar product configuration grouping identifier.
+ *
+ * @type {string}
+ */
 const productGroup = RHSM_API_PATH_PRODUCT_TYPES.RHODS;
 
+/**
+ * Product ID. The identifier used when querying the API.
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.RHODS;
 
+/**
+ * Product label. An identifier used for display strings.
+ *
+ * @type {string}
+ */
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.RHODS;
 
+/**
+ * Product configuration
+ *
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
+ *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string,
+ *     initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object,
+ *     productDisplay: string, initialGraphFilters: Array, initialGraphSettings: object, initialInventoryFilters: Array}}
+ */
 const config = {
   aliases: ['application-services', 'data', 'science', 'ods'],
   productGroup,

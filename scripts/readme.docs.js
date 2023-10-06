@@ -19,7 +19,7 @@ const generateReadMe = ({ input, output } = {}) => {
   { input: './src/*.js', output: './src/README.md' },
   { input: './src/common/*.js', output: './src/common/README.md' },
   { input: './src/components/*/*.js', output: './src/components/README.md' },
-  // { input: './src/config/*/*.js', output: './src/config/README.md' },
+  { input: './src/config/*.js', output: './src/config/README.md' },
   { input: './src/hooks/*.js', output: './src/hooks/README.md' },
   { input: './src/redux/**/*.js', output: './src/redux/README.md' },
   { input: './src/services/**/*.js', output: './src/services/README.md' }

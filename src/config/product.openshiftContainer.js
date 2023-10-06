@@ -27,21 +27,43 @@ import { ChartIcon } from '../components/chart/chartIcon';
 import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
+/**
+ * OpenShift Container
+ *
+ * @memberof Products
+ * @module OpenShiftContainer
+ */
+
 // ToDo: evaluate the need for "productLabel" or using productId
 
+/**
+ * Product group. A variant and dissimilar product configuration grouping identifier.
+ *
+ * @type {string}
+ */
 const productGroup = 'openshift';
 
+/**
+ * Product ID. The identifier used when querying the API.
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 
+/**
+ * Product label. An identifier used for display strings.
+ *
+ * @type {string}
+ */
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 
 /**
- * OpenShift Container product config
+ * Product configuration
  *
  * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
- *     query: object, initialSubscriptionsInventoryFilters: {}[], initialInventorySettings: object, viewId: string, initialToolbarFilters: {}[],
+ *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string, initialToolbarFilters: Array,
  *     productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
- *     initialGraphFilters: {}[], initialGuestsFilters: {}[], inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: {}[]}}
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT, 'openshift-container', 'container', 'platform', 'shift'],
