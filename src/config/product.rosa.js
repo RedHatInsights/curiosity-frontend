@@ -26,12 +26,43 @@ import { ChartTypeVariant } from '../components/chart/chartHelpers';
 import { SelectPosition } from '../components/form/select';
 import { translate } from '../components/i18n/i18n';
 
+/**
+ * ROSA
+ *
+ * @memberof Products
+ * @module ROSA
+ */
+
+/**
+ * Product group. A variant and dissimilar product configuration grouping identifier.
+ *
+ * @type {string}
+ */
 const productGroup = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
 
+/**
+ * Product ID. The identifier used when querying the API.
+ *
+ * @type {string}
+ */
 const productId = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
 
+/**
+ * Product label. An identifier used for display strings.
+ *
+ * @type {string}
+ */
 const productLabel = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
 
+/**
+ * Product configuration
+ *
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
+ *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string,
+ *     initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object,
+ *     productDisplay: string, initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object,
+ *     initialGraphSettings: object, initialInventoryFilters: Array}}
+ */
 const config = {
   aliases: [],
   productGroup,

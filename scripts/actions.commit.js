@@ -46,7 +46,7 @@ const messagesList = parsedMessages =>
     const { trimmedMessage = null, typeScope = null, issueNumber = null, description = null } = message;
 
     const issueNumberException =
-      /(^chore\([\d\D]+\))|(^fix\([\d\D]+\))|(^perf\([\d\D]+\))|(^build\([\d\D]+\))|(^[\d\D]+\(build\))/.test(
+      /(^chore\([\d\D]+\))|(^fix\([\d\D]+\))|(^perf\([\d\D]+\))|(^docs\([\d\D]+\))|(^build\([\d\D]+\))|(^[\d\D]+\(build\))/.test(
         typeScope
       ) || /\(#[\d\D]+\)$/.test(description);
 
