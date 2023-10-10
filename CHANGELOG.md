@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/5a5ed4cd37dbe79311a71a9d8fbf1adfead0659e...7aded789ca08f66db52321b08a57cbbe8377aaf2) (2023-10-10)
+
+
+### Documentation
+* **config** activate generated readme ([#1208](https://github.com/RedHatInsights/curiosity-frontend/pull/1208)) ([7aded78](https://github.com/RedHatInsights/curiosity-frontend/commit/7aded789ca08f66db52321b08a57cbbe8377aaf2))
+* **contributing** sw-1792 update release steps ([#1207](https://github.com/RedHatInsights/curiosity-frontend/pull/1207)) ([628f499](https://github.com/RedHatInsights/curiosity-frontend/commit/628f4993d0776599fb30032138f8bdbd1528d4d4))
+
+### Code Refactoring
+* **deps** sw-1689 pf5 updates ([#1194](https://github.com/RedHatInsights/curiosity-frontend/pull/1194)) ([ffec746](https://github.com/RedHatInsights/curiosity-frontend/commit/ffec746b65634a57a3ec285c79fad20cf1dd3564))
+
+### Chores
+* **deps** bump actions/checkout from 3 to 4 ([#1205](https://github.com/RedHatInsights/curiosity-frontend/pull/1205)) ([f1ed58f](https://github.com/RedHatInsights/curiosity-frontend/commit/f1ed58f2285d8785827664319fe6418897ab1e7f))
+* **deps-dev** eslint from 8.49.0 to 8.50.0 ([#1199](https://github.com/RedHatInsights/curiosity-frontend/pull/1199)) ([413279a](https://github.com/RedHatInsights/curiosity-frontend/commit/413279a9b31c269a685c6139d96e1ad947d23b64))
+
+### Builds
+* **travis** sw-1792 removed, favor container build ([#1206](https://github.com/RedHatInsights/curiosity-frontend/pull/1206)) ([1a85cb1](https://github.com/RedHatInsights/curiosity-frontend/commit/1a85cb11404f02271d9958dcc7bb24c831edbc8e))
+* **proxy** sw-1689 locale file paths ([#1203](https://github.com/RedHatInsights/curiosity-frontend/pull/1203)) ([edea127](https://github.com/RedHatInsights/curiosity-frontend/commit/edea1271264c8b00cd6083fb2ff5cca01e1197c1))
+
+### Bug Fixes
+* **deps** sw-1689 npm cloud services updates ([#1202](https://github.com/RedHatInsights/curiosity-frontend/pull/1202)) ([233029a](https://github.com/RedHatInsights/curiosity-frontend/commit/233029a1d84dd8fea534c8d14fa7a558830f7251))
+
 ## [3.6.0](https://github.com/RedHatInsights/curiosity-frontend/compare/fff75a64eafcf5812977ded877698848812c670d...5267af002885ef30040662dafea3f2ba339ebe72) (2023-10-02)
 
 
