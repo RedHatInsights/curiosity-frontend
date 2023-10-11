@@ -144,7 +144,8 @@ const tableHeader = ({
  * @param {Function} params.onExpand
  * @param {Function} params.onSelect
  * @param {Array} params.rows
- * @returns {{isExpandableCell: boolean, isSelectTable: boolean, isExpandableRow: boolean, isAllSelected: boolean, rows: any[]}}
+ * @returns {{isExpandableCell: boolean, isSelectTable: boolean, isExpandableRow: boolean, isAllSelected: boolean,
+ *     rows: any[]}}
  */
 const tableRows = ({ onExpand, onSelect, rows = [] } = {}) => {
   const updatedRows = [];

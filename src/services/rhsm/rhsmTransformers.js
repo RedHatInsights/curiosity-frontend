@@ -121,10 +121,10 @@ const rhsmInstancesGuests = (response, { params, _id } = {}) => {
 
 /**
  * Parse RHSM subscriptions response for caching.
- * The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We attempt to
- * normalize this for both casing, similar to the Instances meta response, BUT we also add a concatenated string uom for responses
- * without the uom query parameter in the form of "Sockets", "Sockets-Cores", or "Cores", dependent on the returned response
- * data.
+ * The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We
+ * attempt to normalize this for both casing, similar to the Instances meta response, BUT we also add a
+ * concatenated string uom for responses without the uom query parameter in the form of "Sockets", "Sockets-Cores",
+ * or "Cores", dependent on the returned response data.
  *
  * @param {object} response
  * @param {object} config

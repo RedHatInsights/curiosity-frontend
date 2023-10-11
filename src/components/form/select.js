@@ -265,8 +265,8 @@ const formatButtonParentProps = (formattedButtonProps = {}) => {
 };
 
 /**
- * A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect callback
- * for both select and dropdown.
+ * A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect
+ * callback for both select and dropdown.
  *
  * @fires onDropdownSelect
  * @fires onSplitButton
@@ -532,10 +532,11 @@ const Select = ({
 /**
  * Prop types.
  *
- * @type {{isFlipEnabled: boolean, toggleIcon: (React.ReactNode|Function), className: string, onSplitButton: Function, ariaLabel: string,
- *     onSelect: Function, isToggleText: boolean, isDropdownButton: boolean, maxHeight: number, buttonVariant: string, name: string,
- *     options: Array|object, selectedOptions: Array|number|string, variant: string, isInline: boolean, id: string, isDisabled: boolean,
- *     placeholder: string, position: string, splitButtonVariant: string, direction: string}}
+ * @type {{isFlipEnabled: boolean, toggleIcon: (React.ReactNode|Function), className: string, onSplitButton: Function,
+ *     ariaLabel: string, onSelect: Function, isToggleText: boolean, isDropdownButton: boolean, maxHeight: number,
+ *     buttonVariant: string, name: string, options: Array|object, selectedOptions: Array|number|string,
+ *     variant: string, isInline: boolean, id: string, isDisabled: boolean, placeholder: string, position: string,
+ *     splitButtonVariant: string, direction: string}}
  */
 Select.propTypes = {
   ariaLabel: PropTypes.string,
@@ -585,10 +586,10 @@ Select.propTypes = {
 /**
  * Default props.
  *
- * @type {{isFlipEnabled: boolean, toggleIcon: null, className: string, onSplitButton: Function, ariaLabel: string, onSelect: Function,
- *     isToggleText: boolean, isDropdownButton: boolean, maxHeight: null, buttonVariant: string, name: null, options: Array,
- *     selectedOptions: null, variant: SelectVariant.single, isInline: boolean, id: string, isDisabled: boolean, placeholder: string,
- *     position: string, splitButtonVariant: null, direction: string}}
+ * @type {{isFlipEnabled: boolean, toggleIcon: null, className: string, onSplitButton: Function, ariaLabel: string,
+ *     onSelect: Function, isToggleText: boolean, isDropdownButton: boolean, maxHeight: null, buttonVariant: string,
+ *     name: null, options: Array, selectedOptions: null, variant: SelectVariant.single, isInline: boolean, id: string,
+ *     isDisabled: boolean, placeholder: string, position: string, splitButtonVariant: null, direction: string}}
  */
 Select.defaultProps = {
   ariaLabel: 'Select option',

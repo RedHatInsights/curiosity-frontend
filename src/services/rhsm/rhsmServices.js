@@ -1186,7 +1186,8 @@ const getApiVersion = (options = {}) => {
  *        ]
  *     }
  */
-/* Get RHSM API reporting/tally graph/chart data.
+/**
+ * Get RHSM API reporting/tally graph/chart data.
  *
  * @param {string|Array} id String ID, or an array of identifiers to update a dotenv url path
  * @param {object} params Query/search params
@@ -1194,8 +1195,10 @@ const getApiVersion = (options = {}) => {
  * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
- * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
- * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
+ * @param {Array} options.schema An array of callbacks used to transform the response,
+ *     ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response,
+ *     ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getGraphTally = (id, params = {}, options = {}) => {
@@ -1225,7 +1228,7 @@ const getGraphTally = (id, params = {}, options = {}) => {
 };
 
 /**
- * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id/:metric_id Get RHSM graph capacity data, i.e. thresholds
+ * @api {get} /api/rhsm-subscriptions/v1/capacity/products/:product_id/:metric_id Get RHSM graph capacity data
  * @apiDescription Retrieve graph capacity data, such as thresholds.
  *
  * Reference [RHSM for capacity params and commands](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
@@ -1510,7 +1513,7 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
 
 /**
  * @apiMock {DelayResponse} 250
- * @api {get} /api/rhsm-subscriptions/v1/instances/:instance_id/guests Get RHSM instances/systems table/inventory guests data
+ * @api {get} /api/rhsm-subscriptions/v1/instances/:instance_id/guests Get RHSM instances/systems inventory guests data
  * @apiDescription Retrieve instances/systems table/inventory guests data.
  *
  * Reference [RHSM for instances guests](https://github.com/RedHatInsights/rhsm-subscriptions/blob/main/api/rhsm-subscriptions-api-spec.yaml)
@@ -1624,8 +1627,10 @@ const getGraphCapacity = (id, params = {}, options = {}) => {
  * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
- * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
- * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
+ * @param {Array} options.schema An array of callbacks used to transform the response,
+ *     ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response,
+ *     ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
@@ -1772,8 +1777,10 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
- * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
- * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
+ * @param {Array} options.schema An array of callbacks used to transform the response,
+ *     ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response,
+ *     ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getInstancesInventory = (id, params = {}, options = {}) => {
@@ -1891,8 +1898,10 @@ const getInstancesInventory = (id, params = {}, options = {}) => {
  * @param {boolean} options.cache
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
- * @param {Array} options.schema An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]
- * @param {Array} options.transform An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
+ * @param {Array} options.schema An array of callbacks used to transform the response,
+ *     ie. [SUCCESS SCHEMA, ERROR SCHEMA]
+ * @param {Array} options.transform An array of callbacks used to transform the response,
+ *     ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]
  * @returns {Promise<*>}
  */
 const getSubscriptionsInventory = (id, params = {}, options = {}) => {
