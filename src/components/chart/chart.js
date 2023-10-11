@@ -172,10 +172,10 @@ const Chart = ({
 /**
  * Prop types.
  *
- * @type {{chartTooltip: React.ReactNode|Function, xValueFormat: Function, padding: {top: number, left: number, bottom: number,
- *     right: number}, xAxisTickFormat: Function, themeColor: string, chartLegend: React.ReactNode|Function,
- *     yAxisTickFormat: Function, dataSets: Array, xAxisFixLabelOverlap: boolean, xAxisLabelIncrement: number,
- *     yValueFormat: Function}}
+ * @type {{chartTooltip: React.ReactNode|Function, xValueFormat: Function, padding: {top: number, left: number,
+ *     bottom: number, right: number}, xAxisTickFormat: Function, themeColor: string, chartLegend:
+ *     React.ReactNode|Function, yAxisTickFormat: Function, dataSets: Array, xAxisFixLabelOverlap: boolean,
+ *     xAxisLabelIncrement: number, yValueFormat: Function}}
  */
 Chart.propTypes = {
   chartLegend: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
@@ -227,10 +227,10 @@ Chart.propTypes = {
 /**
  * Default props.
  *
- * @type {{chartTooltip: React.ReactNode|Function, xValueFormat: Function, padding: {top: number, left: number, bottom: number,
- *     right: number}, xAxisTickFormat: Function, themeColor: string, chartLegend: React.ReactNode|Function,
- *     yAxisTickFormat: Function, dataSets: Array, xAxisFixLabelOverlap: boolean, xAxisLabelIncrement: number,
- *     yValueFormat: Function}}
+ * @type {{chartTooltip: React.ReactNode|Function, xValueFormat: Function, padding: {top: number, left: number,
+ *     bottom: number, right: number}, xAxisTickFormat: Function, themeColor: string, chartLegend:
+ *     React.ReactNode|Function, yAxisTickFormat: Function, dataSets: Array, xAxisFixLabelOverlap: boolean,
+ *     xAxisLabelIncrement: number, yValueFormat: Function}}
  */
 Chart.defaultProps = {
   chartLegend: null,

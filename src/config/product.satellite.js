@@ -57,10 +57,12 @@ const productLabel = 'Satellite';
 /**
  * Product configuration
  *
- * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
- *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object,
- *     inventoryHostsQuery: object, productDisplay: string, productVariants: Array, initialGraphFilters: Array,
- *     initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string,
+ *     inventorySubscriptionsQuery: object, initialInventorySettings: object, viewId: string, initialToolbarFilters:
+ *     Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string,
+ *     productVariants: Array, initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object,
+ *     initialGraphSettings: object, initialInventoryFilters:
+ *     Array}}
  */
 const config = {
   aliases: ['sat', 'server', 'capsule'],

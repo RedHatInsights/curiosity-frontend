@@ -171,7 +171,8 @@ const setI18nTestElement = ({ defaultTestId, testId }) => {
  *     - A default string if the key can't be found.
  *     - An object with i18next settings. i.e. "{ context: Array|string, testId: boolean|string|React.ReactNode }"
  *     - An array of objects (key/value) pairs used to replace string tokens. i.e. "[{ hello: 'world' }]"
- * @param {Array} components An array of HTML/React nodes used to replace string tokens. i.e. "[<span />, <React.Fragment />]"
+ * @param {Array} components An array of HTML/React nodes used to replace string tokens.
+ *     i.e. "[<span />, <React.Fragment />]"
  * @param {object} settings
  * @param {*} settings.i18next
  * @param {Function} settings.isDebug

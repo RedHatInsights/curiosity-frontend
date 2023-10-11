@@ -8,6 +8,7 @@
     "airbnb",
     "airbnb/hooks",
     "prettier",
+    "plugin:comment-length/recommended",
     "plugin:jest/recommended",
     "plugin:jsdoc/recommended"
   ],
@@ -55,6 +56,20 @@
     ],
     "class-methods-use-this": 1,
     "comma-dangle": 0,
+    "comment-length/limit-single-line-comments": [
+      "warn",
+      {
+        "maxLength": 120,
+        "logicalWrap": true
+      }
+    ],
+    "comment-length/limit-multi-line-comments": [
+      "warn",
+      {
+        "maxLength": 120,
+        "logicalWrap": true
+      }
+    ],
     "consistent-return": 1,
     "default-param-last": 0,
     "import/extensions": [
@@ -120,8 +135,14 @@
       "error",
       {
         "code": 240,
+        "comments": 120,
+        "ignoreComments": false,
         "ignoreUrls": true
       }
+    ],
+    "multiline-comment-style": [
+      "warn",
+      "starred-block"
     ],
     "no-case-declarations": 0,
     "no-console": 0,

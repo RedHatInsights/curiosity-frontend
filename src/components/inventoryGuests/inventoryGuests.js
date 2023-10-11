@@ -41,8 +41,7 @@ const InventoryGuests = ({
 
   const onScroll = useAliasOnScroll({ id, numberOfGuests });
 
-  // ToDo: Review having the height be a calc value
-  // Include the table header
+  // ToDo: Review having the height be a calc value. Remember to include the table header
   let updatedHeight = (numberOfGuests + 1) * 42;
   updatedHeight = (updatedHeight < 275 && updatedHeight) || 275;
 
