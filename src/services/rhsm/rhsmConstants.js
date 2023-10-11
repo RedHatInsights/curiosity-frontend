@@ -6,14 +6,16 @@
 /**
  * RHSM path IDs for product RHEL variants.
  *
- * @type {{RHEL_ARM: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string}}
+ * @type {{RHEL_ARM: string, RHEL_X86_EUS: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string,
+ *     RHEL_X86: string}}
  */
 const RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES = {
   RHEL_ARM: 'RHEL for ARM',
   RHEL_IBM_POWER: 'RHEL for IBM Power',
   RHEL_IBM_Z: 'RHEL for IBM z',
   RHEL_X86: 'RHEL for x86',
-  RHEL_X86_SAP: 'rhel-for-sap-x86'
+  RHEL_X86_SAP: 'rhel-for-sap-x86',
+  RHEL_X86_EUS: 'rhel-for-x86-eus'
 };
 
 /**
@@ -437,21 +439,22 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     string}, RHSM_API_RESPONSE_META_TYPES: {PRODUCT: string, COUNT: string}, RHSM_API_RESPONSE_ERRORS_CODE_TYPES:
  *     {GENERIC: string, OPTIN: string}, RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY:
  *     string, MONTHLY: string}, RHSM_API_RESPONSE_UOM_TYPES: {CORES: string, SOCKETS: string},
- *     RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES: {RHEL_ARM: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string,
- *     RHEL_IBM_POWER: string, RHEL_X86: string}, RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES: {BILLING_ACCOUNT_ID:
- *     string, QUANTITY: string, SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string, NUMBER_OF_GUESTS: string,
- *     HAS_INFINITE_QUANTITY: string, TOTAL_CAPACITY: string, PRODUCT_NAME: string, SERVICE_LEVEL: string,
- *     DISPLAY_NAME: string, MEASUREMENTS: string, UOM: string, CATEGORY: string, NEXT_EVENT_DATE: string,
- *     BILLING_PROVIDER: string, LAST_SEEN: string}, RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES: {ASCENDING: string,
- *     DESCENDING: string}, RHSM_API_RESPONSE_SUBSCRIPTION_TYPES: {ANNUAL: string, ON_DEMAND: string},
- *     RHSM_API_QUERY_INVENTORY_SORT_TYPES: {CORES: string, STORAGE_GIBIBYTES: string, CATEGORY: string, SOCKETS:
- *     string, INSTANCE_HOURS: string, NUMBER_OF_GUESTS: string, TRANSFER_GIBIBYTES: string, BILLING_PROVIDER: string,
- *     CORE_SECONDS: string, STORAGE_GIBIBYTE_MONTHS: string, LAST_SEEN: string, NAME: string},
- *     RHSM_API_PATH_PRODUCT_TYPES: {RHEL_ARM: string, OPENSHIFT_METRICS: string, RHEL_WORKSTATION: string, RHODS:
- *     string, ROSA: string, RHEL_X86: string, RHEL_COMPUTE_NODE: string, OPENSHIFT: string, SATELLITE_SERVER: string,
- *     OPENSHIFT_DEDICATED_METRICS: string, SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string,
- *     RHACS: string}, RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string, NONE:
- *     string, AWS: string, ORACLE: string}, RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string},
+ *     RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES: {RHEL_ARM: string, RHEL_X86_EUS: string, RHEL_X86_SAP: string,
+ *     RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string}, RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES:
+ *     {BILLING_ACCOUNT_ID: string, QUANTITY: string, SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string,
+ *     NUMBER_OF_GUESTS: string, HAS_INFINITE_QUANTITY: string, TOTAL_CAPACITY: string, PRODUCT_NAME: string,
+ *     SERVICE_LEVEL: string, DISPLAY_NAME: string, MEASUREMENTS: string, UOM: string, CATEGORY: string,
+ *     NEXT_EVENT_DATE: string, BILLING_PROVIDER: string, LAST_SEEN: string},
+ *     RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES: {ASCENDING: string, DESCENDING: string},
+ *     RHSM_API_RESPONSE_SUBSCRIPTION_TYPES: {ANNUAL: string, ON_DEMAND: string}, RHSM_API_QUERY_INVENTORY_SORT_TYPES:
+ *     {CORES: string, STORAGE_GIBIBYTES: string, CATEGORY: string, SOCKETS: string, INSTANCE_HOURS: string,
+ *     NUMBER_OF_GUESTS: string, TRANSFER_GIBIBYTES: string, BILLING_PROVIDER: string, CORE_SECONDS: string,
+ *     STORAGE_GIBIBYTE_MONTHS: string, LAST_SEEN: string, NAME: string}, RHSM_API_PATH_PRODUCT_TYPES: {RHEL_ARM:
+ *     string, OPENSHIFT_METRICS: string, RHEL_WORKSTATION: string, RHODS: string, ROSA: string, RHEL_X86: string,
+ *     RHEL_COMPUTE_NODE: string, OPENSHIFT: string, SATELLITE_SERVER: string, OPENSHIFT_DEDICATED_METRICS: string,
+ *     SATELLITE_CAPSULE: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHACS: string},
+ *     RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES: {AZURE: string, GCP: string, RED_HAT: string, NONE: string, AWS:
+ *     string, ORACLE: string}, RHSM_API_RESPONSE_ERRORS_TYPES: {CODE: string},
  *     RHSM_API_RESPONSE_TALLY_CAPACITY_DATA_TYPES: {DATE: string, HAS_DATA: string, VALUE: string,
  *     HAS_INFINITE_QUANTITY: string}, RHSM_API_RESPONSE_TALLY_CAPACITY_META_TYPES: {TOTAL_MONTHLY: string, DATE:
  *     string, PRODUCT: string, HAS_CLOUDIGRADE_DATA: string, HAS_CLOUDIGRADE_MISMATCH: string, HAS_DATA: string,
