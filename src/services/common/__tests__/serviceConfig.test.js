@@ -172,7 +172,8 @@ describe('ServiceConfig', () => {
   it('should handle transforming service call responses', async () => {
     const responses = [];
 
-    // First, use the schema transform - alias for transform, but relates a sequence and happens before other transformations.
+    // First, use the schema transform - alias for transform, but relates a sequence and happens before other
+    // transformations.
     const responseOne = await serviceConfig.axiosServiceCall({
       cache: true,
       url: '/test/',

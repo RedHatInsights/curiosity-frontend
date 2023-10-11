@@ -413,9 +413,10 @@ const Table = ({
 /**
  * Prop types
  *
- * @type {{componentClassNames: object, summary: string, onSort: Function, onExpand: Function, className: string, isStriped: boolean,
- *     rows: Array, isBorders: boolean, ariaLabel: string, onSelect: Function, columnHeaders: Array, children: React.ReactNode,
- *     isHeader: boolean, variant: string, emptyTable: {className: string, title: React.ReactNode, message: React.ReactNode}}}
+ * @type {{componentClassNames: object, summary: string, onSort: Function, onExpand: Function, className: string,
+ *     isStriped: boolean, rows: Array, isBorders: boolean, ariaLabel: string, onSelect: Function, columnHeaders:
+ *     Array, children: React.ReactNode, isHeader: boolean, variant: string, emptyTable: {className: string, title:
+ *     React.ReactNode, message: React.ReactNode}}}
  */
 Table.propTypes = {
   ariaLabel: PropTypes.string,
@@ -487,11 +488,12 @@ Table.propTypes = {
 /**
  * Default props
  *
- * @type {{componentClassNames: {tdExpanded: string, trExpand: string, trExpandedContent: string, tdExpandedWrapper: string,
- *     tdAction: string, tdExpand: string, td: string, trExpanded: string, th: string, tdSelect: string, tdExpandedContent: string,
- *     table: string, tr: string}, summary: null, onSort: null, onExpand: null, className: string, isStriped: boolean, rows: any[],
- *     isBorders: boolean, ariaLabel: null, onSelect: null, columnHeaders: any[], children: null, isHeader: boolean,
- *     variant: TableVariant.compact, emptyTable: {title: string, message: string}}}
+ * @type {{componentClassNames: {tdExpanded: string, trExpand: string, trExpandedContent: string,
+ *     tdExpandedWrapper: string, tdAction: string, tdExpand: string, td: string, trExpanded: string, th: string,
+ *     tdSelect: string, tdExpandedContent: string, table: string, tr: string}, summary: null, onSort: null, onExpand:
+ *     null, className: string, isStriped: boolean, rows: any[], isBorders: boolean, ariaLabel: null, onSelect: null,
+ *     columnHeaders: any[], children: null, isHeader: boolean, variant: TableVariant.compact, emptyTable: {title:
+ *     string, message: string}}}
  */
 Table.defaultProps = {
   ariaLabel: null,

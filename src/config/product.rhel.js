@@ -66,11 +66,12 @@ const productLabel = 'RHEL';
 /**
  * RHEL product config
  *
- * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
- *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string,
- *     initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string,
- *     productVariants: Array, initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object,
- *     initialGraphSettings: object, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string,
+ *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: Array,
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productVariants: Array,
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings:
+ *     object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: ['insights', 'enterprise', 'linux', 'el', 'x86', 'ibm', 'power'],

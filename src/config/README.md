@@ -370,10 +370,13 @@ IIFE for generating a product configs listing via webpack.
 
 ### Products~sortedProductConfigs ⇒ <code>Object</code>
 Sorted/organized/grouped product configs.
+
 - byAlias,object configurations associated with product aliases
-- byAnything, object of all productGroups, productIds, productPaths, and aliases with lists of their related configurations
+- byAnything, object of all productGroups, productIds, productPaths, and aliases with lists of their related
+    configurations
 - byAnythingPathIds, list of identifiers associated with all productGroups, productIds, productPaths, and aliases
-- byAnythingVariants, object of all productGroups, productIds, productPaths, and aliases associated with lists of their related variants
+- byAnythingVariants, object of all productGroups, productIds, productPaths, and aliases associated with lists
+    of their related variants
 - byGroupIdConfigs, object of productGroup properties against an array of associated product configs
 - byGroupIds, object of productGroup properties against an array of associated productId strings.
 - byGroupIdVariants, object of productGroup properties against an array of associated product variants
@@ -381,8 +384,8 @@ Sorted/organized/grouped product configs.
 - byProductIds, a unique array of all productId strings
 - byProductPathConfigs, object of productPath properties against an array of associated product configs
 - byViewIdConfigs, object of viewId properties against an array of associated product configs
-- byViewIds, object of viewId properties against an array of associated productId strings. "viewId" was created because of the
-    overlap with productIds and productGroups, this may be refactored in the future
+- byViewIds, object of viewId properties against an array of associated productId strings. "viewId" was
+    created because of the overlap with productIds and productGroups, this may be refactored in the future
 
 **Kind**: inner constant of [<code>Products</code>](#Configuration.module_Products)  
 <table>

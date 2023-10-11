@@ -60,10 +60,12 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT;
 /**
  * Product configuration
  *
- * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string, inventorySubscriptionsQuery: object,
- *     query: object, initialSubscriptionsInventoryFilters: Array, initialInventorySettings: object, viewId: string, initialToolbarFilters: Array,
- *     productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
- *     initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, productPath: string, initialOption: string, aliases: string[], productId: string,
+ *     inventorySubscriptionsQuery: object, query: object, initialSubscriptionsInventoryFilters: Array,
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, productContextFilterUom: boolean,
+ *     initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings:
+ *     object, initialInventoryFilters: Array}}
  */
 const config = {
   aliases: [RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT, 'openshift-container', 'container', 'platform', 'shift'],
