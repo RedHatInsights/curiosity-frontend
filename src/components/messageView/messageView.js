@@ -47,7 +47,8 @@ const MessageView = ({ children, icon, message, pageTitle, title }) => (
 /**
  * Prop types.
  *
- * @type {{children: React.ReactNode, icon: React.ReactNode|Function, message: string, pageTitle: string, title: string}}
+ * @type {{children: React.ReactNode, icon: React.ReactNode|Function, message: string, pageTitle: string,
+ *     title: string}}
  */
 MessageView.propTypes = {
   children: PropTypes.node,

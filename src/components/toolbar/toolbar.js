@@ -160,9 +160,9 @@ const Toolbar = ({
 /**
  * Prop types
  *
- * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarFields: Function, isGroupVariantDisabled: boolean, useProductToolbarQuery: Function, isDisabled: boolean,
- *     useToolbarFieldClearAll: Function}}
+ * @type {{useToolbarFieldClear: Function, t: Function, useSelectCategoryOptions: Function,
+ *     hardFilterReset: boolean, useToolbarFields: Function, isGroupVariantDisabled: boolean,
+ *     useProductToolbarQuery: Function, isDisabled: boolean, useToolbarFieldClearAll: Function}}
  */
 Toolbar.propTypes = {
   hardFilterReset: PropTypes.bool,
@@ -179,9 +179,9 @@ Toolbar.propTypes = {
 /**
  * Default props.
  *
- * @type {{useToolbarFieldClear: Function, t: translate, useSelectCategoryOptions: Function, hardFilterReset: boolean,
- *     useToolbarFields: Function, isGroupVariantDisabled: boolean, useProductToolbarQuery: Function, isDisabled: boolean,
- *     useToolbarFieldClearAll: Function}}
+ * @type {{useToolbarFieldClear: Function, t: translate, useSelectCategoryOptions: Function,
+ *     hardFilterReset: boolean, useToolbarFields: Function, isGroupVariantDisabled: boolean,
+ *     useProductToolbarQuery: Function, isDisabled: boolean, useToolbarFieldClearAll: Function}}
  */
 Toolbar.defaultProps = {
   hardFilterReset: false,

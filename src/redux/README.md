@@ -187,7 +187,8 @@ Get a RHSM response from multiple Tally, or Capacity, IDs and metrics.
   </thead>
   <tbody>
 <tr>
-    <td>idMetric</td><td><code>object</code> | <code>Array</code></td><td><p>An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID, isCapacity: boolean }</p>
+    <td>idMetric</td><td><code>object</code> | <code>Array</code></td><td><p>An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID,
+    isCapacity: boolean }</p>
 </td>
     </tr><tr>
     <td>query</td><td><code>object</code></td><td></td>

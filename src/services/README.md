@@ -809,6 +809,7 @@ RHSM API service calls.
 
 * [RhsmServices](#Rhsm.module_RhsmServices)
     * [~getApiVersion(options)](#Rhsm.module_RhsmServices..getApiVersion) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getGraphTally(id, params, options)](#Rhsm.module_RhsmServices..getGraphTally) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getGraphCapacity(id, params, options)](#Rhsm.module_RhsmServices..getGraphCapacity) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getInstancesInventoryGuests(id, params, options)](#Rhsm.module_RhsmServices..getInstancesInventoryGuests) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getInstancesInventory(id, params, options)](#Rhsm.module_RhsmServices..getInstancesInventory) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -833,6 +834,44 @@ Get RHSM API version information.
     <td>options.cancel</td><td><code>boolean</code></td>
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Rhsm.module_RhsmServices..getGraphTally"></a>
+
+### RhsmServices~getGraphTally(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get RHSM API reporting/tally graph/chart data.
+
+**Kind**: inner method of [<code>RhsmServices</code>](#Rhsm.module_RhsmServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code> | <code>Array</code></td><td><p>String ID, or an array of identifiers to update a dotenv url path</p>
+</td>
+    </tr><tr>
+    <td>params</td><td><code>object</code></td><td><p>Query/search params</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cache</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+</td>
+    </tr><tr>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+</td>
     </tr>  </tbody>
 </table>
 
@@ -892,10 +931,12 @@ Get RHSM API instances table/inventory guests data.
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
 </td>
     </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -928,10 +969,12 @@ Get RHSM API instances data.
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
 </td>
     </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -964,10 +1007,12 @@ Get RHSM API subscriptions data.
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
 </td>
     </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -1041,10 +1086,10 @@ Parse RHSM guests instances response. Return an infinite list at the transformer
 
 ### RhsmTransformers~rhsmSubscriptions(response, config) ⇒ <code>object</code>
 Parse RHSM subscriptions response for caching.
-The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We attempt to
-normalize this for both casing, similar to the Instances meta response, BUT we also add a concatenated string uom for responses
-without the uom query parameter in the form of "Sockets", "Sockets-Cores", or "Cores", dependent on the returned response
-data.
+The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We
+attempt to normalize this for both casing, similar to the Instances meta response, BUT we also add a
+concatenated string uom for responses without the uom query parameter in the form of "Sockets", "Sockets-Cores",
+or "Cores", dependent on the returned response data.
 
 **Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
 <table>

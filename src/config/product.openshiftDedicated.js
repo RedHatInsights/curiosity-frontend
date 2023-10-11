@@ -54,10 +54,11 @@ const productLabel = RHSM_API_PATH_PRODUCT_TYPES.OPENSHIFT_DEDICATED_METRICS;
 /**
  * Product configuration
  *
- * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object, initialInventorySettings: object,
- *     viewId: string, initialToolbarFilters: Array, productGroup: string, graphTallyQuery: object, inventoryHostsQuery: object,
- *     productDisplay: string, initialGraphFilters: Array, initialGuestsFilters: Array, inventoryGuestsQuery: object,
- *     initialGraphSettings: object, initialInventoryFilters: Array}}
+ * @type {{productLabel: string, productPath: string, aliases: string[], productId: string, query: object,
+ *     initialInventorySettings: object, viewId: string, initialToolbarFilters: Array, productGroup: string,
+ *     graphTallyQuery: object, inventoryHostsQuery: object, productDisplay: string, initialGraphFilters: Array,
+ *     initialGuestsFilters: Array, inventoryGuestsQuery: object, initialGraphSettings: object,
+ *     initialInventoryFilters: Array}}
  */
 const config = {
   aliases: ['openshift-dedicated', 'dedicated'],

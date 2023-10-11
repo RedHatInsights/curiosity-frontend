@@ -192,8 +192,8 @@ GraphCardChartLegend.propTypes = {
 /**
  * Default props.
  *
- * @type {{datum: {dataSets: Array}, useProduct: Function, t: Function, useGraphCardContext: Function, useDispatch: Function,
- *     useSelectors: Function, chart: {hide: Function, toggle: Function, isToggled: Function}}}
+ * @type {{datum: {dataSets: Array}, useProduct: Function, t: Function, useGraphCardContext: Function,
+ *     useDispatch: Function, useSelectors: Function, chart: {hide: Function, toggle: Function, isToggled: Function}}}
  */
 GraphCardChartLegend.defaultProps = {
   chart: {
