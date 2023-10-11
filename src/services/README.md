@@ -1041,10 +1041,10 @@ Parse RHSM guests instances response. Return an infinite list at the transformer
 
 ### RhsmTransformers~rhsmSubscriptions(response, config) ⇒ <code>object</code>
 Parse RHSM subscriptions response for caching.
-The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We attempt to
-normalize this for both casing, similar to the Instances meta response, BUT we also add a concatenated string uom for responses
-without the uom query parameter in the form of "Sockets", "Sockets-Cores", or "Cores", dependent on the returned response
-data.
+The Subscriptions' response "meta" includes the uom field if it is included within the query parameters. We
+attempt to normalize this for both casing, similar to the Instances meta response, BUT we also add a
+concatenated string uom for responses without the uom query parameter in the form of "Sockets", "Sockets-Cores",
+or "Cores", dependent on the returned response data.
 
 **Kind**: inner method of [<code>RhsmTransformers</code>](#Rhsm.module_RhsmTransformers)  
 <table>

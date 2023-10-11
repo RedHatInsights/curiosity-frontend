@@ -1525,8 +1525,8 @@ Fix pf props inconsistency for dropdown button props.
 <a name="Form.module_Select..Select"></a>
 
 ### Select~Select(props) ⇒ <code>React.ReactNode</code>
-A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect callback
-for both select and dropdown.
+A wrapper for Pf Select, and emulator for Pf Dropdown. Provides consistent restructured event data for onSelect
+callback for both select and dropdown.
 
 **Kind**: inner method of [<code>Select</code>](#Form.module_Select)  
 **Emits**: [<code>onDropdownSelect</code>](#event_onDropdownSelect), [<code>onSplitButton</code>](#event_onSplitButton), [<code>onToggle</code>](#event_onToggle)  
