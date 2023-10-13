@@ -67,6 +67,7 @@
     "test:integration-ephemeral": "TZ=UTC jest ./tests --no-cache --testPathIgnorePatterns ./tests/dist.test.js",
     "test:integration-dev": "jest --roots=./tests --watch",
     "test:lint": "eslint --ext=json --ext=js --ext=jsx ./src",
+    "test:lintfix": "eslint --ext=json --ext=js --ext=jsx --fix ./src",
     "test:spell-support": "cspell ./README.md ./config/README.md ./CONTRIBUTING.md --config ./config/cspell.config.json",
     "test:spell": "cspell './public/locales/**/en*json' './src/**/*.js' --config ./config/cspell.config.json",
     "test:local": "jest --roots=./src --watch",
