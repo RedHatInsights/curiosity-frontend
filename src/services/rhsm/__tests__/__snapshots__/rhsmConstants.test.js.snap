@@ -22,6 +22,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHEL_IBM_Z": "RHEL for IBM z",
     "RHEL_WORKSTATION": "RHEL Workstation",
     "RHEL_X86": "RHEL for x86",
+    "RHEL_X86_EUS": "rhel-for-x86-eus",
     "RHEL_X86_SAP": "rhel-for-sap-x86",
     "RHODS": "rhods",
     "ROSA": "rosa",
@@ -33,6 +34,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "RHEL_IBM_POWER": "RHEL for IBM Power",
     "RHEL_IBM_Z": "RHEL for IBM z",
     "RHEL_X86": "RHEL for x86",
+    "RHEL_X86_EUS": "rhel-for-x86-eus",
     "RHEL_X86_SAP": "rhel-for-sap-x86",
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
@@ -278,6 +280,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHEL_IBM_Z": "RHEL for IBM z",
       "RHEL_WORKSTATION": "RHEL Workstation",
       "RHEL_X86": "RHEL for x86",
+      "RHEL_X86_EUS": "rhel-for-x86-eus",
       "RHEL_X86_SAP": "rhel-for-sap-x86",
       "RHODS": "rhods",
       "ROSA": "rosa",
@@ -289,6 +292,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHEL_IBM_POWER": "RHEL for IBM Power",
       "RHEL_IBM_Z": "RHEL for IBM z",
       "RHEL_X86": "RHEL for x86",
+      "RHEL_X86_EUS": "rhel-for-x86-eus",
       "RHEL_X86_SAP": "rhel-for-sap-x86",
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
@@ -535,6 +539,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHEL_IBM_Z": "RHEL for IBM z",
       "RHEL_WORKSTATION": "RHEL Workstation",
       "RHEL_X86": "RHEL for x86",
+      "RHEL_X86_EUS": "rhel-for-x86-eus",
       "RHEL_X86_SAP": "rhel-for-sap-x86",
       "RHODS": "rhods",
       "ROSA": "rosa",
@@ -546,6 +551,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "RHEL_IBM_POWER": "RHEL for IBM Power",
       "RHEL_IBM_Z": "RHEL for IBM z",
       "RHEL_X86": "RHEL for x86",
+      "RHEL_X86_EUS": "rhel-for-x86-eus",
       "RHEL_X86_SAP": "rhel-for-sap-x86",
     },
     "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
@@ -796,6 +802,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "RHEL_IBM_Z": "RHEL for IBM z",
     "RHEL_WORKSTATION": "RHEL Workstation",
     "RHEL_X86": "RHEL for x86",
+    "RHEL_X86_EUS": "rhel-for-x86-eus",
     "RHEL_X86_SAP": "rhel-for-sap-x86",
     "RHODS": "rhods",
     "ROSA": "rosa",
@@ -807,6 +814,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "RHEL_IBM_POWER": "RHEL for IBM Power",
     "RHEL_IBM_Z": "RHEL for IBM z",
     "RHEL_X86": "RHEL for x86",
+    "RHEL_X86_EUS": "rhel-for-x86-eus",
     "RHEL_X86_SAP": "rhel-for-sap-x86",
   },
   "RHSM_API_PATH_PRODUCT_VARIANT_SATELLITE_TYPES": {
