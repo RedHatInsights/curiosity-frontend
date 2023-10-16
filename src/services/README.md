@@ -892,10 +892,12 @@ Get RHSM API instances table/inventory guests data.
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
 </td>
     </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -928,10 +930,12 @@ Get RHSM API instances data.
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
 </td>
     </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -964,10 +968,12 @@ Get RHSM API subscriptions data.
     </tr><tr>
     <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
+    <td>options.schema</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS SCHEMA, ERROR SCHEMA]</p>
 </td>
     </tr><tr>
-    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response, ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
+    <td>options.transform</td><td><code>Array</code></td><td><p>An array of callbacks used to transform the response,
+    ie. [SUCCESS TRANSFORM, ERROR TRANSFORM]</p>
 </td>
     </tr>  </tbody>
 </table>

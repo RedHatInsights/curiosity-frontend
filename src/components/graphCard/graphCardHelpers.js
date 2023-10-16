@@ -364,7 +364,8 @@ const getMetricTotalCurrentOrLastData = helpers.memo(
  *
  * @param {object} params
  * @param {object} params.dataSet
- * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through "graphCardMetricTotals"
+ * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through
+ *     "graphCardMetricTotals"
  * @returns {{chartId: string, metricId: string, monthlyHasData: boolean, dailyValue: number, dailyDate: string,
  *     monthlyValue: number, monthlyDate: string, dailyHasData: boolean}}
  */
@@ -416,7 +417,8 @@ const getPrepaidTallyCapacity = helpers.memo(
  * @param {object} params
  * @param {Array} params.capacityData
  * @param {Array} params.tallyData
- * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through "graphCardMetricTotals"
+ * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed
+ *     through "graphCardMetricTotals"
  * @returns {{remainingCapacityHasData: boolean, remainingCapacity: number}}
  */
 const getRemainingCapacity = helpers.memo(
@@ -453,7 +455,8 @@ const getRemainingCapacity = helpers.memo(
  * @param {object} params
  * @param {Array} params.capacityData
  * @param {Array} params.tallyData
- * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through "graphCardMetricTotals"
+ * @param {boolean} params.isCurrent Is the current value the "current month". A proxy value passed through
+ *     "graphCardMetricTotals"
  * @returns {{remainingOverage: number, remainingOverageHasData: boolean}}
  */
 const getRemainingOverage = helpers.memo(

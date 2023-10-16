@@ -512,7 +512,7 @@ Set application messages for banner display
   </thead>
   <tbody>
 <tr>
-    <td>messages</td><td><code>Array.&lt;{id: string, message: string, title: string, variant: string}&gt;</code> | <code>Object</code></td>
+    <td>messages</td><td><code>Array</code> | <code>Object</code></td>
     </tr>  </tbody>
 </table>
 
@@ -2279,7 +2279,8 @@ Get daily and monthly totals from a data set. A metric totals helper.
     </tr><tr>
     <td>params.dataSet</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through
+    &quot;graphCardMetricTotals&quot;</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -2324,7 +2325,8 @@ Get a remaining capacity from data sets. A metric totals helper.
     </tr><tr>
     <td>params.tallyData</td><td><code>Array</code></td><td></td>
     </tr><tr>
-    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed
+    through &quot;graphCardMetricTotals&quot;</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -2349,7 +2351,8 @@ Get a remaining overage from data sets. A metric totals helper.
     </tr><tr>
     <td>params.tallyData</td><td><code>Array</code></td><td></td>
     </tr><tr>
-    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through &quot;graphCardMetricTotals&quot;</p>
+    <td>params.isCurrent</td><td><code>boolean</code></td><td><p>Is the current value the &quot;current month&quot;. A proxy value passed through
+    &quot;graphCardMetricTotals&quot;</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -2817,7 +2820,8 @@ See, https://react.i18next.com/
 </ul>
 </td>
     </tr><tr>
-    <td>components</td><td><code>Array</code></td><td></td><td><p>An array of HTML/React nodes used to replace string tokens. i.e. &quot;[<span />, &lt;React.Fragment /&gt;]&quot;</p>
+    <td>components</td><td><code>Array</code></td><td></td><td><p>An array of HTML/React nodes used to replace string tokens.
+    i.e. &quot;[<span />, &lt;React.Fragment /&gt;]&quot;</p>
 </td>
     </tr><tr>
     <td>settings</td><td><code>object</code></td><td></td><td></td>

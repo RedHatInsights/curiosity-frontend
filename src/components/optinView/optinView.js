@@ -202,7 +202,8 @@ const OptinView = ({
 /**
  * Prop types.
  *
- * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
+ * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function,
+ *     useSelectorsResponse: Function}}
  */
 OptinView.propTypes = {
   t: PropTypes.func,
@@ -215,7 +216,8 @@ OptinView.propTypes = {
 /**
  * Default props.
  *
- * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function, useSelectorsResponse: Function}}
+ * @type {{useSession: Function, t: Function, updateAccountOptIn: Function, useDispatch: Function,
+ *     useSelectorsResponse: Function}}
  */
 OptinView.defaultProps = {
   t: translate,
