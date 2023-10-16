@@ -1186,7 +1186,8 @@ const getApiVersion = (options = {}) => {
  *        ]
  *     }
  */
-/* Get RHSM API reporting/tally graph/chart data.
+/**
+ * Get RHSM API reporting/tally graph/chart data.
  *
  * @param {string|Array} id String ID, or an array of identifiers to update a dotenv url path
  * @param {object} params Query/search params

@@ -140,6 +140,10 @@
         "ignoreUrls": true
       }
     ],
+    "multiline-comment-style": [
+      "warn",
+      "starred-block"
+    ],
     "no-case-declarations": 0,
     "no-console": 0,
     "no-continue": 0,

@@ -71,6 +71,7 @@ const normalizeInventorySettings = ({ filters = [], guestFilters = [], settings 
 };
 
 // ToDo: evaluate moving isWrap logic under the table component helpers
+
 // ToDo: evaluate a fallback "perPageDefault = 10" defined here
 /**
  * Parse an inventory API response against available filters, query parameters, and session values.
