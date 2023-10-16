@@ -12,7 +12,8 @@ import { generateChartIds } from '../../components/graphCard/graphCardHelpers';
 /**
  * Get a RHSM response from multiple Tally, or Capacity, IDs and metrics.
  *
- * @param {object|Array} idMetric An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID, isCapacity: boolean }
+ * @param {object|Array} idMetric An object, or an Array of objects, in the form of { id: PRODUCT_ID, metric: METRIC_ID,
+ *     isCapacity: boolean }
  * @param {object} query
  * @param {object} options
  * @param {string} options.cancelId

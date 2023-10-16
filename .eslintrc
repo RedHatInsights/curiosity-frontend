@@ -135,6 +135,7 @@
       "error",
       {
         "code": 240,
+        "comments": 120,
         "ignoreComments": false,
         "ignoreUrls": true
       }

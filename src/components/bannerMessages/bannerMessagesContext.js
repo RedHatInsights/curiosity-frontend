@@ -86,7 +86,7 @@ const useSetBannerMessages = ({
    * Set application messages for banner display
    *
    * @callback setBannerMessages
-   * @param {Array<{ id: string, message: string, title: string, variant: string }>|{ id: string, message: string, title: string, variant: string }} messages
+   * @param {Array|{ id: string, message: string, title: string, variant: string }} messages
    */
   return useCallback(
     messages => {

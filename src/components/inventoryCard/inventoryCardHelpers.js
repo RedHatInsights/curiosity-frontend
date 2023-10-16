@@ -83,7 +83,8 @@ const normalizeInventorySettings = ({ filters = [], guestFilters = [], settings 
  * @param {object} params.query
  * @param {object} params.session
  * @param {object} params.settings
- * @returns {{dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array, resultsCount: number}}
+ * @returns {{dataSetColumnHeaders: Array, resultsPerPage: number, resultsOffset: number, dataSetRows: Array,
+ *     resultsCount: number}}
  */
 const parseInventoryResponse = ({
   data = {},
