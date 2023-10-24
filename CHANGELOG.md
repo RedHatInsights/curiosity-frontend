@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/29073f7ee063337a4a5a37eb9f3f4d78521cbebb...651188ac8e18a9315b3f4dfa1b5d1018ec5e3c3c) (2023-10-24)
+
+
+### Features
+* **config** sw-1692 activate rhel for x86 eus  ([#1216](https://github.com/RedHatInsights/curiosity-frontend/pull/1216)) ([651188a](https://github.com/RedHatInsights/curiosity-frontend/commit/651188ac8e18a9315b3f4dfa1b5d1018ec5e3c3c))
+
+### Builds
+* **eslint** limit comment line length  ([#1212](https://github.com/RedHatInsights/curiosity-frontend/pull/1212)) ([9fe4b6f](https://github.com/RedHatInsights/curiosity-frontend/commit/9fe4b6f53323f7e8d125290db8d81386620d8e57))
+
+### Bug Fixes
+* **styling** sw-1689 local run mock layout  ([#1211](https://github.com/RedHatInsights/curiosity-frontend/pull/1211)) ([c79b615](https://github.com/RedHatInsights/curiosity-frontend/commit/c79b6154955d9fe2be52f1c3b30c59ee6064eb88))
+
 ## [3.7.0](https://github.com/RedHatInsights/curiosity-frontend/compare/5a5ed4cd37dbe79311a71a9d8fbf1adfead0659e...7aded789ca08f66db52321b08a57cbbe8377aaf2) (2023-10-10)
 
 
