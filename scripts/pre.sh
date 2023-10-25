@@ -14,7 +14,7 @@ deployPaths()
   # Note: allow Container build
   if [[ $CONTAINER_BUILD_ENV == "true" ]]; then
     DEPLOY_STAGE="Preview"
-    DEPLOY_PATH_PREFIX=/preview
+    DEPLOY_PATH_PREFIX=/beta
     DEPLOY_PATH_LINK_PREFIX=/preview
   fi
 
