@@ -7,7 +7,7 @@
  * RHSM path IDs for product RHEL variants.
  *
  * @type {{RHEL_ARM: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string, RHEL_IBM_POWER: string, RHEL_X86: string,
- *     RHEL_X86_EUS: string}}
+ *     RHEL_X86_EUS: string, RHEL_X86_HA: string}}
  */
 const RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES = {
   RHEL_ARM: 'RHEL for ARM',
@@ -15,6 +15,7 @@ const RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES = {
   RHEL_IBM_Z: 'RHEL for IBM z',
   RHEL_X86: 'RHEL for x86',
   RHEL_X86_EUS: 'rhel-for-x86-eus',
+  RHEL_X86_HA: 'rhel-for-x86-ha',
   RHEL_X86_SAP: 'rhel-for-sap-x86'
 };
 
@@ -440,11 +441,11 @@ const RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES = {
  *     {GENERIC: string, OPTIN: string}, RHSM_API_QUERY_GRANULARITY_TYPES: {WEEKLY: string, QUARTERLY: string, DAILY:
  *     string, MONTHLY: string}, RHSM_API_RESPONSE_UOM_TYPES: {CORES: string, SOCKETS: string},
  *     RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES: {RHEL_ARM: string, RHEL_X86_SAP: string, RHEL_IBM_Z: string,
- *     RHEL_IBM_POWER: string, RHEL_X86: string, RHEL_X86_EUS: string}, RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES:
- *     {BILLING_ACCOUNT_ID: string, QUANTITY: string, SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string,
- *     NUMBER_OF_GUESTS: string, HAS_INFINITE_QUANTITY: string, TOTAL_CAPACITY: string, PRODUCT_NAME: string,
- *     SERVICE_LEVEL: string, DISPLAY_NAME: string, MEASUREMENTS: string, UOM: string, CATEGORY: string,
- *     NEXT_EVENT_DATE: string, BILLING_PROVIDER: string, LAST_SEEN: string},
+ *     RHEL_IBM_POWER: string, RHEL_X86: string, RHEL_X86_EUS: string, RHEL_X86_HA: string},
+ *     RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES: {BILLING_ACCOUNT_ID: string, QUANTITY: string,
+ *     SUBSCRIPTION_MANAGER_ID: string, INVENTORY_ID: string, NUMBER_OF_GUESTS: string, HAS_INFINITE_QUANTITY: string,
+ *     TOTAL_CAPACITY: string, PRODUCT_NAME: string, SERVICE_LEVEL: string, DISPLAY_NAME: string, MEASUREMENTS: string,
+ *     UOM: string, CATEGORY: string, NEXT_EVENT_DATE: string, BILLING_PROVIDER: string, LAST_SEEN: string},
  *     RHSM_API_QUERY_INVENTORY_SORT_DIRECTION_TYPES: {ASCENDING: string, DESCENDING: string},
  *     RHSM_API_RESPONSE_SUBSCRIPTION_TYPES: {ANNUAL: string, ON_DEMAND: string}, RHSM_API_QUERY_INVENTORY_SORT_TYPES:
  *     {CORES: string, STORAGE_GIBIBYTES: string, CATEGORY: string, SOCKETS: string, INSTANCE_HOURS: string,
