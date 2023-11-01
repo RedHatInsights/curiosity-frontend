@@ -678,6 +678,59 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/config/product.rhelElsPayg.js",
+    "keys": [
+      {
+        "key": "curiosity-graph.label_axisY",
+        "match": "translate('curiosity-graph.label_axisY', { context: id })",
+      },
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['dailyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.dailyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphDailyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.dailyValue)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.dailyDate)",
+      },
+      {
+        "key": "curiosity-graph.cardHeadingMetric",
+        "match": "translate('curiosity-graph.cardHeadingMetric', { context: ['monthlyTotal', dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-header' })",
+      },
+      {
+        "key": "curiosity-graph.cardBodyMetric",
+        "match": "translate( 'curiosity-graph.cardBodyMetric', { context: ['total', dataSets?.[0]?.display?.monthlyHasData && dataSets?.[0]?.display?.chartId], testId: 'graphMonthlyTotalCard-body', total: helpers .numberDisplay(dataSets?.[0]?.display?.monthlyValue)",
+      },
+      {
+        "key": "curiosity-graph.cardFooterMetric",
+        "match": "translate('curiosity-graph.cardFooterMetric', { date: moment .utc(dataSets?.[0]?.display?.monthlyDate)",
+      },
+      {
+        "key": "curiosity-graph.label_axisX",
+        "match": "translate('curiosity-graph.label_axisX', { context: GRANULARITY_TYPES.DAILY })",
+      },
+      {
+        "key": "curiosity-inventory.label",
+        "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.VCPUS, total: helpers.numberDisplay(total)",
+      },
+      {
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
+      },
+      {
+        "key": "curiosity-inventory.label",
+        "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE, subscriptionType || EMPTY_CONTEXT] })",
+      },
+    ],
+  },
+  {
     "file": "src/config/product.rhods.js",
     "keys": [
       {
@@ -972,6 +1025,30 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.rhel.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rhelElsPayg.js",
+    "key": "curiosity-graph.label_axisY",
+  },
+  {
+    "file": "src/config/product.rhelElsPayg.js",
+    "key": "curiosity-graph.label_axisX",
+  },
+  {
+    "file": "src/config/product.rhelElsPayg.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rhelElsPayg.js",
+    "key": "curiosity-inventory.measurement",
+  },
+  {
+    "file": "src/config/product.rhelElsPayg.js",
+    "key": "curiosity-inventory.label",
+  },
+  {
+    "file": "src/config/product.rhelElsPayg.js",
     "key": "curiosity-inventory.label",
   },
   {
