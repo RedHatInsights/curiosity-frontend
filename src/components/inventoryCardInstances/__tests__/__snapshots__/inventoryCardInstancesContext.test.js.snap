@@ -27,6 +27,7 @@ exports[`InventoryCardInstancesContext should expect specific sort properties: s
   "STORAGE_GIBIBYTES": "Storage-gibibytes",
   "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
   "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+  "VCPUS": "vCPUs",
 }
 `;
 
