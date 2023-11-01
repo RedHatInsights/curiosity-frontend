@@ -136,9 +136,14 @@ const parseInventoryResponse = ({
     dataSetRows.push({ cells: dataSetRow, row: rowData, expandedContent });
   });
 
-  filters.forEach(({ metric, header, ...rest }) => {
+  filters.forEach(({ metric, header, info, ...rest }) => {
     const updatedHeader = header({ columnData: columnData[metric] }, { ...session }, { ...meta });
+    const updatedInfo = (info && { ...info }) || undefined;
     const updatedRest = { ...rest };
+
+    if (updatedInfo?.tooltip && typeof updatedInfo.tooltip === 'function') {
+      updatedInfo.tooltip = updatedInfo.tooltip({ columnData: columnData[metric] }, { ...session }, { ...meta });
+    }
 
     if (updatedRest.isSort === true && sortDirection && sortColumn === metric) {
       updatedRest.isSortActive = true;
@@ -149,7 +154,7 @@ const parseInventoryResponse = ({
       updatedRest.modifier = tableHelpers.WrapModifierVariant.wrap;
     }
 
-    dataSetColumnHeaders.push({ metric, ...updatedRest, content: updatedHeader });
+    dataSetColumnHeaders.push({ metric, ...updatedRest, content: updatedHeader, info: updatedInfo });
   });
 
   return {
