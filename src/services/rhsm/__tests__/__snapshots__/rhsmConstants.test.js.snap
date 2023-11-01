@@ -10,6 +10,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+    "VCPUS": "vCPUs",
   },
   "RHSM_API_PATH_PRODUCT_TYPES": {
     "OPENSHIFT": "OpenShift Container Platform",
@@ -80,6 +81,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+    "VCPUS": "vCPUs",
   },
   "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": {
     "NEXT_EVENT_DATE": "next_event_date",
@@ -272,6 +274,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+      "VCPUS": "vCPUs",
     },
     "RHSM_API_PATH_PRODUCT_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
@@ -342,6 +345,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+      "VCPUS": "vCPUs",
     },
     "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": {
       "NEXT_EVENT_DATE": "next_event_date",
@@ -535,6 +539,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+      "VCPUS": "vCPUs",
     },
     "RHSM_API_PATH_PRODUCT_TYPES": {
       "OPENSHIFT": "OpenShift Container Platform",
@@ -605,6 +610,7 @@ exports[`RHSM Constants should have specific properties: all exported constants 
       "STORAGE_GIBIBYTES": "Storage-gibibytes",
       "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
       "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+      "VCPUS": "vCPUs",
     },
     "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": {
       "NEXT_EVENT_DATE": "next_event_date",
@@ -802,6 +808,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+    "VCPUS": "vCPUs",
   },
   "RHSM_API_PATH_PRODUCT_TYPES": {
     "OPENSHIFT": "OpenShift Container Platform",
@@ -872,6 +879,7 @@ exports[`RHSM Constants should have specific properties: specific constants 1`] 
     "STORAGE_GIBIBYTES": "Storage-gibibytes",
     "STORAGE_GIBIBYTE_MONTHS": "Storage-gibibyte-months",
     "TRANSFER_GIBIBYTES": "Transfer-gibibytes",
+    "VCPUS": "vCPUs",
   },
   "RHSM_API_QUERY_INVENTORY_SUBSCRIPTIONS_SORT_TYPES": {
     "NEXT_EVENT_DATE": "next_event_date",
