@@ -16,6 +16,9 @@
 <dt><a href="#Products.module_RHEL">RHEL</a></dt>
 <dd><p>RHEL</p>
 </dd>
+<dt><a href="#Products.module_RHEL-X86-ELS-PAYG">RHEL-X86-ELS-PAYG</a></dt>
+<dd><p>RHEL X86 ELS On-Demand</p>
+</dd>
 <dt><a href="#Products.module_RHODS">RHODS</a></dt>
 <dd><p>RHODS</p>
 </dd>
@@ -213,6 +216,42 @@ Product label. An identifier used for display strings.
 RHEL product config
 
 **Kind**: inner constant of [<code>RHEL</code>](#Products.module_RHEL)  
+<a name="Products.module_RHEL-X86-ELS-PAYG"></a>
+
+## RHEL-X86-ELS-PAYG
+RHEL X86 ELS On-Demand
+
+
+* [RHEL-X86-ELS-PAYG](#Products.module_RHEL-X86-ELS-PAYG)
+    * [~productGroup](#Products.module_RHEL-X86-ELS-PAYG..productGroup) : <code>string</code>
+    * [~productId](#Products.module_RHEL-X86-ELS-PAYG..productId) : <code>string</code>
+    * [~productLabel](#Products.module_RHEL-X86-ELS-PAYG..productLabel) : <code>string</code>
+    * [~config](#Products.module_RHEL-X86-ELS-PAYG..config) : <code>Object</code>
+
+<a name="Products.module_RHEL-X86-ELS-PAYG..productGroup"></a>
+
+### RHEL-X86-ELS-PAYG~productGroup : <code>string</code>
+Product group. A variant and dissimilar product configuration grouping identifier.
+
+**Kind**: inner constant of [<code>RHEL-X86-ELS-PAYG</code>](#Products.module_RHEL-X86-ELS-PAYG)  
+<a name="Products.module_RHEL-X86-ELS-PAYG..productId"></a>
+
+### RHEL-X86-ELS-PAYG~productId : <code>string</code>
+Product ID. The identifier used when querying the API.
+
+**Kind**: inner constant of [<code>RHEL-X86-ELS-PAYG</code>](#Products.module_RHEL-X86-ELS-PAYG)  
+<a name="Products.module_RHEL-X86-ELS-PAYG..productLabel"></a>
+
+### RHEL-X86-ELS-PAYG~productLabel : <code>string</code>
+Product label. An identifier used for display strings.
+
+**Kind**: inner constant of [<code>RHEL-X86-ELS-PAYG</code>](#Products.module_RHEL-X86-ELS-PAYG)  
+<a name="Products.module_RHEL-X86-ELS-PAYG..config"></a>
+
+### RHEL-X86-ELS-PAYG~config : <code>Object</code>
+Product configuration
+
+**Kind**: inner constant of [<code>RHEL-X86-ELS-PAYG</code>](#Products.module_RHEL-X86-ELS-PAYG)  
 <a name="Products.module_RHODS"></a>
 
 ## RHODS
