@@ -992,7 +992,7 @@ const getApiVersion = (options = {}) => {
 /**
  * @apiMock {DelayResponse} 250
  * @apiMock {RandomSuccess}
- * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/Instance-hours Get RHSM graph data
+ * @api {get} /api/rhsm-subscriptions/v1/tally/products/:product_id/:metric_id Get RHSM graph data
  * @apiDescription Retrieve graph data.
  *
  * @apiSuccessExample {json} DAILY, Success-Response:
@@ -1675,7 +1675,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *              200,
  *              10,
  *              500.0000345678,
- *              200
+ *              200,
+ *              null
  *           ],
  *           "last_seen": "2022-12-03T00:00:00Z"
  *         },
@@ -1689,7 +1690,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *              200,
  *              10,
  *              500.0000345678,
- *              200
+ *              200,
+ *              30
  *           ],
  *           "last_seen": "2022-10-03T00:00:00Z"
  *         },
@@ -1705,7 +1707,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *              42,
  *              10,
  *              0.000003563,
- *              1
+ *              1,
+ *              30
  *           ],
  *           "last_seen": "2022-04-01T00:00:00Z"
  *         },
@@ -1720,7 +1723,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *              20,
  *              100,
  *              null,
- *              1000
+ *              1000,
+ *              60
  *           ],
  *           "last_seen": "2022-04-02T00:00:00Z"
  *         },
@@ -1734,7 +1738,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *              4000,
  *              50,
  *              10000.0000345678,
- *              3000
+ *              3000,
+ *              60
  *           ],
  *           "last_seen": "2022-04-03T00:00:00Z"
  *         }
@@ -1746,7 +1751,8 @@ const getInstancesInventoryGuests = (id, params = {}, options = {}) => {
  *           "Instance-hours",
  *           "Sockets",
  *           "Storage-gibibyte-months",
- *           "Transfer-gibibytes"
+ *           "Transfer-gibibytes",
+ *           "vCPUs"
  *         ],
  *         "product": "RHEL for x86",
  *         "service_level": "Premium",

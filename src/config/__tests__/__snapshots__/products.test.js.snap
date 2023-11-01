@@ -391,6 +391,7 @@ exports[`Product configurations should return specific methods and properties: p
     "OpenShift-metrics",
     "rhacs",
     "RHEL for x86",
+    "rhel-for-x86-els-payg",
     "rhods",
     "rosa",
     "Satellite Server",

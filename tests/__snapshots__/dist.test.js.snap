@@ -206,6 +206,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -229,6 +230,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -252,6 +254,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -275,6 +278,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -298,6 +302,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -321,6 +326,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -344,6 +350,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -367,6 +374,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -390,6 +398,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -413,6 +422,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -436,6 +446,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -530,6 +541,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
@@ -588,6 +600,7 @@ exports[`Build distribution should have a predictable ephemeral navigation based
     ],
     "productId": [
       "RHEL for x86",
+      "rhel-for-x86-els-payg",
       "Satellite Server",
     ],
     "productVariants": [
