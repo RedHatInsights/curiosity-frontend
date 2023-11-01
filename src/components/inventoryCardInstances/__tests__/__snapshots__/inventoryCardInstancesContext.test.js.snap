@@ -36,6 +36,7 @@ exports[`InventoryCardInstancesContext should handle a store response using sele
     {
       "cell": [Function],
       "content": "t([curiosity-inventory.header_display_name,curiosity-inventory.guestsHeader_display_name], {"context":"lorem"})",
+      "info": undefined,
       "label": [Function],
       "metric": "display_name",
       "width": undefined,
