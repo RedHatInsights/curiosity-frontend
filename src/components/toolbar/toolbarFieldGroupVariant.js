@@ -120,6 +120,7 @@ const ToolbarFieldGroupVariant = ({
         selectedOptions={updatedValue}
         placeholder={t('curiosity-toolbar.placeholder', { context: [isFilter && 'filter', 'groupVariant'] })}
         position={position}
+        maxHeight={310}
         data-test="toolbarFieldGroupVariant"
       />
     </ToolbarContent>
