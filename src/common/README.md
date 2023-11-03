@@ -14,16 +14,62 @@
 ## Dates
 
 * [Dates](#Helpers.module_Dates)
+    * [~currentDateTime](#Helpers.module_Dates..currentDateTime) : <code>Object</code>
+    * [~defaultDateTime](#Helpers.module_Dates..defaultDateTime) : <code>Object</code>
+    * [~weeklyDateTime](#Helpers.module_Dates..weeklyDateTime) : <code>Object</code>
+    * [~monthlyDateTime](#Helpers.module_Dates..monthlyDateTime) : <code>Object</code>
+    * [~quarterlyDateTime](#Helpers.module_Dates..quarterlyDateTime) : <code>Object</code>
+    * [~rangedYearDateTime](#Helpers.module_Dates..rangedYearDateTime) : <code>Object</code>
     * [~timestampDayFormats](#Helpers.module_Dates..timestampDayFormats) : <code>Object</code>
     * [~timestampMonthFormats](#Helpers.module_Dates..timestampMonthFormats) : <code>Object</code>
     * [~timestampQuarterFormats](#Helpers.module_Dates..timestampQuarterFormats) : <code>Object</code>
     * [~timestampTimeFormats](#Helpers.module_Dates..timestampTimeFormats) : <code>Object</code>
     * [~timestampUTCTimeFormats](#Helpers.module_Dates..timestampUTCTimeFormats) : <code>Object</code>
     * [~getCurrentDate()](#Helpers.module_Dates..getCurrentDate) ⇒ <code>string</code> \| <code>Date</code>
+    * [~setEndOfDay(date)](#Helpers.module_Dates..setEndOfDay) ⇒ <code>Date</code>
+    * [~setStartOfDay(date)](#Helpers.module_Dates..setStartOfDay) ⇒ <code>Date</code>
+    * [~setEndOfMonth(date)](#Helpers.module_Dates..setEndOfMonth) ⇒ <code>Date</code>
     * [~setRangedDateTime(params)](#Helpers.module_Dates..setRangedDateTime) ⇒ <code>Object</code>
     * [~getRangedDateTime(granularity)](#Helpers.module_Dates..getRangedDateTime) ⇒ <code>Object</code>
-    * [~getRangedMonthDateTime(month)](#Helpers.module_Dates..getRangedMonthDateTime) ⇒ <code>Object</code> \| <code>\*</code> \| <code>undefined</code>
+    * [~getRangedMonthDateTime(month, defaultLocale)](#Helpers.module_Dates..getRangedMonthDateTime) ⇒ <code>Object</code> \| <code>\*</code> \| <code>undefined</code>
 
+<a name="Helpers.module_Dates..currentDateTime"></a>
+
+### Dates~currentDateTime : <code>Object</code>
+Generates the date range, starting at the beginning of getCurrentDate, and ending at the end of getCurrentDate.
+
+**Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
+<a name="Helpers.module_Dates..defaultDateTime"></a>
+
+### Dates~defaultDateTime : <code>Object</code>
+Generates the date range, starting 30 days prior to getCurrentDate, and ending at the end of the getCurrentDate.
+
+**Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
+<a name="Helpers.module_Dates..weeklyDateTime"></a>
+
+### Dates~weeklyDateTime : <code>Object</code>
+Generates the date range, starting on Sunday 12 weeks prior to getCurrentDate,
+ and ending at the end of the previous Saturday.
+
+**Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
+<a name="Helpers.module_Dates..monthlyDateTime"></a>
+
+### Dates~monthlyDateTime : <code>Object</code>
+Generates the date range, starting 12 months prior to getCurrentDate, and ending at the end of the getCurrentDate.
+
+**Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
+<a name="Helpers.module_Dates..quarterlyDateTime"></a>
+
+### Dates~quarterlyDateTime : <code>Object</code>
+Generates the date range, starting 36 months prior to getCurrentDate, and ending at the end of getCurrentDate.
+
+**Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
+<a name="Helpers.module_Dates..rangedYearDateTime"></a>
+
+### Dates~rangedYearDateTime : <code>Object</code>
+Generates the date range, starting a year prior, and ending at the end of the previous month.
+
+**Kind**: inner constant of [<code>Dates</code>](#Helpers.module_Dates)  
 <a name="Helpers.module_Dates..timestampDayFormats"></a>
 
 ### Dates~timestampDayFormats : <code>Object</code>
@@ -60,6 +106,66 @@ Consistent UTC timestamp time formats.
 Return a date.
 
 **Kind**: inner method of [<code>Dates</code>](#Helpers.module_Dates)  
+<a name="Helpers.module_Dates..setEndOfDay"></a>
+
+### Dates~setEndOfDay(date) ⇒ <code>Date</code>
+Sets the UTC time to the end of day.
+
+**Kind**: inner method of [<code>Dates</code>](#Helpers.module_Dates)  
+**Returns**: <code>Date</code> - The date with the time set to the last millisecond of that day.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>date</td><td><code>Date</code></td><td><p>The date tp use</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Helpers.module_Dates..setStartOfDay"></a>
+
+### Dates~setStartOfDay(date) ⇒ <code>Date</code>
+Sets UTC time to beginning of the day.
+
+**Kind**: inner method of [<code>Dates</code>](#Helpers.module_Dates)  
+**Returns**: <code>Date</code> - Returns the date with the time set to the start of that day.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>date</td><td><code>Date</code></td><td><p>The date tp use</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+<a name="Helpers.module_Dates..setEndOfMonth"></a>
+
+### Dates~setEndOfMonth(date) ⇒ <code>Date</code>
+Sets the UTC date and time to the end of tha month.
+
+**Kind**: inner method of [<code>Dates</code>](#Helpers.module_Dates)  
+**Returns**: <code>Date</code> - The date with the date and time set to the last millisecond of that month.  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>date</td><td><code>Date</code></td><td><p>The date tp use</p>
+</td>
+    </tr>  </tbody>
+</table>
+
 <a name="Helpers.module_Dates..setRangedDateTime"></a>
 
 ### Dates~setRangedDateTime(params) ⇒ <code>Object</code>
@@ -82,10 +188,7 @@ Set a date range based on a granularity type.
     <td>params.subtract</td><td><code>number</code></td><td><p>Number of granularity type to subtract from the current date.</p>
 </td>
     </tr><tr>
-    <td>params.measurement</td><td><code>string</code></td><td><p>Granularity type.</p>
-</td>
-    </tr><tr>
-    <td>params.endOfMeasurement</td><td><code>string</code></td><td><p>Granularity type.</p>
+    <td>params.measurement</td><td><code>&#x27;days&#x27;</code> | <code>&#x27;weeks&#x27;</code> | <code>&#x27;months&#x27;</code> | <code>&#x27;years&#x27;</code></td><td><p>Granularity type .</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -110,7 +213,7 @@ Return a range of time based on known granularity types.
 
 <a name="Helpers.module_Dates..getRangedMonthDateTime"></a>
 
-### Dates~getRangedMonthDateTime(month) ⇒ <code>Object</code> \| <code>\*</code> \| <code>undefined</code>
+### Dates~getRangedMonthDateTime(month, defaultLocale) ⇒ <code>Object</code> \| <code>\*</code> \| <code>undefined</code>
 Generate a list of months for use in a select list.
 
 **Kind**: inner method of [<code>Dates</code>](#Helpers.module_Dates)  
@@ -123,6 +226,8 @@ Generate a list of months for use in a select list.
   <tbody>
 <tr>
     <td>month</td><td><code>string</code></td>
+    </tr><tr>
+    <td>defaultLocale</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 
