@@ -1,4 +1,3 @@
-import moment from 'moment/moment';
 import { helpers } from './helpers';
 import { RHSM_API_QUERY_GRANULARITY_TYPES as GRANULARITY_TYPES } from '../services/rhsm/rhsmConstants';
 import { translate } from '../components/i18n/i18n';
@@ -13,12 +12,39 @@ import { translate } from '../components/i18n/i18n';
  *
  * @returns {string|Date}
  */
-const getCurrentDate = () =>
-  (helpers.TEST_MODE && moment.utc('20190720').toDate()) ||
-  (helpers.DEV_MODE &&
-    process.env.REACT_APP_DEBUG_DEFAULT_DATETIME &&
-    moment.utc(process.env.REACT_APP_DEBUG_DEFAULT_DATETIME).toDate()) ||
-  moment.utc().toDate();
+const getCurrentDate = () => {
+  if (helpers.TEST_MODE) {
+    return new Date(new Date('2019-07-20').setUTCHours(0, 0, 0, 0));
+  }
+  if (helpers.DEV_MODE && process.env.REACT_APP_DEBUG_DEFAULT_DATETIME) {
+    return new Date(new Date(process.env.REACT_APP_DEBUG_DEFAULT_DATETIME).setUTCHours(0, 0, 0, 0));
+  }
+  return new Date();
+};
+
+/**
+ * Sets the UTC time to the end of day.
+ *
+ * @param {Date} date The date tp use
+ * @returns {Date} The date with the time set to the last millisecond of that day.
+ */
+const setEndOfDay = date => new Date(date.setUTCHours(23, 59, 59, 999));
+
+/**
+ * Sets UTC time to beginning of the day.
+ *
+ * @param {Date} date The date tp use
+ * @returns {Date} Returns the date with the time set to the start of that day.
+ */
+const setStartOfDay = date => new Date(date.setUTCHours(0, 0, 0, 0));
+
+/**
+ *Sets the UTC date and time to the end of tha month.
+ *
+ * @param {Date} date The date tp use
+ * @returns {Date} The date with the date and time set to the last millisecond of that month.
+ */
+const setEndOfMonth = date => new Date(setEndOfDay(date).setUTCMonth(date.getUTCMonth() + 1, 0));
 
 /**
  * Set a date range based on a granularity type.
@@ -26,25 +52,96 @@ const getCurrentDate = () =>
  * @param {object} params
  * @param {Date} params.date Start date, typically the current date.
  * @param {number} params.subtract Number of granularity type to subtract from the current date.
- * @param {string} params.measurement Granularity type.
- * @param {string} params.endOfMeasurement Granularity type.
+ * @param {'days' | 'weeks' | 'months' | 'years'} params.measurement Granularity type .
  * @returns {{endDate: Date, startDate: Date}}
  */
-const setRangedDateTime = ({ date, subtract, measurement, endOfMeasurement = 'days' }) => ({
-  startDate: moment.utc(date).startOf(measurement).subtract(subtract, measurement).toDate(),
-  endDate: moment.utc(date).startOf(measurement).endOf(endOfMeasurement).toDate()
+const setRangedDateTime = ({ date = getCurrentDate(), subtract = 0, measurement = 'days' } = {}) => {
+  switch (measurement) {
+    case 'weeks':
+      return {
+        startDate: new Date(setStartOfDay(date).setUTCDate(date.getUTCDate() - date.getUTCDay() - subtract * 7)),
+        endDate: new Date(setEndOfDay(date).setUTCDate(date.getUTCDate() - date.getUTCDay()))
+      };
+    case 'months':
+      return {
+        startDate: new Date(setStartOfDay(date).setUTCMonth(date.getUTCMonth() - subtract, 1)),
+        endDate: new Date(setEndOfDay(date).setUTCDate(1))
+      };
+    case 'years':
+      return {
+        startDate: new Date(
+          setStartOfDay(date).setUTCFullYear(date.getUTCFullYear() - subtract, date.getUTCMonth() + 1, 1)
+        ),
+        endDate: setEndOfMonth(date)
+      };
+    case 'days':
+    default:
+      return {
+        startDate: new Date(setStartOfDay(date).setUTCDate(date.getUTCDate() - subtract)),
+        endDate: setEndOfDay(date)
+      };
+  }
+};
+
+/**
+ * Generates the date range, starting at the beginning of getCurrentDate, and ending at the end of getCurrentDate.
+ *
+ * @type {{endDate: Date, startDate: Date}}
+ */
+const currentDateTime = setRangedDateTime({
+  subtract: 1,
+  measurement: 'days'
 });
 
-const currentDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 1, measurement: 'days' });
-const defaultDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 30, measurement: 'days' });
-const weeklyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12, measurement: 'weeks' });
-const monthlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 12, measurement: 'months' });
-const quarterlyDateTime = setRangedDateTime({ date: getCurrentDate(), subtract: 36, measurement: 'months' });
+/**
+ * Generates the date range, starting 30 days prior to getCurrentDate, and ending at the end of the getCurrentDate.
+ *
+ * @type {{endDate: Date, startDate: Date}}
+ */
+const defaultDateTime = setRangedDateTime({
+  subtract: 30,
+  measurement: 'days'
+});
+
+/**
+ *  Generates the date range, starting on Sunday 12 weeks prior to getCurrentDate,
+ *  and ending at the end of the previous Saturday.
+ *
+ * @type {{endDate: Date, startDate: Date}}
+ */
+const weeklyDateTime = setRangedDateTime({
+  subtract: 12,
+  measurement: 'weeks'
+});
+
+/**
+ *  Generates the date range, starting 12 months prior to getCurrentDate, and ending at the end of the getCurrentDate.
+ *
+ * @type {{endDate: Date, startDate: Date}}
+ */
+const monthlyDateTime = setRangedDateTime({
+  subtract: 12,
+  measurement: 'months'
+});
+
+/**
+ *  Generates the date range, starting 36 months prior to getCurrentDate, and ending at the end of getCurrentDate.
+ *
+ * @type {{endDate: Date, startDate: Date}}
+ */
+const quarterlyDateTime = setRangedDateTime({
+  subtract: 36,
+  measurement: 'months'
+});
+
+/**
+ * Generates the date range, starting a year prior, and ending at the end of the previous month.
+ *
+ * @type {{endDate: Date, startDate: Date}}
+ */
 const rangedYearDateTime = setRangedDateTime({
-  date: getCurrentDate(),
-  subtract: 11,
-  measurement: 'months',
-  endOfMeasurement: 'months'
+  subtract: 1,
+  measurement: 'years'
 });
 
 /**
@@ -73,34 +170,38 @@ const getRangedDateTime = granularity => {
  * Generate a list of months for use in a select list.
  *
  * @param {string} month
+ * @param {string} defaultLocale
  * @returns {{keyDateTimeRanges: {}, listDateTimeRanges: Array}|*|undefined}
  */
-const getRangedMonthDateTime = month => {
-  const currentYear = Number.parseInt(moment.utc(getCurrentDate()).year(), 10);
+const getRangedMonthDateTime = (month, defaultLocale = helpers.UI_LOCALE_DEFAULT) => {
+  const currentYear = getCurrentDate().getUTCFullYear();
   const { startDate, endDate } = { ...rangedYearDateTime };
   const keyDateTimeRanges = {};
   let listDateTimeRanges = [];
 
-  const startDateUpdated = moment.utc(startDate);
-  const endDateUpdated = moment.utc(endDate);
+  const startDateUpdated = new Date(startDate);
+  const endDateUpdated = new Date(endDate);
 
-  while (endDateUpdated > startDateUpdated || startDateUpdated.format('M') === endDateUpdated.format('M')) {
+  while (endDateUpdated > startDateUpdated || startDateUpdated.getUTCMonth() === endDateUpdated.getUTCMonth()) {
     const dateTime = {
       value: {
-        startDate: startDateUpdated.toDate()
+        startDate: new Date(setStartOfDay(startDateUpdated))
       }
     };
 
-    const titleYear = startDateUpdated.format('MMMM YYYY');
-    const title = startDateUpdated.format('MMMM');
-    const titleIndex = startDateUpdated.format('M');
-    const isNextYear = currentYear !== Number.parseInt(startDateUpdated.year(), 10);
-
+    const titleYear = startDateUpdated.toLocaleString(defaultLocale, {
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC'
+    });
+    const title = startDateUpdated.toLocaleString(defaultLocale, { month: 'long', timeZone: 'UTC' });
+    const titleIndex = startDateUpdated.toLocaleString(defaultLocale, { month: 'numeric', timeZone: 'UTC' });
+    const isNextYear = currentYear !== startDateUpdated.getUTCFullYear();
     dateTime.title = (isNextYear && titleYear) || title;
     dateTime._title = title.toLowerCase();
-    dateTime.value.endDate = moment.utc(startDateUpdated).endOf('month').toDate();
+    dateTime.value.endDate = setEndOfMonth(startDateUpdated);
 
-    startDateUpdated.add(1, 'month');
+    startDateUpdated.setUTCMonth(startDateUpdated.getUTCMonth() + 1);
 
     dateTime.title = translate('curiosity-toolbar.label', { context: ['granularityRangedMonthly', dateTime.title] });
     keyDateTimeRanges[title.toLowerCase()] = { ...dateTime };
@@ -184,6 +285,9 @@ const timestampUTCTimeFormats = {
 
 const dateHelpers = {
   getCurrentDate,
+  setStartOfDay,
+  setEndOfDay,
+  setEndOfMonth,
   getRangedMonthDateTime,
   getRangedDateTime,
   setRangedDateTime,
@@ -203,6 +307,9 @@ const dateHelpers = {
 export {
   dateHelpers as default,
   getCurrentDate,
+  setStartOfDay,
+  setEndOfDay,
+  setEndOfMonth,
   getRangedMonthDateTime,
   getRangedDateTime,
   setRangedDateTime,

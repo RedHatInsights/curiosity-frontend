@@ -25,7 +25,10 @@ exports[`DateHelpers should have specific functions: dateHelpers 1`] = `
     "endDate": 2019-07-31T23:59:59.999Z,
     "startDate": 2018-08-01T00:00:00.000Z,
   },
+  "setEndOfDay": [Function],
+  "setEndOfMonth": [Function],
   "setRangedDateTime": [Function],
+  "setStartOfDay": [Function],
   "timestampDayFormats": {
     "long": "MMMM D",
     "short": "MMM D",
@@ -432,5 +435,12 @@ exports[`DateHelpers should return a predictable range of time: range of time 1`
     "endDate": 2019-07-20T23:59:59.999Z,
     "startDate": 2019-07-15T00:00:00.000Z,
   },
+}
+`;
+
+exports[`DateHelpers should return a predictable range of time: range of time for today 1`] = `
+{
+  "endDate": 2019-07-20T23:59:59.999Z,
+  "startDate": 2019-07-20T00:00:00.000Z,
 }
 `;
