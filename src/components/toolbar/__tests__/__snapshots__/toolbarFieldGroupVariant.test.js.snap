@@ -90,7 +90,7 @@ exports[`ToolbarFieldGroupVariant Component should render a basic component: bas
     isFlipEnabled={false}
     isInline={true}
     isToggleText={true}
-    maxHeight={null}
+    maxHeight={310}
     name={null}
     onSelect={[Function]}
     onSplitButton={[Function]}
@@ -157,7 +157,7 @@ exports[`ToolbarFieldGroupVariant Component should return a standalone component
       isFlipEnabled={false}
       isInline={true}
       isToggleText={true}
-      maxHeight={null}
+      maxHeight={310}
       name={null}
       onSelect={[Function]}
       onSplitButton={[Function]}
