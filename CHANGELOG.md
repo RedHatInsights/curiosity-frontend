@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/83f227ae336d488bb1cca971e6c8d63ec0f4da7c...0afc6e4111a9e2f18a623cbd8ab8f4f68a8e9c5f) (2023-11-07)
+
+
+### Features
+* **config** sw-1891 activate rhel for x86 rs  ([#1227](https://github.com/RedHatInsights/curiosity-frontend/pull/1227)) ([0afc6e4](https://github.com/RedHatInsights/curiosity-frontend/commit/0afc6e4111a9e2f18a623cbd8ab8f4f68a8e9c5f))
+* **config** sw-1890 activate rhel for x86 ha  ([#1225](https://github.com/RedHatInsights/curiosity-frontend/pull/1225)) ([23c42de](https://github.com/RedHatInsights/curiosity-frontend/commit/23c42dea75f165e4d0dfb12910247a2c9abdda87))
+
+### Chores
+* **deps-dev** npm-check-updates from 16.14.4 to 16.14.6  ([#1215](https://github.com/RedHatInsights/curiosity-frontend/pull/1215)) ([b983438](https://github.com/RedHatInsights/curiosity-frontend/commit/b9834384e39016b741d4ec74514a49f54d5ae1f8))
+
+### Bug Fixes
+* **build** sw-1885 rollback to beta prefix  ([#1221](https://github.com/RedHatInsights/curiosity-frontend/pull/1221)) ([294c330](https://github.com/RedHatInsights/curiosity-frontend/commit/294c330884abde97bb125ef050d8baa8914cbae8))
+
 ## [3.8.0](https://github.com/RedHatInsights/curiosity-frontend/compare/29073f7ee063337a4a5a37eb9f3f4d78521cbebb...651188ac8e18a9315b3f4dfa1b5d1018ec5e3c3c) (2023-10-24)
 
 
