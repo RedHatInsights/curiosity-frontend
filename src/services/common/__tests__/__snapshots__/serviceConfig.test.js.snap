@@ -13,11 +13,11 @@ exports[`ServiceConfig should allow passing a function and emulating a service c
 
 exports[`ServiceConfig should handle caching service calls: cached responses, emulated 304 1`] = `
 [
-  "1. method=get, status=200, cacheId=e1b4b1a43c3208521c3a660afa80a2ee4ffdad78, desc=initial call",
-  "2. method=get, status=304, cacheId=e1b4b1a43c3208521c3a660afa80a2ee4ffdad78, desc=repeat 1st call and config",
-  "3. method=get, status=200, cacheId=86a6599810403465b856cc72a9cc9d6bba42d8ee, desc=updated config",
+  "1. method=get, status=200, cacheId=c2127638620, desc=initial call",
+  "2. method=get, status=304, cacheId=c2127638620, desc=repeat 1st call and config",
+  "3. method=get, status=200, cacheId=c-1165300378, desc=updated config",
   "4. method=post, status=200, cacheId=null, desc=attempt post method",
-  "5. method=get, status=304, cacheId=86a6599810403465b856cc72a9cc9d6bba42d8ee, desc=repeat 3rd call and config",
+  "5. method=get, status=304, cacheId=c-1165300378, desc=repeat 3rd call and config",
   "6. method=get, status=200, cacheId=null, desc=no caching",
 ]
 `;

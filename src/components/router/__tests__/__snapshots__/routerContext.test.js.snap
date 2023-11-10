@@ -2,7 +2,7 @@
 
 exports[`RouterContext should apply a hook for useLocation: location 1`] = `
 {
-  "_id": "92bfb354f8f38914f06cb3fad36215957efaf7cc",
+  "_id": "c-679636502",
   "hash": "",
   "lorem": "ipsum",
   "search": "?lorem=ipsum",

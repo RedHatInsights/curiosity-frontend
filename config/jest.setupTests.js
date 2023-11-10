@@ -5,6 +5,7 @@ import { act } from 'react-dom/test-utils';
 import * as pfReactCoreComponents from '@patternfly/react-core';
 import * as pfReactChartComponents from '@patternfly/react-charts';
 import * as reactRedux from 'react-redux';
+import { TextEncoder } from 'util';
 import { setupDotenvFilesForEnv } from './build.dotenv';
 
 /**
@@ -22,6 +23,13 @@ setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
  * @returns {*|jest.It}
  */
 global.skipIt = value => (value && it?.skip) || it;
+
+/**
+ * Emulate browser for component checks
+ *
+ * @type {TextEncoder}
+ */
+global.TextEncoder = TextEncoder;
 
 /**
  * Emulate for component checks

@@ -1,4 +1,3 @@
-import cryptoMd5 from 'crypto-js/md5';
 import _cloneDeep from 'lodash/cloneDeep';
 import { helpers } from '../helpers';
 
@@ -75,13 +74,6 @@ describe('Helpers', () => {
       valueBoolTrue: helpers.generateHash(true),
       valueBoolFalse: helpers.generateHash(false)
     }).toMatchSnapshot('hash, object and primitive values');
-
-    expect(
-      helpers.generateHash(
-        { lorem: 'ipsum', dolor: ['sit', null, undefined, 1, () => 'hello world'] },
-        { method: cryptoMd5 }
-      )
-    ).toMatchSnapshot('method md5');
   });
 
   it('should determine a date', () => {
