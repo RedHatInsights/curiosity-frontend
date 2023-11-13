@@ -18,13 +18,15 @@ exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: 
   [
     [
       {
-        "dir": "desc",
-        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
+        "filter": "dir",
+        "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
+        "value": "desc",
         "viewId": "lorem",
       },
       {
-        "sort": "loremIpsumColumnOne",
-        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
+        "filter": "sort",
+        "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
+        "value": "loremIpsumColumnOne",
         "viewId": "lorem",
       },
     ],
@@ -32,13 +34,15 @@ exports[`InventoryCardSubscriptionsContext should handle an onColumnSort event: 
   [
     [
       {
-        "dir": "asc",
-        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
+        "filter": "dir",
+        "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
+        "value": "asc",
         "viewId": "lorem",
       },
       {
-        "sort": "loremIpsumColumnOne",
-        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
+        "filter": "sort",
+        "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
+        "value": "loremIpsumColumnOne",
         "viewId": "lorem",
       },
     ],
@@ -51,13 +55,15 @@ exports[`InventoryCardSubscriptionsContext should handle an onPage event: onPage
   [
     [
       {
-        "offset": 1,
-        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
+        "filter": "offset",
+        "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
+        "value": 1,
         "viewId": "lorem",
       },
       {
-        "limit": 5,
-        "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
+        "filter": "limit",
+        "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
+        "value": 5,
         "viewId": "lorem",
       },
     ],

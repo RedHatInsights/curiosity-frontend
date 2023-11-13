@@ -56,9 +56,10 @@ const ToolbarFieldDisplayName = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME],
+        type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
         viewId,
-        [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: submitValue?.trim() || null
+        filter: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME,
+        value: submitValue?.trim() || null
       }
     ]);
 
@@ -79,9 +80,10 @@ const ToolbarFieldDisplayName = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME],
+        type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
         viewId,
-        [RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME]: null
+        filter: RHSM_API_QUERY_SET_TYPES.DISPLAY_NAME,
+        value: null
       }
     ]);
   };

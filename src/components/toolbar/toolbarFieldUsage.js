@@ -46,9 +46,10 @@ const useOnSelect = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.USAGE],
+        type: reduxTypes.query.SET_QUERY,
         viewId,
-        [RHSM_API_QUERY_SET_TYPES.USAGE]: value
+        filter: RHSM_API_QUERY_SET_TYPES.USAGE,
+        value
       }
     ]);
 };

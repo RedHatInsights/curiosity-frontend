@@ -5,13 +5,15 @@ exports[`InventoryGuestsContext should handle an onScroll event: onPage event, d
   [
     [
       {
-        "offset": 100,
-        "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_offset",
+        "filter": "offset",
+        "type": "SET_QUERY_GRAPH",
+        "value": 100,
         "viewId": "1234567890",
       },
       {
-        "limit": 100,
-        "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_limit",
+        "filter": "limit",
+        "type": "SET_QUERY_GRAPH",
+        "value": 100,
         "viewId": "1234567890",
       },
     ],

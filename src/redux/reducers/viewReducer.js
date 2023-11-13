@@ -178,13 +178,13 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.GRANULARITY]:
+    case reduxTypes.query.SET_QUERY_GRAPH:
       return reduxHelpers.setStateProp(
         'graphTallyQuery',
         {
           [action.viewId]: {
             ...state.graphTallyQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.GRANULARITY]: action[RHSM_API_QUERY_TYPES.GRANULARITY]
+            [action.filter]: action.value
           }
         },
         {
@@ -192,97 +192,13 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.START_DATE]:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.START_DATE]: action[RHSM_API_QUERY_TYPES.START_DATE]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.END_DATE]:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.END_DATE]: action[RHSM_API_QUERY_TYPES.END_DATE]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.BILLING_PROVIDER]:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: action[RHSM_API_QUERY_TYPES.BILLING_PROVIDER]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.SLA]:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.SLA]: action[RHSM_API_QUERY_TYPES.SLA]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.UOM]:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.UOM]: action[RHSM_API_QUERY_TYPES.UOM]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_TYPES.USAGE]:
-      return reduxHelpers.setStateProp(
-        'query',
-        {
-          [action.viewId]: {
-            ...state.query[action.viewId],
-            [RHSM_API_QUERY_TYPES.USAGE]: action[RHSM_API_QUERY_TYPES.USAGE]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]:
+    case reduxTypes.query.SET_QUERY_INVENTORY_GUESTS:
       return reduxHelpers.setStateProp(
         'inventoryGuestsQuery',
         {
           [action.viewId]: {
             ...state.inventoryGuestsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.LIMIT]: action[RHSM_API_QUERY_TYPES.LIMIT]
+            [action.filter]: action.value
           }
         },
         {
@@ -290,27 +206,13 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]:
-      return reduxHelpers.setStateProp(
-        'inventoryGuestsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventoryGuestsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.OFFSET]: action[RHSM_API_QUERY_TYPES.OFFSET]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DISPLAY_NAME]:
+    case reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES:
       return reduxHelpers.setStateProp(
         'inventoryHostsQuery',
         {
           [action.viewId]: {
             ...state.inventoryHostsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: action[RHSM_API_QUERY_TYPES.DISPLAY_NAME]
+            [action.filter]: action.value
           }
         },
         {
@@ -318,111 +220,13 @@ const viewReducer = (state = initialState, action) => {
           reset: false
         }
       );
-    case reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]:
-      return reduxHelpers.setStateProp(
-        'inventoryHostsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventoryHostsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.LIMIT]: action[RHSM_API_QUERY_TYPES.LIMIT]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]:
-      return reduxHelpers.setStateProp(
-        'inventoryHostsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventoryHostsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.OFFSET]: action[RHSM_API_QUERY_TYPES.OFFSET]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DIRECTION]:
-      return reduxHelpers.setStateProp(
-        'inventoryHostsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventoryHostsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.DIRECTION]: action[RHSM_API_QUERY_TYPES.DIRECTION]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT]:
-      return reduxHelpers.setStateProp(
-        'inventoryHostsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventoryHostsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.SORT]: action[RHSM_API_QUERY_TYPES.SORT]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.LIMIT]:
+    case reduxTypes.query.SET_QUERY_INVENTORY_SUBSCRIPTIONS:
       return reduxHelpers.setStateProp(
         'inventorySubscriptionsQuery',
         {
           [action.viewId]: {
             ...state.inventorySubscriptionsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.LIMIT]: action[RHSM_API_QUERY_TYPES.LIMIT]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.OFFSET]:
-      return reduxHelpers.setStateProp(
-        'inventorySubscriptionsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventorySubscriptionsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.OFFSET]: action[RHSM_API_QUERY_TYPES.OFFSET]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.DIRECTION]:
-      return reduxHelpers.setStateProp(
-        'inventorySubscriptionsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventorySubscriptionsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.DIRECTION]: action[RHSM_API_QUERY_TYPES.DIRECTION]
-          }
-        },
-        {
-          state,
-          reset: false
-        }
-      );
-    case reduxTypes.query.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES[RHSM_API_QUERY_TYPES.SORT]:
-      return reduxHelpers.setStateProp(
-        'inventorySubscriptionsQuery',
-        {
-          [action.viewId]: {
-            ...state.inventorySubscriptionsQuery[action.viewId],
-            [RHSM_API_QUERY_TYPES.SORT]: action[RHSM_API_QUERY_TYPES.SORT]
+            [action.filter]: action.value
           }
         },
         {
