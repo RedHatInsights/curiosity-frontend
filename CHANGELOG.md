@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.0](https://github.com/RedHatInsights/curiosity-frontend/compare/a7292d6ef76ce3e565a26b3df1d200c5c3c55028...cc9d0960f388fef3b94d5281c37a3be3368fbd31) (2023-11-14)
+
+
+### Features
+* **config** sw-1889 add rhel for x86 els payg  ([#1224](https://github.com/RedHatInsights/curiosity-frontend/pull/1224)) ([2ca7797](https://github.com/RedHatInsights/curiosity-frontend/commit/2ca7797a44320311fdca54f211636b310b492f25))
+* **rhsmConstants** sw-1889 add vcpus metric  ([#1224](https://github.com/RedHatInsights/curiosity-frontend/pull/1224)) ([175f278](https://github.com/RedHatInsights/curiosity-frontend/commit/175f278f121d9d2de955b37993009337a387636f))
+
+### Code Refactoring
+* **dateHelpers** sw-260 remove moment.js  ([#1220](https://github.com/RedHatInsights/curiosity-frontend/pull/1220)) ([801d081](https://github.com/RedHatInsights/curiosity-frontend/commit/801d081a8761a6e2184b866012faa94438f25bd0))
+
+### Chores
+* **deps-dev** eslint-plugin-jest from 27.4.0 to 27.6.0  ([#1223](https://github.com/RedHatInsights/curiosity-frontend/pull/1223)) ([cc9d096](https://github.com/RedHatInsights/curiosity-frontend/commit/cc9d0960f388fef3b94d5281c37a3be3368fbd31))
+* **deps** bump actions/setup-node from 3 to 4  ([#1226](https://github.com/RedHatInsights/curiosity-frontend/pull/1226)) ([f69597b](https://github.com/RedHatInsights/curiosity-frontend/commit/f69597b0edbf3161b0dbf354bcb1ac254c8818fe))
+
+### Bug Fixes
+* **toolbarFieldGroupVariant** sw-1889 set maxHeight  ([#1229](https://github.com/RedHatInsights/curiosity-frontend/pull/1229)) ([c270bc6](https://github.com/RedHatInsights/curiosity-frontend/commit/c270bc6c0c8b0fd2732dfad64c5eeaed94f7de0f))
+* **inventoryCardHelpers** sw-1889 table tooltips  ([#1224](https://github.com/RedHatInsights/curiosity-frontend/pull/1224)) ([beb16e3](https://github.com/RedHatInsights/curiosity-frontend/commit/beb16e3ded3cdd7fa74c21ed78b767fa34fc9dfa))
+
 ## [3.9.0](https://github.com/RedHatInsights/curiosity-frontend/compare/83f227ae336d488bb1cca971e6c8d63ec0f4da7c...0afc6e4111a9e2f18a623cbd8ab8f4f68a8e9c5f) (2023-11-07)
 
 
