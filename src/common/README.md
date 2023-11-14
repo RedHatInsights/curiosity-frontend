@@ -309,7 +309,7 @@ Download the debug log file.
     * [~generateId(prefix)](#Helpers.module_General..generateId) ⇒ <code>string</code>
     * [~isDate(date)](#Helpers.module_General..isDate) ⇒ <code>boolean</code>
     * [~isPromise(obj)](#Helpers.module_General..isPromise) ⇒ <code>boolean</code>
-    * [~generateHash(anyValue, options)](#Helpers.module_General..generateHash) ⇒ <code>\*</code> \| <code>string</code>
+    * [~generateHash(anyValue)](#Helpers.module_General..generateHash) ⇒ <code>string</code>
     * [~memo(func, options)](#Helpers.module_General..memo) ⇒ <code>function</code>
     * [~numberDisplay(value)](#Helpers.module_General..numberDisplay) ⇒ <code>numbro.Numbro</code> \| <code>\*</code>
     * [~objFreeze(obj)](#Helpers.module_General..objFreeze) ⇒ <code>\*</code>
@@ -625,8 +625,9 @@ Check if "is a Promise", "Promise like".
 
 <a name="Helpers.module_General..generateHash"></a>
 
-### General~generateHash(anyValue, options) ⇒ <code>\*</code> \| <code>string</code>
+### General~generateHash(anyValue) ⇒ <code>string</code>
 Generate a consistent hash
+String hash generator based from, https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
 
 **Kind**: inner method of [<code>General</code>](#Helpers.module_General)  
 <table>
@@ -638,10 +639,6 @@ Generate a consistent hash
   <tbody>
 <tr>
     <td>anyValue</td><td><code>*</code> | <code>object</code></td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.method</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
