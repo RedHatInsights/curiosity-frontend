@@ -1,5 +1,4 @@
 import numbro from 'numbro';
-import cryptoSha1 from 'crypto-js/sha1';
 import _cloneDeep from 'lodash/cloneDeep';
 import _isPlainObject from 'lodash/isPlainObject';
 
@@ -59,14 +58,22 @@ const isPromise = obj => /^\[object (Promise|Async|AsyncFunction)]/.test(Object.
 
 /**
  * Generate a consistent hash
+ * String hash generator based from, https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
  *
  * @param {*|object} anyValue
- * @param {object} options
- * @param {Function} options.method
- * @returns {*|string}
+ * @returns {string}
  */
-const generateHash = (anyValue, { method = cryptoSha1 } = {}) =>
-  method(
+const generateHash = anyValue => {
+  const hashCode = str =>
+    `c${Array.from(new Uint8Array(new TextEncoder().encode(str))).reduce((hash, encodedValue) => {
+      // eslint-disable-next-line no-bitwise
+      let updatedHash = (hash << 5) - hash + encodedValue;
+      // eslint-disable-next-line no-bitwise
+      updatedHash |= 0;
+      return updatedHash;
+    }, 0)}`;
+
+  return hashCode(
     JSON.stringify({
       value:
         (_isPlainObject(anyValue) &&
@@ -84,7 +91,8 @@ const generateHash = (anyValue, { method = cryptoSha1 } = {}) =>
           )) ||
         `${typeof anyValue}${anyValue?.toString() || anyValue}`
     })
-  ).toString();
+  );
+};
 
 /**
  * Simple memoize, cache based arguments with adjustable limit.

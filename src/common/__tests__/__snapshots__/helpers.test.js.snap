@@ -186,28 +186,26 @@ exports[`Helpers should produce an immutable like object: update nested property
 
 exports[`Helpers should support generated consistent hashes from objects, primitive values: hash, object and primitive values 1`] = `
 {
-  "valueArray": "41d49497cb062fec8dd0a1e9298650aeb2364f35",
+  "valueArray": "c259998330",
   "valueArrayConfirmSort": true,
-  "valueArraySort": "8ff5ed8b5abfb2aaa702bc720b1ed011b5074792",
-  "valueBoolFalse": "fd585f7ce09952f9c9500adddf8ec1cc18f32504",
-  "valueBoolTrue": "05d56a2be446d1c4bdb97dcc2c93f351a5212f6e",
-  "valueFloat": "3c1c6df0b9a0750c02d03f0129c0ce0f6f2df2c1",
+  "valueArraySort": "c2035003770",
+  "valueBoolFalse": "c-1246907498",
+  "valueBoolTrue": "c2039105809",
+  "valueFloat": "c-1391273944",
   "valueFunctionConfirm": true,
-  "valueFunctionHelloWorld": "8daa9f7ce99a92428cfd07b81453718db32ec677",
-  "valueFunctionLoremIpsum": "3e9ef0485423ff4d7b136d07b335f164c9beff62",
-  "valueInt": "dc1758c52431d256e685a0adf1e87a625a228d9b",
-  "valueNull": "db181a5edfc433158238dbf8deedc61083c15705",
-  "valueObject": "d84105df88bfa1487a6527930629ec4d28f08984",
-  "valueObjectAgain": "a2c7ddbcd87ca742253b359e658493cabcddd0d0",
+  "valueFunctionHelloWorld": "c35043341",
+  "valueFunctionLoremIpsum": "c-1136041991",
+  "valueInt": "c-473020316",
+  "valueNull": "c1962518561",
+  "valueObject": "c-2072832499",
+  "valueObjectAgain": "c-1533979740",
   "valueObjectConfirm": true,
   "valueObjectConfirmSort": true,
   "valueObjectConfirmSortDiff": true,
-  "valueSet": "217ad48afcf8b57ea5c4e0a33ca8e21d550b079f",
+  "valueSet": "c-1025593733",
   "valueSetConfirmSort": true,
-  "valueSetSort": "217ad48afcf8b57ea5c4e0a33ca8e21d550b079f",
-  "valueSymbol": "81e08eb158c0872685b72bd659574aa746f29293",
-  "valueUndefined": "0b8e7cb2b0eff19444438e445a0a252d2b9e6f9c",
+  "valueSetSort": "c-1025593733",
+  "valueSymbol": "c1230539041",
+  "valueUndefined": "c-1699714469",
 }
 `;
-
-exports[`Helpers should support generated consistent hashes from objects, primitive values: method md5 1`] = `"4c54a4070554ab0addfed6c7616358c8"`;
