@@ -24,8 +24,9 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
         "viewId": undefined,
       },
       {
-        "billing_provider": "red hat",
-        "type": "SET_QUERY_RHSM_billing_provider",
+        "filter": "billing_provider",
+        "type": "SET_QUERY",
+        "value": "red hat",
         "viewId": undefined,
       },
     ],
@@ -42,8 +43,9 @@ exports[`ToolbarFieldBillingProvider Component should handle updating sla throug
         "viewId": "loremIpsum",
       },
       {
-        "billing_provider": "dolor sit",
-        "type": "SET_QUERY_RHSM_billing_provider",
+        "filter": "billing_provider",
+        "type": "SET_QUERY",
+        "value": "dolor sit",
         "viewId": "loremIpsum",
       },
     ],

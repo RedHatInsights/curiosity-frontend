@@ -217,14 +217,16 @@ const useOnPageInstances = ({
   return ({ offset, perPage }) => {
     dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.OFFSET],
+        type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.OFFSET]: offset
+        filter: RHSM_API_QUERY_SET_TYPES.OFFSET,
+        value: offset
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.LIMIT],
+        type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.LIMIT]: perPage
+        filter: RHSM_API_QUERY_SET_TYPES.LIMIT,
+        value: perPage
       }
     ]);
   };
@@ -279,14 +281,16 @@ const useOnColumnSortInstances = ({
 
     dispatch([
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.DIRECTION],
+        type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.DIRECTION]: updatedDirection
+        filter: RHSM_API_QUERY_SET_TYPES.DIRECTION,
+        value: updatedDirection
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.SORT],
+        type: reduxTypes.query.SET_QUERY_INVENTORY_INSTANCES,
         viewId: productId,
-        [RHSM_API_QUERY_SET_TYPES.SORT]: updatedSortColumn
+        filter: RHSM_API_QUERY_SET_TYPES.SORT,
+        value: updatedSortColumn
       }
     ]);
   };

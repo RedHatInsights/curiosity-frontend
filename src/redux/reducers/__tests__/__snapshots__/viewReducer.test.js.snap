@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT 1`] = `
+exports[`ViewReducer should handle clearing state with defined types: defined type SET_QUERY_CLEAR 1`] = `
 {
   "result": {
     "graphTallyQuery": {},
@@ -23,9 +23,122 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
         "sort": "ipsum sort",
       },
     },
+    "query": {
+      "test_id": {
+        "dolor": undefined,
+      },
+    },
+  },
+  "type": "SET_QUERY_CLEAR",
+}
+`;
+
+exports[`ViewReducer should handle clearing state with defined types: defined type SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "test_id": {
+        "offset": 0,
+      },
+    },
+    "inventoryHostsQuery": {
+      "test_id": {
+        "dir": "dolor desc direction",
+        "offset": 30,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "test_id": {
+        "dir": "ipsum desc direction",
+        "offset": 20,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": {
+      "test_id": {
+        "dolor": "sit",
+      },
+    },
+  },
+  "type": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
+}
+`;
+
+exports[`ViewReducer should handle clearing state with defined types: defined type SET_QUERY_CLEAR_INVENTORY_LIST 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "test_id": {
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": {
+      "test_id": {
+        "dir": "dolor desc direction",
+        "offset": 0,
+        "sort": "dolor sort",
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "test_id": {
+        "dir": "ipsum desc direction",
+        "offset": 0,
+        "sort": "ipsum sort",
+      },
+    },
+    "query": {
+      "test_id": {
+        "dolor": "sit",
+      },
+    },
+  },
+  "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
+}
+`;
+
+exports[`ViewReducer should handle clearing state with defined types: defined type SET_QUERY_RESET_INVENTORY_LIST 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {
+      "test_id": {
+        "offset": 5,
+      },
+    },
+    "inventoryHostsQuery": {
+      "test_id": {
+        "offset": 0,
+      },
+    },
+    "inventorySubscriptionsQuery": {
+      "test_id": {
+        "offset": 0,
+      },
+    },
+    "query": {
+      "test_id": {
+        "dolor": "sit",
+      },
+    },
+  },
+  "type": "SET_QUERY_RESET_INVENTORY_LIST",
+}
+`;
+
+exports[`ViewReducer should handle specific defined types: defined type SET_PRODUCT 1`] = `
+{
+  "result": {
+    "graphTallyQuery": {},
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
     "product": {
       "config": "lorem ipsum product",
     },
+    "productConfig": {},
     "query": {},
   },
   "type": "SET_PRODUCT",
@@ -36,30 +149,15 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
 {
   "result": {
     "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
     "product": {
       "variant": {
         "test_id": "lorem variant",
       },
     },
+    "productConfig": {},
     "query": {},
   },
   "type": "SET_PRODUCT_VARIANT",
@@ -73,6 +171,8 @@ exports[`ViewReducer should handle specific defined types: defined type SET_PROD
     "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {},
+    "product": {},
+    "productConfig": {},
     "query": {},
   },
   "type": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
@@ -83,28 +183,14 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 {
   "result": {
     "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "product": {},
+    "productConfig": {},
     "query": {
       "test_id": {
-        "undefined": undefined,
+        "dolorFilter": "sit any value",
       },
     },
   },
@@ -112,670 +198,78 @@ exports[`ViewReducer should handle specific defined types: defined type SET_QUER
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {
-      "test_id": {},
-    },
-  },
-  "type": "SET_QUERY_CLEAR",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 0,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_CLEAR_INVENTORY_LIST 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 0,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 0,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_CLEAR_INVENTORY_LIST",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RESET_INVENTORY_LIST 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "offset": 0,
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "offset": 0,
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RESET_INVENTORY_LIST",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_GUESTS_INVENTORY_limit 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "limit": 10,
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_limit",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_GUESTS_INVENTORY_offset 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 10,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_GUESTS_INVENTORY_offset",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_dir 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "lorem asc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "display_name_contains": "lorem name",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_display_name_contains",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_limit 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "limit": 10,
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_offset 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 10,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_HOSTS_INVENTORY_sort 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "lorem sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "lorem asc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_dir",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "limit": 10,
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_limit",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 10,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_offset",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "lorem sort",
-      },
-    },
-    "query": {},
-  },
-  "type": "SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_sort",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_beginning 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {
-      "test_id": {
-        "beginning": "2018-02-01T00:00:00.000Z",
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_beginning",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_billing_provider 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {
-      "test_id": {
-        "billing_provider": "dolor provider",
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_billing_provider",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_ending 1`] = `
-{
-  "result": {
-    "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {
-      "test_id": {
-        "ending": "2021-02-01T23:59:59.999Z",
-      },
-    },
-  },
-  "type": "SET_QUERY_RHSM_ending",
-}
-`;
-
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_granularity 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_GRAPH 1`] = `
 {
   "result": {
     "graphTallyQuery": {
       "test_id": {
-        "granularity": "lorem granularity",
+        "dolorFilter": "sit any value",
       },
     },
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "product": {},
+    "productConfig": {},
     "query": {},
   },
-  "type": "SET_QUERY_RHSM_granularity",
+  "type": "SET_QUERY_GRAPH",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_sla 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_INVENTORY_GUESTS 1`] = `
 {
   "result": {
     "graphTallyQuery": {},
     "inventoryGuestsQuery": {
       "test_id": {
-        "offset": 5,
+        "dolorFilter": "sit any value",
       },
     },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {
-      "test_id": {
-        "sla": "lorem sla",
-      },
-    },
+    "inventoryHostsQuery": {},
+    "inventorySubscriptionsQuery": {},
+    "product": {},
+    "productConfig": {},
+    "query": {},
   },
-  "type": "SET_QUERY_RHSM_sla",
+  "type": "SET_QUERY_INVENTORY_GUESTS",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_uom 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_INVENTORY_INSTANCES 1`] = `
 {
   "result": {
     "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
+    "inventoryGuestsQuery": {},
     "inventoryHostsQuery": {
       "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
+        "dolorFilter": "sit any value",
       },
     },
-    "inventorySubscriptionsQuery": {
-      "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
-      },
-    },
-    "query": {
-      "test_id": {
-        "uom": "lorem uom",
-      },
-    },
+    "inventorySubscriptionsQuery": {},
+    "product": {},
+    "productConfig": {},
+    "query": {},
   },
-  "type": "SET_QUERY_RHSM_uom",
+  "type": "SET_QUERY_INVENTORY_INSTANCES",
 }
 `;
 
-exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_RHSM_usage 1`] = `
+exports[`ViewReducer should handle specific defined types: defined type SET_QUERY_INVENTORY_SUBSCRIPTIONS 1`] = `
 {
   "result": {
     "graphTallyQuery": {},
-    "inventoryGuestsQuery": {
-      "test_id": {
-        "offset": 5,
-      },
-    },
-    "inventoryHostsQuery": {
-      "test_id": {
-        "dir": "dolor desc direction",
-        "offset": 30,
-        "sort": "dolor sort",
-      },
-    },
+    "inventoryGuestsQuery": {},
+    "inventoryHostsQuery": {},
     "inventorySubscriptionsQuery": {
       "test_id": {
-        "dir": "ipsum desc direction",
-        "offset": 20,
-        "sort": "ipsum sort",
+        "dolorFilter": "sit any value",
       },
     },
-    "query": {
-      "test_id": {
-        "usage": "ipsum usage",
-      },
-    },
+    "product": {},
+    "productConfig": {},
+    "query": {},
   },
-  "type": "SET_QUERY_RHSM_usage",
+  "type": "SET_QUERY_INVENTORY_SUBSCRIPTIONS",
 }
 `;

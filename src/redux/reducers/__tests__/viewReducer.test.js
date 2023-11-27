@@ -9,23 +9,54 @@ describe('ViewReducer', () => {
 
   it('should handle specific defined types', () => {
     const specificTypes = [
-      ...Object.values(types.SET_QUERY_RHSM_TYPES),
-      ...Object.values(types.SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES),
-      ...Object.values(types.SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES),
-      ...Object.values(types.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES),
-      types.SET_QUERY_CLEAR,
-      types.SET_QUERY_CLEAR_INVENTORY_LIST,
-      types.SET_QUERY_RESET_INVENTORY_LIST,
-      types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST,
-      types.SET_QUERY,
       appTypes.SET_PRODUCT,
       appTypes.SET_PRODUCT_VARIANT,
-      appTypes.SET_PRODUCT_VARIANT_QUERY_RESET_ALL
+      appTypes.SET_PRODUCT_VARIANT_QUERY_RESET_ALL,
+      ...Object.values({
+        ...types,
+        SET_QUERY_CLEAR: undefined,
+        SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST: undefined,
+        SET_QUERY_CLEAR_INVENTORY_LIST: undefined,
+        SET_QUERY_RESET_INVENTORY_LIST: undefined
+      })
+    ];
+
+    specificTypes.forEach(value => {
+      if (!value) {
+        return;
+      }
+
+      const dispatched = {
+        type: value,
+        config: 'lorem ipsum product',
+        viewId: 'test_id',
+        productGroup: 'test_id',
+        variant: 'lorem variant',
+        filter: 'dolorFilter',
+        value: 'sit any value'
+      };
+
+      const resultState = viewReducer(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
+  });
+
+  it('should handle clearing state with defined types', () => {
+    const specificTypes = [
+      types.SET_QUERY_CLEAR,
+      types.SET_QUERY_CLEAR_INVENTORY_GUESTS_LIST,
+      types.SET_QUERY_CLEAR_INVENTORY_LIST,
+      types.SET_QUERY_RESET_INVENTORY_LIST
     ];
 
     specificTypes.forEach(value => {
       const state = {
-        query: {},
+        query: {
+          test_id: {
+            dolor: 'sit'
+          }
+        },
         graphTallyQuery: {},
         inventoryGuestsQuery: {
           test_id: {
@@ -50,22 +81,8 @@ describe('ViewReducer', () => {
 
       const dispatched = {
         type: value,
-        config: 'lorem ipsum product',
-        [RHSM_API_QUERY_TYPES.BILLING_PROVIDER]: 'dolor provider',
-        [RHSM_API_QUERY_TYPES.DIRECTION]: 'lorem asc direction',
-        [RHSM_API_QUERY_TYPES.DISPLAY_NAME]: 'lorem name',
-        [RHSM_API_QUERY_TYPES.GRANULARITY]: 'lorem granularity',
-        [RHSM_API_QUERY_TYPES.END_DATE]: '2021-02-01T23:59:59.999Z',
-        [RHSM_API_QUERY_TYPES.START_DATE]: '2018-02-01T00:00:00.000Z',
-        [RHSM_API_QUERY_TYPES.LIMIT]: 10,
-        [RHSM_API_QUERY_TYPES.OFFSET]: 10,
-        [RHSM_API_QUERY_TYPES.SORT]: 'lorem sort',
-        [RHSM_API_QUERY_TYPES.SLA]: 'lorem sla',
-        [RHSM_API_QUERY_TYPES.UOM]: 'lorem uom',
-        [RHSM_API_QUERY_TYPES.USAGE]: 'ipsum usage',
         viewId: 'test_id',
-        productGroup: 'test_id',
-        variant: 'lorem variant'
+        clearFilters: { dolor: undefined }
       };
 
       const resultState = viewReducer(state, dispatched);
