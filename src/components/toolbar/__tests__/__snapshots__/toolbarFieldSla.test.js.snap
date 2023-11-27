@@ -34,8 +34,9 @@ exports[`ToolbarFieldSla Component should handle updating sla through redux stat
         "viewId": undefined,
       },
       {
-        "sla": "Premium",
-        "type": "SET_QUERY_RHSM_sla",
+        "filter": "sla",
+        "type": "SET_QUERY",
+        "value": "Premium",
         "viewId": undefined,
       },
     ],
@@ -52,8 +53,9 @@ exports[`ToolbarFieldSla Component should handle updating sla through redux stat
         "viewId": "loremIpsum",
       },
       {
-        "sla": "dolor sit",
-        "type": "SET_QUERY_RHSM_sla",
+        "filter": "sla",
+        "type": "SET_QUERY",
+        "value": "dolor sit",
         "viewId": "loremIpsum",
       },
     ],

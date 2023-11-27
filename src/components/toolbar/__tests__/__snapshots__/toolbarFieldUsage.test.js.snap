@@ -34,8 +34,9 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
         "viewId": undefined,
       },
       {
-        "type": "SET_QUERY_RHSM_usage",
-        "usage": "Production",
+        "filter": "usage",
+        "type": "SET_QUERY",
+        "value": "Production",
         "viewId": undefined,
       },
     ],
@@ -52,8 +53,9 @@ exports[`ToolbarFieldSla Component should handle updating usage through redux st
         "viewId": "loremIpsum",
       },
       {
-        "type": "SET_QUERY_RHSM_usage",
-        "usage": "dolor sit",
+        "filter": "usage",
+        "type": "SET_QUERY",
+        "value": "dolor sit",
         "viewId": "loremIpsum",
       },
     ],

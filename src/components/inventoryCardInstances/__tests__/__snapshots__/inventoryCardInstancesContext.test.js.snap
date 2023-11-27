@@ -115,13 +115,15 @@ exports[`InventoryCardInstancesContext should handle an onColumnSort event: onCo
   [
     [
       {
-        "dir": "desc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "filter": "dir",
+        "type": "SET_QUERY_INVENTORY_INSTANCES",
+        "value": "desc",
         "viewId": "lorem",
       },
       {
-        "sort": "loremIpsumColumnOne",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "filter": "sort",
+        "type": "SET_QUERY_INVENTORY_INSTANCES",
+        "value": "loremIpsumColumnOne",
         "viewId": "lorem",
       },
     ],
@@ -129,13 +131,15 @@ exports[`InventoryCardInstancesContext should handle an onColumnSort event: onCo
   [
     [
       {
-        "dir": "asc",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_dir",
+        "filter": "dir",
+        "type": "SET_QUERY_INVENTORY_INSTANCES",
+        "value": "asc",
         "viewId": "lorem",
       },
       {
-        "sort": "loremIpsumColumnOne",
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_sort",
+        "filter": "sort",
+        "type": "SET_QUERY_INVENTORY_INSTANCES",
+        "value": "loremIpsumColumnOne",
         "viewId": "lorem",
       },
     ],
@@ -148,13 +152,15 @@ exports[`InventoryCardInstancesContext should handle an onPage event: onPage eve
   [
     [
       {
-        "offset": 1,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_offset",
+        "filter": "offset",
+        "type": "SET_QUERY_INVENTORY_INSTANCES",
+        "value": 1,
         "viewId": "lorem",
       },
       {
-        "limit": 5,
-        "type": "SET_QUERY_RHSM_HOSTS_INVENTORY_limit",
+        "filter": "limit",
+        "type": "SET_QUERY_INVENTORY_INSTANCES",
+        "value": 5,
         "viewId": "lorem",
       },
     ],

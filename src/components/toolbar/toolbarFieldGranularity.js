@@ -51,19 +51,22 @@ const useOnSelect = ({
         viewId
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.GRANULARITY],
+        type: reduxTypes.query.SET_QUERY_GRAPH,
         viewId,
-        [RHSM_API_QUERY_SET_TYPES.GRANULARITY]: value
+        filter: RHSM_API_QUERY_SET_TYPES.GRANULARITY,
+        value
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.START_DATE],
+        type: reduxTypes.query.SET_QUERY,
         viewId,
-        [RHSM_API_QUERY_SET_TYPES.START_DATE]: startDate.toISOString()
+        filter: RHSM_API_QUERY_SET_TYPES.START_DATE,
+        value: startDate.toISOString()
       },
       {
-        type: reduxTypes.query.SET_QUERY_RHSM_TYPES[RHSM_API_QUERY_SET_TYPES.END_DATE],
+        type: reduxTypes.query.SET_QUERY,
         viewId,
-        [RHSM_API_QUERY_SET_TYPES.END_DATE]: endDate.toISOString()
+        filter: RHSM_API_QUERY_SET_TYPES.END_DATE,
+        value: endDate.toISOString()
       }
     ]);
   };

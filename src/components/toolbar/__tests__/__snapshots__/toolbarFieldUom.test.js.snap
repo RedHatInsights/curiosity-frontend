@@ -24,8 +24,9 @@ exports[`ToolbarFieldUom Component should handle updating uom through redux stat
         "viewId": undefined,
       },
       {
-        "type": "SET_QUERY_RHSM_uom",
-        "uom": "cores",
+        "filter": "uom",
+        "type": "SET_QUERY",
+        "value": "cores",
         "viewId": undefined,
       },
     ],
@@ -42,8 +43,9 @@ exports[`ToolbarFieldUom Component should handle updating uom through redux stat
         "viewId": "loremIpsum",
       },
       {
-        "type": "SET_QUERY_RHSM_uom",
-        "uom": "dolor sit",
+        "filter": "uom",
+        "type": "SET_QUERY",
+        "value": "dolor sit",
         "viewId": "loremIpsum",
       },
     ],

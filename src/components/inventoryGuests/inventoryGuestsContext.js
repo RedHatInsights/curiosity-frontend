@@ -166,14 +166,16 @@ const useOnScroll = (
     if (numberOfGuests > currentPage + limit && bottom && !pending) {
       dispatch([
         {
-          type: reduxTypes.query.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.OFFSET],
+          type: reduxTypes.query.SET_QUERY_GRAPH,
           viewId: id,
-          [RHSM_API_QUERY_SET_TYPES.OFFSET]: currentPage + limit
+          filter: RHSM_API_QUERY_SET_TYPES.OFFSET,
+          value: currentPage + limit
         },
         {
-          type: reduxTypes.query.SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES[RHSM_API_QUERY_SET_TYPES.LIMIT],
+          type: reduxTypes.query.SET_QUERY_GRAPH,
           viewId: id,
-          [RHSM_API_QUERY_SET_TYPES.LIMIT]: limit
+          filter: RHSM_API_QUERY_SET_TYPES.LIMIT,
+          value: limit
         }
       ]);
     }

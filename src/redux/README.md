@@ -1224,38 +1224,6 @@ Platform action, reducer types.
 <a name="Types.module_QueryTypes"></a>
 
 ## QueryTypes
-
-* [QueryTypes](#Types.module_QueryTypes)
-    * [~SET_QUERY_RHSM_TYPES](#Types.module_QueryTypes..SET_QUERY_RHSM_TYPES)
-    * [~SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES](#Types.module_QueryTypes..SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES)
-    * [~SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES](#Types.module_QueryTypes..SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES)
-    * [~SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES](#Types.module_QueryTypes..SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES)
-    * [~queryTypes](#Types.module_QueryTypes..queryTypes) : <code>Object</code>
-
-<a name="Types.module_QueryTypes..SET_QUERY_RHSM_TYPES"></a>
-
-### QueryTypes~SET\_QUERY\_RHSM\_TYPES
-Query types associated with across ALL queries.
-
-**Kind**: inner constant of [<code>QueryTypes</code>](#Types.module_QueryTypes)  
-<a name="Types.module_QueryTypes..SET_QUERY_RHSM_GUESTS_INVENTORY_TYPES"></a>
-
-### QueryTypes~SET\_QUERY\_RHSM\_GUESTS\_INVENTORY\_TYPES
-Inventory query types associated with only GUESTS' queries.
-
-**Kind**: inner constant of [<code>QueryTypes</code>](#Types.module_QueryTypes)  
-<a name="Types.module_QueryTypes..SET_QUERY_RHSM_HOSTS_INVENTORY_TYPES"></a>
-
-### QueryTypes~SET\_QUERY\_RHSM\_HOSTS\_INVENTORY\_TYPES
-Inventory query types associated with only INSTANCES' queries.
-
-**Kind**: inner constant of [<code>QueryTypes</code>](#Types.module_QueryTypes)  
-<a name="Types.module_QueryTypes..SET_QUERY_RHSM_SUBSCRIPTIONS_INVENTORY_TYPES"></a>
-
-### QueryTypes~SET\_QUERY\_RHSM\_SUBSCRIPTIONS\_INVENTORY\_TYPES
-Inventory query types associated with only SUBSCRIPTIONS' queries.
-
-**Kind**: inner constant of [<code>QueryTypes</code>](#Types.module_QueryTypes)  
 <a name="Types.module_QueryTypes..queryTypes"></a>
 
 ### QueryTypes~queryTypes : <code>Object</code>
