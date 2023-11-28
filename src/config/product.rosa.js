@@ -38,7 +38,7 @@ import { translate } from '../components/i18n/i18n';
  *
  * @type {string}
  */
-const productGroup = RHSM_API_PATH_PRODUCT_TYPES.ROSA;
+const productGroup = 'openshift';
 
 /**
  * Product ID. The identifier used when querying the API.
