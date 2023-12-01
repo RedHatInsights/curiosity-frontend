@@ -3,7 +3,7 @@
 exports[`ChartHelpers should aggregated generated x,y axis props: default settings 1`] = `
 {
   "xAxisProps": {
-    "fixLabelOverlap": true,
+    "fixLabelOverlap": false,
     "label": undefined,
     "tickFormat": [Function],
     "tickValues": [],

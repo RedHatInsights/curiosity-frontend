@@ -357,6 +357,7 @@ const generateYAxisProps = ({ dataSets = [], maxY, yAxisPropDefaults = {}, yAxis
   return axisProps;
 };
 
+// ToDo: review "allowLabelOverlap" on victory package updates, victory charts missing param guard, swatch-1878
 /**
  * Generate x,y props.
  *
@@ -380,19 +381,25 @@ const generateAxisProps = ({
   maxY,
   xAxisChartLabel,
   yAxisChartLabel,
-  xAxisFixLabelOverlap = true,
+  xAxisFixLabelOverlap,
   xAxisLabelIncrement = 1,
   xAxisTickFormat,
   yAxisTickFormat
 } = {}) => {
   const xAxisPropDefaults = {
-    fixLabelOverlap: xAxisFixLabelOverlap
+    fixLabelOverlap: false
   };
 
   const yAxisPropDefaults = {
     dependentAxis: true,
     showGrid: true
   };
+
+  const allowLabelOverlap = dataSets.filter(({ data }) => data?.length > 0).length > 0;
+
+  if (allowLabelOverlap && xAxisFixLabelOverlap === true) {
+    xAxisPropDefaults.fixLabelOverlap = true;
+  }
 
   let yAxisDataSets = [];
   let xAxisDataSet;
