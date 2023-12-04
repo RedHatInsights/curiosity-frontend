@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6d1d46691367f5a03a80a7c175bcab82f1252d0b...aa3ae8dbff7f267e9b086d668e0967f54124a8e8) (2023-12-04)
+
+
+### Code Refactoring
+* **viewReducer** sw-1781 optimize view query  ([#1236](https://github.com/RedHatInsights/curiosity-frontend/pull/1236)) ([6d1f06d](https://github.com/RedHatInsights/curiosity-frontend/commit/6d1f06d9854ae5238f2e49225ac8fc2e2866d781))
+* **helpers** sw-1781 generateHash, use numeric hash  ([#1233](https://github.com/RedHatInsights/curiosity-frontend/pull/1233)) ([8840265](https://github.com/RedHatInsights/curiosity-frontend/commit/884026506de4bb0d51adfbfb3b08ddcb0b244270))
+
+### Bug Fixes
+* **config** sw-926 reactivate rosa, add to openshift  ([#1239](https://github.com/RedHatInsights/curiosity-frontend/pull/1239)) ([aa3ae8d](https://github.com/RedHatInsights/curiosity-frontend/commit/aa3ae8dbff7f267e9b086d668e0967f54124a8e8))
+
 ## [3.10.0](https://github.com/RedHatInsights/curiosity-frontend/compare/a7292d6ef76ce3e565a26b3df1d200c5c3c55028...cc9d0960f388fef3b94d5281c37a3be3368fbd31) (2023-11-14)
 
 
