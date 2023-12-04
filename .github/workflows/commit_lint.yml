@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Lint
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const actionCommit = require(`${process.env.GITHUB_WORKSPACE}/scripts/actions.commit.js`)
