@@ -418,7 +418,7 @@
     "title_rhacs": "Red Hat Advanced Cluster Security for Kubernetes",
     "subtitle_rhacs": "Monitor your usage for On-Demand subscriptions. <0>Learn more about {{appName}} reporting</0>",
     "description_rhacs": "Monitor your usage for On-Demand subscriptions.",
-    "title_rhods": "Red Hat OpenShift Data Science",
+    "title_rhods": "Red Hat OpenShift AI",
     "subtitle_rhods": "$t(curiosity-view.subtitle_rhacs)",
     "description_rhods": "$t(curiosity-view.description_rhacs)",
     "title_rhel": "$t(curiosity-view.title_RHEL)",
