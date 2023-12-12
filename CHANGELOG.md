@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.1](https://github.com/RedHatInsights/curiosity-frontend/compare/907af1ba97de6bdef8370b7dfc5fc0f3572a5987...2ed3d9ef9cd581a7346e99ffae86d1743a0b6514) (2023-12-12)
+
+
+### Chores
+* **deps** actions/github-script from 6 to 7  ([#1242](https://github.com/RedHatInsights/curiosity-frontend/pull/1242)) ([257cbca](https://github.com/RedHatInsights/curiosity-frontend/commit/257cbca8d372d7d88bdc08fdc1215557d94e99ac))
+
+### Bug Fixes
+* **rhods** sw-2000 data science to ai title  ([#1245](https://github.com/RedHatInsights/curiosity-frontend/pull/1245)) ([2ed3d9e](https://github.com/RedHatInsights/curiosity-frontend/commit/2ed3d9ef9cd581a7346e99ffae86d1743a0b6514))
+* **chartHelpers** sw-1878 confirm data then set axis overlap   ([#1243](https://github.com/RedHatInsights/curiosity-frontend/pull/1243)) ([c56b844](https://github.com/RedHatInsights/curiosity-frontend/commit/c56b844a6df81839085f998dd738f8481d029150))
+
 ## [3.11.0](https://github.com/RedHatInsights/curiosity-frontend/compare/6d1d46691367f5a03a80a7c175bcab82f1252d0b...aa3ae8dbff7f267e9b086d668e0967f54124a8e8) (2023-12-04)
 
 
