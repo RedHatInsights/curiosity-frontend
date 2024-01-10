@@ -1,84 +1,151 @@
 /**
- * Breakout individual commits.
+ * Available message scope types.
  *
- * @param {string} commits
- * @returns {{issueNumber: string, description: string, trimmedMessage: string, hash: string, typeScope: string}[]}
+ * @type {Array<string>}
  */
-const messages = commits =>
-  commits
+const availableMessageTypes = [
+  'feat',
+  'fix',
+  'docs',
+  'style',
+  'refactor',
+  'perf',
+  'test',
+  'build',
+  'ci',
+  'chore',
+  'revert'
+];
+
+/**
+ * Parse a commit message
+ *
+ * @param {string} message
+ * @param {Array} messageTypes
+ * @returns {{scope: string, description: string, type: string, prNumber: string, hash: string,
+ *     typeScope: string, isBreaking: boolean, original: string, message: string, length: number}}
+ */
+const parseCommitMessage = (message, messageTypes = availableMessageTypes) => {
+  let output;
+
+  const [hashTypeScope, ...descriptionEtAll] = message.trim().split(/:/);
+  const [description, ...partialPr] = descriptionEtAll
+    .join(' ')
     .trim()
-    .replace(/\n/g, '')
-    .replace(/\+\s/g, '\n')
-    .replace(/\n/, '')
-    .split(/\n/g)
-    .map(message => {
-      const [hashTypeScope, ...issueNumberDescription] =
-        (/:/.test(message) && message.split(/:/)) || message.split(/\s/);
+    .split(/(\(#|#)/);
+  const [hash, ...typeScope] = hashTypeScope.replace(/!$/, '').trim().split(/\s/);
+  const [type, scope = ''] = typeScope.join(' ').trim().split('(');
 
-      const [hash, typeScope = ''] = hashTypeScope.split(/\s/);
-      const [issueNumber, ...description] = issueNumberDescription.join(' ').trim().split(/\s/g);
+  output = {
+    hash,
+    typeScope: typeScope.join(' ').trim() || undefined,
+    type: (messageTypes.includes(type) && type) || undefined,
+    scope: scope.split(')')[0] || undefined,
+    description: description.trim() || undefined,
+    prNumber: (partialPr.join('(#').trim() || '').replace(/\D/g, '') || undefined,
+    isBreaking: /!$/.test(hashTypeScope)
+  };
 
-      const updatedTypeScope = (typeScope && `${typeScope}:`) || '';
-      const updatedDescription = description.join(' ');
-      const [updatedMessage, remainingMessage = ''] = `${updatedTypeScope} ${issueNumber} ${updatedDescription}`.split(
-        /\(#\d{1,5}\)/
-      );
+  if (!output.type || (output.type && !descriptionEtAll?.length)) {
+    const [hashFallback, ...descriptionEtAllFallback] = message.trim().split(/\s/);
+    const [descriptionFallback, ...partialPrFallback] = descriptionEtAllFallback.join(' ').trim().split(/\(#/);
 
-      return {
-        trimmedMessage:
-          (remainingMessage.trim().length === 0 && updatedMessage.trim()) ||
-          `${updatedTypeScope} ${issueNumber} ${updatedDescription}`,
-        hash,
-        typeScope: updatedTypeScope,
-        issueNumber,
-        description: updatedDescription
-      };
-    });
+    output = {
+      hash: hashFallback,
+      typeScope: undefined,
+      type: undefined,
+      scope: undefined,
+      description: descriptionFallback.trim(),
+      prNumber: (partialPrFallback.join('(#').trim() || '').replace(/\D/g, '') || undefined,
+      isBreaking: undefined
+    };
+  }
+
+  const updatedMessage = [
+    `${output.typeScope || ''}${(output.isBreaking && '!') || ''}${(output.typeScope && ':') || ''}`,
+    output.description
+  ]
+    .filter(value => !!value)
+    .join(' ')
+    .trim();
+
+  const out = {
+    ...output,
+    messageLength: updatedMessage?.length || 0,
+    message: updatedMessage,
+    original: message
+  };
+
+  return out;
+};
 
 /**
  * Apply valid/invalid checks.
  *
  * @param {Array} parsedMessages
+ * @param {object} options Default options, update accordingly
+ * @param {Array|string|undefined} options.issueNumberExceptions An "undefined" or "false" or "falsy" value
+ *     will ignore issue numbers. A string of "*" will allow every type. An array of issue types can be used
+ *     to identify which commit message type scopes to ignore, i.e. ['chore', 'fix', 'build', 'perf'].
+ *     See NPM conventional-commit-types for full listing options, https://bit.ly/2L0yr6I
+ * @param {number} options.maxMessageLength Max length of the main message string. Messages considered "body"
+ *     do not count against this limit.
+ * @param {Array|string|undefined} options.typeScopeExceptions see options.issueNumberExceptions
  * @returns {Array}
  */
-const messagesList = parsedMessages =>
-  parsedMessages.map(message => {
-    const { trimmedMessage = null, typeScope = null, issueNumber = null, description = null } = message;
+const messagesList = (
+  parsedMessages,
+  {
+    issueNumberExceptions = ['chore', 'fix', 'perf', 'docs', 'build'],
+    maxMessageLength = 65,
+    typeScopeExceptions = '*'
+  } = {}
+) =>
+  parsedMessages.map(
+    ({ messageLength = 0, type = null, scope = null, description = null, message = null, hash = null }) => {
+      const typeValid =
+        (type && 'valid') || 'INVALID: type (expected known types and format "<type>:" or "<type>(<scope>):")';
 
-    const issueNumberException =
-      /(^chore\([\d\D]+\))|(^fix\([\d\D]+\))|(^perf\([\d\D]+\))|(^docs\([\d\D]+\))|(^build\([\d\D]+\))|(^[\d\D]+\(build\))/.test(
-        typeScope
-      ) || /\(#[\d\D]+\)$/.test(description);
+      let scopeException = !typeScopeExceptions || !typeScopeExceptions?.length || typeScopeExceptions === '*';
 
-    const typeScopeValid = (/(^[\d\D]+\([\d\D]+\):$)|(^[\d\D]+:$)/.test(typeScope) && 'valid') || 'INVALID: type scope';
+      if (!scopeException && Array.isArray(typeScopeExceptions)) {
+        scopeException = typeScopeExceptions.includes(type);
+      }
 
-    const issueNumberValid =
-      (/(^issues\/[\d,]+$)/.test(issueNumber) && 'valid') ||
-      (/(^[a-zA-Z]+-[\d,]+$)/.test(issueNumber) && 'valid') ||
-      (issueNumberException && 'valid') ||
-      'INVALID: issue number';
+      const scopeValid = (scopeException && 'valid') || (scope && 'valid') || 'INVALID: scope';
 
-    const descriptionValid =
-      (/(^[\d\D]+$)/.test(description || (issueNumberException && issueNumber)) && 'valid') ||
-      (issueNumberException && !description && issueNumber && 'valid') ||
-      'INVALID: description';
+      let issueNumberException =
+        !issueNumberExceptions || !issueNumberExceptions?.length || issueNumberExceptions === '*';
 
-    const lengthValid =
-      (trimmedMessage && trimmedMessage.length <= 65 && 'valid') ||
-      `INVALID: message length (${trimmedMessage && trimmedMessage.length} > 65)`;
+      if (!issueNumberException && Array.isArray(issueNumberExceptions)) {
+        issueNumberException = issueNumberExceptions.includes(type);
+      }
 
-    // <type>([scope]): issues/<number> <description> <messageLength>
-    return `${typeScope}<${typeScopeValid}> ${issueNumber}<${issueNumberValid}> ${description}<${descriptionValid}><${lengthValid}>`;
-  });
+      const isIssueNumber = /(^[a-zA-Z]+[/-]+[0-9]+)/.test(description);
+      // Note: skip issueNumber validation if typeValid fails, this is on purpose
+      const issueNumberValid =
+        (typeValid !== 'valid' && 'valid') ||
+        (issueNumberException && 'valid') ||
+        (isIssueNumber && 'valid') ||
+        'INVALID: issue number (expected format "<desc>/<number>" or "<desc>-<number>")';
 
-/**
- * Remove valid commits.
- *
- * @param {Array} parsedMessagesList
- * @returns {Array}
- */
-const filteredMessages = parsedMessagesList =>
-  parsedMessagesList.filter(value => !/<valid>[\d\D]*<valid>[\d\D]*<valid><valid>/.test(value));
+      const descriptionValid = (description && 'valid') || 'INVALID: description (missing description)';
+
+      const lengthValid =
+        (messageLength <= maxMessageLength && 'valid') ||
+        `INVALID: message length (${messageLength} > ${maxMessageLength})`;
+
+      return {
+        hash,
+        commit: message,
+        type: typeValid,
+        scope: scopeValid,
+        description: descriptionValid,
+        issueNumber: issueNumberValid,
+        length: lengthValid
+      };
+    }
+  );
 
 /**
  * If commits exist, lint them.
@@ -86,14 +153,35 @@ const filteredMessages = parsedMessagesList =>
  * @param {string} commits
  * @returns {{resultsArray: Array, resultsString: string}}
  */
-module.exports = commits => {
+const actionCommitCheck = commits => {
   const lintResults = { resultsArray: [], resultsString: '' };
 
   if (commits) {
-    const parsedResults = filteredMessages(messagesList(messages(commits)));
-    lintResults.resultsArray = parsedResults;
-    lintResults.resultsString = JSON.stringify(parsedResults, null, 2);
+    const updatedCommits = commits
+      .trim()
+      .replace(/\n/g, '')
+      .replace(/\+\s/g, '\n')
+      .replace(/\n/, '')
+      .split(/\n/g)
+      .filter(value => value !== '')
+      .map(message => parseCommitMessage(message));
+    let filteredResults = messagesList(updatedCommits);
+
+    filteredResults.forEach(obj => {
+      const updatedObj = obj;
+      Object.entries(updatedObj).forEach(([key, value]) => {
+        if (value === 'valid') {
+          delete updatedObj[key];
+        }
+      });
+    });
+
+    filteredResults = filteredResults.filter(({ hash, commit, ...rest }) => Object.keys(rest).length > 0);
+    lintResults.resultsArray = filteredResults;
+    lintResults.resultsString = JSON.stringify(filteredResults, null, 2);
   }
 
   return lintResults;
 };
+
+module.exports = actionCommitCheck;
