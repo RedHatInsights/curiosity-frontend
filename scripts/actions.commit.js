@@ -39,16 +39,28 @@ const messages = commits =>
  * Apply valid/invalid checks.
  *
  * @param {Array} parsedMessages
+ * @param {object} options Default options, update accordingly
+ * @param {Array|undefined} options.issueNumberExceptions An "undefined" or "false" or "falsy" value
+ *     will ignore issue numbers. An array of issue type exceptions can be used to identify which commit message
+ *     type scopes to ignore, i.e. ['chore', 'fix', 'build', 'perf']. See NPM conventional-commit-types for full
+ *     listing options, https://bit.ly/2L0yr6I
+ * @param {number} options.maxMessageLength Max length of the main message string. Messages considered "body"
+ *     do not count against this limit.
  * @returns {Array}
  */
-const messagesList = parsedMessages =>
+const messagesList = (
+  parsedMessages,
+  { issueNumberExceptions = ['chore', 'fix', 'perf', 'docs', 'build'], maxMessageLength = 65 } = {}
+) =>
   parsedMessages.map(message => {
     const { trimmedMessage = null, typeScope = null, issueNumber = null, description = null } = message;
 
-    const issueNumberException =
-      /(^chore\([\d\D]+\))|(^fix\([\d\D]+\))|(^perf\([\d\D]+\))|(^docs\([\d\D]+\))|(^build\([\d\D]+\))|(^[\d\D]+\(build\))/.test(
-        typeScope
-      ) || /\(#[\d\D]+\)$/.test(description);
+    const issueNumberRegex = `(^{0}\\([\\d\\D]+\\))`;
+    const issueNumberException = !issueNumberExceptions
+      ? true
+      : new RegExp(
+          `${issueNumberExceptions.map(issueType => issueNumberRegex.replace('{0}', issueType)).join('|')}`
+        ).test(typeScope) || /\(#[\d\D]+\)$/.test(description);
 
     const typeScopeValid = (/(^[\d\D]+\([\d\D]+\):$)|(^[\d\D]+:$)/.test(typeScope) && 'valid') || 'INVALID: type scope';
 
@@ -64,8 +76,8 @@ const messagesList = parsedMessages =>
       'INVALID: description';
 
     const lengthValid =
-      (trimmedMessage && trimmedMessage.length <= 65 && 'valid') ||
-      `INVALID: message length (${trimmedMessage && trimmedMessage.length} > 65)`;
+      (trimmedMessage && trimmedMessage.length <= maxMessageLength && 'valid') ||
+      `INVALID: message length (${trimmedMessage && trimmedMessage.length} > ${maxMessageLength})`;
 
     // <type>([scope]): issues/<number> <description> <messageLength>
     return `${typeScope}<${typeScopeValid}> ${issueNumber}<${issueNumberValid}> ${description}<${descriptionValid}><${lengthValid}>`;
