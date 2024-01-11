@@ -49,12 +49,9 @@
     "release": "changelog",
     "release:rc": "changelog --dry-run",
     "start": "run-p -l api:dev start:standalone",
-    "start:deprecated": "run-p -l api:dev start:js",
-    "start:js": "export NODE_ENV=development; webpack serve --config config/webpack.dev.config.js",
     "start:js-proxy": "export NODE_ENV=development; webpack serve --config config/webpack.proxy.config.js",
-    "start:rs": "react-scripts start",
     "start:proxy": "run-s -l api:proxy-hosts start:js-proxy",
-    "start:standalone": "export NODE_ENV=development; run-s start:rs",
+    "start:standalone": "export NODE_ENV=development; weldable -x config/webpack.dev.config.js",
     "test": "export NODE_ENV=test; run-s test:spell* test:lint test:ci",
     "test:ci": "export CI=true; jest ./src --coverage",
     "test:ci-ephemeral": "export CI=true; TZ=UTC jest ./src --coverage --no-cache",
@@ -155,10 +152,10 @@
     "npm-check-updates": "^16.14.11",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.0",
-    "react-scripts": "^5.0.1",
     "redux-mock-store": "^1.5.4",
     "swagger-ui-express": "^5.0.0",
     "webpack-bundle-analyzer": "^4.10.1",
+    "weldable": "^0.2.0",
     "yamljs": "^0.3.0"
   }
 }
