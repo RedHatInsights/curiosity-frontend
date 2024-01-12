@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const fedModulePlugin = require('@redhat-cloud-services/frontend-components-config/federated-modules');
-const { setupWebpackDotenvFilesForEnv } = require('./build.dotenv');
+const { dotenv } = require('weldable');
 const { dependencies } = require('../package.json');
 
 const setReplacePlugin = () => [
@@ -27,7 +27,7 @@ const setCommonPlugins = () => {
    * It should be determined why this is happening, and if we can resolve it from the Curiosity end.
    */
   const plugins = [
-    ...setupWebpackDotenvFilesForEnv({ directory: RELATIVE_DIRNAME, env: DOTENV_ENV }),
+    ...dotenv.setupWebpackDotenvFilesForEnv({ env: DOTENV_ENV }),
     new CopyPlugin({
       patterns: [{ from: join(STATIC_DIR, 'locales'), to: join(DIST_DIR, 'locales'), noErrorOnMissing: true }]
     }),

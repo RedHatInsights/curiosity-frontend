@@ -6,12 +6,12 @@ import * as pfReactCoreComponents from '@patternfly/react-core';
 import * as pfReactChartComponents from '@patternfly/react-charts';
 import * as reactRedux from 'react-redux';
 import { TextEncoder } from 'util';
-import { setupDotenvFilesForEnv } from './build.dotenv';
+import { dotenv } from 'weldable';
 
 /**
  * Set dotenv params.
  */
-setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
+dotenv.setupDotenvFilesForEnv({ env: process.env.NODE_ENV });
 
 /**
  * Conditionally skip "it" test statements.
