@@ -115,7 +115,7 @@ For additional information on failures for
 clicking the `checks` tab on the related pull request.
 
 > Caching for GitHub actions and NPM packages is active. This caching allows subsequent pull request
-> updates to avoid reinstalling yarn dependencies. 
+> updates to avoid reinstalling npm dependencies. 
 > 
 > Occasionally test failures can occur after recent NPM package updates either in the pull request
 > itself or in a prior commit to the pull request. The most common reason for this failure presents when
@@ -173,13 +173,13 @@ To merge code into production stable a maintainer must run the release commit pr
 1. Clone the main repository, within the repo confirm you're on the `stable` branch and **SYNCED** with `origin` `stable`
 1. Run
    1. `$ git checkout stable`
-   1. `$ yarn`
-   1. `$ yarn release --dry-run` to confirm the release output version and commits.
-   1. `$ yarn release` to generate the commit and file changes.
+   1. `$ npm install`
+   1. `$ npm run release --dry-run` to confirm the release output version and commits.
+   1. `$ npm run release` to generate file changes, and then commit them.
       
       >If the version recommended should be different you can run the command with an override version following a semver format
       >  ```
-      >  $ yarn release --override X.X.X
+      >  $ npm run release --override X.X.X
       >  ``` 
 1. Confirm you now have a release commit with the format `chore(release): X.X.X` and there are updates to
    - [`package.json`](./package.json)
@@ -203,7 +203,7 @@ To merge code into production stable a maintainer must run the release commit pr
 Our schedule for updating NPMs
 - dependabot running once a week on low level packages that require only testing confirmation
 - 1x a month: running our aggregated dependency update script for all low level packages that require only testing confirmation
-   - `$ yarn build:deps`
+   - `$ npm run build:deps`
 - 1x a month: running updates on NPMs that require additional visual confirmation, this includes...
    - dependency-name: "@patternfly/*"
    - dependency-name: "@redhat-cloud-services/frontend*"
@@ -214,7 +214,7 @@ Our schedule for updating NPMs
 #### Process for updating NPMs
 To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
 
-> It is **highly discouraged** that you rely on updating the `yarn.lock` file only. This creates long-term issues when NPM references in `package.json` potentially require specific
+> It is **highly discouraged** that you rely on updating ANY `lock` file ONLY. This creates long-term issues when NPM references in `package.json` potentially require specific
 > dependencies, or have built around specific package functionality that could be inadvertently altered by updating a dependencies' dependency.
 
 ##### Basic NPM updates
@@ -222,51 +222,51 @@ To update packages in bulk there are 2 pre-defined paths, "basic" and "core".
 1. Clone the repository locally, or bring your fork up-to-date with the development branch. [Make sure development tooling is installed](#install-tooling). 
 1. Open a terminal instance in the repository context and run
     ```
-    $ yarn build:deps
+    $ npm run build:deps
     ```
    This will cycle through ALL basic NPM dependencies, running both unit tests, build and local integration checks. If
    any errors are throw the package update is skipped.
 1. After the updates have completed **YOU MUST VISUALLY CONFIRM** the updates were successful by running both local development start scripts.
    - Visually confirm that local development still functions and can be navigated with... 
       ```
-      $ yarn start
+      $ npm start
       ```
    - Visually confirm that proxy development still functions and can be navigated with...
       1. Start VPN, and make sure Docker/Podman is running.
       1. Run
          ```
-         $ yarn start:proxy
+         $ npm run start:proxy
          ```
       > Proxy run is reserved for internal uses, if you do not have access you can skip this part of the process and provide a reviewer note in your pull request 
-1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `yarn.lock`, then open a pull request towards the development branch.
+1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `package-lock.json`, then open a pull request towards the development branch.
 > If any part of the "basic path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
 > since future updates will be affected by skipping potentially any package update.
-> A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ yarn build:deps` this should contain a listing of the skipped packages.
+> A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ npm run build:deps` this should contain a listing of the skipped packages.
 
 ##### Core NPM updates
 1. Clone the repository locally, or bring your fork up-to-date with the development branch. [Make sure development tooling is installed](#install-tooling). 
 1. Open a terminal instance in the repository context and run
     ```
-    $ yarn build:deps-core
+    $ npm run build:deps-core
     ```
    This will cycle through ALL core NPM dependencies, running both unit tests, build and local integration checks. If
    any errors are throw the package update is skipped.
 1. After the updates have completed **YOU MUST VISUALLY CONFIRM** the updates were successful by running both local development start scripts.
    - Visually confirm that local development still functions and can be navigated with... 
       ```
-      $ yarn start
+      $ npm start
       ```
    - Visually confirm that proxy development still functions and can be navigated with...
       1. Start VPN, and make sure Docker/Podman is running.
       1. Run
          ```
-         $ yarn start:proxy
+         $ npm run start:proxy
          ```
       > Proxy run is reserved for internal uses, if you do not have access you can skip this part of the process and provide a reviewer note in your pull request
-1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `yarn.lock`, then open a pull request towards the development branch.
+1. After you've confirmed everything is functioning correctly, check and commit the related changes to `package.json` and `package-lock.json`, then open a pull request towards the development branch.
 > If any part of the "core path" process fails you'll need to figure out which NPM is the offender and remove it from the update. OR resolve to fix the issue
 > since future updates will be affected by skipping potentially any package update.
-> A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ yarn build:deps-core` this should contain a listing of the skipped packages.
+> A `dependency-update-log.txt" file is generated in the root of the repository after each run of `$ npm run build:deps-core` this should contain a listing of the skipped packages.
 
 ##### Manual NPM updates
 This is the slowest part of package updates. If any packages are skipped during the "basic" and "core" automation runs. Those packages will need to be updated manually.
@@ -274,18 +274,18 @@ This is the slowest part of package updates. If any packages are skipped during 
 1. Remove/delete the `node_modules` directory (there may be differences between branches that create package alterations) 
 1. Run
    ```
-   $ yarn
+   $ npm install
    ```
    To re-install the baseline packages.
 1. Start working your way down the list of `dependencies` and `devDependencies` in [`package.json`](./package.json). It is normal to start on the `dev-dependencies` since the related NPMs support build process. Build process updates at more consistent interval without breaking the application.
    > Some text editors fill in the next available NPM package version when you go to modify the package version. If this isn't available you can always use [NPM directly](https://www.npmjs.com/)... start searching =).
 1. After each package version update in [`package.json`](./package.json) you'll run the follow scripts
-   - `$ yarn test`, if it fails you'll need to run `$ yarn test:dev` and update the related tests
-   - `$ yarn build`, if it fails you'll need to run `$ yarn test:integration-dev` and update the related tests
-   - `$ yarn start`, confirm that local run is still accessible and that no design alterations have happened. Fix accordingly.
-   - Make sure VPN is active, and Docker/Podman is running, then type `$ yarn start:proxy`. Confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
+   - `$ npm test`, if it fails you'll need to run `$ npm run test:dev` and update the related tests
+   - `$ npm run build`, if it fails you'll need to run `$ npm run test:integration-dev` and update the related tests
+   - `$ npm start`, confirm that local run is still accessible and that no design alterations have happened. Fix accordingly.
+   - Make sure VPN is active, and Docker/Podman is running, then type `$ npm run start:proxy`. Confirm that proxy run is still accessible and that no design alterations have happened. Fix accordingly.
 1. If the package is now working commit the change and move on to the next package.
-   - If the package fails, or you want to skip the update, take the minimally easy path and remove/delete `node_modules` then rollback `yarn.lock` **BEFORE** you run the next package update.
+   - If the package fails, or you want to skip the update, take the minimally easy path and remove/delete `node_modules` then rollback `package-lock.json` **BEFORE** you run the next package update.
 > There are alternatives to resetting `node_modules`, we're providing the most direct path.
 >
 > Not updating a package is not the end-of-the-world. A package is not going to randomly break because you haven't updated to the latest version.
@@ -323,9 +323,9 @@ This is the slowest part of package updates. If any packages are skipped during 
 
 Before developing you'll need to install:
  * [NodeJS and NPM](https://nodejs.org/)
+    * Yarn install is now discouraged. There are dependency install issues with Yarn `1.x.x` versions. 
  * [Docker](https://docs.docker.com/desktop/)
    * Alternatively, you can try [Podman](https://github.com/containers/podman). [Homebrew](https://brew.sh/) can be used for the install `$ brew install podman`
- * And [Yarn](https://yarnpkg.com)
 
 #### OS support
 The tooling for Curiosity is `Mac OS` centered.
@@ -353,12 +353,8 @@ Setting Docker up on a Linux machine may include additional steps.
 
 Reference the Docker documentation for additional installation help.
 
-#### Yarn
-Once you've installed NodeJS you can use NPM to perform the [Yarn](https://yarnpkg.com) install
-
-  ```
-  $ npm install yarn -g
-  ``` 
+#### NPM
+NPM is automatically packaged with your NodeJS install.
 </details>
 
 <details>
@@ -463,7 +459,7 @@ The dotenv files are structured to cascade each additional dotenv file settings 
 This is a non-networked local run designed to function with minimal resources and a mock API.
 
 1. Confirm you've installed all recommended tooling
-1. Confirm you've installed resources through yarn
+1. Confirm you've installed resources through npm
 1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
     ```
     REACT_APP_DEBUG_MIDDLEWARE=true
@@ -473,11 +469,11 @@ This is a non-networked local run designed to function with minimal resources an
     ```
 1. Open a couple of instances of Terminal and run...
    ```
-   $ yarn start
+   $ npm start
    ```
    and, optionally,
    ```
-   $ yarn test:dev
+   $ npm run test:dev
    ```
 1. Make sure your browser opened around the domain `https://localhost:3000/`
 1. Start developing...
@@ -487,7 +483,7 @@ This is a networked run that has the ability to proxy prod and stage with a live
 
 1. Confirm you've installed all recommended tooling
 1. Confirm the repository name has no blank spaces in it. If it does replace that blank with a dash or underscore, Docker has issues with unescaped parameter strings.
-1. Confirm you've installed resources through yarn
+1. Confirm you've installed resources through npm
 1. Create a local dotenv file called `.env.local` in the root of Curiosity, and add the following contents
     ```
     REACT_APP_DEBUG_MIDDLEWARE=true
@@ -496,11 +492,11 @@ This is a networked run that has the ability to proxy prod and stage with a live
 1. Make sure Docker/Podman is running
 1. Open a couple of instances of Terminal and run...
     ```
-    $ yarn start:proxy
+    $ npm run start:proxy
     ```
     and, optionally,
     ```
-    $ yarn test:dev
+    $ npm run test:dev
     ```
 1. Make sure you open your browser around the domain `https://*.foo.redhat.com/`
    > You may have to scroll, but the terminal output will have some available domains for you to pick from.
@@ -585,13 +581,13 @@ This project makes use of React & Redux. To enable Redux browser console logging
 #### Unit testing
 To run the unit tests with a watch during development you'll need to open an additional terminal instance, then run
   ```
-  $ yarn test:dev
+  $ npm run test:dev
   ```
 
 ##### Updating test snapshots
 To update snapshots from the terminal run 
   ```
-  $ yarn test:dev
+  $ npm run test:dev
   ```
 
 From there you'll be presented with a few choices, one of them is "update", you can then hit the "u" key. Once the update script has run you should see additional changed files within Git, make sure to commit them along with your changes or continuous integration testing will fail.
@@ -599,25 +595,25 @@ From there you'll be presented with a few choices, one of them is "update", you 
 ##### Checking code coverage
 To check the coverage report from the terminal run
   ```
-  $ yarn test
+  $ npm test
   ```
 
 ##### Code coverage failing to update?
 If you're having trouble getting an accurate code coverage report, or it's failing to provide updated results (i.e. you renamed files) you can try running
   ```
-  $ yarn test:clearCache
+  $ npm run test:clearCache
   ```
   
 #### Integration-like testing
 To run tests associated with checking build output run
    ```
-   $ yarn build
-   $ yarn test:integration
+   $ npm run build
+   $ npm run test:integration
    ```
    
 ##### Updating integration-like test snapshots
 To update snapshots from the terminal run 
   ```
-  $ yarn test:integration-dev
+  $ npm run test:integration-dev
   ```
 </details>

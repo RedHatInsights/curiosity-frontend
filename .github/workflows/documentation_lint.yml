@@ -15,20 +15,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
+          cache: npm
       - name: Node.js modules cache
         uses: actions/cache@v3
         id: modules-cache
         with:
           path: ${{ github.workspace }}/node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-modules
       - name: Install Node.js packages
         if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
-        run: yarn install
+        run: npm install
       - name: Build
-        run: yarn build:docs
+        run: npm run build:docs
       - name: Git modified files
         if: ${{ success() }}
         run: |

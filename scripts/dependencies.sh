@@ -10,7 +10,7 @@
 
   echo "Reset existing build dependencies..."
   rm -rf -- ./node_modules
-  yarn install
+  npm install
 
   echo "Confirm and update build dependencies..."
 

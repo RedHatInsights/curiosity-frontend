@@ -21,28 +21,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
+          cache: npm
       - name: Node.js modules cache
         uses: actions/cache@v3
         id: modules-cache
         with:
           path: ${{ github.workspace }}/node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-modules
       - name: Install Node.js packages
         if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
-        run: yarn install
+        run: npm install
       - name: Lint and test
-        run: yarn test
+        run: npm test
       - name: Code coverage
         if: ${{ success() && contains(matrix.node-version, env.COV_NODE_VERSION) }}
         uses: codecov/codecov-action@v3.1.4
       - name: Confirm preview integration
         if: ${{ success() }}
-        run: yarn build
+        run: npm run build
         env:
           BETA: true
       - name: Confirm stable integration
         if: ${{ success() }}
-        run: yarn build
+        run: npm run build
