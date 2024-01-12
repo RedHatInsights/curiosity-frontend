@@ -1,11 +1,24 @@
-const { EslintWebpackPlugin, MiniCssExtractPlugin } = require('weldable/lib/packages');
+const {
+  // babelLoaderResolve,
+  cssLoaderResolve,
+  sassLoaderResolve,
+  tsLoaderResolve,
+  EslintWebpackPlugin,
+  MiniCssExtractPlugin
+} = require('weldable/lib/packages');
 
-module.exports = ({ _BUILD_SRC: SRC_DIR } = {}) => ({
+module.exports = ({ SRC_DIR } = {}) => ({
   module: {
     rules: [
       {
+        test: /\.(jsx|js)?$/,
+        include: [SRC_DIR],
+        // use: [babelLoaderResolve]
+        use: [tsLoaderResolve]
+      },
+      {
         test: /\.(sa|sc)ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, cssLoaderResolve, sassLoaderResolve]
       }
     ]
   },
