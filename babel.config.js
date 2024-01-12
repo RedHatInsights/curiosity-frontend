@@ -1,5 +1,5 @@
-const { setupDotenvFilesForEnv } = require('./config/build.dotenv');
-const { NODE_ENV } = setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+const { dotenv } = require('weldable');
+const { NODE_ENV } = dotenv.setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
 const { browserslist } = require('./package.json');
 
 module.exports = {
