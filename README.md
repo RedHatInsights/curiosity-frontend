@@ -24,7 +24,7 @@ For in-depth tooling install guidance see the [contribution guidelines](./CONTRI
 
   1. Within the repo context, install project dependencies
      ```
-     $ cd curiosity-frontend && yarn
+     $ cd curiosity-frontend && npm install
      ```
 
 ### Develop
@@ -39,7 +39,7 @@ This is the base context for running a local UI against a mock API and styling.
      ```
   1. In a terminal instance that uses the repo context... Run
      ```
-     $ yarn start
+     $ npm start
      ```
   1. Start developing against files in `./src`. Linting feedback will be automatically enabled through the terminal output
 
@@ -50,7 +50,7 @@ Run and update unit tests while developing instead of after-the-fact. In a new t
 
   1. In a new terminal instance that uses the repo context... Run
      ```
-     $ yarn test:dev
+     $ npm run test:dev
      ```
   2. Test files can be accessed, and edited, under `__test__` directories parallel to the files you're editing. Test failures for
      recently edited files will be available in the terminal output along with basic testing framework use directions.
