@@ -241,7 +241,8 @@ const config = {
         const total = data?.[uom];
         return translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
-          total
+          total,
+          testId: <span data-test={`inventory-cell-${uom}`} data-value={total} />
         });
       },
       isSort: true,
@@ -284,7 +285,8 @@ const config = {
       cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: total } = {}) =>
         translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
-          total
+          total,
+          testId: <span data-test={`inventory-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY}`} data-value={total} />
         }),
       isSort: true,
       isWrap: true,
@@ -311,7 +313,10 @@ const config = {
         }
         return translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
-          total
+          total,
+          testId: (
+            <span data-test={`inventory-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}`} data-value={total} />
+          )
         });
       },
       isSort: true,

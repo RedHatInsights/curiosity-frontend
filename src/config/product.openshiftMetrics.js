@@ -266,7 +266,8 @@ const config = {
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total } = {}) =>
         translate('curiosity-inventory.measurement', {
           context: (total && 'value') || undefined,
-          total: (total && Number.parseFloat(total).toFixed(2)) || undefined
+          total: (total && Number.parseFloat(total).toFixed(2)) || undefined,
+          testId: <span data-test={`inventory-cell-${RHSM_API_PATH_METRIC_TYPES.CORES}`} data-value={total} />
         }),
       isSort: true,
       isWrap: true,
