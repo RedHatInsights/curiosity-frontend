@@ -4,8 +4,8 @@ const { dotenv } = require('weldable');
 
 const {
   // DEV_BRANCH,
-  DIST_DIR,
-  STATIC_DIR,
+  _BUILD_DIST_DIR: DIST_DIR,
+  _BUILD_STATIC_DIR: STATIC_DIR,
   REACT_APP_ENV: DOTENV_ENV
 } = dotenv.setupDotenvFilesForEnv({ env: (process.env.NODE_ENV === 'development' && 'proxy') || process.env.NODE_ENV });
 
