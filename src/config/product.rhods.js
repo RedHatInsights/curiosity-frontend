@@ -226,8 +226,8 @@ const config = {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total }) =>
         translate('curiosity-inventory.measurement', {
-          context: RHSM_API_PATH_METRIC_TYPES.CORES,
-          total: helpers.numberDisplay(total)?.format({ mantissa: 5, trimMantissa: true }) || 0
+          context: (total && RHSM_API_PATH_METRIC_TYPES.CORES) || undefined,
+          total: helpers.numberDisplay(total)?.format({ mantissa: 5, trimMantissa: true })
         }),
       isSort: true,
       isWrap: true,

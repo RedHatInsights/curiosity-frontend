@@ -3504,7 +3504,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
@@ -3601,7 +3601,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
               "isSort": true,
@@ -3610,7 +3610,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
               "isSort": true,
@@ -3696,7 +3696,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-metrics"})",
               "header": [Function],
               "isSort": true,
@@ -3805,7 +3805,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhacs"})",
               "header": [Function],
               "isSort": true,
@@ -3914,7 +3914,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
@@ -3939,7 +3939,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 20,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
@@ -4140,7 +4140,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhods"})",
               "header": [Function],
               "isSort": true,
@@ -4233,7 +4233,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,
@@ -4242,7 +4242,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,
@@ -4351,7 +4351,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"Satellite Server"})",
               "header": [Function],
               "isSort": true,
@@ -4376,7 +4376,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 20,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"Satellite Server"})",
               "header": [Function],
               "isSort": true,
@@ -4481,7 +4481,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t(curiosity-inventory.header, {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
@@ -4578,7 +4578,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
               "isSort": true,
@@ -4587,7 +4587,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"OpenShift-dedicated-metrics"})",
               "header": [Function],
               "isSort": true,
@@ -4673,7 +4673,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"OpenShift-metrics"})",
               "header": [Function],
               "isSort": true,
@@ -4775,7 +4775,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhacs"})",
               "header": [Function],
               "isSort": true,
@@ -4877,7 +4877,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
@@ -4902,7 +4902,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 20,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
@@ -5103,7 +5103,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "t(curiosity-inventory.measurement, {"context":"Cores","total":0})",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rhods"})",
               "header": [Function],
               "isSort": true,
@@ -5196,7 +5196,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Cores,curiosity-inventory.guestsHeader_Cores], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,
@@ -5205,7 +5205,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Instance-hours,curiosity-inventory.guestsHeader_Instance-hours], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,
@@ -5307,7 +5307,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_number_of_guests,curiosity-inventory.guestsHeader_number_of_guests], {"context":"Satellite Server"})",
               "header": [Function],
               "isSort": true,
@@ -5332,7 +5332,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 20,
             },
             {
-              "content": "--",
+              "content": "t(curiosity-inventory.measurement, {})",
               "dataLabel": "t([curiosity-inventory.header_Sockets,curiosity-inventory.guestsHeader_Sockets], {"context":"Satellite Server"})",
               "header": [Function],
               "isSort": true,

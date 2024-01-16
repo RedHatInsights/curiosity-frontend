@@ -225,8 +225,8 @@ const config = {
       cell: ({ [RHSM_API_PATH_METRIC_TYPES.VCPUS]: total } = {}) =>
         (!total && '--') ||
         translate('curiosity-inventory.measurement', {
-          context: RHSM_API_PATH_METRIC_TYPES.VCPUS,
-          total: helpers.numberDisplay(total)?.format({ mantissa: 5, trimMantissa: true }) || 0
+          context: (total && RHSM_API_PATH_METRIC_TYPES.VCPUS) || undefined,
+          total: helpers.numberDisplay(total)?.format({ mantissa: 5, trimMantissa: true })
         }),
       isSort: true,
       isWrap: true,

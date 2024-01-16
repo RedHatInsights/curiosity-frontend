@@ -496,6 +496,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.header', { context: [uom, productId] })",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
       },
@@ -552,6 +556,14 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [ <PfLabel color="blue" /> ])",
       },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
     ],
   },
   {
@@ -597,6 +609,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: 'numberOfGuests', count: numberOfGuests }, [ <PfLabel color="blue" /> ])",
       },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
     ],
   },
   {
@@ -640,7 +656,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total)",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && RHSM_API_PATH_METRIC_TYPES.CORES)",
       },
       {
         "key": "curiosity-inventory.label",
@@ -660,12 +676,20 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })",
       },
       {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
         "key": "curiosity-inventory.header",
@@ -718,7 +742,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.VCPUS, total: helpers.numberDisplay(total)",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && RHSM_API_PATH_METRIC_TYPES.VCPUS)",
       },
       {
         "key": "curiosity-inventory.label",
@@ -771,7 +795,7 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       },
       {
         "key": "curiosity-inventory.measurement",
-        "match": "translate('curiosity-inventory.measurement', { context: RHSM_API_PATH_METRIC_TYPES.CORES, total: helpers.numberDisplay(total)",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && RHSM_API_PATH_METRIC_TYPES.CORES)",
       },
       {
         "key": "curiosity-inventory.label",
@@ -806,6 +830,14 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "key": "curiosity-inventory.guestsHeader",
         "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
     ],
   },
   {
@@ -816,12 +848,20 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CATEGORY, category] })",
       },
       {
         "key": "curiosity-inventory.label",
         "match": "translate('curiosity-inventory.label', { context: [INVENTORY_TYPES.CLOUD_PROVIDER, cloudProvider] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
     ],
   },
@@ -1005,10 +1045,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.rhacs.js",
-    "key": "curiosity-inventory.measurement",
-  },
-  {
-    "file": "src/config/product.rhacs.js",
     "key": "curiosity-inventory.label",
   },
   {
@@ -1041,10 +1077,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/config/product.rhelElsPayg.js",
-    "key": "curiosity-inventory.measurement",
-  },
-  {
-    "file": "src/config/product.rhelElsPayg.js",
     "key": "curiosity-inventory.label",
   },
   {
@@ -1058,10 +1090,6 @@ exports[`I18n Component should have locale keys that exist in the default langua
   {
     "file": "src/config/product.rhods.js",
     "key": "curiosity-graph.label_axisX",
-  },
-  {
-    "file": "src/config/product.rhods.js",
-    "key": "curiosity-inventory.measurement",
   },
   {
     "file": "src/config/product.rhods.js",

@@ -237,7 +237,13 @@ const config = {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
         translate('curiosity-inventory.header', { context: [uom, productId] }),
-      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => data?.[uom] || '--',
+      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => {
+        const total = data?.[uom];
+        return translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        });
+      },
       isSort: true,
       isWrap: true,
       width: 15
