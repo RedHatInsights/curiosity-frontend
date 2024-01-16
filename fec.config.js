@@ -4,10 +4,10 @@ const { dotenv } = require('weldable');
 
 const {
   // DEV_BRANCH,
-  _INSIGHTS_PROXY_VERBOSE,
-  HOT: _INSIGHTS_HOT,
   _BUILD_DIST_DIR: DIST_DIR,
   _BUILD_STATIC_DIR: STATIC_DIR,
+  HOT: _INSIGHTS_HOT,
+  PROXY_VERBOSE: _INSIGHTS_PROXY_VERBOSE,
   REACT_APP_ENV: DOTENV_ENV
 } = dotenv.setupDotenvFilesForEnv({ env: (process.env.NODE_ENV === 'development' && 'proxy') || process.env.NODE_ENV });
 
