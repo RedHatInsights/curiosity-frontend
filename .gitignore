@@ -32,3 +32,4 @@ public/locales/*.json
 .proxy
 .docs
 .openapi
+.cache

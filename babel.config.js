@@ -7,6 +7,5 @@ module.exports = {
     (NODE_ENV === 'development' && browserslist?.development?.join(', ')) ||
     browserslist?.production?.join(', ') ||
     'entry',
-  presets: ['@babel/preset-env', '@babel/preset-react'],
-  plugins: ['@babel/plugin-transform-runtime']
+  presets: ['@babel/preset-env', '@babel/preset-react']
 };
