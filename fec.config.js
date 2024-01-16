@@ -4,6 +4,8 @@ const { dotenv } = require('weldable');
 
 const {
   // DEV_BRANCH,
+  _INSIGHTS_PROXY_VERBOSE,
+  HOT: _INSIGHTS_HOT,
   _BUILD_DIST_DIR: DIST_DIR,
   _BUILD_STATIC_DIR: STATIC_DIR,
   REACT_APP_ENV: DOTENV_ENV
@@ -14,7 +16,7 @@ module.exports = {
   debug: true,
   // env: (/(prod|stage|qa|ci)(-stable|-beta)$/.test(DEV_BRANCH) && DEV_BRANCH) || 'stage-stable',
   useProxy: true,
-  proxyVerbose: true,
+  proxyVerbose: _INSIGHTS_PROXY_VERBOSE === 'true',
   interceptChromeConfig: false,
   plugins: [
     new webpack.IgnorePlugin({ resourceRegExp: /\.(md)$/ }),
@@ -24,7 +26,7 @@ module.exports = {
     })
   ],
   ...(() => {
-    if (process.env.HOT === 'true') {
+    if (_INSIGHTS_HOT === 'true') {
       return { _unstableHotReload: true };
     }
     return undefined;
