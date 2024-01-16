@@ -12,7 +12,7 @@ const filterFiles = files =>
       const updatedFile = file.trim();
       return updatedFile.length > 0 && /README\.md$/.test(updatedFile);
     })
-    .map(file => `File > ${file} > is modified. Update README with '$ yarn build:docs'`);
+    .map(file => `File > ${file} > is modified. Update README with '$ npm run build:docs'`);
 
 /**
  * If modified files exist, throw an error.

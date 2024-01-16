@@ -12,25 +12,9 @@ exports[`ChartElements Component should handle basic element settings from conte
       activateData={true}
       activateLabels={true}
       className="VictoryContainer"
-      cursorComponent={
-        <LineSegment
-          lineComponent={<Line />}
-          role="presentation"
-          shapeRendering="auto"
-        />
-      }
+      cursorComponent={<LineSegment />}
       cursorDimension="x"
-      cursorLabelComponent={
-        <VictoryLabel
-          backgroundComponent={<Rect />}
-          capHeight={0.71}
-          direction="inherit"
-          groupComponent={<g />}
-          lineHeight={1}
-          textComponent={<Text />}
-          tspanComponent={<TSpan />}
-        />
-      }
+      cursorLabelComponent={<VictoryLabel />}
       cursorLabelOffset={
         {
           "x": 5,
@@ -48,13 +32,7 @@ exports[`ChartElements Component should handle basic element settings from conte
           }
           dx={0}
           dy={0}
-          flyoutComponent={
-            <Flyout
-              pathComponent={<Path />}
-              role="presentation"
-              shapeRendering="auto"
-            />
-          }
+          flyoutComponent={<Flyout />}
           flyoutStyle={
             {
               "fill": "transparent",
