@@ -54,7 +54,7 @@
     "start": "run-p -l api:dev start:standalone",
     "start:js-proxy": "export NODE_ENV=development; fec dev",
     "start:proxy": "run-s -l api:proxy-hosts start:js-proxy",
-    "start:standalone": "export NODE_ENV=development; weldable -x config/webpack.dev.config.js",
+    "start:standalone": "export NODE_ENV=development; weldable -l none -x config/webpack.dev.config.js",
     "test": "export NODE_ENV=test; run-s test:spell* test:lint test:ci",
     "test:ci": "export CI=true; jest ./src --coverage",
     "test:ci-ephemeral": "export CI=true; TZ=UTC jest ./src --coverage --no-cache",
