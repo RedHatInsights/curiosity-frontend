@@ -51,7 +51,7 @@ exports[`BannerMessages Component should handle closing messages from state: sta
             class="pf-v5-c-alert__title"
           >
             <span
-              class="pf-v5-u-screen-reader"
+              class="pf-v5-screen-reader"
             >
               Info alert:
             </span>
