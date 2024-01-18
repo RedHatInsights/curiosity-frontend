@@ -500,12 +500,20 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
       },
       {
         "key": "curiosity-inventory.label",
         "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, uom] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
     ],
   },
@@ -663,6 +671,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.label",
         "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE, subscriptionType || EMPTY_CONTEXT] })",
       },
@@ -692,12 +704,20 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "curiosity-inventory.header",
         "match": "translate('curiosity-inventory.header', { context: ['subscriptions', uom] })",
       },
       {
         "key": "",
         "match": "translate( \`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}\`, { context: uom } )",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
     ],
   },
@@ -747,6 +767,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-inventory.label",
         "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
         "key": "curiosity-inventory.label",
@@ -802,6 +826,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
         "match": "translate(\`curiosity-inventory.label\`, { context: [SUBSCRIPTIONS_INVENTORY_TYPES.BILLING_PROVIDER, provider || 'none'] })",
       },
       {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
+      },
+      {
         "key": "",
         "match": "translate(\`curiosity-inventory.label_\${SUBSCRIPTIONS_INVENTORY_META_TYPES.SUBSCRIPTION_TYPE}\`, { context: subscriptionType || EMPTY_CONTEXT })",
       },
@@ -829,6 +857,10 @@ exports[`I18n Component should generate a predictable locale key output snapshot
       {
         "key": "curiosity-inventory.guestsHeader",
         "match": "translate('curiosity-inventory.guestsHeader', { context: [INVENTORY_TYPES.DISPLAY_NAME] })",
+      },
+      {
+        "key": "curiosity-inventory.measurement",
+        "match": "translate('curiosity-inventory.measurement', { context: (total && 'value')",
       },
       {
         "key": "curiosity-inventory.measurement",

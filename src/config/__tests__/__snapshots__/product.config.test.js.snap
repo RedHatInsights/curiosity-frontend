@@ -5453,7 +5453,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
@@ -5615,7 +5615,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhacs"})",
               "header": [Function],
               "isSort": true,
@@ -5742,7 +5742,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
@@ -5904,7 +5904,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhel-for-x86-els-payg"})",
               "header": [Function],
               "isSort": true,
@@ -6050,7 +6050,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhods"})",
               "header": [Function],
               "isSort": true,
@@ -6146,7 +6146,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,
@@ -6280,7 +6280,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"OpenShift Container Platform"})",
               "header": [Function],
               "isSort": true,
@@ -6442,7 +6442,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhacs"})",
               "header": [Function],
               "isSort": true,
@@ -6569,7 +6569,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"RHEL for x86"})",
               "header": [Function],
               "isSort": true,
@@ -6731,7 +6731,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhel-for-x86-els-payg"})",
               "header": [Function],
               "isSort": true,
@@ -6877,7 +6877,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": 15,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rhods"})",
               "header": [Function],
               "isSort": true,
@@ -6973,7 +6973,7 @@ exports[`Product specific configurations should apply variations in inventory fi
               "width": undefined,
             },
             {
-              "content": 1,
+              "content": "t(curiosity-inventory.measurement, {"context":"value","total":1})",
               "dataLabel": "t([curiosity-inventory.header_quantity,curiosity-inventory.guestsHeader_quantity], {"context":"rosa"})",
               "header": [Function],
               "isSort": true,

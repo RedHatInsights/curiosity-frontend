@@ -281,6 +281,11 @@ const config = {
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        }),
       isSort: true,
       isWrap: true,
       width: 20
@@ -291,7 +296,7 @@ const config = {
         translate('curiosity-inventory.header', { context: ['subscriptions', uom] }),
       cell: ({
         [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
-        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: totalCapacity,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: total,
         [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom
       } = {}) => {
         if (hasInfiniteQuantity === true) {
@@ -304,7 +309,10 @@ const config = {
             </Tooltip>
           );
         }
-        return totalCapacity;
+        return translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        });
       },
       isSort: true,
       isWrap: true,

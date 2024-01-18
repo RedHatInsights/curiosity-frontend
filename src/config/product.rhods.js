@@ -276,6 +276,11 @@ const config = {
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        }),
       isSort: true,
       isWrap: true,
       width: 10
