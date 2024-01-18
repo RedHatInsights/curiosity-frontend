@@ -12,29 +12,9 @@ exports[`GraphReducer should handle all defined error types: rejected types GET_
       "status": 0,
     },
     "legend": {},
-    "reportCapacity": {},
     "tally": {},
   },
   "type": "GET_GRAPH_CAPACITY_RHSM_REJECTED",
-}
-`;
-
-exports[`GraphReducer should handle all defined error types: rejected types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
-{
-  "result": {
-    "capacity": {},
-    "legend": {},
-    "reportCapacity": {
-      "error": true,
-      "errorMessage": "MESSAGE",
-      "fulfilled": false,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "tally": {},
-  },
-  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_REJECTED",
 }
 `;
 
@@ -43,7 +23,6 @@ exports[`GraphReducer should handle all defined error types: rejected types GET_
   "result": {
     "capacity": {},
     "legend": {},
-    "reportCapacity": {},
     "tally": {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -73,33 +52,9 @@ exports[`GraphReducer should handle all defined fulfilled types: fulfilled types
       "status": 0,
     },
     "legend": {},
-    "reportCapacity": {},
     "tally": {},
   },
   "type": "GET_GRAPH_CAPACITY_RHSM_FULFILLED",
-}
-`;
-
-exports[`GraphReducer should handle all defined fulfilled types: fulfilled types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
-{
-  "result": {
-    "capacity": {},
-    "legend": {},
-    "reportCapacity": {
-      "data": {
-        "test": "success",
-      },
-      "date": null,
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "tally": {},
-  },
-  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_FULFILLED",
 }
 `;
 
@@ -108,7 +63,6 @@ exports[`GraphReducer should handle all defined fulfilled types: fulfilled types
   "result": {
     "capacity": {},
     "legend": {},
-    "reportCapacity": {},
     "tally": {
       "data": {
         "test": "success",
@@ -137,28 +91,9 @@ exports[`GraphReducer should handle all defined pending types: pending types GET
       "pending": true,
     },
     "legend": {},
-    "reportCapacity": {},
     "tally": {},
   },
   "type": "GET_GRAPH_CAPACITY_RHSM_PENDING",
-}
-`;
-
-exports[`GraphReducer should handle all defined pending types: pending types GET_GRAPH_REPORT_CAPACITY_RHSM 1`] = `
-{
-  "result": {
-    "capacity": {},
-    "legend": {},
-    "reportCapacity": {
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": false,
-      "meta": {},
-      "pending": true,
-    },
-    "tally": {},
-  },
-  "type": "GET_GRAPH_REPORT_CAPACITY_RHSM_PENDING",
 }
 `;
 
@@ -167,7 +102,6 @@ exports[`GraphReducer should handle all defined pending types: pending types GET
   "result": {
     "capacity": {},
     "legend": {},
-    "reportCapacity": {},
     "tally": {
       "error": false,
       "errorMessage": "",
@@ -187,7 +121,6 @@ exports[`GraphReducer should handle specific defined types: defined type SET_GRA
     "legend": {
       "lorem": true,
     },
-    "reportCapacity": {},
     "tally": {},
   },
   "type": "SET_GRAPH_LEGEND",
