@@ -12,12 +12,11 @@ import { reduxHelpers } from '../common/reduxHelpers';
  * Initial state.
  *
  * @private
- * @type {{reportCapacity: {}, legend: {}, tally: {}, capacity: {}}}
+ * @type {{legend: {}, tally: {}, capacity: {}}}
  */
 const initialState = {
   capacity: {},
   legend: {},
-  reportCapacity: {},
   tally: {}
 };
 
@@ -46,7 +45,6 @@ const graphReducer = (state = initialState, action) => {
       return reduxHelpers.generatedPromiseActionReducer(
         [
           { ref: 'capacity', type: rhsmTypes.GET_GRAPH_CAPACITY_RHSM },
-          { ref: 'reportCapacity', type: rhsmTypes.GET_GRAPH_REPORT_CAPACITY_RHSM },
           { ref: 'tally', type: rhsmTypes.GET_GRAPH_TALLY_RHSM }
         ],
         state,
