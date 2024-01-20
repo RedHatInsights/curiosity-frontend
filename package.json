@@ -110,7 +110,6 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.2.0",
     "redux-thunk": "^2.4.2",
-    "reselect": "^4.1.8",
     "victory": "36.8.2",
     "victory-create-container": "36.8.2"
   },
