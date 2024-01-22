@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/5f92127612f2dc34529ff0bd7ad53a795a070833...5ceb05f06d2b2bd4c3854218d6a74404bbcc9dee) (2024-01-22)
+
+
+### Chores
+* **build** npm updates ([#1238](https://github.com/RedHatInsights/curiosity-frontend/pull/1238)) ([e7c3898](https://github.com/RedHatInsights/curiosity-frontend/commit/e7c38982178988486dd665a8f6e3cc7354567309))
+
+### Builds
+* **webpack** sw-1781 switch to custom preloader ([#1251](https://github.com/RedHatInsights/curiosity-frontend/pull/1251)) ([5ceb05f](https://github.com/RedHatInsights/curiosity-frontend/commit/5ceb05f06d2b2bd4c3854218d6a74404bbcc9dee))
+* **webpack** sw-1781 platform compile packages ([#1248](https://github.com/RedHatInsights/curiosity-frontend/pull/1248)) ([240cc39](https://github.com/RedHatInsights/curiosity-frontend/commit/240cc390d1ba3e96d0acfca7c19f3341f3b0d734))
+* **npm** move from yarn to npm ([#1247](https://github.com/RedHatInsights/curiosity-frontend/pull/1247)) ([874fbf4](https://github.com/RedHatInsights/curiosity-frontend/commit/874fbf4ccbe73cf3f918b127a8790b3f5ca74b2b))
+* **dotenv** refactor dotenv ([#1241](https://github.com/RedHatInsights/curiosity-frontend/pull/1241)) ([3cc4e74](https://github.com/RedHatInsights/curiosity-frontend/commit/3cc4e747a3d8d8c1a975eafa3e7dd2ad5edb83a7))
+* **webpack** refactor local run ([#1241](https://github.com/RedHatInsights/curiosity-frontend/pull/1241)) ([67f165a](https://github.com/RedHatInsights/curiosity-frontend/commit/67f165a2e43be421c33a80ec07e4be71d89e03a1))
+* **actions** commit syntax parser ([#1235](https://github.com/RedHatInsights/curiosity-frontend/pull/1235)) ([ab13df2](https://github.com/RedHatInsights/curiosity-frontend/commit/ab13df2a227362a9223b8e74d76aa4471dee9db5))
+
+### Bug Fixes
+* **dotenv** sw-2095 learn more like update ([#1250](https://github.com/RedHatInsights/curiosity-frontend/pull/1250)) ([ed518f0](https://github.com/RedHatInsights/curiosity-frontend/commit/ed518f0f32ec77a8d102164d2283f061c5594d41))
+
 ## [3.11.1](https://github.com/RedHatInsights/curiosity-frontend/compare/907af1ba97de6bdef8370b7dfc5fc0f3572a5987...2ed3d9ef9cd581a7346e99ffae86d1743a0b6514) (2023-12-12)
 
 
