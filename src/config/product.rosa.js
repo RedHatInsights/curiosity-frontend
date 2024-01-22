@@ -279,16 +279,22 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: cores }) =>
-        (typeof cores === 'number' && Number.parseFloat(cores).toFixed(2)) || '--',
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.CORES]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total: (total && Number.parseFloat(total).toFixed(2)) || undefined
+        }),
       isSort: true,
       isWrap: true,
       width: 15
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: instanceHours } = {}) =>
-        (typeof instanceHours === 'number' && Number.parseFloat(instanceHours).toFixed(2)) || '--',
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.INSTANCE_HOURS]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total: (total && Number.parseFloat(total).toFixed(2)) || undefined
+        }),
       isSort: true,
       isWrap: true,
       width: 15
@@ -320,6 +326,11 @@ const config = {
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        }),
       isSort: true,
       isWrap: true,
       width: 10

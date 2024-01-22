@@ -237,7 +237,13 @@ const config = {
       metric: RHSM_API_PATH_METRIC_TYPES.CORES,
       header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
         translate('curiosity-inventory.header', { context: [uom, productId] }),
-      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => data?.[uom] || '--',
+      cell: (data = {}, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) => {
+        const total = data?.[uom];
+        return translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        });
+      },
       isSort: true,
       isWrap: true,
       width: 15
@@ -275,6 +281,11 @@ const config = {
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY,
+      cell: ({ [SUBSCRIPTIONS_INVENTORY_TYPES.QUANTITY]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        }),
       isSort: true,
       isWrap: true,
       width: 20
@@ -285,7 +296,7 @@ const config = {
         translate('curiosity-inventory.header', { context: ['subscriptions', uom] }),
       cell: ({
         [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
-        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: totalCapacity,
+        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: total,
         [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom
       } = {}) => {
         if (hasInfiniteQuantity === true) {
@@ -298,7 +309,10 @@ const config = {
             </Tooltip>
           );
         }
-        return totalCapacity;
+        return translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        });
       },
       isSort: true,
       isWrap: true,
