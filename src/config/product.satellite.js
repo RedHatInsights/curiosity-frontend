@@ -213,7 +213,11 @@ const config = {
     },
     {
       metric: INVENTORY_TYPES.NUMBER_OF_GUESTS,
-      cell: ({ [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests } = {}) => numberOfGuests || '--',
+      cell: ({ [INVENTORY_TYPES.NUMBER_OF_GUESTS]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        }),
       isSort: true,
       isWrap: true,
       width: 15
@@ -238,7 +242,11 @@ const config = {
     },
     {
       metric: RHSM_API_PATH_METRIC_TYPES.SOCKETS,
-      cell: ({ [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: sockets } = {}) => sockets || '--',
+      cell: ({ [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total } = {}) =>
+        translate('curiosity-inventory.measurement', {
+          context: (total && 'value') || undefined,
+          total
+        }),
       isSort: true,
       isWrap: true,
       width: 15
