@@ -1,6 +1,5 @@
-import { rhsmTypes } from '../types/rhsmTypes';
+import { inventoryTypes, rhsmTypes } from '../types';
 import { reduxHelpers } from '../common/reduxHelpers';
-import { inventoryTypes } from '../types';
 
 /**
  * Inventory, and tabs, related API and user state reducer.

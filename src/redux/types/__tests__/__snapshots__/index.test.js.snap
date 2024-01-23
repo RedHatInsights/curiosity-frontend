@@ -61,7 +61,6 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       "GET_USER_OPTIN": "GET_USER_OPTIN",
       "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
       "USER_LOCALE": "USER_LOCALE",
-      "USER_LOGOUT": "USER_LOGOUT",
     },
   },
   "graphTypes": {
@@ -144,7 +143,6 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       "GET_USER_OPTIN": "GET_USER_OPTIN",
       "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
       "USER_LOCALE": "USER_LOCALE",
-      "USER_LOGOUT": "USER_LOGOUT",
     },
   },
   "rhsmTypes": {
@@ -163,7 +161,6 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     "GET_USER_OPTIN": "GET_USER_OPTIN",
     "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
     "USER_LOCALE": "USER_LOCALE",
-    "USER_LOGOUT": "USER_LOGOUT",
   },
 }
 `;
@@ -221,7 +218,6 @@ exports[`ReduxTypes should have specific type properties: specific types 1`] = `
     "GET_USER_OPTIN": "GET_USER_OPTIN",
     "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
     "USER_LOCALE": "USER_LOCALE",
-    "USER_LOGOUT": "USER_LOGOUT",
   },
 }
 `;
