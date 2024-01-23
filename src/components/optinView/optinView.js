@@ -51,7 +51,7 @@ const OptinView = ({
 }) => {
   const dispatch = useAliasDispatch();
   const { errorStatus } = useAliasSession();
-  const { error, fulfilled, pending } = useAliasSelectorsResponse(({ user }) => user?.optin);
+  const { error, fulfilled, pending } = useAliasSelectorsResponse(({ app }) => app?.optin);
 
   /**
    * Submit and update account opt-in.

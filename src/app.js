@@ -30,7 +30,7 @@ import { helpers } from './common';
  */
 const App = ({ getLocale, useDispatch: useAliasDispatch, useSelector: useAliasSelector }) => {
   const dispatch = useAliasDispatch();
-  const { value: locale } = useAliasSelector(({ user }) => user?.locale?.data, {});
+  const { value: locale } = useAliasSelector(({ app }) => app?.locale?.data, {});
   let platformNotifications = null;
 
   useMount(() => {

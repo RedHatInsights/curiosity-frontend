@@ -1,14 +1,14 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { platformActions } from '../platformActions';
-import { userReducer } from '../../reducers';
+import { appReducer } from '../../reducers';
 
 describe('PlatformActions', () => {
   const middleware = [promiseMiddleware];
   const generateStore = () =>
     createStore(
       combineReducers({
-        user: userReducer
+        app: appReducer
       }),
       applyMiddleware(...middleware)
     );
@@ -18,7 +18,7 @@ describe('PlatformActions', () => {
     const dispatcher = platformActions.authorizeUser();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user;
+      const response = store.getState().app;
 
       expect(response.auth.fulfilled).toBe(true);
       done();

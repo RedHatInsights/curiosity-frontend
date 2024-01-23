@@ -1,19 +1,19 @@
-import userReducer from '../userReducer';
+import appReducer from '../appReducer';
 import { rhsmConstants } from '../../../services/rhsm/rhsmConstants';
 import { platformConstants } from '../../../services/platform/platformConstants';
-import { appTypes, platformTypes, userTypes as types } from '../../types';
+import { appTypes as types, platformTypes } from '../../types';
 import { reduxHelpers } from '../../common';
 
 describe('UserReducer', () => {
   it('should return the initial state', () => {
-    expect(userReducer.initialState).toBeDefined();
+    expect(appReducer.initialState).toBeDefined();
   });
 
   it('should handle specific http status types', () => {
     const specificTypes = [
-      { type: appTypes.STATUS_4XX, status: 400 },
-      { type: appTypes.STATUS_4XX, status: 401 },
-      { type: appTypes.STATUS_4XX, status: 403 }
+      { type: types.STATUS_4XX, status: 400 },
+      { type: types.STATUS_4XX, status: 401 },
+      { type: types.STATUS_4XX, status: 403 }
     ];
 
     specificTypes.forEach(value => {
@@ -37,7 +37,7 @@ describe('UserReducer', () => {
         }
       };
 
-      const resultState = userReducer(undefined, dispatched);
+      const resultState = appReducer(undefined, dispatched);
 
       expect({ type: value.type, result: resultState }).toMatchSnapshot(`http status ${value.type} ${value.status}`);
     });
@@ -68,7 +68,7 @@ describe('UserReducer', () => {
         }
       };
 
-      const resultState = userReducer(undefined, dispatched);
+      const resultState = appReducer(undefined, dispatched);
 
       expect({ type: reduxHelpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot(
         `rejected types ${value}`
@@ -90,7 +90,7 @@ describe('UserReducer', () => {
         type: reduxHelpers.PENDING_ACTION(value)
       };
 
-      const resultState = userReducer(undefined, dispatched);
+      const resultState = appReducer(undefined, dispatched);
 
       expect({ type: reduxHelpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot(
         `pending types ${value}`
@@ -125,7 +125,7 @@ describe('UserReducer', () => {
         }
       };
 
-      const resultState = userReducer(undefined, dispatched);
+      const resultState = appReducer(undefined, dispatched);
 
       expect({ type: reduxHelpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot(
         `fulfilled types ${value}`

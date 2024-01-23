@@ -21,6 +21,9 @@
 <dd></dd>
 <dt><a href="#Middleware.module_StatusMiddleware">StatusMiddleware</a></dt>
 <dd></dd>
+<dt><a href="#Reducers.module_AppReducer">AppReducer</a></dt>
+<dd><p>Application related state reducer.</p>
+</dd>
 <dt><a href="#Reducers.module_GraphReducer">GraphReducer</a></dt>
 <dd><p>Graph/Chart related API and user state reducer.</p>
 </dd>
@@ -32,9 +35,6 @@
 </dd>
 <dt><a href="#Reducers.module_ToolbarReducer">ToolbarReducer</a></dt>
 <dd><p>Toolbar related user state reducer.</p>
-</dd>
-<dt><a href="#Reducers.module_UserReducer">UserReducer</a></dt>
-<dd><p>User related API, platform and user state reducer.</p>
 </dd>
 <dt><a href="#Reducers.module_ViewReducer">ViewReducer</a></dt>
 <dd><p>View query related user state reducer.</p>
@@ -1018,6 +1018,31 @@ Apply a status type based on actions, such as those generated from redux-promise
     </tr>  </tbody>
 </table>
 
+<a name="Reducers.module_AppReducer"></a>
+
+## AppReducer
+Application related state reducer.
+
+<a name="Reducers.module_AppReducer..appReducer"></a>
+
+### AppReducer~appReducer(state, action) ⇒ <code>object</code> \| <code>Object</code>
+Apply application observer/reducer logic to state, against actions.
+
+**Kind**: inner method of [<code>AppReducer</code>](#Reducers.module_AppReducer)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>state</td><td><code>object</code></td>
+    </tr><tr>
+    <td>action</td><td><code>object</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Reducers.module_GraphReducer"></a>
 
 ## GraphReducer
@@ -1121,31 +1146,6 @@ Apply user observer/reducer logic for toolbar to state, against actions.
     </tr>  </tbody>
 </table>
 
-<a name="Reducers.module_UserReducer"></a>
-
-## UserReducer
-User related API, platform and user state reducer.
-
-<a name="Reducers.module_UserReducer..userReducer"></a>
-
-### UserReducer~userReducer(state, action) ⇒ <code>object</code> \| <code>Object</code>
-Apply user observer/reducer logic for session to state, against actions.
-
-**Kind**: inner method of [<code>UserReducer</code>](#Reducers.module_UserReducer)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>state</td><td><code>object</code></td>
-    </tr><tr>
-    <td>action</td><td><code>object</code></td>
-    </tr>  </tbody>
-</table>
-
 <a name="Reducers.module_ViewReducer"></a>
 
 ## ViewReducer
@@ -1195,7 +1195,6 @@ Create a Redux store.
     * [~queryTypes](#Types.module_ReduxTypes..queryTypes) : <code>Object</code>
     * [~rhsmTypes](#Types.module_ReduxTypes..rhsmTypes) : <code>Object</code>
     * [~toolbarTypes](#Types.module_ReduxTypes..toolbarTypes) : <code>Object</code>
-    * [~userTypes](#Types.module_ReduxTypes..userTypes) : <code>Object</code>
 
 <a name="Types.module_ReduxTypes..appTypes"></a>
 
@@ -1243,12 +1242,6 @@ RHSM API action, reducer types.
 
 ### ReduxTypes~toolbarTypes : <code>Object</code>
 Filter, toolbar action, reducer types.
-
-**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
-<a name="Types.module_ReduxTypes..userTypes"></a>
-
-### ReduxTypes~userTypes : <code>Object</code>
-User action, reducer types.
 
 **Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
 <a name="reduxMiddleware"></a>
