@@ -59,9 +59,7 @@ const userReducer = (state = initialState, action) => {
       return reduxHelpers.generatedPromiseActionReducer(
         [
           { ref: 'locale', type: userTypes.USER_LOCALE },
-          { ref: 'optin', type: userTypes.DELETE_USER_OPTIN },
-          { ref: 'optin', type: userTypes.GET_USER_OPTIN },
-          { ref: 'optin', type: userTypes.UPDATE_USER_OPTIN },
+          { ref: 'optin', type: [userTypes.DELETE_USER_OPTIN, userTypes.GET_USER_OPTIN, userTypes.UPDATE_USER_OPTIN] },
           { ref: 'auth', type: platformTypes.PLATFORM_USER_AUTH }
         ],
         state,
