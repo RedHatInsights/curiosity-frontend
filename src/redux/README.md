@@ -42,23 +42,7 @@
 <dt><a href="#Redux State.module_Store">Store</a></dt>
 <dd><p>Redux store setup.</p>
 </dd>
-<dt><a href="#Types.module_AppTypes">AppTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_GraphTypes">GraphTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_InventoryTypes">InventoryTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_MessageTypes">MessageTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_PlatformTypes">PlatformTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_QueryTypes">QueryTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_RhsmTypes">RhsmTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_ToolbarTypes">ToolbarTypes</a></dt>
-<dd></dd>
-<dt><a href="#Types.module_UserTypes">UserTypes</a></dt>
+<dt><a href="#Types.module_ReduxTypes">ReduxTypes</a></dt>
 <dd></dd>
 </dl>
 
@@ -1198,87 +1182,75 @@ Redux store setup.
 Create a Redux store.
 
 **Kind**: inner constant of [<code>Store</code>](#Redux State.module_Store)  
-<a name="Types.module_AppTypes"></a>
+<a name="Types.module_ReduxTypes"></a>
 
-## AppTypes
-<a name="Types.module_AppTypes..appTypes"></a>
+## ReduxTypes
 
-### AppTypes~appTypes : <code>Object</code>
+* [ReduxTypes](#Types.module_ReduxTypes)
+    * [~appTypes](#Types.module_ReduxTypes..appTypes) : <code>Object</code>
+    * [~graphTypes](#Types.module_ReduxTypes..graphTypes) : <code>Object</code>
+    * [~inventoryTypes](#Types.module_ReduxTypes..inventoryTypes) : <code>Object</code>
+    * [~messageTypes](#Types.module_ReduxTypes..messageTypes) : <code>Object</code>
+    * [~platformTypes](#Types.module_ReduxTypes..platformTypes) : <code>Object</code>
+    * [~queryTypes](#Types.module_ReduxTypes..queryTypes) : <code>Object</code>
+    * [~rhsmTypes](#Types.module_ReduxTypes..rhsmTypes) : <code>Object</code>
+    * [~toolbarTypes](#Types.module_ReduxTypes..toolbarTypes) : <code>Object</code>
+    * [~userTypes](#Types.module_ReduxTypes..userTypes) : <code>Object</code>
+
+<a name="Types.module_ReduxTypes..appTypes"></a>
+
+### ReduxTypes~appTypes : <code>Object</code>
 Application action, reducer types.
 
-**Kind**: inner constant of [<code>AppTypes</code>](#Types.module_AppTypes)  
-<a name="Types.module_GraphTypes"></a>
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..graphTypes"></a>
 
-## GraphTypes
-<a name="Types.module_GraphTypes..graphTypes"></a>
-
-### GraphTypes~graphTypes : <code>Object</code>
+### ReduxTypes~graphTypes : <code>Object</code>
 Graph action, reducer types.
 
-**Kind**: inner constant of [<code>GraphTypes</code>](#Types.module_GraphTypes)  
-<a name="Types.module_InventoryTypes"></a>
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..inventoryTypes"></a>
 
-## InventoryTypes
-<a name="Types.module_InventoryTypes..inventoryTypes"></a>
-
-### InventoryTypes~inventoryTypes : <code>Object</code>
+### ReduxTypes~inventoryTypes : <code>Object</code>
 Inventory action, reducer types.
 
-**Kind**: inner constant of [<code>InventoryTypes</code>](#Types.module_InventoryTypes)  
-<a name="Types.module_MessageTypes"></a>
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..messageTypes"></a>
 
-## MessageTypes
-<a name="Types.module_MessageTypes..messageTypes"></a>
+### ReduxTypes~messageTypes : <code>Object</code>
+Banner message action, reducer types.
 
-### MessageTypes~messageTypes : <code>Object</code>
-User action, reducer types.
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..platformTypes"></a>
 
-**Kind**: inner constant of [<code>MessageTypes</code>](#Types.module_MessageTypes)  
-<a name="Types.module_PlatformTypes"></a>
-
-## PlatformTypes
-<a name="Types.module_PlatformTypes..platformTypes"></a>
-
-### PlatformTypes~platformTypes : <code>Object</code>
+### ReduxTypes~platformTypes : <code>Object</code>
 Platform action, reducer types.
 
-**Kind**: inner constant of [<code>PlatformTypes</code>](#Types.module_PlatformTypes)  
-<a name="Types.module_QueryTypes"></a>
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..queryTypes"></a>
 
-## QueryTypes
-<a name="Types.module_QueryTypes..queryTypes"></a>
+### ReduxTypes~queryTypes : <code>Object</code>
+Query/filter action, reducer types.
 
-### QueryTypes~queryTypes : <code>Object</code>
-Query/filter reducer types.
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..rhsmTypes"></a>
 
-**Kind**: inner constant of [<code>QueryTypes</code>](#Types.module_QueryTypes)  
-<a name="Types.module_RhsmTypes"></a>
-
-## RhsmTypes
-<a name="Types.module_RhsmTypes..rhsmTypes"></a>
-
-### RhsmTypes~rhsmTypes : <code>Object</code>
+### ReduxTypes~rhsmTypes : <code>Object</code>
 RHSM API action, reducer types.
 
-**Kind**: inner constant of [<code>RhsmTypes</code>](#Types.module_RhsmTypes)  
-<a name="Types.module_ToolbarTypes"></a>
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..toolbarTypes"></a>
 
-## ToolbarTypes
-<a name="Types.module_ToolbarTypes..toolbarTypes"></a>
+### ReduxTypes~toolbarTypes : <code>Object</code>
+Filter, toolbar action, reducer types.
 
-### ToolbarTypes~toolbarTypes : <code>Object</code>
-Filter, toolbar reducer types.
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
+<a name="Types.module_ReduxTypes..userTypes"></a>
 
-**Kind**: inner constant of [<code>ToolbarTypes</code>](#Types.module_ToolbarTypes)  
-<a name="Types.module_UserTypes"></a>
-
-## UserTypes
-<a name="Types.module_UserTypes..userTypes"></a>
-
-### UserTypes~userTypes : <code>Object</code>
+### ReduxTypes~userTypes : <code>Object</code>
 User action, reducer types.
 
-**Kind**: inner constant of [<code>UserTypes</code>](#Types.module_UserTypes)  
+**Kind**: inner constant of [<code>ReduxTypes</code>](#Types.module_ReduxTypes)  
 <a name="reduxMiddleware"></a>
 
 ## reduxMiddleware : <code>Array</code>
