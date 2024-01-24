@@ -96,7 +96,7 @@ const parseCommitMessage = (message, messageTypes = availableMessageTypes) => {
 const messagesList = (
   parsedMessages,
   {
-    issueNumberExceptions = ['chore', 'fix', 'perf', 'docs', 'build'],
+    issueNumberExceptions = ['build', 'chore', 'docs', 'fix', 'perf', 'refactor'],
     maxMessageLength = 65,
     typeScopeExceptions = '*'
   } = {}
