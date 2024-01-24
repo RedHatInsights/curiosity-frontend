@@ -6,3 +6,10 @@ exports[`PlatformActions Should return a dispatch object for the hideGlobalFilte
   "type": "PLATFORM_GLOBAL_FILTER_HIDE",
 }
 `;
+
+exports[`PlatformActions Should return response content for getExport method: dispatch object 1`] = `
+{
+  "payload": Promise {},
+  "type": "GET_PLATFORM_EXPORT",
+}
+`;

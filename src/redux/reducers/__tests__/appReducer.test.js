@@ -46,6 +46,7 @@ describe('UserReducer', () => {
   it('should handle all defined error types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
+      platformTypes.GET_PLATFORM_EXPORT_STATUS,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
@@ -79,6 +80,7 @@ describe('UserReducer', () => {
   it('should handle all defined pending types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
+      platformTypes.GET_PLATFORM_EXPORT_STATUS,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
@@ -101,6 +103,7 @@ describe('UserReducer', () => {
   it('should handle all defined fulfilled types', () => {
     const specificTypes = [
       platformTypes.PLATFORM_USER_AUTH,
+      platformTypes.GET_PLATFORM_EXPORT_STATUS,
       types.USER_LOCALE,
       types.DELETE_USER_OPTIN,
       types.GET_USER_OPTIN,
