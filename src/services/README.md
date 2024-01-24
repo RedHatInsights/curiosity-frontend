@@ -232,6 +232,13 @@ page or wait the "maxAge".
 ## PlatformConstants
 
 * [PlatformConstants](#Platform.module_PlatformConstants)
+    * [~PLATFORM_API_EXPORT_APPLICATION_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_APPLICATION_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_RESOURCE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESOURCE_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_CONTENT_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_CONTENT_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_STATUS_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_STATUS_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_SOURCE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_SOURCE_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_POST_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_POST_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_RESPONSE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_TYPES) : <code>Object</code>
     * [~PLATFORM_API_RESPONSE_USER_ENTITLEMENTS](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_ENTITLEMENTS) : <code>string</code>
     * [~PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES) : <code>Object</code>
     * [~PLATFORM_API_RESPONSE_USER_IDENTITY](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_IDENTITY) : <code>string</code>
@@ -239,6 +246,48 @@ page or wait the "maxAge".
     * [~PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES) : <code>Object</code>
     * [~PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES) : <code>Object</code>
 
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_APPLICATION_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_APPLICATION\_TYPES : <code>Object</code>
+Platform Export, available application types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESOURCE_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_RESOURCE\_TYPES : <code>Object</code>
+Platform Export, available resource types for related application types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_CONTENT_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_CONTENT\_TYPES : <code>Object</code>
+Platform Export, available content types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_STATUS_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_STATUS\_TYPES : <code>Object</code>
+Platform Export, available status types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_SOURCE_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_SOURCE\_TYPES : <code>Object</code>
+Platform Export, available response, POST source types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_POST_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_POST\_TYPES : <code>Object</code>
+Platform Export, available POST types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_TYPES"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_RESPONSE\_TYPES : <code>Object</code>
+Platform Export, available response types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
 <a name="Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_ENTITLEMENTS"></a>
 
 ### PlatformConstants~PLATFORM\_API\_RESPONSE\_USER\_ENTITLEMENTS : <code>string</code>
@@ -285,6 +334,8 @@ Schema/map of expected response identity user permission types.
 
 * [PlatformSchemas](#Platform.module_PlatformSchemas)
     * [~Joi](#Platform.module_PlatformSchemas..Joi) : <code>\*</code>
+    * [~exportsItem](#Platform.module_PlatformSchemas..exportsItem) : <code>\*</code>
+    * [~exportsResponseSchema](#Platform.module_PlatformSchemas..exportsResponseSchema) : <code>\*</code>
     * [~userResponseSchema](#Platform.module_PlatformSchemas..userResponseSchema) : <code>\*</code>
     * [~permissionsItem](#Platform.module_PlatformSchemas..permissionsItem) : <code>\*</code>
     * [~permissionsResponseSchema](#Platform.module_PlatformSchemas..permissionsResponseSchema) : <code>\*</code>
@@ -293,6 +344,18 @@ Schema/map of expected response identity user permission types.
 
 ### PlatformSchemas~Joi : <code>\*</code>
 Extend Joi with date.
+
+**Kind**: inner constant of [<code>PlatformSchemas</code>](#Platform.module_PlatformSchemas)  
+<a name="Platform.module_PlatformSchemas..exportsItem"></a>
+
+### PlatformSchemas~exportsItem : <code>\*</code>
+Export response source item.
+
+**Kind**: inner constant of [<code>PlatformSchemas</code>](#Platform.module_PlatformSchemas)  
+<a name="Platform.module_PlatformSchemas..exportsResponseSchema"></a>
+
+### PlatformSchemas~exportsResponseSchema : <code>\*</code>
+Export response.
 
 **Kind**: inner constant of [<code>PlatformSchemas</code>](#Platform.module_PlatformSchemas)  
 <a name="Platform.module_PlatformSchemas..userResponseSchema"></a>
@@ -323,6 +386,9 @@ Emulated service calls for platform globals.
     * [~getUser(options)](#Platform.module_PlatformServices..getUser) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getUserPermissions(appName, options)](#Platform.module_PlatformServices..getUserPermissions) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~hideGlobalFilter(isHidden)](#Platform.module_PlatformServices..hideGlobalFilter) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~postExport(data, options)](#Platform.module_PlatformServices..postExport) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getExport(id, options)](#Platform.module_PlatformServices..getExport) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getExportStatus(id, options)](#Platform.module_PlatformServices..getExportStatus) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="Platform.module_PlatformServices..getUser"></a>
 
@@ -377,6 +443,81 @@ Disables the Platform's global filter display.
   <tbody>
 <tr>
     <td>isHidden</td><td><code>boolean</code></td><td><code>true</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Platform.module_PlatformServices..postExport"></a>
+
+### PlatformServices~postExport(data, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Post to create an export.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>data</td><td><code>object</code></td><td><p>JSON data to submit</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Platform.module_PlatformServices..getExport"></a>
+
+### PlatformServices~getExport(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get an export after setup.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>id</code></td><td><p>Export ID</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Platform.module_PlatformServices..getExportStatus"></a>
+
+### PlatformServices~getExportStatus(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get an export status after setup.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>id</code></td><td><p>Export ID</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 

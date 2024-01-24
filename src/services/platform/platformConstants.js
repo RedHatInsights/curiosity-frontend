@@ -4,6 +4,81 @@
  */
 
 /**
+ * Platform Export, available application types.
+ *
+ * @type {{SUBSCRIPTIONS: string}}
+ */
+const PLATFORM_API_EXPORT_APPLICATION_TYPES = {
+  SUBSCRIPTIONS: 'subscriptions'
+};
+
+/**
+ * Platform Export, available resource types for related application types.
+ *
+ * @type {{INSTANCES: string}}
+ */
+const PLATFORM_API_EXPORT_RESOURCE_TYPES = {
+  INSTANCES: 'instances'
+};
+
+/**
+ * Platform Export, available content types.
+ *
+ * @type {{CSV: string, JSON: string}}
+ */
+const PLATFORM_API_EXPORT_CONTENT_TYPES = {
+  CSV: 'csv',
+  JSON: 'json'
+};
+
+/**
+ * Platform Export, available status types.
+ *
+ * @type {{COMPLETED: string, FAILED: string, RUNNING: string, PARTIAL: string, PENDING: string}}
+ */
+const PLATFORM_API_EXPORT_STATUS_TYPES = {
+  FAILED: 'failed',
+  COMPLETED: 'completed',
+  PARTIAL: 'partial',
+  PENDING: 'pending',
+  RUNNING: 'running'
+};
+
+/**
+ * Platform Export, available response, POST source types.
+ *
+ * @type {{APPLICATION: string, FILTERS: string, RESOURCE: string}}
+ */
+const PLATFORM_API_EXPORT_SOURCE_TYPES = {
+  APPLICATION: 'application',
+  FILTERS: 'filters',
+  RESOURCE: 'resource'
+};
+
+/**
+ * Platform Export, available POST types.
+ *
+ * @type {{SOURCES: string, FORMAT: string, EXPIRES_AT: string, NAME: string}}
+ */
+const PLATFORM_API_EXPORT_POST_TYPES = {
+  EXPIRES_AT: 'expires_at',
+  FORMAT: 'format',
+  NAME: 'name',
+  SOURCES: 'sources'
+};
+
+/**
+ * Platform Export, available response types.
+ *
+ * @type {{STATUS: string, EXPIRES_AT: string, ID: string}}
+ */
+const PLATFORM_API_EXPORT_RESPONSE_TYPES = {
+  EXPIRES_AT: 'expires_at',
+  ID: 'ID',
+  STATUS: 'status'
+};
+
+/**
  * Platform response entitlements type.
  *
  * @type {string}
@@ -74,6 +149,13 @@ const PLATFORM_API_RESPONSE_USER_PERMISSION_OPERATION_TYPES = {
 };
 
 const platformConstants = {
+  PLATFORM_API_EXPORT_APPLICATION_TYPES,
+  PLATFORM_API_EXPORT_CONTENT_TYPES,
+  PLATFORM_API_EXPORT_POST_TYPES,
+  PLATFORM_API_EXPORT_RESOURCE_TYPES,
+  PLATFORM_API_EXPORT_RESPONSE_TYPES,
+  PLATFORM_API_EXPORT_SOURCE_TYPES,
+  PLATFORM_API_EXPORT_STATUS_TYPES,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES,
   PLATFORM_API_RESPONSE_USER_IDENTITY,
@@ -88,6 +170,13 @@ const platformConstants = {
 export {
   platformConstants as default,
   platformConstants,
+  PLATFORM_API_EXPORT_APPLICATION_TYPES,
+  PLATFORM_API_EXPORT_CONTENT_TYPES,
+  PLATFORM_API_EXPORT_POST_TYPES,
+  PLATFORM_API_EXPORT_RESOURCE_TYPES,
+  PLATFORM_API_EXPORT_RESPONSE_TYPES,
+  PLATFORM_API_EXPORT_SOURCE_TYPES,
+  PLATFORM_API_EXPORT_STATUS_TYPES,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS,
   PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES,
   PLATFORM_API_RESPONSE_USER_IDENTITY,

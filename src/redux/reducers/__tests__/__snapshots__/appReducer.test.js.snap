@@ -5,6 +5,7 @@ exports[`UserReducer should handle all defined error types: rejected types DELET
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "error": true,
@@ -19,11 +20,32 @@ exports[`UserReducer should handle all defined error types: rejected types DELET
 }
 `;
 
+exports[`UserReducer should handle all defined error types: rejected types GET_PLATFORM_EXPORT_STATUS 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": {},
+      "pending": false,
+      "status": 0,
+    },
+    "locale": {},
+    "optin": {},
+  },
+  "type": "GET_PLATFORM_EXPORT_STATUS_REJECTED",
+}
+`;
+
 exports[`UserReducer should handle all defined error types: rejected types GET_USER_OPTIN 1`] = `
 {
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "error": true,
@@ -50,6 +72,7 @@ exports[`UserReducer should handle all defined error types: rejected types PLATF
       "status": 0,
     },
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {},
   },
@@ -62,6 +85,7 @@ exports[`UserReducer should handle all defined error types: rejected types UPDAT
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "error": true,
@@ -81,6 +105,7 @@ exports[`UserReducer should handle all defined error types: rejected types USER_
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {
       "error": true,
       "errorMessage": "MESSAGE",
@@ -100,6 +125,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "data": {
@@ -126,11 +152,44 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 }
 `;
 
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_PLATFORM_EXPORT_STATUS 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {
+      "data": {
+        "permissions": [],
+        "test": "success",
+        "user": {
+          "identity": {
+            "user": {
+              "is_org_admin": true,
+            },
+          },
+        },
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": {},
+      "pending": false,
+      "status": 0,
+    },
+    "locale": {},
+    "optin": {},
+  },
+  "type": "GET_PLATFORM_EXPORT_STATUS_FULFILLED",
+}
+`;
+
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_USER_OPTIN 1`] = `
 {
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "data": {
@@ -181,6 +240,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
       "status": 0,
     },
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {},
   },
@@ -193,6 +253,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "data": {
@@ -224,6 +285,7 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {
       "data": {
         "permissions": [],
@@ -255,6 +317,7 @@ exports[`UserReducer should handle all defined pending types: pending types DELE
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "error": false,
@@ -268,11 +331,31 @@ exports[`UserReducer should handle all defined pending types: pending types DELE
 }
 `;
 
+exports[`UserReducer should handle all defined pending types: pending types GET_PLATFORM_EXPORT_STATUS 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": {},
+      "pending": true,
+    },
+    "locale": {},
+    "optin": {},
+  },
+  "type": "GET_PLATFORM_EXPORT_STATUS_PENDING",
+}
+`;
+
 exports[`UserReducer should handle all defined pending types: pending types GET_USER_OPTIN 1`] = `
 {
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "error": false,
@@ -297,6 +380,7 @@ exports[`UserReducer should handle all defined pending types: pending types PLAT
       "pending": true,
     },
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {},
   },
@@ -309,6 +393,7 @@ exports[`UserReducer should handle all defined pending types: pending types UPDA
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {
       "error": false,
@@ -327,6 +412,7 @@ exports[`UserReducer should handle all defined pending types: pending types USER
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {
       "error": false,
       "errorMessage": "",
@@ -345,6 +431,7 @@ exports[`UserReducer should handle specific http status types: http status 4XX 4
   "result": {
     "auth": {},
     "errors": {},
+    "exports": {},
     "locale": {},
     "optin": {},
   },
@@ -364,6 +451,7 @@ exports[`UserReducer should handle specific http status types: http status 4XX 4
       "errorMessage": "Request failed with status code 401",
       "status": 401,
     },
+    "exports": {},
     "locale": {},
     "optin": {},
   },
@@ -383,6 +471,7 @@ exports[`UserReducer should handle specific http status types: http status 4XX 4
       "errorMessage": "Request failed with status code 403",
       "status": 403,
     },
+    "exports": {},
     "locale": {},
     "optin": {},
   },
