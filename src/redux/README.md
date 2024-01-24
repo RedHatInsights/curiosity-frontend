@@ -13,7 +13,7 @@
 <dt><a href="#Helpers.module_ReduxHelpers">ReduxHelpers</a></dt>
 <dd></dd>
 <dt><a href="#Hooks.module_UseReactRedux">UseReactRedux</a></dt>
-<dd><p>State hooks for dispatch and selectors.</p>
+<dd><p>State hooks and helpers for dispatch and selectors.</p>
 </dd>
 <dt><a href="#Middleware.module_ActionRecordMiddleware">ActionRecordMiddleware</a></dt>
 <dd></dd>
@@ -652,11 +652,12 @@ Automatically apply reducer logic to state by handling promise responses from re
 <a name="Hooks.module_UseReactRedux"></a>
 
 ## UseReactRedux
-State hooks for dispatch and selectors.
+State hooks and helpers for dispatch and selectors.
 
 
 * [UseReactRedux](#Hooks.module_UseReactRedux)
     * [~deepEqual](#Hooks.module_UseReactRedux..deepEqual) ⇒ <code>boolean</code>
+    * [~createSimpleSelector(selectors, callback)](#Hooks.module_UseReactRedux..createSimpleSelector) ⇒ <code>function</code>
     * [~useDispatch()](#Hooks.module_UseReactRedux..useDispatch) ⇒ <code>function</code>
     * [~useSelector(selector, value, options)](#Hooks.module_UseReactRedux..useSelector) ⇒ <code>\*</code>
     * [~useSelectors(selectors, value, options)](#Hooks.module_UseReactRedux..useSelectors) ⇒ <code>Array</code> \| <code>object</code>
@@ -684,6 +685,27 @@ Deep equal comparison with extended memoized cache. Is argument A equal to argum
     <td>args.A</td><td><code>object</code> | <code>any</code></td>
     </tr><tr>
     <td>args.B</td><td><code>object</code> | <code>any</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Hooks.module_UseReactRedux..createSimpleSelector"></a>
+
+### UseReactRedux~createSimpleSelector(selectors, callback) ⇒ <code>function</code>
+Create a simple selector. Groups selector function arguments into a single memoized result function for
+use as a Redux selector.
+
+**Kind**: inner method of [<code>UseReactRedux</code>](#Hooks.module_UseReactRedux)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>selectors</td><td><code>function</code> | <code>Array.&lt;function()&gt;</code></td>
+    </tr><tr>
+    <td>callback</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

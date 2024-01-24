@@ -1,17 +1,41 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { useSelector as useReactReduxSelector, shallowEqual } from 'react-redux';
-import { createSelector } from 'reselect';
 import _cloneDeep from 'lodash/cloneDeep';
 import _isEqual from 'lodash/isEqual';
 import { store } from '../store';
 import { helpers } from '../../common';
 
 /**
- * State hooks for dispatch and selectors.
+ * State hooks and helpers for dispatch and selectors.
  *
  * @memberof Hooks
  * @module UseReactRedux
  */
+
+/**
+ * Create a simple selector. Groups selector function arguments into a single memoized result function for
+ * use as a Redux selector.
+ *
+ * @param {Function|Array<Function>} selectors
+ * @param {Function} callback
+ * @returns {Function}
+ */
+const createSimpleSelector = (selectors, callback) => {
+  const updatedSelectors = (Array.isArray(selectors) && selectors) || [selectors];
+
+  // eslint-disable-next-line func-names
+  const selector = function (...args) {
+    const results = [];
+    updatedSelectors.forEach(sel => {
+      // eslint-disable-next-line prefer-spread
+      results.push(sel.apply(this, args));
+    });
+    // eslint-disable-next-line prefer-spread
+    return callback.apply(this, results);
+  };
+
+  return helpers.memo(selector);
+};
 
 /**
  * Deep equal comparison with extended memoized cache. Is argument A equal to argument B.
@@ -77,8 +101,7 @@ const useSelectors = (
     return selector;
   });
 
-  const multiSelector = createSelector(updatedSelectors, (...results) => results);
-
+  const multiSelector = createSimpleSelector(updatedSelectors, (...results) => results);
   let listMultiSelectorResponse = (useAliasSelector(multiSelector, equality) ?? value) || [];
   const undefinedMultiSelectorResponse = listMultiSelectorResponse.filter(response => response === undefined);
 
@@ -491,6 +514,7 @@ const useSelectorsRaceResponse = (
 };
 
 const reactReduxHooks = {
+  createSimpleSelector,
   deepEqual,
   shallowEqual,
   useDispatch,
@@ -505,6 +529,7 @@ const reactReduxHooks = {
 export {
   reactReduxHooks as default,
   reactReduxHooks,
+  createSimpleSelector,
   deepEqual,
   shallowEqual,
   useDispatch,

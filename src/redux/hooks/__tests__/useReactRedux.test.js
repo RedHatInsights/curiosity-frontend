@@ -6,6 +6,23 @@ describe('useReactRedux', () => {
     expect(reactReduxHooks).toMatchSnapshot('specific properties');
   });
 
+  it('should create a selector from multiple selectors', () => {
+    const mockSelectorOne = jest.fn().mockImplementation(({ lorem }) => lorem);
+    const mockSelectorTwo = jest.fn().mockImplementation(({ dolor }) => dolor);
+    const mockCallback = (...args) => args;
+    const results = reactReduxHooks.createSimpleSelector([mockSelectorOne, mockSelectorTwo], mockCallback);
+
+    // confirm memoize
+    const output = results({ lorem: 'ipsum', dolor: 'sit' });
+    expect(output === results({ lorem: 'ipsum', dolor: 'sit' })).toBe(true);
+
+    // confirm memoize
+    results({ lorem: 'ipsum', dolor: 'sit', hello: 'world' });
+    expect(output === results({ lorem: 'ipsum', dolor: 'sit' })).toBe(false);
+
+    expect(output).toMatchSnapshot('createSimpleSelector, callback');
+  });
+
   it('should apply a hook for useDispatch', () => {
     const mockDispatch = jest.spyOn(store, 'dispatch').mockImplementation((type, data) => ({ type, data }));
     const dispatch = useDispatch();

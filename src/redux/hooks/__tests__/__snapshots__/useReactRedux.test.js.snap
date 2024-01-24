@@ -749,6 +749,13 @@ exports[`useReactRedux should apply hooks for aggregating multiple selector resp
 }
 `;
 
+exports[`useReactRedux should create a selector from multiple selectors: createSimpleSelector, callback 1`] = `
+[
+  "ipsum",
+  "sit",
+]
+`;
+
 exports[`useReactRedux should return a list or object with ID for multiple selectors with useSelectors: list and object 1`] = `
 {
   "list": [
@@ -764,6 +771,7 @@ exports[`useReactRedux should return a list or object with ID for multiple selec
 
 exports[`useReactRedux should return specific properties: specific properties 1`] = `
 {
+  "createSimpleSelector": [Function],
   "deepEqual": [Function],
   "shallowEqual": [Function],
   "useDispatch": [Function],
