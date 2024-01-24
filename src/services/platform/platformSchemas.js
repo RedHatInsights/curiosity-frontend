@@ -1,6 +1,7 @@
 import JoiBase from 'joi';
 import JoiDate from '@joi/date';
 import { schemaResponse } from '../common/helpers';
+import platformConstants from './platformConstants';
 
 /**
  * @memberof Platform
@@ -13,6 +14,40 @@ import { schemaResponse } from '../common/helpers';
  * @type {*}
  */
 const Joi = JoiBase.extend(JoiDate);
+
+/**
+ * Export response source item.
+ *
+ * @type {*} Joi schema
+ */
+const exportsItem = Joi.object({
+  application: Joi.string(),
+  resource: Joi.string(),
+  filters: Joi.object().optional().allow(null),
+  id: Joi.string().guid(),
+  status: Joi.string().valid(...Object.values(platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES))
+})
+  .unknown(true)
+  .default();
+
+/**
+ * Export response.
+ *
+ * @type {*} Joi schema
+ */
+const exportsResponseSchema = Joi.object()
+  .keys({
+    id: Joi.string().guid(),
+    name: Joi.string(),
+    created_at: Joi.date().utc(),
+    completed_at: Joi.date().utc().optional().allow(null),
+    expires_at: Joi.date().utc().optional().allow(null),
+    format: Joi.string().valid(...Object.values(platformConstants.PLATFORM_API_EXPORT_CONTENT_TYPES)),
+    status: Joi.string().valid(...Object.values(platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES)),
+    sources: Joi.array().items(exportsItem).default([])
+  })
+  .unknown(true)
+  .default({});
 
 /**
  * User response item.
@@ -63,6 +98,7 @@ const permissionsItem = Joi.object({
 const permissionsResponseSchema = Joi.array().items(permissionsItem).default([]);
 
 const platformSchemas = {
+  exports: response => schemaResponse({ response, schema: exportsResponseSchema, id: 'Export status' }),
   user: response => schemaResponse({ response, schema: userResponseSchema, id: 'User auth' }),
   permissions: response => schemaResponse({ response, schema: permissionsResponseSchema, id: 'Permissions auth' })
 };

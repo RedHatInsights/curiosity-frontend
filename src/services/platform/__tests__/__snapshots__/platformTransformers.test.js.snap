@@ -67,8 +67,23 @@ exports[`Platform Transformers should attempt to parse a user response: user, pa
 }
 `;
 
+exports[`Platform Transformers should attempt to parse an exports response: exports, default 1`] = `
+{
+  "id": undefined,
+  "status": undefined,
+}
+`;
+
+exports[`Platform Transformers should attempt to parse an exports response: exports, parsed 1`] = `
+{
+  "id": "0123456789",
+  "status": "pending",
+}
+`;
+
 exports[`Platform Transformers should have specific response transformers: specific transformers 1`] = `
 {
+  "exports": [Function],
   "permissions": [Function],
   "user": [Function],
 }

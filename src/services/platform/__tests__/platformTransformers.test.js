@@ -12,6 +12,19 @@ describe('Platform Transformers', () => {
     expect(platformTransformers).toMatchSnapshot('specific transformers');
   });
 
+  it('should attempt to parse an exports response', () => {
+    expect(platformTransformers.exports()).toMatchSnapshot('exports, default');
+
+    expect(
+      platformTransformers.exports({
+        [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.EXPIRES_AT]: '2019-07-14T00:00:00Z',
+        [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.ID]: '0123456789',
+        [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]:
+          platformConstants.PLATFORM_API_EXPORT_STATUS_TYPES.PENDING
+      })
+    ).toMatchSnapshot('exports, parsed');
+  });
+
   it('should attempt to parse a user response', () => {
     expect(platformTransformers.user()).toMatchSnapshot('user, default');
 

@@ -13,6 +13,19 @@ import { helpers } from '../../common';
  * @module PlatformTransformers
  */
 
+const exports = response => {
+  const updatedResponse = {};
+  const {
+    [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.ID]: id,
+    [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.STATUS]: status
+  } = response || {};
+
+  updatedResponse.id = id;
+  updatedResponse.status = status;
+
+  return updatedResponse;
+};
+
 /**
  * Parse platform getUser response.
  *
@@ -95,8 +108,9 @@ const userPermissions = (response, { config = rbacConfig } = {}) => {
 };
 
 const platformTransformers = {
+  exports,
   user,
   permissions: userPermissions
 };
 
-export { platformTransformers as default, platformTransformers, user, userPermissions };
+export { platformTransformers as default, platformTransformers, exports, user, userPermissions };

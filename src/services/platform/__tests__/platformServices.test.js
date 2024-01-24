@@ -1,3 +1,4 @@
+import moxios from 'moxios';
 import platformServices from '../platformServices';
 
 describe('PlatformServices', () => {
@@ -14,14 +15,31 @@ describe('PlatformServices', () => {
     return response;
   };
 
+  beforeEach(() => {
+    moxios.install();
+
+    moxios.stubRequest(/\/(export).*?/, {
+      status: 200,
+      responseText: 'success',
+      timeout: 1
+    });
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(platformServices)).toHaveLength(3);
+    expect(Object.keys(platformServices)).toHaveLength(6);
   });
 
   it('should have specific methods', () => {
     expect(platformServices.getUser).toBeDefined();
     expect(platformServices.getUserPermissions).toBeDefined();
     expect(platformServices.hideGlobalFilter).toBeDefined();
+    expect(platformServices.postExport).toBeDefined();
+    expect(platformServices.getExport).toBeDefined();
+    expect(platformServices.getExportStatus).toBeDefined();
   });
 
   /**

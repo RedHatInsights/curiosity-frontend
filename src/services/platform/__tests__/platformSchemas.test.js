@@ -6,7 +6,8 @@ describe('Platform Schemas', () => {
   });
 
   it('should have valid schemas that validate API responses', () => {
-    expect(platformSchemas.user({})).toMatchSnapshot('user response schema');
-    expect(platformSchemas.permissions({})).toMatchSnapshot('permissions response schema');
+    Object.entries(platformSchemas).forEach(([key, value]) => {
+      expect(value({})).toMatchSnapshot(`${key} response schema`);
+    });
   });
 });
