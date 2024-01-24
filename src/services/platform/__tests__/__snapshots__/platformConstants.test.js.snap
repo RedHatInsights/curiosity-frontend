@@ -2,6 +2,39 @@
 
 exports[`Platform Constants should have specific properties: all exported constants 1`] = `
 {
+  "PLATFORM_API_EXPORT_APPLICATION_TYPES": {
+    "SUBSCRIPTIONS": "subscriptions",
+  },
+  "PLATFORM_API_EXPORT_CONTENT_TYPES": {
+    "CSV": "csv",
+    "JSON": "json",
+  },
+  "PLATFORM_API_EXPORT_POST_TYPES": {
+    "EXPIRES_AT": "expires_at",
+    "FORMAT": "format",
+    "NAME": "name",
+    "SOURCES": "sources",
+  },
+  "PLATFORM_API_EXPORT_RESOURCE_TYPES": {
+    "INSTANCES": "instances",
+  },
+  "PLATFORM_API_EXPORT_RESPONSE_TYPES": {
+    "EXPIRES_AT": "expires_at",
+    "ID": "ID",
+    "STATUS": "status",
+  },
+  "PLATFORM_API_EXPORT_SOURCE_TYPES": {
+    "APPLICATION": "application",
+    "FILTERS": "filters",
+    "RESOURCE": "resource",
+  },
+  "PLATFORM_API_EXPORT_STATUS_TYPES": {
+    "COMPLETED": "completed",
+    "FAILED": "failed",
+    "PARTIAL": "partial",
+    "PENDING": "pending",
+    "RUNNING": "running",
+  },
   "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
   "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": {
     "ENTITLED": "is_entitled",
@@ -29,6 +62,39 @@ exports[`Platform Constants should have specific properties: all exported consta
     "RESOURCE_DEFS": "resourceDefinitions",
   },
   "default": {
+    "PLATFORM_API_EXPORT_APPLICATION_TYPES": {
+      "SUBSCRIPTIONS": "subscriptions",
+    },
+    "PLATFORM_API_EXPORT_CONTENT_TYPES": {
+      "CSV": "csv",
+      "JSON": "json",
+    },
+    "PLATFORM_API_EXPORT_POST_TYPES": {
+      "EXPIRES_AT": "expires_at",
+      "FORMAT": "format",
+      "NAME": "name",
+      "SOURCES": "sources",
+    },
+    "PLATFORM_API_EXPORT_RESOURCE_TYPES": {
+      "INSTANCES": "instances",
+    },
+    "PLATFORM_API_EXPORT_RESPONSE_TYPES": {
+      "EXPIRES_AT": "expires_at",
+      "ID": "ID",
+      "STATUS": "status",
+    },
+    "PLATFORM_API_EXPORT_SOURCE_TYPES": {
+      "APPLICATION": "application",
+      "FILTERS": "filters",
+      "RESOURCE": "resource",
+    },
+    "PLATFORM_API_EXPORT_STATUS_TYPES": {
+      "COMPLETED": "completed",
+      "FAILED": "failed",
+      "PARTIAL": "partial",
+      "PENDING": "pending",
+      "RUNNING": "running",
+    },
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": {
       "ENTITLED": "is_entitled",
@@ -57,6 +123,39 @@ exports[`Platform Constants should have specific properties: all exported consta
     },
   },
   "platformConstants": {
+    "PLATFORM_API_EXPORT_APPLICATION_TYPES": {
+      "SUBSCRIPTIONS": "subscriptions",
+    },
+    "PLATFORM_API_EXPORT_CONTENT_TYPES": {
+      "CSV": "csv",
+      "JSON": "json",
+    },
+    "PLATFORM_API_EXPORT_POST_TYPES": {
+      "EXPIRES_AT": "expires_at",
+      "FORMAT": "format",
+      "NAME": "name",
+      "SOURCES": "sources",
+    },
+    "PLATFORM_API_EXPORT_RESOURCE_TYPES": {
+      "INSTANCES": "instances",
+    },
+    "PLATFORM_API_EXPORT_RESPONSE_TYPES": {
+      "EXPIRES_AT": "expires_at",
+      "ID": "ID",
+      "STATUS": "status",
+    },
+    "PLATFORM_API_EXPORT_SOURCE_TYPES": {
+      "APPLICATION": "application",
+      "FILTERS": "filters",
+      "RESOURCE": "resource",
+    },
+    "PLATFORM_API_EXPORT_STATUS_TYPES": {
+      "COMPLETED": "completed",
+      "FAILED": "failed",
+      "PARTIAL": "partial",
+      "PENDING": "pending",
+      "RUNNING": "running",
+    },
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
     "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": {
       "ENTITLED": "is_entitled",
@@ -89,6 +188,39 @@ exports[`Platform Constants should have specific properties: all exported consta
 
 exports[`Platform Constants should have specific properties: specific constants 1`] = `
 {
+  "PLATFORM_API_EXPORT_APPLICATION_TYPES": {
+    "SUBSCRIPTIONS": "subscriptions",
+  },
+  "PLATFORM_API_EXPORT_CONTENT_TYPES": {
+    "CSV": "csv",
+    "JSON": "json",
+  },
+  "PLATFORM_API_EXPORT_POST_TYPES": {
+    "EXPIRES_AT": "expires_at",
+    "FORMAT": "format",
+    "NAME": "name",
+    "SOURCES": "sources",
+  },
+  "PLATFORM_API_EXPORT_RESOURCE_TYPES": {
+    "INSTANCES": "instances",
+  },
+  "PLATFORM_API_EXPORT_RESPONSE_TYPES": {
+    "EXPIRES_AT": "expires_at",
+    "ID": "ID",
+    "STATUS": "status",
+  },
+  "PLATFORM_API_EXPORT_SOURCE_TYPES": {
+    "APPLICATION": "application",
+    "FILTERS": "filters",
+    "RESOURCE": "resource",
+  },
+  "PLATFORM_API_EXPORT_STATUS_TYPES": {
+    "COMPLETED": "completed",
+    "FAILED": "failed",
+    "PARTIAL": "partial",
+    "PENDING": "pending",
+    "RUNNING": "running",
+  },
   "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS": "entitlements",
   "PLATFORM_API_RESPONSE_USER_ENTITLEMENTS_APP_TYPES": {
     "ENTITLED": "is_entitled",

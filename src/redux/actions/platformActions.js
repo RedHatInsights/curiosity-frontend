@@ -49,6 +49,45 @@ const authorizeUser = appName => dispatch =>
   });
 
 /**
+ * Create an export for download.
+ *
+ * @param {object} data
+ * @returns {Function}
+ */
+const createExport =
+  (data = {}) =>
+  dispatch =>
+    dispatch({
+      type: platformTypes.GET_PLATFORM_EXPORT_STATUS,
+      payload: platformServices.getExportStatus(data)
+    });
+
+/**
+ * Get an export download packaged response.
+ *
+ * @param {string} id
+ * @returns {Function}
+ */
+const getExport = (id = null) => ({
+  type: platformTypes.GET_PLATFORM_EXPORT,
+  payload: platformServices.getExport(id)
+});
+
+/**
+ * Get an export download package status.
+ *
+ * @param {string} id
+ * @returns {Function}
+ */
+const getExportStatus =
+  (id = null) =>
+  dispatch =>
+    dispatch({
+      type: platformTypes.GET_PLATFORM_EXPORT_STATUS,
+      payload: platformServices.getExportStatus(id)
+    });
+
+/**
  * Hide platform global filter.
  *
  * @param {boolean} isHidden
@@ -64,6 +103,9 @@ const platformActions = {
   removeNotification,
   clearNotifications,
   authorizeUser,
+  createExport,
+  getExport,
+  getExportStatus,
   hideGlobalFilter
 };
 
@@ -74,5 +116,8 @@ export {
   removeNotification,
   clearNotifications,
   authorizeUser,
+  createExport,
+  getExport,
+  getExportStatus,
   hideGlobalFilter
 };

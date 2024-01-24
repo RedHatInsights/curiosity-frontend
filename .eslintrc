@@ -35,6 +35,7 @@
         "put": "put",
         "json": "json",
         "text": "text",
+        "zip": "zip",
         "delayResponse": "DelayResponse",
         "forceStatus": "ForceStatus",
         "randomSuccess": "RandomSuccess"

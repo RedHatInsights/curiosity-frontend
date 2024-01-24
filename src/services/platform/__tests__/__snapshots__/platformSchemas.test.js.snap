@@ -2,8 +2,15 @@
 
 exports[`Platform Schemas should have specific response schemas: specific schemas 1`] = `
 {
+  "exports": [Function],
   "permissions": [Function],
   "user": [Function],
+}
+`;
+
+exports[`Platform Schemas should have valid schemas that validate API responses: exports response schema 1`] = `
+{
+  "sources": [],
 }
 `;
 
