@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { legacy_createStore as createStore, applyMiddleware } from 'redux';
 import { reduxMiddleware } from './middleware';
 import { reduxReducers } from './reducers';
 
