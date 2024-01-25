@@ -122,7 +122,7 @@
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.5",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
-    "apidoc-mock": "^4.4.3",
+    "apidoc-mock": "^4.5.0",
     "babel-jest": "^29.7.0",
     "changelog-light": "^0.6.1",
     "cspell": "^8.3.2",
