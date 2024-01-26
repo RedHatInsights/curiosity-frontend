@@ -12,15 +12,20 @@ import {
 /**
  * Application action, reducer types.
  *
- * @type {{STATUS_4XX: string, SET_PRODUCT_VARIANT: string, SET_PRODUCT_VARIANT_QUERY_RESET_ALL: string,
- *     SET_PRODUCT: string, STATUS_5XX: string}}
+ * @type {{STATUS_4XX: string, USER_LOCALE: string, SET_PRODUCT_VARIANT: string, GET_USER_OPTIN: string,
+ *     SET_PRODUCT_VARIANT_QUERY_RESET_ALL: string, UPDATE_USER_OPTIN: string, SET_PRODUCT: string,
+ *     STATUS_5XX: string, DELETE_USER_OPTIN: string}}
  */
 const appTypes = {
   STATUS_4XX: '4XX',
   STATUS_5XX: '5XX',
   SET_PRODUCT: 'SET_PRODUCT',
   SET_PRODUCT_VARIANT: 'SET_PRODUCT_VARIANT',
-  SET_PRODUCT_VARIANT_QUERY_RESET_ALL: 'SET_PRODUCT_VARIANT_QUERY_RESET_ALL'
+  SET_PRODUCT_VARIANT_QUERY_RESET_ALL: 'SET_PRODUCT_VARIANT_QUERY_RESET_ALL',
+  DELETE_USER_OPTIN: 'DELETE_USER_OPTIN',
+  GET_USER_OPTIN: 'GET_USER_OPTIN',
+  UPDATE_USER_OPTIN: 'UPDATE_USER_OPTIN',
+  USER_LOCALE: 'USER_LOCALE'
 };
 
 /**
@@ -109,18 +114,6 @@ const toolbarTypes = {
   SET_FILTER_TYPE: 'SET_FILTER_TYPE'
 };
 
-/**
- * User action, reducer types.
- *
- * @type {{USER_LOCALE: string, GET_USER_OPTIN: string, UPDATE_USER_OPTIN: string, DELETE_USER_OPTIN: string}}
- */
-const userTypes = {
-  DELETE_USER_OPTIN: 'DELETE_USER_OPTIN',
-  GET_USER_OPTIN: 'GET_USER_OPTIN',
-  UPDATE_USER_OPTIN: 'UPDATE_USER_OPTIN',
-  USER_LOCALE: 'USER_LOCALE'
-};
-
 const reduxTypes = {
   app: appTypes,
   graph: graphTypes,
@@ -129,8 +122,7 @@ const reduxTypes = {
   platform: platformTypes,
   query: queryTypes,
   rhsm: rhsmTypes,
-  toolbar: toolbarTypes,
-  user: userTypes
+  toolbar: toolbarTypes
 };
 
 export {
@@ -143,6 +135,5 @@ export {
   platformTypes,
   queryTypes,
   rhsmTypes,
-  toolbarTypes,
-  userTypes
+  toolbarTypes
 };

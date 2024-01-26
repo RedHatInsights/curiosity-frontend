@@ -49,11 +49,11 @@ const useGetAuthorization = ({
   const dispatch = useAliasDispatch();
   const { updateDocumentTitle = helpers.noop } = useAliasChrome();
   const { data, error, fulfilled, pending, responses } = useAliasSelectorsResponse([
-    { id: 'auth', selector: ({ user }) => user?.auth },
-    { id: 'locale', selector: ({ user }) => user?.locale },
+    { id: 'auth', selector: ({ app }) => app?.auth },
+    { id: 'locale', selector: ({ app }) => app?.locale },
     {
       id: 'errors',
-      selector: ({ user }) => (user?.errors?.error === true && user.errors) || { fulfilled: true, data: [] }
+      selector: ({ app }) => (app?.errors?.error === true && app.errors) || { fulfilled: true, data: [] }
     }
   ]);
 

@@ -1,4 +1,4 @@
-import { userTypes } from '../types';
+import { appTypes } from '../types';
 import { userServices } from '../../services/user/userServices';
 import { helpers } from '../../common/helpers';
 import { translate } from '../../components/i18n/i18n';
@@ -17,7 +17,7 @@ import { translate } from '../../components/i18n/i18n';
  */
 const getLocale = () => dispatch =>
   dispatch({
-    type: userTypes.USER_LOCALE,
+    type: appTypes.USER_LOCALE,
     payload: userServices.getLocale()
   });
 
@@ -28,7 +28,7 @@ const getLocale = () => dispatch =>
  */
 const deleteAccountOptIn = () => dispatch =>
   dispatch({
-    type: userTypes.DELETE_USER_OPTIN,
+    type: appTypes.DELETE_USER_OPTIN,
     payload: userServices.deleteAccountOptIn(),
     meta: {
       notifications: {}
@@ -42,7 +42,7 @@ const deleteAccountOptIn = () => dispatch =>
  */
 const getAccountOptIn = () => dispatch =>
   dispatch({
-    type: userTypes.GET_USER_OPTIN,
+    type: appTypes.GET_USER_OPTIN,
     payload: userServices.getAccountOptIn(),
     meta: {
       notifications: {}
@@ -59,7 +59,7 @@ const updateAccountOptIn =
   (query = {}) =>
   dispatch =>
     dispatch({
-      type: userTypes.UPDATE_USER_OPTIN,
+      type: appTypes.UPDATE_USER_OPTIN,
       payload: userServices.updateAccountOptIn(query),
       meta: {
         query,

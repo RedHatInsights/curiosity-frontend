@@ -1,7 +1,7 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import moxios from 'moxios';
-import { userReducer } from '../../reducers';
+import { appReducer } from '../../reducers';
 import { userActions } from '../userActions';
 
 describe('UserActions', () => {
@@ -9,7 +9,7 @@ describe('UserActions', () => {
   const generateStore = () =>
     createStore(
       combineReducers({
-        user: userReducer
+        app: appReducer
       }),
       applyMiddleware(...middleware)
     );
@@ -36,7 +36,7 @@ describe('UserActions', () => {
     const dispatcher = userActions.getLocale();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user;
+      const response = store.getState().app;
 
       expect(response.locale.fulfilled).toBe(true);
       done();
@@ -48,7 +48,7 @@ describe('UserActions', () => {
     const dispatcher = userActions.deleteAccountOptIn();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user;
+      const response = store.getState().app;
       expect(response.optin.fulfilled).toBe(true);
       done();
     });
@@ -59,7 +59,7 @@ describe('UserActions', () => {
     const dispatcher = userActions.getAccountOptIn();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user;
+      const response = store.getState().app;
       expect(response.optin.fulfilled).toBe(true);
       done();
     });
@@ -70,7 +70,7 @@ describe('UserActions', () => {
     const dispatcher = userActions.updateAccountOptIn();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user;
+      const response = store.getState().app;
       expect(response.optin.fulfilled).toBe(true);
       done();
     });

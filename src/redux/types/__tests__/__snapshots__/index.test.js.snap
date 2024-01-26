@@ -3,19 +3,27 @@
 exports[`ReduxTypes should have specific type properties: all redux types 1`] = `
 {
   "appTypes": {
+    "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
+    "GET_USER_OPTIN": "GET_USER_OPTIN",
     "SET_PRODUCT": "SET_PRODUCT",
     "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
     "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
     "STATUS_4XX": "4XX",
     "STATUS_5XX": "5XX",
+    "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
+    "USER_LOCALE": "USER_LOCALE",
   },
   "default": {
     "app": {
+      "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
+      "GET_USER_OPTIN": "GET_USER_OPTIN",
       "SET_PRODUCT": "SET_PRODUCT",
       "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
       "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
+      "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
+      "USER_LOCALE": "USER_LOCALE",
     },
     "graph": {
       "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
@@ -55,12 +63,6 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     "toolbar": {
       "SET_ACTIVE_FILTERS": "SET_ACTIVE_FILTERS",
       "SET_FILTER_TYPE": "SET_FILTER_TYPE",
-    },
-    "user": {
-      "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
-      "GET_USER_OPTIN": "GET_USER_OPTIN",
-      "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
-      "USER_LOCALE": "USER_LOCALE",
     },
   },
   "graphTypes": {
@@ -93,11 +95,15 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
   },
   "reduxTypes": {
     "app": {
+      "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
+      "GET_USER_OPTIN": "GET_USER_OPTIN",
       "SET_PRODUCT": "SET_PRODUCT",
       "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
       "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
       "STATUS_4XX": "4XX",
       "STATUS_5XX": "5XX",
+      "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
+      "USER_LOCALE": "USER_LOCALE",
     },
     "graph": {
       "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
@@ -138,12 +144,6 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
       "SET_ACTIVE_FILTERS": "SET_ACTIVE_FILTERS",
       "SET_FILTER_TYPE": "SET_FILTER_TYPE",
     },
-    "user": {
-      "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
-      "GET_USER_OPTIN": "GET_USER_OPTIN",
-      "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
-      "USER_LOCALE": "USER_LOCALE",
-    },
   },
   "rhsmTypes": {
     "GET_GRAPH_CAPACITY_RHSM": "GET_GRAPH_CAPACITY_RHSM",
@@ -156,23 +156,21 @@ exports[`ReduxTypes should have specific type properties: all redux types 1`] = 
     "SET_ACTIVE_FILTERS": "SET_ACTIVE_FILTERS",
     "SET_FILTER_TYPE": "SET_FILTER_TYPE",
   },
-  "userTypes": {
-    "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
-    "GET_USER_OPTIN": "GET_USER_OPTIN",
-    "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
-    "USER_LOCALE": "USER_LOCALE",
-  },
 }
 `;
 
 exports[`ReduxTypes should have specific type properties: specific types 1`] = `
 {
   "app": {
+    "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
+    "GET_USER_OPTIN": "GET_USER_OPTIN",
     "SET_PRODUCT": "SET_PRODUCT",
     "SET_PRODUCT_VARIANT": "SET_PRODUCT_VARIANT",
     "SET_PRODUCT_VARIANT_QUERY_RESET_ALL": "SET_PRODUCT_VARIANT_QUERY_RESET_ALL",
     "STATUS_4XX": "4XX",
     "STATUS_5XX": "5XX",
+    "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
+    "USER_LOCALE": "USER_LOCALE",
   },
   "graph": {
     "SET_GRAPH_LEGEND": "SET_GRAPH_LEGEND",
@@ -212,12 +210,6 @@ exports[`ReduxTypes should have specific type properties: specific types 1`] = `
   "toolbar": {
     "SET_ACTIVE_FILTERS": "SET_ACTIVE_FILTERS",
     "SET_FILTER_TYPE": "SET_FILTER_TYPE",
-  },
-  "user": {
-    "DELETE_USER_OPTIN": "DELETE_USER_OPTIN",
-    "GET_USER_OPTIN": "GET_USER_OPTIN",
-    "UPDATE_USER_OPTIN": "UPDATE_USER_OPTIN",
-    "USER_LOCALE": "USER_LOCALE",
   },
 }
 `;

@@ -54,7 +54,7 @@ describe('AuthenticationContext', () => {
 
     const { result: mockStoreSuccessResponse } = await renderHook(() => useGetAuthorization(), {
       state: {
-        user: {
+        app: {
           auth: {
             fulfilled: true,
             data: [
@@ -90,7 +90,7 @@ describe('AuthenticationContext', () => {
 
     const { result: mockStoreErrorResponse } = await renderHook(() => useGetAuthorization(), {
       state: {
-        user: {
+        app: {
           auth: {
             error: true,
             data: []
