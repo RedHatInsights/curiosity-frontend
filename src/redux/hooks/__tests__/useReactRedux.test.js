@@ -20,13 +20,17 @@ describe('useReactRedux', () => {
     expect(mockCallback).toHaveBeenCalledTimes(1);
 
     // confirm memoize
+    const output2 = results({ lorem: 'ipsum', dolor: 'sit', hello: 'world' });
     results({ lorem: 'ipsum', dolor: 'sit', hello: 'world' });
     results({ lorem: 'ipsum', dolor: 'sit', hello: 'world' });
-    expect(mockCallback).toHaveBeenCalledTimes(2);
+    expect(output2 === results({ lorem: 'ipsum', dolor: 'sit', hello: 'world' })).toBe(true);
+    expect(mockCallback).toHaveBeenCalledTimes(1);
 
     // confirm memoize
-    expect(output === results({ lorem: 'ipsum', dolor: 'sit' })).toBe(false);
-    expect(mockCallback).toHaveBeenCalledTimes(3);
+    expect(output === results({ lorem: 'ipsum', dolor: 'sit' })).toBe(true);
+    expect(mockCallback).toHaveBeenCalledTimes(1);
+    expect(output2 === results({ lorem: 'ipsum', dolor: 'sit', hello: 'world' })).toBe(true);
+    expect(mockCallback).toHaveBeenCalledTimes(1);
 
     expect(output).toMatchSnapshot('createSimpleSelector, callback');
   });
