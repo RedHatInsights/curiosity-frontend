@@ -44,7 +44,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
       }
 
       return (
-        <ProductViewContext.Provider value={config} key={`product_${productId}`}>
+        <ProductViewContext.Provider value={config}>
           <PageMessages>
             <BannerMessages />
           </PageMessages>
