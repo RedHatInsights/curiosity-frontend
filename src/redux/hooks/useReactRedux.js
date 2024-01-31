@@ -23,6 +23,9 @@ import { helpers } from '../../common';
 const createSimpleSelector = (selectors, callback) => {
   const updatedSelectors = (Array.isArray(selectors) && selectors) || [selectors];
 
+  // eslint-disable-next-line prefer-spread
+  const result = helpers.memo((...resultArgs) => callback.apply(null, resultArgs));
+
   // eslint-disable-next-line func-names
   const selector = function (...args) {
     const results = [];
@@ -31,7 +34,7 @@ const createSimpleSelector = (selectors, callback) => {
       results.push(sel.apply(this, args));
     });
     // eslint-disable-next-line prefer-spread
-    return callback.apply(this, results);
+    return result.apply(this, results);
   };
 
   return helpers.memo(selector);
