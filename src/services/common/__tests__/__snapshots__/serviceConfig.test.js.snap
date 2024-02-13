@@ -313,6 +313,240 @@ exports[`ServiceConfig should handle cancelling service calls: cancelled request
 ]
 `;
 
+exports[`ServiceConfig should handle polling service call errors: location error 1`] = `
+[
+  [
+    [Error: location string error],
+  ],
+]
+`;
+
+exports[`ServiceConfig should handle polling service call errors: status error 1`] = `
+[
+  [
+    [Error: status error],
+  ],
+  [
+    [Error: status error],
+  ],
+  [
+    [Error: status error],
+  ],
+]
+`;
+
+exports[`ServiceConfig should handle polling service call errors: status error polling 1`] = `
+{
+  "status": [
+    {
+      "count": 0,
+      "error": {
+        "data": "error",
+        "pollConfig": {
+          "__retryCount": 1,
+          "location": "/pollError",
+          "pollInterval": 1,
+          "status": [Function],
+          "validate": [Function],
+        },
+      },
+      "success": undefined,
+    },
+  ],
+}
+`;
+
+exports[`ServiceConfig should handle polling service call errors: status of a status error 1`] = `
+[
+  [
+    [Error: status error],
+  ],
+]
+`;
+
+exports[`ServiceConfig should handle polling service call errors: status of a status error polling 1`] = `
+{
+  "status": [
+    {
+      "count": 0,
+      "error": {
+        "data": "error",
+        "pollConfig": {
+          "__retryCount": 1,
+          "location": "/pollError",
+          "pollInterval": 1,
+          "status": [Function],
+          "validate": [Function],
+        },
+      },
+      "success": undefined,
+    },
+  ],
+}
+`;
+
+exports[`ServiceConfig should handle polling service call errors: validation error 1`] = `
+[
+  [
+    [Error: basic validation error],
+  ],
+]
+`;
+
+exports[`ServiceConfig should handle polling service calls: basic polling validator 1`] = `
+{
+  "output": {
+    "data": "success",
+    "pollConfig": {
+      "__retryCount": 1,
+      "location": "/test/",
+      "pollInterval": 1,
+      "validate": [Function],
+    },
+  },
+  "validator": [
+    {
+      "count": 0,
+      "success": {
+        "data": "success",
+        "pollConfig": [Function],
+      },
+    },
+    {
+      "count": 1,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 1,
+          "location": "/test/",
+          "pollInterval": 1,
+          "validate": [Function],
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`ServiceConfig should handle polling service calls: custom location 1`] = `
+{
+  "output": {
+    "data": "success",
+    "pollConfig": {
+      "__retryCount": 2,
+      "location": [Function],
+      "pollInterval": 1,
+      "validate": [Function],
+    },
+  },
+  "validator": [
+    {
+      "count": 0,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "location": [Function],
+          "validate": [Function],
+        },
+        "url": "/test/",
+      },
+    },
+    {
+      "count": 1,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 1,
+          "location": [Function],
+          "pollInterval": 1,
+          "validate": [Function],
+        },
+        "url": "/pollSuccess/",
+      },
+    },
+  ],
+}
+`;
+
+exports[`ServiceConfig should handle polling service calls: specific polling validator 1`] = `
+{
+  "output": {
+    "data": "success",
+    "pollConfig": {
+      "__retryCount": 1,
+      "location": "/test/",
+      "pollInterval": 1,
+      "validate": [Function],
+    },
+  },
+  "validator": [
+    {
+      "count": 0,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "validate": [Function],
+        },
+      },
+    },
+    {
+      "count": 1,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 1,
+          "location": "/test/",
+          "pollInterval": 1,
+          "validate": [Function],
+        },
+      },
+    },
+  ],
+}
+`;
+
+exports[`ServiceConfig should handle polling service calls: status polling 1`] = `
+{
+  "output": {
+    "data": "success",
+    "pollConfig": {
+      "status": [Function],
+      "validate": [Function],
+    },
+  },
+  "status": [
+    {
+      "count": 0,
+      "err": undefined,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 1,
+          "location": "/test/",
+          "pollInterval": 1,
+          "status": [Function],
+          "validate": [Function],
+        },
+      },
+    },
+    {
+      "count": 1,
+      "err": undefined,
+      "success": {
+        "data": "success",
+        "pollConfig": {
+          "__retryCount": 2,
+          "location": "/test/",
+          "pollInterval": 1,
+          "status": [Function],
+          "validate": [Function],
+        },
+      },
+    },
+  ],
+}
+`;
+
 exports[`ServiceConfig should handle producing a service call configuration: response configs 1`] = `
 [
   "{
@@ -377,6 +611,7 @@ exports[`ServiceConfig should have specific properties and methods: specific pro
 [
   "axiosServiceCall",
   "globalXhrTimeout",
+  "globalPollInterval",
   "globalCancelTokens",
   "globalResponseCache",
 ]
