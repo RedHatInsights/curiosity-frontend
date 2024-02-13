@@ -160,6 +160,7 @@ Axios config for cancelling, caching, and emulated service calls.
 
 * [ServiceConfig](#Helpers.module_ServiceConfig)
     * [~globalXhrTimeout](#Helpers.module_ServiceConfig..globalXhrTimeout) : <code>number</code>
+    * [~globalPollInterval](#Helpers.module_ServiceConfig..globalPollInterval) : <code>number</code>
     * [~globalCancelTokens](#Helpers.module_ServiceConfig..globalCancelTokens) : <code>object</code>
     * [~globalResponseCache](#Helpers.module_ServiceConfig..globalResponseCache) : <code>object</code>
     * [~axiosServiceCall(config, options)](#Helpers.module_ServiceConfig..axiosServiceCall) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -168,6 +169,12 @@ Axios config for cancelling, caching, and emulated service calls.
 
 ### ServiceConfig~globalXhrTimeout : <code>number</code>
 Set Axios XHR default timeout.
+
+**Kind**: inner constant of [<code>ServiceConfig</code>](#Helpers.module_ServiceConfig)  
+<a name="Helpers.module_ServiceConfig..globalPollInterval"></a>
+
+### ServiceConfig~globalPollInterval : <code>number</code>
+Set Axios polling default.
 
 **Kind**: inner constant of [<code>ServiceConfig</code>](#Helpers.module_ServiceConfig)  
 <a name="Helpers.module_ServiceConfig..globalCancelTokens"></a>
@@ -211,6 +218,8 @@ page or wait the "maxAge".
     </tr><tr>
     <td>config.params</td><td><code>object</code></td>
     </tr><tr>
+    <td>config.poll</td><td><code>Object</code> | <code>function</code></td>
+    </tr><tr>
     <td>config.schema</td><td><code>Array</code></td>
     </tr><tr>
     <td>config.transform</td><td><code>Array</code></td>
@@ -224,6 +233,8 @@ page or wait the "maxAge".
     <td>options.responseCache</td><td><code>object</code></td>
     </tr><tr>
     <td>options.xhrTimeout</td><td><code>number</code></td>
+    </tr><tr>
+    <td>options.pollInterval</td><td><code>number</code></td>
     </tr>  </tbody>
 </table>
 
