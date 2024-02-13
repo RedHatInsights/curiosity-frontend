@@ -274,6 +274,7 @@ Download the debug log file.
 ## General
 
 * [General](#Helpers.module_General)
+    * [~memoClone](#Helpers.module_General..memoClone) ⇒ <code>any</code>
     * [~noop](#Helpers.module_General..noop)
     * [~noopPromise](#Helpers.module_General..noopPromise) : <code>Promise.&lt;{}&gt;</code>
     * [~setImmutableData](#Helpers.module_General..setImmutableData) ⇒ <code>\*</code>
@@ -314,6 +315,25 @@ Download the debug log file.
     * [~numberDisplay(value)](#Helpers.module_General..numberDisplay) ⇒ <code>numbro.Numbro</code> \| <code>\*</code>
     * [~objFreeze(obj)](#Helpers.module_General..objFreeze) ⇒ <code>\*</code>
     * [~browserExpose(obj, options)](#Helpers.module_General..browserExpose)
+
+<a name="Helpers.module_General..memoClone"></a>
+
+### General~memoClone ⇒ <code>any</code>
+Used for the numerous configuration callbacks that drive the UI. Often the same data
+is passed repeatedly. Avoid "accidental" mutation.
+
+**Kind**: inner constant of [<code>General</code>](#Helpers.module_General)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>value</td><td><code>any</code></td>
+    </tr>  </tbody>
+</table>
 
 <a name="Helpers.module_General..noop"></a>
 

@@ -188,6 +188,18 @@ describe('ServiceConfig', () => {
     });
     responses.push(responseTwo.data);
 
+    // Second-Error, use a transform but expect an error
+    const responseTwoError = await serviceConfig.axiosServiceCall({
+      cache: true,
+      url: '/test/',
+      transform: [
+        () => {
+          throw new Error('success response transform error');
+        }
+      ]
+    });
+    responses.push(responseTwoError.data);
+
     // Third, use error transform
     const responseThree = await returnPromiseAsync(async () =>
       serviceConfig.axiosServiceCall({
@@ -199,8 +211,22 @@ describe('ServiceConfig', () => {
         ]
       })
     );
-
     responses.push(responseThree.data);
+
+    // Third-Error, use error transform
+    const responseThreeError = await returnPromiseAsync(async () =>
+      serviceConfig.axiosServiceCall({
+        cache: true,
+        url: '/error/',
+        transform: [
+          successResponse => `${successResponse}-transform`,
+          () => {
+            throw new Error('error response transform error');
+          }
+        ]
+      })
+    );
+    responses.push(responseThreeError.data);
 
     // Fourth, use error transform with cancel
     const responseFourConfig = {

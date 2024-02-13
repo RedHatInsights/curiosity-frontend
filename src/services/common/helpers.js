@@ -8,9 +8,9 @@ import { helpers } from '../../common';
  */
 
 /**
- * Pass through generate hash
+ * Pass through generate hash, memo clone
  */
-const { generateHash } = helpers;
+const { generateHash, memoClone } = helpers;
 
 /**
  * A timeout cancel for function calls.
@@ -122,6 +122,7 @@ const schemaResponse = ({ casing, convert = true, id = null, response, schema } 
 const serviceHelpers = {
   camelCase,
   generateHash,
+  memoClone,
   passDataToCallback,
   schemaResponse,
   timeoutFunctionCancel
@@ -132,6 +133,7 @@ export {
   serviceHelpers,
   camelCase,
   generateHash,
+  memoClone,
   passDataToCallback,
   schemaResponse,
   timeoutFunctionCancel

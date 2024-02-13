@@ -126,6 +126,15 @@ const memo = (func, { cacheLimit = 1 } = {}) => {
 };
 
 /**
+ * Used for the numerous configuration callbacks that drive the UI. Often the same data
+ * is passed repeatedly. Avoid "accidental" mutation.
+ *
+ * @param {any} value
+ * @returns {any}
+ */
+const memoClone = memo(value => _cloneDeep(value), { cacheLimit: 25 });
+
+/**
  * An empty function.
  * Typically used as a default prop.
  */
@@ -444,6 +453,7 @@ const helpers = {
   isDate,
   isPromise,
   memo,
+  memoClone,
   noop,
   noopPromise,
   numberDisplay,
