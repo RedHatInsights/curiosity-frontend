@@ -363,7 +363,9 @@ exports[`ServiceConfig should handle transforming service call responses: transf
 [
   "success-schema-transform",
   "success-transform",
+  "success",
   "error-error-transform",
+  "error",
   [
     "cancelled request",
     undefined,

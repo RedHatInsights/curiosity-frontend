@@ -23,6 +23,7 @@ exports[`Service Helpers should have specific functions: serviceHelpers 1`] = `
 {
   "camelCase": [Function],
   "generateHash": [Function],
+  "memoClone": [Function],
   "passDataToCallback": [Function],
   "schemaResponse": [Function],
   "timeoutFunctionCancel": [Function],

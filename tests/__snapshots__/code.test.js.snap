@@ -10,5 +10,7 @@ exports[`General code checks should only have specific console.[warn|log|info|er
   "redux/common/reduxHelpers.js:287:    console.error(\`Error: Property \${prop} does not exist within the passed state.\`, state);",
   "redux/common/reduxHelpers.js:291:    console.warn(\`Warning: Property \${prop} does not exist within the passed initialState.\`, initialState);",
   "services/common/helpers.js:105:    console.error(",
+  "services/common/serviceConfig.js:141:          console.warn(normalizeError);",
+  "services/common/serviceConfig.js:165:          console.warn(normalizeError);",
 ]
 `;
