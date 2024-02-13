@@ -31,13 +31,13 @@ describe('ServiceConfig', () => {
   beforeAll(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/test.*?/, {
+    moxios.stubRequest(/\/(test|pollSuccess).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
     });
 
-    moxios.stubRequest(/\/error.*?/, {
+    moxios.stubRequest(/\/(error|pollError).*?/, {
       status: 404,
       responseText: 'error',
       timeout: 1
@@ -46,6 +46,7 @@ describe('ServiceConfig', () => {
 
   afterAll(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
   });
 
   it('should have specific properties and methods', () => {
@@ -251,6 +252,261 @@ describe('ServiceConfig', () => {
     responses.push(responseFour.map(({ reason }) => reason.message));
 
     expect(responses).toMatchSnapshot('transformed responses');
+  });
+
+  it('should handle polling service calls', async () => {
+    const basicPollValidator = jest.fn();
+    const basicOutput = await serviceConfig.axiosServiceCall(
+      {
+        cache: true,
+        url: '/test/',
+        poll: (response, count) => {
+          basicPollValidator(response, count);
+          return count === 1;
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    expect(basicPollValidator).toHaveBeenCalledTimes(2);
+    expect({
+      validator: basicPollValidator.mock.calls.map(([response, count]) => ({
+        success: {
+          data: response.data,
+          pollConfig: response.config.poll
+        },
+        count
+      })),
+      output: {
+        pollConfig: basicOutput.config.poll,
+        data: basicOutput.data
+      }
+    }).toMatchSnapshot('basic polling validator');
+
+    const specificPollValidator = jest.fn();
+    const specificOutput = await serviceConfig.axiosServiceCall(
+      {
+        cache: true,
+        url: '/test/',
+        poll: {
+          validate: (response, count) => {
+            specificPollValidator(response, count);
+            return count === 1;
+          }
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    expect(specificPollValidator).toHaveBeenCalledTimes(2);
+    expect({
+      validator: specificPollValidator.mock.calls.map(([response, count]) => ({
+        success: {
+          data: response.data,
+          pollConfig: response.config.poll
+        },
+        count
+      })),
+      output: {
+        pollConfig: specificOutput.config.poll,
+        data: specificOutput.data
+      }
+    }).toMatchSnapshot('specific polling validator');
+
+    const statusPoll = jest.fn();
+    const statusOutput = await serviceConfig.axiosServiceCall(
+      {
+        cache: true,
+        url: '/test/',
+        poll: {
+          validate: (response, count) => count === 2,
+          status: (success, err, count) => {
+            statusPoll(success, err, count);
+          }
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    // delay to give the internal status promise time to unwrap
+    await new Promise(resolve => {
+      setTimeout(() => resolve(), 25);
+    });
+
+    expect(statusPoll).toHaveBeenCalledTimes(2);
+    expect({
+      status: statusPoll.mock.calls.map(([success, err, count]) => ({
+        success: {
+          data: success.data,
+          pollConfig: success.config.poll
+        },
+        err,
+        count
+      })),
+      output: {
+        data: statusOutput.data,
+        pollConfig: statusOutput.config.poll
+      }
+    }).toMatchSnapshot('status polling');
+
+    const mockLocation = jest.fn().mockImplementation(() => '/pollSuccess/');
+    const locationOutput = await serviceConfig.axiosServiceCall(
+      {
+        cache: true,
+        url: '/test/',
+        poll: {
+          location: mockLocation,
+          validate: (response, count) => count === 2
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    expect(mockLocation).toHaveBeenCalledTimes(2);
+    expect({
+      validator: mockLocation.mock.calls.map(([success, count]) => ({
+        success: {
+          data: success.data,
+          url: success.request.url,
+          pollConfig: { ...success.config.poll, location: Function.prototype }
+        },
+        count
+      })),
+      output: {
+        pollConfig: { ...locationOutput.config.poll, location: Function.prototype },
+        data: locationOutput.data
+      }
+    }).toMatchSnapshot('custom location');
+  });
+
+  it('should handle polling service call errors', async () => {
+    const consoleSpyError = jest.spyOn(console, 'error');
+
+    await serviceConfig.axiosServiceCall(
+      {
+        cache: false,
+        url: '/test/',
+        poll: () => {
+          throw new Error('basic validation error');
+        }
+      },
+      { pollInterval: 1 }
+    );
+    expect(consoleSpyError.mock.calls).toMatchSnapshot('validation error');
+    consoleSpyError.mockClear();
+
+    await serviceConfig.axiosServiceCall(
+      {
+        cache: false,
+        url: '/test/',
+        poll: {
+          validate: (response, count) => count === 1,
+          location: () => {
+            throw new Error('location string error');
+          }
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    // delay to give the internal status promise time to unwrap
+    await new Promise(resolve => {
+      setTimeout(() => resolve(), 25);
+    });
+
+    expect(consoleSpyError.mock.calls).toMatchSnapshot('location error');
+    consoleSpyError.mockClear();
+
+    const statusErrorPoll = jest.fn();
+    await serviceConfig.axiosServiceCall(
+      {
+        cache: false,
+        url: '/test/',
+        poll: {
+          location: '/pollError',
+          validate: (response, count) => count === 5,
+          status: (success, err, count) => {
+            statusErrorPoll(success, err, count);
+          }
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    // delay to give the internal status promise time to unwrap
+    await new Promise(resolve => {
+      setTimeout(() => resolve(), 50);
+    });
+
+    expect(statusErrorPoll).toHaveBeenCalledTimes(1);
+    expect({
+      status: statusErrorPoll.mock.calls.map(([success, err, count]) => ({
+        error: {
+          data: err.response.data,
+          pollConfig: err.config.poll
+        },
+        success,
+        count
+      }))
+    }).toMatchSnapshot('status error polling');
+
+    await serviceConfig.axiosServiceCall(
+      {
+        cache: false,
+        url: '/test/',
+        poll: {
+          validate: (response, count) => count === 3,
+          status: () => {
+            throw new Error('status error');
+          }
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    // delay to give the internal status promise time to unwrap
+    await new Promise(resolve => {
+      setTimeout(() => resolve(), 25);
+    });
+
+    expect(consoleSpyError.mock.calls).toMatchSnapshot('status error');
+    consoleSpyError.mockClear();
+
+    const statusStatusErrorPoll = jest.fn();
+    await serviceConfig.axiosServiceCall(
+      {
+        cache: false,
+        url: '/test/',
+        poll: {
+          location: '/pollError',
+          validate: (response, count) => count === 5,
+          status: (success, err, count) => {
+            statusStatusErrorPoll(success, err, count);
+            throw new Error('status error');
+          }
+        }
+      },
+      { pollInterval: 1 }
+    );
+
+    // delay to give the internal status promise time to unwrap
+    await new Promise(resolve => {
+      setTimeout(() => resolve(), 25);
+    });
+
+    expect(statusStatusErrorPoll).toHaveBeenCalledTimes(1);
+    expect({
+      status: statusStatusErrorPoll.mock.calls.map(([success, err, count]) => ({
+        error: {
+          data: err.response.data,
+          pollConfig: err.config.poll
+        },
+        success,
+        count
+      }))
+    }).toMatchSnapshot('status of a status error polling');
+    expect(consoleSpyError.mock.calls).toMatchSnapshot('status of a status error');
+    consoleSpyError.mockClear();
   });
 
   it('should allow passing a function and emulating a service call', async () => {
