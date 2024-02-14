@@ -334,6 +334,27 @@ exports[`I18n Component should generate a predictable locale key output snapshot
     ],
   },
   {
+    "file": "src/components/toolbar/toolbarFieldExport.js",
+    "keys": [
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "translate('curiosity-toolbar.label', { context: ['export', type] })",
+      },
+      {
+        "key": "curiosity-toolbar.label",
+        "match": "t('curiosity-toolbar.label', { context: ['export', 'loading'] })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'export' })",
+      },
+      {
+        "key": "curiosity-toolbar.placeholder",
+        "match": "t('curiosity-toolbar.placeholder', { context: 'export' })",
+      },
+    ],
+  },
+  {
     "file": "src/components/toolbar/toolbarFieldGranularity.js",
     "keys": [
       {
@@ -961,6 +982,14 @@ exports[`I18n Component should have locale keys that exist in the default langua
   },
   {
     "file": "src/components/toolbar/toolbarFieldCategory.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/components/toolbar/toolbarFieldExport.js",
+    "key": "curiosity-toolbar.label",
+  },
+  {
+    "file": "src/components/toolbar/toolbarFieldExport.js",
     "key": "curiosity-toolbar.label",
   },
   {
