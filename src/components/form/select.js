@@ -381,6 +381,10 @@ const Select = ({
         event.currentTarget.innerText === option.title
     );
 
+    if (updatedOptions[optionsIndex].isDisabled === true) {
+      return;
+    }
+
     updatedOptions[optionsIndex].selected =
       variant === SelectVariant.single ? true : !updatedOptions[optionsIndex].selected;
 
@@ -402,7 +406,8 @@ const Select = ({
     const mockTarget = {
       id,
       name: name || id,
-      value: mockUpdatedOptions[optionsIndex].value,
+      value: !updatedOptions[optionsIndex].isDisabledAllowEvent ? mockUpdatedOptions[optionsIndex].value : undefined,
+      isDisabled: updatedOptions[optionsIndex].isDisabledAllowEvent === true,
       selected: (variant === SelectVariant.single && mockUpdatedOptions[optionsIndex]) || _cloneDeep(updateSelected),
       selectedIndex: optionsIndex,
       type: `select-${(variant === SelectVariant.single && 'one') || 'multiple'}`,
@@ -425,7 +430,7 @@ const Select = ({
 
     onSelect({ ...mockEvent }, optionsIndex, mockUpdatedOptions);
 
-    if (variant === SelectVariant.single) {
+    if (variant === SelectVariant.single && !updatedOptions[optionsIndex].isDisabledAllowEvent) {
       setIsExpanded(false);
     }
   };
@@ -453,15 +458,17 @@ const Select = ({
             splitButtonVariant
           })}
         >
-          {(!splitButtonVariant && placeholder) || (!SplitButtonVariant && ariaLabel)}
+          {toggleIcon || (!splitButtonVariant && placeholder) || (!SplitButtonVariant && ariaLabel)}
         </DropdownToggle>
       }
       dropdownItems={
         options?.map(option => (
           <DropdownItem
+            className={(option.isDisabledAllowEvent === true && 'pf-m-disabled') || ''}
             onClick={onDropdownSelect}
             key={window.btoa(`${option.title}-${option.value}`)}
             id={window.btoa(`${option.title}-${option.value}`)}
+            isDisabled={option.isDisabled === true}
             data-value={(_isPlainObject(option.value) && JSON.stringify([option.value])) || option.value}
             data-title={option.title}
             data-description={option.description}
@@ -508,9 +515,11 @@ const Select = ({
     >
       {options?.map(option => (
         <PfSelectOption
+          className={(option.isDisabledAllowEvent === true && 'pf-m-disabled') || ''}
           key={window.btoa(`${option.title}-${option.value}`)}
           id={window.btoa(`${option.title}-${option.value}`)}
           value={option.title}
+          isDisabled={option.isDisabled === true}
           data-value={(_isPlainObject(option.value) && JSON.stringify([option.value])) || option.value}
           data-title={option.title}
           data-description={option.description}
@@ -559,6 +568,8 @@ Select.propTypes = {
       PropTypes.shape({
         description: PropTypes.any,
         selected: PropTypes.bool,
+        isDisabled: PropTypes.bool,
+        isDisabledAllowEvent: PropTypes.bool,
         title: PropTypes.any,
         value: PropTypes.any.isRequired
       })
@@ -566,6 +577,8 @@ Select.propTypes = {
     PropTypes.shape({
       description: PropTypes.any,
       selected: PropTypes.bool,
+      isDisabledAllowEvent: PropTypes.bool,
+      isDisabled: PropTypes.bool,
       title: PropTypes.any,
       value: PropTypes.any.isRequired
     }),

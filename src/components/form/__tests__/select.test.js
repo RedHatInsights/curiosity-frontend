@@ -245,6 +245,20 @@ describe('Select Component', () => {
     expect(dis).toMatchSnapshot('options, but disabled');
   });
 
+  it('should allow disabled options', () => {
+    const props = {
+      id: 'test',
+      options: ['lorem', { value: 'ipsum', isDisabled: true }, 'hello', { value: 'world', isDisabled: true }]
+    };
+
+    const component = renderComponent(<Select {...props} />);
+    const firstButton = component.find('button');
+    const mockEvent = { currentTarget: {}, target: {}, persist: helpers.noop };
+    component.fireEvent.click(firstButton, mockEvent);
+
+    expect(component.find('ul.pf-v5-c-select__menu')).toMatchSnapshot('disabled options');
+  });
+
   it('should allow data- props', () => {
     const props = {
       'data-lorem': 'ipsum',
