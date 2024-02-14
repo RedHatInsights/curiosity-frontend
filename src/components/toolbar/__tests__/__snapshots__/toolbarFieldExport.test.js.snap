@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolbarFieldExport Component should aggregate export service calls: createExport 1`] = `
+[
+  [
+    {
+      "lorem": "ipsum",
+    },
+    {
+      "poll": {
+        "validate": [Function],
+      },
+    },
+  ],
+]
+`;
+
+exports[`ToolbarFieldExport Component should aggregate export service calls: getExport 1`] = `
+[
+  [
+    "dolorSit",
+  ],
+]
+`;
+
+exports[`ToolbarFieldExport Component should aggregate export service calls: getStatus 1`] = `
+[
+  [
+    {
+      "poll": {
+        "validate": [Function],
+      },
+    },
+  ],
+]
+`;
+
+exports[`ToolbarFieldExport Component should aggregate export service calls: getStatus, existing polling 1`] = `[]`;
+
+exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook: status, basic 1`] = `
+{
+  "isCompleted": undefined,
+  "isPolling": undefined,
+  "isProductPolling": false,
+  "productPollingFormats": [],
+}
+`;
+
+exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook: status, completed 1`] = `
+{
+  "isCompleted": undefined,
+  "isPolling": undefined,
+  "isProductPolling": false,
+  "productPollingFormats": [],
+}
+`;
+
+exports[`ToolbarFieldExport Component should aggregate export status, polling status with a hook: status, polling 1`] = `
+{
+  "isCompleted": undefined,
+  "isPolling": true,
+  "isProductPolling": true,
+  "productPollingFormats": [
+    "dolorSit",
+  ],
+}
+`;
+
+exports[`ToolbarFieldExport Component should export select options: toolbarFieldOptions 1`] = `
+[
+  {
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_export, {"context":"csv"})",
+    "value": "csv",
+  },
+  {
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_export, {"context":"json"})",
+    "value": "json",
+  },
+]
+`;
+
+exports[`ToolbarFieldExport Component should handle updating export through redux state with component: dispatch, component 1`] = `[]`;
+
+exports[`ToolbarFieldExport Component should handle updating export through redux state with hook: dispatch, hook 1`] = `[]`;
+
+exports[`ToolbarFieldExport Component should render a basic component: basic 1`] = `
+<Select
+  aria-label="t(curiosity-toolbar.placeholder, {"context":"export"})"
+  ariaLabel="Select option"
+  buttonVariant="plain"
+  className=""
+  data-test="toolbarFieldExport"
+  direction="down"
+  id="generatedid-"
+  isDisabled={false}
+  isDropdownButton={true}
+  isFlipEnabled={false}
+  isInline={true}
+  isToggleText={true}
+  maxHeight={null}
+  name={null}
+  onSelect={[Function]}
+  onSplitButton={[Function]}
+  options={
+    [
+      {
+        "isDisabled": false,
+        "selected": false,
+        "title": "t(curiosity-toolbar.label_export, {"context":"csv"})",
+        "value": "csv",
+      },
+      {
+        "isDisabled": false,
+        "selected": false,
+        "title": "t(curiosity-toolbar.label_export, {"context":"json"})",
+        "value": "json",
+      },
+    ]
+  }
+  placeholder="t(curiosity-toolbar.placeholder, {"context":"export"})"
+  position="left"
+  selectedOptions={null}
+  splitButtonVariant={null}
+  toggleIcon={<ExportIcon />}
+  variant="single"
+/>
+`;
