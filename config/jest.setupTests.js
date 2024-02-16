@@ -431,9 +431,21 @@ beforeAll(() => {
     };
   };
 
-  interceptConsoleMessaging(group, () => process.env.CI !== 'true');
+  interceptConsoleMessaging(group, message => {
+    if (/action/gi.test(message)) {
+      return false;
+    }
 
-  interceptConsoleMessaging(log, () => process.env.CI !== 'true');
+    return process.env.CI !== 'true';
+  });
+
+  interceptConsoleMessaging(log, message => {
+    if (/prev\sstate/gi.test(message) || /action/gi.test(message) || /next\sstate/gi.test(message)) {
+      return false;
+    }
+
+    return process.env.CI !== 'true';
+  });
 
   interceptConsoleMessaging(error, (message, ...args) => {
     if (/(Invalid prop|Failed prop type)/gi.test(message)) {
