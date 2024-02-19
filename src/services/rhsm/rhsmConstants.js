@@ -241,9 +241,9 @@ const RHSM_API_RESPONSE_GRANULARITY_TYPES = {
  */
 const RHSM_API_RESPONSE_BILLING_PROVIDER_TYPES = {
   RED_HAT: 'red hat',
-  AWS: 'aws'
+  AWS: 'aws',
   // GCP: 'gcp',
-  // AZURE: 'azure',
+  AZURE: 'azure'
   // ORACLE: 'oracle',
   // NONE: ''
 };

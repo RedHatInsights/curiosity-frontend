@@ -182,6 +182,11 @@ exports[`ToolbarFieldSelectCategory Component should export select options: tool
         "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
         "value": "aws",
       },
+      {
+        "selected": false,
+        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
+        "value": "azure",
+      },
     ],
     "selected": false,
     "title": "t(curiosity-toolbar.label_filter_billing, {"context":"provider"})",
