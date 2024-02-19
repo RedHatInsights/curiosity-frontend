@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/e57fbe3810828e1ea0fe8e105af680ffd54a2dd6...aad790e2c8af08517d7b1f5bf5af732ed87f8ccc) (2024-02-19)
+
+
+### Code Refactoring
+* **redux** rename user to appReducer ([#1262](https://github.com/RedHatInsights/curiosity-frontend/pull/1262)) ([d13462f](https://github.com/RedHatInsights/curiosity-frontend/commit/d13462f6c6674639c95b30eeaeb682a1d4c40c43))
+* **redux** merge action types, single file ([#1260](https://github.com/RedHatInsights/curiosity-frontend/pull/1260)) ([af80cda](https://github.com/RedHatInsights/curiosity-frontend/commit/af80cdafd844d02ba5e0935d9955a357903d2f52))
+* **config** sw-1987 testing, numeric inventory cells ([#1259](https://github.com/RedHatInsights/curiosity-frontend/pull/1259)) ([e4dc465](https://github.com/RedHatInsights/curiosity-frontend/commit/e4dc465d1be92102b639784a88a7008ba641fb75))
+* **config** sw-1359 consistent inventory zero display ([#1252](https://github.com/RedHatInsights/curiosity-frontend/pull/1252)) ([b8197c4](https://github.com/RedHatInsights/curiosity-frontend/commit/b8197c46bf4bda86b70fe6218260554004882524))
+* **dotenv,redux** sw-1911 remove deprecated tally, capacity ([#1254](https://github.com/RedHatInsights/curiosity-frontend/pull/1254)) ([f0de42b](https://github.com/RedHatInsights/curiosity-frontend/commit/f0de42bf9fb28dd1dc35a65fba0f5dac87d8b71b))
+
+### Chores
+* **rhsmServices** optin response example ([#1260](https://github.com/RedHatInsights/curiosity-frontend/pull/1260)) ([516b117](https://github.com/RedHatInsights/curiosity-frontend/commit/516b117c8508c2a6dea5d804ff243503c1892ccf))
+
+### Builds
+* **actions** issue exceptions, add refactor ([#1260](https://github.com/RedHatInsights/curiosity-frontend/pull/1260)) ([c51ea78](https://github.com/RedHatInsights/curiosity-frontend/commit/c51ea78a69e92de29b2eeceb437d8a7aa2df519b))
+
+### Bug Fixes
+* **useReactRedux** memoize selector callback ([#1265](https://github.com/RedHatInsights/curiosity-frontend/pull/1265)) ([aad790e](https://github.com/RedHatInsights/curiosity-frontend/commit/aad790e2c8af08517d7b1f5bf5af732ed87f8ccc))
+* **productView** key causes refresh ([#1264](https://github.com/RedHatInsights/curiosity-frontend/pull/1264)) ([ef2b1e0](https://github.com/RedHatInsights/curiosity-frontend/commit/ef2b1e0e19f69dbcb10219351f7780dfbd4f56ac))
+* **redux** npm updates ([#1258](https://github.com/RedHatInsights/curiosity-frontend/pull/1258)) ([fe222b3](https://github.com/RedHatInsights/curiosity-frontend/commit/fe222b38916ddb7f6f3c144c04778dfd5593e506))
+* **redux** remove, replace reselect ([#1257](https://github.com/RedHatInsights/curiosity-frontend/pull/1257)) ([63c6b96](https://github.com/RedHatInsights/curiosity-frontend/commit/63c6b96fedd20851935eac6ed68b96e2c9434ac7))
+* **build** npm updates ([#1256](https://github.com/RedHatInsights/curiosity-frontend/pull/1256)) ([c916a40](https://github.com/RedHatInsights/curiosity-frontend/commit/c916a40187e3a0e33498f1edc019c20c13e93eae))
+
 ## [4.0.0](https://github.com/RedHatInsights/curiosity-frontend/compare/5f92127612f2dc34529ff0bd7ad53a795a070833...5ceb05f06d2b2bd4c3854218d6a74404bbcc9dee) (2024-01-22)
 
 
