@@ -12,6 +12,11 @@ exports[`ToolbarFieldBillingProvider Component should export select options: too
     "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
     "value": "aws",
   },
+  {
+    "selected": false,
+    "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
+    "value": "azure",
+  },
 ]
 `;
 
@@ -81,6 +86,11 @@ exports[`ToolbarFieldBillingProvider Component should render a basic component: 
         "selected": true,
         "title": "t(curiosity-toolbar.label_billing_provider, {"context":"aws"})",
         "value": "aws",
+      },
+      {
+        "selected": false,
+        "title": "t(curiosity-toolbar.label_billing_provider, {"context":"azure"})",
+        "value": "azure",
       },
     ]
   }
