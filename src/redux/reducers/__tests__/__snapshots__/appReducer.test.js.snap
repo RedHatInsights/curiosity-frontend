@@ -20,26 +20,6 @@ exports[`UserReducer should handle all defined error types: rejected types DELET
 }
 `;
 
-exports[`UserReducer should handle all defined error types: rejected types GET_PLATFORM_EXPORT_STATUS 1`] = `
-{
-  "result": {
-    "auth": {},
-    "errors": {},
-    "exports": {
-      "error": true,
-      "errorMessage": "MESSAGE",
-      "fulfilled": false,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "locale": {},
-    "optin": {},
-  },
-  "type": "GET_PLATFORM_EXPORT_STATUS_REJECTED",
-}
-`;
-
 exports[`UserReducer should handle all defined error types: rejected types GET_USER_OPTIN 1`] = `
 {
   "result": {
@@ -77,6 +57,26 @@ exports[`UserReducer should handle all defined error types: rejected types PLATF
     "optin": {},
   },
   "type": "PLATFORM_USER_AUTH_REJECTED",
+}
+`;
+
+exports[`UserReducer should handle all defined error types: rejected types SET_PLATFORM_EXPORT_STATUS 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {
+      "error": true,
+      "errorMessage": "MESSAGE",
+      "fulfilled": false,
+      "meta": {},
+      "pending": false,
+      "status": 0,
+    },
+    "locale": {},
+    "optin": {},
+  },
+  "type": "SET_PLATFORM_EXPORT_STATUS_REJECTED",
 }
 `;
 
@@ -152,38 +152,6 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
 }
 `;
 
-exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_PLATFORM_EXPORT_STATUS 1`] = `
-{
-  "result": {
-    "auth": {},
-    "errors": {},
-    "exports": {
-      "data": {
-        "permissions": [],
-        "test": "success",
-        "user": {
-          "identity": {
-            "user": {
-              "is_org_admin": true,
-            },
-          },
-        },
-      },
-      "date": null,
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
-      "meta": {},
-      "pending": false,
-      "status": 0,
-    },
-    "locale": {},
-    "optin": {},
-  },
-  "type": "GET_PLATFORM_EXPORT_STATUS_FULFILLED",
-}
-`;
-
 exports[`UserReducer should handle all defined fulfilled types: fulfilled types GET_USER_OPTIN 1`] = `
 {
   "result": {
@@ -245,6 +213,38 @@ exports[`UserReducer should handle all defined fulfilled types: fulfilled types 
     "optin": {},
   },
   "type": "PLATFORM_USER_AUTH_FULFILLED",
+}
+`;
+
+exports[`UserReducer should handle all defined fulfilled types: fulfilled types SET_PLATFORM_EXPORT_STATUS 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {
+      "data": {
+        "permissions": [],
+        "test": "success",
+        "user": {
+          "identity": {
+            "user": {
+              "is_org_admin": true,
+            },
+          },
+        },
+      },
+      "date": null,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "meta": {},
+      "pending": false,
+      "status": 0,
+    },
+    "locale": {},
+    "optin": {},
+  },
+  "type": "SET_PLATFORM_EXPORT_STATUS_FULFILLED",
 }
 `;
 
@@ -331,25 +331,6 @@ exports[`UserReducer should handle all defined pending types: pending types DELE
 }
 `;
 
-exports[`UserReducer should handle all defined pending types: pending types GET_PLATFORM_EXPORT_STATUS 1`] = `
-{
-  "result": {
-    "auth": {},
-    "errors": {},
-    "exports": {
-      "error": false,
-      "errorMessage": "",
-      "fulfilled": false,
-      "meta": {},
-      "pending": true,
-    },
-    "locale": {},
-    "optin": {},
-  },
-  "type": "GET_PLATFORM_EXPORT_STATUS_PENDING",
-}
-`;
-
 exports[`UserReducer should handle all defined pending types: pending types GET_USER_OPTIN 1`] = `
 {
   "result": {
@@ -385,6 +366,25 @@ exports[`UserReducer should handle all defined pending types: pending types PLAT
     "optin": {},
   },
   "type": "PLATFORM_USER_AUTH_PENDING",
+}
+`;
+
+exports[`UserReducer should handle all defined pending types: pending types SET_PLATFORM_EXPORT_STATUS 1`] = `
+{
+  "result": {
+    "auth": {},
+    "errors": {},
+    "exports": {
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "meta": {},
+      "pending": true,
+    },
+    "locale": {},
+    "optin": {},
+  },
+  "type": "SET_PLATFORM_EXPORT_STATUS_PENDING",
 }
 `;
 

@@ -69,15 +69,25 @@ exports[`Platform Transformers should attempt to parse a user response: user, pa
 
 exports[`Platform Transformers should attempt to parse an exports response: exports, default 1`] = `
 {
-  "id": undefined,
-  "status": undefined,
+  "data": {},
+  "meta": {},
 }
 `;
 
-exports[`Platform Transformers should attempt to parse an exports response: exports, parsed 1`] = `
+exports[`Platform Transformers should attempt to parse an exports response: exports, parsed single 1`] = `
 {
-  "id": "0123456789",
-  "status": "pending",
+  "data": {
+    "RHEL for x86": [
+      {
+        "format": undefined,
+        "id": "0123456789",
+        "name": "swatch-RHEL for x86",
+        "status": "pending",
+      },
+    ],
+    "isAnythingPending": true,
+  },
+  "meta": {},
 }
 `;
 
