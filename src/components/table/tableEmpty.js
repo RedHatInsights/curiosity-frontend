@@ -16,7 +16,7 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
  */
 
 /**
- * Render an empty table.
+ * Render an empty table component. Apply an empty version of an actual HTML table to help with testing.
  *
  * @param {object} props
  * @param {string} props.ariaLabel
@@ -30,7 +30,7 @@ import { EmptyTable as PlatformEmptyTableWrapper } from '@redhat-cloud-services/
 const TableEmpty = ({ ariaLabel, icon, message, tableHeading, title, variant, ...props }) => (
   <PlatformEmptyTableWrapper>
     <table aria-label={ariaLabel} {...props} />
-    <EmptyState variant={variant}>
+    <EmptyState className="fadein" variant={variant}>
       {icon && <EmptyStateIcon icon={icon} />}
       <EmptyStateHeader titleText={title} headingLevel={tableHeading} />
       <EmptyStateBody>{message}</EmptyStateBody>

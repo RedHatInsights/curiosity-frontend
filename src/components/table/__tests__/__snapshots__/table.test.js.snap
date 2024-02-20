@@ -701,7 +701,7 @@ exports[`Table Component should pass child components, nodes when there are no r
           summary="Lorem ipsum summary"
         />
         <div
-          class="pf-v5-c-empty-state pf-m-sm"
+          class="pf-v5-c-empty-state pf-m-sm fadein"
         >
           <div
             class="pf-v5-c-empty-state__content"
@@ -805,7 +805,7 @@ exports[`Table Component should render a basic component: basic 1`] = `
           class=""
         />
         <div
-          class="pf-v5-c-empty-state pf-m-sm"
+          class="pf-v5-c-empty-state pf-m-sm fadein"
         >
           <div
             class="pf-v5-c-empty-state__content"
