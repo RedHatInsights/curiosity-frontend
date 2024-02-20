@@ -14,7 +14,8 @@
 <dd><p>Emulated service calls for platform globals.</p>
 </dd>
 <dt><a href="#Platform.module_PlatformTransformers">PlatformTransformers</a></dt>
-<dd><p>Transform platform responses. Replaces selector usage.</p>
+<dd><p>Transform export responses. Combines multiple exports, or a single export,
+into the same response format.</p>
 </dd>
 <dt><a href="#Rhsm.module_RhsmConstants">RhsmConstants</a></dt>
 <dd></dd>
@@ -243,9 +244,12 @@ page or wait the "maxAge".
 ## PlatformConstants
 
 * [PlatformConstants](#Platform.module_PlatformConstants)
+    * [~PLATFORM_API_EXPORT_RESPONSE_DATA](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_DATA) : <code>string</code>
+    * [~PLATFORM_API_EXPORT_RESPONSE_META](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_META) : <code>string</code>
     * [~PLATFORM_API_EXPORT_APPLICATION_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_APPLICATION_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_RESOURCE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESOURCE_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_CONTENT_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_CONTENT_TYPES) : <code>Object</code>
+    * [~PLATFORM_API_EXPORT_FILENAME_PREFIX](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_FILENAME_PREFIX) : <code>string</code>
     * [~PLATFORM_API_EXPORT_STATUS_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_STATUS_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_SOURCE_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_SOURCE_TYPES) : <code>Object</code>
     * [~PLATFORM_API_EXPORT_POST_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_EXPORT_POST_TYPES) : <code>Object</code>
@@ -257,6 +261,18 @@ page or wait the "maxAge".
     * [~PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_IDENTITY_USER_TYPES) : <code>Object</code>
     * [~PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES](#Platform.module_PlatformConstants..PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES) : <code>Object</code>
 
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_DATA"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_RESPONSE\_DATA : <code>string</code>
+Platform Export response data type.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_RESPONSE_META"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_RESPONSE\_META : <code>string</code>
+Platform Export response meta type.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
 <a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_APPLICATION_TYPES"></a>
 
 ### PlatformConstants~PLATFORM\_API\_EXPORT\_APPLICATION\_TYPES : <code>Object</code>
@@ -273,6 +289,12 @@ Platform Export, available resource types for related application types.
 
 ### PlatformConstants~PLATFORM\_API\_EXPORT\_CONTENT\_TYPES : <code>Object</code>
 Platform Export, available content types.
+
+**Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
+<a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_FILENAME_PREFIX"></a>
+
+### PlatformConstants~PLATFORM\_API\_EXPORT\_FILENAME\_PREFIX : <code>string</code>
+Platform Export, export filename prefix
 
 **Kind**: inner constant of [<code>PlatformConstants</code>](#Platform.module_PlatformConstants)  
 <a name="Platform.module_PlatformConstants..PLATFORM_API_EXPORT_STATUS_TYPES"></a>
@@ -397,9 +419,9 @@ Emulated service calls for platform globals.
     * [~getUser(options)](#Platform.module_PlatformServices..getUser) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getUserPermissions(appName, options)](#Platform.module_PlatformServices..getUserPermissions) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~hideGlobalFilter(isHidden)](#Platform.module_PlatformServices..hideGlobalFilter) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~postExport(data, options)](#Platform.module_PlatformServices..postExport) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [~getExport(id, options)](#Platform.module_PlatformServices..getExport) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [~getExportStatus(id, options)](#Platform.module_PlatformServices..getExportStatus) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~getExportStatus(id, params, options)](#Platform.module_PlatformServices..getExportStatus) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [~postExport(data, options)](#Platform.module_PlatformServices..postExport) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="Platform.module_PlatformServices..getUser"></a>
 
@@ -457,6 +479,58 @@ Disables the Platform's global filter display.
     </tr>  </tbody>
 </table>
 
+<a name="Platform.module_PlatformServices..getExport"></a>
+
+### PlatformServices~getExport(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get an export after setup.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code></td><td><p>Export ID</p>
+</td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
+<a name="Platform.module_PlatformServices..getExportStatus"></a>
+
+### PlatformServices~getExportStatus(id, params, options) ⇒ <code>Promise.&lt;\*&gt;</code>
+Get multiple export status, or a single status after setup.
+
+**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>id</td><td><code>string</code> | <code>undefined</code> | <code>null</code></td><td><p>Export ID</p>
+</td>
+    </tr><tr>
+    <td>params</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>options.cancel</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>options.cancelId</td><td><code>string</code></td><td></td>
+    </tr>  </tbody>
+</table>
+
 <a name="Platform.module_PlatformServices..postExport"></a>
 
 ### PlatformServices~postExport(data, options) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -482,60 +556,11 @@ Post to create an export.
     </tr>  </tbody>
 </table>
 
-<a name="Platform.module_PlatformServices..getExport"></a>
-
-### PlatformServices~getExport(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
-Get an export after setup.
-
-**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>id</code></td><td><p>Export ID</p>
-</td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options.cancel</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>options.cancelId</td><td><code>string</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
-<a name="Platform.module_PlatformServices..getExportStatus"></a>
-
-### PlatformServices~getExportStatus(id, options) ⇒ <code>Promise.&lt;\*&gt;</code>
-Get an export status after setup.
-
-**Kind**: inner method of [<code>PlatformServices</code>](#Platform.module_PlatformServices)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><code>id</code></td><td><p>Export ID</p>
-</td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td><td></td>
-    </tr><tr>
-    <td>options.cancel</td><td><code>boolean</code></td><td></td>
-    </tr><tr>
-    <td>options.cancelId</td><td><code>string</code></td><td></td>
-    </tr>  </tbody>
-</table>
-
 <a name="Platform.module_PlatformTransformers"></a>
 
 ## PlatformTransformers
-Transform platform responses. Replaces selector usage.
+Transform export responses. Combines multiple exports, or a single export,
+into the same response format.
 
 
 * [PlatformTransformers](#Platform.module_PlatformTransformers)

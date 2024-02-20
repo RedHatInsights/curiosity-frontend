@@ -1,7 +1,7 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import moxios from 'moxios';
-import { platformActions } from '../platformActions';
+import { platformActions, setExportStatus } from '../platformActions';
 import { appReducer } from '../../reducers';
 
 describe('PlatformActions', () => {
@@ -55,7 +55,15 @@ describe('PlatformActions', () => {
   });
 
   it('Should return response content for getExport method', () => {
-    expect(platformActions.getExport()).toMatchSnapshot('dispatch object');
+    const mockDispatch = jest.fn();
+    platformActions.getExport()(mockDispatch);
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch object');
+  });
+
+  it('Should return response content for setExportStatus method', () => {
+    const mockDispatch = jest.fn();
+    setExportStatus(mockDispatch)();
+    expect(mockDispatch.mock.calls).toMatchSnapshot('dispatch object');
   });
 
   it('Should return response content for getExportStatus method', done => {

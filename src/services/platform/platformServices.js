@@ -3,7 +3,7 @@ import { rbacConfig } from '../../config';
 import { axiosServiceCall } from '../common/serviceConfig';
 import { platformSchemas } from './platformSchemas';
 import { platformTransformers } from './platformTransformers';
-import { helpers } from '../../common';
+import { helpers, downloadHelpers } from '../../common';
 import {
   platformConstants,
   PLATFORM_API_RESPONSE_USER_PERMISSION_TYPES as USER_PERMISSION_TYPES
@@ -109,67 +109,6 @@ const hideGlobalFilter = async (isHidden = true) => {
 };
 
 /**
- * @api {post} /api/export/v1/exports
- * @apiDescription Create an export
- *
- * Reference [EXPORTS API](https://github.com/RedHatInsights/export-service-go/blob/main/static/spec/openapi.yaml)
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *       "name": "string",
- *       "created_at": "2024-01-24T16:20:31.229Z",
- *       "completed_at": "2024-01-24T16:20:31.229Z",
- *       "expires_at": "2024-01-24T16:20:31.229Z",
- *       "format": "json",
- *       "status": "partial",
- *       "sources": [
- *         {
- *           "application": "subscriptions",
- *           "resource": "instances",
- *           "filters": {},
- *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *           "status": "partial"
- *         }
- *       ]
- *     }
- *
- * @apiErrorExample {json} Error-Response:
- *     HTTP/1.1 500 Internal Server Error
- *     {
- *     }
- */
-/**
- * Post to create an export.
- *
- * @param {object} data JSON data to submit
- * @param {object} options
- * @param {boolean} options.cancel
- * @param {string} options.cancelId
- * @returns {Promise<*>}
- */
-const postExport = (data = {}, options = {}) => {
-  const {
-    cache = false,
-    cancel = true,
-    cancelId,
-    schema = [platformSchemas.exports],
-    transform = [platformTransformers.exports]
-  } = options;
-  return axiosServiceCall({
-    method: 'post',
-    url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
-    data,
-    cache,
-    cancel,
-    cancelId,
-    schema,
-    transform
-  });
-};
-
-/**
  * @api {get} /api/export/v1/exports/:id
  * @apiDescription Get an export by id
  *
@@ -194,7 +133,7 @@ const postExport = (data = {}, options = {}) => {
 /**
  * Get an export after setup.
  *
- * @param {id} id Export ID
+ * @param {string} id Export ID
  * @param {object} options
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
@@ -204,15 +143,191 @@ const getExport = (id, options = {}) => {
   const { cache = false, cancel = true, cancelId } = options;
   return axiosServiceCall({
     url: `${process.env.REACT_APP_SERVICES_PLATFORM_EXPORT}/${id}`,
+    responseType: 'blob',
     cache,
     cancel,
     cancelId
-  });
+  }).then(
+    success =>
+      (helpers.TEST_MODE && success.data) ||
+      downloadHelpers.downloadData({
+        data: success.data,
+        fileName: `swatch_report_${id}.tar.gz`,
+        fileType: 'application/gzip'
+      })
+  );
 };
 
 /**
+ * @apiMock {DelayResponse} 2000
+ * @apiMock {RandomSuccess}
+ * @api {get} /api/export/v1/exports
+ * @apiDescription Get multiple, or a single, export status
+ *
+ * Reference [EXPORTS API](https://github.com/RedHatInsights/export-service-go/blob/main/static/spec/openapi.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "swatch-RHEL for x86",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "partial",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "instances",
+ *               "filters": {},
+ *               "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "pending"
+ *             }
+ *           ]
+ *         },
+ *         {
+ *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "swatch-rhel-for-x86-els-payg",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "completed",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "subscriptions",
+ *               "filters": {},
+ *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "completed"
+ *             }
+ *           ]
+ *         }
+ *       ]
+ *     }
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "swatch-RHEL for x86",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "partial",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "instances",
+ *               "filters": {},
+ *               "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "pending"
+ *             }
+ *           ]
+ *         },
+ *         {
+ *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "swatch-rhel-for-x86-els-payg",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "partial",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "subscriptions",
+ *               "filters": {},
+ *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "pending"
+ *             }
+ *           ]
+ *         }
+ *       ]
+ *     }
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "data": [
+ *         {
+ *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "swatch-RHEL for x86",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "completed",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "instances",
+ *               "filters": {},
+ *               "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "completed"
+ *             }
+ *           ]
+ *         },
+ *         {
+ *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "swatch-rhel-for-x86-els-payg",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "completed",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "subscriptions",
+ *               "filters": {},
+ *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "completed"
+ *             }
+ *           ]
+ *         },
+ *         {
+ *           "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *           "name": "unknown-export",
+ *           "created_at": "2024-01-24T16:20:31.229Z",
+ *           "completed_at": "2024-01-24T16:20:31.229Z",
+ *           "expires_at": "2024-01-24T16:20:31.229Z",
+ *           "format": "json",
+ *           "status": "partial",
+ *           "sources": [
+ *             {
+ *               "application": "subscriptions",
+ *               "resource": "subscriptions",
+ *               "filters": {},
+ *               "id": "x123456-5717-4562-b3fc-2c963f66afa6",
+ *               "status": "pending"
+ *             }
+ *           ]
+ *         }
+ *       ]
+ *     }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *       message: "'---' is not valid",
+ *       code: 400
+ *     }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *     }
+ */
+/**
  * @api {get} /api/export/v1/exports/:id/status
- * @apiDescription Create an export
+ * @apiDescription Get a single export
  *
  * Reference [EXPORTS API](https://github.com/RedHatInsights/export-service-go/blob/main/static/spec/openapi.yaml)
  *
@@ -220,7 +335,7 @@ const getExport = (id, options = {}) => {
  *     HTTP/1.1 200 OK
  *     {
  *       "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *       "name": "string",
+ *       "name": "swatch-RHEL for x86",
  *       "created_at": "2024-01-24T16:20:31.229Z",
  *       "completed_at": "2024-01-24T16:20:31.229Z",
  *       "expires_at": "2024-01-24T16:20:31.229Z",
@@ -232,7 +347,7 @@ const getExport = (id, options = {}) => {
  *           "resource": "instances",
  *           "filters": {},
  *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
- *           "status": "partial"
+ *           "status": "pending"
  *         }
  *       ]
  *     }
@@ -250,24 +365,95 @@ const getExport = (id, options = {}) => {
  *     }
  */
 /**
- * Get an export status after setup.
+ * Get multiple export status, or a single status after setup.
  *
- * @param {id} id Export ID
+ * @param {string|undefined|null} id Export ID
+ * @param {object} params
  * @param {object} options
  * @param {boolean} options.cancel
  * @param {string} options.cancelId
  * @returns {Promise<*>}
  */
-const getExportStatus = (id, options = {}) => {
+const getExportStatus = (id, params = {}, options = {}) => {
   const {
     cache = false,
     cancel = true,
+    // cancelId = 'export-status',
     cancelId,
     schema = [platformSchemas.exports],
-    transform = [platformTransformers.exports]
+    transform = [platformTransformers.exports],
+    ...restOptions
   } = options;
   return axiosServiceCall({
-    url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT_STATUS.replace('{0}', id),
+    ...restOptions,
+    url:
+      (id && process.env.REACT_APP_SERVICES_PLATFORM_EXPORT_STATUS.replace('{0}', id)) ||
+      process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
+    params,
+    cache,
+    cancel,
+    cancelId,
+    schema,
+    transform
+  });
+};
+
+/**
+ * @apiMock {ForceStatus} 202
+ * @api {post} /api/export/v1/exports
+ * @apiDescription Create an export
+ *
+ * Reference [EXPORTS API](https://github.com/RedHatInsights/export-service-go/blob/main/static/spec/openapi.yaml)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 202 OK
+ *     {
+ *       "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *       "name": "swatch-RHEL for x86",
+ *       "created_at": "2024-01-24T16:20:31.229Z",
+ *       "completed_at": "2024-01-24T16:20:31.229Z",
+ *       "expires_at": "2024-01-24T16:20:31.229Z",
+ *       "format": "json",
+ *       "status": "partial",
+ *       "sources": [
+ *         {
+ *           "application": "subscriptions",
+ *           "resource": "instances",
+ *           "filters": {},
+ *           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+ *           "status": "pending"
+ *         }
+ *       ]
+ *     }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *     }
+ */
+/**
+ * Post to create an export.
+ *
+ * @param {object} data JSON data to submit
+ * @param {object} options
+ * @param {boolean} options.cancel
+ * @param {string} options.cancelId
+ * @returns {Promise<*>}
+ */
+const postExport = (data = {}, options = {}) => {
+  const {
+    cache = false,
+    cancel = true,
+    cancelId, // = 'export-status',
+    schema = [platformSchemas.exports],
+    transform = [platformTransformers.exports],
+    ...restOptions
+  } = options;
+  return axiosServiceCall({
+    ...restOptions,
+    method: 'post',
+    url: process.env.REACT_APP_SERVICES_PLATFORM_EXPORT,
+    data,
     cache,
     cancel,
     cancelId,
@@ -277,12 +463,12 @@ const getExportStatus = (id, options = {}) => {
 };
 
 const platformServices = {
+  getExport,
+  getExportStatus,
   getUser,
   getUserPermissions,
   hideGlobalFilter,
-  postExport,
-  getExport,
-  getExportStatus
+  postExport
 };
 
 /**
@@ -293,10 +479,10 @@ helpers.browserExpose({ platformServices });
 export {
   platformServices as default,
   platformServices,
+  getExport,
+  getExportStatus,
   getUser,
   getUserPermissions,
   hideGlobalFilter,
-  postExport,
-  getExport,
-  getExportStatus
+  postExport
 };

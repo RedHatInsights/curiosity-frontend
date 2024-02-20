@@ -49,42 +49,64 @@ const authorizeUser = appName => dispatch =>
   });
 
 /**
- * Create an export for download.
+ * Get a specific export download package.
  *
- * @param {object} data
+ * @param {string} id
  * @returns {Function}
  */
-const createExport =
-  (data = {}) =>
+const getExport = id => dispatch =>
+  dispatch({
+    type: platformTypes.GET_PLATFORM_EXPORT,
+    payload: platformServices.getExport(id)
+  });
+
+/**
+ * Return a "dispatch ready" export poll status check.
+ *
+ * @param {Function} dispatch
+ * @returns {Function}
+ */
+const setExportStatus =
   dispatch =>
+  (success = {}, error) =>
     dispatch({
-      type: platformTypes.GET_PLATFORM_EXPORT_STATUS,
-      payload: platformServices.getExportStatus(data)
+      type: platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      payload: (error && Promise.reject(error)) || Promise.resolve(success)
     });
 
 /**
- * Get an export download packaged response.
+ * Get a specific, or all, export status.
  *
- * @param {string} id
- * @returns {Function}
- */
-const getExport = (id = null) => ({
-  type: platformTypes.GET_PLATFORM_EXPORT,
-  payload: platformServices.getExport(id)
-});
-
-/**
- * Get an export download package status.
- *
- * @param {string} id
+ * @param {object} options Apply polling options
  * @returns {Function}
  */
 const getExportStatus =
-  (id = null) =>
+  (options = {}) =>
   dispatch =>
     dispatch({
-      type: platformTypes.GET_PLATFORM_EXPORT_STATUS,
-      payload: platformServices.getExportStatus(id)
+      type: platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      payload: platformServices.getExportStatus(undefined, undefined, {
+        ...options,
+        poll: { ...options.poll, status: setExportStatus(dispatch) }
+      })
+    });
+
+/**
+ * Create an export for download.
+ *
+ * @param {object} data
+ * @param {object} options Apply polling options
+ * @returns {Function}
+ */
+const createExport =
+  (data = {}, options = {}) =>
+  dispatch =>
+    dispatch({
+      type: platformTypes.SET_PLATFORM_EXPORT_STATUS,
+      payload: platformServices.postExport(data, {
+        ...options,
+        poll: { ...options.poll, status: setExportStatus(dispatch) }
+      })
     });
 
 /**
@@ -105,6 +127,7 @@ const platformActions = {
   authorizeUser,
   createExport,
   getExport,
+  setExportStatus,
   getExportStatus,
   hideGlobalFilter
 };
@@ -118,6 +141,7 @@ export {
   authorizeUser,
   createExport,
   getExport,
+  setExportStatus,
   getExportStatus,
   hideGlobalFilter
 };
