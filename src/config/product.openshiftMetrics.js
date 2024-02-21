@@ -221,13 +221,15 @@ const config = {
   initialInventoryFilters: [
     {
       metric: INVENTORY_TYPES.DISPLAY_NAME,
-      cell: ({
-        [INVENTORY_TYPES.DISPLAY_NAME]: displayName,
-        [INVENTORY_TYPES.INSTANCE_ID]: instanceId,
-        [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests
-      } = {}) => {
-        // FixMe: Disabled, see SWATCH-1209 for resolution
-        const { inventory: authorized = false } = {};
+      cell: (
+        {
+          [INVENTORY_TYPES.DISPLAY_NAME]: displayName,
+          [INVENTORY_TYPES.INSTANCE_ID]: instanceId,
+          [INVENTORY_TYPES.NUMBER_OF_GUESTS]: numberOfGuests
+        } = {},
+        session
+      ) => {
+        const { inventory: authorized } = session?.authorized || {};
 
         if (!instanceId) {
           return displayName;
@@ -241,7 +243,7 @@ const config = {
               isInline
               component="a"
               variant="link"
-              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/insights/inventory/${instanceId}/`}
+              href={`${helpers.UI_DEPLOY_PATH_LINK_PREFIX}/openshift/details/${instanceId}`}
             >
               {updatedDisplayName}
             </Button>

@@ -3590,7 +3590,14 @@ exports[`Product specific configurations should apply variations in inventory fi
           "cells": [
             {
               "content": <React.Fragment>
-                lorem
+                <Button
+                  component="a"
+                  href="/openshift/details/XXXX-XXXX-XXXXX-XXXXX"
+                  isInline={true}
+                  variant="link"
+                >
+                  lorem
+                </Button>
                  
                 
               </React.Fragment>,
@@ -3685,7 +3692,14 @@ exports[`Product specific configurations should apply variations in inventory fi
           "cells": [
             {
               "content": <React.Fragment>
-                lorem
+                <Button
+                  component="a"
+                  href="/openshift/details/XXXX-XXXX-XXXXX-XXXXX"
+                  isInline={true}
+                  variant="link"
+                >
+                  lorem
+                </Button>
                  
                 
               </React.Fragment>,
