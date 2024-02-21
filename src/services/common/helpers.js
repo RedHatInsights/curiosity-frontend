@@ -10,7 +10,7 @@ import { helpers } from '../../common';
 /**
  * Pass through generate hash, memo clone
  */
-const { generateHash, memoClone } = helpers;
+const { generateHash, memo, memoClone } = helpers;
 
 /**
  * A timeout cancel for function calls.
@@ -88,6 +88,43 @@ const passDataToCallback = (callback, ...data) => {
 };
 
 /**
+ * Calculate a retry limit from a time limit and interval.
+ *
+ * @param {number} timeLimit
+ * @param {number} timeInterval
+ * @param {number} minimumRetries
+ * @returns {number}
+ */
+function pollingRetryLimit(timeLimit, timeInterval, minimumRetries) {
+  const updatedRetries =
+    (timeLimit >= timeInterval && Number.parseInt((timeLimit || 0) / (timeInterval || 0), 10)) || minimumRetries;
+
+  if (Number.isNaN(updatedRetries) || updatedRetries === Infinity || typeof updatedRetries !== 'number') {
+    return minimumRetries;
+  }
+
+  return updatedRetries;
+}
+
+/**
+ * Expose a memoized version of pollingRetryLimit.
+ */
+pollingRetryLimit.memoize = memo(pollingRetryLimit);
+
+/*
+const retryLimit = memo((timeLimit, timeInterval, timeLimitDefault, minimumRetries = 1) => {
+  const updatedRetries =
+    (timeLimit >= timeInterval && Number.parseInt((timeLimit || 0) / (timeInterval || 0), 10)) || timeLimitDefault;
+
+  if (Number.isNaN(updatedRetries) || updatedRetries === Infinity || typeof updatedRetries !== 'number') {
+    return minimumRetries;
+  }
+
+  return updatedRetries;
+});
+*/
+
+/**
  * A callback for schema validation, and after-the-fact casing adjustments.
  *
  * @param {object} options
@@ -122,8 +159,10 @@ const schemaResponse = ({ casing, convert = true, id = null, response, schema } 
 const serviceHelpers = {
   camelCase,
   generateHash,
+  memo,
   memoClone,
   passDataToCallback,
+  pollingRetryLimit,
   schemaResponse,
   timeoutFunctionCancel
 };
@@ -133,8 +172,10 @@ export {
   serviceHelpers,
   camelCase,
   generateHash,
+  memo,
   memoClone,
   passDataToCallback,
+  pollingRetryLimit,
   schemaResponse,
   timeoutFunctionCancel
 };

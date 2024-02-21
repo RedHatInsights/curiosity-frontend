@@ -24,6 +24,14 @@ const globalXhrTimeout = Number.parseInt(process.env.REACT_APP_AJAX_TIMEOUT, 10)
 const globalPollInterval = Number.parseInt(process.env.REACT_APP_AJAX_POLL_INTERVAL, 10) || 10000;
 
 /**
+ * Used to calculate the retry limit. Set a user configured Axios polling timeout default relative to the poll interval.
+ * If this number is set lower than the poll interval then a minimum retry number of 1 is used.
+ *
+ * @type {number}
+ */
+const globalPollTimeout = Number.parseInt(process.env.REACT_APP_AJAX_POLL_TIMEOUT, 10) || 600000;
+
+/**
  * Cache Axios service call cancel tokens.
  *
  * @type {object}
@@ -54,8 +62,8 @@ const globalResponseCache = new LRUCache({
  * @param {boolean} config.cancel
  * @param {string} config.cancelId
  * @param {object} config.params
- * @param {{ location: Function|string, validate: Function, pollInterval: number, status: Function
- *     }|Function} config.poll
+ * @param {{ location: Function|string, validate: Function, pollInterval: number, status: Function,
+ *     timeout: number }|Function} config.poll
  * @param {Array} config.schema
  * @param {Array} config.transform
  * @param {string|Function} config.url
@@ -64,6 +72,7 @@ const globalResponseCache = new LRUCache({
  * @param {object} options.responseCache
  * @param {number} options.xhrTimeout
  * @param {number} options.pollInterval
+ * @param {number} options.pollTimeout
  * @returns {Promise<*>}
  */
 const axiosServiceCall = async (
@@ -72,7 +81,8 @@ const axiosServiceCall = async (
     cancelledMessage = 'cancelled request',
     responseCache = globalResponseCache,
     xhrTimeout = globalXhrTimeout,
-    pollInterval = globalPollInterval
+    pollInterval = globalPollInterval,
+    pollTimeout = globalPollTimeout
   } = {}
 ) => {
   const updatedConfig = {
@@ -200,7 +210,7 @@ const axiosServiceCall = async (
     );
   }
 
-  // use a function instead of a url-string, receive service emulated output (for implementation consistency)
+  // use a function instead of a URL-string, receive service emulated output (for implementation consistency)
   if (typeof updatedConfig.url === 'function') {
     const emulateCallback = updatedConfig.url;
     updatedConfig.url = '/emulated';
@@ -245,14 +255,18 @@ const axiosServiceCall = async (
         // passed config, allow future updates by passing modified poll config
         const updatedPoll = {
           ...updatedConfig.poll,
-          // internal counter passed towards validate
-          __retryCount: updatedConfig.poll.__retryCount ?? 0,
-          // a url, or callback that returns a url to poll the put/posted url
+          // a URL, or callback that returns a URL to poll the put/posted url
           location: updatedConfig.poll.location || updatedConfig.url,
           // only required param, a function, validate status in prep for next
           validate: updatedConfig.poll.validate || updatedConfig.poll,
           // a number, the setTimeout interval
-          pollInterval: updatedConfig.poll.pollInterval || pollInterval
+          pollInterval: updatedConfig.poll.pollInterval || pollInterval,
+          // internal counter passed towards validate
+          __retryCount: updatedConfig.poll.__retryCount ?? 0,
+          // internal limit on number of polling retries, aka avoid runaway timers with broken service responses
+          __retryLimit:
+            updatedConfig.poll.__retryLimit ??
+            serviceHelpers.pollingRetryLimit.memoize(pollTimeout, this.pollInterval, 1)
         };
 
         let validated;
