@@ -5760,7 +5760,7 @@ Apply an onSort handler.
 <a name="Table.module_TableEmpty..TableEmpty"></a>
 
 ### TableEmpty~TableEmpty(props) ⇒ <code>React.ReactNode</code>
-Render an empty table.
+Render an empty table component. Apply an empty version of an actual HTML table to help with testing.
 
 **Kind**: inner method of [<code>TableEmpty</code>](#Table.module_TableEmpty)  
 <table>

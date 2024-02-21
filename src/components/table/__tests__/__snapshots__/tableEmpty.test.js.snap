@@ -6,6 +6,7 @@ exports[`TableEmpty Component should have fallback checks for certain props: fal
     aria-label={null}
   />
   <EmptyState
+    className="fadein"
     variant="sm"
   >
     <EmptyStateIcon
@@ -28,6 +29,7 @@ exports[`TableEmpty Component should render a basic component: basic 1`] = `
     aria-label={null}
   />
   <EmptyState
+    className="fadein"
     variant="sm"
   >
     <EmptyStateIcon
