@@ -23,7 +23,12 @@ import { helpers } from '../../common';
  * @returns {object}
  */
 const exports = response => {
-  const updatedResponse = { data: {}, meta: {} };
+  const updatedResponse = {
+    data: {
+      isAnythingPending: false
+    },
+    meta: {}
+  };
   const {
     [platformConstants.PLATFORM_API_EXPORT_RESPONSE_DATA]: data,
     [platformConstants.PLATFORM_API_EXPORT_RESPONSE_TYPES.FORMAT]: format,

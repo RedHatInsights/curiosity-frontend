@@ -11,6 +11,7 @@ import InventoryTabs, { InventoryTab } from '../inventoryTabs/inventoryTabs';
 import { InventoryCardInstances } from '../inventoryCardInstances/inventoryCardInstances';
 import { InventoryCardSubscriptions } from '../inventoryCardSubscriptions/inventoryCardSubscriptions';
 import { translate } from '../i18n/i18n';
+import { ToolbarFieldExport } from '../toolbar/toolbarFieldExport';
 
 /**
  * Primary product display component, and config context provider.
@@ -47,6 +48,7 @@ const ProductView = ({ t, useRouteDetail: useAliasRouteDetail }) => {
         <ProductViewContext.Provider value={config}>
           <PageMessages>
             <BannerMessages />
+            <ToolbarFieldExport />
           </PageMessages>
           <PageToolbar>
             <Toolbar />
