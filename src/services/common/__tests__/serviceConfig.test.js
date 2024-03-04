@@ -69,6 +69,39 @@ describe('ServiceConfig', () => {
     expect(config).toMatchSnapshot('response configs');
   });
 
+  it('should use a package that removes undefined, null parameters instead of applying them as empty values', async () => {
+    const requestUndefined = await returnPromiseAsync(() =>
+      Promise.all([
+        serviceConfig.axiosServiceCall({ url: '/test/all', method: 'get', params: { lorem: 'ipsum' } }),
+        serviceConfig.axiosServiceCall({ url: '/test/all', method: 'get', params: { lorem: undefined } })
+      ])
+    );
+
+    const requestNull = await returnPromiseAsync(() =>
+      Promise.all([
+        serviceConfig.axiosServiceCall({ url: '/test/all', method: 'get', params: { dolor: 'sit' } }),
+        serviceConfig.axiosServiceCall({ url: '/test/all', method: 'get', params: { dolor: null } })
+      ])
+    );
+
+    expect({
+      requestUndefined:
+        (Array.isArray(requestUndefined) &&
+          requestUndefined.map(({ request, config }) => ({
+            url: request.url,
+            params: config.params
+          }))) ||
+        requestUndefined,
+      requestNull:
+        (Array.isArray(requestNull) &&
+          requestNull.map(({ request, config }) => ({
+            url: request.url,
+            params: config.params
+          }))) ||
+        requestNull
+    }).toMatchSnapshot('undefined, null params');
+  });
+
   it('should handle cancelling service calls', async () => {
     // Highlight cancel takes into account url and method
     const responseAll = await returnPromiseAsync(() =>

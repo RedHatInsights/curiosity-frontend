@@ -616,3 +616,36 @@ exports[`ServiceConfig should have specific properties and methods: specific pro
   "globalResponseCache",
 ]
 `;
+
+exports[`ServiceConfig should use a package that removes undefined, null parameters instead of applying them as empty values: undefined, null params 1`] = `
+{
+  "requestNull": [
+    {
+      "params": {
+        "dolor": "sit",
+      },
+      "url": "/test/all?dolor=sit",
+    },
+    {
+      "params": {
+        "dolor": null,
+      },
+      "url": "/test/all",
+    },
+  ],
+  "requestUndefined": [
+    {
+      "params": {
+        "lorem": "ipsum",
+      },
+      "url": "/test/all?lorem=ipsum",
+    },
+    {
+      "params": {
+        "lorem": undefined,
+      },
+      "url": "/test/all",
+    },
+  ],
+}
+`;
