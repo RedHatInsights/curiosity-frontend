@@ -11,7 +11,7 @@ export APP_NAME=`node -e 'console.log(require("./package.json").insights.appname
 export APP_ROOT=$(pwd)
 export NODE_BUILD_VERSION=`node -e 'console.log(require("./package.json").engines.node.match(/(\d+)\.\d+\.\d+/)[1])'`
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
-
+export YARN_BUILD_SCRIPT="build:pr_checks"
 # --------------------------------------------
 # Options that must be configured by app owner
 # --------------------------------------------
