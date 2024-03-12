@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.0](https://github.com/RedHatInsights/curiosity-frontend/compare/37074aaa2c6bd1c168d4d13274d0705b171e4f3c...899a410c4b62f5df361b2419454214507acb6151) (2024-03-12)
+
+
+### Features
+* **toolbarFieldExport** sw-2024 export button, hooks ([#1269](https://github.com/RedHatInsights/curiosity-frontend/pull/1269)) ([0afcc21](https://github.com/RedHatInsights/curiosity-frontend/commit/0afcc214ffb932b2e6e025d0b068b9f6995b59e0))
+* **serviceConfig** sw-2024 allow response polling ([#1272](https://github.com/RedHatInsights/curiosity-frontend/pull/1272)) ([7b17ce7](https://github.com/RedHatInsights/curiosity-frontend/commit/7b17ce702bd8a2460492b87921cb260577161c62))
+* **config** sw-2116 activate azure billing provider ([#1276](https://github.com/RedHatInsights/curiosity-frontend/pull/1276)) ([40ee160](https://github.com/RedHatInsights/curiosity-frontend/commit/40ee160d881c830b7527a745f891e9cb9283cbbf))
+* **platformServices** sw-2024 add export services ([#1261](https://github.com/RedHatInsights/curiosity-frontend/pull/1261)) ([17eab93](https://github.com/RedHatInsights/curiosity-frontend/commit/17eab938aa5fbfe123a10c9812cc4276ef7e2a64))
+
+### Code Refactoring
+* **services,redux** sw-2024 product id based response ([#1273](https://github.com/RedHatInsights/curiosity-frontend/pull/1273)) ([baf271a](https://github.com/RedHatInsights/curiosity-frontend/commit/baf271a8da22661562421ca18da9490d829e32ea))
+* **serviceConfig** memoize transformers ([#1272](https://github.com/RedHatInsights/curiosity-frontend/pull/1272)) ([a475458](https://github.com/RedHatInsights/curiosity-frontend/commit/a4754584ffae748bb6d5a55c5a4bde6e00c39cd2))
+
+### Chores
+* **build** npm update ([#1261](https://github.com/RedHatInsights/curiosity-frontend/pull/1261)) ([3bc38dd](https://github.com/RedHatInsights/curiosity-frontend/commit/3bc38dd7f6690ef710048068a9e30eb9d44ce0d5))
+* **deps** bump actions/cache from 3 to 4 ([#1267](https://github.com/RedHatInsights/curiosity-frontend/pull/1267)) ([3e97c02](https://github.com/RedHatInsights/curiosity-frontend/commit/3e97c02db4dd4d0109cde4d5d81c6edfd0c0a1b0))
+
+### Builds
+* **deps-dev** bump npm-check-updates from 16.14.12 to 16.14.15 ([#1271](https://github.com/RedHatInsights/curiosity-frontend/pull/1271)) ([410de05](https://github.com/RedHatInsights/curiosity-frontend/commit/410de05173bb51bd02c676793cf547162bbdc94a))
+* **actions** codecov yml, token, update 3.1.4 to 4.0.0 ([#1268](https://github.com/RedHatInsights/curiosity-frontend/pull/1268)) ([79071cc](https://github.com/RedHatInsights/curiosity-frontend/commit/79071cc8f59ab5e5642425e874d3ee9b369d1a74))
+
+### Bug Fixes
+* **config** sw-2030 openshift inventory links ([#1280](https://github.com/RedHatInsights/curiosity-frontend/pull/1280)) ([899a410](https://github.com/RedHatInsights/curiosity-frontend/commit/899a410c4b62f5df361b2419454214507acb6151))
+* **tableEmpty** correct refresh flash on empty state ([#1277](https://github.com/RedHatInsights/curiosity-frontend/pull/1277)) ([ffd81cb](https://github.com/RedHatInsights/curiosity-frontend/commit/ffd81cb50a3192961c17afd6d354ed16d2d9ec4a))
+* **select** sw-2024 allow toggleIcon, isDisabled options ([#1269](https://github.com/RedHatInsights/curiosity-frontend/pull/1269)) ([bf3e083](https://github.com/RedHatInsights/curiosity-frontend/commit/bf3e083f55ff28b2cd87f0cb3f08c15c618e50d5))
+
 ## [4.1.0](https://github.com/RedHatInsights/curiosity-frontend/compare/e57fbe3810828e1ea0fe8e105af680ffd54a2dd6...aad790e2c8af08517d7b1f5bf5af732ed87f8ccc) (2024-02-19)
 
 
