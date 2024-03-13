@@ -13,6 +13,13 @@
   }
 
   .curiosity-table {
+    /**
+     * FixMe: PF styling doesn't allow selectable links in composable table cells
+     */
+    &__td a {
+      user-select: auto;
+    }
+
     @media (min-width: $pf-global--breakpoint--md) {
       // Class defined in "components/table/tableHelpers.js"
       &__td.pf-m-width {
