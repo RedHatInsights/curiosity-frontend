@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: weekly
       day: monday
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 2
     target-branch: "main"
     versioning-strategy: increase
     allow:
@@ -18,6 +18,23 @@ updates:
       - dependency-name: "react-router*"
     labels:
       - "build"
+    commit-message:
+      prefix: "build"
+      include: "scope"
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+      dependencies-patch:
+        dependency-type: "production"
+        update-types:
+          - "patch"
+      dependencies-minor:
+        dependency-type: "production"
+        update-types:
+          - "minor"
 
   - package-ecosystem: github-actions
     directory: /
@@ -28,3 +45,6 @@ updates:
     target-branch: "main"
     labels:
       - "build"
+    commit-message:
+      prefix: "build"
+      include: "scope"
