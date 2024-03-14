@@ -133,7 +133,7 @@ const InventoryCard = ({
       <MinHeight key="bodyMinHeight">
         <CardBody className="curiosity-card__body">
           <div className={(error && 'blur') || (pending && 'fadein') || ''}>
-            {pending && (
+            {(pending && (
               <Loader
                 variant="table"
                 tableProps={{
@@ -147,8 +147,7 @@ const InventoryCard = ({
                   isHeader: true
                 }}
               />
-            )}
-            {!pending && (
+            )) || (
               <Table
                 key="inventory-table"
                 ariaLabel={tableAriaLabel}
