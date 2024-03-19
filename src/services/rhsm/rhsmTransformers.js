@@ -136,7 +136,35 @@ const rhsmSubscriptions = (response, { params } = {}) => {
   const { [rhsmConstants.RHSM_API_RESPONSE_DATA]: data = [], [rhsmConstants.RHSM_API_RESPONSE_META]: meta = {} } =
     response || {};
 
-  updatedResponse.data = data;
+  updatedResponse.data = data.map(
+    ({
+      [SUBSCRIPTIONS_DATA_TYPES.UOM]: uom,
+      [SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: totalCapacity,
+      [SUBSCRIPTIONS_DATA_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
+      ...dataResponse
+    }) => {
+      const updatedData = {
+        [SUBSCRIPTIONS_DATA_TYPES.TOTAL_CAPACITY]: totalCapacity,
+        [SUBSCRIPTIONS_DATA_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
+        ...dataResponse
+      };
+
+      let normalizedUomValue;
+      if (new RegExp(RHSM_API_PATH_METRIC_TYPES.SOCKETS, 'i').test(uom)) {
+        normalizedUomValue = RHSM_API_PATH_METRIC_TYPES.SOCKETS;
+      }
+
+      if (new RegExp(RHSM_API_PATH_METRIC_TYPES.CORES, 'i').test(uom)) {
+        normalizedUomValue = RHSM_API_PATH_METRIC_TYPES.CORES;
+      }
+
+      updatedData[normalizedUomValue] = totalCapacity;
+      updatedData[SUBSCRIPTIONS_DATA_TYPES.UOM] = normalizedUomValue;
+      updatedData[`hasInfinite${normalizedUomValue}`] = hasInfiniteQuantity;
+
+      return updatedData;
+    }
+  );
 
   let normalizedUom = params?.[RHSM_API_QUERY_SET_TYPES.UOM];
 

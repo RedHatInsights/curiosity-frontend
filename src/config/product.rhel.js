@@ -25,8 +25,7 @@ import {
   RHSM_API_QUERY_UOM_TYPES,
   RHSM_API_RESPONSE_INSTANCES_DATA_TYPES as INVENTORY_TYPES,
   RHSM_API_RESPONSE_SUBSCRIPTIONS_DATA_TYPES as SUBSCRIPTIONS_INVENTORY_TYPES,
-  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES,
-  RHSM_API_RESPONSE_INSTANCES_META_TYPES as INVENTORY_META_TYPES
+  RHSM_INTERNAL_PRODUCT_DISPLAY_TYPES as DISPLAY_TYPES
 } from '../services/rhsm/rhsmConstants';
 import { dateHelpers, helpers } from '../common';
 import { Tooltip } from '../components/tooltip/tooltip';
@@ -83,7 +82,6 @@ const config = {
   viewId: `view${productGroup}`,
   productVariants: [...Object.values(RHSM_API_PATH_PRODUCT_VARIANT_RHEL_TYPES)],
   query: {
-    [RHSM_API_QUERY_SET_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,
     [RHSM_API_QUERY_SET_TYPES.START_DATE]: dateHelpers
       .getRangedDateTime(GRANULARITY_TYPES.DAILY)
       .startDate.toISOString(),
@@ -97,12 +95,14 @@ const config = {
     [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   inventoryHostsQuery: {
+    [RHSM_API_QUERY_SET_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,
     [RHSM_API_QUERY_SET_TYPES.SORT]: INVENTORY_SORT_TYPES.LAST_SEEN,
     [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
     [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
     [RHSM_API_QUERY_SET_TYPES.OFFSET]: 0
   },
   inventorySubscriptionsQuery: {
+    [RHSM_API_QUERY_SET_TYPES.UOM]: RHSM_API_QUERY_UOM_TYPES.SOCKETS,
     [RHSM_API_QUERY_SET_TYPES.SORT]: SUBSCRIPTIONS_SORT_TYPES.NEXT_EVENT_DATE,
     [RHSM_API_QUERY_SET_TYPES.DIRECTION]: SORT_DIRECTION_TYPES.DESCENDING,
     [RHSM_API_QUERY_SET_TYPES.LIMIT]: 100,
@@ -323,18 +323,13 @@ const config = {
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY,
-      header: (data, session, { [INVENTORY_META_TYPES.UOM]: uom } = {}) =>
-        translate('curiosity-inventory.header', { context: ['subscriptions', uom] }),
-      cell: ({
-        [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY]: hasInfiniteQuantity,
-        [SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY]: total,
-        [SUBSCRIPTIONS_INVENTORY_TYPES.UOM]: uom
-      } = {}) => {
+      header: () =>
+        translate('curiosity-inventory.header', { context: ['subscriptions', RHSM_API_PATH_METRIC_TYPES.SOCKETS] }),
+      cell: ({ hasInfiniteSockets: hasInfiniteQuantity, [RHSM_API_PATH_METRIC_TYPES.SOCKETS]: total } = {}) => {
         if (hasInfiniteQuantity === true) {
-          const content = translate(
-            `curiosity-inventory.label_${SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY}`,
-            { context: uom }
-          );
+          const content = translate(`curiosity-inventory.label`, {
+            context: [SUBSCRIPTIONS_INVENTORY_TYPES.HAS_INFINITE_QUANTITY, RHSM_API_PATH_METRIC_TYPES.SOCKETS]
+          });
           return (
             <Tooltip content={content}>
               <ChartIcon symbol="infinity" size="md" aria-label={content} />
@@ -346,15 +341,14 @@ const config = {
           total,
           testId: (
             <span
-              data-test={`subscriptions-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}`}
+              data-test={`subscriptions-cell-${SUBSCRIPTIONS_INVENTORY_TYPES.TOTAL_CAPACITY}-${RHSM_API_PATH_METRIC_TYPES.SOCKETS}`}
               data-value={`${total}`}
             />
           )
         });
       },
       isSort: true,
-      isWrap: true,
-      width: 10
+      isWrap: true
     },
     {
       metric: SUBSCRIPTIONS_INVENTORY_TYPES.NEXT_EVENT_DATE,
